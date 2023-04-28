@@ -1,0 +1,33 @@
+{
+  "name": "storybook-component-library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.7",
+    "@storybook/addon-interactions": "^7.0.7",
+    "@storybook/addon-links": "^7.0.7",
+    "@storybook/blocks": "^7.0.7",
+    "@storybook/testing-library": "^0.0.14-next.2",
+    "@storybook/vue3": "^7.0.7",
+    "@storybook/vue3-vite": "^7.0.7",
+    "bootstrap": "~4.6.0",
+    "bootstrap-vue-next": "^0.8.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.62.1",
+    "storybook": "^7.0.7"
+  },
+  "dependencies": {
+    "@storybook/addon-a11y": "^7.0.7",
+    "vuex": "^4.1.0"
+  }
+}
