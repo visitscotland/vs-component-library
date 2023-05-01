@@ -273,9 +273,9 @@ export default {
         ------------------------------------------ */
         &.btn-primary{
             @include vs-button-variant(
-                $color-white, $color-purple, $color-purple,
-                $color-white, $color-purple-shade-2, $color-purple-shade-2,
-                $color-purple, $color-white, $color-purple,
+                $color-white, $color-pink, $color-pink,
+                $color-white, $color-pink-shade-2, $color-pink-shade-2,
+                $color-pink, $color-white, $color-pink,
             );
 
             &.vs-button--on-dark{
