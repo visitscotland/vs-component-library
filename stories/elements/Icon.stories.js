@@ -8,6 +8,39 @@ export default {
         size: {
             options: ["xxs","xs","sm","md","lg","xl"],
             control: { type: "select"}
+        },
+        name: {
+            control: { type: "select"},
+            options: [
+                "accesstoliet",
+                "accessparkdrop",
+                "acco",
+                "acti",
+                "attr",
+                "audioloop",
+                "cafereston",
+                "cate",
+                "cities",
+                "dsblaccess",
+                "wheelchairaccess",
+                "even",
+                "familyev",
+                "filmev",
+                "hottub",
+                "parking",
+                "petswelcom",
+                "wifi",
+                "public",
+                "pubtranrte",
+                "reta",
+                "spahealth",
+                "vege",
+                "walking",
+                "boat",
+                "transport",
+                "brekavail",
+                "wetroom",
+            ]
         }
     }
 };
