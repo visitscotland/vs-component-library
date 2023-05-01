@@ -1,8 +1,15 @@
 import VsIcon from '@/components/elements/icon/Icon.vue';
+import * as propTypes from 'prop-types';
 
 export default {
     component: VsIcon,
     title: 'Elements/Icon',
+    argTypes: {
+        size: {
+            options: ["xxs","xs","sm","md","lg","xl"],
+            control: { type: "select"}
+        }
+    }
 };
 
 const Template = args => ({
