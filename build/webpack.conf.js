@@ -7,20 +7,18 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const sass = require('sass');
-const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 
 const buildMode = require('./build-mode');
 const generateManifest = require('./generate-manifest');
 
 const entry = require('./entry');
 
-const smp = new SpeedMeasurePlugin();
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir);
 }
 
-const webpackConfig = smp.wrap({
+const webpackConfig = {
     mode: buildMode,
     context: path.resolve(__dirname, '../'),
     entry,
@@ -199,6 +197,6 @@ const webpackConfig = smp.wrap({
 
         new CleanWebpackPlugin(),
     ],
-});
+};
 
 module.exports = webpackConfig;
