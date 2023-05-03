@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { VBTooltip } from 'bootstrap-vue-next';
+import { BTooltip } from 'bootstrap-vue-next';
 import VsButton from '@components/elements/button/Button';
 
 /**
@@ -28,7 +28,7 @@ export default {
         VsButton,
     },
     directives: {
-        'b-tooltip': VBTooltip,
+        'b-tooltip': BTooltip,
     },
     props: {
         /**
