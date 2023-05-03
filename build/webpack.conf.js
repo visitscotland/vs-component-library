@@ -2,17 +2,16 @@ const path = require('path');
 const Dotenv = require('dotenv-webpack');
 
 const { VueLoaderPlugin } = require('vue-loader');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const sass = require('sass');
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
+const { TimeAnalyticsPlugin } = require('time-analytics-webpack-plugin');
 
 const buildMode = require('./build-mode');
 const generateManifest = require('./generate-manifest');
 
 const entry = require('./entry');
-
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir);
@@ -38,6 +37,9 @@ const webpackConfig = {
             '@': resolve('src'),
             '@components': resolve('src/components'),
         },
+        fallback: {
+            fs: false,
+        },
     },
     module: {
         rules: [
@@ -62,6 +64,26 @@ const webpackConfig = {
                     resolve('src'),
                     resolve('test'),
                     resolve('node_modules/webpack-dev-server/client'),
+                ],
+            },
+            {
+                test: /\.scss$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            additionalData: '@import "@/styles/resources.scss";',
+                        },
+                    },
+                ],
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
                 ],
             },
             {
@@ -116,31 +138,6 @@ const webpackConfig = {
                     },
                 ],
             },
-            {
-                test: /\.scss$/,
-                use: [
-                    'vue-style-loader',
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    {
-                        // Compiles Sass to CSS
-                        loader: 'sass-loader',
-                        options: {
-                            additionalData: `
-                                @import "@/styles/core.styles.scss";
-                            `,
-                            implementation: sass,
-                        },
-                    },
-                ],
-            },
-            {
-                test: /\.css$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
-                ],
-            },
         ],
     },
     optimization: {
@@ -155,11 +152,6 @@ const webpackConfig = {
     },
     experiments: {
         backCompat: false,
-        css: true,
-        lazyCompilation: {
-            entries: true,
-            imports: true,
-        },
     },
     performance: {
         maxEntrypointSize: 750000,
@@ -169,6 +161,8 @@ const webpackConfig = {
         children: false,
     },
     plugins: [
+        new NodePolyfillPlugin(),
+
         new VueLoaderPlugin(),
 
         new Dotenv(),
@@ -184,11 +178,6 @@ const webpackConfig = {
             failOnWarning: false,
         }),
 
-        // extract css into its own file
-        new MiniCssExtractPlugin({
-            filename: buildMode === 'development' ? 'styles/[name].css' : 'styles/[chunkhash].css',
-        }),
-
         // Generate custom manifest.json
         new WebpackManifestPlugin({
             generate: generateManifest,
@@ -199,4 +188,6 @@ const webpackConfig = {
     ],
 };
 
-module.exports = webpackConfig;
+const wrappedWebpackConfig = TimeAnalyticsPlugin.wrap(webpackConfig);
+
+module.exports = wrappedWebpackConfig;
