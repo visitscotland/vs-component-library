@@ -1,6 +1,7 @@
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
 
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
@@ -47,6 +48,7 @@ const webpackConfig = {
                 test: /\.vue$/,
                 loader: 'vue-loader',
                 options: {
+                    extractCss: true,
                     cacheBusting: true,
                     transformAssetUrls: {
                         video: ['src', 'poster'],
@@ -70,6 +72,12 @@ const webpackConfig = {
                 test: /\.scss$/,
                 use: [
                     'style-loader',
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                          esModule: false,
+                        },
+                    },
                     'css-loader',
                     {
                         loader: 'sass-loader',
@@ -79,13 +87,21 @@ const webpackConfig = {
                     },
                 ],
             },
-            {
-                test: /\.css$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                ],
-            },
+            // {
+            //     test: /\.css$/,
+            //     use: [
+            //         'style-loader',
+            //         'css-loader',
+            //     ],
+            // },
+            // {
+            //     test: /\.css$/i,
+            //     use: [
+            //         MiniCssExtractPlugin.loader,
+            //         'css-loader'
+            //     ],
+            //     sideEffects: true,
+            // },
             {
                 test: /\.(png|jpe?g|gif)(\?.*)?$/,
                 loader: 'file-loader',
@@ -161,6 +177,10 @@ const webpackConfig = {
         children: false,
     },
     plugins: [
+        new MiniCssExtractPlugin({
+            filename: buildMode === 'development' ? 'styles/[name].css' : 'styles/[chunkhash].css',
+        }),
+
         new NodePolyfillPlugin(),
 
         new VueLoaderPlugin(),
