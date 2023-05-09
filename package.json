@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@storybook/addon-a11y": "^7.0.7",
+    "@visitscotland/product-search": "^0.1.9",
     "vuex": "^4.1.0"
   }
 }

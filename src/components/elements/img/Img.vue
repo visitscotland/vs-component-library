@@ -10,12 +10,14 @@
         class="low-res-img"
         :class="useGenericLqip ? 'generic-lqip' : ''"
     >
+    <VsIcon name="user" size="lg"></VsIcon>
         <!-- @slot Default slot for image content -->
         <slot />
     </BImg>
 </template>
 
 <script>
+import VsIcon from '@/components/elements/icon/Icon.vue';
 import { BImg } from 'bootstrap-vue-next';
 /**
  * This image component is used to render images in our products
