@@ -7,7 +7,7 @@ module.exports = {
 		browser: true,
 	},
 	parserOptions: {
-		parser: "babel-eslint",
+		parser: "@babel/eslint-parser",
 		// specifying a module sourcetype prevent eslint from marking import statements as errors
 		sourceType: "module",
 	},
@@ -15,6 +15,7 @@ module.exports = {
 		// use the recommended rule set for both plain javascript and vue
 		"eslint:recommended",
 		"eslint-config-airbnb-base",
+		"plugin:vue/base",
 	],
 	rules: {
 		"indent": [
@@ -94,7 +95,7 @@ module.exports = {
 		"import/resolver": {
 			node: {},
 			webpack: {
-				config: "./build/base.webpack.conf.js",
+				config: "./build/webpack.conf.js",
 			},
 			"import/extensions": [
 				".js",

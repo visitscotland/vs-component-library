@@ -27,7 +27,7 @@
 </template>
 <script>
 import { BButton } from 'bootstrap-vue-next';
-import VsIcon from '@/components/elements/icon/Icon.vue';
+import VsIcon from '@/components/elements/icon';
 // import dataLayerMixin from '../../../mixins/dataLayerMixin';
 
 // Datalayer integration currently broken
@@ -206,13 +206,14 @@ export default {
             // when button is tabbed into
             this.$emit('btnFocus', event);
         },
-        trackLink(event) {
-            let type;
-            if (this.href.includes('http')) {
-                type = 'externalLinkDataEvent';
-            } else {
-                type = 'internalLinkDataEvent';
-            }
+        trackLink() {
+            // trackLink(event) {
+            // let type;
+            // if (this.href.includes('http')) {
+            //     type = 'externalLinkDataEvent';
+            // } else {
+            //     type = 'internalLinkDataEvent';
+            // }
 
             // this.createDataLayerObject(type, event, this.href);
 

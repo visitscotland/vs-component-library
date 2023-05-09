@@ -172,7 +172,8 @@ const webpackConfig = {
             exclude: [
                 '/ssr/',
                 '/src/components/patterns/header/components/Chart/',
-                '/node_modules',
+                './node_modules/',
+                '/dist/',
             ],
             failOnError: true,
             failOnWarning: false,
