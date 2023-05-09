@@ -33,9 +33,21 @@ function extractAllEntriesFromFileDescriptor(FileDescriptor) {
 }
 
 function mapComponentEntryFiles(component) {
-    const files = uniq(flatMap(get(component, 'chunks'), 'files'));
+    const fileSets = flatMap(get(component, 'chunks'), 'files');
+
+    let flattenedFiles = [];
+
+    for (const set of fileSets) {
+        for (const element of set) {
+            flattenedFiles.push(element);
+        }
+    }
+
+    const files = uniq(flattenedFiles);
+
     const scripts = remove(files, ary(partial(endsWith, partial.placeholder, '.js'), 1));
     const styles = remove(files, ary(partial(endsWith, partial.placeholder, '.css'), 1));
+
     const headingFonts = [
         'eveleth-clean-regular.woff',
         'eveleth-clean-regular.woff2',
