@@ -87,21 +87,6 @@ const webpackConfig = {
                     },
                 ],
             },
-            // {
-            //     test: /\.css$/,
-            //     use: [
-            //         'style-loader',
-            //         'css-loader',
-            //     ],
-            // },
-            // {
-            //     test: /\.css$/i,
-            //     use: [
-            //         MiniCssExtractPlugin.loader,
-            //         'css-loader'
-            //     ],
-            //     sideEffects: true,
-            // },
             {
                 test: /\.(png|jpe?g|gif)(\?.*)?$/,
                 loader: 'file-loader',
