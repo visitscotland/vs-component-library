@@ -35,6 +35,7 @@ const { camelCase, upperFirst } = require('lodash');
 // });
 
 const components = {
+    VsApp: './src/main.js',
     VsButton: './src/components/elements/Button/Button.vue',
 };
 

@@ -51,6 +51,7 @@ module.exports = {
 			"error",
 			"single"
 		],
+		"linebreak-style": 0,
 		"no-extra-semi": "off",
 		"semi": [
 			"error",

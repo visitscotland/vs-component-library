@@ -1,8 +1,6 @@
-import Vue from 'vue';
+import * as Vue from 'vue';
 import { isObject, each } from 'lodash';
 import noJsClass from '@/utils/no-js-class';
-
-Vue.config.productionTip = false;
 
 const defaultVueOptions = {
     comments: true,
