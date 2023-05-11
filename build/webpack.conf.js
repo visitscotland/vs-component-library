@@ -89,6 +89,7 @@ const webpackConfig = {
             {
                 test: /\.(png|jpe?g|gif)(\?.*)?$/,
                 loader: 'file-loader',
+                type: 'javascript/auto',
                 options: {
                     name: 'img/[name].[hash:7].[ext]',
                 },
@@ -96,13 +97,18 @@ const webpackConfig = {
             {
                 test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
                 loader: 'file-loader',
+                type: 'javascript/auto',
                 options: {
                     name: 'media/[name].[hash:7].[ext]',
                 },
             },
             {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-                type: 'asset/resource',
+                loader: 'file-loader',
+                type: 'javascript/auto',
+                options: {
+                    name: buildMode === 'development' ? 'fonts/[name].[ext]' : 'fonts/[name].[hash:7].[ext]',
+                },
             },
             {
                 test: /\.svg$/,
