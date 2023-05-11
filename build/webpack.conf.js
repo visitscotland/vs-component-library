@@ -33,7 +33,6 @@ const webpackConfig = {
     resolve: {
         extensions: ['.ts', '.js', '.vue', '.json'],
         alias: {
-            vue: '@vue/runtime-dom',
             'bootstrap-vue$': 'bootstrap-vue-next/src/BootstrapVue.ts',
             '@': resolve('src'),
             '@components': resolve('src/components'),
@@ -75,7 +74,7 @@ const webpackConfig = {
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
-                          esModule: false,
+                            esModule: false,
                         },
                     },
                     'css-loader',
