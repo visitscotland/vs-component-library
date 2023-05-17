@@ -12,7 +12,7 @@ const { TimeAnalyticsPlugin } = require('time-analytics-webpack-plugin');
 const buildMode = require('./build-mode');
 const generateManifest = require('./generate-manifest');
 
-const entry = require('./entry');
+const entry = require('../src/entry');
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir);

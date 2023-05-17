@@ -1,8 +1,10 @@
-import { createApp } from 'vue/dist/vue.esm-bundler';
-import * as Vue from 'vue';
-import { isObject, each } from 'lodash';
-import noJsClass from '@/utils/no-js-class';
-import '@/styles/core.styles.scss';
+import { createApp } from 'vue';
+
+const { Vue } = require('vue');
+const { isObject, each } = require('lodash');
+const { noJsClass } = require('@/utils/no-js-class');
+
+require('@/styles/core.styles.scss');
 
 const defaultVueOptions = {
     comments: true,
