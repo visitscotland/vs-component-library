@@ -1,4 +1,4 @@
-import { createApp } from 'vue';
+import { createApp, createSSRApp } from 'vue';
 
 const { Vue } = require('vue');
 const { isObject, each } = require('lodash');
@@ -21,6 +21,20 @@ const removeNoJSClass = () => {
 
 export const initApp = (options, skipRemoveNoJsClass) => {
     const app = createApp({
+        ...defaultVueOptions,
+        ...isObject(options) ? options : {
+        },
+    });
+
+    if (!skipRemoveNoJsClass) {
+        removeNoJSClass();
+    }
+
+    return app;
+};
+
+export const initSSRApp = (options, skipRemoveNoJsClass) => {
+    const app = createSSRApp({
         ...defaultVueOptions,
         ...isObject(options) ? options : {
         },

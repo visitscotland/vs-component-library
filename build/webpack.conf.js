@@ -12,7 +12,16 @@ const { TimeAnalyticsPlugin } = require('time-analytics-webpack-plugin');
 const buildMode = require('./build-mode');
 const generateManifest = require('./generate-manifest');
 
-const entry = require('../src/entry');
+const appEntry = require('../src/entry');
+
+const clientEntry = {
+    VsApp: path.resolve(__dirname, '../src/client-entry.js'),
+};
+
+const entry = {
+    ...appEntry,
+    ...clientEntry,
+};
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir);
@@ -24,7 +33,7 @@ const webpackConfig = {
     entry,
     devtool: false,
     output: {
-        path: path.resolve(__dirname, '../dist', 'library'),
+        path: path.resolve(__dirname, '../dist/client'),
         filename: buildMode === 'development' ? 'scripts/[name].js' : 'scripts/[chunkhash].js',
         publicPath: '../',
         library: '[name]',

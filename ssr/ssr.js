@@ -1,8 +1,8 @@
-import { get } from 'lodash';
+const { get } = require('lodash');
 
 /** PLACEHOLDER: COMPONENT IMPORTS */
 
-import { initApp } from '@/main';
+const { initSSRApp } = require('@/main');
 
 const defaultVueOptions = {
     components: {
@@ -10,13 +10,11 @@ const defaultVueOptions = {
     },
 };
 
-export default (context) => {
+export function createSSRApp (options) {
     const vueOptions = {
-        ...get(context, 'vueOptions', {
-
-        }),
+        ...options,
         ...defaultVueOptions,
     };
 
-    return initApp(vueOptions, true);
+    return initSSRApp(vueOptions, true);
 };

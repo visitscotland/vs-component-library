@@ -14,8 +14,9 @@ const componentPaths = [
     // './src/components/modules/**/*.vue',
     // './src/components/templates/**/*.vue',
     // './src/components/examples/**/*.vue',
-    './src/components/elements/**/Button.vue',
     './src/components/elements/**/Heading.vue',
+    './src/components/elements/**/Button.vue',
+    './src/components/elements/**/LoadingSpinner.vue',
 ];
 
 // const storePattern = './src/components/**/*.store.js';

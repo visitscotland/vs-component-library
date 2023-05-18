@@ -5,25 +5,22 @@ const { merge } = require('webpack-merge');
 const nodeExternals = require('webpack-node-externals');
 
 const base = require('./webpack.conf');
-const { VueSSRServerPlugin } = require('./lib/server.plugin');
 
 const entry = {
-    'main-server': path.resolve(__dirname, '../ssr/server-entry.js'),
+    VsSSR: path.resolve(__dirname, '../ssr/ssr.js'),
 };
 
 const sourceImports = require('./ssr.generate-component-library-map')(base.entry);
 
-base.entry = {
-    ...entry,
-    ...base.entry,
-};
-
 delete base.optimization;
+delete base.entry;
 
 module.exports = merge(base, {
     target: 'node',
+    entry,
     output: {
-        path: path.resolve(__dirname, '../dist/ssr/server'),
+        path: path.resolve(__dirname, '../dist/ssr'),
+        filename: 'index.js',
         libraryTarget: 'commonjs2',
     },
     externals: nodeExternals({
@@ -35,7 +32,7 @@ module.exports = merge(base, {
     module: {
         rules: [
             {
-                test: /server-entry\.js$/,
+                test: /ssr\.js$/,
                 use: [
                     {
                         loader: path.resolve(__dirname, './ssr.dynamic-component-loader'),
@@ -51,6 +48,5 @@ module.exports = merge(base, {
         new webpack.optimize.LimitChunkCountPlugin({
             maxChunks: 1,
         }),
-        new VueSSRServerPlugin(),
     ],
 });
