@@ -5,7 +5,7 @@ const VueSSRClientPlugin = require('vue-server-renderer/client-plugin');
 const base = require('./webpack.conf');
 
 const clientEntry = {
-    VsApp: path.resolve(__dirname, '../src/client-entry.js'),
+    VsApp: path.resolve(__dirname, '../ssr/client-entry.js'),
 };
 
 base.entry = {

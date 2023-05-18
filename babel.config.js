@@ -8,7 +8,7 @@ module.exports = {
         'macros',
     ],
     exclude: [],
-    ignore: [/node_modules\/(?!bootstrap-vue)/],
+    ignore: [/node_modules\/(?!bootstrap-vue-next)/],
     env: {
         test: {
             presets: ['@babel/preset-env', '@babel/preset-react'],

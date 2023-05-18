@@ -33,7 +33,6 @@ const webpackConfig = {
     resolve: {
         extensions: ['.ts', '.js', '.vue', '.json'],
         alias: {
-            'bootstrap-vue$': 'bootstrap-vue-next/src/BootstrapVue.ts',
             '@': resolve('src'),
             '@components': resolve('src/components'),
         },
