@@ -1,4 +1,4 @@
-const { get } = require('lodash');
+const { renderToString } = require('@vue/server-renderer');
 
 /** PLACEHOLDER: COMPONENT IMPORTS */
 
@@ -18,3 +18,5 @@ export function createSSRApp (options) {
 
     return initSSRApp(vueOptions, true);
 };
+
+export { renderToString };
