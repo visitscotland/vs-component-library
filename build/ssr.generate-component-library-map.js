@@ -47,7 +47,7 @@ const getIncludedModules = (moduleMap, exclude) => {
         includes,
         castArray(exclude),
         partial.placeholder,
-        0
+        0,
     );
 
     if (exclude) {
@@ -62,7 +62,7 @@ module.exports = (moduleMap, exclude) => {
 
     const groupedModules = groupBy(
         map(includedModules, prepareModule),
-        'type'
+        'type',
     );
 
     return mapValues(groupedModules, (items, groupName) => {

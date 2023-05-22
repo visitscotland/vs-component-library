@@ -1,3 +1,3 @@
-import VsButton from './Button.vue';
+import VsButton from './Button';
 
 export default VsButton;

@@ -121,6 +121,13 @@ module.exports = {
         ],
         'no-debugger': 'warn',
         'no-underscore-dangle': 'off',
+        'no-restricted-exports': ['error', {
+            restrictedNamedExports: [
+                'then',
+                'default', // disallows 2, 3, 4, 5
+            ],
+            allowDefaultFrom: true, // re-allows 3 and 4
+        }],
     },
     settings: {
         'import/resolver': {
