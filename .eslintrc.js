@@ -12,10 +12,10 @@ module.exports = {
         sourceType: 'module',
     },
     extends: [
-        // use the recommended rule set for both plain javascript and vue
         'eslint:recommended',
         'eslint-config-airbnb-base',
         'plugin:vue/base',
+        'plugin:storybook/recommended',
     ],
     rules: {
         indent: [
@@ -62,44 +62,63 @@ module.exports = {
             'error',
             'last',
         ],
-        'object-curly-newline': ['error', {
-            ObjectExpression: 'always',
-            ObjectPattern: {
-                multiline: true,
+        'object-curly-newline': [
+            'error',
+            {
+                ObjectExpression: 'always',
+                ObjectPattern: {
+                    multiline: true,
+                },
+                ImportDeclaration: {
+                    multiline: true,
+                    minProperties: 3,
+                },
+                ExportDeclaration: {
+                    multiline: true,
+                    minProperties: 3,
+                },
             },
-            ImportDeclaration: {
-                multiline: true,
-                minProperties: 3,
+        ],
+        'object-property-newline': [
+            'error',
+            {
+                allowAllPropertiesOnSameLine: false,
             },
-            ExportDeclaration: {
-                multiline: true,
-                minProperties: 3,
-            },
-        }],
-        'object-property-newline': ['error', {
-            allowAllPropertiesOnSameLine: false,
-        }],
+        ],
         'space-before-function-paren': ['error', 'never'],
         'comma-dangle': ['error', 'always-multiline'],
         'arrow-parens': ['error', 'always'],
-        'no-plusplus': ['error', {
-            allowForLoopAfterthoughts: true,
-        }],
-        'vue/html-self-closing': ['error', {
-            html: {
-                void: 'never',
-                normal: 'always',
+        'no-plusplus': [
+            'error',
+            {
+                allowForLoopAfterthoughts: true,
             },
-        }],
-        'vue/singleline-html-element-content-newline': ['error', {
-            ignoreWhenNoAttributes: true,
-            ignoreWhenEmpty: true,
-        }],
+        ],
+        'vue/html-self-closing': [
+            'error',
+            {
+                html: {
+                    void: 'never',
+                    normal: 'always',
+                },
+            },
+        ],
+        'vue/singleline-html-element-content-newline': [
+            'error',
+            {
+                ignoreWhenNoAttributes: true,
+                ignoreWhenEmpty: true,
+            },
+        ],
         'vue/no-v-html': 2,
-        'import/extensions': ['error', 'ignorePackages', {
-            vue: 'never',
-            js: 'never',
-        }],
+        'import/extensions': [
+            'error',
+            'ignorePackages',
+            {
+                vue: 'never',
+                js: 'never',
+            },
+        ],
         'no-debugger': 'warn',
         'no-underscore-dangle': 'off',
     },
