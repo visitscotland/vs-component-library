@@ -730,19 +730,19 @@ export default {
                 case 'transport':
                     this.transportTonnes += this.getFieldValue(
                         currentField.name,
-                        this.form[currentField.name]
+                        this.form[currentField.name],
                     );
                     transportTips = transportTips.concat(
-                        this.getTips(currentField.name, this.form[currentField.name])
+                        this.getTips(currentField.name, this.form[currentField.name]),
                     );
                     break;
                 case 'food':
                     this.foodTonnes += this.getFieldValue(
                         currentField.name,
-                        this.form[currentField.name]
+                        this.form[currentField.name],
                     );
                     foodTips = foodTips.concat(
-                        this.getTips(currentField.name, this.form[currentField.name])
+                        this.getTips(currentField.name, this.form[currentField.name]),
                     );
                     break;
                 default:

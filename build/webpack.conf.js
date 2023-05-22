@@ -119,37 +119,14 @@ const webpackConfig = {
             },
             {
                 test: /\.svg$/,
-                oneOf: [
-                    {
-                        resourceQuery: /optimise/,
-                        use: [
-                            'html-loader',
-                            {
-                                loader: 'image-webpack-loader',
-                                options: {
-                                    svgo: {
-                                        plugins: [
-                                            {
-                                                removeViewBox: false,
-                                            },
-                                            {
-                                                inlineStyles: {
-                                                    onlyMatchedOnce: false,
-                                                },
-                                            },
-                                        ],
-                                    },
-                                },
-                            },
-                        ],
+                type: 'asset',
+                loader: 'svgo-loader',
+                options: {
+                    removeViewBox: false,
+                    inlineStyles: {
+                        onlyMatchedOnce: false,
                     },
-                    {
-                        options: {
-                            name: 'img/[name].[hash:7].[ext]',
-                        },
-                        loader: 'file-loader',
-                    },
-                ],
+                },
             },
         ],
     },
