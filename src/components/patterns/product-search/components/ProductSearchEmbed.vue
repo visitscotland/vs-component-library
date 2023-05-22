@@ -116,7 +116,7 @@ export default {
 <style lang="scss">
 
 @import "https://api.visitscotland.com/dev/ui/product-search/css/main.css";
-// @import "http://localhost:9999/css/main.css";
+@import "http://localhost:9999/css/main.css";
 
 .no-js {
     .vs-product-search-embed {

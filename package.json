@@ -77,6 +77,8 @@
   },
   "dependencies": {
     "@mapbox/geojson-extent": "^1.0.1",
+    "@storybook/addon-a11y": "^7.0.7",
+    "@visitscotland/product-search": "^0.1.9",
     "axios": "^1.4.0",
     "bootstrap-vue-next": "^0.8.7",
     "glob": "^8.1.0",

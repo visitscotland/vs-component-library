@@ -1,5 +1,1 @@
-import VsIcon from './Icon';
-
-export default {
-    VsIcon,
-};
+export { default } from './Icon.vue';

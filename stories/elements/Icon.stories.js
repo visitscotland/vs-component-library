@@ -1,5 +1,4 @@
 import VsIcon from '@/components/elements/icon/Icon.vue';
-import * as propTypes from 'prop-types';
 
 export default {
     component: VsIcon,

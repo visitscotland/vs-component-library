@@ -1,3 +1,1 @@
-import VsLink from './Link';
-
-export default VsLink;
+export { default } from './Link';
