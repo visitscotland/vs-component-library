@@ -84,7 +84,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../../assets/fonts/fonts.css";
 .vs-heading {
     @extend %heading-default-styles;
 }

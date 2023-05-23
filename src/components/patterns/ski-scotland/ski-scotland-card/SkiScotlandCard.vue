@@ -537,7 +537,7 @@ export default {
             const event = new Date(
                 lastUpdate.year,
                 parseInt(lastUpdate.month, 10) - 1,
-                lastUpdate.day
+                lastUpdate.day,
             );
             const options = {
                 year: 'numeric',

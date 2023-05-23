@@ -94,7 +94,7 @@
 
 <script>
 // eslint-disable-next-line import/no-extraneous-dependencies
-import VueYoutube from 'vue-youtube';
+import YouTube from 'vue3-youtube';
 import Vue from 'vue';
 import VsWarning from '@components/patterns/warning/Warning';
 import videoStore from '../../../stores/video.store';
@@ -104,7 +104,7 @@ import dataLayerMixin from '../../../mixins/dataLayerMixin';
 
 const cookieValues = requiredCookiesData.youtube;
 
-Vue.use(VueYoutube, {
+Vue.use(YouTube, {
     global: false,
 });
 

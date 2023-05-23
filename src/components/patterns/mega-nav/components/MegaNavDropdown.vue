@@ -131,7 +131,8 @@ export default {
 
             this.createDataLayerObject(
                 'menuNavigationDataEvent',
-                clickEvent, null
+                clickEvent,
+                null,
             );
         },
     },

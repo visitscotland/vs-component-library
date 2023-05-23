@@ -253,9 +253,11 @@ export default {
                 allSlidesArr.forEach((slide, index) => {
                     const activeSlideStart = this.currentPage
                         * this.slidesPerPage[this.currentWidth];
+                    /* eslint-disable */
                     const activeSlideEnd = parseInt(
                         this.currentPage * this.slidesPerPage[this.currentWidth], 10
                     ) + parseInt(this.slidesPerPage[this.currentWidth], 10);
+                    /* eslint-enable */
 
                     // if we're at a final slide that has a remainder
                     // the last slides that fit on a page are active
@@ -310,7 +312,7 @@ export default {
                 newFirstPage = firstActiveItem;
             } else {
                 newFirstPage = Math.ceil(
-                    firstActiveItem / this.slidesPerPage[this.currentWidth]
+                    firstActiveItem / this.slidesPerPage[this.currentWidth],
                 );
             }
 
