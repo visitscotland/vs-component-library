@@ -1,7 +1,7 @@
 // COMMENTING OUT TEMPORARILY TO AVOID ERRORS WHICH WILL BE FIXED BY STORE REFACTOR
 
 import { shallowMount } from '@vue/test-utils';
-import VsMainMapWrapperSubcategory from '../MainMapWrapperSubcategory';
+import VsMainMapWrapperSubcategory from '../MainMapWrapperSubcategory.vue';
 import subCategoriesData from './data/filters-subcategories.json';
 
 const factoryShallowMount = () => shallowMount(VsMainMapWrapperSubcategory, {

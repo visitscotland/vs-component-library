@@ -1,3 +1,3 @@
-import VsTagManagerWrapper from './TagManagerWrapper';
+import VsTagManagerWrapper from './TagManagerWrapper.vue';
 
 export default VsTagManagerWrapper;
