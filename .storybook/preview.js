@@ -1,5 +1,7 @@
 /** @type { import('@storybook/vue3').Preview } */
 
+import '../src/assets/fonts/fonts.css';
+
 const preview = {
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
