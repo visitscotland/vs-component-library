@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsStretchedLinkPanels from '../StretchedLinkPanels';
+import VsStretchedLinkPanels from '../StretchedLinkPanels.vue';
 
 const factoryShallowMount = () => shallowMount(VsStretchedLinkPanels, {
     propsData: {

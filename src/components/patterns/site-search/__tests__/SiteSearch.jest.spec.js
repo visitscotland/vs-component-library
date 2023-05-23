@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsSiteSearch from '../SiteSearch';
+import VsSiteSearch from '../SiteSearch.vue';
 
 const factoryShallowMount = () => shallowMount(VsSiteSearch, {
     propsData: {

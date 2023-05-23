@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsCaption from '../Caption';
+import VsCaption from '../Caption.vue';
 
 const captionSlot = 'A Scottish Castle';
 const creditSlot = 'VisitScotland';

@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsTableHeaderCell from '../TableHeaderCell';
+import VsTableHeaderCell from '../TableHeaderCell.vue';
 
 const slotContent = 'A table data header goes here';
 

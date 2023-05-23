@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsCaptionImageMap from '../CaptionImageMap';
+import VsCaptionImageMap from '../CaptionImageMap.vue';
 
 const slotContent = 'Slot Content';
 

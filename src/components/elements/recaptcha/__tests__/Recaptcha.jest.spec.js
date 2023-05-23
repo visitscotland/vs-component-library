@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsRecaptcha from '../Recaptcha';
+import VsRecaptcha from '../Recaptcha.vue';
 
 const factoryShallowMount = () => shallowMount(VsRecaptcha, {
     propsData: {

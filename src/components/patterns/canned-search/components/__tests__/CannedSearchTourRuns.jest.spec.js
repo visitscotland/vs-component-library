@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsCannedSearchTourRuns from '../CannedSearchTourRuns';
+import VsCannedSearchTourRuns from '../CannedSearchTourRuns.vue';
 
 const label = 'Runs';
 const startDay = 'June';

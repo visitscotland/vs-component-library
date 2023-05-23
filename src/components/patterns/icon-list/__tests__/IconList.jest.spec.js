@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsIconList from '../IconList';
+import VsIconList from '../IconList.vue';
 
 const slotContent = 'Slot Content';
 

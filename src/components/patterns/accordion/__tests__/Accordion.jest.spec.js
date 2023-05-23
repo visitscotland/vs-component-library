@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsAccordion from '../Accordion';
+import VsAccordion from '../Accordion.vue';
 
 const defaultSlot = 'Default Slot';
 

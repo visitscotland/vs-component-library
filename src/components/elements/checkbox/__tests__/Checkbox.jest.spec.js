@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsCheckbox from '../Checkbox';
+import VsCheckbox from '../Checkbox.vue';
 
 const factoryShallowMount = (propsData) => shallowMount(VsCheckbox, {
     propsData: {

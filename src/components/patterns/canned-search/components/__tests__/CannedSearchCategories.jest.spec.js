@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsCannedSearchCategories from '../CannedSearchCategories';
+import VsCannedSearchCategories from '../CannedSearchCategories.vue';
 
 const categories = [
     {

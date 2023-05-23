@@ -1,6 +1,6 @@
 import { shallowMount, createWrapper } from '@vue/test-utils';
 
-import VsModal from '../Modal';
+import VsModal from '../Modal.vue';
 
 const defaultSlotText = 'Modal text';
 

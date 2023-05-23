@@ -1,5 +1,5 @@
 import { shallowMount, mount } from '@vue/test-utils';
-import VsEmbedWrapper from '../EmbedWrapper';
+import VsEmbedWrapper from '../EmbedWrapper.vue';
 
 const introContent = 'Intro text';
 const noJsContent = 'Js is off';

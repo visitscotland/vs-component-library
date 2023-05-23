@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import VsCannedSearchPrice from '../CannedSearchPrice';
+import VsCannedSearchPrice from '../CannedSearchPrice.vue';
 
 const priceIntro = 'Price from';
 const price = '£110';

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import VsMegaNavTopMenuItem from '../MegaNavTopMenuItem';
+import VsMegaNavTopMenuItem from '../MegaNavTopMenuItem.vue';
 
 const factoryMount = (values) => mount(VsMegaNavTopMenuItem, {
     propsData: {

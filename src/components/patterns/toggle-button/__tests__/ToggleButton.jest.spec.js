@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsToggleButton from '../ToggleButton';
+import VsToggleButton from '../ToggleButton.vue';
 
 const toggleIdValue = 'toggle-id';
 

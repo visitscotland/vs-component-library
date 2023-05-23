@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import VsCannedSearchLogos from '../CannedSearchLogos';
+import VsCannedSearchLogos from '../CannedSearchLogos.vue';
 
 const goodToGoLogo = {
     id: 'goodToGo',

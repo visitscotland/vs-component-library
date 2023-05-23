@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsDropdownItem from '../DropdownItem';
+import VsDropdownItem from '../DropdownItem.vue';
 
 const slotContent = 'Slot Content';
 

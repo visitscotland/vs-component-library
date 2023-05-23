@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsMap from '../Map';
+import VsMap from '../Map.vue';
 import placeData from '../../../../assets/fixtures/maps/places-data.json';
 
 const mockAddMethod = jest.fn();

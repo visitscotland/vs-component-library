@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsProductSearchEmbed from '../ProductSearchEmbed';
+import VsProductSearchEmbed from '../ProductSearchEmbed.vue';
 
 const factoryShallowMount = () => shallowMount(VsProductSearchEmbed, {
     propsData: {

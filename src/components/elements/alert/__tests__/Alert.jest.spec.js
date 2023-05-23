@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsAlert from '../Alert';
+import VsAlert from '../Alert.vue';
 
 const defaultSlot = 'Default Slot';
 

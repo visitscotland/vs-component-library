@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsCannedSearch from '../CannedSearch';
+import VsCannedSearch from '../CannedSearch.vue';
 
 const apiUrl = 'http://172.28.81.65:8089/data/search/productsearch?areaproxdist=10&loc=Scotland&locplace=&locprox=1&prodtypes=acco&locale=';
 const slotContent = 'These are some buttons';

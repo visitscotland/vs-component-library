@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsStretchedLinkCard from '../StretchedLinkCard';
+import VsStretchedLinkCard from '../StretchedLinkCard.vue';
 
 const imgUrl = 'https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm';
 

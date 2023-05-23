@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsMegalinks from '../Megalinks';
+import VsMegalinks from '../Megalinks.vue';
 
 const factoryShallowMount = () => shallowMount(VsMegalinks, {
     propsData: {

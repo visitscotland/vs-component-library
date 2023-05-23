@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import VsCannedSearchDates from '../CannedSearchDates';
+import VsCannedSearchDates from '../CannedSearchDates.vue';
 
 const intro = 'Dates';
 const period = {

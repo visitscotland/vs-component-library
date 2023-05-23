@@ -1,6 +1,6 @@
 import { shallowMount, mount } from '@vue/test-utils';
 
-import VsButton from '../Button';
+import VsButton from '../Button.vue';
 
 const slotText = 'Button text';
 

@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsSelect from '../Select';
+import VsSelect from '../Select.vue';
 
 const factoryShallowMount = (propsData) => shallowMount(VsSelect, {
     propsData: {

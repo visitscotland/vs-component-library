@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsCarouselSlide from '../CarouselSlide';
+import VsCarouselSlide from '../CarouselSlide.vue';
 
 const imgSrc = 'https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm';
 

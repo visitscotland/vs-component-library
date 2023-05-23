@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsMarketoForm from '../MarketoForm';
+import VsMarketoForm from '../MarketoForm.vue';
 
 const formData = {
     formSandboxId: '90',

@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsMainMapWrapperControls from '../MainMapWrapperControls';
+import VsMainMapWrapperControls from '../MainMapWrapperControls.vue';
 
 const factoryShallowMount = () => shallowMount(VsMainMapWrapperControls, {
     provide: {

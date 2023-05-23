@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsHeading from '../Heading';
+import VsHeading from '../Heading.vue';
 
 const defaultSlot = 'Default Slot';
 const subHeadingSlot = 'Sub Heading Slot';

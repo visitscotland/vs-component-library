@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import { v4 as uuidv4 } from 'uuid';
-import VsImageWithCaption from '../ImageWithCaption';
+import VsImageWithCaption from '../ImageWithCaption.vue';
 
 const defaultSlotText = 'Image';
 const toggleIconSlot = 'Toggle icon';

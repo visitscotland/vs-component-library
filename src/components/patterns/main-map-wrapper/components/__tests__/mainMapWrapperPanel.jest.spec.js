@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsMainMapWrapperPanel from '../MainMapWrapperPanel';
+import VsMainMapWrapperPanel from '../MainMapWrapperPanel.vue';
 
 const mockMethod = jest.fn();
 

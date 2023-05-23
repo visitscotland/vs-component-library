@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsMainMapWrapperListItem from '../MainMapWrapperListItem';
+import VsMainMapWrapperListItem from '../MainMapWrapperListItem.vue';
 
 const factoryShallowMount = () => shallowMount(VsMainMapWrapperListItem, {
     slots: {

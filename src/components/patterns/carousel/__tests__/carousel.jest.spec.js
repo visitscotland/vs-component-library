@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsCarousel from '../Carousel';
+import VsCarousel from '../Carousel.vue';
 
 const factoryShallowMount = (slotsData) => shallowMount(VsCarousel, {
     data() {

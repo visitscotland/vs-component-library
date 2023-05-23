@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import VsCannedSearchSummaryBox from '../CannedSearchSummaryBox';
+import VsCannedSearchSummaryBox from '../CannedSearchSummaryBox.vue';
 
 const summaryLeftSlotContent = 'This is a price';
 const summaryTopSlotContent = 'This is a date';

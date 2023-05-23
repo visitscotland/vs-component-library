@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsSkipTo from '../SkipTo';
+import VsSkipTo from '../SkipTo.vue';
 
 const factoryShallowMount = () => shallowMount(VsSkipTo, {
     propsData: {

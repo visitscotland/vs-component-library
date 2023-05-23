@@ -1,6 +1,6 @@
 import { shallowMount, mount } from '@vue/test-utils';
 
-import VsFooterNavListItem from '../FooterNavListItem';
+import VsFooterNavListItem from '../FooterNavListItem.vue';
 
 const slotContent = 'Some slot content';
 

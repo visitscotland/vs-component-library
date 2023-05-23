@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
-import VsLink from '../Link';
-import VsIcon from '../../icon/Icon';
+import VsLink from '../Link.vue';
+import VsIcon from '../../icon/Icon.vue';
 
 const slotContent = 'Link text';
 

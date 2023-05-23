@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsIcentre from '../Icentre';
+import VsIcentre from '../Icentre.vue';
 
 const inputSrc = 'https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm';
 const inputAlt = 'This is the alt text';

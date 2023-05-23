@@ -1,6 +1,6 @@
 import { shallowMount, mount } from '@vue/test-utils';
 
-import VsSocialCreditLink from '../SocialCreditLink';
+import VsSocialCreditLink from '../SocialCreditLink.vue';
 
 const factoryShallowMount = (propsData) => shallowMount(VsSocialCreditLink, {
     propsData: {

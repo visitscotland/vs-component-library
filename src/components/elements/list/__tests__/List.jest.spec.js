@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsList from '../List';
+import VsList from '../List.vue';
 
 const slotText = 'List text';
 

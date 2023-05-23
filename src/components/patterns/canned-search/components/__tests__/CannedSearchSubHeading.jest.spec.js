@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import VsCannedSearchSubHeading from '../CannedSearchSubHeading';
+import VsCannedSearchSubHeading from '../CannedSearchSubHeading.vue';
 
 const subHeading = 'Callander, Loch Lomond';
 

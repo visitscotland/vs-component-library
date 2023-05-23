@@ -1,6 +1,6 @@
 import { shallowMount, mount } from '@vue/test-utils';
 
-import VsAccordionItem from '../AccordionItem';
+import VsAccordionItem from '../AccordionItem.vue';
 
 const titleSlot = 'Item Title';
 

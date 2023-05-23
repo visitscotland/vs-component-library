@@ -1,6 +1,6 @@
 import { shallowMount, mount } from '@vue/test-utils';
 
-import VsGlobalMenuList from '../components/GlobalMenuList';
+import VsGlobalMenuList from '../components/GlobalMenuList.vue';
 
 const mainSite = 'https://www.visitscotland.com/';
 

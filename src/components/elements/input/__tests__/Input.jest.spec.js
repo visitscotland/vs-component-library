@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsInput from '../Input';
+import VsInput from '../Input.vue';
 
 const factoryShallowMount = (propsData) => shallowMount(VsInput, {
     propsData: {

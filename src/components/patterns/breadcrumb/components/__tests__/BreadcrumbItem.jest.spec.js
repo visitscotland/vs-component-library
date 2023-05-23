@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { BBreadcrumbItem } from 'bootstrap-vue-next';
 
-import VsBreadcrumbItem from '../BreadcrumbItem';
+import VsBreadcrumbItem from '../BreadcrumbItem.vue';
 
 const factoryMount = (propsData) => mount(VsBreadcrumbItem, {
     propsData: {

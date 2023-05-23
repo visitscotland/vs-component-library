@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsRichTextWrapper from '../RichTextWrapper';
+import VsRichTextWrapper from '../RichTextWrapper.vue';
 
 const slotText = 'Rich text wrapper content';
 

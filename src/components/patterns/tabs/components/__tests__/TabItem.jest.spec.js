@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsTabItem from '../TabItem';
+import VsTabItem from '../TabItem.vue';
 
 const factoryShallowMount = (propsData) => shallowMount(VsTabItem, {
     propsData: {

@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsContainer from '../Container';
+import VsContainer from '../Container.vue';
 
 const slotText = 'Container text';
 

@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsMegaNavList from '../MegaNavList';
+import VsMegaNavList from '../MegaNavList.vue';
 
 const listHeadingProp = 'Tours, Routes & Trails';
 

@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsIcon from '../Icon';
+import VsIcon from '../Icon.vue';
 
 const factoryShallowMount = (propsData) => shallowMount(VsIcon, {
     propsData: {

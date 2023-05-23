@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsMegalinkLinkList from '../MegalinkLinkList';
+import VsMegalinkLinkList from '../MegalinkLinkList.vue';
 
 const videoId = '12345';
 const videoBtnText = 'Play Video';
