@@ -1,4 +1,4 @@
-import VsTag from './Tag';
+import VsTag from './Tag.vue';
 
 export default {
     VsTag,

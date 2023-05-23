@@ -1,3 +1,3 @@
-import VsButtonToggleGroup from './ButtonToggleGroup';
+import VsButtonToggleGroup from './ButtonToggleGroup.vue';
 
 export default VsButtonToggleGroup;

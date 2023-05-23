@@ -1,8 +1,8 @@
-import VsGlobalMenu from './GlobalMenu';
-import VsGlobalMenuDropdown from './components/GlobalMenuDropdown';
-import VsGlobalMenuLanguage from './components/GlobalMenuLanguage';
-import VsGlobalMenuLanguageItem from './components/GlobalMenuLanguageItem';
-import VsGlobalMenuList from './components/GlobalMenuList';
+import VsGlobalMenu from './GlobalMenu.vue';
+import VsGlobalMenuDropdown from './components/GlobalMenuDropdown.vue';
+import VsGlobalMenuLanguage from './components/GlobalMenuLanguage.vue';
+import VsGlobalMenuLanguageItem from './components/GlobalMenuLanguageItem.vue';
+import VsGlobalMenuList from './components/GlobalMenuList.vue';
 
 export default {
     VsGlobalMenu,

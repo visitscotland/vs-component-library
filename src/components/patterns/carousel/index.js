@@ -1,5 +1,5 @@
-import VsCarousel from './Carousel';
-import VsCarouselSlide from './components/CarouselSlide';
+import VsCarousel from './Carousel.vue';
+import VsCarouselSlide from './components/CarouselSlide.vue';
 
 export default {
     VsCarousel,

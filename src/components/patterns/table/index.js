@@ -1,10 +1,10 @@
-import VsTable from './Table';
-import VsTableBody from './components/TableBody';
-import VsTableDataCell from './components/TableDataCell';
-import VsTableFooter from './components/TableFooter';
-import VsTableHead from './components/TableHead';
-import VsTableHeaderCell from './components/TableHeaderCell';
-import VsTableRow from './components/TableRow';
+import VsTable from './Table.vue';
+import VsTableBody from './components/TableBody.vue';
+import VsTableDataCell from './components/TableDataCell.vue';
+import VsTableFooter from './components/TableFooter.vue';
+import VsTableHead from './components/TableHead.vue';
+import VsTableHeaderCell from './components/TableHeaderCell.vue';
+import VsTableRow from './components/TableRow.vue';
 
 export {
     VsTable,

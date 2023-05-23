@@ -1,6 +1,6 @@
-import VsAccordion from './Accordion';
-import VsAccordionItem from './components/AccordionItem';
-import VsAccordionToggle from './components/AccordionToggle';
+import VsAccordion from './Accordion.vue';
+import VsAccordionItem from './components/AccordionItem.vue';
+import VsAccordionToggle from './components/AccordionToggle.vue';
 
 export default {
     VsAccordion,

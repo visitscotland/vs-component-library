@@ -1,3 +1,3 @@
-import VsModal from './Modal';
+import VsModal from './Modal.vue';
 
 export default VsModal;

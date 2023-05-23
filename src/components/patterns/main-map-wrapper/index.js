@@ -1,12 +1,12 @@
-import VsMainMapWrapper from './MainMapWrapper';
-import VsMainMapWrapperPanel from './components/MainMapWrapperPanel';
-import VsMainMapWrapperCategory from './components/MainMapWrapperCategory';
-import VsMainMapWrapperListItem from './components/MainMapWrapperListItem';
-import VsMainMapWrapperDetail from './components/MainMapWrapperDetail';
-import VsMainMapWrapperButtons from './components/MainMapWrapperButtons';
-import VsMainMapWrapperSubcategory from './components/MainMapWrapperSubcategory';
-import VsMainMapWrapperControls from './components/MainMapWrapperControls';
-import VsMainMapWrapperIcon from './components/MainMapWrapperIcon';
+import VsMainMapWrapper from './MainMapWrapper.vue';
+import VsMainMapWrapperPanel from './components/MainMapWrapperPanel.vue';
+import VsMainMapWrapperCategory from './components/MainMapWrapperCategory.vue';
+import VsMainMapWrapperListItem from './components/MainMapWrapperListItem.vue';
+import VsMainMapWrapperDetail from './components/MainMapWrapperDetail.vue';
+import VsMainMapWrapperButtons from './components/MainMapWrapperButtons.vue';
+import VsMainMapWrapperSubcategory from './components/MainMapWrapperSubcategory.vue';
+import VsMainMapWrapperControls from './components/MainMapWrapperControls.vue';
+import VsMainMapWrapperIcon from './components/MainMapWrapperIcon.vue';
 
 export default {
     VsMainMapWrapper,

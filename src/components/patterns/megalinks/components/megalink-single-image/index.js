@@ -1,4 +1,4 @@
-import VSMegalinkSingleImage from './MegalinkSingleImage';
+import VSMegalinkSingleImage from './MegalinkSingleImage.vue';
 
 export default {
     VSMegalinkSingleImage,

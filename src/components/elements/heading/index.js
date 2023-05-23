@@ -1,1 +1,3 @@
-export { default } from './Heading';
+import VsHeading from './Heading.vue';
+
+export default VsHeading;

@@ -1,7 +1,7 @@
-import VsCarbonForm from './CarbonForm';
-import VsCarbonFormResults from './components/CarbonFormResults';
-import VsCarbonFormRunningTotals from './components/CarbonFormRunningTotal';
-import VsCarbonFormTips from './components/CarbonFormTip';
+import VsCarbonForm from './CarbonForm.vue';
+import VsCarbonFormResults from './components/CarbonFormResults.vue';
+import VsCarbonFormRunningTotals from './components/CarbonFormRunningTotal.vue';
+import VsCarbonFormTips from './components/CarbonFormTip.vue';
 
 export default {
     VsCarbonForm,

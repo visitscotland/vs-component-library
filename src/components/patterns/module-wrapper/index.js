@@ -1,4 +1,4 @@
-import VsModuleWrapper from './ModuleWrapper';
+import VsModuleWrapper from './ModuleWrapper.vue';
 
 export default {
     VsModuleWrapper,
