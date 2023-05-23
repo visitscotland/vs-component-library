@@ -162,13 +162,13 @@
 <script>
 import Vue from 'vue';
 import { BFormGroup } from 'bootstrap-vue-next';
-import VsInput from '../../elements/input/Input';
-import VsSelect from '../../elements/select/Select';
-import VsCheckbox from '../../elements/checkbox/Checkbox';
-import VsIcon from '../../elements/icon/Icon';
-import VsRecaptcha from '../../elements/recaptcha/Recaptcha';
-import VsButton from '../../elements/button/Button';
-import VsHeading from '../../elements/heading/Heading';
+import VsInput from '../../elements/input/Input.vue';
+import VsSelect from '../../elements/select/Select.vue';
+import VsCheckbox from '../../elements/checkbox/Checkbox.vue';
+import VsIcon from '../../elements/icon/Icon.vue';
+import VsRecaptcha from '../../elements/recaptcha/Recaptcha.vue';
+import VsButton from '../../elements/button/Button.vue';
+import VsHeading from '../../elements/heading/Heading.vue';
 import dataLayerMixin from '../../../mixins/dataLayerMixin';
 
 const axios = require('axios');

@@ -68,7 +68,7 @@
 import Vue from 'vue';
 import Vuelidate from 'vuelidate';
 import { BFormInput } from 'bootstrap-vue-next';
-import VsButton from '../button/Button';
+import VsButton from '@/components/elements/button/Button.vue';
 import validateFormElementMixin from '../../../mixins/validateFormElementMixin';
 
 Vue.use(Vuelidate);

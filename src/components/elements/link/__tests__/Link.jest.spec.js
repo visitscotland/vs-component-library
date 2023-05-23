@@ -55,7 +55,7 @@ describe('VsLink', () => {
         it(':type - should not render an special link by default', () => {
             const wrapper = factoryShallowMount();
             expect(wrapper.classes()).not.toEqual(
-                expect.arrayContaining([/vs-link--/])
+                expect.arrayContaining([/vs-link--/]),
             );
             expect(wrapper.attributes('target')).toBe('_self');
             expect(wrapper.findComponent(VsIcon).exists()).toBe(false);

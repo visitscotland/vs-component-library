@@ -22,8 +22,8 @@
 
 <script>
 
-import VsLink from '@components/elements/link/Link';
-import VsIcon from '@components/elements/icon/Icon';
+import VsLink from '@components/elements/link/Link.vue';
+import VsIcon from '@components/elements/icon/Icon.vue';
 import dataLayerMixin from '../../../../mixins/dataLayerMixin';
 
 /**

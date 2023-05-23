@@ -69,7 +69,7 @@
 </template>
 
 <script>
-import VsSvg from '@components/elements/svg/Svg';
+import VsSvg from '@components/elements/svg/Svg.vue';
 import {
     VsContainer, VsRow, VsCol,
 } from '@components/elements/grid';

@@ -29,7 +29,7 @@
 
 <script>
 import itinerariesStore from '@components/patterns/itineraries/itineraries.store';
-import VsIcon from '@components/elements/icon/Icon';
+import VsIcon from '@components/elements/icon/Icon.vue';
 
 /**
  * TODO: Document usage

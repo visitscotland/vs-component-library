@@ -31,8 +31,8 @@
 </template>
 
 <script>
-import VsButton from '@components/elements/button/Button';
-import VsMainMapWrapperIcon from './MainMapWrapperIcon';
+import VsButton from '@components/elements/button/Button.vue';
+import VsMainMapWrapperIcon from './MainMapWrapperIcon.vue';
 
 export default {
     name: 'VsMainMapWrapperCategories',

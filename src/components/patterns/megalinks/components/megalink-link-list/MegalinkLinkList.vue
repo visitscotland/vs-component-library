@@ -46,9 +46,9 @@
 </template>
 
 <script>
-import VsStretchedLinkCard from '@components/patterns/stretched-link-card/StretchedLinkCard';
-import VsStretchedLinkPanels from '@components/patterns/stretched-link-card/components/StretchedLinkPanels';
-import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWrapper';
+import VsStretchedLinkCard from '@components/patterns/stretched-link-card/StretchedLinkCard.vue';
+import VsStretchedLinkPanels from '@components/patterns/stretched-link-card/components/StretchedLinkPanels.vue';
+import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWrapper.vue';
 
 /**
 * Megalink link list cards to be used in the megalinks component

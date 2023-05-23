@@ -66,7 +66,7 @@
 
 <script>
 import VsTooltip from '@components/elements/tooltip/Tooltip';
-import VsImg from '@components/elements/img/Img';
+import VsImg from '@components/elements/img/Img.vue';
 
 /**
 * Component that displays a set of badges and awards for certain kinds of product card

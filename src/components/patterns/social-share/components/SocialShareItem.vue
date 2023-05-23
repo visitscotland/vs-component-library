@@ -27,8 +27,8 @@
 </template>
 
 <script>
-import VsLink from '@components/elements/link/Link';
-import VsIcon from '@components/elements/icon/Icon';
+import VsLink from '@components/elements/link/Link.vue';
+import VsIcon from '@components/elements/icon/Icon.vue';
 import { VsCol } from '@components/elements/grid';
 import dataLayerMixin from '../../../../mixins/dataLayerMixin';
 

@@ -134,12 +134,12 @@ import {
     VsRow,
     VsCol,
 } from '@components/elements/grid';
-import VsMap from '@components/elements/map/Map';
-import VsButton from '@components/elements/button/Button/';
-import VsWarning from '@components/patterns/warning/Warning';
-import VsButtonToggleGroup from '@components/patterns/button-toggle-group/ButtonToggleGroup';
+import VsMap from '@components/elements/map/Map.vue';
+import VsButton from '@components/elements/button/Button.vue';
+import VsWarning from '@components/patterns/warning/Warning.vue';
+import VsButtonToggleGroup from '@components/patterns/button-toggle-group/ButtonToggleGroup.vue';
 import axios from 'axios';
-import VsMainMapWrapperPanel from './components/MainMapWrapperPanel';
+import VsMainMapWrapperPanel from './components/MainMapWrapperPanel.vue';
 import mapStore from '../../../stores/map.store';
 
 /**

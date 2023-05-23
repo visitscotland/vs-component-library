@@ -1,1 +1,5 @@
-export { default } from './Banner.vue';
+import VsBanner from './Banner.vue';
+
+export default {
+    VsBanner,
+};

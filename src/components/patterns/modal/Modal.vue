@@ -44,7 +44,7 @@ import {
     VsCol, VsRow, VsContainer,
 } from '@components/elements/grid';
 import { BModal } from 'bootstrap-vue-next';
-import VsButton from '@components/elements/button';
+import VsButton from '@components/elements/button/Button.vue';
 
 /**
  * The modal is used as a dialog prompt for users

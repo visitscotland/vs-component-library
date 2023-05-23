@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import VsList from '@components/elements/list/List';
+import VsList from '@components/elements/list/List.vue';
 
 /**
  *  Mega nav top level menu list with a slot for top level menu items

@@ -180,14 +180,14 @@
 </template>
 
 <script>
-import VsButton from '@components/elements/button/Button/';
-import VsHeading from '@components/elements/heading/Heading';
-import VsMainMapWrapperCategory from './MainMapWrapperCategory';
-import VsMainMapWrapperSubcategory from './MainMapWrapperSubcategory';
-import VsMainMapWrapperListItem from './MainMapWrapperListItem';
-import VsMainMapWrapperDetail from './MainMapWrapperDetail';
-import VsMainMapWrapperButtons from './MainMapWrapperButtons';
-import VsMainMapWrapperControls from './MainMapWrapperControls';
+import VsButton from '@components/elements/button/Button.vue';
+import VsHeading from '@components/elements/heading/Heading.vue';
+import VsMainMapWrapperCategory from './MainMapWrapperCategory.vue';
+import VsMainMapWrapperSubcategory from './MainMapWrapperSubcategory.vue';
+import VsMainMapWrapperListItem from './MainMapWrapperListItem.vue';
+import VsMainMapWrapperDetail from './MainMapWrapperDetail.vue';
+import VsMainMapWrapperButtons from './MainMapWrapperButtons.vue';
+import VsMainMapWrapperControls from './MainMapWrapperControls.vue';
 import mapStore from '../../../../stores/map.store';
 
 /**

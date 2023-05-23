@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import VsMainMapWrapperIcon from '@/components/patterns/main-map-wrapper/components/MainMapWrapperIcon';
+import VsMainMapWrapperIcon from '@/components/patterns/main-map-wrapper/components/MainMapWrapperIcon.vue';
 import mapStore from '../../../../stores/map.store';
 
 /**

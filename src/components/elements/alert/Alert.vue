@@ -19,7 +19,7 @@
     </div>
 </template>
 <script>
-import VsIcon from '@components/elements/icon';
+import VsIcon from '@components/elements/icon/Icon.vue';
 
 /**
  * The alert component makes text more prominent to notify

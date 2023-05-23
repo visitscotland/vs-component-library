@@ -62,10 +62,10 @@
 </template>
 
 <script>
-import VsHeading from '@components/elements/heading/Heading';
-import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWrapper';
-import VsButton from '@components/elements/button/Button';
-import VsLinkList from '@components/patterns/link-list/LinkList';
+import VsHeading from '@components/elements/heading/Heading.vue';
+import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWrapper.vue';
+import VsButton from '@components/elements/button/Button.vue';
+import VsLinkList from '@components/patterns/link-list/LinkList.vue';
 import { VsRow, VsCol } from '@components/elements/grid';
 
 /**

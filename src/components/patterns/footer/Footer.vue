@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import VsFooterNavList from '@components/patterns/footer/components/FooterNavList';
+import VsFooterNavList from '@components/patterns/footer/components/FooterNavList.vue';
 import {
     VsContainer, VsRow, VsCol,
 } from '@components/elements/grid';

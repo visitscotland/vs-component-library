@@ -51,8 +51,8 @@
 </template>
 
 <script>
-import VsHeading from '@components/elements/heading/Heading';
-import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWrapper';
+import VsHeading from '@components/elements/heading/Heading.vue';
+import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWrapper.vue';
 import {
     VsContainer, VsRow, VsCol,
 } from '@components/elements/grid';

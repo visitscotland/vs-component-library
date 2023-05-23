@@ -34,7 +34,7 @@ import {
     BFormCheckbox,
 } from 'bootstrap-vue-next';
 import mapStore from '../../../../stores/map.store';
-import VsMainMapWrapperIcon from './MainMapWrapperIcon';
+import VsMainMapWrapperIcon from './MainMapWrapperIcon.vue';
 
 export default {
     name: 'VsMainMapWrapperSubCategories',

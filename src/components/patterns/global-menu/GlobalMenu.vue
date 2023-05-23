@@ -46,8 +46,8 @@ import {
     VsContainer, VsRow, VsCol,
 } from '@components/elements/grid';
 import LazyHydrate from 'vue-lazy-hydration';
-import VsGlobalMenuDropdown from './components/GlobalMenuDropdown';
-import VsGlobalMenuList from './components/GlobalMenuList';
+import VsGlobalMenuDropdown from './components/GlobalMenuDropdown.vue';
+import VsGlobalMenuList from './components/GlobalMenuList.vue';
 
 /**
  * This component is the main Global Nav Wrapper for the top of the page.

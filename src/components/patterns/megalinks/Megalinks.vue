@@ -61,9 +61,9 @@
 </template>
 
 <script>
-import VsHeading from '@components/elements/heading/Heading';
-import VsButton from '@components/elements/button/Button';
-import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWrapper';
+import VsHeading from '@components/elements/heading/Heading.vue';
+import VsButton from '@components/elements/button/Button.vue';
+import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWrapper.vue';
 import {
     VsContainer,
     VsRow,

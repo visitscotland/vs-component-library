@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import VsLink from '@components/elements/link/Link';
+import VsLink from '@components/elements/link/Link.vue';
 
 /**
  * The FooterNavListItems is used inside the FooterNavList to

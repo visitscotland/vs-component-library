@@ -13,8 +13,8 @@ const fixtures = require.context('./', true, /^\.\/.*\.json$/);
 
 const processFixture = (path) => {
     const parts = split(trimStart(path, './'), '/');
-
-    const keys = [...initial(parts), last(parts).replace(new RegExp('.json$'), '')].map(camelCase);
+    const pattern = '.json$';
+    const keys = [...initial(parts), last(parts).replace(new RegExp(pattern), '')].map(camelCase);
 
     return set({
     }, keys, fixtures(path));

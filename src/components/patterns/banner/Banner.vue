@@ -66,9 +66,9 @@
 </template>
 
 <script>
-import VsButton from '@components/elements/button/Button';
-import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWrapper';
-import VsIcon from '@components/elements/icon/';
+import VsButton from '@components/elements/button/Button.vue';
+import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWrapper.vue';
+import VsIcon from '@components/elements/icon/Icon.vue';
 import {
     VsContainer, VsRow, VsCol,
 } from '@components/elements/grid';

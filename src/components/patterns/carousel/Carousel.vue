@@ -104,7 +104,7 @@
 </template>
 
 <script>
-import VsButton from '@components/elements/button';
+import VsButton from '@components/elements/button/Button.vue';
 import {
     VsContainer,
     VsRow,

@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import VsDropdown from '@components/patterns/dropdown/Dropdown';
-import VsDropdownItem from '@components/patterns/dropdown/components/DropdownItem';
+import VsDropdown from '@components/patterns/dropdown/Dropdown.vue';
+import VsDropdownItem from '@components/patterns/dropdown/components/DropdownItem.vue';
 
 /**
  * This component is the dropdown used inside the Global Menu component.

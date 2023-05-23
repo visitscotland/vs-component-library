@@ -10,7 +10,8 @@
         class="low-res-img"
         :class="useGenericLqip ? 'generic-lqip' : ''"
     >
-    <VsIcon name="user" size="lg"></VsIcon>
+        <VsIcon name="user" size="lg" />
+
         <!-- @slot Default slot for image content -->
         <slot />
     </BImg>
@@ -32,6 +33,7 @@ export default {
     release: '0.0.1',
     components: {
         BImg,
+        VsIcon,
     },
     props: {
         /**

@@ -110,12 +110,12 @@
 import {
     VsCol, VsRow, VsContainer,
 } from '@components/elements/grid';
-import VsSvgLink from '@components/elements/svg-link/SvgLink';
-import VsMegaNavTopMenu from '@components/patterns/mega-nav/components/MegaNavTopMenu';
-import VsMegaNavMobileMenu from '@components/patterns/mega-nav/components/MegaNavMobileMenu';
-import VsButton from '@components/elements/button/Button';
-import VsSiteSearch from '@components/patterns/site-search/SiteSearch';
-import VsSiteSearchForm from '@components/patterns/site-search/components/SiteSearchForm';
+import VsSvgLink from '@components/elements/svg-link/SvgLink.vue';
+import VsMegaNavTopMenu from '@components/patterns/mega-nav/components/MegaNavTopMenu.vue';
+import VsMegaNavMobileMenu from '@components/patterns/mega-nav/components/MegaNavMobileMenu.vue';
+import VsButton from '@components/elements/button/Button.vue';
+import VsSiteSearch from '@components/patterns/site-search/SiteSearch.vue';
+import VsSiteSearchForm from '@components/patterns/site-search/components/SiteSearchForm.vue';
 import Vue from 'vue';
 import dataLayerMixin from '../../../mixins/dataLayerMixin';
 

@@ -45,8 +45,8 @@
 </template>
 
 <script>
-import VsStretchedLinkCard from '@components/patterns/stretched-link-card/StretchedLinkCard';
-import VsStretchedLinkPanels from '@components/patterns/stretched-link-card/components/StretchedLinkPanels';
+import VsStretchedLinkCard from '@components/patterns/stretched-link-card/StretchedLinkCard.vue';
+import VsStretchedLinkPanels from '@components/patterns/stretched-link-card/components/StretchedLinkPanels.vue';
 import { VsCol } from '@components/elements/grid';
 
 /**

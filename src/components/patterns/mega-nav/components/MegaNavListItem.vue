@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import VsLink from '@components/elements/link/Link';
+import VsLink from '@components/elements/link/Link.vue';
 import dataLayerMixin from '../../../../mixins/dataLayerMixin';
 
 /**

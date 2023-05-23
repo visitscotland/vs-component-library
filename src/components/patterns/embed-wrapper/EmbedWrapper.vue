@@ -78,8 +78,8 @@
 import {
     VsContainer, VsRow, VsCol,
 } from '@components/elements/grid';
-import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWrapper';
-import VsWarning from '@components/patterns/warning/Warning';
+import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWrapper.vue';
+import VsWarning from '@components/patterns/warning/Warning.vue';
 import verifyCookiesMixin from '../../../mixins/verifyCookiesMixin';
 import requiredCookiesData from '../../../utils/required-cookies-data';
 

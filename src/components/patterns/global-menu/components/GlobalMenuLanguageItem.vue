@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import VsDropdownItem from '@components/patterns/dropdown/components/DropdownItem';
+import VsDropdownItem from '@components/patterns/dropdown/components/DropdownItem.vue';
 import cookieMixin from '../../../../mixins/cookieMixin';
 
 /**

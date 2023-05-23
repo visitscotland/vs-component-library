@@ -34,8 +34,8 @@
 </template>
 
 <script>
-import VsImg from '@components/elements/img/Img';
-import VsIcon from '@components/elements/icon/Icon';
+import VsImg from '@components/elements/img/Img.vue';
+import VsIcon from '@components/elements/icon/Icon.vue';
 import mapStore from '../../../../stores/map.store';
 /**
  * Renders a list item for the map filter tool.

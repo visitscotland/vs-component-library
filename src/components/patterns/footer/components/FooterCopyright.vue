@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import VsSvgLink from '@components/elements/svg-link/SvgLink';
+import VsSvgLink from '@components/elements/svg-link/SvgLink.vue';
 
 import {
     VsRow, VsContainer, VsCol,

@@ -128,10 +128,10 @@
 </template>
 
 <script>
-import VsImg from '@components/elements/img/Img';
-import VsHeading from '@components/elements/heading/Heading';
-import VsLink from '@components/elements/link/Link';
-import VsCol from '@components/elements/grid/Col';
+import VsImg from '@components/elements/img/Img.vue';
+import VsHeading from '@components/elements/heading/Heading.vue';
+import VsLink from '@components/elements/link/Link.vue';
+import VsCol from '@components/elements/grid/Col.vue';
 
 /**
 * Generic product card for canned search

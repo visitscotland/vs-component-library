@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import VsLink from '@components/elements/link/Link';
+import VsLink from '@components/elements/link/Link.vue';
 
 /**
  * A tag link is used to label items to
