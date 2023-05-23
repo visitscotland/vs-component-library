@@ -28,7 +28,7 @@
                 >
                     <div
                         class="vs-embed-wrapper__container"
-                        :class="requiredCookiesExist || noCookiesRequired? '' : 'd-none'"
+                        :class="requiredCookiesExist || noCookiesRequired ? '' : 'd-none'"
                         key="embeddedContent"
                     >
                         <!--

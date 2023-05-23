@@ -1,5 +1,6 @@
 <template>
     <button
+        type="button"
         class="vs-main-map-wrapper-list-item"
         :class="isActive ? 'vs-main-map-wrapper-list-item--hovered' : ''"
         data-test="vs-main-map-wrapper-list-item"

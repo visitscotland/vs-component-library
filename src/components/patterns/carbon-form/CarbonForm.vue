@@ -44,8 +44,8 @@
                                 v-show="(index + 1) === activeQuestion"
                                 :key="field.name"
                                 :label="
-                                    needsLabel(field) ?
-                                        getTranslatedLabel(field.name, index)
+                                    needsLabel(field)
+                                        ? getTranslatedLabel(field.name, index)
                                         : ''
                                 "
                                 :label-for="needsLabel(field) ? field.name : ''"

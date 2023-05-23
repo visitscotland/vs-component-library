@@ -8,7 +8,7 @@
         >
             <span
                 class="vs-canned-search-stars__star"
-                :class="{'vs-canned-search-stars__star--gold' : gold}"
+                :class="{ 'vs-canned-search-stars__star--gold': gold }"
             >
                 &#9733;
             </span>
@@ -21,7 +21,7 @@
                 v-for="index in min"
                 :key="index"
                 class="vs-canned-search-stars__star"
-                :class="{'vs-canned-search-stars__star--gold' : gold}"
+                :class="{ 'vs-canned-search-stars__star--gold': gold }"
             >
                 &#9733;
             </span>

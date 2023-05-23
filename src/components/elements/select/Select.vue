@@ -37,8 +37,8 @@
                 class="vs-select__element"
                 :required="isRequired"
                 :aria-invalid="$v.inputVal.$anyError || invalid"
-                :aria-describedby="$v.inputVal.$anyError || invalid ?
-                    `error-${fieldName}` : `hint-${fieldName}`"
+                :aria-describedby="$v.inputVal.$anyError || invalid
+                    ? `error-${fieldName}` : `hint-${fieldName}`"
                 :class="errorClass"
                 :autocomplete="autocompleteValue(fieldName)"
             />

@@ -33,7 +33,7 @@
                         </VsButton>
                         <VsRow
                             class="vs-carousel__track"
-                            :style="{ 'transform': `translateX(${trackOffset})` }"
+                            :style="{ transform: `translateX(${trackOffset})` }"
                         >
                             <!-- @slot default slot to contain slides -->
                             <slot />
@@ -66,9 +66,10 @@
                                 :key="index"
                             >
                                 <button
+                                    type="button"
                                     class="vs-carousel__navigation-item"
-                                    :class="index === currentPage + 1 ?
-                                        'vs-carousel__navigation-item--active' : ''"
+                                    :class="index === currentPage + 1
+                                        ? 'vs-carousel__navigation-item--active' : ''"
                                     @click.prevent="sliderNavigate($event, index - 1)"
                                     @keypress.prevent="sliderNavigate($event, index - 1, true)"
                                     tabindex="0"

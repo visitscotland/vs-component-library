@@ -1,5 +1,6 @@
 <template>
     <button
+        type="button"
         class="vs-itinerary-map-marker"
         :class="isHighlighted ? 'active' : ''"
         variant="transparent"

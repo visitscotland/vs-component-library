@@ -14,7 +14,7 @@
             @verify="verified"
             @render="render"
             class="vs-recaptcha__embed"
-            :class="invalid ? 'vs-recaptcha__embed--error' :''"
+            :class="invalid ? 'vs-recaptcha__embed--error' : ''"
             :language="language"
         />
     </div>

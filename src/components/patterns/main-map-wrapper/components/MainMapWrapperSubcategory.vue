@@ -82,7 +82,7 @@ export default {
 
         firstEl.focus();
     },
-    beforeDestroy() {
+    beforeUnmount() {
         this.$root.$off('submitCheckboxData');
     },
     methods: {

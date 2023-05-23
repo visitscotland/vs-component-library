@@ -107,7 +107,7 @@ export default {
         // Close menu on resize screen to fix toggle btn issues
         window.addEventListener('resize', this.closeMenu);
     },
-    beforeDestroy() {
+    beforeUnmount() {
         window.removeEventListener('resize', this.closeMenu);
     },
     methods: {

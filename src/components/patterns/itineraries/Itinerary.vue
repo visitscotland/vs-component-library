@@ -109,7 +109,7 @@ export default {
 
         this.resizeWidth();
     },
-    destroyed() {
+    unmounted() {
         window.removeEventListener('resize', this.resizeWidth);
     },
     methods: {

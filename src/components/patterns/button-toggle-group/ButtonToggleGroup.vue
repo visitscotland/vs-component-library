@@ -13,8 +13,8 @@
             name="radios-btn-default"
             buttons
             @change="toggleChange"
-            :class="groupTabbedInto ?
-                'vs-button-toggle-group--tabbed-focus' : ''"
+            :class="groupTabbedInto
+                ? 'vs-button-toggle-group--tabbed-focus' : ''"
             @focusout="removeTabClass"
         >
             <div

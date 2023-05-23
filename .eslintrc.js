@@ -1,3 +1,5 @@
+require('@rushstack/eslint-patch/modern-module-resolution');
+
 module.exports = {
     root: true,
     env: {
@@ -14,8 +16,8 @@ module.exports = {
     },
     extends: [
         'eslint:recommended',
-        'eslint-config-airbnb-base',
-        'plugin:vue/base',
+        'plugin:vue/vue3-essential',
+        '@vue/eslint-config-airbnb',
         'plugin:storybook/recommended',
     ],
     rules: {

@@ -56,7 +56,7 @@
                     :detail-link="{
                         link: prod.productLink.link,
                         label: prod.productLink.label,
-                        type: prod.productLink.type.toLowerCase()
+                        type: prod.productLink.type.toLowerCase(),
                     }"
                     :description="prod.description"
                     :search-type="searchType"
@@ -100,12 +100,12 @@
                     <VsCannedSearchLogos
                         slot="vsCannedSearchLogos"
                         v-if="showLogos"
-                        :good-to-go-logo="prod.covidInformation && prod.covidInformation.goodToGo ?
-                            prod.covidInformation.goodToGo : null"
-                        :safe-travels-logo="prod.covidInformation &&
-                            prod.covidInformation.safeTravels ?
-                                prod.covidInformation.safeTravels :
-                                null"
+                        :good-to-go-logo="prod.covidInformation && prod.covidInformation.goodToGo 
+                            ? prod.covidInformation.goodToGo : null"
+                        :safe-travels-logo="prod.covidInformation
+                            && prod.covidInformation.safeTravels
+                            ? prod.covidInformation.safeTravels
+                            : null"
                         :access-guide="prod.accessGuide || null"
                         :awards="prod.awards"
                     />

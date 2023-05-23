@@ -1,8 +1,8 @@
 <template>
     <i
         :class="{
-            'fak': true,
-            [`fa-${icon}`]:true,
+            fak: true,
+            [`fa-${icon}`]: true,
             'vs-icon': true,
             [`vs-icon--size-${size}`]: true,
             [`vs-icon--sm-size-${smallSize}`]: smallSize,
@@ -10,7 +10,7 @@
             ['icon--' + orientation]: orientation,
             [`vs-icon--variant-${variant}`]: variant,
         }"
-        :style="[customColour ? {color: customColour} : {}]"
+        :style="[customColour ? { color: customColour } : {}]"
         v-bind="$attrs"
         data-test="vs-icon"
     />

@@ -13,7 +13,7 @@
             :class="[
                 (site.siteUrl == activeSite)
                     ? 'vs-global-menu__list_item--active d-none d-lg-block'
-                    : ''
+                    : '',
             ]"
         >
             <a

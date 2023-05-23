@@ -4,7 +4,7 @@
         class="vs-description-list-term"
         :class="{
             'list-inline-item': inline,
-            'vs-description-list-term--styled': !inline
+            'vs-description-list-term--styled': !inline,
         }"
     >
         <slot />

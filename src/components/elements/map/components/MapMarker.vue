@@ -1,5 +1,6 @@
 <template>
     <button
+        type="button"
         class="vs-map-marker"
         :class="isActive ? 'vs-map-marker--active' : ''"
         data-test="vs-map-marker"

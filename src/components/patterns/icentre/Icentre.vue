@@ -33,7 +33,7 @@
                     cols="12"
                     md="10"
                     offset-md="1"
-                    :class="{'vs-icentre__image-offset': !!$slots['icentreQuote']}"
+                    :class="{ 'vs-icentre__image-offset': !!$slots['icentreQuote'] }"
                 >
                     <!-- @slot Holds the main icentre image (vs-image-with-caption expected) -->
                     <slot

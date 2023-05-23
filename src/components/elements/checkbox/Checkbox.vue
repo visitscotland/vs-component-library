@@ -45,8 +45,8 @@
             @change="emitStatus"
             :required="isRequired"
             :aria-invalid="$v.inputVal.$anyError || invalid"
-            :aria-describedby="$v.inputVal.$anyError || invalid ?
-                `error-${fieldName}` : `hint-${fieldName}`"
+            :aria-describedby="$v.inputVal.$anyError || invalid
+                ? `error-${fieldName}` : `hint-${fieldName}`"
         >
             <span class="vs-checkbox__label">{{ label }}</span>
         </BFormCheckbox>
