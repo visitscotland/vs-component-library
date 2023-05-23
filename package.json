@@ -45,6 +45,7 @@
     "@storybook/testing-library": "^0.1.0",
     "@storybook/vue3": "^7.0.12",
     "@storybook/vue3-vite": "^7.0.12",
+    "@vue/test-utils": "^2.3.2",
     "babel-loader": "^9.1.2",
     "babel-plugin-macros": "^2.8.0",
     "bootstrap": "~4.6.0",
