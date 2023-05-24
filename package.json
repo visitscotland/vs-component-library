@@ -23,7 +23,8 @@
     "lint:fix": "yarn lint \"src/**/*.{js,vue}\" --fix",
     "lint:style": "stylelint",
     "lint:style:all": "lint:style \"src/**/*.{vue,scss}\"",
-    "theo": "theo ./src/tokens/tokens.yml --transform web --format map.scss,scss,raw.json,json --dest ./src/assets/tokens"
+    "theo": "theo ./src/tokens/tokens.yml --transform web --format map.scss,scss,raw.json,json --dest ./src/assets/tokens",
+    "commit": "cz"
   },
   "keywords": [],
   "author": "",
@@ -93,6 +94,8 @@
     "@visitscotland/product-search": "^0.1.9",
     "axios": "^1.4.0",
     "bootstrap-vue-next": "^0.8.7",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "glob": "^8.1.0",
     "lodash": "^4.17.21",
     "mapbox-gl": "^2.14.1",
@@ -119,5 +122,10 @@
       "node_modules"
     ],
     "jest.pathToJest": "node_modules/.bin/jest"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
