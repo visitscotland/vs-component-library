@@ -14,6 +14,9 @@ const config = {
     "@storybook/addon-interactions",
     "@storybook/addon-a11y",
   ],
+  staticDirs: [
+    '../src/assets'
+  ],
   framework: {
     name: "@storybook/vue3-vite",
     options: {},

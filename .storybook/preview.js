@@ -1,6 +1,6 @@
 /** @type { import('@storybook/vue3').Preview } */
 
-import '../src/assets/fonts/fonts.css';
+import '@/assets/fonts/fonts.scss';
 
 const preview = {
   parameters: {
