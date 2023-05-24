@@ -78,8 +78,8 @@ import {
     VsRow,
     VsCol,
 } from '@components/elements/grid';
-import VsIcon from '@components/elements/icon/Icon';
-import VsAccordionItem from '@components/patterns/accordion/components/AccordionItem';
+import VsIcon from '@components/elements/icon/Icon.vue';
+import VsAccordionItem from '@components/patterns/accordion/components/AccordionItem.vue';
 
 /**
  * Itinerary Day list items.

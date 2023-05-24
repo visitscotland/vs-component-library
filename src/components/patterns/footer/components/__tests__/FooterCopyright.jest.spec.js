@@ -1,6 +1,6 @@
 import { shallowMount, mount } from '@vue/test-utils';
 
-import VsFooterCopyright from '../FooterCopyright';
+import VsFooterCopyright from '../FooterCopyright.vue';
 
 const slotContent = 'Some copyright info';
 

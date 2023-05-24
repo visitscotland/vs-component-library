@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsTableFooter from '../TableFooter';
+import VsTableFooter from '../TableFooter.vue';
 
 const slotContent = 'A table footer goes here';
 

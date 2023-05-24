@@ -49,7 +49,7 @@
 <script>
 import designTokens from '@/assets/tokens/tokens.json';
 import { VsRow, VsCol } from '@components/elements/grid';
-import VsCaptionImageMap from './components/CaptionImageMap';
+import VsCaptionImageMap from './components/CaptionImageMap.vue';
 
 /**
  * Captions are used to briefly describe an image or other media such as a video.

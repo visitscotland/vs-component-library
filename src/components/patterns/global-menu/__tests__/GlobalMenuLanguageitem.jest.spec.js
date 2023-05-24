@@ -1,6 +1,6 @@
 import { shallowMount, mount } from '@vue/test-utils';
-import VsDropdownItem from '@components/patterns/dropdown/components/DropdownItem';
-import VsGlobalMenuLanguageItem from '../components/GlobalMenuLanguageItem';
+import VsDropdownItem from '@components/patterns/dropdown/components/DropdownItem.vue';
+import VsGlobalMenuLanguageItem from '../components/GlobalMenuLanguageItem.vue';
 
 const factoryShallowMount = (propsData) => shallowMount(VsGlobalMenuLanguageItem, {
     slots: {

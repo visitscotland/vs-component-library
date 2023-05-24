@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import moxios from 'moxios';
-import VsSkiScotlandStatus from '../SkiScotlandStatus';
+import VsSkiScotlandStatus from '../SkiScotlandStatus.vue';
 
 const sampleSkiData = require('../../test-assets/sample-ski-data.json');
 const sampleCairngormsData = require('../../test-assets/sample-cairngorms-ski-data.json');

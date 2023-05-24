@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsRow from '../Row';
+import VsRow from '../Row.vue';
 
 const slotText = 'Row text';
 

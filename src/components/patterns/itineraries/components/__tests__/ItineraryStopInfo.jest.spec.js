@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsItineraryStopInfo from '../ItineraryStopInfo';
+import VsItineraryStopInfo from '../ItineraryStopInfo.vue';
 import openingTimesData from './data/openingTimesData.json';
 import openingTimesDataClosed from './data/openingTimesDataClosed.json';
 

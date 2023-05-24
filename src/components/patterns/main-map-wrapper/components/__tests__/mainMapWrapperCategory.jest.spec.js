@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsMainMapWrapperCategory from '../MainMapWrapperCategory';
+import VsMainMapWrapperCategory from '../MainMapWrapperCategory.vue';
 
 const factoryShallowMount = () => shallowMount(VsMainMapWrapperCategory, {
     propsData: {

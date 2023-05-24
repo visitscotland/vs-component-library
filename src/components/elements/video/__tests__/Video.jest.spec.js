@@ -1,5 +1,5 @@
 import { shallowMount, mount } from '@vue/test-utils';
-import VsVideo from '../Video';
+import VsVideo from '../Video.vue';
 
 const videoId = 'C0DPdy98e4c';
 const singleMinuteDescriptor = '%s minute';

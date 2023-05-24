@@ -35,8 +35,8 @@
 </template>
 
 <script>
-import VsSvg from '@components/elements/svg';
-import VsLink from '@components/elements/link';
+import VsSvg from '@components/elements/svg/Svg.vue';
+import VsLink from '@components/elements/link/Link.vue';
 
 /**
  * @displayName Carbon Form Tip

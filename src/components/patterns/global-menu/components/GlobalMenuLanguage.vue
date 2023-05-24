@@ -36,8 +36,8 @@
 </template>
 
 <script>
-import VsIcon from '@components/elements/icon/Icon';
-import VsDropdown from '@components/patterns/dropdown/Dropdown';
+import VsIcon from '@components/elements/icon/Icon.vue';
+import VsDropdown from '@components/patterns/dropdown/Dropdown.vue';
 import cookieMixin from '../../../../mixins/cookieMixin';
 
 /**

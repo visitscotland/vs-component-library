@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsCannedSearchStars from '../CannedSearchStars';
+import VsCannedSearchStars from '../CannedSearchStars.vue';
 
 const factoryShallowMount = (propsData) => shallowMount(VsCannedSearchStars, {
     propsData: {

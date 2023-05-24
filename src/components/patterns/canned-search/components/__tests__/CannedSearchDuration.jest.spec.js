@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import VsCannedSearchDuration from '../CannedSearchDuration';
+import VsCannedSearchDuration from '../CannedSearchDuration.vue';
 
 const durationIntro = 'Length';
 const duration = '2 hours';

@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsMainMapWrapperIcon from '../MainMapWrapperIcon';
+import VsMainMapWrapperIcon from '../MainMapWrapperIcon.vue';
 
 const factoryShallowMount = () => shallowMount(VsMainMapWrapperIcon, {
     propsData: {

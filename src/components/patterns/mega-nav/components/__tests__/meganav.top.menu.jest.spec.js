@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsMegaNavTopMenu from '../MegaNavTopMenu';
+import VsMegaNavTopMenu from '../MegaNavTopMenu.vue';
 
 const factoryShallowMount = () => shallowMount(VsMegaNavTopMenu, {
     slots: {

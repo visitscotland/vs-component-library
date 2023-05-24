@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import VsIcon from '@components/elements/icon/Icon';
+import VsIcon from '@components/elements/icon/Icon.vue';
 import favouritesStore from './favourites.store';
 
 /**

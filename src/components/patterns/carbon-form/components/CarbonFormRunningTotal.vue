@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import VsIcon from '@components/elements/icon';
+import VsIcon from '@components/elements/icon/Icon.vue';
 import {
     VsContainer, VsCol, VsRow,
 } from '@components/elements/grid';

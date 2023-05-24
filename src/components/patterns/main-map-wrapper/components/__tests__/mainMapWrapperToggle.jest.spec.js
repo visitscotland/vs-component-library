@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsMainMapWrapperToggle from '../MainMapWrapperToggle';
+import VsMainMapWrapperToggle from '../MainMapWrapperToggle.vue';
 
 const factoryShallowMount = () => shallowMount(VsMainMapWrapperToggle);
 

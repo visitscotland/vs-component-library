@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsSocialShare from '../SocialShare';
+import VsSocialShare from '../SocialShare.vue';
 
 const defaultSlotText = 'Share items content';
 const url = 'https://www.visitscotland.com';

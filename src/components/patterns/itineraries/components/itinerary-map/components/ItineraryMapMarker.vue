@@ -1,5 +1,6 @@
 <template>
     <button
+        type="button"
         class="vs-itinerary-map-marker"
         :class="isHighlighted ? 'active' : ''"
         variant="transparent"
@@ -29,7 +30,7 @@
 
 <script>
 import itinerariesStore from '@components/patterns/itineraries/itineraries.store';
-import VsIcon from '@components/elements/icon/Icon';
+import VsIcon from '@components/elements/icon/Icon.vue';
 
 /**
  * TODO: Document usage

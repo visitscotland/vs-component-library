@@ -42,7 +42,7 @@
 </style>
 
 <script>
-import VsButton from '@components/elements/button/Button';
+import VsButton from '@components/elements/button/Button.vue';
 import VsSvg from '@components/elements/svg/Svg';
 
 /**

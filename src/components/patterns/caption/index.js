@@ -1,5 +1,5 @@
-import VsCaption from './Caption';
-import VsCaptionImageMap from './components/CaptionImageMap';
+import VsCaption from './Caption.vue';
+import VsCaptionImageMap from './components/CaptionImageMap.vue';
 
 export default {
     VsCaption,

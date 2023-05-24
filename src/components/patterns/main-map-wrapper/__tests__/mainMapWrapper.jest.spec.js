@@ -2,7 +2,7 @@
 
 import { shallowMount } from '@vue/test-utils';
 import axios from 'axios';
-import VsMainMapWrapper from '../MainMapWrapper';
+import VsMainMapWrapper from '../MainMapWrapper.vue';
 import placesJson from './data/places.json';
 import filtersJson from './data/filters.json';
 // import filtersSubcatJson from './data/fitlersSubcat.json';

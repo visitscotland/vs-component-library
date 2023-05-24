@@ -37,7 +37,7 @@
 
 <script>
 import { VsCol, VsRow } from '@components/elements/grid';
-import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWrapper';
+import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWrapper.vue';
 /**
  * The ArticleSection component is used within an Article to alternate paragraphs.
  * Each section can have one ArticleSidebar which is automatically

@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsArticleSection from '../ArticleSection';
+import VsArticleSection from '../ArticleSection.vue';
 
 const defaultSlotText = 'Article section content';
 const sidebarSlotText = 'Article sidebar content';

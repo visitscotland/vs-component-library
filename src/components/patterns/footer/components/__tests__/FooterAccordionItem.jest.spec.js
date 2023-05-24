@@ -1,6 +1,6 @@
 import { shallowMount, mount } from '@vue/test-utils';
 
-import VsFooterAccordionItem from '../FooterAccordionItem';
+import VsFooterAccordionItem from '../FooterAccordionItem.vue';
 
 const slotContent = 'Default slot content';
 const iconOpenSlotContent = 'An open icon';

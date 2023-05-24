@@ -50,8 +50,8 @@
 
 <script>
 
-import VsIcon from '@components/elements/icon/Icon';
-import VsLink from '@components/elements/link/Link';
+import VsIcon from '@components/elements/icon/Icon.vue';
+import VsLink from '@components/elements/link/Link.vue';
 
 /**
  * Itinerary stop information. Dynamically shows whether a stop is open,

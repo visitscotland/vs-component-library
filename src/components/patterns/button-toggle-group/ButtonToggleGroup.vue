@@ -13,8 +13,8 @@
             name="radios-btn-default"
             buttons
             @change="toggleChange"
-            :class="groupTabbedInto ?
-                'vs-button-toggle-group--tabbed-focus' : ''"
+            :class="groupTabbedInto
+                ? 'vs-button-toggle-group--tabbed-focus' : ''"
             @focusout="removeTabClass"
         >
             <div
@@ -48,7 +48,7 @@ import {
     BFormRadioGroup,
     BFormRadio,
 } from 'bootstrap-vue-next';
-import VsIcon from '@components/elements/icon/Icon';
+import VsIcon from '@components/elements/icon/Icon.vue';
 
 /**
  * A group of buttons that allow only one to be selected at a time

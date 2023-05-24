@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsFooterAccordionItem from '../Footer';
+import VsFooterAccordionItem from '../Footer.vue';
 
 const socialSlot = 'Social menu';
 const accordionSlot = 'Accordion items';

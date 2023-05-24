@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsPageIntro from '../PageIntro';
+import VsPageIntro from '../PageIntro.vue';
 
 const factoryShallowMount = (slotData) => shallowMount(VsPageIntro, {
     propsData: {

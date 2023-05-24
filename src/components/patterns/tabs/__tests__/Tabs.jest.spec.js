@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsTabs from '../Tabs';
+import VsTabs from '../Tabs.vue';
 
 const defaultSlot = 'Default Slot';
 const factoryShallowMount = () => shallowMount(VsTabs);

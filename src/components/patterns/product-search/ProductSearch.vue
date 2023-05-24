@@ -24,10 +24,10 @@
                     class="vs-product-search__col vs-product-search__col--right"
                     xl="5"
                 >
-                    <!-- <VsProductSearchEmbed
+                    <VsProductSearchEmbed
                         class="vs-product-search__widget"
                         :config="configArr"
-                    /> -->
+                    />
 
                     <VsWarning class="vs-product-search__no-js">
                         {{ noJsMessage }}

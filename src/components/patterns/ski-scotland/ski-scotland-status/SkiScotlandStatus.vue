@@ -487,23 +487,23 @@
 
 <script>
 
-import VsTable from '@components/patterns/table/Table';
-import VsTableHead from '@components/patterns/table/components/TableHead';
-import VsTableHeaderCell from '@components/patterns/table/components/TableHeaderCell';
-import VsTableBody from '@components/patterns/table/components/TableBody';
-import VsTableRow from '@components/patterns/table/components/TableRow';
-import VsTableDataCell from '@components/patterns/table/components/TableDataCell';
-import VsTableFooter from '@components/patterns/table/components/TableFooter';
-import VsAccordion from '@components/patterns/accordion/Accordion';
-import VsAccordionItem from '@components/patterns/accordion/components/AccordionItem';
-import VsWarning from '@components/patterns/warning/Warning';
+import VsTable from '@components/patterns/table/Table.vue';
+import VsTableHead from '@components/patterns/table/components/TableHead.vue';
+import VsTableHeaderCell from '@components/patterns/table/components/TableHeaderCell.vue';
+import VsTableBody from '@components/patterns/table/components/TableBody.vue';
+import VsTableRow from '@components/patterns/table/components/TableRow.vue';
+import VsTableDataCell from '@components/patterns/table/components/TableDataCell.vue';
+import VsTableFooter from '@components/patterns/table/components/TableFooter.vue';
+import VsAccordion from '@components/patterns/accordion/Accordion.vue';
+import VsAccordionItem from '@components/patterns/accordion/components/AccordionItem.vue';
+import VsWarning from '@components/patterns/warning/Warning.vue';
 import {
     VsContainer, VsRow, VsCol,
 } from '@components/elements/grid';
-import VsIcon from '@components/elements/icon/Icon';
-import VsLink from '@components/elements/link/Link';
-import VsHeading from '@components/elements/heading/Heading';
-import VsLoadingSpinner from '@components/elements/loading-spinner/LoadingSpinner';
+import VsIcon from '@components/elements/icon/Icon.vue';
+import VsLink from '@components/elements/link/Link.vue';
+import VsHeading from '@components/elements/heading/Heading.vue';
+import VsLoadingSpinner from '@components/elements/loading-spinner/LoadingSpinner.vue';
 
 const axios = require('axios');
 

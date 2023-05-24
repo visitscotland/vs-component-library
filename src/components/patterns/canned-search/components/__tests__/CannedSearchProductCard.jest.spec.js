@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import VsCannedSearchProductCard from '../CannedSearchProductCard';
+import VsCannedSearchProductCard from '../CannedSearchProductCard.vue';
 
 const imgSrc = 'https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm';
 const title = 'Arden House';

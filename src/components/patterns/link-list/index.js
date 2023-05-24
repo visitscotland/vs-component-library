@@ -1,5 +1,5 @@
-import VsLinkList from './LinkList';
-import VsLinkListItem from './components/LinkListItem';
+import VsLinkList from './LinkList.vue';
+import VsLinkListItem from './components/LinkListItem.vue';
 
 export default {
     VsLinkList,

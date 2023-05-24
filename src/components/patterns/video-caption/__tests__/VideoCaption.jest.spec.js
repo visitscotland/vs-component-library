@@ -1,5 +1,5 @@
 import { shallowMount, createWrapper } from '@vue/test-utils';
-import VsVideoCaption from '../VideoCaption';
+import VsVideoCaption from '../VideoCaption.vue';
 
 jest.mock('../../../../stores/video.store.js');
 

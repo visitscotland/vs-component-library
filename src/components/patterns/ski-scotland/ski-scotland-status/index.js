@@ -1,4 +1,4 @@
-import VsSkiScotlandStatus from './SkiScotlandStatus';
+import VsSkiScotlandStatus from './SkiScotlandStatus.vue';
 
 export default {
     VsSkiScotlandStatus,

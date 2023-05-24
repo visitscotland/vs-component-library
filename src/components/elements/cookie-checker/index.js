@@ -1,3 +1,3 @@
-import VsCookieChecker from './CookieChecker';
+import VsCookieChecker from './CookieChecker.vue';
 
 export default VsCookieChecker;

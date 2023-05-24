@@ -14,6 +14,7 @@
             <span v-html="fallbackMessage" />
             <!-- eslint-enable vue/no-v-html -->
             <button
+                type="button"
                 id="ot-sdk-btn"
                 class="ot-sdk-show-settings"
             >

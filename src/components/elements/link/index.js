@@ -1,1 +1,3 @@
-export { default } from './Link';
+import VsLink from './Link.vue';
+
+export default VsLink;

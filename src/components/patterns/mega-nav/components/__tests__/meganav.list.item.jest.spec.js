@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsMegaNavListItem from '../MegaNavListItem';
+import VsMegaNavListItem from '../MegaNavListItem.vue';
 
 const factoryShallowMount = (propsData) => shallowMount(VsMegaNavListItem, {
     propsData: {

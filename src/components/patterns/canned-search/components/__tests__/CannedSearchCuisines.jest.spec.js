@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsCannedSearchCuisines from '../CannedSearchCuisines';
+import VsCannedSearchCuisines from '../CannedSearchCuisines.vue';
 
 const cuisines = [
     {

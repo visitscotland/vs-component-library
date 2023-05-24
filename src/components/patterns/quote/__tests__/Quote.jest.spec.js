@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsQuote from '../Quote';
+import VsQuote from '../Quote.vue';
 
 const factoryShallowMount = (slotsData) => shallowMount(VsQuote, {
     slots: {

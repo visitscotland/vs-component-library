@@ -251,19 +251,19 @@
 </template>
 
 <script>
-import VsImg from '@components/elements/img/Img';
-import VsHeading from '@components/elements/heading/Heading';
-import VsIcon from '@components/elements/icon/Icon';
-import VsButton from '@components/elements/button/Button';
-import VsWarning from '@components/patterns/warning/Warning';
-import VsLoadingSpinner from '@components/elements/loading-spinner/LoadingSpinner';
-import VsTable from '@components/patterns/table/Table';
-import VsTableHead from '@components/patterns/table/components/TableHead';
-import VsTableHeaderCell from '@components/patterns/table/components/TableHeaderCell';
-import VsTableBody from '@components/patterns/table/components/TableBody';
-import VsTableRow from '@components/patterns/table/components/TableRow';
-import VsTableDataCell from '@components/patterns/table/components/TableDataCell';
-import VsTableFooter from '@components/patterns/table/components/TableFooter';
+import VsImg from '@components/elements/img/Img.vue';
+import VsHeading from '@components/elements/heading/Heading.vue';
+import VsIcon from '@components/elements/icon/Icon.vue';
+import VsButton from '@components/elements/button/Button.vue';
+import VsWarning from '@components/patterns/warning/Warning.vue';
+import VsLoadingSpinner from '@components/elements/loading-spinner/LoadingSpinner.vue';
+import VsTable from '@components/patterns/table/Table.vue';
+import VsTableHead from '@components/patterns/table/components/TableHead.vue';
+import VsTableHeaderCell from '@components/patterns/table/components/TableHeaderCell.vue';
+import VsTableBody from '@components/patterns/table/components/TableBody.vue';
+import VsTableRow from '@components/patterns/table/components/TableRow.vue';
+import VsTableDataCell from '@components/patterns/table/components/TableDataCell.vue';
+import VsTableFooter from '@components/patterns/table/components/TableFooter.vue';
 
 const axios = require('axios');
 

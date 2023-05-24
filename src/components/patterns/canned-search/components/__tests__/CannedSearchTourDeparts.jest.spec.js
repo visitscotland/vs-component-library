@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsCannedSearchTourDeparts from '../CannedSearchTourDeparts';
+import VsCannedSearchTourDeparts from '../CannedSearchTourDeparts.vue';
 
 const label = 'Departs';
 

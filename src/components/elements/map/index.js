@@ -1,5 +1,5 @@
-import VsMap from './Map';
-import VsMapMarker from './components/MapMarker';
+import VsMap from './Map.vue';
+import VsMapMarker from './components/MapMarker.vue';
 
 export default {
     VsMap,

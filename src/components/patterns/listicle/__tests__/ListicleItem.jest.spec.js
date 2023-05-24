@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsListicleItem from '../ListicleItem';
+import VsListicleItem from '../ListicleItem.vue';
 
 const hippoDetailsSlot = 'Hippo details slot';
 const imageSlot = 'Image slot';

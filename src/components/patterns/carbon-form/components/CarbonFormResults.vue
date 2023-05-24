@@ -141,9 +141,9 @@
 import { PieChart } from 'vue-chart-3';
 
 import { VsCol, VsRow } from '@components/elements/grid';
-import VsIcon from '@components/elements/icon';
-import VsImg from '@components/elements/img';
-import VsCarbonFormTip from './CarbonFormTip';
+import VsIcon from '@components/elements/icon/Icon.vue';
+import VsImg from '@components/elements/img/Img.vue';
+import VsCarbonFormTip from './CarbonFormTip.vue';
 
 /**
  * @displayName Carbon Form Results

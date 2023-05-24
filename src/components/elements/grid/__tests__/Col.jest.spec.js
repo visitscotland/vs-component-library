@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsCol from '../Col';
+import VsCol from '../Col.vue';
 
 const slotText = 'Col text';
 

@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 import cookieMixin from '../../../../mixins/cookieMixin';
 
-import VsBanner from '../Banner';
+import VsBanner from '../Banner.vue';
 
 const textSlotText = 'Banner text';
 const ctaSlotText = 'Banner link';

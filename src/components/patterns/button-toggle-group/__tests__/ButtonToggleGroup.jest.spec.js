@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import VsButtonToggleGroup from '../ButtonToggleGroup';
+import VsButtonToggleGroup from '../ButtonToggleGroup.vue';
 
 const factoryMount = () => mount(VsButtonToggleGroup, {
     propsData: {

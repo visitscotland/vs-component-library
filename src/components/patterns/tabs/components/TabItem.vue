@@ -18,7 +18,7 @@
 
 <script>
 
-import VsHeading from '@components/elements/heading/Heading';
+import VsHeading from '@components/elements/heading/Heading.vue';
 import { BTab } from 'bootstrap-vue-next';
 /**
  * Tab item for use within the Tabs component.

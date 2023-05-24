@@ -28,14 +28,14 @@ function extractAllEntriesFromFileDescriptor(FileDescriptor) {
         (acc, val) => extend({
         }, acc, extractEntriesFromOutputFile(val)),
         {
-        }
+        },
     );
 }
 
 function mapComponentEntryFiles(component) {
     const fileSets = flatMap(get(component, 'chunks'), 'files');
 
-    let flattenedFiles = [];
+    const flattenedFiles = [];
 
     for (const set of fileSets) {
         for (const element of set) {

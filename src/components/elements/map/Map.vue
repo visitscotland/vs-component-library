@@ -48,10 +48,10 @@
 
 <script>
 import Vue from 'vue';
-import VsWarning from '@components/patterns/warning/Warning';
-import VsLoading from '@components/elements/loading-spinner/LoadingSpinner';
+import VsWarning from '@components/patterns/warning/Warning.vue';
+import VsLoading from '@components/elements/loading-spinner/LoadingSpinner.vue';
 import osBranding from '@/utils/os-branding';
-import VsMapMarker from './components/MapMarker';
+import VsMapMarker from './components/MapMarker.vue';
 import mapStore from '../../../stores/map.store';
 
 let mapboxgl = null;

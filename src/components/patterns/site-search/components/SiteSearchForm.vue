@@ -71,9 +71,9 @@
 </template>
 
 <script>
-import VsIcon from '@components/elements/icon/Icon';
-import VsInput from '@components/elements/input/Input';
-import VsButton from '@components/elements/button/Button';
+import VsIcon from '@components/elements/icon/Icon.vue';
+import VsInput from '@components/elements/input/Input.vue';
+import VsButton from '@components/elements/button/Button.vue';
 import {
     VsCol, VsRow, VsContainer,
 } from '@components/elements/grid';

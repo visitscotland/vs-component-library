@@ -1,4 +1,4 @@
-import VsToggleButton from './ToggleButton';
+import VsToggleButton from './ToggleButton.vue';
 
 export default {
     VsToggleButton,

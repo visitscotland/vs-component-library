@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsWarning from '../Warning';
+import VsWarning from '../Warning.vue';
 
 const defaultSlotText = 'There is no javascript';
 

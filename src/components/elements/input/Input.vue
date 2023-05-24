@@ -40,8 +40,8 @@
             :autocomplete="autocompleteValue(fieldName)"
             :v="inputVal"
             :aria-invalid="$v.inputVal.$anyError || invalid"
-            :aria-describedby="$v.inputVal.$anyError || invalid ?
-                `error-${fieldName}` : `hint-${fieldName}`"
+            :aria-describedby="$v.inputVal.$anyError || invalid
+                ? `error-${fieldName}` : `hint-${fieldName}`"
             :maxlength="validationRules.maxLength ? validationRules.maxLength : null"
             :minlength="validationRules.minLength ? validationRules.minLength : null"
             @blur="validateErrors"
@@ -68,7 +68,7 @@
 import Vue from 'vue';
 import Vuelidate from 'vuelidate';
 import { BFormInput } from 'bootstrap-vue-next';
-import VsButton from '../button/Button';
+import VsButton from '@/components/elements/button/Button.vue';
 import validateFormElementMixin from '../../../mixins/validateFormElementMixin';
 
 Vue.use(Vuelidate);

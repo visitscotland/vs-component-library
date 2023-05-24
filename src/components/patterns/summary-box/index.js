@@ -1,6 +1,6 @@
-import VsSummaryBoxList from './SummaryBoxList';
-import VsSummaryBoxListItem from './components/SummaryBoxListItem';
-import VsSummaryBoxDistanceListItem from './components/SummaryBoxDistanceListItem';
+import VsSummaryBoxList from './SummaryBoxList.vue';
+import VsSummaryBoxListItem from './components/SummaryBoxListItem.vue';
+import VsSummaryBoxDistanceListItem from './components/SummaryBoxDistanceListItem.vue';
 
 export {
     VsSummaryBoxList,

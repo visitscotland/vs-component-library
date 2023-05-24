@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import VsTag from '../Tag';
+import VsTag from '../Tag.vue';
 
 const slotContent = 'Slot Content';
 

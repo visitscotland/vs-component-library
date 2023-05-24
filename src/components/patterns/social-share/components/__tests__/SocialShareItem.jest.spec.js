@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsSocialShareItem from '../SocialShareItem';
+import VsSocialShareItem from '../SocialShareItem.vue';
 
 const url = 'https://www.visitscotland.com';
 const title = 'VisitScotland';

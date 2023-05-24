@@ -87,9 +87,9 @@
 </template>
 
 <script>
-import VsButton from '@components/elements/button/Button';
-import VsHeading from '@components/elements/heading/Heading';
-import VsModuleWrapper from '@components/patterns/module-wrapper/ModuleWrapper';
+import VsButton from '@components/elements/button/Button.vue';
+import VsHeading from '@components/elements/heading/Heading.vue';
+import VsModuleWrapper from '@components/patterns/module-wrapper/ModuleWrapper.vue';
 import {
     VsRow, VsContainer, VsCol,
 } from '@components/elements/grid';

@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsCannedSearchBadges from '../CannedSearchBadges';
+import VsCannedSearchBadges from '../CannedSearchBadges.vue';
 
 const badgeOne = 'B and B';
 const badgeTwo = 'Offer';

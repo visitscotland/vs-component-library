@@ -1,4 +1,4 @@
-import VsMegalinkLinkList from './MegalinkLinkList';
+import VsMegalinkLinkList from './MegalinkLinkList.vue';
 
 export default {
     VsMegalinkLinkList,

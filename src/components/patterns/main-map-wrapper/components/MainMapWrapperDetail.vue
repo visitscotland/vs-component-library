@@ -45,8 +45,8 @@
 </template>
 
 <script>
-import VsImg from '@components/elements/img/Img';
-import VsHeading from '@components/elements/heading/Heading';
+import VsImg from '@components/elements/img/Img.vue';
+import VsHeading from '@components/elements/heading/Heading.vue';
 
 /**
  * Renders a details of a place in the map component.

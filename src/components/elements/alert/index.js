@@ -1,4 +1,4 @@
-import VsAlert from './Alert';
+import VsAlert from './Alert.vue';
 
 export default {
     VsAlert,

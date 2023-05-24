@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsMainMapWrapperButtons from '../MainMapWrapperButtons';
+import VsMainMapWrapperButtons from '../MainMapWrapperButtons.vue';
 
 const factoryShallowMount = () => shallowMount(VsMainMapWrapperButtons, {
     propsData: {

@@ -8,7 +8,7 @@
 
 <script>
 import itinerariesStore from '@components/patterns/itineraries/itineraries.store';
-import VsItineraryMapMarker from '@components/patterns/itineraries/components/itinerary-map/components/ItineraryMapMarker';
+import VsItineraryMapMarker from '@components/patterns/itineraries/components/itinerary-map/components/ItineraryMapMarker.vue';
 import Vue from 'vue';
 import osBranding from '@/utils/os-branding';
 
@@ -123,7 +123,7 @@ export default {
             });
         });
     },
-    destroyed() {
+    unmounted() {
         window.removeEventListener('resize', this.onResize);
     },
     methods: {

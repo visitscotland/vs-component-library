@@ -1,5 +1,5 @@
-import VsSocialShare from './SocialShare';
-import VsSocialShareItem from './components/SocialShareItem';
+import VsSocialShare from './SocialShare.vue';
+import VsSocialShareItem from './components/SocialShareItem.vue';
 
 export default {
     VsSocialShare,

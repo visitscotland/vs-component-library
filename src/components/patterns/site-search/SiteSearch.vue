@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import VsButton from '@components/elements/button/Button';
+import VsButton from '@components/elements/button/Button.vue';
 /**
  * Site search lets users find relevant information using
  * a word or phrase to find content.

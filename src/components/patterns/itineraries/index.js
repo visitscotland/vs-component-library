@@ -1,10 +1,10 @@
-import VsItinerary from './Itinerary';
-import VsItineraryDay from './components/ItineraryDay';
-import VsItineraryStop from './components/ItineraryStop';
-import VsItineraryStopInfo from './components/ItineraryStopInfo';
-import VsItineraryTips from './components/ItineraryTips';
-import VsItineraryBorderOverlapWrapper from './components/ItineraryBorderOverlapWrapper';
-import VsItineraryMap from './components/itinerary-map/ItineraryMap';
+import VsItinerary from './Itinerary.vue';
+import VsItineraryDay from './components/ItineraryDay.vue';
+import VsItineraryStop from './components/ItineraryStop.vue';
+import VsItineraryStopInfo from './components/ItineraryStopInfo.vue';
+import VsItineraryTips from './components/ItineraryTips.vue';
+import VsItineraryBorderOverlapWrapper from './components/ItineraryBorderOverlapWrapper.vue';
+import VsItineraryMap from './components/itinerary-map/ItineraryMap.vue';
 
 export {
     VsItinerary,

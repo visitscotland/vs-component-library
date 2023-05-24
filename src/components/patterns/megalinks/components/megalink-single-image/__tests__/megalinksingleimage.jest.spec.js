@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsMegalinkSingleImage from '../MegalinkSingleImage';
+import VsMegalinkSingleImage from '../MegalinkSingleImage.vue';
 
 const vsSingleImageSlot = '<p>Image goes here</p>';
 const vsSingleImageContentSlot = '<p>This is the content for the single image component</p>';

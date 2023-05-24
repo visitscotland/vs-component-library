@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsArticleSidebar from '../ArticleSidebar';
+import VsArticleSidebar from '../ArticleSidebar.vue';
 
 const quoteSlotText = 'Article sidebar quote';
 const imgSlotText = 'Article sidebar img';

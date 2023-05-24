@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import VsLink from '@components/elements/link/Link';
+import VsLink from '@components/elements/link/Link.vue';
 import videoStore from '../../../../stores/video.store';
 
 /**

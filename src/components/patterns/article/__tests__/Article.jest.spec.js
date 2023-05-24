@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsArticle from '../Article';
+import VsArticle from '../Article.vue';
 
 const defaultSlotText = 'Article content';
 const introSlotText = 'Article intro';

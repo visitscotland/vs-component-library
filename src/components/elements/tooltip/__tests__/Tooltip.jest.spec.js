@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsTooltip from '../Tooltip';
+import VsTooltip from '../Tooltip.vue';
 
 const slotText = 'Tooltip content';
 

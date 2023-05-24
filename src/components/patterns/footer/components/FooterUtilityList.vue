@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import VsList from '@components/elements/list/List';
+import VsList from '@components/elements/list/List.vue';
 import {
     VsRow, VsContainer, VsCol,
 } from '@components/elements/grid';

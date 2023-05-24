@@ -1,4 +1,4 @@
-import VsCookiesFallback from './CookiesFallback';
+import VsCookiesFallback from './CookiesFallback.vue';
 
 export default {
     VsCookiesFallback,

@@ -1,5 +1,5 @@
-import VsDescriptionList from './DescriptionList';
-import VsDescriptionListItem from './components/DescriptionListItem';
+import VsDescriptionList from './DescriptionList.vue';
+import VsDescriptionListItem from './components/DescriptionListItem.vue';
 
 export {
     VsDescriptionList,

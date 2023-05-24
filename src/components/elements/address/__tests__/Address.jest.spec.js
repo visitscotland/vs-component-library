@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsAddress from '../Address';
+import VsAddress from '../Address.vue';
 
 const defaultSlot = 'Default Slot';
 

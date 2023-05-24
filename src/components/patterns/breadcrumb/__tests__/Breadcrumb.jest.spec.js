@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsBreadcrumb from '../Breadcrumb';
+import VsBreadcrumb from '../Breadcrumb.vue';
 
 const slotText = 'Breadcrumb text';
 

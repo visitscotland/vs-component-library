@@ -1,5 +1,5 @@
-import VsProductSearch from './ProductSearch';
-import VsProductSearchEmbed from './components/ProductSearchEmbed';
+import VsProductSearch from './ProductSearch.vue';
+import VsProductSearchEmbed from './components/ProductSearchEmbed.vue';
 
 export default {
     VsProductSearch,

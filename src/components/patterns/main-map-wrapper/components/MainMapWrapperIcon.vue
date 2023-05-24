@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import VsIcon from '@/components/elements/icon/Icon';
+import VsIcon from '@/components/elements/icon/Icon.vue';
 import mapIconMapping from '../../../../mixins/mapIconMapping';
 
 export default {

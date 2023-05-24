@@ -1,3 +1,3 @@
-import VsSelect from './Select';
+import VsSelect from './Select.vue';
 
 export default VsSelect;

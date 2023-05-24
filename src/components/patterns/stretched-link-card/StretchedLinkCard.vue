@@ -175,11 +175,11 @@
 </template>
 
 <script>
-import VsHeading from '@components/elements/heading/Heading';
-import VsLink from '@components/elements/link/Link';
-import VsImg from '@components/elements/img/Img';
-import VsButton from '@components/elements/button/Button';
-import VsWarning from '@components/patterns/warning/Warning';
+import VsHeading from '@components/elements/heading/Heading.vue';
+import VsLink from '@components/elements/link/Link.vue';
+import VsImg from '@components/elements/img/Img.vue';
+import VsButton from '@components/elements/button/Button.vue';
+import VsWarning from '@components/patterns/warning/Warning.vue';
 import jsIsDisabled from '@/utils/js-is-disabled';
 import videoStore from '../../../stores/video.store';
 import verifyCookiesMixin from '../../../mixins/verifyCookiesMixin';

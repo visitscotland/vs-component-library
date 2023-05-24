@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import moxios from 'moxios';
-import VsMegaNavFeaturedEvent from '../MegaNavFeaturedEvent';
+import VsMegaNavFeaturedEvent from '../MegaNavFeaturedEvent.vue';
 
 const id = '2573081';
 const name = 'Harry Panto: Return to Frogwarts';

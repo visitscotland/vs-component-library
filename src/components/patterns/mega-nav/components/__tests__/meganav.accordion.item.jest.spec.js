@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsMegaNavAccordionItem from '../MegaNavAccordionItem';
+import VsMegaNavAccordionItem from '../MegaNavAccordionItem.vue';
 
 const ctaLinkProp = 'https://www.visitscotland.com';
 const ctaTextProp = 'All things to do';

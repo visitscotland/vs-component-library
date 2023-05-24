@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import VsModuleWrapper from '../ModuleWrapper';
+import VsModuleWrapper from '../ModuleWrapper.vue';
 
 const factoryShallowMount = (slotData) => shallowMount(VsModuleWrapper, {
     ...slotData,

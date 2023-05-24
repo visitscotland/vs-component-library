@@ -1,5 +1,5 @@
 import { shallowMount, mount } from '@vue/test-utils';
-import VsGlobalMenuLanguage from '../components/GlobalMenuLanguage';
+import VsGlobalMenuLanguage from '../components/GlobalMenuLanguage.vue';
 
 const factoryShallowMount = (propsData) => shallowMount(VsGlobalMenuLanguage, {
     slots: {

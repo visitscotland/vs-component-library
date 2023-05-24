@@ -1,4 +1,4 @@
-import VsLoadingSpinner from './LoadingSpinner';
+import VsLoadingSpinner from './LoadingSpinner.vue';
 
 export default {
     VsLoadingSpinner,

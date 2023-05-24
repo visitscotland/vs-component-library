@@ -1,4 +1,4 @@
-import VsIcentre from './Icentre';
+import VsIcentre from './Icentre.vue';
 
 export default {
     VsIcentre,

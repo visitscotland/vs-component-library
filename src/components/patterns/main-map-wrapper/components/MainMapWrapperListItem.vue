@@ -1,5 +1,6 @@
 <template>
     <button
+        type="button"
         class="vs-main-map-wrapper-list-item"
         :class="isActive ? 'vs-main-map-wrapper-list-item--hovered' : ''"
         data-test="vs-main-map-wrapper-list-item"
@@ -34,8 +35,8 @@
 </template>
 
 <script>
-import VsImg from '@components/elements/img/Img';
-import VsIcon from '@components/elements/icon/Icon';
+import VsImg from '@components/elements/img/Img.vue';
+import VsIcon from '@components/elements/icon/Icon.vue';
 import mapStore from '../../../../stores/map.store';
 /**
  * Renders a list item for the map filter tool.

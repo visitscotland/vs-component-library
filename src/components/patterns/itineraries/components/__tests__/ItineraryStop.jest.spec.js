@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsItineraryStop from '../ItineraryStop';
+import VsItineraryStop from '../ItineraryStop.vue';
 
 const factoryShallowMount = () => shallowMount(VsItineraryStop, {
     propsData: {

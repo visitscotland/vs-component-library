@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
-import VsLink from '../Link';
-import VsIcon from '../../icon/Icon';
+import VsLink from '../Link.vue';
+import VsIcon from '../../icon/Icon.vue';
 
 const slotContent = 'Link text';
 
@@ -55,7 +55,7 @@ describe('VsLink', () => {
         it(':type - should not render an special link by default', () => {
             const wrapper = factoryShallowMount();
             expect(wrapper.classes()).not.toEqual(
-                expect.arrayContaining([/vs-link--/])
+                expect.arrayContaining([/vs-link--/]),
             );
             expect(wrapper.attributes('target')).toBe('_self');
             expect(wrapper.findComponent(VsIcon).exists()).toBe(false);

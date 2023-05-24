@@ -1,1 +1,5 @@
-export { default } from './ListicleItem';
+import VsListicleItem from './ListicleItem.vue';
+
+export default {
+    VsListicleItem,
+};

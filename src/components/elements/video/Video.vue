@@ -96,7 +96,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import YouTube from 'vue3-youtube';
 import Vue from 'vue';
-import VsWarning from '@components/patterns/warning/Warning';
+import VsWarning from '@components/patterns/warning/Warning.vue';
 import videoStore from '../../../stores/video.store';
 import verifyCookiesMixin from '../../../mixins/verifyCookiesMixin';
 import requiredCookiesData from '../../../utils/required-cookies-data';

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import VsTagManagerWrapper from '../TagManagerWrapper';
+import VsTagManagerWrapper from '../TagManagerWrapper.vue';
 
 const factoryShallowMount = () => mount(VsTagManagerWrapper);
 

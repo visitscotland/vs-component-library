@@ -44,8 +44,8 @@
                                 v-show="(index + 1) === activeQuestion"
                                 :key="field.name"
                                 :label="
-                                    needsLabel(field) ?
-                                        getTranslatedLabel(field.name, index)
+                                    needsLabel(field)
+                                        ? getTranslatedLabel(field.name, index)
                                         : ''
                                 "
                                 :label-for="needsLabel(field) ? field.name : ''"
@@ -188,10 +188,10 @@ import {
 import {
     VsContainer, VsCol, VsRow,
 } from '@components/elements/grid';
-import VsButton from '../../elements/button/Button';
-import VsCarbonFormResults from './components/CarbonFormResults';
-import VsCarbonFormTip from './components/CarbonFormTip';
-import VsCarbonFormRunningTotal from './components/CarbonFormRunningTotal';
+import VsButton from '../../elements/button/Button.vue';
+import VsCarbonFormResults from './components/CarbonFormResults.vue';
+import VsCarbonFormTip from './components/CarbonFormTip.vue';
+import VsCarbonFormRunningTotal from './components/CarbonFormRunningTotal.vue';
 
 const axios = require('axios');
 

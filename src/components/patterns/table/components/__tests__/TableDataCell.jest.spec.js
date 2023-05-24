@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsTableDataCell from '../TableDataCell';
+import VsTableDataCell from '../TableDataCell.vue';
 
 const slotContent = 'A table data cell goes here';
 

@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsTableBody from '../TableBody';
+import VsTableBody from '../TableBody.vue';
 
 const slotContent = 'A table body goes here';
 

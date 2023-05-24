@@ -58,8 +58,8 @@
 import {
     VsCol, VsRow, VsContainer,
 } from '@components/elements/grid';
-import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWrapper';
-import VsHeading from '@components/elements/heading/Heading';
+import VsRichTextWrapper from '@components/elements/rich-text-wrapper/RichTextWrapper.vue';
+import VsHeading from '@components/elements/heading/Heading.vue';
 
 /**
  * The article component is used for in-depth editorial style

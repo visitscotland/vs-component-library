@@ -4,7 +4,7 @@
         class="vs-description-list-detail"
         :class="{
             'list-inline-item': inline,
-            'vs-description-list-detail--styled': !inline
+            'vs-description-list-detail--styled': !inline,
         }"
     >
         <div class="position-relative">

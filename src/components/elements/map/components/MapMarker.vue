@@ -1,5 +1,6 @@
 <template>
     <button
+        type="button"
         class="vs-map-marker"
         :class="isActive ? 'vs-map-marker--active' : ''"
         data-test="vs-map-marker"
@@ -20,7 +21,7 @@
 </template>
 
 <script>
-import VsMainMapWrapperIcon from '@/components/patterns/main-map-wrapper/components/MainMapWrapperIcon';
+import VsMainMapWrapperIcon from '@/components/patterns/main-map-wrapper/components/MainMapWrapperIcon.vue';
 import mapStore from '../../../../stores/map.store';
 
 /**

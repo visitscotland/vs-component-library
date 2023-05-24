@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsTableRow from '../TableRow';
+import VsTableRow from '../TableRow.vue';
 
 const slotContent = 'A table row goes here';
 

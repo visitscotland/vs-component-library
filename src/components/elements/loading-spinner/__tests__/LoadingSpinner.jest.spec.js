@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsLoadingSpinner from '../LoadingSpinner';
+import VsLoadingSpinner from '../LoadingSpinner.vue';
 
 const factoryShallowMount = () => shallowMount(VsLoadingSpinner);
 

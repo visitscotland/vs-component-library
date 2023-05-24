@@ -1,4 +1,4 @@
-import VsVideoCaption from './VideoCaption';
+import VsVideoCaption from './VideoCaption.vue';
 
 export default {
     VsVideoCaption,

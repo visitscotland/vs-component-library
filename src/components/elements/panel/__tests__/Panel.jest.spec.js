@@ -1,6 +1,6 @@
 import { shallowMount, mount } from '@vue/test-utils';
 
-import VsPanel from '../Panel';
+import VsPanel from '../Panel.vue';
 
 const defaultSlotText = 'Panel text';
 const titleSlotText = 'Panel title';

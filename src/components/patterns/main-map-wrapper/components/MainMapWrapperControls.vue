@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import VsButton from '@/components/elements/button/Button';
+import VsButton from '@/components/elements/button/Button.vue';
 import mapStore from '../../../../stores/map.store';
 
 export default {

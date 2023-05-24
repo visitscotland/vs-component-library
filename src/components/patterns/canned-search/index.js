@@ -1,15 +1,15 @@
-import VsCannedSearch from './CannedSearch';
-import VsCannedSearchProductCard from './components/CannedSearchProductCard';
-import VsCannedSearchStars from './components/CannedSearchStars';
-import VsCannedSearchCategories from './components/CannedSearchCategories';
-import VsCannedSearchLogos from './components/CannedSearchLogos';
-import VsCannedSearchPrice from './components/CannedSearchPrice';
-import VsCannedSearchBadges from './components/CannedSearchBadges';
-import VsCannedSearchSummaryBox from './components/CannedSearchSummaryBox';
-import VsCannedSearchCuisines from './components/CannedSearchCuisines';
-import VsCannedSearchDates from './components/CannedSearchDates';
-import VsCannedSearchDuration from './components/CannedSearchDuration';
-import VsCannedSearchSubHeading from './components/CannedSearchSubHeading';
+import VsCannedSearch from './CannedSearch.vue';
+import VsCannedSearchProductCard from './components/CannedSearchProductCard.vue';
+import VsCannedSearchStars from './components/CannedSearchStars.vue';
+import VsCannedSearchCategories from './components/CannedSearchCategories.vue';
+import VsCannedSearchLogos from './components/CannedSearchLogos.vue';
+import VsCannedSearchPrice from './components/CannedSearchPrice.vue';
+import VsCannedSearchBadges from './components/CannedSearchBadges.vue';
+import VsCannedSearchSummaryBox from './components/CannedSearchSummaryBox.vue';
+import VsCannedSearchCuisines from './components/CannedSearchCuisines.vue';
+import VsCannedSearchDates from './components/CannedSearchDates.vue';
+import VsCannedSearchDuration from './components/CannedSearchDuration.vue';
+import VsCannedSearchSubHeading from './components/CannedSearchSubHeading.vue';
 
 export default {
     VsCannedSearch,

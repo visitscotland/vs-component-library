@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsDescriptionList from '../DescriptionList';
+import VsDescriptionList from '../DescriptionList.vue';
 
 const TestComponent = {
     template: '<div>Test Component</div>',
