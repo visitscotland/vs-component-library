@@ -24,7 +24,6 @@ module.exports = {
     },
     transformIgnorePatterns: ['<rootDir>/node_modules/(?!(bootstrap-vue)/)'],
     snapshotSerializers: ['<rootDir>/node_modules/jest-serializer-vue'],
-    setupFiles: ['<rootDir>/test/unit/setup'],
     coverageDirectory: '<rootDir>/test/unit/coverage',
     collectCoverageFrom: [
         '<rootDir>/src/**/*.{js,vue}',
