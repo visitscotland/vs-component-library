@@ -5,6 +5,7 @@ const { isObject, each } = require('lodash');
 const { noJsClass } = require('@/utils/no-js-class');
 
 require('@/styles/core.styles.scss');
+require('@/assets/fonts/fonts.scss');
 
 const defaultVueOptions = {
     comments: true,
