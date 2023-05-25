@@ -1,6 +1,6 @@
 /** @type { import('@storybook/vue3-vite').StorybookConfig } */
 
-import path from "path"
+const path = require("path");
 const { mergeConfig } = require('vite');
 
 const config = {
@@ -54,4 +54,5 @@ const config = {
     });
   },
 };
-export default config;
+
+module.exports = config;
