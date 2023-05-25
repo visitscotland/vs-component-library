@@ -17,7 +17,7 @@
             {{ warningMessage }}
 
             <template
-                slot="button-text"
+                v-slot:buttonText
                 v-if="cookieLinkText !== '' && showCookieWarning"
             >
                 {{ cookieLinkText }}
@@ -66,7 +66,7 @@
                 {{ warningMessage }}
 
                 <template
-                    slot="button-text"
+                    v-slot:buttonText
                     v-if="cookieLinkText !== '' && showCookieWarning"
                 >
                     {{ cookieLinkText }}

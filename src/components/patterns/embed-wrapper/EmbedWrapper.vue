@@ -53,7 +53,7 @@
                             <template
                                 v-if="!requiredCookiesExist
                                     && cookiesInitStatus === true"
-                                slot="button-text"
+                                v-slot:buttonText
                             >
                                 <slot name="embedButtonText" />
                             </template>

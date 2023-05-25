@@ -1,4 +1,6 @@
-import cookieStore from '../stores/cookies.store';
+import { useCookiesStore } from '@/stores/cookies.store.ts';
+
+const cookieStore = useCookiesStore();
 
 const cookieCheckerMixin = {
     data() {
@@ -9,7 +11,7 @@ const cookieCheckerMixin = {
     },
     computed: {
         cookiesSet() {
-            return cookieStore.getters.getCookieValues;
+            return cookieStore.allowedCookies;
         },
         onetrustActiveGroups() {
             return window.OnetrustActiveGroups;

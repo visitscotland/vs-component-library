@@ -30,7 +30,7 @@
             v-if="!!$slots['button-text']"
             class="vs-warning__button"
         >
-            <slot name="button-text" />
+            <slot name="buttonText" />
         </VsButton>
     </div>
 </template>

@@ -59,7 +59,9 @@
                 :transparent="false"
             >
                 {{ noCookiesMessage }}
-                <template slot="button-text">
+                <template
+                    v-slot:buttonText
+                >
                     {{ cookieLinkText }}
                 </template>
             </VsWarning>

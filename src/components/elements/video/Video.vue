@@ -9,9 +9,9 @@
         >
             <div v-if="requiredCookiesExist">
                 <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
-                <youtube
-                    :video-id="videoId"
-                    :player-vars="playerVars"
+                <YouTube
+                    :src="videoId"
+                    :vars="playerVars"
                     @ready="ready"
                     @playing="youtubePlaying"
                     @paused="youtubePaused"
@@ -32,7 +32,7 @@
                 <template
                     v-if="!requiredCookiesExist
                         && cookiesInitStatus === true"
-                    slot="button-text"
+                    v-slot:buttonText
                 >
                     {{ cookieBtnText }}
                 </template>
@@ -95,18 +95,16 @@
 <script>
 // eslint-disable-next-line import/no-extraneous-dependencies
 import YouTube from 'vue3-youtube';
-import Vue from 'vue';
 import VsWarning from '@components/patterns/warning/Warning.vue';
-import videoStore from '../../../stores/video.store';
+
+import { useVideoStore } from '@/stores/video.store.ts';
+
 import verifyCookiesMixin from '../../../mixins/verifyCookiesMixin';
 import requiredCookiesData from '../../../utils/required-cookies-data';
 import dataLayerMixin from '../../../mixins/dataLayerMixin';
 
+const videoStore = useVideoStore();
 const cookieValues = requiredCookiesData.youtube;
-
-Vue.use(YouTube, {
-    global: false,
-});
 
 /**
  * Videos allow a user to engage with our
@@ -121,6 +119,7 @@ export default {
     release: '0.0.1',
     components: {
         VsWarning,
+        YouTube,
     },
     mixins: [
         verifyCookiesMixin,
@@ -380,11 +379,11 @@ export default {
          * Send video details to Vuex store
          */
         storeVideoDetails() {
-            videoStore.dispatch('newVideoRef', {
-                id: this.videoId,
-                durationMsg: this.duration.roundedMinutes,
-                duration: (this.duration.minutes * 60) + this.duration.seconds,
-                fullDuration: this.duration,
+            videoStore.addVideo({
+                videoId: this.videoId,
+                videoDurationMsg: this.duration.roundedMinutes,
+                videoDuration: (this.duration.minutes * 60) + this.duration.seconds,
+                videoFullDuration: this.duration,
             });
         },
         /**
