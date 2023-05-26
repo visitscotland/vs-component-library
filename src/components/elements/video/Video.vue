@@ -58,6 +58,7 @@ import { useVideoStore } from '@/stores/video.store.ts';
 import verifyCookiesMixin from '../../../mixins/verifyCookiesMixin';
 import requiredCookiesData from '../../../utils/required-cookies-data';
 import dataLayerMixin from '../../../mixins/dataLayerMixin';
+import jsIsDisabled from '@/utils/js-is-disabled';
 
 let videoStore = null;
 const cookieValues = requiredCookiesData.youtube;
@@ -202,10 +203,13 @@ export default {
         },
     },
     mounted() {
+        this.jsDisabled = jsIsDisabled();
         videoStore = useVideoStore();
 
-        this.player = this.$refs.youtube.player;
-        this.getPlayerDetails();
+        if (this.$refs.youtube) {
+            this.player = this.$refs.youtube.player;
+            this.getPlayerDetails();
+        }
 
         if (this.shouldAutoPlay) {
             this.shouldAutoPlay = false;
@@ -349,19 +353,21 @@ export default {
          * a modal.
          */
         setEventListeners() {
-            this.emitter.on('video-controls', (action, id) => {
-                if (id === this.videoId) {
-                    if (action === 'modal-opened') {
-                        this.reRenderVideo();
-                    }
+            if (this.emitter) {
+                this.emitter.on('video-controls', (action, id) => {
+                    if (id === this.videoId) {
+                        if (action === 'modal-opened') {
+                            this.reRenderVideo();
+                        }
 
-                    if (action === 'play') {
-                        this.playVideo();
-                    } else if (action === 'pause') {
-                        this.pauseVideo();
+                        if (action === 'play') {
+                            this.playVideo();
+                        } else if (action === 'pause') {
+                            this.pauseVideo();
+                        }
                     }
-                }
-            });
+                });
+            }
         },
         /**
          * Upon opening a vs-modal with a video, the video must be briefly removed and re-rendered
