@@ -349,7 +349,7 @@ export default {
          * a modal.
          */
         setEventListeners() {
-            this.$root.$on('video-controls', (action, id) => {
+            this.emitter.on('video-controls', (action, id) => {
                 if (id === this.videoId) {
                     if (action === 'modal-opened') {
                         this.reRenderVideo();

@@ -1,8 +1,13 @@
 import { setup } from '@storybook/vue3';
 
+import '@/assets/fonts/fonts.scss';
+
 import { createPinia } from 'pinia';
+import mitt from 'mitt';
 
 setup((app) => {
+  const emitter = mitt();
+  app.config.globalProperties.emitter = emitter;
   app.use(createPinia());
 });
 
