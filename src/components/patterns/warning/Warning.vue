@@ -19,7 +19,7 @@
                 <p
                     v-if="!!$slots['extra-content']"
                 >
-                    <slot name="extra-content" />
+                    <slot name="extraContent" />
                 </p>
             </div>
         </div>
@@ -34,8 +34,8 @@
         </VsButton>
     </div>
 </template>
-<script>
 
+<script>
 import VsIcon from '@components/elements/icon/Icon.vue';
 import VsButton from '@components/elements/button/Button.vue';
 
