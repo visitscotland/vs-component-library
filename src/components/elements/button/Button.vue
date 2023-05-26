@@ -27,7 +27,7 @@
 </template>
 <script>
 import { BButton } from 'bootstrap-vue-next';
-import VsIcon from '@/components/elements/icon';
+import VsIcon from '@components/elements/icon/Icon.vue';
 // import dataLayerMixin from '../../../mixins/dataLayerMixin';
 
 // Datalayer integration currently broken
