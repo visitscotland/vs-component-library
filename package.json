@@ -1,5 +1,5 @@
 {
-  "name": "storybook-component-library",
+  "name": "vs-component-library",
   "version": "1.0.0",
   "description": "",
   "main": "dist/ssr/index.js",
