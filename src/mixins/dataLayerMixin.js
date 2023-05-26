@@ -13,7 +13,7 @@ import {
     shareTemplate,
 } from '../utils/data-layer-templates';
 
-const dataLayerStore = useDataLayerStore();
+let dataLayerStore = null;
 
 /**
  * There is a general function to retrieve any value from the store:
@@ -34,6 +34,9 @@ const dataLayerMixin = {
         return {
             dataLayerLoadConfirmed: [],
         };
+    },
+    mounted() {
+        dataLayerStore = useDataLayerStore();
     },
     methods: {
         // This function matches values passed as an object
@@ -71,7 +74,7 @@ const dataLayerMixin = {
             let clickText;
             let socialTargetText = '';
 
-            if (event) {
+            if (event && event.target) {
                 if (event.target.text) {
                     clickText = event.target.text.trim();
                 } else {
@@ -398,7 +401,7 @@ const dataLayerMixin = {
             }
         },
         compileFullTemplate(templateValues) {
-            const storeValues = dataLayerStore.getAllGTMValues();
+            const storeValues = dataLayerStore.GTMData;
             const fullTemplate = {
                 ...storeValues,
                 ...templateValues,

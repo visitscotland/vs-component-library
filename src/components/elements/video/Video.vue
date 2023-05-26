@@ -9,11 +9,10 @@
         >
             <div v-if="requiredCookiesExist">
                 <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
-                <YouTube
-                    :src="videoId"
+                <YoutubeVue3
+                    :videoid="videoId"
                     :vars="playerVars"
-                    @ready="ready"
-                    @playing="youtubePlaying"
+                    @played="youtubePlaying"
                     @paused="youtubePaused"
                     @ended="youtubeEnded"
                     ref="youtube"
@@ -49,52 +48,9 @@
     </div>
 </template>
 
-<style lang="scss">
-    .vs-video {
-        &__iframe-wrapper,
-        &__fallback-wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-
-            iframe {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-            }
-        }
-
-        &__warning {
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            z-index: 1;
-
-            &--no-js {
-                display: none;
-            }
-        }
-    }
-
-    @include no-js {
-        .vs-video {
-            &__warning {
-                display: none;
-
-                &--no-js {
-                    display: flex;
-                }
-            }
-        }
-    }
-</style>
-
 <script>
-// eslint-disable-next-line import/no-extraneous-dependencies
-import YouTube from 'vue3-youtube';
+import { YoutubeVue3 } from 'youtube-vue3';
+
 import VsWarning from '@components/patterns/warning/Warning.vue';
 
 import { useVideoStore } from '@/stores/video.store.ts';
@@ -103,7 +59,7 @@ import verifyCookiesMixin from '../../../mixins/verifyCookiesMixin';
 import requiredCookiesData from '../../../utils/required-cookies-data';
 import dataLayerMixin from '../../../mixins/dataLayerMixin';
 
-const videoStore = useVideoStore();
+let videoStore = null;
 const cookieValues = requiredCookiesData.youtube;
 
 /**
@@ -119,7 +75,7 @@ export default {
     release: '0.0.1',
     components: {
         VsWarning,
-        YouTube,
+        YoutubeVue3,
     },
     mixins: [
         verifyCookiesMixin,
@@ -246,18 +202,19 @@ export default {
         },
     },
     mounted() {
+        videoStore = useVideoStore();
+
+        this.player = this.$refs.youtube.player;
+        this.getPlayerDetails();
+
+        if (this.shouldAutoPlay) {
+            this.shouldAutoPlay = false;
+            this.playVideo();
+        }
+
         this.setEventListeners();
     },
     methods: {
-        ready() {
-            this.player = this.$refs.youtube.player;
-            this.getPlayerDetails();
-
-            if (this.shouldAutoPlay) {
-                this.shouldAutoPlay = false;
-                this.playVideo();
-            }
-        },
         /**
          * Plays the video
          */
@@ -422,3 +379,46 @@ export default {
     },
 };
 </script>
+
+<style lang="scss">
+    .vs-video {
+        &__iframe-wrapper,
+        &__fallback-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+
+            iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        &__warning {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            z-index: 1;
+
+            &--no-js {
+                display: none;
+            }
+        }
+    }
+
+    @include no-js {
+        .vs-video {
+            &__warning {
+                display: none;
+
+                &--no-js {
+                    display: flex;
+                }
+            }
+        }
+    }
+</style>
