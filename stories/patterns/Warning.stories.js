@@ -1,4 +1,3 @@
-import VsVideo from '@/components/elements/video/Video.vue';
 import VsWarning from '@/components/patterns/warning/Warning.vue';
 
 export default {
@@ -24,10 +23,6 @@ const Template = args => ({
     `,
 });
 
-const base = {};
-
 export const Default = Template.bind({});
 
-Default.args = {
-    ...base
-};
+Default.args = {};

@@ -17,7 +17,7 @@
                 </p>
 
                 <p
-                    v-if="!!$slots['extra-content']"
+                    v-if="$slots.extraContent && $slots.extraContent()"
                 >
                     <slot name="extraContent" />
                 </p>
@@ -27,7 +27,7 @@
         <VsButton
             v-bind="btnAttrs"
             variant="secondary"
-            v-if="!!$slots['button-text']"
+            v-if="$slots.buttonText && $slots.buttonText()"
             class="vs-warning__button"
         >
             <slot name="buttonText" />
