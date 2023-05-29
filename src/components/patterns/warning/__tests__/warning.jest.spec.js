@@ -30,8 +30,6 @@ describe('VsWarning', () => {
             const wrapper = factoryMount();
             const icon = wrapper.find('.vs-icon');
 
-            console.log(wrapper.html());
-
             expect(icon.classes()).toContain('vs-icon--review');
         });
 

@@ -17,6 +17,9 @@ const factoryShallowMount = (propsData) => shallowMount(VsButton, {
 });
 
 const factoryMount = (propsData) => mount(VsButton, {
+    slots: {
+        default: slotText,
+    },
     propsData: {
         ...propsData,
     },
@@ -28,7 +31,7 @@ describe('VsButton', () => {
     it('should render a bbutton-stub', () => {
         const wrapper = factoryShallowMount();
 
-        expect(wrapper.element.tagName).toBe('BBUTTON-STUB');
+        expect(wrapper.element.tagName).toBe('B-BUTTON-STUB');
     });
 
     describe(':props', () => {
@@ -82,59 +85,59 @@ describe('VsButton', () => {
 
         describe(':icon', () => {
             it('should *NOT* render an icon if `icon` property is not passed', () => {
-                const wrapper = factoryShallowMount();
-                const iconStub = wrapper.find('vsicon-stub');
+                const wrapper = factoryMount();
+                const icon = wrapper.find('.vs-icon');
 
-                expect(iconStub.exists()).toBe(false);
+                expect(icon.exists()).toBe(false);
             });
 
             it('should accept and render an `icon` property', () => {
-                const wrapper = factoryShallowMount({
+                const wrapper = factoryMount({
                     icon: testIcon,
                 });
-                const iconStub = wrapper.find('vsicon-stub');
+                const icon = wrapper.find('.vs-icon');
 
-                expect(iconStub.attributes('name')).toBe(testIcon);
+                expect(icon.classes('fa-food')).toBe(true);
             });
 
             it('size should be `xs` if button size is set to `sm`', () => {
-                const wrapper = factoryShallowMount({
+                const wrapper = factoryMount({
                     icon: testIcon,
                     size: 'sm',
                 });
-                const iconStub = wrapper.find('vsicon-stub');
+                const icon = wrapper.find('.vs-icon');
 
-                expect(iconStub.attributes('size')).toBe('xs');
+                expect(icon.classes('vs-icon--size-xs')).toBe(true);
             });
 
             it('size should be `sm` if button size is set to `md`', () => {
-                const wrapper = factoryShallowMount({
+                const wrapper = factoryMount({
                     icon: testIcon,
                     size: 'md',
                 });
-                const iconStub = wrapper.find('vsicon-stub');
+                const icon = wrapper.find('.vs-icon');
 
-                expect(iconStub.attributes('size')).toBe('sm');
+                expect(icon.classes('vs-icon--size-sm')).toBe(true);
             });
 
             it('size should be `md` if button size is set to `lg`', () => {
-                const wrapper = factoryShallowMount({
+                const wrapper = factoryMount({
                     icon: testIcon,
                     size: 'lg',
                 });
-                const iconStub = wrapper.find('vsicon-stub');
+                const icon = wrapper.find('.vs-icon');
 
-                expect(iconStub.attributes('size')).toBe('md');
+                expect(icon.classes('vs-icon--size-md')).toBe(true);
             });
 
             it('orientation should be `down` if `iconOrientation` is set to `down`', () => {
-                const wrapper = factoryShallowMount({
+                const wrapper = factoryMount({
                     icon: testIcon,
                     iconOrientation: 'down',
                 });
-                const iconStub = wrapper.find('vsicon-stub');
+                const icon = wrapper.find('.vs-icon');
 
-                expect(iconStub.attributes('orientation')).toBe('down');
+                expect(icon.classes('icon--down')).toBe(true);
             });
         });
 
@@ -200,7 +203,7 @@ describe('VsButton', () => {
 
     describe(':slots', () => {
         it('renders content inserted into default `slot`', () => {
-            const wrapper = factoryShallowMount();
+            const wrapper = factoryMount();
 
             expect(wrapper.text()).toContain(slotText);
         });
