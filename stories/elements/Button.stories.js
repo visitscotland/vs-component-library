@@ -3,6 +3,7 @@ import VsButton from '@/components/elements/button/Button.vue';
 export default {
     component: VsButton,
     title: 'Elements/Button',
+    tags: ['autodocs'],
 };
 
 const Template = (args) => ({

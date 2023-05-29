@@ -3,6 +3,7 @@ import VsHeading from '@/components/elements/heading/Heading.vue';
 export default {
     component: VsHeading,
     title: 'Elements/Heading',
+    tags: ['autodocs'],
 };
 
 const Template = (args) => ({
