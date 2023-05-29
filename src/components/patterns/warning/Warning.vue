@@ -17,9 +17,9 @@
                 </p>
 
                 <p
-                    v-if="!!$slots['extra-content']"
+                    v-if="$slots.extraContent && $slots.extraContent()"
                 >
-                    <slot name="extra-content" />
+                    <slot name="extraContent" />
                 </p>
             </div>
         </div>
@@ -27,15 +27,15 @@
         <VsButton
             v-bind="btnAttrs"
             variant="secondary"
-            v-if="!!$slots['button-text']"
+            v-if="$slots.buttonText && $slots.buttonText()"
             class="vs-warning__button"
         >
-            <slot name="button-text" />
+            <slot name="buttonText" />
         </VsButton>
     </div>
 </template>
-<script>
 
+<script>
 import VsIcon from '@components/elements/icon/Icon.vue';
 import VsButton from '@components/elements/button/Button.vue';
 

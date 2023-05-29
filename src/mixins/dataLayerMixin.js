@@ -1,4 +1,4 @@
-import dataLayerStore from '../stores/dataLayer.store';
+import { useDataLayerStore } from '../stores/dataLayer.store.ts';
 import checkVendorLibrary from '../utils/check-vendor-library';
 import {
     pageViewTemplate,
@@ -13,10 +13,12 @@ import {
     shareTemplate,
 } from '../utils/data-layer-templates';
 
+let dataLayerStore = null;
+
 /**
  * There is a general function to retrieve any value from the store:
- * "field_needed": dataLayerStore.getters.getValueFromKey("field_needed"),
- * example: "page_category_1": dataLayerStore.getters.getValueFromKey("page_category_1")
+ * "field_needed": dataLayerStore.getValueFromKey("field_needed"),
+ * example: "page_category_1": dataLayerStore.getValueFromKey("page_category_1")
  */
 
 const dataLayerMixin = {
@@ -25,13 +27,16 @@ const dataLayerMixin = {
         // dataLayer.store.js (Central Store)
         // TagManagerWrapper.vue (Global component that reads and updates the store)
         pageUrl() {
-            return dataLayerStore.getters.getPageUrl;
+            return dataLayerStore.pageUrl;
         },
     },
     data() {
         return {
             dataLayerLoadConfirmed: [],
         };
+    },
+    mounted() {
+        dataLayerStore = useDataLayerStore();
     },
     methods: {
         // This function matches values passed as an object
@@ -69,7 +74,7 @@ const dataLayerMixin = {
             let clickText;
             let socialTargetText = '';
 
-            if (event) {
+            if (event && event.target) {
                 if (event.target.text) {
                     clickText = event.target.text.trim();
                 } else {
@@ -396,7 +401,7 @@ const dataLayerMixin = {
             }
         },
         compileFullTemplate(templateValues) {
-            const storeValues = dataLayerStore.getters.getAllGTMValues;
+            const storeValues = dataLayerStore.GTMData;
             const fullTemplate = {
                 ...storeValues,
                 ...templateValues,
