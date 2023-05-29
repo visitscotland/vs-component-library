@@ -55,10 +55,11 @@ import VsWarning from '@components/patterns/warning/Warning.vue';
 
 import { useVideoStore } from '@/stores/video.store.ts';
 
+import jsIsDisabled from '@/utils/js-is-disabled';
+
 import verifyCookiesMixin from '../../../mixins/verifyCookiesMixin';
 import requiredCookiesData from '../../../utils/required-cookies-data';
 import dataLayerMixin from '../../../mixins/dataLayerMixin';
-import jsIsDisabled from '@/utils/js-is-disabled';
 
 let videoStore = null;
 const cookieValues = requiredCookiesData.youtube;

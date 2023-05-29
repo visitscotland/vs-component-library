@@ -1,5 +1,4 @@
 // import { mount } from '@vue/test-utils';
-// import { setActivePinia, createPinia } from 'pinia';
 // import VsVideo from '../Video.vue';
 
 // const videoId = 'C0DPdy98e4c';
@@ -27,10 +26,6 @@
 // });
 
 // describe('VsVideo', () => {
-//     beforeEach(() => {
-//         setActivePinia(createPinia());
-//     });
-
 //     it('should render a div with the class `vs-video`', () => {
 //         const wrapper = factoryMount();
 
