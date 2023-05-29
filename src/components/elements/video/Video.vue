@@ -9,11 +9,10 @@
         >
             <div v-if="requiredCookiesExist">
                 <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
-                <youtube
-                    :video-id="videoId"
-                    :player-vars="playerVars"
-                    @ready="ready"
-                    @playing="youtubePlaying"
+                <YoutubeVue3
+                    :videoid="videoId"
+                    :vars="playerVars"
+                    @played="youtubePlaying"
                     @paused="youtubePaused"
                     @ended="youtubeEnded"
                     ref="youtube"
@@ -32,7 +31,7 @@
                 <template
                     v-if="!requiredCookiesExist
                         && cookiesInitStatus === true"
-                    slot="button-text"
+                    v-slot:buttonText
                 >
                     {{ cookieBtnText }}
                 </template>
@@ -49,64 +48,21 @@
     </div>
 </template>
 
-<style lang="scss">
-    .vs-video {
-        &__iframe-wrapper,
-        &__fallback-wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-
-            iframe {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-            }
-        }
-
-        &__warning {
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            z-index: 1;
-
-            &--no-js {
-                display: none;
-            }
-        }
-    }
-
-    @include no-js {
-        .vs-video {
-            &__warning {
-                display: none;
-
-                &--no-js {
-                    display: flex;
-                }
-            }
-        }
-    }
-</style>
-
 <script>
-// eslint-disable-next-line import/no-extraneous-dependencies
-import YouTube from 'vue3-youtube';
-import Vue from 'vue';
+import { YoutubeVue3 } from 'youtube-vue3';
+
 import VsWarning from '@components/patterns/warning/Warning.vue';
-import videoStore from '../../../stores/video.store';
+
+import { useVideoStore } from '@/stores/video.store.ts';
+
+import jsIsDisabled from '@/utils/js-is-disabled';
+
 import verifyCookiesMixin from '../../../mixins/verifyCookiesMixin';
 import requiredCookiesData from '../../../utils/required-cookies-data';
 import dataLayerMixin from '../../../mixins/dataLayerMixin';
 
+let videoStore = null;
 const cookieValues = requiredCookiesData.youtube;
-
-Vue.use(YouTube, {
-    global: false,
-});
 
 /**
  * Videos allow a user to engage with our
@@ -121,6 +77,7 @@ export default {
     release: '0.0.1',
     components: {
         VsWarning,
+        YoutubeVue3,
     },
     mixins: [
         verifyCookiesMixin,
@@ -247,18 +204,22 @@ export default {
         },
     },
     mounted() {
+        this.jsDisabled = jsIsDisabled();
+        videoStore = useVideoStore();
+
+        if (this.$refs.youtube) {
+            this.player = this.$refs.youtube.player;
+            this.getPlayerDetails();
+        }
+
+        if (this.shouldAutoPlay) {
+            this.shouldAutoPlay = false;
+            this.playVideo();
+        }
+
         this.setEventListeners();
     },
     methods: {
-        ready() {
-            this.player = this.$refs.youtube.player;
-            this.getPlayerDetails();
-
-            if (this.shouldAutoPlay) {
-                this.shouldAutoPlay = false;
-                this.playVideo();
-            }
-        },
         /**
          * Plays the video
          */
@@ -380,11 +341,11 @@ export default {
          * Send video details to Vuex store
          */
         storeVideoDetails() {
-            videoStore.dispatch('newVideoRef', {
-                id: this.videoId,
-                durationMsg: this.duration.roundedMinutes,
-                duration: (this.duration.minutes * 60) + this.duration.seconds,
-                fullDuration: this.duration,
+            videoStore.addVideo({
+                videoId: this.videoId,
+                videoDurationMsg: this.duration.roundedMinutes,
+                videoDuration: (this.duration.minutes * 60) + this.duration.seconds,
+                videoFullDuration: this.duration,
             });
         },
         /**
@@ -393,19 +354,21 @@ export default {
          * a modal.
          */
         setEventListeners() {
-            this.$root.$on('video-controls', (action, id) => {
-                if (id === this.videoId) {
-                    if (action === 'modal-opened') {
-                        this.reRenderVideo();
-                    }
+            if (this.emitter) {
+                this.emitter.on('video-controls', (action, id) => {
+                    if (id === this.videoId) {
+                        if (action === 'modal-opened') {
+                            this.reRenderVideo();
+                        }
 
-                    if (action === 'play') {
-                        this.playVideo();
-                    } else if (action === 'pause') {
-                        this.pauseVideo();
+                        if (action === 'play') {
+                            this.playVideo();
+                        } else if (action === 'pause') {
+                            this.pauseVideo();
+                        }
                     }
-                }
-            });
+                });
+            }
         },
         /**
          * Upon opening a vs-modal with a video, the video must be briefly removed and re-rendered
@@ -423,3 +386,46 @@ export default {
     },
 };
 </script>
+
+<style lang="scss">
+    .vs-video {
+        &__iframe-wrapper,
+        &__fallback-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+
+            iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        &__warning {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            z-index: 1;
+
+            &--no-js {
+                display: none;
+            }
+        }
+    }
+
+    @include no-js {
+        .vs-video {
+            &__warning {
+                display: none;
+
+                &--no-js {
+                    display: flex;
+                }
+            }
+        }
+    }
+</style>

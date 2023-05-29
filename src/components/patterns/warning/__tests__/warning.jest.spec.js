@@ -1,10 +1,11 @@
-import { shallowMount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
+import { setActivePinia, createPinia } from 'pinia';
 import VsWarning from '../Warning.vue';
 
 const defaultSlotText = 'There is no javascript';
 
-const factoryShallowMount = (propsData, slots) => shallowMount(VsWarning, {
-    propsData: {
+const factoryMount = (propsData, slots) => mount(VsWarning, {
+    props: {
         ...propsData,
     },
     slots: {
@@ -14,31 +15,35 @@ const factoryShallowMount = (propsData, slots) => shallowMount(VsWarning, {
 });
 
 describe('VsWarning', () => {
+    beforeEach(() => {
+        setActivePinia(createPinia());
+    });
+
     it('should render a component with the data-test attribute `vs-warning`', () => {
-        const wrapper = factoryShallowMount();
+        const wrapper = factoryMount();
 
         expect(wrapper.attributes('data-test')).toBe('vs-warning');
     });
 
     describe(':props', () => {
         it(':icon - should render an `review` icon by default', () => {
-            const wrapper = factoryShallowMount();
-            const iconStub = wrapper.find('vsicon-stub');
+            const wrapper = factoryMount();
+            const icon = wrapper.find('.vs-icon');
 
-            expect(iconStub.attributes('name')).toBe('review');
+            expect(icon.classes()).toContain('vs-icon--review');
         });
 
         it(':icon - should render an icon with the same name as the `icon` prop', () => {
-            const wrapper = factoryShallowMount({
+            const wrapper = factoryMount({
                 icon: 'test',
             });
-            const iconStub = wrapper.find('vsicon-stub');
+            const icon = wrapper.find('.vs-icon');
 
-            expect(iconStub.attributes('name')).toBe('test');
+            expect(icon.classes()).toContain('vs-icon--test');
         });
 
         it(':theme - should render a class matching the `theme` prop', () => {
-            const wrapper = factoryShallowMount({
+            const wrapper = factoryMount({
                 theme: 'dark',
             });
 
@@ -46,7 +51,7 @@ describe('VsWarning', () => {
         });
 
         it(':size - should render a class matching the `size` prop', () => {
-            const wrapper = factoryShallowMount({
+            const wrapper = factoryMount({
                 size: 'small',
             });
 
@@ -54,13 +59,13 @@ describe('VsWarning', () => {
         });
 
         it(':transparent - should render a class if the `transparent` prop is true', () => {
-            const wrapper = factoryShallowMount();
+            const wrapper = factoryMount();
 
             expect(wrapper.classes()).toContain('vs-warning--transparent');
         });
 
         it(':transparent - should not render a class if the `transparent` prop is false', () => {
-            const wrapper = factoryShallowMount({
+            const wrapper = factoryMount({
                 transparent: false,
             });
 
@@ -68,7 +73,7 @@ describe('VsWarning', () => {
         });
 
         it(':align - should render a class matching the `align` prop', () => {
-            const wrapper = factoryShallowMount({
+            const wrapper = factoryMount({
                 align: 'right',
             });
 
@@ -76,15 +81,16 @@ describe('VsWarning', () => {
         });
 
         it(':type - should show a cookie manangement button if `type` is `cookie` and the slot is populated', () => {
-            const wrapper = factoryShallowMount(
+            const wrapper = factoryMount(
                 {
                     type: 'cookie',
                 },
                 {
-                    'button-text': 'Manage cookies',
+                    buttonText: 'Manage cookies',
                 },
             );
-            const cookieBtn = wrapper.find('vsbutton-stub');
+
+            const cookieBtn = wrapper.find('.vs-button');
 
             expect(cookieBtn.classes('vs-warning__cookie-trigger')).toBe(true);
         });
@@ -92,18 +98,18 @@ describe('VsWarning', () => {
 
     describe(':slots', () => {
         it('should display the content of the default slot', () => {
-            const wrapper = factoryShallowMount();
+            const wrapper = factoryMount();
 
             expect(wrapper.text()).toContain(defaultSlotText);
         });
 
         it('should display the content of the `button-text` slot', () => {
             const btnText = 'Manage cookies';
-            const wrapper = factoryShallowMount(
+            const wrapper = factoryMount(
                 {
                 },
                 {
-                    'button-text': btnText,
+                    buttonText: btnText,
                 },
             );
 

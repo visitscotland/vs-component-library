@@ -29,10 +29,10 @@ const factoryMount = (propsData) => mount(VsImg, {
 });
 
 describe('VsImg', () => {
-    it('should render a bimg-stub', () => {
+    it('should render a b-img-stub', () => {
         const wrapper = factoryShallowMount();
 
-        expect(wrapper.element.tagName).toBe('BIMG-STUB');
+        expect(wrapper.element.tagName).toBe('B-IMG-STUB');
     });
 
     describe(':props', () => {
@@ -81,14 +81,6 @@ describe('VsImg', () => {
             ]).toEqual([
                 true, true,
             ]);
-        });
-    });
-
-    describe(':slots', () => {
-        it('renders content inserted into default `slot`', () => {
-            const wrapper = factoryShallowMount();
-
-            expect(wrapper.text()).toContain(slotText);
         });
     });
 });

@@ -1,4 +1,6 @@
-import cookieStore from '../stores/cookies.store';
+import { useCookiesStore } from '@/stores/cookies.store.ts';
+
+let cookieStore = null;
 
 const cookieCheckerMixin = {
     data() {
@@ -9,7 +11,11 @@ const cookieCheckerMixin = {
     },
     computed: {
         cookiesSet() {
-            return cookieStore.getters.getCookieValues;
+            if (cookieStore) {
+                return cookieStore.allowedCookies;
+            }
+
+            return [];
         },
         onetrustActiveGroups() {
             return window.OnetrustActiveGroups;
@@ -30,6 +36,8 @@ const cookieCheckerMixin = {
         },
     },
     mounted() {
+        cookieStore = useCookiesStore();
+
         // check for cookies being set by OneTrust
         const setCookieStatus = () => {
             // if the interval has been run 50 times (5 seconds) without
