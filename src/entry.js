@@ -9,17 +9,14 @@ const path = require('path');
 const { camelCase, upperFirst } = require('lodash');
 
 const componentPaths = [
-    // './src/components/elements/**/*.vue',
-    // './src/components/patterns/**/*.vue',
-    // './src/components/modules/**/*.vue',
-    // './src/components/templates/**/*.vue',
-    // './src/components/examples/**/*.vue',
-    './src/components/elements/**/Button.vue',
-    './src/components/elements/**/Heading.vue',
-    './src/components/elements/**/LoadingSpinner.vue',
+    './src/components/elements/**/*.vue',
+    './src/components/patterns/**/*.vue',
+    './src/components/modules/**/*.vue',
+    './src/components/templates/**/*.vue',
+    './src/components/examples/**/*.vue',
 ];
 
-// const storePattern = './src/components/**/*.store.js';
+const storePattern = './src/components/**/*.store.js';
 
 const components = {
     VsApp: './src/main.js',
@@ -33,8 +30,8 @@ componentPaths
         components[itemKey(path.basename(componentPath, '.vue'))] = componentPath;
     });
 
-// glob.sync(storePattern).forEach((storePath) => {
-//     components[itemKey(path.basename(storePath, '.js'), true)] = storePath;
-// });
+glob.sync(storePattern).forEach((storePath) => {
+    components[itemKey(path.basename(storePath, '.js'), true)] = storePath;
+});
 
 module.exports = components;
