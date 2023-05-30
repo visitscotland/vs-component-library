@@ -5,10 +5,14 @@ export default {
     title: 'Elements/Video',
 };
 
-const Template = args => ({
-    components: { VsVideo },
+const Template = (args) => ({
+    components: {
+        VsVideo,
+    },
     setup() {
-        return { args };
+        return {
+            args,
+        };
     },
     template: `
         <VsVideo v-bind="$props"></VsVideo>
@@ -23,8 +27,9 @@ const base = {
     cookieBtnText: 'Manage cookies',
 };
 
-export const Default = Template.bind({});
+export const Default = Template.bind({
+});
 
 Default.args = {
-    ...base
+    ...base,
 };

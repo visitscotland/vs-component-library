@@ -5,10 +5,14 @@ export default {
     title: 'Patterns/Warning',
 };
 
-const Template = args => ({
-    components: { VsWarning },
+const Template = (args) => ({
+    components: {
+        VsWarning,
+    },
     setup() {
-        return { args };
+        return {
+            args,
+        };
     },
     template: `
     <VsWarning>
@@ -23,6 +27,8 @@ const Template = args => ({
     `,
 });
 
-export const Default = Template.bind({});
+export const Default = Template.bind({
+});
 
-Default.args = {};
+Default.args = {
+};

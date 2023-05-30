@@ -1,7 +1,7 @@
 import { ref, type Ref } from 'vue';
 import { defineStore } from 'pinia';
 
-export const useCookiesStore = defineStore('cookies', () => {
+const useCookiesStore = defineStore('cookies', () => {
     const allowedCookies: Ref<string[]> = ref([]);
     const cookiesTestRun: Ref<boolean> = ref(false);
 
@@ -22,5 +22,7 @@ export const useCookiesStore = defineStore('cookies', () => {
         cookiesTestRun,
         setCookieArray,
         setTestRun,
-    }
+    };
 });
+
+export default useCookiesStore;

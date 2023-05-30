@@ -6,10 +6,11 @@ type Tag = {
     value: string,
 };
 
-export const useDataLayerStore = defineStore('datalayer', () => {
+const useDataLayerStore = defineStore('datalayer', () => {
     const pageUrl: Ref<string> = ref('');
     const tagsTestRun: Ref<boolean> = ref(false);
-    const GTMData: Ref<object> = ref({});
+    const GTMData: Ref<object> = ref({
+    });
 
     function setTestRun(payload: boolean) {
         tagsTestRun.value = payload;
@@ -35,5 +36,7 @@ export const useDataLayerStore = defineStore('datalayer', () => {
         setTestRun,
         setPageUrl,
         processPayload,
-    }
+    };
 });
+
+export default useDataLayerStore;
