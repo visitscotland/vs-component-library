@@ -1,4 +1,4 @@
-import { useCookiesStore } from '@/stores/cookies.store.ts';
+import useCookiesStore from '@/stores/cookies.store.ts';
 
 let cookieStore = null;
 
