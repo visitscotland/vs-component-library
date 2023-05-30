@@ -1,19 +1,23 @@
 import VsLink from '@/components/elements/link/Link.vue';
 
 export default {
-  component: VsLink,
-  title: 'Elements/Link'
+    component: VsLink,
+    title: 'Elements/Link',
 };
 
-const Template = args => ({
-  components: { VsLink },
-  setup() {
-      return { args };
-  },
-  template: `
+const Template = (args) => ({
+    components: {
+        VsLink,
+    },
+    setup() {
+        return {
+            args,
+        };
+    },
+    template: `
       <VsLink href="#">dsfgdfgdfgdfg</VsLink>
   `,
 });
 
-export const Default = Template.bind({});
-
+export const Default = Template.bind({
+});
