@@ -135,6 +135,7 @@ module.exports = {
             'import/extensions': [
                 '.js',
                 '.vue',
+                '.ts',
             ],
         },
     },
@@ -173,6 +174,12 @@ module.exports = {
                 ],
                 'no-console': 'off',
             },
+        },
+        // Add parsing rules for typescript files
+        {
+            files: ['*.{ts,tsx}'],
+            parser: '@typescript-eslint/parser',
+            plugins: ['@typescript-eslint/eslint-plugin'],
         },
     ],
 };

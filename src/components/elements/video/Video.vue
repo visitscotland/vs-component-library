@@ -53,7 +53,7 @@ import { YoutubeVue3 } from 'youtube-vue3';
 
 import VsWarning from '@components/patterns/warning/Warning.vue';
 
-import { useVideoStore } from '@/stores/video.store.ts';
+import useVideoStore from '@/stores/video.store.ts';
 
 import jsIsDisabled from '@/utils/js-is-disabled';
 

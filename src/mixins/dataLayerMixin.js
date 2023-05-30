@@ -1,4 +1,4 @@
-import { useDataLayerStore } from '../stores/dataLayer.store.ts';
+import useDataLayerStore from '../stores/dataLayer.store.ts';
 import checkVendorLibrary from '../utils/check-vendor-library';
 import {
     pageViewTemplate,
