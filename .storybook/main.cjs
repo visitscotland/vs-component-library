@@ -28,7 +28,7 @@ const config = {
         preprocessorOptions: {
           scss: {
             // Next line will prepend the import in all you scss files as you did with your vite.config.js file
-            additionalData: `@import "../src/styles/core.styles.scss";`,
+            additionalData: `@import "../src/styles/resources.scss";`,
           },
         },
       },
