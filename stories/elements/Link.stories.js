@@ -3,6 +3,7 @@ import VsLink from '@/components/elements/link/Link.vue';
 export default {
     component: VsLink,
     title: 'Elements/Link',
+    tags: ['autodocs'],
 };
 
 const Template = (args) => ({

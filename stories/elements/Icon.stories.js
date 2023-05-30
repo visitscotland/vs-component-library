@@ -3,6 +3,7 @@ import VsIcon from '@/components/elements/icon/Icon.vue';
 export default {
     component: VsIcon,
     title: 'Elements/Icon',
+    tags: ['autodocs'],
     argTypes: {
         size: {
             options: ['xxs', 'xs', 'sm', 'md', 'lg', 'xl'],

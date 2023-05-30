@@ -3,6 +3,54 @@ import VsButton from '@/components/elements/button/Button.vue';
 export default {
     component: VsButton,
     title: 'Elements/Button',
+    tags: ['autodocs'],
+    argTypes: {
+        variant: {
+            options: [
+                'primary',
+                'secondary',
+                'transparent',
+                'dark',
+                'light',
+            ],
+            control: {
+                type: 'radio',
+            },
+        },
+        size: {
+            options: [
+                'sm',
+                'md',
+                'lg',
+            ],
+            control: {
+                type: 'radio',
+            },
+        },
+        iconOrientation: {
+            options: [
+                'up',
+                'down',
+                'left',
+                'right',
+            ],
+            control: {
+                type: 'radio',
+            },
+        },
+        iconPosition: {
+            options: [
+                'left',
+                'right',
+            ],
+            control: {
+                type: 'radio',
+            },
+        },
+        onClick: {
+            action: 'animateHandler',
+        },
+    },
 };
 
 const Template = (args) => ({
@@ -22,9 +70,19 @@ const Template = (args) => ({
 });
 
 const base = {
-    default: 'Click Me',
-    href: '#',
+    default: 'Nearby places to eat',
+    variant: 'primary',
     onDark: false,
+    size: 'md',
+    animate: true,
+    href: '',
+    icon: '',
+    iconOrientation: '',
+    iconOnly: false,
+    iconWithText: false,
+    iconPosition: 'left',
+    tabindex: '',
+    uppercase: 'true',
 };
 
 export const Default = Template.bind({
@@ -86,6 +144,12 @@ export const OnDark = Template.bind({
 OnDark.args = {
     ...base,
     onDark: true,
+};
+
+OnDark.parameters = {
+    backgrounds: {
+        default: 'Dark',
+    },
 };
 
 export const WithIcon = Template.bind({
