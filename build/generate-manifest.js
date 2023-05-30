@@ -37,6 +37,7 @@ function mapComponentEntryFiles(component) {
 
     const flattenedFiles = [];
 
+    /* eslint-disable no-restricted-syntax */
     for (const set of fileSets) {
         for (const element of set) {
             flattenedFiles.push(element);

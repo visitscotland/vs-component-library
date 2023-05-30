@@ -30,12 +30,12 @@ const generateComponentImportStatement = (modulePath, componentName) => {
 
 const insertComponentImports = (subject, componentsMap) => subject.replace(
     importsPlaceholder,
-    map(componentsMap, generateComponentImportStatement).join(os.EOL)
+    map(componentsMap, generateComponentImportStatement).join(os.EOL),
 );
 
 const insertComponentRegistrations = (subject, componentsMap) => subject.replace(
     registrationsPlaceholder,
-    keys(componentsMap).join(`,${os.EOL}`)
+    keys(componentsMap).join(`,${os.EOL}`),
 );
 
 const transformSource = (subject, componentsMap) => {
