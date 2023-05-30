@@ -14,14 +14,14 @@ type Video = {
     videoFullDuration: FullDuration,
 }
 
-export const useVideoStore = defineStore('video', () => {
+const useVideoStore = defineStore('video', () => {
     const videos: Ref<Video[]> = ref([]);
 
     function addVideo(newVideo: Video) {
         videos.value = [
             ...videos.value,
             newVideo,
-        ]
+        ];
     }
 
     function getVideo(id: string) {
@@ -32,5 +32,7 @@ export const useVideoStore = defineStore('video', () => {
         videos,
         addVideo,
         getVideo,
-    }
+    };
 });
+
+export default useVideoStore;

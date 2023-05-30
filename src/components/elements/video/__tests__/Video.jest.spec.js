@@ -52,7 +52,8 @@
 //     });
 
 //     describe(':data', () => {
-//         it('should show a roundedDuration that rounds up, if the duration is 0 minutes and < 30 seconds', async() => {
+//         it('should show a roundedDuration that rounds up, if the duration is 0 minutes and < 30
+//           seconds', async() => {
 //             const wrapper = factoryMount();
 
 //             // a 25 second video, which should round to 1 minute
@@ -67,7 +68,8 @@
 //             expect(wrapper.vm.duration.roundedMinutes).toContain('1');
 //         });
 
-//         it('should show a roundedDuration that rounds down, if the duration is x minutes and < 30 seconds', async() => {
+//         it('should show a roundedDuration that rounds down, if the duration is x minutes and <
+//           30 seconds', async() => {
 //             const wrapper = factoryMount();
 
 //             // a 1 minute 20 second video, which should round down to 1 minute
@@ -76,7 +78,8 @@
 //             expect(wrapper.vm.duration.roundedMinutes).toContain('1');
 //         });
 
-//         it('should show a roundedDuration that rounds up, if the duration is x minutes and >= 30 seconds', async() => {
+//         it('should show a roundedDuration that rounds up, if the duration is x minutes and >=
+//           30 seconds', async() => {
 //             // a 1 minute 30 second video, which should round up to 2 minutes
 //             const wrapper = factoryMount();
 
@@ -91,7 +94,8 @@
 
 //             wrapper.vm.formatTime(80);
 
-//             expect(wrapper.vm.duration.roundedMinutes).toBe(singleMinuteDescriptor.replace('%s', '1'));
+//             expect(wrapper.vm.duration.roundedMinutes)
+//                  .toBe(singleMinuteDescriptor.replace('%s', '1'));
 //         });
 
 //         it('should render the pluralMinuteDiscriptor for a multi minute video', async() => {
@@ -100,7 +104,8 @@
 //             // a 3 minute 40 second video, which should round up to 4 minute
 //             wrapper.vm.formatTime(220);
 
-//             expect(wrapper.vm.duration.roundedMinutes).toBe(pluralMinuteDescriptor.replace('%s', '4'));
+//             expect(wrapper.vm.duration.roundedMinutes)
+//                .toBe(pluralMinuteDescriptor.replace('%s', '4'));
 //         });
 
 //         it('renders content inserted into the `embedIntroCopyNoJs` slot', () => {
@@ -108,7 +113,8 @@
 //             expect(wrapper.text()).toContain(noJsContent);
 //         });
 
-//         it('should render the `noCookiesMessage` prop content if cookies are not enabled', async() => {
+//         it('should render the `noCookiesMessage` prop content if cookies are not enabled',
+//           async() => {
 //             const wrapper = factoryMount({
 //                 requiredCookiesExist: {
 //                     get() {
@@ -131,7 +137,8 @@
 //             expect(wrapper.text()).toContain(noCookiesContent);
 //         });
 
-//         it('should render the `cookieBtnText` prop content if cookies are not enabled', async() => {
+//         it('should render the `cookieBtnText` prop content if cookies are not enabled',
+//           async() => {
 //             const wrapper = factoryMount({
 //                 requiredCookiesExist: {
 //                     get() {
