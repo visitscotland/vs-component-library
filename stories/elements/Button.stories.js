@@ -90,6 +90,39 @@ export const PrimaryStyle = Template.bind({
 
 PrimaryStyle.args = base;
 
+export const HoverState = Template.bind({
+});
+
+HoverState.args = base;
+
+HoverState.parameters = {
+    pseudo: {
+        hover: true,
+    },
+};
+
+export const FocusState = Template.bind({
+});
+
+FocusState.args = base;
+
+FocusState.parameters = {
+    pseudo: {
+        focus: true,
+    },
+};
+
+export const ActiveState = Template.bind({
+});
+
+ActiveState.args = base;
+
+ActiveState.parameters = {
+    pseudo: {
+        active: true,
+    },
+};
+
 export const SecondaryStyle = Template.bind({
 });
 
