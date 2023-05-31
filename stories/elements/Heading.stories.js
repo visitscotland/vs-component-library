@@ -28,7 +28,6 @@ const Template = (args) => ({
 const base = {
     default: 'VisitScotland',
     'sub-heading': '',
-    level: 1,
     overrideStyleLevel: null,
     alternative: false,
     thin: false,
