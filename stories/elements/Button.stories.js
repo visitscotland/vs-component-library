@@ -85,33 +85,41 @@ const base = {
     uppercase: 'true',
 };
 
-export const Default = Template.bind({
+export const PrimaryStyle = Template.bind({
 });
 
-Default.args = base;
+PrimaryStyle.args = base;
 
-export const Size = Template.bind({
+export const SecondaryStyle = Template.bind({
 });
 
-Size.args = {
+SecondaryStyle.args = {
+    ...base,
+    variant: 'secondary',
+};
+
+export const Small = Template.bind({
+});
+
+Small.args = {
     ...base,
     size: 'sm',
 };
 
-export const Uppercase = Template.bind({
+export const Large = Template.bind({
 });
 
-Uppercase.args = {
+Large.args = {
     ...base,
-    uppercase: false,
+    size: 'lg',
 };
 
-export const Secondary = Template.bind({
+export const LowercaseText = Template.bind({
 });
 
-Secondary.args = {
+LowercaseText.args = {
     ...base,
-    variant: 'secondary',
+    uppercase: false,
 };
 
 export const Transparent = Template.bind({
@@ -158,4 +166,41 @@ export const WithIcon = Template.bind({
 WithIcon.args = {
     ...base,
     icon: 'user',
+};
+
+export const WithIconOnRight = Template.bind({
+});
+
+WithIconOnRight.args = {
+    ...base,
+    icon: 'user',
+    iconPosition: 'right',
+};
+
+export const IconOnly = Template.bind({
+});
+
+IconOnly.args = {
+    ...base,
+    icon: 'search',
+    iconOnly: true,
+    default: '',
+};
+
+export const IconPrimaryWithText = Template.bind({
+});
+
+IconPrimaryWithText.args = {
+    ...base,
+    variant: 'transparent',
+    icon: 'close-circle',
+    iconWithText: true,
+    default: 'Close',
+    onDark: true,
+};
+
+IconPrimaryWithText.parameters = {
+    backgrounds: {
+        default: 'Dark',
+    },
 };
