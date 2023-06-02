@@ -5,46 +5,29 @@ export default {
     title: 'Elements/Icon',
     tags: ['autodocs'],
     argTypes: {
+        variant: {
+            options: ['primary', 'secondary', 'light', 'dark', 'color-white', 'secondary-teal'],
+            control: {
+                type: 'radio',
+            },
+        },
         size: {
             options: ['xxs', 'xs', 'sm', 'md', 'lg', 'xl'],
             control: {
-                type: 'select',
+                type: 'radio',
             },
         },
-        name: {
+        orientation: {
+            options: ['up', 'down', 'left', 'right'],
             control: {
-                type: 'select',
+                type: 'radio',
             },
-            options: [
-                'accesstoliet',
-                'accessparkdrop',
-                'acco',
-                'acti',
-                'attr',
-                'audioloop',
-                'cafereston',
-                'cate',
-                'cities',
-                'dsblaccess',
-                'wheelchairaccess',
-                'even',
-                'familyev',
-                'filmev',
-                'hottub',
-                'parking',
-                'petswelcom',
-                'wifi',
-                'public',
-                'pubtranrte',
-                'reta',
-                'spahealth',
-                'vege',
-                'walking',
-                'boat',
-                'transport',
-                'brekavail',
-                'wetroom',
-            ],
+        },
+        smallSize: {
+            options: ['xxs', 'xs', 'sm', 'md', 'lg', 'xl'],
+            control: {
+                type: 'radio',
+            },
         },
     },
 };
@@ -65,11 +48,11 @@ const Template = (args) => ({
 
 const base = {
     name: 'user',
-    variant: null,
-    customColour: null,
-    orientation: null,
+    variant: '',
+    customColour: '',
+    orientation: '',
     size: 'md',
-    smallSize: null,
+    smallSize: '',
 };
 
 export const Default = Template.bind({
@@ -77,45 +60,4 @@ export const Default = Template.bind({
 
 Default.args = {
     ...base,
-};
-
-export const ColourVariant = Template.bind({
-});
-
-ColourVariant.args = {
-    ...base,
-    variant: 'secondary',
-};
-
-export const CustomColour = Template.bind({
-});
-
-CustomColour.args = {
-    ...base,
-    customColour: '#FF0000',
-};
-
-export const Orientation = Template.bind({
-});
-
-Orientation.args = {
-    ...base,
-    orientation: 'xl',
-};
-
-export const Size = Template.bind({
-});
-
-Size.args = {
-    ...base,
-    size: 'xl',
-};
-
-export const ResponsiveSize = Template.bind({
-});
-
-ResponsiveSize.args = {
-    ...base,
-    size: 'xl',
-    smallSize: 'xs',
 };
