@@ -44,15 +44,20 @@ const Template = (args) => ({
     template: `
         <vs-container>
             <vs-row>
-                <VsCol v-bind="args" style="border: 1px solid black;">
-                    <template v-if="${'default' in args}" v-slot>${args.default}</template>
+                <VsCol v-bind="args" v-for="n in [1,2,3]" :key="n" style="padding: .25rem;">
+                    <div
+                        v-if="${'default' in args}"
+                        style="background-color: #e7f5f6; padding: .25rem 1rem;"
+                    >
+                        ${args.default}
+                    </div>
                 </VsCol>
             </vs-row>
         </vs-container>
     `,
 });
 
-const defaultSlot = `<p>cols="12"</p>`;
+const defaultSlot = 'cols="12"';
 
 const base = {
     default: defaultSlot,
@@ -69,7 +74,7 @@ export const SetWidth = Template.bind({
 
 SetWidth.args = {
     ...base,
-    default: '<p>cols="6"</p>',
+    default: 'cols="6"',
     cols: 6,
 };
 
@@ -78,7 +83,7 @@ export const Responsive = Template.bind({
 
 Responsive.args = {
     ...base,
-    default: '<p>sm="12" md="6" lg="4"</p>',
+    default: 'sm="12" md="6" lg="4"',
     sm: 12,
     md: 6,
     lg: 4,
