@@ -6,16 +6,6 @@ export default {
     component: VsCol,
     title: 'Elements/Grid',
     tags: ['autodocs'],
-    decorators: [
-        (story) => ({
-            components: {
-                story,
-                VsContainer,
-                VsRow,
-            },
-            template: '<vs-container><vs-row><story /></vs-row></vs-container>',
-        }),
-    ],
     argTypes: {
         cols: {
             control: {
@@ -52,18 +42,17 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsCol v-bind="$props">
-            <template v-if="${'default' in args}" v-slot>${args.default}</template>
-        </VsCol>
+        <vs-container>
+            <vs-row>
+                <VsCol v-bind="args" style="border: 1px solid black;">
+                    <template v-if="${'default' in args}" v-slot>${args.default}</template>
+                </VsCol>
+            </vs-row>
+        </vs-container>
     `,
 });
 
-const defaultSlot = `<div style="border: 1px solid black; padding: 1rem;">
-        <p>Every season in Scotland is worth time exploring. Hit the cycle paths
-        this summer, explore our royal connections, or take the little ones out to
-        meet the animals.</p>
-        <p>Whatever kind of break you deserve right now, you’ll find it in Scotland.</p>
-    </div>`;
+const defaultSlot = `<p>cols="12"</p>`;
 
 const base = {
     default: defaultSlot,
@@ -80,6 +69,7 @@ export const SetWidth = Template.bind({
 
 SetWidth.args = {
     ...base,
+    default: '<p>cols="6"</p>',
     cols: 6,
 };
 
@@ -88,6 +78,7 @@ export const Responsive = Template.bind({
 
 Responsive.args = {
     ...base,
+    default: '<p>sm="12" md="6" lg="4"</p>',
     sm: 12,
     md: 6,
     lg: 4,

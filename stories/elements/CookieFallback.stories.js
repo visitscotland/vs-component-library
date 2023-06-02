@@ -26,6 +26,7 @@ const Template = (args) => ({
 });
 
 const base = {
+    fallbackMessage: 'Cookies are required to view this content. <br/> Change your preferences at ',
 };
 
 export const Default = Template.bind({

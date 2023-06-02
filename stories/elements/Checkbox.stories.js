@@ -23,14 +23,10 @@ const Template = (args, required) => ({
     `,
 });
 
-const infoText = '<div>By signing up to the VisitScotland newsletter: <ul>'
-    + '<li>I agree to receive inspiration, travel tips, news and offers from VisitScotland by email.</li>'
-    + '<li>I agree to the terms of VisitScotland’sprivacy policy</li></ul></div>';
-
 const base = {
     fieldName: 'cookieConsent',
     value: 'true',
-    label: 'Yes, I confirm that the above statements apply',
+    label: 'I accept the terms and conditions',
     validationRules: {
     },
     validationMessages: {
@@ -39,7 +35,7 @@ const base = {
     genericValidation: {
     },
     hintText: '',
-    infoText,
+    infoText: '',
     triggerValidate: false,
     reAlertErrors: false,
 };
@@ -48,6 +44,22 @@ export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const InfoText = Template.bind({
+});
+
+InfoText.args = {
+    ...base,
+    infoText: '<b>Terms and conditions</b>',
+};
+
+export const HintText = Template.bind({
+});
+
+HintText.args = {
+    ...base,
+    hintText: 'Required',
+};
 
 export const Invalid = Template.bind({
 });
@@ -61,4 +73,61 @@ Invalid.args = {
     validationMessages: {
         required: 'This field is required',
     },
+};
+
+export const Checked = Template.bind({
+});
+
+Checked.args = {
+    ...base,
+    value: '',
+};
+
+const GroupTemplate = (args) => ({
+    components: {
+        VsCheckbox,
+    },
+    setup() {
+        return {
+            args,
+        };
+    },
+    template: `
+        <div>
+            <VsCheckbox
+                v-for="item in args.items"
+                :key="item.fieldName"
+                v-bind="item"
+            >
+            </VsCheckbox>
+        </div>
+    `,
+});
+
+export const CheckboxGroup = GroupTemplate.bind({
+});
+
+CheckboxGroup.args = {
+    items: [
+        {
+            ...Default.args,
+            fieldName: 'bus',
+            label: 'Bus',
+        },
+        {
+            ...Default.args,
+            fieldName: 'train',
+            label: 'Train',
+        },
+        {
+            ...Default.args,
+            fieldName: 'car',
+            label: 'Car',
+        },
+        {
+            ...Default.args,
+            fieldName: 'walking',
+            label: 'Walking',
+        },
+    ],
 };

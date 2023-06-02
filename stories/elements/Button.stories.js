@@ -85,10 +85,10 @@ const base = {
     uppercase: 'true',
 };
 
-export const PrimaryStyle = Template.bind({
+export const Primary = Template.bind({
 });
 
-PrimaryStyle.args = base;
+Primary.args = base;
 
 export const HoverState = Template.bind({
 });
@@ -123,10 +123,10 @@ ActiveState.parameters = {
     },
 };
 
-export const SecondaryStyle = Template.bind({
+export const Secondary = Template.bind({
 });
 
-SecondaryStyle.args = {
+Secondary.args = {
     ...base,
     variant: 'secondary',
 };
@@ -147,14 +147,6 @@ Large.args = {
     size: 'lg',
 };
 
-export const LowercaseText = Template.bind({
-});
-
-LowercaseText.args = {
-    ...base,
-    uppercase: false,
-};
-
 export const Transparent = Template.bind({
 });
 
@@ -163,20 +155,18 @@ Transparent.args = {
     variant: 'transparent',
 };
 
-export const Light = Template.bind({
-});
-
-Light.args = {
-    ...base,
-    variant: 'light',
-};
-
 export const Dark = Template.bind({
 });
 
 Dark.args = {
     ...base,
     variant: 'dark',
+};
+
+Dark.parameters = {
+    backgrounds: {
+        default: 'Yellow',
+    },
 };
 
 export const OnDark = Template.bind({
