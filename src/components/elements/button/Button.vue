@@ -161,7 +161,7 @@ export default {
                     'vs-button--icon-only': this.iconOnly,
                     'vs-button--icon-with-text': this.iconWithText,
                     'd-flex': this.icon && !this.iconOnly && !this.iconWithText,
-                    'flex-row-reverse': this.iconPosition === 'right',
+                    'vs-button--flex-reverse': this.iconPosition === 'right',
                     'text-uppercase': this.uppercase && !this.iconWithText,
                 },
             ];
@@ -391,6 +391,13 @@ export default {
 
         &.btn-lg{
             padding: $spacer-4 $spacer-9;
+        }
+
+        &.vs-button--flex-reverse {
+            .btn-content {
+                display: flex;
+                flex-direction: row-reverse !important;
+            }
         }
 
         /* Button Animation
