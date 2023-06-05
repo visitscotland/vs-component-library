@@ -12871,10 +12871,10 @@ storybook-addon-pseudo-states@^2.0.1:
   resolved "https://registry.yarnpkg.com/storybook-addon-pseudo-states/-/storybook-addon-pseudo-states-2.0.1.tgz#3c2f7219eb1c9aa125a33fe7d7570957dbc81578"
   integrity sha512-k7btLopDyoZELDSvVYMzNhEInf+IWns8NGJbvCPBrZxkukhnYmzQ9aLxjPDwjBTfLxSewu9Yfx2qKGzKDj+/ng==
 
-storybook@^7.0.12:
-  version "7.0.17"
-  resolved "https://registry.yarnpkg.com/storybook/-/storybook-7.0.17.tgz#9bd5bc1b6a42226019115fae5d1e6e793f9085e9"
-  integrity sha512-3vQAIFhz2AjU4q4gk7b8upGvKRg88JOHRaT37np+U9S51y5pJcPGBfgfaOYzJfA6yjwm25TVuY2Xl1nMbK3Sdg==
+storybook@^7.0.18:
+  version "7.0.18"
+  resolved "https://registry.yarnpkg.com/storybook/-/storybook-7.0.18.tgz#0783af5356fa72161258abef009cde0c9f7e5c77"
+  integrity sha512-FXMmTiomSlLPTHty7vGLr0prPf6pCV07EwAmNOYYYTskitEYV0R7hlhawByd7HuobjIhHvSTKesa1Whl86zLNA==
   dependencies:
     "@storybook/cli" "7.0.18"
 
