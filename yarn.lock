@@ -3448,6 +3448,20 @@
     source-map "0.5.6"
     tsconfig "^7.0.0"
 
+"@vuelidate/core@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@vuelidate/core/-/core-2.0.2.tgz#e874afc830ccc5295e83a0c0a0f0621e084348c9"
+  integrity sha512-aG1OZWv6xVws3ljyKy/pyxq1rdZZ2ryj+FEREcC9d4GP4qOvNHHZUl/NQxa0Bck3Ooc0RfXU8vwCA9piRoWy6w==
+  dependencies:
+    vue-demi "^0.13.11"
+
+"@vuelidate/validators@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@vuelidate/validators/-/validators-2.0.2.tgz#8b372b7d6f056d161f1fb551f063e3c83cb97d5e"
+  integrity sha512-6y6QLoK567XVmaLP3Paf1vkg6K2zO6xax3yTyczy1RnJ4PsLDLLGzP1PFzSpwb16aw4CKduBgI63HvIuctJhQg==
+  dependencies:
+    vue-demi "^0.13.11"
+
 "@vueuse/core@^10.1.2":
   version "10.1.2"
   resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-10.1.2.tgz#2499eadec36c5d7109338e3a2b73725040ae8011"
@@ -12852,10 +12866,15 @@ store2@^2.14.2:
   resolved "https://registry.yarnpkg.com/store2/-/store2-2.14.2.tgz#56138d200f9fe5f582ad63bc2704dbc0e4a45068"
   integrity sha512-siT1RiqlfQnGqgT/YzXVUNsom9S0H1OX+dpdGN1xkyYATo4I6sep5NmsRD/40s3IIOvlCq6akxkqG82urIZW1w==
 
-storybook@^7.0.18:
-  version "7.0.18"
-  resolved "https://registry.yarnpkg.com/storybook/-/storybook-7.0.18.tgz#0783af5356fa72161258abef009cde0c9f7e5c77"
-  integrity sha512-FXMmTiomSlLPTHty7vGLr0prPf6pCV07EwAmNOYYYTskitEYV0R7hlhawByd7HuobjIhHvSTKesa1Whl86zLNA==
+storybook-addon-pseudo-states@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/storybook-addon-pseudo-states/-/storybook-addon-pseudo-states-2.0.1.tgz#3c2f7219eb1c9aa125a33fe7d7570957dbc81578"
+  integrity sha512-k7btLopDyoZELDSvVYMzNhEInf+IWns8NGJbvCPBrZxkukhnYmzQ9aLxjPDwjBTfLxSewu9Yfx2qKGzKDj+/ng==
+
+storybook@^7.0.12:
+  version "7.0.17"
+  resolved "https://registry.yarnpkg.com/storybook/-/storybook-7.0.17.tgz#9bd5bc1b6a42226019115fae5d1e6e793f9085e9"
+  integrity sha512-3vQAIFhz2AjU4q4gk7b8upGvKRg88JOHRaT37np+U9S51y5pJcPGBfgfaOYzJfA6yjwm25TVuY2Xl1nMbK3Sdg==
   dependencies:
     "@storybook/cli" "7.0.18"
 

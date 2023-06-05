@@ -4,6 +4,22 @@ export default {
     component: VsHeading,
     title: 'Elements/Heading',
     tags: ['autodocs'],
+    argTypes: {
+        level: {
+            control: {
+                type: 'range',
+                min: 1,
+                max: 6,
+            },
+        },
+        overrideStyleLevel: {
+            control: {
+                type: 'range',
+                min: 1,
+                max: 6,
+            },
+        },
+    },
 };
 
 const Template = (args) => ({
@@ -29,7 +45,6 @@ const base = {
     default: 'VisitScotland',
     'sub-heading': '',
     level: 1,
-    overrideStyleLevel: null,
     alternative: false,
     thin: false,
 };

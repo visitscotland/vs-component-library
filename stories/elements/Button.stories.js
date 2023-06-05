@@ -85,25 +85,42 @@ const base = {
     uppercase: 'true',
 };
 
-export const Default = Template.bind({
+export const Primary = Template.bind({
 });
 
-Default.args = base;
+Primary.args = base;
 
-export const Size = Template.bind({
+export const HoverState = Template.bind({
 });
 
-Size.args = {
-    ...base,
-    size: 'sm',
+HoverState.args = base;
+
+HoverState.parameters = {
+    pseudo: {
+        hover: true,
+    },
 };
 
-export const Uppercase = Template.bind({
+export const FocusState = Template.bind({
 });
 
-Uppercase.args = {
-    ...base,
-    uppercase: false,
+FocusState.args = base;
+
+FocusState.parameters = {
+    pseudo: {
+        focus: true,
+    },
+};
+
+export const ActiveState = Template.bind({
+});
+
+ActiveState.args = base;
+
+ActiveState.parameters = {
+    pseudo: {
+        active: true,
+    },
 };
 
 export const Secondary = Template.bind({
@@ -114,6 +131,22 @@ Secondary.args = {
     variant: 'secondary',
 };
 
+export const Small = Template.bind({
+});
+
+Small.args = {
+    ...base,
+    size: 'sm',
+};
+
+export const Large = Template.bind({
+});
+
+Large.args = {
+    ...base,
+    size: 'lg',
+};
+
 export const Transparent = Template.bind({
 });
 
@@ -122,20 +155,18 @@ Transparent.args = {
     variant: 'transparent',
 };
 
-export const Light = Template.bind({
-});
-
-Light.args = {
-    ...base,
-    variant: 'light',
-};
-
 export const Dark = Template.bind({
 });
 
 Dark.args = {
     ...base,
     variant: 'dark',
+};
+
+Dark.parameters = {
+    backgrounds: {
+        default: 'Yellow',
+    },
 };
 
 export const OnDark = Template.bind({
@@ -158,4 +189,41 @@ export const WithIcon = Template.bind({
 WithIcon.args = {
     ...base,
     icon: 'user',
+};
+
+export const WithIconOnRight = Template.bind({
+});
+
+WithIconOnRight.args = {
+    ...base,
+    icon: 'user',
+    iconPosition: 'right',
+};
+
+export const IconOnly = Template.bind({
+});
+
+IconOnly.args = {
+    ...base,
+    icon: 'search',
+    iconOnly: true,
+    default: '',
+};
+
+export const IconPrimaryWithText = Template.bind({
+});
+
+IconPrimaryWithText.args = {
+    ...base,
+    variant: 'transparent',
+    icon: 'close-circle',
+    iconWithText: true,
+    default: 'Close',
+    onDark: true,
+};
+
+IconPrimaryWithText.parameters = {
+    backgrounds: {
+        default: 'Dark',
+    },
 };

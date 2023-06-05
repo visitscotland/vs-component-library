@@ -4,7 +4,7 @@ import {
     minLength,
     maxLength,
     helpers,
-} from 'vuelidate/lib/validators';
+} from '@vuelidate/validators';
 
 const postcode = helpers.regex('postcode', /^([A-Z][A-HJ-Y]?\d[A-Z\d]? ?\d[A-Z]{2}|GIR ?0A{2})$/);
 
@@ -88,7 +88,7 @@ const validateFormElementMixin = {
             const rulesKeys = Object.keys(this.rules.inputVal);
 
             rulesKeys.forEach((key) => {
-                if (!this.$v.inputVal[key]) {
+                if (!this.v$.inputVal[key]) {
                     errorsArray.push(key);
                 }
             });
@@ -114,7 +114,7 @@ const validateFormElementMixin = {
             }
 
             this.touched = true;
-            this.$v.$touch();
+            this.v$.$touch();
 
             /**
              * Emit watchable data when a field's validation
@@ -137,7 +137,7 @@ const validateFormElementMixin = {
             setTimeout(() => {
                 this.manualValidate();
                 this.touched = true;
-                this.$v.$touch();
+                this.v$.$touch();
             }, 50);
         },
     },
