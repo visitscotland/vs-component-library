@@ -261,6 +261,7 @@ export default {
         .form-check {
             display: flex;
             align-items: center;
+            padding-left: 0;
         }
 
         label {
