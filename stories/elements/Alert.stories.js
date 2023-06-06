@@ -19,7 +19,7 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsAlert v-bind="$props">
+        <VsAlert v-bind="args">
             <template v-if="${'default' in args}" v-slot>${args.default}</template>
         </VsAlert>
     `,

@@ -42,17 +42,14 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsIcon v-bind="$props"></VsIcon>
+        <VsIcon v-bind="args"></VsIcon>
     `,
 });
 
 const base = {
     name: 'user',
-    variant: '',
-    customColour: '',
-    orientation: '',
+    variant: 'dark',
     size: 'md',
-    smallSize: '',
 };
 
 export const Default = Template.bind({

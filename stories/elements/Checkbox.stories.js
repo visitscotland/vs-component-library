@@ -19,7 +19,7 @@ const Template = (args, required) => ({
         };
     },
     template: `
-        <VsCheckbox v-bind="$props" required="${required}"></VsCheckbox>
+        <VsCheckbox v-bind="args" required="${required}"></VsCheckbox>
     `,
 });
 
@@ -27,13 +27,7 @@ const base = {
     fieldName: 'cookieConsent',
     value: 'true',
     label: 'I accept the terms and conditions',
-    validationRules: {
-    },
-    validationMessages: {
-    },
     invalid: false,
-    genericValidation: {
-    },
     hintText: '',
     infoText: '',
     triggerValidate: false,

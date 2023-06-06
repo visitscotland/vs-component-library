@@ -17,7 +17,8 @@ const Template = (args) => ({
     },
     template: `
     <VsImg
-      src="src/assets/images/placeholders/list-default.jpg"
+        v-bind="$props"
+        src="src/assets/images/placeholders/list-default.jpg"
     />
   `,
 });
