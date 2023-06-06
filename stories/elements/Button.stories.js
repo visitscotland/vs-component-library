@@ -77,12 +77,11 @@ const base = {
     animate: true,
     href: '',
     icon: '',
-    iconOrientation: '',
     iconOnly: false,
     iconWithText: false,
     iconPosition: 'left',
     tabindex: '',
-    uppercase: 'true',
+    uppercase: true,
 };
 
 export const Primary = Template.bind({
