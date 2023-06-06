@@ -1,3 +1,4 @@
+import pinia from '@/stores/index.ts';
 import useCookiesStore from '@/stores/cookies.store.ts';
 
 let cookieStore = null;
@@ -36,7 +37,7 @@ const cookieCheckerMixin = {
         },
     },
     mounted() {
-        cookieStore = useCookiesStore();
+        cookieStore = useCookiesStore(pinia());
 
         // check for cookies being set by OneTrust
         const setCookieStatus = () => {

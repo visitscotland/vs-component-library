@@ -53,6 +53,7 @@ import { YoutubeVue3 } from 'youtube-vue3';
 
 import VsWarning from '@components/patterns/warning/Warning.vue';
 
+import pinia from '@/stores/index.ts';
 import useVideoStore from '@/stores/video.store.ts';
 
 import jsIsDisabled from '@/utils/js-is-disabled';
@@ -205,7 +206,7 @@ export default {
     },
     mounted() {
         this.jsDisabled = jsIsDisabled();
-        videoStore = useVideoStore();
+        videoStore = useVideoStore(pinia());
 
         if (this.$refs.youtube) {
             this.player = this.$refs.youtube.player;

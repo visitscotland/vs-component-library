@@ -1,4 +1,6 @@
+import pinia from '../stores/index.ts';
 import useDataLayerStore from '../stores/dataLayer.store.ts';
+
 import checkVendorLibrary from '../utils/check-vendor-library';
 import {
     pageViewTemplate,
@@ -13,12 +15,10 @@ import {
     shareTemplate,
 } from '../utils/data-layer-templates';
 
-let dataLayerStore = null;
-
 /**
  * There is a general function to retrieve any value from the store:
- * "field_needed": dataLayerStore.getValueFromKey("field_needed"),
- * example: "page_category_1": dataLayerStore.getValueFromKey("page_category_1")
+ * "field_needed": this.dataLayerStore.getValueFromKey("field_needed"),
+ * example: "page_category_1": this.dataLayerStore.getValueFromKey("page_category_1")
  */
 
 const dataLayerMixin = {
@@ -27,16 +27,17 @@ const dataLayerMixin = {
         // dataLayer.store.js (Central Store)
         // TagManagerWrapper.vue (Global component that reads and updates the store)
         pageUrl() {
-            return dataLayerStore.pageUrl;
+            return this.dataLayerStore.pageUrl;
         },
     },
     data() {
         return {
             dataLayerLoadConfirmed: [],
+            dataLayerStore: null,
         };
     },
     mounted() {
-        dataLayerStore = useDataLayerStore();
+        this.dataLayerStore = useDataLayerStore(pinia());
     },
     methods: {
         // This function matches values passed as an object
@@ -401,7 +402,7 @@ const dataLayerMixin = {
             }
         },
         compileFullTemplate(templateValues) {
-            const storeValues = dataLayerStore.GTMData;
+            const storeValues = this.dataLayerStore.GTMData;
             const fullTemplate = {
                 ...storeValues,
                 ...templateValues,
