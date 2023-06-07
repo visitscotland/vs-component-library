@@ -66,6 +66,7 @@ export default {
          */
         fluid: {
             type: Boolean,
+            default: false,
         },
 
         /**
@@ -74,6 +75,7 @@ export default {
          */
         fluidGrow: {
             type: Boolean,
+            default: false,
         },
         /**
          * If true a generic LQIP is used for lazyloading, rather than the

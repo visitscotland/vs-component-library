@@ -87,14 +87,14 @@ const GroupTemplate = (args) => ({
         };
     },
     template: `
-        <div>
+        <fieldset>
             <VsCheckbox
                 v-for="item in args.items"
                 :key="item.fieldName"
                 v-bind="item"
             >
             </VsCheckbox>
-        </div>
+        </fieldset>
     `,
 });
 

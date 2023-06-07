@@ -17,11 +17,22 @@ const Template = (args) => ({
     },
     template: `
     <VsImg
-        v-bind="$props"
-        src="src/assets/images/placeholders/list-default.jpg"
+        v-bind="args"
     />
   `,
 });
 
+const base = {
+    src: 'src/assets/images/placeholders/list-default.jpg',
+    lowResImage: 'src/assets/images/placeholders/generic-lqip.png',
+    alt: '',
+    fluid: false,
+    fluidGrow: false,
+    useGenericLqip: false,
+    useLazyLoading: true,
+};
+
 export const Default = Template.bind({
 });
+
+Default.args = base;
