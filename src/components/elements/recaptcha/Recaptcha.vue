@@ -98,9 +98,9 @@ export default {
 
         if (this.siteKey) {
             newKey = this.siteKey;
-        } else if (process && process.env) {
+        } else if (process) {
             newKey = process.env.RECAPTCHA_TOKEN;
-        } else if (import.meta && import.meta.env) {
+        } else {
             newKey = import.meta.env.RECAPTCHA_TOKEN;
         }
 
@@ -119,16 +119,18 @@ export default {
         render() {
             // when recaptcha is rendered add a label to the invisible textarea
             // to show screenreader users it doesn't need filling
-            const recaptchaTextarea = document.getElementById('g-recaptcha-response');
-            const recaptchaParent = recaptchaTextarea.parentNode;
-            const existingRecaptchaLabel = document.querySelector('label[for="g-recaptcha-response"]');
-            const recaptchaLabel = document.createElement('label');
-            recaptchaLabel.setAttribute('for', 'g-recaptcha-response');
-            recaptchaLabel.setAttribute('class', 'sr-only');
-            recaptchaLabel.textContent = this.textareaLabel;
+            const recaptchaTextareas = document.querySelectorAll('[id^="g-recaptcha-response"]');
+            if (recaptchaTextareas.length) {
+                const recaptchaParent = recaptchaTextareas[0].parentNode;
+                const existingRecaptchaLabel = document.querySelector('label[for="g-recaptcha-response"]');
+                const recaptchaLabel = document.createElement('label');
+                recaptchaLabel.setAttribute('for', 'g-recaptcha-response');
+                recaptchaLabel.setAttribute('class', 'sr-only');
+                recaptchaLabel.textContent = this.textareaLabel;
 
-            if (!existingRecaptchaLabel) {
-                recaptchaParent.insertBefore(recaptchaLabel, recaptchaTextarea);
+                if (!existingRecaptchaLabel) {
+                    recaptchaParent.insertBefore(recaptchaLabel, recaptchaTextareas[0]);
+                }
             }
         },
     },
