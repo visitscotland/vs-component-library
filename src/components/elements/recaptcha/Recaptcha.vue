@@ -102,7 +102,7 @@ export default {
     },
     methods: {
         getKeyFromEnv() {
-            if (process) {
+            if (process.env.RECAPTCHA_TOKEN) {
                 return process.env.RECAPTCHA_TOKEN;
             }
 
