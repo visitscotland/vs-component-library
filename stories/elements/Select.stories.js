@@ -30,7 +30,7 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsSelect v-bind="$props" required="true"></VsSelect>
+        <VsSelect v-bind="args" required="true"></VsSelect>
     `,
 });
 

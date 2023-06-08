@@ -51,7 +51,7 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsTooltip v-bind="$props">
+        <VsTooltip v-bind="args">
             <template v-if="${'default' in args}" v-slot>${args.default}</template>
         </VsTooltip>
     `,

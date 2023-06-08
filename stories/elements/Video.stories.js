@@ -16,7 +16,7 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsVideo v-bind="$props"></VsVideo>
+        <VsVideo v-bind="args"></VsVideo>
     `,
 });
 

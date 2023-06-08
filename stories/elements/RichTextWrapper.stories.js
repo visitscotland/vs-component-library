@@ -31,7 +31,7 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsRichTextWrapper v-bind="$props">
+        <VsRichTextWrapper v-bind="args">
             <template v-if="${'default' in args}" v-slot>${args.default}</template>
         </VsRichTextWrapper>
     `,
