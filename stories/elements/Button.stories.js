@@ -63,7 +63,7 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsButton v-bind="$props">
+        <VsButton v-bind="args">
             <template v-if="${'default' in args}" v-slot>${args.default}</template>
         </VsButton>
     `,

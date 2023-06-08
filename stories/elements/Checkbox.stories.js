@@ -19,7 +19,7 @@ const Template = (args, required) => ({
         };
     },
     template: `
-        <VsCheckbox v-bind="$props" required="${required}"></VsCheckbox>
+        <VsCheckbox v-bind="args" required="${required}"></VsCheckbox>
     `,
 });
 

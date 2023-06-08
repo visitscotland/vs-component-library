@@ -59,7 +59,7 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsIcon v-bind="$props"></VsIcon>
+        <VsIcon v-bind="args"></VsIcon>
     `,
 });
 
