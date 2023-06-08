@@ -94,19 +94,20 @@ export default {
         };
     },
     created() {
-        let newKey = '';
-
-        if (this.siteKey) {
-            newKey = this.siteKey;
-        } else if (process) {
-            newKey = process.env.RECAPTCHA_TOKEN;
-        } else {
-            newKey = import.meta.env.RECAPTCHA_TOKEN;
-        }
-
-        this.recaptchaSiteKey = newKey;
+        this.recaptchaSiteKey = this.getKey();
     },
     methods: {
+        getKey() {
+            if (this.siteKey) {
+                return this.siteKey;
+            }
+
+            if (process) {
+                return process.env.RECAPTCHA_TOKEN;
+            }
+
+            return import.meta.env.RECAPTCHA_TOKEN;
+        },
         verified(response) {
             /**
              * Emit Google response to recaptcha submission
