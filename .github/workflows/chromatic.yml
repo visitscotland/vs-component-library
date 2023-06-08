@@ -6,6 +6,9 @@ name: 'Chromatic'
 # Event for the workflow
 on: push
 
+env:
+  RECAPTCHA_TOKEN: ${{ secrets.RECAPTCHA_TOKEN }}
+
 # List of jobs
 jobs:
   chromatic-deployment:
@@ -24,4 +27,3 @@ jobs:
         with:
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          recaptchaToken: ${{ secrets.RECAPTCHA_TOKEN }}
