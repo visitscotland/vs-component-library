@@ -10,7 +10,8 @@
             {{ errorMsg }}
         </span>
         <VueRecaptcha
-            :sitekey="siteKey"
+            v-if="recaptchaSiteKey"
+            :sitekey="recaptchaSiteKey"
             @verify="verified"
             @render="render"
             class="vs-recaptcha__embed"
@@ -43,7 +44,7 @@ export default {
          */
         siteKey: {
             type: String,
-            default: process.env.RECAPTCHA_TOKEN,
+            default: '',
         },
         /**
          * Whether or not the form is invalid - this should
@@ -89,7 +90,21 @@ export default {
     data() {
         return {
             response: null,
+            recaptchaSiteKey: '',
         };
+    },
+    created() {
+        let newKey = '';
+
+        if (this.siteKey) {
+            newKey = this.siteKey;
+        } else if (process && process.env) {
+            newKey = process.env.RECAPTCHA_TOKEN;
+        } else if (import.meta && import.meta.env) {
+            newKey = import.meta.env.RECAPTCHA_TOKEN;
+        }
+
+        this.recaptchaSiteKey = newKey;
     },
     methods: {
         verified(response) {
