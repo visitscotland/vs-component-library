@@ -94,14 +94,14 @@ export default {
         };
     },
     created() {
-        this.recaptchaSiteKey = this.getKey();
+        if (this.siteKey) {
+            this.recaptchaSiteKey = this.siteKey;
+        } else {
+            this.recaptchaSiteKey = this.getKeyFromEnv();
+        }
     },
     methods: {
-        getKey() {
-            if (this.siteKey) {
-                return this.siteKey;
-            }
-
+        getKeyFromEnv() {
             if (process) {
                 return process.env.RECAPTCHA_TOKEN;
             }
