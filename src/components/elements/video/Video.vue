@@ -31,7 +31,7 @@
                 <template
                     v-if="!requiredCookiesExist
                         && cookiesInitStatus === true"
-                    v-slot:buttonText
+                    v-slot:button-text
                 >
                     {{ cookieBtnText }}
                 </template>
