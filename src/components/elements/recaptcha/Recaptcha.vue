@@ -24,6 +24,8 @@
 <script>
 import { VueRecaptcha } from 'vue-recaptcha';
 
+import getEnvValue from '@/utils/get-env-value';
+
 /**
  * The reCaptcha component allows us to tell human and
  * automated bots apart when submitting data.
@@ -97,17 +99,10 @@ export default {
         if (this.siteKey) {
             this.recaptchaSiteKey = this.siteKey;
         } else {
-            this.recaptchaSiteKey = this.getKeyFromEnv();
+            this.recaptchaSiteKey = getEnvValue('RECAPTCHA_TOKEN');
         }
     },
     methods: {
-        getKeyFromEnv() {
-            if (process.env.RECAPTCHA_TOKEN) {
-                return process.env.RECAPTCHA_TOKEN;
-            }
-
-            return import.meta.env.RECAPTCHA_TOKEN;
-        },
         verified(response) {
             /**
              * Emit Google response to recaptcha submission

@@ -4,6 +4,8 @@ import VsRecaptcha from '../Recaptcha.vue';
 
 config.global.renderStubDefaultSlot = true;
 
+jest.mock('@/utils/get-env-value');
+
 const factoryShallowMount = () => shallowMount(VsRecaptcha, {
     propsData: {
         siteKey: '123124',
