@@ -34,9 +34,3 @@ export default {
     },
 };
 </script>
-
-<docs>
-    ```js
-        <HtmlError statusCode="404" />
-    ```
-</docs>
