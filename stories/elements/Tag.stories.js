@@ -4,9 +4,6 @@ export default {
     component: VsTag,
     title: 'Elements/Tag',
     tags: ['autodocs'],
-    argTypes: {
-
-    },
 };
 
 const Template = (args) => ({

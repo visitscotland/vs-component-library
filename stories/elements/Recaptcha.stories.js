@@ -4,9 +4,6 @@ export default {
     component: VsRecaptcha,
     title: 'Elements/Recaptcha',
     tags: ['autodocs'],
-    argTypes: {
-
-    },
 };
 
 const Template = (args) => ({
