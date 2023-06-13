@@ -77,6 +77,7 @@ const base = {
     animate: true,
     href: '',
     icon: '',
+    iconOrientation: 'up',
     iconOnly: false,
     iconWithText: false,
     iconPosition: 'left',
