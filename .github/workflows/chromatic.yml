@@ -16,6 +16,9 @@ on:
   # Allows you to run this workflow manually from the Actions tab in the GitHub dashboard
   workflow_dispatch: {}
 
+env:
+  RECAPTCHA_TOKEN: ${{ secrets.RECAPTCHA_TOKEN }}
+
 # List of jobs
 jobs:
   chromatic-deployment:

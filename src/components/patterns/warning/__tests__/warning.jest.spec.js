@@ -86,7 +86,7 @@ describe('VsWarning', () => {
                     type: 'cookie',
                 },
                 {
-                    buttonText: 'Manage cookies',
+                    'button-text': 'Manage cookies',
                 },
             );
 
@@ -109,7 +109,7 @@ describe('VsWarning', () => {
                 {
                 },
                 {
-                    buttonText: btnText,
+                    'button-text': btnText,
                 },
             );
 

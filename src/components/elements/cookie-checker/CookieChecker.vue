@@ -6,6 +6,7 @@
 // import Vue from 'vue/dist/vue.js';
 // import CookieFallback from './CookiesFallback.vue';
 // import EventBus from '../../../utils/event-bus';
+import pinia from '@/stores/index.ts';
 import useCookiesStore from '@/stores/cookies.store.ts';
 import OneTrustVS from '../../../utils/one-trust';
 
@@ -46,7 +47,7 @@ export default {
         },
     },
     mounted() {
-        cookieStore = useCookiesStore();
+        cookieStore = useCookiesStore(pinia());
     },
     created() {
         this.checkOneTrust();

@@ -18,7 +18,7 @@ beforeEach(() => {
 });
 
 describe('VsCheckbox', () => {
-    it('should render a BFormCheckbox-stub', () => {
+    it('should render a b-form-checkbox-stub', () => {
         const checkboxStub = wrapper.find('b-form-checkbox-stub');
 
         expect(checkboxStub.exists()).toBe(true);
