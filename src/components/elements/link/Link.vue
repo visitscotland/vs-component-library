@@ -25,7 +25,7 @@
 
 <script>
 import VsIcon from '@/components/elements/icon/Icon.vue';
-// import dataLayerMixin from '../../../mixins/dataLayerMixin';
+import dataLayerMixin from '../../../mixins/dataLayerMixin';
 
 /**
  * Links allow a user to navigate through
@@ -41,9 +41,9 @@ export default {
     components: {
         VsIcon,
     },
-    // mixins: [
-    //     dataLayerMixin,
-    // ],
+    mixins: [
+        dataLayerMixin,
+    ],
     props: {
         /**
          * The URL the link will point to
