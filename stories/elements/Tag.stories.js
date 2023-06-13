@@ -23,7 +23,7 @@ const Template = (args) => ({
 });
 
 const base = {
-    default: 'Something',
+    default: 'Things to do',
     href: '#',
 };
 
