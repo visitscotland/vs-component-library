@@ -4,9 +4,6 @@ export default {
     component: VsButtonToggleGroup,
     title: 'Patterns/ButtonToggleGroup',
     tags: ['autodocs'],
-    argTypes: {
-
-    },
 };
 
 const Template = (args) => ({

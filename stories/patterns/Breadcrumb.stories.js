@@ -5,8 +5,6 @@ export default {
     component: VsBreadcrumbItem,
     title: 'Patterns/Breadcrumb',
     tags: ['autodocs'],
-    argTypes: {
-    },
 };
 
 const Template = (args) => ({

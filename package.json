@@ -15,7 +15,7 @@
     "build:library:dev": "cross-env NODE_ENV=development webpack --config ./build/webpack.conf.js",
     "build:ssr": "cross-env NODE_ENV=production webpack --config ./build/webpack.ssr.conf.js",
     "build:ssr:dev": "cross-env NODE_ENV=development webpack --config ./build/webpack.ssr.conf.js",
-    "test": "yarn theo && jest --config ./test/unit/jest.conf.js --silent",
+    "test": "yarn theo && jest --config ./test/unit/jest.conf.js",
     "lint": "eslint",
     "lint:all": "yarn lint:src && yarn lint:build && yarn lint:stories",
     "lint:src": "yarn lint \"src/**/*.{js,vue,ts}\"",
