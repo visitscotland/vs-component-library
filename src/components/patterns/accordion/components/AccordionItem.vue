@@ -202,7 +202,7 @@ export default {
         padding: $spacer-3;
         border: 0;
 
-        &:focus{
+        &:focus {
             box-shadow: $shadow-button-focus inset;
         }
     }

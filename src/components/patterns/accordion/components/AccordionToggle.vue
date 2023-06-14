@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import VsButton from '@components/elements/button/Button';
+import VsButton from '@components/elements/button/Button.vue';
 
 /**
  * Accordion toggle button used with AccordionItem
@@ -73,7 +73,11 @@ export default {
     display: flex;
     width: 100%;
 
-    .vs-button__text{
+    .btn-content {
+        width: 100%;
+    }
+
+    .vs-button__text {
         display: flex;
         width: 100%;
     }
@@ -94,5 +98,4 @@ export default {
         }
     }
 }
-
 </style>
