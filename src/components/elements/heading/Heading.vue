@@ -86,6 +86,8 @@ export default {
 <style lang="scss">
 .vs-heading {
     @extend %heading-default-styles;
+
+    text-decoration: underline;
 }
 
 </style>

@@ -226,8 +226,6 @@ export default {
     .vs-button{
         @extend %button-default-styles;
 
-        border-radius: .5em;
-
         .vs-icon {
             margin-top: -.05rem;
 
