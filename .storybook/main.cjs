@@ -2,6 +2,7 @@
 
 const path = require("path");
 const { mergeConfig } = require('vite');
+const turbosnap = require('vite-plugin-turbosnap');
 
 const config = {
   stories: [
@@ -52,6 +53,7 @@ const config = {
           },
         ],
       },
+      plugins: configType === 'PRODUCTION' ? [turbosnap({ rootDir: config.root ?? process.cwd() })] : [],
     });
   },
 };
