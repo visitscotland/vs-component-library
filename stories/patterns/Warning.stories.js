@@ -56,17 +56,17 @@ const Template = (args) => ({
     },
     template: `
     <VsWarning v-bind="args">
-        <template v-if="${'default' in args}" v-slot>${args.default}</template>
+        <template v-if="args.default" v-slot>${args.default}</template>
 
         <template
-            v-if="${'extra-content' in args}"
+            v-if="args['extra-content']"
             v-slot:extra-content
         >
             ${args['extra-content']}
         </template>
 
         <template
-            v-if="${'button-text' in args}"
+            v-if="args['button-text']"
             v-slot:button-text
         >
             ${args['button-text']}

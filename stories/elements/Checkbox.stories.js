@@ -27,13 +27,7 @@ const base = {
     fieldName: 'cookieConsent',
     value: 'true',
     label: 'I accept the terms and conditions',
-    validationRules: {
-    },
-    validationMessages: {
-    },
     invalid: false,
-    genericValidation: {
-    },
     hintText: '',
     infoText: '',
     triggerValidate: false,
@@ -93,14 +87,14 @@ const GroupTemplate = (args) => ({
         };
     },
     template: `
-        <div>
+        <fieldset>
             <VsCheckbox
                 v-for="item in args.items"
                 :key="item.fieldName"
                 v-bind="item"
             >
             </VsCheckbox>
-        </div>
+        </fieldset>
     `,
 });
 
