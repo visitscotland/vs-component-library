@@ -24,7 +24,7 @@ const Template = (args) => ({
 });
 
 const base = {
-    apiUrl: 'http://172.28.81.65:8089/data/component/cannedsearch?prodtypes=acco&avail=off&locplace=4751&locprox=10.0&loc=Glasgow&fac_id=accessguide',
+    apiUrl: '/fixtures/canned-search/sample-accom.json',
     heading: 'Accommodation in Glasgow',
     searchType: 'acco',
     carouselNextText: 'Next Slide',
@@ -48,7 +48,7 @@ export const FoodAndDrink = Template.bind();
 
 FoodAndDrink.args = {
     ...base,
-    apiUrl: 'http://172.28.81.65:8089/data/component/cannedsearch?prodtypes=cate&locpoly=821&locprox=10.0&loc=Royal+Mile',
+    apiUrl: '/fixtures/canned-search/sample-food.json',
     searchType: 'cate',
     heading: 'Food & Drink',
     vsCannedSearchButtons: `
@@ -62,7 +62,7 @@ export const ThingsToDo = Template.bind();
 
 ThingsToDo.args = {
     ...base,
-    apiUrl: 'http://172.28.81.65:8089/data/component/cannedsearch?prodtypes=acti%2Cattr%2Creta&locplace=4751&locprox=10.0&loc=Glasgow',
+    apiUrl: '/fixtures/canned-search/sample-event.json',
     searchType: 'acti',
     heading: 'Things to Do',
     vsCannedSearchButtons: `
@@ -76,7 +76,7 @@ export const Tours = Template.bind();
 
 Tours.args = {
     ...base,
-    apiUrl: 'http://172.28.81.65:8089/data/component/cannedsearchtours?find%5B%5D=attractions%7Caberdeen%7CAberdeen&locale=en-GB',
+    apiUrl: '/fixtures/canned-search/sample-tour.json',
     searchType: 'tour',
     heading: 'Tours in Aberdeen',
     vsCannedSearchButtons: `
