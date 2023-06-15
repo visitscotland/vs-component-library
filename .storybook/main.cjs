@@ -23,6 +23,7 @@ const config = {
   docs: {
     autodocs: "tag",
   },
+  staticDirs: ['../src/assets'],
   async viteFinal(config, { configType }) {
     // return the customized config
     return mergeConfig(config, {
