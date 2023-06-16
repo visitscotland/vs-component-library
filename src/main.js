@@ -5,11 +5,16 @@ const { Vue } = require('vue');
 const { isObject, each } = require('lodash');
 const { noJsClass } = require('@/utils/no-js-class');
 
+const { BTab } = require('bootstrap-vue-next');
+
 require('@/styles/core.styles.scss');
 require('@/assets/fonts/fonts.scss');
 
 const defaultVueOptions = {
     comments: true,
+    components: {
+        BTab,
+    },
 };
 
 const removeNoJSClass = () => {
