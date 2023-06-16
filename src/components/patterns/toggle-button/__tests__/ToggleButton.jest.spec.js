@@ -3,6 +3,8 @@ import VsToggleButton from '../ToggleButton.vue';
 
 config.global.renderStubDefaultSlot = true;
 
+jest.mock('@/utils/svg-context');
+
 const toggleIdValue = 'toggle-id';
 
 const defaultSlotText = 'Click here to toggle caption';

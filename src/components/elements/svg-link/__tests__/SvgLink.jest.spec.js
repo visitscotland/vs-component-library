@@ -3,6 +3,8 @@ import VsSvgLink from '../SvgLink.vue';
 
 config.global.renderStubDefaultSlot = true;
 
+jest.mock('@/utils/svg-context');
+
 const factoryShallowMount = (values) => shallowMount(VsSvgLink, {
     propsData: {
         linkAltText: 'VisitScotland Home',

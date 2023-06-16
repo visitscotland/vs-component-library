@@ -37,6 +37,7 @@ const config = {
       },
       define: {
         'process.env': process.env,
+        'process.versions': process.versions,
       },
       resolve: {
         alias: [
