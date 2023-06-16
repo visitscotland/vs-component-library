@@ -19,7 +19,7 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsCookieFallback v-bind="$props">
+        <VsCookieFallback v-bind="args">
             <template v-if="${'default' in args}" v-slot>${args.default}</template>
         </VsCookieFallback>
     `,

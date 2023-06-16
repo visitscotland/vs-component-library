@@ -1,5 +1,4 @@
 import { createApp, createSSRApp } from 'vue';
-import { createPinia } from 'pinia';
 import mitt from 'mitt';
 
 const { Vue } = require('vue');
@@ -29,7 +28,6 @@ export const initApp = (options, skipRemoveNoJsClass) => {
         },
     });
 
-    app.use(createPinia());
     const emitter = mitt();
     app.config.globalProperties.emitter = emitter;
 
@@ -47,7 +45,6 @@ export const initSSRApp = (options, skipRemoveNoJsClass) => {
         },
     });
 
-    app.use(createPinia());
     const emitter = mitt();
     app.config.globalProperties.emitter = emitter;
 

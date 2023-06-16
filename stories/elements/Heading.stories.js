@@ -32,11 +32,11 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsHeading v-bind="$props">
+        <VsHeading v-bind="args">
             <template v-if="${'default' in args}" v-slot>${args.default}</template>
-            <template v-if="${'sub-heading' in args}" v-slot:sub-heading>${
-        args['sub-heading']
-    }</template>
+            <template v-if="${'sub-heading' in args}" v-slot:sub-heading>
+                ${args['sub-heading']}
+            </template>
         </VsHeading>
     `,
 });

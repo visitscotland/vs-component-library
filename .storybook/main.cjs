@@ -2,6 +2,7 @@
 
 const path = require("path");
 const { mergeConfig } = require('vite');
+const turbosnap = require('vite-plugin-turbosnap');
 
 const config = {
   stories: [
@@ -22,6 +23,7 @@ const config = {
   docs: {
     autodocs: "tag",
   },
+  staticDirs: ['../src/assets'],
   async viteFinal(config, { configType }) {
     // return the customized config
     return mergeConfig(config, {
@@ -32,6 +34,9 @@ const config = {
             additionalData: `@import "../src/styles/resources.scss";`,
           },
         },
+      },
+      define: {
+        'process.env': process.env,
       },
       resolve: {
         alias: [
@@ -49,6 +54,7 @@ const config = {
           },
         ],
       },
+      plugins: configType === 'PRODUCTION' ? [turbosnap({ rootDir: config.root ?? process.cwd() })] : [],
     });
   },
 };

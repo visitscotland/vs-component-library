@@ -4,7 +4,20 @@
 name: 'Chromatic'
 
 # Event for the workflow
-on: push
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+    branches:
+      - 'main'
+
+  # Allows you to run this workflow manually from the Actions tab in the GitHub dashboard
+  workflow_dispatch: {}
+
+env:
+  RECAPTCHA_TOKEN: ${{ secrets.RECAPTCHA_TOKEN }}
 
 # List of jobs
 jobs:
@@ -24,3 +37,4 @@ jobs:
         with:
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          onlyChanged: true

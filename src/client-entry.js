@@ -1,35 +1,18 @@
 /* eslint-disable no-param-reassign */
 
-import { get, isObject } from 'lodash';
-
-import { Vue, initApp as initAppMain } from '@/main';
-
-const isServerRendered = (appMountTargetSelector) => {
-    const appContainer = document.querySelector(appMountTargetSelector);
-
-    return appContainer && appContainer.hasAttribute('data-server-rendered');
-};
+import {
+    Vue,
+    initApp as initAppMain,
+    initSSRApp as initSSRAppMain,
+} from '@/main';
 
 export { Vue };
 
-export const initApp = (options) => {
-    const appMountTargetSelector = get(options, 'el');
-    const hasBeenSSRed = isServerRendered(appMountTargetSelector);
+export const initApp = (options) => initAppMain(options);
 
-    if (appMountTargetSelector && hasBeenSSRed) {
-        if (!isObject(options)) {
-            options = {
+export const initSSRApp = (options) => {
+    const template = document.querySelector('#app-template').innerHTML;
+    options.template = template;
 
-            };
-        }
-
-        options.template = '#app-template';
-    }
-
-    if (hasBeenSSRed) {
-        // This fixes hydration mismatching because SSR does not preserve comments
-        options.comments = false;
-    }
-
-    return initAppMain(options);
+    return initSSRAppMain(options);
 };
