@@ -4,8 +4,12 @@ const { renderToString } = require('@vue/server-renderer');
 
 const { initSSRApp, initApp } = require('@/main');
 
+const { BTab } = require('bootstrap-vue-next');
+
+
 const defaultVueOptions = {
     components: {
+        BTab,
         /** PLACEHOLDER: COMPONENT REGISTRATION */
     },
 };

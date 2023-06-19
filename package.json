@@ -42,6 +42,7 @@
     "@babel/polyfill": "^7.10.4",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "7.12.13",
+    "@originjs/vite-plugin-require-context": "^1.0.9",
     "@rushstack/eslint-patch": "^1.3.0",
     "@storybook/addon-a11y": "^7.0.18",
     "@storybook/addon-essentials": "^7.0.18",
