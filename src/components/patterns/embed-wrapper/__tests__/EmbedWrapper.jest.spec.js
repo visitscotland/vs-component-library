@@ -5,6 +5,8 @@ import VsEmbedWrapper from '../EmbedWrapper.vue';
 
 config.global.renderStubDefaultSlot = true;
 
+jest.mock('@/mixins/verifyCookiesMixin.js');
+
 const introContent = 'Intro text';
 const noJsContent = 'Js is off';
 const noCookiesContent = 'Cookies are off';
@@ -110,7 +112,7 @@ describe('VsEmbedWrapper', () => {
         it('should apply `d-none` to embedded content if `noCookiesRequired` or `requiredCookiesExist` are false ', async() => {
             const wrapper = factoryShallowMount();
             wrapper.setData({
-                cookiesInitStatus: false,
+                mockCookiesExist: false,
             });
             await wrapper.vm.$nextTick();
 
