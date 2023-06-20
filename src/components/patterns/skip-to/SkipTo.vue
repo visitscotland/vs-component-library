@@ -13,7 +13,7 @@
         <VsLink
             href="#main-nav"
             data-test="vs-skip-to-main-menu"
-            @click="mainMenuFocus"
+            @click="mainMenuFocus()"
             id="main-menu"
         >
             <!-- @slot text for 'Main menu' -->
@@ -36,7 +36,7 @@
         </VsLink>
         <VsLink
             href="#site-footer"
-            @click="footerFocus"
+            @click="footerFocus()"
             data-test="vs-skip-to-footer"
         >
             <!-- @slot text for 'Footer' -->
@@ -49,12 +49,12 @@
 import VsLink from '@components/elements/link/Link';
 
 /**
-* The SkipTo component provides users of assistive
-* technologies with a focusable control that moves the
-* focus to a provided target element when activated.
-*
-* @displayName Skip To
-*/
+ * The SkipTo component provides users of assistive
+ * technologies with a focusable control that moves the
+ * focus to a provided target element when activated.
+ *
+ * @displayName Skip To
+ */
 export default {
     name: 'VsSkipTo',
     status: 'prototype',
@@ -64,8 +64,8 @@ export default {
     },
     props: {
         /**
-       * The skip to label for the menu
-       */
+         * The skip to label for the menu
+         */
         skipToText: {
             type: String,
             required: true,
@@ -73,8 +73,8 @@ export default {
     },
     methods: {
         /**
-       * Focuses on first item in main nav
-      */
+         * Focuses on first item in main nav
+        */
         mainMenuFocus() {
             const mobileMenuBtn = document.getElementsByClassName('vs-mega-nav__menu__mobile')[0];
             const firstMenuItem = document.getElementsByClassName('vs-mega-nav-dropdown')[0];
@@ -100,8 +100,8 @@ export default {
             }
         },
         /**
-       * Focuses on first item footer nav
-      */
+         * Focuses on first item footer nav
+        */
         footerFocus() {
             const footerElement = document.getElementsByClassName('vs-footer')[0];
 
@@ -139,35 +139,35 @@ export default {
 </script>
 
 <style lang="scss">
-  .vs-skip-to {
-      position: absolute;
-      transform: translateY(-100%);
-      top: 0;
-      height: $spacer-9;
-      align-items: center;
-      padding: 0 $spacer-2;
+    .vs-skip-to {
+        position: absolute;
+        transform: translateY(-100%);
+        top: 0;
+        height: $spacer-9;
+        align-items: center;
+        padding: 0 $spacer-2;
 
-      &__label {
-          margin: 0;
-      }
+        &__label {
+            margin: 0;
+        }
 
-      &:focus-within {
-          position: relative;
-          transform: translateY(0);
-      }
+        &:focus-within {
+            position: relative;
+            transform: translateY(0);
+        }
 
-      .vs-link {
-          margin-left: $spacer-2;
-      }
+        .vs-link {
+            margin-left: $spacer-2;
+        }
 
-      @include media-breakpoint-up(lg) {
-          height: $spacer-10;
-      }
-  }
+        @include media-breakpoint-up(lg) {
+            height: $spacer-10;
+        }
+    }
 
-  @include no-js {
-      .vs-skip-to__search {
-          display: none;
-      }
-  }
+    @include no-js {
+        .vs-skip-to__search {
+            display: none;
+        }
+    }
 </style>

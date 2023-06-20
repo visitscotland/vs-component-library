@@ -1,15 +1,22 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, config } from '@vue/test-utils';
 import VsSkipTo from '../SkipTo.vue';
 
+config.global.renderStubDefaultSlot = true;
+
+const mainMenuText = 'Main menu';
+const mainContentText = 'Main content';
+const searchText = 'Search Text';
+const footerText = 'Footer Text';
+
 const factoryShallowMount = () => shallowMount(VsSkipTo, {
-    propsData: {
+    props: {
         skipToText: 'Skip to',
     },
     slots: {
-        mainMenuText: 'Main menu',
-        mainContentText: 'Main content',
-        searchText: 'Search',
-        footerText: 'Footer',
+        mainMenuText,
+        mainContentText,
+        searchText,
+        footerText,
     },
 });
 
@@ -31,19 +38,19 @@ describe('VsSiteSearch', () => {
     });
     describe(':slots', () => {
         it('should render the content of the `mainMenuText` slot', () => {
-            expect(wrapper.text()).toContain('Main menu');
+            expect(wrapper.text()).toContain(mainMenuText);
         });
 
         it('should render the content of the `mainContentText` slot', () => {
-            expect(wrapper.text()).toContain('Main content');
+            expect(wrapper.text()).toContain(mainContentText);
         });
 
         it('should render the content of the `searchText` slot', () => {
-            expect(wrapper.text()).toContain('Search');
+            expect(wrapper.text()).toContain(searchText);
         });
 
         it('should render the content of the `footerText` slot', () => {
-            expect(wrapper.text()).toContain('Footer');
+            expect(wrapper.text()).toContain(footerText);
         });
     });
 
