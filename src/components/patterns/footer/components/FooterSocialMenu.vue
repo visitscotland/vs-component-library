@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import VsList from '@components/elements/list/List';
-import VsHeading from '@components/elements/heading/Heading';
+import VsList from '@components/elements/list/List.vue';
+import VsHeading from '@components/elements/heading/Heading.vue';
 
 /**
  * The FooterSocialMenu is used inside the FooterNavList.
@@ -78,36 +78,3 @@ export default {
     }
 }
 </style>
-
-<docs>
-  ```js
-    <VsFooter>
-        <VsFooterNavList>
-            <VsCol cols="12" md="6">
-                <VsFooterSocialMenu>
-                    <span slot="title">
-                        Find us on
-                    </span>
-
-                    <VsFooterSocialItem
-                        href="#"
-                        icon="facebook"
-                    ></VsFooterSocialItem>
-                    <VsFooterSocialItem
-                        href="#"
-                        icon="twitter"
-                    ></VsFooterSocialItem>
-                    <VsFooterSocialItem
-                        href="#"
-                        icon="youtube"
-                    ></VsFooterSocialItem>
-                    <VsFooterSocialItem
-                        href="#"
-                        icon="instagram"
-                    ></VsFooterSocialItem>
-                </VsFooterSocialMenu>
-            </VsCol>
-        </VsFooterNavList>
-    </VsFooter>
-  ```
-</docs>

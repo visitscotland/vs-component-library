@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import VsSvgLink from '@components/elements/svg-link/SvgLink';
+import VsSvgLink from '@components/elements/svg-link/SvgLink.vue';
 
 import {
     VsRow, VsContainer, VsCol,
@@ -113,16 +113,3 @@ export default {
     }
 }
 </style>
-
-<docs>
-  ```js
-    <VsFooter>
-        <VsFooterCopyright link-alt-text="VisitScotland Home" href="/">
-            <span slot="copyright">
-               VisitScotland. All rights reserved.
-            </span>
-        </VsFooterCopyright>
-    </VsFooter>
-
-  ```
-</docs>
