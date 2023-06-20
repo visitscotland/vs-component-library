@@ -4,8 +4,6 @@ export default {
     component: VsIcentre,
     title: 'Patterns/Icentre',
     tags: ['autodocs'],
-    argTypes: {
-    },
 };
 
 const Template = (args) => ({
