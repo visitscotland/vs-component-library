@@ -247,6 +247,13 @@ const Template = (args) => ({
                 link-text="About Us"
             />
         </VsFooterUtilityList>
+
+        <VsFooterCopyright
+            link-alt-text="VisitScotland Home"
+            href="/"
+        >
+            Copy
+        </VsFooterCopyright>
     </VsFooter>
     `,
 });
