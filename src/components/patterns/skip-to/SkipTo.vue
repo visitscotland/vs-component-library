@@ -17,7 +17,7 @@
             id="main-menu"
         >
             <!-- @slot text for 'Main menu' -->
-            <slot name="mainMenuText" />
+            <slot name="main-menu-text" />
         </VsLink>
         <VsLink
             href="#site-search-btn"
@@ -25,14 +25,14 @@
             class="vs-skip-to__search"
         >
             <!-- @slot text for 'Search' -->
-            <slot name="searchText" />
+            <slot name="search-text" />
         </VsLink>
         <VsLink
             href="#main-heading"
             data-test="vs-skip-to-main-content"
         >
             <!-- @slot text for 'Main content' -->
-            <slot name="mainContentText" />
+            <slot name="main-content-text" />
         </VsLink>
         <VsLink
             href="#site-footer"
@@ -40,7 +40,7 @@
             data-test="vs-skip-to-footer"
         >
             <!-- @slot text for 'Footer' -->
-            <slot name="footerText" />
+            <slot name="footer-text" />
         </VsLink>
     </nav>
 </template>

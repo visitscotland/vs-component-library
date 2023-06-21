@@ -13,10 +13,10 @@ const factoryShallowMount = () => shallowMount(VsSkipTo, {
         skipToText: 'Skip to',
     },
     slots: {
-        mainMenuText,
-        mainContentText,
-        searchText,
-        footerText,
+        'main-menu-text': mainMenuText,
+        'main-content-text': mainContentText,
+        'search-text': searchText,
+        'footer-text': footerText,
     },
 });
 

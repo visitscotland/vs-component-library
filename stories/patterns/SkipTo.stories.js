@@ -48,16 +48,16 @@ const Template = (args) => ({
             <VsSkipTo
                 skip-to-text="${args.skipToText}"
             >   
-                <template v-slot:mainMenuText>
+                <template v-slot:main-menu-text>
                     ${args.mainMenuText}
                 </template>
-                <template v-slot:mainContentText>
+                <template v-slot:main-content-text>
                     ${args.mainContentText}
                 </template>
-                <template v-slot:searchText>
+                <template v-slot:search-text>
                     ${args.searchText}
                 </template>
-                <template v-slot:footerText>
+                <template v-slot:footer-text>
                     ${args.footerText}
                 </template>
             </VsSkipTo>
