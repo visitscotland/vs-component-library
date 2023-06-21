@@ -252,7 +252,9 @@ const Template = (args) => ({
             link-alt-text="VisitScotland Home"
             href="/"
         >
-            Copy
+            <template v-slot:copyright>
+                <span>VisitScotland. All rights reserved.</span>
+            </template>
         </VsFooterCopyright>
     </VsFooter>
     `,
