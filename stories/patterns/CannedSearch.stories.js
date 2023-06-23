@@ -28,11 +28,11 @@ const base = {
     heading: 'Accommodation in Glasgow',
     searchType: 'acco',
     carouselNextText: 'Next Slide',
-    carouselPrevText: 'Previous Slide',
-    vsCannedSearchIntro: '<p>Find your perfect place to stay in Glasgow</p>',
-    vsCannedSearchOf: 'of',
-    vsCannedSearchCredit: '',
-    vsCannedSearchButtons: `
+    carouselPreviousText: 'Previous Slide',
+    'vs-canned-search-intro': '<p>Find your perfect place to stay in Glasgow</p>',
+    'vs-canned-search-of': 'of',
+    'vs-canned-search-credit': '',
+    'vs-canned-search-buttons': `
         <VsButton href="#">
             View All Accommodation
         </VsButton>
@@ -51,7 +51,7 @@ FoodAndDrink.args = {
     apiUrl: '/fixtures/canned-search/sample-food.json',
     searchType: 'cate',
     heading: 'Food & Drink',
-    vsCannedSearchButtons: `
+    'vs-canned-search-buttons': `
         <VsButton href="#">
             View All Food & Drink
         </VsButton>
@@ -65,7 +65,7 @@ ThingsToDo.args = {
     apiUrl: '/fixtures/canned-search/sample-event.json',
     searchType: 'acti',
     heading: 'Things to Do',
-    vsCannedSearchButtons: `
+    'vs-canned-search-buttons': `
         <VsButton href="#">
             View All Things To Do
         </VsButton>
@@ -79,7 +79,7 @@ Tours.args = {
     apiUrl: '/fixtures/canned-search/sample-tour.json',
     searchType: 'tour',
     heading: 'Tours in Aberdeen',
-    vsCannedSearchButtons: `
+    'vs-canned-search-buttons': `
         <VsButton href="#">
             View All Tours
         </VsButton>

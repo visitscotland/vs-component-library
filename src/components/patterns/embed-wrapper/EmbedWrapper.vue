@@ -14,12 +14,12 @@
                 >
                     <VsRichTextWrapper
                         class="vs-module-wrapper__intro vs-embed-wrapper__intro"
-                        v-if="!!$slots['embedIntroCopy']
+                        v-if="($slots['embed-intro-copy'] && $slots['embed-intro-copy']())
                             && !showError"
                         data-test="vs-module-wrapper__intro"
                     >
                         <!-- @slot Slot to contain intro text -->
-                        <slot name="embedIntroCopy" />
+                        <slot name="embed-intro-copy" />
                     </VsRichTextWrapper>
                 </VsCol>
                 <VsCol
@@ -35,7 +35,7 @@
                             associated script tags can't be passed into the vue element and should
                             be loaded further down the page outside of the vue components
                         -->
-                        <slot name="embedWidget" />
+                        <slot name="embed-widget" />
                     </div>
                     <div
                         v-if="showError"
@@ -54,7 +54,7 @@
                                     && cookiesInitStatus === true"
                                 v-slot:button-text
                             >
-                                <slot name="embedButtonText" />
+                                <slot name="embed-button-text" />
                             </template>
                         </VsWarning>
                     </div>
