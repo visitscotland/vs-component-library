@@ -22,7 +22,7 @@
     "lint:src": "yarn lint \"src/**/*.{js,vue,ts}\"",
     "lint:build": "yarn lint \"build/*.{js,vue,ts}\"",
     "lint:stories": "yarn lint \"stories/**/*.{js,vue,ts}\"",
-    "lint:fix": "yarn lint \"src/**/*.{js,vue,ts}\" --fix",
+    "lint:fix": "yarn lint \"src/**/*.{js,vue,ts}\" \"stories/**/*.js\" --fix",
     "lint:style": "stylelint",
     "lint:style:all": "lint:style \"src/**/*.{vue,scss}\"",
     "theo": "theo ./src/tokens/tokens.yml --transform web --format map.scss,scss,raw.json,json --dest ./src/assets/tokens",
