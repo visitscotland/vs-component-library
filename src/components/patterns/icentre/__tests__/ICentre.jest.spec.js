@@ -27,37 +27,37 @@ describe('VsIknowParterItem', () => {
     });
 
     describe(':slots', () => {
-        it('renders content inserted in the `icentreImageWithCaption` slot', () => {
+        it('renders content inserted in the `icentre-image-with-caption` slot', () => {
             const imageContent = 'This slot normally takes an imageWithCaption component';
             const wrapper = factoryShallowMount({
-                icentreImageWithCaption: imageContent,
+                'icentre-image-with-caption': imageContent,
             });
 
             expect(wrapper.text()).toContain(imageContent);
         });
 
-        it('renders content inserted in the `icentreLinks` slot', () => {
+        it('renders content inserted in the `icentre-links` slot', () => {
             const linksContent = 'Icentre test links';
             const wrapper = factoryShallowMount({
-                icentreLinks: linksContent,
+                'icentre-links': linksContent,
             });
 
             expect(wrapper.text()).toContain(linksContent);
         });
 
-        it('renders content inserted in the `icentreQuote` slot', () => {
+        it('renders content inserted in the `icentre-quote` slot', () => {
             const quoteContent = 'Icentre test quote';
             const wrapper = factoryShallowMount({
-                icentreQuote: quoteContent,
+                'icentre-quote': quoteContent,
             });
 
             expect(wrapper.text()).toContain(quoteContent);
         });
 
-        it('renders the `icentreLinks` slot within `vs-icentre__standalone-links` if no quote is set', () => {
+        it('renders the `icentre-links` slot within `vs-icentre__standalone-links` if no quote is set', () => {
             const linksContent = 'Icentre test links';
             const wrapper = factoryShallowMount({
-                icentreLinks: linksContent,
+                'icentre-links': linksContent,
             });
 
             const standalone = wrapper.find('[data-test="vs-icentre__standalone-links"]');
@@ -68,12 +68,12 @@ describe('VsIknowParterItem', () => {
             expect(standalone.text()).toContain(linksContent);
         });
 
-        it('renders the `icentreLinks` slot within `vs-icentre__embedded-links` if a quote is set', () => {
+        it('renders the `icentre-links` slot within `vs-icentre__embedded-links` if a quote is set', () => {
             const linksContent = 'Icentre test links';
             const quoteContent = 'Icentre test quote';
             const wrapper = factoryShallowMount({
-                icentreLinks: linksContent,
-                icentreQuote: quoteContent,
+                'icentre-links': linksContent,
+                'icentre-quote': quoteContent,
             });
 
             const standalone = wrapper.find('[data-test="vs-icentre__standalone-links"]');

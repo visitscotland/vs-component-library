@@ -6,8 +6,8 @@
         v-bind="$attrs"
     >
         <VsContainer
-            v-if="($slots['vsModuleWrapperHeading'] && $slots['vsModuleWrapperHeading']())
-                || ($slots['vsModuleWrapperIntro'] && $slots['vsModuleWrapperIntro']())"
+            v-if="($slots['vs-module-wrapper-heading'] && $slots['vs-module-wrapper-heading']())
+                || ($slots['vs-module-wrapper-intro'] && $slots['vs-module-wrapper-intro']())"
         >
             <VsRow>
                 <VsCol
@@ -19,11 +19,11 @@
                     <VsHeading
                         level="2"
                         class="vs-module-wrapper__heading"
-                        v-if="$slots['vsModuleWrapperHeading'] && $slots['vsModuleWrapperHeading']()"
+                        v-if="$slots['vs-module-wrapper-heading'] && $slots['vs-module-wrapper-heading']()"
                         data-test="vs-module-wrapper__heading"
                     >
                         <!-- @slot Slot to contain heading -->
-                        <slot name="vsModuleWrapperHeading" />
+                        <slot name="vs-module-wrapper-heading" />
                     </VsHeading>
                 </VsCol>
                 <VsCol
@@ -35,12 +35,12 @@
                 >
                     <VsRichTextWrapper
                         class="vs-module-wrapper__intro"
-                        v-if="$slots['vsModuleWrapperIntro'] && $slots['vsModuleWrapperIntro']()"
+                        v-if="$slots['vs-module-wrapper-intro'] && $slots['vs-module-wrapper-intro']()"
                         data-test="vs-module-wrapper__intro"
                         variant="lead"
                     >
                         <!-- @slot Slot to contain intro text -->
-                        <slot name="vsModuleWrapperIntro" />
+                        <slot name="vs-module-wrapper-intro" />
                     </VsRichTextWrapper>
                 </VsCol>
             </VsRow>

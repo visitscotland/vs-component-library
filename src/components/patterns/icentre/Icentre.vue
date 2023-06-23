@@ -22,10 +22,10 @@
                     <div
                         class="vs-icentre__links"
                         data-test="vs-icentre__standalone-links"
-                        v-if="!!$slots['icentreLinks'] && !$slots['icentreQuote']"
+                        v-if="($slots['icentre-links'] && $slots['icentre-links']()) && !($slots['icentre-quote'] && $slots['icentre-quote']())"
                     >
                         <!-- @slot Holds the links (html expected) -->
-                        <slot name="icentreLinks" />
+                        <slot name="icentre-links" />
                     </div>
                 </VsCol>
 
@@ -33,11 +33,11 @@
                     cols="12"
                     md="10"
                     offset-md="1"
-                    :class="{ 'vs-icentre__image-offset': !!$slots['icentreQuote'] }"
+                    :class="{ 'vs-icentre__image-offset': ($slots['icentre-quote'] && $slots['icentre-quote']()) }"
                 >
                     <!-- @slot Holds the main icentre image (vs-image-with-caption expected) -->
                     <slot
-                        name="icentreImageWithCaption"
+                        name="icentre-image-with-caption"
                     />
                 </VsCol>
 
@@ -48,18 +48,18 @@
                     lg="7"
                     offset-lg="5"
                     class="vs-icentre__quote-block-container"
-                    v-if="!!$slots['icentreQuote']"
+                    v-if="($slots['icentre-quote'] && $slots['icentre-quote']())"
                 >
                     <div class="vs-icentre__quote-block">
                         <!-- @slot Optional slot, holds the links (vs-quote expected) -->
-                        <slot name="icentreQuote" />
+                        <slot name="icentre-quote" />
 
                         <div
                             class="vs-icentre__links-contained"
                             data-test="vs-icentre__embedded-links"
                         >
                             <!-- @slot Holds the links (html expected) -->
-                            <slot name="icentreLinks" />
+                            <slot name="icentre-links" />
                         </div>
                     </div>
                 </VsCol>

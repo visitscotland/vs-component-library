@@ -17,11 +17,11 @@ const Template = (args) => ({
     },
     template: `
         <VsIcentre>
-            <template v-slot:icentreQuote>
+            <template v-slot:icentre-quote>
                 Add Quote Here
             </template>
 
-            <template v-slot:icentreLinks>
+            <template v-slot:icentre-links>
                 <p>
                     Test content <a href="#">link</a>
                 </p>
