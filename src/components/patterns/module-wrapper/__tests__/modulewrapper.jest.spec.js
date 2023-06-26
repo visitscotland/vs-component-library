@@ -56,19 +56,19 @@ describe('VsModuleWrapper', () => {
             expect(wrapper.text()).toContain('Default slot content');
         });
 
-        it('renders content inserted in a vsModuleWrapperHeading slot', () => {
+        it('renders content inserted in a vs-module-wrapper-heading slot', () => {
             const wrapper = factoryShallowMount({
                 slots: {
-                    vsModuleWrapperHeading: 'Module wrapper heading',
+                    'vs-module-wrapper-heading': 'Module wrapper heading',
                 },
             });
             expect(wrapper.find('[data-test="vs-module-wrapper__heading"]').text()).toBe('Module wrapper heading');
         });
 
-        it('renders content inserted in a vsModuleWrapperIntro slot', () => {
+        it('renders content inserted in a vs-module-wrapper-intro slot', () => {
             const wrapper = factoryShallowMount({
                 slots: {
-                    vsModuleWrapperIntro: '<p>Module wrapper content</p>',
+                    'vs-module-wrapper-intro': '<p>Module wrapper content</p>',
                 },
             });
             expect(wrapper.find('[data-test="vs-module-wrapper__intro"]').html()).toContain('<p>Module wrapper content</p>');
