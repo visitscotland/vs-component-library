@@ -12,29 +12,29 @@
             v-if="hasAuthorImage"
         >
             <!-- @slot Holds the author image (vs-image expected) -->
-            <slot name="image" />
+            <slot name="quote-image" />
         </div>
         <div class="vs-quote__content-container">
             <div class="vs-quote__content">
                 <!-- @slot Holds the main body of the quote (html expected) -->
-                <slot name="content" />
+                <slot name="quote-content" />
             </div>
             <p
                 class="vs-quote__author-name"
                 v-if="hasAuthorName"
             >
                 <!-- @slot Holds the name of the author (text expected) -->
-                <slot name="author-name" />
+                <slot name="quote-author-name" />
             </p>
             <p
                 class="vs-quote__author-title"
                 v-if="hasAuthorTitle"
             >
                 <!-- @slot Holds the job title of the author (text expected) -->
-                <slot name="author-title" />
+                <slot name="quote-author-title" />
             </p>
             <!-- @slot Optional slot that holds a cta for the block (vs-button expected) -->
-            <slot name="link" />
+            <slot name="quoteLink" />
         </div>
     </div>
 </template>
@@ -58,13 +58,13 @@ export default {
     },
     computed: {
         hasAuthorName() {
-            return !!this.$slots['author-name'];
+            return !!this.$slots['quote-author-name'];
         },
         hasAuthorTitle() {
-            return !!this.$slots['author-title'];
+            return !!this.$slots['quote-author-title'];
         },
         hasAuthorImage() {
-            return !!this.$slots.image;
+            return !!this.$slots['quote-image'];
         },
         variantClass() {
             return this.variant ? `vs-quote--${this.variant}` : '';
