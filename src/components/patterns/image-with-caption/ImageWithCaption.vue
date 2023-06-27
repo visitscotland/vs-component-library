@@ -241,9 +241,7 @@ export default {
             return {
                 'vs-image-with-caption--closed-default': this.closedDefaultCaption,
                 'vs-image-with-caption--hero': this.isHeroImage,
-                // 'vs-image-with-caption--show-caption':
-                // !this.requiredCookiesExist && this.setCookieStatus === true,
-                'vs-image-with-caption--show-caption': !this.requiredCookiesExist,
+                'vs-image-with-caption--show-caption': !this.requiredCookiesExist && this.setCookieStatus === true,
                 'vs-image-with-caption--video': this.isVideo,
             };
         },
