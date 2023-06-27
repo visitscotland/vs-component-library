@@ -10,7 +10,7 @@ const title = 'VisitScotland';
 const factoryShallowMount = () => shallowMount(VsSocialShare, {
     propsData: {
         id: 'default',
-        shareBtnText: 'Show',
+        shareBtnText: 'Share',
         sharePopoverTitle: 'Share on',
         pageUrl: url,
         pageTitle: title,
@@ -60,23 +60,23 @@ describe('VsSocialShare', () => {
         });
 
         it('should display `Share on` as the title of the popover', () => {
-            const heading = wrapper.find('[data-test="vs-social-share"]').find('vsheading-stub');
+            const heading = wrapper.find('[data-test="vs-social-share"]').find('vs-heading-stub');
             expect(heading.text()).toBe('Share on');
         });
 
         it('should provide a `pageUrl` property down to children components', () => {
             /* eslint-disable no-underscore-dangle */
-            expect(wrapper.vm._provided.pageUrl).toBe(url);
+            expect(wrapper.vm.pageUrl).toBe(url);
         });
 
         it('should provide a `pageTitle` property down to children components', () => {
             /* eslint-disable no-underscore-dangle */
-            expect(wrapper.vm._provided.pageTitle).toBe(title);
+            expect(wrapper.vm.pageTitle).toBe(title);
         });
 
         it('should provide a `noJs` property down to children components', () => {
             /* eslint-disable no-underscore-dangle */
-            expect(wrapper.vm._provided.noJs).toBe(false);
+            expect(wrapper.vm.noJs).toBe(false);
         });
     });
 });

@@ -128,13 +128,14 @@ describe('VsSocialShareItem', () => {
         });
 
         it('should accept a `referringPageUrl` property injected by the parent component', () => {
+            console.log(wrapper.vm);
             /* eslint-disable no-underscore-dangle */
-            expect(wrapper.vm._provided.referringPageUrl).toBe(url);
+            expect(wrapper.vm.referringPageUrl).toBe(url);
         });
 
         it('should accept a `pageTitle` property injected by the parent component', () => {
             /* eslint-disable no-underscore-dangle */
-            expect(wrapper.vm._provided.pageTitle).toBe(title);
+            expect(wrapper.vm.pageTitle).toBe(title);
         });
 
         it('should render `linkCopiedText` when link is copied', async() => {
@@ -155,7 +156,7 @@ describe('VsSocialShareItem', () => {
 
         it('should accept a `noJs` property injected by the parent component', () => {
             /* eslint-disable no-underscore-dangle */
-            expect(wrapper.vm._provided.noJs).toBe(false);
+            expect(wrapper.vm.noJs).toBe(false);
         });
     });
 
