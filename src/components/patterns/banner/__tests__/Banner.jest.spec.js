@@ -1,26 +1,27 @@
-import { mount } from '@vue/test-utils';
+import { config, shallowMount } from '@vue/test-utils';
 import cookieMixin from '../../../../mixins/cookieMixin';
-
 import VsBanner from '../Banner.vue';
+
+config.global.renderStubDefaultSlot = true;
 
 const textSlotText = 'Banner text';
 const ctaSlotText = 'Banner link';
 
-const factoryMount = (props) => mount(VsBanner, {
+const factoryShallowMount = (props) => shallowMount(VsBanner, {
     props: {
         ...props,
         closeBtnText: 'close',
         dontShowAgain: true,
     },
     slots: {
-        bannerText: textSlotText,
-        bannerCta: ctaSlotText,
+        'banner-text': textSlotText,
+        'banner-cta': ctaSlotText,
     },
 });
 
 let wrapper;
 beforeEach(() => {
-    wrapper = factoryMount();
+    wrapper = factoryShallowMount();
 });
 
 describe('VsBanner', () => {
