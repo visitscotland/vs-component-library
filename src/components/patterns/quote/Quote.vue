@@ -34,7 +34,7 @@
                 <slot name="quote-author-title" />
             </p>
             <!-- @slot Optional slot that holds a cta for the block (vs-button expected) -->
-            <slot name="quoteLink" />
+            <slot name="quote-link" />
         </div>
     </div>
 </template>
