@@ -2,21 +2,23 @@ import { shallowMount, mount } from '@vue/test-utils';
 
 import VsSocialCreditLink from '../SocialCreditLink.vue';
 
+const initialPropsData = {
+    credit: 'Test credit',
+    socialPostUrl: '#',
+    source: 'instagram',
+};
+
 const factoryShallowMount = (propsData) => shallowMount(VsSocialCreditLink, {
     propsData: {
         ...propsData,
-        credit: 'Test credit',
-        socialPostUrl: '#',
-        source: 'instagram',
+        ...initialPropsData,
     },
 });
 
 const factoryMount = (propsData) => mount(VsSocialCreditLink, {
     propsData: {
         ...propsData,
-        credit: 'Test credit',
-        socialPostUrl: '#',
-        source: 'instagram',
+        ...initialPropsData,
     },
 });
 
