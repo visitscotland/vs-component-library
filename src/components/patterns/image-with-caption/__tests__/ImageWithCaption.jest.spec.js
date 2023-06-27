@@ -22,40 +22,36 @@ jest.mock('uuid', () => ({
     v4: () => '00000000-0000-0000-0000-000000000000',
 }));
 
+const initialPropsData = {
+    imageSrc: imageSrcValue,
+    isVideo: true,
+    playButtonText: 'Play video',
+    videoId: youtubeId,
+};
+
+const slots = {
+    'toggle-icon': toggleIconSlot,
+    'img-caption': captionSlot,
+    'video-no-js-alert': alertSlot,
+    'video-title': videoTitleSlot,
+    'video-duration': videoDurationSlot,
+    default: defaultSlotText,
+};
+
 const factoryShallowMount = (propsData) => shallowMount(VsImageWithCaption, {
     propsData: {
-        imageSrc: imageSrcValue,
-        isVideo: true,
-        playButtonText: 'Play video',
-        videoId: youtubeId,
+        ...initialPropsData,
         ...propsData,
     },
-    slots: {
-        'toggle-icon': toggleIconSlot,
-        'img-caption': captionSlot,
-        'video-no-js-alert': alertSlot,
-        'video-title': videoTitleSlot,
-        'video-duration': videoDurationSlot,
-        default: defaultSlotText,
-    },
+    slots,
 });
 
 const factoryMount = (propsData) => mount(VsImageWithCaption, {
     propsData: {
-        imageSrc: imageSrcValue,
-        isVideo: true,
-        playButtonText: 'Play video',
-        videoId: youtubeId,
+        ...initialPropsData,
         ...propsData,
     },
-    slots: {
-        'toggle-icon': toggleIconSlot,
-        'img-caption': captionSlot,
-        'video-no-js-alert': alertSlot,
-        'video-title': videoTitleSlot,
-        'video-duration': videoDurationSlot,
-        default: defaultSlotText,
-    },
+    slots,
 });
 
 describe('VsImageWithCaption', () => {
