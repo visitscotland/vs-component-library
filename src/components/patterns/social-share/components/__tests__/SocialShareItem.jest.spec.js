@@ -128,7 +128,6 @@ describe('VsSocialShareItem', () => {
         });
 
         it('should accept a `referringPageUrl` property injected by the parent component', () => {
-            console.log(wrapper.vm);
             /* eslint-disable no-underscore-dangle */
             expect(wrapper.vm.referringPageUrl).toBe(url);
         });
