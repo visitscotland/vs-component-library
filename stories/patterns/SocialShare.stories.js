@@ -18,41 +18,43 @@ const Template = (args) => ({
         };
     },
     template: `
-    <VsSocialShare
-      id="default"
-      page-url="http://www.visitscotland.com"
-      page-title="VisitScotland - Scotland's National Tourist Organisation"
-      share-popover-title="Share On"
-      share-btn-text="Share"
-      close-alt-text="Close"
-    >  
-        <VsSocialShareItem
-            name="facebook"
-            link-text="Facebook"
-        />
-        <VsSocialShareItem
-          name="pinterest"
-          link-text="Pinterest"
-        />
-        <VsSocialShareItem
-          name="whatsapp"
-          link-text="WhatsApp"
-        />
-        <VsSocialShareItem
-          name="twitter"
-          link-text="Twitter"
-        />
-        <VsSocialShareItem
-          name="email"
-          link-text="Email"
-        />
-        <VsSocialShareItem
-          @copyLinkClicked="onCopyLink"
-          name="link"
-          link-text="Copy Link"
-          link-copied-text="Link Copied!"
-        />
-    </VsSocialShare>
+    <div class="d-flex justify-content-end my-3 mx-3">
+      <VsSocialShare
+        id="default"
+        page-url="http://www.visitscotland.com"
+        page-title="VisitScotland - Scotland's National Tourist Organisation"
+        share-popover-title="Share On"
+        share-btn-text="Share"
+        close-alt-text="Close"
+      >  
+          <VsSocialShareItem
+              name="facebook"
+              link-text="Facebook"
+          />
+          <VsSocialShareItem
+            name="pinterest"
+            link-text="Pinterest"
+          />
+          <VsSocialShareItem
+            name="whatsapp"
+            link-text="WhatsApp"
+          />
+          <VsSocialShareItem
+            name="twitter"
+            link-text="Twitter"
+          />
+          <VsSocialShareItem
+            name="email"
+            link-text="Email"
+          />
+          <VsSocialShareItem
+            @copyLinkClicked="onCopyLink"
+            name="link"
+            link-text="Copy Link"
+            link-copied-text="Link Copied!"
+          />
+      </VsSocialShare>
+    </div>
     `,
 });
 

@@ -20,7 +20,7 @@
         <BPopover
             custom-class="vs-social-share__popover"
             :target="`vs-social-share-popover--${id}`"
-            triggers="click blur"
+            :click="true"
             placement="leftbottom"
             @shown="onShown"
             @hidden="onHidden"
@@ -51,7 +51,7 @@
                 size="lg"
                 variant="transparent"
                 ref="closeButton"
-                @click="onClose"
+                @click="onClose()"
                 @keydown.tab="tabFromClose($event)"
             >
                 <span class="sr-only">
@@ -269,7 +269,7 @@ export default {
             text-align: center;
             border: 0;
             top: -35px!important;
-            left: 0!important;
+            right: 0!important;
 
             .arrow{
                 display: none;
