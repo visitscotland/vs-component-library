@@ -25,8 +25,7 @@ const Template = (args) => ({
       share-popover-title="Share On"
       share-btn-text="Share"
       close-alt-text="Close"
-    >
-      <template slot-scope="{onCopyLink}">
+    >  
         <VsSocialShareItem
             name="facebook"
             link-text="Facebook"
@@ -53,7 +52,6 @@ const Template = (args) => ({
           link-text="Copy Link"
           link-copied-text="Link Copied!"
         />
-      </template>
     </VsSocialShare>
     `,
 });
