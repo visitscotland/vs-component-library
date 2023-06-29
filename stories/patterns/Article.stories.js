@@ -51,12 +51,10 @@ const Template = (args) => ({
                 v-if="args['vs-article-img']"
                 v-slot:vs-article-img
             >
-                <VsImageWithCaption>
-                    <VsImg
-                        :src="args['vs-article-img'].src"
-                        :alt="args['vs-article-img'].alt"
-                        :use-lazy-loading="args['vs-article-img'].useLazyLoading"
-                    />
+                <VsImageWithCaption
+                    :alt-text="args['vs-article-img'].alt"
+                    :image-src="args['vs-article-img'].src"
+                >
                     <template v-slot:img-caption>
                         <VsCaption>
                             <template v-slot:caption>{{ args['vs-article-img'].caption }}</template>
@@ -77,13 +75,9 @@ const Template = (args) => ({
                 <template v-slot:article-sidebar>
                     <VsArticleSidebar :sidebar-align="args.sidebarAlign">
                         <template v-slot:vs-article-sidebar-img>
-                            <VsImageWithCaption>
-                                <VsImg
-                                    :src="args.sidebarImg.src"
-                                    :alt="args.sidebarImg.alt"
-                                    :use-lazy-loading="args.sidebarImg.useLazyLoading"
-                                />
-
+                            <VsImageWithCaption
+                                v-bind="args.sidebarImg"
+                            >
                                 <template v-slot:img-caption>
                                     <VsCaption>
                                         <template v-slot:caption>
@@ -122,7 +116,7 @@ const base = {
     'vs-article-intro': 'Scotland\'s landscape is scattered with Munros and mist-shrouded hills...',
     sidebarAlign: 'left',
     sidebarImg: {
-        src: 'src/assets/fixtures/article/images/mountain-stream.jpg',
+        imageSrc: 'src/assets/fixtures/article/images/mountain-stream.jpg',
         alt: 'Mountain stream',
         useLazyLoading: true,
         caption: 'Mountain stream',
@@ -153,5 +147,32 @@ CoverImage.args = {
         useLazyLoading: true,
         caption: 'Corpach Sea Lock and Lighthouse in the Shadow of Ben Nevis, Loch Eil by Fort William',
         credit: '© VisitScotland / Kenny Lam',
+    },
+};
+
+export const SidebarRightAligned = Template.bind({
+});
+
+SidebarRightAligned.args = {
+    ...base,
+    sidebarAlign: 'right',
+};
+
+export const SidebarVideo = Template.bind({
+});
+
+SidebarVideo.args = {
+    ...base,
+    sidebarImg: {
+        isVideo: true,
+        videoId: 'c05sg3G4oA4',
+        videoTitle: 'This is the video title',
+        smallPlayButton: true,
+        playButtonText: 'Play',
+        toggleButtonText: 'Toggle image caption',
+        errorMessage: 'Sorry, something has gone wrong, Please try again later',
+        cookieLinkText: 'Manage cookies',
+        noJsMessage: 'You need JavaScript enabled to see this video',
+        noCookiesMessage: 'You need cookies enabled to see this video',
     },
 };
