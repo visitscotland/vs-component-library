@@ -27,7 +27,7 @@ const Template = (args) => ({
         >
             <template
                 v-if="args.bannerText"
-                v-slot:bannerText
+                v-slot:banner-text
             >
                 <p>
                     {{ args.bannerText }}
@@ -36,7 +36,7 @@ const Template = (args) => ({
 
             <template
                 v-if="args.bannerCta"
-                v-slot:bannerCta
+                v-slot:banner-cta
             >
                 <VsLink href="#">
                     {{ args.bannerCta }}
@@ -48,7 +48,7 @@ const Template = (args) => ({
 
 const base = {
     closeBtnText: 'Close',
-    dontShowAgain: true,
+    dontShowAgain: false,
     bannerText: 'Find the latest information on travel, and Good to Go (Covid-safe) businesses. ',
     bannerCta: 'View Covid-19 Travel Advice',
 };
