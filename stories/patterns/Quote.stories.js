@@ -82,7 +82,7 @@ export const WithImage = Template.bind({
 WithImage.args = {
     ...base,
     'quote-image': {
-        src: 'src/assets/fixtures/quote/ben-nevis-and-river-lochy.jfif',
+        src: 'fixtures/quote/ben-nevis-and-river-lochy.jfif',
         alt: 'Ben Nevis',
     },
 };
