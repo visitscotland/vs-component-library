@@ -68,6 +68,7 @@ const base = {
     'quote-content': 'Scotland\'s largest mountain was once a massive active volcano which exploded and collapsed inwards on itself millions of years ago.',
     'quote-author-name': 'Penny',
     'quote-author-title': 'Visitor Services Advisor at Edinburgh iCentre',
+    variant: 'narrow',
 };
 
 export const Default = Template.bind({
