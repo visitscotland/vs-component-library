@@ -116,7 +116,7 @@ const base = {
     'vs-article-intro': 'Scotland\'s landscape is scattered with Munros and mist-shrouded hills...',
     sidebarAlign: 'left',
     sidebarImg: {
-        imageSrc: 'src/assets/fixtures/article/images/mountain-stream.jpg',
+        imageSrc: 'fixtures/article/images/mountain-stream.jpg',
         alt: 'Mountain stream',
         useLazyLoading: true,
         caption: 'Mountain stream',
@@ -142,7 +142,7 @@ export const CoverImage = Template.bind({
 CoverImage.args = {
     ...base,
     'vs-article-img': {
-        src: 'src/assets/fixtures/article/images/corpach-sea-lock-and-lighthouse.jpg',
+        src: 'fixtures/article/images/corpach-sea-lock-and-lighthouse.jpg',
         alt: 'Ben Nevis',
         useLazyLoading: true,
         caption: 'Corpach Sea Lock and Lighthouse in the Shadow of Ben Nevis, Loch Eil by Fort William',
