@@ -41,7 +41,7 @@ const Template = (args) => ({
         <VsMeganav
             v-bind="args"
         >
-            <template #megaNavTopMenuItems>
+            <template #mega-nav-top-menu-items>
                 <VsMegaNavTopMenuItem
                     :key="1"
                     :href="args.topMenuItemHref"
@@ -49,14 +49,14 @@ const Template = (args) => ({
                     :align="args.topMenuItemAlign"
                 >
 
-                    <template v-if="${'topMenuButtonContent' in args}" v-slot:buttonContent>${args.topMenuButtonContent}</template>
+                    <template v-if="${'topMenuButtonContent' in args}" v-slot:button-content>${args.topMenuButtonContent}</template>
 
-                    <template v-slot:dropdownContent>
+                    <template v-slot:dropdown-content>
                         <VsMegaNavList
                             :list-heading="args.subTopMenuListHeading"
                         >
                             <template 
-                                v-slot:navListItems
+                                v-slot:nav-list-items
                             >
                                 <VsMegaNavListItem
                                     :href="args.subTopMenuListLinkHref"
@@ -69,7 +69,7 @@ const Template = (args) => ({
                 </VsMegaNavTopMenuItem>
             </template>
 
-            <template v-slot:megaNavAccordionItems>
+            <template v-slot:mega-nav-accordion-items>
                 <VsAccordion>
                     <VsMegaNavAccordionItem
                         :title="args.topMenuButtonContent"
@@ -85,7 +85,7 @@ const Template = (args) => ({
                         >
                             <VsMegaNavList>
                                 <template
-                                    v-slot:navListItems
+                                    v-slot:nav-list-items
                                 >
                                     <VsMegaNavListItem
                                         :href="args.subTopMenuListLinkHref"
@@ -110,8 +110,8 @@ const base = {
     searchLabelText: 'What are you looking for?',
     searchClearButtonText: 'Clear form',
     searchCloseButtonText: 'Close search form',
-    megaNavTopMenuItems: '',
-    megaNavAccordionItems: '',
+    'mega-nav-top-menu-items': '',
+    'mega-nav-accordion-items': '',
     topMenuItemHref: '#',
     topMenuItemCta: 'Explore Scotland',
     topMenuItemAlign: 'bottom',

@@ -10,7 +10,7 @@
         >
             <template #button-content>
                 <!-- @slot For dropdown toggle button content  -->
-                <slot name="buttonContent" />
+                <slot name="button-content" />
             </template>
 
             <li role="menuitem">
@@ -22,11 +22,11 @@
                         <VsCol cols="12">
                             <!-- @slot Used to display the top menu link
                             at the top of the dropdown menu  -->
-                            <slot name="ctaLink" />
+                            <slot name="cta-link" />
 
                             <!-- @slot The rest of the mega nav links put
                             here in the dropdown menu  -->
-                            <slot name="dropdownContent" />
+                            <slot name="dropdown-content" />
 
                             <VsButton
                                 class="vs-mega-nav-dropdown__close-btn
@@ -123,7 +123,7 @@ export default {
          * Submit event to dataLayer for tracking
          */
         dataLayerSubmit() {
-            const btnText = this.$slots.buttonContent()[1].children[0].children;
+            const btnText = this.$slots['button-content']()[1].children[0].children;
 
             const clickEvent = {
                 target: {

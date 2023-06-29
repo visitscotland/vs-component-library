@@ -8,12 +8,12 @@
             <VsMegaNavDropdown
                 menu-toggle-alt-text="Toggle Menu"
             >
-                <template #buttonContent>
+                <template #button-content>
                     <!-- @slot For top menu item button content -->
-                    <slot name="buttonContent" />
+                    <slot name="button-content" />
                 </template>
 
-                <template #ctaLink>
+                <template #cta-link>
                     <VsLink
                         v-if="href && ctaText"
                         :href="href"
@@ -26,10 +26,10 @@
                     <hr class="vs-mega-nav-top-menu-item__divider">
                 </template>
 
-                <template #dropdownContent>
+                <template #dropdown-content>
                     <!-- @slot Slot for dropdown menu list content -->
                     <div class="vs-mega-nav-top-menu-item__columns-wrapper">
-                        <slot name="dropdownContent" />
+                        <slot name="dropdown-content" />
 
                         <div
                             class="
@@ -40,7 +40,7 @@
                             data-test="vs-mega-nav-top-menu-item__featured"
                             v-if="hasFeaturedItemLeft"
                         >
-                            <slot name="navFeaturedItemLeft" />
+                            <slot name="nav-featured-item-left" />
                         </div>
 
                         <div
@@ -49,7 +49,7 @@
                             data-test="vs-mega-nav-top-menu-item__featured"
                             v-if="hasFeaturedItem"
                         >
-                            <slot name="navFeaturedItem" />
+                            <slot name="nav-featured-item" />
                         </div>
 
                         <div
@@ -57,7 +57,7 @@
                             data-test="vs-mega-nav-top-menu-item__featured-event"
                             v-if="hasFeaturedEvent"
                         >
-                            <slot name="navFeaturedEvent" />
+                            <slot name="nav-featured-event" />
                         </div>
                     </div>
                 </template>
@@ -111,13 +111,13 @@ export default {
     },
     computed: {
         hasFeaturedItem() {
-            return !!this.$slots.navFeaturedItem;
+            return (this.$slots['nav-featured-item'] && this.$slots['nav-featured-item']());
         },
         hasFeaturedItemLeft() {
-            return !!this.$slots.navFeaturedItemLeft;
+            return (this.$slots['nav-featured-item-left'] && this.$slots['nav-featured-item-left']());
         },
         hasFeaturedEvent() {
-            return !!this.$slots.navFeaturedEvent;
+            return (this.$slots['nav-featured-event'] && this.$slots['nav-featured-event']());
         },
         alignmentClass() {
             return this.align === 'bottom'

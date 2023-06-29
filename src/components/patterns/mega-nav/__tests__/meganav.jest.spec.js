@@ -17,7 +17,7 @@ const factoryShallowMount = (propsData) => shallowMount(VsMegaNav, {
         ...propsData,
     },
     slots: {
-        megaNavTopMenuItems: '<div class="mega-nav-top-menu-items"></div>',
+        'mega-nav-top-menu-items': '<div class="mega-nav-top-menu-items"></div>',
     },
 });
 
@@ -28,7 +28,7 @@ const factoryMount = () => mount(VsMegaNav, {
         searchButtonText: 'Search',
     },
     slots: {
-        megaNavTopMenuItems: '<div class="mega-nav-top-menu-items"></div>',
+        'mega-nav-top-menu-items': '<div class="mega-nav-top-menu-items"></div>',
     },
 });
 
@@ -96,7 +96,7 @@ describe('VsMegaNav', () => {
     });
 
     describe(':slots', () => {
-        it('renders content inserted in a megaNavTopMenuItems slot', () => {
+        it('renders content inserted in a mega-nav-top-menu-items slot', () => {
             const wrapper = factoryShallowMount();
             expect(wrapper.findAll('.mega-nav-top-menu-items').length).toBe(1);
         });

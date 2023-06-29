@@ -10,8 +10,8 @@ const factoryShallowMount = (propsData) => shallowMount(VsMegaNavList, {
         ...propsData,
     },
     slots: {
-        navListItems: '<li class="top-menu-item-list">List Item</li>',
-        navHeadingCtaLink: '<li class="top-menu-item-cta">CTA Link</li>',
+        'nav-list-items': '<li class="top-menu-item-list">List Item</li>',
+        'nav-heading-cta-link': '<li class="top-menu-item-cta">CTA Link</li>',
     },
 });
 
@@ -50,12 +50,12 @@ describe('VsMegaNavList', () => {
     });
 
     describe(':slots', () => {
-        it('renders content inserted in a navListItems slot', () => {
+        it('renders content inserted in a nav-list-items slot', () => {
             const wrapper = factoryShallowMount();
             expect(wrapper.find('[data-test="vs-mega-nav-list"]').find('.top-menu-item-list').text()).toBe('List Item');
         });
 
-        it('renders content inserted in a navHeadingCtaLink slot', () => {
+        it('renders content inserted in a nav-heading-cta-link slot', () => {
             const wrapper = factoryShallowMount();
             expect(wrapper.find('[data-test="vs-mega-nav-list"]').find('.top-menu-item-cta').text()).toBe('CTA Link');
         });

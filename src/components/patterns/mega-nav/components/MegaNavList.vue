@@ -15,10 +15,10 @@
 
         <VsList class="vs-mega-nav-list__list">
             <!-- @slot Slot for nav list items  -->
-            <slot name="navListItems" />
+            <slot name="nav-list-items" />
 
             <!-- @slot Slot for nav list heading cta link at bottom of the menu group  -->
-            <slot name="navHeadingCtaLink" />
+            <slot name="nav-heading-cta-link" />
         </VsList>
     </nav>
 </template>

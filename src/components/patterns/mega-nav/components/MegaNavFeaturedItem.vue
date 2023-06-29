@@ -10,17 +10,17 @@
     >
         <template v-slot:stretchedCardHeader>
             <!-- @slot Featured Item header text  -->
-            <slot name="vsFeaturedItemHeader" />
+            <slot name="vs-featured-item-header" />
         </template>
 
         <template v-slot:stretchedCardContent>
             <!-- @slot Featured Item body content  -->
-            <slot name="vsFeaturedItemContent" />
+            <slot name="vs-featured-item-content" />
         </template>
 
         <template v-slot:stretchedCardLink>
             <!-- @slot Featured Item link text  -->
-            <slot name="vsFeaturedItemLink" />
+            <slot name="vs-featured-item-link" />
         </template>
     </VsStretchedLinkCard>
 </template>
@@ -200,32 +200,3 @@ export default {
         }
     }
 </style>
-
-<docs>
-    ```jsx
-        <VsContainer>
-            <VsRow>
-                <VsCol cols="12" lg="4">
-                    <VsMegaNavFeaturedItem
-                        link="www.visitscotland.com"
-                        img-url="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
-                        img-alt="Alt text"
-                    >
-                        <template slot="vsFeaturedItemHeader">
-                            From our home to yours – see Scotland virtually
-                        </template>
-
-                        <template slot="vsFeaturedItemContent">
-                            <p>The content for the card goes here</p>
-                            <p>A second line of content</p>
-                        </template>
-
-                        <template slot="vsFeaturedItemLink">
-                            A link to a page
-                        </template>
-                    </VsMegaNavFeaturedItem>
-                </VsCol>
-            </VsRow>
-        </VsContainer>
-    ```
-</docs>

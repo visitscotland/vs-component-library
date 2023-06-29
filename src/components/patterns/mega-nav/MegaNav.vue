@@ -41,7 +41,7 @@
                     >
                         <VsMegaNavTopMenu>
                             <!-- @slot For top menu list items in navbar  -->
-                            <slot name="megaNavTopMenuItems" />
+                            <slot name="mega-nav-top-menu-items" />
                         </VsMegaNavTopMenu>
                     </VsCol>
 
@@ -83,7 +83,7 @@
                                 v-if="isOpen"
                                 v-click-outside="closeMenu"
                             >
-                                <slot name="megaNavAccordionItems" />
+                                <slot name="mega-nav-accordion-items" />
                             </VsMegaNavMobileMenu>
                         </div>
                     </VsCol>

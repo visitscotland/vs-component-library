@@ -11,9 +11,9 @@ const factoryShallowMount = () => shallowMount(VsMegaNavDropdown, {
         menuToggleAltText: 'Toggle menu',
     },
     slots: {
-        buttonContent: '<div class="button-content"></div>',
-        ctaLink: '<div class="cta-link"></div>',
-        dropdownContent: '<div class="dropdown-content"></div>',
+        'button-content': '<div class="button-content"></div>',
+        'cta-link': '<div class="cta-link"></div>',
+        'dropdown-content': '<div class="dropdown-content"></div>',
     },
 });
 
@@ -30,12 +30,12 @@ describe('VsMegaNavDropdown', () => {
     });
 
     describe(':slots', () => {
-        it('renders content inserted in a ctaLink slot', () => {
+        it('renders content inserted in a cta-link slot', () => {
             const wrapper = factoryShallowMount();
             expect(wrapper.findAll('.cta-link').length).toBe(1);
         });
 
-        it('renders content inserted in a dropdownContent slot', () => {
+        it('renders content inserted in a dropdown-content slot', () => {
             const wrapper = factoryShallowMount();
             expect(wrapper.findAll('.dropdown-content').length).toBe(1);
         });

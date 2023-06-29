@@ -8,9 +8,9 @@ const factoryMount = (values) => mount(VsMegaNavTopMenuItem, {
         ...values,
     },
     slots: {
-        buttonContent: 'Dropdown Toggle',
-        dropdownContent: '<li class="dropdown-list-item"></li>',
-        navFeaturedItem: '<div>Test featured item</div>',
+        'button-content': 'Dropdown Toggle',
+        'dropdown-content': '<li class="dropdown-list-item"></li>',
+        'nav-featured-item': '<div>Test featured item</div>',
     },
 });
 
@@ -98,15 +98,15 @@ describe('VsMegaNavTopMenuItem', () => {
     });
 
     describe(':slots', () => {
-        it('renders content inserted in a buttonContent slot', () => {
+        it('renders content inserted in a button-content slot', () => {
             expect(wrapper.find('[data-test="vs-mega-nav-dropdown"]').find('.dropdown-toggle').text()).toBe('Dropdown Toggle');
         });
 
-        it('renders content inserted in a dropdownContent slot', () => {
+        it('renders content inserted in a dropdown-content slot', () => {
             expect(wrapper.findAll('.dropdown-list-item').length).toBe(1);
         });
 
-        it('renders content inserted in a navFeaturedItems slot', () => {
+        it('renders content inserted in a nav-featured-item slot', () => {
             expect(wrapper.find('[data-test="vs-mega-nav-top-menu-item__featured"]').text()).toBe('Test featured item');
         });
     });

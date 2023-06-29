@@ -22,7 +22,7 @@ describe('VsMegaNavFeaturedItem', () => {
         it('should render a link with the link prop value as href', async() => {
             const wrapper = factoryMount({
                 slots: {
-                    vsFeaturedItemLink: 'Test featured item link text',
+                    'vs-featured-item-link': 'Test featured item link text',
                 },
             });
             expect(wrapper.find('a[href="http://www.visitscotland.com"]').exists()).toBe(true);
@@ -40,28 +40,28 @@ describe('VsMegaNavFeaturedItem', () => {
     });
 
     describe(':slots', () => {
-        it('should render a header with the vsFeaturedItemHeader value passed', async() => {
+        it('should render a header with the vs-featured-item-header value passed', async() => {
             const wrapper = factoryMount({
                 slots: {
-                    vsFeaturedItemHeader: 'Test featured item header text',
+                    'vs-featured-item-header': 'Test featured item header text',
                 },
             });
             expect(wrapper.text()).toContain('Test featured item header text');
         });
 
-        it('should render content with the vsFeaturedItemContent value passed', async() => {
+        it('should render content with the vs-featured-item-content value passed', async() => {
             const wrapper = factoryMount({
                 slots: {
-                    vsFeaturedItemContent: '<p>Test featured item content text</p>',
+                    'vs-featured-item-content': '<p>Test featured item content text</p>',
                 },
             });
             expect(wrapper.html()).toContain('<p>Test featured item content text</p>');
         });
 
-        it('should render a link with the vsFeaturedItemLink value passed', async() => {
+        it('should render a link with the vs-featured-item-link value passed', async() => {
             const wrapper = factoryMount({
                 slots: {
-                    vsFeaturedItemLink: 'Test featured item link text',
+                    'vs-featured-item-link': 'Test featured item link text',
                 },
             });
             expect(wrapper.text()).toContain('Test featured item link text');
