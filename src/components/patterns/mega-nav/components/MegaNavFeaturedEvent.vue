@@ -224,17 +224,3 @@ export default {
         }
     }
 </style>
-
-<docs>
-    ```jsx
-        <VsContainer>
-            <VsRow>
-                <VsCol cols="12" lg="4">
-                    <MegaNavFeaturedEvent
-                        source-url="http://172.28.81.65:8089/data/component/cannedsearch?prodtypes=even&locplace=&locprox=&loc=Scotland&size=1"
-                    />
-                </VsCol>
-            </VsRow>
-        </VsContainer>
-    ```
-</docs>
