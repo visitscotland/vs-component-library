@@ -9,7 +9,10 @@
         data-test="vs-mega-nav-featured-event"
     >
         <template v-slot:stretchedCardContent>
-            <p class="vs-mega-nav-featured-event__date-range">
+            <p
+                v-if="featuredEvent && featuredEvent.opening"
+                class="vs-mega-nav-featured-event__date-range"
+            >
                 {{ featuredEvent.opening.period.label }}&nbsp;
                 <span class="vs-mega-nav-featured-event__date-detail">
                     {{ featuredEvent.opening.period.startDay }}
@@ -18,7 +21,10 @@
             <p class="vs-mega-nav-featured-event__title">
                 {{ featuredEvent.name }}
             </p>
-            <p class="vs-mega-nav-featured-event__location">
+            <p
+                v-if="featuredEvent && featuredEvent.address"
+                class="vs-mega-nav-featured-event__location"
+            >
                 {{ featuredEvent.address.shortAddress }}
             </p>
         </template>
