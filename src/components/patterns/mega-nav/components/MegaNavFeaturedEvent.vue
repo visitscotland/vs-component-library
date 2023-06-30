@@ -32,7 +32,7 @@
 <script>
 import VsStretchedLinkCard from '@components/patterns/stretched-link-card/StretchedLinkCard.vue';
 
-const axios = require('axios');
+import axios from 'axios';
 
 /**
  *  This component is used to show a featured event in the meganav
