@@ -9,21 +9,6 @@ export default {
     title: 'Patterns/Summary Box',
     tags: ['autodocs'],
     argTypes: {
-        totalDays: {
-            control: {
-                type: 'number',
-            },
-        },
-        totalMiles: {
-            control: {
-                type: 'number',
-            },
-        },
-        totalKM: {
-            control: {
-                type: 'number',
-            },
-        },
         transportKey: {
             options: [
                 'none - icon is optional',
@@ -41,11 +26,6 @@ export default {
             ],
             control: {
                 type: 'select',
-            },
-        },
-        transportValue: {
-            control: {
-                type: 'string',
             },
         },
         themeKey: {
@@ -104,25 +84,24 @@ const Template = (args) => ({
             <VsSummaryBoxList>
                 <VsSummaryBoxListItem
                     :text='args.totalDays'
-                    label="Days"
+                    :label="args.item1Label"
                 />
                 <VsSummaryBoxDistanceListItem
                     :miles='args.totalMiles'
                     :kilometres='args.totalKM'
-                    distance-label="Distance"
+                    :distance-label="args.item2Label"
                     miles-label="miles"
                     kilometres-label="km"
-                >
-                </VsSummaryBoxDistanceListItem>
+                />
                 <VsSummaryBoxListItem
                     :icon='args.transportKey'
-                    :iconLabel='args.transportValue'
-                    label="Transport"
+                    :icon-label='args.transportValue'
+                    :label="args.item3Label"
                 />
                 <VsSummaryBoxListItem
                     :icon='args.themeKey'
-                    :iconLabel='args.themeValue'
-                    label="Main theme"
+                    :icon-label='args.themeValue'
+                    :label="args.item4Label"
                 />
             </VsSummaryBoxList>
     `,
@@ -136,6 +115,10 @@ const base = {
     transportValue: sampleItinerary.transport.value,
     themeKey: sampleItinerary.theme.key,
     themeValue: sampleItinerary.theme.value,
+    item1Label: 'Days',
+    item2Label: 'Distance',
+    item3Label: 'Transport',
+    item4Label: 'Main theme',
 };
 
 export const Default = Template.bind({
