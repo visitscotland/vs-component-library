@@ -162,6 +162,7 @@
 <script>
 import { BFormGroup } from 'bootstrap-vue-next';
 import axios from 'axios';
+import getEnvValue from '@/utils/get-env-value';
 import VsInput from '../../elements/input/Input.vue';
 import VsSelect from '../../elements/select/Select.vue';
 import VsCheckbox from '../../elements/checkbox/Checkbox.vue';
@@ -205,7 +206,7 @@ export default {
          */
         recaptchaKey: {
             type: String,
-            default: process.env.RECAPTCHA_TOKEN,
+            default: getEnvValue('RECAPTCHA_TOKEN'),
         },
         /**
          * Text for invisible recaptcha textarea - tells
