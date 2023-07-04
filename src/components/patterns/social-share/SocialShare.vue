@@ -184,12 +184,8 @@ export default {
         /**
          * Closes popover on close button click
          */
-        onClose() {
-            // This is a workaround until the hideFn function has been exposed from the
-            // BPopover component PR on Bootstrap-vue-next repo:
-            // https://github.com/bootstrap-vue-next/bootstrap-vue-next/pull/1243
-            // this.$refs.popover.$emit('close');
-            this.$el.querySelector(`#vs-social-share-popover--${this.id}`).click();
+        onClose(event) {
+            this.$refs.popover.hideFn(event);
         },
         /**
          * When popover is shown, focuses on the first share button
