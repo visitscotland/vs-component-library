@@ -18,53 +18,50 @@ const Template = (args) => ({
         };
     },
     template: `
-    <div class="d-flex justify-content-end my-3 mx-3">
-      <VsSocialShare
-        id="default"
-        page-url="http://www.visitscotland.com"
-        page-title="VisitScotland - Scotland's National Tourist Organisation"
-        share-popover-title="Share On"
-        share-btn-text="Share"
-        close-alt-text="Close"
-      >  
-          <VsSocialShareItem
-              name="facebook"
-              link-text="Facebook"
-          />
-          <VsSocialShareItem
-            name="pinterest"
-            link-text="Pinterest"
-          />
-          <VsSocialShareItem
-            name="whatsapp"
-            link-text="WhatsApp"
-          />
-          <VsSocialShareItem
-            name="twitter"
-            link-text="Twitter"
-          />
-          <VsSocialShareItem
-            name="email"
-            link-text="Email"
-          />
-          <VsSocialShareItem
-            @copyLinkClicked="onCopyLink"
-            name="link"
-            link-text="Copy Link"
-            link-copied-text="Link Copied!"
-          />
-      </VsSocialShare>
-    </div>
+        <VsSocialShare v-bind="args">
+            <VsSocialShareItem
+                v-for="item in args.default"
+                v-bind="item"
+            />
+        </VsSocialShare>
     `,
 });
 
 const base = {
     id: 'default',
-    'page-url': 'http://www.visitscotland.com',
-    'page-title': 'VisitScotland - Scotland\'s National Tourist Organisation',
-    'share-popover-title': 'Share On',
-    'share-btn-text': 'Share',
-    'close-alt-text': 'Close',
+    pageUrl: 'http://www.visitscotland.com',
+    pageTitle: 'VisitScotland - Scotland\'s National Tourist Organisation',
+    sharePopoverTitle: 'Share On',
+    shareBtnText: 'Share',
+    closeAltText: 'Close',
+    default: [
+        {
+            name: 'facebook',
+            linkText: 'Facebook',
+        },
+        {
+            name: 'pinterest',
+            linkText: 'Pinterest',
+        },
+        {
+            name: 'whatsapp',
+            linkText: 'WhatsApp',
+        },
+        {
+            name: 'twitter',
+            linkText: 'Twitter',
+        },
+        {
+            name: 'email',
+            linkText: 'Email',
+        },
+        {
+            copyLinkClicked: 'onCopyLink',
+            name: 'link',
+            linkText: 'Copy Link',
+            linkCopiedText: 'Link Copied!',
+        },
+    ],
 };
 
 export const Default = Template.bind({
