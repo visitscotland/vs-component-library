@@ -3,19 +3,19 @@
         v-show="products.length"
     >
         <template
-            v-slot:vsModuleWrapperHeading
+            v-slot:vs-module-wrapper-heading
             v-if="heading"
         >
             {{ heading }}
         </template>
         <template
-            v-slot:vsModuleWrapperIntro
-            v-if="!!$slots['vsCannedSearchIntro']"
+            v-slot:vs-module-wrapper-intro
+            v-if="!!$slots['vs-canned-search-intro']"
         >
             <!--
                 @slot Holds optional introduction copy
             -->
-            <slot name="vsCannedSearchIntro" />
+            <slot name="vs-canned-search-intro" />
         </template>
         <div
             class="vs-canned-search"
@@ -34,7 +34,7 @@
                     >
                         <!-- @slot Holds one or more call to action buttons  -->
                         <slot
-                            name="vsCannedSearchButtons"
+                            name="vs-canned-search-buttons"
                         />
                     </VsCol>
                 </VsRow>
@@ -190,19 +190,19 @@
                         @slot Holds the translation for `of` in the carousel pagination
                     -->
                     <slot
-                        name="vsCannedSearchOf"
+                        name="vs-canned-search-of"
                     />
                 </template>
             </VsCarousel>
             <VsContainer
-                v-if="!!$slots['vsCannedSearchCredit']"
+                v-if="!!$slots['vs-canned-search-credit']"
                 class="vs-canned-search__credit-container"
             >
                 <!--
                     @slot Holds credit information for search data from third parties
                 -->
                 <slot
-                    name="vsCannedSearchCredit"
+                    name="vs-canned-search-credit"
                 />
             </VsContainer>
         </div>

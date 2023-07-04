@@ -12,8 +12,8 @@ const factoryShallowMount = () => shallowMount(VsCannedSearch, {
         linkUrl: apiUrl,
     },
     slots: {
-        vsCannedSearchButtons: slotContent,
-        vsCannedSearchCredit: creditSlotContent,
+        'vs-canned-search-buttons': slotContent,
+        'vs-canned-search-credit': creditSlotContent,
     },
 });
 
@@ -24,12 +24,12 @@ describe('VsCannedSearch', () => {
     });
 
     describe(':slots', () => {
-        it('should render the content of the `vsCannedSearchButtons` slot', () => {
+        it('should render the content of the `vs-canned-search-buttons` slot', () => {
             const wrapper = factoryShallowMount();
             expect(wrapper.html()).toContain(slotContent);
         });
 
-        it('should render the content of the `vsCannedSearchCredit` slot', () => {
+        it('should render the content of the `vs-canned-search-credit` slot', () => {
             const wrapper = factoryShallowMount();
             expect(wrapper.html()).toContain(creditSlotContent);
         });

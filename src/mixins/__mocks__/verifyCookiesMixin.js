@@ -14,7 +14,7 @@ const cookieCheckerMixin = {
             return [];
         },
         requiredCookiesExist() {
-            return this.cookiesExist;
+            return this.mockCookiesExist;
         },
     },
 };
