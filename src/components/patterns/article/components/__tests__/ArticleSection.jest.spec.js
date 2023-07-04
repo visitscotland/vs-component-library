@@ -10,7 +10,7 @@ const factoryMount = (props) => mount(VsArticleSection, {
     },
     slots: {
         default: defaultSlotText,
-        articleSidebar: sidebarSlotText,
+        'article-sidebar': sidebarSlotText,
     },
 });
 

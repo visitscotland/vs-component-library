@@ -13,8 +13,8 @@ const factoryMount = (propsData) => mount(VsArticle, {
     },
     slots: {
         default: defaultSlotText,
-        vsArticleImg: imgSlotText,
-        vsArticleIntro: introSlotText,
+        'vs-article-img': imgSlotText,
+        'vs-article-intro': introSlotText,
     },
 });
 
