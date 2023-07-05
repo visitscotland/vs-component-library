@@ -46,7 +46,10 @@ const Template = (args) => ({
                 </VsImageWithCaption>
             </template>
 
-            <template v-slot:icentre-quote>
+            <template
+                v-if="args.quoteContent"
+                v-slot:icentre-quote
+            >
                 <VsQuote variant="wide">
                     <template v-slot:quote-image>
                         <VsImg
@@ -108,3 +111,17 @@ Default.parameters = {
         default: 'Grey',
     },
 };
+
+export const NoQuote = Template.bind({
+});
+
+NoQuote.args = {
+    ...base,
+    quoteContent: '',
+    quoteAuthor: '',
+    quoteAuthorTitle: '',
+    quoteImageAltText: '',
+    quoteImageSrc: '',
+};
+
+NoQuote.parameters = Default.parameters;
