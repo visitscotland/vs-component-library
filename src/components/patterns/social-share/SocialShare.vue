@@ -257,25 +257,25 @@ export default {
 </script>
 
 <style lang="scss">
-    .vs-social-share{
-        &--module-list{
+    .vs-social-share {
+        &--module-list {
             display: none;
         }
 
-        &__popover{
+        &__popover {
             max-width: 600px;
             width: 96%;
             font-size: inherit;
             text-align: center;
             border: 0;
-            top: -35px!important;
-            right: 0!important;
+            top: -35px !important;
+            right: 0 !important;
 
-            .arrow{
+            .arrow {
                 display: none;
             }
 
-            &.bs-popover-right{
+            &.bs-popover-right {
                 margin-left: 0;
             }
 
@@ -286,9 +286,9 @@ export default {
                 width: 0px;
                 height: 0px;
                 border: none;
-                background: transparent!important;
+                background: transparent !important;
 
-                &:focus{
+                &:focus {
                     outline: none;
                     border: 0;
                 }
@@ -297,8 +297,7 @@ export default {
             @include media-breakpoint-up(sm) {
                 max-width: 450px;
                 width: 450px;
-                top: -25px!important;
-                left: 57px!important;
+                top: 0 !important;
                 box-shadow: -25px 25px 20px 1px rgba(0, 0, 0, 0.1);
             }
 
@@ -317,17 +316,17 @@ export default {
                 width: 800px;
             }
 
-            .popover-body{
+            .popover-body {
                 padding: $spacer-8 $spacer-2;
 
                 @include media-breakpoint-only(sm) {
                     padding: $spacer-4 $spacer-7 $spacer-8;
 
-                    .row{
+                    .row {
                         margin-right: -4px;
                         margin-left: -4px;
 
-                        > [class*=col-]{
+                        > [class*=col-] {
                             padding-right: 4px;
                             padding-left: 4px;
                         }
@@ -342,7 +341,7 @@ export default {
                     padding: $spacer-9 $spacer-12;
                 }
 
-                h3.vs-heading{
+                h3.vs-heading {
                     margin-bottom: $spacer-9;
                 }
             }
@@ -354,7 +353,7 @@ export default {
             }
         }
 
-        &__close-btn{
+        &__close-btn {
             position: absolute;
             right: $spacer-4;
             top: $spacer-4;
@@ -362,20 +361,20 @@ export default {
     }
 
     @include no-js {
-        .vs-social-share{
-            &--module-list{
+        .vs-social-share {
+            &--module-list {
                 display: block;
             }
 
-            &__share-btn{
+            &__share-btn {
                display: none;
             }
 
-            &__popover{
-                position: relative!important;
-                display: block!important;
-                opacity: $opacity-100!important;
-                outline: 0!important;
+            &__popover {
+                position: relative !important;
+                display: block !important;
+                opacity: $opacity-100 !important;
+                outline: 0 !important;
             }
         }
     }
