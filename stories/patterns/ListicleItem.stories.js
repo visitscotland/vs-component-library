@@ -2,6 +2,8 @@ import VsListicleItem from '@/components/patterns/listicle/ListicleItem.vue';
 
 import VsIconList from '@/components/patterns/icon-list/IconList.vue';
 import VsIconListItem from '@/components/patterns/icon-list/components/IconListItem.vue';
+import VsImageWithCaption from '@/components/patterns/image-with-caption/ImageWithCaption.vue';
+import VsCaption from '@/components/patterns/caption/Caption.vue';
 
 export default {
     component: VsListicleItem,
@@ -14,6 +16,8 @@ const Template = (args) => ({
         VsListicleItem,
         VsIconList,
         VsIconListItem,
+        VsImageWithCaption,
+        VsCaption,
     },
     setup() {
         return {
@@ -25,8 +29,26 @@ const Template = (args) => ({
             <VsListicleItem
                 v-bind="args"
             >
+                <template v-slot:image-slot>
+                    <VsImageWithCaption
+                        :imageSrc="args.imageSrc"
+                        :altText="args.imageAltText"
+                    >
+                        <template v-slot:img-caption>
+                            <VsCaption>
+                                <template v-slot:caption>
+                                    <span>{{ args.imageCaption }}</span>
+                                </template>
+
+                                <template v-slot:credit>
+                                    <span>{{ args.imageCredit }}</span>
+                                </template>
+                            </VsCaption>
+                        </template>
+                    </VsImageWithCaption>
+                </template>
+
                 <template v-if="${'sub-heading' in args}" v-slot:sub-heading>${args['sub-heading']}</template>
-                <template v-if="${'image-slot' in args}" v-slot:image-slot>${args['image-slot']}</template>
                 <template v-if="${'description-slot' in args}" v-slot:description-slot>${args['description-slot']}</template>
                 <template v-if="${'facilities-slot' in args}" v-slot:facilities-slot>${args['facilities-slot']}</template>
             </VsListicleItem>
@@ -60,10 +82,13 @@ const base = {
     index: '1',
     title: 'The Standing Stones of Stenness',
     subTitle: 'Orkney Islands',
-    'image-slot': 'Image with Caption goes here',
     'description-slot': description,
     'facilities-slot': facilities,
     'hippo-details': '',
+    imageSrc: '/fixtures/listicles/stenness.jpg',
+    imageAltText: 'A photo of the Standing Stones of Stenness against a blue Sky',
+    imageCaption: 'The Standing Stones of Stenness make up a a small circle dating from the third millennium BC. ',
+    imageCredit: 'Historic Environment Scotland',
 };
 
 export const Default = Template.bind({
