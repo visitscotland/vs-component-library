@@ -16,10 +16,17 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsMarketoForm
-            v-bind="args"
+        <div
+            :class="args.jsDisabled ? 'no-js' : ''"
         >
-        </VsMarketoForm>
+            <VsMarketoForm
+                v-bind="args"
+            >
+                <template v-slot:no-js v-if="args['no-js']">
+                    <p>{{ args['no-js'] }}</p>
+                </template>
+            </VsMarketoForm>
+        </div>
     `,
 });
 
@@ -34,9 +41,19 @@ const base = {
     recaptchaTextareaLabel: 'Does not need any text',
     'submit-error': 'We\'re sorry there\'s been a problem, please try again later.',
     submitting: 'We\'re just submitting your form',
+    'no-js': 'You need JavaScript enabled to be able to display our newsletter subscription form',
+    jsDisabled: false,
 };
 
 export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const NoJs = Template.bind({
+});
+
+NoJs.args = {
+    ...base,
+    jsDisabled: true,
+};
