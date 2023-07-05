@@ -1,6 +1,8 @@
 import VsSocialShare from '@/components/patterns/social-share/SocialShare.vue';
 import VsSocialShareItem from '@/components/patterns/social-share/components/SocialShareItem.vue';
 
+import { userEvent, within } from '@storybook/testing-library';
+
 export default {
     component: VsSocialShare,
     title: 'Patterns/Social Share Button',
@@ -71,3 +73,16 @@ export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const Open = Template.bind({
+});
+
+Open.args = base;
+
+Open.play = async({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const shareButton = canvas.getByText(base.shareBtnText);
+
+    await userEvent.click(shareButton);
+};
