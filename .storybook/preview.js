@@ -22,6 +22,7 @@ const preview = {
             default: 'Light',
             values: [
                 { name: 'Light', value: '#fff' },
+                { name: 'Grey', value: '#efefef' },
                 { name: 'Dark', value: '#191919' },
                 { name: 'Yellow', value: '#fcca1b' },
             ],
