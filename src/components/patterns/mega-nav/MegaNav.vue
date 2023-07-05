@@ -114,22 +114,8 @@ import VsButton from '@components/elements/button/Button.vue';
 import VsSiteSearch from '@components/patterns/site-search/SiteSearch.vue';
 import VsSiteSearchForm from '@components/patterns/site-search/components/SiteSearchForm.vue';
 
+import clickOutside from '@/directives/click-outside';
 import dataLayerMixin from '../../../mixins/dataLayerMixin';
-
-const clickOutside = {
-    mounted(el, binding) {
-        /* eslint-disable-next-line */
-        el.clickOutsideEvent = (event) => {
-            if (!(el === event.target || el.contains(event.target))) {
-                binding.value(event);
-            }
-        };
-        document.body.addEventListener('click', el.clickOutsideEvent);
-    },
-    unmounted(el) {
-        document.body.removeEventListener('click', el.clickOutsideEvent);
-    },
-};
 
 /**
  *  The Mega Nav bar component includes main VS logo and slots for
