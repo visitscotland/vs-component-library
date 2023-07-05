@@ -9,27 +9,29 @@ config.global.renderStubDefaultSlot = true;
 
 jest.mock('@/utils/svg-context');
 
+const baseProps = {
+    href: 'https://www.visitscotland.com',
+    menuToggleAltText: 'Open Menu',
+    searchButtonText: 'Search',
+};
+
+const slots = {
+    'mega-nav-top-menu-items': '<div class="mega-nav-top-menu-items"></div>',
+};
+
 const factoryShallowMount = (propsData) => shallowMount(VsMegaNav, {
     propsData: {
-        href: 'https://www.visitscotland.com',
-        menuToggleAltText: 'Open Menu',
-        searchButtonText: 'Search',
+        ...baseProps,
         ...propsData,
     },
-    slots: {
-        'mega-nav-top-menu-items': '<div class="mega-nav-top-menu-items"></div>',
-    },
+    slots,
 });
 
 const factoryMount = () => mount(VsMegaNav, {
     propsData: {
-        href: 'https://www.visitscotland.com',
-        menuToggleAltText: 'Open Menu',
-        searchButtonText: 'Search',
+        ...baseProps,
     },
-    slots: {
-        'mega-nav-top-menu-items': '<div class="mega-nav-top-menu-items"></div>',
-    },
+    slots,
 });
 
 describe('VsMegaNav', () => {
