@@ -1,6 +1,8 @@
-import { shallowMount } from '@vue/test-utils';
+import { config, shallowMount } from '@vue/test-utils';
 
 import VsQuote from '../Quote.vue';
+
+config.global.renderStubDefaultSlot = true;
 
 const factoryShallowMount = (slotsData) => shallowMount(VsQuote, {
     slots: {
@@ -8,7 +10,7 @@ const factoryShallowMount = (slotsData) => shallowMount(VsQuote, {
     },
 });
 
-describe('VsIknowParterItem', () => {
+describe('VsQuote', () => {
     it('should render a component with `vs-quote` data-test attribute', () => {
         const wrapper = factoryShallowMount();
 
@@ -19,7 +21,7 @@ describe('VsIknowParterItem', () => {
         it('renders content inserted in the `image` slot', () => {
             const imageContent = 'Quote image';
             const wrapper = factoryShallowMount({
-                image: imageContent,
+                'quote-image': imageContent,
             });
 
             expect(wrapper.text()).toContain(imageContent);
@@ -28,7 +30,7 @@ describe('VsIknowParterItem', () => {
         it('renders content inserted in the `content` slot', () => {
             const mainQuoteContent = 'Quote test';
             const wrapper = factoryShallowMount({
-                content: mainQuoteContent,
+                'quote-content': mainQuoteContent,
             });
 
             expect(wrapper.text()).toContain(mainQuoteContent);
@@ -37,7 +39,7 @@ describe('VsIknowParterItem', () => {
         it('renders content inserted in the `authorName` slot', () => {
             const authorContent = 'Quote author name';
             const wrapper = factoryShallowMount({
-                'author-name': authorContent,
+                'quote-author-name': authorContent,
             });
 
             expect(wrapper.text()).toContain(authorContent);
@@ -46,7 +48,7 @@ describe('VsIknowParterItem', () => {
         it('renders content inserted in the `authorTitle` slot', () => {
             const titleContent = 'Quote author title';
             const wrapper = factoryShallowMount({
-                'author-title': titleContent,
+                'quote-author-title': titleContent,
             });
 
             expect(wrapper.text()).toContain(titleContent);
@@ -55,7 +57,7 @@ describe('VsIknowParterItem', () => {
         it('renders content inserted in the `link` slot', () => {
             const linkContent = 'Quote link';
             const wrapper = factoryShallowMount({
-                link: linkContent,
+                'quote-link': linkContent,
             });
 
             expect(wrapper.text()).toContain(linkContent);
