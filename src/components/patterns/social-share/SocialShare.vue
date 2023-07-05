@@ -264,12 +264,13 @@ export default {
 
         &__popover {
             max-width: 600px;
-            width: 96%;
+            width: 96% !important;
             font-size: inherit;
             text-align: center;
             border: 0;
-            top: -35px !important;
-            right: 0 !important;
+            top: 70px !important;
+            left: unset !important;
+            right: 10px;
 
             .arrow {
                 display: none;
@@ -296,24 +297,24 @@ export default {
 
             @include media-breakpoint-up(sm) {
                 max-width: 450px;
-                width: 450px;
-                top: 0 !important;
+                width: 450px !important;
                 box-shadow: -25px 25px 20px 1px rgba(0, 0, 0, 0.1);
+                right: 50px !important;
             }
 
             @include media-breakpoint-up(md) {
                 max-width: 600px;
-                width: 600px;
+                width: 600px !important;
             }
 
             @include media-breakpoint-up(lg) {
                 max-width: 700px;
-                width: 700px;
+                width: 700px !important;
             }
 
             @include media-breakpoint-up(xl) {
                 max-width: 800px;
-                width: 800px;
+                width: 800px !important;
             }
 
             .popover-body {
