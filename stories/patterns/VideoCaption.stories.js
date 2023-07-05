@@ -1,4 +1,5 @@
 import VsVideoCaption from '@/components/patterns/video-caption/VideoCaption.vue';
+import VsImageWithCaption from '@/components/patterns/image-with-caption/ImageWithCaption.vue';
 
 export default {
     component: VsVideoCaption,
@@ -9,6 +10,7 @@ export default {
 const Template = (args) => ({
     components: {
         VsVideoCaption,
+        VsImageWithCaption,
     },
     setup() {
         return {
@@ -16,9 +18,11 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsVideoCaption v-bind="args">
-            <template v-if="${'video-title' in args}" v-slot:video-title>${args['video-title']}</template>
-        </VsVideoCaption>
+        <VsImageWithCaption v-bind="args">
+            <VsVideoCaption v-bind="args">
+                <template v-if="${'video-title' in args}" v-slot:video-title>${args['video-title']}</template>
+            </VsVideoCaption>
+        </VsImageWithCaption>
     `,
 });
 
@@ -27,13 +31,10 @@ const base = {
     withToggleBtn: true,
     videoBtnText: 'Play Video',
     'video-title': 'Only in Scotland: Why Scotland Needs You',
-
-    // These should come from image with caption, not yet ported
-
-    // noJsMessage: 'JavaScript needs to be enabled to watch videos',
-    // noCookiesMessage: 'Please accept cookies to watch videos',
-    // cookieLinkText: 'Accept cookies here',
-    // errorMessage: 'Something went wrong, please try again later',
+    noJsMessage: 'JavaScript needs to be enabled to watch videos',
+    noCookiesMessage: 'Please accept cookies to watch videos',
+    cookieLinkText: 'Accept cookies here',
+    errorMessage: 'Something went wrong, please try again later',
 };
 
 export const Default = Template.bind({
