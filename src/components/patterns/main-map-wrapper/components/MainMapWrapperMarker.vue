@@ -74,7 +74,11 @@ export default {
             return false;
         },
         highlightedPlace() {
-            return mapStore.getHoveredStop(this.mapId);
+            if (mapStore) {
+                return mapStore.getHoveredStop(this.mapId);
+            }
+
+            return '';
         },
         activePlace() {
             return mapStore.getActivePlace(this.mapId);

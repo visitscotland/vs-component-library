@@ -58,13 +58,15 @@ export default {
     mounted() {
         mapStore = useMapStore(pinia());
 
-        this.$root.$on('checkboxes-selected', (val) => {
-            if (val) {
-                this.isDisabled = false;
-            } else {
-                this.isDisabled = true;
-            }
-        });
+        if (this.emitter) {
+            this.emitter.on('checkboxes-selected', (val) => {
+                if (val) {
+                    this.isDisabled = false;
+                } else {
+                    this.isDisabled = true;
+                }
+            });
+        }
 
         if (this.getSubcatFilters.length > 0) {
             this.isDisabled = false;
@@ -75,14 +77,19 @@ export default {
          * Clears all selected checkboxes
          */
         clearSelection() {
-            this.$root.$emit('clearSelectedSubcats');
+            if (this.emitter) {
+                this.emitter.emit('clearSelectedSubcats');
+            }
+
             this.isDisabled = true;
         },
         /**
          * Emits instuction to submit data
          */
         submitCheckboxes() {
-            this.$root.$emit('submitCheckboxData');
+            if (this.emitter) {
+                this.emitter.emit('submitCheckboxData');
+            }
         },
     },
 };

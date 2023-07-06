@@ -95,10 +95,18 @@ export default {
             return false;
         },
         highlightedPlace() {
-            return mapStore.getHoveredStop(this.mapId);
+            if (mapStore) {
+                return mapStore.getHoveredStop(this.mapId);
+            }
+
+            return '';
         },
         selectedSubCategory() {
-            return mapStore.selectedSubCategory;
+            if (mapStore) {
+                return mapStore.selectedSubCategory;
+            }
+
+            return '';
         },
     },
     mounted() {

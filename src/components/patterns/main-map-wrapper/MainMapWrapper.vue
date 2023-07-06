@@ -357,13 +357,25 @@ export default {
                 || place.geometry.type === 'MultiPolygon');
         },
         currentStage() {
-            return mapStore.currentStage;
+            if (mapStore) {
+                return mapStore.currentStage;
+            }
+
+            return 0;
         },
         selectedSubCategory() {
-            return mapStore.selectedSubCategory;
+            if (mapStore) {
+                return mapStore.selectedSubCategory;
+            }
+
+            return null;
         },
         subCatActiveFilters() {
-            return mapStore.activeSubcatFilters;
+            if (mapStore) {
+                return mapStore.activeSubcatFilters;
+            }
+
+            return null;
         },
         infoMessage() {
             let msg = '';
@@ -400,9 +412,11 @@ export default {
             activePins: this.activePins,
         });
 
-        this.$root.$on('clearSelectedSubcats', () => {
-            this.resetZoom = true;
-        });
+        if (this.emitter) {
+            this.emitter.on('clearSelectedSubcats', () => {
+                this.resetZoom = true;
+            });
+        }
     },
     methods: {
         /**

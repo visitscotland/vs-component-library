@@ -74,13 +74,15 @@ export default {
 
         this.selected = this.activeSubcatFilters;
 
-        this.$root.$on('clearSelectedSubcats', () => {
-            this.selected = [];
-        });
+        if (this.emitter) {
+            this.emitter.on('clearSelectedSubcats', () => {
+                this.selected = [];
+            });
 
-        this.$root.$on('submitCheckboxData', () => {
-            this.checkboxesChangeSubmit();
-        });
+            this.emitter.on('submitCheckboxData', () => {
+                this.checkboxesChangeSubmit();
+            });
+        }
 
         const container = document.getElementsByClassName('vs-main-map-subcategory')[0];
         const firstEl = container.querySelectorAll('input[type="checkbox"]')[0];
@@ -102,10 +104,10 @@ export default {
          * Emits change event declaring if any selections have been made
          */
         emitChange(checked) {
-            if (checked.length > 0) {
-                this.$root.$emit('checkboxes-selected', true);
+            if (checked.length > 0 && this.emitter) {
+                this.emitter.emit('checkboxes-selected', true);
             } else {
-                this.$root.$emit('checkboxes-selected', false);
+                this.emitter.emit('checkboxes-selected', false);
             }
         },
     },
