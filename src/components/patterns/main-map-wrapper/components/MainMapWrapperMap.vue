@@ -55,7 +55,7 @@ import osBranding from '@/utils/os-branding';
 import pinia from '@/stores/index.ts';
 import useMapStore from '@/stores/map.store.ts';
 
-import VsMapMarker from './components/MapMarker.vue';
+import VsMapMarker from './MainMapWrapperMarker.vue';
 
 let mapStore = null;
 let mapboxgl = null;
@@ -818,7 +818,7 @@ export default {
 
 <style lang="scss">
 @import "mapbox-gl/dist/mapbox-gl.css";
-@import "../../../styles/_os-branding.scss";
+@import "../../../../styles/_os-branding.scss";
 
 .os-api-branding.logo {
     margin: $spacer-2;
