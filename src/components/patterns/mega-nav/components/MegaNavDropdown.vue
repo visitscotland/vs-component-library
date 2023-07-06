@@ -123,19 +123,21 @@ export default {
          * Submit event to dataLayer for tracking
          */
         dataLayerSubmit() {
-            const btnText = this.$slots['button-content']()[1].children[0].children;
+            if (this.$slots['button-content']()[1] && this.$slots['button-content']()[1].children[0]) {
+                const btnText = this.$slots['button-content']()[1].children[0].children;
 
-            const clickEvent = {
-                target: {
-                    text: btnText,
-                },
-            };
+                const clickEvent = {
+                    target: {
+                        text: btnText,
+                    },
+                };
 
-            this.createDataLayerObject(
-                'menuNavigationDataEvent',
-                clickEvent,
-                null,
-            );
+                this.createDataLayerObject(
+                    'menuNavigationDataEvent',
+                    clickEvent,
+                    null,
+                );
+            }
         },
     },
 };
