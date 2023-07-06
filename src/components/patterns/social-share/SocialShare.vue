@@ -268,7 +268,7 @@ export default {
             font-size: inherit;
             text-align: center;
             border: 0;
-            top: 70px !important;
+            top: 60px !important;
             left: unset !important;
             right: 10px;
 
@@ -305,6 +305,7 @@ export default {
             @include media-breakpoint-up(md) {
                 max-width: 600px;
                 width: 600px !important;
+                top: 60px !important;
             }
 
             @include media-breakpoint-up(lg) {
