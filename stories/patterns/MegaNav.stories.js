@@ -3,8 +3,12 @@ import VsMegaNavTopMenuItem from '@/components/patterns/mega-nav/components/Mega
 import VsMegaNavList from '@/components/patterns/mega-nav/components/MegaNavList.vue';
 import VsMegaNavListItem from '@/components/patterns/mega-nav/components/MegaNavListItem.vue';
 import VsMegaNavAccordionItem from '@/components/patterns/mega-nav/components/MegaNavAccordionItem.vue';
+import VsMegaNavFeaturedItem from '@/components/patterns/mega-nav/components/MegaNavFeaturedItem.vue';
+import VsMegaNavFeaturedEvent from '@/components/patterns/mega-nav/components/MegaNavFeaturedEvent.vue';
 
 import VsAccordion from '@/components/patterns/accordion/Accordion.vue';
+
+import navExample from '@/assets/fixtures/header/main-nav.json';
 
 export default {
     component: VsMeganav,
@@ -31,70 +35,202 @@ const Template = (args) => ({
         VsMegaNavAccordionItem,
         VsMegaNavList,
         VsMegaNavListItem,
+        VsMegaNavFeaturedItem,
+        VsMegaNavFeaturedEvent,
     },
     setup() {
         return {
             args,
+            navExample,
         };
     },
-    template: `
+    template: `        
         <VsMeganav
             v-bind="args"
         >
             <template #mega-nav-top-menu-items>
                 <VsMegaNavTopMenuItem
-                    :key="1"
-                    :href="args.topMenuItemHref"
-                    :cta-text="args.topMenuItemCta"
-                    :align="args.topMenuItemAlign"
+                    v-for="(item, index) in navExample"
+                    :key="index"
+                    :href="item.href"
+                    :cta-text="item.cta"
+                    :align="item.title === 'Accommodation' ? 'bottom' : 'top'"
                 >
 
-                    <template v-if="${'topMenuButtonContent' in args}" v-slot:button-content>${args.topMenuButtonContent}</template>
+                    <template v-slot:button-content>{{ item.title }}</template>
 
                     <template v-slot:dropdown-content>
                         <VsMegaNavList
-                            :list-heading="args.subTopMenuListHeading"
+                            v-for="(subHeading, subHeadingIndex) in item.dropdownNav"
+                            :key="subHeadingIndex"
+                            :list-heading="subHeading.title"
                         >
                             <template 
                                 v-slot:nav-list-items
                             >
                                 <VsMegaNavListItem
-                                    :href="args.subTopMenuListLinkHref"
+                                    v-for="(navLink, navLinkIndex)
+                                        in subHeading.dropdownNav"
+                                    :key="navLinkIndex"
+                                    :href="navLink.href"
                                 >
-                                    {{ args.subTopMenuListLinkText }}
+                                    {{ navLink.title }}
+                                </VsMegaNavListItem>
+                                <VsMegaNavListItem
+                                    v-if="subHeading.href"
+                                    :href="subHeading.href"
+                                    subheading-link
+                                >
+                                    {{ subHeading.cta }}
                                 </VsMegaNavListItem>
                             </template>
                         </VsMegaNavList>
                     </template>
+
+                    <template
+                        v-slot:nav-featured-event
+                        v-if="item.title === 'Things to do'"
+                    >
+                        <VsMegaNavFeaturedEvent
+                            source-url="http://172.28.81.65:8089/data/component/cannedsearch?prodtypes=even&locplace=&locprox=&loc=Scotland&size=1"
+                        />
+                    </template>
+    
+                    <template
+                        v-slot:nav-featured-item
+                        v-if="item.title === 'Accommodation' || item.title === 'Inspiration'"
+                    >
+                        <VsMegaNavFeaturedItem
+                            link="www.visitscotland.com"
+                            img-url="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
+                            img-alt="Alt text"
+                        >
+                            <template v-slot:vs-featured-item-header>
+                                From our home to yours – see Scotland virtually
+                            </template>
+    
+                            <template v-slot:vs-featured-item-content>
+                                <p>
+                                    Although it’s not possible to come to Scotland at the moment,
+                                    thanks to modern technology, you can still see stunning
+                                </p>
+                            </template>
+    
+                            <template v-slot:vs-featured-item-link>
+                                A link to a page
+                            </template>
+                        </VsMegaNavFeaturedItem>
+                    </template>
+
+                    <div class="featured-items">
+                    </div>
                 </VsMegaNavTopMenuItem>
             </template>
 
             <template v-slot:mega-nav-accordion-items>
                 <VsAccordion>
                     <VsMegaNavAccordionItem
-                        :title="args.topMenuButtonContent"
+                        v-for="(item, mobileItemIndex) in navExample"
+                        :index="mobileItemIndex"
+                        :title="item.title"
                         level="1"
-                        control-id="1"
-                        :cta-link="args.topMenuItemHref"
-                        :cta-text="args.topMenuItemCta"
+                        :control-id="mobileItemIndex.toString()"
+                        :cta-link="item.href"
+                        :cta-text="item.cta"
                     >
                         <VsMegaNavAccordionItem
-                            :title="args.subTopMenuListHeading"
+                            v-for="(subHeading, subHeadingIndex) in item.dropdownNav"
+                            :index="subHeadingIndex"
+                            :title="subHeading.title"
                             level="2"
-                            control-id="1"
+                            :control-id="subHeadingIndex.toString()"
                         >
                             <VsMegaNavList>
                                 <template
                                     v-slot:nav-list-items
                                 >
                                     <VsMegaNavListItem
-                                        :href="args.subTopMenuListLinkHref"
+                                        v-for="(navLink, navLinkIndex)
+                                            in subHeading.dropdownNav"
+                                        :key="navLinkIndex"
+                                        :href="navLink.href"
                                     >
-                                        {{ args.subTopMenuListLinkText }}
+                                        {{ navLink.title }}
+                                    </VsMegaNavListItem>
+                                </template>
+
+                                <template
+                                    v-slot:nav-heading-cta-link
+                                >
+                                    <VsMegaNavListItem
+                                        v-if="subHeading.href"
+                                        :href="subHeading.href"
+                                        subheading-link
+                                    >
+                                        {{ subHeading.cta }}
                                     </VsMegaNavListItem>
                                 </template>
                             </VsMegaNavList>
                         </VsMegaNavAccordionItem>
+                        <div class="featured-items">
+                            <template
+                                v-if="item.title === 'Things to do'"
+                            >
+                                <VsMegaNavFeaturedEvent
+                                    source-url="http://172.28.81.65:8089/data/component/cannedsearch?prodtypes=even&locplace=&locprox=&loc=Scotland&size=1"
+                                />
+                            </template>
+                            <template
+                                v-if="item.title === 'Accommodation' || item.title === 'Inspiration'"
+                            >
+                                <VsMegaNavFeaturedItem
+                                    link="www.visitscotland.com"
+                                    img-url="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
+                                    img-alt="Alt text"
+                                >
+                                    <template v-slot:vs-featured-item-header>
+                                        From our home to yours – see Scotland virtually
+                                    </template>
+
+                                    <template v-slot:vs-featured-item-content>
+                                        <p>
+                                            Although it’s not possible to come to
+                                            Scotland at the moment.
+                                        </p>
+                                    </template>
+
+                                    <template v-slot:vs-featured-item-link>
+                                        A link to a page
+                                    </template>
+                                </VsMegaNavFeaturedItem>
+                            </template>
+                            <template
+                                v-if="item.title === 'Inspiration'"
+                            >
+                                <VsMegaNavFeaturedItem
+                                    link="www.visitscotland.com"
+                                    img-url="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
+                                    img-alt="Alt text"
+                                    v-if="item.title==='Inspiration'"
+                                >
+                                    <template v-slot:vs-featured-item-header>
+                                        Featured item left
+                                    </template>
+
+                                    <template v-slot:vs-featured-item-content>>
+                                        <p>
+                                            Although it’s not possible to come to Scotland
+                                            at the moment, thanks to modern technology, you
+                                            can still see stunning
+                                        </p>
+                                    </template>
+
+                                    <template v-slot:vs-featured-item-link>
+                                        A link to a page
+                                    </template>
+                                </VsMegaNavFeaturedItem>
+                            </template>
+                        </div>
                     </VsMegaNavAccordionItem>
                 </VsAccordion>
             </template>
@@ -112,13 +248,6 @@ const base = {
     searchCloseButtonText: 'Close search form',
     'mega-nav-top-menu-items': '',
     'mega-nav-accordion-items': '',
-    topMenuItemHref: '#',
-    topMenuItemCta: 'Explore Scotland',
-    topMenuItemAlign: 'bottom',
-    topMenuButtonContent: 'Places to Go',
-    subTopMenuListHeading: 'Cities',
-    subTopMenuListLinkText: 'Aberdeen',
-    subTopMenuListLinkHref: '#',
 };
 
 export const Default = Template.bind({
