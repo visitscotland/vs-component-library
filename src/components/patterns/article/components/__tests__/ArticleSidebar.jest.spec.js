@@ -1,5 +1,7 @@
-import { shallowMount } from '@vue/test-utils';
+import { config, shallowMount } from '@vue/test-utils';
 import VsArticleSidebar from '../ArticleSidebar.vue';
+
+config.global.renderStubDefaultSlot = true;
 
 const quoteSlotText = 'Article sidebar quote';
 const imgSlotText = 'Article sidebar img';
@@ -9,8 +11,8 @@ const factoryShallowMount = (propsData) => shallowMount(VsArticleSidebar, {
         ...propsData,
     },
     slots: {
-        vsArticleSidebarQuote: quoteSlotText,
-        vsArticleSidebarImg: imgSlotText,
+        'vs-article-sidebar-quote': quoteSlotText,
+        'vs-article-sidebar-img': imgSlotText,
     },
 });
 
@@ -48,8 +50,8 @@ describe('VsArticleSidebar', () => {
         it(':sidebarImgClasses - Image wrapper should have correct padding when no quote visible', () => {
             const modifiedWrapper = shallowMount(VsArticleSidebar, {
                 slots: {
-                    vsArticleSidebarQuote: '',
-                    vsArticleSidebarImg: imgSlotText,
+                    'vs-article-sidebar-quote': '',
+                    'vs-article-sidebar-img': imgSlotText,
                 },
             });
 
@@ -60,8 +62,8 @@ describe('VsArticleSidebar', () => {
         it(':sidebarArticleClasses - Quote wrapper should have correct padding when no img visible', () => {
             const modifiedWrapper = shallowMount(VsArticleSidebar, {
                 slots: {
-                    vsArticleSidebarImg: '',
-                    vsArticleSidebarQuote: quoteSlotText,
+                    'vs-article-sidebar-img': '',
+                    'vs-article-sidebar-quote': quoteSlotText,
                 },
             });
 
