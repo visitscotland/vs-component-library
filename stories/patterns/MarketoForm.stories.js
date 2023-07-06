@@ -1,3 +1,7 @@
+import {
+    userEvent, within, waitFor,
+} from '@storybook/testing-library';
+
 import VsMarketoForm from '@/components/patterns/marketo-form/MarketoForm.vue';
 
 export default {
@@ -49,6 +53,41 @@ export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const ShowingConditionalField = Template.bind({
+});
+
+ShowingConditionalField.args = base;
+
+ShowingConditionalField.play = async({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await waitFor(() => {
+        const countryDropdown = canvas.getByLabelText('Country');
+
+        userEvent.selectOptions(countryDropdown, ['United Kingdom (Scotland)']);
+    }, {
+        timeout: 3000,
+        interval: 250,
+    });
+};
+
+export const Invalid = Template.bind({
+});
+
+Invalid.args = base;
+
+Invalid.play = async({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await waitFor(() => {
+        const submit = canvas.getByText('Subscribe');
+        userEvent.click(submit);
+    }, {
+        timeout: 3000,
+        interval: 250,
+    });
+};
 
 export const NoJs = Template.bind({
 });
