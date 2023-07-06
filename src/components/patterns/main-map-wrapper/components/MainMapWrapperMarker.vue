@@ -81,10 +81,18 @@ export default {
             return '';
         },
         activePlace() {
-            return mapStore.getActivePlace(this.mapId);
+            if (mapStore) {
+                return mapStore.getActivePlace(this.mapId);
+            }
+
+            return null;
         },
         activeSubcat() {
-            return mapStore.selectedSubCategory;
+            if (mapStore) {
+                return mapStore.selectedSubCategory;
+            }
+
+            return null;
         },
         getMarkerIcon() {
             let markerName;

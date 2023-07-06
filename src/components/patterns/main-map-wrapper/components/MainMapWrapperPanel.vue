@@ -410,7 +410,11 @@ export default {
             return [];
         },
         subCatFilterCount() {
-            return mapStore.activeSubcatFilters.length;
+            if (this.mapbox.map) {
+                return mapStore.activeSubcatFilters.length;
+            }
+
+            return null;
         },
         detailHeadingLevel() {
             const headingNum = parseInt(this.headingLevel, 10);

@@ -34,11 +34,13 @@
                 </p>
             </div>
         </div>
-        <div
-            :id="mapId"
-            class="vs-map__map"
-            ref="mapbox"
-        />
+        <div ref="mapboxOuter" class="vs-map__map-outer">
+            <div
+                :id="mapId"
+                class="vs-map__map"
+                ref="mapbox"
+            />
+        </div>
         <VsWarning class="vs-map__no-js">
             <!-- @slot Message to show when JS is disabled  -->
             <slot name="noJs" />
@@ -47,11 +49,11 @@
 </template>
 
 <script>
-import { createVNode, render } from 'vue';
 import VsWarning from '@components/patterns/warning/Warning.vue';
 import VsLoading from '@components/elements/loading-spinner/LoadingSpinner.vue';
 import osBranding from '@/utils/os-branding';
 
+import { createVNode, render } from 'vue';
 import pinia from '@/stores/index.ts';
 import useMapStore from '@/stores/map.store.ts';
 
@@ -402,11 +404,11 @@ export default {
                     }
                 }
 
-                if (this.$children.length) {
-                    for (let child = this.$children.length - 1; child >= 0; child--) {
-                        this.$children[child].$destroy();
-                    }
-                }
+                // if (this.$children.length) {
+                //     for (let child = this.$children.length - 1; child >= 0; child--) {
+                //         this.$children[child].$destroy();
+                //     }
+                // }
 
                 this.geojsonData.features.forEach((feature) => {
                     const markerComponent = createVNode(
@@ -828,7 +830,7 @@ export default {
     height: 100%;
     position: relative;
 
-    &__map {
+    &__map, &__map-outer {
         height: 100%;
         position: relative;
     }

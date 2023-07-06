@@ -490,32 +490,35 @@ export default {
          */
         getSubcatMarkerData(endpointFilters) {
             const subCat = this.filters.filter((cat) => cat.id === this.selectedSubCategory);
-            let endpoint = subCat[0].pinsEndpoint;
-            if (typeof endpointFilters !== 'undefined') {
-                endpoint += endpointFilters;
-            }
 
-            this.activePins = [];
+            if (subCat.length > 0) {
+                let endpoint = subCat[0].pinsEndpoint;
+                if (typeof endpointFilters !== 'undefined') {
+                    endpoint += endpointFilters;
+                }
 
-            // show markers only if the subcategory has been filtered
-            if (typeof endpointFilters === 'undefined') {
                 this.activePins = [];
-                this.mapStatus = 'filter-results';
-            } else {
-                axios.get(endpoint).then((response) => {
-                    this.totalEndpointPins = response.data.features.length;
 
-                    if (this.totalEndpointPins === 0) {
-                        this.mapStatus = 'no-results';
-                    } else {
-                        response.data.features.forEach((feature) => {
-                            const modifiedFeature = feature;
-                            modifiedFeature.properties.apiData = true;
-                            this.activePins.push(modifiedFeature);
-                        });
-                        this.mapStatus = '';
-                    }
-                });
+                // show markers only if the subcategory has been filtered
+                if (typeof endpointFilters === 'undefined') {
+                    this.activePins = [];
+                    this.mapStatus = 'filter-results';
+                } else {
+                    axios.get(endpoint).then((response) => {
+                        this.totalEndpointPins = response.data.features.length;
+
+                        if (this.totalEndpointPins === 0) {
+                            this.mapStatus = 'no-results';
+                        } else {
+                            response.data.features.forEach((feature) => {
+                                const modifiedFeature = feature;
+                                modifiedFeature.properties.apiData = true;
+                                this.activePins.push(modifiedFeature);
+                            });
+                            this.mapStatus = '';
+                        }
+                    });
+                }
             }
         },
         /**

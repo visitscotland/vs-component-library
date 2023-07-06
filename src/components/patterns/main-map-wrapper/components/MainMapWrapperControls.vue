@@ -52,7 +52,11 @@ export default {
     },
     computed: {
         getSubcatFilters() {
-            return mapStore.activeSubcatFilters;
+            if (mapStore) {
+                return mapStore.activeSubcatFilters;
+            }
+
+            return null;
         },
     },
     mounted() {

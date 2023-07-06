@@ -63,10 +63,18 @@ export default {
     },
     computed: {
         activeSubcatFilters() {
-            return mapStore.activeSubcatFilters;
+            if (mapStore) {
+                return mapStore.activeSubcatFilters;
+            }
+
+            return null;
         },
         selectedSubCategory() {
-            return mapStore.selectedSubCategory;
+            if (mapStore) {
+                return mapStore.selectedSubCategory;
+            }
+
+            return null;
         },
     },
     mounted() {
@@ -90,7 +98,9 @@ export default {
         firstEl.focus();
     },
     beforeUnmount() {
-        this.$root.$off('submitCheckboxData');
+        if (this.emitter) {
+            this.emitter.off('submitCheckboxData');
+        }
     },
     methods: {
         /**
