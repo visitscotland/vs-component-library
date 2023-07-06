@@ -67,7 +67,7 @@ ShowingConditionalField.play = async({ canvasElement }) => {
 
         userEvent.selectOptions(countryDropdown, ['United Kingdom (Scotland)']);
     }, {
-        timeout: 3000,
+        timeout: 10000,
         interval: 250,
     });
 };
@@ -84,7 +84,7 @@ Invalid.play = async({ canvasElement }) => {
         const submit = canvas.getByText('Subscribe');
         userEvent.click(submit);
     }, {
-        timeout: 3000,
+        timeout: 10000,
         interval: 250,
     });
 };
