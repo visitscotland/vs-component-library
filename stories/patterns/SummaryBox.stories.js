@@ -81,29 +81,29 @@ const Template = (args) => ({
         };
     },
     template: `
-            <VsSummaryBoxList>
-                <VsSummaryBoxListItem
-                    :text='args.totalDays'
-                    :label="args.item1Label"
-                />
-                <VsSummaryBoxDistanceListItem
-                    :miles='args.totalMiles'
-                    :kilometres='args.totalKM'
-                    :distance-label="args.item2Label"
-                    miles-label="miles"
-                    kilometres-label="km"
-                />
-                <VsSummaryBoxListItem
-                    :icon='args.transportKey'
-                    :icon-label='args.transportValue'
-                    :label="args.item3Label"
-                />
-                <VsSummaryBoxListItem
-                    :icon='args.themeKey'
-                    :icon-label='args.themeValue'
-                    :label="args.item4Label"
-                />
-            </VsSummaryBoxList>
+        <VsSummaryBoxList>
+            <VsSummaryBoxListItem
+                :text="args.totalDays"
+                :label="args.item1Label"
+            />
+            <VsSummaryBoxDistanceListItem
+                :miles="args.totalMiles"
+                :kilometres="args.totalKM"
+                :distance-label="args.item2Label"
+                miles-label="miles"
+                kilometres-label="km"
+            />
+            <VsSummaryBoxListItem
+                :icon="args.transportKey"
+                :icon-label="args.transportValue"
+                :label="args.item3Label"
+            />
+            <VsSummaryBoxListItem
+                :icon="args.themeKey"
+                :icon-label="args.themeValue"
+                :label="args.item4Label"
+            />
+        </VsSummaryBoxList>
     `,
 });
 
