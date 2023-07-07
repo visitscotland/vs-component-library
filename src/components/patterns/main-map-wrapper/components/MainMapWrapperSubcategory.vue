@@ -128,7 +128,7 @@ export default {
     .vs-main-map-subcategory {
         position: relative;
 
-        .custom-checkbox {
+        .form-check {
             display: flex;
             flex-direction: row-reverse;
             justify-content: space-between;
@@ -151,7 +151,8 @@ export default {
             }
         }
 
-        .custom-control-label {
+        .form-check-label {
+            font-weight: $font-weight-bold;
             display: flex;
             align-items: center;
         }

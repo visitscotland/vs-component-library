@@ -111,6 +111,7 @@ export default {
         @include map-button-themes;
 
         &__button.vs-button.btn-transparent {
+            letter-spacing: normal;
             font-size: $font-size-5;
             font-weight: $font-weight-bold;
             text-transform: none;

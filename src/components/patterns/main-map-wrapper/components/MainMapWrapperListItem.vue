@@ -101,13 +101,6 @@ export default {
 
             return '';
         },
-        selectedSubCategory() {
-            if (mapStore) {
-                return mapStore.selectedSubCategory;
-            }
-
-            return '';
-        },
     },
     mounted() {
         mapStore = useMapStore(pinia());
