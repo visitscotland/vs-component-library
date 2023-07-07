@@ -637,7 +637,7 @@ export default {
          * listens to recaptcha response to check if it's verified
          */
         onRecaptchaVerify() {
-            if (window.grecaptcha.getResponse() !== '') {
+            if (window.grecaptcha && window.grecaptcha.getResponse() !== '') {
                 this.recaptchaVerified = true;
             } else {
                 this.recaptchaVerified = false;
