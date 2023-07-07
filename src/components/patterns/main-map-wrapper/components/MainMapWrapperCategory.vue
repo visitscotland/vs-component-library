@@ -105,21 +105,25 @@ export default {
 
         &__icon {
             vertical-align: middle;
-            margin-right: $spacer-4;
+            margin-right: $spacer-2;
         }
 
         @include map-button-themes;
 
         &__button.vs-button.btn-transparent {
+            display: block!important;
             letter-spacing: normal;
             font-size: $font-size-5;
             font-weight: $font-weight-bold;
             text-transform: none;
-            justify-content: space-between;
             width: 100%;
             text-align: left;
             padding: $spacer-4 $spacer-4;
             border: none;
+
+            .btn-content{
+                justify-content: space-between;
+            }
 
             .vs-icon--internal-link {
                 color: $color-pink;
