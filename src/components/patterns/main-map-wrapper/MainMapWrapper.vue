@@ -344,6 +344,7 @@ export default {
             focussedListItem: 0,
             resetZoom: false,
             currentStage: 0,
+            selectedSubCategory: null,
         };
     },
     computed: {
@@ -356,14 +357,6 @@ export default {
         regionsData() {
             return this.placesData.filter((place) => place.geometry.type === 'Polygon'
                 || place.geometry.type === 'MultiPolygon');
-        },
-
-        selectedSubCategory() {
-            if (mapStore) {
-                return mapStore.selectedSubCategory;
-            }
-
-            return null;
         },
         subCatActiveFilters() {
             if (mapStore) {
@@ -454,6 +447,7 @@ export default {
          */
         setSubCategory(subcat) {
             mapStore.setSelectedSubcat(subcat);
+            this.selectedSubCategory = subcat;
 
             if (subcat !== null) {
                 this.getSubcatMarkerData();
