@@ -1,3 +1,5 @@
+import { userEvent, within } from '@storybook/testing-library';
+
 import VsMeganav from '@/components/patterns/mega-nav/MegaNav.vue';
 import VsMegaNavTopMenuItem from '@/components/patterns/mega-nav/components/MegaNavTopMenuItem.vue';
 import VsMegaNavList from '@/components/patterns/mega-nav/components/MegaNavList.vue';
@@ -137,6 +139,7 @@ const Template = (args) => ({
                         :control-id="mobileItemIndex.toString()"
                         :cta-link="item.href"
                         :cta-text="item.cta"
+                        :data-testid="'mobile-inspiration-link'"
                     >
                         <VsMegaNavAccordionItem
                             v-for="(subHeading, subHeadingIndex) in item.dropdownNav"
@@ -204,32 +207,6 @@ const Template = (args) => ({
                                     </template>
                                 </VsMegaNavFeaturedItem>
                             </template>
-                            <template
-                                v-if="item.title === 'Inspiration'"
-                            >
-                                <VsMegaNavFeaturedItem
-                                    link="www.visitscotland.com"
-                                    img-url="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
-                                    img-alt="Alt text"
-                                    v-if="item.title==='Inspiration'"
-                                >
-                                    <template v-slot:vs-featured-item-header>
-                                        Featured item left
-                                    </template>
-
-                                    <template v-slot:vs-featured-item-content>>
-                                        <p>
-                                            Although it’s not possible to come to Scotland
-                                            at the moment, thanks to modern technology, you
-                                            can still see stunning
-                                        </p>
-                                    </template>
-
-                                    <template v-slot:vs-featured-item-link>
-                                        A link to a page
-                                    </template>
-                                </VsMegaNavFeaturedItem>
-                            </template>
                         </div>
                     </VsMegaNavAccordionItem>
                 </VsAccordion>
@@ -255,6 +232,19 @@ export const Default = Template.bind({
 
 Default.args = base;
 
+export const InspirationOpen = Template.bind({
+});
+
+InspirationOpen.args = base;
+
+InspirationOpen.play = async({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const inspirationLink = canvas.getByText('Inspiration');
+
+    await userEvent.click(inspirationLink);
+};
+
 export const OnMobile = Template.bind({
 });
 
@@ -264,4 +254,25 @@ OnMobile.parameters = {
     viewport: {
         defaultViewport: 'mobile2',
     },
+};
+
+export const InspirationOpenMobile = Template.bind({
+});
+
+InspirationOpenMobile.args = base;
+
+InspirationOpenMobile.parameters = {
+    viewport: {
+        defaultViewport: 'mobile2',
+    },
+};
+
+InspirationOpenMobile.play = async({ canvasElement }) => {
+    const burgerLink = canvasElement.querySelector('.vs-mega-nav__mobile-menu-toggle');
+
+    await userEvent.click(burgerLink);
+
+    const inspLink = canvasElement.querySelector(['[aria-controls="vs-mega-nav-accordion-item-vs-mega-nav-inspiration-3"']);
+
+    await userEvent.click(inspLink);
 };
