@@ -53,7 +53,7 @@ import VsWarning from '@components/patterns/warning/Warning.vue';
 import VsLoading from '@components/elements/loading-spinner/LoadingSpinner.vue';
 import osBranding from '@/utils/os-branding';
 
-import { createVNode, render } from 'vue';
+import { render, h } from 'vue';
 import pinia from '@/stores/index.ts';
 import useMapStore from '@/stores/map.store.ts';
 
@@ -411,15 +411,20 @@ export default {
                 // }
 
                 this.geojsonData.features.forEach((feature) => {
-                    const markerComponent = createVNode(
-                        {
-                            ...VsMapMarker,
-                        },
+                    const markerComponent = h(
+                        VsMapMarker,
                         {
                             feature,
                             mapId: this.mapId,
+                            onShowDetail: (id) => {
+                                this.$emit('showDetail', id);
+                            },
+                            onSetCategory: (type) => {
+                                this.$emit('setCategory', type);
+                            },
                         },
                     );
+
                     const renderer = document.createElement('div');
                     this.$refs.mapboxOuter.appendChild(renderer);
                     render(markerComponent, renderer);
@@ -582,9 +587,8 @@ export default {
                 placeId: polyId,
             });
 
-            this.$emit('show-detail', polyId);
-
-            this.$emit('set-category', 'regions');
+            this.$emit('showDetail', polyId);
+            this.$emit('setCategory', 'regions');
         },
         /**
          * Remove the current hovered polygon

@@ -64,6 +64,10 @@ export default {
             default: null,
         },
     },
+    emits: [
+        'showDetail',
+        'setCategory',
+    ],
     computed: {
         isActive() {
             if (this.activePlace === this.feature.properties.id
@@ -145,8 +149,8 @@ export default {
                 placeId: this.feature.properties.id,
             });
 
-            this.$parent.$emit('show-detail', this.feature.properties.id);
-            this.$parent.$emit('set-category', this.feature.properties.type);
+            this.$emit('showDetail', this.feature.properties.id);
+            this.$emit('setCategory', this.feature.properties.type);
         },
         /**
          * Fires on hover over the maker

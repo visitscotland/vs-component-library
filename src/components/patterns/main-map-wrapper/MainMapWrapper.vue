@@ -343,6 +343,7 @@ export default {
             totalEndpointPins: 0,
             focussedListItem: 0,
             resetZoom: false,
+            currentStage: 0,
         };
     },
     computed: {
@@ -356,13 +357,7 @@ export default {
             return this.placesData.filter((place) => place.geometry.type === 'Polygon'
                 || place.geometry.type === 'MultiPolygon');
         },
-        currentStage() {
-            if (mapStore) {
-                return mapStore.currentStage;
-            }
 
-            return 0;
-        },
         selectedSubCategory() {
             if (mapStore) {
                 return mapStore.selectedSubCategory;
@@ -567,10 +562,10 @@ export default {
                     const dataArr = [];
                     dataArr.push(response.data.data);
                     this.currentEndpointData = dataArr;
-                    mapStore.setCurrentStage(num);
+                    this.currentStage = num;
                 });
             } else {
-                mapStore.setCurrentStage(num);
+                this.currentStage = num;
                 if (this.currentStage === 0) {
                     this.currentEndpointData = [];
                     if (this.selectedSubCategory === null) {

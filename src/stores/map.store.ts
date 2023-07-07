@@ -3,7 +3,6 @@ import { defineStore } from 'pinia';
 
 const useMapStore = defineStore('map', () => {
     const maps: Ref<Array<any>> = ref([]);
-    const currentStage: Ref<number> = ref(0);
     const activeSubcatFilters: Ref<Array<any>> = ref([]);
     const selectedSubCategory = ref(null);
     const activeMarkerPos = ref(null);
@@ -38,10 +37,6 @@ const useMapStore = defineStore('map', () => {
         });
     }
 
-    function setCurrentStage(payload: number) {
-        currentStage.value = payload;
-    }
-
     function setActiveSubcatFilters(payload) {
         activeSubcatFilters.value = payload;
     }
@@ -70,7 +65,6 @@ const useMapStore = defineStore('map', () => {
 
     return {
         maps,
-        currentStage,
         activeSubcatFilters,
         selectedSubCategory,
         activeMarkerPos,
@@ -78,7 +72,6 @@ const useMapStore = defineStore('map', () => {
         addMapInstance,
         setHoveredPlace,
         setActivePlace,
-        setCurrentStage,
         setActiveSubcatFilters,
         setSelectedSubcat,
         setActiveMarkerPos,
