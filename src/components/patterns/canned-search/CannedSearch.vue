@@ -185,7 +185,7 @@
                         </VsCannedSearchSummaryBox>
                     </template>
                 </VsCannedSearchProductCard>
-                <template v-slot:vsCarouselOf>
+                <template v-slot:vs-carousel-of>
                     <!--
                         @slot Holds the translation for `of` in the carousel pagination
                     -->
