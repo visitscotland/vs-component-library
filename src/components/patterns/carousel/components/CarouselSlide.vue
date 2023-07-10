@@ -42,7 +42,7 @@
                         data-test="vs-carousel-slide__title"
                     >
                         <!-- @slot Slot to contain heading -->
-                        <slot name="vsCarouselSlideHeading" />
+                        <slot name="vs-carousel-slide-heading" />
                     </span>
                 </template>
             </VsStretchedLinkCard>
