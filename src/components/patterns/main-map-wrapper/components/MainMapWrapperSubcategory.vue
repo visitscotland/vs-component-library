@@ -55,6 +55,10 @@ export default {
             type: Array,
             required: true,
         },
+        selectedSubCategory: {
+            type: String,
+            required: true,
+        },
     },
     data() {
         return {
@@ -65,13 +69,6 @@ export default {
         activeSubcatFilters() {
             if (mapStore) {
                 return mapStore.activeSubcatFilters;
-            }
-
-            return null;
-        },
-        selectedSubCategory() {
-            if (mapStore) {
-                return mapStore.selectedSubCategory;
             }
 
             return null;

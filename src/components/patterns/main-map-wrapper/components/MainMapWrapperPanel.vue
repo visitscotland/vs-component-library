@@ -81,6 +81,7 @@
             <template v-if="selectedSubcategory !== null">
                 <VsMainMapWrapperSubcategory
                     :data="selectedSubcategoryData[0].subCategory"
+                    :selectedSubCategory="selectedSubcategory"
                 />
                 <VsMainMapWrapperControls />
             </template>
@@ -410,7 +411,7 @@ export default {
             return [];
         },
         subCatFilterCount() {
-            if (this.mapbox.map) {
+            if (mapStore) {
                 return mapStore.activeSubcatFilters.length;
             }
 

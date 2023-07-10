@@ -4,7 +4,7 @@ import { defineStore } from 'pinia';
 const useMapStore = defineStore('map', () => {
     const maps: Ref<Array<any>> = ref([]);
     const activeSubcatFilters: Ref<Array<any>> = ref([]);
-    const selectedSubCategory = ref(null);
+    const selectedSubCategory: Ref<string> = ref(null);
     const activeMarkerPos = ref(null);
     const activePlace = ref(null);
 
