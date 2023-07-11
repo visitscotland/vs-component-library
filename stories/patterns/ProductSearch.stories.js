@@ -5,6 +5,21 @@ export default {
     title: 'Patterns/ProductSearch',
     tags: ['autodocs'],
     argTypes: {
+        noJsMessage: {
+            control: {
+                type: 'text',
+            },
+        },
+        vsModuleHeading: {
+            control: {
+                type: 'text',
+            },
+        },
+        vsModuleIntro: {
+            control: {
+                type: 'text',
+            },
+        },
     },
 
 };
@@ -26,12 +41,12 @@ const Template = (args) => ({
             {'lang':'en'},
             {'domain':'http://172.28.81.65:8089'},
         ]"
-        noJsMessage=${args.noJsMessage}
+        noJsMessage=args.noJsMessage
         >
-            <template slot="vsModuleHeading">
+            <template v-slot:vs-module-heading>
                 ${args.vsModuleHeading}
             </template>
-            <template slot="vsModuleIntro">
+            <template v-slot:vs-module-intro>
                ${args.vsModuleIntro}
             </template>
         </VsProductSearch>

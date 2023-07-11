@@ -12,12 +12,12 @@
                         class="vs-product-search__heading mt-0"
                     >
                         <!-- @slot Text for the module heading -->
-                        <slot name="vsModuleHeading" />
+                        <slot name="vs-module-heading" />
                     </VsHeading>
 
                     <div class="vs-product-search__intro">
                         <!-- @slot Text for the module intro -->
-                        <slot name="vsModuleIntro" />
+                        <slot name="vs-module-intro" />
                     </div>
                 </VsCol>
                 <VsCol
