@@ -1,5 +1,7 @@
-import { shallowMount } from '@vue/test-utils';
+import { config, shallowMount } from '@vue/test-utils';
 import VsProductSearch from '../ProductSearch.vue';
+
+config.global.renderStubDefaultSlot = true;
 
 const factoryShallowMount = (slotData) => shallowMount(VsProductSearch, {
     propsData: {
@@ -40,7 +42,7 @@ describe('VsProductSearch', () => {
         it('should pass props to the child component', () => {
             const wrapper = factoryShallowMount();
 
-            const embedStub = wrapper.find('vsProductSearchEmbed-stub');
+            const embedStub = wrapper.find('vs-product-search-embed-stub');
             expect(embedStub.attributes('config')).toBe('[object Object]');
         });
 

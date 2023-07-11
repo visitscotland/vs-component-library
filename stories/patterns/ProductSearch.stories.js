@@ -5,7 +5,6 @@ export default {
     title: 'Patterns/ProductSearch',
     tags: ['autodocs'],
     argTypes: {
-
     },
 
 };
@@ -27,21 +26,22 @@ const Template = (args) => ({
             {'lang':'en'},
             {'domain':'http://172.28.81.65:8089'},
         ]"
-        noJsMessage="You need Javascript to see this content"
+        noJsMessage=${args.noJsMessage}
         >
             <template slot="vsModuleHeading">
-                Find places to stay & things to do
+                ${args.vsModuleHeading}
             </template>
             <template slot="vsModuleIntro">
-                Search through a fantastic range of things to do, places to stay,
-                local events and tours
+               ${args.vsModuleIntro}
             </template>
         </VsProductSearch>
     `,
 });
 
 const base = {
-
+    noJsMessage: 'You need Javascript to see this content',
+    vsModuleHeading: 'Find places to stay & things to do',
+    vsModuleIntro: 'Search through a fantastic range of things to do, places to stay, local events and tours',
 };
 
 export const Default = Template.bind({

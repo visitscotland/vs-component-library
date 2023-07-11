@@ -54,20 +54,15 @@ export default {
         };
     },
     computed: {
-        /* Return an array of objects defining data attributes */
+        /* Return an object defining data attributes */
         prefilAttrs() {
-            const dataAttrs = [];
+            const dataAttrs = {
+            };
 
             this.config.forEach((element) => {
-                const attrObj = {
-                };
                 const keyName = Object.keys(element);
                 const attrKey = `data-${keyName}`;
-                attrObj[attrKey] = element[keyName];
-
-                dataAttrs.push(
-                    attrObj,
-                );
+                dataAttrs[attrKey] = element[keyName];
             });
 
             return dataAttrs;
