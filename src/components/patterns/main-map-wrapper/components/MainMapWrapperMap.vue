@@ -225,11 +225,14 @@ export default {
                 this.mapbox.map.resize();
             }
         },
-        places() {
-            this.geojsonData.features = [];
-            // this.geojsonData.features.splice(0, this.geojsonData.features.length);
-            this.addMapFeatures();
-            this.addMapMarkers();
+        places: {
+            handler() {
+                this.geojsonData.features = [];
+                // this.geojsonData.features.splice(0, this.geojsonData.features.length);
+                this.addMapFeatures();
+                this.addMapMarkers();
+            },
+            deep: true,
         },
         showPolygons(val) {
             if (val === true) {
@@ -402,13 +405,8 @@ export default {
                     for (let i = this.markers.length - 1; i >= 0; i--) {
                         this.markers[i].remove();
                     }
+                    this.markers = [];
                 }
-
-                // if (this.$children.length) {
-                //     for (let child = this.$children.length - 1; child >= 0; child--) {
-                //         this.$children[child].$destroy();
-                //     }
-                // }
 
                 this.geojsonData.features.forEach((feature) => {
                     const markerComponent = h(
@@ -433,6 +431,7 @@ export default {
                         .setLngLat(feature.geometry.coordinates)
                         .addTo(this.mapbox.map);
                     this.markers.push(mapboxMarker);
+                    renderer.remove();
                 });
             }, timeout);
         },

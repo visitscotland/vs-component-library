@@ -102,7 +102,7 @@ export default {
             let markerName;
             if (this.feature.properties.type !== '') {
                 markerName = this.feature.properties.type;
-            } else if (this.activeSubCat !== null) {
+            } else if (this.activeSubcat !== null) {
                 markerName = this.activeSubcat;
             } else {
                 markerName = 'featured';
