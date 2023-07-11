@@ -199,7 +199,7 @@ export default {
              * @property {string} value the current value of the field
              */
             this.$emit('updated', {
-                field: this.name,
+                field: this.fieldName,
                 value: newValue,
             });
         },
