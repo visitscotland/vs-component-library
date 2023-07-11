@@ -18,7 +18,7 @@ const factoryShallowMount = (slotsData) => shallowMount(VsStretchedLinkCard, {
         disabled: false,
     },
     slots: {
-        stretchedCardHeader: 'Stretched link header',
+        'stretched-card-header': 'Stretched link header',
     },
     ...slotsData,
 });
@@ -27,7 +27,7 @@ describe('VsStretchedLinkCard', () => {
     it('should render an element with class stretched-link', () => {
         const wrapper = factoryShallowMount({
             slots: {
-                stretchedCardHeader: 'Header slot content',
+                'stretched-card-header': 'Header slot content',
             },
         });
         expect(wrapper.find('[data-test="vs-stretched-link"]').exists()).toBe(true);
@@ -37,7 +37,7 @@ describe('VsStretchedLinkCard', () => {
         it('should render the component with the link prop passed as the stretched link href', async() => {
             const wrapper = factoryShallowMount({
                 slots: {
-                    stretchedCardHeader: 'Header slot content',
+                    'stretched-card-header': 'Header slot content',
                 },
             });
 
@@ -142,7 +142,7 @@ describe('VsStretchedLinkCard', () => {
         it('renders content inserted in a stretchedCardCategory slot', () => {
             const wrapper = factoryShallowMount({
                 slots: {
-                    stretchedCardCategory: 'Stretched link category',
+                    'stretched-card-category': 'Stretched link category',
                 },
             });
             expect(wrapper.find('[data-test="vs-stretched-link-card__category"]').text()).toBe('Stretched link category');
@@ -150,7 +150,7 @@ describe('VsStretchedLinkCard', () => {
         it('renders content inserted in a stretchedCardHeader slot', () => {
             const wrapper = factoryShallowMount({
                 slots: {
-                    stretchedCardHeader: 'Stretched link header',
+                    'stretched-card-header': 'Stretched link header',
                 },
             });
             expect(wrapper.find('[data-test="vs-stretched-link"]').text()).toBe('Stretched link header');
@@ -158,7 +158,7 @@ describe('VsStretchedLinkCard', () => {
         it('renders content inserted in a stretchedCardContent slot', () => {
             const wrapper = factoryShallowMount({
                 slots: {
-                    stretchedCardContent: 'Stretched link content',
+                    'stretched-card-content': 'Stretched link content',
                 },
             });
             expect(wrapper.find('[data-test="vs-stretched-link-card__content"]').text()).toBe('Stretched link content');
@@ -170,7 +170,7 @@ describe('VsStretchedLinkCard', () => {
         it('renders content inserted in a stretchedCardLink slot', async() => {
             const wrapper = factoryShallowMount({
                 slots: {
-                    stretchedCardLink: 'Stretched link link text',
+                    'stretched-card-link': 'Stretched link link text',
                 },
             });
             expect(wrapper.find('[data-test="vs-stretched-link-card__link"]').text()).toBe('Stretched link link text');
@@ -178,7 +178,7 @@ describe('VsStretchedLinkCard', () => {
         it('renders a link in the header if no stretchedCardLink is supplied', () => {
             const wrapper = factoryShallowMount({
                 slots: {
-                    stretchedCardHeader: 'Stretched link header',
+                    'stretched-card-header': 'Stretched link header',
                 },
             });
 
@@ -187,8 +187,8 @@ describe('VsStretchedLinkCard', () => {
         it('does not render a link in the header if a stretchedCardLink slot content is supplied', () => {
             const wrapper = factoryShallowMount({
                 slots: {
-                    stretchedCardHeader: 'Stretched link header',
-                    stretchedCardLink: 'Stretched link link text',
+                    'stretched-card-header': 'Stretched link header',
+                    'stretched-card-link': 'Stretched link link text',
                 },
             });
 

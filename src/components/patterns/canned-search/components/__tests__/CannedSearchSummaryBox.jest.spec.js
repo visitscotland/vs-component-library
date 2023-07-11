@@ -18,9 +18,9 @@ const factoryMount = () => mount(VsCannedSearchSummaryBox, {
         linkTitle,
     },
     slots: {
-        vsCannedSearchSummaryLeft: summaryLeftSlotContent,
-        vsCannedSearchSummaryTop: summaryTopSlotContent,
-        vsCannedSearchSummaryCentre: summaryCentreSlotContent,
+        'vs-canned-search-summary-left': summaryLeftSlotContent,
+        'vs-canned-search-summary-top': summaryTopSlotContent,
+        'vs-canned-search-summary-centre': summaryCentreSlotContent,
     },
     global: {
         provide: {
@@ -36,15 +36,15 @@ beforeEach(() => {
 
 describe('VsCannedSearchSummaryBox', () => {
     describe(':slots', () => {
-        it('should render the content of the `vsCannedSearchSummaryLeft` slot', () => {
+        it('should render the content of the `vs-canned-search-summary-left` slot', () => {
             expect(wrapper.html()).toContain(summaryLeftSlotContent);
         });
 
-        it('should render the content of the `vsCannedSearchSummaryTop` slot', () => {
+        it('should render the content of the `vs-canned-search-summary-top` slot', () => {
             expect(wrapper.html()).toContain(summaryTopSlotContent);
         });
 
-        it('should render the content of the `vsCannedSearchSummaryCentre` slot', () => {
+        it('should render the content of the `vs-canned-search-summary-centre` slot', () => {
             expect(wrapper.html()).toContain(summaryCentreSlotContent);
         });
     });
