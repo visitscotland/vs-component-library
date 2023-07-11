@@ -34,14 +34,15 @@ const Template = (args) => ({
         };
     },
     template: `
+    <div :class="args.jsDisabled ? 'no-js' : ''">
         <VsProductSearch
-        :configArr="[
-            {'subSearchType': 'acco'},
-            {'locplace': '4161'},
-            {'lang':'en'},
-            {'domain':'http://172.28.81.65:8089'},
-        ]"
-        noJsMessage=args.noJsMessage
+            :configArr="[
+                {'subSearchType': 'acco'},
+                {'locplace': '4161'},
+                {'lang':'en'},
+                {'domain':'http://172.28.81.65:8089'},
+            ]"
+            noJsMessage='${args.noJsMessage}'
         >
             <template v-slot:vs-module-heading>
                 ${args.vsModuleHeading}
@@ -50,6 +51,7 @@ const Template = (args) => ({
                ${args.vsModuleIntro}
             </template>
         </VsProductSearch>
+    </div>
     `,
 });
 
@@ -63,3 +65,11 @@ export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const NoJs = Template.bind({
+});
+
+NoJs.args = {
+    ...base,
+    jsDisabled: true,
+};
