@@ -71,9 +71,10 @@ export default {
          * Config for prefilled fields and language
          */
         configArr: {
-            type: Array,
+            type: Object,
             default() {
-                return [];
+                return {
+                };
             },
         },
         /**

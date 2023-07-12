@@ -23,9 +23,10 @@ export default {
          * Config for prefilled fields and language
          */
         config: {
-            type: Array,
+            type: Object,
             default() {
-                return [];
+                return {
+                };
             },
         },
     },
@@ -59,23 +60,16 @@ export default {
             const dataAttrs = {
             };
 
-            this.config.forEach((element) => {
-                const keyName = Object.keys(element);
-                const attrKey = `data-${keyName}`;
-                dataAttrs[attrKey] = element[keyName];
+            Object.keys(this.config).forEach((key) => {
+                const attrKey = `data-${key}`;
+                dataAttrs[attrKey] = this.config[key];
             });
 
             return dataAttrs;
         },
         /* returns the URL for the language config file */
         getLangUrl() {
-            const langObj = this.config.filter((o) => Object.prototype.hasOwnProperty.call(o, 'lang'));
-
-            if (langObj.length > 0) {
-                return this.langConfig[langObj[0].lang].localeUrl;
-            }
-
-            return this.langConfig.en.localeUrl;
+            return this.langConfig[this.config.lang] || '';
         },
         /* returns the environment variable to include various files from */
         getEnvironment() {
