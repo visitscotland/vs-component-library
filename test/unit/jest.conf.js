@@ -36,4 +36,5 @@ module.exports = {
         '!<rootDir>/src/system-components.js',
         '!<rootDir>/docs/**/*',
     ],
+    setupFilesAfterEnv: ['<rootDir>/test/unit/setup.js'],
 };

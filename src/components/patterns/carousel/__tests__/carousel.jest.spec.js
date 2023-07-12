@@ -38,7 +38,7 @@ describe('VsCarousel', () => {
         it('renders the mobile pagination correctly', async() => {
             const wrapper = factoryShallowMount({
                 slots: {
-                    vsCarouselOf: 'of',
+                    'vs-carousel-of': 'of',
                 },
             });
 

@@ -86,10 +86,10 @@
         </div>
 
         <template
-            v-if="!!$slots['stretchedCardPanels']"
+            v-if="$slots['stretched-card-panels'] && $slots['stretched-card-panels']()"
         >
             <!-- @slot Contains optional content for overlaid panels  -->
-            <slot name="stretchedCardPanels" />
+            <slot name="stretched-card-panels" />
         </template>
 
         <div
@@ -118,24 +118,24 @@
 
             <span
                 class="vs-stretched-link-card__category"
-                v-if="!!$slots['stretchedCardCategory']"
+                v-if="$slots['stretched-card-category'] && $slots['stretched-card-category']()"
                 data-test="vs-stretched-link-card__category"
             >
                 <!-- @slot Contains a category header for the card  -->
-                <slot name="stretchedCardCategory" />
+                <slot name="stretched-card-category" />
             </span>
             <VsHeading
-                v-if="!!$slots['stretchedCardHeader']"
+                v-if="$slots['stretched-card-header'] && $slots['stretched-card-header']()"
                 :level="headingLevel"
                 class="card-title vs-stretched-link-card__title"
                 data-test="vs-stretched-link-card__title"
             >
-                <template v-if="!!$slots['stretchedCardLink']">
-                    <slot name="stretchedCardHeader" />
+                <template v-if="$slots['stretched-card-link'] && $slots['stretched-card-link']()">
+                    <slot name="stretched-card-header" />
                 </template>
 
                 <template v-else-if="type === 'video'">
-                    <slot name="stretchedCardHeader" />
+                    <slot name="stretched-card-header" />
                 </template>
 
                 <VsLink
@@ -150,7 +150,7 @@
                     :tabindex="(videoId || disabled) ? '-1' : '0'"
                 >
                     <!-- @slot Contains header content for the card  -->
-                    <slot name="stretchedCardHeader" />
+                    <slot name="stretched-card-header" />
                 </VsLink>
             </VsHeading>
             <div
@@ -158,17 +158,17 @@
                 data-test="vs-stretched-link-card__content"
             >
                 <!-- @slot Contains body content for the card  -->
-                <slot name="stretchedCardContent" />
+                <slot name="stretched-card-content" />
             </div>
 
             <VsLink
                 :href="link"
                 class="vs-stretched-link-card__link stretched-link"
-                v-if="!!$slots['stretchedCardLink']"
+                v-if="$slots['stretched-card-link'] && $slots['stretched-card-link']()"
                 data-test="vs-stretched-link-card__link"
             >
                 <!-- @slot Text for option fake link at bottom of the card -->
-                <slot name="stretchedCardLink" />
+                <slot name="stretched-card-link" />
             </VsLink>
         </div>
     </div>

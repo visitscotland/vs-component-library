@@ -55,11 +55,11 @@ const Template = (args) => ({
     template: `
         <VsStretchedLinkCard v-bind="args">
             <template v-if="${'default' in args}" v-slot>${args.default}</template>
-            <template v-if="args.stretchedCardCategory" v-slot:stretchedCardCategory>${args.stretchedCardCategory}</template>
-            <template v-if="args.stretchedCardHeader" v-slot:stretchedCardHeader>${args.stretchedCardHeader}</template>
-            <template v-if="args.stretchedCardContent" v-slot:stretchedCardContent>${args.stretchedCardContent}</template>
-            <template v-if="args.stretchedCardPanels" v-slot:stretchedCardPanels>${args.stretchedCardPanels}</template>
-            <template v-if="args.stretchedCardLink" v-slot:stretchedCardLink>${args.stretchedCardLink}</template>
+            <template v-if="args['stretched-card-category']" v-slot:stretched-card-category>${args['stretched-card-category']}</template>
+            <template v-if="args['stretched-card-header']" v-slot:stretched-card-header>${args['stretched-card-header']}</template>
+            <template v-if="args['stretched-card-content']" v-slot:stretched-card-content>${args['stretched-card-content']}</template>
+            <template v-if="args['stretched-card-panels']" v-slot:stretched-card-panels>${args['stretched-card-panels']}</template>
+            <template v-if="args['stretched-card-link']" v-slot:stretched-card-link>${args['stretched-card-link']}</template>
         </VsStretchedLinkCard>
     `,
 });
@@ -77,11 +77,11 @@ const base = {
     errorMessage: '',
     errorType: 'image',
     warningSize: 'small',
-    stretchedCardCategory: 'Tours',
-    stretchedCardHeader: 'Tour scotland with outlander',
-    stretchedCardContent: '<p>See Outlander filming locations, book locations, and attractions with real life Jacobite connections.</p>',
-    stretchedCardPanels: '',
-    stretchedCardLink: '',
+    'stretched-card-category': 'Tours',
+    'stretched-card-header': 'Tour scotland with outlander',
+    'stretched-card-content': '<p>See Outlander filming locations, book locations, and attractions with real life Jacobite connections.</p>',
+    'stretched-card-panels': '',
+    'stretched-card-link': '',
 };
 
 export const Default = Template.bind({
@@ -94,7 +94,7 @@ export const WithPanels = Template.bind({
 
 WithPanels.args = {
     ...base,
-    stretchedCardPanels: `
+    'stretched-card-panels': `
         <VsStretchedLinkPanels
             days="14"
             transport="car"

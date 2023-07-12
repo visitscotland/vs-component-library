@@ -63,7 +63,7 @@
                 >
                     <template
                         v-if="searchType === 'tour'"
-                        v-slot:vsCannedSearchTourInfo
+                        v-slot:vs-canned-search-tour-info
                     >
                         <div>
                             <VsCannedSearchTourRuns
@@ -81,7 +81,7 @@
                         </div>
                     </template>
                     <template
-                        v-slot:vsCannedSearchSubHeading
+                        v-slot:vs-canned-search-sub-heading
                     >
                         <VsCannedSearchSubHeading
                             :sub-heading="fetchSubHeading(prod)"
@@ -90,7 +90,7 @@
                     </template>
                     <template
                         v-if="prod.grading"
-                        v-slot:vsCannedSearchStarRating
+                        v-slot:vs-canned-search-star-rating
                     >
                         <VsCannedSearchStars
                             :min="prod.grading.minStars"
@@ -100,7 +100,7 @@
                     </template>
                     <template
                         v-if="prod.locations"
-                        v-slot:vsCannedSearchCategories
+                        v-slot:vs-canned-search-categories
                     >
                         <VsCannedSearchCategories
                             :categories="prod.locations"
@@ -108,7 +108,7 @@
                     </template>
                     <template
                         v-if="showLogos"
-                        v-slot:vsCannedSearchLogos
+                        v-slot:vs-canned-search-logos
                     >
                         <VsCannedSearchLogos
                             :good-to-go-logo="prod.covidInformation
@@ -123,7 +123,7 @@
                         />
                     </template>
                     <template
-                        v-slot:vsCannedSearchBadges
+                        v-slot:vs-canned-search-badges
                     >
                         <VsCannedSearchBadges
                             :badge-one="fetchBadgeOne(prod)"
@@ -133,7 +133,7 @@
                         />
                     </template>
                     <template
-                        v-slot:vsCannedSearchSummary
+                        v-slot:vs-canned-search-summary
                     >
                         <VsCannedSearchSummaryBox
                             :link-href="prod.website.link"
@@ -143,7 +143,7 @@
                         >
                             <template
                                 v-if="prod.opening && searchType !== 'tour'"
-                                v-slot:vsCannedSearchSummaryTop
+                                v-slot:vs-canned-search-summary-top
                             >
                                 <VsCannedSearchDates
                                     :period="prod.opening.period"
@@ -152,7 +152,7 @@
                             </template>
 
                             <template
-                                v-slot:vsCannedSearchSummaryLeft
+                                v-slot:vs-canned-search-summary-left
                             >
                                 <VsCannedSearchDuration
                                     v-if="searchType === 'tour' && prod.tourLength"
@@ -174,7 +174,7 @@
                             </template>
                             <template
                                 v-if="prod.price && searchType === 'tour'"
-                                v-slot:vsCannedSearchSummaryCentre
+                                v-slot:vs-canned-search-summary-centre
                             >
                                 <VsCannedSearchPrice
                                     :price-intro="prod.price.priceLabel"
@@ -185,7 +185,7 @@
                         </VsCannedSearchSummaryBox>
                     </template>
                 </VsCannedSearchProductCard>
-                <template v-slot:vsCarouselOf>
+                <template v-slot:vs-carousel-of>
                     <!--
                         @slot Holds the translation for `of` in the carousel pagination
                     -->

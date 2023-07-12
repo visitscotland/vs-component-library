@@ -19,7 +19,7 @@ const factoryShallowMount = () => shallowMount(VsCarouselSlide, {
         slideIndex: '4',
     },
     slots: {
-        vsCarouselSlideHeading: 'Slide heading',
+        'vs-carousel-slide-heading': 'Slide heading',
     },
     global: {
         provide: {
@@ -44,7 +44,7 @@ const factoryMount = () => mount(VsCarouselSlide, {
         slideIndex: '4',
     },
     slots: {
-        vsCarouselSlideHeading: 'Slide heading',
+        'vs-carousel-slide-heading': 'Slide heading',
     },
     global: {
         provide: {
@@ -75,7 +75,7 @@ describe('VsCarouselSlide', () => {
     });
 
     describe(':slots', () => {
-        it('renders default vsCarouselSlideHeading slot content', () => {
+        it('renders default vs-carousel-slide-heading slot content', () => {
             const wrapper = factoryMount();
             expect(wrapper.find('[data-test="vs-carousel-slide__title"]').text()).toContain('Slide heading');
         });
