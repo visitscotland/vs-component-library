@@ -20,7 +20,7 @@
             >
                 <template
                     v-if="days && transport"
-                    v-slot:stretchedCardPanels
+                    v-slot:stretched-card-panels
                 >
                     <VsStretchedLinkPanels
                         :days="days"
@@ -30,19 +30,19 @@
                     />
                 </template>
 
-                <template v-slot:stretchedCardCategory>
+                <template v-slot:stretched-card-category>
                     <span class="sr-only">{{ categoryLabel }}: </span>{{ category }}
                 </template>
 
                 <template
-                    v-slot:stretchedCardHeader
+                    v-slot:stretched-card-header
                 >
                     <span
                         class="vs-carousel-slide__title"
                         data-test="vs-carousel-slide__title"
                     >
                         <!-- @slot Slot to contain heading -->
-                        <slot name="vsCarouselSlideHeading" />
+                        <slot name="vs-carousel-slide-heading" />
                     </span>
                 </template>
             </VsStretchedLinkCard>

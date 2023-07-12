@@ -31,7 +31,7 @@ const preview = {
     decorators: [
         story => ({
             components: { story },
-            template: '<div style="margin: 3em;"><story /></div>',
+            template: '<div class="m-4 m-md-9"><story /></div>',
         }),
     ],
 };

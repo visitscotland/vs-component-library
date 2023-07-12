@@ -13,7 +13,7 @@
         <div
             role="alert"
             aria-live="assertive"
-            v-if="v$.inputVal.$anyError || invalid"
+            v-if="(v$.inputVal && v$.inputVal.$anyError) || invalid"
             :id="`error-${fieldName}`"
         >
             <p
@@ -39,8 +39,8 @@
             :required="isRequired"
             :autocomplete="autocompleteValue(fieldName)"
             :v="inputVal"
-            :aria-invalid="v$.inputVal.$anyError || invalid"
-            :aria-describedby="v$.inputVal.$anyError || invalid
+            :aria-invalid="(v$.inputVal && v$.inputVal.$anyError) || invalid"
+            :aria-describedby="(v$.inputVal && v$.inputVal.$anyError) || invalid
                 ? `error-${fieldName}` : `hint-${fieldName}`"
             :maxlength="validationRules.maxLength ? validationRules.maxLength : null"
             :minlength="validationRules.minLength ? validationRules.minLength : null"
@@ -208,7 +208,7 @@ export default {
          * element type class plus error classes
          */
         elementClass() {
-            const errorClass = this.v$.inputVal.$anyError || this.invalid ? 'vs-input--error' : '';
+            const errorClass = (this.v$.inputVal && this.v$.inputVal.$anyError) || this.invalid ? 'vs-input--error' : '';
             const nameClass = `vs-input--${this.fieldName}`;
 
             return `${errorClass} ${nameClass}`;
@@ -221,7 +221,7 @@ export default {
             return false;
         },
         errorClass() {
-            return this.v$.inputVal.$anyError || this.invalid ? 'vs-input--error' : '';
+            return (this.v$.inputVal && this.v$.inputVal.$anyError) || this.invalid ? 'vs-input--error' : '';
         },
     },
     watch: {
@@ -240,7 +240,7 @@ export default {
              * @property {string} value the current value of the field
              */
             this.$emit('updated', {
-                field: this.name,
+                field: this.fieldName,
                 value: newValue,
             });
         },

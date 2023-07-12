@@ -77,7 +77,7 @@
                                 >
                                     <span class="sr-only">
                                         <!-- @slot 'navigate to page' text to allow translation -->
-                                        <slot name="vsCarouselNavigate" /> {{ index }}
+                                        <slot name="vs-carousel-navigate" /> {{ index }}
                                     </span>
                                 </button>
                             </li>
@@ -94,7 +94,7 @@
                         >
                             {{ currentPage + 1 }}
                             <!-- @slot 'of' text to allow translation -->
-                            <slot name="vsCarouselOf" />
+                            <slot name="vs-carousel-of" />
                             {{ totalSlides }}
                         </p>
                     </div>

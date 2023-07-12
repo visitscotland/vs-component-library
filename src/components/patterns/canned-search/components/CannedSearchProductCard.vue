@@ -37,7 +37,7 @@
                         Expects a VsCannedSearchBadges component
                     -->
                     <slot
-                        name="vsCannedSearchBadges"
+                        name="vs-canned-search-badges"
                     />
                 </div>
 
@@ -64,21 +64,21 @@
                         Expects a VsCannedSearchSubHeading component
                     -->
                     <slot
-                        name="vsCannedSearchSubHeading"
+                        name="vs-canned-search-sub-heading"
                     />
                     <!--
                         @slot Holds an optional star rating
                         Expects a VsCannedSearchStars component
                     -->
                     <slot
-                        name="vsCannedSearchStarRating"
+                        name="vs-canned-search-star-rating"
                     />
                     <!--
                         @slot Holds an optional list of categories
                         Expects a VsCannedSearchCategories component
                     -->
                     <slot
-                        name="vsCannedSearchCategories"
+                        name="vs-canned-search-categories"
                     />
                     <div class="vs-product-card__description">
                         <!--
@@ -89,7 +89,7 @@
                             Expects html
                         -->
                         <slot
-                            name="vsCannedSearchTourInfo"
+                            name="vs-canned-search-tour-info"
                         />
                         <p
                             class="vs-product-card__description-inner"
@@ -112,7 +112,7 @@
                         Expects a VsCannedSearchLogos component
                     -->
                     <slot
-                        name="vsCannedSearchLogos"
+                        name="vs-canned-search-logos"
                     />
                 </div>
             </section>
@@ -121,7 +121,7 @@
                 Expects a VsCannedSearchSummaryBox component
             -->
             <slot
-                name="vsCannedSearchSummary"
+                name="vs-canned-search-summary"
             />
         </div>
     </VsCol>

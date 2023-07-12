@@ -14,9 +14,9 @@ import useItinerariesStore from '@components/patterns/itineraries/itineraries.st
 import VsItineraryMapMarker from '@components/patterns/itineraries/components/itinerary-map/components/ItineraryMapMarker.vue';
 import { createVNode, render } from 'vue';
 import osBranding from '@/utils/os-branding';
+import mapboxgl from 'mapbox-gl';
+import geojsonExtent from '@mapbox/geojson-extent';
 
-let mapboxgl = null;
-let geojsonExtent = null;
 let itinerariesStore;
 
 /**
@@ -252,33 +252,22 @@ export default {
             }
         },
         lazyloadMapComponent() {
-            // ALL Mapbox dependency import and init must be done only in the mounted
-            // lifecycle event so it doesn't break SSR
-
-            import('mapbox-gl').then((mapBox) => {
-                mapboxgl = mapBox;
-
-                import('@mapbox/geojson-extent').then((geojson) => {
-                    geojsonExtent = geojson.default;
-
-                    mapboxgl.supported({
-                        failIfMajorPerformanceCaveat: true,
-                    });
-
-                    if (!('IntersectionObserver' in window)) {
-                        this.initialiseMapComponent();
-                        return;
-                    }
-
-                    this.observer = new IntersectionObserver((entries) => {
-                        if (entries[0].intersectionRatio > 0) {
-                            this.observer.unobserve(this.$el);
-                            this.initialiseMapComponent();
-                        }
-                    });
-                    this.observer.observe(this.$el);
-                });
+            mapboxgl.supported({
+                failIfMajorPerformanceCaveat: true,
             });
+
+            if (!('IntersectionObserver' in window)) {
+                this.initialiseMapComponent();
+                return;
+            }
+
+            this.observer = new IntersectionObserver((entries) => {
+                if (entries[0].intersectionRatio > 0) {
+                    this.observer.unobserve(this.$el);
+                    this.initialiseMapComponent();
+                }
+            });
+            this.observer.observe(this.$el);
         },
         removeMapPopup() {
             if (this.popup !== null) {

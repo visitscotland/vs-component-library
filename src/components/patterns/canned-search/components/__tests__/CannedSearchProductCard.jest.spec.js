@@ -35,12 +35,12 @@ const factoryMount = (propsData) => mount(VsCannedSearchProductCard, {
         ...propsData,
     },
     slots: {
-        vsCannedSearchSubHeading: subHeadingContent,
-        vsCannedSearchStarRating: starSlotContent,
-        vsCannedSearchCategories: catSlotContent,
-        vsCannedSearchLogos: logoSlotContent,
-        vsCannedSearchBadges: badgeSlotContent,
-        vsCannedSearchSummary: summarySlotContent,
+        'vs-canned-search-sub-heading': subHeadingContent,
+        'vs-canned-search-star-rating': starSlotContent,
+        'vs-canned-search-categories': catSlotContent,
+        'vs-canned-search-logos': logoSlotContent,
+        'vs-canned-search-badges': badgeSlotContent,
+        'vs-canned-search-summary': summarySlotContent,
     },
     global: {
         provide: {
@@ -98,27 +98,27 @@ describe('VsCannedSearchProductCard', () => {
     });
 
     describe(':slots', () => {
-        it('should render the content of the `vsCannedSearchSubHeading` slot', () => {
+        it('should render the content of the `vs-canned-search-sub-heading` slot', () => {
             expect(wrapper.html()).toContain(subHeadingContent);
         });
 
-        it('should render the content of the `vsCannedSearchStarRating` slot', () => {
+        it('should render the content of the `vs-canned-search-star-rating` slot', () => {
             expect(wrapper.html()).toContain(starSlotContent);
         });
 
-        it('should render the content of the `vsCannedSearchCategories` slot', () => {
+        it('should render the content of the `vs-canned-search-categories` slot', () => {
             expect(wrapper.html()).toContain(catSlotContent);
         });
 
-        it('should render the content of the `vsCannedSearchLogos` slot', () => {
+        it('should render the content of the `vs-canned-search-logos` slot', () => {
             expect(wrapper.html()).toContain(logoSlotContent);
         });
 
-        it('should render the content of the `vsCannedSearchBadges` slot', () => {
+        it('should render the content of the `vs-canned-search-badges` slot', () => {
             expect(wrapper.html()).toContain(badgeSlotContent);
         });
 
-        it('should render the content of the `vsCannedSearchSummary` slot', () => {
+        it('should render the content of the `vs-canned-search-summary` slot', () => {
             expect(wrapper.html()).toContain(summarySlotContent);
         });
     });
