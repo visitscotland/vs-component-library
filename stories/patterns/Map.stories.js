@@ -20,6 +20,7 @@ const Template = (args) => ({
     template: `
         <VsMainMapWrapper
             v-bind="args"
+            :class="args.jsDisabled ? 'no-js' : ''"
         >
             <template v-slot:closeSidePanelText>
                 <span class="sr-only">
@@ -97,3 +98,11 @@ export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const NoJs = Template.bind({
+});
+
+NoJs.args = {
+    ...base,
+    jsDisabled: true,
+};
