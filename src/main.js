@@ -3,7 +3,8 @@ import mitt from 'mitt';
 
 const { Vue } = require('vue');
 const { isObject, each } = require('lodash');
-const { noJsClass } = require('@/utils/no-js-class');
+
+const noJsClass = 'no-js';
 
 const { BTab } = require('bootstrap-vue-next');
 
