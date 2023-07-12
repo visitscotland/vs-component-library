@@ -1,10 +1,14 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, config } from '@vue/test-utils';
 import VsMainMapWrapperControls from '../MainMapWrapperControls.vue';
 
+config.global.renderStubDefaultSlot = true;
+
 const factoryShallowMount = () => shallowMount(VsMainMapWrapperControls, {
-    provide: {
-        clearSelectionText: 'Clear selection',
-        applyFiltersText: 'Apply filter',
+    global: {
+        provide: {
+            clearSelectionText: 'Clear selection',
+            applyFiltersText: 'Apply filter',
+        },
     },
 });
 
@@ -49,8 +53,9 @@ describe('VsMainMapWrapperControls', () => {
             });
 
             await wrapper.vm.$nextTick();
+
             const applyBtn = wrapper.find('[data-test="vs-main-map-subcategory__apply-filters"]');
-            expect(applyBtn.attributes('aria-disabled')).toBe(undefined);
+            expect(applyBtn.attributes('aria-disabled')).toBe('false');
         });
     });
 });

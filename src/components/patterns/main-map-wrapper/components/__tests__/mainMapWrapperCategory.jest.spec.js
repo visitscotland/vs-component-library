@@ -1,5 +1,7 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, config } from '@vue/test-utils';
 import VsMainMapWrapperCategory from '../MainMapWrapperCategory.vue';
+
+config.global.renderStubDefaultSlot = true;
 
 const factoryShallowMount = () => shallowMount(VsMainMapWrapperCategory, {
     propsData: {
@@ -22,7 +24,7 @@ describe('VsMainMapWrapperCategory', () => {
 
         it('should display the marker corresponding to the `type` prop', () => {
             const wrapper = factoryShallowMount();
-            const iconStub = wrapper.find('vsmainmapwrappericon-stub');
+            const iconStub = wrapper.find('vs-main-map-wrapper-icon-stub');
             expect(iconStub.attributes('id')).toBe('cities');
         });
     });

@@ -1,5 +1,7 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, config } from '@vue/test-utils';
 import VsMainMapWrapperPanel from '../MainMapWrapperPanel.vue';
+
+config.global.renderStubDefaultSlot = true;
 
 const mockMethod = jest.fn();
 
@@ -12,55 +14,57 @@ const factoryShallowMount = (propsData) => shallowMount(VsMainMapWrapperPanel, {
     propsData: {
         ...propsData,
     },
-    provide: {
-        mapId: '12345',
-        focussedListItem: 1,
-        placesData: [{
-            properties: {
-                category: {
+    global: {
+        provide: {
+            mapId: '12345',
+            focussedListItem: 1,
+            placesData: [{
+                properties: {
+                    category: {
+                        id: 'cities',
+                        label: 'Cities',
+                    },
+                    title: 'Aberdeen',
+                    id: 'aberdeen',
+                },
+            },
+            {
+                properties: {
+                    category: {
+                        id: 'cities',
+                        label: 'Cities',
+                    },
+                    title: 'Dundee',
+                    id: 'dundee',
+                },
+            }],
+            filters: [
+                {
                     id: 'cities',
                     label: 'Cities',
                 },
-                title: 'Aberdeen',
-                id: 'aberdeen',
-            },
-        },
-        {
-            properties: {
-                category: {
-                    id: 'cities',
-                    label: 'Cities',
+                {
+                    id: 'towns',
+                    label: 'Towns',
                 },
-                title: 'Dundee',
-                id: 'dundee',
+                {
+                    id: 'islands',
+                    label: 'Islands',
+                },
+                {
+                    id: 'regions',
+                    label: 'Regions',
+                },
+                {
+                    id: 'featured',
+                    label: 'Featured',
+                },
+            ],
+            methods: {
+                subCatExists: mockMethod,
             },
-        }],
-        filters: [
-            {
-                id: 'cities',
-                label: 'Cities',
-            },
-            {
-                id: 'towns',
-                label: 'Towns',
-            },
-            {
-                id: 'islands',
-                label: 'Islands',
-            },
-            {
-                id: 'regions',
-                label: 'Regions',
-            },
-            {
-                id: 'featured',
-                label: 'Featured',
-            },
-        ],
-        methods: {
-            subCatExists: mockMethod,
+            regions: [],
         },
-        regions: [],
     },
 });
 
@@ -140,7 +144,7 @@ describe('VsMainMapWrapperPanel', () => {
                 currentStage: 1,
                 headingLevel: '3',
             });
-            const headingStub = wrapper.find('vsheading-stub');
+            const headingStub = wrapper.find('vs-heading-stub');
             expect(headingStub.attributes('level')).toBe('3');
         });
     });

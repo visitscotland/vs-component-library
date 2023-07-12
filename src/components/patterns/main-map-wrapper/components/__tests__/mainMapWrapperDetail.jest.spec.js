@@ -1,5 +1,7 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, config } from '@vue/test-utils';
 import VsMainMapWrapperDetail from '../MainMapWrapperDetail.vue';
+
+config.global.renderStubDefaultSlot = true;
 
 const factoryShallowMount = () => shallowMount(VsMainMapWrapperDetail, {
     propsData: {
@@ -39,7 +41,7 @@ describe('VsMainMapWrapperCategory', () => {
 
         it('should render an image with the src attribute defined in the `ContentData` prop', () => {
             const wrapper = factoryShallowMount();
-            const img = wrapper.find('vsimg-stub');
+            const img = wrapper.find('vs-img-stub');
 
             expect(img.attributes('src')).toBe('https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm');
         });

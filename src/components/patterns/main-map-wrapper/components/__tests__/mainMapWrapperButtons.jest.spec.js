@@ -1,5 +1,7 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, config } from '@vue/test-utils';
 import VsMainMapWrapperButtons from '../MainMapWrapperButtons.vue';
+
+config.global.renderStubDefaultSlot = true;
 
 const factoryShallowMount = () => shallowMount(VsMainMapWrapperButtons, {
     propsData: {
@@ -21,9 +23,11 @@ const factoryShallowMount = () => shallowMount(VsMainMapWrapperButtons, {
             },
         },
     },
-    provide: {
-        filtersAppliedText: 'filters applied',
-        clearFiltersText: 'Clear filters',
+    global: {
+        provide: {
+            filtersAppliedText: 'filters applied',
+            clearFiltersText: 'Clear filters',
+        },
     },
 });
 

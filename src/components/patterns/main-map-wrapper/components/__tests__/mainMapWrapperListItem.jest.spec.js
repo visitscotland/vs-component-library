@@ -24,8 +24,10 @@ const factoryShallowMount = () => shallowMount(VsMainMapWrapperListItem, {
             return 'highlighted-id';
         },
     },
-    provide: {
-        mapId: 'vs-map',
+    global: {
+        provide: {
+            mapId: 'vs-map',
+        },
     },
 });
 
