@@ -1,4 +1,4 @@
-import noJsClass from '@/utils/no-js-class';
+const noJsClass = 'no-js';
 
 const jsIsDisabled = () => {
     const elements = document.getElementsByClassName(noJsClass);
