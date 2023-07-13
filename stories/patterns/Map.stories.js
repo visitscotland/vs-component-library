@@ -42,7 +42,7 @@ const Template = (args) => ({
             <template v-slot:load-more-text>
                 Load more
             </template>
-            <template v-slot:noJs>
+            <template v-slot:no-js>
                 You need Javascript enabled to see this map
             </template>
             <template v-slot:panel-loading-message>
