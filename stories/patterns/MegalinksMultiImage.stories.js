@@ -83,7 +83,7 @@ const megalinksIntro = `From the rugged coastline to sparkling city lights,
     there are plenty of places to start your Scottish adventure. `;
 
 const base = {
-    mainTitle: 'Uncover Scotland\'s regions',
+    mainTitle: 'More inspiration for your next adventure',
     buttonLink: '#',
     buttonText: 'Get more inspiration',
     noJsMessage: 'JavaScript is needed to watch this video.',
