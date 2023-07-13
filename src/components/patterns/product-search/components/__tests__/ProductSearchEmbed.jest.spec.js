@@ -4,9 +4,9 @@ import VsProductSearchEmbed from '../ProductSearchEmbed.vue';
 
 const factoryShallowMount = () => shallowMount(VsProductSearchEmbed, {
     propsData: {
-        config: [{
+        config: {
             loc: 'Edinburgh',
-        }],
+        },
     },
 });
 

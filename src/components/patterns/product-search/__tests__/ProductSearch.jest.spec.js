@@ -5,11 +5,9 @@ config.global.renderStubDefaultSlot = true;
 
 const factoryShallowMount = (slotData) => shallowMount(VsProductSearch, {
     propsData: {
-        configArr: [
-            {
-                subSearchType: 'acco',
-            },
-        ],
+        configArr: {
+            subSearchType: 'acco',
+        },
         noJsMessage: 'This is the no JS message',
     },
     ...slotData,
@@ -20,7 +18,7 @@ describe('VsProductSearch', () => {
         it('should render heading slot content', () => {
             const wrapper = factoryShallowMount({
                 slots: {
-                    vsModuleHeading: 'This is the Product Search heading',
+                    'vs-module-heading': 'This is the Product Search heading',
                 },
             });
 
@@ -30,7 +28,7 @@ describe('VsProductSearch', () => {
         it('should render intro slot content', () => {
             const wrapper = factoryShallowMount({
                 slots: {
-                    vsModuleIntro: 'This is the Product Search intro',
+                    'vs-module-intro': 'This is the Product Search intro',
                 },
             });
 
