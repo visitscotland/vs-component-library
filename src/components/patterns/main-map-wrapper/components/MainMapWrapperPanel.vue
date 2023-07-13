@@ -23,7 +23,7 @@
                 >
                     <span class="sr-only">
                         <!-- @slot Text for panel back button  -->
-                        <slot name="backBtnText" />
+                        <slot name="back-btn-text" />
                     </span>
                 </VsButton>
             </div>
@@ -52,7 +52,7 @@
                 >
                     <span class="sr-only">
                         <!-- @slot Text for panel close button  -->
-                        <slot name="closeSidePanelText" />
+                        <slot name="close-side-panel-text" />
                     </span>
                 </VsButton>
             </div>
@@ -71,7 +71,7 @@
                 >
                     <span class="sr-only">
                         <!-- @slot Text for panel reset button  -->
-                        <slot name="resetSidePanelText" />
+                        <slot name="reset-side-panel-text" />
                     </span>
                 </VsButton>
             </div>
@@ -129,7 +129,7 @@
                         @keyup.enter="loadMorePlaces()"
                     >
                         <!-- @slot Text for load more button  -->
-                        <slot name="loadMoreText" />
+                        <slot name="load-more-text" />
                     </VsButton>
                 </div>
                 <VsMainMapWrapperButtons
@@ -167,13 +167,13 @@
             class="vs-main-map-wrapper-panel__overlay"
         >
             <div
-                v-if="!!$slots['panelLoadingMessage']
+                v-if="!!$slots['panel-loading-message']
                     && panelStatus !== 'map-loading'"
                 class="vs-main-map-wrapper-panel__overlay-box"
             >
                 <p class="vs-main-map-wrapper-panel__overlay-text">
                     <!-- @slot Text for panel reset button  -->
-                    <slot name="panelLoadingMessage" />
+                    <slot name="panel-loading-message" />
                 </p>
             </div>
         </div>

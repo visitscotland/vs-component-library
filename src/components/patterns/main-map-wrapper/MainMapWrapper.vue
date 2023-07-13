@@ -36,23 +36,23 @@
                             @load-more-places="loadMorePlaces"
                         >
                             <template v-slot:closePanelText>
-                                <slot name="closeSidePanelText" />
+                                <slot name="close-side-panel-text" />
                             </template>
 
-                            <template v-slot:resetSidePanelText>
-                                <slot name="resetSidePanelText" />
+                            <template v-slot:reset-side-panel-text>
+                                <slot name="reset-side-panel-text" />
                             </template>
 
-                            <template v-slot:backBtnText>
-                                <slot name="backBtnText" />
+                            <template v-slot:back-btn-text>
+                                <slot name="back-btn-text" />
                             </template>
 
-                            <template v-slot:panelLoadingMessage>
-                                <slot name="panelLoadingMessage" />
+                            <template v-slot:panel-loading-message>
+                                <slot name="panel-loading-message" />
                             </template>
 
-                            <template v-slot:loadMoreText>
-                                <slot name="loadMoreText" />
+                            <template v-slot:load-more-text>
+                                <slot name="load-more-text" />
                             </template>
                         </VsMainMapWrapperPanel>
                     </div>
@@ -67,7 +67,7 @@
                             data-test="vs-main-map-wrapper__map-toggle"
                         >
                             <!-- @slot Text for panel open button  -->
-                            <slot name="openSidePanelText" />
+                            <slot name="open-side-panel-text" />
                         </VsButton>
                         <VsMap
                             :is-visible="!panelVisible"
@@ -85,24 +85,24 @@
                             :bounds-data="regionBounds"
                             :reset-zoom="resetZoom"
                         >
-                            <template v-slot:mapLoadingText>
+                            <template v-slot:map-loading-text>
                                 <!-- @slot Message to show when map is loading  -->
-                                <slot name="mapLoadingText" />
+                                <slot name="map-loading-text" />
                             </template>
-                            <template v-slot:infoMessage>
+                            <template v-slot:info-message>
                                 {{ infoMessage }}
                             </template>
-                            <template v-slot:zoomTooClose>
+                            <template v-slot:zoom-too-close>
                                 <!-- @slot Message to show when map zoom is too close -->
-                                <slot name="zoomTooClose" />
+                                <slot name="zoom-too-close" />
                             </template>
-                            <template v-slot:zoomTooFar>
+                            <template v-slot:zoom-too-far>
                                 <!-- @slot Message to show when map zoom is too far -->
-                                <slot name="zoomTooFar" />
+                                <slot name="zoom-too-far" />
                             </template>
-                            <template v-slot:noJs>
+                            <template v-slot:no-js>
                                 <!-- @slot Message to show when JS is disabled  -->
-                                <slot name="noJs" />
+                                <slot name="no-js" />
                             </template>
                         </VsMap>
                         <VsButtonToggleGroup
@@ -121,7 +121,7 @@
                     theme="light"
                 >
                     <!-- @slot Message to show when JS is disabled  -->
-                    <slot name="noJs" />
+                    <slot name="no-js" />
                 </VsWarning>
             </VsCol>
         </VsRow>

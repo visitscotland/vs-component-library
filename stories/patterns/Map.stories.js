@@ -22,36 +22,36 @@ const Template = (args) => ({
             v-bind="args"
             :class="args.jsDisabled ? 'no-js' : ''"
         >
-            <template v-slot:closeSidePanelText>
+            <template v-slot:close-side-panel-text>
                 <span class="sr-only">
                     Close map filters
                 </span>
             </template>
-            <template v-slot:openSidePanelText>
+            <template v-slot:open-side-panel-text>
                 Map filters
             </template>
-            <template v-slot:backBtnText>
+            <template v-slot:back-btn-text>
                 Go back one step
             </template>
-            <template v-slot:resetSidePanelText>
+            <template v-slot:reset-side-panel-text>
                 Reset filters
             </template>
-            <template v-slot:mapLoadingText>
+            <template v-slot:map-loading-text>
                 Loading
             </template>
-            <template v-slot:loadMoreText>
+            <template v-slot:load-more-text>
                 Load more
             </template>
             <template v-slot:noJs>
                 You need Javascript enabled to see this map
             </template>
-            <template v-slot:panelLoadingMessage>
+            <template v-slot:panel-loading-message>
                 Loading results
             </template>
-            <template v-slot:zoomTooClose>
+            <template v-slot:zoom-too-close>
                 We're sorry, you can't zoom in any more
             </template>
-            <template v-slot:zoomTooFar>
+            <template v-slot:zoom-too-far>
                 We're sorry, you can't zoom out any more
             </template>
         </VsMainMapWrapper>

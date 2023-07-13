@@ -17,19 +17,19 @@
                 <p class="vs-map__message-text">
                     <template v-if="isLoading">
                         <!-- @slot Message to show when map is loading  -->
-                        <slot name="mapLoadingText" />
+                        <slot name="map-loading-text" />
                     </template>
                     <template v-else-if="showInfoMessage">
                         <!-- @slot Generic message slot -->
-                        <slot name="infoMessage" />
+                        <slot name="info-message" />
                     </template>
                     <template v-else-if="showZoomMessage === 'too-close'">
                         <!-- @slot Message for zoom level too close -->
-                        <slot name="zoomTooClose" />
+                        <slot name="zoom-too-close" />
                     </template>
                     <template v-else-if="showZoomMessage === 'too-far'">
                         <!-- @slot Message for zoom level too far -->
-                        <slot name="zoomTooFar" />
+                        <slot name="zoom-too-far" />
                     </template>
                 </p>
             </div>
@@ -43,7 +43,7 @@
         </div>
         <VsWarning class="vs-map__no-js">
             <!-- @slot Message to show when JS is disabled  -->
-            <slot name="noJs" />
+            <slot name="no-js" />
         </VsWarning>
     </div>
 </template>
@@ -56,12 +56,12 @@ import osBranding from '@/utils/os-branding';
 import { render, h } from 'vue';
 import pinia from '@/stores/index.ts';
 import useMapStore from '@/stores/map.store.ts';
+import mapboxgl from 'mapbox-gl';
+import geojsonExtent from '@mapbox/geojson-extent';
 
 import VsMapMarker from './MainMapWrapperMarker.vue';
 
 let mapStore = null;
-let mapboxgl = null;
-let geojsonExtent = null;
 
 /**
  * Renders a MapBox map
@@ -720,33 +720,22 @@ export default {
          * Initialises lazy loading
          */
         lazyloadMapComponent() {
-            // ALL Mapbox dependency import and init must be done only in the mounted
-            // lifecycle event so it doesn't break SSR
-
-            import('mapbox-gl').then((mapBox) => {
-                mapboxgl = mapBox;
-
-                import('@mapbox/geojson-extent').then((geojson) => {
-                    geojsonExtent = geojson.default;
-
-                    mapboxgl.supported({
-                        failIfMajorPerformanceCaveat: true,
-                    });
-
-                    if (!('IntersectionObserver' in window)) {
-                        this.initialiseMapComponent();
-                        return;
-                    }
-
-                    this.observer = new IntersectionObserver((entries) => {
-                        if (entries[0].intersectionRatio > 0) {
-                            this.observer.unobserve(this.$el);
-                            this.initialiseMapComponent();
-                        }
-                    });
-                    this.observer.observe(this.$el);
-                });
+            mapboxgl.supported({
+                failIfMajorPerformanceCaveat: true,
             });
+
+            if (!('IntersectionObserver' in window)) {
+                this.initialiseMapComponent();
+                return;
+            }
+
+            this.observer = new IntersectionObserver((entries) => {
+                if (entries[0].intersectionRatio > 0) {
+                    this.observer.unobserve(this.$el);
+                    this.initialiseMapComponent();
+                }
+            });
+            this.observer.observe(this.$el);
         },
         /**
          * Checks for window size on resize

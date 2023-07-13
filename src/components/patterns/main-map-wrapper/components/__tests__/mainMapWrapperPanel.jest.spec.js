@@ -7,9 +7,9 @@ const mockMethod = jest.fn();
 
 const factoryShallowMount = (propsData) => shallowMount(VsMainMapWrapperPanel, {
     slots: {
-        closeSidePanelText: 'Close panel',
-        backBtnText: 'Back',
-        resetSidePanelText: 'Reset panel',
+        'close-side-panel-text': 'Close panel',
+        'back-btn-text': 'Back',
+        'reset-side-panel-text': 'Reset panel',
     },
     propsData: {
         ...propsData,
@@ -159,7 +159,7 @@ describe('VsMainMapWrapperPanel', () => {
             expect(closeBtn.text()).toBe('Close panel');
         });
 
-        it('should display a button with the `backBtnText` slot value', async() => {
+        it('should display a button with the `back-btn-text` slot value', async() => {
             const wrapper = factoryShallowMount({
                 currentStage: 1,
             });

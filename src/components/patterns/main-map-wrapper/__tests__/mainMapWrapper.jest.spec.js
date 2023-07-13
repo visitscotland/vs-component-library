@@ -14,8 +14,8 @@ jest.spyOn(axios, 'get').mockResolvedValue(mockPlacesResponse);
 
 const factoryShallowMount = () => shallowMount(VsMainMapWrapper, {
     slots: {
-        openSidePanelText: 'Open panel',
-        noJs: 'Javascript is needed for this map',
+        'open-side-panel-text': 'Open panel',
+        'no-js': 'Javascript is needed for this map',
     },
     propsData: {
         placesData: placesJson.features,
@@ -166,7 +166,7 @@ describe('VsMainMapWrapper', () => {
             expect(openMapBtn.text()).toBe('Open panel');
         });
 
-        it('should render the `noJs` slot content', () => {
+        it('should render the `no-js` slot content', () => {
             const wrapper = factoryShallowMount();
             const warning = wrapper.find('vs-warning-stub');
             expect(warning.text()).toContain('Javascript is needed for this map');
