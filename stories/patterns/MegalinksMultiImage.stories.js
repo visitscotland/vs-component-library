@@ -2,8 +2,10 @@ import VsMegalinks from '@/components/patterns/megalinks/Megalinks.vue';
 import VsMegalinkMultiImage from '@/components/patterns/megalinks/components/megalink-multi-image/MegalinkMultiImage.vue';
 import VsImageWithCaption from '@/components/patterns/image-with-caption/ImageWithCaption.vue';
 import VsCaption from '@/components/patterns/caption/Caption.vue';
+import VsModal from '@/components/patterns/modal/Modal.vue';
 
 import VsLink from '@/components/elements/link/Link.vue';
+import VsVideo from '@/components/elements/video/Video.vue';
 import {
     VsContainer,
     VsRow,
@@ -26,6 +28,8 @@ const Template = (args) => ({
         VsRow,
         VsCol,
         VsCaption,
+        VsModal,
+        VsVideo,
     },
     setup() {
         return {
@@ -70,6 +74,25 @@ const Template = (args) => ({
                                     <p>{{ link.content }}</p>
                                 </template>
                             </VsMegalinkMultiImage>
+                            
+                            <VsModal
+                                v-if="link.videoId"
+                                :modalId="link.videoId"
+                                :closeBtnText="link.modalCloseBtnText"
+                                :isVideoModal="true"
+                            >
+                                <VsRow>
+                                    <VsCol cols="12">
+                                        <VsVideo
+                                            :videoId="link.videoId"
+                                            class="mb-8"
+                                            no-js-message="You need Javascript enabled"
+                                            no-cookies-message="You need cookies enabled"
+                                            cookie-btn-text="Cookie button"
+                                        />
+                                    </VsCol>
+                                </VsRow>
+                            </VsModal>
                         </VsCol>
                     </VsRow>
                 </VsContainer>
@@ -146,3 +169,52 @@ export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const WithVideo = Template.bind({
+});
+
+WithVideo.args = {
+    ...base,
+    links: [
+        {
+            featured: true,
+            imgSrc: '/fixtures/megalinks/glentress-forest.jpg',
+            imgAlt: 'Clycling in glentress forest',
+            linkType: 'internal',
+            linkUrl: '#',
+            heading: '2023 UCI Cycling World Championships',
+            content: 'We\'ve pulled together a handy guide on dates and times, travel info, accommodation and things to see near host venues.',
+        },
+        {
+            featured: false,
+            imgSrc: '/fixtures/megalinks/wellness.jpg',
+            imgAlt: 'Wellness breaks in Scotland',
+            linkType: 'video',
+            linkUrl: '#',
+            heading: 'Wellness breaks in Scotland',
+            content: 'Slow down and refresh your mind, body and spirit in Scotland.',
+            videoId: 'g-Fhvj7vW-E',
+            videoBtnText: 'Play Video',
+            errorMessage: 'We\'re sorry, there\'s been an error',
+            modalCloseBtnText: 'Close',
+        },
+        {
+            featured: false,
+            imgSrc: '/fixtures/megalinks/grand-hotel.jpg',
+            imgAlt: 'Luxury holidays and breaks in Scotland',
+            linkType: 'internal',
+            linkUrl: '#',
+            heading: 'Luxury holidays and breaks in Scotland',
+            content: 'Plan your luxury getaway in SCotland, from 5-star accommodation to Michelin-star dining.',
+        },
+        {
+            featured: false,
+            imgSrc: '/fixtures/megalinks/outlander-wedding.jpg',
+            imgAlt: 'Tour Scotland with Outlander',
+            linkType: 'internal',
+            linkUrl: '#',
+            heading: 'Tour Scotland with Outlander',
+            content: 'See Outlander filming locations, book locations and attractions with real-life Jacobite connections.',
+        },
+    ],
+};
