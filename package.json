@@ -26,6 +26,7 @@
     "lint:style": "stylelint",
     "lint:style:all": "lint:style \"src/**/*.{vue,scss}\"",
     "theo": "theo ./src/tokens/tokens.yml --transform web --format map.scss,scss,raw.json,json --dest ./src/assets/tokens",
+    "third-party": "webpack --config ./build/third-party.webpack.conf.js",
     "commit": "cz",
     "prepare": "husky install"
   },
