@@ -1,7 +1,12 @@
 import VsVideoCaption from '@/components/patterns/video-caption/VideoCaption.vue';
 import VsImageWithCaption from '@/components/patterns/image-with-caption/ImageWithCaption.vue';
+import VsModal from '@/components/patterns/modal/Modal.vue';
 
 import VsVideo from '@/components/elements/video/Video.vue';
+import {
+    VsRow,
+    VsCol,
+} from '@/components/elements/grid';
 
 export default {
     component: VsVideoCaption,
@@ -13,7 +18,10 @@ const Template = (args) => ({
     components: {
         VsVideoCaption,
         VsImageWithCaption,
+        VsModal,
         VsVideo,
+        VsRow,
+        VsCol,
     },
     setup() {
         return {
@@ -25,10 +33,21 @@ const Template = (args) => ({
             <template v-if="${'video-title' in args}" v-slot:video-title>${args['video-title']}</template>
         </VsVideoCaption>
 
-        <p>The video should be in a modal to test the play controls properly, currently only the video name/duration sharing
-        via store can be tested.</p>
-
-        <VsVideo v-bind="args"></VsVideo>
+        <VsModal
+            :closeBtnText="args.closeBtnText"
+            :modalId="args.videoId"
+            :isVideoModal="true"
+        >
+            <VsRow>
+                <VsCol cols="12">
+                    <VsVideo
+                        v-bind="args"
+                        class="mb-8"
+                    >
+                    </VsVideo>
+                </VsCol>
+            </VsRow>
+        </VsModal>
     `,
 });
 
@@ -41,6 +60,7 @@ const base = {
     noCookiesMessage: 'Please accept cookies to watch videos',
     cookieBtnText: 'Accept cookies here',
     errorMessage: 'Something went wrong, please try again later',
+    closeBtnText: 'Close',
 };
 
 export const Default = Template.bind({

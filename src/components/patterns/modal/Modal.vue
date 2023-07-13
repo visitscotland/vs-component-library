@@ -98,7 +98,10 @@ export default {
 
         if (this.isVideoModal) {
             this.emitter.on('showModal', (id) => {
-                this.emitter.emit('video-controls', 'modal-opened', id);
+                this.emitter.emit('video-controls', {
+                    action: 'modal-opened',
+                    id,
+                });
             });
         }
     },
@@ -107,6 +110,10 @@ export default {
          * Closes modal window
          */
         hideModal() {
+            this.emitter.emit('video-controls', {
+                action: 'modal-closed',
+                id: this.modalId,
+            });
             this.show = false;
         },
         showModal(id) {

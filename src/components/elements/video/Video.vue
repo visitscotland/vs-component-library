@@ -10,6 +10,7 @@
             <div v-if="requiredCookiesExist">
                 <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
                 <YoutubeVue3
+                    :autoplay="0"
                     :videoid="videoId"
                     :vars="playerVars"
                     @played="youtubePlaying"
@@ -356,15 +357,18 @@ export default {
          */
         setEventListeners() {
             if (this.emitter) {
-                this.emitter.on('video-controls', (action, id) => {
-                    if (id === this.videoId) {
-                        if (action === 'modal-opened') {
+                this.emitter.on('video-controls', (args) => {
+                    if (args.id === this.videoId) {
+                        if (args.action === 'modal-opened') {
+                            this.playVideo();
+                        }
+                        if (args.action === 'modal-closed') {
                             this.reRenderVideo();
                         }
 
-                        if (action === 'play') {
+                        if (args.action === 'play') {
                             this.playVideo();
-                        } else if (action === 'pause') {
+                        } else if (args.action === 'pause') {
                             this.pauseVideo();
                         }
                     }
