@@ -107,10 +107,12 @@ export default {
          * Closes modal window
          */
         hideModal() {
-            this.$refs[`modal-${this.modalId}`].hide();
+            this.show = false;
         },
         showModal(id) {
-            this.$refs[`modal-${id}`].show();
+            if (id === this.modalId) {
+                this.show = true;
+            }
         },
     },
 };

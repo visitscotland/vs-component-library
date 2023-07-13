@@ -1,25 +1,34 @@
 import {
-    config, createWrapper, shallowMount,
+    config, shallowMount, mount,
 } from '@vue/test-utils';
-import mitt from 'mitt';
+
 import VsModal from '../Modal.vue';
 
 config.global.renderStubDefaultSlot = true;
 
-const emitter = mitt();
-config.global.mocks = {
-    emitter,
-};
-
 const defaultSlotText = 'Modal text';
 
+const slotOptions = {
+    default: defaultSlotText,
+};
+
+const propOptions = {
+    modalId: 'my-modal',
+    closeBtnText: 'Close',
+};
+
 const factoryShallowMount = (propsData) => shallowMount(VsModal, {
-    slots: {
-        default: defaultSlotText,
-    },
+    slots: slotOptions,
     propsData: {
-        modalId: 'my-modal',
-        closeBtnText: 'Close',
+        ...propOptions,
+        ...propsData,
+    },
+});
+
+const factoryMount = (propsData) => mount(VsModal, {
+    slots: slotOptions,
+    propsData: {
+        ...propOptions,
         ...propsData,
     },
 });
@@ -28,18 +37,23 @@ describe('VsModal', () => {
     it('should render a bmodal-stub', () => {
         const wrapper = factoryShallowMount();
 
-        expect(wrapper.element.tagName).toBe('BMODAL-STUB');
+        expect(wrapper.element.tagName).toBe('B-MODAL-STUB');
     });
 
     it('should emit `video-controls` when the modal is shown', async() => {
-        const wrapper = factoryShallowMount({
+        const wrapper = factoryMount({
             isVideoModal: true,
         });
 
-        const rootWrapper = createWrapper(wrapper.vm.$root);
-        rootWrapper.vm.$emit('bv::modal::shown');
+        await wrapper.vm.$nextTick();
 
-        expect(rootWrapper.emitted('video-controls')).toBeTruthy();
+        const mockCallback = jest.fn();
+
+        wrapper.vm.emitter.on('video-controls', mockCallback);
+
+        wrapper.vm.emitter.emit('showModal', wrapper.vm.modalId);
+
+        expect(mockCallback.mock.calls).toHaveLength(1);
     });
 
     describe(':props', () => {
@@ -64,7 +78,7 @@ describe('VsModal', () => {
             });
             await wrapper.vm.$nextTick();
 
-            const modalStub = wrapper.find('bmodal-stub').html();
+            const modalStub = wrapper.find('b-modal-stub').html();
 
             expect(modalStub).toContain('static="true"');
         });
@@ -80,14 +94,22 @@ describe('VsModal', () => {
     });
 
     describe(':methods', () => {
-        it('modal is closed on close button click', () => {
+        it('modal is closed on close button click', async() => {
             const wrapper = factoryShallowMount();
-            const mockCloseModal = jest.fn();
-            wrapper.vm.hideModal = mockCloseModal;
+
+            wrapper.setData({
+                show: true,
+            });
+
+            await wrapper.vm.$nextTick();
+
             const closeBtn = wrapper.find('[data-test=vs-modal__close-btn]');
 
             closeBtn.trigger('click');
-            expect(mockCloseModal).toHaveBeenCalled();
+
+            await wrapper.vm.$nextTick();
+
+            expect(wrapper.vm.show).toBe(false);
         });
     });
 });
