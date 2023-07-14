@@ -455,7 +455,9 @@ export default {
              * @property {string} triggerRef the #ref of the button that triggered the event,
              * focus is returned here after the modal closes
              */
-            this.$root.$emit('bv::show::modal', this.videoId, '#videoShow');
+            if (this.emitter) {
+                this.emitter.emit('bv::show::modal', this.videoId, '#videoShow');
+            }
         },
     },
 };
