@@ -210,7 +210,7 @@ export default {
         },
         emitShowModal() {
             if (this.emitter) {
-                this.emitter.emit('bv::show::modal', this.videoId, '#videoShow');
+                this.emitter.emit('showModal', this.videoId, '#videoShow');
             }
         },
     },
