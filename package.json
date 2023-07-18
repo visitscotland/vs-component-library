@@ -4,6 +4,7 @@
   "description": "VisitScotland Component Library",
   "author": "VisitScotland",
   "main": "dist/ssr/index.js",
+  "homepage": "https://github.com/visitscotland/vs-component-library#readme",
   "files": [
     "dist/*"
   ],
@@ -178,9 +179,5 @@
   },
   "bugs": {
     "url": "https://github.com/visitscotland/vs-component-library/issues"
-  },
-  "homepage": "https://github.com/visitscotland/vs-component-library#readme",
-  "directories": {
-    "test": "test"
   }
 }
