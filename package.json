@@ -1,6 +1,6 @@
 {
   "name": "@visitscotland/component-library",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "VisitScotland Component Library",
   "author": "VisitScotland",
   "main": "dist/ssr/index.js",
@@ -141,10 +141,10 @@
     "ts-loader": "^9.4.3",
     "uuid": "^9.0.0",
     "vue": "^3.3.4",
+    "vue-recaptcha": "^2.0.1",
     "vue3-lazy-hydration": "^1.2.1",
     "vuelidate": "^0.7.7",
     "vuex": "^4.1.0",
-    "vue-recaptcha": "^2.0.1",
     "webpack-merge": "^5.1.4",
     "webpack-node-externals": "^3.0.0",
     "youtube-vue3": "^0.1.15"
