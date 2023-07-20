@@ -4,6 +4,7 @@
   "description": "VisitScotland Component Library",
   "author": "VisitScotland",
   "main": "dist/ssr/index.js",
+  "homepage": "https://github.com/visitscotland/vs-component-library#readme",
   "files": [
     "dist/*"
   ],
@@ -35,7 +36,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/visitscotland/vs-component-library"
+    "url": "https://github.com/visitscotland/vs-component-library.git"
   },
   "keywords": [
     "vue.js",
@@ -175,5 +176,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "bugs": {
+    "url": "https://github.com/visitscotland/vs-component-library/issues"
   }
 }

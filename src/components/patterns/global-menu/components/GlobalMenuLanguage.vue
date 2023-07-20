@@ -90,32 +90,20 @@ export default {
 .vs-global-menu__languages {
     position: static;
 
-    .dropdown-menu {
+    ~ .dropdown-menu {
         width: 100%;
         background: $color-purple;
         font-size: $font-size-2;
         margin: 0;
-        max-height: 0;
-        overflow: hidden;
-        opacity: $opacity-0;
-        transform: translate3d(0px, 0px, 0px) !important;
+        padding: 0;
 
         &.show {
-            max-height: 700px;
-            opacity: $opacity-100;
-            transform: translate3d(0px, 28px, 0px) !important;
             border: none;
-            padding: 0;
-
-            @include media-breakpoint-up(lg) {
-                transform: translate3d(0px, 34px, 0px) !important;
-            }
         }
 
         @include media-breakpoint-up(lg) {
             width: 100%;
             min-width: 130px;
-            transform: translate3d(0px, 0px, 0px) !important;
         }
     }
 
@@ -183,10 +171,12 @@ export default {
         display: block;
         width: 100%;
 
-        .dropdown-menu {
+        ~ .dropdown-menu {
             @extend .show;
+            max-height: 700px;
+            opacity: $opacity-100;
             position: initial;
-            display: flex;
+            display: flex!important;
             width: 100%;
             flex-wrap: wrap;
             transform: translate3d(0px, 0px, 0px) !important;
