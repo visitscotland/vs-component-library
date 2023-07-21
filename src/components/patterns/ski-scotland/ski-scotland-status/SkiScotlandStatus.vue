@@ -1119,7 +1119,6 @@ export default {
         }
 
         .vs-icon {
-            width: $spacer-5;
             text-align: center;
         }
     }
