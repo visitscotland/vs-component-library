@@ -6,7 +6,7 @@ const { isObject, each } = require('lodash');
 
 const noJsClass = 'no-js';
 
-// const { BTab } = require('bootstrap-vue-next');
+const { BTab } = require('bootstrap-vue-next');
 
 require('@/styles/core.styles.scss');
 require('@/assets/fonts/fonts.scss');
@@ -14,7 +14,7 @@ require('@/assets/fonts/fonts.scss');
 const defaultVueOptions = {
     comments: true,
     components: {
-        // BTab,
+        BTab,
     },
 };
 
