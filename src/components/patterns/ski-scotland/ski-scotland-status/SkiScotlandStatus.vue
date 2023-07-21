@@ -1121,5 +1121,9 @@ export default {
         .vs-icon {
             text-align: center;
         }
+
+        .vs-table .vs-icon {
+            width: $spacer-5;
+        }
     }
 </style>
