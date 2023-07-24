@@ -366,8 +366,6 @@ export default {
 
             this.defineActiveSlides(finalSlideRemainder);
 
-            this.navigating = false;
-
             if (direction === 'next') {
                 // if 'next' movement has happened via keypress automatically focus
                 // on the next slide link
@@ -376,6 +374,7 @@ export default {
                     const firstLink = firstActiveSlide.querySelectorAll('a')[0];
                     setTimeout(() => {
                         firstLink.focus();
+                        this.navigating = false;
                     }, 250);
                 }
             } else if (direction === 'prev' && this.currentPage >= 0) {
@@ -388,6 +387,7 @@ export default {
 
                     setTimeout(() => {
                         newFocus.focus();
+                        this.navigating = false;
                     }, 250);
                 }
             }

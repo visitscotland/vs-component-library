@@ -8,6 +8,7 @@
             variant="transparent"
             data-test="vs-canned-search-logos__good-to-go"
             :disabled="!slideVisible()"
+            :tabindex="!slideVisible() ? '-1' : '0'"
         >
             <VsImg
                 :alt="goodToGoLogo.name"
@@ -23,6 +24,7 @@
             variant="transparent"
             data-test="vs-canned-search-logos__safe-travels"
             :disabled="!slideVisible()"
+            :tabindex="!slideVisible() ? '-1' : '0'"
         >
             <VsImg
                 :alt="safeTravelsLogo.name"
@@ -38,6 +40,7 @@
             class="p-0"
             variant="transparent"
             :disabled="!slideVisible()"
+            :tabindex="!slideVisible() ? '-1' : '0'"
         >
             <VsImg
                 :src="award.image"
@@ -54,6 +57,7 @@
             class="vs-canned-search-logos__access p-0"
             data-test="vs-canned-search-logos__access-guide"
             :disabled="!slideVisible()"
+            :tabindex="!slideVisible() ? '-1' : '0'"
         >
             <VsImg
                 :src="accessGuide.image"
