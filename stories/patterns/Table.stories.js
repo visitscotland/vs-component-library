@@ -43,7 +43,7 @@ const Template = (args) => ({
             <VsTableHead>
                 <VsTableRow>
                     <VsTableHeaderCell>
-                        Center
+                        Centre
                     </VsTableHeaderCell>
                     <VsTableHeaderCell>
                         Status
@@ -59,64 +59,64 @@ const Template = (args) => ({
 
             <VsTableBody>
                 <VsTableRow>
-                    <VsTableDataCell rowspan="3">
+                    <VsTableDataCell rowspan="3" stacked-heading="Centre">
                         Glencoe
                     </VsTableDataCell>
-                    <VsTableDataCell>
+                    <VsTableDataCell stacked-heading="Status">
                         Open
                     </VsTableDataCell>
-                    <VsTableDataCell>
+                    <VsTableDataCell stacked-heading="Runs">
                         7/21
                     </VsTableDataCell>
-                    <VsTableDataCell>
-                        3/7
+                    <VsTableDataCell stacked-heading="Lifts">
+                        3/8
                     </VsTableDataCell>
                 </VsTableRow>
                 <VsTableRow>
-                    <VsTableDataCell>
+                    <VsTableDataCell stacked-heading="Status">
                         Expected to Open
                     </VsTableDataCell>
-                    <VsTableDataCell>
+                    <VsTableDataCell stacked-heading="Runs">
                         13/21
                     </VsTableDataCell>
-                    <VsTableDataCell>
-                        3/7
+                    <VsTableDataCell stacked-heading="Lifts">
+                        3/8
                     </VsTableDataCell>
                 </VsTableRow>
                 <VsTableRow>
-                    <VsTableDataCell>
+                    <VsTableDataCell stacked-heading="Status">
                         Closed
                     </VsTableDataCell>
-                    <VsTableDataCell>
-                        7/21
+                    <VsTableDataCell stacked-heading="Runs">
+                        2/21
                     </VsTableDataCell>
-                    <VsTableDataCell>
-                        1/7
+                    <VsTableDataCell stacked-heading="Lifts">
+                        2/8
                     </VsTableDataCell>
                 </VsTableRow>
                 <VsTableRow>
-                    <VsTableDataCell rowspan="2">
+                    <VsTableDataCell rowspan="2" stacked-heading="Centre">
                         Cairngorms
                     </VsTableDataCell>
-                    <VsTableDataCell>
+                    <VsTableDataCell stacked-heading="Status">
                         Open
                     </VsTableDataCell>
-                    <VsTableDataCell>
-                        7/21
+                    <VsTableDataCell stacked-heading="Runs">
+                        12/34
                     </VsTableDataCell>
-                    <VsTableDataCell>
-                        3/7
+                    <VsTableDataCell stacked-heading="Lifts">
+                        5/13
                     </VsTableDataCell>      
                 </VsTableRow>
                 <VsTableRow>
-                    <VsTableDataCell>
+                    <VsTableDataCell stacked-heading="Status">
                         Closed
                     </VsTableDataCell>
-                    <VsTableDataCell>
-                        7/21
+                    <VsTableDataCell stacked-heading="Runs">
+                        22/34
                     </VsTableDataCell>
-                    <VsTableDataCell>
-                        1/7
+                    <VsTableDataCell stacked-heading="Lifts">
+                        8/13
                     </VsTableDataCell>
                     </VsTableRow>
             </VsTableBody>
@@ -132,7 +132,7 @@ const Template = (args) => ({
 });
 
 const base = {
-    tableCaption: 'Test',
+    tableCaption: 'Ski run information',
     tableType: 'responsive',
 };
 
