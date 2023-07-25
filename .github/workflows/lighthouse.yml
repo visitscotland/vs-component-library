@@ -1,8 +1,13 @@
 name: Lighthouse Scheduled
 on:
+    pull_request:
+        types:
+            - opened
+            - reopened
+            - synchronize
     schedule:
       # * is a special character in YAML so you have to quote this string
-      - cron:  '55 10 26 * *'
+        - cron:  '55 10 26 * *'
     workflow_dispatch:
 jobs:
     lighthouse:
