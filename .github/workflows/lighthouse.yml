@@ -1,0 +1,17 @@
+name: Lighthouse Scheduled
+on:
+    schedule:
+      # * is a special character in YAML so you have to quote this string
+      - cron:  '55 10 26 * *'
+    workflow_dispatch:
+jobs:
+    lighthouse:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v3
+          - name: Audit URLs using Lighthouse
+            uses: treosh/lighthouse-ci-action@v10
+            with:
+              urls: |
+                https://visitscotland.com/
+              uploadArtifacts: true
