@@ -20,3 +20,11 @@ jobs:
               urls: |
                 https://www.visitscotland.com/
               uploadArtifacts: true
+
+          - name: Download artifact
+          - uses: actions/download-artifact@v3
+            with:
+              name: my-artifact
+    
+          - name: Display structure of downloaded files
+            run: ls -R
