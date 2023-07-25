@@ -9,14 +9,50 @@ on:
       # * is a special character in YAML so you have to quote this string
         - cron:  '55 10 26 * *'
     workflow_dispatch:
+
+env:
+    AWS_REGION: 'eu-west-2'
+
 jobs:
     lighthouse:
         runs-on: ubuntu-latest
+
+        # Create a GitHub environment for the static hosting (to expose the S3 URL)
+        environment:
+            name: ds-s3-deployment
+            url: ${{ env.S3_URL }}
+    
+        permissions:
+            id-token: write
+            contents: read
+
         steps:
           - uses: actions/checkout@v3
+
+          - name: Configure AWS credentials from Test account
+            uses: aws-actions/configure-aws-credentials@v2
+            with:
+              role-to-assume: arn:aws:iam::522018539762:role/GitHubAction-AssumeRoleWithAction.
+              aws-region: ${{ env.AWS_REGION }}
+
           - name: Audit URLs using Lighthouse
             uses: treosh/lighthouse-ci-action@v10
             with:
               urls: |
                 https://www.visitscotland.com/
               uploadArtifacts: true
+
+          - name: Download artifact
+            uses: actions/download-artifact@v3
+            with:
+              name: lighthouse-results
+              path: ./audits
+    
+          - name: Display structure of downloaded files
+            run: ls -R
+
+          - name: Synchronizing to S3
+            id: aws-sync
+            run: |
+              echo "Deploying to Lighthouse Audits site"
+              aws s3 sync ./audits s3://lighthouse-audits
