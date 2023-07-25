@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: run auditjs
+      - uses: actions/checkout@v2
+      - name: run auditjs
       run: |
         px auditjs@beta ossi
