@@ -47,9 +47,6 @@ jobs:
             with:
               name: lighthouse-results
               path: ./audits
-    
-          - name: Display structure of downloaded files
-            run: ls -R
 
           - name: Synchronizing to S3
             id: aws-sync
