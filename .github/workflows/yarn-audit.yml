@@ -11,5 +11,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: run auditjs
-      run: |
-        px auditjs@beta ossi
+        run: |
+          npx auditjs@beta ossi
