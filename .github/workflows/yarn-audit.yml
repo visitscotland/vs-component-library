@@ -13,5 +13,11 @@ jobs:
       - name: run auditjs
         run: |
           yarn install
-          ls
           npx auditjs@beta ossi
+     
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: success message
+        run: echo "Mission accomplished!"
