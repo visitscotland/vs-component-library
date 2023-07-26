@@ -15,5 +15,12 @@ jobs:
             - uses: actions/checkout@v2
     audit:
         uses: ./.github/workflows/yarn-audit.yml
-        secrets: inherit            
+        secrets: inherit
+        
+    complete:
+        needs: audit
+        runs-on: ubuntu-latest
+        steps:
+            - name: Finish task
+              run: echo 'Task finished'
 
