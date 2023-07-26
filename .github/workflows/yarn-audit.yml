@@ -1,10 +1,6 @@
 name: Yarn audit
 on:
-  pull_request:
-    types:
-        - opened
-        - reopened
-        - synchronize
+  workflow_call
 jobs:
   build:
     runs-on: ubuntu-latest
