@@ -103,28 +103,31 @@ export default {
         &:focus {
             box-shadow: $shadow-button-focus-on-dark inset;
         }
-    }
 
-    &.show{
-        .btn-primary.dropdown-toggle,
-        .btn-primary.dropdown-toggle:active,
-        .btn-primary.dropdown-toggle:focus {
+        &.show{
             background: $color-purple-shade-2;
-        }
 
-        .btn-primary.dropdown-toggle:focus {
-            box-shadow: $shadow-button-focus-on-dark inset;
+            &:active, &:focus{
+                background: $color-purple-shade-2;
+            }
+
+            &:focus {
+                box-shadow: $shadow-button-focus-on-dark inset;
+            }
         }
     }
 
-    .dropdown-menu {
+    ~ .dropdown-menu {
         min-width: auto;
-        width: 100%;
+        margin: 0;
         background: $color-purple;
         max-height: 0;
         overflow: hidden;
         opacity: $opacity-0;
-        transform: translate3d(0px, 0px, 0px);
+
+        @include media-breakpoint-down(md) {
+            width: 100%!important;
+        }
 
         li {
             border-bottom: 1px solid $color-purple-tint-3;
@@ -154,7 +157,6 @@ export default {
         &.show {
             max-height: 500px;
             opacity: $opacity-100;
-            transform: translate3d(0px, 26px, 0px) !important;
             border: none;
             padding: 0;
         }
