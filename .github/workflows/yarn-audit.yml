@@ -7,5 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: run auditjs
-        run: npx auditjs@beta ossi
+        run: |
+          yarn install
+          npx auditjs@beta ossi
 
