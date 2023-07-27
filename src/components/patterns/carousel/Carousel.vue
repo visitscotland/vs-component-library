@@ -335,6 +335,10 @@ export default {
 
             this.navigating = true;
 
+            setTimeout(() => {
+                this.navigating = false;
+            }, 250);
+
             if (direction === 'next') {
                 // increase the current page if not already at the max pages amount
                 if (this.currentPage + 1 < this.maxPages) {
@@ -365,8 +369,6 @@ export default {
             }
 
             this.defineActiveSlides(finalSlideRemainder);
-
-            this.navigating = false;
 
             if (direction === 'next') {
                 // if 'next' movement has happened via keypress automatically focus
