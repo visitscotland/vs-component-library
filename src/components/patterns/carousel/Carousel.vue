@@ -335,6 +335,10 @@ export default {
 
             this.navigating = true;
 
+            setTimeout(() => {
+                this.navigating = false;
+            }, 250);
+
             if (direction === 'next') {
                 // increase the current page if not already at the max pages amount
                 if (this.currentPage + 1 < this.maxPages) {
@@ -374,7 +378,6 @@ export default {
                     const firstLink = firstActiveSlide.querySelectorAll('a')[0];
                     setTimeout(() => {
                         firstLink.focus();
-                        this.navigating = false;
                     }, 250);
                 }
             } else if (direction === 'prev' && this.currentPage >= 0) {
@@ -387,7 +390,6 @@ export default {
 
                     setTimeout(() => {
                         newFocus.focus();
-                        this.navigating = false;
                     }, 250);
                 }
             }
