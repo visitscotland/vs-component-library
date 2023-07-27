@@ -713,8 +713,10 @@ export default {
             margin-bottom: 0;
         }
 
-        .form-group {
-            margin-bottom: $spacer-6;
+        fieldset {
+            > div {
+                margin-bottom: $spacer-6;
+            }
         }
 
         &__no-js {
