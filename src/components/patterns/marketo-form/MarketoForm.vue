@@ -639,7 +639,7 @@ export default {
          * listens to recaptcha response to check if it's verified
          */
         onRecaptchaVerify() {
-            if (window.grecaptcha && window.grecaptcha.getResponse() !== '') {
+            if (window.grecaptcha && typeof window.grecaptcha.getResponse === 'function' && window.grecaptcha.getResponse() !== '') {
                 this.recaptchaVerified = true;
             } else {
                 this.recaptchaVerified = false;
