@@ -618,10 +618,12 @@ export default {
             this.createDataLayerObject('formsDataEvent');
             const myForm = window.MktoForms2.allForms()[0];
             myForm.addHiddenFields(this.form);
-            myForm.addHiddenFields({
-                lastReCAPTCHAUserFingerprint: window.grecaptcha.getResponse(),
-                lastRecaptchaEnabledFormID: this.formId,
-            });
+            if (window.grecaptcha) {
+                myForm.addHiddenFields({
+                    lastReCAPTCHAUserFingerprint: window.grecaptcha.getResponse(),
+                    lastRecaptchaEnabledFormID: this.formId,
+                });
+            }
 
             myForm.submit(() => {
                 this.submitting = true;
