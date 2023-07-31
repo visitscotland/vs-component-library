@@ -4,9 +4,6 @@ export default {
     component: VsCookieFallback,
     title: 'Elements/CookieFallback',
     tags: ['autodocs'],
-    argTypes: {
-
-    },
 };
 
 const Template = (args) => ({
@@ -20,7 +17,7 @@ const Template = (args) => ({
     },
     template: `
         <VsCookieFallback v-bind="args">
-            <template v-if="${'default' in args}" v-slot>${args.default}</template>
+            <template v-if="'default' in args">{{ args.default }}</template>
         </VsCookieFallback>
     `,
 });
