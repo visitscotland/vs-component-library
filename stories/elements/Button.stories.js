@@ -5,6 +5,11 @@ export default {
     title: 'Elements/Button',
     tags: ['autodocs'],
     argTypes: {
+        default: {
+            control: {
+                type: 'text',
+            },
+        },
         variant: {
             options: [
                 'primary',
@@ -64,7 +69,7 @@ const Template = (args) => ({
     },
     template: `
         <VsButton v-bind="args">
-            <template v-if="${'default' in args}" v-slot>${args.default}</template>
+            <template v-if="'default' in args">{{ args.default }}</template>
         </VsButton>
     `,
 });
