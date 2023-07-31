@@ -5,6 +5,16 @@ export default {
     title: 'Patterns/ModuleWrapper',
     tags: ['autodocs'],
     argTypes: {
+        'vs-module-wrapper-heading': {
+            control: {
+                type: 'text',
+            },
+        },
+        'vs-module-wrapper-intro': {
+            control: {
+                type: 'text',
+            },
+        },
         theme: {
             options: [
                 'light',
@@ -29,8 +39,19 @@ const Template = (args) => ({
     },
     template: `
         <VsModuleWrapper v-bind="args">
-            <template v-if="${'vs-module-wrapper-heading' in args}" v-slot:vs-module-wrapper-heading>${args['vs-module-wrapper-heading']}</template>
-            <template v-if="${'vs-module-wrapper-intro' in args}" v-slot:vs-module-wrapper-intro>${args['vs-module-wrapper-intro']}</template>
+            <template
+                v-if="'vs-module-wrapper-heading' in args"
+                v-slot:vs-module-wrapper-heading
+            >
+                {{ args['vs-module-wrapper-heading'] }}
+            </template>
+
+            <template
+                v-if="'vs-module-wrapper-intro' in args"
+                v-slot:vs-module-wrapper-intro
+            >
+                {{ args['vs-module-wrapper-intro'] }}
+            </template>
         </VsModuleWrapper>
     `,
 });
