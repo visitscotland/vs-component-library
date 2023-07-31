@@ -5,6 +5,16 @@ export default {
     title: 'Elements/Heading',
     tags: ['autodocs'],
     argTypes: {
+        default: {
+            control: {
+                type: 'text',
+            },
+        },
+        'sub-heading': {
+            control: {
+                type: 'text',
+            },
+        },
         level: {
             control: {
                 type: 'range',
@@ -33,9 +43,12 @@ const Template = (args) => ({
     },
     template: `
         <VsHeading v-bind="args">
-            <template v-if="${'default' in args}" v-slot>${args.default}</template>
-            <template v-if="${'sub-heading' in args}" v-slot:sub-heading>
-                ${args['sub-heading']}
+            <template v-if="'default' in args">
+                {{ args.default }}
+            </template>
+
+            <template v-if="'sub-heading' in args" v-slot:sub-heading>
+                {{ args['sub-heading'] }}
             </template>
         </VsHeading>
     `,
