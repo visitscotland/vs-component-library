@@ -5,6 +5,11 @@ export default {
     title: 'Elements/Link',
     tags: ['autodocs'],
     argTypes: {
+        default: {
+            control: {
+                type: 'text',
+            },
+        },
         type: {
             options: [
                 'default',
@@ -54,7 +59,7 @@ const Template = (args) => ({
         };
     },
     template: `
-      <VsLink v-bind="args">${args.default}</VsLink>
+      <VsLink v-bind="args">{{ args.default }}</VsLink>
   `,
 });
 
