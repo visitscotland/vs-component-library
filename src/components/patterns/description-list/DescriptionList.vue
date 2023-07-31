@@ -11,6 +11,7 @@
 
 <script>
 import { VsRow } from '@components/elements/grid';
+import { computed } from 'vue';
 /**
  * A description list can be used where there is a list of terms and descriptions.
  *
@@ -32,7 +33,7 @@ export default {
      */
     provide() {
         return {
-            inline: this.inline,
+            inline: computed(() => this.inline),
         };
     },
     props: {
