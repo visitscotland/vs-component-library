@@ -130,10 +130,19 @@ const webpackConfig = {
                 },
                 loader: 'svgo-loader',
                 options: {
-                    removeViewBox: false,
-                    inlineStyles: {
-                        onlyMatchedOnce: false,
-                    },
+                    plugins: [
+                        {
+                            name: 'preset-default',
+                            params: {
+                                overrides: {
+                                    removeViewBox: false,
+                                    inlineStyles: {
+                                        onlyMatchedOnce: false,
+                                    },
+                                },
+                            },
+                        },
+                    ],
                 },
             },
         ],
