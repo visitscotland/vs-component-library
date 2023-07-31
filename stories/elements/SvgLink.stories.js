@@ -42,6 +42,7 @@ export const OnDark = Template.bind({
 
 OnDark.args = {
     ...base,
+    svgPath: 'vs-logo',
     linkVariant: 'on-dark',
 };
 
