@@ -7,6 +7,11 @@ export default {
     title: 'Elements/Grid',
     tags: ['autodocs'],
     argTypes: {
+        default: {
+            control: {
+                type: 'text',
+            },
+        },
         cols: {
             control: {
                 type: 'number',
@@ -44,12 +49,17 @@ const Template = (args) => ({
     template: `
         <vs-container>
             <vs-row>
-                <VsCol v-bind="args" v-for="n in [1,2,3]" :key="n" style="padding: .25rem;">
+                <VsCol
+                    v-bind="args"
+                    v-for="n in [1,2,3]"
+                    :key="n"
+                    style="padding: .25rem;"
+                >
                     <div
-                        v-if="${'default' in args}"
+                        v-if="'default' in args"
                         style="background-color: #e7f5f6; padding: .25rem 1rem;"
                     >
-                        ${args.default}
+                        {{ args.default }}
                     </div>
                 </VsCol>
             </vs-row>
@@ -57,10 +67,8 @@ const Template = (args) => ({
     `,
 });
 
-const defaultSlot = 'cols="12"';
-
 const base = {
-    default: defaultSlot,
+    default: 'cols="12"',
     cols: 12,
 };
 
