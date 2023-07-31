@@ -11,13 +11,6 @@ const { BTab } = require('bootstrap-vue-next');
 require('@/styles/core.styles.scss');
 require('@/assets/fonts/fonts.scss');
 
-const defaultVueOptions = {
-    comments: true,
-    components: {
-        BTab,
-    },
-};
-
 const removeNoJSClass = () => {
     // remove no-js class
     const elements = document.getElementsByClassName(noJsClass);
@@ -29,13 +22,16 @@ const removeNoJSClass = () => {
 
 export const initApp = (options, skipRemoveNoJsClass) => {
     const app = createApp({
-        ...defaultVueOptions,
+        components: {
+            BTab,
+        },
         ...isObject(options) ? options : {
         },
     });
 
     const emitter = mitt();
     app.config.globalProperties.emitter = emitter;
+    app.config.compilerOptions.comments = true;
 
     if (!skipRemoveNoJsClass) {
         removeNoJSClass();
@@ -46,13 +42,16 @@ export const initApp = (options, skipRemoveNoJsClass) => {
 
 export const initSSRApp = (options, skipRemoveNoJsClass) => {
     const app = createSSRApp({
-        ...defaultVueOptions,
+        components: {
+            BTab,
+        },
         ...isObject(options) ? options : {
         },
     });
 
     const emitter = mitt();
     app.config.globalProperties.emitter = emitter;
+    app.config.compilerOptions.comments = true;
 
     if (!skipRemoveNoJsClass) {
         removeNoJSClass();
