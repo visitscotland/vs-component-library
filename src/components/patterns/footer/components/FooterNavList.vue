@@ -3,7 +3,7 @@
         class="vs-footer-nav-list"
         data-test="vs-footer-nav-list"
     >
-        <LazyHydrationWrapper on-interaction>
+        <LazyHydrationWrapper :on-interaction="['focus', 'click']">
             <div class="vs-footer-nav-list">
                 <VsAccordion :break-point="breakPoint">
                     <VsRow>
