@@ -6,7 +6,7 @@
         ]"
         :href="href"
         target="_self"
-        :download="type === 'download'"
+        :download="type === 'download' ? 'true' : null"
         :disabled="disabled"
         :tabindex="disabled ? '-1' : '0'"
         v-bind="$attrs"
