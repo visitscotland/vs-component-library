@@ -11,6 +11,8 @@ import VsDescriptionList from '@/components/patterns/description-list/Descriptio
 import VsDescriptionListItem from '@/components/patterns/description-list/components/DescriptionListItem.vue';
 import VsIconList from '@/components/patterns/icon-list/IconList.vue';
 import VsIconListItem from '@/components/patterns/icon-list/components/IconListItem.vue';
+import VsImageWithCaption from '@/components/patterns/image-with-caption/ImageWithCaption.vue';
+import VsCaption from '@/components/patterns/caption/Caption.vue';
 
 import sampleItinerary from '@/assets/fixtures/itineraries/sample-itinerary.json';
 
@@ -37,6 +39,8 @@ const Template = (args) => ({
         VsIconListItem,
         VsSvg,
         VsAddress,
+        VsImageWithCaption,
+        VsCaption,
     },
     setup() {
         return {
@@ -46,7 +50,26 @@ const Template = (args) => ({
     template: `
         <ul class="list-unstyled">
             <VsItineraryStop v-bind="args">
-                <p>Add ImageWithCaption here</p>
+                <VsImageWithCaption
+                    :altText="args.altText"
+                    :image-src="args.imageSrc"
+                >
+                    <template v-slot:img-caption>
+                        <VsCaption>
+                            <template v-slot:caption>
+                                <span>
+                                    {{ args.imageCaption }}
+                                </span>
+                            </template>
+
+                            <template v-slot:credit>
+                                <span>
+                                    &copy; {{ args.imageCredit }}
+                                </span>
+                            </template>
+                        </VsCaption>
+                    </template>
+                </VsImageWithCaption>
 
                 <template
                     v-slot:stop-description
@@ -160,6 +183,8 @@ const base = {
     latitude: sampleStop.latitude,
     imageSrc: sampleStop.image.imageSrc,
     altText: sampleStop.image.altText,
+    imageCaption: 'Elie And Earlsferry',
+    imageCredit: 'VisitScotland 2023',
     description: sampleStop.description,
     href: sampleStop.href,
     tips: sampleStop.tips,
