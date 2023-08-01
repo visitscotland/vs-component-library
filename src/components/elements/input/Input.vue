@@ -200,6 +200,7 @@ export default {
     }),
     data() {
         return {
+            inputVal: this.value,
             clearErrorsOnFocus: false,
         };
     },

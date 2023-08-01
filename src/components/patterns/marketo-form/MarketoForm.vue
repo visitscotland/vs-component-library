@@ -618,10 +618,12 @@ export default {
             this.createDataLayerObject('formsDataEvent');
             const myForm = window.MktoForms2.allForms()[0];
             myForm.addHiddenFields(this.form);
-            myForm.addHiddenFields({
-                lastReCAPTCHAUserFingerprint: window.grecaptcha.getResponse(),
-                lastRecaptchaEnabledFormID: this.formId,
-            });
+            if (window.grecaptcha) {
+                myForm.addHiddenFields({
+                    lastReCAPTCHAUserFingerprint: window.grecaptcha.getResponse(),
+                    lastRecaptchaEnabledFormID: this.formId,
+                });
+            }
 
             myForm.submit(() => {
                 this.submitting = true;
@@ -637,7 +639,7 @@ export default {
          * listens to recaptcha response to check if it's verified
          */
         onRecaptchaVerify() {
-            if (window.grecaptcha && window.grecaptcha.getResponse() !== '') {
+            if (window.grecaptcha && typeof window.grecaptcha.getResponse === 'function' && window.grecaptcha.getResponse() !== '') {
                 this.recaptchaVerified = true;
             } else {
                 this.recaptchaVerified = false;
@@ -713,8 +715,10 @@ export default {
             margin-bottom: 0;
         }
 
-        .form-group {
-            margin-bottom: $spacer-6;
+        fieldset {
+            > div {
+                margin-bottom: $spacer-6;
+            }
         }
 
         &__no-js {

@@ -60,8 +60,10 @@ const base = {
         },
     ],
     validationRules: {
+        invalidVal: 'other',
     },
     validationMessages: {
+        noInvalid: 'To qualify, you must be based in the uk',
     },
     invalid: false,
     genericValidation: {

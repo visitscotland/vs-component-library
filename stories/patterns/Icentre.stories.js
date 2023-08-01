@@ -4,6 +4,7 @@ import VsQuote from '@/components/patterns/quote/Quote.vue';
 import VsCaption from '@/components/patterns/caption/Caption.vue';
 import VsButton from '@/components/elements/button/Button.vue';
 import VsImg from '@/components/elements/img/Img.vue';
+import VsLink from '@/components/elements/link/Link.vue';
 
 export default {
     component: VsIcentre,
@@ -19,6 +20,7 @@ const Template = (args) => ({
         VsCaption,
         VsButton,
         VsImg,
+        VsLink,
     },
     setup() {
         return {
@@ -79,7 +81,9 @@ const Template = (args) => ({
 
             <template v-slot:icentre-links>
                 <p>
-                    {{ args['icentre-links'] }}
+                    <VsLink :href="args['icentre-links'].linkHref">
+                        {{ args['icentre-links'].linkText }}
+                    </VsLink>
                 </p>
             </template>
         </VsIcentre>
@@ -98,7 +102,10 @@ const base = {
     quoteAuthorTitle: 'Visitor Services Advisor at Aberdeen iCentre',
     buttonHref: '#',
     buttonText: 'See more',
-    'icentre-links': 'See all Aberdeen attractions',
+    'icentre-links': {
+        linkText: 'See all Aberdeen attractions',
+        linkHref: '#',
+    },
 };
 
 export const Default = Template.bind({
