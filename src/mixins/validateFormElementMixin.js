@@ -59,8 +59,8 @@ const validateFormElementMixin = {
                         maxLength: maxLength(value),
                     };
                 } else if (key === 'invalidVal') {
-                    const noInvalid = (val) => val
-                        .indexOf(this.validationRules.invalidVal) === -1;
+                    const noInvalid = () => this.inputVal.indexOf(this.validationRules.invalidVal)
+                        === -1;
 
                     rulesObj = {
                         ...rulesObj,
@@ -75,6 +75,10 @@ const validateFormElementMixin = {
             }
 
             if (typeof rulesObj !== 'undefined') {
+                rulesObj = {
+                    ...rulesObj,
+                };
+
                 return {
                     inputVal: rulesObj,
                 };
@@ -88,8 +92,12 @@ const validateFormElementMixin = {
             const rulesKeys = Object.keys(this.rules.inputVal);
 
             rulesKeys.forEach((key) => {
-                if (!this.v$.inputVal[key]) {
-                    errorsArray.push(key);
+                if (this.v$.$errors) {
+                    this.v$.$errors.forEach((error) => {
+                        if (error.$validator === key) {
+                            errorsArray.push(key);
+                        }
+                    });
                 }
             });
 

@@ -1,3 +1,5 @@
+import { within, waitFor } from '@storybook/testing-library';
+
 import VsCheckbox from '@/components/elements/checkbox/Checkbox.vue';
 
 export default {
@@ -67,6 +69,20 @@ Invalid.args = {
     validationMessages: {
         required: 'This field is required',
     },
+};
+
+Invalid.play = async({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await waitFor(() => {
+        const checkbox = canvas.getByLabelText('I accept the terms and conditions');
+
+        checkbox.click();
+        checkbox.click();
+    }, {
+        timeout: 15000,
+        interval: 250,
+    });
 };
 
 export const Checked = Template.bind({

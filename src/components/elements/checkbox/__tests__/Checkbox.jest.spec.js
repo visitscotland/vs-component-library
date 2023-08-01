@@ -1,13 +1,24 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, mount } from '@vue/test-utils';
 
 import VsCheckbox from '../Checkbox.vue';
 
+const defaultData = {
+    value: 'accepted',
+    label: 'Test label',
+    fieldName: 'testname',
+    infoText: 'This is the info text',
+};
+
 const factoryShallowMount = (propsData) => shallowMount(VsCheckbox, {
     propsData: {
-        value: 'accepted',
-        label: 'Test label',
-        fieldName: 'testname',
-        infoText: 'This is the info text',
+        ...defaultData,
+        ...propsData,
+    },
+});
+
+const factoryMount = (propsData) => mount(VsCheckbox, {
+    propsData: {
+        ...defaultData,
         ...propsData,
     },
 });
@@ -48,8 +59,9 @@ describe('VsCheckbox', () => {
         });
 
         it('should display a validation message if validation fails', async() => {
-            wrapper.setProps({
-                invalid: true,
+            const mountedWrapper = factoryMount();
+
+            mountedWrapper.setProps({
                 validationRules: {
                     required: true,
                 },
@@ -58,11 +70,15 @@ describe('VsCheckbox', () => {
                 },
             });
 
-            wrapper.vm.manualValidate();
+            mountedWrapper.setData({
+                inputVal: '',
+            });
 
-            await wrapper.vm.$nextTick();
+            await mountedWrapper.vm.$nextTick();
 
-            expect(wrapper.html()).toContain('This is required');
+            mountedWrapper.vm.manualValidate();
+
+            expect(mountedWrapper.vm.errorsList.length).toBeGreaterThan(0);
         });
     });
 

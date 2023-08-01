@@ -10,7 +10,7 @@
         <div
             role="alert"
             aria-live="assertive"
-            v-if="(v$.inputVal && v$.inputVal.$anyError) || invalid"
+            v-if="(errorsList.length) || invalid"
             :id="`error-${fieldName}`"
         >
             <p
@@ -192,6 +192,8 @@ export default {
     },
     watch: {
         inputVal(newValue) {
+            this.emitStatus();
+
             /**
              * Emit watchable data when the field is changed
              * @type {object}
@@ -244,7 +246,9 @@ export default {
         },
     },
     validations() {
-        return this.rules;
+        return {
+            inputVal: this.rules,
+        };
     },
 };
 </script>
