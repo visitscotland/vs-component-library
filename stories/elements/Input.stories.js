@@ -63,6 +63,19 @@ HintText.args = {
     hintText: 'We\'ll only use this to email you our newsletter.',
 };
 
+export const Required = Template.bind({
+});
+
+Required.args = {
+    ...base,
+    validationRules: {
+        required: true,
+    },
+    genericValidation: {
+        required: 'This field is required',
+    },
+};
+
 export const Invalid = Template.bind({
 });
 

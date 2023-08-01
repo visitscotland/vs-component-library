@@ -20,7 +20,7 @@
         <div
             role="alert"
             aria-live="assertive"
-            v-if="(v$.inputVal && v$.inputVal.$anyError) || invalid"
+            v-if="errorsList.length || invalid"
             :id="`error-${fieldName}`"
         >
             <p
