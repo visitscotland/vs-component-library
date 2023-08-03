@@ -21,6 +21,7 @@
             custom-class="vs-social-share__popover"
             :target="`vs-social-share-popover--${id}`"
             :click="true"
+            container="body"
             placement="left-end"
             @shown="onShown"
             @hidden="onHidden"
