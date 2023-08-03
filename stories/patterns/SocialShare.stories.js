@@ -23,12 +23,14 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsSocialShare v-bind="args">
-            <VsSocialShareItem
-                v-for="item in args.default"
-                v-bind="item"
-            />
-        </VsSocialShare>
+        <div style="position:absolute">
+            <VsSocialShare v-bind="args">
+                <VsSocialShareItem
+                    v-for="item in args.default"
+                    v-bind="item"
+                />
+            </VsSocialShare>
+        </div>
     `,
 });
 
