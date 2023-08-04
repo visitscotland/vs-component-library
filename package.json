@@ -1,6 +1,6 @@
 {
   "name": "@visitscotland/component-library",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "VisitScotland Component Library",
   "author": "VisitScotland",
   "main": "dist/ssr/index.js",
@@ -32,7 +32,10 @@
     "third-party": "webpack --config ./build/third-party.webpack.conf.js",
     "commit": "cz",
     "prepare": "husky install",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "yarn build",
+    "release:patch": "standard-version --release-as patch",
+    "release:minor": "standard-version --release-as minor",
+    "release:major": "standard-version --release-as major"
   },
   "repository": {
     "type": "git",
@@ -137,6 +140,7 @@
     "optimist": "^0.6.1",
     "pinia": "^2.1.3",
     "require-context.macro": "^1.2.2",
+    "standard-version": "^9.5.0",
     "storybook-addon-pseudo-states": "^2.0.1",
     "theo": "^8.1.5",
     "ts-loader": "^9.4.3",
