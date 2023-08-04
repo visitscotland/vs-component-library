@@ -74,23 +74,23 @@ describe('VsInput', () => {
             expect(wrapper.find('.vs-input').attributes('required')).toBe('true');
         });
 
-        // it('should display a validation message if validation fails', async() => {
-        //     wrapper.setProps({
-        //         invalid: true,
-        //         validationRules: {
-        //             required: true,
-        //         },
-        //         validationMessages: {
-        //             required: 'This is required',
-        //         },
-        //     });
+        it('should display a validation message if validation fails', async() => {
+            wrapper.setProps({
+                value: '',
+                validationRules: {
+                    required: true,
+                },
+                validationMessages: {
+                    required: 'This is required',
+                },
+            });
 
-        //     wrapper.vm.manualValidate();
+            wrapper.vm.emitStatus();
 
-        //     await wrapper.vm.$nextTick();
-
-        //     expect(wrapper.html()).toContain('This is required');
-        // });
+            setTimeout(() => {
+                expect(wrapper.html()).toContain('This is required');
+            }, 50);
+        });
     });
 
     describe(':methods', () => {
