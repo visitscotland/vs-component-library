@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.10](https://github.com/visitscotland/vs-component-library/compare/v1.0.9...v1.0.10) (2023-08-04)
+
+
+### 🐛 Bug Fixes
+
+* **meganav:** ensure search bar is open before focussing input ([7a6311d](https://github.com/visitscotland/vs-component-library/commit/7a6311d478e017c5d7a32894afec9cd88f8b57b6))
+
 ### [1.0.9](https://github.com/visitscotland/vs-component-library/compare/v1.0.8...v1.0.9) (2023-08-03)
 
 
