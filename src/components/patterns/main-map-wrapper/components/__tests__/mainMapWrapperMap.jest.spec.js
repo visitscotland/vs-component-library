@@ -1,66 +1,65 @@
-// import { shallowMount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 
-// import VsMap from '../MainMapWrapperMap.vue';
-// import placeData from '../../../../../assets/fixtures/maps/places-data.json';
+import mapboxgl from 'mapbox-gl';
 
-// const mockAddMethod = jest.fn();
-// const mockMarkerMethod = jest.fn();
+import VsMap from '../MainMapWrapperMap.vue';
+import placeData from '../../../../../assets/fixtures/maps/places-data.json';
 
-// const factoryShallowMount = () => shallowMount(VsMap, {
-//     methods: {
-//         initialiseMapComponent: jest.fn(),
-//         addMapFeatures: mockAddMethod,
-//         addMapMarkers: mockMarkerMethod,
-//     },
-//     propsData: {
-//         mapId: 'vs-map',
-//         isVisible: true,
-//         places: [
-//         ],
-//         regions: [
-//         ],
-//     },
-// });
+jest.mock('@/stores/map.store.ts');
 
-// beforeEach(() => {
-//     window.URL.createObjectURL = jest.fn();
-// });
+mapboxgl.supported = jest.fn();
 
-// describe('VsMap', () => {
-//     it('should render a map component with the data-test attribute `vs-map`', () => {
-//         const wrapper = factoryShallowMount();
+const factoryShallowMount = () => shallowMount(VsMap, {
+    propsData: {
+        mapId: 'vs-map',
+        isVisible: true,
+        places: [
+        ],
+        regions: [
+        ],
+    },
+});
 
-//         expect(wrapper.find('[data-test="vs-map"]').exists()).toBe(true);
-//     });
+let wrapper;
 
-//     describe(':props', () => {
-//         it('should use the `mapId` prop for an id attribute div element', () => {
-//             const wrapper = factoryShallowMount();
+const mockAddMethod = jest.fn();
+const mockMarkerMethod = jest.fn();
 
-//             expect(wrapper.find('.vs-map__map').attributes('id')).toBe('vs-map');
-//         });
-//     });
-//     describe(':methods', () => {
-//         it('should add map features when places props change', async() => {
-//             const wrapper = factoryShallowMount();
+beforeEach(() => {
+    wrapper = factoryShallowMount();
 
-//             wrapper.setProps({
-//                 places: placeData.features,
-//             });
-//             await wrapper.vm.$nextTick();
+    wrapper.vm.initialiseMapComponent = jest.fn();
+    wrapper.vm.addMapFeatures = mockAddMethod;
+    wrapper.vm.addMapMarkers = mockMarkerMethod;
+});
 
-//             expect(mockAddMethod).toHaveBeenCalled();
-//         });
+describe('VsMap', () => {
+    it('should render a map component with the data-test attribute `vs-map`', () => {
+        expect(wrapper.find('[data-test="vs-map"]').exists()).toBe(true);
+    });
 
-//         it('should add map markers when places props change', async() => {
-//             const wrapper = factoryShallowMount();
+    describe(':props', () => {
+        it('should use the `mapId` prop for an id attribute div element', () => {
+            expect(wrapper.find('.vs-map__map').attributes('id')).toBe('vs-map');
+        });
+    });
+    describe(':methods', () => {
+        it('should add map features when places props change', async() => {
+            wrapper.setProps({
+                places: placeData.features,
+            });
+            await wrapper.vm.$nextTick();
 
-//             wrapper.setProps({
-//                 places: placeData.features,
-//             });
-//             await wrapper.vm.$nextTick();
+            expect(mockAddMethod).toHaveBeenCalled();
+        });
 
-//             expect(mockMarkerMethod).toHaveBeenCalled();
-//         });
-//     });
-// });
+        it('should add map markers when places props change', async() => {
+            wrapper.setProps({
+                places: placeData.features,
+            });
+            await wrapper.vm.$nextTick();
+
+            expect(mockMarkerMethod).toHaveBeenCalled();
+        });
+    });
+});
