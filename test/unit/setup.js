@@ -23,3 +23,8 @@ jest.mock('mapbox-gl/dist/mapbox-gl', () => ({
     FullscreenControl: jest.fn(),
     NavigationControl: jest.fn(),
 }));
+
+jest.mock('youtube-vue3', () => ({
+    YoutubeVue3: jest.fn(() => ({
+    })),
+}));
