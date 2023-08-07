@@ -65,6 +65,9 @@ const Template = (args) => ({
 
             <VsTableBody>
                 <VsTableRow>
+                    <VsTableHeaderCell stacked-heading="Centre">
+                        Glencoe
+                    </VsTableHeaderCell>
                     <VsTableDataCell stacked-heading="Status">
                         Open
                     </VsTableDataCell>
@@ -72,10 +75,13 @@ const Template = (args) => ({
                         7/21
                     </VsTableDataCell>
                     <VsTableDataCell stacked-heading="Lifts">
-                        3/8
+                        3/7
                     </VsTableDataCell>
                 </VsTableRow>
                 <VsTableRow>
+                    <VsTableHeaderCell stacked-heading="Centre">
+                        Cairngorms
+                    </VsTableHeaderCell>
                     <VsTableDataCell stacked-heading="Status">
                         Expected to Open
                     </VsTableDataCell>
@@ -83,18 +89,21 @@ const Template = (args) => ({
                         13/21
                     </VsTableDataCell>
                     <VsTableDataCell stacked-heading="Lifts">
-                        3/8
+                        3/7
                     </VsTableDataCell>
                 </VsTableRow>
                 <VsTableRow>
+                    <VsTableHeaderCell stacked-heading="Centre">
+                        The Lecht
+                    </VsTableHeaderCell>
                     <VsTableDataCell stacked-heading="Status">
                         Closed
                     </VsTableDataCell>
                     <VsTableDataCell stacked-heading="Runs">
-                        2/21
+                        7/21
                     </VsTableDataCell>
                     <VsTableDataCell stacked-heading="Lifts">
-                        2/8
+                        1/7
                     </VsTableDataCell>
                 </VsTableRow>
             </VsTableBody>

@@ -78,10 +78,6 @@ export default {
                 > [data-label]::before {
                     text-align: left;
                 }
-
-                >:first-child {
-                    font-weight: bold;
-                }
             }
         }
     }
