@@ -153,7 +153,7 @@ export default {
          * Puts focus on input when form is opened
          */
         focusOnInput() {
-            this.$refs.searchInput.$refs.input.focus();
+            this.$nextTick(() => this.$refs.searchInput.$refs.input.focus());
         },
         /**
          * Update searchTerm value with returned data

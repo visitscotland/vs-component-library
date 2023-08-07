@@ -9,7 +9,7 @@
                     cols="12"
                     class="vs-global-menu__wrapper"
                 >
-                    <LazyHydrationWrapper on-interaction>
+                    <LazyHydrationWrapper :on-interaction="['focus', 'click']">
                         <!-- Small Screens Menu -->
                         <VsGlobalMenuDropdown
                             class="d-lg-none"
