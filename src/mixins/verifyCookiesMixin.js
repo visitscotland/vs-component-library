@@ -45,7 +45,7 @@ const cookieCheckerMixin = {
             // cookies being set declare an error
             if (this.timesRun > 50) {
                 clearStatusInterval(); // eslint-disable-line no-use-before-define
-                if (typeof this.onetrustActiveGroups === 'undefined') {
+                if (typeof this.onetrustActiveGroups === 'undefined' || this.cookiesInitStatus === null) {
                     this.cookiesInitStatus = 'error';
                 }
             } else if (this.cookiesSet.length > 0) {

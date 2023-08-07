@@ -180,7 +180,8 @@ export default {
         showError() {
             if ((!this.requiredCookiesExist
                 && this.cookiesInitStatus === true)
-                || this.cookiesInitStatus === 'error') {
+                || this.cookiesInitStatus === 'error'
+                || this.cookiesInitStatus === false) {
                 return true;
             }
 
