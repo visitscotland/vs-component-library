@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.11](https://github.com/visitscotland/vs-component-library/compare/v1.0.10...v1.0.11) (2023-08-08)
+
+
+### ✨ Features
+
+* **table:** simply data and fix stacked styles ([c89405b](https://github.com/visitscotland/vs-component-library/commit/c89405b14a0ac65db141fe12cda275660f6e3f98))
+* **workflow:** run tests on pr creation ([2a883b5](https://github.com/visitscotland/vs-component-library/commit/2a883b5e80bef222fe0309f64e5c3eec46f12f84))
+
+
+### 🔖 Others
+
+* fix dependabot issue by upgrading resolutions entries ([0a27a34](https://github.com/visitscotland/vs-component-library/commit/0a27a34f2b409fb0ac1017fa25641dae9d2f6995))
+
+
+### 🐛 Bug Fixes
+
+* **carousel:** set image urls locally instead of using image from the production site ([2affbe7](https://github.com/visitscotland/vs-component-library/commit/2affbe77e390d8404901d500b0d760c7d7881423))
+* **input:** fix validation logic and validation test ([d0060a0](https://github.com/visitscotland/vs-component-library/commit/d0060a0203621e2140341dfc1c63824c2117247b))
+* **meganav:** set image urls locally instead of using image from the production site ([8059770](https://github.com/visitscotland/vs-component-library/commit/80597705e68df64844b7e7d117f036e01f3bc9f3))
+* **table:** correct table story usage of header ([ccba843](https://github.com/visitscotland/vs-component-library/commit/ccba84309184ce2dd721f7312b176366ad3e0bfa))
+* **table:** fix stacked table ([b6773e9](https://github.com/visitscotland/vs-component-library/commit/b6773e915e0ab9cae47f02c3e15d3fecbc0d80d4))
+* **tests:** fix logic on carousel throttling test ([d031ff6](https://github.com/visitscotland/vs-component-library/commit/d031ff6481a9ff860e2d2bc5770781af014304d2))
+* **tests:** mock map store to and mapboxgl to fix map tests ([ef58f03](https://github.com/visitscotland/vs-component-library/commit/ef58f037d25c364f6bf52f93072747966e064c9c))
+* **tests:** mock video for tests and fix other testing logic ([e0bbd36](https://github.com/visitscotland/vs-component-library/commit/e0bbd36c5c76763e6ca691d5829a573bf0262271))
+* **tests:** mock window.url.createobjecturl for map wrapper tests ([52ad076](https://github.com/visitscotland/vs-component-library/commit/52ad0764a695424f533537dc2dcf17b18da32990))
+* **third party:** fix third party styles and build them in main script ([b9c9753](https://github.com/visitscotland/vs-component-library/commit/b9c97537e50197371f05336126d8f64bc601239f))
+* **video:** ensure cookie init status sets to error if onetrust doesn't initiate ([d9caa5d](https://github.com/visitscotland/vs-component-library/commit/d9caa5d30b160232296e3b8e46f264819ca94db3))
+* **workflow:** only run on one node version ([3aa0471](https://github.com/visitscotland/vs-component-library/commit/3aa04710e0ff90814f796b1a8b853b38c1338052))
+
 ### [1.0.10](https://github.com/visitscotland/vs-component-library/compare/v1.0.9...v1.0.10) (2023-08-04)
 
 
