@@ -13,7 +13,7 @@
         <div
             role="alert"
             aria-live="assertive"
-            v-if="(v$.inputVal && v$.inputVal.$anyError) || invalid"
+            v-if="(errorsList.length) || invalid"
             :id="`error-${fieldName}`"
         >
             <p
@@ -45,6 +45,7 @@
             :maxlength="validationRules.maxLength ? validationRules.maxLength : null"
             :minlength="validationRules.minLength ? validationRules.minLength : null"
             @blur="validateErrors"
+            @change="validateErrors"
             @focus="resetErrors"
         />
         <VsButton
@@ -308,8 +309,8 @@ export default {
          * reader notice
          */
         validateErrors() {
-            this.manualValidate();
             this.clearErrorsOnFocus = false;
+            this.emitStatus();
         },
         /**
          * Reset field errors on focus to allow screen reader to notice them if still
