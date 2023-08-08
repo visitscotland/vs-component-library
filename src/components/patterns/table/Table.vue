@@ -66,16 +66,18 @@ export default {
 </script>
 
 <style lang="scss">
-.vs-table{
-    .table-sm th, .table-sm td{
+.vs-table {
+    .table-sm th, .table-sm td {
         font-size: $font-size-4;
         padding: $spacer-1;
     }
 
-    &.table.b-table{
-        &.b-table-stacked{
-            > tbody > tr > [data-label]::before{
-                text-align: left;
+    &.table.b-table {
+        &.b-table-stacked {
+            > tbody > tr {
+                > [data-label]::before {
+                    text-align: left;
+                }
             }
         }
     }

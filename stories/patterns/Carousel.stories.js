@@ -50,7 +50,7 @@ const base = {
     slidesLg: 4,
     linkUrl: 'https://www.visitscotland.com',
     linkType: 'internal',
-    imgSrc: 'https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm',
+    imgSrc: 'fixtures/carousel/claire-standing-stones-craigh-na-dun-outlander.jfif',
     imgAlt: '',
     category: 'Tours',
     days: '',

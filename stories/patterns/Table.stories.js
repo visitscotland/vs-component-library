@@ -5,6 +5,7 @@ import VsTableHeaderCell from '@/components/patterns/table/components/TableHeade
 import VsTableBody from '@/components/patterns/table/components/TableBody.vue';
 import VsTableDataCell from '@/components/patterns/table/components/TableDataCell.vue';
 import VsTableFooter from '@/components/patterns/table/components/TableFooter.vue';
+import VsHeading from '@/components/elements/heading/Heading.vue';
 
 export default {
     component: VsTable,
@@ -30,6 +31,7 @@ const Template = (args) => ({
         VsTableBody,
         VsTableDataCell,
         VsTableFooter,
+        VsHeading,
     },
     setup() {
         return {
@@ -37,14 +39,18 @@ const Template = (args) => ({
         };
     },
     template: `
+        <VsHeading
+            level="3"
+            overrideStyleLevel="5"
+        >
+            Glencoe Run/Lift Status
+        </VsHeading>
+
         <VsTable 
             v-bind="args"
         >
             <VsTableHead>
                 <VsTableRow>
-                    <VsTableHeaderCell>
-                        Center
-                    </VsTableHeaderCell>
                     <VsTableHeaderCell>
                         Status
                     </VsTableHeaderCell>
@@ -59,71 +65,52 @@ const Template = (args) => ({
 
             <VsTableBody>
                 <VsTableRow>
-                    <VsTableDataCell rowspan="3">
+                    <VsTableHeaderCell stacked-heading="Centre">
                         Glencoe
-                    </VsTableDataCell>
-                    <VsTableDataCell>
+                    </VsTableHeaderCell>
+                    <VsTableDataCell stacked-heading="Status">
                         Open
                     </VsTableDataCell>
-                    <VsTableDataCell>
+                    <VsTableDataCell stacked-heading="Runs">
                         7/21
                     </VsTableDataCell>
-                    <VsTableDataCell>
+                    <VsTableDataCell stacked-heading="Lifts">
                         3/7
                     </VsTableDataCell>
                 </VsTableRow>
                 <VsTableRow>
-                    <VsTableDataCell>
+                    <VsTableHeaderCell stacked-heading="Centre">
+                        Cairngorms
+                    </VsTableHeaderCell>
+                    <VsTableDataCell stacked-heading="Status">
                         Expected to Open
                     </VsTableDataCell>
-                    <VsTableDataCell>
+                    <VsTableDataCell stacked-heading="Runs">
                         13/21
                     </VsTableDataCell>
-                    <VsTableDataCell>
+                    <VsTableDataCell stacked-heading="Lifts">
                         3/7
                     </VsTableDataCell>
                 </VsTableRow>
                 <VsTableRow>
-                    <VsTableDataCell>
+                    <VsTableHeaderCell stacked-heading="Centre">
+                        The Lecht
+                    </VsTableHeaderCell>
+                    <VsTableDataCell stacked-heading="Status">
                         Closed
                     </VsTableDataCell>
-                    <VsTableDataCell>
+                    <VsTableDataCell stacked-heading="Runs">
                         7/21
                     </VsTableDataCell>
-                    <VsTableDataCell>
+                    <VsTableDataCell stacked-heading="Lifts">
                         1/7
                     </VsTableDataCell>
                 </VsTableRow>
-                <VsTableRow>
-                    <VsTableDataCell rowspan="2">
-                        Cairngorms
-                    </VsTableDataCell>
-                    <VsTableDataCell>
-                        Open
-                    </VsTableDataCell>
-                    <VsTableDataCell>
-                        7/21
-                    </VsTableDataCell>
-                    <VsTableDataCell>
-                        3/7
-                    </VsTableDataCell>      
-                </VsTableRow>
-                <VsTableRow>
-                    <VsTableDataCell>
-                        Closed
-                    </VsTableDataCell>
-                    <VsTableDataCell>
-                        7/21
-                    </VsTableDataCell>
-                    <VsTableDataCell>
-                        1/7
-                    </VsTableDataCell>
-                    </VsTableRow>
             </VsTableBody>
             <VsTableFooter>
                 <VsTableRow>
                     <VsTableDataCell colspan="4">
-                        Last Updated: 11/01/2023
+                        Last updated: 10:08 - 27 July 2023
                     </VsTableDataCell>
                 </VsTableRow>
             </VsTableFooter>
@@ -132,7 +119,7 @@ const Template = (args) => ({
 });
 
 const base = {
-    tableCaption: 'Test',
+    tableCaption: 'Glencoe Run/Lift Status',
     tableType: 'responsive',
 };
 

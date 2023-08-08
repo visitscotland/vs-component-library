@@ -104,7 +104,7 @@ const Template = (args) => ({
                     >
                         <VsMegaNavFeaturedItem
                             link="www.visitscotland.com"
-                            img-url="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
+                            img-url="fixtures/carousel/claire-standing-stones-craigh-na-dun-outlander.jfif"
                             img-alt="Alt text"
                         >
                             <template v-slot:vs-featured-item-header>
@@ -188,7 +188,7 @@ const Template = (args) => ({
                             >
                                 <VsMegaNavFeaturedItem
                                     link="www.visitscotland.com"
-                                    img-url="https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm"
+                                    img-url="fixtures/carousel/claire-standing-stones-craigh-na-dun-outlander.jfif"
                                     img-alt="Alt text"
                                 >
                                     <template v-slot:vs-featured-item-header>
