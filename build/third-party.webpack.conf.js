@@ -43,10 +43,6 @@ module.exports = {
                             importLoaders: 1,
                         },
                     },
-                    // Add browser prefixes and minify CSS.
-                    {
-                        loader: 'postcss-loader',
-                    },
                     // Load the SCSS/SASS
                     {
                         loader: 'sass-loader',
