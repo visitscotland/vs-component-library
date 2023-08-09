@@ -8,7 +8,7 @@ const mode = 'production';
 module.exports = {
     mode,
     output: {
-        path: path.resolve(__dirname, '../dist/ssr/client/styles/third-party'),
+        path: path.resolve(__dirname, '../dist/client/styles/third-party'),
         filename: '[name]',
     },
 
