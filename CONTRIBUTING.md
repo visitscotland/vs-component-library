@@ -21,12 +21,12 @@ All communication should follow the rules set out in our [Code of Conduct](CODE_
 # Getting started
 
 ## How to report a bug
-Any security issues should be submitted directly to XXXX
+Any security issues should be submitted directly to  ghsecurity[@]visitscotland.com.
 In order to determine whether you are dealing with a security issue, ask yourself these two questions:
 * Can I access something that's not mine, or something I shouldn't have access to?
 * Can I disable something for other people?
 
-If the answer to either of those two questions are "yes", then you're probably dealing with a security issue. Note that even if you answer "no" to both questions, you may still be dealing with a security issue, so if you're unsure, just email us at XXXX.
+If the answer to either of those two questions are "yes", then you're probably dealing with a security issue. Note that even if you answer "no" to both questions, you may still be dealing with a security issue, so if you're unsure, just email us at ghsecurity[@]visitscotland.com.
 
 ### How to file a bug report.
 You can even include a template so people can just copy-paste (again, less work for you).
