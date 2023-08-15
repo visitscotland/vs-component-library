@@ -1,6 +1,6 @@
 ## Security
 
-If you identify a security concern with any of VisitScotland's open source repositories, please send an email to opensource-security[@]visitscotland.com. This will ensure that your concern is addressed by an appropriate person for review and fix.
+If you identify a security concern with any of VisitScotland's open source repositories, please send an email to ghsecurity[@]visitscotland.com. This will ensure that your concern is addressed by an appropriate person for review and fix.
 
 ## Reporting Security Issues
 
