@@ -8,7 +8,13 @@
             v-if="formData && formData.fields"
         >
             <VsCol>
+                <VsCarbonCalculatorIntro
+                    v-if="!activeQuestion"
+                >
+                    Carbon calculator intro
+                </VsCarbonCalculatorIntro>
                 <form
+                    v-if="activeQuestion"
                     @submit.prevent="preSubmit"
                 >
                     <fieldset>
@@ -115,7 +121,7 @@
                 cols="12"
             >
                 <VsCarbonCalculatorRunningTotal
-                    v-if="activeQuestion <= formData.fields.length"
+                    v-if="activeQuestion > 0 && activeQuestion <= formData.fields.length"
                     :total-tonnes="totalTonnes"
                 />
                 <VsCarbonCalculatorResults
@@ -151,7 +157,7 @@
                     type="submit"
                     class="vs-form__submit mt-9 float-right"
                     v-if="activeQuestion < formData.fields.length"
-                    :disabled="!answerSet"
+                    :disabled="activeQuestion > 0 && !answerSet"
                     @click="forwardPage()"
                     icon="chevron-down"
                     icon-position="right"
@@ -197,6 +203,7 @@ import VsProgressBar from '../../elements/progress-bar/ProgressBar.vue';
 import VsCarbonCalculatorTip from './components/CarbonCalculatorTip.vue';
 import VsCarbonCalculatorResults from './components/CarbonCalculatorResults.vue';
 import VsCarbonCalculatorRunningTotal from './components/CarbonCalculatorRunningTotal.vue';
+import VsCarbonCalculatorIntro from './components/CarbonCalculatorIntro.vue';
 
 /**
  * @displayName Carbon Calculator Form
@@ -220,6 +227,7 @@ export default {
         VsCarbonCalculatorResults,
         VsCarbonCalculatorTip,
         VsCarbonCalculatorRunningTotal,
+        VsCarbonCalculatorIntro,
     },
     props: {
         /**
@@ -280,7 +288,7 @@ export default {
             foodTip: null,
             accomodationTip: null,
             experiencesTip: null,
-            activeQuestion: 1,
+            activeQuestion: 0,
             answerSet: false,
         };
     },
@@ -294,7 +302,7 @@ export default {
             return false;
         },
         currentQuestion() {
-            if (!this.formData) {
+            if (!this.formData || !this.activeQuestion) {
                 return null;
             }
 

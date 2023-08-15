@@ -5,6 +5,8 @@ import VsProgressBar from '../ProgressBar.vue';
 const factoryShallowMount = (propsData) => shallowMount(VsProgressBar, {
     propsData: {
         ...propsData,
+        max: 4,
+        currentStep: 1,
     },
 });
 
