@@ -1,4 +1,4 @@
-MIT License
+xtMIT License
 
 Copyright (c) 2023 VisitScotland
 
