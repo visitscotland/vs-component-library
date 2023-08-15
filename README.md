@@ -1,4 +1,8 @@
 # VisitScotland Component Library
+[![VisitScotland](https://img.shields.io/badge/visitscotland-5B2487.svg)](https://www.visitscotland.com)
+[![npm version](https://badge.fury.io/js/@visitscotland%2Fcomponent-library.svg)](https://badge.fury.io/js/@visitscotland%2Fcomponent-library)
+[![Vue: 3](https://img.shields.io/badge/Vue-3-41B883.svg)]()
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This is the repository for the **VisitScotland Component Library** which contains all the components that can be used to build user interfaces for VisitScotland.
 
