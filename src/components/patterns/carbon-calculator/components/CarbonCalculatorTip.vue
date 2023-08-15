@@ -1,14 +1,16 @@
 <template>
     <div
-        class="vs-carbon-form-tip"
+        class="vs-carbon-calculator-tip"
+        data-test="vs-carbon-calculator-tip"
     >
         <VsSvg
             path="highland-cow"
-            class="vs-carbon-form-tip__icon"
+            class="vs-carbon-calculator-tip__icon"
         />
 
         <p
-            class="vs-carbon-form-tip__content"
+            class="vs-carbon-calculator-tip__content"
+            data-test="vs-carbon-calculator-tip__summary"
             v-if="allTips"
         >
             You can view all our sustainable travel tips
@@ -19,15 +21,16 @@
         </p>
 
         <p
-            class="vs-carbon-form-tip__heading"
+            class="vs-carbon-calculator-tip__heading"
             v-if="!allTips"
         >
             Top tip
         </p>
 
         <p
-            class="vs-carbon-form-tip__content"
+            class="vs-carbon-calculator-tip__content"
             v-if="!allTips"
+            data-test="vs-carbon-calculator-tip__content"
         >
             {{ tip }}
         </p>
@@ -63,20 +66,20 @@ export default {
 </script>
 
 <style lang='scss'>
-    .vs-carbon-form-tip {
+    .vs-carbon-calculator-tip {
         box-shadow: $shadow_popover;
         padding: $spacer-8 $spacer-11;
     }
 
-    .vs-carbon-form-tip__heading {
+    .vs-carbon-calculator-tip__heading {
         font-weight: $font-weight-bold;
     }
 
-    .vs-carbon-form-tip__content {
+    .vs-carbon-calculator-tip__content {
         margin-bottom: $spacer-0;
     }
 
-    .vs-carbon-form-tip__icon {
+    .vs-carbon-calculator-tip__icon {
         position: absolute;
         left: -#{$spacer-2};
         bottom: -2px;
