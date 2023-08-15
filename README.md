@@ -1,5 +1,7 @@
 # VisitScotland Component Library
 
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
+
 This is the repository for the **VisitScotland Component Library** which contains all the components that can be used to build user interfaces for VisitScotland.
 
 ## Getting started
