@@ -42,7 +42,7 @@
                         <div
                             v-show="activeQuestion <= formData.fields.length"
                         >
-                            <BFormGroup
+                            <VsCarbonCalculatorQuestion
                                 v-for="(field, index) in formData.fields"
                                 v-show="(index + 1) === activeQuestion"
                                 :key="field.name"
@@ -52,63 +52,14 @@
                                         : ''
                                 "
                                 :label-for="needsLabel(field) ? field.name : ''"
-                                :class="conditionalElementClass(field.name)"
-                            >
-                                <div
-                                    :class="conditionalElementClass(field.name)"
-                                >
-                                    <template v-if="field.element === 'radio'">
-                                        <VsHeading
-                                            level="3"
-                                        >
-                                            {{ currentCategoryName }}
-                                        </VsHeading>
-
-                                        <!-- eslint-disable -->
-                                        <label
-                                            class="vs-carbon-calculator__question"
-                                            :for="field.name"
-                                        >
-                                            {{ getTranslatedLabel(field, index) }}
-                                        </label>
-                                        <!-- eslint-enable -->
-
-                                        <BFormRadioGroup
-                                            :id="field.name"
-                                        >
-                                            <div
-                                                class="vs-carbon-calculator__radio"
-                                                v-for="
-                                                    (option, optionIndex) in
-                                                        getTranslatedOptions(field.name, index)
-                                                "
-                                                :key="optionIndex"
-                                            >
-                                                <BFormRadio
-                                                    :value="option.value"
-                                                    :hint-text="getTranslatedHint(
-                                                        field.name, index,
-                                                    )"
-                                                    :name="field.name"
-                                                    :id="field.name + option.value"
-                                                    @change="updateFieldData({
-                                                        field: field.name,
-                                                        value: option.value,
-                                                    })"
-                                                >
-                                                    <div class="vs-carbon-calculator__radio-icon">
-                                                        <VsIcon
-                                                            :name="option.icon"
-                                                            size="xl"
-                                                        />
-                                                    </div>
-                                                    {{ option.text }}
-                                                </BFormRadio>
-                                            </div>
-                                        </BFormRadioGroup>
-                                    </template>
-                                </div>
-                            </BFormGroup>
+                                :fieldClass="conditionalElementClass(field.name)"
+                                :fieldType="field.element"
+                                :fieldName="field.name"
+                                :hintText="getTranslatedHint(field.name, index)"
+                                :options="getTranslatedOptions(field.name, index)"
+                                :fieldCategory="currentCategoryName"
+                                @updateFieldData="updateFieldData"
+                            />
                         </div>
                     </fieldset>
                 </form>
@@ -185,25 +136,19 @@
 </template>
 
 <script>
-import {
-    BFormGroup,
-    BFormRadioGroup,
-    BFormRadio,
-} from 'bootstrap-vue-next';
 import axios from 'axios';
 
 import {
     VsContainer, VsCol, VsRow,
 } from '@components/elements/grid';
 import VsButton from '../../elements/button/Button.vue';
-import VsIcon from '../../elements/icon/Icon.vue';
-import VsHeading from '../../elements/heading/Heading.vue';
 import VsProgressBar from '../../elements/progress-bar/ProgressBar.vue';
 
 import VsCarbonCalculatorTip from './components/CarbonCalculatorTip.vue';
 import VsCarbonCalculatorResults from './components/CarbonCalculatorResults.vue';
 import VsCarbonCalculatorRunningTotal from './components/CarbonCalculatorRunningTotal.vue';
 import VsCarbonCalculatorIntro from './components/CarbonCalculatorIntro.vue';
+import VsCarbonCalculatorQuestion from './components/CarbonCalculatorQuestion.vue';
 
 /**
  * @displayName Carbon Calculator Form
@@ -214,20 +159,16 @@ export default {
     status: 'prototype',
     release: '0.0.1',
     components: {
-        BFormGroup,
-        BFormRadioGroup,
-        BFormRadio,
         VsButton,
-        VsIcon,
-        VsHeading,
-        VsProgressBar,
         VsContainer,
         VsCol,
         VsRow,
+        VsProgressBar,
         VsCarbonCalculatorResults,
         VsCarbonCalculatorTip,
         VsCarbonCalculatorRunningTotal,
         VsCarbonCalculatorIntro,
+        VsCarbonCalculatorQuestion,
     },
     props: {
         /**
