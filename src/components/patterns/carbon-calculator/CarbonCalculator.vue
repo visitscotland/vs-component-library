@@ -27,14 +27,11 @@
                         >
                             {{ currentQuestion ? currentQuestion.stage : 4 }} of 4
                         </p>
-                        <BProgress
-                            max="4"
-                        >
-                            <BProgressBar
-                                :value="currentQuestion ? currentQuestion.stage - 1 : 4"
-                                :animated="true"
-                            />
-                        </BProgress>
+
+                        <VsProgressBar
+                            :max="4"
+                            :currentStep="currentQuestion ? currentQuestion.stage - 1 : 4"
+                        />
 
                         <div
                             v-show="activeQuestion <= formData.fields.length"
@@ -186,8 +183,6 @@ import {
     BFormGroup,
     BFormRadioGroup,
     BFormRadio,
-    BProgress,
-    BProgressBar,
 } from 'bootstrap-vue-next';
 import axios from 'axios';
 
@@ -197,6 +192,7 @@ import {
 import VsButton from '../../elements/button/Button.vue';
 import VsIcon from '../../elements/icon/Icon.vue';
 import VsHeading from '../../elements/heading/Heading.vue';
+import VsProgressBar from '../../elements/progress-bar/ProgressBar.vue';
 
 import VsCarbonCalculatorTip from './components/CarbonCalculatorTip.vue';
 import VsCarbonCalculatorResults from './components/CarbonCalculatorResults.vue';
@@ -214,11 +210,10 @@ export default {
         BFormGroup,
         BFormRadioGroup,
         BFormRadio,
-        BProgress,
-        BProgressBar,
         VsButton,
         VsIcon,
         VsHeading,
+        VsProgressBar,
         VsContainer,
         VsCol,
         VsRow,
@@ -927,29 +922,6 @@ export default {
     @include media-breakpoint-up(lg) {
         .vs-carbon-calculator__radio {
             width: 25%;
-        }
-    }
-
-    .vs-carbon-calculator {
-        .vs-carbon-calculator__progress-label {
-            margin-bottom: $spacer-2;
-            text-align: right;
-            font-size: $font-size-2;
-            color: $color-gray-tint-3;
-        }
-
-        .progress {
-            width: 100%;
-            margin: $spacer-2 $spacer-0 $spacer-4;
-            background: $color-gray-tint-7;
-            border-radius: $spacer-2;
-            overflow: hidden;
-        }
-
-        .progress-bar {
-            height: $spacer-4;
-            background-color: $color-theme-secondary-teal;
-            transition: width ease-out .5s;
         }
     }
 
