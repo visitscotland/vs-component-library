@@ -29,3 +29,6 @@ If using Yarn, use the following command instead:
 ```sh
 yarn add @visitscotland/component-library
 ```
+
+## Contribution
+Before contributing, please read our [contribution guidelines](CONTRIBUTING.md) and [code of conduct](CODE_OF_CONDUCT.md).
