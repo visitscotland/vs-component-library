@@ -15,6 +15,7 @@
         data-test="vs-icon"
     />
 </template>
+
 <script>
 import { get } from 'lodash';
 import designTokens from '@/assets/tokens/tokens.raw.json';
