@@ -95,18 +95,24 @@ export default {
     .vs-main-map-wrapper-detail {
         text-align: left;
 
+        @include media-breakpoint-up(lg) {
+            font-size: $font-size-4;
+            margin: 0 $spacer-2;
+        }
+
         &__image {
             max-width: 100%;
+            aspect-ratio: 3/2;
+            object-fit: cover;
+
+            @supports not (aspect-ratio: 3/2) {
+                padding-bottom: 66.6%;
+            }
         }
 
         &__heading.vs-heading--style-level-4.vs-heading,
         &__address {
             margin-bottom: 0;
-        }
-
-        @include media-breakpoint-up(lg) {
-            font-size: $font-size-4;
-            margin: 0 $spacer-2;
         }
 
         &__description {

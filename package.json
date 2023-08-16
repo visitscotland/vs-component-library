@@ -10,8 +10,8 @@
   ],
   "license": "MIT",
   "scripts": {
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
+    "storybook": "yarn theo && storybook dev -p 6006",
+    "build-storybook": "yarn theo && storybook build",
     "build": "yarn theo && npm-run-all build:library build:ssr third-party",
     "build:dev": "yarn theo && npm-run-all build:library:dev build:ssr:dev third-party",
     "build:library": "cross-env NODE_ENV=production webpack --config ./build/webpack.conf.js",

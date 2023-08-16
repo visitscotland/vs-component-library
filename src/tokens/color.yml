@@ -93,6 +93,16 @@ props:
     - name: color_instagram
       value: "#F00075"
       category: "Social Media Colours"
+      
+    - name: color_map_blue
+      value: "#1066D6"
+      category: "Map Colours"
+    - name: color_map_red
+      value: "#C31613"
+      category: "Map Colours"
+    - name: color_map_purple
+      value: "#7A074D"
+      category: "Map Colours"
 
     - name: color_purple_tint_1
       value: "#853270"

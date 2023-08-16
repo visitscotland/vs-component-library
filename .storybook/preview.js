@@ -28,12 +28,6 @@ const preview = {
             ],
         },
     },
-    decorators: [
-        story => ({
-            components: { story },
-            template: '<div class="m-4 m-md-9"><story /></div>',
-        }),
-    ],
 };
 
 export default preview;

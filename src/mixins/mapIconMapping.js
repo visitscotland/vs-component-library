@@ -43,6 +43,24 @@ const mapIconMapping = {
             case 'serv':
                 icon.name = 'icentre-information';
                 break;
+            case 'outlander-castle':
+                icon.name = 'castle';
+                break;
+            case 'outlander-church-abbey':
+                icon.name = 'church';
+                break;
+            case 'outlander-city-town-village':
+                icon.name = 'city';
+                break;
+            case 'outlander-heritage':
+                icon.name = 'history';
+                break;
+            case 'outlander-landscape-park':
+                icon.name = 'landscape';
+                break;
+            case 'outlander-palace-house':
+                icon.name = 'palace';
+                break;
             default:
                 break;
             }

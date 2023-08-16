@@ -3,3 +3,7 @@ dist/
 yarn-error.log
 .env
 storybook-static/
+
+# Ignore compiled tokens
+src/assets/tokens/
+.yarn/

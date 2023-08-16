@@ -1,0 +1,26 @@
+[
+    {
+        "id": "outlander-castle",
+        "label": "Castle"
+    },
+    {
+        "id": "outlander-church-abbey",
+        "label": "Church / Abbey"
+    },
+    {
+        "id": "outlander-city-town-village",
+        "label": "City / Town / Village"
+    },
+    {
+        "id": "outlander-heritage",
+        "label": "Heritage Site"
+    },
+    {
+        "id": "outlander-landscape-park",
+        "label": "Landscape / Park"
+    },
+    {
+        "id": "outlander-palace-house",
+        "label": "Palace / House"
+    }
+]
