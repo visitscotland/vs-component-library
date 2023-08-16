@@ -1,4 +1,9 @@
 # VisitScotland Component Library
+[![VisitScotland](https://img.shields.io/badge/visitscotland-5B2487.svg)](https://github.com/visitscotland/)
+[![npm version](https://badge.fury.io/js/@visitscotland%2Fcomponent-library.svg)](https://badge.fury.io/js/@visitscotland%2Fcomponent-library)
+[![Vue: 3](https://img.shields.io/badge/Vue-3-41B883.svg)](https://vuejs.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Yarn Test](https://github.com/visitscotland/vs-component-library/actions/workflows/test.yml/badge.svg)](https://github.com/visitscotland/vs-component-library/actions/workflows/test.yml)
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
 
@@ -34,3 +39,6 @@ yarn add @visitscotland/component-library
 
 ## Contribution
 Before contributing, please read our [contribution guidelines](CONTRIBUTING.md) and [code of conduct](CODE_OF_CONDUCT.md).
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
