@@ -2,6 +2,66 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.14](https://github.com/visitscotland/vs-component-library/compare/v1.0.12...v1.0.14) (2023-08-16)
+
+
+### ✨ Features
+
+* **map:** adds Outlander icons and themes for maps ([50ddc04](https://github.com/visitscotland/vs-component-library/commit/50ddc046c093cbfd75fe6c72b694a1e89ad1c609))
+
+
+### 🎨 Styling
+
+* **map:** update height of the map module ([542a455](https://github.com/visitscotland/vs-component-library/commit/542a45506725f2afadd78367ef80a774c5fbe7db))
+
+
+### 🔖 Others
+
+* add badges to README.md ([6dd823a](https://github.com/visitscotland/vs-component-library/commit/6dd823a8caefd786c528242fcd93700b5251b5c7))
+* add contribution guidelines and code of conduct ([6bf1764](https://github.com/visitscotland/vs-component-library/commit/6bf176469a094c509bbe1716968d349de8e1f177))
+* add contribution links to README.md ([a6a21d4](https://github.com/visitscotland/vs-component-library/commit/a6a21d4b13612571a65459fef3c703d45fe8a8da))
+* add contributor covenant badge to README.md ([e97840d](https://github.com/visitscotland/vs-component-library/commit/e97840df67affd041a0883c62262af2d643043a3))
+* add email address to code of conduct ([11cd613](https://github.com/visitscotland/vs-component-library/commit/11cd613f4cbc5ff530c1e36622aad2f622e9290d))
+* add security.md file ([de88335](https://github.com/visitscotland/vs-component-library/commit/de88335429593053aac434dcba232f35a022e0f0))
+* add Yarn Test badge ([0ac5afc](https://github.com/visitscotland/vs-component-library/commit/0ac5afcd2e142cdb5f4dee9d97b023c132cfaf19))
+* **package.json:** add Theo to build script ([9f9a5c5](https://github.com/visitscotland/vs-component-library/commit/9f9a5c59b036638c839f61241f5108981c55d96e))
+* **tokens:** remove auto-generated tokens from the repo ([46b3ebf](https://github.com/visitscotland/vs-component-library/commit/46b3ebf5b46e0d6e9fd1d5488d245318bfa60812))
+* update code of conduct ([1315c1a](https://github.com/visitscotland/vs-component-library/commit/1315c1a1a6d652909feb80bbede34df973d41338))
+* update email address in security policy ([36cc62e](https://github.com/visitscotland/vs-component-library/commit/36cc62e179b61f0e08aa899391e0fce98a320cdb))
+* update email addresses in code of conduct and contribution guide ([63472aa](https://github.com/visitscotland/vs-component-library/commit/63472aa0049045441e315aa81b4ad78358f278a6))
+* update README.md with licence info ([2de656b](https://github.com/visitscotland/vs-component-library/commit/2de656b121d4b8c0aeb3dd535729eac4adcd88dd))
+* update visitscotland badge URL ([ff387ea](https://github.com/visitscotland/vs-component-library/commit/ff387ea11bc8df7d9602b2f470d5b020cd990091))
+
+### [1.0.13](https://github.com/visitscotland/vs-component-library/compare/v1.0.12...v1.0.13) (2023-08-16)
+
+
+### ✨ Features
+
+* **map:** adds Outlander icons and themes for maps ([50ddc04](https://github.com/visitscotland/vs-component-library/commit/50ddc046c093cbfd75fe6c72b694a1e89ad1c609))
+
+
+### 🎨 Styling
+
+* **map:** update height of the map module ([542a455](https://github.com/visitscotland/vs-component-library/commit/542a45506725f2afadd78367ef80a774c5fbe7db))
+
+
+### 🔖 Others
+
+* add badges to README.md ([6dd823a](https://github.com/visitscotland/vs-component-library/commit/6dd823a8caefd786c528242fcd93700b5251b5c7))
+* add contribution guidelines and code of conduct ([6bf1764](https://github.com/visitscotland/vs-component-library/commit/6bf176469a094c509bbe1716968d349de8e1f177))
+* add contribution links to README.md ([a6a21d4](https://github.com/visitscotland/vs-component-library/commit/a6a21d4b13612571a65459fef3c703d45fe8a8da))
+* add contributor covenant badge to README.md ([e97840d](https://github.com/visitscotland/vs-component-library/commit/e97840df67affd041a0883c62262af2d643043a3))
+* add email address to code of conduct ([11cd613](https://github.com/visitscotland/vs-component-library/commit/11cd613f4cbc5ff530c1e36622aad2f622e9290d))
+* add security.md file ([de88335](https://github.com/visitscotland/vs-component-library/commit/de88335429593053aac434dcba232f35a022e0f0))
+* add Yarn Test badge ([0ac5afc](https://github.com/visitscotland/vs-component-library/commit/0ac5afcd2e142cdb5f4dee9d97b023c132cfaf19))
+* **package.json:** add Theo to build script ([9f9a5c5](https://github.com/visitscotland/vs-component-library/commit/9f9a5c59b036638c839f61241f5108981c55d96e))
+* **tokens:** remove auto-generated tokens from the repo ([46b3ebf](https://github.com/visitscotland/vs-component-library/commit/46b3ebf5b46e0d6e9fd1d5488d245318bfa60812))
+* update code of conduct ([1315c1a](https://github.com/visitscotland/vs-component-library/commit/1315c1a1a6d652909feb80bbede34df973d41338))
+* update email address in security policy ([36cc62e](https://github.com/visitscotland/vs-component-library/commit/36cc62e179b61f0e08aa899391e0fce98a320cdb))
+* update email addresses in code of conduct and contribution guide ([63472aa](https://github.com/visitscotland/vs-component-library/commit/63472aa0049045441e315aa81b4ad78358f278a6))
+* update README.md with licence info ([2de656b](https://github.com/visitscotland/vs-component-library/commit/2de656b121d4b8c0aeb3dd535729eac4adcd88dd))
+* update visitscotland badge URL ([ff387ea](https://github.com/visitscotland/vs-component-library/commit/ff387ea11bc8df7d9602b2f470d5b020cd990091))
+
 ### [1.0.12](https://github.com/visitscotland/vs-component-library/compare/v1.0.11...v1.0.12) (2023-08-09)
 
 
