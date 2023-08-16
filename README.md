@@ -34,3 +34,7 @@ If using Yarn, use the following command instead:
 ```sh
 yarn add @visitscotland/component-library
 ```
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
