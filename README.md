@@ -5,6 +5,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Yarn Test](https://github.com/visitscotland/vs-component-library/actions/workflows/test.yml/badge.svg)](https://github.com/visitscotland/vs-component-library/actions/workflows/test.yml)
 
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
+
 This is the repository for the **VisitScotland Component Library** which contains all the components that can be used to build user interfaces for VisitScotland.
 
 ## Getting started
@@ -35,6 +37,8 @@ If using Yarn, use the following command instead:
 yarn add @visitscotland/component-library
 ```
 
-## License
+## Contribution
+Before contributing, please read our [contribution guidelines](CONTRIBUTING.md) and [code of conduct](CODE_OF_CONDUCT.md).
 
+## License
 [MIT](https://choosealicense.com/licenses/mit/)
