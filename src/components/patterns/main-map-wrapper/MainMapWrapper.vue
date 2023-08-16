@@ -663,7 +663,7 @@ export default {
         display: flex;
 
         @include media-breakpoint-up(lg) {
-            height: 500px;
+            height: 650px;
         }
 
         .container,

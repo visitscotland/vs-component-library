@@ -60,7 +60,7 @@ const mapIconMapping = {
                 break;
             case 'outlander-palace-house':
                 icon.name = 'palace';
-                break;      
+                break;
             default:
                 break;
             }

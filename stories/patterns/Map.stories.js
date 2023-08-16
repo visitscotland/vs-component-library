@@ -73,7 +73,6 @@ const base = {
     mapNoResultsMessage: 'There are no results, please try again',
 };
 
-
 const mainMapExample = {
     filters: mapFiltersSubcategories,
     placesData: placesDataFeatured.features,
@@ -97,7 +96,7 @@ const mainMapExample = {
             [-3.34402565597901, 55.887115661571926],
         ],
     },
-}
+};
 
 export const Default = Template.bind({
 });
@@ -106,7 +105,7 @@ Default.args = {
     ...base,
     ...mainMapExample,
     mapId: 'vs-map',
-}
+};
 
 export const ToggleOnMobile = Template.bind({
 });
@@ -115,7 +114,7 @@ ToggleOnMobile.args = {
     ...base,
     ...mainMapExample,
     mapId: 'vs-map-mobile',
-}
+};
 
 ToggleOnMobile.parameters = {
     viewport: {
@@ -133,7 +132,6 @@ Outlander.args = {
     categoryHeading: 'Outlander Filming Locations',
     mapId: 'vs-map-outlander',
 };
-
 
 export const NoJs = Template.bind({
 });
