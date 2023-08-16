@@ -1,6 +1,8 @@
 import VsMainMapWrapper from '@/components/patterns/main-map-wrapper/MainMapWrapper.vue';
 import mapFiltersSubcategories from '@/assets/fixtures/maps/map-filters-subcategories.json';
+import mapFiltersOutlanderSubcategories from '@/assets/fixtures/maps/map-filters-outlander-subcategories.json';
 import placesDataFeatured from '@/assets/fixtures/maps/places-data-featured.json';
+import placesDataOutlander from '@/assets/fixtures/maps/places-data-outlander.json';
 
 export default {
     component: VsMainMapWrapper,
@@ -60,10 +62,21 @@ const Template = (args) => ({
 
 const base = {
     categoryHeading: 'Explore places to go',
+    discoverText: 'discover',
+    buttonsLabel: 'Select map type',
+    clearSelectionText: 'Clear all',
+    applyFiltersText: 'Show results',
+    detailsEndpoint: 'http://172.28.81.65:8089/data/component/mapcard?id=',
+    filtersAppliedText: 'filters applied',
+    clearFiltersText: 'clear filters',
+    mapFilterMessage: 'Please apply filter(s) to refine results.',
+    mapNoResultsMessage: 'There are no results, please try again',
+};
+
+
+const mainMapExample = {
     filters: mapFiltersSubcategories,
     placesData: placesDataFeatured.features,
-    discoverText: 'discover',
-    mapId: 'vs-map',
     initialSelected: 'places',
     toggleData: [
         {
@@ -77,10 +90,6 @@ const base = {
             icon: 'map-marker',
         },
     ],
-    buttonsLabel: 'Select map type',
-    clearSelectionText: 'Clear all',
-    applyFiltersText: 'Show results',
-    detailsEndpoint: 'http://172.28.81.65:8089/data/component/mapcard?id=',
     regionBounds: {
         type: 'bounds',
         coordinates: [
@@ -88,21 +97,50 @@ const base = {
             [-3.34402565597901, 55.887115661571926],
         ],
     },
-    filtersAppliedText: 'filters applied',
-    clearFiltersText: 'clear filters',
-    mapFilterMessage: 'Please apply filter(s) to refine results.',
-    mapNoResultsMessage: 'There are no results, please try again',
-};
+}
 
 export const Default = Template.bind({
 });
 
-Default.args = base;
+Default.args = {
+    ...base,
+    ...mainMapExample,
+    mapId: 'vs-map',
+}
+
+export const ToggleOnMobile = Template.bind({
+});
+
+ToggleOnMobile.args = {
+    ...base,
+    ...mainMapExample,
+    mapId: 'vs-map-mobile',
+}
+
+ToggleOnMobile.parameters = {
+    viewport: {
+        defaultViewport: 'mobile2',
+    },
+};
+
+export const Outlander = Template.bind({
+});
+
+Outlander.args = {
+    ...base,
+    filters: mapFiltersOutlanderSubcategories,
+    placesData: placesDataOutlander.features,
+    categoryHeading: 'Outlander Filming Locations',
+    mapId: 'vs-map-outlander',
+};
+
 
 export const NoJs = Template.bind({
 });
 
 NoJs.args = {
     ...base,
+    ...mainMapExample,
+    mapId: 'vs-map-nojs',
     jsDisabled: true,
 };
