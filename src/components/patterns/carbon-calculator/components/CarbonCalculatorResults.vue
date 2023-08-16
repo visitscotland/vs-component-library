@@ -1,5 +1,7 @@
 <template>
-    <VsRow>
+    <VsRow
+        data-test="vs-carbon-calculator-results"
+    >
         <VsCol cols="12">
             <VsHeading
                 level="2"
@@ -11,13 +13,13 @@
             cols="12"
         >
             <VsRow
-                class="vs-carbon-form-results__headline"
+                class="vs-carbon-calculator-results__headline"
             >
                 <VsCol
                     cols="6"
                 >
                     <p>
-                        <span class="vs-carbon-form-results__total">
+                        <span class="vs-carbon-calculator-results__total">
                             {{ totalTonnes.toFixed(3) }}
                         </span>
                         Tonnes CO2
@@ -25,7 +27,7 @@
                 </VsCol>
                 <VsCol
                     cols="6"
-                    class="vs-carbon-form-results__comp-img"
+                    class="vs-carbon-calculator-results__comp-img"
                 >
                     <VsImg
                         src="https://placehold.co/150x150"
@@ -35,7 +37,7 @@
         </VsCol>
         <VsCol
             cols="12"
-            class="vs-carbon-form-results__comparison"
+            class="vs-carbon-calculator-results__comparison"
         >
             <!-- eslint-disable -->
             <div
@@ -52,62 +54,62 @@
             >
                 Your CO2 Breakdown
             </VsHeading>
-            <div class="vs-carbon-form-results__breakdown">
+            <div class="vs-carbon-calculator-results__breakdown">
                 <VsIcon
                     name="transport"
                 />
                 <span
-                    class="vs-carbon-form-results__breakdown-cat"
+                    class="vs-carbon-calculator-results__breakdown-cat"
                 >
                     Transport
                 </span>
                 <span
-                    class="vs-carbon-form-results__breakdown-percent"
+                    class="vs-carbon-calculator-results__breakdown-percent"
                 >
                     {{ transportPercent.toFixed(1) }}%
                 </span>
             </div>
-            <div class="vs-carbon-form-results__breakdown">
+            <div class="vs-carbon-calculator-results__breakdown">
                 <VsIcon
                     name="home"
                 />
                 <span
-                    class="vs-carbon-form-results__breakdown-cat"
+                    class="vs-carbon-calculator-results__breakdown-cat"
                 >
                     Accomodation
                 </span>
                 <span
-                    class="vs-carbon-form-results__breakdown-percent"
+                    class="vs-carbon-calculator-results__breakdown-percent"
                 >
                     {{ accomodationPercent.toFixed(1) }}%
                 </span>
             </div>
-            <div class="vs-carbon-form-results__breakdown">
+            <div class="vs-carbon-calculator-results__breakdown">
                 <VsIcon
                     name="leaf"
                 />
                 <span
-                    class="vs-carbon-form-results__breakdown-cat"
+                    class="vs-carbon-calculator-results__breakdown-cat"
                 >
                     Experiences
                 </span>
                 <span
-                    class="vs-carbon-form-results__breakdown-percent"
+                    class="vs-carbon-calculator-results__breakdown-percent"
                 >
                     {{ experiencesPercent.toFixed(1) }}%
                 </span>
             </div>
-            <div class="vs-carbon-form-results__breakdown">
+            <div class="vs-carbon-calculator-results__breakdown">
                 <VsIcon
                     name="food"
                 />
                 <span
-                    class="vs-carbon-form-results__breakdown-cat"
+                    class="vs-carbon-calculator-results__breakdown-cat"
                 >
                     Food
                 </span>
                 <span
-                    class="vs-carbon-form-results__breakdown-percent"
+                    class="vs-carbon-calculator-results__breakdown-percent"
                 >
                     {{ foodPercent.toFixed(1) }}%
                 </span>
@@ -255,18 +257,18 @@ export default {
 </script>
 
 <style lang='scss'>
-    .vs-carbon-form-results__headline {
+    .vs-carbon-calculator-results__headline {
         text-align: center;
         margin-bottom: $spacer-10;
     }
 
-    .vs-carbon-form-results__total {
+    .vs-carbon-calculator-results__total {
         display: block;
         font-size: 80px;
         font-weight: $font-weight-bold;
     }
 
-    .vs-carbon-form-results__comp-img {
+    .vs-carbon-calculator-results__comp-img {
         display: flex;
         justify-content: center;
 
@@ -275,11 +277,11 @@ export default {
         }
     }
 
-    .vs-carbon-form-results__comparison {
+    .vs-carbon-calculator-results__comparison {
         margin-bottom: $spacer-10;
     }
 
-    .vs-carbon-form-results__chart {
+    .vs-carbon-calculator-results__chart {
         margin-top: $spacer-8;
 
         @include media-breakpoint-up(md) {
@@ -287,19 +289,19 @@ export default {
         }
     }
 
-    .vs-carbon-form-results__breakdown {
+    .vs-carbon-calculator-results__breakdown {
         padding: $spacer-2;
 
         .vs-icon {
             width: 10%;
         }
 
-        .vs-carbon-form-results__breakdown-cat {
+        .vs-carbon-calculator-results__breakdown-cat {
             width: 40%;
             display: inline-block;
         }
 
-        .vs-carbon-form-results__breakdown-percent {
+        .vs-carbon-calculator-results__breakdown-percent {
             width: 40%;
             display: inline-block;
         }
