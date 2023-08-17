@@ -1,7 +1,5 @@
 <template>
     <BFormGroup
-        :label="label"
-        :label-for="labelFor"
         :class="fieldClass"
         data-test="vs-carbon-calculator-question"
     >
@@ -37,7 +35,6 @@
                     >
                         <BFormRadio
                             :value="option.value"
-                            :hint-text="hintText"
                             :name="fieldName"
                             :id="fieldName + option.value"
                             @change="valueChanged({
@@ -124,13 +121,6 @@ export default {
          * at the top of the question to provide context for the user.
          */
         fieldCategory: {
-            type: String,
-            required: true,
-        },
-        /**
-         * Any subtext that needs to be provided to clarify how to answer the question
-         */
-        hintText: {
             type: String,
             required: true,
         },

@@ -18,15 +18,6 @@
                     @submit.prevent="preSubmit"
                 >
                     <fieldset>
-                        <legend
-                            class="vs-form__main-heading vs-heading--style-level-2"
-                            data-test="vs-form__main-heading"
-                        >
-                            {{ getTranslatedContent('heading') }}
-                        </legend>
-                        <p>
-                            {{ getTranslatedContent('intro') }}
-                        </p>
                         <p
                             class="vs-carbon-calculator__progress-label"
                             v-if="currentQuestion"
@@ -46,18 +37,13 @@
                                 v-for="(field, index) in formData.fields"
                                 v-show="(index + 1) === activeQuestion"
                                 :key="field.name"
-                                :label="
-                                    needsLabel(field)
-                                        ? getTranslatedLabel(field.name, index)
-                                        : ''
-                                "
+                                :label="getQuestionLabel(index)"
                                 :label-for="needsLabel(field) ? field.name : ''"
                                 :fieldClass="conditionalElementClass(field.name)"
                                 :fieldType="field.element"
                                 :fieldName="field.name"
-                                :hintText="getTranslatedHint(field.name, index)"
-                                :options="getTranslatedOptions(field.name, index)"
-                                :fieldCategory="currentCategoryName"
+                                :options="getQuestionOptions(index)"
+                                :fieldCategory="getQuestionCategory(field.stage)"
                                 @updateFieldData="updateFieldData"
                             />
                         </div>
@@ -77,14 +63,18 @@
                 />
                 <VsCarbonCalculatorResults
                     v-if="activeQuestion > formData.fields.length"
-                    :title="currentCategoryName"
+                    :title="labelsMap.results"
                     :total-tonnes="totalTonnes"
                     :transport-tonnes="transportTonnes"
                     :food-tonnes="foodTonnes"
                     :transport-tip="transportTip"
                     :food-tip="foodTip"
-                    :comparison="getTranslatedContent('comparison')"
-                    :comparison-tonnes="formData.content['comparisonTonnes']"
+                    :transport-label="getQuestionCategory(1)"
+                    :accomodation-label="getQuestionCategory(2)"
+                    :experiences-label="getQuestionCategory(3)"
+                    :food-label="getQuestionCategory(4)"
+                    :comparison="comparison.text"
+                    :comparison-tonnes="comparison.tonnes"
                 />
             </VsCol>
             <VsCol
@@ -100,7 +90,7 @@
                     icon-position="left"
                     icon-orientation="right"
                 >
-                    Previous
+                    {{ labelsMap['previous'] }}
                 </VsButton>
 
                 <VsButton
@@ -114,7 +104,7 @@
                     icon-position="right"
                     icon-orientation="left"
                 >
-                    Next
+                    {{ labelsMap['next'] }}
                 </VsButton>
 
                 <VsButton
@@ -128,7 +118,7 @@
                     icon-position="right"
                     icon-orientation="left"
                 >
-                    Results
+                    {{ labelsMap['results'] }}
                 </VsButton>
             </VsCol>
         </VsRow>
@@ -199,6 +189,21 @@ export default {
             type: String,
             default: 'en',
         },
+        /**
+         * An object providing all required localisation content from the CMS. This
+         * should contain global props like a translation for `next`, `previous`,
+         * `results` and so on, as well as question by question labels. Those should
+         * take the form
+         *    `page-1.title` <- the category for the first question
+         *    `page-1.question` <- the content of the first question
+         *    `page-1.option-1` <- the first option for the first question
+         *    `page-1.option-1.tip` <- the content of the tip for the above option
+         * and then repeat for each page-x beyond that.
+         */
+        labelsMap: {
+            type: Object,
+            required: true,
+        },
     },
     data() {
         return {
@@ -234,14 +239,6 @@ export default {
         };
     },
     computed: {
-        showFormHeading() {
-            if (!this.isUndefined(this.getTranslatedContent)
-                && !this.isUndefined(this.getTranslatedContent('heading'))) {
-                return true;
-            }
-
-            return false;
-        },
         currentQuestion() {
             if (!this.formData || !this.activeQuestion) {
                 return null;
@@ -253,17 +250,17 @@ export default {
             let tip = null;
 
             if (this.formData.fields[this.activeQuestion - 1]) {
-                switch (this.formData.fields[this.activeQuestion - 1].category) {
-                case ('transport'):
+                switch (this.formData.fields[this.activeQuestion - 1].stage) {
+                case (1):
                     tip = this.transportTip;
                     break;
-                case ('accomodation'):
+                case (2):
                     tip = this.accomodationTip;
                     break;
-                case ('experiences'):
+                case (3):
                     tip = this.experiencesTip;
                     break;
-                case ('food'):
+                case (4):
                     tip = this.foodTip;
                     break;
                 default:
@@ -274,30 +271,11 @@ export default {
 
             return tip;
         },
-        currentCategoryName() {
-            let name = 'Results';
-
-            if (this.formData.fields[this.activeQuestion - 1]) {
-                switch (this.formData.fields[this.activeQuestion - 1].category) {
-                case ('transport'):
-                    name = 'Transport';
-                    break;
-                case ('accomodation'):
-                    name = 'Accomodation';
-                    break;
-                case ('experiences'):
-                    name = 'Experiences';
-                    break;
-                case ('food'):
-                    name = 'Food and Drink';
-                    break;
-                default:
-                    name = null;
-                    break;
-                }
-            }
-
-            return name;
+        comparison() {
+            return {
+                text: this.labelsMap.comparison,
+                tonnes: parseFloat(this.labelsMap.comparisonTonnes),
+            };
         },
     },
     created() {
@@ -349,88 +327,6 @@ export default {
             return languageObj;
         },
         /**
-         * get translated label if available
-         */
-        getTranslatedLabel(fieldName, index) {
-            const languageObj = this.getLanguageObj();
-            let labelText = '';
-
-            if (this.language !== 'en'
-                && !this.isUndefined(languageObj[fieldName])
-                && !this.isUndefined(languageObj[fieldName].label)
-            ) {
-                labelText = languageObj[fieldName].label;
-            } else {
-                labelText = this.formData.fields[index].label;
-            }
-
-            if (this.showOptionalText(this.formData.fields[index])
-                && !this.isUndefined(this.getMessagingData('optional', this.language))) {
-                labelText = `${labelText} (${this.getMessagingData('optional', this.language)})`;
-            }
-
-            return labelText;
-        },
-        /**
-         * get translated explanation if available
-         */
-        getTranslatedExplanation(fieldName, index) {
-            const languageObj = this.getLanguageObj();
-            let explanationText = '';
-
-            if (this.language !== 'en'
-                && !this.isUndefined(languageObj[fieldName])
-                && !this.isUndefined(languageObj[fieldName].explanation)
-            ) {
-                explanationText = languageObj[fieldName].explanation;
-            } else {
-                explanationText = this.formData.fields[index].explanation;
-            }
-
-            if (this.showOptionalText(this.formData.fields[index])
-                && !this.isUndefined(this.getMessagingData('optional', this.language))) {
-                explanationText = `${explanationText} (${this.getMessagingData('optional', this.language)})`;
-            }
-
-            return explanationText;
-        },
-        /**
-         * get translated label if available
-         */
-        getTranslatedLegend(fieldName, index) {
-            const languageObj = this.getLanguageObj();
-            let legendText = '';
-
-            if (this.language !== 'en'
-                && !this.isUndefined(languageObj[fieldName])
-                && !this.isUndefined(languageObj[fieldName].descriptor)
-            ) {
-                legendText = languageObj[fieldName].descriptor;
-            } else {
-                legendText = this.formData.fields[index].descriptor;
-            }
-
-            return legendText;
-        },
-        /*
-         * get translated info content if available
-         */
-        getTranslatedInfo(fieldName, index) {
-            const languageObj = this.getLanguageObj();
-            let infoText = '';
-
-            if (this.language !== 'en'
-                && !this.isUndefined(languageObj[fieldName])
-                && !this.isUndefined(languageObj[fieldName].info)
-            ) {
-                infoText = languageObj[fieldName].info;
-            } else {
-                infoText = this.formData.fields[index].info;
-            }
-
-            return infoText;
-        },
-        /**
          * get translated validation messages
          */
         getTranslatedValidation(fieldName, index) {
@@ -451,62 +347,6 @@ export default {
             return validationObj;
         },
         /**
-         * get language appriopriate options for a select element
-         */
-        getTranslatedOptions(fieldName, index) {
-            const languageObj = this.getLanguageObj();
-
-            let optionsArr = [];
-
-            if (this.language !== 'en'
-                && !this.isUndefined(languageObj[fieldName])
-                && !this.isUndefined([fieldName].options)) {
-                optionsArr = languageObj[fieldName].options;
-            } else {
-                optionsArr = this.formData.fields[index].options;
-            }
-
-            if (typeof optionsArr === 'undefined') {
-                optionsArr = [];
-            }
-
-            return optionsArr;
-        },
-        getTranslatedHint(fieldName, index) {
-            const languageObj = this.getLanguageObj();
-            let hintText = '';
-
-            if (this.language !== 'en'
-                && !this.isUndefined(languageObj[fieldName])
-                && !this.isUndefined(languageObj[fieldName].hint)) {
-                hintText = languageObj[fieldName].hint;
-            } else if (!this.isUndefined(this.formData.fields[index].hint)) {
-                hintText = this.formData.fields[index].hint;
-            } else {
-                hintText = '';
-            }
-
-            return hintText;
-        },
-        getTranslatedContent(type) {
-            let text;
-            const languageObj = this.getLanguageObj();
-
-            if (this.language === 'en'
-                && !this.isUndefined(this.formData.content)
-                && !this.isUndefined(this.formData.content[type])
-            ) {
-                text = this.formData.content[type];
-            } else if (!this.isUndefined(languageObj.content)
-                && !this.isUndefined(languageObj.content[type])) {
-                text = languageObj.content[type];
-            } else {
-                text = this.getMessagingData(type, this.language);
-            }
-
-            return text;
-        },
-        /**
          * check messaging data exists and then pass value back
          */
         getMessagingData(type, lang) {
@@ -521,6 +361,29 @@ export default {
             }
 
             return '';
+        },
+        getQuestionCategory(stage) {
+            if (this.labelsMap[`section-${stage}.title`]) {
+                return this.labelsMap[`section-${stage}.title`];
+            }
+
+            return '';
+        },
+        getQuestionLabel(index) {
+            if (this.labelsMap[`page-${index + 1}.question`]) {
+                return this.labelsMap[`page-${index + 1}.question`];
+            }
+
+            return '';
+        },
+        getQuestionOptions(index) {
+            const { options } = this.formData.fields[index];
+
+            for (let x = 0; x < options.length; x++) {
+                options[x].text = this.labelsMap[`page-${index + 1}.option-${x + 1}`];
+            }
+
+            return options;
         },
         /**
          * check if value is undefined
@@ -595,17 +458,18 @@ export default {
 
             return field.values[key];
         },
-        getTips(fieldName, key) {
-            let field;
-
-            for (let x = 0; x < this.formData.fields.length; x++) {
-                if (this.formData.fields[x].name === fieldName) {
-                    field = this.formData.fields[x];
+        getTips(field, key, questionIndex) {
+            if (key) {
+                for (let x = 0; x < field.options.length; x++) {
+                    if (field.options[x].value === key) {
+                        const checkTip = this.labelsMap[`page-${questionIndex + 1}.option-${x + 1}.tip`];
+                        if (checkTip) {
+                            return [{
+                                text: checkTip,
+                            }];
+                        }
+                    }
                 }
-            }
-
-            if (field.tips && field.tips[key]) {
-                return (field.tips[key]);
             }
 
             return [];
@@ -677,23 +541,23 @@ export default {
             for (let x = 0; x < this.formData.fields.length; x++) {
                 const currentField = this.formData.fields[x];
 
-                switch (currentField.category) {
-                case 'transport':
+                switch (currentField.stage) {
+                case 1:
                     this.transportTonnes += this.getFieldValue(
                         currentField.name,
                         this.form[currentField.name],
                     );
                     transportTips = transportTips.concat(
-                        this.getTips(currentField.name, this.form[currentField.name]),
+                        this.getTips(currentField, this.form[currentField.name], x),
                     );
                     break;
-                case 'food':
+                case 4:
                     this.foodTonnes += this.getFieldValue(
                         currentField.name,
                         this.form[currentField.name],
                     );
                     foodTips = foodTips.concat(
-                        this.getTips(currentField.name, this.form[currentField.name]),
+                        this.getTips(currentField, this.form[currentField.name], x),
                     );
                     break;
                 default:

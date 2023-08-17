@@ -1,39 +1,21 @@
 {
-    "content": {
-        "heading": "Carbon Calculator",
-        "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse gravida felis erat, suscipit condimentum eros mollis nec. Cras molestie dolor nunc, vitae tincidunt libero lobortis quis. Morbi at ligula sollicitudin, gravida ligula eget, viverra lorem.",
-        "successHeading": "Success",
-        "successContent": "Success Content",
-        "noJs": "NOJS",
-        "submit": "Calculate",
-        "comparisonTonnes": 0.00929,
-        "comparison": "<p>That's the equivalent to travelling the West Highland line over the Glenfinnan Viaduct (like Harry Potter!) xxx times.</p><p>The West Highland Line runs from Glasgow to Mallaig for 162 miles. Each journey uses 9.29kg of CO2 per person.</p>"
-    },
     "fields": [
         {
             "name": "transportModeTo",
             "element": "radio",
             "options": [
-                { "text": "I'm already here!", "value": "noTravel", "icon": "city" },
-                { "text": "Plane", "value": "plane", "icon": "plane" },
-                { "text": "Car (Petrol)", "value": "petrolCar", "icon": "car" },
-                { "text": "Car (Diesel)", "value": "dieselCar", "icon": "car" },
-                { "text": "Car (Electric)", "value": "electricCar", "icon": "car" },
-                { "text": "Train", "value": "train", "icon": "train" }
+                { "value": "noTravel", "icon": "city" },
+                { "value": "plane", "icon": "plane" },
+                { "value": "petrolCar", "icon": "car" },
+                { "value": "dieselCar", "icon": "car" },
+                { "value": "electricCar", "icon": "car" },
+                { "value": "train", "icon": "train" }
             ],
-            "label": "How are you travelling to Scotland?",
-            "explanation": "Duis ac facilisis orci. In lorem leo, euismod rhoncus imperdiet eget, tristique nec libero. In dapibus vitae dui nec blandit. Duis sed ultricies ligula.",
             "validation": {
                 "required": true
             },
             "validationMessages": {
                 "required": "Please choose an item"
-            },
-            "tips": {
-                "plane": {
-                    "text": "If you're travelling from within the UK, travelling by train instead of flying could save up to x tonnes of emissions per 100 miles!",
-                    "icon": "train"
-                }
             },
             "values": {
                 "noTravel": 0,
@@ -43,21 +25,19 @@
                 "electricCar": 0.005,
                 "train": 0.003
             },
-            "category": "transport",
             "stage": 1
         },
         {
             "name": "transportModeWithin",
             "element": "radio",
             "options": [
-                { "text": "No internal travel", "value": "noTravel", "icon": "city" },
-                { "text": "Internal flight", "value": "plane", "icon": "plane" },
-                { "text": "Car (Petrol)", "value": "petrolCar", "icon": "car" },
-                { "text": "Car (Diesel)", "value": "dieselCar", "icon": "car" },
-                { "text": "Car (Electric)", "value": "electricCar", "icon": "car" },
-                { "text": "Train", "value": "train", "icon": "train" }
+                { "value": "noTravel", "icon": "city" },
+                { "value": "plane", "icon": "plane" },
+                { "value": "petrolCar", "icon": "car" },
+                { "value": "dieselCar", "icon": "car" },
+                { "value": "electricCar", "icon": "car" },
+                { "value": "train", "icon": "train" }
             ],
-            "label": "Are you planning to travel within Scotland?",
             "validation": {
                 "required": true
             },
@@ -72,7 +52,6 @@
                 "electricCar": 0.005,
                 "train": 0.003
             },
-            "category": "transport",
             "stage": 1
         },
         {
@@ -97,22 +76,7 @@
                 "often": 0.005,
                 "everyMeal": 0.01
             },
-            "tips": {
-                "everyMeal": {
-                    "text": "Cutting red meat from one or two meals a week could save x emissions, and give you a chance to try some of Scotland's other great food like the Fish!",
-                    "icon": "food"
-                }
-            },
-            "category": "food",
             "stage": 4
         }
-    ],
-    "de": {
-        "selectexample": {
-            "label": "How are you travelling to Scotland? (de)",
-            "validationMessages": {
-                "required": "Please choose an item (de)"
-            }
-        }
-    }
+    ]
 }

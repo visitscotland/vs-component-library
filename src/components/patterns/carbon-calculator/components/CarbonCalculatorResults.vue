@@ -61,7 +61,7 @@
                 <span
                     class="vs-carbon-calculator-results__breakdown-cat"
                 >
-                    Transport
+                    {{ transportLabel }}
                 </span>
                 <span
                     class="vs-carbon-calculator-results__breakdown-percent"
@@ -76,7 +76,7 @@
                 <span
                     class="vs-carbon-calculator-results__breakdown-cat"
                 >
-                    Accomodation
+                    {{ accomodationLabel }}
                 </span>
                 <span
                     class="vs-carbon-calculator-results__breakdown-percent"
@@ -91,7 +91,7 @@
                 <span
                     class="vs-carbon-calculator-results__breakdown-cat"
                 >
-                    Experiences
+                    {{ experiencesLabel }}
                 </span>
                 <span
                     class="vs-carbon-calculator-results__breakdown-percent"
@@ -106,7 +106,7 @@
                 <span
                     class="vs-carbon-calculator-results__breakdown-cat"
                 >
-                    Food
+                    {{ foodLabel }}
                 </span>
                 <span
                     class="vs-carbon-calculator-results__breakdown-percent"
@@ -196,6 +196,22 @@ export default {
         experiencesTip: {
             type: Object,
             default: null,
+        },
+        transportLabel: {
+            type: String,
+            default: '',
+        },
+        accomodationLabel: {
+            type: String,
+            default: '',
+        },
+        experiencesLabel: {
+            type: String,
+            default: '',
+        },
+        foodLabel: {
+            type: String,
+            default: '',
         },
     },
     computed: {
