@@ -28,6 +28,7 @@ const base = {
     max: 5,
     currentStep: 1,
     animated: true,
+    isStepped: false,
 };
 
 export const Default = Template.bind({
@@ -49,4 +50,13 @@ export const Empty = Template.bind({
 Empty.args = {
     ...base,
     currentStep: 0,
+};
+
+export const Stepped = Template.bind({
+});
+
+Stepped.args = {
+    ...base,
+    isStepped: true,
+    currentStep: 2,
 };

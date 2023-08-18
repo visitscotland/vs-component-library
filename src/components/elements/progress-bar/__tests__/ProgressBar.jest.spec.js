@@ -18,4 +18,14 @@ describe('VsProgressBar', () => {
 
         expect(ProgressBar.exists()).toBe(true);
     });
+
+    describe(':props', () => {
+        it('should render a stepped progress bar if the `isStepped` prop is set to true', () => {
+            const wrapper = factoryShallowMount({
+                isStepped: true,
+            });
+
+            expect(wrapper.findAll('b-progress-stub').length).toBe(4);
+        });
+    });
 });
