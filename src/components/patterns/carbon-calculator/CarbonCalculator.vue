@@ -18,13 +18,6 @@
                     @submit.prevent="preSubmit"
                 >
                     <fieldset>
-                        <p
-                            class="vs-carbon-calculator__progress-label"
-                            v-if="currentQuestion"
-                        >
-                            {{ currentQuestion ? currentQuestion.stage : 4 }} of 4
-                        </p>
-
                         <VsProgressBar
                             :max="4"
                             :currentStep="currentQuestion ? currentQuestion.stage - 1 : 4"

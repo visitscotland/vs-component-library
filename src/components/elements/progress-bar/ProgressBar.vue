@@ -1,6 +1,7 @@
 <template>
     <div
         class="vs-progress-bar"
+        :class="currentStep === max ? 'vs-progress-bar--full' : ''"
         data-test="vs-progress-bar"
     >
         <BProgress
@@ -10,6 +11,13 @@
                 :value="currentStep"
             />
         </BProgress>
+
+        <p
+            class="vs-progress-bar__label"
+            v-if="currentStep"
+        >
+            {{ currentStep }} / {{ max }}
+        </p>
     </div>
 </template>
 
@@ -55,8 +63,14 @@ export default {
     .vs-progress-bar {
         .progress-bar {
             height: $spacer-4;
-            background-color: $color-theme-secondary-teal;
+            background-color: $color-theme-primary;
             transition: width ease-out .5s;
+        }
+
+        &--full {
+            .progress-bar {
+                background-color: $color-theme-success;
+            }
         }
 
         .progress {
@@ -69,8 +83,7 @@ export default {
     }
     .vs-progress-bar__label {
         margin-bottom: $spacer-2;
-        text-align: right;
-        font-size: $font-size-2;
-        color: $color-gray-tint-3;
+        text-align: left;
+        color: $color-gray-shade-1;
     }
 </style>
