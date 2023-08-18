@@ -327,11 +327,8 @@ export default {
                 case 0:
                     headingText = this.categoryHeading;
                     break;
-                case 1:
+                case 1: case 2:
                     headingText = this.currentFilter.label;
-                    break;
-                case 2:
-                    headingText = this.currentPlaceData[0].properties.title;
                     break;
                 default:
                     break;
