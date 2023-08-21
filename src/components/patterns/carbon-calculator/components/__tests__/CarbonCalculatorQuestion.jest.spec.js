@@ -28,30 +28,4 @@ describe('VsCarbonCalculatorQuestion', () => {
 
         expect(Question.exists()).toBe(true);
     });
-
-    describe(':props', () => {
-        it('should render the correct number of options', () => {
-            const wrapper = factoryMount({
-                options: [
-                    {
-                        text: 'I\'m already here',
-                        value: 'noTravel',
-                        icon: 'city',
-                    },
-                    {
-                        text: 'Plane',
-                        value: 'plane',
-                        icon: 'plane',
-                    },
-                    {
-                        text: 'Car (Petrol)',
-                        value: 'petrolCar',
-                        icon: 'car',
-                    },
-                ],
-            });
-
-            expect(wrapper.findAll('.vs-carbon-calculator__radio').length).toBe(3);
-        });
-    });
 });

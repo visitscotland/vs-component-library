@@ -14,6 +14,14 @@
                     {{ fieldCategory }}
                 </VsHeading>
 
+                <VsRadioButton
+                    :fieldName="fieldName"
+                    :label="label"
+                    :options="options"
+                    :required="true"
+                    @updateFieldData="valueChanged"
+                />
+
                 <!-- eslint-disable -->
                 <label
                     class="vs-carbon-calculator-question__label"
@@ -22,45 +30,14 @@
                     {{ label }}
                 </label>
                 <!-- eslint-enable -->
-
-                <BFormRadioGroup
-                    :id="fieldName"
-                >
-                    <div
-                        class="vs-carbon-calculator-radio"
-                        v-for="
-                            (option, optionIndex) in
-                                options
-                        "
-                        :class="checkedValue === option.value
-                            ? 'vs-carbon-calculator-radio--checked' : ''
-                        "
-                        :key="optionIndex"
-                    >
-                        <BFormRadio
-                            :value="option.value"
-                            :name="fieldName"
-                            :id="fieldName + option.value"
-                            @change="valueChanged({
-                                field: fieldName,
-                                value: option.value,
-                            })"
-                        >
-                            {{ option.text }}
-                        </BFormRadio>
-                    </div>
-                </BFormRadioGroup>
             </template>
         </div>
     </BFormGroup>
 </template>
 
 <script>
-import {
-    BFormGroup,
-    BFormRadioGroup,
-    BFormRadio,
-} from 'bootstrap-vue-next';
+import { BFormGroup } from 'bootstrap-vue-next';
+import VsRadioButton from '@components/elements/radio-button/RadioButton.vue';
 import VsHeading from '@components/elements/heading/Heading.vue';
 
 /**
@@ -72,8 +49,7 @@ export default {
     release: '0.0.1',
     components: {
         BFormGroup,
-        BFormRadioGroup,
-        BFormRadio,
+        VsRadioButton,
         VsHeading,
     },
     props: {
@@ -131,14 +107,8 @@ export default {
             required: true,
         },
     },
-    data() {
-        return {
-            checkedValue: '',
-        };
-    },
     methods: {
         valueChanged(newData) {
-            this.checkedValue = newData.value;
             this.$emit('updateFieldData', newData);
         },
     },
@@ -152,70 +122,5 @@ export default {
 
     .vs-carbon-calculator-question__label {
         width: 100%;
-    }
-
-    .vs-carbon-calculator-radio {
-        display: inline-block;
-        vertical-align: top;
-        width: 50%;
-        padding: $spacer-3;
-        cursor: pointer;
-
-        &:nth-of-type(odd) {
-            padding-left: $spacer-0;
-        }
-
-        &:nth-of-type(even) {
-            padding-right: $spacer-0;
-        }
-
-        .form-check {
-            box-sizing: border-box;
-            border: 1px solid $color-theme-primary;
-            padding: $spacer-2 $spacer-4;
-        }
-
-        * {
-            cursor: pointer;
-        }
-
-        label {
-            width: 100%;
-            transform: translateY(-2px);
-
-            &::before {
-                content: "";
-                display: inline-block;
-                width: $spacer-6;
-                height: $spacer-6;
-                outline: 2px solid $color-theme-primary;
-                border-radius: 50%;
-                vertical-align: baseline;
-                transform: translateY(6px);
-                margin-right: $spacer-4;
-                background-color: $color-white;
-            }
-        }
-
-        .form-check-inline {
-            width: 100%;
-        }
-
-        input {
-            display: none;
-        }
-
-        &--checked {
-            .form-check {
-                border-width: 2px;
-            }
-
-            label {
-                &::before {
-                    border: $spacer-1 solid $color-white;
-                    background-color: $color-theme-primary;
-                }
-            }
-        }
     }
 </style>

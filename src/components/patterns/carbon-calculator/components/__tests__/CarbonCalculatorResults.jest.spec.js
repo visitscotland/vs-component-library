@@ -26,6 +26,7 @@ describe('VsCarbonCalculatorResults', () => {
             const wrapper = factoryShallowMount({
                 totalTonnes: 10,
                 foodTonnes: 5,
+                foodLabel: 'Food ',
             });
 
             expect(wrapper.text()).toContain('Food 50.0%');
