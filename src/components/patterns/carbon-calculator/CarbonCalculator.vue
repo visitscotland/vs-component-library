@@ -22,6 +22,7 @@
                             :max="4"
                             :currentStep="currentQuestion ? currentQuestion.stage : 4"
                             :isStepped="true"
+                            :isFull="activeQuestion > formData.fields.length"
                         />
 
                         <div
@@ -664,71 +665,6 @@ export default {
 
         &__no-js {
             display: none;
-        }
-    }
-
-    .vs-carbon-calculator__question {
-        width: 100%;
-    }
-
-    .vs-carbon-calculator__radio {
-        display: inline-block;
-        vertical-align: top;
-        width: 50%;
-        text-align: center;
-        padding: $spacer-4 $spacer-2;
-        cursor: pointer;
-
-        * {
-            cursor: pointer;
-        }
-
-        .vs-icon {
-            width: 100%;
-        }
-
-        label {
-            width: 100%;
-        }
-
-        .form-check-inline {
-            width: 100%;
-        }
-
-        .vs-carbon-calculator__radio-icon {
-            aspect-ratio: 1/1;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: $color-gray-tint-7;
-            margin-bottom: $spacer-3;
-        }
-
-        input {
-            display: none;
-        }
-
-        input:checked ~ label {
-            .vs-carbon-calculator__radio-icon {
-                background-color: $color-pink;
-
-                .vs-icon {
-                    color: $color-white;
-                }
-            }
-        }
-    }
-
-    @include media-breakpoint-up(md) {
-        .vs-carbon-calculator__radio {
-            width: calc(100% / 3);
-        }
-    }
-
-    @include media-breakpoint-up(lg) {
-        .vs-carbon-calculator__radio {
-            width: 25%;
         }
     }
 

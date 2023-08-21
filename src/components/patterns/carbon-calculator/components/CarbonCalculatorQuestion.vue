@@ -15,7 +15,7 @@
 
                 <!-- eslint-disable -->
                 <label
-                    class="vs-carbon-calculator__question"
+                    class="vs-carbon-calculator-question"
                     :for="fieldName"
                 >
                     {{ label }}
@@ -26,7 +26,7 @@
                     :id="fieldName"
                 >
                     <div
-                        class="vs-carbon-calculator__radio"
+                        class="vs-carbon-calculator-radio"
                         v-for="
                             (option, optionIndex) in
                                 options
@@ -42,12 +42,6 @@
                                 value: option.value,
                             })"
                         >
-                            <div class="vs-carbon-calculator__radio-icon">
-                                <VsIcon
-                                    :name="option.icon"
-                                    size="xl"
-                                />
-                            </div>
                             {{ option.text }}
                         </BFormRadio>
                     </div>
@@ -64,7 +58,6 @@ import {
     BFormRadio,
 } from 'bootstrap-vue-next';
 import VsHeading from '@components/elements/heading/Heading.vue';
-import VsIcon from '@components/elements/icon/Icon.vue';
 
 /**
  * @displayName Carbon Form Question
@@ -78,7 +71,6 @@ export default {
         BFormRadioGroup,
         BFormRadio,
         VsHeading,
-        VsIcon,
     },
     props: {
         /**
@@ -144,5 +136,63 @@ export default {
 </script>
 
 <style lang='scss'>
+    .vs-carbon-calculator-question {
+        width: 100%;
+    }
 
+    .vs-carbon-calculator-radio {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+        padding: $spacer-2;
+        cursor: pointer;
+
+        &:nth-of-type(odd) {
+            padding-left: $spacer-0;
+        }
+
+        &:nth-of-type(even) {
+            padding-right: $spacer-0;
+        }
+
+        .form-check {
+            border: 2px solid $color-theme-primary;
+            padding: $spacer-2 $spacer-4;
+        }
+
+        * {
+            cursor: pointer;
+        }
+
+        label {
+            width: 100%;
+                transform: translateY(-4px);
+
+            &::before {
+                content: "";
+                display: inline-block;
+                width: $spacer-6;
+                height: $spacer-6;
+                border: 2px solid $color-theme-primary;
+                border-radius: 50%;
+                vertical-align: baseline;
+                transform: translateY(6px);
+                margin-right: $spacer-2;
+            }
+        }
+
+        .form-check-inline {
+            width: 100%;
+        }
+
+        input {
+            display: none;
+        }
+
+        input:checked ~ label {
+            &::before {
+                background-color: $color-theme-primary;
+            }
+        }
+    }
 </style>

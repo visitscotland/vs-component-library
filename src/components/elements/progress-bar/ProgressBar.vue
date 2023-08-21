@@ -78,12 +78,19 @@ export default {
             type: Boolean,
             required: false,
         },
+        /**
+         * If set to true, the progress bar is marked as complete and highlighted in green
+         */
+        isFull: {
+            type: Boolean,
+            required: false,
+        },
     },
     computed: {
         computedClasses() {
             let classes = '';
 
-            if (this.currentStep === this.max) {
+            if (this.isFull) {
                 classes += 'vs-progress-bar--full ';
             }
 
