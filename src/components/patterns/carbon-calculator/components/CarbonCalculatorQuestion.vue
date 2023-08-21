@@ -2,6 +2,7 @@
     <BFormGroup
         :class="fieldClass"
         data-test="vs-carbon-calculator-question"
+        class="vs-carbon-calculator-question"
     >
         <div
             :class="fieldClass"
@@ -15,7 +16,7 @@
 
                 <!-- eslint-disable -->
                 <label
-                    class="vs-carbon-calculator-question"
+                    class="vs-carbon-calculator-question__label"
                     :for="fieldName"
                 >
                     {{ label }}
@@ -30,6 +31,9 @@
                         v-for="
                             (option, optionIndex) in
                                 options
+                        "
+                        :class="checkedValue === option.value
+                            ? 'vs-carbon-calculator-radio--checked' : ''
                         "
                         :key="optionIndex"
                     >
@@ -127,8 +131,14 @@ export default {
             required: true,
         },
     },
+    data() {
+        return {
+            checkedValue: '',
+        };
+    },
     methods: {
         valueChanged(newData) {
+            this.checkedValue = newData.value;
             this.$emit('updateFieldData', newData);
         },
     },
@@ -137,6 +147,10 @@ export default {
 
 <style lang='scss'>
     .vs-carbon-calculator-question {
+        margin-bottom: $spacer-4;
+    }
+
+    .vs-carbon-calculator-question__label {
         width: 100%;
     }
 
@@ -144,7 +158,7 @@ export default {
         display: inline-block;
         vertical-align: top;
         width: 50%;
-        padding: $spacer-2;
+        padding: $spacer-3;
         cursor: pointer;
 
         &:nth-of-type(odd) {
@@ -156,7 +170,8 @@ export default {
         }
 
         .form-check {
-            border: 2px solid $color-theme-primary;
+            box-sizing: border-box;
+            border: 1px solid $color-theme-primary;
             padding: $spacer-2 $spacer-4;
         }
 
@@ -166,18 +181,19 @@ export default {
 
         label {
             width: 100%;
-                transform: translateY(-4px);
+            transform: translateY(-2px);
 
             &::before {
                 content: "";
                 display: inline-block;
                 width: $spacer-6;
                 height: $spacer-6;
-                border: 2px solid $color-theme-primary;
+                outline: 2px solid $color-theme-primary;
                 border-radius: 50%;
                 vertical-align: baseline;
                 transform: translateY(6px);
-                margin-right: $spacer-2;
+                margin-right: $spacer-4;
+                background-color: $color-white;
             }
         }
 
@@ -189,9 +205,16 @@ export default {
             display: none;
         }
 
-        input:checked ~ label {
-            &::before {
-                background-color: $color-theme-primary;
+        &--checked {
+            .form-check {
+                border-width: 2px;
+            }
+
+            label {
+                &::before {
+                    border: $spacer-1 solid $color-white;
+                    background-color: $color-theme-primary;
+                }
             }
         }
     }
