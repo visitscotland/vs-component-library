@@ -20,7 +20,8 @@
                     <fieldset>
                         <VsProgressBar
                             :max="4"
-                            :currentStep="currentQuestion ? currentQuestion.stage - 1 : 4"
+                            :currentStep="currentQuestion ? currentQuestion.stage : 4"
+                            :isStepped="true"
                         />
 
                         <div

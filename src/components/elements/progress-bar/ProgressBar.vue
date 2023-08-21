@@ -30,7 +30,6 @@
 
         <p
             class="vs-progress-bar__label"
-            v-if="currentStep"
         >
             {{ currentStep }} / {{ max }}
         </p>
