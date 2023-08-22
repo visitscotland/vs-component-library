@@ -12,8 +12,31 @@
         </label>
         <!-- eslint-enable -->
 
+        <div
+            role="alert"
+            aria-live="assertive"
+            v-if="(errorsList.length) || invalid"
+            :id="`error-${fieldName}`"
+        >
+            <p
+                v-for="error in errorsList"
+                v-show="!reAlertErrors && !clearErrorsOnFocus"
+                :key="error"
+                class="error mb-0"
+            >
+                <span class="sr-only">{{ fieldName }}</span>
+                {{ validationMessages[error] || genericValidation[error] }}
+            </p>
+        </div>
+
         <BFormRadioGroup
             :id="fieldName"
+            :aria-invalid="(v$.inputVal && v$.inputVal.$anyError) || invalid"
+            :aria-describedby="(v$.inputVal && v$.inputVal.$anyError) || invalid
+                ? `error-${fieldName}` : `hint-${fieldName}`"
+            @blur="validateErrors"
+            @change="validateErrors"
+            @focus="resetErrors"
         >
             <div
                 v-for="
@@ -275,19 +298,25 @@ export default {
                 padding-right: $spacer-0;
             }
 
+            background-color: $color-white;
+
             * {
                 cursor: pointer;
             }
         }
 
         .form-check {
-            padding: $spacer-2 $spacer-4;
             border: 1px solid $color-theme-primary;
+
+            &:focus-within {
+                background-color: $color-gray-tint-7;
+            }
         }
 
         .form-check label {
             width: 100%;
             transform: translateY(-2px);
+            padding: $spacer-2 $spacer-4;
 
             &::before {
                 content: "";
