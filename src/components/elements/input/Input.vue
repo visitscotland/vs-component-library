@@ -27,6 +27,16 @@
             </p>
         </div>
 
+        <VsButton
+            v-if="useIncrements"
+            class="vs-input__increment"
+            :iconOnly="true"
+            size="sm"
+            icon="minus"
+            :disabled="(intValue <= minimumNumber) ? true : null"
+            @click="decrementValue"
+        />
+
         <BFormInput
             ref="input"
             :type="type"
@@ -44,10 +54,23 @@
                 ? `error-${fieldName}` : `hint-${fieldName}`"
             :maxlength="validationRules.maxLength ? validationRules.maxLength : null"
             :minlength="validationRules.minLength ? validationRules.minLength : null"
-            @blur="validateErrors"
+            :min="useIncrements ? minimumNumber : null"
+            :max="useIncrements ? maximumNumber : null"
+            @blur="controlBlurred"
             @change="validateErrors"
             @focus="resetErrors"
         />
+
+        <VsButton
+            v-if="useIncrements"
+            class="vs-input__increment"
+            :iconOnly="true"
+            size="sm"
+            icon="plus"
+            :disabled="(intValue >= maximumNumber) ? true : null"
+            @click="incrementValue"
+        />
+
         <VsButton
             v-if="showClearButton"
             class="vs-input__clear-button d-none d-lg-block"
@@ -109,6 +132,31 @@ export default {
         type: {
             type: String,
             default: 'text',
+        },
+        /**
+         * If set to true, and the type is set to 'number', button controls
+         * are provided to the user which allow them to increment and
+         * decrement the number in the input.
+         */
+        incrementControls: {
+            type: Boolean,
+            default: false,
+        },
+        /**
+         * Assigns a floor that the number input can be set to, only relevant
+         * if the type is number
+         */
+        minimumNumber: {
+            type: Number,
+            default: 0,
+        },
+        /**
+         * Assigns a ceiling that the number input can be set to, only relevant
+         * if the type is number
+         */
+        maximumNumber: {
+            type: Number,
+            default: 10,
         },
         autoComplete: {
             type: Boolean,
@@ -213,7 +261,13 @@ export default {
             const errorClass = (this.v$.inputVal && this.v$.inputVal.$anyError) || this.invalid ? 'vs-input--error' : '';
             const nameClass = `vs-input--${this.fieldName}`;
 
-            return `${errorClass} ${nameClass}`;
+            let incrementClass = '';
+
+            if (this.type === 'number' && this.incrementControls) {
+                incrementClass = 'vs-input--increment-controls';
+            }
+
+            return `${errorClass} ${nameClass} ${incrementClass}`;
         },
         showClearButton() {
             if (this.inputVal.length && this.clearButtonText !== '') {
@@ -224,6 +278,12 @@ export default {
         },
         errorClass() {
             return (this.v$.inputVal && this.v$.inputVal.$anyError) || this.invalid ? 'vs-input--error' : '';
+        },
+        useIncrements() {
+            return (this.type === 'number' && this.incrementControls);
+        },
+        intValue() {
+            return parseInt(this.inputVal, 10);
         },
     },
     watch: {
@@ -305,6 +365,23 @@ export default {
             return autocomplete;
         },
         /**
+         * Check if an entered number value is within the specified bounds and
+         * resets it if not, then passes to the validation process
+         */
+        controlBlurred() {
+            if (this.useIncrements) {
+                if (this.intValue < this.minimumNumber) {
+                    this.inputVal = `${this.minimumNumber}`;
+                }
+
+                if (this.intValue > this.maximumNumber) {
+                    this.inputVal = `${this.maximumNumber}`;
+                }
+            }
+
+            this.validateErrors();
+        },
+        /**
          * Validate errors on blur, and re-render them to the screen for screen
          * reader notice
          */
@@ -318,6 +395,24 @@ export default {
          */
         resetErrors() {
             this.clearErrorsOnFocus = true;
+        },
+        /**
+         * If the input value is a number, decrement it by one down to the minimum value
+         */
+        decrementValue() {
+            let numVal = this.intValue;
+            numVal = Math.max(0, numVal - 1);
+
+            this.inputVal = `${numVal}`;
+        },
+        /**
+         * If the input value is a number, increment it by one up to the maximum value
+         */
+        incrementValue() {
+            let numVal = this.intValue;
+            numVal = Math.min(10, numVal + 1);
+
+            this.inputVal = `${numVal}`;
         },
     },
     validations() {
@@ -350,6 +445,18 @@ export default {
         right: $spacer-5;
         top: 50%;
         transform: translate(0, -50%);
+    }
+
+    &--increment-controls {
+        display: inline-block;
+        width: 5rem;
+        margin-left: $spacer-4;
+        margin-right: $spacer-4;
+    }
+
+    &__increment {
+        width: $spacer-7;
+        height: $spacer-7;
     }
 }
 </style>

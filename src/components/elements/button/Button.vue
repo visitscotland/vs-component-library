@@ -248,13 +248,17 @@ export default {
             }
         }
 
+        &.disabled {
+            pointer-events: none;
+        }
+
         &:not(:disabled):not(.disabled):active:focus {
             box-shadow: none;
         }
 
         &.btn-primary, &.btn-secondary,
         &.btn-dark, &.btn-light{
-            &:disabled {
+            &.disabled {
                 background-color: $color-secondary-gray-tint-4;
                 color: $color-white;
                 opacity: $opacity-100;

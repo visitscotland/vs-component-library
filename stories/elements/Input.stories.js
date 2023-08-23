@@ -16,12 +16,13 @@ const Template = (args, required) => ({
         };
     },
     template: `
-        <label for="args.fieldName">Email address</label>
+        <label for="args.fieldName">{{ args.label }}</label>
         <VsInput v-bind="args" required="${required}"></VsInput>
     `,
 });
 
 const base = {
+    label: 'Email address',
     fieldName: 'email-address',
     value: '',
     type: 'email',
@@ -88,4 +89,15 @@ Invalid.args = {
     genericValidation: {
         required: 'This field is required',
     },
+};
+
+export const IncrementControls = Template.bind({
+});
+
+IncrementControls.args = {
+    ...base,
+    label: 'How many nights are you staying?',
+    type: 'number',
+    incrementControls: true,
+    value: '0',
 };
