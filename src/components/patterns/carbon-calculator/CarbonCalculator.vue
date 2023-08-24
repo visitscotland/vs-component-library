@@ -453,7 +453,18 @@ export default {
                 }
             }
 
-            return field.values[key];
+            const selectedValue = field.values[key];
+
+            if (field.multiplyByNumber) {
+                return selectedValue * field.multiplyByNumber;
+            }
+
+            if (field.multiplyByAnswer) {
+                const multiplier = this.form[field.multiplyByAnswer] || 0;
+                return selectedValue * multiplier;
+            }
+
+            return selectedValue;
         },
         getNumberValue(fieldName, key) {
             if (!key) {
@@ -468,7 +479,16 @@ export default {
                 }
             }
 
-            return (parseInt(key, 10) * field.valuePer);
+            if (field.multiplyByNumber) {
+                return (parseInt(key, 10) * field.multiplyByNumber);
+            }
+
+            if (field.multiplyByAnswer) {
+                const multiplier = this.form[field.multiplyByAnswer] || 0;
+                return (parseInt(key, 10) * multiplier);
+            }
+
+            return 0;
         },
         getFieldValue(checkField) {
             if (checkField.element === 'radio') {

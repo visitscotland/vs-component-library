@@ -20,104 +20,33 @@
             },
             "values": {
                 "noTravel": 0,
-                "plane": 0,
-                "petrolCar": 0,
-                "dieselCar": 0,
-                "electricCar": 0,
-                "train": 0
+                "plane": 5,
+                "petrolCar": 4,
+                "dieselCar": 4,
+                "electricCar": 1,
+                "train": 1
             },
+            "multiplyByAnswer": "howLongJourney",
             "stage": 1
         },
         {
-            "name": "howLongJourneyPlane",
+            "name": "howLongJourney",
             "element": "number",
             "validation": {
                 "required": true,
                 "min": 0,
                 "max": 24
             },
-            "valuePer": 5,
+            "multiplyByNumber": 0,
             "validationMessages": {
                 "required": "Please choose a duration"
             },
             "conditional": {
                 "transportModeTo": [
-                    "plane"
-                ]
-            },
-            "stage": 1
-        },
-        {
-            "name": "howLongJourneyPetrolCar",
-            "element": "number",
-            "validation": {
-                "required": true,
-                "min": 0,
-                "max": 24
-            },
-            "valuePer": 4,
-            "validationMessages": {
-                "required": "Please choose a duration"
-            },
-            "conditional": {
-                "transportModeTo": [
-                    "petrolCar"
-                ]
-            },
-            "stage": 1
-        },
-        {
-            "name": "howLongJourneyDieselCar",
-            "element": "number",
-            "validation": {
-                "required": true,
-                "min": 0,
-                "max": 24
-            },
-            "valuePer": 4,
-            "validationMessages": {
-                "required": "Please choose a duration"
-            },
-            "conditional": {
-                "transportModeTo": [
-                    "dieselCar"
-                ]
-            },
-            "stage": 1
-        },
-        {
-            "name": "howLongJourneyElectricCar",
-            "element": "number",
-            "validation": {
-                "required": true,
-                "min": 0,
-                "max": 24
-            },
-            "valuePer": 1,
-            "validationMessages": {
-                "required": "Please choose a duration"
-            },
-            "conditional": {
-                "transportModeTo": [
-                    "electricCar"
-                ]
-            },
-            "stage": 1
-        },
-        {
-            "name": "howLongJourneyTrain",
-            "element": "number",
-            "validation": {
-                "required": true,
-                "min": 0,
-                "max": 24
-            },
-            "valuePer": 1,
-            "validationMessages": {
-                "required": "Please choose a duration"
-            },
-            "conditional": {
-                "transportModeTo": [
+                    "plane",
+                    "petrolCar",
+                    "dieselCar",
+                    "electricCar",
                     "train"
                 ]
             },
@@ -131,7 +60,7 @@
                 "min": 0,
                 "max": 365
             },
-            "valuePer": 1,
+            "multiplyByNumber": 1,
             "validationMessages": {
                 "required": "Please choose a duration"
             },
@@ -162,6 +91,7 @@
                 "vegetarian": 1,
                 "vegan": 0
             },
+            "multiplyByAnswer": "howLongStay",
             "stage": 3
         }
     ]
