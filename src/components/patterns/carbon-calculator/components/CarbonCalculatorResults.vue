@@ -20,9 +20,9 @@
                 >
                     <p>
                         <span class="vs-carbon-calculator-results__total">
-                            {{ totalTonnes.toFixed(3) }}
+                            {{ totalKilos }}
                         </span>
-                        Tonnes CO2
+                        kgs CO2
                     </p>
                 </VsCol>
                 <VsCol
@@ -142,15 +142,15 @@ export default {
             type: String,
             default: '',
         },
-        comparisonTonnes: {
+        comparisonKilos: {
             type: Number,
             default: 0.1,
         },
-        totalTonnes: {
+        totalKilos: {
             type: Number,
             default: 0,
         },
-        foodTonnes: {
+        foodKilos: {
             type: Number,
             default: 0,
         },
@@ -158,7 +158,7 @@ export default {
             type: Object,
             default: null,
         },
-        transportTonnes: {
+        transportKilos: {
             type: Number,
             default: 0,
         },
@@ -166,7 +166,7 @@ export default {
             type: Object,
             default: null,
         },
-        accommodationTonnes: {
+        accommodationKilos: {
             type: Number,
             default: 0,
         },
@@ -198,9 +198,9 @@ export default {
                 datasets: [
                     {
                         data: [
-                            this.transportTonnes,
-                            this.accommodationTonnes,
-                            this.foodTonnes,
+                            this.transportKilos,
+                            this.accommodationKilos,
+                            this.foodKilos,
                         ],
                         backgroundColor: [
                             '#EBBFDB',
@@ -222,18 +222,18 @@ export default {
             };
         },
         interpolComparison() {
-            const instances = (this.totalTonnes / this.comparisonTonnes).toFixed(3);
+            const instances = (this.totalKilos / this.comparisonKilos).toFixed(3);
 
             return this.comparison.replace('xxx', instances);
         },
         transportPercent() {
-            return (this.transportTonnes / this.totalTonnes) * 100;
+            return (this.transportKilos / this.totalKilos) * 100;
         },
         accommodationPercent() {
-            return (this.accommodationTonnes / this.totalTonnes) * 100;
+            return (this.accommodationKilos / this.totalKilos) * 100;
         },
         foodPercent() {
-            return (this.foodTonnes / this.totalTonnes) * 100;
+            return (this.foodKilos / this.totalKilos) * 100;
         },
     },
 };

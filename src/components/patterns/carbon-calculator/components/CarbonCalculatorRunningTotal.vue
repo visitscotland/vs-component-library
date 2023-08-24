@@ -19,7 +19,7 @@
             >
                 <p>Your calculation so far:</p>
                 <p>
-                    <span class="font-weight-bold">{{ totalTonnes.toFixed(3) }}</span> Tonnes of C02
+                    <span class="font-weight-bold">{{ totalKilos }}</span> kgs of C02
                 </p>
             </VsCol>
         </VsRow>
@@ -47,11 +47,11 @@ export default {
     },
     props: {
         /**
-         * The current total number of tonnes of carbon captured in the
+         * The current total number of kilos of carbon captured in the
          * user's calculation. Will be rounded to 3 significant figures
          * when rendered.
          */
-        totalTonnes: {
+        totalKilos: {
             type: Number,
             default: 0,
         },

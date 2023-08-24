@@ -54,14 +54,14 @@
             >
                 <VsCarbonCalculatorRunningTotal
                     v-if="activeQuestion > 0 && activeQuestion <= formData.fields.length"
-                    :total-tonnes="totalTonnes"
+                    :total-kilos="totalKilos"
                 />
                 <VsCarbonCalculatorResults
                     v-if="activeQuestion > formData.fields.length"
                     :title="labelsMap.results"
-                    :total-tonnes="totalTonnes"
-                    :transport-tonnes="transportTonnes"
-                    :food-tonnes="foodTonnes"
+                    :total-kilos="totalKilos"
+                    :transport-kilos="transportKilos"
+                    :food-kilos="foodKilos"
                     :transport-tip="transportTip"
                     :food-tip="foodTip"
                     :transport-label="getQuestionCategory(1)"
@@ -69,7 +69,7 @@
                     :experiences-label="getQuestionCategory(3)"
                     :food-label="getQuestionCategory(4)"
                     :comparison="comparison.text"
-                    :comparison-tonnes="comparison.tonnes"
+                    :comparison-kilos="comparison.kilos"
                 />
             </VsCol>
             <VsCol
@@ -220,10 +220,10 @@ export default {
             },
             inputVal: '',
             reAlertErrors: false,
-            totalTonnes: 0,
-            transportTonnes: 0,
-            accommodationTonnes: 0,
-            foodTonnes: 0,
+            totalKilos: 0,
+            transportKilos: 0,
+            accommodationKilos: 0,
+            foodKilos: 0,
             transportTip: null,
             foodTip: null,
             accommodationTip: null,
@@ -264,7 +264,7 @@ export default {
         comparison() {
             return {
                 text: this.labelsMap.comparison,
-                tonnes: parseFloat(this.labelsMap.comparisonTonnes),
+                kilos: parseFloat(this.labelsMap.comparisonKilos),
             };
         },
     },
@@ -559,15 +559,15 @@ export default {
          * TODO
          */
         calculate() {
-            this.transportTonnes = 0;
+            this.transportKilos = 0;
             this.transportTip = null;
             let transportTips = [];
 
-            this.accommodationTonnes = 0;
+            this.accommodationKilos = 0;
             this.accommodationTips = null;
             let accommodationTips = [];
 
-            this.foodTonnes = 0;
+            this.foodKilos = 0;
             this.foodTip = null;
             let foodTips = [];
 
@@ -576,7 +576,7 @@ export default {
 
                 switch (currentField.stage) {
                 case 1:
-                    this.transportTonnes += this.getFieldValue(
+                    this.transportKilos += this.getFieldValue(
                         currentField,
                     );
                     transportTips = transportTips.concat(
@@ -584,7 +584,7 @@ export default {
                     );
                     break;
                 case 2:
-                    this.accommodationTonnes += this.getFieldValue(
+                    this.accommodationKilos += this.getFieldValue(
                         currentField,
                     );
                     accommodationTips = accommodationTips.concat(
@@ -592,7 +592,7 @@ export default {
                     );
                     break;
                 case 3:
-                    this.foodTonnes += this.getFieldValue(
+                    this.foodKilos += this.getFieldValue(
                         currentField,
                     );
                     foodTips = foodTips.concat(
@@ -604,7 +604,7 @@ export default {
                 }
             }
 
-            this.totalTonnes = this.transportTonnes + this.accommodationTonnes + this.foodTonnes;
+            this.totalKilos = this.transportKilos + this.accommodationKilos + this.foodKilos;
 
             this.transportTip = transportTips[Math.floor(Math.random() * transportTips.length)];
             this.accommodationTip = accommodationTips[

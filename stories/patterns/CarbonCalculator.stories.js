@@ -33,6 +33,7 @@ const base = {
         results: 'Results',
         comparison: '<p>That\'s the equivalent to travelling the West Highland line over the Glenfinnan Viaduct (like Harry Potter!) xxx times.</p><p>The West Highland Line runs from Glasgow to Mallaig for 162 miles. Each journey uses 9.29kg of CO2 per person.</p>',
         comparisonTonnes: '0.00929',
+        kilos: 'kilos',
         'section-1.title': 'Transport',
         'section-2.title': 'Accomodation',
         'section-3.title': 'Experiences',

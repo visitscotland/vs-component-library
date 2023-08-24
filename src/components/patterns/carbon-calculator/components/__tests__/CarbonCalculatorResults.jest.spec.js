@@ -24,8 +24,8 @@ describe('VsCarbonCalculatorResults', () => {
     describe(':props', () => {
         it('calculates and displays foodPercentage properly based on input props', () => {
             const wrapper = factoryShallowMount({
-                totalTonnes: 10,
-                foodTonnes: 5,
+                totalKilos: 10,
+                foodKilos: 5,
                 foodLabel: 'Food ',
             });
 

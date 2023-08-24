@@ -7,7 +7,7 @@ config.global.renderStubDefaultSlot = true;
 const factoryShallowMount = (propsData) => shallowMount(VsCarbonCalculatorRunningTotal, {
     propsData: {
         ...propsData,
-        totalTonnes: 1.00455,
+        totalKilos: 13,
     },
 });
 
@@ -21,10 +21,10 @@ describe('VsCarbonCalculatorRunningTotal', () => {
     });
 
     describe(':props', () => {
-        it('should properly round the totalTonnes prop to 3 significant figures', () => {
+        it('should properly display the totalKilos prop', () => {
             const wrapper = factoryShallowMount();
 
-            expect(wrapper.text()).toContain('1.005');
+            expect(wrapper.text()).toContain('13');
         });
     });
 });
