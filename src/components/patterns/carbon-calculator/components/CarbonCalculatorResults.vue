@@ -76,27 +76,12 @@
                 <span
                     class="vs-carbon-calculator-results__breakdown-cat"
                 >
-                    {{ accomodationLabel }}
+                    {{ accommodationLabel }}
                 </span>
                 <span
                     class="vs-carbon-calculator-results__breakdown-percent"
                 >
-                    {{ accomodationPercent.toFixed(1) }}%
-                </span>
-            </div>
-            <div class="vs-carbon-calculator-results__breakdown">
-                <VsIcon
-                    name="leaf"
-                />
-                <span
-                    class="vs-carbon-calculator-results__breakdown-cat"
-                >
-                    {{ experiencesLabel }}
-                </span>
-                <span
-                    class="vs-carbon-calculator-results__breakdown-percent"
-                >
-                    {{ experiencesPercent.toFixed(1) }}%
+                    {{ accommodationPercent.toFixed(1) }}%
                 </span>
             </div>
             <div class="vs-carbon-calculator-results__breakdown">
@@ -181,19 +166,11 @@ export default {
             type: Object,
             default: null,
         },
-        accomodationTonnes: {
+        accommodationTonnes: {
             type: Number,
             default: 0,
         },
-        accomodationTip: {
-            type: Object,
-            default: null,
-        },
-        experiencesTonnes: {
-            type: Number,
-            default: 0,
-        },
-        experiencesTip: {
+        accommodationTip: {
             type: Object,
             default: null,
         },
@@ -201,11 +178,7 @@ export default {
             type: String,
             default: '',
         },
-        accomodationLabel: {
-            type: String,
-            default: '',
-        },
-        experiencesLabel: {
+        accommodationLabel: {
             type: String,
             default: '',
         },
@@ -219,22 +192,19 @@ export default {
             return {
                 labels: [
                     'Transport',
-                    'Accomodation',
-                    'Experiences',
+                    'Accommodation',
                     'Food & Drink',
                 ],
                 datasets: [
                     {
                         data: [
                             this.transportTonnes,
-                            this.accomodationTonnes,
-                            this.experiencesTonnes,
+                            this.accommodationTonnes,
                             this.foodTonnes,
                         ],
                         backgroundColor: [
                             '#EBBFDB',
                             '#D373AF',
-                            '#BB2684',
                             '#7A004D',
                         ],
                     },
@@ -259,11 +229,8 @@ export default {
         transportPercent() {
             return (this.transportTonnes / this.totalTonnes) * 100;
         },
-        accomodationPercent() {
-            return (this.accomodationTonnes / this.totalTonnes) * 100;
-        },
-        experiencesPercent() {
-            return (this.experiencesTonnes / this.totalTonnes) * 100;
+        accommodationPercent() {
+            return (this.accommodationTonnes / this.totalTonnes) * 100;
         },
         foodPercent() {
             return (this.foodTonnes / this.totalTonnes) * 100;

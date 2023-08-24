@@ -19,8 +19,8 @@
                 >
                     <fieldset>
                         <VsProgressBar
-                            :max="4"
-                            :currentStep="currentQuestion ? currentQuestion.stage : 4"
+                            :max="formData.stages"
+                            :currentStep="currentQuestion ? currentQuestion.stage : formData.stages"
                             :isStepped="true"
                             :isFull="activeQuestion > formData.fields.length"
                         />
@@ -65,7 +65,7 @@
                     :transport-tip="transportTip"
                     :food-tip="foodTip"
                     :transport-label="getQuestionCategory(1)"
-                    :accomodation-label="getQuestionCategory(2)"
+                    :accommodation-label="getQuestionCategory(2)"
                     :experiences-label="getQuestionCategory(3)"
                     :food-label="getQuestionCategory(4)"
                     :comparison="comparison.text"
@@ -222,13 +222,11 @@ export default {
             reAlertErrors: false,
             totalTonnes: 0,
             transportTonnes: 0,
+            accommodationTonnes: 0,
             foodTonnes: 0,
-            accomodationTonnes: 0,
-            experiencesTonnes: 0,
             transportTip: null,
             foodTip: null,
-            accomodationTip: null,
-            experiencesTip: null,
+            accommodationTip: null,
             activeQuestion: 0,
             answerSet: false,
         };
@@ -250,12 +248,9 @@ export default {
                     tip = this.transportTip;
                     break;
                 case (2):
-                    tip = this.accomodationTip;
+                    tip = this.accommodationTip;
                     break;
                 case (3):
-                    tip = this.experiencesTip;
-                    break;
-                case (4):
                     tip = this.foodTip;
                     break;
                 default:
@@ -372,13 +367,19 @@ export default {
             return '';
         },
         getQuestionOptions(index) {
-            const { options } = this.formData.fields[index];
+            const field = this.formData.fields[index];
 
-            for (let x = 0; x < options.length; x++) {
-                options[x].text = this.labelsMap[`page-${index + 1}.option-${x + 1}`];
+            if (field.element === 'radio') {
+                const { options } = field;
+
+                for (let x = 0; x < options.length; x++) {
+                    options[x].text = this.labelsMap[`page-${index + 1}.option-${x + 1}`];
+                }
+
+                return options;
             }
 
-            return options;
+            return [];
         },
         /**
          * check if value is undefined
@@ -403,6 +404,7 @@ export default {
             }
 
             this.manageErrorStatus(data.field, data.errors);
+            this.checkConditionalFields();
             this.calculate();
         },
         /**
@@ -438,7 +440,7 @@ export default {
 
             return true;
         },
-        getFieldValue(fieldName, key) {
+        getRadioValue(fieldName, key) {
             if (!key) {
                 return 0;
             }
@@ -453,8 +455,40 @@ export default {
 
             return field.values[key];
         },
+        getNumberValue(fieldName, key) {
+            if (!key) {
+                return 0;
+            }
+
+            let field;
+
+            for (let x = 0; x < this.formData.fields.length; x++) {
+                if (this.formData.fields[x].name === fieldName) {
+                    field = this.formData.fields[x];
+                }
+            }
+
+            return (parseInt(key, 10) * field.valuePer);
+        },
+        getFieldValue(checkField) {
+            if (checkField.element === 'radio') {
+                return this.getRadioValue(
+                    checkField.name,
+                    this.form[checkField.name],
+                );
+            }
+
+            if (checkField.element === 'number') {
+                return this.getNumberValue(
+                    checkField.name,
+                    this.form[checkField.name],
+                );
+            }
+
+            return 0;
+        },
         getTips(field, key, questionIndex) {
-            if (key) {
+            if (key && field.options) {
                 for (let x = 0; x < field.options.length; x++) {
                     if (field.options[x].value === key) {
                         const checkTip = this.labelsMap[`page-${questionIndex + 1}.option-${x + 1}.tip`];
@@ -529,6 +563,10 @@ export default {
             this.transportTip = null;
             let transportTips = [];
 
+            this.accommodationTonnes = 0;
+            this.accommodationTips = null;
+            let accommodationTips = [];
+
             this.foodTonnes = 0;
             this.foodTip = null;
             let foodTips = [];
@@ -539,17 +577,23 @@ export default {
                 switch (currentField.stage) {
                 case 1:
                     this.transportTonnes += this.getFieldValue(
-                        currentField.name,
-                        this.form[currentField.name],
+                        currentField,
                     );
                     transportTips = transportTips.concat(
                         this.getTips(currentField, this.form[currentField.name], x),
                     );
                     break;
-                case 4:
+                case 2:
+                    this.accommodationTonnes += this.getFieldValue(
+                        currentField,
+                    );
+                    accommodationTips = accommodationTips.concat(
+                        this.getTips(currentField, this.form[currentField.name], x),
+                    );
+                    break;
+                case 3:
                     this.foodTonnes += this.getFieldValue(
-                        currentField.name,
-                        this.form[currentField.name],
+                        currentField,
                     );
                     foodTips = foodTips.concat(
                         this.getTips(currentField, this.form[currentField.name], x),
@@ -560,9 +604,12 @@ export default {
                 }
             }
 
-            this.totalTonnes = this.transportTonnes + this.foodTonnes;
+            this.totalTonnes = this.transportTonnes + this.accommodationTonnes + this.foodTonnes;
 
             this.transportTip = transportTips[Math.floor(Math.random() * transportTips.length)];
+            this.accommodationTip = accommodationTips[
+                Math.floor(Math.random() * accommodationTips.length)
+            ];
             this.foodTip = foodTips[Math.floor(Math.random() * foodTips.length)];
 
             this.submitted = true;
@@ -602,10 +649,12 @@ export default {
         },
         forwardPage() {
             this.activeQuestion += 1;
+            this.checkCurrentConditional(true);
             this.checkNewAnswerSet();
         },
         backwardPage() {
             this.activeQuestion -= 1;
+            this.checkCurrentConditional(false);
             this.checkNewAnswerSet();
         },
         checkNewAnswerSet() {
@@ -619,6 +668,16 @@ export default {
                 this.answerSet = false;
             } else {
                 this.answerSet = true;
+            }
+        },
+        checkCurrentConditional(isForward) {
+            const question = this.formData.fields[this.activeQuestion - 1];
+            if (this.conditionalElementClass(question.name)) {
+                if (isForward) {
+                    this.forwardPage();
+                } else {
+                    this.backwardPage();
+                }
             }
         },
         /**

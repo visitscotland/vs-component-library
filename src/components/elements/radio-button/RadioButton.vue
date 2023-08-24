@@ -3,15 +3,6 @@
         class="vs-radio-button"
         data-test="vs-radio-button"
     >
-        <!-- eslint-disable -->
-        <label
-            class="vs-radio-button__label"
-            :for="fieldName"
-        >
-            {{ label }}
-        </label>
-        <!-- eslint-enable -->
-
         <div
             role="alert"
             aria-live="assertive"
@@ -91,13 +82,6 @@ export default {
         validateFormElementMixin,
     ],
     props: {
-        /**
-         * The localised main text of the question that prompts the user to answer
-         */
-        label: {
-            type: String,
-            required: true,
-        },
         /**
          * Default value of the field
          */

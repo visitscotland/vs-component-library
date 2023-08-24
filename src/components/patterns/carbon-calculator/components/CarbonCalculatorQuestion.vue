@@ -7,30 +7,37 @@
         <div
             :class="fieldClass"
         >
-            <template v-if="fieldType === 'radio'">
-                <VsHeading
-                    level="3"
-                >
-                    {{ fieldCategory }}
-                </VsHeading>
+            <VsHeading
+                level="3"
+            >
+                {{ fieldCategory }}
+            </VsHeading>
 
-                <VsRadioButton
-                    :fieldName="fieldName"
-                    :label="label"
-                    :options="options"
-                    :required="true"
-                    @updateFieldData="valueChanged"
-                />
+            <!-- eslint-disable -->
+            <label
+                class="vs-carbon-calculator-question__label"
+                :for="fieldName"
+            >
+                {{ label }}
+            </label>
+            <!-- eslint-enable -->
 
-                <!-- eslint-disable -->
-                <label
-                    class="vs-carbon-calculator-question__label"
-                    :for="fieldName"
-                >
-                    {{ label }}
-                </label>
-                <!-- eslint-enable -->
-            </template>
+            <VsRadioButton
+                v-if="fieldType === 'radio'"
+                :fieldName="fieldName"
+                :options="options"
+                :required="true"
+                @updateFieldData="valueChanged"
+            />
+
+            <VsInput
+                v-if="fieldType === 'number'"
+                :fieldName="fieldName"
+                type="number"
+                :incrementControls="true"
+                value="0"
+                @updated="valueChanged"
+            />
         </div>
     </BFormGroup>
 </template>
@@ -39,6 +46,7 @@
 import { BFormGroup } from 'bootstrap-vue-next';
 import VsRadioButton from '@components/elements/radio-button/RadioButton.vue';
 import VsHeading from '@components/elements/heading/Heading.vue';
+import VsInput from '@components/elements/input/Input.vue';
 
 /**
  * @displayName Carbon Form Question
@@ -51,6 +59,7 @@ export default {
         BFormGroup,
         VsRadioButton,
         VsHeading,
+        VsInput,
     },
     props: {
         /**
@@ -73,12 +82,15 @@ export default {
             required: true,
         },
         /**
-         * Which selector type should be used for the question. Currently this is
-         * always a radio button but it may be extended beyond that.
+         * Which selector type should be used for the question.
+         * `radio|number`.
          */
         fieldType: {
             type: String,
             default: 'radio',
+            validator: (value) => value.match(
+                /(radio|number)/,
+            ),
         },
         /**
          * The identifier for the field which should be provided when updating the

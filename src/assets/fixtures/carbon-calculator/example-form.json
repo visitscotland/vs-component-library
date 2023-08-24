@@ -1,15 +1,16 @@
 {
+    "stages": 3,
     "fields": [
         {
             "name": "transportModeTo",
             "element": "radio",
             "options": [
-                { "value": "noTravel", "icon": "city" },
-                { "value": "plane", "icon": "plane" },
-                { "value": "petrolCar", "icon": "car" },
-                { "value": "dieselCar", "icon": "car" },
-                { "value": "electricCar", "icon": "car" },
-                { "value": "train", "icon": "train" }
+                { "value": "noTravel"},
+                { "value": "plane"},
+                { "value": "petrolCar"},
+                { "value": "dieselCar"},
+                { "value": "electricCar"},
+                { "value": "train"}
             ],
             "validation": {
                 "required": true
@@ -19,24 +20,133 @@
             },
             "values": {
                 "noTravel": 0,
-                "plane": 1.1,
-                "petrolCar": 0.01,
-                "dieselCar": 0.011,
-                "electricCar": 0.005,
-                "train": 0.003
+                "plane": 0,
+                "petrolCar": 0,
+                "dieselCar": 0,
+                "electricCar": 0,
+                "train": 0
             },
             "stage": 1
         },
         {
-            "name": "transportModeWithin",
+            "name": "howLongJourneyPlane",
+            "element": "number",
+            "validation": {
+                "required": true,
+                "min": 0,
+                "max": 24
+            },
+            "valuePer": 5,
+            "validationMessages": {
+                "required": "Please choose a duration"
+            },
+            "conditional": {
+                "transportModeTo": [
+                    "plane"
+                ]
+            },
+            "stage": 1
+        },
+        {
+            "name": "howLongJourneyPetrolCar",
+            "element": "number",
+            "validation": {
+                "required": true,
+                "min": 0,
+                "max": 24
+            },
+            "valuePer": 4,
+            "validationMessages": {
+                "required": "Please choose a duration"
+            },
+            "conditional": {
+                "transportModeTo": [
+                    "petrolCar"
+                ]
+            },
+            "stage": 1
+        },
+        {
+            "name": "howLongJourneyDieselCar",
+            "element": "number",
+            "validation": {
+                "required": true,
+                "min": 0,
+                "max": 24
+            },
+            "valuePer": 4,
+            "validationMessages": {
+                "required": "Please choose a duration"
+            },
+            "conditional": {
+                "transportModeTo": [
+                    "dieselCar"
+                ]
+            },
+            "stage": 1
+        },
+        {
+            "name": "howLongJourneyElectricCar",
+            "element": "number",
+            "validation": {
+                "required": true,
+                "min": 0,
+                "max": 24
+            },
+            "valuePer": 1,
+            "validationMessages": {
+                "required": "Please choose a duration"
+            },
+            "conditional": {
+                "transportModeTo": [
+                    "electricCar"
+                ]
+            },
+            "stage": 1
+        },
+        {
+            "name": "howLongJourneyTrain",
+            "element": "number",
+            "validation": {
+                "required": true,
+                "min": 0,
+                "max": 24
+            },
+            "valuePer": 1,
+            "validationMessages": {
+                "required": "Please choose a duration"
+            },
+            "conditional": {
+                "transportModeTo": [
+                    "train"
+                ]
+            },
+            "stage": 1
+        },
+        {
+            "name": "howLongStay",
+            "element": "number",
+            "validation": {
+                "required": true,
+                "min": 0,
+                "max": 365
+            },
+            "valuePer": 1,
+            "validationMessages": {
+                "required": "Please choose a duration"
+            },
+            "stage": 2
+        },
+        {
+            "name": "dietDescription",
             "element": "radio",
             "options": [
-                { "value": "noTravel", "icon": "city" },
-                { "value": "plane", "icon": "plane" },
-                { "value": "petrolCar", "icon": "car" },
-                { "value": "dieselCar", "icon": "car" },
-                { "value": "electricCar", "icon": "car" },
-                { "value": "train", "icon": "train" }
+                { "value": "regularMeat" },
+                { "value": "moderateMeat" },
+                { "value": "infrequentMeat" },
+                { "value": "pescatarian" },
+                { "value": "vegetarian" },
+                { "value": "vegan" }
             ],
             "validation": {
                 "required": true
@@ -45,38 +155,14 @@
                 "required": "Please choose an item"
             },
             "values": {
-                "noTravel": 0,
-                "plane": 1.1,
-                "petrolCar": 0.01,
-                "dieselCar": 0.011,
-                "electricCar": 0.005,
-                "train": 0.003
+                "regularMeat": 5,
+                "moderateMeat": 4,
+                "infrequentMeat": 3,
+                "pescatarian": 2,
+                "vegetarian": 1,
+                "vegan": 0
             },
-            "stage": 1
-        },
-        {
-            "name": "redMeatConsumption",
-            "element": "radio",
-            "options": [
-                { "text": "Never", "value": "never", "icon": "leaf" },
-                { "text": "Once or Twice", "value": "onceOrTwice", "icon": "food" },
-                { "text": "Often", "value": "often", "icon": "food" },
-                { "text": "Every Meal", "value": "everyMeal", "icon": "food" }
-            ],
-            "label": "How often do you plan to eat red meat on your trip?",
-            "validation": {
-                "required": true
-            },
-            "validationMessages": {
-                "required": "Please choose an item"
-            },
-            "values": {
-                "never": 0,
-                "onceOrTwice": 0.001,
-                "often": 0.005,
-                "everyMeal": 0.01
-            },
-            "stage": 4
+            "stage": 3
         }
     ]
 }
