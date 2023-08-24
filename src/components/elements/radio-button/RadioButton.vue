@@ -291,6 +291,8 @@ export default {
 
         .form-check {
             border: 1px solid $color-theme-primary;
+            height: 3.5rem;
+            box-sizing: border-box;
 
             &:hover {
                 background-color: $color-purple;
