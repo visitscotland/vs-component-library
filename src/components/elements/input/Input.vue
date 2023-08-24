@@ -449,9 +449,16 @@ export default {
 
     &--increment-controls {
         display: inline-block;
-        width: 5rem;
+        width: $spacer-10;
+        text-align: center;
         margin-left: $spacer-4;
         margin-right: $spacer-4;
+        font-size: $font-size-lead-md;
+
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
     }
 
     &__increment {
