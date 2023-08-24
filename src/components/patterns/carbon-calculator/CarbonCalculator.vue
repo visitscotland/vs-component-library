@@ -672,7 +672,7 @@ export default {
         },
         checkCurrentConditional(isForward) {
             const question = this.formData.fields[this.activeQuestion - 1];
-            if (this.conditionalElementClass(question.name)) {
+            if (question && this.conditionalElementClass(question.name)) {
                 if (isForward) {
                     this.forwardPage();
                 } else {
