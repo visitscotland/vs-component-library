@@ -292,8 +292,27 @@ export default {
         .form-check {
             border: 1px solid $color-theme-primary;
 
-            &:focus-within {
-                background-color: $color-gray-tint-7;
+            &:hover {
+                background-color: $color-purple;
+                border-color: $color-purple;
+                color: $color-white;
+            }
+
+            &:active {
+                background-color: $color-white;
+                border-width: 2px;
+                border-color: $color-theme-primary;
+                color: $color-black;
+            }
+
+            &:focus-within, &:focus {
+                background-color: $color-theme-primary;
+                color: $color-white;
+            }
+
+            &:disabled {
+                background-color: $color-secondary-gray-tint-4;
+                color: $color-white;
             }
         }
 
