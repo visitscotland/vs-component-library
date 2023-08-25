@@ -36,6 +36,8 @@
                 type="number"
                 :incrementControls="true"
                 value="0"
+                :minimumNumber="minimum"
+                :maximumNumber="maximum"
                 @updated="valueChanged"
             />
         </div>
@@ -117,6 +119,14 @@ export default {
         options: {
             type: Array,
             required: true,
+        },
+        minimum: {
+            type: Number,
+            default: 0,
+        },
+        maximum: {
+            type: Number,
+            default: 0,
         },
     },
     methods: {

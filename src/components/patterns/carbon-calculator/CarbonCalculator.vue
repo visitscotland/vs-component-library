@@ -38,6 +38,8 @@
                                 :fieldType="field.element"
                                 :fieldName="field.name"
                                 :options="getQuestionOptions(index)"
+                                :minimum="field.element === 'number' ? field.validation.min : 0"
+                                :maximum="field.element === 'number' ? field.validation.max : 0"
                                 :fieldCategory="getQuestionCategory(field.stage)"
                                 @updateFieldData="updateFieldData"
                             />
@@ -202,9 +204,6 @@ export default {
     },
     data() {
         return {
-            submitted: false,
-            submitting: false,
-            submitError: false,
             formData: {
             },
             messagingData: {
@@ -218,7 +217,6 @@ export default {
             triggerValidate: false,
             conditionalFields: {
             },
-            inputVal: '',
             reAlertErrors: false,
             totalKilos: 0,
             transportKilos: 0,
@@ -460,7 +458,8 @@ export default {
             }
 
             if (field.multiplyByAnswer) {
-                const multiplier = this.form[field.multiplyByAnswer] || 0;
+                let multiplier = this.form[field.multiplyByAnswer.question] || 0;
+                multiplier = Math.max(multiplier, field.multiplyByAnswer.minimum);
                 return selectedValue * multiplier;
             }
 
@@ -596,6 +595,7 @@ export default {
 
                 switch (currentField.stage) {
                 case 1:
+                case 2:
                     this.transportKilos += this.getFieldValue(
                         currentField,
                     );
@@ -603,7 +603,7 @@ export default {
                         this.getTips(currentField, this.form[currentField.name], x),
                     );
                     break;
-                case 2:
+                case 3:
                     this.accommodationKilos += this.getFieldValue(
                         currentField,
                     );
@@ -611,7 +611,7 @@ export default {
                         this.getTips(currentField, this.form[currentField.name], x),
                     );
                     break;
-                case 3:
+                case 4:
                     this.foodKilos += this.getFieldValue(
                         currentField,
                     );
@@ -683,11 +683,14 @@ export default {
                 return;
             }
 
-            const newQuestionKey = this.formData.fields[this.activeQuestion - 1].name;
-            if (!this.form[newQuestionKey]) {
-                this.answerSet = false;
-            } else {
+            const newQuestion = this.formData.fields[this.activeQuestion - 1];
+            if (this.form[newQuestion.name]) {
                 this.answerSet = true;
+            } else if (newQuestion.element === 'number') {
+                this.form[newQuestion.name] = newQuestion.validation.min;
+                this.answerSet = true;
+            } else {
+                this.answerSet = false;
             }
         },
         checkCurrentConditional(isForward) {

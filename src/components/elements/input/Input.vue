@@ -401,7 +401,7 @@ export default {
          */
         decrementValue() {
             let numVal = this.intValue;
-            numVal = Math.max(0, numVal - 1);
+            numVal = Math.max(this.minimumNumber, numVal - 1);
 
             this.inputVal = `${numVal}`;
         },
@@ -410,7 +410,7 @@ export default {
          */
         incrementValue() {
             let numVal = this.intValue;
-            numVal = Math.min(10, numVal + 1);
+            numVal = Math.min(this.maximumNumber, numVal + 1);
 
             this.inputVal = `${numVal}`;
         },

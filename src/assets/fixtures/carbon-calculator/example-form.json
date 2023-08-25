@@ -1,5 +1,5 @@
 {
-    "stages": 3,
+    "stages": 4,
     "fields": [
         {
             "name": "transportModeTo",
@@ -26,7 +26,11 @@
                 "electricCar": 1,
                 "train": 1
             },
-            "multiplyByAnswer": "howLongJourney",
+            
+            "multiplyByAnswer": {
+                "question": "howLongJourney",
+                "minimum": 0
+            },
             "stage": 1
         },
         {
@@ -50,7 +54,7 @@
                     "train"
                 ]
             },
-            "stage": 1
+            "stage": 2
         },
         {
             "name": "howLongStay",
@@ -58,13 +62,13 @@
             "validation": {
                 "required": true,
                 "min": 0,
-                "max": 365
+                "max": 180
             },
             "multiplyByNumber": 1,
             "validationMessages": {
                 "required": "Please choose a duration"
             },
-            "stage": 2
+            "stage": 3
         },
         {
             "name": "dietDescription",
@@ -91,8 +95,11 @@
                 "vegetarian": 1,
                 "vegan": 0
             },
-            "multiplyByAnswer": "howLongStay",
-            "stage": 3
+            "multiplyByAnswer": {
+                "question": "howLongStay",
+                "minimum": 1
+            },
+            "stage": 4
         }
     ]
 }
