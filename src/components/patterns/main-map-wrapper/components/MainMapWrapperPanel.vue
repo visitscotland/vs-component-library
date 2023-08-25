@@ -554,7 +554,7 @@ export default {
 
         &__heading.vs-heading {
             flex-grow: 1;
-            margin: $spacer-11 $spacer-3 $spacer-0;
+            margin: $spacer-11 $spacer-8 $spacer-0;
         }
 
         &__header-section {

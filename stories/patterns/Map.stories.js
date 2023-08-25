@@ -130,6 +130,7 @@ Outlander.args = {
     filters: mapFiltersOutlanderSubcategories,
     placesData: placesDataOutlander.features,
     categoryHeading: 'Outlander Filming Locations',
+    hideMobileToggle: true,
     mapId: 'vs-map-outlander',
 };
 
