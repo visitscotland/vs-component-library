@@ -322,6 +322,7 @@ export default {
             width: 100%;
             transform: translateY(-2px);
             padding: $spacer-2 $spacer-4;
+            font-weight: normal;
 
             &::before {
                 content: "";
