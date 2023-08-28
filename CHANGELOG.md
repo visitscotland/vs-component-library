@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.15](https://github.com/visitscotland/vs-component-library/compare/v1.0.14...v1.0.15) (2023-08-28)
+
+
+### 🔖 Others
+
+* **storybook:** upgrade Storybook to latest version ([2dc6e00](https://github.com/visitscotland/vs-component-library/commit/2dc6e00231e445c78ced57239fbe5028a71614f3))
+
+
+### 🐛 Bug Fixes
+
+* **map:** bug fixes for map component ([3a90089](https://github.com/visitscotland/vs-component-library/commit/3a9008905564c2b7f2d88e9010b6d4bbbb155795))
+* **map:** remove console.log statement ([c4b7b72](https://github.com/visitscotland/vs-component-library/commit/c4b7b724f33da1989346a163775bf4e6c76d15ba))
+
 ### [1.0.14](https://github.com/visitscotland/vs-component-library/compare/v1.0.13...v1.0.14) (2023-08-18)
 
 
