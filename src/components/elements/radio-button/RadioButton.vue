@@ -267,22 +267,27 @@ export default {
         width: 100%;
 
         .vs-radio-button__option {
-            width: 50%;
             display: inline-block;
             vertical-align: top;
-            padding: $spacer-3;
             cursor: pointer;
             box-sizing: border-box;
-
-            &:nth-of-type(odd) {
-                padding-left: $spacer-0;
-            }
-
-            &:nth-of-type(even) {
-                padding-right: $spacer-0;
-            }
-
             background-color: $color-white;
+            padding: $spacer-3 $spacer-0;
+            width: 100%;
+
+            @include media-breakpoint-up(md) {
+                padding: $spacer-3;
+
+                width: 50%;
+
+                &:nth-of-type(odd) {
+                    padding-left: $spacer-0;
+                }
+
+                &:nth-of-type(even) {
+                    padding-right: $spacer-0;
+                }
+            }
 
             * {
                 cursor: pointer;

@@ -46,10 +46,6 @@
 </template>
 
 <script>
-import {
-    VsRow,
-    VsCol,
-} from '@components/elements/grid';
 import VsHeading from '@components/elements/heading/Heading.vue';
 import VsIcon from '@components/elements/icon/Icon.vue';
 import VsLink from '@components/elements/link/Link.vue';
@@ -64,8 +60,6 @@ export default {
     components: {
         VsIcon,
         VsLink,
-        VsRow,
-        VsCol,
         VsHeading,
     },
     props: {
