@@ -1124,26 +1124,12 @@
       "originalValue": "1400px",
       "name": "breakpoint_xxl"
     },
-    "shadow_s": {
+    "shadow_button_focus_on_dark": {
       "type": "...",
       "category": "box-shadow",
-      "value": "0 0 0 1px rgba(92,106,196,.1)",
-      "originalValue": "0 0 0 1px rgba(92,106,196,.1)",
-      "name": "shadow_s"
-    },
-    "shadow_card": {
-      "type": "...",
-      "category": "box-shadow",
-      "value": "10px 10px 20px $color-gray-tint-4",
-      "originalValue": "10px 10px 20px $color-gray-tint-4",
-      "name": "shadow_card"
-    },
-    "shadow_card_dark": {
-      "type": "...",
-      "category": "box-shadow",
-      "value": "0 8px 8px rgba(0, 0, 0, 0.3)",
-      "originalValue": "0 8px 8px rgba(0, 0, 0, 0.3)",
-      "name": "shadow_card_dark"
+      "value": "0 0 0 4px $color-yellow",
+      "originalValue": "0 0 0 4px $color-yellow",
+      "name": "shadow_button_focus_on_dark"
     },
     "shadow_popover": {
       "type": "...",
@@ -1152,12 +1138,12 @@
       "originalValue": "0 0px 20px rgba(0, 0, 0, 0.3)",
       "name": "shadow_popover"
     },
-    "shadow_popover_dark": {
+    "shadow_card_dark": {
       "type": "...",
       "category": "box-shadow",
-      "value": "0 0px 20px $color-theme-dark",
-      "originalValue": "0 0px 20px $color-theme-dark",
-      "name": "shadow_popover_dark"
+      "value": "0 8px 8px rgba(0, 0, 0, 0.3)",
+      "originalValue": "0 8px 8px rgba(0, 0, 0, 0.3)",
+      "name": "shadow_card_dark"
     },
     "shadow_button_focus": {
       "type": "...",
@@ -1166,19 +1152,40 @@
       "originalValue": "0 0 0 4px $color-pink",
       "name": "shadow_button_focus"
     },
-    "shadow_button_focus_on_dark": {
-      "type": "...",
-      "category": "box-shadow",
-      "value": "0 0 0 4px $color-yellow",
-      "originalValue": "0 0 0 4px $color-yellow",
-      "name": "shadow_button_focus_on_dark"
-    },
     "shadow_form_input": {
       "type": "...",
       "category": "box-shadow",
       "value": "0 0 0 0.2rem rgba(187, 38, 132, 0.5)",
       "originalValue": "0 0 0 0.2rem rgba(187, 38, 132, 0.5)",
       "name": "shadow_form_input"
+    },
+    "shadow_card_tight": {
+      "type": "...",
+      "category": "box-shadow",
+      "value": "0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30)",
+      "originalValue": "0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30)",
+      "name": "shadow_card_tight"
+    },
+    "shadow_popover_dark": {
+      "type": "...",
+      "category": "box-shadow",
+      "value": "0 0px 20px $color-theme-dark",
+      "originalValue": "0 0px 20px $color-theme-dark",
+      "name": "shadow_popover_dark"
+    },
+    "shadow_card": {
+      "type": "...",
+      "category": "box-shadow",
+      "value": "10px 10px 20px $color-gray-tint-4",
+      "originalValue": "10px 10px 20px $color-gray-tint-4",
+      "name": "shadow_card"
+    },
+    "shadow_s": {
+      "type": "...",
+      "category": "box-shadow",
+      "value": "0 0 0 1px rgba(92,106,196,.1)",
+      "originalValue": "0 0 0 1px rgba(92,106,196,.1)",
+      "name": "shadow_s"
     },
     "font-size-h1": {
       "type": "number",

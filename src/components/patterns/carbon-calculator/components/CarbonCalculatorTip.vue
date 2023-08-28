@@ -3,41 +3,58 @@
         class="vs-carbon-calculator-tip"
         data-test="vs-carbon-calculator-tip"
     >
-        <VsSvg
-            path="highland-cow"
-            class="vs-carbon-calculator-tip__icon"
-        />
+        <VsRow>
+            <VsCol
+                class="vs-carbon-calculator-tip__icon-container"
+                cols="2"
+                md="1"
+            >
+                <VsSvg
+                    path="highland-cow"
+                    class="vs-carbon-calculator-tip__icon"
+                />
+            </VsCol>
 
-        <p
-            class="vs-carbon-calculator-tip__content"
-            data-test="vs-carbon-calculator-tip__summary"
-            v-if="allTips"
-        >
-            You can view all our sustainable travel tips
-            <VsLink href="#">
-                here
-            </VsLink>
-            . We've got you covered!
-        </p>
+            <VsCol
+                cols="10"
+                md="11"
+            >
+                <VsHeading
+                    level="6"
+                >
+                    Top Tip!
+                </VsHeading>
 
-        <p
-            class="vs-carbon-calculator-tip__heading"
-            v-if="!allTips"
-        >
-            Top tip
-        </p>
+                <p
+                    class="vs-carbon-calculator-tip__content"
+                    data-test="vs-carbon-calculator-tip__summary"
+                    v-if="allTips"
+                >
+                    You can view all our sustainable travel tips
+                    <VsLink href="#">
+                        here
+                    </VsLink>
+                    . We've got you covered!
+                </p>
 
-        <p
-            class="vs-carbon-calculator-tip__content"
-            v-if="!allTips"
-            data-test="vs-carbon-calculator-tip__content"
-        >
-            {{ tip }}
-        </p>
+                <p
+                    class="vs-carbon-calculator-tip__content"
+                    v-if="!allTips"
+                    data-test="vs-carbon-calculator-tip__content"
+                >
+                    {{ tip }}
+                </p>
+            </VsCol>
+        </VsRow>
     </div>
 </template>
 
 <script>
+import {
+    VsRow,
+    VsCol,
+} from '@components/elements/grid';
+import VsHeading from '@components/elements/heading/Heading.vue';
 import VsSvg from '@components/elements/svg/Svg.vue';
 import VsLink from '@components/elements/link/Link.vue';
 
@@ -51,6 +68,9 @@ export default {
     components: {
         VsSvg,
         VsLink,
+        VsRow,
+        VsCol,
+        VsHeading,
     },
     props: {
         tip: {
@@ -67,8 +87,8 @@ export default {
 
 <style lang='scss'>
     .vs-carbon-calculator-tip {
-        box-shadow: $shadow_popover;
-        padding: $spacer-8 $spacer-11;
+        box-shadow: $shadow_card_tight;
+        padding: $spacer-8 $spacer-4;
     }
 
     .vs-carbon-calculator-tip__heading {
@@ -79,9 +99,8 @@ export default {
         margin-bottom: $spacer-0;
     }
 
-    .vs-carbon-calculator-tip__icon {
-        position: absolute;
-        left: -#{$spacer-2};
-        bottom: -2px;
+    .vs-carbon-calculator-tip__icon-container {
+        display: flex;
+        justify-content: center;
     }
 </style>
