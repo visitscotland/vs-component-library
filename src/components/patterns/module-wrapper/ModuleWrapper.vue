@@ -6,8 +6,8 @@
         v-bind="$attrs"
     >
         <VsContainer
-            v-if="($slots['vs-module-wrapper-heading'] && $slots['vs-module-wrapper-heading']())
-                || ($slots['vs-module-wrapper-intro'] && $slots['vs-module-wrapper-intro']())"
+            v-if="($slots['vs-module-wrapper-heading'] && $slots['vs-module-wrapper-heading'])
+                || ($slots['vs-module-wrapper-intro'] && $slots['vs-module-wrapper-intro'])"
         >
             <VsRow>
                 <VsCol
@@ -15,11 +15,11 @@
                     offset="1"
                     md="8"
                     offset-md="2"
+                    v-if="$slots['vs-module-wrapper-heading'] && $slots['vs-module-wrapper-heading']"
                 >
                     <VsHeading
                         level="2"
                         class="vs-module-wrapper__heading"
-                        v-if="$slots['vs-module-wrapper-heading'] && $slots['vs-module-wrapper-heading']()"
                         data-test="vs-module-wrapper__heading"
                     >
                         <!-- @slot Slot to contain heading -->
@@ -32,10 +32,10 @@
                     offset-sm="1"
                     md="8"
                     offset-md="2"
+                    v-if="$slots['vs-module-wrapper-intro'] && $slots['vs-module-wrapper-intro']"
                 >
                     <VsRichTextWrapper
                         class="vs-module-wrapper__intro"
-                        v-if="$slots['vs-module-wrapper-intro'] && $slots['vs-module-wrapper-intro']()"
                         data-test="vs-module-wrapper__intro"
                         variant="lead"
                     >

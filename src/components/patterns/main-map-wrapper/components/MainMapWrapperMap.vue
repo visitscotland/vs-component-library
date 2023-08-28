@@ -222,7 +222,9 @@ export default {
     watch: {
         isVisible(newVal) {
             if (newVal && this.mapbox.map !== null) {
-                this.mapbox.map.resize();
+                setTimeout(() => {
+                    this.mapbox.map.resize();
+                }, 20);
             }
         },
         places: {
@@ -310,6 +312,7 @@ export default {
                 bounds: boundingBox,
                 maxZoom: 18,
                 minZoom: 4,
+                trackResize: true,
             });
             this.mapbox.map.scrollZoom.disable();
             this.mapbox.map.on('rotate', () => {
