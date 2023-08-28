@@ -294,22 +294,21 @@ export default {
             height: 3.5rem;
             box-sizing: border-box;
 
-            &:hover {
+            &:hover:not(:focus):not(:focus-within):not(:active) {
                 background-color: $color-purple;
                 border-color: $color-purple;
                 color: $color-white;
             }
 
-            &:active {
-                background-color: $color-white;
+            &:focus-within, &:focus, &:active {
+                background-color: $color-purple;
+                border-color: $color-white;
                 border-width: 2px;
-                border-color: $color-theme-primary;
-                color: $color-black;
-            }
-
-            &:focus-within, &:focus {
-                background-color: $color-theme-primary;
+                outline: 2px solid $color-theme-primary;
                 color: $color-white;
+                width: calc(100% - 4px);
+                height: calc(3.5rem - 4px);
+                transform: translate(2px, 2px);
             }
 
             &:disabled {
