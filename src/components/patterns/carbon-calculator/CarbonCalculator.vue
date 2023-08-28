@@ -10,9 +10,11 @@
             <VsCol>
                 <VsCarbonCalculatorIntro
                     v-if="!activeQuestion"
+                    :heading="labelsMap.introHeading"
                 >
-                    Carbon calculator intro
+                    {{ labelsMap.introContent }}
                 </VsCarbonCalculatorIntro>
+
                 <form
                     v-if="activeQuestion"
                     @submit.prevent="preSubmit"
@@ -75,7 +77,22 @@
                 />
             </VsCol>
             <VsCol
+                class="text-center"
                 cols="12"
+                v-if="activeQuestion === 0"
+            >
+                <VsButton
+                    variant="primary"
+                    type="submit"
+                    class="vs-form__submit mt-9"
+                    @click="forwardPage()"
+                >
+                    {{ labelsMap['begin'] }}
+                </VsButton>
+            </VsCol>
+            <VsCol
+                cols="12"
+                v-if="activeQuestion > 0"
             >
                 <VsButton
                     variant="primary"
@@ -83,9 +100,6 @@
                     class="vs-form__submit mt-9 float-left"
                     v-if="activeQuestion > 1"
                     @click="backwardPage()"
-                    icon="chevron-down"
-                    icon-position="left"
-                    icon-orientation="right"
                 >
                     {{ labelsMap['previous'] }}
                 </VsButton>
@@ -97,9 +111,6 @@
                     v-if="activeQuestion < formData.fields.length"
                     :disabled="activeQuestion > 0 && !answerSet"
                     @click="forwardPage()"
-                    icon="chevron-down"
-                    icon-position="right"
-                    icon-orientation="left"
                 >
                     {{ labelsMap['next'] }}
                 </VsButton>
@@ -111,9 +122,6 @@
                     v-if="activeQuestion === formData.fields.length"
                     :disabled="!answerSet"
                     @click="forwardPage()"
-                    icon="chevron-down"
-                    icon-position="right"
-                    icon-orientation="left"
                 >
                     {{ labelsMap['results'] }}
                 </VsButton>
