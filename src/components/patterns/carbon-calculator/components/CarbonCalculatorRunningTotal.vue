@@ -1,36 +1,29 @@
 <template>
-    <VsContainer
+    <div
         class="vs-carbon-calculator-running-total"
         data-test="vs-carbon-calculator-running-total"
     >
-        <VsRow>
-            <VsCol
-                cols="1"
-                class="vs-carbon-calculator-running-total__icon"
-            >
-                <VsIcon
-                    name="edit"
-                    size="lg"
-                />
-            </VsCol>
-            <VsCol
-                cols="11"
-                class="vs-carbon-calculator-running-total__content"
-            >
-                <p>Your calculation so far:</p>
-                <p>
-                    <span class="font-weight-bold">{{ totalKilos }}</span> kgs of C02
-                </p>
-            </VsCol>
-        </VsRow>
-    </VsContainer>
+        <div
+            class="vs-carbon-calculator-running-total__icon"
+        >
+            <VsIcon
+                name="notes"
+                size="lg"
+            />
+        </div>
+        <div
+            class="vs-carbon-calculator-running-total__content"
+        >
+            <p>Your calculation so far:</p>
+            <p>
+                <span class="font-weight-bold">{{ totalKilos }}</span> kgs of CO2
+            </p>
+        </div>
+    </div>
 </template>
 
 <script>
 import VsIcon from '@components/elements/icon/Icon.vue';
-import {
-    VsContainer, VsCol, VsRow,
-} from '@components/elements/grid';
 
 /**
  * @displayName Carbon Form Running Total
@@ -40,9 +33,6 @@ export default {
     status: 'prototype',
     release: '0.0.1',
     components: {
-        VsContainer,
-        VsCol,
-        VsRow,
         VsIcon,
     },
     props: {
@@ -63,17 +53,25 @@ export default {
     .vs-carbon-calculator-running-total {
         margin-top: $spacer-8;
         border: 1px solid $color-gray;
-        padding: $spacer-4 $spacer-10;
+        padding: $spacer-4;
     }
 
     .vs-carbon-calculator-running-total__icon {
-        display: flex;
+        display: inline-flex;
         align-items: center;
+        vertical-align: top;
+        width: $spacer-10;
     }
 
     .vs-carbon-calculator-running-total__content {
+        display: inline-block;
+        max-width: calc(100% - $spacer-10);
+
         p {
-            margin-bottom: $spacer-0;
+            display: inline-block;
+            margin-right: $spacer-4;
+            margin-bottom: 0;
+            vertical-align: middle;
         }
     }
 </style>
