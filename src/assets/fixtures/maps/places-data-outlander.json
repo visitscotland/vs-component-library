@@ -14,7 +14,7 @@
         "image": "http://www.visitscotland.com/wsimgs/EC%20Graphic%202%20low%20res.jpg",
         "link": {
           "label": "Discover Edinburgh castle",
-          "link": "http://172.28.81.65:8089/info/see-do/edinburgh-castle-p245821",
+          "link": "#",
           "type": "INTERNAL"
         },
         "subtitle": "Season 1 & 3",
@@ -50,7 +50,7 @@
         "image": "http://www.visitscotland.com/wsimgs/john-knox-min_400602568.jpg",
         "link": {
           "label": "Discover Old Town",
-          "link": "http://172.28.81.65:8089/info/towns-villages/old-town-and-new-town-p918411",
+          "link": "#",
           "type": "INTERNAL"
         },
         "subtitle": "Season 1, 3 & 4",
@@ -90,7 +90,7 @@
         "image": "http://www.visitscotland.com/wsimgs/External%20View%20Media%20Res%20c%20Andrew%20Lee.jpg",
         "link": {
           "label": "Discover National Museum of Scotland",
-          "link": "http://172.28.81.65:8089/info/see-do/national-museum-of-scotland-p246591",
+          "link": "#",
           "type": "INTERNAL"
         },
         "subtitle": "Season 1 & 3",
@@ -126,7 +126,7 @@
         "image": "/site/_cmsinternal/binaries/content/gallery/visitscotland/default/2021/01/edinburgh-castle-blue-sky.jpg",
         "link": {
           "label": "Discover Glen coe",
-          "link": "http://172.28.81.65:8089/info/accommodation/badcall-bay-holiday-caravans-p484091",
+          "link": "#",
           "type": "INTERNAL"
         },
         "subtitle": "Season 1",
@@ -158,7 +158,7 @@
         "image": "http://www.visitscotland.com/wsimgs/3.%20Fountain.jpg",
         "link": {
           "label": "Discover Inverness Botanic Gardens",
-          "link": "http://172.28.81.65:8089/info/see-do/inverness-botanic-gardens-p255531",
+          "link": "#",
           "type": "INTERNAL"
         },
         "subtitle": "Season 1",
@@ -190,7 +190,7 @@
         "image": "/site/_cmsinternal/binaries/content/gallery/visitscotland/default/gearrannan-blackhouses.jpeg",
         "link": {
           "label": "Discover Cameron House",
-          "link": "http://172.28.81.65:8089/info/accommodation/cameron-house-on-loch-lomond-p190371",
+          "link": "#",
           "type": "INTERNAL"
         },
         "subtitle": "Season 2 & 4",
@@ -226,7 +226,7 @@
         "image": "http://www.visitscotland.com/wsimgs/lin.1-000022.jpg",
         "link": {
           "label": "Discover Linlithgow Palace",
-          "link": "http://172.28.81.65:8089/info/see-do/linlithgow-palace-p252271",
+          "link": "#",
           "type": "INTERNAL"
         },
         "subtitle": "Season 1",
@@ -258,7 +258,7 @@
         "image": "https://static.visitscotland.com/site/vs/1.3.58/cms-images/attractions/outlander/oultander_s1_the_wedding",
         "link": {
           "label": "Discover Glencorse",
-          "link": "http://www.glencorsehouse.co.uk/",
+          "link": "#",
           "type": "INTERNAL"
         },
         "subtitle": "Season 1",

@@ -412,29 +412,31 @@ export default {
                 }
 
                 this.geojsonData.features.forEach((feature) => {
-                    const markerComponent = h(
-                        VsMapMarker,
-                        {
-                            feature,
-                            mapId: this.mapId,
-                            onShowDetail: (id) => {
-                                this.$emit('showDetail', id);
+                    if (feature.geometry.type === 'Point') {
+                        const markerComponent = h(
+                            VsMapMarker,
+                            {
+                                feature,
+                                mapId: this.mapId,
+                                onShowDetail: (id) => {
+                                    this.$emit('showDetail', id);
+                                },
+                                onSetCategory: (type) => {
+                                    this.$emit('setCategory', type);
+                                },
                             },
-                            onSetCategory: (type) => {
-                                this.$emit('setCategory', type);
-                            },
-                        },
-                    );
+                        );
 
-                    const renderer = document.createElement('div');
-                    this.$refs.mapboxOuter.appendChild(renderer);
-                    render(markerComponent, renderer);
+                        const renderer = document.createElement('div');
+                        this.$refs.mapboxOuter.appendChild(renderer);
+                        render(markerComponent, renderer);
 
-                    const mapboxMarker = new mapboxgl.Marker(renderer.children[0])
-                        .setLngLat(feature.geometry.coordinates)
-                        .addTo(this.mapbox.map);
-                    this.markers.push(mapboxMarker);
-                    renderer.remove();
+                        const mapboxMarker = new mapboxgl.Marker(renderer.children[0])
+                            .setLngLat(feature.geometry.coordinates)
+                            .addTo(this.mapbox.map);
+                        this.markers.push(mapboxMarker);
+                        renderer.remove();
+                    }
                 });
             }, timeout);
         },
