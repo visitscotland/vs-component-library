@@ -54,6 +54,10 @@ export default {
         margin-top: $spacer-8;
         border: 1px solid $color-gray;
         padding: $spacer-4;
+
+        @include media-breakpoint-up(md) {
+            text-align: center;
+        }
     }
 
     .vs-carbon-calculator-running-total__icon {
