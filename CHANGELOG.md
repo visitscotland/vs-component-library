@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.16](https://github.com/visitscotland/vs-component-library/compare/v1.0.15...v1.0.16) (2023-08-30)
+
+
+### 🐛 Bug Fixes
+
+* **map:** fix regions for map and add regions story ([c23364d](https://github.com/visitscotland/vs-component-library/commit/c23364d061deb42e21c81c53309b09d3a3b71a18))
+
+
+### ✨ Features
+
+* **map:** adds new distillery map option ([c1855bc](https://github.com/visitscotland/vs-component-library/commit/c1855bc1938072e00de1df927a5e5c71cbdea512))
+
 ### [1.0.15](https://github.com/visitscotland/vs-component-library/compare/v1.0.14...v1.0.15) (2023-08-28)
 
 
