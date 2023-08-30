@@ -3,12 +3,10 @@ import { ref, computed } from 'vue';
 import { getLabelText } from '../../../../utils/lang.ts';
 import DateInput from './DateInput.vue';
 
-import VsButton from '../../../elements/button/Button.vue';
-
 const props = defineProps({
     legend: {
         type: String,
-        required: false
+        default: '',
     },
     startLabel: {
         type: String,
@@ -35,7 +33,7 @@ const nights = computed(() => {
     const start = new Date(startDate.value);
     // Calculate the time difference of two dates
     const timeDiff = end.getTime() - start.getTime();
-
+    /* eslint-disable-next-line */
     if (isNaN(timeDiff)) {
         return 1;
     }
@@ -50,18 +48,25 @@ function clearDates() {
 }
 
 const formatDate = (date) => {
-    const getYear = date.toLocaleString("default", { year: "numeric" });
-    const getMonth = date.toLocaleString("default", { month: "2-digit" });
-    const getDay = date.toLocaleString("default", { day: "2-digit" });
+    const getYear = date.toLocaleString('default', {
+        year: 'numeric',
+    });
+    const getMonth = date.toLocaleString('default', {
+        month: '2-digit',
+    });
+    const getDay = date.toLocaleString('default', {
+        day: '2-digit',
+    });
 
     return `${getYear}-${getMonth}-${getDay}`;
-}
+};
 
 const defaultStartDate = computed(() => {
     if (startDate.value === '') {
         return formatDate(new Date());
     }
-    
+
+    return '';
 });
 
 const defaultEndDate = computed(() => {
@@ -82,21 +87,21 @@ const defaultEndDate = computed(() => {
 });
 
 const minDate = computed(() => {
-    let minDate;
+    let returnedDate;
 
     if (startDate.value === '') {
         const today = (new Date());
         const tomorrow = new Date(today);
         tomorrow.setDate(tomorrow.getDate() + 1);
-        minDate = formatDate(tomorrow);
+        returnedDate = formatDate(tomorrow);
     } else {
         const date = new Date();
         const start = new Date(startDate.value);
         date.setDate(start.getDate() + 1);
-        minDate = formatDate(date);
+        returnedDate = formatDate(date);
     }
 
-    return minDate;
+    return returnedDate;
 });
 
 function checkMinDate() {
@@ -139,7 +144,7 @@ function checkMinDate() {
             type="button"
             v-if="hasDate"
             @click="clearDates"
-            class="date-range__clear"    
+            class="date-range__clear"
         >
             {{ getLabelText('reset', 'Clear') }}
         </button>
