@@ -16,7 +16,8 @@
                 class="vs-carbon-calculator-results__headline"
             >
                 <VsCol
-                    cols="6"
+                    cols="12"
+                    md="6"
                 >
                     <p>
                         <span class="vs-carbon-calculator-results__total">
@@ -26,7 +27,8 @@
                     </p>
                 </VsCol>
                 <VsCol
-                    cols="6"
+                    cols="12"
+                    md="6"
                     class="vs-carbon-calculator-results__comp-img"
                 >
                     <VsImg
@@ -52,6 +54,32 @@
                 v-html="interpolComparison"
             />
             <!-- eslint-enable -->
+        </VsCol>
+        <VsCol
+            class="vs-carbon-calculator-results__chart-wrapper"
+            cols="12"
+        >
+            <Responsive>
+                <template #main="{ width }">
+                    <Chart
+                        class="vs-carbon-calculator-results__chart"
+                        :size="{ width, height: 420 }"
+                        :data="chartData"
+                        :margin="responsiveMargin(width)"
+                        :direction="chartDirection"
+                        :axis="chartAxis">
+
+                        <template #layers>
+                            <Grid strokeDasharray="2,2" />
+                            <Bar
+                                :dataKeys="['name', 'emissions']"
+                                :barStyle="{ fill: '#AF006E' }"
+                                :gap="20"
+                            />
+                        </template>
+                    </Chart>
+                </template>
+            </Responsive>
         </VsCol>
         <VsCol
             cols="12"
@@ -124,6 +152,13 @@ import { VsCol, VsRow } from '@components/elements/grid';
 import VsIcon from '@components/elements/icon/Icon.vue';
 import VsImg from '@components/elements/img/Img.vue';
 import VsHeading from '@components/elements/heading/Heading.vue';
+import { ref } from 'vue';
+import {
+    Chart,
+    Grid,
+    Bar,
+    Responsive,
+} from 'vue3-charts';
 import VsCarbonCalculatorTip from './CarbonCalculatorTip.vue';
 
 /**
@@ -140,6 +175,10 @@ export default {
         VsImg,
         VsHeading,
         VsCarbonCalculatorTip,
+        Chart,
+        Grid,
+        Bar,
+        Responsive,
     },
     props: {
         title: {
@@ -207,39 +246,32 @@ export default {
             default: '',
         },
     },
+    data() {
+        return {
+            chartDirection: ref('horizontal'),
+            chartAxis: ref({
+                primary: {
+                    type: 'band',
+                },
+            }),
+        };
+    },
     computed: {
         chartData() {
-            return {
-                labels: [
-                    'Transport',
-                    'Accommodation',
-                    'Food & Drink',
-                ],
-                datasets: [
-                    {
-                        data: [
-                            this.transportKilos,
-                            this.accommodationKilos,
-                            this.foodKilos,
-                        ],
-                        backgroundColor: [
-                            '#EBBFDB',
-                            '#D373AF',
-                            '#7A004D',
-                        ],
-                    },
-                ],
-            };
-        },
-        options() {
-            return {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'right',
-                    },
+            return [
+                {
+                    name: 'Transport',
+                    emissions: this.transportKilos,
                 },
-            };
+                {
+                    name: 'Accommodation',
+                    emissions: this.accommodationKilos,
+                },
+                {
+                    name: 'Food',
+                    emissions: this.foodKilos,
+                },
+            ];
         },
         interpolComparison() {
             const instances = (this.totalKilos / this.comparisonKilos).toFixed(3);
@@ -256,7 +288,26 @@ export default {
             return (this.foodKilos / this.totalKilos) * 100;
         },
         totalPerDay() {
-            return (this.totalKilos / this.stayDuration).toFixed(3);
+            return (this.totalKilos / Math.max(this.stayDuration, 1)).toFixed(3);
+        },
+    },
+    methods: {
+        responsiveMargin(width) {
+            if (width > 300) {
+                return {
+                    left: 20,
+                    top: 20,
+                    right: 20,
+                    bottom: 20,
+                };
+            }
+
+            return {
+                left: 5,
+                top: 5,
+                right: 5,
+                bottom: 5,
+            };
         },
     },
 };
@@ -284,32 +335,67 @@ export default {
     }
 
     .vs-carbon-calculator-results__comparison {
-        margin-bottom: $spacer-10;
+        margin-bottom: $spacer-6;
+
+        @include media-breakpoint-up(md) {
+            margin-bottom: $spacer-10;
+        }
+    }
+
+    .vs-carbon-calculator-results__chart-wrapper {
+        display: flex;
+        justify-content: center;
+
+        > div {
+            width: 100%;
+
+            @include media-breakpoint-up(md) {
+                width: 50%;
+            }
+        }
     }
 
     .vs-carbon-calculator-results__chart {
-        margin-top: $spacer-8;
+        margin-bottom: $spacer-6;
 
         @include media-breakpoint-up(md) {
-            margin-top: $spacer-0;
+            margin-bottom: $spacer-10;
         }
     }
 
     .vs-carbon-calculator-results__breakdown {
-        padding: $spacer-2;
+        text-align: center;
+        padding: $spacer-2 $spacer-0;
 
         .vs-icon {
             width: 10%;
         }
 
         .vs-carbon-calculator-results__breakdown-cat {
-            width: 40%;
+            width: 70%;
             display: inline-block;
         }
 
         .vs-carbon-calculator-results__breakdown-percent {
-            width: 40%;
+            width: 20%;
             display: inline-block;
+        }
+
+        @include media-breakpoint-up(md) {
+            text-align: left;
+            padding: $spacer-2;
+
+            .vs-icon {
+                width: 20%;
+            }
+
+            .vs-carbon-calculator-results__breakdown-cat {
+                width: 40%
+            }
+
+            .vs-carbon-calculator-results__breakdown-percent {
+                width: 40%
+            }
         }
     }
 </style>
