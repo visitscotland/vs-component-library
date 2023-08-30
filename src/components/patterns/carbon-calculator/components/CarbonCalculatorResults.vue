@@ -37,6 +37,11 @@
         </VsCol>
         <VsCol
             cols="12"
+        >
+            <p>That's equivalent to {{ totalPerDay }} kgs CO2 per day!</p>
+        </VsCol>
+        <VsCol
+            cols="12"
             class="vs-carbon-calculator-results__comparison"
         >
             <!-- eslint-disable -->
@@ -186,6 +191,10 @@ export default {
             type: String,
             default: '',
         },
+        stayDuration: {
+            type: Number,
+            default: 1,
+        },
     },
     computed: {
         chartData() {
@@ -234,6 +243,9 @@ export default {
         },
         foodPercent() {
             return (this.foodKilos / this.totalKilos) * 100;
+        },
+        totalPerDay() {
+            return (this.totalKilos / this.stayDuration).toFixed(3);
         },
     },
 };

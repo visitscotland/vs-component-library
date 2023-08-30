@@ -74,6 +74,7 @@
                     :food-label="getQuestionCategory(4)"
                     :comparison="comparison.text"
                     :comparison-kilos="comparison.kilos"
+                    :stay-duration="form.howLongStay"
                 />
             </VsCol>
             <VsCol
