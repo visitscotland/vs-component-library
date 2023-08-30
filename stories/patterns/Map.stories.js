@@ -5,6 +5,7 @@ import mapFiltersRegions from '@/assets/fixtures/maps/map-filters-regions.json';
 import placesDataFeatured from '@/assets/fixtures/maps/places-data-featured.json';
 import placesDataOutlander from '@/assets/fixtures/maps/places-data-outlander.json';
 import placesDataRegions from '@/assets/fixtures/maps/places-data-regions.json';
+import placesDataDistillery from '@/assets/fixtures/maps/places-data-distilleries.json';
 
 export default {
     component: VsMainMapWrapper,
@@ -144,6 +145,20 @@ Outlander.args = {
     placesData: placesDataOutlander.features,
     categoryHeading: 'Outlander Filming Locations',
     mapId: 'vs-map-outlander',
+};
+
+export const Distilleries = Template.bind({
+});
+
+Distilleries.args = {
+    ...base,
+    filters: [{
+        id: 'distilleries',
+        label: 'Distilleries',
+    }],
+    placesData: placesDataDistillery,
+    categoryHeading: 'Scottish Whisky Distillery Map',
+    mapId: 'vs-map-distillery',
 };
 
 export const NoJs = Template.bind({
