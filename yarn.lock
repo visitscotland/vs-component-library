@@ -3977,6 +3977,11 @@
     source-map "0.5.6"
     tsconfig "^7.0.0"
 
+"@vueform/multiselect@^2.6.2":
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/@vueform/multiselect/-/multiselect-2.6.2.tgz#2a14c5f7d9cf4ea07853b7f9b491c039bbfadf40"
+  integrity sha512-4BFvXyzyi0Pqi/lsYdGwONsQy+ypiVzuQbmoDUlttTxuoujFtf9AdeHi1ZhfIorXG9BiysK1HcQSfYB6USgwfQ==
+
 "@vuelidate/core@^2.0.2":
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@vuelidate/core/-/core-2.0.2.tgz#e874afc830ccc5295e83a0c0a0f0621e084348c9"
@@ -13041,6 +13046,11 @@ slash@^4.0.0:
   resolved "https://registry.yarnpkg.com/slash/-/slash-4.0.0.tgz#2422372176c4c6c5addb5e2ada885af984b396a7"
   integrity sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==
 
+slugify@^1.6.6:
+  version "1.6.6"
+  resolved "https://registry.yarnpkg.com/slugify/-/slugify-1.6.6.tgz#2d4ac0eacb47add6af9e04d3be79319cbcc7924b"
+  integrity sha512-h+z7HKHYXj6wJU+AnS/+IH8Uh9fdcX1Lrhg1/VMdf9PwoBQXFcXiAdsy2tSK0P6gKwJLXp02r90ahUCqHk9rrw==
+
 smart-buffer@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/smart-buffer/-/smart-buffer-4.2.0.tgz#6e1d71fa4f18c05f7d0ff216dd16a481d0e8d9ae"
@@ -14472,6 +14482,11 @@ vue3-lazy-hydration@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/vue3-lazy-hydration/-/vue3-lazy-hydration-1.2.1.tgz#a1c179f2049c6d0fe796f84ff1d5a56e8c3f1fda"
   integrity sha512-0KEU+t1ZcOFomf2xhpKPMU2XBdZDVyVjvkxcXAJRpZ818Om4MMhKxbrmIK6hZ+NZOyoRAgMHl/N1zFZJuQoSJA==
+
+vue3-simple-typeahead@^1.0.11:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/vue3-simple-typeahead/-/vue3-simple-typeahead-1.0.11.tgz#dc1c4eb03f3494ae9f5d6034a933b425ce1c493e"
+  integrity sha512-JKgVfWz7uENBoB4ginYw28ZVlv3LNTkFbZzbDdK2W0y+Pj2xIryfwKlkW5bYUN+w4CiPS6CmXhPma9uwUnk0Lg==
 
 vue@^3.2.31, vue@^3.2.47, vue@^3.3.4:
   version "3.3.4"

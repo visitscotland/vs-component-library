@@ -26,7 +26,9 @@
                 >
                     <VsProductSearchEmbed
                         class="vs-product-search__widget"
-                        :config="configArr"
+                        :default-location="defaultLocation"
+                        :default-locale="defaultLocale"
+                        :default-prod="defaultProd"
                     />
 
                     <VsWarning class="vs-product-search__no-js">
@@ -68,21 +70,32 @@ export default {
     },
     props: {
         /**
-         * Config for prefilled fields and language
-         */
-        configArr: {
-            type: Object,
-            default() {
-                return {
-                };
-            },
-        },
-        /**
          * Message to show when Javascript is disabled
          */
         noJsMessage: {
             type: String,
             required: true,
+        },
+        /**
+         * Autofilled location field
+         */
+        defaultLocation: {
+            type: String,
+            default: '',
+        },
+        /**
+         * Autofilled product field
+         */
+        defaultProd: {
+            type: String,
+            default: 'acti,attr,reta',
+        },
+        /**
+         * Locale to set language
+         */
+        defaultLocale: {
+            type: String,
+            default: '',
         },
     },
 };
