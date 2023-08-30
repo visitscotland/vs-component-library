@@ -29,6 +29,18 @@ const factoryShallowMount = () => shallowMount(VsMainMapWrapper, {
         filtersAppliedText: 'filters applied',
         mapFilterMessage: 'Filter map',
         mapNoResultsMessage: 'No results',
+        toggleData: [
+            {
+                text: 'Regions',
+                value: 'regions',
+                icon: 'map',
+            },
+            {
+                text: 'Places',
+                value: 'places',
+                icon: 'map-marker',
+            },
+        ],
     },
     global: {
         provide: {
@@ -45,16 +57,16 @@ describe('VsMainMapWrapper', () => {
     });
 
     describe(':props', () => {
-        it('should show the toggle buttons by default', () => {
+        it('should show the toggle buttons when `toggleData` is passed in', () => {
             const wrapper = factoryShallowMount();
 
             expect(wrapper.find('[data-test="vs-main-map-wrapper__map-toggle-group"]').exists()).toBe(true);
         });
 
-        it('should not show the toggle buttons when the `hideToggleButtons` prop is true', async() => {
+        it('should not show the toggle buttons when no `toggleData` is passed in', async() => {
             const wrapper = factoryShallowMount();
             await wrapper.setProps({
-                hideMobileToggle: true,
+                toggleData: [],
             });
 
             expect(wrapper.find('[data-test="vs-main-map-wrapper__map-toggle-group"]').exists()).toBe(false);
