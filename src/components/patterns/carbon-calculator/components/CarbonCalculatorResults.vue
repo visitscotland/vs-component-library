@@ -39,6 +39,9 @@
             cols="12"
         >
             <p>That's equivalent to {{ totalPerDay }} kgs CO2 per day!</p>
+            <p v-if="totalPerDay <= perDayTarget">
+                {{ perDaySuccess }}
+            </p>
         </VsCol>
         <VsCol
             cols="12"
@@ -194,6 +197,14 @@ export default {
         stayDuration: {
             type: Number,
             default: 1,
+        },
+        perDayTarget: {
+            type: Number,
+            default: 0,
+        },
+        perDaySuccess: {
+            type: String,
+            default: '',
         },
     },
     computed: {

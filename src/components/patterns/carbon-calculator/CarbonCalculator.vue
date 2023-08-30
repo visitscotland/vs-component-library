@@ -74,7 +74,9 @@
                     :food-label="getQuestionCategory(4)"
                     :comparison="comparison.text"
                     :comparison-kilos="comparison.kilos"
-                    :stay-duration="form.howLongStay"
+                    :stay-duration="stayDuration"
+                    :per-day-target="labelsMap.perDayTarget"
+                    :per-day-success="labelsMap.perDaySuccess"
                 />
             </VsCol>
             <VsCol
@@ -273,6 +275,9 @@ export default {
                 text: this.labelsMap.comparison,
                 kilos: parseFloat(this.labelsMap.comparisonKilos),
             };
+        },
+        stayDuration() {
+            return parseInt(this.form.howLongStay, 10);
         },
     },
     created() {

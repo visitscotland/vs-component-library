@@ -37,6 +37,8 @@ const base = {
         begin: 'Start Questionnaire',
         introHeading: 'Calculate Your Carbon',
         introContent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ultrices mauris id elementum laoreet. Ut eget justo nec risus commodo ullamcorper. Donec sagittis ex id neque varius, ut sodales diam pretium.',
+        perDayTarget: 5,
+        perDaySuccess: 'Congratulations! With less than 5 kilos of CO2 emitted per day on your trip, you\'re a carbon Unicorn.',
         'section-1.title': 'Transport',
         'section-2.title': 'Transport',
         'section-3.title': 'Accommodation',
