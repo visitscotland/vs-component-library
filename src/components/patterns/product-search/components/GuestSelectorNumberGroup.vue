@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import type { GuestNumberGroup } from '../../../../types.ts';
+import VsButton from '../../../elements/button/Button.vue';
 
 const props = defineProps<{
     adultCount: number,
@@ -77,12 +78,19 @@ onMounted(() => {
             {{ rowLabel }}
         </span>
         <div class="guest-picker-counter__buttons justify-content-end">
-            <button
-                class="guest-picker-counter__button guest-picker-counter__button--remove"
+            <VsButton
+                class="guest-picker-counter__button--remove"
+                size="sm"
+                icon="minus"
+                icon-only
                 value="-"
                 @click.prevent="handleDecrease"
                 :disabled="counter === minValue"
-            >-</button>
+            > 
+                <span class="sr-only">
+                    Remove
+                </span>
+            </VsButton>
 
             <input
                 class="guest-picker-counter__input"
@@ -95,12 +103,19 @@ onMounted(() => {
                 @focus="handleFocus"
             />
 
-            <button
-                class="c-search__rooms-guests-picker__button guest-picker-counter__button--add"
+            <VsButton
+                class="guest-picker-counter__button--add"
+                size="sm"
+                icon="plus"
+                icon-only
                 value="+"
                 @click.prevent="handleIncrease"
                 :disabled="counter === maxValue"
-            >+</button>
+            >
+                <span class="sr-only">
+                    Add
+                </span>
+            </VsButton>
 
             <input
                 type="hidden"
@@ -116,10 +131,19 @@ onMounted(() => {
     .guest-picker-counter {
         display: flex;
         justify-content: space-between;
+        margin-bottom: $spacer-3;
+
+        &__button {
+            color: rgb(255, 255, 255);
+            background-color: $color-pink;
+            border-color: $color-pink;
+        }
 
         &__input {
             width: 30px;
             text-align: center;
+            border: 0;
+            font-size: $font-size-4;
         }
     }
 </style>

@@ -105,7 +105,7 @@ export default {
     .vs-product-search {
         width: 100%;
         background: $color-gray-shade-5;
-        padding: $spacer-9 $spacer-1;
+        padding: $spacer-8 $spacer-1;
         font-family: $font-family-sans-serif;
 
         &__no-js {
@@ -134,7 +134,7 @@ export default {
             flex-direction: column;
             justify-content: center;
             background: $color-yellow;
-            padding: $spacer-6;
+            padding: $spacer-6 $spacer-4;
         }
 
         // id needed for specificity

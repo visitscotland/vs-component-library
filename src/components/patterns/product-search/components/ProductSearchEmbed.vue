@@ -1,151 +1,157 @@
 <template>
-    <div class="vs-product-search">
-        <form 
-            :action="formAction"
-            @submit.prevent="preSubmitChecks"
-            accept-charset="UTF-8"
-        >
-            <SelectInput
-                :label="getLabelText('for', 'For')"
-                id="select-type"
-                name="prodtypes"
-                :default-selected="defaultProd"
-                @change-option="(selectedOption) => selectedProd = selectedOption"
-                :options="prods"
-            />
-
-            <div aria-live="polite">
-                <Autocomplete
-                    v-if="selectedProd != 'tour' && locationDataLoaded"
-                    id="search-location"
-                    :label="getLabelText('location', 'Location')"
-                    multiselect-label="name"
-                    name="loc"
-                    :options="locations"
-                    :placeholder="getLabelText('location_placeholder', 'Enter a location')"
-                    track-by="name"
-                    @change-value="(newLocation) => getPlaceData(newLocation)"
-                    :default-val="chosenLocation"
-                />
-
-                <input
-                    v-if="selectedProd !== 'tour'"
-                    type="hidden"
-                    name="locplace"
-                    :disabled="chosenLocation?.type === 'POLYGON'"
-                    :value="chosenLocation?.key || ''"
-                >
-                <input
-                    v-if="selectedProd !== 'tour'"
-                    type="hidden"
-                    name="locpoly"
-                    :disabled="chosenLocation?.type !== 'POLYGON'"
-                    :value="chosenLocation?.key || ''"
-                >
-                <input
-                    v-if="selectedProd !== 'tour'"
-                    type="hidden"
-                    name="locprox"
-                    :value="chosenLocation?.type === 'DISTRICT' ? 1 : 0"
-                >
-                <input
-                    v-if="selectedProd !== 'tour' && chosenLocation?.type === 'DISTRICT'"
-                    type="hidden"
-                    name="areaproxdist"
-                    value="10"
-                >
-
-                <div v-if="selectedProd === 'even' || selectedProd === 'acco'">
-
-                    <DateRange
-                        v-if="selectedProd === 'even' || selectedProd === 'acco'"
-                        :legend="getLabelText('date_label', 'Dates')"
-                        :start-label="getLabelText('checkin', 'Start Date', 'dates')"
-                        :end-label="getLabelText('checkout', 'End Date', 'dates')"
-                        :default-dates="defaultDates"
-                    />
-
-                    <TextInput
-                        v-if="selectedProd === 'even'"
-                        name="name"
-                        :label="getLabelText('keywords', 'Keywords')"
-                        id="search-keywords"
-                    />
-
-                    <GuestSelector
-                        v-if="selectedProd === 'acco'"
-                        :availability="true"
-                        :label="getLabelText('guests', 'Guests')"
-                        id="guest-selector"
-                    />
-
-                    <div v-if="selectedProd === 'acco'">
-                        <input
-                            hidden="true"
-                            name="avail"
-                            value="on"
+    <div class="vs-product-search-embed">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <form 
+                        :action="formAction"
+                        @submit.prevent="preSubmitChecks"
+                        accept-charset="UTF-8"
+                    >
+                        <SelectInput
+                            :label="getLabelText('for', 'For')"
+                            id="select-type"
+                            name="prodtypes"
+                            :default-selected="defaultProd"
+                            @change-option="(selectedOption) => selectedProd = selectedOption"
+                            :options="prods"
                         />
-                    </div>
+
+                        <div aria-live="polite">
+                            <Autocomplete
+                                v-if="selectedProd != 'tour' && locationDataLoaded"
+                                id="search-location"
+                                :label="getLabelText('location', 'Location')"
+                                multiselect-label="name"
+                                name="loc"
+                                :options="locations"
+                                :placeholder="getLabelText('location_placeholder', 'Enter a location')"
+                                track-by="name"
+                                @change-value="(newLocation) => getPlaceData(newLocation)"
+                                :default-val="chosenLocation"
+                            />
+
+                            <input
+                                v-if="selectedProd !== 'tour'"
+                                type="hidden"
+                                name="locplace"
+                                :disabled="chosenLocation?.type === 'POLYGON'"
+                                :value="chosenLocation?.key || ''"
+                            >
+                            <input
+                                v-if="selectedProd !== 'tour'"
+                                type="hidden"
+                                name="locpoly"
+                                :disabled="chosenLocation?.type !== 'POLYGON'"
+                                :value="chosenLocation?.key || ''"
+                            >
+                            <input
+                                v-if="selectedProd !== 'tour'"
+                                type="hidden"
+                                name="locprox"
+                                :value="chosenLocation?.type === 'DISTRICT' ? 1 : 0"
+                            >
+                            <input
+                                v-if="selectedProd !== 'tour' && chosenLocation?.type === 'DISTRICT'"
+                                type="hidden"
+                                name="areaproxdist"
+                                value="10"
+                            >
+
+                            <div v-if="selectedProd === 'even' || selectedProd === 'acco'">
+
+                                <DateRange
+                                    v-if="selectedProd === 'even' || selectedProd === 'acco'"
+                                    :legend="getLabelText('date_label', 'Dates')"
+                                    :start-label="getLabelText('checkin', 'Start Date', 'dates')"
+                                    :end-label="getLabelText('checkout', 'End Date', 'dates')"
+                                    :default-dates="defaultDates"
+                                />
+
+                                <TextInput
+                                    v-if="selectedProd === 'even'"
+                                    name="name"
+                                    :label="getLabelText('keywords', 'Keywords')"
+                                    id="search-keywords"
+                                />
+
+                                <GuestSelector
+                                    v-if="selectedProd === 'acco'"
+                                    :availability="true"
+                                    :label="getLabelText('guests', 'Guests')"
+                                    id="guest-selector"
+                                />
+
+                                <div v-if="selectedProd === 'acco'">
+                                    <input
+                                        hidden="true"
+                                        name="avail"
+                                        value="on"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div v-if="selectedProd === 'tour'">
+                            <Autocomplete
+                                id="tour-origin"
+                                :label="getLabelText('tour_origin', 'Starting point')"
+                                multiselect-label="name"    
+                                name="origins[]"
+                                :options="origins"
+                                :placeholder="getLabelText('tour_origin_placeholder', 'Location')"
+                                track-by="name"
+                                :is-tour-location="true"
+                            />
+
+                            <label for="tour-keywords">
+                                {{ getLabelText('tour_keywords', 'I\'m looking for') }}
+                            </label>
+                            <Multiselect
+                                v-model="keywords"
+                                label="name"
+                                id="tour-keywords"
+                                mode="tags"
+                                :options="attractions"
+                                :placeholder="getLabelText('tour_keywords_placeholder', 'Keywords')"
+                                :searchable="true"
+                                track-by="name"
+                                value-prop="slug"
+                                name="attractions[]"
+                                class="mb-3 mt-2"
+                            />
+                            <input
+                                type="hidden"
+                                name="attractions[]"
+                                v-for="keyword in keywords"
+                                :value="keyword"
+                            />
+
+                            <Autocomplete
+                                id="tour-month"
+                                :label="getLabelText('tour_month', 'I\'m traveling in')"
+                                multiselect-label="label"
+                                name="when"
+                                :options="getLabelText('months', monthsEnglish)"
+                                :placeholder="getLabelText('tour_month_placeholder', 'Select month')"
+                                track-by="value"
+                            />
+                        </div>
+                        <!-- <input
+                            type="submit"
+                            :value="getLabelText('search', 'Search')"
+                        /> -->
+
+                        <VsButton
+                            class="mt-6"
+                            variant="dark"
+                        >
+                            {{ getLabelText('search', 'Search') }}
+                        </VsButton>
+                    </form>
                 </div>
             </div>
-
-            <div v-if="selectedProd === 'tour'">
-                <Autocomplete
-                    id="tour-origin"
-                    :label="getLabelText('tour_origin', 'Starting point')"
-                    multiselect-label="name"    
-                    name="origins[]"
-                    :options="origins"
-                    :placeholder="getLabelText('tour_origin_placeholder', 'Location')"
-                    track-by="name"
-                    :is-tour-location="true"
-                />
-
-                <label for="tour-keywords">
-                    {{ getLabelText('tour_keywords', 'I\'m looking for') }}
-                </label>
-                <Multiselect
-                    v-model="keywords"
-                    label="name"
-                    id="tour-keywords"
-                    mode="tags"
-                    :options="attractions"
-                    :placeholder="getLabelText('tour_keywords_placeholder', 'Keywords')"
-                    :searchable="true"
-                    track-by="name"
-                    value-prop="slug"
-                    name="attractions[]"
-                    class="mb-3 mt-2"
-                />
-                <input
-                    type="hidden"
-                    name="attractions[]"
-                    v-for="keyword in keywords"
-                    :value="keyword"
-                />
-
-                <Autocomplete
-                    id="tour-month"
-                    :label="getLabelText('tour_month', 'I\'m traveling in')"
-                    multiselect-label="label"
-                    name="when"
-                    :options="getLabelText('months', monthsEnglish)"
-                    :placeholder="getLabelText('tour_month_placeholder', 'Select month')"
-                    track-by="value"
-                />
-            </div>
-            <!-- <input
-                type="submit"
-                :value="getLabelText('search', 'Search')"
-            /> -->
-
-            <VsButton
-                class="mt-6"
-                variant="dark"
-            >
-                {{ getLabelText('search', 'Search') }}
-            </VsButton>
-        </form>
+        </div>
     </div>
 </template>
 
@@ -281,10 +287,6 @@ const preSubmitChecks = (e) => {
     @import "@vueform/multiselect/themes/default.css";
     @include forms-common;
 
-    .multiselect-tags-search {
-        position: relative;
-    }
-
     .vs-input {
         @include form-element-styles;
         margin-top: $spacer-2;
@@ -330,11 +332,12 @@ const preSubmitChecks = (e) => {
 
             &-item{
                 cursor: pointer;
+                font-size: $font-size-4;
                 padding: $spacer-2 $spacer-4;
 
                 &:hover{
-                    background-color: $color-pink;
-                    color: $color-white;
+                    background-color: $color-secondary-gray-tint-6;
+                    color: $color-base-text;
                 }
             }
         }
@@ -370,10 +373,15 @@ const preSubmitChecks = (e) => {
     .multiselect-tags {
         flex-wrap: nowrap;
         overflow: hidden;
-        min-height: 50px;
+        min-height: 42px;
         max-width: 80%;
         align-self: flex-start;
         margin-right: 4px;
+
+        .multiselect-tag{
+            background: $color-secondary-gray-tint-5;
+            color: $color-base-text;
+        }
     }
 
     .multiselect-wrapper {
@@ -393,11 +401,17 @@ const preSubmitChecks = (e) => {
         overflow: hidden;
     }
 
+    .multiselect-option.is-pointed{
+        background-color: $color-secondary-gray-tint-6;
+        color: $color-base-text;
+    }
+
     .multiselect-caret {
         display: none;
     }
 
     .multiselect-placeholder {
         color: $color-base-text;
+        opacity: 0.8;
     }
 </style>

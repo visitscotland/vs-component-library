@@ -150,13 +150,17 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
             :class="visible ? 'psw-guestpicker__modal--visible' : ''"
         >
             <VsButton
-                @click.prevent="hidePicker"
-                :icon-only="true"
-                icon="close"
-                variant="transparent"
                 class="align-self-end"
+                data-test="psw-guestpicker__close-btn"
+                variant="transparent"
+                icon="close-circle"
+                size="md"
+                icon-only
+                @click.prevent="hidePicker"
             >
-                {{ getLabelText('close', 'Close') }}
+                <span class="sr-only">
+                    {{ getLabelText('close', 'Close') }}
+                </span>
             </VsButton>
 
             <div class="psw-guestpicker__button-row mb-3">
@@ -212,8 +216,12 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
 </template>
 
 <style lang="scss">
-    .c-search-rooms-guests__trigger {
+    button.c-search-rooms-guests__trigger {
         text-align: left;
+
+        &:focus{
+            box-shadow: none;
+        }
     }
 
     .psw-guestpicker {
@@ -222,7 +230,7 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
         &__modal {
             width: 100%;
             display: none;
-            padding: 1rem;
+            padding: $spacer-4;
         }
 
         &__modal--visible {
@@ -234,7 +242,7 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
         }
 
         &__label {
-            font-weight: 600;
+            font-weight: $font-weight-bold;
             margin-bottom: 0;
         }
 
