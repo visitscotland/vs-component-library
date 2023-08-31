@@ -1,0 +1,7 @@
+[
+    { "id": "featured", "label": "Featured Places" },
+    { "id": "cities", "label": "Cities" },
+    { "id": "towns", "label": "Towns" },
+    { "id": "islands", "label": "Islands" },
+    { "id": "regions", "label": "Regions" }
+]
