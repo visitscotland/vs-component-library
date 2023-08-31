@@ -240,7 +240,9 @@ const origins = ref<TmsApiDataItem[]>([]);
 onMounted(async () => {
     // Get location data.
     const locationResponse = await getData(locationsUrl);
-    locations.value = locationResponse.data;
+    if (locationResponse){
+        locations.value = locationResponse.data;
+    }
 
     if (props.defaultLocation !== '') {
         getPlaceData(props.defaultLocation);
@@ -254,11 +256,15 @@ onMounted(async () => {
     initProductTypes();
     // Get attraction data.
     const attractionResponse = await getData(attractionsUrl);
-    attractions.value = attractionResponse.data;
+    if (attractionResponse){
+        attractions.value = attractionResponse.data;
+    }
 
     // Get origins data.
     const originsResponse = await getData(originsUrl);
-    origins.value = originsResponse.data;
+    if (originsResponse){
+        origins.value = originsResponse.data;
+    }
 });
 
 const preSubmitChecks = (e) => {
