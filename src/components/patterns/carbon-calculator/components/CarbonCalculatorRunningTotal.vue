@@ -14,9 +14,9 @@
         <div
             class="vs-carbon-calculator-running-total__content"
         >
-            <p>Your calculation so far:</p>
+            <p>{{ soFarLabel }}</p>
             <p>
-                <span class="font-weight-bold">{{ totalKilos }}</span> kgs of CO2
+                <span class="font-weight-bold">{{ totalKilos }}</span> {{ kgsOfLabel }}
             </p>
         </div>
     </div>
@@ -44,6 +44,14 @@ export default {
         totalKilos: {
             type: Number,
             default: 0,
+        },
+        soFarLabel: {
+            type: String,
+            default: '',
+        },
+        kgsOfLabel: {
+            type: String,
+            default: '',
         },
     },
 };

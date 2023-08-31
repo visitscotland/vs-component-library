@@ -51,6 +51,8 @@
                 <VsCarbonCalculatorTip
                     v-if="currentTip"
                     :tip="currentTip.text"
+                    :top-tip-label="labelsMap.topTip"
+                    :all-tips-label="labelsMap.allTips"
                 />
             </VsCol>
             <VsCol
@@ -59,6 +61,8 @@
                 <VsCarbonCalculatorRunningTotal
                     v-if="activeQuestion > 0 && activeQuestion <= formData.fields.length"
                     :total-kilos="totalKilos"
+                    :so-far-label="labelsMap.soFar"
+                    :kgs-of-label="labelsMap.kgsOf"
                 />
                 <VsCarbonCalculatorResults
                     v-if="activeQuestion > formData.fields.length"
@@ -77,6 +81,10 @@
                     :stay-duration="stayDuration"
                     :per-day-target="labelsMap.perDayTarget"
                     :per-day-success="labelsMap.perDaySuccess"
+                    :top-tip-label="labelsMap.topTip"
+                    :all-tips-label="labelsMap.allTips"
+                    :breakdown-label="labelsMap.breakdownTitle"
+                    :per-day-equiv-label="labelsMap.kgsPerDay"
                 />
             </VsCol>
             <VsCol

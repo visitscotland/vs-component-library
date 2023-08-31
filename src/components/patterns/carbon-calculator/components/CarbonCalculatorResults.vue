@@ -40,7 +40,7 @@
         <VsCol
             cols="12"
         >
-            <p>That's equivalent to {{ totalPerDay }} kgs CO2 per day!</p>
+            <p>{{ interpolKGsPerDay }}</p>
             <p v-if="totalPerDay <= perDayTarget">
                 {{ perDaySuccess }}
             </p>
@@ -88,7 +88,7 @@
             <VsHeading
                 level="3"
             >
-                Your CO2 Breakdown
+                {{ breakdownLabel }}
             </VsHeading>
             <div class="vs-carbon-calculator-results__breakdown">
                 <VsIcon
@@ -142,6 +142,8 @@
         >
             <VsCarbonCalculatorTip
                 :all-tips="true"
+                :top-tip-label="topTipLabel"
+                :all-tips-label="allTipsLabel"
             />
         </VsCol>
     </VsRow>
@@ -245,6 +247,22 @@ export default {
             type: String,
             default: '',
         },
+        topTipLabel: {
+            type: String,
+            default: '',
+        },
+        allTipsLabel: {
+            type: String,
+            default: '',
+        },
+        breakdownLabel: {
+            type: String,
+            default: '',
+        },
+        perDayEquivLabel: {
+            type: String,
+            default: '',
+        },
     },
     data() {
         return {
@@ -260,15 +278,15 @@ export default {
         chartData() {
             return [
                 {
-                    name: 'Transport',
+                    name: this.transportLabel,
                     emissions: this.transportKilos,
                 },
                 {
-                    name: 'Accommodation',
+                    name: this.accommodationLabel,
                     emissions: this.accommodationKilos,
                 },
                 {
-                    name: 'Food',
+                    name: this.foodLabel,
                     emissions: this.foodKilos,
                 },
             ];
@@ -277,6 +295,9 @@ export default {
             const instances = (this.totalKilos / this.comparisonKilos).toFixed(3);
 
             return this.comparison.replace('xxx', instances);
+        },
+        interpolKGsPerDay() {
+            return this.perDayEquivLabel.replace('xxx', this.totalPerDay);
         },
         transportPercent() {
             return (this.transportKilos / this.totalKilos) * 100;

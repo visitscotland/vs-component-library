@@ -19,20 +19,17 @@
             <VsHeading
                 level="6"
             >
-                Top Tip!
+                {{ topTipLabel }}
             </VsHeading>
 
+            <!-- eslint-disable vue/no-v-html -->
             <p
                 class="vs-carbon-calculator-tip__content"
                 data-test="vs-carbon-calculator-tip__summary"
                 v-if="allTips"
-            >
-                You can view all our sustainable travel tips
-                <VsLink href="#">
-                    here
-                </VsLink>
-                . We've got you covered!
-            </p>
+                v-html="allTipsLabel"
+            />
+            <!-- eslint-enable vue/no-v-html -->
 
             <p
                 class="vs-carbon-calculator-tip__content"
@@ -48,7 +45,6 @@
 <script>
 import VsHeading from '@components/elements/heading/Heading.vue';
 import VsIcon from '@components/elements/icon/Icon.vue';
-import VsLink from '@components/elements/link/Link.vue';
 
 /**
  * @displayName Carbon Form Tip
@@ -59,7 +55,6 @@ export default {
     release: '0.0.1',
     components: {
         VsIcon,
-        VsLink,
         VsHeading,
     },
     props: {
@@ -70,6 +65,14 @@ export default {
         allTips: {
             type: Boolean,
             default: false,
+        },
+        topTipLabel: {
+            type: String,
+            default: '',
+        },
+        allTipsLabel: {
+            type: String,
+            default: '',
         },
     },
 };
