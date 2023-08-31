@@ -311,17 +311,27 @@ const preSubmitChecks = (e) => {
 
     .simple-typeahead {
         position: relative;
-    }
 
-    .simple-typeahead-list {
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        max-height: 250px;
-        overflow-y: scroll;
-        background: #fff;
-        width: 100%;
-        z-index: 10;
+        &-list {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            max-height: 250px;
+            overflow-y: scroll;
+            background: #fff;
+            width: 100%;
+            z-index: 10;
+
+            &-item{
+                cursor: pointer;
+                padding: $spacer-2 $spacer-4;
+
+                &:hover{
+                    background-color: $color-pink;
+                    color: $color-white;
+                }
+            }
+        }
     }
 
     .multiselect {

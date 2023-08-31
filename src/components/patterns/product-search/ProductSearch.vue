@@ -105,7 +105,7 @@ export default {
     .vs-product-search {
         width: 100%;
         background: $color-gray-shade-5;
-        padding: 0 6px $spacer-9;
+        padding: $spacer-9 $spacer-1;
         font-family: $font-family-sans-serif;
 
         &__no-js {
@@ -126,7 +126,7 @@ export default {
         &__col--left {
             background: $color-gray-shade-5;
             font-family: $font-family-sans-serif;
-            margin-bottom: $spacer-10;
+            margin-bottom: $spacer-9;
         }
 
         &__col--right {
