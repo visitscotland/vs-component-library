@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import { getLabelText } from '../../../../utils/lang.ts';
+import { getLabelText } from '../../../../utils/lang';
 import DateInput from './DateInput.vue';
 
 const props = defineProps({
