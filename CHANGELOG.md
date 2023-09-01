@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.17](https://github.com/visitscotland/vs-component-library/compare/v1.0.16...v1.0.17) (2023-09-01)
+
+
+### 📝 Docs
+
+* **marketoforms:** improves documentation for form functionality ([3c395d1](https://github.com/visitscotland/vs-component-library/commit/3c395d14f3c33358b3461c01a165c5730047dc21))
+
+
+### ✨ Features
+
+* add product search ([a32b1a8](https://github.com/visitscotland/vs-component-library/commit/a32b1a8caa5b9842e44a45dd0a258c4f9fc22798))
+
+
+### ✅ Tests
+
+* **psw:** remove psw tests until they have been refactored ([1066936](https://github.com/visitscotland/vs-component-library/commit/106693646419ef9e05d6d67db4d6ad6158a7727a))
+
+
+### 🐛 Bug Fixes
+
+* linting fixes ([87d216d](https://github.com/visitscotland/vs-component-library/commit/87d216d5340fb03ea2cb230373e2ea18e1d0b740))
+* **psw:** fix psw falling over when no api data is received ([1a138dc](https://github.com/visitscotland/vs-component-library/commit/1a138dc7caa178cdafc3504203d78fbf276da209))
+
+
+### 🎨 Styling
+
+* **psw:** tidy up styles on new product search widget ([ec9ed19](https://github.com/visitscotland/vs-component-library/commit/ec9ed19078c0c38805530aa16d3199688a881160))
+* **psw:** updating styles in product search ([39bcafd](https://github.com/visitscotland/vs-component-library/commit/39bcafd4efbf7359c8d03d3c6666519af9240063))
+
 ### [1.0.16](https://github.com/visitscotland/vs-component-library/compare/v1.0.15...v1.0.16) (2023-08-30)
 
 
