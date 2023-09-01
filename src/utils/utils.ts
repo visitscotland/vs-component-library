@@ -9,9 +9,13 @@ declare global {
     }
 }
 
-let VS = window.VS;
+let VS;
 
-VS = (typeof window.VS === 'object') ? window.VS : {};
+if (typeof variable !== 'undefined') {
+    VS = (typeof window.VS === 'object') ? window.VS : {};
+} else {
+    VS = {};
+}
 
 
 export function getURLParameters() {
