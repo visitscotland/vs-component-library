@@ -3,6 +3,5 @@
     "allowJs": true,
     "outDir": "./dist",
     "esModuleInterop": true,
-    "allowImportingTsExtensions": true,
   }
 }
