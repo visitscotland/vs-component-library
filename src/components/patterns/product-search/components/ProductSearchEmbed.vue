@@ -104,9 +104,6 @@
                                 :is-tour-location="true"
                             />
 
-                            <label for="tour-keywords">
-                                {{ getLabelText('tour_keywords', 'I\'m looking for') }}
-                            </label>
                             <input
                                 type="hidden"
                                 name="attractions[]"
