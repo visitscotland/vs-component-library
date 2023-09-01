@@ -107,19 +107,6 @@
                             <label for="tour-keywords">
                                 {{ getLabelText('tour_keywords', 'I\'m looking for') }}
                             </label>
-                            <Multiselect
-                                v-model="keywords"
-                                label="name"
-                                id="tour-keywords"
-                                mode="tags"
-                                :options="attractions"
-                                :placeholder="getLabelText('tour_keywords_placeholder', 'Keywords')"
-                                :searchable="true"
-                                track-by="name"
-                                value-prop="slug"
-                                name="attractions[]"
-                                class="mb-3 mt-2"
-                            />
                             <input
                                 type="hidden"
                                 name="attractions[]"
@@ -170,7 +157,6 @@ import SelectInput from './SelectInput.vue';
 import TextInput from './TextInput.vue';
 import DateRange from './DateRange.vue';
 import VsButton from '../../../elements/button/Button.vue';
-import Multiselect from '@vueform/multiselect';
 
 /**
  * A module housing the PSR widget, a title and optional text
@@ -284,7 +270,6 @@ const preSubmitChecks = (e) => {
 </script>
 
 <style lang="scss">
-    @import "@vueform/multiselect/themes/default.css";
     @include forms-common;
 
     .vs-input {
