@@ -6,7 +6,7 @@
             <VsHeading
                 level="2"
             >
-                {{ title }}
+                {{ labelsMap.results }}
             </VsHeading>
         </VsCol>
         <VsCol
@@ -23,7 +23,7 @@
                         <span class="vs-carbon-calculator-results__total">
                             {{ totalKilos }}
                         </span>
-                        kgs CO2
+                        {{ labelsMap.kgsOf }}
                     </p>
                 </VsCol>
                 <VsCol
@@ -42,7 +42,7 @@
         >
             <p>{{ interpolKGsPerDay }}</p>
             <p v-if="totalPerDay <= perDayTarget">
-                {{ perDaySuccess }}
+                {{ labelsMap.perDaySuccess }}
             </p>
         </VsCol>
         <VsCol
@@ -83,67 +83,10 @@
         </VsCol>
         <VsCol
             cols="12"
-            md="6"
-        >
-            <VsHeading
-                level="3"
-            >
-                {{ breakdownLabel }}
-            </VsHeading>
-            <div class="vs-carbon-calculator-results__breakdown">
-                <VsIcon
-                    name="transport"
-                />
-                <span
-                    class="vs-carbon-calculator-results__breakdown-cat"
-                >
-                    {{ transportLabel }}
-                </span>
-                <span
-                    class="vs-carbon-calculator-results__breakdown-percent"
-                >
-                    {{ transportPercent.toFixed(1) }}%
-                </span>
-            </div>
-            <div class="vs-carbon-calculator-results__breakdown">
-                <VsIcon
-                    name="home"
-                />
-                <span
-                    class="vs-carbon-calculator-results__breakdown-cat"
-                >
-                    {{ accommodationLabel }}
-                </span>
-                <span
-                    class="vs-carbon-calculator-results__breakdown-percent"
-                >
-                    {{ accommodationPercent.toFixed(1) }}%
-                </span>
-            </div>
-            <div class="vs-carbon-calculator-results__breakdown">
-                <VsIcon
-                    name="food"
-                />
-                <span
-                    class="vs-carbon-calculator-results__breakdown-cat"
-                >
-                    {{ foodLabel }}
-                </span>
-                <span
-                    class="vs-carbon-calculator-results__breakdown-percent"
-                >
-                    {{ foodPercent.toFixed(1) }}%
-                </span>
-            </div>
-        </VsCol>
-        <VsCol
-            cols="12"
             class="mt-8"
         >
             <VsCarbonCalculatorTip
-                :all-tips="true"
-                :top-tip-label="topTipLabel"
-                :all-tips-label="allTipsLabel"
+                :showing-all-tips="true"
             />
         </VsCol>
     </VsRow>
@@ -151,7 +94,6 @@
 
 <script>
 import { VsCol, VsRow } from '@components/elements/grid';
-import VsIcon from '@components/elements/icon/Icon.vue';
 import VsImg from '@components/elements/img/Img.vue';
 import VsHeading from '@components/elements/heading/Heading.vue';
 import { ref } from 'vue';
@@ -173,7 +115,6 @@ export default {
     components: {
         VsCol,
         VsRow,
-        VsIcon,
         VsImg,
         VsHeading,
         VsCarbonCalculatorTip,
@@ -182,19 +123,8 @@ export default {
         Bar,
         Responsive,
     },
+    inject: ['labelsMap'],
     props: {
-        title: {
-            type: String,
-            default: '',
-        },
-        comparison: {
-            type: String,
-            default: '',
-        },
-        comparisonKilos: {
-            type: Number,
-            default: 0.1,
-        },
         totalKilos: {
             type: Number,
             default: 0,
@@ -223,18 +153,6 @@ export default {
             type: Object,
             default: null,
         },
-        transportLabel: {
-            type: String,
-            default: '',
-        },
-        accommodationLabel: {
-            type: String,
-            default: '',
-        },
-        foodLabel: {
-            type: String,
-            default: '',
-        },
         stayDuration: {
             type: Number,
             default: 1,
@@ -242,26 +160,6 @@ export default {
         perDayTarget: {
             type: Number,
             default: 0,
-        },
-        perDaySuccess: {
-            type: String,
-            default: '',
-        },
-        topTipLabel: {
-            type: String,
-            default: '',
-        },
-        allTipsLabel: {
-            type: String,
-            default: '',
-        },
-        breakdownLabel: {
-            type: String,
-            default: '',
-        },
-        perDayEquivLabel: {
-            type: String,
-            default: '',
         },
     },
     data() {
@@ -278,26 +176,27 @@ export default {
         chartData() {
             return [
                 {
-                    name: this.transportLabel,
+                    name: this.labelsMap.transport,
                     emissions: this.transportKilos,
                 },
                 {
-                    name: this.accommodationLabel,
+                    name: this.labelsMap.accommodation,
                     emissions: this.accommodationKilos,
                 },
                 {
-                    name: this.foodLabel,
+                    name: this.labelsMap.food,
                     emissions: this.foodKilos,
                 },
             ];
         },
         interpolComparison() {
-            const instances = (this.totalKilos / this.comparisonKilos).toFixed(3);
+            const kilos = parseFloat(this.labelsMap.comparisonKilos);
+            const instances = (this.totalKilos / kilos).toFixed(3);
 
-            return this.comparison.replace('xxx', instances);
+            return this.labelsMap.comparison.replace('xxx', instances);
         },
         interpolKGsPerDay() {
-            return this.perDayEquivLabel.replace('xxx', this.totalPerDay);
+            return this.labelsMap.kgsPerDay.replace('xxx', this.totalPerDay);
         },
         transportPercent() {
             return (this.transportKilos / this.totalKilos) * 100;
@@ -381,42 +280,6 @@ export default {
 
         @include media-breakpoint-up(md) {
             margin-bottom: $spacer-10;
-        }
-    }
-
-    .vs-carbon-calculator-results__breakdown {
-        text-align: center;
-        padding: $spacer-2 $spacer-0;
-
-        .vs-icon {
-            width: 10%;
-        }
-
-        .vs-carbon-calculator-results__breakdown-cat {
-            width: 70%;
-            display: inline-block;
-        }
-
-        .vs-carbon-calculator-results__breakdown-percent {
-            width: 20%;
-            display: inline-block;
-        }
-
-        @include media-breakpoint-up(md) {
-            text-align: left;
-            padding: $spacer-2;
-
-            .vs-icon {
-                width: 20%;
-            }
-
-            .vs-carbon-calculator-results__breakdown-cat {
-                width: 40%
-            }
-
-            .vs-carbon-calculator-results__breakdown-percent {
-                width: 40%
-            }
         }
     }
 </style>

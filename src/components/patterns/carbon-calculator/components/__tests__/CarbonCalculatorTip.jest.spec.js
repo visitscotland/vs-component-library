@@ -8,11 +8,22 @@ config.global.renderStubDefaultSlot = true;
 
 const tipContent = 'This is a tip';
 
+const topTip = 'Top Tip!';
+const allTips = 'Click here to view all of our tips!';
+
 const factoryShallowMount = (propsData) => shallowMount(VsCarbonCalculatorTip, {
     propsData: {
         tip: tipContent,
         allTips: false,
         ...propsData,
+    },
+    global: {
+        provide: {
+            labelsMap: {
+                topTip,
+                allTips,
+            },
+        },
     },
 });
 
@@ -26,24 +37,38 @@ describe('VsCarbonCalculatorTip', () => {
     });
 
     describe(':props', () => {
-        it('renders the main `tip` prop if `allTips` is false', () => {
+        it('should correctly render the labelsMap `topTip`', () => {
             const wrapper = factoryShallowMount();
 
-            const allTips = wrapper.find('[data-test=vs-carbon-calculator-tip__summary]');
+            expect(wrapper.text()).toContain(topTip);
+        });
 
-            expect(allTips.exists()).toBe(false);
+        it('renders the main `tip` prop if `showingAllTips` is false', () => {
+            const wrapper = factoryShallowMount();
+
+            const allTipsContainer = wrapper.find('[data-test=vs-carbon-calculator-tip__summary]');
+
+            expect(allTipsContainer.exists()).toBe(false);
             expect(wrapper.text()).toContain(tipContent);
         });
 
-        it('does not render the main `tip` prop if `allTips` is true', () => {
+        it('does not render the main `tip` prop if `showingAllTips` is true', () => {
             const wrapper = factoryShallowMount({
-                allTips: true,
+                showingAllTips: true,
             });
 
-            const allTips = wrapper.find('[data-test=vs-carbon-calculator-tip__summary]');
+            const allTipsContainer = wrapper.find('[data-test=vs-carbon-calculator-tip__summary]');
 
-            expect(allTips.exists()).toBe(true);
+            expect(allTipsContainer.exists()).toBe(true);
             expect(wrapper.text()).not.toContain(tipContent);
+        });
+
+        it('should correctly render the labelsMap `allTips` if `showingAllTips` is true', () => {
+            const wrapper = factoryShallowMount({
+                showingAllTips: true,
+            });
+
+            expect(wrapper.text()).toContain(allTips);
         });
     });
 });

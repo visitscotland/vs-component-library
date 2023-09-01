@@ -10,10 +10,7 @@
             <VsCol>
                 <VsCarbonCalculatorIntro
                     v-if="!activeQuestion"
-                    :heading="labelsMap.introHeading"
-                >
-                    {{ labelsMap.introContent }}
-                </VsCarbonCalculatorIntro>
+                />
 
                 <form
                     v-if="activeQuestion"
@@ -51,8 +48,6 @@
                 <VsCarbonCalculatorTip
                     v-if="currentTip"
                     :tip="currentTip.text"
-                    :top-tip-label="labelsMap.topTip"
-                    :all-tips-label="labelsMap.allTips"
                 />
             </VsCol>
             <VsCol
@@ -61,30 +56,17 @@
                 <VsCarbonCalculatorRunningTotal
                     v-if="activeQuestion > 0 && activeQuestion <= formData.fields.length"
                     :total-kilos="totalKilos"
-                    :so-far-label="labelsMap.soFar"
-                    :kgs-of-label="labelsMap.kgsOf"
                 />
                 <VsCarbonCalculatorResults
                     v-if="activeQuestion > formData.fields.length"
-                    :title="labelsMap.results"
                     :total-kilos="totalKilos"
                     :transport-kilos="transportKilos"
                     :food-kilos="foodKilos"
                     :accommodation-kilos="accommodationKilos"
                     :transport-tip="transportTip"
                     :food-tip="foodTip"
-                    :transport-label="getQuestionCategory(1)"
-                    :accommodation-label="getQuestionCategory(3)"
-                    :food-label="getQuestionCategory(4)"
-                    :comparison="comparison.text"
-                    :comparison-kilos="comparison.kilos"
+                    :accommodation-tip="accommodationTip"
                     :stay-duration="stayDuration"
-                    :per-day-target="labelsMap.perDayTarget"
-                    :per-day-success="labelsMap.perDaySuccess"
-                    :top-tip-label="labelsMap.topTip"
-                    :all-tips-label="labelsMap.allTips"
-                    :breakdown-label="labelsMap.breakdownTitle"
-                    :per-day-equiv-label="labelsMap.kgsPerDay"
                 />
             </VsCol>
             <VsCol
@@ -175,6 +157,16 @@ export default {
         VsCarbonCalculatorRunningTotal,
         VsCarbonCalculatorIntro,
         VsCarbonCalculatorQuestion,
+    },
+    /**
+     * All labels come from the CMS to simplify localisation. As there are so many of them
+     * and the question labels are dynamic, they come as a single json object which needs
+     * to be shared down to each of the sub-components of the calculator.
+     */
+    provide() {
+        return {
+            labelsMap: this.labelsMap,
+        };
     },
     props: {
         /**
@@ -277,12 +269,6 @@ export default {
             }
 
             return tip;
-        },
-        comparison() {
-            return {
-                text: this.labelsMap.comparison,
-                kilos: parseFloat(this.labelsMap.comparisonKilos),
-            };
         },
         stayDuration() {
             return parseInt(this.form.howLongStay, 10);

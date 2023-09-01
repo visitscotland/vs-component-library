@@ -4,14 +4,20 @@ import VsCarbonCalculatorIntro from '../CarbonCalculatorIntro.vue';
 
 config.global.renderStubDefaultSlot = true;
 
-const defaultSlot = 'Carbon intro page';
+const heading = 'Calculate your carbon';
+const content = 'Lorem ipsum dolor sit amet';
 
 const factoryShallowMount = (propsData) => shallowMount(VsCarbonCalculatorIntro, {
     propsData: {
         ...propsData,
     },
-    slots: {
-        default: defaultSlot,
+    global: {
+        provide: {
+            labelsMap: {
+                introHeading: heading,
+                introContent: content,
+            },
+        },
     },
 });
 
@@ -24,11 +30,17 @@ describe('VsCarbonCalculatorIntro', () => {
         expect(Intro.exists()).toBe(true);
     });
 
-    describe(':slots', () => {
-        it('renders content in the `default` slot', () => {
+    describe(':props', () => {
+        it('should correctly render the labelsMap `introHeading`', () => {
             const wrapper = factoryShallowMount();
 
-            expect(wrapper.text()).toContain(defaultSlot);
+            expect(wrapper.text()).toContain(heading);
+        });
+
+        it('should correctly render the labelsMap `introContent`', () => {
+            const wrapper = factoryShallowMount();
+
+            expect(wrapper.text()).toContain(content);
         });
     });
 });

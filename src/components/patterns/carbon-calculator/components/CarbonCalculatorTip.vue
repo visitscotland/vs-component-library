@@ -19,21 +19,21 @@
             <VsHeading
                 level="6"
             >
-                {{ topTipLabel }}
+                {{ labelsMap.topTip }}
             </VsHeading>
 
             <!-- eslint-disable vue/no-v-html -->
             <p
                 class="vs-carbon-calculator-tip__content"
                 data-test="vs-carbon-calculator-tip__summary"
-                v-if="allTips"
-                v-html="allTipsLabel"
+                v-if="showingAllTips"
+                v-html="labelsMap.allTips"
             />
             <!-- eslint-enable vue/no-v-html -->
 
             <p
                 class="vs-carbon-calculator-tip__content"
-                v-if="!allTips"
+                v-if="!showingAllTips"
                 data-test="vs-carbon-calculator-tip__content"
             >
                 {{ tip }}
@@ -57,22 +57,15 @@ export default {
         VsIcon,
         VsHeading,
     },
+    inject: ['labelsMap'],
     props: {
         tip: {
             type: String,
             default: '',
         },
-        allTips: {
+        showingAllTips: {
             type: Boolean,
             default: false,
-        },
-        topTipLabel: {
-            type: String,
-            default: '',
-        },
-        allTipsLabel: {
-            type: String,
-            default: '',
         },
     },
 };

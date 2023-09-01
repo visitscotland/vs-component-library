@@ -14,9 +14,9 @@
         <div
             class="vs-carbon-calculator-running-total__content"
         >
-            <p>{{ soFarLabel }}</p>
+            <p>{{ labelsMap.soFar }}</p>
             <p>
-                <span class="font-weight-bold">{{ totalKilos }}</span> {{ kgsOfLabel }}
+                <span class="font-weight-bold">{{ totalKilos }}</span> {{ labelsMap.kgsOf }}
             </p>
         </div>
     </div>
@@ -35,6 +35,7 @@ export default {
     components: {
         VsIcon,
     },
+    inject: ['labelsMap'],
     props: {
         /**
          * The current total number of kilos of carbon captured in the
@@ -44,14 +45,6 @@ export default {
         totalKilos: {
             type: Number,
             default: 0,
-        },
-        soFarLabel: {
-            type: String,
-            default: '',
-        },
-        kgsOfLabel: {
-            type: String,
-            default: '',
         },
     },
 };

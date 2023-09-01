@@ -6,13 +6,10 @@
         <VsHeading
             level="2"
         >
-            {{ heading }}
+            {{ labelsMap.introHeading }}
         </VsHeading>
-        <!--
-            @slot Holds introduction copy
-            expects html
-        -->
-        <slot />
+
+        <p>{{ labelsMap.introContent }}</p>
     </div>
 </template>
 
@@ -30,12 +27,7 @@ export default {
     components: {
         VsHeading,
     },
-    props: {
-        heading: {
-            type: String,
-            required: true,
-        },
-    },
+    inject: ['labelsMap'],
 };
 </script>
 
