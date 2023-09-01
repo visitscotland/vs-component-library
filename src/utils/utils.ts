@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { products } from '../constants';
-import type { SelectOption } from '@/types';
+import type { SelectOption } from '../types';
 
 declare global {
     // es-lint

@@ -33,7 +33,7 @@ const decreaseCount = () => {
     </div>
 </template>
 
-<style>
+<style lang="scss">
     .guest-counter {
         display: flex;
     }

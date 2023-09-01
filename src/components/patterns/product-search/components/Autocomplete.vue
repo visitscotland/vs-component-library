@@ -121,10 +121,4 @@ onMounted(() => {
 </template>
 
 
-<style scoped>
-    body {
-        background: blue;
-    }
-</style>
-
 
