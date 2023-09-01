@@ -157,10 +157,10 @@
 
 <script setup lang="ts">
 import { computed, ref, onMounted } from 'vue';
-import { getLabelText, getLocale } from '../../../../utils/lang.ts';
-import { baseUrl, paths, monthsEnglish } from '../../../../constants.ts';
-import { getProductTypes } from '../../../../utils/utils.ts';
-import { getData } from '../../../../utils/axios.ts';
+import { getLabelText, getLocale } from '../../../../utils/lang';
+import { baseUrl, paths, monthsEnglish } from '../../../../constants';
+import { getProductTypes } from '../../../../utils/utils';
+import { getData } from '../../../../utils/axios';
 import type { Location, TmsApiDataItem, SelectOption } from '../../../../types';
 
 import VsSelect from '../../../elements/select/Select.vue';

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import type { SelectOption } from '../../../../types.ts';
+import type { SelectOption } from '../../../../types';
 import Label from './Label.vue';
 
 const props = defineProps<{

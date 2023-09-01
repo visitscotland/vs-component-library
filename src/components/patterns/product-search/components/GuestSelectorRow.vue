@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { getLabelText } from '../../../../utils/lang.ts';
-import type { GuestUnit } from '../../../../types.ts';
+import { getLabelText } from '../../../../utils/lang';
+import type { GuestUnit } from '../../../../types';
 import GuestSelectorNumberGroup from './GuestSelectorNumberGroup.vue';
 import VsButton from '../../../elements/button';
 

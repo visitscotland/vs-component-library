@@ -3,7 +3,7 @@ import { ref, computed, watch, onMounted } from 'vue';
 import {default as slugify} from 'slugify';
 import TypeAhead from 'vue3-simple-typeahead';
 
-import type { TmsApiDataItem, Location } from '../../../../types.ts';
+import type { TmsApiDataItem, Location } from '../../../../types';
 
 const props = defineProps<{
     id: string,
