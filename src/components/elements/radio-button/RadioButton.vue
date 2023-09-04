@@ -53,6 +53,14 @@
                 </BFormRadio>
             </div>
         </BFormRadioGroup>
+
+        <p
+            v-if="hintText"
+            class="hint-text"
+            :id="`hint-${fieldName}`"
+        >
+            {{ hintText }}
+        </p>
     </div>
 </template>
 
@@ -165,6 +173,14 @@ export default {
             type: Array,
             required: true,
         },
+        /**
+         * An optional string which provides the user further information about how to answer
+         * the question. Appears below the radio button input.
+         */
+        hintText: {
+            type: String,
+            default: '',
+        },
     },
     setup: () => ({
         v$: useVuelidate(),
@@ -173,7 +189,7 @@ export default {
         return {
             inputVal: this.value,
             clearErrorsOnFocus: false,
-            checkedValue: '',
+            checkedValue: this.value,
         };
     },
     computed: {
@@ -263,6 +279,8 @@ export default {
 </script>
 
 <style lang="scss">
+    @include forms-common;
+
     .vs-radio-button {
         width: 100%;
 
@@ -362,6 +380,10 @@ export default {
                     }
                 }
             }
+        }
+
+        .hint-text {
+            margin-top: $spacer-2;
         }
     }
 </style>

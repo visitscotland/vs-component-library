@@ -27,6 +27,7 @@
                 :fieldName="fieldName"
                 :options="options"
                 :required="true"
+                :hintText="hint"
                 @updateFieldData="valueChanged"
             />
 
@@ -38,6 +39,7 @@
                 value="0"
                 :minimumNumber="minimum"
                 :maximumNumber="maximum"
+                :hintText="hint"
                 @updated="valueChanged"
             />
         </div>
@@ -74,6 +76,14 @@ export default {
         labelFor: {
             type: String,
             required: true,
+        },
+        /**
+         * The localised hint text of the question that clarifies the answer expected
+         * from the user
+         */
+        hint: {
+            type: String,
+            default: '',
         },
         /**
          * Any additional styling  classes that should be applied to the question

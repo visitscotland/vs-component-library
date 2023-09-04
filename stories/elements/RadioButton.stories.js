@@ -51,3 +51,19 @@ export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const Selected = Template.bind({
+});
+
+Selected.args = {
+    ...base,
+    value: 'plane',
+};
+
+export const WithHint = Template.bind({
+});
+
+WithHint.args = {
+    ...base,
+    hintText: 'Select the option that best describes your journey to get to Scotland.',
+};

@@ -67,6 +67,7 @@ const base = {
         'page-4.option-4': 'Pescatarian',
         'page-4.option-5': 'Vegetarian',
         'page-4.option-6': 'Vegan',
+        'page-4.hint': 'Frequent meat eater: 5x a week, moderate meat eater: 3x a week, infrequent meat eater: 1/2x a week',
     },
 };
 

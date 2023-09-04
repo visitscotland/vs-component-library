@@ -33,6 +33,7 @@
                                 :key="field.name"
                                 :label="getQuestionLabel(index)"
                                 :label-for="needsLabel(field) ? field.name : ''"
+                                :hint="getQuestionHint(index)"
                                 :fieldClass="conditionalElementClass(field.name)"
                                 :fieldType="field.element"
                                 :fieldName="field.name"
@@ -368,6 +369,13 @@ export default {
         getQuestionLabel(index) {
             if (this.labelsMap[`page-${index + 1}.question`]) {
                 return this.labelsMap[`page-${index + 1}.question`];
+            }
+
+            return '';
+        },
+        getQuestionHint(index) {
+            if (this.labelsMap[`page-${index + 1}.hint`]) {
+                return this.labelsMap[`page-${index + 1}.hint`];
             }
 
             return '';
