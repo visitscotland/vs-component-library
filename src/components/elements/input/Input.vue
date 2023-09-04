@@ -399,7 +399,9 @@ export default {
         /**
          * If the input value is a number, decrement it by one down to the minimum value
          */
-        decrementValue() {
+        decrementValue(event) {
+            event.preventDefault();
+
             let numVal = this.intValue;
             numVal = Math.max(this.minimumNumber, numVal - 1);
 
@@ -408,7 +410,9 @@ export default {
         /**
          * If the input value is a number, increment it by one up to the maximum value
          */
-        incrementValue() {
+        incrementValue(event) {
+            event.preventDefault();
+
             let numVal = this.intValue;
             numVal = Math.min(this.maximumNumber, numVal + 1);
 

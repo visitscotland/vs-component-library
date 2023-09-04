@@ -261,6 +261,43 @@ const formsTemplate = [
     'form_status',
 ];
 
+const carbonQuestionTemplate = [
+    'event',
+    'site_language',
+    'page_category_1',
+    'page_category_2',
+    'page_category_3',
+    'page_category_4',
+    'page_category_5',
+    'page_category_6',
+    'user_country_setting',
+    'hit_timestamp',
+    'tag_name',
+    'meta_data',
+    'question_number',
+    'answer',
+];
+
+const carbonCompleteTemplate = [
+    'event',
+    'site_language',
+    'page_category_1',
+    'page_category_2',
+    'page_category_3',
+    'page_category_4',
+    'page_category_5',
+    'page_category_6',
+    'user_country_setting',
+    'hit_timestamp',
+    'tag_name',
+    'meta_data',
+    'total_emissions',
+    'total_per_day',
+    'travel_percent',
+    'accommodation_percent',
+    'food_percent',
+];
+
 export {
     pageViewTemplate,
     menuNavigationTemplate,
@@ -276,4 +313,6 @@ export {
     mapInteractionTemplate,
     cannedSearchTemplate,
     formsTemplate,
+    carbonQuestionTemplate,
+    carbonCompleteTemplate,
 };

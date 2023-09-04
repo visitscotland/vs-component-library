@@ -13,6 +13,8 @@ import {
     formsTemplate,
     socialMediaExternalLinkTemplate,
     shareTemplate,
+    carbonQuestionTemplate,
+    carbonCompleteTemplate,
 } from '../utils/data-layer-templates';
 
 /**
@@ -233,6 +235,41 @@ const dataLayerMixin = {
 
                 fullTemplate = this.compileFullTemplate(templateValues);
                 dataLayerData = this.templateFiller(shareTemplate, fullTemplate);
+
+                break;
+
+            case 'carbonQuestionEvent':
+                eventName = 'carbonCalculatorQuestion';
+                tagName = 'VS - GA - Carbon Calculator Question Answered';
+
+                templateValues = {
+                    event: eventName,
+                    tag_name: tagName,
+                    question_number: event.questionNumber,
+                    answer: event.answer,
+                };
+
+                fullTemplate = this.compileFullTemplate(templateValues);
+                dataLayerData = this.templateFiller(carbonQuestionTemplate, fullTemplate);
+
+                break;
+
+            case 'carbonCompleteEvent':
+                eventName = 'carbonCalculatorComplete';
+                tagName = 'VS - GA - Carbon Calculator Complete';
+
+                templateValues = {
+                    event: eventName,
+                    tag_name: tagName,
+                    total_emissions: event.totalEmissions,
+                    total_per_day: event.totalPerDay,
+                    travel_percent: event.travelPercent,
+                    accommodation_percent: event.accommodationPercent,
+                    food_percent: event.foodPercent,
+                };
+
+                fullTemplate = this.compileFullTemplate(templateValues);
+                dataLayerData = this.templateFiller(carbonCompleteTemplate, fullTemplate);
 
                 break;
 

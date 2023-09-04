@@ -135,10 +135,11 @@
 
 <script>
 import axios from 'axios';
-
 import {
     VsContainer, VsCol, VsRow,
 } from '@components/elements/grid';
+import dataLayerMixin from '@/mixins/dataLayerMixin';
+
 import VsButton from '../../elements/button/Button.vue';
 import VsProgressBar from '../../elements/progress-bar/ProgressBar.vue';
 
@@ -168,6 +169,9 @@ export default {
         VsCarbonCalculatorIntro,
         VsCarbonCalculatorQuestion,
     },
+    mixins: [
+        dataLayerMixin,
+    ],
     /**
      * All labels come from the CMS to simplify localisation. As there are so many of them
      * and the question labels are dynamic, they come as a single json object which needs
@@ -240,7 +244,7 @@ export default {
         },
         /**
          * The tip which is currently being displayed to the user, based on their
-         * answer to the current question and what tips are available in their language 
+         * answer to the current question and what tips are available in their language
          */
         currentTip() {
             let tip = null;
@@ -660,6 +664,13 @@ export default {
          * Moves the form forward one stage
          */
         forwardPage() {
+            if (this.activeQuestion) {
+                this.createDataLayerObject('carbonQuestionEvent', {
+                    questionNumber: this.activeQuestion,
+                    answer: this.form[this.currentQuestion.name],
+                });
+            }
+
             this.activeQuestion += 1;
             this.checkCurrentConditional(true);
             this.checkNewAnswerSet();

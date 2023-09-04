@@ -103,6 +103,7 @@ import {
     Bar,
     Responsive,
 } from 'vue3-charts';
+import dataLayerMixin from '@/mixins/dataLayerMixin';
 import VsCarbonCalculatorTip from './CarbonCalculatorTip.vue';
 
 /**
@@ -123,6 +124,9 @@ export default {
         Bar,
         Responsive,
     },
+    mixins: [
+        dataLayerMixin,
+    ],
     inject: ['labelsMap'],
     props: {
         totalKilos: {
@@ -210,6 +214,15 @@ export default {
         totalPerDay() {
             return (this.totalKilos / Math.max(this.stayDuration, 1)).toFixed(3);
         },
+    },
+    mounted() {
+        this.createDataLayerObject('carbonCompleteEvent', {
+            totalEmissions: this.totalKilos,
+            totalPerDay: this.totalPerDay,
+            travelPercent: this.transportPercent.toFixed(3) || 0,
+            accommodationPercent: this.accommodationPercent.toFixed(3) || 0,
+            foodPercent: this.foodPercent.toFixed(3) || 0,
+        });
     },
     methods: {
         responsiveMargin(width) {
