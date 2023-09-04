@@ -36,12 +36,6 @@ const Template = (args) => ({
     template: `
     <div :class="args.jsDisabled ? 'no-js' : ''">
         <VsProductSearch
-            :configArr="{
-                'subSearchType': 'acco',
-                'locplace': '4161',
-                'lang':'en',
-                'domain':'http://172.28.81.65:8089'
-            }"
             noJsMessage='${args.noJsMessage}'
         >
             <template v-slot:vs-module-heading>
@@ -57,8 +51,8 @@ const Template = (args) => ({
 
 const base = {
     noJsMessage: 'You need Javascript to see this content',
-    vsModuleHeading: 'Find places to stay & things to do',
-    vsModuleIntro: 'Search through a fantastic range of things to do, places to stay, local events and tours',
+    vsModuleHeading: 'Find experiences',
+    vsModuleIntro: 'Search a wide range of accommodation, events, food & drink options and things to do from indoor and outdoor attractions to activities, tours and more.',
 };
 
 export const Default = Template.bind({

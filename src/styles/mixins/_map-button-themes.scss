@@ -2,17 +2,24 @@
     $themes: (
         "cities": $color-theme-secondary-indigo,
         "towns": $color-secondary-teal-shade-3,
-        "islands": #1066D6,
+        "islands": $color-map-blue,
         "regions": $color-theme-primary,
         "featured": $color-secondary-orange-shade-1,
         "acco": $color-pink,
         "attr": $color-secondary-teal-shade-3,
         "acti": $color-purple,
-        "even": #1066D6,
-        "cate": #C31613,
+        "even": $color-map-blue,
+        "cate": $color-map-red,
         "reta": $color-theme-secondary-indigo,
-        "twnv": #7A074D,
+        "twnv": $color-map-purple,
         "serv": $color-pink,
+        "outlander-castle": $color-purple,
+        "outlander-church-abbey": $color-secondary-orange-shade-3,
+        "outlander-city-town-village": $color-theme-secondary-indigo,
+        "outlander-heritage": $color-map-red,
+        "outlander-landscape-park": $color-secondary-teal-shade-3,
+        "outlander-palace-house": $color-pink,
+        "distilleries": $color-secondary-orange-shade-3,
     );
 
     @each $name, $color in $themes {

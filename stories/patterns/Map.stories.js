@@ -1,6 +1,11 @@
 import VsMainMapWrapper from '@/components/patterns/main-map-wrapper/MainMapWrapper.vue';
 import mapFiltersSubcategories from '@/assets/fixtures/maps/map-filters-subcategories.json';
+import mapFiltersOutlanderSubcategories from '@/assets/fixtures/maps/map-filters-outlander-subcategories.json';
+import mapFiltersRegions from '@/assets/fixtures/maps/map-filters-regions.json';
 import placesDataFeatured from '@/assets/fixtures/maps/places-data-featured.json';
+import placesDataOutlander from '@/assets/fixtures/maps/places-data-outlander.json';
+import placesDataRegions from '@/assets/fixtures/maps/places-data-regions.json';
+import placesDataDistillery from '@/assets/fixtures/maps/places-data-distilleries.json';
 
 export default {
     component: VsMainMapWrapper,
@@ -59,11 +64,42 @@ const Template = (args) => ({
 });
 
 const base = {
-    categoryHeading: 'Explore places to go',
+    discoverText: 'discover',
+    buttonsLabel: 'Select map type',
+    clearSelectionText: 'Clear all',
+    applyFiltersText: 'Show results',
+    detailsEndpoint: 'http://172.28.81.65:8089/data/component/mapcard?id=',
+    filtersAppliedText: 'filters applied',
+    clearFiltersText: 'clear filters',
+    mapFilterMessage: 'Please apply filter(s) to refine results.',
+    mapNoResultsMessage: 'There are no results, please try again',
+};
+
+export const DestinationMap = Template.bind({
+});
+
+DestinationMap.args = {
+    ...base,
+    categoryHeading: 'Map of Dunfermline',
     filters: mapFiltersSubcategories,
     placesData: placesDataFeatured.features,
-    discoverText: 'discover',
+    regionBounds: {
+        type: 'bounds',
+        coordinates: [
+            [-3.058595889098882, 55.993275047970826],
+            [-3.34402565597901, 55.887115661571926],
+        ],
+    },
     mapId: 'vs-map',
+};
+
+export const MapWithRegions = Template.bind({
+});
+
+const regionsExample = {
+    categoryHeading: 'Explore places to go',
+    filters: mapFiltersRegions,
+    placesData: placesDataRegions.features,
     initialSelected: 'places',
     toggleData: [
         {
@@ -77,32 +113,60 @@ const base = {
             icon: 'map-marker',
         },
     ],
-    buttonsLabel: 'Select map type',
-    clearSelectionText: 'Clear all',
-    applyFiltersText: 'Show results',
-    detailsEndpoint: 'http://172.28.81.65:8089/data/component/mapcard?id=',
-    regionBounds: {
-        type: 'bounds',
-        coordinates: [
-            [-3.058595889098882, 55.993275047970826],
-            [-3.34402565597901, 55.887115661571926],
-        ],
-    },
-    filtersAppliedText: 'filters applied',
-    clearFiltersText: 'clear filters',
-    mapFilterMessage: 'Please apply filter(s) to refine results.',
-    mapNoResultsMessage: 'There are no results, please try again',
 };
 
-export const Default = Template.bind({
+MapWithRegions.args = {
+    ...base,
+    ...regionsExample,
+    mapId: 'vs-map-regions',
+};
+
+export const ToggleOnMobile = Template.bind({
 });
 
-Default.args = base;
+ToggleOnMobile.args = {
+    ...base,
+    ...regionsExample,
+    mapId: 'vs-map-mobile',
+};
+
+ToggleOnMobile.parameters = {
+    viewport: {
+        defaultViewport: 'mobile2',
+    },
+};
+
+export const Outlander = Template.bind({
+});
+
+Outlander.args = {
+    ...base,
+    filters: mapFiltersOutlanderSubcategories,
+    placesData: placesDataOutlander.features,
+    categoryHeading: 'Outlander Filming Locations',
+    mapId: 'vs-map-outlander',
+};
+
+export const Distilleries = Template.bind({
+});
+
+Distilleries.args = {
+    ...base,
+    filters: [{
+        id: 'distilleries',
+        label: 'Distilleries',
+    }],
+    placesData: placesDataDistillery,
+    categoryHeading: 'Scottish Whisky Distillery Map',
+    mapId: 'vs-map-distillery',
+};
 
 export const NoJs = Template.bind({
 });
 
 NoJs.args = {
     ...base,
+    ...regionsExample,
+    mapId: 'vs-map-nojs',
     jsDisabled: true,
 };

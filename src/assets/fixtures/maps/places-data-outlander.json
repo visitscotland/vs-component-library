@@ -1,0 +1,281 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "feature",
+      "properties": {
+        "id": "450e0bcd-7c93-447b-9e7a-8bc6775a8dad",
+        "title": "Edinburgh castle",
+        "description": "Make Edinburgh Castle your first port of call. It sits at the top of the historic Royal Mile on a volcanic plug, and is perhaps the most famous landmark on the Edinburgh skyline. Beat the crowds and get there for opening at 9.30am. The views over the city are pretty spectacular, and there is so much to take in, including the National Museum of War, the National War Monument and the Honours of Scotland, the county's Crown Jewels.",
+        "category": {
+          "id": "outlander-castle",
+          "label": "Castle"
+        },
+        "image": "http://www.visitscotland.com/wsimgs/EC%20Graphic%202%20low%20res.jpg",
+        "link": {
+          "label": "Discover Edinburgh castle",
+          "link": "#",
+          "type": "INTERNAL"
+        },
+        "subtitle": "Season 1 & 3",
+        "alternativeCategories": [
+          {
+            "id": "season-1",
+            "label": "Season 1"
+          },
+          {
+            "id": "season-3",
+            "label": "Season 3"
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.20148,
+          55.94896
+        ]
+      }
+    },
+    {
+      "type": "feature",
+      "properties": {
+        "id": "a3648ecf-f0a1-4149-bcfc-7e5c1d530dbc",
+        "title": "Old Town",
+        "description": "Book location and filming location – season 3Edinburgh's Old Town is part of a <a rel='noopener noreferrer' href='http://www.ewht.org.uk/' target='_blank'>UNESCO World Heritage Site</a>, together with the Georgian era New Town on the north side of the city centre. The buildings you’ll see remain largely unchanged from how they would have looked centuries ago.The Old Town and Royal Mile is home to three filming locations from <em>Outlander</em>. If you’re looking for a memorable souvenir while you’re there, pop into <a rel='noopener noreferrer' href='http://www.hamiltonandyoung.co.uk/' title='Hamilton &amp; Young Jewellery Designers' target='_blank'>Hamilton &amp; Young Jewellery Designers</a> on the Royal Mile to browse Celtic and Outlander inspired items.",
+        "category": {
+          "id": "outlander-city-town-village",
+          "label": "City / Town / Village"
+        },
+        "image": "http://www.visitscotland.com/wsimgs/john-knox-min_400602568.jpg",
+        "link": {
+          "label": "Discover Old Town",
+          "link": "#",
+          "type": "INTERNAL"
+        },
+        "subtitle": "Season 1, 3 & 4",
+        "alternativeCategories": [
+          {
+            "id": "season-1",
+            "label": "Season 1"
+          },
+          {
+            "id": "season-3",
+            "label": "Season 3"
+          },
+          {
+            "id": "season-4",
+            "label": "Season 4"
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.19774,
+          55.95217
+        ]
+      }
+    },
+    {
+      "type": "feature",
+      "properties": {
+        "id": "0618136e-ee16-4c8b-b5af-d55c526640ae",
+        "title": "National Museum of Scotland",
+        "description": "Explore the diversity of the natural world, world cultures, science and technology, art, design and fashion, and Scottish history, all under one roof. A range of new safety measures have been put in place along with timed entry to ensure that we can manage numbers and maintain physical distancing. Please book a timed entry ticket online at www.nms.ac.uk/scotland in advance of your visit. This includes National Museums Scotland members.",
+        "category": {
+          "id": "outlander-heritage",
+          "label": "Heritage Site"
+        },
+        "image": "http://www.visitscotland.com/wsimgs/External%20View%20Media%20Res%20c%20Andrew%20Lee.jpg",
+        "link": {
+          "label": "Discover National Museum of Scotland",
+          "link": "#",
+          "type": "INTERNAL"
+        },
+        "subtitle": "Season 1 & 3",
+        "alternativeCategories": [
+          {
+            "id": "season-1",
+            "label": "Season 1"
+          },
+          {
+            "id": "season-3",
+            "label": "Season 3"
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.18924,
+          55.94707
+        ]
+      }
+    },
+    {
+      "type": "feature",
+      "properties": {
+        "id": "bab59acb-b963-44c6-adb5-c009bb18653a",
+        "title": "Glen coe",
+        "description": "One of the highlights of any trip to Scotland, the spectacular valley of Glen Coe is a world-famous Scottish location of high mountain peaks, ridges, rushing rivers and waterfalls and features in&nbsp;<em>Outlander’s</em>&nbsp;opening credits. Just beyond nearby Fort William is the legendary&nbsp;<a rel='noopener noreferrer' href='https://www.visitscotland.com/info/towns-villages/glenfinnan-p236571' target='_blank'>Glenfinnan</a>&nbsp;Monument where Bonnie Prince Charlie raised his standard and started the second Jacobite Rising in 1745.",
+        "category": {
+          "id": "outlander-landscape-park",
+          "label": "Landscape / Park"
+        },
+        "image": "/site/_cmsinternal/binaries/content/gallery/visitscotland/default/2021/01/edinburgh-castle-blue-sky.jpg",
+        "link": {
+          "label": "Discover Glen coe",
+          "link": "#",
+          "type": "INTERNAL"
+        },
+        "subtitle": "Season 1",
+        "alternativeCategories": [
+          {
+            "id": "season-1",
+            "label": "Season 1"
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -5.1461,
+          58.32811
+        ]
+      }
+    },
+    {
+      "type": "feature",
+      "properties": {
+        "id": "36eff3e3-93aa-43f9-9c07-64f7847c464c",
+        "title": "Inverness Botanic Gardens",
+        "description": "You might want to escape the busy bustle of the city centre but peace and tranquillity can never be found too far away at the&nbsp;<a href='https://www.visitscotland.com/info/see-do/inverness-botanic-gardens-p255531' title=''>Inverness Botanic Gardens</a>. From exotic plants and trees to cactus houses, the gardens create the perfect little oasis for you to chill out!Duration of stay: 1.5 Hours",
+        "category": {
+          "id": "outlander-landscape-park",
+          "label": "Landscape / Park"
+        },
+        "image": "http://www.visitscotland.com/wsimgs/3.%20Fountain.jpg",
+        "link": {
+          "label": "Discover Inverness Botanic Gardens",
+          "link": "#",
+          "type": "INTERNAL"
+        },
+        "subtitle": "Season 1",
+        "alternativeCategories": [
+          {
+            "id": "season-1",
+            "label": "Season 1"
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -4.24066,
+          57.46312
+        ]
+      }
+    },
+    {
+      "type": "feature",
+      "properties": {
+        "id": "79033906-020b-4f42-8807-1fc5fcabf272",
+        "title": "Cameron House",
+        "description": "A magnificent baronial mansion surrounded by 400 acres of countryside, Cameron House on Loch Lomond, blends traditional Scottish influences with sumptuous contemporary décor to offer guests a memorable stay in the finest surroundings.",
+        "category": {
+          "id": "outlander-palace-house",
+          "label": "Palace / House"
+        },
+        "image": "/site/_cmsinternal/binaries/content/gallery/visitscotland/default/gearrannan-blackhouses.jpeg",
+        "link": {
+          "label": "Discover Cameron House",
+          "link": "#",
+          "type": "INTERNAL"
+        },
+        "subtitle": "Season 2 & 4",
+        "alternativeCategories": [
+          {
+            "id": "season-2",
+            "label": "Season 2"
+          },
+          {
+            "id": "season-4",
+            "label": "Season 4"
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -4.60776,
+          56.01321
+        ]
+      }
+    },
+    {
+      "type": "feature",
+      "properties": {
+        "id": "8e72c2a5-eb39-4026-a483-f27b26091171",
+        "title": "Linlithgow Palace",
+        "description": "Jacobite connection and filming location – season 1Explore the nooks and towers of this sizeable ruined, yet still beautiful palace. The various floors are still accessible via the intact turret staircases, and beautiful views can be observed from the roof. In 1745 Bonnie Prince Charlie visited the palace on his journey south. Its elaborate courtyard fountain is said to have flowed with red wine to mark the occasion! In <em>Outlander</em>, the majestic entrance and corridors feature as Wentworth Prison where Jamie was imprisoned.You could also take a refreshing walk around Linlithgow Loch, the shores of which the palace sits upon.Linlithgow has a direct rail connection to Edinburgh which takes just 20 minutes.Stay in&nbsp;<a href='https://www.visitscotland.com/destinations-maps/edinburgh/accommodation/' title='Accommodation'>Edinburgh</a>&nbsp;or&nbsp;<a href='https://www.visitscotland.com/info/accommodation/search-results?prodtypes=acco&amp;loc=Linlithgow&amp;locplace=4571&amp;locprox=1&amp;areaproxdist=10&amp;stay=&amp;endDate=&amp;r1a=2&amp;r1children=0&amp;r1infants=0&amp;r1c=0&amp;avail=off' title='Accommodation in Linlithgow'>Linlithgow</a>.",
+        "category": {
+          "id": "outlander-palace-house",
+          "label": "Palace / House"
+        },
+        "image": "http://www.visitscotland.com/wsimgs/lin.1-000022.jpg",
+        "link": {
+          "label": "Discover Linlithgow Palace",
+          "link": "#",
+          "type": "INTERNAL"
+        },
+        "subtitle": "Season 1",
+        "alternativeCategories": [
+          {
+            "id": "season-1",
+            "label": "Season 1"
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.6009,
+          55.9776
+        ]
+      }
+    },
+    {
+      "type": "feature",
+      "properties": {
+        "id": "8e7f2c2a5-eb39-4026-a483-f27b26091171",
+        "title": "Glencorse Old Kirk",
+        "description": "The charming Glencorse Old Kirk near Edinburgh, nestled in the grounds of Glencorse House in the foothills.",
+        "category": {
+          "id": "outlander-church-abbey",
+          "label": "Church / Abbey"
+        },
+        "image": "https://static.visitscotland.com/site/vs/1.3.58/cms-images/attractions/outlander/oultander_s1_the_wedding",
+        "link": {
+          "label": "Discover Glencorse",
+          "link": "#",
+          "type": "INTERNAL"
+        },
+        "subtitle": "Season 1",
+        "alternativeCategories": [
+          {
+            "id": "season-1",
+            "label": "Season 1"
+          }
+        ]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -3.4822927,
+          55.9616125
+        ]
+      }
+    }
+  ]
+}

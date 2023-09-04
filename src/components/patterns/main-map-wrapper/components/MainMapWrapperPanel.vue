@@ -86,16 +86,13 @@
                 <VsMainMapWrapperControls />
             </template>
             <template v-else>
-                <div
+                <VsMainMapWrapperCategory
                     v-for="filter in filters"
                     :key="filter.id"
-                >
-                    <VsMainMapWrapperCategory
-                        :category-name="filter.label"
-                        :type="filter.id"
-                        :has-sub-cat="subCatExists(filter)"
-                    />
-                </div>
+                    :category-name="filter.label"
+                    :type="filter.id"
+                    :has-sub-cat="subCatExists(filter)"
+                />
             </template>
 
             <template v-if="panelMessage !== null">
@@ -109,17 +106,14 @@
         <template v-if="currentStage === 1">
             <template v-if="selectedSubcategory !== null">
                 <div class="vs-main-map-wrapper-panel__list-container">
-                    <div
+                    <VsMainMapWrapperListItem
                         v-for="(place, index) in subcategoryLocations"
                         :key="place.id"
-                    >
-                        <VsMainMapWrapperListItem
-                            :item-data="place"
-                            :from-endpoint="true"
-                            :focussed="index === currentListItemFocus"
-                            @show-item-detail="showDetail(place.id)"
-                        />
-                    </div>
+                        :item-data="place"
+                        :from-endpoint="true"
+                        :focussed="index === currentListItemFocus"
+                        @show-item-detail="showDetail(place.id)"
+                    />
 
                     <VsButton
                         v-if="showLoadMore"
@@ -333,11 +327,8 @@ export default {
                 case 0:
                     headingText = this.categoryHeading;
                     break;
-                case 1:
+                case 1: case 2:
                     headingText = this.currentFilter.label;
-                    break;
-                case 2:
-                    headingText = this.currentPlaceData[0].properties.title;
                     break;
                 default:
                     break;
@@ -548,7 +539,7 @@ export default {
 
 <style lang="scss">
     .vs-main-map-wrapper-panel {
-        padding: $spacer-9 $spacer-3 $spacer-0;
+        padding: $spacer-5 $spacer-3 $spacer-0;
         border: 1px solid $color-gray;
         height: 100%;
         overflow-y: auto;
@@ -563,7 +554,7 @@ export default {
 
         &__heading.vs-heading {
             flex-grow: 1;
-            margin: $spacer-11 $spacer-3 $spacer-0;
+            margin: $spacer-11 $spacer-8 $spacer-0;
         }
 
         &__header-section {
@@ -663,23 +654,17 @@ export default {
             }
         }
 
-        .vs-main-wrapper-category:last-of-type {
-            &::before {
-                display: none;
-
-                @include media-breakpoint-up(lg) {
-                    display: block;
-                }
-            }
+        .vs-main-map-category:last-of-type::before {
+            display: none;
         }
 
         @include media-breakpoint-up(lg) {
-            padding: $spacer-8 $spacer-4 $spacer-0;
+            padding: $spacer-5 $spacer-4 $spacer-0;
             border-right: none;
 
             &__header-section {
                 display: flex;
-                margin-bottom: $spacer-7;
+                margin-bottom: $spacer-5;
 
                 &--with-spacer {
                     padding-right: $spacer-8;

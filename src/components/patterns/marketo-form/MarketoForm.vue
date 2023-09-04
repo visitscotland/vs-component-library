@@ -301,7 +301,8 @@ export default {
     },
     methods: {
         /**
-         * Axios call to retrieve form data
+         * Called on component created. Loads the json file located at this.dataUrl which
+         * contains all of the question data, localisations and validation.
          */
         getFormData() {
             axios.get(this.dataUrl)
@@ -326,7 +327,8 @@ export default {
                 .catch(() => {});
         },
         /**
-         * Axios call to retrieve global messaging data
+         * Called on component created. Loads the generic messaging files which provide
+         * global validation and submission messages and localisations.
          */
         getGlobalMessaging() {
             axios.get(this.messagingUrl)
@@ -336,7 +338,9 @@ export default {
                 .catch(() => {});
         },
         /**
-         * get appropriate language object
+         * Retrieves the subset of info from a formdata json files which relates to the
+         * current language. This is used in all translation functions to check if a
+         * translation for a given string is provided.
          */
         getLanguageObj() {
             let languageObj;
@@ -351,7 +355,9 @@ export default {
             return languageObj;
         },
         /**
-         * get translated label if available
+         * Attempts to retrieve the label for a given field from the current language obj.
+         * If no localisation is available, or the langauge is en, falls back to the default
+         * label for the fieldname.
          */
         getTranslatedLabel(fieldName, index) {
             const languageObj = this.getLanguageObj();
@@ -374,7 +380,9 @@ export default {
             return labelText;
         },
         /**
-         * get translated label if available
+         * Attempts to retrieve the legend for a given field from the current language obj.
+         * If no localisation is available, or the langauge is en, falls back to the default
+         * legend for the fieldname.
          */
         getTranslatedLegend(fieldName, index) {
             const languageObj = this.getLanguageObj();
@@ -392,7 +400,9 @@ export default {
             return legendText;
         },
         /*
-         * get translated info content if available
+         * Attempts to retrieve the info content for a given field from the current language obj.
+         * If no localisation is available, or the langauge is en, falls back to the default
+         * info content for the fieldname.
          */
         getTranslatedInfo(fieldName, index) {
             const languageObj = this.getLanguageObj();
@@ -410,7 +420,9 @@ export default {
             return infoText;
         },
         /**
-         * get translated validation messages
+         * Attempts to retrieve the validation for a given field from the current language obj.
+         * If no localisation is available, or the langauge is en, falls back to the default
+         * validation for the fieldname.
          */
         getTranslatedValidation(fieldName, index) {
             const languageObj = this.getLanguageObj();
@@ -430,7 +442,9 @@ export default {
             return validationObj;
         },
         /**
-         * get language appriopriate options for a select element
+         * Attempts to retrieve the options for a given select field from the current language
+         * obj. If no localisation is available, or the langauge is en, falls back to the default
+         * options for the fieldname.
          */
         getTranslatedOptions(fieldName, index) {
             const languageObj = this.getLanguageObj();
@@ -451,6 +465,11 @@ export default {
 
             return optionsArr;
         },
+        /**
+         * Attempts to retrieve the hint for a given field from the current language obj.
+         * If no localisation is available, or the langauge is en, falls back to the default
+         * hint for the fieldname.
+         */
         getTranslatedHint(fieldName, index) {
             const languageObj = this.getLanguageObj();
             let hintText = '';
@@ -467,6 +486,12 @@ export default {
 
             return hintText;
         },
+        /**
+         * Attempts to retrieve a localisation of a given piece of static content from
+         * the current language obj. If no localisation is available, or the langauge is en,
+         * falls back to the default english version of that content. If that is also not
+         * provided, falls back to the generic content from the global messaging obj.
+         */
         getTranslatedContent(type) {
             let text;
             const languageObj = this.getLanguageObj();
@@ -486,7 +511,8 @@ export default {
             return text;
         },
         /**
-         * check messaging data exists and then pass value back
+         * Retrieves the default value for a message from the global messages json file in the
+         * current language.
          */
         getMessagingData(type, lang) {
             if (Object.keys(this.messagingData).length > 0) {
@@ -502,7 +528,7 @@ export default {
             return '';
         },
         /**
-         * check if value is undefined
+         * Returns true if a given value is undefined
          */
         isUndefined(value) {
             if (typeof value === 'undefined') {
@@ -512,7 +538,14 @@ export default {
             return false;
         },
         /**
-         * update field data and error status
+         * Called when the value of any input changes, updating values in the main this.form source
+         * of truth. The new value is stored, validated, error statuses and conditional field
+         * appearance is updated
+         *
+         * The inputs can't directly v-model variables from the this.form object because reactivity
+         * on sub-variables on arrays passed through multiple components is inconsistent and
+         * unreliable. Instead each component tracks its own value on an internal variable called
+         * inputVal then reports any changes to that value back up to the form.
          */
         updateFieldData(data) {
             this.form[data.field] = data.value || '';
@@ -527,7 +560,7 @@ export default {
             this.checkConditionalFields();
         },
         /**
-         * update error status of fields for validation feedback
+         * Updates the errorFields list with the current validated state of each field.
          */
         manageErrorStatus(field, errors) {
             const index = this.errorFields.indexOf(field);
@@ -540,6 +573,9 @@ export default {
                 this.errorFields.push(field);
             }
         },
+        /**
+         * Determines whether a given field should display the localised word "optional".
+         */
         showOptionalText(field) {
             if (this.isUndefined(field.validation) || this.isUndefined(field.validation.required)) {
                 return true;
@@ -548,7 +584,8 @@ export default {
             return false;
         },
         /**
-         * whether or not an element should have a label defined (for Bootstrap Vue)
+         * Determines whether or not an element should have a label with the bootstrap vue
+         * component or if that should be handled separately.
          */
         needsLabel(field) {
             if (field.element === 'radio'
@@ -560,8 +597,8 @@ export default {
             return true;
         },
         /**
-         * before submitting validate fields and recaptcha.
-         * If successful run the Marketo submit method
+         * Interrupts form submission to ensure that manually triggered validation and recaptcha
+         * verification has occurred. If successful, proceeds with submission.
          */
         preSubmit(e) {
             e.preventDefault();
@@ -612,7 +649,8 @@ export default {
             }
         },
         /**
-         * submits form data to Marketo payload and sets submitted status
+         * Invokes Marketo functionality to submit the form, along with recaptcha info, in the
+         * correct format.
          */
         marketoSubmit() {
             this.createDataLayerObject('formsDataEvent');
@@ -636,7 +674,7 @@ export default {
             });
         },
         /**
-         * listens to recaptcha response to check if it's verified
+         * Checks recaptcha response from the server
          */
         onRecaptchaVerify() {
             if (window.grecaptcha && typeof window.grecaptcha.getResponse === 'function' && window.grecaptcha.getResponse() !== '') {
@@ -646,7 +684,8 @@ export default {
             }
         },
         /**
-         * checks whether conditional fields meet the rules to show them
+         * Checks whether each conditional field in the formdata currently meets its condition,
+         * and updates the status of those fields in this.conditionalFields.
          */
         checkConditionalFields() {
             Object.keys(this.conditionalFields).forEach((field) => {
@@ -678,8 +717,7 @@ export default {
             });
         },
         /**
-         * return the correct class to show or hide
-         * conditional elements
+         * Sets the 'd-none' class on conditional fields which are currently not displaying.
          */
         conditionalElementClass(fieldName) {
             return this.conditionalFields[fieldName] === true

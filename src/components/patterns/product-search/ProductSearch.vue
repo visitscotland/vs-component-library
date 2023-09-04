@@ -26,7 +26,9 @@
                 >
                     <VsProductSearchEmbed
                         class="vs-product-search__widget"
-                        :config="configArr"
+                        :default-location="defaultLocation"
+                        :default-locale="defaultLocale"
+                        :default-prod="defaultProd"
                     />
 
                     <VsWarning class="vs-product-search__no-js">
@@ -68,21 +70,32 @@ export default {
     },
     props: {
         /**
-         * Config for prefilled fields and language
-         */
-        configArr: {
-            type: Object,
-            default() {
-                return {
-                };
-            },
-        },
-        /**
          * Message to show when Javascript is disabled
          */
         noJsMessage: {
             type: String,
             required: true,
+        },
+        /**
+         * Autofilled location field
+         */
+        defaultLocation: {
+            type: String,
+            default: '',
+        },
+        /**
+         * Autofilled product field
+         */
+        defaultProd: {
+            type: String,
+            default: 'acti,attr,reta',
+        },
+        /**
+         * Locale to set language
+         */
+        defaultLocale: {
+            type: String,
+            default: '',
         },
     },
 };
@@ -92,7 +105,7 @@ export default {
     .vs-product-search {
         width: 100%;
         background: $color-gray-shade-5;
-        padding: 0 6px $spacer-9;
+        padding: $spacer-8 $spacer-1;
         font-family: $font-family-sans-serif;
 
         &__no-js {
@@ -113,7 +126,7 @@ export default {
         &__col--left {
             background: $color-gray-shade-5;
             font-family: $font-family-sans-serif;
-            margin-bottom: $spacer-10;
+            margin-bottom: $spacer-9;
         }
 
         &__col--right {
@@ -121,7 +134,7 @@ export default {
             flex-direction: column;
             justify-content: center;
             background: $color-yellow;
-            padding: $spacer-6;
+            padding: $spacer-6 $spacer-4;
         }
 
         // id needed for specificity

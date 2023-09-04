@@ -14,7 +14,6 @@
             :level="headingLevel"
             override-style-level="4"
             class="vs-main-map-wrapper-detail__heading mt-0"
-            :class="(typeof contentData.properties.title !== 'undefined' ? 'd-lg-none' : '')"
             data-test="vs-main-map-wrapper-detail__heading"
         >
             <template v-if="typeof contentData.properties.placeTitle !== 'undefined'">
@@ -34,10 +33,17 @@
             {{ contentData.properties.address.shortAddress }}
         </p>
 
-        <!-- eslint-disable vue/no-v-html -->
         <p
+            v-if="contentData.properties.subtitle"
+            class="mt-4"
+        >
+            {{ contentData.properties.subtitle }}
+        </p>
+
+        <!-- eslint-disable vue/no-v-html -->
+        <div
             data-test="vs-main-map-wrapper-detail__description"
-            class="vs-main-map-wrapper-detail__description"
+            class="vs-main-map-wrapper-detail__description mb-6"
             v-html="contentData.properties.description"
         />
         <!-- eslint-enable vue/no-v-html -->
@@ -95,18 +101,24 @@ export default {
     .vs-main-map-wrapper-detail {
         text-align: left;
 
+        @include media-breakpoint-up(lg) {
+            font-size: $font-size-4;
+            margin: 0 $spacer-2;
+        }
+
         &__image {
             max-width: 100%;
+            aspect-ratio: 3/2;
+            object-fit: cover;
+
+            @supports not (aspect-ratio: 3/2) {
+                padding-bottom: 66.6%;
+            }
         }
 
         &__heading.vs-heading--style-level-4.vs-heading,
         &__address {
             margin-bottom: 0;
-        }
-
-        @include media-breakpoint-up(lg) {
-            font-size: $font-size-4;
-            margin: 0 $spacer-2;
         }
 
         &__description {
