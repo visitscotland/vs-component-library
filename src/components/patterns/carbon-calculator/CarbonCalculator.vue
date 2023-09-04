@@ -14,7 +14,6 @@
 
                 <form
                     v-if="activeQuestion"
-                    @submit.prevent="preSubmit"
                 >
                     <fieldset>
                         <VsProgressBar
@@ -32,7 +31,7 @@
                                 v-show="(index + 1) === activeQuestion"
                                 :key="field.name"
                                 :label="getQuestionLabel(index)"
-                                :label-for="needsLabel(field) ? field.name : ''"
+                                :label-for="field.name"
                                 :hint="getQuestionHint(index)"
                                 :fieldClass="conditionalElementClass(field.name)"
                                 :fieldType="field.element"
@@ -118,6 +117,16 @@
                     @click="forwardPage()"
                 >
                     {{ labelsMap['results'] }}
+                </VsButton>
+
+                <VsButton
+                    variant="primary"
+                    type="submit"
+                    class="vs-form__submit mt-9 float-right"
+                    v-if="activeQuestion > formData.fields.length"
+                    @click="restart()"
+                >
+                    {{ labelsMap['restart'] }}
                 </VsButton>
             </VsCol>
         </VsRow>
@@ -215,33 +224,13 @@ export default {
         },
     },
     data() {
-        return {
-            formData: {
-            },
-            messagingData: {
-            },
-            form: {
-            },
-            formIsInvalid: false,
-            showErrorMessage: false,
-            errorFields: [
-            ],
-            triggerValidate: false,
-            conditionalFields: {
-            },
-            reAlertErrors: false,
-            totalKilos: 0,
-            transportKilos: 0,
-            accommodationKilos: 0,
-            foodKilos: 0,
-            transportTip: null,
-            foodTip: null,
-            accommodationTip: null,
-            activeQuestion: 0,
-            answerSet: false,
-        };
+        return this.initialState();
     },
     computed: {
+        /**
+         * The question which is currently being displayed to the user, null if
+         * the user is on the intro or results page.
+         */
         currentQuestion() {
             if (!this.formData || !this.activeQuestion) {
                 return null;
@@ -249,6 +238,10 @@ export default {
 
             return this.formData.fields[this.activeQuestion - 1];
         },
+        /**
+         * The tip which is currently being displayed to the user, based on their
+         * answer to the current question and what tips are available in their language 
+         */
         currentTip() {
             let tip = null;
 
@@ -271,8 +264,17 @@ export default {
 
             return tip;
         },
+        /**
+         * The length of the user's stay, parsed to an int from an answer
+         * provided to the user. Necessary to calculate the emissions per
+         * day in the results page.
+         */
         stayDuration() {
-            return parseInt(this.form.howLongStay, 10);
+            if (this.form.howLongStay) {
+                return parseInt(this.form.howLongStay, 10);
+            }
+
+            return 0;
         },
     },
     created() {
@@ -281,7 +283,50 @@ export default {
     },
     methods: {
         /**
-         * Axios call to retrieve form data
+         * Defines the initial state of the component, when the component is
+         * initialised and when the user resets the form to get another calculation.
+         */
+        initialState() {
+            return {
+                formData: {
+                },
+                messagingData: {
+                },
+                form: {
+                },
+                formIsInvalid: false,
+                showErrorMessage: false,
+                errorFields: [
+                ],
+                triggerValidate: false,
+                conditionalFields: {
+                },
+                reAlertErrors: false,
+                totalKilos: 0,
+                transportKilos: 0,
+                accommodationKilos: 0,
+                foodKilos: 0,
+                transportTip: null,
+                foodTip: null,
+                accommodationTip: null,
+                activeQuestion: 0,
+                answerSet: false,
+            };
+        },
+        /**
+         * Resets the form to its initial data configuration to restart the user's calculation.
+         * The formData is loaded on page creation by axios and won't change between calculations
+         * so can be held and set in the component to avoid doubling the load.
+         */
+        restart() {
+            const { formData } = this;
+            Object.assign(this.$data, this.initialState());
+            this.$data.formData = formData;
+        },
+        /**
+         * Called on component created. Loads the json file located at this.dataUrl which
+         * contains all of the question data validation. This does not contain localisations, which
+         * are loaded from the CMS as labels and then mapped to the questions from the form.
          */
         getFormData() {
             axios.get(this.dataUrl)
@@ -300,7 +345,8 @@ export default {
                 });
         },
         /**
-         * Axios call to retrieve global messaging data
+         * Called on component created. Loads the generic messaging files which provide
+         * global validation and submission messages and localisations.
          */
         getGlobalMessaging() {
             axios.get(this.messagingUrl)
@@ -309,42 +355,8 @@ export default {
                 });
         },
         /**
-         * get appropriate language object
-         */
-        getLanguageObj() {
-            let languageObj;
-
-            if (!this.isUndefined(this.formData[this.language])) {
-                languageObj = this.formData[this.language] || undefined;
-            } else {
-                languageObj = {
-                };
-            }
-
-            return languageObj;
-        },
-        /**
-         * get translated validation messages
-         */
-        getTranslatedValidation(fieldName, index) {
-            const languageObj = this.getLanguageObj();
-
-            let validationObj;
-
-            if (this.language === 'en'
-                && !this.isUndefined(this.formData.fields[index].validationMessages)) {
-                validationObj = this.formData.fields[index].validationMessages;
-            } else if (!this.isUndefined(languageObj[fieldName])
-                && !this.isUndefined(languageObj[fieldName].validationMessages)) {
-                validationObj = languageObj[fieldName].validationMessages;
-            } else if (this.language === 'en') {
-                validationObj = this.formData.fields[index].validationMessages;
-            }
-
-            return validationObj;
-        },
-        /**
-         * check messaging data exists and then pass value back
+         * Retrieves the default value for a message from the global messages json file in the
+         * current language.
          */
         getMessagingData(type, lang) {
             if (Object.keys(this.messagingData).length > 0) {
@@ -359,6 +371,10 @@ export default {
 
             return '';
         },
+        /**
+         * Retrieves the category for a given question from the localised labelsMap provided
+         * by the CMS
+         */
         getQuestionCategory(stage) {
             if (this.labelsMap[`section-${stage}.title`]) {
                 return this.labelsMap[`section-${stage}.title`];
@@ -366,6 +382,10 @@ export default {
 
             return '';
         },
+        /**
+         * Retrieves the label for a given question from the localised labelsMap provided
+         * by the CMS
+         */
         getQuestionLabel(index) {
             if (this.labelsMap[`page-${index + 1}.question`]) {
                 return this.labelsMap[`page-${index + 1}.question`];
@@ -373,6 +393,10 @@ export default {
 
             return '';
         },
+        /**
+         * Retrieves the hint for a given question from the localised labelsMap provided
+         * by the CMS
+         */
         getQuestionHint(index) {
             if (this.labelsMap[`page-${index + 1}.hint`]) {
                 return this.labelsMap[`page-${index + 1}.hint`];
@@ -380,6 +404,10 @@ export default {
 
             return '';
         },
+        /**
+         * Retrieves the options for a given question from the localised labelsMap provided
+         * by the CMS
+         */
         getQuestionOptions(index) {
             const field = this.formData.fields[index];
 
@@ -396,17 +424,14 @@ export default {
             return [];
         },
         /**
-         * check if value is undefined
-         */
-        isUndefined(value) {
-            if (typeof value === 'undefined') {
-                return true;
-            }
-
-            return false;
-        },
-        /**
-         * update field data and error status
+         * Called when the value of any input changes, updating values in the main this.form source
+         * of truth. The new value is stored, validated, error statuses and conditional field
+         * appearance is updated
+         *
+         * The inputs can't directly v-model variables from the this.form object because reactivity
+         * on sub-variables on arrays passed through multiple components is inconsistent and
+         * unreliable. Instead each component tracks its own value on an internal variable called
+         * inputVal then reports any changes to that value back up to the form.
          */
         updateFieldData(data) {
             this.form[data.field] = data.value || '';
@@ -422,7 +447,7 @@ export default {
             this.calculate();
         },
         /**
-         * update error status of fields for validation feedback
+         * Updates the errorFields list with the current validated state of each field.
          */
         manageErrorStatus(field, errors) {
             const index = this.errorFields.indexOf(field);
@@ -435,25 +460,12 @@ export default {
                 this.errorFields.push(field);
             }
         },
-        showOptionalText(field) {
-            if (this.isUndefined(field.validation) || this.isUndefined(field.validation.required)) {
-                return true;
-            }
-
-            return false;
-        },
         /**
-         * whether or not an element should have a label defined (for Bootstrap Vue)
+         * Calculates the current value of a radio button based question in the carbon calculator
+         * form. Each field has an actual raw value which is retruned by the radio button
+         * component, but also has a potential multiplication factor which could be based on
+         * another field or on a static value.
          */
-        needsLabel(field) {
-            if (field.element === 'radio'
-                || field.element === 'submit'
-                || field.element === 'checkbox') {
-                return false;
-            }
-
-            return true;
-        },
         getRadioValue(fieldName, key) {
             if (!key) {
                 return 0;
@@ -481,6 +493,12 @@ export default {
 
             return selectedValue;
         },
+        /**
+         * Calculates the current value of a number inputbased question in the carbon calculator
+         * form. Each field has an actual raw value which is retruned by the radio button
+         * component, but also has a potential multiplication factor which could be based on
+         * another field or on a static value.
+         */
         getNumberValue(fieldName, key) {
             if (!key) {
                 return 0;
@@ -505,6 +523,9 @@ export default {
 
             return 0;
         },
+        /**
+         * Retrieves the current value for a given field, based on its type
+         */
         getFieldValue(checkField) {
             if (checkField.element === 'radio') {
                 return this.getRadioValue(
@@ -522,6 +543,9 @@ export default {
 
             return 0;
         },
+        /**
+         * Retrieves all relevant tips based on the user's responses to a given question
+         */
         getTips(field, key, questionIndex) {
             if (key && field.options) {
                 for (let x = 0; x < field.options.length; x++) {
@@ -539,59 +563,8 @@ export default {
             return [];
         },
         /**
-         * before calculating validate fields
-         */
-        preSubmit(e) {
-            e.preventDefault();
-
-            this.submitted = false;
-            this.formIsInvalid = false;
-
-            function isRequired(value) {
-                return value.validation && value.validation.required;
-            }
-
-            this.triggerValidate = true;
-
-            const fieldIsRequired = this.formData.fields.filter(isRequired);
-
-            if (fieldIsRequired.length === 0) {
-                this.formIsInvalid = false;
-            } else {
-                fieldIsRequired.forEach((field) => {
-                    if (this.form[field.name] === '') {
-                        this.formIsInvalid = true;
-                    }
-                });
-            }
-
-            this.showErrorMessage = this.formIsInvalid.length > 1;
-
-            // check conditional fields - if they're not shown
-            // then clear any value they may have
-            Object.entries(this.conditionalFields).forEach(([key, value]) => {
-                if (!value) {
-                    this.form[key] = '';
-                }
-            });
-
-            if (this.errorFields.length > 0) {
-                this.formIsInvalid = true;
-            }
-
-            if (!this.formIsInvalid) {
-                this.calculate();
-            } else {
-                this.showErrorMessage = true;
-                this.reAlertErrors = true;
-
-                setTimeout(() => {
-                    this.reAlertErrors = false;
-                }, 100);
-            }
-        },
-        /**
-         * TODO
+         * Calculates the current total emissions value for the user and retrieves any tips
+         * required based on their answers.
          */
         calculate() {
             this.transportKilos = 0;
@@ -651,7 +624,7 @@ export default {
             this.submitted = true;
         },
         /**
-         * checks whether conditional fields meet the rules to show them
+         * Checks whether conditional fields meet the rules to show them
          */
         checkConditionalFields() {
             Object.keys(this.conditionalFields).forEach((field) => {
@@ -683,16 +656,26 @@ export default {
                 });
             });
         },
+        /**
+         * Moves the form forward one stage
+         */
         forwardPage() {
             this.activeQuestion += 1;
             this.checkCurrentConditional(true);
             this.checkNewAnswerSet();
         },
+        /**
+         * Moves the form back one stage
+         */
         backwardPage() {
             this.activeQuestion -= 1;
             this.checkCurrentConditional(false);
             this.checkNewAnswerSet();
         },
+        /**
+         * Checks if an answer has been provided for the current question, if one
+         * is necessary to proceed
+         */
         checkNewAnswerSet() {
             if (this.activeQuestion > this.formData.fields.length) {
                 this.answerSet = true;
@@ -709,6 +692,11 @@ export default {
                 this.answerSet = false;
             }
         },
+        /**
+         * Checks if the current question is a currently inactive conditional question,
+         * and if so skips passed it. Used in page navigation to ensure the user doesn't land
+         * on an irrelevant question.
+         */
         checkCurrentConditional(isForward) {
             const question = this.formData.fields[this.activeQuestion - 1];
             if (question && this.conditionalElementClass(question.name)) {
@@ -720,8 +708,7 @@ export default {
             }
         },
         /**
-         * return the correct class to show or hide
-         * conditional elements
+         * Sets the 'd-none' class on conditional fields which are currently not displaying.
          */
         conditionalElementClass(fieldName) {
             return this.conditionalFields[fieldName] === true
