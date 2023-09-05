@@ -31,6 +31,8 @@ const base = {
         next: 'Next',
         previous: 'Previous',
         results: 'Results',
+        resultsIntro: 'Your estimated total carbon emission for your trip is',
+        chartTitle: 'Your emissions breakdown',
         comparison: '<p>That\'s the equivalent to travelling the West Highland line over the Glenfinnan Viaduct (like Harry Potter!) xxx times.</p><p>The West Highland Line runs from Glasgow to Mallaig for 162 miles. Each journey uses 9.29kg of CO2 per person.</p>',
         comparisonKilos: '9.29',
         kilos: 'kilos',

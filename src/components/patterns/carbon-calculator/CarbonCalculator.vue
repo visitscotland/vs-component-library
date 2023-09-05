@@ -88,7 +88,7 @@
                 v-if="activeQuestion > 0"
             >
                 <VsButton
-                    variant="primary"
+                    :variant="activeQuestion <= formData.fields.length ? 'primary' : 'secondary'"
                     type="submit"
                     class="vs-form__submit mt-9 float-left"
                     v-if="activeQuestion > 1"

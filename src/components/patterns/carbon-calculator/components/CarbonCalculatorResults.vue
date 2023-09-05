@@ -19,21 +19,13 @@
                     cols="12"
                     md="6"
                 >
+                    <p>{{ labelsMap.resultsIntro }}</p>
                     <p>
                         <span class="vs-carbon-calculator-results__total">
                             {{ totalKilos }}
                         </span>
                         {{ labelsMap.kgsOf }}
                     </p>
-                </VsCol>
-                <VsCol
-                    cols="12"
-                    md="6"
-                    class="vs-carbon-calculator-results__comp-img"
-                >
-                    <VsImg
-                        src="https://placehold.co/150x150"
-                    />
                 </VsCol>
             </VsRow>
         </VsCol>
@@ -54,6 +46,13 @@
                 v-html="interpolComparison"
             />
             <!-- eslint-enable -->
+        </VsCol>
+        <VsCol>
+            <VsHeading
+                level="3"
+            >
+                {{ labelsMap.chartTitle }}
+            </VsHeading>
         </VsCol>
         <VsCol
             class="vs-carbon-calculator-results__chart-wrapper"
@@ -94,7 +93,6 @@
 
 <script>
 import { VsCol, VsRow } from '@components/elements/grid';
-import VsImg from '@components/elements/img/Img.vue';
 import VsHeading from '@components/elements/heading/Heading.vue';
 import { ref } from 'vue';
 import {
@@ -116,7 +114,6 @@ export default {
     components: {
         VsCol,
         VsRow,
-        VsImg,
         VsHeading,
         VsCarbonCalculatorTip,
         Chart,
@@ -247,15 +244,10 @@ export default {
 </script>
 
 <style lang='scss'>
-    .vs-carbon-calculator-results__headline {
-        text-align: center;
-        margin-bottom: $spacer-10;
-    }
-
     .vs-carbon-calculator-results__total {
-        display: block;
-        font-size: 80px;
+        font-size: 3rem;
         font-weight: $font-weight-bold;
+        margin-right: $spacer-2;
     }
 
     .vs-carbon-calculator-results__comp-img {
