@@ -57,20 +57,6 @@
             "validationMessages": {
                 "postcode": "Please use a correct UK postcode"
             }
-        },
-        {
-            "name": "consent",
-            "element": "checkbox",
-            "info": "By signing up to the VisitScotland newsletter: <ul><li>I agree to receive inspiration, travel tips, news and offers from VisitScotland by email.</li><li>I agree to the terms of VisitScotland’s <a href='https://www.visitscotland.com/policies/privacy/'>privacy policy</a> which outlines how my data is handled.</li></ul>",
-            "label": "Yes, I confirm that the above statements apply",
-            "descriptor": "Consent",
-            "value": "consented",
-            "validation": {
-                "required": true
-            },
-            "validationMessages": {
-                "required": "This field is required"
-            }
         }
     ],
     "it": {
@@ -100,13 +86,6 @@
             "hint": "Lo useremo solo per inviarti contenuti del posto e offerte nella nostra newsletter..",
             "validationMessages": {
                 "required": "Inserisci un codice postale reale"
-            }
-        },
-        "consent": {
-            "label": "Iscrivendomi alla newsletter di VisitScotland: <ul><li>Accetto di ricevere idee, consigli di viaggio, notizie e offerte da VisitScotland via email.</li><li>Accetto i termini dell'<a href='https://www.visitscotland.com/it-it/policies/privacy/'>informativa sulla privacy</a> di VisitScotland che delinea come vengono trattati i miei dati.</li></ul>",
-            "descriptor": "Consenso",
-            "validationMessages": {
-                "required": "This field is required (de)"
             }
         }
     }
