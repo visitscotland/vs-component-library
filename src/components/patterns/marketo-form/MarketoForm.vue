@@ -624,16 +624,18 @@ export default {
                     lastRecaptchaEnabledFormID: this.formId,
                 });
             }
-
-            myForm.submit(() => {
-                this.submitting = true;
-            });
             /* eslint-ignore-next-line */
             myForm.onSuccess(() => {
                 this.submitting = false;
                 this.submitted = true;
                 return false;
             });
+
+            myForm.onSubmit(() => {
+                this.submitting = true;
+            });
+
+            myForm.submit();
         },
         /**
          * listens to recaptcha response to check if it's verified
