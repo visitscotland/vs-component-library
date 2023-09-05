@@ -18,15 +18,21 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsCarbonCalculator v-bind="args">
-        </VsCarbonCalculator>
+        <div
+            :class="args.jsDisabled ? 'no-js' : ''"
+        >
+            <VsCarbonCalculator v-bind="args">
+            </VsCarbonCalculator>
+        </div>
     `,
 });
 
 const base = {
+    jsDisabled: false,
     dataUrl: '/fixtures/carbon-calculator/example-form.json',
     messagingUrl: '/fixtures/carbon-calculator/messaging.json',
     countryListUrl: '/fixtures/carbon-calculator/countries.json',
+    noJsMessage: 'You need Javascript enabled to use this calculator',
     labelsMap: {
         next: 'Next',
         previous: 'Previous',
@@ -78,3 +84,11 @@ export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const NoJs = Template.bind({
+});
+
+NoJs.args = {
+    ...base,
+    jsDisabled: true,
+};

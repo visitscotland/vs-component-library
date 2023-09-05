@@ -1,136 +1,146 @@
 <template>
-    <VsContainer
-        class="vs-carbon-calculator"
-        data-test="vs-carbon-calculator"
-    >
-        <VsRow
-            class="vs-carbon-calculator__survey"
-            v-if="formData && formData.fields"
+    <div class="vs-carbon-calculator__wrapper">
+        <VsContainer
+            class="vs-carbon-calculator"
+            data-test="vs-carbon-calculator"
         >
-            <VsCol>
-                <VsCarbonCalculatorIntro
-                    v-if="!activeQuestion"
-                />
+            <VsRow
+                class="vs-carbon-calculator__survey"
+                v-if="formData && formData.fields"
+            >
+                <VsCol>
+                    <VsCarbonCalculatorIntro
+                        v-if="!activeQuestion"
+                    />
 
-                <form
-                    v-if="activeQuestion"
-                >
-                    <fieldset>
-                        <VsProgressBar
-                            :max="formData.stages"
-                            :currentStep="currentQuestion ? currentQuestion.stage : formData.stages"
-                            :isStepped="true"
-                            :isFull="activeQuestion > formData.fields.length"
-                        />
-
-                        <div
-                            v-show="activeQuestion <= formData.fields.length"
-                        >
-                            <VsCarbonCalculatorQuestion
-                                v-for="(field, index) in formData.fields"
-                                v-show="(index + 1) === activeQuestion"
-                                :key="field.name"
-                                :label="getQuestionLabel(index)"
-                                :label-for="field.name"
-                                :hint="getQuestionHint(index)"
-                                :fieldClass="conditionalElementClass(field.name)"
-                                :fieldType="field.element"
-                                :fieldName="field.name"
-                                :options="getQuestionOptions(index)"
-                                :minimum="field.element === 'number' ? field.validation.min : 0"
-                                :maximum="field.element === 'number' ? field.validation.max : 0"
-                                :fieldCategory="getQuestionCategory(field.stage)"
-                                @updateFieldData="updateFieldData"
+                    <form
+                        v-if="activeQuestion"
+                    >
+                        <fieldset>
+                            <VsProgressBar
+                                :max="formData.stages"
+                                :currentStep="
+                                    currentQuestion ? currentQuestion.stage : formData.stages
+                                "
+                                :isStepped="true"
+                                :isFull="activeQuestion > formData.fields.length"
                             />
-                        </div>
-                    </fieldset>
-                </form>
-                <VsCarbonCalculatorTip
-                    v-if="currentTip"
-                    :tip="currentTip.text"
-                />
-            </VsCol>
-            <VsCol
-                cols="12"
-            >
-                <VsCarbonCalculatorRunningTotal
-                    v-if="activeQuestion > 0 && activeQuestion <= formData.fields.length"
-                    :total-kilos="totalKilos"
-                />
-                <VsCarbonCalculatorResults
-                    v-if="activeQuestion > formData.fields.length"
-                    :total-kilos="totalKilos"
-                    :transport-kilos="transportKilos"
-                    :food-kilos="foodKilos"
-                    :accommodation-kilos="accommodationKilos"
-                    :transport-tip="transportTip"
-                    :food-tip="foodTip"
-                    :accommodation-tip="accommodationTip"
-                    :stay-duration="stayDuration"
-                />
-            </VsCol>
-            <VsCol
-                class="text-center"
-                cols="12"
-                v-if="activeQuestion === 0"
-            >
-                <VsButton
-                    variant="primary"
-                    type="submit"
-                    class="vs-form__submit mt-9"
-                    @click="forwardPage()"
-                >
-                    {{ labelsMap['begin'] }}
-                </VsButton>
-            </VsCol>
-            <VsCol
-                cols="12"
-                v-if="activeQuestion > 0"
-            >
-                <VsButton
-                    :variant="activeQuestion <= formData.fields.length ? 'primary' : 'secondary'"
-                    type="submit"
-                    class="vs-form__submit mt-9 float-left"
-                    v-if="activeQuestion > 1"
-                    @click="backwardPage()"
-                >
-                    {{ labelsMap['previous'] }}
-                </VsButton>
 
-                <VsButton
-                    variant="primary"
-                    type="submit"
-                    class="vs-form__submit mt-9 float-right"
-                    v-if="activeQuestion < formData.fields.length"
-                    :disabled="activeQuestion > 0 && !answerSet"
-                    @click="forwardPage()"
+                            <div
+                                v-show="activeQuestion <= formData.fields.length"
+                            >
+                                <VsCarbonCalculatorQuestion
+                                    v-for="(field, index) in formData.fields"
+                                    v-show="(index + 1) === activeQuestion"
+                                    :key="field.name"
+                                    :label="getQuestionLabel(index)"
+                                    :label-for="field.name"
+                                    :hint="getQuestionHint(index)"
+                                    :fieldClass="conditionalElementClass(field.name)"
+                                    :fieldType="field.element"
+                                    :fieldName="field.name"
+                                    :options="getQuestionOptions(index)"
+                                    :minimum="field.element === 'number' ? field.validation.min : 0"
+                                    :maximum="field.element === 'number' ? field.validation.max : 0"
+                                    :fieldCategory="getQuestionCategory(field.stage)"
+                                    @updateFieldData="updateFieldData"
+                                />
+                            </div>
+                        </fieldset>
+                    </form>
+                    <VsCarbonCalculatorTip
+                        v-if="currentTip"
+                        :tip="currentTip.text"
+                    />
+                </VsCol>
+                <VsCol
+                    cols="12"
                 >
-                    {{ labelsMap['next'] }}
-                </VsButton>
+                    <VsCarbonCalculatorRunningTotal
+                        v-if="activeQuestion > 0 && activeQuestion <= formData.fields.length"
+                        :total-kilos="totalKilos"
+                    />
+                    <VsCarbonCalculatorResults
+                        v-if="activeQuestion > formData.fields.length"
+                        :total-kilos="totalKilos"
+                        :transport-kilos="transportKilos"
+                        :food-kilos="foodKilos"
+                        :accommodation-kilos="accommodationKilos"
+                        :transport-tip="transportTip"
+                        :food-tip="foodTip"
+                        :accommodation-tip="accommodationTip"
+                        :stay-duration="stayDuration"
+                    />
+                </VsCol>
+                <VsCol
+                    class="text-center"
+                    cols="12"
+                    v-if="activeQuestion === 0"
+                >
+                    <VsButton
+                        variant="primary"
+                        type="submit"
+                        class="vs-form__submit mt-9"
+                        @click="forwardPage()"
+                    >
+                        {{ labelsMap['begin'] }}
+                    </VsButton>
+                </VsCol>
+                <VsCol
+                    cols="12"
+                    v-if="activeQuestion > 0"
+                >
+                    <VsButton
+                        :variant="activeQuestion <= formData.fields.length ? 'primary' : 'secondary'"
+                        type="submit"
+                        class="vs-form__submit mt-9 float-left"
+                        v-if="activeQuestion > 1"
+                        @click="backwardPage()"
+                    >
+                        {{ labelsMap['previous'] }}
+                    </VsButton>
 
-                <VsButton
-                    variant="primary"
-                    type="submit"
-                    class="vs-form__submit mt-9 float-right"
-                    v-if="activeQuestion === formData.fields.length"
-                    :disabled="!answerSet"
-                    @click="forwardPage()"
-                >
-                    {{ labelsMap['results'] }}
-                </VsButton>
+                    <VsButton
+                        variant="primary"
+                        type="submit"
+                        class="vs-form__submit mt-9 float-right"
+                        v-if="activeQuestion < formData.fields.length"
+                        :disabled="activeQuestion > 0 && !answerSet"
+                        @click="forwardPage()"
+                    >
+                        {{ labelsMap['next'] }}
+                    </VsButton>
 
-                <VsButton
-                    variant="primary"
-                    type="submit"
-                    class="vs-form__submit mt-9 float-right"
-                    v-if="activeQuestion > formData.fields.length"
-                    @click="restart()"
-                >
-                    {{ labelsMap['restart'] }}
-                </VsButton>
-            </VsCol>
-        </VsRow>
-    </VsContainer>
+                    <VsButton
+                        variant="primary"
+                        type="submit"
+                        class="vs-form__submit mt-9 float-right"
+                        v-if="activeQuestion === formData.fields.length"
+                        :disabled="!answerSet"
+                        @click="forwardPage()"
+                    >
+                        {{ labelsMap['results'] }}
+                    </VsButton>
+
+                    <VsButton
+                        variant="primary"
+                        type="submit"
+                        class="vs-form__submit mt-9 float-right"
+                        v-if="activeQuestion > formData.fields.length"
+                        @click="restart()"
+                    >
+                        {{ labelsMap['restart'] }}
+                    </VsButton>
+                </VsCol>
+            </VsRow>
+        </VsContainer>
+
+        <VsWarning
+            theme="light"
+        >
+            {{ noJsMessage }}
+        </VsWarning>
+    </div>
 </template>
 
 <script>
@@ -140,8 +150,9 @@ import {
 } from '@components/elements/grid';
 import dataLayerMixin from '@/mixins/dataLayerMixin';
 
-import VsButton from '../../elements/button/Button.vue';
-import VsProgressBar from '../../elements/progress-bar/ProgressBar.vue';
+import VsWarning from '@/components/patterns/warning/Warning.vue';
+import VsButton from '@/components/elements/button/Button.vue';
+import VsProgressBar from '@/components/elements/progress-bar/ProgressBar.vue';
 
 import VsCarbonCalculatorTip from './components/CarbonCalculatorTip.vue';
 import VsCarbonCalculatorResults from './components/CarbonCalculatorResults.vue';
@@ -162,6 +173,7 @@ export default {
         VsContainer,
         VsCol,
         VsRow,
+        VsWarning,
         VsProgressBar,
         VsCarbonCalculatorResults,
         VsCarbonCalculatorTip,
@@ -224,6 +236,14 @@ export default {
          */
         labelsMap: {
             type: Object,
+            required: true,
+        },
+        /**
+        * A message explaining why the component has been disabled when js is disabled,
+        * is provided for descendent components to inject
+        */
+        noJsMessage: {
+            type: String,
             required: true,
         },
     },
@@ -731,49 +751,21 @@ export default {
 </script>
 
 <style lang='scss'>
-    .vs-form {
-        &__main-heading {
-            @extend %heading-default-styles;
-        }
+    .vs-carbon-calculator {
+        display: block;
+    }
 
-        &__content {
-            font-size: $font-size-6;
-        }
-        label {
-            font-weight: $font-weight-semi-bold;
-            margin-bottom: 0;
-        }
-
-        .error {
-            font-size: $font-size-body;
-            color: $color-theme-danger;
-        }
-
-        .hint-text {
-            font-size: $font-size-body;
-            color: $color-gray-shade-1;
-            margin-bottom: 0;
-        }
-
-        .form-group {
-            margin-bottom: $spacer-6;
-        }
-
-        &__no-js {
-            display: none;
-        }
+    .vs-carbon-calculator__wrapper .vs-warning {
+        display: none;
     }
 
     @include no-js {
-        .vs-form {
+        .vs-carbon-calculator {
+            display: none;
+        }
 
-            & > form {
-                display: none;
-            }
-
-            &__no-js {
-                display: block;
-            }
+        .vs-carbon-calculator__wrapper .vs-warning {
+            display: block;
         }
     }
 </style>
