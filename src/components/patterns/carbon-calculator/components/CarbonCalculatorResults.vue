@@ -1,6 +1,7 @@
 <template>
     <VsRow
         data-test="vs-carbon-calculator-results"
+        :style="cssProps"
     >
         <VsCol cols="12">
             <VsHeading
@@ -171,6 +172,7 @@ export default {
                     type: 'band',
                 },
             }),
+            cssProps: `--chart-label: '${ this.labelsMap.kgsOf }'`,
         };
     },
     computed: {
@@ -276,6 +278,23 @@ export default {
 
             @include media-breakpoint-up(md) {
                 width: 50%;
+            }
+        }
+
+        .chart {
+            &::before {
+                content: var(--chart-label);
+                position: absolute;
+                top: 50%;
+                text-align: center;
+                left: -#{$spacer-8};
+                transform: translateY(-50%) rotate(-90deg);
+
+                @include media-breakpoint-up(md) {
+                    max-width: 7rem;
+                    left: -#{$spacer-11};
+                    transform: translateY(-100%);
+                }
             }
         }
     }
