@@ -16,7 +16,7 @@
         >
             <p>{{ labelsMap.soFar }}</p>
             <p>
-                <span class="font-weight-bold">{{ totalKilos }}</span> {{ labelsMap.kgsOf }}
+                <span class="font-weight-bold">{{ totalKilos.toFixed(3) }}</span> {{ labelsMap.kgsOf }}
             </p>
         </div>
     </div>

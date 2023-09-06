@@ -23,7 +23,7 @@
                     <p>{{ labelsMap.resultsIntro }}</p>
                     <p>
                         <span class="vs-carbon-calculator-results__total">
-                            {{ totalKilos }}
+                            {{ totalKilos.toFixed(3) }}
                         </span>
                         {{ labelsMap.kgsOf }}
                     </p>
@@ -44,8 +44,8 @@
             cols="12"
         >
             <p>{{ interpolKGsPerDay }}</p>
-            <p v-if="totalPerDay <= perDayTarget">
-                {{ labelsMap.perDaySuccess }}
+            <p v-if="totalPerDay <= labelsMap.perDayTarget">
+                {{ interpolPerDaySuccess }}
             </p>
         </VsCol>
         <VsCol>
@@ -164,13 +164,6 @@ export default {
             default: 1,
         },
         /**
-         * The goal level of per day emissions required for carbon unicorn status
-         */
-        perDayTarget: {
-            type: Number,
-            default: 0,
-        },
-        /**
          * An array that defines which placeholders in the comparison need to be replaced and what
          * they should be replaced with. Each entry should be an object with a "repl" key and a
          * "divisor" key
@@ -234,7 +227,7 @@ export default {
             for (let x = 0; x < this.comparisonReplacements.length; x++) {
                 baseComparison = baseComparison.replace(
                     this.comparisonReplacements[x].repl,
-                    this.totalKilos / this.comparisonReplacements[x].divisor,
+                    (this.totalKilos / this.comparisonReplacements[x].divisor).toFixed(3),
                 );
             }
 
@@ -245,6 +238,12 @@ export default {
          */
         interpolKGsPerDay() {
             return this.labelsMap.kgsPerDay.replace('xxx', this.totalPerDay);
+        },
+        /**
+         * Interpolates the per day success into a localised string.
+         */
+        interpolPerDaySuccess() {
+            return this.labelsMap.perDaySuccess.replace('xxx', this.labelsMap.perDayTarget);
         },
         transportPercent() {
             return (this.transportKilos / this.totalKilos) * 100;

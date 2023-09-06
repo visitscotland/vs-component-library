@@ -3,11 +3,11 @@
     "comparisonReplacements": [
         {
             "repl": "xxx",
-            "divisor": 0.1
+            "divisor": 0.178
         },
         {
             "repl": "yyy",
-            "divisor": 20
+            "divisor": 115.485
         }
     ],
     "fields": [
@@ -16,7 +16,9 @@
             "element": "radio",
             "options": [
                 { "value": "noTravel"},
-                { "value": "plane"},
+                { "value": "domesticPlane"},
+                { "value": "shortPlane"},
+                { "value": "longPlane"},
                 { "value": "petrolCar"},
                 { "value": "dieselCar"},
                 { "value": "electricCar"},
@@ -34,15 +36,17 @@
             },
             "values": {
                 "noTravel": 0,
-                "plane": 5,
-                "petrolCar": 4,
-                "dieselCar": 4,
-                "electricCar": 1,
-                "train": 1,
-                "coach": 2,
-                "ferry": 5,
-                "petrolCamper": 6,
-                "dieselCamper": 7
+                "domesticPlane": 122.85,
+                "shortPlane": 132.99,
+                "longPlane": 208.8,
+                "petrolCar": 18.791,
+                "dieselCar": 15.3323,
+                "electricCar": 4.96,
+                "train": 3.597,
+                "coach": 1.77,
+                "ferry": 3.967,
+                "petrolCamper": 20.833,
+                "dieselCamper": 18.128
             },
             
             "multiplyByAnswer": {
@@ -65,7 +69,9 @@
             },
             "conditional": {
                 "transportModeTo": [
-                    "plane",
+                    "domesticPlane",
+                    "shortPlane",
+                    "longPlane",
                     "petrolCar",
                     "dieselCar",
                     "electricCar",
@@ -86,7 +92,7 @@
                 "min": 0,
                 "max": 180
             },
-            "multiplyByNumber": 1,
+            "multiplyByNumber": 10.4,
             "validationMessages": {
                 "required": "Please choose a duration"
             },
@@ -110,12 +116,12 @@
                 "required": "Please choose an item"
             },
             "values": {
-                "regularMeat": 5,
-                "moderateMeat": 4,
-                "infrequentMeat": 3,
-                "pescatarian": 2,
-                "vegetarian": 1,
-                "vegan": 0
+                "regularMeat": 6.66,
+                "moderateMeat": 4.99,
+                "infrequentMeat": 4.67,
+                "pescatarian": 3.91,
+                "vegetarian": 3.86,
+                "vegan": 3.15
             },
             "multiplyByAnswer": {
                 "question": "howLongStay",
