@@ -44,7 +44,7 @@ const base = {
         begin: 'Start Questionnaire',
         introHeading: 'Calculate Your Carbon',
         introContent: 'From transport to food and drink, answer 4 simple questions about your trip to Scotland and we\'ll calculate your emissions.',
-        perDayTarget: 35,
+        perDayTarget: 30,
         perDaySuccess: 'Congratulations! You\'re emitting less than xxx KGs of CO₂e per day on your trip, which is below average. We like to think this makes you a Sustainability Unicorn - Scotland\'s national animal, which cares deeply about protecting our environment.',
         topTip: 'Top Tip!',
         allTips: '<a href="#">Discover more about sustainable travel in Scotland</a>.',
