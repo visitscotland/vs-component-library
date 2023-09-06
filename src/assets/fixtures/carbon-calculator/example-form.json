@@ -3,11 +3,11 @@
     "comparisonReplacements": [
         {
             "repl": "xxx",
-            "divisor": 0.178
+            "divisor": 0.164
         },
         {
             "repl": "yyy",
-            "divisor": 115.485
+            "divisor": 105.124
         }
     ],
     "fields": [
@@ -36,17 +36,17 @@
             },
             "values": {
                 "noTravel": 0,
-                "domesticPlane": 122.85,
-                "shortPlane": 132.99,
-                "longPlane": 208.8,
-                "petrolCar": 18.791,
-                "dieselCar": 15.3323,
-                "electricCar": 4.96,
-                "train": 3.597,
-                "coach": 1.77,
-                "ferry": 3.967,
-                "petrolCamper": 20.833,
-                "dieselCamper": 18.128
+                "domesticPlane": 245.7,
+                "shortPlane": 265.98,
+                "longPlane": 417.6,
+                "petrolCar": 29.58232,
+                "dieselCar": 30.6646,
+                "electricCar": 9.9209,
+                "train": 7.1939,
+                "coach": 3.53808,
+                "ferry": 7.93486,
+                "petrolCamper": 37.501002,
+                "dieselCamper": 32.630742
             },
             
             "multiplyByAnswer": {
