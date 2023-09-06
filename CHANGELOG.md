@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.23](https://github.com/visitscotland/vs-component-library/compare/v1.0.22...v1.0.23) (2023-09-05)
+
+
+### 🐛 Bug Fixes
+
+* **input:** correct regex syntax ([61c3a11](https://github.com/visitscotland/vs-component-library/commit/61c3a1190516e3df9cf29988c528d777901c52c8))
+* **marketoforms:** allow lower case postcodes ([ae66b4d](https://github.com/visitscotland/vs-component-library/commit/ae66b4d0f251df913715402c52ebffa40887f91e))
+* **select:** fix select validation syntax ([499c2cc](https://github.com/visitscotland/vs-component-library/commit/499c2cca73692951cb48dde5fba6108cd66eccb7))
+
+
+### ✨ Features
+
+* **forms:** remove consent checkbox from example form ([245cc66](https://github.com/visitscotland/vs-component-library/commit/245cc66164686cdf9162bd6761fcda52487a070a))
+
 ### [1.0.22](https://github.com/visitscotland/vs-component-library/compare/v1.0.21...v1.0.22) (2023-09-01)
 
 
