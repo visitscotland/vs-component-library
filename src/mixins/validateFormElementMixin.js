@@ -6,7 +6,7 @@ import {
     helpers,
 } from '@vuelidate/validators';
 
-const postcode = helpers.regex('postcode', /^([A-Z][A-HJ-Y]?\d[A-Z\d]? ?\d[A-Z]{2}|GIR ?0A{2})$/);
+const postcode = helpers.regex(/^([A-Za-z][A-HJ-Ya-hj-y]?\d[A-Za-z\d]? ?\d[A-Za-z]{2}|GIR ?0A{2})$/);
 
 const validateFormElementMixin = {
     data() {

@@ -246,9 +246,7 @@ export default {
         },
     },
     validations() {
-        return {
-            inputVal: this.rules,
-        };
+        return this.rules;
     },
 };
 </script>
