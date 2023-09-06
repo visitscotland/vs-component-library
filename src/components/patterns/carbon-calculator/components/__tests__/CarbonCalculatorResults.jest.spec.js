@@ -74,7 +74,7 @@ describe('VsCarbonCalculatorResults', () => {
                 stayDuration: 4,
             });
 
-            expect(wrapper.text()).not.toContain(perDaySuccess);
+            expect(wrapper.text()).toContain(perDaySuccess);
         });
     });
 });
