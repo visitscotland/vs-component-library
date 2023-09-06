@@ -127,42 +127,62 @@ export default {
     ],
     inject: ['labelsMap'],
     props: {
+        /**
+         * The total equivalent weight of emissions for the survey, used as the headline figure
+         * as well as for working out daily emissions and in the comparison.
+         */
         totalKilos: {
             type: Number,
             default: 0,
         },
+        /**
+         * The weight of emissions specifically related to food
+         */
         foodKilos: {
             type: Number,
             default: 0,
         },
-        foodTip: {
-            type: Object,
-            default: null,
-        },
+        /**
+         * The weight of emissions specifically related to transport
+         */
         transportKilos: {
             type: Number,
             default: 0,
         },
-        transportTip: {
-            type: Object,
-            default: null,
-        },
+        /**
+         * The weight of emissions specifically related to accommodation
+         */
         accommodationKilos: {
             type: Number,
             default: 0,
         },
-        accommodationTip: {
-            type: Object,
-            default: null,
-        },
+        /**
+         * The number of nights the user is staying, used to calculate per day emissions
+         */
         stayDuration: {
             type: Number,
             default: 1,
         },
+        /**
+         * The goal level of per day emissions required for carbon unicorn status
+         */
         perDayTarget: {
             type: Number,
             default: 0,
         },
+        /**
+         * An array that defines which placeholders in the comparison need to be replaced and what
+         * they should be replaced with. Each entry should be an object with a "repl" key and a
+         * "divisor" key
+         *
+         * {
+         *      "repl": "xxx",
+         *      "divisor": 0.2
+         * }
+         *
+         * In the above case, the substring "xxx" in the comparison will be replaced with the total
+         * emissions number / 0.2
+         */
         comparisonReplacements: {
             type: Array,
             default: () => [],
