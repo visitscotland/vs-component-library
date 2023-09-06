@@ -70,6 +70,7 @@
                         :food-tip="foodTip"
                         :accommodation-tip="accommodationTip"
                         :stay-duration="stayDuration"
+                        :comparisonReplacements="formData.comparisonReplacements"
                     />
                 </VsCol>
                 <VsCol

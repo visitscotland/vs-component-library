@@ -32,21 +32,21 @@
         </VsCol>
         <VsCol
             cols="12"
+            class="vs-carbon-calculator-results__comparison"
+        >
+            <!-- eslint-disable -->
+            <p
+                v-html="interpolComparison"
+            />
+            <!-- eslint-enable -->
+        </VsCol>
+        <VsCol
+            cols="12"
         >
             <p>{{ interpolKGsPerDay }}</p>
             <p v-if="totalPerDay <= perDayTarget">
                 {{ labelsMap.perDaySuccess }}
             </p>
-        </VsCol>
-        <VsCol
-            cols="12"
-            class="vs-carbon-calculator-results__comparison"
-        >
-            <!-- eslint-disable -->
-            <div
-                v-html="interpolComparison"
-            />
-            <!-- eslint-enable -->
         </VsCol>
         <VsCol>
             <VsHeading
@@ -163,6 +163,10 @@ export default {
             type: Number,
             default: 0,
         },
+        comparisonReplacements: {
+            type: Array,
+            default: () => [],
+        },
     },
     data() {
         return {
@@ -193,10 +197,16 @@ export default {
             ];
         },
         interpolComparison() {
-            const kilos = parseFloat(this.labelsMap.comparisonKilos);
-            const instances = (this.totalKilos / kilos).toFixed(3);
+            let baseComparison = this.labelsMap.comparison;
 
-            return this.labelsMap.comparison.replace('xxx', instances);
+            for (let x = 0; x < this.comparisonReplacements.length; x++) {
+                baseComparison = baseComparison.replace(
+                    this.comparisonReplacements[x].repl,
+                    this.totalKilos / this.comparisonReplacements[x].divisor,
+                );
+            }
+
+            return baseComparison;
         },
         interpolKGsPerDay() {
             return this.labelsMap.kgsPerDay.replace('xxx', this.totalPerDay);
@@ -261,17 +271,14 @@ export default {
         }
     }
 
-    .vs-carbon-calculator-results__comparison {
-        margin-bottom: $spacer-6;
-
-        @include media-breakpoint-up(md) {
-            margin-bottom: $spacer-10;
-        }
-    }
-
     .vs-carbon-calculator-results__chart-wrapper {
         display: flex;
         justify-content: center;
+        margin-top: $spacer-6;
+
+        @include media-breakpoint-up(md) {
+            margin-top: $spacer-10;
+        }
 
         > div {
             width: 100%;

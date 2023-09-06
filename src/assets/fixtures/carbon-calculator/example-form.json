@@ -1,5 +1,15 @@
 {
     "stages": 4,
+    "comparisonReplacements": [
+        {
+            "repl": "xxx",
+            "divisor": 0.1
+        },
+        {
+            "repl": "yyy",
+            "divisor": 20
+        }
+    ],
     "fields": [
         {
             "name": "transportModeTo",
