@@ -20,7 +20,11 @@
                 { "value": "petrolCar"},
                 { "value": "dieselCar"},
                 { "value": "electricCar"},
-                { "value": "train"}
+                { "value": "train"},
+                { "value": "coach"},
+                { "value": "ferry"},
+                { "value": "petrolCamper"},
+                { "value": "dieselCamper"}
             ],
             "validation": {
                 "required": true
@@ -34,7 +38,11 @@
                 "petrolCar": 4,
                 "dieselCar": 4,
                 "electricCar": 1,
-                "train": 1
+                "train": 1,
+                "coach": 2,
+                "ferry": 5,
+                "petrolCamper": 6,
+                "dieselCamper": 7
             },
             
             "multiplyByAnswer": {
@@ -61,7 +69,11 @@
                     "petrolCar",
                     "dieselCar",
                     "electricCar",
-                    "train"
+                    "train",
+                    "coach",
+                    "ferry",
+                    "petrolCamper",
+                    "dieselCamper"
                 ]
             },
             "stage": 2
