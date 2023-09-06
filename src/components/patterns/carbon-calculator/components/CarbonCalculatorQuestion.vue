@@ -130,16 +130,26 @@ export default {
             type: Array,
             required: true,
         },
+        /**
+         * Minimum number value, only needed for number inputs
+         */
         minimum: {
             type: Number,
             default: 0,
         },
+        /**
+         * Maximum number value, only needed for number inputs
+         */
         maximum: {
             type: Number,
             default: 0,
         },
     },
     methods: {
+        /**
+         * Fired when the value of the nested input changes, emits the new value up to the
+         * questionnaire to be tracked in the running total.
+        */
         valueChanged(newData) {
             this.$emit('updateFieldData', newData);
         },

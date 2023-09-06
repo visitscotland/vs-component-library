@@ -200,6 +200,9 @@ export default {
         };
     },
     computed: {
+        /**
+         * Data object for the vue3-chart
+         */
         chartData() {
             return [
                 {
@@ -216,6 +219,15 @@ export default {
                 },
             ];
         },
+        /**
+         * Returns the localised comparison from the labelsmap with actual data interpolated into
+         * it. The comparison is a string with one or more placeholders in it which need to be
+         * replaced with a number specific to the user's actual data (in the general form of
+         * "that's equivalent to 15 full washloads").
+         *
+         * The exact string that needs to be replaced and the number that should be entered is
+         * derived from the comparison replacements object described in props.
+         */
         interpolComparison() {
             let baseComparison = this.labelsMap.comparison;
 
@@ -228,6 +240,9 @@ export default {
 
             return baseComparison;
         },
+        /**
+         * Interpolates the per day emissions into a localised string.
+         */
         interpolKGsPerDay() {
             return this.labelsMap.kgsPerDay.replace('xxx', this.totalPerDay);
         },
