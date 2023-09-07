@@ -1,15 +1,15 @@
 <template>
     <nav class="vs-global-menu">
-        <VsContainer
-            fluid="lg"
-            class="px-1 px-sm-3"
-        >
-            <VsRow>
-                <VsCol
-                    cols="12"
-                    class="vs-global-menu__wrapper"
-                >
-                    <LazyHydrationWrapper :on-interaction="['focus', 'click']">
+        <LazyHydrationWrapper :on-interaction="['focus', 'click']">
+            <VsContainer
+                fluid="lg"
+                class="px-1 px-sm-3"
+            >
+                <VsRow>
+                    <VsCol
+                        cols="12"
+                        class="vs-global-menu__wrapper"
+                    >
                         <!-- Small Screens Menu -->
                         <VsGlobalMenuDropdown
                             class="d-lg-none"
@@ -17,27 +17,27 @@
                             :dropdown-label="dropdownLabel"
                             :websites="websites"
                         />
-                    </LazyHydrationWrapper>
 
-                    <!-- Large Screens Menu -->
-                    <VsGlobalMenuList
-                        class="d-none d-lg-flex"
-                        :active-site="activeSite"
-                        :websites="websites"
-                    />
+                        <!-- Large Screens Menu -->
+                        <VsGlobalMenuList
+                            class="d-none d-lg-flex"
+                            :active-site="activeSite"
+                            :websites="websites"
+                        />
 
-                    <!-- @slot The content you want to appear as the
-                        second element on the global menu, after the websites list,
-                        goes here. -->
-                    <slot name="second-menu-item" />
+                        <!-- @slot The content you want to appear as the
+                            second element on the global menu, after the websites list,
+                            goes here. -->
+                        <slot name="second-menu-item" />
 
-                    <!-- @slot The content you want to appear as the
-                        third element on the global menu, after the websites list,
-                        goes here. -->
-                    <slot name="third-menu-item" />
-                </VsCol>
-            </VsRow>
-        </VsContainer>
+                        <!-- @slot The content you want to appear as the
+                            third element on the global menu, after the websites list,
+                            goes here. -->
+                        <slot name="third-menu-item" />
+                    </VsCol>
+                </VsRow>
+            </VsContainer>
+        </LazyHydrationWrapper>
     </nav>
 </template>
 

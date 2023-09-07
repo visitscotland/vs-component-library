@@ -27,7 +27,7 @@
             @hidden="onHidden"
             @hide="onHide"
             ref="popover"
-            v-if="!noJs"
+            v-if="!noJs && renderPopover"
         >
             <VsHeading
                 thin
@@ -179,7 +179,17 @@ export default {
     data() {
         return {
             copyLink: false,
+            renderPopover: false,
         };
+    },
+    mounted() {
+        // The popover renders inconsistently in an SSR environment and causes hydration mismatches
+        // on the site. The mounted hook doesn't fire on the server side, so this prevents the
+        // server from attempting to render the popover at all. When the component is mounted in
+        // the user's browser this then allows it to render (hidden, off screen until they interact
+        // with it). This doesn't need to be ssr rendered as the no-js version displays without the
+        // popover.
+        this.renderPopover = true;
     },
     methods: {
         /**
