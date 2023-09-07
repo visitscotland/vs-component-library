@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.24](https://github.com/visitscotland/vs-component-library/compare/v1.0.23...v1.0.24) (2023-09-07)
+
+
+### 🐛 Bug Fixes
+
+* **social share:** don't render popover in SSR environment ([2765b6e](https://github.com/visitscotland/vs-component-library/commit/2765b6e192f41739a09aefc4fbd2db6f8ed3566b))
+* **ssr:** ensure global nav hydrates properly on load ([7087cb7](https://github.com/visitscotland/vs-component-library/commit/7087cb7b41cf615cd7e9ca88cd2e252beccc80a6))
+
 ### [1.0.23](https://github.com/visitscotland/vs-component-library/compare/v1.0.22...v1.0.23) (2023-09-05)
 
 
