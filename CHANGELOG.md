@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.25](https://github.com/visitscotland/vs-component-library/compare/v1.0.24...v1.0.25) (2023-09-08)
+
+
+### 🐛 Bug Fixes
+
+* **checkbox:** correct checkbox validation syntax ([46603b8](https://github.com/visitscotland/vs-component-library/commit/46603b883a7f31759997677f20654f7a765bc769))
+
 ### [1.0.24](https://github.com/visitscotland/vs-component-library/compare/v1.0.23...v1.0.24) (2023-09-07)
 
 
