@@ -1,3 +1,7 @@
+import {
+    within, waitFor, userEvent,
+} from '@storybook/testing-library';
+
 import VsCarbonCalculator from '@/components/patterns/carbon-calculator/CarbonCalculator.vue';
 
 export default {
@@ -89,6 +93,113 @@ export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const QuestionOpen = Template.bind({
+});
+
+QuestionOpen.args = base;
+
+QuestionOpen.play = async({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await waitFor(() => {
+        canvas.getByText('Start Questionnaire').click();
+    });
+};
+
+export const ResultsPage = Template.bind({
+});
+
+ResultsPage.args = base;
+
+ResultsPage.args = base;
+
+ResultsPage.play = async({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await waitFor(async() => {
+        await canvas.getByText('Start Questionnaire').click();
+    });
+
+    await waitFor(async() => {
+        await canvas.getByLabelText('Ferry').click();
+    });
+
+    await waitFor(async() => {
+        await canvas.getByText('Next').click();
+    });
+
+    const hoursInput = canvas.getByLabelText('How many hours will your journey take?');
+
+    await waitFor(async() => {
+        await userEvent.type(hoursInput, '4');
+    });
+
+    await waitFor(async() => {
+        await canvas.getByText('Next').click();
+    });
+
+    await waitFor(async() => {
+        await canvas.getByText('Next').click();
+    });
+
+    await waitFor(async() => {
+        await canvas.getByLabelText('Pescatarian').click();
+    });
+
+    await waitFor(async() => {
+        await canvas.getByText('Results').click();
+    });
+};
+
+export const CarbonUnicorn = Template.bind({
+});
+
+CarbonUnicorn.args = base;
+
+CarbonUnicorn.play = async({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await waitFor(async() => {
+        await canvas.getByText('Start Questionnaire').click();
+    });
+
+    await waitFor(async() => {
+        await canvas.getByLabelText('Car (Electric)').click();
+    });
+
+    await waitFor(async() => {
+        await canvas.getByText('Next').click();
+    });
+
+    const hoursInput = canvas.getByLabelText('How many hours will your journey take?');
+
+    await waitFor(async() => {
+        await userEvent.type(hoursInput, '4');
+    });
+
+    await waitFor(async() => {
+        await canvas.getByText('Next').click();
+    });
+
+    const nightsInput = canvas.getByLabelText('How many nights are you staying for?');
+
+    await waitFor(async() => {
+        await userEvent.type(nightsInput, '5');
+    });
+
+    await waitFor(async() => {
+        await canvas.getByText('Next').click();
+    });
+
+    await waitFor(async() => {
+        await canvas.getByLabelText('Vegan').click();
+    });
+
+    await waitFor(async() => {
+        await canvas.getByText('Results').click();
+    });
+};
 
 export const NoJs = Template.bind({
 });
