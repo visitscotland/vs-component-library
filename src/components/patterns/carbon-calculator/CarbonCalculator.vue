@@ -469,7 +469,8 @@ export default {
 
             this.manageErrorStatus(data.field, data.errors);
             this.checkConditionalFields();
-            this.calculate();
+            this.calculateEmissions();
+            this.retrieveTips();
         },
         /**
          * Updates the errorFields list with the current validated state of each field.
@@ -588,21 +589,18 @@ export default {
             return [];
         },
         /**
-         * Calculates the current total emissions value for the user and retrieves any tips
-         * required based on their answers.
+         * Calculates the current total emissions value, and category specific emission values
+         * for the user based on their submitted answers.
          */
-        calculate() {
+        calculateEmissions() {
             this.transportKilos = 0;
             this.transportTip = null;
-            let transportTips = [];
 
             this.accommodationKilos = 0;
             this.accommodationTips = null;
-            let accommodationTips = [];
 
             this.foodKilos = 0;
             this.foodTip = null;
-            let foodTips = [];
 
             for (let x = 0; x < this.formData.fields.length; x++) {
                 const currentField = this.formData.fields[x];
@@ -613,22 +611,49 @@ export default {
                     this.transportKilos += this.getFieldValue(
                         currentField,
                     );
-                    transportTips = transportTips.concat(
-                        this.getTips(currentField, this.form[currentField.name], x),
-                    );
                     break;
                 case 3:
                     this.accommodationKilos += this.getFieldValue(
                         currentField,
-                    );
-                    accommodationTips = accommodationTips.concat(
-                        this.getTips(currentField, this.form[currentField.name], x),
                     );
                     break;
                 case 4:
                     this.foodKilos += this.getFieldValue(
                         currentField,
                     );
+                    break;
+                default:
+                    break;
+                }
+            }
+
+            this.totalKilos = this.transportKilos + this.accommodationKilos + this.foodKilos;
+        },
+        /**
+         * Retrieves all relevant tips for the for the user based on their submitted answers, then
+         * selects a random one from each category to display.
+         */
+        retrieveTips() {
+            let transportTips = [];
+            let accommodationTips = [];
+            let foodTips = [];
+
+            for (let x = 0; x < this.formData.fields.length; x++) {
+                const currentField = this.formData.fields[x];
+
+                switch (currentField.stage) {
+                case 1:
+                case 2:
+                    transportTips = transportTips.concat(
+                        this.getTips(currentField, this.form[currentField.name], x),
+                    );
+                    break;
+                case 3:
+                    accommodationTips = accommodationTips.concat(
+                        this.getTips(currentField, this.form[currentField.name], x),
+                    );
+                    break;
+                case 4:
                     foodTips = foodTips.concat(
                         this.getTips(currentField, this.form[currentField.name], x),
                     );
@@ -638,15 +663,11 @@ export default {
                 }
             }
 
-            this.totalKilos = this.transportKilos + this.accommodationKilos + this.foodKilos;
-
             this.transportTip = transportTips[Math.floor(Math.random() * transportTips.length)];
             this.accommodationTip = accommodationTips[
                 Math.floor(Math.random() * accommodationTips.length)
             ];
             this.foodTip = foodTips[Math.floor(Math.random() * foodTips.length)];
-
-            this.submitted = true;
         },
         /**
          * Checks whether conditional fields meet the rules to show them
