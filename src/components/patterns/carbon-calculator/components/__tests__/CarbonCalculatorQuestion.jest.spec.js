@@ -28,4 +28,30 @@ describe('VsCarbonCalculatorQuestion', () => {
 
         expect(Question.exists()).toBe(true);
     });
+
+    describe('props', () => {
+        it('should render a radio button component if the question is type `radio`', () => {
+            const wrapper = factoryMount();
+
+            expect(wrapper.html()).toContain('vs-radio-button');
+        });
+
+        it('should render a number input component if the question is type `number`', () => {
+            const wrapper = factoryMount({
+                fieldType: 'number',
+            });
+
+            expect(wrapper.html()).toContain('vs-number-input');
+        });
+    });
+
+    describe('methods', () => {
+        it('should emit an `updateFieldData` event when the `valueChanged` function fires', () => {
+            const wrapper = factoryMount();
+
+            wrapper.vm.valueChanged();
+
+            expect(wrapper.emitted().updateFieldData).toBeTruthy();
+        });
+    });
 });

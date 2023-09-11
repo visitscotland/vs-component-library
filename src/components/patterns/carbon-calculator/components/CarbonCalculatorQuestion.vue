@@ -35,7 +35,7 @@
                 v-if="fieldType === 'number'"
                 :fieldName="fieldName"
                 :incrementControls="true"
-                value="0"
+                :value="0"
                 :minimumNumber="minimum"
                 :maximumNumber="maximum"
                 :hintText="hint"
