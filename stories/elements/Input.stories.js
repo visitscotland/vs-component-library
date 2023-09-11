@@ -90,14 +90,3 @@ Invalid.args = {
         required: 'This field is required',
     },
 };
-
-export const IncrementControls = Template.bind({
-});
-
-IncrementControls.args = {
-    ...base,
-    label: 'How many nights are you staying?',
-    type: 'number',
-    incrementControls: true,
-    value: '0',
-};

@@ -1,6 +1,6 @@
 <template>
     <div
-        data-test="vs-input"
+        data-test="vs-number-input"
     >
         <p
             class="hint-text"
@@ -27,26 +27,44 @@
             </p>
         </div>
 
+        <VsButton
+            class="vs-number-input__increment"
+            :iconOnly="true"
+            size="sm"
+            icon="minus"
+            :disabled="(intValue <= minimumNumber) ? true : null"
+            @click="decrementValue"
+        />
+
         <BFormInput
             ref="input"
-            :type="type"
-            class="vs-input"
+            type="Number"
+            class="vs-number-input"
             v-model="inputVal"
             :class="elementClass"
             :id="fieldName"
             :name="fieldName"
-            :placeholder="placeholder"
             :required="isRequired"
-            :autocomplete="autocompleteValue(fieldName)"
             :v="inputVal"
             :aria-invalid="(v$.inputVal && v$.inputVal.$anyError) || invalid"
             :aria-describedby="(v$.inputVal && v$.inputVal.$anyError) || invalid
                 ? `error-${fieldName}` : `hint-${fieldName}`"
             :maxlength="validationRules.maxLength ? validationRules.maxLength : null"
             :minlength="validationRules.minLength ? validationRules.minLength : null"
-            @blur="validateErrors"
+            :min="minimumNumber || null"
+            :max="maximumNumber || null"
+            @blur="controlBlurred"
             @change="validateErrors"
             @focus="resetErrors"
+        />
+
+        <VsButton
+            class="vs-input__increment"
+            :iconOnly="true"
+            size="sm"
+            icon="plus"
+            :disabled="(intValue >= maximumNumber) ? true : null"
+            @click="incrementValue"
         />
 
         <VsButton
@@ -73,9 +91,9 @@ import VsButton from '@components/elements/button/Button.vue';
 import validateFormElementMixin from '../../../mixins/validateFormElementMixin';
 
 /**
- * An input allows a user to enter a short amount of text.
+ * A number input allows a user to select a number within a defined range
  *
- * @displayName Input
+ * @displayName NumberInput
  */
 
 export default {
@@ -94,8 +112,8 @@ export default {
          * Default value of the field
          */
         value: {
-            type: String,
-            default: '',
+            type: Number,
+            default: 0,
         },
         /**
          * Name of the field (for name and id attributes)
@@ -105,11 +123,20 @@ export default {
             required: true,
         },
         /**
-         * Type of input
+         * Assigns a floor that the number input can be set to, only relevant
+         * if the type is number
          */
-        type: {
-            type: String,
-            default: 'text',
+        minimumNumber: {
+            type: Number,
+            default: 0,
+        },
+        /**
+         * Assigns a ceiling that the number input can be set to, only relevant
+         * if the type is number
+         */
+        maximumNumber: {
+            type: Number,
+            default: 10,
         },
         autoComplete: {
             type: Boolean,
@@ -177,13 +204,6 @@ export default {
          * also exists
          */
         clearButtonText: {
-            type: String,
-            default: '',
-        },
-        /**
-         * Element placeholder text
-         */
-        placeholder: {
             type: String,
             default: '',
         },
@@ -278,35 +298,19 @@ export default {
             this.focusOnInput();
         },
         /**
-         *  return autocomplete value in appropriate places
+         * Check if an entered number value is within the specified bounds and
+         * resets it if not, then passes to the validation process
          */
-        autocompleteValue(fieldName) {
-            // https://html.spec.whatwg.org/multipage/forms.html#enabling-client-side-automatic-filling-of-form-controls
-            let autocomplete;
-
-            switch (fieldName) {
-            case 'firstName':
-                autocomplete = 'given-name';
-                break;
-
-            case 'lastName':
-                autocomplete = 'family-name';
-                break;
-
-            case 'Email':
-                autocomplete = 'email';
-                break;
-
-            case 'PostalCode':
-                autocomplete = 'postal-code';
-                break;
-
-            default:
-                autocomplete = this.autoComplete ? 'on' : 'off';
-                break;
+        controlBlurred() {
+            if (this.intValue < this.minimumNumber) {
+                this.inputVal = `${this.minimumNumber}`;
             }
 
-            return autocomplete;
+            if (this.intValue > this.maximumNumber) {
+                this.inputVal = `${this.maximumNumber}`;
+            }
+
+            this.validateErrors();
         },
         /**
          * Validate errors on blur, and re-render them to the screen for screen
@@ -323,6 +327,28 @@ export default {
         resetErrors() {
             this.clearErrorsOnFocus = true;
         },
+        /**
+         * If the input value is a number, decrement it by one down to the minimum value
+         */
+        decrementValue(event) {
+            event.preventDefault();
+
+            let numVal = this.intValue;
+            numVal = Math.max(this.minimumNumber, numVal - 1);
+
+            this.inputVal = `${numVal}`;
+        },
+        /**
+         * If the input value is a number, increment it by one up to the maximum value
+         */
+        incrementValue(event) {
+            event.preventDefault();
+
+            let numVal = this.intValue;
+            numVal = Math.min(this.maximumNumber, numVal + 1);
+
+            this.inputVal = `${numVal}`;
+        },
     },
     validations() {
         return this.rules;
@@ -333,9 +359,15 @@ export default {
 <style lang="scss">
 @include forms-common;
 
-.vs-input {
+.vs-number-input {
     @include form-element-styles;
+    display: inline-block;
+    width: $spacer-10;
+    text-align: center;
     margin-top: $spacer-2;
+    margin-left: $spacer-4;
+    margin-right: $spacer-4;
+    font-size: $font-size-lead-md;
 
     &.form-control-md {
         height: 50px;
@@ -354,6 +386,16 @@ export default {
         right: $spacer-5;
         top: 50%;
         transform: translate(0, -50%);
+    }
+
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    &__increment {
+        width: $spacer-7;
+        height: $spacer-7;
     }
 }
 </style>
