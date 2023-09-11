@@ -31,10 +31,9 @@
                 @updateFieldData="valueChanged"
             />
 
-            <VsInput
+            <VsNumberInput
                 v-if="fieldType === 'number'"
                 :fieldName="fieldName"
-                type="number"
                 :incrementControls="true"
                 value="0"
                 :minimumNumber="minimum"
@@ -50,7 +49,7 @@
 import { BFormGroup } from 'bootstrap-vue-next';
 import VsRadioButton from '@components/elements/radio-button/RadioButton.vue';
 import VsHeading from '@components/elements/heading/Heading.vue';
-import VsInput from '@components/elements/input/Input.vue';
+import VsNumberInput from '@components/elements/number-input/NumberInput.vue';
 
 /**
  * @displayName Carbon Form Question
@@ -63,7 +62,7 @@ export default {
         BFormGroup,
         VsRadioButton,
         VsHeading,
-        VsInput,
+        VsNumberInput,
     },
     props: {
         /**
