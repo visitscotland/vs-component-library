@@ -22,14 +22,12 @@
                 {{ labelsMap.topTip }}
             </VsHeading>
 
-            <!-- eslint-disable vue/no-v-html -->
             <p
                 class="vs-carbon-calculator-tip__content"
                 data-test="vs-carbon-calculator-tip__summary"
                 v-if="showingAllTips"
                 v-html="labelsMap.allTips"
             />
-            <!-- eslint-enable vue/no-v-html -->
 
             <p
                 class="vs-carbon-calculator-tip__content"

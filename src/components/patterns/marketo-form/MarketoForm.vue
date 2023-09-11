@@ -144,12 +144,10 @@
                     {{ getTranslatedContent('successHeading') }}
                 </VsHeading>
 
-                <!-- eslint-disable vue/no-v-html -->
                 <p
                     class="vs-form__content"
                     v-html="getTranslatedContent('successContent')"
                 />
-                <!-- eslint-enable vue/no-v-html -->
             </template>
 
             <p v-if="submitError">
