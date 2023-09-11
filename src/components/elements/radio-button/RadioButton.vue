@@ -49,7 +49,7 @@
                         value: option.value,
                     })"
                 >
-                    {{ option.text }}
+                    <span>{{ option.text }}</span>
                 </BFormRadio>
             </div>
         </BFormRadioGroup>
@@ -346,9 +346,16 @@ export default {
             padding: $spacer-2 $spacer-4;
             font-weight: normal;
 
+            span {
+                display: inline-block;
+                vertical-align: middle;
+                width: calc(100% - #{$spacer-9});
+            }
+
             &::before {
                 content: "";
                 display: inline-block;
+                vertical-align: middle;
                 width: $spacer-6;
                 height: $spacer-6;
                 outline: 2px solid $color-theme-primary;
