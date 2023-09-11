@@ -32,7 +32,7 @@
             :iconOnly="true"
             size="sm"
             icon="minus"
-            :disabled="(intValue <= minimumNumber) ? true : null"
+            :disabled="(inputVal <= minimumNumber) ? true : null"
             @click="decrementValue"
         />
 
@@ -63,7 +63,7 @@
             :iconOnly="true"
             size="sm"
             icon="plus"
-            :disabled="(intValue >= maximumNumber) ? true : null"
+            :disabled="(inputVal >= maximumNumber) ? true : null"
             @click="incrementValue"
         />
 
@@ -246,9 +246,6 @@ export default {
         errorClass() {
             return (this.v$.inputVal && this.v$.inputVal.$anyError) || this.invalid ? 'vs-input--error' : '';
         },
-        intValue() {
-            return parseInt(this.inputVal, 10);
-        },
     },
     watch: {
         /**
@@ -279,7 +276,7 @@ export default {
          * Clear any text entered in the input
          */
         clearInput() {
-            this.inputVal = '';
+            this.inputVal = 0;
         },
         /**
          * Focus on the input
@@ -302,12 +299,12 @@ export default {
          * resets it if not, then passes to the validation process
          */
         controlBlurred() {
-            if (this.intValue < this.minimumNumber) {
-                this.inputVal = `${this.minimumNumber}`;
+            if (this.inputVal < this.minimumNumber) {
+                this.inputVal = this.minimumNumber;
             }
 
-            if (this.intValue > this.maximumNumber) {
-                this.inputVal = `${this.maximumNumber}`;
+            if (this.inputVal > this.maximumNumber) {
+                this.inputVal = this.maximumNumber;
             }
 
             this.validateErrors();
@@ -331,23 +328,21 @@ export default {
          * If the input value is a number, decrement it by one down to the minimum value
          */
         decrementValue(event) {
-            event.preventDefault();
+            if (event) {
+                event.preventDefault();
+            }
 
-            let numVal = this.intValue;
-            numVal = Math.max(this.minimumNumber, numVal - 1);
-
-            this.inputVal = `${numVal}`;
+            this.inputVal = Math.max(this.inputVal - 1, this.minimumNumber);
         },
         /**
          * If the input value is a number, increment it by one up to the maximum value
          */
         incrementValue(event) {
-            event.preventDefault();
+            if (event) {
+                event.preventDefault();
+            }
 
-            let numVal = this.intValue;
-            numVal = Math.min(this.maximumNumber, numVal + 1);
-
-            this.inputVal = `${numVal}`;
+            this.inputVal = Math.min(this.inputVal + 1, this.maximumNumber);
         },
     },
     validations() {

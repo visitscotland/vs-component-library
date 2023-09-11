@@ -17,7 +17,7 @@ beforeEach(() => {
 });
 
 describe('VsInput', () => {
-    it('should render a bform-input-stub', () => {
+    it('should render an element with the `vs-input` test attribute', () => {
         expect(wrapper.attributes('data-test')).toBe('vs-input');
     });
 
