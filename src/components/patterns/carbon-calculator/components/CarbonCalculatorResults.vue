@@ -291,7 +291,7 @@ export default {
 
 <style lang='scss'>
     .vs-carbon-calculator-results__total {
-        font-size: 3rem;
+        font-size: $font-size-10;
         font-weight: $font-weight-bold;
         margin-right: $spacer-2;
     }
