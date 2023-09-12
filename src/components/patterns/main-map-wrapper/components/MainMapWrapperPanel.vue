@@ -178,6 +178,7 @@
 import VsButton from '@components/elements/button/Button.vue';
 import VsHeading from '@components/elements/heading/Heading.vue';
 import pinia from '@/stores/index.ts';
+import { mapState } from 'pinia';
 import useMapStore from '@/stores/map.store.ts';
 import VsMainMapWrapperCategory from './MainMapWrapperCategory.vue';
 import VsMainMapWrapperSubcategory from './MainMapWrapperSubcategory.vue';
@@ -401,13 +402,11 @@ export default {
 
             return [];
         },
-        subCatFilterCount() {
-            if (mapStore) {
-                return mapStore.activeSubcatFilters.length;
-            }
-
-            return null;
-        },
+        ...mapState(useMapStore, {
+            subCatFilterCount(store) {
+                return store.activeSubcatFilters.length;
+            },
+        }),
         detailHeadingLevel() {
             const headingNum = parseInt(this.headingLevel, 10);
             const newHeading = headingNum + 1;

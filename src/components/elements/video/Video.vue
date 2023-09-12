@@ -207,19 +207,24 @@ export default {
             return text;
         },
     },
+    watch: {
+        requiredCookiesExist() {
+            this.$nextTick(() => {
+                if (this.$refs.youtube) {
+                    this.player = this.$refs.youtube.player;
+                    this.getPlayerDetails();
+                }
+
+                if (this.shouldAutoPlay) {
+                    this.shouldAutoPlay = false;
+                    this.playVideo();
+                }
+            });
+        },
+    },
     mounted() {
         this.jsDisabled = jsIsDisabled();
         videoStore = useVideoStore(pinia());
-
-        if (this.$refs.youtube) {
-            this.player = this.$refs.youtube.player;
-            this.getPlayerDetails();
-        }
-
-        if (this.shouldAutoPlay) {
-            this.shouldAutoPlay = false;
-            this.playVideo();
-        }
 
         this.setEventListeners();
     },

@@ -1,17 +1,13 @@
-import pinia from '@/stores/index.ts';
+import { mapState } from 'pinia';
 import useCookiesStore from '@/stores/cookies.store.ts';
-
-let cookieStore = null;
 
 const cookieCheckerMixin = {
     computed: {
-        cookiesSet() {
-            if (cookieStore) {
-                return cookieStore.allowedCookies;
-            }
-
-            return [];
-        },
+        ...mapState(useCookiesStore, {
+            cookiesSet(store) {
+                return store.allowedCookies;
+            },
+        }),
         onetrustActiveGroups() {
             return window.OnetrustActiveGroups;
         },
@@ -26,7 +22,6 @@ const cookieCheckerMixin = {
             } else {
                 cookiesExist = false;
             }
-
             return cookiesExist;
         },
         cookiesInitStatus() {
@@ -36,9 +31,6 @@ const cookieCheckerMixin = {
 
             return true;
         },
-    },
-    mounted() {
-        cookieStore = useCookiesStore(pinia());
     },
 };
 

@@ -94,13 +94,12 @@ import VsButton from '@components/elements/button/Button.vue';
 import VsToggleButton from '@components/patterns/toggle-button/ToggleButton.vue';
 import VsWarning from '@components/patterns/warning/Warning.vue';
 
-import pinia from '@/stores/index.ts';
+import { mapState } from 'pinia';
 import useVideoStore from '@/stores/video.store.ts';
 
 import verifyCookiesMixin from '../../../mixins/verifyCookiesMixin';
 import requiredCookiesData from '../../../utils/required-cookies-data';
 
-let videoStore = null;
 const cookieValues = requiredCookiesData.youtube;
 
 /**
@@ -176,14 +175,11 @@ export default {
         };
     },
     computed: {
-        videoDetails() {
-            if (videoStore) {
-                return videoStore.getVideo(this.videoId);
-            }
-
-            return {
-            };
-        },
+        ...mapState(useVideoStore, {
+            videoDetails(store) {
+                return store.getVideo(this.videoId);
+            },
+        }),
         videoLoaded() {
             if (typeof this.videoDetails !== 'undefined' && this.videoDetails.videoDuration > 0) {
                 return true;
@@ -200,9 +196,6 @@ export default {
 
             return false;
         },
-    },
-    mounted() {
-        videoStore = useVideoStore(pinia());
     },
     methods: {
         emitToggle() {

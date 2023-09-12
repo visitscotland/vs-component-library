@@ -22,6 +22,7 @@
 
 <script>
 import pinia from '@/stores/index.ts';
+import { mapState } from 'pinia';
 import useMapStore from '@/stores/map.store.ts';
 import VsMainMapWrapperIcon from './MainMapWrapperIcon.vue';
 
@@ -77,27 +78,17 @@ export default {
 
             return false;
         },
-        highlightedPlace() {
-            if (mapStore) {
-                return mapStore.getHoveredStop(this.mapId);
-            }
-
-            return '';
-        },
-        activePlace() {
-            if (mapStore) {
-                return mapStore.getActivePlace(this.mapId);
-            }
-
-            return null;
-        },
-        activeSubcat() {
-            if (mapStore) {
-                return mapStore.selectedSubCategory;
-            }
-
-            return null;
-        },
+        ...mapState(useMapStore, {
+            highlightedPlace(store) {
+                return store.getHoveredStop(this.mapId);
+            },
+            activePlace(store) {
+                return store.getActivePlace(this.mapId);
+            },
+            activeSubcat(store) {
+                return store.selectedSubCategory;
+            },
+        }),
         getMarkerIcon() {
             let markerName;
             if (this.feature.properties.type !== '') {

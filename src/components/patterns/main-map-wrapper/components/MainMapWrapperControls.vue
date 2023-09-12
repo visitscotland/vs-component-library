@@ -29,10 +29,8 @@
 
 <script>
 import VsButton from '@/components/elements/button/Button.vue';
-import pinia from '@/stores/index.ts';
+import { mapState } from 'pinia';
 import useMapStore from '@/stores/map.store.ts';
-
-let mapStore = null;
 
 export default {
     name: 'VsMainMapWrapperControls',
@@ -51,17 +49,13 @@ export default {
         };
     },
     computed: {
-        getSubcatFilters() {
-            if (mapStore) {
-                return mapStore.activeSubcatFilters;
-            }
-
-            return null;
-        },
+        ...mapState(useMapStore, {
+            getSubcatFilters(store) {
+                return store.activeSubcatFilters;
+            },
+        }),
     },
     mounted() {
-        mapStore = useMapStore(pinia());
-
         if (this.emitter) {
             this.emitter.on('checkboxes-selected', (val) => {
                 if (val) {

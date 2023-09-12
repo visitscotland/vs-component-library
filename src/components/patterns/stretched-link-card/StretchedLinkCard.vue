@@ -182,13 +182,11 @@ import VsButton from '@components/elements/button/Button.vue';
 import VsWarning from '@components/patterns/warning/Warning.vue';
 import jsIsDisabled from '@/utils/js-is-disabled';
 import useVideoStore from '@/stores/video.store.ts';
-import pinia from '@/stores/index.ts';
+import { mapState } from 'pinia';
 import verifyCookiesMixin from '../../../mixins/verifyCookiesMixin';
 import requiredCookiesData from '../../../utils/required-cookies-data';
 
 const cookieValues = requiredCookiesData.youtube;
-
-let videoStore = null;
 
 /**
  * The Stretched Link Card is a block that stretches its nested link across its whole area
@@ -348,21 +346,17 @@ export default {
 
             return outputClasses;
         },
-        videoDetails() {
-            if (videoStore) {
-                return videoStore.getVideo(this.videoId);
-            }
-
-            return {
-            };
-        },
         videoLoaded() {
             if (typeof this.videoDetails !== 'undefined' && this.videoDetails.videoDuration > 0) {
                 return true;
             }
-
             return false;
         },
+        ...mapState(useVideoStore, {
+            videoDetails(store) {
+                return store.getVideo(this.videoId);
+            },
+        }),
         // Calculates if warning is showing and gives class for appropriate styles
         warningClass() {
             let className = '';
@@ -435,7 +429,6 @@ export default {
         },
     },
     mounted() {
-        videoStore = useVideoStore(pinia());
         // Checks whether js is disabled, to display an appropriate warning to the user
         this.jsDisabled = jsIsDisabled();
     },

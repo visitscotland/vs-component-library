@@ -139,6 +139,7 @@ import VsWarning from '@components/patterns/warning/Warning.vue';
 import VsButtonToggleGroup from '@components/patterns/button-toggle-group/ButtonToggleGroup.vue';
 import axios from 'axios';
 import pinia from '@/stores/index.ts';
+import { mapState } from 'pinia';
 import useMapStore from '@/stores/map.store.ts';
 import VsMap from './components/MainMapWrapperMap.vue';
 import VsMainMapWrapperPanel from './components/MainMapWrapperPanel.vue';
@@ -351,13 +352,11 @@ export default {
             return this.placesData.filter((place) => place.geometry.type === 'Polygon'
                 || place.geometry.type === 'MultiPolygon');
         },
-        subCatActiveFilters() {
-            if (mapStore) {
-                return mapStore.activeSubcatFilters;
-            }
-
-            return null;
-        },
+        ...mapState(useMapStore, {
+            subCatActiveFilters(store) {
+                return store.activeSubcatFilters;
+            },
+        }),
         infoMessage() {
             let msg = '';
 
