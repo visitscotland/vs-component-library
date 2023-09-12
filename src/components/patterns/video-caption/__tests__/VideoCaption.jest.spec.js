@@ -1,4 +1,5 @@
 import { config, shallowMount } from '@vue/test-utils';
+import { setActivePinia, createPinia } from 'pinia';
 import VsVideoCaption from '../VideoCaption.vue';
 
 config.global.renderStubDefaultSlot = true;
@@ -22,6 +23,10 @@ const factoryShallowMount = (propsData) => shallowMount(VsVideoCaption, {
 });
 
 describe('VsVideoCaption', () => {
+    beforeEach(() => {
+        setActivePinia(createPinia());
+    });
+
     it('should render a component with the data-test attribute `video-caption`', () => {
         const wrapper = factoryShallowMount();
 

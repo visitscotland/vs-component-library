@@ -1,4 +1,5 @@
 import { config, shallowMount } from '@vue/test-utils';
+import { setActivePinia, createPinia } from 'pinia';
 import VsLinkListItem from '../components/LinkListItem.vue';
 
 const slotContent = 'Link text';
@@ -14,6 +15,10 @@ const factoryShallowMount = () => shallowMount(VsLinkListItem, {
 });
 
 describe('VsLinkListItem', () => {
+    beforeEach(() => {
+        setActivePinia(createPinia());
+    });
+
     describe(':slots', () => {
         it(':default - should render the slot content', () => {
             const wrapper = factoryShallowMount();

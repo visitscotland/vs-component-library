@@ -1,4 +1,5 @@
 import { shallowMount, config } from '@vue/test-utils';
+import { setActivePinia, createPinia } from 'pinia';
 import VsMainMapWrapperControls from '../MainMapWrapperControls.vue';
 
 config.global.renderStubDefaultSlot = true;
@@ -13,6 +14,10 @@ const factoryShallowMount = () => shallowMount(VsMainMapWrapperControls, {
 });
 
 describe('VsMainMapWrapperControls', () => {
+    beforeEach(() => {
+        setActivePinia(createPinia());
+    });
+
     it('should render a component with the data-test attribute "vs-main-map-controls"', () => {
         const wrapper = factoryShallowMount();
 
