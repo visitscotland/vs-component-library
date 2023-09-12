@@ -790,7 +790,6 @@ export default {
         resetFocus() {
             this.$nextTick(() => {
                 this.$nextTick(() => {
-                    console.log('focusing');
                     this.$refs.questions[this.activeQuestion - 1].$el.focus();
                 });
             });
