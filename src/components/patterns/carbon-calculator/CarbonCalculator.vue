@@ -32,6 +32,8 @@
                                 <VsCarbonCalculatorQuestion
                                     v-for="(field, index) in formData.fields"
                                     v-show="(index + 1) === activeQuestion"
+                                    ref="questions"
+                                    tabindex="0"
                                     :key="field.name"
                                     :label="getQuestionLabel(index)"
                                     :label-for="field.name"
@@ -95,6 +97,7 @@
                         :variant="activeQuestion <= formData.fields.length ? 'primary' : 'secondary'"
                         type="submit"
                         class="vs-form__submit mt-9 float-left"
+                        ref="backPage"
                         v-if="activeQuestion > 1"
                         @click="backwardPage()"
                     >
@@ -105,6 +108,7 @@
                         variant="primary"
                         type="submit"
                         class="vs-form__submit mt-9 float-right"
+                        ref="forwardPage"
                         v-if="activeQuestion < formData.fields.length"
                         :disabled="activeQuestion > 0 && !answerSet"
                         @click="forwardPage()"
@@ -705,7 +709,11 @@ export default {
         /**
          * Moves the form forward one stage
          */
-        forwardPage() {
+        forwardPage(event) {
+            if (event) {
+                event.preventDefault();
+            }
+
             if (this.activeQuestion) {
                 this.createDataLayerObject('carbonQuestionEvent', {
                     questionNumber: this.activeQuestion,
@@ -716,14 +724,20 @@ export default {
             this.activeQuestion += 1;
             this.checkCurrentConditional(true);
             this.checkNewAnswerSet();
+            this.resetFocus();
         },
         /**
          * Moves the form back one stage
          */
-        backwardPage() {
+        backwardPage(event) {
+            if (event) {
+                event.preventDefault();
+            }
+
             this.activeQuestion -= 1;
             this.checkCurrentConditional(false);
             this.checkNewAnswerSet();
+            this.resetFocus();
         },
         /**
          * Checks if an answer has been provided for the current question, if one
@@ -767,6 +781,19 @@ export default {
             return this.conditionalFields[fieldName] === true
                 || typeof this.conditionalFields[fieldName] === 'undefined'
                 ? '' : 'd-none';
+        },
+        /**
+         * Set the user focus to just before the current question. Called whenever they navigate
+         * to a new page to ensure a keyboard navigating user has clarity on what is happening
+         * after nav.
+         */
+        resetFocus() {
+            this.$nextTick(() => {
+                this.$nextTick(() => {
+                    console.log('focusing');
+                    this.$refs.questions[this.activeQuestion - 1].$el.focus();
+                });
+            });
         },
     },
 };
