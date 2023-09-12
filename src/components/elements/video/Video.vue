@@ -174,6 +174,7 @@ export default {
             player: null,
             reRendering: false,
             shouldAutoPlay: false,
+            jsDisabled: true,
         };
     },
     computed: {

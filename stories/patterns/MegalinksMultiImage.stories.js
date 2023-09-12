@@ -179,11 +179,15 @@ WithVideo.args = {
         {
             featured: true,
             imgSrc: '/fixtures/megalinks/glentress-forest.jpg',
-            imgAlt: 'Clycling in glentress forest',
-            linkType: 'internal',
+            imgAlt: 'Cycling in glentress forest',
+            linkType: 'video',
             linkUrl: '#',
             heading: '2023 UCI Cycling World Championships',
             content: 'We\'ve pulled together a handy guide on dates and times, travel info, accommodation and things to see near host venues.',
+            videoId: 'v8IQAUvopnI',
+            videoBtnText: 'Play Video',
+            errorMessage: 'We\'re sorry, there\'s been an error',
+            modalCloseBtnText: 'Close',
         },
         {
             featured: false,
@@ -200,12 +204,56 @@ WithVideo.args = {
         },
         {
             featured: false,
-            imgSrc: '/fixtures/megalinks/grand-hotel.jpg',
-            imgAlt: 'Luxury holidays and breaks in Scotland',
+            imgSrc: '/fixtures/megalinks/outlander-wedding.jpg',
+            imgAlt: 'Tour Scotland with Outlander',
             linkType: 'internal',
             linkUrl: '#',
-            heading: 'Luxury holidays and breaks in Scotland',
-            content: 'Plan your luxury getaway in SCotland, from 5-star accommodation to Michelin-star dining.',
+            heading: 'Tour Scotland with Outlander',
+            content: 'See Outlander filming locations, book locations and attractions with real-life Jacobite connections.',
+        },
+        {
+            featured: false,
+            imgSrc: '/fixtures/megalinks/ashton-lane.jpg',
+            imgAlt: 'City breaks',
+            linkType: 'internal',
+            linkUrl: '#',
+            heading: 'City breaks',
+            content: 'Get inspiration on city accommodation, attractions and hidden gems loved by locals',
+        },
+    ],
+};
+
+export const WithVideoNoCookies = Template.bind({
+});
+
+WithVideoNoCookies.args = {
+    ...base,
+    links: [
+        {
+            featured: false,
+            imgSrc: '/fixtures/megalinks/glentress-forest.jpg',
+            imgAlt: 'Cycling in glentress forest',
+            linkType: 'video',
+            linkUrl: '#',
+            heading: '2023 UCI Cycling World Championships',
+            content: 'We\'ve pulled together a handy guide on dates and times, travel info, accommodation and things to see near host venues.',
+            videoId: 'v8IQAUvopnI',
+            videoBtnText: 'Play Video',
+            errorMessage: 'We\'re sorry, there\'s been an error',
+            modalCloseBtnText: 'Close',
+        },
+        {
+            featured: false,
+            imgSrc: '/fixtures/megalinks/wellness.jpg',
+            imgAlt: 'Wellness breaks in Scotland',
+            linkType: 'video',
+            linkUrl: '#',
+            heading: 'Wellness breaks in Scotland',
+            content: 'Slow down and refresh your mind, body and spirit in Scotland.',
+            videoId: 'g-Fhvj7vW-E',
+            videoBtnText: 'Play Video',
+            errorMessage: 'We\'re sorry, there\'s been an error',
+            modalCloseBtnText: 'Close',
         },
         {
             featured: false,
@@ -215,6 +263,15 @@ WithVideo.args = {
             linkUrl: '#',
             heading: 'Tour Scotland with Outlander',
             content: 'See Outlander filming locations, book locations and attractions with real-life Jacobite connections.',
+        },
+        {
+            featured: false,
+            imgSrc: '/fixtures/megalinks/ashton-lane.jpg',
+            imgAlt: 'City breaks',
+            linkType: 'internal',
+            linkUrl: '#',
+            heading: 'City breaks',
+            content: 'Get inspiration on city accommodation, attractions and hidden gems loved by locals',
         },
     ],
 };
