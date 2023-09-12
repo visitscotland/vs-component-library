@@ -2,12 +2,13 @@ import { setup } from '@storybook/vue3';
 
 import '@/assets/fonts/fonts.scss';
 import '@/styles/core.styles.scss';
-
+import pinia from '@/stores/index.ts';
 import mitt from 'mitt';
 
 setup(app => {
     const emitter = mitt();
     app.config.globalProperties.emitter = emitter;
+    app.use(pinia());
 });
 
 const preview = {

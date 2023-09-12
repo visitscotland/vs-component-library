@@ -20,10 +20,8 @@
 
 <script>
 import VsLink from '@components/elements/link/Link.vue';
-import pinia from '@/stores/index.ts';
+import { mapState } from 'pinia';
 import useVideoStore from '@/stores/video.store.ts';
-
-let videoStore;
 
 /**
  * This component is an item appearing in a list of links.
@@ -93,13 +91,11 @@ export default {
 
             return '';
         },
-        videoDetails() {
-            if (videoStore) {
-                return videoStore.getVideo(this.videoId);
-            }
-
-            return null;
-        },
+        ...mapState(useVideoStore, {
+            videoDetails(store) {
+                return store.getVideo(this.videoId);
+            },
+        }),
         videoLoaded() {
             if (typeof this.videoDetails !== 'undefined' && this.videoDetails.videoDuration > 0) {
                 return true;
@@ -107,9 +103,6 @@ export default {
 
             return false;
         },
-    },
-    mounted() {
-        videoStore = useVideoStore(pinia());
     },
     methods: {
         emitShowModal() {

@@ -5,6 +5,9 @@ export default {
     component: VsStretchedLinkCard,
     title: 'Patterns/StretchedLinkCard',
     tags: ['autodocs'],
+    decorators: [() => ({
+        template: '<div style="max-width:350px;"><story /></div>',
+    })],
     argTypes: {
         type: {
             control: {
@@ -102,14 +105,4 @@ WithPanels.args = {
             daysLabel="days"
         />
     `,
-};
-
-export const WithVideo = Template.bind({
-});
-
-WithVideo.args = {
-    ...base,
-    type: 'video',
-    videoId: 'FlG6tbYaA88',
-    videoBtnText: 'Play Video',
 };

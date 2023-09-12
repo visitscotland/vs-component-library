@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-
+import { setActivePinia, createPinia } from 'pinia';
 import mapboxgl from 'mapbox-gl';
 
 import VsMap from '../MainMapWrapperMap.vue';
@@ -26,6 +26,7 @@ const mockAddMethod = jest.fn();
 const mockMarkerMethod = jest.fn();
 
 beforeEach(() => {
+    setActivePinia(createPinia());
     wrapper = factoryShallowMount();
 
     wrapper.vm.initialiseMapComponent = jest.fn();

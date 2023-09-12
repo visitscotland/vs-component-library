@@ -2,9 +2,13 @@ import VsMegalinks from '@/components/patterns/megalinks/Megalinks.vue';
 import VsMegalinkLinkList from '@/components/patterns/megalinks/components/megalink-link-list/MegalinkLinkList.vue';
 import VsImageWithCaption from '@/components/patterns/image-with-caption/ImageWithCaption.vue';
 import VsCaption from '@/components/patterns/caption/Caption.vue';
-
 import VsLink from '@/components/elements/link/Link.vue';
-import VsCol from '@/components/elements/grid/Col.vue';
+import VsModal from '@/components/patterns/modal/Modal.vue';
+import VsVideo from '@/components/elements/video/Video.vue';
+import {
+    VsRow,
+    VsCol,
+} from '@/components/elements/grid';
 
 export default {
     component: VsMegalinks,
@@ -20,6 +24,9 @@ const Template = (args) => ({
         VsLink,
         VsCol,
         VsCaption,
+        VsModal,
+        VsVideo,
+        VsRow,
     },
     setup() {
         return {
@@ -54,6 +61,24 @@ const Template = (args) => ({
                 </vs-megalink-link-list>
             </VsCol>
         </VsMegalinks>
+
+        <VsModal
+            modalId="tfk7J6XZju4"
+            closeBtnText="Close"
+            :isVideoModal="true"
+        >
+            <VsRow>
+                <VsCol cols="12">
+                    <VsVideo
+                        videoId="tfk7J6XZju4"
+                        class="mb-8"
+                        no-js-message="You need Javascript enabled"
+                        no-cookies-message="You need cookies enabled"
+                        cookie-btn-text="Cookie button"
+                    />
+                </VsCol>
+            </VsRow>
+        </VsModal>
     `,
 });
 
@@ -101,3 +126,33 @@ export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const WithVideo = Template.bind({
+});
+
+WithVideo.args = base;
+
+WithVideo.args = {
+    ...base,
+    links: [
+        {
+            imgSrc: '/fixtures/megalinks/glentress-forest.jpg',
+            imgAlt: 'Clycling in glentress forest',
+            linkType: 'internal',
+            linkUrl: '#',
+            heading: '2023 UCI Cycling World Championships',
+            content: 'We\'ve pulled together a handy guide on dates and times, travel info, accommodation and things to see near host venues.',
+        },
+        {
+            imgSrc: '/fixtures/megalinks/wellness.jpg',
+            imgAlt: 'Wellness breaks in Scotland',
+            linkType: 'video',
+            linkUrl: '#',
+            videoId: 'tfk7J6XZju4',
+            videoBtnText: 'Play Video',
+            errorMessage: 'We\'re sorry, there\'s been an error',
+            heading: 'Wellness breaks in Scotland',
+            content: 'Slow down and refresh your mind, body and spirit in Scotland.',
+        },
+    ],
+};

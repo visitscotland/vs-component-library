@@ -1,6 +1,7 @@
 import {
     shallowMount, mount, config,
 } from '@vue/test-utils';
+import { setActivePinia, createPinia } from 'pinia';
 import VsVideo from '../Video.vue';
 
 config.global.renderStubDefaultSlot = true;
@@ -44,6 +45,10 @@ const factoryMount = () => mount(VsVideo, {
 });
 
 describe('VsVideo', () => {
+    beforeEach(() => {
+        setActivePinia(createPinia());
+    });
+
     it('should render a div with the class `vs-video`', () => {
         const wrapper = factoryShallowMount();
 
