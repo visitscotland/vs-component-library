@@ -59,7 +59,7 @@
         />
 
         <VsButton
-            class="vs-input__increment"
+            class="vs-number-input__increment"
             :iconOnly="true"
             size="sm"
             icon="plus"
@@ -69,7 +69,7 @@
 
         <VsButton
             v-if="showClearButton"
-            class="vs-input__clear-button d-none d-lg-block"
+            class="vs-number-input__clear-button d-none d-lg-block"
             data-test="input-clear-button"
             variant="transparent"
             icon="close"
