@@ -48,7 +48,6 @@
             @change="validateErrors"
             @focus="resetErrors"
         />
-
         <VsButton
             v-if="showClearButton"
             class="vs-input__clear-button d-none d-lg-block"
@@ -225,9 +224,6 @@ export default {
         },
         errorClass() {
             return (this.v$.inputVal && this.v$.inputVal.$anyError) || this.invalid ? 'vs-input--error' : '';
-        },
-        intValue() {
-            return parseInt(this.inputVal, 10);
         },
     },
     watch: {
