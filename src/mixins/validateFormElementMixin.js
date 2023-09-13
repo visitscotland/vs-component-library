@@ -12,6 +12,7 @@ const validateFormElementMixin = {
     data() {
         return {
             inputVal: this.value,
+            isInvalid: this.invalid,
         };
     },
     computed: {
@@ -104,11 +105,22 @@ const validateFormElementMixin = {
             return errorsArray;
         },
     },
+    watch: {
+        errorsList(newValue) {
+            if (newValue.length) {
+                this.isInvalid = true;
+            } else {
+                this.isInvalid = false;
+            }
+        },
+    },
     methods: {
         /**
          * manually run validation and emit to parent
          */
         manualValidate() {
+            this.isInvalid = false;
+
             if ('required' in this.rules.inputVal && !this.inputVal) {
                 if (this.errorsList.indexOf('required') === -1) {
                     this.errorsList.push('required');
@@ -119,6 +131,10 @@ const validateFormElementMixin = {
                         this.errorsList.splice(index, 1);
                     }
                 });
+            }
+
+            if (this.errorsList.length) {
+                this.isInvalid = true;
             }
 
             this.touched = true;

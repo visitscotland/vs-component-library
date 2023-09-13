@@ -44,6 +44,7 @@
             :unchecked_value="`not_${value}`"
             v-bind="$attrs"
             data-test="vs-checkbox"
+            @blur="emitStatus"
             @change="emitStatus"
             :required="isRequired"
             :aria-invalid="(v$.inputVal && v$.inputVal.$anyError) || invalid"
@@ -183,9 +184,7 @@ export default {
     },
     computed: {
         errorClass() {
-            return (this.errorsList.length > 0 && this.v$.inputVal && this.v$.inputVal.$anyDirty)
-                || this.invalid
-                ? 'vs-checkbox--error' : '';
+            return this.isInvalid ? 'vs-checkbox--error' : '';
         },
     },
     watch: {
