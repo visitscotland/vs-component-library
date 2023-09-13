@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.27](https://github.com/visitscotland/vs-component-library/compare/v1.0.26...v1.0.27) (2023-09-13)
+
+
+### 🐛 Bug Fixes
+
+* **onetrust:** fix missing window in ssr error ([ad47d74](https://github.com/visitscotland/vs-component-library/commit/ad47d74d7d21650da2c209a1715183fb54c07b2c))
+
 ### [1.0.26](https://github.com/visitscotland/vs-component-library/compare/v1.0.25...v1.0.26) (2023-09-12)
 
 
