@@ -9,7 +9,10 @@ const cookieCheckerMixin = {
             },
         }),
         onetrustActiveGroups() {
-            return window.OnetrustActiveGroups;
+            if (typeof window !== 'undefined') {
+                return window.OnetrustActiveGroups;
+            }
+            return null;
         },
         requiredCookiesExist() {
             let cookiesExist = true;
