@@ -12,7 +12,7 @@
                         accept-charset="UTF-8"
                     >
                         <SelectInput
-                            :label="getLabelText('for', 'For')"
+                            :label="getLabelText('tour_keywords', 'I\'m looking for')"
                             id="select-type"
                             name="prodtypes"
                             :default-selected="defaultProd"
@@ -66,8 +66,8 @@
                                 <DateRange
                                     v-if="selectedProd === 'even' || selectedProd === 'acco'"
                                     :legend="getLabelText('date_label', 'Dates')"
-                                    :start-label="getLabelText('checkin', 'Start Date', 'dates')"
-                                    :end-label="getLabelText('checkout', 'End Date', 'dates')"
+                                    :start-label="getLabelText('startdate', 'Start Date', 'dates')"
+                                    :end-label="getLabelText('enddate', 'End Date', 'dates')"
                                     :default-dates="defaultDates"
                                 />
 
@@ -224,11 +224,13 @@ const locale = computed(() => {
 const formAction = computed(() => `${baseUrl.prod}${locale.value ? '/'+locale.value : ''}${path.value}/search-results`);
 
 /* Location data */
-const locationsUrl = `https://www.visitscotland.com/data/locations?locale=${locale.value}`;
+const locationLocale = `?locale=${locale.value}`
+const locationsUrl = `https://www.visitscotland.com/data/locations` + locationLocale;
+
 const locations = ref<Location[]>([]);
 
-const getPlaceData = (placeName) => {
-    chosenLocation.value = locations.value.find(place => place.name === placeName);
+const getPlaceData = (placeKey) => {
+    chosenLocation.value = locations.value.find(place => place.key === placeKey);
 };
 
 const prods = ref<SelectOption[]>([]);
@@ -301,7 +303,7 @@ onMounted(async () => {
 
     // Once data is loaded, load child components reliant on it
     locationDataLoaded = true;
-
+ 
     selectedProd.value = props.defaultProd;
 
     initProductTypes();
