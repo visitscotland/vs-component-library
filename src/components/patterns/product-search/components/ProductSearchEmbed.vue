@@ -1,6 +1,9 @@
 <template>
     <div class="vs-product-search-embed">
-        <div class="container">
+        <div 
+            v-if="!reRender"
+            class="container"
+        >
             <div class="row">
                 <div class="col-12">
                     <form 
@@ -140,7 +143,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, onMounted } from 'vue';
+import { computed, ref, onMounted, onBeforeMount, nextTick } from 'vue';
 import { getLabelText, getLocale } from '../../../../utils/lang';
 import { baseUrl, paths, monthsEnglish } from '../../../../constants';
 import { getProductTypes } from '../../../../utils/utils';
@@ -172,10 +175,11 @@ const props = defineProps({
     },
     defaultLocale: {
         type: String,
-        default: 'fr',
+        default: '',
     },
 });
 
+const reRender = ref(false);
 const selectedProd = ref();
 const keywords = ref([]);
 const form = ref(null);
@@ -186,6 +190,26 @@ const path = computed(() => {
     return `/info/${paths[pathValue]}`;
 });
 let locationDataLoaded = false;
+const langConfig = {
+    en: {
+        localeUrl: '',
+    },
+    fr: {
+        localeUrl: 'fr-fr',
+    },
+    de: {
+        localeUrl: 'de-de',
+    },
+    es: {
+        localeUrl: 'es-es',
+    },
+    it: {
+        localeUrl: 'it-it',
+    },
+    nl: {
+        localeUrl: 'nl-nl',
+    },
+};
 
 const locale = computed(() => {
     let localeVal = props.defaultLocale.length > 0 ? props.defaultLocale : getLocale();
@@ -226,6 +250,31 @@ const attractions = ref<TmsApiDataItem[]>([]);
 const originsUrl = `https://www.visitscotland.com/tms-api/v1/origins?active=1`;
 const origins = ref<TmsApiDataItem[]>([]);
 
+
+const getLangUrl= () => {
+    return langConfig[props.defaultLocale] || '';
+};
+
+const setRender = () => {
+    reRender.value = true;
+    
+    nextTick(() => {
+        reRender.value = false;
+    });
+}
+
+
+onBeforeMount(async () => {
+    window.VS = {
+    };
+
+    const langScriptEl = document.createElement('script');
+    langScriptEl.async = false;
+    langScriptEl.onload = setRender();
+    langScriptEl.setAttribute('src', `https://www.visitscotland.com/${getLangUrl().localeUrl}/data/template/search.js`);
+    document.head.appendChild(langScriptEl);
+});
+
 onMounted(async () => {
     // Get location data.
     const locationResponse = await getData(locationsUrl);
@@ -243,6 +292,7 @@ onMounted(async () => {
     selectedProd.value = props.defaultProd;
 
     initProductTypes();
+
     // Get attraction data.
     const attractionResponse = await getData(attractionsUrl);
     if (attractionResponse){

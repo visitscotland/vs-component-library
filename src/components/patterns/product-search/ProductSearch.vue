@@ -95,7 +95,7 @@ export default {
          */
         defaultLocale: {
             type: String,
-            default: '',
+            default: 'en',
         },
     },
 };
