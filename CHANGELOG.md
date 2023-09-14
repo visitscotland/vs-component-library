@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.30](https://github.com/visitscotland/vs-component-library/compare/v1.0.29...v1.0.30) (2023-09-14)
+
+
+### ✨ Features
+
+* **carbon calculator:** pull in urls from labels ([e44c5ac](https://github.com/visitscotland/vs-component-library/commit/e44c5acd9a9b548226f5243a7de878eadb0e66ea))
+
 ### [1.0.29](https://github.com/visitscotland/vs-component-library/compare/v1.0.28...v1.0.29) (2023-09-14)
 
 
