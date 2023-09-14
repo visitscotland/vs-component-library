@@ -36,7 +36,7 @@ const Template = (args) => ({
     template: `
     <div :class="args.jsDisabled ? 'no-js' : ''">
         <VsProductSearch
-            noJsMessage='${args.noJsMessage}'
+            v-bind="args"
         >
             <template v-slot:vs-module-heading>
                 ${args.vsModuleHeading}
@@ -50,6 +50,9 @@ const Template = (args) => ({
 });
 
 const base = {
+    defaultLocation: '',
+    defaultProd: 'acti,attr,reta',
+    defaultLocale: 'en',
     noJsMessage: 'You need Javascript to see this content',
     vsModuleHeading: 'Find experiences',
     vsModuleIntro: 'Search a wide range of accommodation, events, food & drink options and things to do from indoor and outdoor attractions to activities, tours and more.',
@@ -59,6 +62,46 @@ export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const Language = Template.bind({
+});
+
+Language.args = {
+    ...base,
+    defaultLocale: 'fr',
+};
+
+export const Accommodation = Template.bind({
+});
+
+Accommodation.args = {
+    ...base,
+    defaultProd: 'acco',
+};
+
+export const FoodAndDrink = Template.bind({
+});
+
+FoodAndDrink.args = {
+    ...base,
+    defaultProd: 'cate',
+};
+
+export const EventsAndFestivals = Template.bind({
+});
+
+EventsAndFestivals.args = {
+    ...base,
+    defaultProd: 'even',
+};
+
+export const Tours = Template.bind({
+});
+
+Tours.args = {
+    ...base,
+    defaultProd: 'tour',
+};
 
 export const NoJs = Template.bind({
 });
