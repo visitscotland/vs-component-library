@@ -113,7 +113,7 @@ module.exports = {
                 ignoreWhenEmpty: true,
             },
         ],
-        'vue/no-v-html': 2,
+        'vue/no-v-html': 0,
         'import/extensions': [
             'error',
             'ignorePackages',

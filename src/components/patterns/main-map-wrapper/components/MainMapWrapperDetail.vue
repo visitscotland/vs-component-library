@@ -40,13 +40,11 @@
             {{ contentData.properties.subtitle }}
         </p>
 
-        <!-- eslint-disable vue/no-v-html -->
         <div
             data-test="vs-main-map-wrapper-detail__description"
             class="vs-main-map-wrapper-detail__description mb-6"
             v-html="contentData.properties.description"
         />
-        <!-- eslint-enable vue/no-v-html -->
     </div>
 </template>
 

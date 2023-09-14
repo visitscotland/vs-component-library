@@ -1,12 +1,10 @@
 <template>
-    <!-- eslint-disable vue/no-v-html -->
     <svg
         v-if="svg"
         v-bind="attributes"
         v-html="children"
         focusable="false"
     />
-    <!-- eslint-enable vue/no-v-html -->
 </template>
 
 <script>

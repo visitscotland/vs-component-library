@@ -1,12 +1,11 @@
 import { shallowMount, config } from '@vue/test-utils';
-import VsInput from '../Input.vue';
+import VsNumberInput from '../NumberInput.vue';
 
 config.global.renderStubDefaultSlot = true;
 
-const factoryShallowMount = (propsData) => shallowMount(VsInput, {
+const factoryShallowMount = (propsData) => shallowMount(VsNumberInput, {
     propsData: {
         fieldName: 'testname',
-        type: 'text',
         ...propsData,
     },
 });
@@ -17,8 +16,8 @@ beforeEach(() => {
 });
 
 describe('VsInput', () => {
-    it('should render an element with the `vs-input` test attribute', () => {
-        expect(wrapper.attributes('data-test')).toBe('vs-input');
+    it('should render an element with the `vs-number-input` test attribute', () => {
+        expect(wrapper.attributes('data-test')).toBe('vs-number-input');
     });
 
     describe(':props', () => {
@@ -40,11 +39,7 @@ describe('VsInput', () => {
 
             await wrapper.vm.$nextTick();
 
-            expect(wrapper.find('.vs-input').attributes('name')).toBe('testValue');
-        });
-
-        it('value - should accept and render a `type` property', async() => {
-            expect(wrapper.find('.vs-input').attributes('type')).toBe('text');
+            expect(wrapper.find('.vs-number-input').attributes('name')).toBe('testValue');
         });
 
         it('should show the clear button when there is a value if the `closeButtonText` prop is defined', async() => {
@@ -71,7 +66,7 @@ describe('VsInput', () => {
 
             await wrapper.vm.$nextTick();
 
-            expect(wrapper.find('.vs-input').attributes('required')).toBe('true');
+            expect(wrapper.find('.vs-number-input').attributes('required')).toBe('true');
         });
 
         it('should display a validation message if validation fails', async() => {
@@ -96,14 +91,74 @@ describe('VsInput', () => {
     describe(':methods', () => {
         it('clears the `inputVal` data when the `clearInput` method is triggered', async() => {
             wrapper.setData({
-                inputVal: 'test',
+                inputVal: 10,
             });
 
             await wrapper.vm.$nextTick();
 
             wrapper.vm.clearInput();
 
-            expect(wrapper.vm.inputVal).toBe('');
+            expect(wrapper.vm.inputVal).toBe(0);
+        });
+
+        it('increases the `inputVal` by 1 when the `incrementValue` method is triggered', async() => {
+            const setWrapper = factoryShallowMount({
+                value: 5,
+                maximumNumber: 10,
+            });
+
+            await setWrapper.vm.$nextTick();
+
+            setWrapper.vm.incrementValue();
+
+            await setWrapper.vm.$nextTick();
+
+            expect(setWrapper.vm.inputVal).toBe(6);
+        });
+
+        it('won\'t increment value past the maximumNumber', async() => {
+            const setWrapper = factoryShallowMount({
+                value: 5,
+                maximumNumber: 5,
+            });
+
+            await setWrapper.vm.$nextTick();
+
+            setWrapper.vm.incrementValue();
+
+            await setWrapper.vm.$nextTick();
+
+            expect(setWrapper.vm.inputVal).toBe(5);
+        });
+
+        it('decreases the `inputVal` by 1 when the `decrementValue` method is triggered', async() => {
+            const setWrapper = factoryShallowMount({
+                value: 5,
+                minimumNumber: 0,
+            });
+
+            await setWrapper.vm.$nextTick();
+
+            setWrapper.vm.decrementValue();
+
+            await setWrapper.vm.$nextTick();
+
+            expect(setWrapper.vm.inputVal).toBe(4);
+        });
+
+        it('won\'t decrement value past the minimumNumber', async() => {
+            const setWrapper = factoryShallowMount({
+                value: 5,
+                minimumNumber: 5,
+            });
+
+            await setWrapper.vm.$nextTick();
+
+            setWrapper.vm.decrementValue();
+
+            await setWrapper.vm.$nextTick();
+
+            expect(setWrapper.vm.inputVal).toBe(5);
         });
     });
 
