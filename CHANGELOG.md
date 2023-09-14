@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.28](https://github.com/visitscotland/vs-component-library/compare/v1.0.27...v1.0.28) (2023-09-14)
+
+
+### 🐛 Bug Fixes
+
+* **psw:** fix translations in PSW ([ab1e2b5](https://github.com/visitscotland/vs-component-library/commit/ab1e2b5f98e81c9d6806f7493cb7c42ea4105133))
+* **psw:** retrieve language object on getLabel execution ([44ec5aa](https://github.com/visitscotland/vs-component-library/commit/44ec5aa44d8153de7c79e031aff5d94c57c77aee))
+* **psw:** translate product names ([5ec842d](https://github.com/visitscotland/vs-component-library/commit/5ec842d6a845aaf7658dec874cd531b2f2e527aa))
+
 ### [1.0.27](https://github.com/visitscotland/vs-component-library/compare/v1.0.26...v1.0.27) (2023-09-13)
 
 
