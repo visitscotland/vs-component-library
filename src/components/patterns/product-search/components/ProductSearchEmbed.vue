@@ -224,11 +224,13 @@ const locale = computed(() => {
 const formAction = computed(() => `${baseUrl.prod}${locale.value ? '/'+locale.value : ''}${path.value}/search-results`);
 
 /* Location data */
-const locationsUrl = `https://www.visitscotland.com/data/locations?locale=${locale.value}`;
+const locationLocale = `?locale=${locale.value}`
+const locationsUrl = `https://www.visitscotland.com/data/locations` + locationLocale;
+
 const locations = ref<Location[]>([]);
 
-const getPlaceData = (placeName) => {
-    chosenLocation.value = locations.value.find(place => place.name === placeName);
+const getPlaceData = (placeKey) => {
+    chosenLocation.value = locations.value.find(place => place.key === placeKey);
 };
 
 const prods = ref<SelectOption[]>([]);

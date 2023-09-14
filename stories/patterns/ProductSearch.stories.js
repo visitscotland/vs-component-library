@@ -63,10 +63,18 @@ export const Default = Template.bind({
 
 Default.args = base;
 
-export const Language = Template.bind({
+export const DefaultLocation = Template.bind({
 });
 
-Language.args = {
+DefaultLocation.args = {
+    ...base,
+    defaultLocation: '4161',
+};
+
+export const DefaultLanguage = Template.bind({
+});
+
+DefaultLanguage.args = {
     ...base,
     defaultLocale: 'fr',
 };
