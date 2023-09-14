@@ -33,11 +33,9 @@ const Template = (args) => ({
 
 const base = {
     jsDisabled: false,
-    dataUrl: '/fixtures/carbon-calculator/example-form.json',
-    messagingUrl: '/fixtures/carbon-calculator/messaging.json',
-    countryListUrl: '/fixtures/carbon-calculator/countries.json',
-    noJsMessage: 'You need Javascript enabled to use this calculator',
     labelsMap: {
+        noJsMessage: 'You need Javascript enabled to use this calculator',
+        formUrl: '/fixtures/carbon-calculator/example-form.json',
         next: 'Next',
         previous: 'Previous',
         results: 'Results',

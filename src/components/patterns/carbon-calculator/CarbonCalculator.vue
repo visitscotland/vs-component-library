@@ -143,7 +143,7 @@
         <VsWarning
             theme="light"
         >
-            {{ noJsMessage }}
+            {{ labelsMap['noJsMessage'] }}
         </VsWarning>
     </div>
 </template>
@@ -201,34 +201,6 @@ export default {
     },
     props: {
         /**
-         * The URL for the form data file
-         */
-        dataUrl: {
-            type: String,
-            required: true,
-        },
-        /**
-         * URL for generic messaging config
-         */
-        messagingUrl: {
-            type: String,
-            required: true,
-        },
-        /**
-         * URL for generic messaging config
-         */
-        countryListUrl: {
-            type: String,
-            default: '',
-        },
-        /**
-         * Language indicator for content
-         */
-        language: {
-            type: String,
-            default: 'en',
-        },
-        /**
          * An object providing all required localisation content from the CMS. This
          * should contain global props like a translation for `next`, `previous`,
          * `results` and so on, as well as question by question labels. Those should
@@ -241,14 +213,6 @@ export default {
          */
         labelsMap: {
             type: Object,
-            required: true,
-        },
-        /**
-        * A message explaining why the component has been disabled when js is disabled,
-        * is provided for descendent components to inject
-        */
-        noJsMessage: {
-            type: String,
             required: true,
         },
     },
@@ -358,7 +322,7 @@ export default {
          * are loaded from the CMS as labels and then mapped to the questions from the form.
          */
         getFormData() {
-            axios.get(this.dataUrl)
+            axios.get(this.labelsMap.formUrl)
                 .then((response) => {
                     this.formData = response.data;
 
