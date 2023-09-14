@@ -17,7 +17,7 @@
                             name="prodtypes"
                             :default-selected="defaultProd"
                             @change-option="(selectedOption) => selectedProd = selectedOption"
-                            :options="prods"
+                            :options="translatedProds"
                         />
 
                         <div aria-live="polite">
@@ -144,7 +144,7 @@
 
 <script setup lang="ts">
 import { computed, ref, onMounted, onBeforeMount, nextTick } from 'vue';
-import { getLabelText, getLocale } from '../../../../utils/lang';
+import { getLabelText, getLocale, getProductName } from '../../../../utils/lang';
 import { baseUrl, paths, monthsEnglish } from '../../../../constants';
 import { getProductTypes } from '../../../../utils/utils';
 import { getData } from '../../../../utils/axios';
@@ -262,6 +262,19 @@ const setRender = () => {
         reRender.value = false;
     });
 }
+
+const translatedProds = computed(() => {
+    if (!reRender.value) {
+        return prods.value.map((product) => {
+            return {
+                ...product,
+                displayName: getProductName(product.optionValue, product.displayName)
+            };
+        });
+    }
+
+    return [];
+})
 
 
 onBeforeMount(async () => {
