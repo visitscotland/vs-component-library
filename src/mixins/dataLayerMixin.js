@@ -1,3 +1,4 @@
+import { mapState } from 'pinia';
 import pinia from '../stores/index.ts';
 import useDataLayerStore from '../stores/dataLayer.store.ts';
 
@@ -28,9 +29,11 @@ const dataLayerMixin = {
         // Retrieving page url from the page store created by:
         // dataLayer.store.js (Central Store)
         // TagManagerWrapper.vue (Global component that reads and updates the store)
-        pageUrl() {
-            return this.dataLayerStore.pageUrl;
-        },
+        ...mapState(useDataLayerStore, {
+            pageUrl(store) {
+                return store.pageUrl;
+            },
+        }),
     },
     data() {
         return {

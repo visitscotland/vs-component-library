@@ -2,6 +2,7 @@ import {
     config, shallowMount, mount,
 } from '@vue/test-utils';
 import { v4 as uuidv4 } from 'uuid';
+import { setActivePinia, createPinia } from 'pinia';
 import VsImageWithCaption from '../ImageWithCaption.vue';
 
 config.global.renderStubDefaultSlot = true;
@@ -55,6 +56,10 @@ const factoryMount = (propsData) => mount(VsImageWithCaption, {
 });
 
 describe('VsImageWithCaption', () => {
+    beforeEach(() => {
+        setActivePinia(createPinia());
+    });
+
     it('should render a component with the data-test attribute `vs-image-with-caption`', () => {
         const wrapper = factoryShallowMount();
 

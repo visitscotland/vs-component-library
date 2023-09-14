@@ -2,9 +2,13 @@ import VsMegalinks from '@/components/patterns/megalinks/Megalinks.vue';
 import VsMegalinkSingleImage from '@/components/patterns/megalinks/components/megalink-single-image/MegalinkSingleImage.vue';
 import VsImageWithCaption from '@/components/patterns/image-with-caption/ImageWithCaption.vue';
 import VsCaption from '@/components/patterns/caption/Caption.vue';
-
-import VsLink from '@/components/elements/link/Link.vue';
-import VsCol from '@/components/elements/grid/Col.vue';
+import VsLinkListItem from '@/components/patterns/link-list/components/LinkListItem.vue';
+import VsModal from '@/components/patterns/modal/Modal.vue';
+import VsVideo from '@/components/elements/video/Video.vue';
+import {
+    VsRow,
+    VsCol,
+} from '@/components/elements/grid';
 
 export default {
     component: VsMegalinks,
@@ -17,9 +21,12 @@ const Template = (args) => ({
         VsMegalinks,
         VsMegalinkSingleImage,
         VsImageWithCaption,
-        VsLink,
+        VsLinkListItem,
         VsCol,
         VsCaption,
+        VsModal,
+        VsVideo,
+        VsRow,
     },
     setup() {
         return {
@@ -68,17 +75,12 @@ const Template = (args) => ({
                         </p>
                     </template>
                     <template v-slot:vs-single-image-links>
-                        <li
-                            class="vs-megalink-single-image__link-list-item"
+                        <VsLinkListItem
                             v-for="link in args.links"
+                            v-bind="link"
                         >
-                            <VsLink
-                                :href="link.href"
-                                :type="link.type"
-                            >
-                                {{ link.text }}
-                            </VsLink>
-                        </li>
+                            {{ link.text }}
+                        </VsLinkListItem>
                     </template>
                     <template v-slot:vs-single-image-button-text>
                         {{ args.buttonText }}
@@ -86,6 +88,24 @@ const Template = (args) => ({
                 </vs-megalink-single-image>
             </VsCol>
         </VsMegalinks>
+
+        <VsModal
+            modalId="g-Fhvj7vW-E"
+            closeBtnText="Close"
+            :isVideoModal="true"
+        >
+            <VsRow>
+                <VsCol cols="12">
+                    <VsVideo
+                        videoId="g-Fhvj7vW-E"
+                        class="mb-8"
+                        cookie-btn-text="Manage cookies"
+                        no-js-message="You need Javascript enabled to see this video"
+                        no-cookies-message="You need cookies enabled to see this video"
+                    />
+                </VsCol>
+            </VsRow>
+        </VsModal>
     `,
 });
 
@@ -125,3 +145,26 @@ export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const WithVideo = Template.bind({
+});
+
+WithVideo.args = base;
+
+WithVideo.args = {
+    ...base,
+    links: [
+        {
+            href: '#',
+            text: 'Keep Scotland Unspoiled',
+            videoId: 'g-Fhvj7vW-E',
+            videoDescriptor: 'Video',
+            type: 'video',
+        },
+        {
+            type: 'external',
+            href: '#',
+            text: 'Visit our partners',
+        },
+    ],
+};

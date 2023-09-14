@@ -7,7 +7,7 @@ declare global {
 
 let VS;
 
-if (typeof variable !== 'undefined') {
+if (typeof window !== 'undefined') {
     VS = (typeof window.VS === 'object') ? window.VS : {};
 } else {
     VS = {};

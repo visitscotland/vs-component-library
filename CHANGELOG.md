@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.27](https://github.com/visitscotland/vs-component-library/compare/v1.0.26...v1.0.27) (2023-09-13)
+
+
+### 🐛 Bug Fixes
+
+* **onetrust:** fix missing window in ssr error ([ad47d74](https://github.com/visitscotland/vs-component-library/commit/ad47d74d7d21650da2c209a1715183fb54c07b2c))
+
+### [1.0.26](https://github.com/visitscotland/vs-component-library/compare/v1.0.25...v1.0.26) (2023-09-12)
+
+
+### ♻️ Code Refactoring
+
+* **pinis:** add Pinia to root of the app ([5384e98](https://github.com/visitscotland/vs-component-library/commit/5384e98589ce0b90fe311e76bcf088d328e46c6b))
+
+
+### 🐛 Bug Fixes
+
+* **pinia:** fix issues with pinia state management ([a8976ae](https://github.com/visitscotland/vs-component-library/commit/a8976ae2f4e13289152f5fa2fe2ed9662d2e09fe))
+
+
+### ✅ Tests
+
+* **test:** add pinia to unit tests ([ab59d00](https://github.com/visitscotland/vs-component-library/commit/ab59d004dd4b78cf7d45841ffac08283d57172b4))
+
+
+### 📝 Docs
+
+* **megalinks:** add megalinks video examples to stories ([add20f2](https://github.com/visitscotland/vs-component-library/commit/add20f2be62bde7d00bfc6f8436c7282da4cf1a9))
+* **stretchedlink:** updating stories for cookies ([7fbbc25](https://github.com/visitscotland/vs-component-library/commit/7fbbc25188cad5a52bb710615f630fe65fe93468))
+
 ### [1.0.25](https://github.com/visitscotland/vs-component-library/compare/v1.0.24...v1.0.25) (2023-09-08)
 
 

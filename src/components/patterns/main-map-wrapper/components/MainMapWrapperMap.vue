@@ -55,6 +55,7 @@ import osBranding from '@/utils/os-branding';
 
 import { render, h } from 'vue';
 import pinia from '@/stores/index.ts';
+import { mapState } from 'pinia';
 import useMapStore from '@/stores/map.store.ts';
 import mapboxgl from 'mapbox-gl';
 import geojsonExtent from '@mapbox/geojson-extent';
@@ -204,20 +205,20 @@ export default {
 
             return null;
         },
-        highlightedPlace() {
-            if (this.mapbox.map) {
-                return mapStore.getHoveredStop(this.mapId);
-            }
-
-            return '';
-        },
-        activeMarkerPostion() {
-            if (this.mapbox.map) {
-                return mapStore.activeMarkerPos;
-            }
-
-            return null;
-        },
+        ...mapState(useMapStore, {
+            activeMarkerPostion(store) {
+                if (this.mapbox.map) {
+                    return store.activeMarkerPos;
+                }
+                return null;
+            },
+            highlightedPlace(store) {
+                if (this.mapbox.map) {
+                    return store.getHoveredStop(this.mapId);
+                }
+                return null;
+            },
+        }),
     },
     watch: {
         isVisible(newVal) {

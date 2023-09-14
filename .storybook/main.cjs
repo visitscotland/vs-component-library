@@ -15,6 +15,7 @@ const config = {
     "@storybook/addon-interactions",
     "@storybook/addon-a11y",
     "storybook-addon-pseudo-states",
+    "@storybook/addon-mdx-gfm"
   ],
   framework: {
     name: "@storybook/vue3-vite",

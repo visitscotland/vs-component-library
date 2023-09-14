@@ -9,15 +9,13 @@
 </template>
 
 <script>
-import pinia from '@/stores/index.ts';
+import { mapState } from 'pinia';
 import useItinerariesStore from '@components/patterns/itineraries/itineraries.store.ts';
 import VsItineraryMapMarker from '@components/patterns/itineraries/components/itinerary-map/components/ItineraryMapMarker.vue';
 import { createVNode, render } from 'vue';
 import osBranding from '@/utils/os-branding';
 import mapboxgl from 'mapbox-gl';
 import geojsonExtent from '@mapbox/geojson-extent';
-
-let itinerariesStore;
 
 /**
  * Renders a MapBox map (for the itinerary)
@@ -103,20 +101,14 @@ export default {
                 right: 50,
             };
         },
-        highlightedStop() {
-            if (itinerariesStore) {
-                return itinerariesStore.highlightedStop;
-            }
-
-            return null;
-        },
-        highlightedStopCoordinates() {
-            if (itinerariesStore) {
-                return itinerariesStore.getHighlightedStopCoordinates();
-            }
-
-            return null;
-        },
+        ...mapState(useItinerariesStore, {
+            highlightedStop(store) {
+                return store.highlightedStop;
+            },
+            highlightedStopCoordinates(store) {
+                return store.getHighlightedStopCoordinates();
+            },
+        }),
     },
     watch: {
         highlightedStopCoordinates() {
@@ -124,7 +116,6 @@ export default {
         },
     },
     mounted() {
-        itinerariesStore = useItinerariesStore(pinia());
         this.lazyloadMapComponent();
         this.isTablet = window.innerWidth >= 768;
         window.addEventListener('resize', this.onResize);

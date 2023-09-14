@@ -1,6 +1,7 @@
 import {
     config, shallowMount, mount,
 } from '@vue/test-utils';
+import { setActivePinia, createPinia } from 'pinia';
 import VsStretchedLinkCard from '../StretchedLinkCard.vue';
 
 config.global.renderStubDefaultSlot = true;
@@ -24,6 +25,10 @@ const factoryShallowMount = (slotsData) => shallowMount(VsStretchedLinkCard, {
 });
 
 describe('VsStretchedLinkCard', () => {
+    beforeEach(() => {
+        setActivePinia(createPinia());
+    });
+
     it('should render an element with class stretched-link', () => {
         const wrapper = factoryShallowMount({
             slots: {

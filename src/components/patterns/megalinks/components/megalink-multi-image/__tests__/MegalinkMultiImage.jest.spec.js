@@ -1,6 +1,7 @@
 import {
     config, shallowMount, mount,
 } from '@vue/test-utils';
+import { setActivePinia, createPinia } from 'pinia';
 import VsMegalinkMultiImage from '../MegalinkMultiImage.vue';
 
 config.global.renderStubDefaultSlot = true;
@@ -34,6 +35,10 @@ const factoryShallowMount = () => shallowMount(VsMegalinkMultiImage, mountOption
 const factoryMount = () => mount(VsMegalinkMultiImage, mountOptions);
 
 describe('VsMegalinkMultiImage', () => {
+    beforeEach(() => {
+        setActivePinia(createPinia());
+    });
+
     describe(':props', () => {
         let wrapper;
 

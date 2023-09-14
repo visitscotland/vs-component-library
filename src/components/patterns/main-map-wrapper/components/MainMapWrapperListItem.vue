@@ -38,6 +38,7 @@
 import VsImg from '@components/elements/img/Img.vue';
 import VsIcon from '@components/elements/icon/Icon.vue';
 import pinia from '@/stores/index.ts';
+import { mapState } from 'pinia';
 import useMapStore from '@/stores/map.store.ts';
 
 let mapStore = null;
@@ -94,13 +95,11 @@ export default {
 
             return false;
         },
-        highlightedPlace() {
-            if (mapStore) {
-                return mapStore.getHoveredStop(this.mapId);
-            }
-
-            return '';
-        },
+        ...mapState(useMapStore, {
+            highlightedPlace(store) {
+                return store.getHoveredStop(this.mapId);
+            },
+        }),
     },
     mounted() {
         mapStore = useMapStore(pinia());

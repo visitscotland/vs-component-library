@@ -34,6 +34,7 @@ import {
     BFormCheckbox,
 } from 'bootstrap-vue-next';
 import pinia from '@/stores/index.ts';
+import { mapState } from 'pinia';
 import useMapStore from '@/stores/map.store.ts';
 import VsMainMapWrapperIcon from './MainMapWrapperIcon.vue';
 
@@ -73,6 +74,11 @@ export default {
 
             return null;
         },
+        ...mapState(useMapStore, {
+            activeSubcatFilters(store) {
+                return store.activeSubcatFilters;
+            },
+        }),
     },
     mounted() {
         mapStore = useMapStore(pinia());

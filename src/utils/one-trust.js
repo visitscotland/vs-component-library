@@ -138,7 +138,9 @@ export default class OneTrustVS {
      * @param callback {function} - callback function to run
      */
     onetrustCookieCheck = (category, callback) => {
-        return callback(window.OnetrustActiveGroups.includes(category));
+        if (typeof window !== 'undefined') {
+            return callback(window.OnetrustActiveGroups.includes(category));
+        }
     };
 
     /*
