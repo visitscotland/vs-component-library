@@ -210,10 +210,15 @@ export default {
          * element type class plus error classes
          */
         elementClass() {
-            const errorClass = (this.v$.inputVal && this.v$.inputVal.$anyError) || this.invalid ? 'vs-input--error' : '';
+            let error = '';
+
+            if (this.isInvalid || this.errorsList.length) {
+                error = 'vs-input--error';
+            }
+
             const nameClass = `vs-input--${this.fieldName}`;
 
-            return `${errorClass} ${nameClass}`;
+            return `${nameClass} ${error}`;
         },
         showClearButton() {
             if (this.inputVal.length && this.clearButtonText !== '') {
@@ -221,9 +226,6 @@ export default {
             }
 
             return false;
-        },
-        errorClass() {
-            return (this.v$.inputVal && this.v$.inputVal.$anyError) || this.invalid ? 'vs-input--error' : '';
         },
     },
     watch: {
