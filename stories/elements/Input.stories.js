@@ -16,12 +16,13 @@ const Template = (args, required) => ({
         };
     },
     template: `
-        <label for="args.fieldName">Email address</label>
+        <label for="args.fieldName">{{ args.label }}</label>
         <VsInput v-bind="args" required="${required}"></VsInput>
     `,
 });
 
 const base = {
+    label: 'Email address',
     fieldName: 'email-address',
     value: '',
     type: 'email',

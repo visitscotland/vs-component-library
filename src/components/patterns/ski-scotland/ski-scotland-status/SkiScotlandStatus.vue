@@ -234,7 +234,6 @@
                     md="9"
                     class="vs-ski-scotland-status__full-report"
                 >
-                    <!-- eslint-disable vue/no-v-html -->
                     <VsHeading
                         level="2"
                         data-test="vs-ski__snow-conditions-label"
@@ -292,7 +291,6 @@
                         v-if="news.length"
                         v-html="news"
                     />
-                    <!-- eslint-enable vue/no-v-html -->
                 </VsCol>
             </VsRow>
             <VsRow

@@ -10,12 +10,10 @@
             {{ hintText }}
         </p>
 
-        <!-- eslint-disable vue/no-v-html -->
         <div
             v-if="infoText !== ''"
             v-html="infoText"
         />
-        <!-- eslint-enable-vue/no-v-html -->
 
         <div
             role="alert"

@@ -10,9 +10,7 @@
             class="fallback-text"
             style="padding: 0"
         >
-            <!-- eslint-disable vue/no-v-html -->
             <span v-html="fallbackMessage" />
-            <!-- eslint-enable vue/no-v-html -->
             <button
                 id="ot-sdk-btn"
                 class="ot-sdk-show-settings"

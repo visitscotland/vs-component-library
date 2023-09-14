@@ -1,63 +1,33 @@
 {
-    "content": {
-        "heading": "Carbon Calculator",
-        "intro": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse gravida felis erat, suscipit condimentum eros mollis nec. Cras molestie dolor nunc, vitae tincidunt libero lobortis quis. Morbi at ligula sollicitudin, gravida ligula eget, viverra lorem.",
-        "successHeading": "Success",
-        "successContent": "Success Content",
-        "noJs": "NOJS",
-        "submit": "Calculate",
-        "comparisonTonnes": 0.00929,
-        "comparison": "<p>That's the equivalent to travelling the West Highland line over the Glenfinnan Viaduct (like Harry Potter!) xxx times.</p><p>The West Highland Line runs from Glasgow to Mallaig for 162 miles. Each journey uses 9.29kg of CO2 per person.</p>"
-    },
+    "stages": 4,
+    "comparisonReplacements": [
+        {
+            "repl": "xxx",
+            "divisor": 0.164
+        },
+        {
+            "repl": "yyy",
+            "divisor": 105.124
+        }
+    ],
     "fields": [
         {
             "name": "transportModeTo",
             "element": "radio",
             "options": [
-                { "text": "I'm already here!", "value": "noTravel", "icon": "city" },
-                { "text": "Plane", "value": "plane", "icon": "plane" },
-                { "text": "Car (Petrol)", "value": "petrolCar", "icon": "car" },
-                { "text": "Car (Diesel)", "value": "dieselCar", "icon": "car" },
-                { "text": "Car (Electric)", "value": "electricCar", "icon": "car" },
-                { "text": "Train", "value": "train", "icon": "train" }
+                { "value": "noTravel"},
+                { "value": "domesticPlane"},
+                { "value": "shortPlane"},
+                { "value": "longPlane"},
+                { "value": "petrolCar"},
+                { "value": "dieselCar"},
+                { "value": "electricCar"},
+                { "value": "train"},
+                { "value": "coach"},
+                { "value": "ferry"},
+                { "value": "petrolCamper"},
+                { "value": "dieselCamper"}
             ],
-            "label": "How are you travelling to Scotland?",
-            "explanation": "Duis ac facilisis orci. In lorem leo, euismod rhoncus imperdiet eget, tristique nec libero. In dapibus vitae dui nec blandit. Duis sed ultricies ligula.",
-            "validation": {
-                "required": true
-            },
-            "validationMessages": {
-                "required": "Please choose an item"
-            },
-            "tips": {
-                "plane": {
-                    "text": "If you're travelling from within the UK, travelling by train instead of flying could save up to x tonnes of emissions per 100 miles!",
-                    "icon": "train"
-                }
-            },
-            "values": {
-                "noTravel": 0,
-                "plane": 1.1,
-                "petrolCar": 0.01,
-                "dieselCar": 0.011,
-                "electricCar": 0.005,
-                "train": 0.003
-            },
-            "category": "transport",
-            "stage": 1
-        },
-        {
-            "name": "transportModeWithin",
-            "element": "radio",
-            "options": [
-                { "text": "No internal travel", "value": "noTravel", "icon": "city" },
-                { "text": "Internal flight", "value": "plane", "icon": "plane" },
-                { "text": "Car (Petrol)", "value": "petrolCar", "icon": "car" },
-                { "text": "Car (Diesel)", "value": "dieselCar", "icon": "car" },
-                { "text": "Car (Electric)", "value": "electricCar", "icon": "car" },
-                { "text": "Train", "value": "train", "icon": "train" }
-            ],
-            "label": "Are you planning to travel within Scotland?",
             "validation": {
                 "required": true
             },
@@ -66,25 +36,79 @@
             },
             "values": {
                 "noTravel": 0,
-                "plane": 1.1,
-                "petrolCar": 0.01,
-                "dieselCar": 0.011,
-                "electricCar": 0.005,
-                "train": 0.003
+                "domesticPlane": 245.7,
+                "shortPlane": 265.98,
+                "longPlane": 417.6,
+                "petrolCar": 29.58232,
+                "dieselCar": 30.6646,
+                "electricCar": 9.9209,
+                "train": 7.1939,
+                "coach": 3.53808,
+                "ferry": 7.93486,
+                "petrolCamper": 37.501002,
+                "dieselCamper": 32.630742
             },
-            "category": "transport",
+            
+            "multiplyByAnswer": {
+                "question": "howLongJourney",
+                "minimum": 0
+            },
             "stage": 1
         },
         {
-            "name": "redMeatConsumption",
+            "name": "howLongJourney",
+            "element": "number",
+            "validation": {
+                "required": true,
+                "min": 0,
+                "max": 24
+            },
+            "multiplyByNumber": 0,
+            "validationMessages": {
+                "required": "Please choose a duration"
+            },
+            "conditional": {
+                "transportModeTo": [
+                    "domesticPlane",
+                    "shortPlane",
+                    "longPlane",
+                    "petrolCar",
+                    "dieselCar",
+                    "electricCar",
+                    "train",
+                    "coach",
+                    "ferry",
+                    "petrolCamper",
+                    "dieselCamper"
+                ]
+            },
+            "stage": 2
+        },
+        {
+            "name": "howLongStay",
+            "element": "number",
+            "validation": {
+                "required": true,
+                "min": 0,
+                "max": 180
+            },
+            "multiplyByNumber": 10.4,
+            "validationMessages": {
+                "required": "Please choose a duration"
+            },
+            "stage": 3
+        },
+        {
+            "name": "dietDescription",
             "element": "radio",
             "options": [
-                { "text": "Never", "value": "never", "icon": "leaf" },
-                { "text": "Once or Twice", "value": "onceOrTwice", "icon": "food" },
-                { "text": "Often", "value": "often", "icon": "food" },
-                { "text": "Every Meal", "value": "everyMeal", "icon": "food" }
+                { "value": "regularMeat" },
+                { "value": "moderateMeat" },
+                { "value": "infrequentMeat" },
+                { "value": "pescatarian" },
+                { "value": "vegetarian" },
+                { "value": "vegan" }
             ],
-            "label": "How often do you plan to eat red meat on your trip?",
             "validation": {
                 "required": true
             },
@@ -92,27 +116,18 @@
                 "required": "Please choose an item"
             },
             "values": {
-                "never": 0,
-                "onceOrTwice": 0.001,
-                "often": 0.005,
-                "everyMeal": 0.01
+                "regularMeat": 6.66,
+                "moderateMeat": 4.99,
+                "infrequentMeat": 4.67,
+                "pescatarian": 3.91,
+                "vegetarian": 3.86,
+                "vegan": 3.15
             },
-            "tips": {
-                "everyMeal": {
-                    "text": "Cutting red meat from one or two meals a week could save x emissions, and give you a chance to try some of Scotland's other great food like the Fish!",
-                    "icon": "food"
-                }
+            "multiplyByAnswer": {
+                "question": "howLongStay",
+                "minimum": 1
             },
-            "category": "food",
             "stage": 4
         }
-    ],
-    "de": {
-        "selectexample": {
-            "label": "How are you travelling to Scotland? (de)",
-            "validationMessages": {
-                "required": "Please choose an item (de)"
-            }
-        }
-    }
+    ]
 }
