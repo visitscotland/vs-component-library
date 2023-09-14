@@ -1,3 +1,7 @@
+import {
+    within, waitFor, userEvent,
+} from '@storybook/testing-library';
+
 import VsInput from '@/components/elements/input/Input.vue';
 
 export default {
@@ -16,7 +20,7 @@ const Template = (args, required) => ({
         };
     },
     template: `
-        <label for="args.fieldName">{{ args.label }}</label>
+        <label :for="args.fieldName">{{ args.label }}</label>
         <VsInput v-bind="args" required="${required}"></VsInput>
     `,
 });
@@ -82,11 +86,27 @@ export const Invalid = Template.bind({
 
 Invalid.args = {
     ...base,
-    invalid: true,
     validationRules: {
         required: true,
     },
     genericValidation: {
         required: 'This field is required',
     },
+};
+
+Invalid.play = async({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByLabelText('Email address');
+
+    await waitFor(async() => {
+        await input.focus();
+    });
+
+    await waitFor(async() => {
+        await userEvent.type(input, ' ');
+    });
+
+    await waitFor(async() => {
+        await input.blur();
+    });
 };

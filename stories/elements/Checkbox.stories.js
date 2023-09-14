@@ -27,13 +27,11 @@ const Template = (args, required) => ({
 
 const base = {
     fieldName: 'cookieConsent',
-    value: 'true',
+    value: 'checked',
     label: 'I accept the terms and conditions',
     invalid: false,
     hintText: '',
     infoText: '',
-    triggerValidate: false,
-    reAlertErrors: false,
 };
 
 export const Default = Template.bind({
@@ -62,26 +60,32 @@ export const Invalid = Template.bind({
 
 Invalid.args = {
     ...base,
-    invalid: true,
     validationRules: {
         required: true,
     },
-    validationMessages: {
+    genericValidation: {
         required: 'This field is required',
     },
 };
 
 Invalid.play = async({ canvasElement }) => {
     const canvas = within(canvasElement);
+    const input = canvas.getByLabelText('I accept the terms and conditions');
 
-    await waitFor(() => {
-        const checkbox = canvas.getByLabelText('I accept the terms and conditions');
+    await waitFor(async() => {
+        await input.focus();
+    });
 
-        checkbox.click();
-        checkbox.click();
-    }, {
-        timeout: 15000,
-        interval: 250,
+    await waitFor(async() => {
+        await input.click();
+    });
+
+    await waitFor(async() => {
+        await input.click();
+    });
+
+    await waitFor(async() => {
+        await input.blur();
     });
 };
 

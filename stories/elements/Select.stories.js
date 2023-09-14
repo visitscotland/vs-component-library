@@ -1,20 +1,13 @@
+import {
+    within, waitFor, userEvent,
+} from '@storybook/testing-library';
+
 import VsSelect from '@/components/elements/select/Select.vue';
 
 export default {
     component: VsSelect,
     title: 'Elements/Select',
     tags: ['autodocs'],
-    decorators: [
-        (story) => ({
-            components: {
-                story,
-            },
-            template: `
-                <label>Please enter a country</label>
-                <story />
-            `,
-        }),
-    ],
 };
 
 const Template = (args) => ({
@@ -27,6 +20,7 @@ const Template = (args) => ({
         };
     },
     template: `
+        <label :for="args.fieldName">Please enter a country</label>
         <VsSelect v-bind="args" required="true"></VsSelect>
     `,
 });
@@ -83,15 +77,27 @@ export const Invalid = Template.bind({
 
 Invalid.args = {
     ...base,
-    value: 'other',
-    invalid: true,
     validationRules: {
         invalidVal: 'other',
     },
     validationMessages: {
-        invalidVal: 'To qualify, you must be based in the uk',
+        noInvalid: 'To qualify, you must be based in the uk',
     },
 };
+
+Invalid.play = async({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const select = canvas.getByLabelText('Please enter a country');
+
+    await waitFor(async() => {
+        await userEvent.selectOptions(select, ['other']);
+    });
+
+    await waitFor(async() => {
+        await select.blur();
+    });
+};
+
 export const Selected = Template.bind({
 });
 
