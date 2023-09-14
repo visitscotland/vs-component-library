@@ -17,7 +17,7 @@ const selectedOption = ref(props.defaultSelected);
 <template>
     <div class="form-group vs-select">
         <Label :for="id">{{ label }}</Label>
-        <div class="vs-select__container">
+        <div class="vs-select__container mt-2">
             <select
                 :id="id"
                 :name="name"
