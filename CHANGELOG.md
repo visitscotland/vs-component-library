@@ -2,6 +2,95 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.29](https://github.com/visitscotland/vs-component-library/compare/v1.0.28...v1.0.29) (2023-09-14)
+
+
+### ✨ Features
+
+* **carbon calculator:** add all real data ([c36f1cf](https://github.com/visitscotland/vs-component-library/commit/c36f1cfa83dad81d3ccebfc7fe4dd3765d8493e6))
+* **carbon calculator:** add analytics events ([b1c4ff5](https://github.com/visitscotland/vs-component-library/commit/b1c4ff5723203bb600fcaf6a5c7fb8346b999c0d))
+* **carbon calculator:** add carbon unicorn logic ([4b0ec5d](https://github.com/visitscotland/vs-component-library/commit/4b0ec5d4b794382d9692775ebca143a119dca735))
+* **carbon calculator:** add documentation for results props ([e16d258](https://github.com/visitscotland/vs-component-library/commit/e16d25875f30ca60a84c8b6bc946d6499eca44c4))
+* **carbon calculator:** add hint text to radio buttons ([7dc9e41](https://github.com/visitscotland/vs-component-library/commit/7dc9e418de49ea0c253b86c68f29ab00a1be361d))
+* **carbon calculator:** add key ([a7faf08](https://github.com/visitscotland/vs-component-library/commit/a7faf08eca481ca2f46a3f290348564aeb23170b))
+* **carbon calculator:** add more options to q 1 ([9ed7e30](https://github.com/visitscotland/vs-component-library/commit/9ed7e30cbf9f639dc703bb8c3ad38ddb9b0f580d))
+* **carbon calculator:** add more stories to calculator component ([36a59f1](https://github.com/visitscotland/vs-component-library/commit/36a59f12dfe0e00a2d3a099a64df035737f6291d))
+* **carbon calculator:** add no js warning ([8688ae7](https://github.com/visitscotland/vs-component-library/commit/8688ae72399bfc755347c227ad1902735cc48c6a))
+* **carbon calculator:** add reset button ([700134b](https://github.com/visitscotland/vs-component-library/commit/700134b2705f6ff8e1e8834b37b5023e953d9b7c))
+* **carbon calculator:** add tests to question ([61ccdf8](https://github.com/visitscotland/vs-component-library/commit/61ccdf8e99e1f64ef46d503836793d4239a88f7e))
+* **carbon calculator:** adjust results page layout ([676a275](https://github.com/visitscotland/vs-component-library/commit/676a27599e1783db3effe0add5d71458cc8f8b2b))
+* **carbon calculator:** allow 0 entry on numbers and minimum multipliers for radios ([daf4840](https://github.com/visitscotland/vs-component-library/commit/daf4840a1f361a7cf7eff48bec9e5d4e11d1db21))
+* **carbon calculator:** break progress bar into its own component ([c022c49](https://github.com/visitscotland/vs-component-library/commit/c022c49e77e040e23c734d7b1362c8351d37d2f7))
+* **carbon calculator:** break question into its own component ([61821fb](https://github.com/visitscotland/vs-component-library/commit/61821fb6d04fc1878ae5eb2b56f0b219a2bbf82a))
+* **carbon calculator:** calculate per day emissions ([b67fc1e](https://github.com/visitscotland/vs-component-library/commit/b67fc1e6fe6a10a396716b3a4eeea2bd3db0166b))
+* **carbon calculator:** centre text in running total ([cc65316](https://github.com/visitscotland/vs-component-library/commit/cc6531610aa51a48948b1fe8973109c55caf2d88))
+* **carbon calculator:** correct icon and layout for running total ([ea053d8](https://github.com/visitscotland/vs-component-library/commit/ea053d8c57467ebbf27917add11c7e9aaa099274))
+* **carbon calculator:** correct icon in tip ([1dbac7d](https://github.com/visitscotland/vs-component-library/commit/1dbac7d0f0e8d486810df8f222eddabdff635370))
+* **carbon calculator:** focus to question on nav ([307d9f0](https://github.com/visitscotland/vs-component-library/commit/307d9f0153a80185e96bd597afa8ee5d9ad04796))
+* **carbon calculator:** implement basic bar chart ([d22059f](https://github.com/visitscotland/vs-component-library/commit/d22059fa63d04789aad020030b61863cbda09aff))
+* **carbon calculator:** implement intro page ([b3a2cb0](https://github.com/visitscotland/vs-component-library/commit/b3a2cb0db0705dd91875736853f79c8a4912b28d))
+* **carbon calculator:** improve multiply by logic ([acc5f18](https://github.com/visitscotland/vs-component-library/commit/acc5f18494f2810ef3e40f5c245ffb99dd5e9bfb))
+* **carbon calculator:** integrate labelsMap for localised content ([a6db4b1](https://github.com/visitscotland/vs-component-library/commit/a6db4b134e86d6259c7719b61d777310bd0a30f3))
+* **carbon calculator:** make all labels localised ([3368adc](https://github.com/visitscotland/vs-component-library/commit/3368adc206696062b8422b1a4bf4f920621e2bc9))
+* **carbon calculator:** more documentation ([3c0ac65](https://github.com/visitscotland/vs-component-library/commit/3c0ac65bee09a2aaad9f572925fa7c61e82325c3))
+* **carbon calculator:** port firebreak carbon calc work to vue3 ([3840266](https://github.com/visitscotland/vs-component-library/commit/3840266d1b5ed4bd5873f96a313c2cd630faa0d1))
+* **carbon calculator:** restyle radio buttons ([4321aeb](https://github.com/visitscotland/vs-component-library/commit/4321aeb975ca7f204da36367fc15e3c5a245e3f1))
+* **carbon calculator:** switch to CO2e ([cd83336](https://github.com/visitscotland/vs-component-library/commit/cd8333688e740de93f2ac8989f15a9c23b58d461))
+* **carbon calculator:** switch to kilos ([3c36986](https://github.com/visitscotland/vs-component-library/commit/3c369865302556dd4c44e28d98728999fdda8b6b))
+* **carbon calculator:** tidy up and add tests for tip ([cdaf79b](https://github.com/visitscotland/vs-component-library/commit/cdaf79b9729532f8f9687b8a4b5c82aeddff98a5))
+* **carbon calculator:** tidy up Question and add tests ([fb95ae6](https://github.com/visitscotland/vs-component-library/commit/fb95ae671a502df013e1a213fdfba01c2019a2ac))
+* **carbon calculator:** tidy up results and add tests ([dfbfd8a](https://github.com/visitscotland/vs-component-library/commit/dfbfd8a57613f1aceca18b376c859144dd6c4c6c))
+* **carbon calculator:** tidy up running total component and add tests ([6d692c5](https://github.com/visitscotland/vs-component-library/commit/6d692c5d1f877fa56059e71f2f6793e5d5dd465b))
+* **carbon calculator:** tidy up tip shadows ([731e410](https://github.com/visitscotland/vs-component-library/commit/731e4105770b5b11501fc4dedd40feb8f0c15579))
+* **carbon calculator:** update comparison logic ([11df0d4](https://github.com/visitscotland/vs-component-library/commit/11df0d45a11e27c232ba68a52798be24958f4ada))
+* **carbon calculator:** update data to account for returns ([ef68fb9](https://github.com/visitscotland/vs-component-library/commit/ef68fb99e68b74217f71fb98410d6752e679b306))
+* **carbon calculator:** update intro content ([9ecdf5c](https://github.com/visitscotland/vs-component-library/commit/9ecdf5cd66d33fd733c03d256379c85378a4a47c))
+* **carbon calculator:** update mobile style for radio buttons ([50d829b](https://github.com/visitscotland/vs-component-library/commit/50d829b051f9eae309ec05a9df3e74223853aee8))
+* **carbon calculator:** update radio button hover state ([cf0263f](https://github.com/visitscotland/vs-component-library/commit/cf0263f4c551e2672e18d30415806927f941bf4e))
+* **carbon calculator:** update target to 30 ([eee321e](https://github.com/visitscotland/vs-component-library/commit/eee321ec9e2a6aac3d26f87dd8b8e63adc73b330))
+* **carbon calculator:** use number input in question ([cdf7a80](https://github.com/visitscotland/vs-component-library/commit/cdf7a80bcb9fadf3c84497a5cb0a815e90dcb42a))
+* **carbon calculator:** use Stepped progress bar in cc ([64d3d6c](https://github.com/visitscotland/vs-component-library/commit/64d3d6c73034d8e9c2881d01c4cad6f882f2c4fc))
+* **carbon calculator:** wIP Dependent Question Calculations ([3b4f1f3](https://github.com/visitscotland/vs-component-library/commit/3b4f1f33ebb63d18ca686315632c61e3b0f98716))
+* **component library:** provide/inject all labels ([5a10816](https://github.com/visitscotland/vs-component-library/commit/5a10816f92bfdca7c064cba2b4dd06bbe5c4ee84))
+* **input:** implement incremental number input ([238d79e](https://github.com/visitscotland/vs-component-library/commit/238d79e12119a47889cad7530794197332af307a))
+* **number input:** separate number and regular input ([7e5550e](https://github.com/visitscotland/vs-component-library/commit/7e5550e8e0334c7eeda084ba469cfd096a04c375))
+* **number input:** tweak input styles and font display ([9dfb6ed](https://github.com/visitscotland/vs-component-library/commit/9dfb6ed20afd499156436d05375af020c96f47af))
+* **progress bar:** implement stepped progress bar# ([d424d10](https://github.com/visitscotland/vs-component-library/commit/d424d1029d752bb7b47f5786eee8e55e71de1f75))
+* **progress bar:** update progress bar design to bring in line with designs ([a6aaa1e](https://github.com/visitscotland/vs-component-library/commit/a6aaa1e9c2fe155ad1b687a239b7c613b9dafba5))
+* **radio button:** break out into separate component ([cdcfab5](https://github.com/visitscotland/vs-component-library/commit/cdcfab55c69e9569a8c7d859a8980d6ecb128b29))
+* **radio buttons:** reduce font weight ([7df9867](https://github.com/visitscotland/vs-component-library/commit/7df986757db4abed99a8b794db1ee6f692d7300d))
+* **radio button:** style focussed state and fix click area ([6038a7d](https://github.com/visitscotland/vs-component-library/commit/6038a7ddba84ebd5f671e9cb898015c291e41aa7))
+* **radio button:** update focus and hover styles for a11y ([7fafc8c](https://github.com/visitscotland/vs-component-library/commit/7fafc8c7c29fa82c636a3291a8a5db435b657aec))
+
+
+### 🐛 Bug Fixes
+
+* **carbon calculator:** correct labels in story ([7470daa](https://github.com/visitscotland/vs-component-library/commit/7470daa98e5464b327092897d0635d9ddfb24e9f))
+* **carbon calculator:** correct selected styles for radios ([35e9165](https://github.com/visitscotland/vs-component-library/commit/35e9165f94facb513a5ce243afb15e9f5b80b799))
+* **carbon calculator:** fix broken test ([c44c752](https://github.com/visitscotland/vs-component-library/commit/c44c752da1af67ba7a74b2f3bb3c9654d9ac882b))
+* **carbon calculator:** fix comparison calculation ([022326a](https://github.com/visitscotland/vs-component-library/commit/022326a74724439842a140434eb0b8441b93d8ef))
+* **carbon calculator:** fix results page ([008ca8a](https://github.com/visitscotland/vs-component-library/commit/008ca8a7060d4c941cec17ce8386eddd82cd8c54))
+* **carbon calculator:** fix results percent calc for accomm ([fc049eb](https://github.com/visitscotland/vs-component-library/commit/fc049eb3fb72002da38da4cc437f971c925e589d))
+* **carbon calculator:** refactor calculate and tip questions ([e8374cc](https://github.com/visitscotland/vs-component-library/commit/e8374ccf16f285522055e9e1e986b3eb8552f21d))
+* **carbon calculator:** remove console log ([817314e](https://github.com/visitscotland/vs-component-library/commit/817314ec7410a4d3fbed8bc41058dd433ede6f30))
+* **carbon calculator:** separate number input into own component ([ad13905](https://github.com/visitscotland/vs-component-library/commit/ad139057c6e4ddff87dc58f5ebf684f2d8f39cc3))
+* **carbon calculator:** switch results to token font size ([54de409](https://github.com/visitscotland/vs-component-library/commit/54de409581525733a0e75d7d0137157d5f1f8017))
+* **carbon calculator:** update most labels ([94eef7a](https://github.com/visitscotland/vs-component-library/commit/94eef7ab783e8671b2e930d48228a111d9792494))
+* fix missing default location in PSW ([9ec6e12](https://github.com/visitscotland/vs-component-library/commit/9ec6e12ff1fc22afeb17738df91049c3f9b5e693))
+* **form validation:** make validation behaviour consistent across all form elements ([fdc271d](https://github.com/visitscotland/vs-component-library/commit/fdc271d9e1afa65067039ca87943a57c2be2f908))
+* **input:** remove remnant of number input in input ([631a9e2](https://github.com/visitscotland/vs-component-library/commit/631a9e27acc61349fd4f71321ad831e82da376e1))
+* **number input:** correct classnames for controls ([95df33a](https://github.com/visitscotland/vs-component-library/commit/95df33a5d8667db4ffbecdfc246d25079954c11a))
+* **psw:** fix labels for PSW ([ca984e6](https://github.com/visitscotland/vs-component-library/commit/ca984e648b4dd72f0e47e4d773f83bd060f5837d))
+* **radio button:** set internal border on buttons ([2b090bb](https://github.com/visitscotland/vs-component-library/commit/2b090bbe5dd93b76c0dd4d790975c4fbb630e06e))
+* **radio button:** stack text properly on mobile ([147329d](https://github.com/visitscotland/vs-component-library/commit/147329d56beb8eea5ac4614b97ea9ab5f9daff54))
+* **tokens:** remove token files from git ([9b9c6dd](https://github.com/visitscotland/vs-component-library/commit/9b9c6ddd2bbbdd893f7a4721285e462abdeab060))
+
+
+### 🎨 Styling
+
+* **lint:** allow v-html ([e7cb92e](https://github.com/visitscotland/vs-component-library/commit/e7cb92ee1a7c104edd3f7cb3bc04c40bcf13d863))
+* **psw:** fix margin on for field in PSW ([81342db](https://github.com/visitscotland/vs-component-library/commit/81342db1c46f4e6b50f112ee23cfcd8ef2104717))
+
 ### [1.0.28](https://github.com/visitscotland/vs-component-library/compare/v1.0.27...v1.0.28) (2023-09-14)
 
 
