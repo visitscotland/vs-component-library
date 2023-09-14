@@ -270,7 +270,7 @@ onBeforeMount(async () => {
 
     const langScriptEl = document.createElement('script');
     langScriptEl.async = false;
-    langScriptEl.onload = setRender();
+    langScriptEl.onload = setRender;
     langScriptEl.setAttribute('src', `https://www.visitscotland.com/${getLangUrl().localeUrl}/data/template/search.js`);
     document.head.appendChild(langScriptEl);
 });
