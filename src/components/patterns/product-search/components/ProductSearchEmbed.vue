@@ -12,7 +12,7 @@
                         accept-charset="UTF-8"
                     >
                         <SelectInput
-                            :label="getLabelText('for', 'For')"
+                            :label="getLabelText('tour_keywords', 'I\'m looking for')"
                             id="select-type"
                             name="prodtypes"
                             :default-selected="defaultProd"
@@ -66,8 +66,8 @@
                                 <DateRange
                                     v-if="selectedProd === 'even' || selectedProd === 'acco'"
                                     :legend="getLabelText('date_label', 'Dates')"
-                                    :start-label="getLabelText('checkin', 'Start Date', 'dates')"
-                                    :end-label="getLabelText('checkout', 'End Date', 'dates')"
+                                    :start-label="getLabelText('startdate', 'Start Date', 'dates')"
+                                    :end-label="getLabelText('enddate', 'End Date', 'dates')"
                                     :default-dates="defaultDates"
                                 />
 
@@ -303,7 +303,7 @@ onMounted(async () => {
 
     // Once data is loaded, load child components reliant on it
     locationDataLoaded = true;
-
+ 
     selectedProd.value = props.defaultProd;
 
     initProductTypes();
