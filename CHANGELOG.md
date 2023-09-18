@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.31](https://github.com/visitscotland/vs-component-library/compare/v1.0.30...v1.0.31) (2023-09-18)
+
+
+### 🐛 Bug Fixes
+
+* **carbon calculator:** get on mount rather than create ([3fd8835](https://github.com/visitscotland/vs-component-library/commit/3fd8835550701a7cbfcced54e1515ac58cf14702))
+
 ### [1.0.30](https://github.com/visitscotland/vs-component-library/compare/v1.0.29...v1.0.30) (2023-09-14)
 
 
