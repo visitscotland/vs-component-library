@@ -1,6 +1,7 @@
 <template>
     <div
         class="vs-loading-spinner"
+        :class="spinnerClasses"
         data-test="vs-loading-spinner"
     >
         <div class="vs-loading-spinner__dot" />
@@ -24,6 +25,24 @@ export default {
     name: 'VsLoadingSpinner',
     status: 'prototype',
     release: '0.1.0',
+    props: {
+        /*
+         * Variant of loading spinner theme
+         * `dark|light`
+         */
+        variant: {
+            type: String,
+            default: 'light',
+            validator: (value) => value.match(
+                /(dark|light)/,
+            ),
+        },
+    },
+    computed: {
+        spinnerClasses() {
+            return this.variant ? `vs-loading-spinner--${this.variant}` : '';
+        },
+    },
 };
 </script>
 
@@ -52,25 +71,37 @@ export default {
                 transform: rotate($i * 40deg)
             }
         }
-    }
 
-    .vs-loading-spinner__dot {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-
-        &::after {
-            content: "";
+        &__dot {
+            width: 100%;
+            height: 100%;
             position: absolute;
             top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: $spacer-1;
-            height: $spacer-1;
-            border-radius: 50%;
-            background-color: $color_purple;
+            left: 0;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: $spacer-1;
+                height: $spacer-1;
+                border-radius: 50%;
+                background-color: $color_purple;
+            }
+        }
+
+        &--light{
+            .vs-loading-spinner__dot::after{
+                background-color: $color_purple;
+            }
+        }
+
+        &--dark{
+            .vs-loading-spinner__dot::after{
+                background-color: $color-theme-dark;
+            }
         }
     }
 </style>

@@ -10,6 +10,7 @@
                         :action="formAction"
                         @submit.prevent="preSubmitChecks"
                         accept-charset="UTF-8"
+                        v-if="locationDataLoaded"
                     >
                         <SelectInput
                             :label="getLabelText('tour_keywords', 'I\'m looking for')"
@@ -136,6 +137,10 @@
                             {{ getLabelText('search', 'Search') }}
                         </VsButton>
                     </form>
+
+                    <template v-if="!locationDataLoaded">
+                        <VsLoadingSpinner variant="dark" />
+                    </template>
                 </div>
             </div>
         </div>
@@ -149,7 +154,7 @@ import { baseUrl, paths, monthsEnglish } from '../../../../constants';
 import { getProductTypes } from '../../../../utils/utils';
 import { getData } from '../../../../utils/axios';
 import type { Location, TmsApiDataItem, SelectOption } from '../../../../types';
-
+import VsLoadingSpinner from '@components/elements/loading-spinner/LoadingSpinner.vue';
 import VsSelect from '../../../elements/select/Select.vue';
 import Autocomplete from './Autocomplete.vue';
 import GuestSelector from './GuestSelector.vue';
@@ -179,6 +184,7 @@ const props = defineProps({
     },
 });
 
+/* Data */
 const reRender = ref(false);
 const selectedProd = ref();
 const keywords = ref([]);
@@ -210,7 +216,6 @@ const langConfig = {
         localeUrl: 'nl-nl',
     },
 };
-
 const locale = computed(() => {
     let localeVal = props.defaultLocale.length > 0 ? props.defaultLocale : getLocale();
 
@@ -220,28 +225,16 @@ const locale = computed(() => {
 
     return localeVal;
 });
-
 const formAction = computed(() => `${baseUrl.prod}${locale.value ? '/'+locale.value : ''}${path.value}/search-results`);
+
 
 /* Location data */
 const locationLocale = `?locale=${locale.value}`
 const locationsUrl = `https://www.visitscotland.com/data/locations` + locationLocale;
-
 const locations = ref<Location[]>([]);
 
 const getPlaceData = (placeKey) => {
     chosenLocation.value = locations.value.find(place => place.key === placeKey);
-};
-
-const prods = ref<SelectOption[]>([]);
-
-const initProductTypes = () => {
-    const prodsFromData = getProductTypes();
-    const prodArr: SelectOption[] = [];
-    prodsFromData.forEach((prod) => {
-        prodArr.push(prod);
-    })
-    prods.value = prodArr;
 };
 
 /* Attractions data */
@@ -252,18 +245,17 @@ const attractions = ref<TmsApiDataItem[]>([]);
 const originsUrl = `https://www.visitscotland.com/tms-api/v1/origins?active=1`;
 const origins = ref<TmsApiDataItem[]>([]);
 
+/* Product types */
+const prods = ref<SelectOption[]>([]);
 
-const getLangUrl= () => {
-    return langConfig[props.defaultLocale] || '';
+const initProductTypes = () => {
+    const prodsFromData = getProductTypes();
+    const prodArr: SelectOption[] = [];
+    prodsFromData.forEach((prod) => {
+        prodArr.push(prod);
+    })
+    prods.value = prodArr;
 };
-
-const setRender = () => {
-    reRender.value = true;
-    
-    nextTick(() => {
-        reRender.value = false;
-    });
-}
 
 const translatedProds = computed(() => {
     if (!reRender.value) {
@@ -278,6 +270,17 @@ const translatedProds = computed(() => {
     return [];
 })
 
+const getLangUrl= () => {
+    return langConfig[props.defaultLocale] || '';
+};
+
+const setRender = () => {
+    reRender.value = true;
+    
+    nextTick(() => {
+        reRender.value = false;
+    });
+}
 
 onBeforeMount(async () => {
     window.VS = {
@@ -306,19 +309,21 @@ onMounted(async () => {
  
     selectedProd.value = props.defaultProd;
 
-    initProductTypes();
+    if (selectedProd.value === 'tour') {
+        // Get attraction data.
+        const attractionResponse = await getData(attractionsUrl);
+        if (attractionResponse){
+            attractions.value = attractionResponse.data;
+        }
 
-    // Get attraction data.
-    const attractionResponse = await getData(attractionsUrl);
-    if (attractionResponse){
-        attractions.value = attractionResponse.data;
+        // Get origins data.
+        const originsResponse = await getData(originsUrl);
+        if (originsResponse){
+            origins.value = originsResponse.data;
+        }
     }
 
-    // Get origins data.
-    const originsResponse = await getData(originsUrl);
-    if (originsResponse){
-        origins.value = originsResponse.data;
-    }
+    initProductTypes();    
 });
 
 const preSubmitChecks = (e) => {
@@ -328,7 +333,6 @@ const preSubmitChecks = (e) => {
         form.submit();
     }, 500);
 }
-
 </script>
 
 <style lang="scss">

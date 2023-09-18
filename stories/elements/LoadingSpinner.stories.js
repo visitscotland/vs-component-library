@@ -4,6 +4,14 @@ export default {
     component: VsLoadingSpinner,
     title: 'Elements/LoadingSpinner',
     tags: ['autodocs'],
+    argTypes: {
+        variant: {
+            options: ['light', 'dark'],
+            control: {
+                type: 'radio',
+            },
+        },
+    },
 };
 
 const Template = (args) => ({
@@ -20,5 +28,13 @@ const Template = (args) => ({
     `,
 });
 
+const base = {
+    variant: 'light',
+};
+
 export const Default = Template.bind({
 });
+
+Default.args = {
+    ...base,
+};
