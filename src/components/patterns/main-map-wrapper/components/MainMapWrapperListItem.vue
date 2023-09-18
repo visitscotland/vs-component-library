@@ -154,6 +154,7 @@ export default {
 
 <style lang="scss">
     .vs-main-map-wrapper-list-item {
+        color: $color-black;
         display: flex;
         position: relative;
         width: 100%;
