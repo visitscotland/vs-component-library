@@ -37,11 +37,6 @@ export const paths = {
     'tour': 'tours'
 }
 
-export const baseUrl = {
-    dev: 'http://172.28.81.65:8089',
-    prod: 'https://www.visitscotland.com'
-}
-
 export const monthsEnglish = [
         {
             "label": "January",
