@@ -8,7 +8,7 @@
             class="vs-main-map-wrapper-panel__header-section"
             :class="headerClasses"
         >
-            <div class="vs-main-map-wrapper-panel__buttons">
+            <div class="vs-main-map-wrapper-panel__buttons d-lg-none">
                 <div
                     class="vs-main-map-wrapper-panel__back"
                     v-if="currentStage > 0 || selectedSubcategory"
@@ -30,7 +30,7 @@
                 </div>
 
                 <div
-                    class="vs-main-map-wrapper-panel__close d-lg-none"
+                    class="vs-main-map-wrapper-panel__close"
                 >
                     <VsButton
                         icon-only
@@ -48,10 +48,30 @@
                 </div>
             </div>
 
+            <div
+                class="vs-main-map-wrapper-panel__back d-none d-lg-block"
+                v-if="currentStage > 0 || selectedSubcategory"
+            >
+                <VsButton
+                    icon-only
+                    icon="internal-link"
+                    icon-orientation="down"
+                    size="md"
+                    variant="secondary"
+                    @click="stageBack"
+                    data-test="vs-main-map-wrapper-panel--btn-back"
+                >
+                    <span class="sr-only">
+                        <!-- @slot Text for panel back button  -->
+                        <slot name="back-btn-text" />
+                    </span>
+                </VsButton>
+            </div>
+
             <VsHeading
                 :level="headingLevel"
                 override-style-level="4"
-                class="vs-main-map-wrapper-panel__heading text-center mt-8"
+                class="vs-main-map-wrapper-panel__heading text-center mt-8 mt-lg-0"
                 :class="currentStage === 2 ? 'd-none d-lg-block' : ''"
                 v-if="currentHeading !== ''"
                 data-test="vs-main-map-wrapper-panel__heading"
@@ -567,6 +587,10 @@ export default {
             &--overlapped {
                 position: absolute;
                 width: calc(100% - #{$spacer-6});
+            }
+
+            @include media-breakpoint-up(lg) {
+                min-height: $spacer-8;
             }
         }
 
