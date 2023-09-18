@@ -270,7 +270,7 @@ export default {
             return 0;
         },
     },
-    created() {
+    mounted() {
         this.getFormData();
         this.getGlobalMessaging();
     },
