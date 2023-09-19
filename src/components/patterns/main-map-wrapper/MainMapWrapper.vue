@@ -624,7 +624,7 @@ export default {
                 this.setCategory('regions');
                 this.setStage(1);
             } else if (category === 'icentres') {
-                this.setCategory('serv');
+                this.setCategory('vics');
                 this.setStage(1);
             } else if (category === 'places-regional') {
                 this.setCategory('twnv');

@@ -2,6 +2,8 @@ import VsMainMapWrapper from '@/components/patterns/main-map-wrapper/MainMapWrap
 import mapFiltersSubcategories from '@/assets/fixtures/maps/map-filters-subcategories.json';
 import mapFiltersOutlanderSubcategories from '@/assets/fixtures/maps/map-filters-outlander-subcategories.json';
 import mapFiltersRegions from '@/assets/fixtures/maps/map-filters-regions.json';
+import mapFiltersRegional from '@/assets/fixtures/maps/map-filters-regional.json';
+import placesDataRegional from '@/assets/fixtures/maps/places-data-regional.json';
 import placesDataFeatured from '@/assets/fixtures/maps/places-data-featured.json';
 import placesDataOutlander from '@/assets/fixtures/maps/places-data-outlander.json';
 import placesDataRegions from '@/assets/fixtures/maps/places-data-regions.json';
@@ -75,12 +77,12 @@ const base = {
     mapNoResultsMessage: 'There are no results, please try again',
 };
 
-export const DestinationMap = Template.bind({
+export const CitiesMap = Template.bind({
 });
 
-DestinationMap.args = {
+CitiesMap.args = {
     ...base,
-    categoryHeading: 'Map of Dunfermline',
+    categoryHeading: 'Map of Edinburgh',
     filters: mapFiltersSubcategories,
     placesData: placesDataFeatured.features,
     regionBounds: {
@@ -90,6 +92,27 @@ DestinationMap.args = {
             [-3.34402565597901, 55.887115661571926],
         ],
     },
+    mapId: 'vs-map',
+};
+
+export const RegionalMap = Template.bind({
+});
+
+RegionalMap.args = {
+    ...base,
+    categoryHeading: 'Map of The Highlands',
+    filters: mapFiltersRegional,
+    placesData: placesDataRegional.features,
+    toggleData: [
+        {
+            text: 'Places',
+            value: 'places-regional',
+        },
+        {
+            text: 'iCentres',
+            value: 'icentres',
+        },
+    ],
     mapId: 'vs-map',
 };
 
@@ -103,14 +126,14 @@ const regionsExample = {
     initialSelected: 'places',
     toggleData: [
         {
-            text: 'Regions',
-            value: 'regions',
-            icon: 'map',
-        },
-        {
             text: 'Places',
             value: 'places',
             icon: 'map-marker',
+        },
+        {
+            text: 'Regions',
+            value: 'regions',
+            icon: 'map',
         },
     ],
 };

@@ -40,7 +40,7 @@ const mapIconMapping = {
             case 'twnv':
                 icon.name = '';
                 break;
-            case 'serv':
+            case 'vics':
                 icon.name = 'icentre-information';
                 break;
             case 'outlander-castle':
