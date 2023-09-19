@@ -145,7 +145,7 @@
 <script setup lang="ts">
 import { computed, ref, onMounted, onBeforeMount, nextTick } from 'vue';
 import { getLabelText, getLocale, getProductName } from '../../../../utils/lang';
-import { baseUrl, paths, monthsEnglish } from '../../../../constants';
+import { paths, monthsEnglish } from '../../../../constants';
 import { getProductTypes } from '../../../../utils/utils';
 import { getData } from '../../../../utils/axios';
 import type { Location, TmsApiDataItem, SelectOption } from '../../../../types';
@@ -221,7 +221,17 @@ const locale = computed(() => {
     return localeVal;
 });
 
-const formAction = computed(() => `${baseUrl.prod}${locale.value ? '/'+locale.value : ''}${path.value}/search-results`);
+const baseUrl  = computed(() => {
+    let host = window.location.host;
+    
+    if (host.includes('localhost')) {
+        return 'https://www.visitscotland.com'
+    }
+
+    return host;
+}); 
+
+const formAction = computed(() => `${baseUrl.value}${locale.value ? '/'+locale.value : ''}${path.value}/search-results`);
 
 /* Location data */
 const locationLocale = `?locale=${locale.value}`
