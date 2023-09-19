@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.33](https://github.com/visitscotland/vs-component-library/compare/v1.0.32...v1.0.33) (2023-09-19)
+
+
+### ♻️ Code Refactoring
+
+* **maps:** update iCentre category ID and add regional map example ([7e1916d](https://github.com/visitscotland/vs-component-library/commit/7e1916d6ab68f8be9ae75689c97d194977d19bbd)), closes [#160](https://github.com/visitscotland/vs-component-library/issues/160)
+
+
+### 🐛 Bug Fixes
+
+* **psw:** fix host url for psw search ([bad24d1](https://github.com/visitscotland/vs-component-library/commit/bad24d12a5ed9048eebc9a1a95b4cef4c3766c39))
+
 ### [1.0.32](https://github.com/visitscotland/vs-component-library/compare/v1.0.31...v1.0.32) (2023-09-19)
 
 
