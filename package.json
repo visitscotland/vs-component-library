@@ -1,6 +1,6 @@
 {
   "name": "@visitscotland/component-library",
-  "version": "1.0.31",
+  "version": "1.0.32",
   "description": "VisitScotland Component Library",
   "author": "VisitScotland",
   "main": "dist/ssr/index.js",

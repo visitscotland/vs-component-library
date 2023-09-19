@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.32](https://github.com/visitscotland/vs-component-library/compare/v1.0.31...v1.0.32) (2023-09-19)
+
+
+### 🐛 Bug Fixes
+
+* **psw:** fix correct base url for product search widget ([ecc5372](https://github.com/visitscotland/vs-component-library/commit/ecc53726821da1fb018fd4bf2b40e00379167076))
+
 ### [1.0.31](https://github.com/visitscotland/vs-component-library/compare/v1.0.30...v1.0.31) (2023-09-18)
 
 
