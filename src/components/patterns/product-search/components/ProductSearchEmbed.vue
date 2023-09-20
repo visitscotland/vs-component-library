@@ -240,7 +240,7 @@ const locationsUrl = `https://www.visitscotland.com/data/locations` + locationLo
 const locations = ref<Location[]>([]);
 
 const getPlaceData = (placeKey) => {
-    chosenLocation.value = locations.value.find(place => place.key === placeKey);
+    chosenLocation.value = locations.value.find(place => place.name === placeKey);
 };
 
 const prods = ref<SelectOption[]>([]);
