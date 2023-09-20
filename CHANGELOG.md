@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.35](https://github.com/visitscotland/vs-component-library/compare/v1.0.34...v1.0.35) (2023-09-20)
+
+
+### 🐛 Bug Fixes
+
+* **psw:** check window defined before access ([d5ff23d](https://github.com/visitscotland/vs-component-library/commit/d5ff23d2c09b5f6046adacdabcbe959acc454a89))
+
 ### [1.0.34](https://github.com/visitscotland/vs-component-library/compare/v1.0.33...v1.0.34) (2023-09-20)
 
 
