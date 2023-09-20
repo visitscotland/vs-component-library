@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.34](https://github.com/visitscotland/vs-component-library/compare/v1.0.33...v1.0.34) (2023-09-20)
+
+
+### 🐛 Bug Fixes
+
+* fix issue with polygon locations ([ba00882](https://github.com/visitscotland/vs-component-library/commit/ba00882e0c2b8d885eec7db6ae759617950a6ab7))
+
 ### [1.0.33](https://github.com/visitscotland/vs-component-library/compare/v1.0.32...v1.0.33) (2023-09-19)
 
 
