@@ -222,13 +222,17 @@ const locale = computed(() => {
 });
 
 const baseUrl  = computed(() => {
-    let origin = window.location.origin;
-    
-    if (origin.includes('localhost')) {
-        return 'https://www.visitscotland.com'
+    if (typeof window !== 'undefined') {
+        let origin = window.location.origin;
+
+        if (origin.includes('localhost')) {
+            return 'https://www.visitscotland.com'
+        }
+
+        return origin;
     }
 
-    return origin;
+    return 'https://www.visitscotland.com';
 }); 
 
 const formAction = computed(() => `${baseUrl.value}${locale.value ? '/'+locale.value : ''}${path.value}/search-results`);
