@@ -40,6 +40,10 @@ const Template = (args) => ({
             :buttonLink="args.buttonLink"
             variant="link-list"
         >
+            <template v-slot:vs-megalinks-intro>
+                <p>{{ args.megalinksIntro }}</p>
+            </template>
+
             <template v-slot:vs-megalinks-button>
                 {{ args.buttonText }}
             </template>
@@ -82,10 +86,15 @@ const Template = (args) => ({
     `,
 });
 
+const megalinksIntro = `From the rugged coastline to sparkling city lights,
+    the ancient Caledonian forests of the Highlands to the rich history of the Lowlands,
+    there are plenty of places to start your Scottish adventure. `;
+
 const base = {
     mainTitle: 'More inspiration for your next adventure',
     buttonLink: '#',
     buttonText: 'Get more inspiration',
+    megalinksIntro,
     links: [
         {
             imgSrc: '/fixtures/megalinks/glentress-forest.jpg',

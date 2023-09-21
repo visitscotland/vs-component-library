@@ -40,6 +40,10 @@ const Template = (args) => ({
             :buttonLink="args.buttonLink"
             variant="single-image"
         >
+            <template v-slot:vs-megalinks-intro>
+                <p>{{ args.megalinksIntro }}</p>
+            </template>
+
             <VsCol cols="12">
                 <vs-megalink-single-image
                     :title="args.subTitle"
@@ -113,6 +117,10 @@ const cardContent = `From the rugged coastline to sparkling city lights,
     the ancient Caledonian forests of the Highlands to the rich history of the Lowlands,
     there are plenty of places to start your Scottish adventure. `;
 
+const megalinksIntro = `From the rugged coastline to sparkling city lights,
+    the ancient Caledonian forests of the Highlands to the rich history of the Lowlands,
+    there are plenty of places to start your Scottish adventure. `;
+
 const base = {
     mainTitle: 'Uncover Scotland\'s regions',
     buttonLink: '#',
@@ -124,6 +132,7 @@ const base = {
     imageCaption: 'Map of SCotland',
     imageCredit: '@2023 VisitScotland',
     cardContent,
+    megalinksIntro,
     links: [
         {
             href: '#',
