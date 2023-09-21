@@ -17,10 +17,11 @@ const factoryShallowMount = () => shallowMount(VsRow, {
 });
 
 describe('VsButton', () => {
-    it('should render a brow-stub', () => {
+    it('should render a div with class `row`', () => {
         const wrapper = factoryShallowMount();
 
-        expect(wrapper.element.tagName).toBe('B-ROW-STUB');
+        expect(wrapper.element.tagName).toBe('DIV');
+        expect(wrapper.classes()).toContain('row');
     });
 
     describe(':slots', () => {
