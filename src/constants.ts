@@ -4,28 +4,28 @@ import type { SelectOption } from "./types";
 export const products: SelectOption[] = [
     {
         key: 'accommodation',
-        displayName: 'Accommodation',
-        optionValue: 'acco',
+        text: 'Accommodation',
+        value: 'acco',
     },
     {
         key: 'eventsAndFestivals',
-        displayName: `Events & Festivals`,
-        optionValue: 'even',
+        text: `Events & Festivals`,
+        value: 'even',
     },
     {
         key: 'foodAndDrink',
-        displayName: `Food & Drink`,
-        optionValue: 'cate',
+        text: `Food & Drink`,
+        value: 'cate',
     },
     {
         key: 'thingsToDo',
-        displayName: `Things to do`,
-        optionValue: 'acti,attr,reta'
+        text: `Things to do`,
+        value: 'acti,attr,reta'
     },
     {
         key: 'tours',
-        displayName: `Tours`,
-        optionValue: 'tour'
+        text: `Tours`,
+        value: 'tour'
     }
 ];
 

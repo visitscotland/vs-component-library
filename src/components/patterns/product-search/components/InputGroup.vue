@@ -14,7 +14,6 @@ defineProps({
 </script>
 
 <template>
-    <!-- eslint-disable -->
     <div class="form-group">
         <Label>
             {{ label }}

@@ -10,15 +10,18 @@
                         :action="formAction"
                         @submit.prevent="preSubmitChecks"
                         accept-charset="UTF-8"
-                    >
-                        <SelectInput
-                            :label="getLabelText('tour_keywords', 'I\'m looking for')"
-                            id="select-type"
-                            name="prodtypes"
-                            :default-selected="defaultProd"
-                            @change-option="(selectedOption) => selectedProd = selectedOption"
-                            :options="translatedProds"
-                        />
+                    >   
+                        <div class="form-group">
+                            <label for="prodtypes">
+                                {{ getLabelText('tour_keywords', 'I\'m looking for') }}
+                            </label>
+                            <VsSelect
+                                :options="translatedProds"
+                                :value="defaultProd"
+                                @change-option="(selectedOption) => selectedProd = selectedOption"
+                                field-name="prodtypes"
+                            />
+                        </div>
 
                         <div aria-live="polite">
                             <Autocomplete
@@ -153,7 +156,6 @@ import type { Location, TmsApiDataItem, SelectOption } from '../../../../types';
 import VsSelect from '../../../elements/select/Select.vue';
 import Autocomplete from './Autocomplete.vue';
 import GuestSelector from './GuestSelector.vue';
-import SelectInput from './SelectInput.vue';
 import TextInput from './TextInput.vue';
 import DateRange from './DateRange.vue';
 import VsButton from '../../../elements/button/Button.vue';
@@ -235,7 +237,9 @@ const baseUrl  = computed(() => {
     return 'https://www.visitscotland.com';
 }); 
 
-const formAction = computed(() => `${baseUrl.value}${locale.value ? '/'+locale.value : ''}${path.value}/search-results`);
+const formAction  = computed(() => {
+    return `${baseUrl.value}${locale.value ? '/'+locale.value : ''}${path.value}/search-results`
+});
 
 /* Location data */
 const locationLocale = `?locale=${locale.value}`
@@ -281,12 +285,13 @@ const setRender = () => {
 
 const translatedProds = computed(() => {
     if (!reRender.value) {
-        return prods.value.map((product) => {
+        const prodTypes = prods.value.map((product) => {
             return {
                 ...product,
-                displayName: getProductName(product.optionValue, product.displayName)
+                text: getProductName(product.value, product.text)
             };
         });
+        return prodTypes;
     }
 
     return [];
