@@ -18,7 +18,7 @@
                             <VsSelect
                                 :options="translatedProds"
                                 :value="defaultProd"
-                                @change-option="(selectedOption) => selectedProd = selectedOption"
+                                @updated="(selectedOption) => selectedProd = selectedOption.value"
                                 field-name="prodtypes"
                             />
                         </div>
