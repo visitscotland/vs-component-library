@@ -260,9 +260,9 @@ export default {
         &.btn-dark, &.btn-light{
             &.disabled {
                 background-color: $color-secondary-gray-tint-4;
+                border-color: $color-secondary-gray-tint-4;
                 color: $color-white;
                 opacity: $opacity-100;
-                border-width: 0;
 
                 &:hover{
                     background-color: $color-secondary-gray-tint-4;

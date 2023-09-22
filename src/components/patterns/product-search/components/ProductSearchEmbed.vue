@@ -65,7 +65,6 @@
                             >
 
                             <div v-if="selectedProd === 'even' || selectedProd === 'acco'">
-
                                 <DateRange
                                     v-if="selectedProd === 'even' || selectedProd === 'acco'"
                                     :legend="getLabelText('date_label', 'Dates')"

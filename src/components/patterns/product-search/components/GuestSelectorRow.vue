@@ -21,7 +21,7 @@ const emits = defineEmits<{
 const adultCount = ref(props.unitOptions.numberGroups['adults'].count);
 const childrenCount = ref(props.unitOptions.numberGroups['children'].count);
 const infantCount = ref(props.unitOptions.numberGroups['infants'].count);
-const removeText = getLabelText('search_module.guests_rooms.remove', 'Remove');
+const removeText = getLabelText('remove', 'Remove', 'guests_rooms');
 
 const totalChildren = computed(() => childrenCount.value + infantCount.value);
 
@@ -55,28 +55,26 @@ const handleRemove = () => {
 </script>
 
 <template>
-    <div class="guest-selector-row mb-3">
+    <div class="guest-selector-row">
         <div class="guest-selector-row__title">
             {{ unitLabel }}
         </div>
-        <div
-            :class="name !== 'r1' ? 'pt-6' : ''"
+
+        <VsButton
+            class="guest-selector-row__remove"
+            @click.prevent="handleRemove"
+            variant="transparent"
+            icon="close"
+            icon-size="sm"
+            icon-position="left"
+            icon-only
+            size="sm"
             v-if="name !== 'r1'"
         >
-            <VsButton
-                class="guest-selector-row__remove"
-                @click.prevent="handleRemove"
-                variant="transparent"
-                icon="close"
-                icon-size="sm"
-                icon-position="right"
-                size="sm"
-            >
-                {{ removeText }}
-            </VsButton>
-        </div>
+            {{ removeText }}
+        </VsButton>
+
         <div v-if="unitOptions" class="c-search__rooms-guests-picker__row">
-            
             <GuestSelectorNumberGroup
                 v-for="(numberGroup, index) in unitOptions.numberGroups"
                 :adult-count="adultCount"
@@ -124,15 +122,32 @@ const handleRemove = () => {
 <style lang="scss">
     .guest-selector-row {
         position: relative;
+        border-bottom: 1px solid $color-gray-tint-5;
+        margin-bottom: $spacer-4;
+
+        &:last-of-type{
+            border-bottom: 0;
+        }
 
         &__title {
             font-weight: $font-weight-bold;
+            margin-bottom: $spacer-3;
         }
 
         &__remove {
             position: absolute;
             top: 0;
             right: 0;
+            text-transform: none;
+
+            &.vs-button.vs-button--icon-only .vs-icon{
+                margin-right: 2px;
+                vertical-align: middle;
+            }
+        }
+
+        .c-search__rooms-guests-picker__row{
+            margin-bottom: $spacer-4;
         }
     }
 </style>

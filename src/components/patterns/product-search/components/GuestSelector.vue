@@ -64,6 +64,10 @@ const hidePicker = () => {
     visible.value = false;
 };
 
+const togglePicker = () => {
+    visible.value = !visible.value;
+};
+
 const addUnit = () => {
     if (units.value.length < unitLimit) {
         const unit: GuestUnit = {
@@ -136,12 +140,12 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
         <button
             tabIndex="availability ? '0' : ''"
             class="c-search-rooms-guests__trigger trigger form-control select-wrap vs-input"
-            @click.prevent="showPicker"
+            @click.prevent="togglePicker"
             :disabled="!availability"
         >
-            <span class="c-search-rooms-guests-selected">{{ unitCount }} </span>
-            <span class="c-search-rooms-guests__room-label">{{ (unitCount > 1 ? unitsLabel : unitLabel) }}</span>,
-            <span class="c-search-rooms-guests__guests-count">{{ guestCount }} </span>
+            <span class="c-search-rooms-guests-selected">{{ unitCount }}&nbsp;</span>
+            <span class="c-search-rooms-guests__room-label">{{ (unitCount > 1 ? unitsLabel : unitLabel) }}</span>,&nbsp;
+            <span class="c-search-rooms-guests__guests-count">{{ guestCount }}&nbsp;</span>
             <span class="c-search-rooms-guests__guests-label">{{ guestCount > 1 ? guestsLabel : guestLabel }}</span>
         </button>
 
@@ -159,7 +163,7 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
                 @click.prevent="hidePicker"
             >
                 <span class="sr-only">
-                    {{ getLabelText('close', 'Close') }}
+                    {{ getLabelText('close', 'Close', 'guests_rooms') }}
                 </span>
             </VsButton>
 
@@ -177,9 +181,10 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
                 />
             </div>
 
-            <div>
+            <div class="d-flex justify-content-between">
                 <VsButton
                     v-if="units.length < unitLimit"
+                    variant="secondary"
                     class="c-search__popup__btn-link mr-2 align-self-start"
                     @click.prevent="addUnit"
                 >
@@ -222,6 +227,18 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
         &:focus{
             box-shadow: none;
         }
+
+        &::after{
+            font-family: "Font Awesome Kit";
+            content: "\e06c";
+            display: inline-block;
+            position: absolute;
+            top: $spacer-9;
+            right: $spacer-4;
+            pointer-events: none;
+            font-size: $font-size-5;
+            color: $color-base-text;
+        }
     }
 
     .psw-guestpicker {
@@ -231,6 +248,7 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
             width: 100%;
             display: none;
             padding: $spacer-4;
+            box-shadow: $shadow-card-tight;
         }
 
         &__modal--visible {
