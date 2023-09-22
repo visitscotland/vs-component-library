@@ -4,10 +4,6 @@ import { getLabelText } from '../../../../utils/lang';
 import DateInput from './DateInput.vue';
 
 const props = defineProps({
-    legend: {
-        type: String,
-        default: '',
-    },
     startLabel: {
         type: String,
         required: false,

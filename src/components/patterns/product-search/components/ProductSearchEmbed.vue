@@ -13,7 +13,7 @@
                     >   
                         <div class="form-group">
                             <label for="prodtypes">
-                                {{ getLabelText('tour_keywords', 'I\'m looking for') }}
+                                {{ getLabelText('search_for', 'I\'m looking for') }}
                             </label>
                             <VsSelect
                                 :options="translatedProds"
@@ -67,7 +67,6 @@
                             <div v-if="selectedProd === 'even' || selectedProd === 'acco'">
                                 <DateRange
                                     v-if="selectedProd === 'even' || selectedProd === 'acco'"
-                                    :legend="getLabelText('date_label', 'Dates')"
                                     :start-label="getLabelText('startdate', 'Start Date', 'dates')"
                                     :end-label="getLabelText('enddate', 'End Date', 'dates')"
                                     :default-dates="defaultDates"
@@ -82,6 +81,7 @@
                                     </label>
                                     <VsInput
                                         field-name="search-keyword"
+                                        :placeholder="getLabelText('events_keywords_placeholder', 'Highland games, music festivals etc')"
                                         name="name"
                                     />
                                 </div>
