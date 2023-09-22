@@ -74,12 +74,18 @@
                                     :default-dates="defaultDates"
                                 />
 
-                                <TextInput
+                                <div 
+                                    class="form-group"
                                     v-if="selectedProd === 'even'"
-                                    name="name"
-                                    :label="getLabelText('keywords', 'Keywords')"
-                                    id="search-keywords"
-                                />
+                                >
+                                    <label for="search-keyword">
+                                        {{ getLabelText('keywords', 'Keywords') }}
+                                    </label>
+                                    <VsInput
+                                        field-name="search-keyword"
+                                        name="name"
+                                    />
+                                </div>
 
                                 <GuestSelector
                                     v-if="selectedProd === 'acco'"
@@ -127,10 +133,6 @@
                                 track-by="value"
                             />
                         </div>
-                        <!-- <input
-                            type="submit"
-                            :value="getLabelText('search', 'Search')"
-                        /> -->
 
                         <VsButton
                             class="mt-6"
@@ -154,9 +156,9 @@ import { getData } from '../../../../utils/axios';
 import type { Location, TmsApiDataItem, SelectOption } from '../../../../types';
 
 import VsSelect from '../../../elements/select/Select.vue';
+import VsInput from '../../../elements/input/Input.vue';
 import Autocomplete from './Autocomplete.vue';
 import GuestSelector from './GuestSelector.vue';
-import TextInput from './TextInput.vue';
 import DateRange from './DateRange.vue';
 import VsButton from '../../../elements/button/Button.vue';
 
