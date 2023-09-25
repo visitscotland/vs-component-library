@@ -33,7 +33,7 @@ const nights = computed(() => {
     const start = new Date(startDate.value);
     // Calculate the time difference of two dates
     const timeDiff = end.getTime() - start.getTime();
-    /* eslint-disable-next-line */
+
     if (isNaN(timeDiff)) {
         return 1;
     }

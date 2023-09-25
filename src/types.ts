@@ -1,7 +1,7 @@
 export type SelectOption = {
     key: string;
-    displayName: string;
-    optionValue: string;
+    text: string;
+    value: string;
 };
 
 export type Location = {
