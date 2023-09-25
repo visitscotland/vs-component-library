@@ -265,16 +265,7 @@ export default {
             &::after {
                 font-family: "Font Awesome Kit";
                 content: "\e06c";
-                line-height: $line-height-s;
-                vertical-align: text-top;
-                text-align: center;
                 display: inline-block;
-                text-rendering: auto;
-                -webkit-font-smoothing: antialiased;
-                width: 1.5rem;
-                height: 1.5rem;
-                border: 1px solid $color-black;
-                border-radius: 1000px;
                 position: absolute;
                 top: calc(50% - #{$spacer-3});
                 right: $spacer-4;
@@ -291,7 +282,7 @@ export default {
             margin: 0;
             width: 100%;
             font-family: inherit;
-            font-size: inherit;
+            font-size: $font-size-4;
             cursor: inherit;
             line-height: inherit;
             height: 50px;

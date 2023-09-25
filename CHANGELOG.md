@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.35](https://github.com/visitscotland/vs-component-library/compare/v1.0.34...v1.0.35) (2023-09-20)
+
+
+### 🐛 Bug Fixes
+
+* **psw:** check window defined before access ([d5ff23d](https://github.com/visitscotland/vs-component-library/commit/d5ff23d2c09b5f6046adacdabcbe959acc454a89))
+
+### [1.0.34](https://github.com/visitscotland/vs-component-library/compare/v1.0.33...v1.0.34) (2023-09-20)
+
+
+### 🐛 Bug Fixes
+
+* fix issue with polygon locations ([ba00882](https://github.com/visitscotland/vs-component-library/commit/ba00882e0c2b8d885eec7db6ae759617950a6ab7))
+
+### [1.0.33](https://github.com/visitscotland/vs-component-library/compare/v1.0.32...v1.0.33) (2023-09-19)
+
+
+### ♻️ Code Refactoring
+
+* **maps:** update iCentre category ID and add regional map example ([7e1916d](https://github.com/visitscotland/vs-component-library/commit/7e1916d6ab68f8be9ae75689c97d194977d19bbd)), closes [#160](https://github.com/visitscotland/vs-component-library/issues/160)
+
+
+### 🐛 Bug Fixes
+
+* **psw:** fix host url for psw search ([bad24d1](https://github.com/visitscotland/vs-component-library/commit/bad24d12a5ed9048eebc9a1a95b4cef4c3766c39))
+
+### [1.0.32](https://github.com/visitscotland/vs-component-library/compare/v1.0.31...v1.0.32) (2023-09-19)
+
+
+### 🐛 Bug Fixes
+
+* **psw:** fix correct base url for product search widget ([ecc5372](https://github.com/visitscotland/vs-component-library/commit/ecc53726821da1fb018fd4bf2b40e00379167076))
+
 ### [1.0.31](https://github.com/visitscotland/vs-component-library/compare/v1.0.30...v1.0.31) (2023-09-18)
 
 

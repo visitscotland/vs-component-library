@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, watch, computed } from 'vue';
-import Label from './Label.vue';
 
 const props = defineProps<{
     label: string,

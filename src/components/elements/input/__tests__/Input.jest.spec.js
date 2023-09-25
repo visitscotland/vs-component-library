@@ -22,7 +22,7 @@ describe('VsInput', () => {
     });
 
     describe(':props', () => {
-        it('value - should accept and render a `value` property', async() => {
+        it('should accept and render a `value` property', async() => {
             const testValue = 'Test Value';
             wrapper.setProps({
                 value: testValue,
@@ -33,7 +33,7 @@ describe('VsInput', () => {
             expect(wrapper.vm.inputVal).toBe(testValue);
         });
 
-        it('value - should accept and render a `fieldName` property', async() => {
+        it('should set the correct name if `fieldName` property is passed', async() => {
             wrapper.setProps({
                 fieldName: 'testValue',
             });
@@ -43,7 +43,38 @@ describe('VsInput', () => {
             expect(wrapper.find('.vs-input').attributes('name')).toBe('testValue');
         });
 
-        it('value - should accept and render a `type` property', async() => {
+        it('should set the correct id if `fieldName` property is passed', async() => {
+            wrapper.setProps({
+                fieldName: 'testValue',
+            });
+
+            await wrapper.vm.$nextTick();
+
+            expect(wrapper.find('.vs-input').attributes('id')).toBe('testValue');
+        });
+
+        it('should set the  name if `name` property is passed', async() => {
+            wrapper.setProps({
+                name: 'testName',
+            });
+
+            await wrapper.vm.$nextTick();
+
+            expect(wrapper.find('.vs-input').attributes('name')).toBe('testName');
+        });
+
+        it('should set the name as `name` if both `fieldName` `name` are passed', async() => {
+            wrapper.setProps({
+                fieldName: 'testValue',
+                name: 'testName',
+            });
+
+            await wrapper.vm.$nextTick();
+
+            expect(wrapper.find('.vs-input').attributes('name')).toBe('testName');
+        });
+
+        it('should accept and render a `type` property', async() => {
             expect(wrapper.find('.vs-input').attributes('type')).toBe('text');
         });
 
@@ -62,7 +93,7 @@ describe('VsInput', () => {
     });
 
     describe(':computed', () => {
-        it('should add a required prop when its included in valdiation rules', async() => {
+        it('should add a required prop when its included in validation rules', async() => {
             wrapper.setProps({
                 validationRules: {
                     required: true,

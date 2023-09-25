@@ -11,15 +11,18 @@
                         @submit.prevent="preSubmitChecks"
                         accept-charset="UTF-8"
                         v-if="locationDataLoaded"
-                    >
-                        <SelectInput
-                            :label="getLabelText('tour_keywords', 'I\'m looking for')"
-                            id="select-type"
-                            name="prodtypes"
-                            :default-selected="defaultProd"
-                            @change-option="(selectedOption) => selectedProd = selectedOption"
-                            :options="translatedProds"
-                        />
+                    >   
+                        <div class="form-group">
+                            <label for="prodtypes">
+                                {{ getLabelText('search_for', 'I\'m looking for') }}
+                            </label>
+                            <VsSelect
+                                :options="translatedProds"
+                                :value="defaultProd"
+                                @updated="(selectedOption) => selectedProd = selectedOption.value"
+                                field-name="prodtypes"
+                            />
+                        </div>
 
                         <div aria-live="polite">
                             <Autocomplete
@@ -63,21 +66,26 @@
                             >
 
                             <div v-if="selectedProd === 'even' || selectedProd === 'acco'">
-
                                 <DateRange
                                     v-if="selectedProd === 'even' || selectedProd === 'acco'"
-                                    :legend="getLabelText('date_label', 'Dates')"
                                     :start-label="getLabelText('startdate', 'Start Date', 'dates')"
                                     :end-label="getLabelText('enddate', 'End Date', 'dates')"
                                     :default-dates="defaultDates"
                                 />
 
-                                <TextInput
+                                <div 
+                                    class="form-group"
                                     v-if="selectedProd === 'even'"
-                                    name="name"
-                                    :label="getLabelText('keywords', 'Keywords')"
-                                    id="search-keywords"
-                                />
+                                >
+                                    <label for="search-keyword">
+                                        {{ getLabelText('keywords', 'Keywords') }}
+                                    </label>
+                                    <VsInput
+                                        field-name="search-keyword"
+                                        :placeholder="getLabelText('events_keywords_placeholder', 'Highland games, music festivals etc')"
+                                        name="name"
+                                    />
+                                </div>
 
                                 <GuestSelector
                                     v-if="selectedProd === 'acco'"
@@ -125,10 +133,6 @@
                                 track-by="value"
                             />
                         </div>
-                        <!-- <input
-                            type="submit"
-                            :value="getLabelText('search', 'Search')"
-                        /> -->
 
                         <VsButton
                             class="mt-6"
@@ -156,10 +160,9 @@ import { getData } from '../../../../utils/axios';
 import type { Location, TmsApiDataItem, SelectOption } from '../../../../types';
 import VsLoadingSpinner from '@components/elements/loading-spinner/LoadingSpinner.vue';
 import VsSelect from '../../../elements/select/Select.vue';
+import VsInput from '../../../elements/input/Input.vue';
 import Autocomplete from './Autocomplete.vue';
 import GuestSelector from './GuestSelector.vue';
-import SelectInput from './SelectInput.vue';
-import TextInput from './TextInput.vue';
 import DateRange from './DateRange.vue';
 import VsButton from '../../../elements/button/Button.vue';
 
@@ -227,16 +230,22 @@ const locale = computed(() => {
 });
 
 const baseUrl  = computed(() => {
-    let host = window.location.host;
-    
-    if (host.includes('localhost')) {
-        return 'https://www.visitscotland.com'
+    if (typeof window !== 'undefined') {
+        let origin = window.location.origin;
+
+        if (origin.includes('localhost')) {
+            return 'https://www.visitscotland.com'
+        }
+
+        return origin;
     }
 
-    return host;
+    return 'https://www.visitscotland.com';
 }); 
 
-const formAction = computed(() => `${baseUrl.value}${locale.value ? '/'+locale.value : ''}${path.value}/search-results`);
+const formAction  = computed(() => {
+    return `${baseUrl.value}${locale.value ? '/'+locale.value : ''}${path.value}/search-results`
+});
 
 
 /* Location data */
@@ -245,7 +254,7 @@ const locationsUrl = `https://www.visitscotland.com/data/locations` + locationLo
 const locations = ref<Location[]>([]);
 
 const getPlaceData = (placeKey) => {
-    chosenLocation.value = locations.value.find(place => place.key === placeKey);
+    chosenLocation.value = locations.value.find(place => place.name === placeKey);
 };
 
 /* Attractions data */
@@ -270,12 +279,13 @@ const initProductTypes = () => {
 
 const translatedProds = computed(() => {
     if (!reRender.value) {
-        return prods.value.map((product) => {
+        const prodTypes = prods.value.map((product) => {
             return {
                 ...product,
-                displayName: getProductName(product.optionValue, product.displayName)
+                text: getProductName(product.value, product.text)
             };
         });
+        return prodTypes;
     }
 
     return [];

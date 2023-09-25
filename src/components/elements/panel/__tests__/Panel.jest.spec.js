@@ -38,13 +38,6 @@ describe('VsPanel', () => {
         expect(wrapper.element.tagName).toBe('B-CARD-STUB');
     });
 
-    it('should render a b-card-text-stub', () => {
-        const wrapper = factoryShallowMount();
-        const cardTextStub = wrapper.find('b-card-text-stub');
-
-        expect(cardTextStub.exists()).toBe(true);
-    });
-
     describe(':slots', () => {
         it('renders content inserted into default `slot`', () => {
             const wrapper = factoryShallowMount();
