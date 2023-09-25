@@ -12,7 +12,7 @@ defineProps<{
     label: String;
 }>();
 
-const addUnitLabel = getLabelText('add_unit_label', 'Add Unit', 'guests_rooms');
+const addUnitLabel = getLabelText('add_room_label', 'Add a Room', 'guests_rooms');
 const addUnitConfirmLabel = getLabelText('save_changes', 'Save', 'guests_rooms');
 const adultDefaultCount = 1;
 const guestCount = ref(2);
@@ -50,8 +50,8 @@ const units = ref<GuestUnit[]>([
     },
 ]);
 const unitCount = ref(1);
-const unitLabel = getLabelText('unit', 'Unit', 'guests_rooms');
-const unitsLabel = getLabelText('units', 'Units', 'guests_rooms');
+const unitLabel = getLabelText('room', 'Room', 'guests_rooms');
+const unitsLabel = getLabelText('rooms', 'Rooms', 'guests_rooms');
 const unitLimit = 5;
 const unitRemoved = ref(false);
 const visible = ref(false);
@@ -173,7 +173,7 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
                     :key="unit.id"
                     :name="'r' + (index + 1)"
                     :show-remove-btn="showRemoveBtn"
-                    :unit-label="getLabelText('unit', 'Unit', 'guests_rooms') + ' ' + (index + 1)"
+                    :unit-label="getLabelText('room', 'Room', 'guests_rooms') + ' ' + (index + 1)"
                     :unit-options="unit"
                     :unit-removed="unitRemoved"
                     @number-change="handleChange"
