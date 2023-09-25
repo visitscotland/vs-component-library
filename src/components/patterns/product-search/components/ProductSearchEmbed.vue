@@ -1,5 +1,8 @@
 <template>
-    <div class="vs-product-search-embed">
+    <div 
+        class="vs-product-search-embed"
+        data-test="vs-product-search-embed"
+    >
         <div 
             v-if="!reRender"
             class="container"
@@ -10,6 +13,7 @@
                         :action="formAction"
                         @submit.prevent="preSubmitChecks"
                         accept-charset="UTF-8"
+                        data-test="psw-form"
                         v-if="locationDataLoaded"
                     >   
                         <div class="form-group">
@@ -198,7 +202,7 @@ const path = computed(() => {
     const pathValue = typeof selectedProd.value === 'undefined' ? 'see-do' : selectedProd.value;
     return `/info/${paths[pathValue]}`;
 });
-let locationDataLoaded = false;
+let locationDataLoaded = ref(false);
 const langConfig = {
     en: {
         localeUrl: '',
@@ -326,7 +330,7 @@ onMounted(async () => {
     }
 
     // Once data is loaded, load child components reliant on it
-    locationDataLoaded = true;
+    locationDataLoaded.value = true;
  
     selectedProd.value = props.defaultProd;
 
