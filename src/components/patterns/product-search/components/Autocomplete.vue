@@ -87,6 +87,25 @@ onMounted(() => {
 });
 </script>
 
+<style lang="scss">
+    .simple-typeahead {
+        &-list-item:hover, &-list-item.pseudo-hover{
+            background-color: $color-gray-tint-7!important;
+            color: $color-pink!important;
+        }
+
+        &::after {
+            font-family: "Font Awesome Kit";
+            content: "\e06c";
+            display: inline-block;
+            position: absolute;
+            top: calc(50% - $spacer-3);
+            right: $spacer-4;
+            pointer-events: none;
+        }
+    }    
+</style>
+
 <template>
     <div class="mb-4">
         <label :for="id">{{ label }}</label>

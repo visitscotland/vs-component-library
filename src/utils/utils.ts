@@ -41,10 +41,9 @@ export function getProductTypes() {
     prodKeys.forEach((prodKey) => {
         prodArray.push({
             key: VSprods[prodKey].value,
-            displayName: VSprods[prodKey].text,
-            optionValue: VSprods[prodKey].value,
+            text: VSprods[prodKey].text,
+            value: VSprods[prodKey].value,
         });
     });
-
     return prodArray;
 };

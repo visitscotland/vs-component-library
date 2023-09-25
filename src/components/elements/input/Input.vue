@@ -34,7 +34,7 @@
             v-model="inputVal"
             :class="elementClass"
             :id="fieldName"
-            :name="fieldName"
+            :name="name ? name : fieldName"
             :placeholder="placeholder"
             :required="isRequired"
             :autocomplete="autocompleteValue(fieldName)"
@@ -100,6 +100,13 @@ export default {
          * Name of the field (for name and id attributes)
          */
         fieldName: {
+            type: String,
+            required: true,
+        },
+        /**
+         * Name of the field (if different from ID)
+         */
+        name: {
             type: String,
             required: true,
         },
