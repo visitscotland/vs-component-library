@@ -17,3 +17,13 @@ body {
 .zindex-fixed {
     z-index: $zindex-fixed;
 }
+
+.vs-sticky-nav {
+    position: sticky;
+    z-index: $zindex-fixed;
+    top: -28px;
+
+    @include media-breakpoint-up(md) {
+        top: -35px;
+    }
+}
