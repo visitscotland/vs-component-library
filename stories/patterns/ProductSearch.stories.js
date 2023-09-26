@@ -1,5 +1,9 @@
 import VsProductSearch from '@/components/patterns/product-search/ProductSearch.vue';
 
+import {
+    within, waitFor, userEvent,
+} from '@storybook/testing-library';
+
 export default {
     component: VsProductSearch,
     title: 'Patterns/ProductSearch',
@@ -63,6 +67,18 @@ export const Default = Template.bind({
 
 Default.args = base;
 
+Default.play = async({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await waitFor(async() => {
+        const search = canvas.getByText('Search');
+        await userEvent.hover(search);
+    }, {
+        timeout: 15000,
+        interval: 250,
+    });
+};
+
 export const DefaultLocation = Template.bind({
 });
 
@@ -70,6 +86,8 @@ DefaultLocation.args = {
     ...base,
     defaultLocation: '4161',
 };
+
+DefaultLocation.play = Default.play;
 
 export const DefaultLanguage = Template.bind({
 });
@@ -79,6 +97,8 @@ DefaultLanguage.args = {
     defaultLocale: 'fr',
 };
 
+DefaultLanguage.play = Default.play;
+
 export const Accommodation = Template.bind({
 });
 
@@ -86,6 +106,8 @@ Accommodation.args = {
     ...base,
     defaultProd: 'acco',
 };
+
+Accommodation.play = Default.play;
 
 export const FoodAndDrink = Template.bind({
 });
@@ -95,6 +117,8 @@ FoodAndDrink.args = {
     defaultProd: 'cate',
 };
 
+FoodAndDrink.play = Default.play;
+
 export const EventsAndFestivals = Template.bind({
 });
 
@@ -103,6 +127,8 @@ EventsAndFestivals.args = {
     defaultProd: 'even',
 };
 
+EventsAndFestivals.play = Default.play;
+
 export const Tours = Template.bind({
 });
 
@@ -110,6 +136,8 @@ Tours.args = {
     ...base,
     defaultProd: 'tour',
 };
+
+Tours.play = Default.play;
 
 export const NoJs = Template.bind({
 });
