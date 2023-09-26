@@ -1,5 +1,8 @@
 <template>
-    <div ref="mapboxOuter">
+    <div
+        ref="mapboxOuter"
+        data-chromatic="ignore"
+    >
         <div
             class="vs-itinerary-map"
             ref="mapbox"

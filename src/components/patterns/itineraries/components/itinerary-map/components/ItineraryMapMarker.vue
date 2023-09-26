@@ -11,7 +11,6 @@
         @blur="handleClick()"
         @click="handleClick()"
         @keydown="handleClick()"
-        data-chromatic="ignore"
     >
         <div class="vs-map-marker__wrapper">
             <VsIcon
