@@ -1,13 +1,42 @@
-import { shallowMount, config, flushPromises } from '@vue/test-utils';
+import { shallowMount, mount,config, flushPromises } from '@vue/test-utils';
 import VsProductSearchEmbed from '../ProductSearchEmbed.vue';
 import axios from 'axios';
 import locationsData from './data/locationsData.json';
+import locationsDataFr from './data/locationsDataFr.json';
+import toursOriginData from './data/toursOriginData.json';
+import toursAttractionData from './data/toursAttractionData.json';
 
 config.global.renderStubDefaultSlot = true;
 
-jest.spyOn(axios, 'get').mockResolvedValue(locationsData);
+const mockGet = jest.spyOn(axios, 'get');
+
+const locationsDataUrl = 'https://www.visitscotland.com/data/locations?locale='
+const locationsDataFrUrl = 'https://www.visitscotland.com/data/locations?locale=fr'
+const toursOriginDataUrl = 'https://www.visitscotland.com/tms-api/v1/origins?active=1'
+const toursAttractionDataUrl = 'https://www.visitscotland.com/tms-api/v1/attractions'
+
+mockGet.mockImplementation((url) => {
+    switch (url) {
+        case locationsDataUrl:
+            return Promise.resolve(locationsData)
+        case locationsDataFrUrl:
+            return Promise.resolve(locationsDataFr)
+        case toursOriginDataUrl:
+            return Promise.resolve(toursOriginData)
+        case toursAttractionDataUrl:
+                return Promise.resolve(toursAttractionData)    
+        default:
+            return Promise.reject(new Error('not found'))
+    }
+  })
 
 const factoryShallowMount = (propsData) => shallowMount(VsProductSearchEmbed, {
+    propsData: {
+        ...propsData,
+    }
+});
+
+const factoryMount = (propsData) => mount(VsProductSearchEmbed, {
     propsData: {
         ...propsData,
     }
@@ -30,47 +59,121 @@ describe('VsProductSearchEmbed', () => {
 
     it('should show the form when location data is loaded on mounted', async () => {
         const wrapper = factoryShallowMount();
-        expect(axios.get).toHaveBeenCalledWith('https://www.visitscotland.com/data/locations?locale=')
+        expect(axios.get).toHaveBeenCalledWith(locationsDataUrl)
         await flushPromises()
         expect(wrapper.find('[data-test="psw-form"]').exists()).toBe(true);
     });
 
-    describe(':props', () => {
-        // it.only('should pass correct location when `defaultLocation` prop is specified', async () => {
-        //     const wrapper = factoryShallowMount();
-        //     expect(axios.get).toHaveBeenCalledTimes(1)
-        //     expect(axios.get).toHaveBeenCalledWith('https://www.visitscotland.com/data/locations?locale=')
-        //     console.log(wrapper.html())
-        //     await flushPromises()
-        //     console.log(wrapper.html())
-        //     // expect(wrapper.find('vs-product-search-embed-stub').attributes().defaultlocation).toBe('4161');
-        // });
 
-        // it('should pass correct locale when `defaultLocale` prop is specified', () => {
-        //     const wrapper = factoryShallowMount({
-        //         defaultLocale: 'fr',
-        //     });
-        //     expect(wrapper.find('vs-product-search-embed-stub').attributes().defaultlocale).toBe('fr');
-        // });
-
-        // it('should pass correct product type when `defaultProd` prop is specified', () => {
-        //     const wrapper = factoryShallowMount({
-        //         defaultProd: 'acco',
-        //     });
-        //     console.log(wrapper.html());
-        //     expect(wrapper.find('vs-product-search-embed-stub').attributes().defaultprod).toBe('acco');
-        // });
+    it('sets the correct form elements for `Things to do` by default', async () => {
+        const wrapper = factoryShallowMount();
+        await flushPromises()
+        const productTypeSelect = wrapper.find('vs-select-stub');
+        expect(productTypeSelect.exists()).toBe(true);
+        expect(productTypeSelect.attributes('value')).toBe('acti,attr,reta');
+        expect(wrapper.find('#search-location').exists()).toBe(true);
     });
 
-    // describe(':slots', () => {
-    //     it('renders content inserted into the `vs-module-heading` slot', () => {
-    //         const wrapper = factoryShallowMount();
-    //         expect(wrapper.find('vs-heading-stub').text()).toContain(headingSlot);
-    //     });
+    it('sets correct form action URL by default', async () => {
+        const wrapper = factoryShallowMount();
+        await flushPromises()
+        expect(wrapper.find('[data-test="psw-form"]').attributes('action')).toBe('https://www.visitscotland.com/info/see-do/search-results');
+    });
 
-    //     it('renders content inserted into the `vs-module-intro` slot', () => {
-    //         const wrapper = factoryShallowMount();
-    //         expect(wrapper.find('.vs-product-search__intro').text()).toContain(introSlot);
-    //     });
-    // });
+    describe(':props', () => {
+        it('sets the correct form elements for `Accommodation` when `acco` is passed as `defaultProd`', async () => {
+            const wrapper = factoryShallowMount({
+                defaultProd: 'acco',
+            });
+            await flushPromises()
+            const productTypeSelect = wrapper.find('vs-select-stub');
+
+            expect(productTypeSelect.exists()).toBe(true);
+            expect(productTypeSelect.attributes('value')).toBe('acco');
+            expect(wrapper.find('#search-location').exists()).toBe(true);
+            expect(wrapper.find('date-range-stub').exists()).toBe(true);
+            expect(wrapper.find('guest-selector-stub').exists()).toBe(true);
+        });
+
+        it('sets the correct form elements for `Events & Festivals` when `even` is passed as `defaultProd`', async () => {
+            const wrapper = factoryShallowMount({
+                defaultProd: 'even',
+            });
+            await flushPromises()
+            const productTypeSelect = wrapper.find('vs-select-stub');
+
+            expect(productTypeSelect.exists()).toBe(true);
+            expect(productTypeSelect.attributes('value')).toBe('even');
+            expect(wrapper.find('#search-location').exists()).toBe(true);
+            expect(wrapper.find('date-range-stub').exists()).toBe(true);
+            expect(wrapper.find('vs-input-stub').attributes('fieldname')).toBe('search-keyword');
+        });
+
+        it('sets the correct form elements for `Food & Drink` when `cate` is passed as `defaultProd`', async () => {
+            const wrapper = factoryShallowMount({
+                defaultProd: 'cate',
+            });
+            await flushPromises()
+            const productTypeSelect = wrapper.find('vs-select-stub');
+
+            expect(productTypeSelect.exists()).toBe(true);
+            expect(productTypeSelect.attributes('value')).toBe('cate');
+            expect(wrapper.find('#search-location').exists()).toBe(true);
+        });
+
+        it('sets the correct form elements for `Tours` when `tour` is passed as `defaultProd`', async () => {
+            const wrapper = factoryShallowMount({
+                defaultProd: 'tour',
+            });
+            await flushPromises()
+            const productTypeSelect = wrapper.find('vs-select-stub');
+
+            expect(productTypeSelect.exists()).toBe(true);
+            expect(productTypeSelect.attributes('value')).toBe('tour');
+            expect(wrapper.find('#tour-origin').exists()).toBe(true);
+            expect(wrapper.find('#tour-month').exists()).toBe(true);
+        });
+
+        it('should set correct form action URL when `defaultLocale` prop is passed', async () => {
+            const wrapper = factoryShallowMount({
+                defaultLocale: 'fr',
+            });
+            await flushPromises()
+
+            expect(wrapper.find('[data-test="psw-form"]').attributes('action')).toBe('https://www.visitscotland.com/fr/info/see-do/search-results');
+        });
+    });
+
+    describe(':methods', () => {
+        it('gets Tours data when tours product type is default', async () => {
+            factoryShallowMount({
+                defaultProd: 'tour',
+            });
+            expect(axios.get).toHaveBeenCalledWith(toursOriginDataUrl)
+            expect(axios.get).toHaveBeenCalledWith(toursAttractionDataUrl)
+        });
+
+        it('gets Tours data when product type is changed to `tours`', async () => {
+            const wrapper = factoryShallowMount();
+            await flushPromises()
+
+            wrapper.vm.onChange({field: 'prodtypes', value: 'tour'});
+            
+            expect(axios.get).toHaveBeenCalledWith(toursOriginDataUrl)
+            expect(axios.get).toHaveBeenCalledWith(toursAttractionDataUrl)
+
+        });
+
+        it('submits the form on button trigger', async () => {
+            const wrapper = factoryMount({});
+            await flushPromises()
+
+            const mockPreSubmitChecks = jest.spyOn(wrapper.vm, 'preSubmitChecks');
+            await wrapper.find('form').trigger('submit.prevent')
+
+            setTimeout(() => {
+                expect(mockPreSubmitChecks).toHaveBeenCalled();
+            }, 100);
+        });
+    });
 });
