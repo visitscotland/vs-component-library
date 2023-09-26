@@ -41,7 +41,10 @@
             <!-- @slot The tips content for the stop -->
             <slot name="stop-tips" />
 
-            <div class="vs-itinerary-stop__details-container">
+            <div
+                class="vs-itinerary-stop__details-container"
+                data-chromatic="ignore"
+            >
                 <div
                     class="vs-itinerary-stop__address"
                     v-if="!!$slots['stop-address']"
