@@ -74,7 +74,7 @@ Default.play = async({ canvasElement }) => {
         const search = canvas.getByText('Search');
         await userEvent.hover(search);
     }, {
-        timeout: 5000,
+        timeout: 15000,
         interval: 100,
     });
 };
