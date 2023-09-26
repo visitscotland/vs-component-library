@@ -51,8 +51,10 @@
                     <slot name="stop-address" />
                 </div>
 
-                <!-- @slot The opening hours components for the stop -->
-                <slot name="stop-info" />
+                <div data-chromatic="ignore">
+                    <!-- @slot The opening hours components for the stop -->
+                    <slot name="stop-info" />
+                </div>
             </div>
 
             <!-- @slot The facilities content for the stop -->
