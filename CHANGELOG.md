@@ -2,6 +2,52 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.36](https://github.com/visitscotland/vs-component-library/compare/v1.0.35...v1.0.36) (2023-09-26)
+
+
+### ⚡️ Performance Improvements
+
+* **bootstrap vue:** remove bvue component from row ([13b88df](https://github.com/visitscotland/vs-component-library/commit/13b88dfa2e045896f2214f0bdd3912cc8f07568b))
+* **bvue:** remove bvue component from panel ([b38b8dd](https://github.com/visitscotland/vs-component-library/commit/b38b8ddd2495b583afe2e009e064e6753366df85))
+
+
+### ♻️ Code Refactoring
+
+* **psw:** fixing UI issues and small bugs in PSW ([6a6f349](https://github.com/visitscotland/vs-component-library/commit/6a6f3491924899c3f79d556bd4a0faa343631861))
+* **psw:** refactor psw to use select component ([d778018](https://github.com/visitscotland/vs-component-library/commit/d778018986404fd2b4e942eba6956fc10eb5c0b4))
+* **psw:** update labels in PSW ([e7aa1a1](https://github.com/visitscotland/vs-component-library/commit/e7aa1a1bfd2ef55d0e541788880f3b2af2f61c1b))
+* **psw:** update text inputs to use input component and remove unused PSW components ([e2ca77f](https://github.com/visitscotland/vs-component-library/commit/e2ca77f8f0dfc2603de1dc9cac11617f138abf42))
+
+
+### 🎨 Styling
+
+* **select:** update style of Select component to match designs ([3acbdbb](https://github.com/visitscotland/vs-component-library/commit/3acbdbb78a3dfb076f39663573db0a30dfd6424b))
+* **storybook:** add favicon to storybook ([8ce5b7f](https://github.com/visitscotland/vs-component-library/commit/8ce5b7f96f950cd3b1e67196fafb056f66d3f137))
+
+
+### ✨ Features
+
+* **map:** place a white blocker behind map nav buttons ([76dd6bc](https://github.com/visitscotland/vs-component-library/commit/76dd6bc0633c945e10e5fda5d0566d67dff7959f))
+* **sticky nav:** implement sticky meganav ([da64263](https://github.com/visitscotland/vs-component-library/commit/da64263f4f66fa78078ba1882387fde0fee4f7de))
+
+
+### 🐛 Bug Fixes
+
+* **chromatic:** chromatic ignore stop date info ([82b2b3f](https://github.com/visitscotland/vs-component-library/commit/82b2b3fd551c27a1946e0bf384a94f9f9a6d072b))
+* **chromatic:** force PSW stories to await location load ([99a38bb](https://github.com/visitscotland/vs-component-library/commit/99a38bbaea7aa03c35b9d28f4a03ca4f14a201d6))
+* **chromatic:** ignore changes to itinerary map markers ([f94d603](https://github.com/visitscotland/vs-component-library/commit/f94d603cbb782815423c967435668f72df4a5a7e))
+* **chromatic:** mock PSW location load to prevent timeout ([262aabb](https://github.com/visitscotland/vs-component-library/commit/262aabb7dd964cc5db8512077789eb58e744b80f))
+* **chromatic:** move map ignore up a level ([0ae51dd](https://github.com/visitscotland/vs-component-library/commit/0ae51ddf394bcbd9481b235e8d13345fb0f7411b))
+* **chromatic:** move stop ignore up a level ([33c9ff1](https://github.com/visitscotland/vs-component-library/commit/33c9ff13911052657dea75bd04758e305ff0c189))
+* **chromatic:** re-increase timeout ([3f47bf0](https://github.com/visitscotland/vs-component-library/commit/3f47bf02a4522ae97e79a253c1191f9bceab4060))
+* **chromatic:** remove play functions ([386b952](https://github.com/visitscotland/vs-component-library/commit/386b9523c5d50d6ff629565394eb78af54c73c42))
+* **chromatic:** speed up psw tests ([052dde6](https://github.com/visitscotland/vs-component-library/commit/052dde6956ffd9b0c8974b05d4611dbf318ff686))
+* **map:** correct mobile/desktop style divide ([b1383d8](https://github.com/visitscotland/vs-component-library/commit/b1383d8196d7ca943290a7e0b30746a69c471f33))
+* **map:** make colour of links explicit for iphone ([cf8c193](https://github.com/visitscotland/vs-component-library/commit/cf8c193f6ac96debb1ebcc502809c568f9eb40d7))
+* **megalinks:** add intro examples to all 3 megalink types ([0d67e36](https://github.com/visitscotland/vs-component-library/commit/0d67e369f773231601e73a8ae9b2810c010dd428))
+* **psw:** fix loading issue for PSW ([1b8b50a](https://github.com/visitscotland/vs-component-library/commit/1b8b50aad79f5d4078b9d78c64416d21380b7512))
+* **psw:** fix selectedProd when changing select ([789414e](https://github.com/visitscotland/vs-component-library/commit/789414e8d2b9a9a75f84cf2351fc56bc8e547975))
+
 ### [1.0.35](https://github.com/visitscotland/vs-component-library/compare/v1.0.34...v1.0.35) (2023-09-20)
 
 
