@@ -4,6 +4,9 @@ import {
     within, waitFor, userEvent,
 } from '@storybook/testing-library';
 
+import enLocations from '@/assets/fixtures/product-search/enLocations.json';
+import frLocations from '@/assets/fixtures/product-search/frLocations.json';
+
 export default {
     component: VsProductSearch,
     title: 'Patterns/ProductSearch',
@@ -24,6 +27,24 @@ export default {
                 type: 'text',
             },
         },
+    },
+    parameters: {
+        mockData: [
+            {
+                url: 'https://www.visitscotland.com/data/locations',
+                method: 'GET',
+                status: 200,
+                response: (request) => {
+                    const { searchParams } = request;
+
+                    if (searchParams.locale === 'fr') {
+                        return frLocations;
+                    }
+
+                    return enLocations;
+                },
+            },
+        ],
     },
 
 };
@@ -97,7 +118,17 @@ DefaultLanguage.args = {
     defaultLocale: 'fr',
 };
 
-DefaultLanguage.play = Default.play;
+DefaultLanguage.play = async({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await waitFor(async() => {
+        const search = canvas.getByText('Recherche');
+        await userEvent.hover(search);
+    }, {
+        timeout: 15000,
+        interval: 100,
+    });
+};
 
 export const Accommodation = Template.bind({
 });
