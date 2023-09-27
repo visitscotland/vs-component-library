@@ -31,20 +31,9 @@ const inputValueFormatted = computed(() => {
                 return chosenOption.slug;
             }
         }
-
         return inputValue.value;
     }
 })
-const hiddenFields = computed(() => {
-    if (!Array.isArray(inputValue.value) || inputValue.value.length === 0 ) { return };
-    return inputValue.value.map((item) => {
-        item = slugify(item).toLowerCase();
-        return {
-            fieldname: props.name,
-            value: item
-        }
-    })
-});
 
 const updateValue = (item) => {
     if (typeof props.trackBy !== 'undefined') {
@@ -58,9 +47,16 @@ const selectBy = computed(() => {
     if (typeof props.multiselectLabel !== 'undefined') {
         return props.multiselectLabel;
     }
-
     return 'name';
 });
+
+const showHiddenInput = () => {
+    if (inputValue.value.length > 0){
+        return true;
+    }
+
+    return false;
+}
 
 watch(inputValue, (newInputVal) => {
     emit('changeValue', newInputVal)
@@ -105,7 +101,9 @@ onMounted(() => {
 </style>
 
 <template>
-    <div class="mb-4">
+    <div 
+        data-test="vs-autocomplete"
+        class="mb-4">
         <label :for="id">{{ label }}</label>
         <TypeAhead
             class="vs-input form-control"
@@ -124,15 +122,10 @@ onMounted(() => {
         />
 
         <!-- need to check inputValue length to ensure it's not an empty array -->
-        <input v-if="inputValue.length > 0"
+        <input v-if="showHiddenInput"
             type="hidden"  
             :name="name"
             v-model="inputValueFormatted"
-        />
-        <input v-for="item in hiddenFields"
-            type="hidden" 
-            :name="item.fieldname" 
-            :value="item.value"
         />
     </div>
 </template>
