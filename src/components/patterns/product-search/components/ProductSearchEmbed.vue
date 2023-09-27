@@ -265,10 +265,6 @@ const locationLocale = `?locale=${locale.value}`
 const locationsUrl = `https://www.visitscotland.com/data/locations` + locationLocale;
 const locations = ref<Location[]>([]);
 
-const getPlaceData = (placeKey) => {
-    chosenLocation.value = locations.value.find(place => place.name === placeKey);
-};
-
 /* Attractions data */
 const attractionsUrl = `https://www.visitscotland.com/tms-api/v1/attractions`;
 const attractions = ref<TmsApiDataItem[]>([]);
@@ -324,6 +320,14 @@ const getToursAttractionData = async () => {
     }
 };
 
+const getPlaceData = (placeKey, type?) => {
+    if (type === 'key') {
+        chosenLocation.value = locations.value.find(place => place.key === placeKey);
+    } else {
+        chosenLocation.value = locations.value.find(place => place.name === placeKey);
+    }
+};
+
 
 const onChange = (e) => {
     const prodType = e.value;
@@ -344,6 +348,10 @@ const setRender = () => {
     
     nextTick(() => {
         reRender.value = false;
+
+        if (props.defaultLocation !== '' && locationDataLoaded) {
+            getPlaceData(props.defaultLocation, 'key');
+        }
     });
 }
 
@@ -364,9 +372,7 @@ onMounted(async () => {
     // Once data is loaded, load child components reliant on it
     locationDataLoaded.value = true;
 
-    if (props.defaultLocation !== '') {
-        getPlaceData(props.defaultLocation);
-    }
+
  
     selectedProd.value = props.defaultProd;
 
@@ -375,7 +381,7 @@ onMounted(async () => {
         getToursAttractionData();
     }
 
-    initProductTypes();    
+    initProductTypes();  
 });
 
 const preSubmitChecks = (e) => {

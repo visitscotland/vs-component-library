@@ -142,6 +142,19 @@ describe('VsProductSearchEmbed', () => {
 
             expect(wrapper.find('[data-test="psw-form"]').attributes('action')).toBe('https://www.visitscotland.com/fr/info/see-do/search-results');
         });
+
+        it('should set correct `defaultLocation` when prop is passed', async () => {
+            const wrapper = factoryShallowMount({
+                defaultLocation: '4161',
+            });
+            await flushPromises()
+            const mockGetPlaceData = jest.spyOn(wrapper.vm, 'getPlaceData');
+
+            setTimeout(() => {
+                expect(mockGetPlaceData).toHaveBeenCalled();
+                expect(wrapper.find('#search-location').attributes('defaultval')).toBe('4161');
+            }, 100);
+        });
     });
 
     describe(':methods', () => {
