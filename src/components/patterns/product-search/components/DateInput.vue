@@ -12,6 +12,7 @@ const props = defineProps<{
 const emits = defineEmits(['changeDate'])
 
 const selectedDate = ref(props.value);
+
 const today = computed(() => {
     return new Date().toISOString().split('T')[0];
 });
@@ -24,7 +25,10 @@ watch(() => props.value, (value) => {
 </script>
 
 <template>
-    <div class="date-input">
+    <div 
+        class="vs-date-input"
+        data-test="vs-date-input"
+    >
         <label :for="id">{{ label }}</label>
         <input 
             type="date" 

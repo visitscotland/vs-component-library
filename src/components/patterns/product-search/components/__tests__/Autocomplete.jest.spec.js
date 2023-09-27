@@ -60,13 +60,13 @@ describe('VsAutocomplete', () => {
         });
         it('renders the autocomplete with correct `ID`', async () => {
             const wrapper = factoryShallowMount();
-            const label = wrapper.find('vue3-simple-typeahead-stub');
-            expect(label.attributes('id')).toBe('search-location');
+            const autocomplete = wrapper.find('vue3-simple-typeahead-stub');
+            expect(autocomplete.attributes('id')).toBe('search-location');
         });
         it('renders the autocomplete with correct `placeholder`', async () => {
             const wrapper = factoryShallowMount();
-            const label = wrapper.find('vue3-simple-typeahead-stub');
-            expect(label.attributes('placeholder')).toBe('Enter a location');
+            const autocomplete = wrapper.find('vue3-simple-typeahead-stub');
+            expect(autocomplete.attributes('placeholder')).toBe('Enter a location');
         });
         it('sets a `defaultVal` when passed as a prop', async () => {
             const wrapper = factoryShallowMount({
