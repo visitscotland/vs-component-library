@@ -8,8 +8,48 @@
             class="vs-main-map-wrapper-panel__header-section"
             :class="headerClasses"
         >
+            <div class="vs-main-map-wrapper-panel__buttons d-lg-none">
+                <div
+                    class="vs-main-map-wrapper-panel__back"
+                    v-if="currentStage > 0 || selectedSubcategory"
+                >
+                    <VsButton
+                        icon-only
+                        icon="internal-link"
+                        icon-orientation="down"
+                        size="md"
+                        variant="secondary"
+                        @click="stageBack"
+                        data-test="vs-main-map-wrapper-panel--btn-back"
+                    >
+                        <span class="sr-only">
+                            <!-- @slot Text for panel back button  -->
+                            <slot name="back-btn-text" />
+                        </span>
+                    </VsButton>
+                </div>
+
+                <div
+                    class="vs-main-map-wrapper-panel__close"
+                >
+                    <VsButton
+                        icon-only
+                        icon="close"
+                        size="md"
+                        variant="secondary"
+                        @click="closePanel"
+                        data-test="vs-main-map-wrapper-panel--btn-close"
+                    >
+                        <span class="sr-only">
+                            <!-- @slot Text for panel close button  -->
+                            <slot name="close-side-panel-text" />
+                        </span>
+                    </VsButton>
+                </div>
+            </div>
+
             <div
-                class="vs-main-map-wrapper-panel__back"
+                class="vs-main-map-wrapper-panel__back d-none d-lg-block"
                 v-if="currentStage > 0 || selectedSubcategory"
             >
                 <VsButton
@@ -31,31 +71,13 @@
             <VsHeading
                 :level="headingLevel"
                 override-style-level="4"
-                class="vs-main-map-wrapper-panel__heading text-center mt-0"
+                class="vs-main-map-wrapper-panel__heading text-center mt-8 mt-lg-0"
                 :class="currentStage === 2 ? 'd-none d-lg-block' : ''"
                 v-if="currentHeading !== ''"
                 data-test="vs-main-map-wrapper-panel__heading"
             >
                 {{ currentHeading }}
             </VsHeading>
-
-            <div
-                class="vs-main-map-wrapper-panel__close d-lg-none"
-            >
-                <VsButton
-                    icon-only
-                    icon="close"
-                    size="md"
-                    variant="secondary"
-                    @click="closePanel"
-                    data-test="vs-main-map-wrapper-panel--btn-close"
-                >
-                    <span class="sr-only">
-                        <!-- @slot Text for panel close button  -->
-                        <slot name="close-side-panel-text" />
-                    </span>
-                </VsButton>
-            </div>
 
             <div
                 class="vs-main-map-wrapper-panel__reset"
@@ -558,7 +580,7 @@ export default {
 
         &__header-section {
             display: flex;
-            min-height: 32px;
+            min-height: $spacer-10;
             align-items: center;
             margin-bottom: $spacer-5;
 
@@ -566,6 +588,20 @@ export default {
                 position: absolute;
                 width: calc(100% - #{$spacer-6});
             }
+
+            @include media-breakpoint-up(lg) {
+                min-height: $spacer-8;
+            }
+        }
+
+        &__buttons {
+            position: absolute;
+            height: calc(#{$spacer-9} + #{$spacer-2});
+            width: calc(100% - 2px);
+            top: 1px;
+            left: 1px;
+            background-color: white;
+            z-index: 1;
         }
 
         &__close,
