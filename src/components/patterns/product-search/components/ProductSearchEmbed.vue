@@ -371,8 +371,6 @@ onMounted(async () => {
 
     // Once data is loaded, load child components reliant on it
     locationDataLoaded.value = true;
-
-
  
     selectedProd.value = props.defaultProd;
 
@@ -385,7 +383,7 @@ onMounted(async () => {
 });
 
 const preSubmitChecks = (e) => {
-    defaultDates.value = true;
+    // defaultDates.value = true;
     const form = e.currentTarget;
     setTimeout(function() {
         form.submit();

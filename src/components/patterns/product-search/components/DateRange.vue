@@ -57,30 +57,30 @@ const formatDate = (date) => {
     return `${getYear}-${getMonth}-${getDay}`;
 };
 
-const defaultStartDate = computed(() => {
-    if (startDate.value === '') {
-        return formatDate(new Date());
-    }
+// const defaultStartDate = computed(() => {
+//     if (startDate.value === '') {
+//         return formatDate(new Date());
+//     }
 
-    return '';
-});
+//     return '';
+// });
 
-const defaultEndDate = computed(() => {
-    let date;
+// const defaultEndDate = computed(() => {
+//     let date;
 
-    if (startDate.value !== '') {
-        const nextDay = new Date(startDate.value);
-        nextDay.setDate(nextDay.getDate() + 1);
-        date = formatDate(nextDay);
-    } else if (props.defaultDates) {
-        const today = (new Date());
-        const tomorrow = new Date(today);
-        tomorrow.setDate(tomorrow.getDate() + 1);
-        date = formatDate(tomorrow);
-    }
+//     if (startDate.value !== '') {
+//         const nextDay = new Date(startDate.value);
+//         nextDay.setDate(nextDay.getDate() + 1);
+//         date = formatDate(nextDay);
+//     } else if (props.defaultDates) {
+//         const today = (new Date());
+//         const tomorrow = new Date(today);
+//         tomorrow.setDate(tomorrow.getDate() + 1);
+//         date = formatDate(tomorrow);
+//     }
 
-    return date;
-});
+//     return date;
+// });
 
 const minDate = computed(() => {
     let returnedDate;
@@ -120,8 +120,8 @@ function checkMinDate() {
             <div class="col-12 col-sm-5 order-1">
                 <DateInput
                     :label="startLabel"
-                    :value="defaultDates && startDate === '' ? defaultStartDate : startDate"
-                    name="isostartdate"
+                    :value="startDate"
+                    name="stay"
                     id="startDate"
                     @change-date="(selectedDate) => {
                         startDate = selectedDate;
@@ -133,9 +133,9 @@ function checkMinDate() {
             <div class="col-12 col-sm-5 order-2">
                 <DateInput
                     :label="endLabel"
-                    :value="defaultDates && endDate === '' ? defaultEndDate : endDate"
+                    :value="endDate"
                     :min-date="minDate"
-                    name="isoenddate"
+                    name="endDate"
                     id="endDate"
                     @change-date="(selectedDate) => {
                         endDate = selectedDate;
