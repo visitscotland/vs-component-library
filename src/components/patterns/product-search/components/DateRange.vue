@@ -112,13 +112,7 @@ function checkMinDate() {
 }
 
 function checkDatesExist(){
-    let datesExist = false;
-    if(!startDate.value && !endDate.value) {
-        datesExist = false;
-    } else {
-        datesExist = true;
-    }
-
+    let datesExist = !startDate.value && !endDate.value ? false : true;
     emit('dateUpdated', datesExist);
 }
 
