@@ -1,5 +1,8 @@
 <template>
-    <div class="vs-product-search-embed">
+    <div 
+        class="vs-product-search-embed"
+        data-test="vs-product-search-embed"
+    >
         <div 
             v-if="!reRender"
             class="container"
@@ -10,6 +13,7 @@
                         :action="formAction"
                         @submit.prevent="preSubmitChecks"
                         accept-charset="UTF-8"
+                        data-test="psw-form"
                         v-if="locationDataLoaded"
                     >   
                         <div class="form-group">
@@ -19,7 +23,7 @@
                             <VsSelect
                                 :options="translatedProds"
                                 :value="defaultProd"
-                                @updated="(selectedOption) => selectedProd = selectedOption.value"
+                                @updated="onChange($event)"
                                 field-name="prodtypes"
                             />
                         </div>
@@ -136,6 +140,8 @@
 
                         <VsButton
                             class="mt-6"
+                            data-test="psw-submit"
+                            type="submit"
                             variant="dark"
                         >
                             {{ getLabelText('search', 'Search') }}
@@ -176,12 +182,18 @@ const props = defineProps({
     defaultProd: {
         type: String,
         default: 'acti,attr,reta',
-    },
-    defaultLocation: {
-        type: String,
-        default: '',
+        validator(value: string) {
+            return ['acco', 'cate', 'even', 'tour', 'acti,attr,reta'].includes(value)
+        }
     },
     defaultLocale: {
+        type: String,
+        default: '',
+        validator(value: string) {
+            return ['en', 'fr', 'de', 'es', 'it', 'nl', ''].includes(value)
+        }
+    },
+    defaultLocation: {
         type: String,
         default: '',
     },
@@ -198,7 +210,7 @@ const path = computed(() => {
     const pathValue = typeof selectedProd.value === 'undefined' ? 'see-do' : selectedProd.value;
     return `/info/${paths[pathValue]}`;
 });
-let locationDataLoaded = false;
+let locationDataLoaded = ref(false);
 const langConfig = {
     en: {
         localeUrl: '',
@@ -253,10 +265,6 @@ const locationLocale = `?locale=${locale.value}`
 const locationsUrl = `https://www.visitscotland.com/data/locations` + locationLocale;
 const locations = ref<Location[]>([]);
 
-const getPlaceData = (placeKey) => {
-    chosenLocation.value = locations.value.find(place => place.name === placeKey);
-};
-
 /* Attractions data */
 const attractionsUrl = `https://www.visitscotland.com/tms-api/v1/attractions`;
 const attractions = ref<TmsApiDataItem[]>([]);
@@ -291,6 +299,46 @@ const translatedProds = computed(() => {
     return [];
 })
 
+const getLocationData = async () => {
+    const locationResponse = await getData(locationsUrl);
+    if (locationResponse){
+        locations.value = locationResponse.data;
+    }
+};
+
+const getToursOriginData = async () => {
+    const originsResponse = await getData(originsUrl);
+    if (originsResponse){
+        origins.value = originsResponse.data;
+    }
+};
+
+const getToursAttractionData = async () => {
+    const attractionResponse = await getData(attractionsUrl);
+    if (attractionResponse){
+        attractions.value = attractionResponse.data;
+    }
+};
+
+const getPlaceData = (placeKey, type?) => {
+    if (type === 'key') {
+        chosenLocation.value = locations.value.find(place => place.key === placeKey);
+    } else {
+        chosenLocation.value = locations.value.find(place => place.name === placeKey);
+    }
+};
+
+
+const onChange = (e) => {
+    const prodType = e.value;
+    selectedProd.value = prodType;
+
+    if (prodType === 'tour') {
+        getToursOriginData();
+        getToursAttractionData();
+    }
+}
+
 const getLangUrl= () => {
     return langConfig[props.defaultLocale] || '';
 };
@@ -300,6 +348,10 @@ const setRender = () => {
     
     nextTick(() => {
         reRender.value = false;
+
+        if (props.defaultLocation !== '' && locationDataLoaded) {
+            getPlaceData(props.defaultLocation, 'key');
+        }
     });
 }
 
@@ -315,36 +367,21 @@ onBeforeMount(async () => {
 });
 
 onMounted(async () => {
-    // Get location data.
-    const locationResponse = await getData(locationsUrl);
-    if (locationResponse){
-        locations.value = locationResponse.data;
-    }
-
-    if (props.defaultLocation !== '') {
-        getPlaceData(props.defaultLocation);
-    }
+    getLocationData();
 
     // Once data is loaded, load child components reliant on it
-    locationDataLoaded = true;
+    locationDataLoaded.value = true;
+
+
  
     selectedProd.value = props.defaultProd;
 
     if (selectedProd.value === 'tour') {
-        // Get attraction data.
-        const attractionResponse = await getData(attractionsUrl);
-        if (attractionResponse){
-            attractions.value = attractionResponse.data;
-        }
-
-        // Get origins data.
-        const originsResponse = await getData(originsUrl);
-        if (originsResponse){
-            origins.value = originsResponse.data;
-        }
+        getToursOriginData();
+        getToursAttractionData();
     }
 
-    initProductTypes();    
+    initProductTypes();  
 });
 
 const preSubmitChecks = (e) => {

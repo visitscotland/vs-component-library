@@ -104,7 +104,6 @@ function checkMinDate() {
     // ensures that the end date isn't earlier than the start date
     const start = new Date(startDate.value);
     const end = new Date(endDate.value);
-
     if (end <= start) {
         endDate.value = '';
     }
@@ -113,7 +112,10 @@ function checkMinDate() {
 </script>
 
 <template>
-    <fieldset class="date-range">
+    <fieldset 
+        class="vs-date-range"
+        data-test="vs-date-range"
+    >
         <div class="row align-items-center">
             <div class="col-12 col-sm-5 order-1">
                 <DateInput
@@ -125,7 +127,7 @@ function checkMinDate() {
                         startDate = selectedDate;
                         checkMinDate();
                     }"
-                    class="data-range__input mb-4"
+                    class="mb-4"
                 />
             </div>
             <div class="col-12 col-sm-5 order-2">
@@ -135,8 +137,11 @@ function checkMinDate() {
                     :min-date="minDate"
                     name="isoenddate"
                     id="endDate"
-                    @change-date="(selectedDate) => endDate = selectedDate"
-                    class="data-range__input mb-4"
+                    @change-date="(selectedDate) => {
+                        endDate = selectedDate;
+                        checkMinDate();
+                    }"
+                    class="mb-4"
                 />
             </div>
             <div class="col-12 col-sm-2 order-first order-sm-3 text-sm-right">
@@ -145,7 +150,7 @@ function checkMinDate() {
                     type="button"
                     v-if="hasDate"
                     @click="clearDates"
-                    class="date-range__clear"
+                    class="vs-date-range__clear"
                 >
                     {{ getLabelText('reset', 'Clear') }}
                 </button>
@@ -157,7 +162,7 @@ function checkMinDate() {
 </template>
 
 <style lang="scss">
-    .date-range {
+    .vs-date-range {
         position: relative;
 
         &__clear {
