@@ -52,5 +52,7 @@ export default {
         top: 100%;
         left: 0;
         width: 100%;
+        max-height: 100vh;
+        overflow-y: scroll;
     }
 </style>
