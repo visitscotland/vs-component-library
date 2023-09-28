@@ -1,4 +1,4 @@
-import { shallowMount, mount,config } from '@vue/test-utils';
+import { shallowMount, config } from '@vue/test-utils';
 import VsDateInput from '../DateInput.vue';
 
 config.global.renderStubDefaultSlot = true;
