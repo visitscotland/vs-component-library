@@ -786,8 +786,8 @@ export default {
             if (typeof this.boundsData === 'undefined'
                 || this.boundsData.type === 'undefined') {
                 boundingBox = [
-                    [-7.555827, 55.308836], // south-west point.
-                    [-0.778285, 60.830894], // north-east point.
+                    [-7.555827, 54.608836], // south-west point.
+                    [-0.778285, 60.880894], // north-east point.
                 ];
             } else if (this.boundsData.type === 'bounds') {
                 const southWest = new mapboxgl
