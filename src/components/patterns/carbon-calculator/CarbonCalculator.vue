@@ -24,6 +24,7 @@
                                 "
                                 :isStepped="true"
                                 :isFull="activeQuestion > formData.fields.length"
+                                ref="progress"
                             />
 
                             <div
@@ -755,6 +756,7 @@ export default {
             this.$nextTick(() => {
                 this.$nextTick(() => {
                     this.$refs.questions[this.activeQuestion - 1].$el.focus();
+                    this.$refs.progress.$el.scrollIntoView();
                 });
             });
         },

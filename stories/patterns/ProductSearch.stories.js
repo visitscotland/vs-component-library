@@ -1,5 +1,8 @@
 import VsProductSearch from '@/components/patterns/product-search/ProductSearch.vue';
 
+import enLocations from '@/assets/fixtures/product-search/enLocations.json';
+import frLocations from '@/assets/fixtures/product-search/frLocations.json';
+
 export default {
     component: VsProductSearch,
     title: 'Patterns/ProductSearch',
@@ -20,6 +23,24 @@ export default {
                 type: 'text',
             },
         },
+    },
+    parameters: {
+        mockData: [
+            {
+                url: 'https://www.visitscotland.com/data/locations',
+                method: 'GET',
+                status: 200,
+                response: (request) => {
+                    const { searchParams } = request;
+
+                    if (searchParams.locale === 'fr') {
+                        return frLocations;
+                    }
+
+                    return enLocations;
+                },
+            },
+        ],
     },
 
 };
@@ -62,7 +83,6 @@ export const Default = Template.bind({
 });
 
 Default.args = base;
-
 export const DefaultLocation = Template.bind({
 });
 
