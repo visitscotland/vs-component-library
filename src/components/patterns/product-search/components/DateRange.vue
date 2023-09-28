@@ -20,6 +20,8 @@ const props = defineProps({
     },
 });
 
+const emit = defineEmits(['dateUpdated'])
+
 const startDate = ref('');
 const endDate = ref('');
 const hasDate = computed(() => !!startDate.value || !!endDate.value);
@@ -57,30 +59,30 @@ const formatDate = (date) => {
     return `${getYear}-${getMonth}-${getDay}`;
 };
 
-// const defaultStartDate = computed(() => {
-//     if (startDate.value === '') {
-//         return formatDate(new Date());
-//     }
+const defaultStartDate = computed(() => {
+    if (startDate.value === '') {
+        return formatDate(new Date());
+    }
 
-//     return '';
-// });
+    return '';
+});
 
-// const defaultEndDate = computed(() => {
-//     let date;
+const defaultEndDate = computed(() => {
+    let date;
 
-//     if (startDate.value !== '') {
-//         const nextDay = new Date(startDate.value);
-//         nextDay.setDate(nextDay.getDate() + 1);
-//         date = formatDate(nextDay);
-//     } else if (props.defaultDates) {
-//         const today = (new Date());
-//         const tomorrow = new Date(today);
-//         tomorrow.setDate(tomorrow.getDate() + 1);
-//         date = formatDate(tomorrow);
-//     }
+    if (startDate.value !== '') {
+        const nextDay = new Date(startDate.value);
+        nextDay.setDate(nextDay.getDate() + 1);
+        date = formatDate(nextDay);
+    } else if (props.defaultDates) {
+        const today = (new Date());
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        date = formatDate(tomorrow);
+    }
 
-//     return date;
-// });
+    return date;
+});
 
 const minDate = computed(() => {
     let returnedDate;
@@ -96,7 +98,7 @@ const minDate = computed(() => {
         date.setDate(start.getDate() + 1);
         returnedDate = formatDate(date);
     }
-
+    
     return returnedDate;
 });
 
@@ -107,6 +109,22 @@ function checkMinDate() {
     if (end <= start) {
         endDate.value = '';
     }
+}
+
+function checkDatesExist(){
+    let datesExist = false;
+    if(!startDate.value && !endDate.value) {
+        datesExist = false;
+    } else {
+        datesExist = true;
+    }
+
+    emit('dateUpdated', datesExist);
+}
+
+function dateUpdated(){
+    checkDatesExist();
+    checkMinDate();
 }
 
 </script>
@@ -120,12 +138,12 @@ function checkMinDate() {
             <div class="col-12 col-sm-5 order-1">
                 <DateInput
                     :label="startLabel"
-                    :value="startDate"
-                    name="stay"
+                    :value="defaultDates && startDate === '' && endDate ? defaultStartDate : startDate"
+                    name="isostartdate"
                     id="startDate"
                     @change-date="(selectedDate) => {
                         startDate = selectedDate;
-                        checkMinDate();
+                        dateUpdated();
                     }"
                     class="mb-4"
                 />
@@ -133,13 +151,13 @@ function checkMinDate() {
             <div class="col-12 col-sm-5 order-2">
                 <DateInput
                     :label="endLabel"
-                    :value="endDate"
+                    :value="defaultDates && endDate === '' && startDate ? defaultEndDate : endDate"
                     :min-date="minDate"
-                    name="endDate"
+                    name="isoenddate"
                     id="endDate"
                     @change-date="(selectedDate) => {
                         endDate = selectedDate;
-                        checkMinDate();
+                        dateUpdated();
                     }"
                     class="mb-4"
                 />

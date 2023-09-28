@@ -74,6 +74,7 @@
                                     v-if="selectedProd === 'even' || selectedProd === 'acco'"
                                     :start-label="getLabelText('startdate', 'Start Date', 'dates')"
                                     :end-label="getLabelText('enddate', 'End Date', 'dates')"
+                                    @date-updated="(datesExist) => dateUpdated(datesExist)"
                                     :default-dates="defaultDates"
                                 />
 
@@ -102,7 +103,7 @@
                                     <input
                                         hidden="true"
                                         name="avail"
-                                        value="on"
+                                        :value="availSearch"
                                     />
                                 </div>
                             </div>
@@ -205,6 +206,7 @@ const selectedProd = ref();
 const keywords = ref([]);
 const form = ref(null);
 let chosenLocation = ref<Location>();
+const availSearch = ref('off');
 const defaultDates = ref(false);
 const path = computed(() => {
     const pathValue = typeof selectedProd.value === 'undefined' ? 'see-do' : selectedProd.value;
@@ -382,8 +384,16 @@ onMounted(async () => {
     initProductTypes();  
 });
 
+const dateUpdated = (datesExist) => {
+    if (datesExist) {
+        availSearch.value = 'on'
+    } else {
+        availSearch.value = 'off'
+    }
+}
+
 const preSubmitChecks = (e) => {
-    // defaultDates.value = true;
+    defaultDates.value = true;
     const form = e.currentTarget;
     setTimeout(function() {
         form.submit();
