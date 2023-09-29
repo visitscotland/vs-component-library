@@ -2,20 +2,6 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [1.0.41](https://github.com/visitscotland/vs-component-library/compare/v1.0.38...v1.0.41) (2023-09-29)
-
-
-### 🔖 Others
-
-* **dependabot:** bump get-func-name version ([d9fd85d](https://github.com/visitscotland/vs-component-library/commit/d9fd85d0f6673fb47c3d46dc1dccc9335c2362e2))
-
-### [1.0.40](https://github.com/visitscotland/vs-component-library/compare/v1.0.38...v1.0.40) (2023-09-29)
-
-
-### 🔖 Others
-
-* **dependabot:** bump get-func-name version ([d9fd85d](https://github.com/visitscotland/vs-component-library/commit/d9fd85d0f6673fb47c3d46dc1dccc9335c2362e2))
-
 ### [1.0.39](https://github.com/visitscotland/vs-component-library/compare/v1.0.38...v1.0.39) (2023-09-29)
 
 
