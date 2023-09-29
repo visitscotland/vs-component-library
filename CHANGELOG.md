@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.38](https://github.com/visitscotland/vs-component-library/compare/v1.0.37...v1.0.38) (2023-09-29)
+
+
+### 🐛 Bug Fixes
+
+* **psw:** adds fix for setting default dates on search ([51ba331](https://github.com/visitscotland/vs-component-library/commit/51ba3310d90b821fc8095dba72f4a7096c4c1ddc))
+* **psw:** looking at fixing default dates ([17066c9](https://github.com/visitscotland/vs-component-library/commit/17066c903dd9f0d496a7d1eb477bbfa1758cc73a))
+
+
+### ♻️ Code Refactoring
+
+* **psw:** code tidy ([79c7e88](https://github.com/visitscotland/vs-component-library/commit/79c7e889ccaed58b2a11acf9bb44ed54abf6970b))
+
 ### [1.0.37](https://github.com/visitscotland/vs-component-library/compare/v1.0.36...v1.0.37) (2023-09-28)
 
 
