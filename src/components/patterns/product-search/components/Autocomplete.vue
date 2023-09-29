@@ -50,13 +50,12 @@ const selectBy = computed(() => {
     return 'name';
 });
 
-const showHiddenInput = () => {
+const showHiddenInput = computed(() => {
     if (inputValue.value.length > 0){
         return true;
     }
-
     return false;
-}
+});
 
 watch(inputValue, (newInputVal) => {
     emit('changeValue', newInputVal)

@@ -385,11 +385,7 @@ onMounted(async () => {
 });
 
 const dateUpdated = (datesExist) => {
-    if (datesExist) {
-        availSearch.value = 'on'
-    } else {
-        availSearch.value = 'off'
-    }
+    availSearch.value = datesExist ? 'on' : 'off'; 
 }
 
 const preSubmitChecks = (e) => {
