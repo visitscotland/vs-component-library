@@ -43,7 +43,7 @@ describe('VsAutocomplete', () => {
 
     it('updates the hidden input value on autocomplete value change if `isTourLocation` is true', async () => {
         const wrapper = factoryMount({
-            isTourLocation: "true",
+            isTourLocation: true,
             options: toursOriginData,
         });
 
