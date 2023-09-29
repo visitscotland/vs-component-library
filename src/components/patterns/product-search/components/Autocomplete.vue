@@ -51,7 +51,7 @@ const selectBy = computed(() => {
 });
 
 const showHiddenInput = computed(() => {
-    if (inputValue.value.length > 0){
+    if (inputValue.value && inputValue.value.length > 0){
         return true;
     }
     return false;
