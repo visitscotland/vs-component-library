@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.40](https://github.com/visitscotland/vs-component-library/compare/v1.0.38...v1.0.40) (2023-09-29)
+
+
+### 🔖 Others
+
+* **dependabot:** bump get-func-name version ([d9fd85d](https://github.com/visitscotland/vs-component-library/commit/d9fd85d0f6673fb47c3d46dc1dccc9335c2362e2))
+* **release:** 1.0.41 ([fa9b031](https://github.com/visitscotland/vs-component-library/commit/fa9b031572f117155f69a493b337d1253d0f7423))
+* **release:** correct multi-release version number issue ([8d8f66b](https://github.com/visitscotland/vs-component-library/commit/8d8f66bc330ca1f8e9ee74f6ba9f2e65e98df81d))
+
+
+### 🐛 Bug Fixes
+
+* fix for Tours PSW search URL ([fc2430e](https://github.com/visitscotland/vs-component-library/commit/fc2430e114b653fb7035fa3bf5457344e27fdf4f))
+* **psw:** fix for unit test failing ([12b9aef](https://github.com/visitscotland/vs-component-library/commit/12b9aef201ed29675fd48bb3b71ecd2969a22527))
+
 ### [1.0.39](https://github.com/visitscotland/vs-component-library/compare/v1.0.38...v1.0.39) (2023-09-29)
 
 
