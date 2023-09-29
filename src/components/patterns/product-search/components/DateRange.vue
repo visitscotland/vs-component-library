@@ -20,6 +20,8 @@ const props = defineProps({
     },
 });
 
+const emit = defineEmits(['dateUpdated'])
+
 const startDate = ref('');
 const endDate = ref('');
 const hasDate = computed(() => !!startDate.value || !!endDate.value);
@@ -96,7 +98,7 @@ const minDate = computed(() => {
         date.setDate(start.getDate() + 1);
         returnedDate = formatDate(date);
     }
-
+    
     return returnedDate;
 });
 
@@ -107,6 +109,16 @@ function checkMinDate() {
     if (end <= start) {
         endDate.value = '';
     }
+}
+
+function checkDatesExist(){
+    let datesExist = !startDate.value && !endDate.value ? false : true;
+    emit('dateUpdated', datesExist);
+}
+
+function dateUpdated(){
+    checkDatesExist();
+    checkMinDate();
 }
 
 </script>
@@ -120,12 +132,12 @@ function checkMinDate() {
             <div class="col-12 col-sm-5 order-1">
                 <DateInput
                     :label="startLabel"
-                    :value="defaultDates && startDate === '' ? defaultStartDate : startDate"
+                    :value="defaultDates && startDate === '' && endDate ? defaultStartDate : startDate"
                     name="isostartdate"
                     id="startDate"
                     @change-date="(selectedDate) => {
                         startDate = selectedDate;
-                        checkMinDate();
+                        dateUpdated();
                     }"
                     class="mb-4"
                 />
@@ -133,13 +145,13 @@ function checkMinDate() {
             <div class="col-12 col-sm-5 order-2">
                 <DateInput
                     :label="endLabel"
-                    :value="defaultDates && endDate === '' ? defaultEndDate : endDate"
+                    :value="defaultDates && endDate === '' && startDate ? defaultEndDate : endDate"
                     :min-date="minDate"
                     name="isoenddate"
                     id="endDate"
                     @change-date="(selectedDate) => {
                         endDate = selectedDate;
-                        checkMinDate();
+                        dateUpdated();
                     }"
                     class="mb-4"
                 />

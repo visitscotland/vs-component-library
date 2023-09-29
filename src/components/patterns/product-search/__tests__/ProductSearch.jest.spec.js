@@ -43,7 +43,6 @@ describe('VsProductSearch', () => {
             const wrapper = factoryShallowMount({
                 defaultProd: 'acco',
             });
-            console.log(wrapper.html());
             expect(wrapper.find('vs-product-search-embed-stub').attributes().defaultprod).toBe('acco');
         });
 
