@@ -27,3 +27,14 @@ body {
         top: -35px;
     }
 }
+
+.no-js { 
+    .vs-sticky-nav {
+        position: initial;
+        top: 0;
+
+        @include media-breakpoint-up(md) {
+            top: 0;
+        }
+    }
+}
