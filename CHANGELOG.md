@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.41](https://github.com/visitscotland/vs-component-library/compare/v1.0.40...v1.0.41) (2023-10-02)
+
+
+### 🐛 Bug Fixes
+
+* **meganav:** fix sticky nav not working with no js ([64eeed7](https://github.com/visitscotland/vs-component-library/commit/64eeed70afd1356e59d940421499d59ce578aced))
+
 ### [1.0.40](https://github.com/visitscotland/vs-component-library/compare/v1.0.38...v1.0.40) (2023-09-29)
 
 
