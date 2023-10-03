@@ -142,7 +142,7 @@ import axios from 'axios';
 import pinia from '@/stores/index.ts';
 import { mapState } from 'pinia';
 import useMapStore from '@/stores/map.store.ts';
-import VsMap from '@components/patterns/map/MainMapWrapperMap.vue';
+import VsMap from '@components/patterns/map/Map.vue';
 import VsMainMapWrapperPanel from './components/MainMapWrapperPanel.vue';
 
 let mapStore = null;

@@ -1,5 +1,5 @@
-import MainMapWrapperIcon from './MainMapWrapperIcon.vue';
+import MapMarkerIcon from './MapMarkerIcon.vue';
 
 export default {
-    MainMapWrapperIcon,
+    MapMarkerIcon,
 };

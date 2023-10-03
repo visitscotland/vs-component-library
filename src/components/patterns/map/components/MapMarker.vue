@@ -12,7 +12,7 @@
         @focusin="handleHover(feature.properties.id)"
         @focusout="handleHover('')"
     >
-        <VsMainMapWrapperIcon
+        <VsMapMarkerIcon
             class="vs-main-map-category__icon"
             :id="getMarkerIcon"
             :is-map-marker="true"
@@ -24,7 +24,7 @@
 import pinia from '@/stores/index.ts';
 import { mapState } from 'pinia';
 import useMapStore from '@/stores/map.store.ts';
-import VsMainMapWrapperIcon from '@components/patterns/map-marker-icon/MainMapWrapperIcon.vue';
+import VsMapMarkerIcon from '@components/patterns/map-marker-icon/MapMarkerIcon.vue';
 
 let mapStore = null;
 
@@ -39,7 +39,7 @@ export default {
     status: 'prototype',
     release: '0.0.1',
     components: {
-        VsMainMapWrapperIcon,
+        VsMapMarkerIcon,
     },
     props: {
         /**

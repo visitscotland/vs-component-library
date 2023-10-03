@@ -2,7 +2,7 @@ import { shallowMount } from '@vue/test-utils';
 import { setActivePinia, createPinia } from 'pinia';
 import mapboxgl from 'mapbox-gl';
 
-import VsMap from '../MainMapWrapperMap.vue';
+import VsMap from '../Map.vue';
 import placeData from '../../../../assets/fixtures/maps/places-data.json';
 
 jest.mock('@/stores/map.store.ts');

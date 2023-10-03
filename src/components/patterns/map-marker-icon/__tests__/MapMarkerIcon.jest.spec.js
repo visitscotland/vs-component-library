@@ -1,13 +1,13 @@
 import { shallowMount } from '@vue/test-utils';
-import VsMainMapWrapperIcon from '../MainMapWrapperIcon.vue';
+import VsMapMarkerIcon from '../MapMarkerIcon.vue';
 
-const factoryShallowMount = () => shallowMount(VsMainMapWrapperIcon, {
+const factoryShallowMount = () => shallowMount(VsMapMarkerIcon, {
     propsData: {
         id: 'cities',
     },
 });
 
-describe('VsMainMapWrapperIcon', () => {
+describe('VsMapMarkerIcon', () => {
     it('should render a component with the data-test attribute `vs-main-map-marker-icon`', () => {
         const wrapper = factoryShallowMount();
 

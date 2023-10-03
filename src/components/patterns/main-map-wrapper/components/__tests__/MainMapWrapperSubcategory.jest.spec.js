@@ -1,20 +1,15 @@
-// COMMENTING OUT TEMPORARILY TO AVOID ERRORS WHICH WILL BE FIXED BY STORE REFACTOR
-
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, config } from '@vue/test-utils';
 import VsMainMapWrapperSubcategory from '../MainMapWrapperSubcategory.vue';
 import subCategoriesData from './data/filters-subcategories.json';
+
+config.global.renderStubDefaultSlot = true;
 
 const factoryShallowMount = () => shallowMount(VsMainMapWrapperSubcategory, {
     propsData: {
         data: subCategoriesData,
+        selectedSubCategory: '',
     },
 });
-
-// const factoryMount = () => mount(VsMainMapWrapperSubcategory, {
-//     propsData: {
-//         data: subCategoriesData,
-//     },
-// });
 
 describe('VsMainMapWrapperSubcategory', () => {
     it('should render a component with the data-test attribute `vs-main-map-subcategory`', () => {

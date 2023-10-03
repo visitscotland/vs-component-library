@@ -3,11 +3,10 @@
         class="vs-main-map-subcategory"
         data-test="vs-main-map-subcategory"
     >
-        <BFormGroup v-slot="{ ariaDescribedby }">
+        <BFormGroup>
             <BFormCheckboxGroup
                 id="checkbox-group-1"
                 v-model="selected"
-                :aria-describedby="ariaDescribedby"
                 :name="data.name"
             >
                 <BFormCheckbox
@@ -16,7 +15,7 @@
                     :value="item.id"
                     @change="emitChange"
                 >
-                    <VsMainMapWrapperIcon
+                    <VsMapMarkerIcon
                         class="vs-main-map-category__icon"
                         :id="selectedSubCategory"
                     />
@@ -36,7 +35,7 @@ import {
 import pinia from '@/stores/index.ts';
 import { mapState } from 'pinia';
 import useMapStore from '@/stores/map.store.ts';
-import VsMainMapWrapperIcon from '@components/patterns/map-marker-icon/MainMapWrapperIcon.vue';
+import VsMapMarkerIcon from '@components/patterns/map-marker-icon/MapMarkerIcon.vue';
 
 let mapStore = null;
 
@@ -48,7 +47,7 @@ export default {
         BFormGroup,
         BFormCheckboxGroup,
         BFormCheckbox,
-        VsMainMapWrapperIcon,
+        VsMapMarkerIcon,
     },
     props: {
         /** Data for subcategory */
@@ -96,9 +95,11 @@ export default {
         }
 
         const container = document.getElementsByClassName('vs-main-map-subcategory')[0];
-        const firstEl = container.querySelectorAll('input[type="checkbox"]')[0];
 
-        firstEl.focus();
+        if (container) {
+            const firstEl = container.querySelectorAll('input[type="checkbox"]')[0];
+            firstEl.focus();
+        }
     },
     beforeUnmount() {
         if (this.emitter) {

@@ -19,7 +19,7 @@
             @focusout="isHovered = false"
         >
             <div>
-                <VsMainMapWrapperIcon
+                <VsMapMarkerIcon
                     class="vs-main-map-category__icon"
                     :id="type"
                     :is-hovered="isHovered"
@@ -32,7 +32,7 @@
 
 <script>
 import VsButton from '@components/elements/button/Button.vue';
-import VsMainMapWrapperIcon from '@components/patterns/map-marker-icon/MainMapWrapperIcon.vue';
+import VsMapMarkerIcon from '@components/patterns/map-marker-icon/MapMarkerIcon.vue';
 
 export default {
     name: 'VsMainMapWrapperCategories',
@@ -40,7 +40,7 @@ export default {
     release: '0.0.1',
     components: {
         VsButton,
-        VsMainMapWrapperIcon,
+        VsMapMarkerIcon,
     },
     props: {
         /**

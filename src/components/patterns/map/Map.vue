@@ -59,8 +59,7 @@ import { mapState } from 'pinia';
 import useMapStore from '@/stores/map.store.ts';
 import mapboxgl from 'mapbox-gl';
 import geojsonExtent from '@mapbox/geojson-extent';
-
-import VsMapMarker from './components/MainMapWrapperMarker.vue';
+import VsMapMarker from './components/MapMarker.vue';
 
 let mapStore = null;
 
