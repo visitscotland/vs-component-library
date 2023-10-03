@@ -73,6 +73,7 @@
                             :is-visible="!panelVisible"
                             :labels="{
                             }"
+                            :filters="filters"
                             :places="activePins"
                             :selected-item="selectedItem"
                             :map-id="mapId"
@@ -141,7 +142,7 @@ import axios from 'axios';
 import pinia from '@/stores/index.ts';
 import { mapState } from 'pinia';
 import useMapStore from '@/stores/map.store.ts';
-import VsMap from './components/MainMapWrapperMap.vue';
+import VsMap from '@components/patterns/map/MainMapWrapperMap.vue';
 import VsMainMapWrapperPanel from './components/MainMapWrapperPanel.vue';
 
 let mapStore = null;
@@ -385,12 +386,6 @@ export default {
     mounted() {
         mapStore = useMapStore(pinia());
         this.selectedToggle = this.initialSelected;
-        mapStore.addMapInstance({
-            id: this.mapId,
-            filters: this.filters,
-            places: this.placesData,
-            activePins: this.activePins,
-        });
 
         if (this.emitter) {
             this.emitter.on('clearSelectedSubcats', () => {

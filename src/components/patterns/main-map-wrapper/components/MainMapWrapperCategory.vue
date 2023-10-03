@@ -32,7 +32,7 @@
 
 <script>
 import VsButton from '@components/elements/button/Button.vue';
-import VsMainMapWrapperIcon from './MainMapWrapperIcon.vue';
+import VsMainMapWrapperIcon from '@components/patterns/map-marker-icon/MainMapWrapperIcon.vue';
 
 export default {
     name: 'VsMainMapWrapperCategories',

@@ -2,13 +2,10 @@ import VsMainMapWrapper from './MainMapWrapper.vue';
 import VsMainMapWrapperPanel from './components/MainMapWrapperPanel.vue';
 import VsMainMapWrapperCategory from './components/MainMapWrapperCategory.vue';
 import VsMainMapWrapperListItem from './components/MainMapWrapperListItem.vue';
-import MainMapWrapperMap from './components/MainMapWrapperMap.vue';
-import MainMapWrapperMarker from './components/MainMapWrapperMarker.vue';
 import VsMainMapWrapperDetail from './components/MainMapWrapperDetail.vue';
 import VsMainMapWrapperButtons from './components/MainMapWrapperButtons.vue';
 import VsMainMapWrapperSubcategory from './components/MainMapWrapperSubcategory.vue';
 import VsMainMapWrapperControls from './components/MainMapWrapperControls.vue';
-import VsMainMapWrapperIcon from './components/MainMapWrapperIcon.vue';
 
 export default {
     VsMainMapWrapper,
@@ -18,8 +15,5 @@ export default {
     VsMainMapWrapperDetail,
     VsMainMapWrapperButtons,
     VsMainMapWrapperSubcategory,
-    MainMapWrapperMap,
-    MainMapWrapperMarker,
     VsMainMapWrapperControls,
-    VsMainMapWrapperIcon,
 };

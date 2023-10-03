@@ -24,7 +24,7 @@
 import pinia from '@/stores/index.ts';
 import { mapState } from 'pinia';
 import useMapStore from '@/stores/map.store.ts';
-import VsMainMapWrapperIcon from './MainMapWrapperIcon.vue';
+import VsMainMapWrapperIcon from '@components/patterns/map-marker-icon/MainMapWrapperIcon.vue';
 
 let mapStore = null;
 
@@ -83,7 +83,11 @@ export default {
                 return store.getHoveredStop(this.mapId);
             },
             activePlace(store) {
-                return store.getActivePlace(this.mapId);
+                if (store.getActivePlace(this.mapId)) {
+                    return store.getActivePlace(this.mapId);
+                }
+
+                return '';
             },
             activeSubcat(store) {
                 return store.selectedSubCategory;

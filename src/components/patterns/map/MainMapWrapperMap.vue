@@ -60,7 +60,7 @@ import useMapStore from '@/stores/map.store.ts';
 import mapboxgl from 'mapbox-gl';
 import geojsonExtent from '@mapbox/geojson-extent';
 
-import VsMapMarker from './MainMapWrapperMarker.vue';
+import VsMapMarker from './components/MainMapWrapperMarker.vue';
 
 let mapStore = null;
 
@@ -121,6 +121,15 @@ export default {
         places: {
             type: Array,
             required: true,
+        },
+        /**
+         * Category filters array
+         */
+        filters: {
+            type: Array,
+            default() {
+                return [];
+            },
         },
         /**
          * Whether the map should fit to marker bounds
@@ -286,6 +295,14 @@ export default {
     },
     mounted() {
         mapStore = useMapStore(pinia());
+
+        mapStore.addMapInstance({
+            id: this.mapId,
+            filters: this.filters,
+            places: this.places,
+            activePins: this.places,
+        });
+
         this.lazyloadMapComponent();
         this.isTablet = window.innerWidth >= 768;
         window.addEventListener('resize', this.onResize);
@@ -818,7 +835,7 @@ export default {
 
 <style lang="scss">
 @import "mapbox-gl/dist/mapbox-gl.css";
-@import "../../../../styles/_os-branding.scss";
+@import "../../../styles/_os-branding.scss";
 
 .os-api-branding.logo {
     margin: $spacer-2;
@@ -826,6 +843,7 @@ export default {
 
 .vs-map {
     height: 100%;
+    width: 100%;
     position: relative;
 
     &__map, &__map-outer {

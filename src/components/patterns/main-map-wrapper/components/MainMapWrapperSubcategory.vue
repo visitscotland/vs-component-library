@@ -36,7 +36,7 @@ import {
 import pinia from '@/stores/index.ts';
 import { mapState } from 'pinia';
 import useMapStore from '@/stores/map.store.ts';
-import VsMainMapWrapperIcon from './MainMapWrapperIcon.vue';
+import VsMainMapWrapperIcon from '@components/patterns/map-marker-icon/MainMapWrapperIcon.vue';
 
 let mapStore = null;
 
