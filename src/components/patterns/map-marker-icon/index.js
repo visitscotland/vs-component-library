@@ -1,5 +1,5 @@
-import MapMarkerIcon from './MapMarkerIcon.vue';
+import VsMapMarkerIcon from './MapMarkerIcon.vue';
 
 export default {
-    MapMarkerIcon,
+    VsMapMarkerIcon,
 };

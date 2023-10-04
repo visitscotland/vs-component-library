@@ -30,8 +30,8 @@
             }
         };
 
-        .vs-main-map-marker-icon__marker--#{$name},
-        .vs-button.btn-transparent .vs-icon .vs-main-map-marker-icon__marker--#{$name} {
+        .vs-map-marker-icon__marker--#{$name},
+        .vs-button.btn-transparent .vs-icon .vs-map-marker-icon__marker--#{$name} {
             color: $color;
         }
     };

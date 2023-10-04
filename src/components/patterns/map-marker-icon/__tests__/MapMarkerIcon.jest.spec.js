@@ -8,18 +8,18 @@ const factoryShallowMount = () => shallowMount(VsMapMarkerIcon, {
 });
 
 describe('VsMapMarkerIcon', () => {
-    it('should render a component with the data-test attribute `vs-main-map-marker-icon`', () => {
+    it('should render a component with the data-test attribute `vs-map-marker-icon`', () => {
         const wrapper = factoryShallowMount();
 
-        expect(wrapper.attributes('data-test')).toBe('vs-main-map-marker-icon');
+        expect(wrapper.attributes('data-test')).toBe('vs-map-marker-icon');
     });
 
     describe(':props', () => {
-        it('should render a makrer icon with a class corresponding to the id prop', () => {
+        it('should render a marker icon with a class corresponding to the id prop', () => {
             const wrapper = factoryShallowMount();
             const markerStub = wrapper.findAll('vs-icon-stub').at(0);
 
-            expect(markerStub.classes()).toContain('vs-main-map-marker-icon__marker--cities');
+            expect(markerStub.classes()).toContain('vs-map-marker-icon__marker--cities');
         });
 
         it('should add an outline class to the marker if the `isHovered` prop is true', async() => {
@@ -32,7 +32,7 @@ describe('VsMapMarkerIcon', () => {
 
             await wrapper.vm.$nextTick();
 
-            expect(markerStub.classes()).toContain('vs-main-map-marker-icon__marker--outline');
+            expect(markerStub.classes()).toContain('vs-map-marker-icon__marker--outline');
         });
 
         it('should add a map marker class if the `isMapMarker` prop is true', async() => {
@@ -44,7 +44,7 @@ describe('VsMapMarkerIcon', () => {
 
             await wrapper.vm.$nextTick();
 
-            expect(wrapper.classes()).toContain('vs-main-map-marker-icon--map-marker');
+            expect(wrapper.classes()).toContain('vs-map-marker-icon--map-marker');
         });
     });
 });

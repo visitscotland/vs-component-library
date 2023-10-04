@@ -29,7 +29,7 @@ import VsMapMarkerIcon from '@components/patterns/map-marker-icon/MapMarkerIcon.
 let mapStore = null;
 
 /**
- * A marker for a map compenent
+ * A marker for a map component
  *
  * @displayName Map Marker
  */
@@ -174,7 +174,7 @@ export default {
     &--active {
         z-index: 1 !important;
 
-        .vs-main-map-marker-icon--map-marker {
+        .vs-map-marker-icon--map-marker {
             transform: scale(1.2);
             transition: $transition-base;
         }

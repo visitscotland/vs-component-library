@@ -1,17 +1,17 @@
 <template>
     <div
-        data-test="vs-main-map-marker-icon"
-        class="vs-main-map-marker-icon"
+        data-test="vs-map-marker-icon"
+        class="vs-map-marker-icon"
         :class="parentClasses"
     >
         <VsIcon
             :name="mapMarkerType"
-            class="vs-main-map-marker-icon__marker"
+            class="vs-map-marker-icon__marker"
             :class="markerClasses"
         />
 
         <VsIcon
-            class="vs-main-map-marker-icon__icon"
+            class="vs-map-marker-icon__icon"
             :name="getIconDetails(id).name"
             size="xxs"
             variant="color-white"
@@ -24,7 +24,7 @@ import VsIcon from '@/components/elements/icon/Icon.vue';
 import mapIconMapping from '../../../mixins/mapIconMapping';
 
 export default {
-    name: 'VsMainMapWrapperIcon',
+    name: 'VsMapMarkerIcon',
     status: 'prototype',
     release: '0.0.1',
     components: {
@@ -58,12 +58,12 @@ export default {
             return type;
         },
         parentClasses() {
-            return this.isMapMarker ? 'vs-main-map-marker-icon--map-marker' : '';
+            return this.isMapMarker ? 'vs-map-marker-icon--map-marker' : '';
         },
         markerClasses() {
             return [
-                `vs-main-map-marker-icon__marker--${this.id}`,
-                this.isHovered ? 'vs-main-map-marker-icon__marker--outline' : '',
+                `vs-map-marker-icon__marker--${this.id}`,
+                this.isHovered ? 'vs-map-marker-icon__marker--outline' : '',
             ];
         },
     },
@@ -74,7 +74,7 @@ export default {
 <style lang="scss">
 @include map-button-themes;
 
-.vs-main-map-marker-icon {
+.vs-map-marker-icon {
     position: relative;
     display: inline-block;
 
@@ -86,7 +86,7 @@ export default {
             transition: ease-in-out 0.15s;
         }
 
-        .vs-main-map-marker-icon__marker {
+        .vs-map-marker-icon__marker {
             -webkit-text-stroke-color: $color-white;;
             -webkit-text-stroke-width: 1px;
         }
@@ -116,7 +116,7 @@ export default {
 }
 
 // override transparent button styles
-.vs-button.btn-transparent .vs-main-map-marker-icon__icon {
+.vs-button.btn-transparent .vs-map-marker-icon__icon {
     color: $color-white;
 }
 </style>
