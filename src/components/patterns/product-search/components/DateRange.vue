@@ -112,8 +112,7 @@ function checkMinDate() {
 }
 
 function checkDatesExist() {
-    const datesExist = startDate.value && endDate.value;
-    console.log(datesExist);
+    const datesExist = !startDate.value && !endDate.value ? false : true;
     emit('dateUpdated', datesExist);
 }
 
