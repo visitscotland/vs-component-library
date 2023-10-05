@@ -98,7 +98,7 @@ const minDate = computed(() => {
         date.setDate(start.getDate() + 1);
         returnedDate = formatDate(date);
     }
-    
+
     return returnedDate;
 });
 
@@ -111,12 +111,13 @@ function checkMinDate() {
     }
 }
 
-function checkDatesExist(){
-    let datesExist = !startDate.value && !endDate.value ? false : true;
+function checkDatesExist() {
+    const datesExist = startDate.value && endDate.value;
+    console.log(datesExist);
     emit('dateUpdated', datesExist);
 }
 
-function dateUpdated(){
+function dateUpdated() {
     checkDatesExist();
     checkMinDate();
 }
@@ -124,7 +125,7 @@ function dateUpdated(){
 </script>
 
 <template>
-    <fieldset 
+    <fieldset
         class="vs-date-range"
         data-test="vs-date-range"
     >

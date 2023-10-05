@@ -7,9 +7,8 @@ const factoryShallowMount = (propsData) => shallowMount(VsGuestSelector, {
     propsData: {
         availability: true,
         ...propsData,
-    }
+    },
 });
-
 
 describe('VsGuestSelector', () => {
     it('should render a component with the data-test attribute `vs-guest-selector`', () => {
@@ -18,16 +17,16 @@ describe('VsGuestSelector', () => {
     });
 
     describe(':props', () => {
-        it('disables the trigger button if `availabilty` is false', async () => {
+        it('disables the trigger button if `availabilty` is false', async() => {
             const wrapper = factoryShallowMount({
                 availability: false,
             });
             const trigger = wrapper.find('.vs-guest-selector__trigger');
 
-            expect(trigger.attributes('disabled')).toBe("");
+            expect(trigger.attributes('disabled')).toBe('');
         });
 
-        it('does not disable the trigger if `availabilty` is true', async () => {
+        it('does not disable the trigger if `availabilty` is true', async() => {
             const wrapper = factoryShallowMount();
             const trigger = wrapper.find('.vs-guest-selector__trigger');
 
@@ -40,9 +39,9 @@ describe('VsGuestSelector', () => {
             const wrapper = factoryShallowMount();
             const trigger = wrapper.find('.vs-guest-selector__trigger');
             const modal = wrapper.find('.vs-guest-selector__modal');
-            
+
             expect(modal.classes()).not.toContain('vs-guest-selector__modal--visible');
-            
+
             await trigger.trigger('click');
 
             expect(modal.classes()).toContain('vs-guest-selector__modal--visible');
@@ -57,7 +56,7 @@ describe('VsGuestSelector', () => {
             await trigger.trigger('click');
 
             expect(modal.classes()).toContain('vs-guest-selector__modal--visible');
-            
+
             await closeBtn.trigger('click');
 
             expect(modal.classes()).not.toContain('vs-guest-selector__modal--visible');

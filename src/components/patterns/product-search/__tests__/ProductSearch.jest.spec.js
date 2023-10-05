@@ -17,7 +17,6 @@ const factoryShallowMount = (propsData) => shallowMount(VsProductSearch, {
     },
 });
 
-
 describe('VsProductSearch', () => {
     it('should render a component with the data-test attribute `vs-product-search`', () => {
         const wrapper = factoryShallowMount();

@@ -1,6 +1,8 @@
-import { shallowMount, mount,config, flushPromises } from '@vue/test-utils';
-import VsProductSearchEmbed from '../ProductSearchEmbed.vue';
+import {
+    shallowMount, mount, config, flushPromises,
+} from '@vue/test-utils';
 import axios from 'axios';
+import VsProductSearchEmbed from '../ProductSearchEmbed.vue';
 import locationsData from './data/locationsData.json';
 import locationsDataFr from './data/locationsDataFr.json';
 import toursOriginData from './data/toursOriginData.json';
@@ -10,36 +12,36 @@ config.global.renderStubDefaultSlot = true;
 
 const mockGet = jest.spyOn(axios, 'get');
 
-const locationsDataUrl = 'https://www.visitscotland.com/data/locations?locale='
-const locationsDataFrUrl = 'https://www.visitscotland.com/data/locations?locale=fr'
-const toursOriginDataUrl = 'https://www.visitscotland.com/tms-api/v1/origins?active=1'
-const toursAttractionDataUrl = 'https://www.visitscotland.com/tms-api/v1/attractions'
+const locationsDataUrl = 'https://www.visitscotland.com/data/locations?locale=';
+const locationsDataFrUrl = 'https://www.visitscotland.com/data/locations?locale=fr';
+const toursOriginDataUrl = 'https://www.visitscotland.com/tms-api/v1/origins?active=1';
+const toursAttractionDataUrl = 'https://www.visitscotland.com/tms-api/v1/attractions';
 
 mockGet.mockImplementation((url) => {
     switch (url) {
-        case locationsDataUrl:
-            return Promise.resolve(locationsData)
-        case locationsDataFrUrl:
-            return Promise.resolve(locationsDataFr)
-        case toursOriginDataUrl:
-            return Promise.resolve(toursOriginData)
-        case toursAttractionDataUrl:
-                return Promise.resolve(toursAttractionData)    
-        default:
-            return Promise.reject(new Error('not found'))
+    case locationsDataUrl:
+        return Promise.resolve(locationsData);
+    case locationsDataFrUrl:
+        return Promise.resolve(locationsDataFr);
+    case toursOriginDataUrl:
+        return Promise.resolve(toursOriginData);
+    case toursAttractionDataUrl:
+        return Promise.resolve(toursAttractionData);
+    default:
+        return Promise.reject(new Error('not found'));
     }
-  })
+});
 
 const factoryShallowMount = (propsData) => shallowMount(VsProductSearchEmbed, {
     propsData: {
         ...propsData,
-    }
+    },
 });
 
 const factoryMount = (propsData) => mount(VsProductSearchEmbed, {
     propsData: {
         ...propsData,
-    }
+    },
 });
 
 describe('VsProductSearchEmbed', () => {
@@ -48,44 +50,43 @@ describe('VsProductSearchEmbed', () => {
         expect(wrapper.attributes('data-test')).toBe('vs-product-search-embed');
     });
 
-    it('displays loading state on initial mount', async () => {
+    it('displays loading state on initial mount', async() => {
         const wrapper = factoryShallowMount();
         expect(wrapper.find('vs-loading-spinner-stub').exists()).toBe(true);
         expect(wrapper.find('[data-test="psw-form"]').exists()).toBe(false);
-        await flushPromises()
+        await flushPromises();
         expect(wrapper.find('vs-loading-spinner-stub').exists()).toBe(false);
         expect(wrapper.find('[data-test="psw-form"]').exists()).toBe(true);
     });
 
-    it('should show the form when location data is loaded on mounted', async () => {
+    it('should show the form when location data is loaded on mounted', async() => {
         const wrapper = factoryShallowMount();
-        expect(axios.get).toHaveBeenCalledWith(locationsDataUrl)
-        await flushPromises()
+        expect(axios.get).toHaveBeenCalledWith(locationsDataUrl);
+        await flushPromises();
         expect(wrapper.find('[data-test="psw-form"]').exists()).toBe(true);
     });
 
-
-    it('sets the correct form elements for `Things to do` by default', async () => {
+    it('sets the correct form elements for `Things to do` by default', async() => {
         const wrapper = factoryShallowMount();
-        await flushPromises()
+        await flushPromises();
         const productTypeSelect = wrapper.find('vs-select-stub');
         expect(productTypeSelect.exists()).toBe(true);
         expect(productTypeSelect.attributes('value')).toBe('acti,attr,reta');
         expect(wrapper.find('#search-location').exists()).toBe(true);
     });
 
-    it('sets correct form action URL by default', async () => {
+    it('sets correct form action URL by default', async() => {
         const wrapper = factoryShallowMount();
-        await flushPromises()
+        await flushPromises();
         expect(wrapper.find('[data-test="psw-form"]').attributes('action')).toBe('https://www.visitscotland.com/info/see-do/search-results');
     });
 
     describe(':props', () => {
-        it('sets the correct form elements for `Accommodation` when `acco` is passed as `defaultProd`', async () => {
+        it('sets the correct form elements for `Accommodation` when `acco` is passed as `defaultProd`', async() => {
             const wrapper = factoryShallowMount({
                 defaultProd: 'acco',
             });
-            await flushPromises()
+            await flushPromises();
             const productTypeSelect = wrapper.find('vs-select-stub');
 
             expect(productTypeSelect.exists()).toBe(true);
@@ -95,11 +96,11 @@ describe('VsProductSearchEmbed', () => {
             expect(wrapper.find('guest-selector-stub').exists()).toBe(true);
         });
 
-        it('sets the correct form elements for `Events & Festivals` when `even` is passed as `defaultProd`', async () => {
+        it('sets the correct form elements for `Events & Festivals` when `even` is passed as `defaultProd`', async() => {
             const wrapper = factoryShallowMount({
                 defaultProd: 'even',
             });
-            await flushPromises()
+            await flushPromises();
             const productTypeSelect = wrapper.find('vs-select-stub');
 
             expect(productTypeSelect.exists()).toBe(true);
@@ -109,11 +110,11 @@ describe('VsProductSearchEmbed', () => {
             expect(wrapper.find('vs-input-stub').attributes('fieldname')).toBe('search-keyword');
         });
 
-        it('sets the correct form elements for `Food & Drink` when `cate` is passed as `defaultProd`', async () => {
+        it('sets the correct form elements for `Food & Drink` when `cate` is passed as `defaultProd`', async() => {
             const wrapper = factoryShallowMount({
                 defaultProd: 'cate',
             });
-            await flushPromises()
+            await flushPromises();
             const productTypeSelect = wrapper.find('vs-select-stub');
 
             expect(productTypeSelect.exists()).toBe(true);
@@ -121,11 +122,11 @@ describe('VsProductSearchEmbed', () => {
             expect(wrapper.find('#search-location').exists()).toBe(true);
         });
 
-        it('sets the correct form elements for `Tours` when `tour` is passed as `defaultProd`', async () => {
+        it('sets the correct form elements for `Tours` when `tour` is passed as `defaultProd`', async() => {
             const wrapper = factoryShallowMount({
                 defaultProd: 'tour',
             });
-            await flushPromises()
+            await flushPromises();
             const productTypeSelect = wrapper.find('vs-select-stub');
 
             expect(productTypeSelect.exists()).toBe(true);
@@ -134,20 +135,20 @@ describe('VsProductSearchEmbed', () => {
             expect(wrapper.find('#tour-month').exists()).toBe(true);
         });
 
-        it('should set correct form action URL when `defaultLocale` prop is passed', async () => {
+        it('should set correct form action URL when `defaultLocale` prop is passed', async() => {
             const wrapper = factoryShallowMount({
                 defaultLocale: 'fr',
             });
-            await flushPromises()
+            await flushPromises();
 
             expect(wrapper.find('[data-test="psw-form"]').attributes('action')).toBe('https://www.visitscotland.com/fr/info/see-do/search-results');
         });
 
-        it('should set correct `defaultLocation` when prop is passed', async () => {
+        it('should set correct `defaultLocation` when prop is passed', async() => {
             const wrapper = factoryShallowMount({
                 defaultLocation: '4161',
             });
-            await flushPromises()
+            await flushPromises();
             const mockGetPlaceData = jest.spyOn(wrapper.vm, 'getPlaceData');
 
             setTimeout(() => {
@@ -158,31 +159,34 @@ describe('VsProductSearchEmbed', () => {
     });
 
     describe(':methods', () => {
-        it('gets Tours data when tours product type is default', async () => {
+        it('gets Tours data when tours product type is default', async() => {
             factoryShallowMount({
                 defaultProd: 'tour',
             });
-            expect(axios.get).toHaveBeenCalledWith(toursOriginDataUrl)
-            expect(axios.get).toHaveBeenCalledWith(toursAttractionDataUrl)
+            expect(axios.get).toHaveBeenCalledWith(toursOriginDataUrl);
+            expect(axios.get).toHaveBeenCalledWith(toursAttractionDataUrl);
         });
 
-        it('gets Tours data when product type is changed to `tours`', async () => {
+        it('gets Tours data when product type is changed to `tours`', async() => {
             const wrapper = factoryShallowMount();
-            await flushPromises()
+            await flushPromises();
 
-            wrapper.vm.onChange({field: 'prodtypes', value: 'tour'});
-            
-            expect(axios.get).toHaveBeenCalledWith(toursOriginDataUrl)
-            expect(axios.get).toHaveBeenCalledWith(toursAttractionDataUrl)
+            wrapper.vm.onChange({
+                field: 'prodtypes',
+                value: 'tour',
+            });
 
+            expect(axios.get).toHaveBeenCalledWith(toursOriginDataUrl);
+            expect(axios.get).toHaveBeenCalledWith(toursAttractionDataUrl);
         });
 
-        it('submits the form on button trigger', async () => {
-            const wrapper = factoryMount({});
-            await flushPromises()
+        it('submits the form on button trigger', async() => {
+            const wrapper = factoryMount({
+            });
+            await flushPromises();
 
             const mockPreSubmitChecks = jest.spyOn(wrapper.vm, 'preSubmitChecks');
-            await wrapper.find('form').trigger('submit.prevent')
+            await wrapper.find('form').trigger('submit.prevent');
 
             setTimeout(() => {
                 expect(mockPreSubmitChecks).toHaveBeenCalled();
