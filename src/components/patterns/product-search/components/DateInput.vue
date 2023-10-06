@@ -25,19 +25,16 @@ watch(() => props.value, (value) => {
 </script>
 
 <template>
-    <div 
-        class="vs-date-input"
-        data-test="vs-date-input"
-    >
+    <div class="vs-date-input" data-test="vs-date-input">
         <label :for="id">{{ label }}</label>
-        <input 
-            type="date" 
+        <input
+            type="date"
             :min="typeof minDate !== 'undefined' && minDate.length > 0 ? minDate : today"
-            :name="name" 
+            :name="name"
             :id="id"
             v-model="selectedDate"
             @change="$emit('changeDate', selectedDate)"
             class="form-control vs-input"
-        >
+        />
     </div>
 </template>

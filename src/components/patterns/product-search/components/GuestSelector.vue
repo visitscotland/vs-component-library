@@ -9,7 +9,6 @@ import VsButton from '../../../elements/button/Button.vue';
 
 defineProps<{
     availability: boolean;
-    label: String;
 }>();
 
 const addUnitLabel = getLabelText('add_room_label', 'Add a Room', 'guests_rooms');
@@ -55,10 +54,6 @@ const unitsLabel = getLabelText('rooms', 'Rooms', 'guests_rooms');
 const unitLimit = 5;
 const unitRemoved = ref(false);
 const visible = ref(false);
-
-const showPicker = () => {
-    visible.value = true;
-};
 
 const hidePicker = () => {
     visible.value = false;
@@ -135,27 +130,30 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
 </script>
 
 <template>
-    <div class="form-group psw-guestpicker">
-        <span class="psw-guestpicker__label">{{ guestsLabel }}</span>
+    <div 
+        class="form-group vs-guest-selector"
+        data-test="vs-guest-selector"
+    >
+        <span class="vs-guest-selector__label">{{ guestsLabel }}</span>
         <button
             tabIndex="availability ? '0' : ''"
-            class="c-search-rooms-guests__trigger trigger form-control select-wrap vs-input"
+            class="vs-guest-selector__trigger form-control vs-input"
             @click.prevent="togglePicker"
             :disabled="!availability"
         >
-            <span class="c-search-rooms-guests-selected">{{ unitCount }}&nbsp;</span>
-            <span class="c-search-rooms-guests__room-label">{{ (unitCount > 1 ? unitsLabel : unitLabel) }}</span>,&nbsp;
-            <span class="c-search-rooms-guests__guests-count">{{ guestCount }}&nbsp;</span>
-            <span class="c-search-rooms-guests__guests-label">{{ guestCount > 1 ? guestsLabel : guestLabel }}</span>
+            <span>{{ unitCount }}&nbsp;</span>
+            <span>{{ (unitCount > 1 ? unitsLabel : unitLabel) }}</span>,&nbsp;
+            <span>{{ guestCount }}&nbsp;</span>
+            <span>{{ guestCount > 1 ? guestsLabel : guestLabel }}</span>
         </button>
 
         <div
-            class="psw-guestpicker__modal"
-            :class="visible ? 'psw-guestpicker__modal--visible' : ''"
+            class="vs-guest-selector__modal"
+            :class="visible ? 'vs-guest-selector__modal--visible' : ''"
         >
             <VsButton
                 class="align-self-end"
-                data-test="psw-guestpicker__close-btn"
+                data-test="vs-guest-selector__close-btn"
                 variant="transparent"
                 icon="close-circle"
                 size="md"
@@ -167,7 +165,7 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
                 </span>
             </VsButton>
 
-            <div class="psw-guestpicker__button-row mb-3">
+            <div class="vs-guest-selector__button-row mb-3">
                 <GuestSelectorRow
                     v-for="(unit, index) in units"
                     :key="unit.id"
@@ -221,7 +219,7 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
 </template>
 
 <style lang="scss">
-    button.c-search-rooms-guests__trigger {
+    button.vs-guest-selector__trigger {
         text-align: left;
 
         &:focus{
@@ -241,7 +239,7 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
         }
     }
 
-    .psw-guestpicker {
+    .vs-guest-selector {
         position: relative;
 
         &__modal {

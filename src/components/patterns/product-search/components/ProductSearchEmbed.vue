@@ -95,7 +95,6 @@
                                 <GuestSelector
                                     v-if="selectedProd === 'acco'"
                                     :availability="true"
-                                    :label="getLabelText('guests', 'Guests')"
                                     id="guest-selector"
                                 />
 

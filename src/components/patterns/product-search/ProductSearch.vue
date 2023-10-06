@@ -1,5 +1,5 @@
 <template>
-    <div 
+    <div
         class="vs-product-search"
         data-test="vs-product-search"
     >
