@@ -1,17 +1,17 @@
 import { shallowMount, config } from '@vue/test-utils';
-import VsMainMapWrapperSubcategory from '../MainMapWrapperSubcategory.vue';
+import VsMapWithSidebarSubcategory from '../MapWithSidebarSubcategory.vue';
 import subCategoriesData from './data/filters-subcategories.json';
 
 config.global.renderStubDefaultSlot = true;
 
-const factoryShallowMount = () => shallowMount(VsMainMapWrapperSubcategory, {
+const factoryShallowMount = () => shallowMount(VsMapWithSidebarSubcategory, {
     propsData: {
         data: subCategoriesData,
         selectedSubCategory: '',
     },
 });
 
-describe('VsMainMapWrapperSubcategory', () => {
+describe('VsMapWithSidebarSubcategory', () => {
     it('should render a component with the data-test attribute `vs-main-map-subcategory`', () => {
         const wrapper = factoryShallowMount();
         expect(wrapper.attributes('data-test')).toBe('vs-main-map-subcategory');

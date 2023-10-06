@@ -1,10 +1,10 @@
 import { shallowMount, config } from '@vue/test-utils';
 import { setActivePinia, createPinia } from 'pinia';
-import VsMainMapWrapperControls from '../MainMapWrapperControls.vue';
+import VsMapWithSidebarControls from '../MapWithSidebarControls.vue';
 
 config.global.renderStubDefaultSlot = true;
 
-const factoryShallowMount = () => shallowMount(VsMainMapWrapperControls, {
+const factoryShallowMount = () => shallowMount(VsMapWithSidebarControls, {
     global: {
         provide: {
             clearSelectionText: 'Clear selection',
@@ -13,7 +13,7 @@ const factoryShallowMount = () => shallowMount(VsMainMapWrapperControls, {
     },
 });
 
-describe('VsMainMapWrapperControls', () => {
+describe('VsMapWithSidebarControls', () => {
     beforeEach(() => {
         setActivePinia(createPinia());
     });

@@ -1,13 +1,13 @@
 <template>
     <div
-        class="vs-main-map-wrapper-toggle"
-        data-test="vs-main-map-wrapper-toggle"
+        class="vs-map-with-sidebar-toggle"
+        data-test="vs-map-with-sidebar-toggle"
     />
 </template>
 
 <script>
 export default {
-    name: 'VsMainMapWrapperToggle',
+    name: 'VsMapWithSidebarToggle',
     status: 'prototype',
     release: '0.0.1',
 };

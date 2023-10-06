@@ -1,9 +1,9 @@
 <template>
     <button
         type="button"
-        class="vs-main-map-wrapper-list-item"
-        :class="isActive ? 'vs-main-map-wrapper-list-item--hovered' : ''"
-        data-test="vs-main-map-wrapper-list-item"
+        class="vs-map-with-sidebar-list-item"
+        :class="isActive ? 'vs-map-with-sidebar-list-item--hovered' : ''"
+        data-test="vs-map-with-sidebar-list-item"
         @click="showItemDetail(formattedData.id)"
         @keyup.enter="showItemDetail(formattedData.id)"
         @mouseover="itemHover(formattedData.id)"
@@ -12,15 +12,15 @@
         @focusout="itemHover('')"
         ref="btn"
     >
-        <div class="vs-main-map-wrapper-list-item__img-container">
+        <div class="vs-map-with-sidebar-list-item__img-container">
             <VsImg
                 v-if="typeof formattedData.image !== 'undefined'"
                 :src="formattedData.image"
-                class="vs-main-map-wrapper-list-item__img"
+                class="vs-map-with-sidebar-list-item__img"
             />
         </div>
         <span
-            class="vs-main-map-wrapper-list-item__text"
+            class="vs-map-with-sidebar-list-item__text"
         >
             {{ formattedData.title }}
         </span>
@@ -29,7 +29,7 @@
             name="internal-link"
             variant="primary"
             size="xxs"
-            class="vs-main-map-wrapper-list-item__icon"
+            class="vs-map-with-sidebar-list-item__icon"
         />
     </button>
 </template>
@@ -50,7 +50,7 @@ let mapStore = null;
  * @displayName Main Map Wrapper List Item
  */
 export default {
-    name: 'VsMainMapWrapperListItem',
+    name: 'VsMapWithSidebarListItem',
     status: 'prototype',
     release: '0.0.1',
     components: {
@@ -153,7 +153,7 @@ export default {
 </script>
 
 <style lang="scss">
-    .vs-main-map-wrapper-list-item {
+    .vs-map-with-sidebar-list-item {
         color: $color-black;
         display: flex;
         position: relative;
@@ -177,7 +177,7 @@ export default {
         &--hovered {
             box-shadow: $shadow_card;
 
-            .vs-main-map-wrapper-list-item__text{
+            .vs-map-with-sidebar-list-item__text{
                 text-decoration: underline;
             }
         }

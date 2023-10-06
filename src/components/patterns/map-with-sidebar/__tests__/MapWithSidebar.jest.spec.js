@@ -1,6 +1,6 @@
 import { shallowMount, config } from '@vue/test-utils';
 import axios from 'axios';
-import VsMainMapWrapper from '../MainMapWrapper.vue';
+import VsMapWithSidebar from '../MapWithSidebar.vue';
 import placesJson from './data/places.json';
 import filtersJson from './data/filters.json';
 import filtersSubcatJson from './data/fitlersSubcat.json';
@@ -12,7 +12,7 @@ config.global.renderStubDefaultSlot = true;
 // Following lines tell Jest to mock any call to `axios.get`
 jest.spyOn(axios, 'get').mockResolvedValue(mockPlacesResponse);
 
-const factoryShallowMount = () => shallowMount(VsMainMapWrapper, {
+const factoryShallowMount = () => shallowMount(VsMapWithSidebar, {
     slots: {
         'open-side-panel-text': 'Open panel',
         'no-js': 'Javascript is needed for this map',
@@ -50,17 +50,17 @@ const factoryShallowMount = () => shallowMount(VsMainMapWrapper, {
     },
 });
 
-describe('VsMainMapWrapper', () => {
-    it('should render a component with the data-test attribute `vs-main-map-wrapper`', () => {
+describe('VsMapWithSidebar', () => {
+    it('should render a component with the data-test attribute `vs-map-with-sidebar`', () => {
         const wrapper = factoryShallowMount();
-        expect(wrapper.attributes('data-test')).toBe('vs-main-map-wrapper');
+        expect(wrapper.attributes('data-test')).toBe('vs-map-with-sidebar');
     });
 
     describe(':props', () => {
         it('should show the toggle buttons when `toggleData` is passed in', () => {
             const wrapper = factoryShallowMount();
 
-            expect(wrapper.find('[data-test="vs-main-map-wrapper__map-toggle-group"]').exists()).toBe(true);
+            expect(wrapper.find('[data-test="vs-map-with-sidebar__map-toggle-group"]').exists()).toBe(true);
         });
 
         it('should not show the toggle buttons when no `toggleData` is passed in', async() => {
@@ -69,14 +69,14 @@ describe('VsMainMapWrapper', () => {
                 toggleData: [],
             });
 
-            expect(wrapper.find('[data-test="vs-main-map-wrapper__map-toggle-group"]').exists()).toBe(false);
+            expect(wrapper.find('[data-test="vs-map-with-sidebar__map-toggle-group"]').exists()).toBe(false);
         });
     });
 
     describe(':methods', () => {
         it('should hide the side panel after the `closePanel` method is fired', async() => {
             const wrapper = factoryShallowMount();
-            const panel = wrapper.find('[data-test="vs-main-map-wrapper__side-panel"]');
+            const panel = wrapper.find('[data-test="vs-map-with-sidebar__side-panel"]');
 
             wrapper.vm.closePanel();
 
@@ -87,7 +87,7 @@ describe('VsMainMapWrapper', () => {
 
         it('should show the side panel after the `openPanel` method is fired', async() => {
             const wrapper = factoryShallowMount();
-            const panel = wrapper.find('[data-test="vs-main-map-wrapper__side-panel"]');
+            const panel = wrapper.find('[data-test="vs-map-with-sidebar__side-panel"]');
 
             wrapper.vm.closePanel();
 
@@ -173,7 +173,7 @@ describe('VsMainMapWrapper', () => {
     describe(':slots', () => {
         it('should display the `openMapText` slot', () => {
             const wrapper = factoryShallowMount();
-            const openMapBtn = wrapper.find('[data-test="vs-main-map-wrapper__map-toggle"]');
+            const openMapBtn = wrapper.find('[data-test="vs-map-with-sidebar__map-toggle"]');
 
             expect(openMapBtn.text()).toBe('Open panel');
         });

@@ -40,7 +40,7 @@ import VsMapMarkerIcon from '@components/patterns/map-marker-icon/MapMarkerIcon.
 let mapStore = null;
 
 export default {
-    name: 'VsMainMapWrapperSubCategories',
+    name: 'VsMapWithSidebarSubCategories',
     status: 'prototype',
     release: '0.0.1',
     components: {

@@ -1,11 +1,11 @@
 import { shallowMount, config } from '@vue/test-utils';
-import VsMainMapWrapperPanel from '../MainMapWrapperPanel.vue';
+import VsMapWithSidebarPanel from '../MapWithSidebarPanel.vue';
 
 config.global.renderStubDefaultSlot = true;
 
 const mockMethod = jest.fn();
 
-const factoryShallowMount = (propsData) => shallowMount(VsMainMapWrapperPanel, {
+const factoryShallowMount = (propsData) => shallowMount(VsMapWithSidebarPanel, {
     slots: {
         'close-side-panel-text': 'Close panel',
         'back-btn-text': 'Back',
@@ -68,12 +68,12 @@ const factoryShallowMount = (propsData) => shallowMount(VsMainMapWrapperPanel, {
     },
 });
 
-describe('VsMainMapWrapperPanel', () => {
-    it('should render a component with the data-test attribute `vs-main-map-wrapper-panel`', () => {
+describe('VsMapWithSidebarPanel', () => {
+    it('should render a component with the data-test attribute `vs-map-with-sidebar-panel`', () => {
         const wrapper = factoryShallowMount({
             currentStage: 0,
         });
-        expect(wrapper.attributes('data-test')).toBe('vs-main-map-wrapper-panel');
+        expect(wrapper.attributes('data-test')).toBe('vs-map-with-sidebar-panel');
     });
 
     describe(':methods', () => {
@@ -81,7 +81,7 @@ describe('VsMainMapWrapperPanel', () => {
             const wrapper = factoryShallowMount({
                 currentStage: 0,
             });
-            const closeBtn = wrapper.find('[data-test="vs-main-map-wrapper-panel--btn-close"]');
+            const closeBtn = wrapper.find('[data-test="vs-map-with-sidebar-panel--btn-close"]');
 
             await closeBtn.trigger('click');
 
@@ -93,7 +93,7 @@ describe('VsMainMapWrapperPanel', () => {
                 currentStage: 1,
             });
             await wrapper.vm.$nextTick();
-            const backBtn = wrapper.find('[data-test="vs-main-map-wrapper-panel--btn-back"]');
+            const backBtn = wrapper.find('[data-test="vs-map-with-sidebar-panel--btn-back"]');
 
             backBtn.trigger('click');
 
@@ -125,7 +125,7 @@ describe('VsMainMapWrapperPanel', () => {
                 categoryHeading: 'This is a heading',
                 currentStage: 0,
             });
-            const panelHeading = wrapper.find('[data-test="vs-main-map-wrapper-panel__heading"]');
+            const panelHeading = wrapper.find('[data-test="vs-map-with-sidebar-panel__heading"]');
 
             expect(panelHeading.text()).toBe('This is a heading');
         });
@@ -154,7 +154,7 @@ describe('VsMainMapWrapperPanel', () => {
             const wrapper = factoryShallowMount({
                 currentStage: 0,
             });
-            const closeBtn = wrapper.find('[data-test="vs-main-map-wrapper-panel--btn-close"]');
+            const closeBtn = wrapper.find('[data-test="vs-map-with-sidebar-panel--btn-close"]');
 
             expect(closeBtn.text()).toBe('Close panel');
         });
@@ -164,7 +164,7 @@ describe('VsMainMapWrapperPanel', () => {
                 currentStage: 1,
             });
             await wrapper.vm.$nextTick();
-            const backBtn = wrapper.find('[data-test="vs-main-map-wrapper-panel--btn-back"]');
+            const backBtn = wrapper.find('[data-test="vs-map-with-sidebar-panel--btn-back"]');
 
             expect(backBtn.text()).toBe('Back');
         });
@@ -173,7 +173,7 @@ describe('VsMainMapWrapperPanel', () => {
             const wrapper = factoryShallowMount({
                 currentStage: 0,
             });
-            const closeBtn = wrapper.find('[data-test="vs-main-map-wrapper-panel--btn-reset"]');
+            const closeBtn = wrapper.find('[data-test="vs-map-with-sidebar-panel--btn-reset"]');
 
             expect(closeBtn.text()).toBe('Reset panel');
         });

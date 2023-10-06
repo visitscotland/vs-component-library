@@ -1,19 +1,19 @@
 <template>
     <VsContainer
-        data-test="vs-main-map-wrapper"
+        data-test="vs-map-with-sidebar"
     >
         <VsRow>
             <VsCol>
                 <div
-                    class="vs-main-map-wrapper"
+                    class="vs-map-with-sidebar"
                     :ref="mapId"
                 >
                     <div
-                        class="vs-main-map-wrapper__side-panel"
+                        class="vs-map-with-sidebar__side-panel"
                         :class="panelDisplayClass"
-                        data-test="vs-main-map-wrapper__side-panel"
+                        data-test="vs-map-with-sidebar__side-panel"
                     >
-                        <VsMainMapWrapperPanel
+                        <VsMapWithSidebarPanel
                             :category-heading="categoryHeading"
                             :selected-category="selectedCategory"
                             :selected-subcategory="selectedSubCategory"
@@ -54,17 +54,17 @@
                             <template v-slot:load-more-text>
                                 <slot name="load-more-text" />
                             </template>
-                        </VsMainMapWrapperPanel>
+                        </VsMapWithSidebarPanel>
                     </div>
                     <div
-                        class="vs-main-map-wrapper__map"
+                        class="vs-map-with-sidebar__map"
                         :class="mapDisplayClass"
                     >
                         <VsButton
-                            class="vs-main-map-wrapper__map-toggle"
+                            class="vs-map-with-sidebar__map-toggle"
                             size="sm"
                             @click="openPanel"
-                            data-test="vs-main-map-wrapper__map-toggle"
+                            data-test="vs-map-with-sidebar__map-toggle"
                         >
                             <!-- @slot Text for panel open button  -->
                             <slot name="open-side-panel-text" />
@@ -108,7 +108,7 @@
                         </VsMap>
                         <VsButtonToggleGroup
                             v-if="toggleData.length > 0"
-                            data-test="vs-main-map-wrapper__map-toggle-group"
+                            data-test="vs-map-with-sidebar__map-toggle-group"
                             :initial-selected="selectedToggle"
                             :options="toggleData"
                             :buttons-label="buttonsLabel"
@@ -118,7 +118,7 @@
                 </div>
 
                 <VsWarning
-                    class="vs-main-map-wrapper__no-js"
+                    class="vs-map-with-sidebar__no-js"
                     theme="light"
                 >
                     <!-- @slot Message to show when JS is disabled  -->
@@ -143,7 +143,7 @@ import pinia from '@/stores/index.ts';
 import { mapState } from 'pinia';
 import useMapStore from '@/stores/map.store.ts';
 import VsMap from '@components/patterns/map/Map.vue';
-import VsMainMapWrapperPanel from './components/MainMapWrapperPanel.vue';
+import VsMapWithSidebarPanel from './components/MapWithSidebarPanel.vue';
 
 let mapStore = null;
 
@@ -155,7 +155,7 @@ let mapStore = null;
  */
 
 export default {
-    name: 'VsMainMapWrapper',
+    name: 'VsMapWithSidebar',
     status: 'prototype',
     release: '0.0.1',
     components: {
@@ -164,7 +164,7 @@ export default {
         VsCol,
         VsMap,
         VsButton,
-        VsMainMapWrapperPanel,
+        VsMapWithSidebarPanel,
         VsButtonToggleGroup,
         VsWarning,
     },
@@ -645,7 +645,7 @@ export default {
 </script>
 
 <style lang="scss">
-    .vs-main-map-wrapper {
+    .vs-map-with-sidebar {
         height: 75vh;
         display: flex;
 
@@ -712,7 +712,7 @@ export default {
     }
 
     @include no-js {
-        .vs-main-map-wrapper {
+        .vs-map-with-sidebar {
             display: none;
 
             &__no-js {

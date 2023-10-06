@@ -33,7 +33,7 @@ import { mapState } from 'pinia';
 import useMapStore from '@/stores/map.store.ts';
 
 export default {
-    name: 'VsMainMapWrapperControls',
+    name: 'VsMapWithSidebarControls',
     status: 'prototype',
     release: '0.0.1',
     components: {

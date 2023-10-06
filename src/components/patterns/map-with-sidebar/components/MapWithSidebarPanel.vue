@@ -1,16 +1,16 @@
 <template>
     <section
-        data-test="vs-main-map-wrapper-panel"
-        class="vs-main-map-wrapper-panel"
+        data-test="vs-map-with-sidebar-panel"
+        class="vs-map-with-sidebar-panel"
         :class="panelClasses"
     >
         <div
-            class="vs-main-map-wrapper-panel__header-section"
+            class="vs-map-with-sidebar-panel__header-section"
             :class="headerClasses"
         >
-            <div class="vs-main-map-wrapper-panel__buttons d-lg-none">
+            <div class="vs-map-with-sidebar-panel__buttons d-lg-none">
                 <div
-                    class="vs-main-map-wrapper-panel__back"
+                    class="vs-map-with-sidebar-panel__back"
                     v-if="currentStage > 0 || selectedSubcategory"
                 >
                     <VsButton
@@ -20,7 +20,7 @@
                         size="md"
                         variant="secondary"
                         @click="stageBack"
-                        data-test="vs-main-map-wrapper-panel--btn-back"
+                        data-test="vs-map-with-sidebar-panel--btn-back"
                     >
                         <span class="sr-only">
                             <!-- @slot Text for panel back button  -->
@@ -30,7 +30,7 @@
                 </div>
 
                 <div
-                    class="vs-main-map-wrapper-panel__close"
+                    class="vs-map-with-sidebar-panel__close"
                 >
                     <VsButton
                         icon-only
@@ -38,7 +38,7 @@
                         size="md"
                         variant="secondary"
                         @click="closePanel"
-                        data-test="vs-main-map-wrapper-panel--btn-close"
+                        data-test="vs-map-with-sidebar-panel--btn-close"
                     >
                         <span class="sr-only">
                             <!-- @slot Text for panel close button  -->
@@ -49,7 +49,7 @@
             </div>
 
             <div
-                class="vs-main-map-wrapper-panel__back d-none d-lg-block"
+                class="vs-map-with-sidebar-panel__back d-none d-lg-block"
                 v-if="currentStage > 0 || selectedSubcategory"
             >
                 <VsButton
@@ -59,7 +59,7 @@
                     size="md"
                     variant="secondary"
                     @click="stageBack"
-                    data-test="vs-main-map-wrapper-panel--btn-back"
+                    data-test="vs-map-with-sidebar-panel--btn-back"
                 >
                     <span class="sr-only">
                         <!-- @slot Text for panel back button  -->
@@ -71,16 +71,16 @@
             <VsHeading
                 :level="headingLevel"
                 override-style-level="4"
-                class="vs-main-map-wrapper-panel__heading text-center mt-8 mt-lg-0"
+                class="vs-map-with-sidebar-panel__heading text-center mt-8 mt-lg-0"
                 :class="currentStage === 2 ? 'd-none d-lg-block' : ''"
                 v-if="currentHeading !== ''"
-                data-test="vs-main-map-wrapper-panel__heading"
+                data-test="vs-map-with-sidebar-panel__heading"
             >
                 {{ currentHeading }}
             </VsHeading>
 
             <div
-                class="vs-main-map-wrapper-panel__reset"
+                class="vs-map-with-sidebar-panel__reset"
                 :class="currentStage < 2 ? 'd-lg-none' : ''"
             >
                 <VsButton
@@ -89,7 +89,7 @@
                     size="md"
                     variant="secondary"
                     @click="resetPanel"
-                    data-test="vs-main-map-wrapper-panel--btn-reset"
+                    data-test="vs-map-with-sidebar-panel--btn-reset"
                 >
                     <span class="sr-only">
                         <!-- @slot Text for panel reset button  -->
@@ -101,14 +101,14 @@
 
         <template v-if="currentStage === 0">
             <template v-if="selectedSubcategory !== null">
-                <VsMainMapWrapperSubcategory
+                <VsMapWithSidebarSubcategory
                     :data="selectedSubcategoryData[0].subCategory"
                     :selectedSubCategory="selectedSubcategory"
                 />
-                <VsMainMapWrapperControls />
+                <VsMapWithSidebarControls />
             </template>
             <template v-else>
-                <VsMainMapWrapperCategory
+                <VsMapWithSidebarCategory
                     v-for="filter in filters"
                     :key="filter.id"
                     :category-name="filter.label"
@@ -118,7 +118,7 @@
             </template>
 
             <template v-if="panelMessage !== null">
-                <div class="vs-main-map-wrapper-panel__bottom-message">
+                <div class="vs-map-with-sidebar-panel__bottom-message">
                     <p>
                         {{ panelMessage }}
                     </p>
@@ -127,8 +127,8 @@
         </template>
         <template v-if="currentStage === 1">
             <template v-if="selectedSubcategory !== null">
-                <div class="vs-main-map-wrapper-panel__list-container">
-                    <VsMainMapWrapperListItem
+                <div class="vs-map-with-sidebar-panel__list-container">
+                    <VsMapWithSidebarListItem
                         v-for="(place, index) in subcategoryLocations"
                         :key="place.id"
                         :item-data="place"
@@ -139,8 +139,8 @@
 
                     <VsButton
                         v-if="showLoadMore"
-                        class="vs-main-map-wrapper-panel__load-more"
-                        data-test="vs-main-map-wrapper-panel__load-more"
+                        class="vs-map-with-sidebar-panel__load-more"
+                        data-test="vs-map-with-sidebar-panel__load-more"
                         @click="loadMorePlaces()"
                         @keyup.enter="loadMorePlaces()"
                     >
@@ -148,7 +148,7 @@
                         <slot name="load-more-text" />
                     </VsButton>
                 </div>
-                <VsMainMapWrapperButtons
+                <VsMapWithSidebarButtons
                     :content-data="{}"
                     :filter-count="subCatFilterCount"
                     @clear-filters="clearSubCatFilters"
@@ -159,7 +159,7 @@
                     v-for="place in currentData"
                     :key="place.id"
                 >
-                    <VsMainMapWrapperListItem
+                    <VsMapWithSidebarListItem
                         v-if="typeof place.properties !== 'undefined'
                             && place.properties.category.id === selectedCategory"
                         :item-data="place.properties"
@@ -169,25 +169,25 @@
             </template>
         </template>
         <template v-if="currentStage === 2">
-            <VsMainMapWrapperDetail
+            <VsMapWithSidebarDetail
                 :heading-level="detailHeadingLevel"
                 :content-data="currentPlaceData[0]"
             />
 
-            <VsMainMapWrapperButtons
+            <VsMapWithSidebarButtons
                 :content-data="currentPlaceData[0]"
             />
         </template>
         <div
             v-if="panelStatus !== null"
-            class="vs-main-map-wrapper-panel__overlay"
+            class="vs-map-with-sidebar-panel__overlay"
         >
             <div
                 v-if="!!$slots['panel-loading-message']
                     && panelStatus !== 'map-loading'"
-                class="vs-main-map-wrapper-panel__overlay-box"
+                class="vs-map-with-sidebar-panel__overlay-box"
             >
-                <p class="vs-main-map-wrapper-panel__overlay-text">
+                <p class="vs-map-with-sidebar-panel__overlay-text">
                     <!-- @slot Text for panel reset button  -->
                     <slot name="panel-loading-message" />
                 </p>
@@ -202,12 +202,12 @@ import VsHeading from '@components/elements/heading/Heading.vue';
 import pinia from '@/stores/index.ts';
 import { mapState } from 'pinia';
 import useMapStore from '@/stores/map.store.ts';
-import VsMainMapWrapperCategory from './MainMapWrapperCategory.vue';
-import VsMainMapWrapperSubcategory from './MainMapWrapperSubcategory.vue';
-import VsMainMapWrapperListItem from './MainMapWrapperListItem.vue';
-import VsMainMapWrapperDetail from './MainMapWrapperDetail.vue';
-import VsMainMapWrapperButtons from './MainMapWrapperButtons.vue';
-import VsMainMapWrapperControls from './MainMapWrapperControls.vue';
+import VsMapWithSidebarCategory from './MapWithSidebarCategory.vue';
+import VsMapWithSidebarSubcategory from './MapWithSidebarSubcategory.vue';
+import VsMapWithSidebarListItem from './MapWithSidebarListItem.vue';
+import VsMapWithSidebarDetail from './MapWithSidebarDetail.vue';
+import VsMapWithSidebarButtons from './MapWithSidebarButtons.vue';
+import VsMapWithSidebarControls from './MapWithSidebarControls.vue';
 
 let mapStore = null;
 
@@ -218,18 +218,18 @@ let mapStore = null;
  */
 
 export default {
-    name: 'VsMainMapWrapperPanel',
+    name: 'VsMapWithSidebarPanel',
     status: 'prototype',
     release: '0.0.1',
     components: {
         VsButton,
-        VsMainMapWrapperCategory,
-        VsMainMapWrapperSubcategory,
+        VsMapWithSidebarCategory,
+        VsMapWithSidebarSubcategory,
         VsHeading,
-        VsMainMapWrapperListItem,
-        VsMainMapWrapperDetail,
-        VsMainMapWrapperButtons,
-        VsMainMapWrapperControls,
+        VsMapWithSidebarListItem,
+        VsMapWithSidebarDetail,
+        VsMapWithSidebarButtons,
+        VsMapWithSidebarControls,
     },
     inject: [
         'filters',
@@ -370,18 +370,18 @@ export default {
         panelClasses() {
             let panelClasses = '';
             if (this.currentStage === 2) {
-                panelClasses += ' vs-main-map-wrapper-panel--small-padding';
+                panelClasses += ' vs-map-with-sidebar-panel--small-padding';
             }
 
             return panelClasses;
         },
         headerClasses() {
             if (this.currentStage === 1) {
-                return 'vs-main-map-wrapper-panel__header-section--with-spacer';
+                return 'vs-map-with-sidebar-panel__header-section--with-spacer';
             }
 
             if (this.currentStage === 2) {
-                return 'vs-main-map-wrapper-panel__header-section--overlapped';
+                return 'vs-map-with-sidebar-panel__header-section--overlapped';
             }
 
             return '';
@@ -559,7 +559,7 @@ export default {
 </script>
 
 <style lang="scss">
-    .vs-main-map-wrapper-panel {
+    .vs-map-with-sidebar-panel {
         padding: $spacer-5 $spacer-3 $spacer-0;
         border: 1px solid $color-gray;
         height: 100%;

@@ -1,20 +1,20 @@
 <template>
     <div
-        class="vs-main-map-wrapper-detail"
-        data-test="vs-main-map-wrapper-detail"
+        class="vs-map-with-sidebar-detail"
+        data-test="vs-map-with-sidebar-detail"
     >
         <VsImg
             v-if="typeof contentData.properties.image !== 'undefined'"
             :src="contentData.properties.image"
-            class="vs-main-map-wrapper-detail__image mb-5 mb-lg-3"
+            class="vs-map-with-sidebar-detail__image mb-5 mb-lg-3"
         />
 
         <VsHeading
             v-if="showTitle"
             :level="headingLevel"
             override-style-level="4"
-            class="vs-main-map-wrapper-detail__heading mt-0"
-            data-test="vs-main-map-wrapper-detail__heading"
+            class="vs-map-with-sidebar-detail__heading mt-0"
+            data-test="vs-map-with-sidebar-detail__heading"
         >
             <template v-if="typeof contentData.properties.placeTitle !== 'undefined'">
                 {{ contentData.properties.placeTitle }}
@@ -27,8 +27,8 @@
 
         <p
             v-if="typeof contentData.properties.address !== 'undefined'"
-            data-test="vs-main-map-wrapper-detail__address"
-            class="vs-main-map-wrapper-detail__address"
+            data-test="vs-map-with-sidebar-detail__address"
+            class="vs-map-with-sidebar-detail__address"
         >
             {{ contentData.properties.address.shortAddress }}
         </p>
@@ -41,8 +41,8 @@
         </p>
 
         <div
-            data-test="vs-main-map-wrapper-detail__description"
-            class="vs-main-map-wrapper-detail__description mb-6"
+            data-test="vs-map-with-sidebar-detail__description"
+            class="vs-map-with-sidebar-detail__description mb-6"
             v-html="contentData.properties.description"
         />
     </div>
@@ -59,7 +59,7 @@ import VsHeading from '@components/elements/heading/Heading.vue';
  * @displayName Main Map Wrapper Detail
  */
 export default {
-    name: 'VsMainMapWrapperDetail',
+    name: 'VsMapWithSidebarDetail',
     status: 'prototype',
     release: '0.0.1',
     components: {
@@ -96,7 +96,7 @@ export default {
 </script>
 
 <style lang="scss">
-    .vs-main-map-wrapper-detail {
+    .vs-map-with-sidebar-detail {
         text-align: left;
 
         @include media-breakpoint-up(lg) {

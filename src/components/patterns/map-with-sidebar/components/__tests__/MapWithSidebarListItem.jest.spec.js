@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
-import VsMainMapWrapperListItem from '../MainMapWrapperListItem.vue';
+import VsMapWithSidebarListItem from '../MapWithSidebarListItem.vue';
 
-const factoryShallowMount = () => shallowMount(VsMainMapWrapperListItem, {
+const factoryShallowMount = () => shallowMount(VsMapWithSidebarListItem, {
     slots: {
         default: 'Button text',
     },
@@ -31,10 +31,10 @@ const factoryShallowMount = () => shallowMount(VsMainMapWrapperListItem, {
     },
 });
 
-describe('VsMainMapWrapperListItem', () => {
-    it('should render a component with the data-test attribute `vs-main-map-wrapper-list-item`', () => {
+describe('VsMapWithSidebarListItem', () => {
+    it('should render a component with the data-test attribute `vs-map-with-sidebar-list-item`', () => {
         const wrapper = factoryShallowMount();
-        expect(wrapper.attributes('data-test')).toBe('vs-main-map-wrapper-list-item');
+        expect(wrapper.attributes('data-test')).toBe('vs-map-with-sidebar-list-item');
     });
 
     describe(':props', () => {

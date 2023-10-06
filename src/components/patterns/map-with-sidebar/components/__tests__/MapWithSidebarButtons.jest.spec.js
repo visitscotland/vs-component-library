@@ -1,9 +1,9 @@
 import { shallowMount, config } from '@vue/test-utils';
-import VsMainMapWrapperButtons from '../MainMapWrapperButtons.vue';
+import VsMapWithSidebarButtons from '../MapWithSidebarButtons.vue';
 
 config.global.renderStubDefaultSlot = true;
 
-const factoryShallowMount = () => shallowMount(VsMainMapWrapperButtons, {
+const factoryShallowMount = () => shallowMount(VsMapWithSidebarButtons, {
     propsData: {
         contentData: {
             properties: {
@@ -31,18 +31,18 @@ const factoryShallowMount = () => shallowMount(VsMainMapWrapperButtons, {
     },
 });
 
-describe('VsMainMapWrapperButtons', () => {
-    it('should render an element with the `vs-main-map-wrapper-buttons` data-test attribute', () => {
+describe('VsMapWithSidebarButtons', () => {
+    it('should render an element with the `vs-map-with-sidebar-buttons` data-test attribute', () => {
         const wrapper = factoryShallowMount();
 
-        expect(wrapper.attributes('data-test')).toBe('vs-main-map-wrapper-buttons');
+        expect(wrapper.attributes('data-test')).toBe('vs-map-with-sidebar-buttons');
     });
 
     describe(':props', () => {
         it('should render the title from the `contentData` prop', () => {
             const wrapper = factoryShallowMount();
 
-            const discoverBtn = wrapper.find('[data-test="vs-main-map-wrapper-buttons__discover"]');
+            const discoverBtn = wrapper.find('[data-test="vs-map-with-sidebar-buttons__discover"]');
 
             expect(discoverBtn.text()).toBe('Discover Aberdeen');
         });
@@ -56,7 +56,7 @@ describe('VsMainMapWrapperButtons', () => {
 
             await wrapper.vm.$nextTick();
 
-            const clearFiltersBtn = wrapper.find('[data-test="vs-main-map-wrapper-buttons__clear-filters"]');
+            const clearFiltersBtn = wrapper.find('[data-test="vs-map-with-sidebar-buttons__clear-filters"]');
 
             expect(clearFiltersBtn.exists()).toBe(true);
         });

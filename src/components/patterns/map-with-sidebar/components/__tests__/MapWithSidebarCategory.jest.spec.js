@@ -1,17 +1,17 @@
 import { shallowMount, config } from '@vue/test-utils';
-import VsMainMapWrapperCategory from '../MainMapWrapperCategory.vue';
+import VsMapWithSidebarCategory from '../MapWithSidebarCategory.vue';
 
 config.global.renderStubDefaultSlot = true;
 
-const factoryShallowMount = () => shallowMount(VsMainMapWrapperCategory, {
+const factoryShallowMount = () => shallowMount(VsMapWithSidebarCategory, {
     propsData: {
         categoryName: 'Cities',
         type: 'cities',
     },
 });
 
-describe('VsMainMapWrapperCategory', () => {
-    it('should render a component with the data-test attribute `vs-main-map-wrapper-panel`', () => {
+describe('VsMapWithSidebarCategory', () => {
+    it('should render a component with the data-test attribute `vs-map-with-sidebar-panel`', () => {
         const wrapper = factoryShallowMount();
         expect(wrapper.attributes('data-test')).toBe('vs-main-map-category');
     });

@@ -1,13 +1,13 @@
 <template>
     <div
-        class="vs-main-map-wrapper-buttons"
-        :class="filterCount !== null ? 'vs-main-map-wrapper-buttons--filters' : ''"
-        data-test="vs-main-map-wrapper-buttons"
+        class="vs-map-with-sidebar-buttons"
+        :class="filterCount !== null ? 'vs-map-with-sidebar-buttons--filters' : ''"
+        data-test="vs-map-with-sidebar-buttons"
     >
         <template v-if="filterCount !== null">
             <VsButton
-                class="vs-main-map-wrapper-buttons__clear-filters"
-                data-test="vs-main-map-wrapper-buttons__clear-filters"
+                class="vs-map-with-sidebar-buttons__clear-filters"
+                data-test="vs-map-with-sidebar-buttons__clear-filters"
                 variant="secondary"
                 size="sm"
                 @click="clearFiltersClick"
@@ -16,8 +16,8 @@
             </VsButton>
 
             <VsButton
-                class="vs-main-map-wrapper-buttons__filters"
-                data-test="vs-main-map-wrapper-buttons__filters"
+                class="vs-map-with-sidebar-buttons__filters"
+                data-test="vs-map-with-sidebar-buttons__filters"
                 variant="secondary"
                 icon="filters"
                 size="sm"
@@ -31,7 +31,7 @@
             <VsButton
                 block
                 :href="contentData.properties.link.link"
-                data-test="vs-main-map-wrapper-buttons__discover"
+                data-test="vs-map-with-sidebar-buttons__discover"
             >
                 {{ contentData.properties.link.label }}
             </VsButton>
@@ -42,7 +42,7 @@
                 block
                 target="_blank"
                 rel="noopener noreferrer"
-                data-test="vs-main-map-wrapper-buttons__website"
+                data-test="vs-map-with-sidebar-buttons__website"
             >
                 {{ contentData.properties.website.label }}
             </VsButton>
@@ -59,7 +59,7 @@ import VsButton from '@components/elements/button/Button.vue';
  * @displayName Main Map Wrapper Buttons
  */
 export default {
-    name: 'VsMainMapWrapperButtons',
+    name: 'VsMapWithSidebarButtons',
     status: 'prototype',
     release: '0.0.1',
     components: {
@@ -108,7 +108,7 @@ export default {
 </script>
 
 <style lang="scss">
-    .vs-main-map-wrapper-buttons {
+    .vs-map-with-sidebar-buttons {
         position: sticky;
         bottom: 0;
         padding: $spacer-4 0;

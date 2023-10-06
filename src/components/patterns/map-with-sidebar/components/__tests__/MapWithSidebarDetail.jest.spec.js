@@ -1,9 +1,9 @@
 import { shallowMount, config } from '@vue/test-utils';
-import VsMainMapWrapperDetail from '../MainMapWrapperDetail.vue';
+import VsMapWithSidebarDetail from '../MapWithSidebarDetail.vue';
 
 config.global.renderStubDefaultSlot = true;
 
-const factoryShallowMount = () => shallowMount(VsMainMapWrapperDetail, {
+const factoryShallowMount = () => shallowMount(VsMapWithSidebarDetail, {
     propsData: {
         contentData: {
             properties: {
@@ -24,17 +24,17 @@ const factoryShallowMount = () => shallowMount(VsMainMapWrapperDetail, {
     },
 });
 
-describe('VsMainMapWrapperCategory', () => {
-    it('should render an element with the `vs-main-map-wrapper-detail` data-test attribute', () => {
+describe('VsMapWithSidebarCategory', () => {
+    it('should render an element with the `vs-map-with-sidebar-detail` data-test attribute', () => {
         const wrapper = factoryShallowMount();
 
-        expect(wrapper.attributes('data-test')).toBe('vs-main-map-wrapper-detail');
+        expect(wrapper.attributes('data-test')).toBe('vs-map-with-sidebar-detail');
     });
 
     describe(':props', () => {
         it('should render a title with the value defined in the `ContentData` prop', () => {
             const wrapper = factoryShallowMount();
-            const title = wrapper.find('[data-test="vs-main-map-wrapper-detail__heading"]');
+            const title = wrapper.find('[data-test="vs-map-with-sidebar-detail__heading"]');
 
             expect(title.text()).toBe('Aberdeen');
         });
@@ -48,7 +48,7 @@ describe('VsMainMapWrapperCategory', () => {
 
         it('should render a description with the value defined in the `ContentData` prop', () => {
             const wrapper = factoryShallowMount();
-            const description = wrapper.find('[data-test="vs-main-map-wrapper-detail__description"]');
+            const description = wrapper.find('[data-test="vs-map-with-sidebar-detail__description"]');
 
             expect(description.text()).toBe('Aberdeen description');
         });

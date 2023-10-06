@@ -35,7 +35,7 @@ import VsButton from '@components/elements/button/Button.vue';
 import VsMapMarkerIcon from '@components/patterns/map-marker-icon/MapMarkerIcon.vue';
 
 export default {
-    name: 'VsMainMapWrapperCategories',
+    name: 'VsMapWithSidebarCategories',
     status: 'prototype',
     release: '0.0.1',
     components: {

@@ -1,4 +1,4 @@
-import VsMainMapWrapper from '@/components/patterns/main-map-wrapper/MainMapWrapper.vue';
+import VsMapWithSidebar from '@/components/patterns/map-with-sidebar/MapWithSidebar.vue';
 import mapFiltersSubcategories from '@/assets/fixtures/maps/map-filters-subcategories.json';
 import mapFiltersOutlanderSubcategories from '@/assets/fixtures/maps/map-filters-outlander-subcategories.json';
 import mapFiltersRegions from '@/assets/fixtures/maps/map-filters-regions.json';
@@ -10,14 +10,14 @@ import placesDataRegions from '@/assets/fixtures/maps/places-data-regions.json';
 import placesDataDistillery from '@/assets/fixtures/maps/places-data-distilleries.json';
 
 export default {
-    component: VsMainMapWrapper,
-    title: 'Patterns/MainMapWrapper',
+    component: VsMapWithSidebar,
+    title: 'Patterns/MapWithSidebar',
     tags: ['autodocs'],
 };
 
 const Template = (args) => ({
     components: {
-        VsMainMapWrapper,
+        VsMapWithSidebar,
     },
     setup() {
         return {
@@ -25,7 +25,7 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsMainMapWrapper
+        <VsMapWithSidebar
             v-bind="args"
             :class="args.jsDisabled ? 'no-js' : ''"
         >
@@ -61,7 +61,7 @@ const Template = (args) => ({
             <template v-slot:zoom-too-far>
                 We're sorry, you can't zoom out any more
             </template>
-        </VsMainMapWrapper>
+        </VsMapWithSidebar>
     `,
 });
 
