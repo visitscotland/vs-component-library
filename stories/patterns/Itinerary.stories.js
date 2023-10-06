@@ -1,8 +1,7 @@
 import VsItinerary from '@/components/patterns/itineraries/Itinerary.vue';
 import VsItineraryDay from '@/components/patterns/itineraries/components/ItineraryDay.vue';
 import VsItineraryStop from '@/components/patterns/itineraries/components/ItineraryStop.vue';
-import VsItineraryMap from '@/components/patterns/itineraries/components/itinerary-map/ItineraryMap.vue';
-
+import VsMap from '@components/patterns/map/Map.vue';
 import VsDescriptionList from '@/components/patterns/description-list/DescriptionList.vue';
 import VsDescriptionListItem from '@/components/patterns/description-list/components/DescriptionListItem.vue';
 import VsTooltip from '@/components/elements/tooltip/Tooltip.vue';
@@ -23,7 +22,7 @@ const Template = (args) => ({
         VsItinerary,
         VsItineraryDay,
         VsItineraryStop,
-        VsItineraryMap,
+        VsMap,
         ItineraryStop,
         VsDescriptionList,
         VsDescriptionListItem,
@@ -39,7 +38,7 @@ const Template = (args) => ({
             <template
                 v-slot:map
             >
-                <VsItineraryMap v-bind="args.mapArgs" />
+                <VsMap v-bind="args.mapArgs" />
             </template>
 
             <template

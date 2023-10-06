@@ -41,18 +41,22 @@ const Template = (args) => ({
 });
 
 const base = {
-    overviewMapLongitude: '57.81',
-    overviewMapLatitude: '-4.13',
-    overviewMapZoom: '5',
-    stops,
-    labels: {
-        stopLabel: 'Stop',
-        mapControlsFullscreenOpen: 'Show fullscreen',
-        mapControlsFullscreenClose: 'Exit fullscreen',
-        mapControlsCompass: 'Reset angle',
-        mapControlsZoomIn: 'Zoom in',
-        mapControlsZoomOut: 'Zoom out',
-    },
+    // overviewMapLongitude: '57.81',
+    // overviewMapLatitude: '-4.13',
+    // overviewMapZoom: '5',
+    // stops,
+    // labels: {
+    //     stopLabel: 'Stop',
+    //     mapControlsFullscreenOpen: 'Show fullscreen',
+    //     mapControlsFullscreenClose: 'Exit fullscreen',
+    //     mapControlsCompass: 'Reset angle',
+    //     mapControlsZoomIn: 'Zoom in',
+    //     mapControlsZoomOut: 'Zoom out',
+    // },
+    mapId: 'vs-itinerary-map',
+    isVisible: true,
+    places: stops,
+    fitToMarkers: true,
 };
 
 export const Default = Template.bind({

@@ -52,7 +52,7 @@
 import VsWarning from '@components/patterns/warning/Warning.vue';
 import VsLoading from '@components/elements/loading-spinner/LoadingSpinner.vue';
 import osBranding from '@/utils/os-branding';
-
+import { v4 as uuidv4 } from 'uuid';
 import { render, h } from 'vue';
 import pinia from '@/stores/index.ts';
 import { mapState } from 'pinia';
@@ -367,9 +367,6 @@ export default {
             this.mapbox.map.addControl(nav, 'top-right');
             this.mapbox.map.addControl(new mapboxgl.FullscreenControl());
         },
-        /**
-         * Adds map features
-         */
         addMapFeatures() {
             this.places.map((place) => {
                 if (typeof place.geometry !== 'undefined') {
@@ -403,6 +400,29 @@ export default {
                             id: place.properties.id,
                         },
                         id: place.properties.id,
+                    });
+                }
+
+                if (place.latitude && place.longitude) {
+                    const stopId = uuidv4();
+
+                    return this.geojsonData.features.push({
+                        type: 'Feature',
+                        geometry: {
+                            type: 'Point',
+                            coordinates: [
+                                parseFloat(place.longitude),
+                                parseFloat(place.latitude),
+                            ],
+                        },
+                        properties: {
+                            title: place.title,
+                            imageSrc: place.imageSrc,
+                            type: 'itinerary-stop',
+                            stopCount: place.stopCount,
+                            id: stopId,
+                        },
+                        id: stopId,
                     });
                 }
 

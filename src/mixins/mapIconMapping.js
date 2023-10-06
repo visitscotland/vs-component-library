@@ -64,6 +64,9 @@ const mapIconMapping = {
             case 'distilleries':
                 icon.name = 'distillery';
                 break;
+            case 'itinerary-stop':
+                icon.name = '';
+                break;
             default:
                 break;
             }
