@@ -5,7 +5,7 @@ import VsButton from '../../../elements/button/Button.vue';
 
 const props = defineProps<{
     adultCount: number,
-    childrenCount: number
+    childrenCount: number,
     count: number,
     disabled: boolean,
     id: string,
@@ -73,13 +73,16 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="guest-picker-counter">
-        <span class="guest-picker-counter__label">
+    <div 
+        class="vs-guest-selector-number-group"
+        data-test="vs-guest-selector-number-group"
+    >
+        <span class="vs-guest-selector-number-group__label">
             {{ rowLabel }}
         </span>
-        <div class="guest-picker-counter__buttons justify-content-end">
+        <div class="vs-guest-selector-number-group__buttons justify-content-end">
             <VsButton
-                class="guest-picker-counter__button--remove"
+                class="vs-guest-selector-number-group__button--remove"
                 size="sm"
                 icon="minus"
                 icon-only
@@ -93,18 +96,17 @@ onMounted(() => {
             </VsButton>
 
             <input
-                class="guest-picker-counter__input"
+                class="vs-guest-selector-number-group__input"
                 :disabled="disabled"
                 pattern="[0-9]*"
                 readonly
                 tabIndex="-1"
                 type="text"
                 v-model="counter"
-                @focus="handleFocus"
             />
 
             <VsButton
-                class="guest-picker-counter__button--add"
+                class="vs-guest-selector-number-group__button--add"
                 size="sm"
                 icon="plus"
                 icon-only
@@ -128,7 +130,7 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
-    .guest-picker-counter {
+    .vs-guest-selector-number-group {
         display: flex;
         justify-content: space-between;
         margin-bottom: $spacer-3;

@@ -55,13 +55,16 @@ const handleRemove = () => {
 </script>
 
 <template>
-    <div class="guest-selector-row">
-        <div class="guest-selector-row__title">
+    <div 
+        class="vs-guest-selector-row"
+        data-test="vs-guest-selector-row"
+    >
+        <div class="vs-guest-selector-row__title">
             {{ unitLabel }}
         </div>
 
         <VsButton
-            class="guest-selector-row__remove"
+            class="vs-guest-selector-row__remove"
             @click.prevent="handleRemove"
             variant="transparent"
             icon="close"
@@ -120,7 +123,7 @@ const handleRemove = () => {
 </template>
 
 <style lang="scss">
-    .guest-selector-row {
+    .vs-guest-selector-row {
         position: relative;
         border-bottom: 1px solid $color-gray-tint-5;
         margin-bottom: $spacer-4;
