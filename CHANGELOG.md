@@ -2,6 +2,71 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.41](https://github.com/visitscotland/vs-component-library/compare/v1.0.40...v1.0.41) (2023-10-02)
+
+
+### 🐛 Bug Fixes
+
+* **meganav:** fix sticky nav not working with no js ([64eeed7](https://github.com/visitscotland/vs-component-library/commit/64eeed70afd1356e59d940421499d59ce578aced))
+
+### [1.0.40](https://github.com/visitscotland/vs-component-library/compare/v1.0.38...v1.0.40) (2023-09-29)
+
+
+### 🔖 Others
+
+* **dependabot:** bump get-func-name version ([d9fd85d](https://github.com/visitscotland/vs-component-library/commit/d9fd85d0f6673fb47c3d46dc1dccc9335c2362e2))
+* **release:** 1.0.41 ([fa9b031](https://github.com/visitscotland/vs-component-library/commit/fa9b031572f117155f69a493b337d1253d0f7423))
+* **release:** correct multi-release version number issue ([8d8f66b](https://github.com/visitscotland/vs-component-library/commit/8d8f66bc330ca1f8e9ee74f6ba9f2e65e98df81d))
+
+
+### 🐛 Bug Fixes
+
+* fix for Tours PSW search URL ([fc2430e](https://github.com/visitscotland/vs-component-library/commit/fc2430e114b653fb7035fa3bf5457344e27fdf4f))
+* **psw:** fix for unit test failing ([12b9aef](https://github.com/visitscotland/vs-component-library/commit/12b9aef201ed29675fd48bb3b71ecd2969a22527))
+
+### [1.0.39](https://github.com/visitscotland/vs-component-library/compare/v1.0.38...v1.0.39) (2023-09-29)
+
+
+### 🔖 Others
+
+* **dependabot:** bump get-func-name version ([d9fd85d](https://github.com/visitscotland/vs-component-library/commit/d9fd85d0f6673fb47c3d46dc1dccc9335c2362e2))
+
+### [1.0.38](https://github.com/visitscotland/vs-component-library/compare/v1.0.37...v1.0.38) (2023-09-29)
+
+
+### 🐛 Bug Fixes
+
+* **psw:** adds fix for setting default dates on search ([51ba331](https://github.com/visitscotland/vs-component-library/commit/51ba3310d90b821fc8095dba72f4a7096c4c1ddc))
+* **psw:** looking at fixing default dates ([17066c9](https://github.com/visitscotland/vs-component-library/commit/17066c903dd9f0d496a7d1eb477bbfa1758cc73a))
+
+
+### ♻️ Code Refactoring
+
+* **psw:** code tidy ([79c7e88](https://github.com/visitscotland/vs-component-library/commit/79c7e889ccaed58b2a11acf9bb44ed54abf6970b))
+
+### [1.0.37](https://github.com/visitscotland/vs-component-library/compare/v1.0.36...v1.0.37) (2023-09-28)
+
+
+### 🐛 Bug Fixes
+
+* **carbon calculator:** ensure focus scrolls into view on iphone ([98e3c56](https://github.com/visitscotland/vs-component-library/commit/98e3c5606068156bc73406f4e70dfd5692ef3f28))
+* **psw:** fix default location not showing ([b9acdcf](https://github.com/visitscotland/vs-component-library/commit/b9acdcf66fb12f85f48ae8eeb3e345fa768d3ee8))
+
+
+### ✅ Tests
+
+* **psw:** add Autocomplete tests ([3da9892](https://github.com/visitscotland/vs-component-library/commit/3da98929c875f2751491ae85c54cb7bbe10b43fc))
+* **psw:** add more unit tests for product search embed ([ee71952](https://github.com/visitscotland/vs-component-library/commit/ee719529642794848ba3a4c929a3e2a7eef1c32a))
+* **psw:** add unit tests for DateInput ([21bd876](https://github.com/visitscotland/vs-component-library/commit/21bd8761af276a9831190bc59c4da63cb9f86111))
+* **psw:** add unit tests for DateRange ([98f1e5b](https://github.com/visitscotland/vs-component-library/commit/98f1e5b7de4c9ba1bf9fa086d2f01dbf09cbc652))
+* **psw:** first unit tests for PSW ([3373542](https://github.com/visitscotland/vs-component-library/commit/3373542a26624186e051a140a3670948976d4841))
+
+
+### ✨ Features
+
+* **map:** move bounding box north and south to contain Scotland ([cd01d55](https://github.com/visitscotland/vs-component-library/commit/cd01d5599821b09235a1423d074ae2f404d46164))
+* **sticky nav:** ensure user can scroll mobile nav rather than scrolling down page ([9e38a81](https://github.com/visitscotland/vs-component-library/commit/9e38a81d5f744a2889525a56bcf53c878b227dcb))
+
 ### [1.0.36](https://github.com/visitscotland/vs-component-library/compare/v1.0.35...v1.0.36) (2023-09-26)
 
 

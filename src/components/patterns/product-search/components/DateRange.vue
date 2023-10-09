@@ -20,6 +20,8 @@ const props = defineProps({
     },
 });
 
+const emit = defineEmits(['dateUpdated'])
+
 const startDate = ref('');
 const endDate = ref('');
 const hasDate = computed(() => !!startDate.value || !!endDate.value);
@@ -104,39 +106,54 @@ function checkMinDate() {
     // ensures that the end date isn't earlier than the start date
     const start = new Date(startDate.value);
     const end = new Date(endDate.value);
-
     if (end <= start) {
         endDate.value = '';
     }
 }
 
+function checkDatesExist() {
+    const datesExist = !startDate.value && !endDate.value ? false : true;
+    emit('dateUpdated', datesExist);
+}
+
+function dateUpdated() {
+    checkDatesExist();
+    checkMinDate();
+}
+
 </script>
 
 <template>
-    <fieldset class="date-range">
+    <fieldset
+        class="vs-date-range"
+        data-test="vs-date-range"
+    >
         <div class="row align-items-center">
             <div class="col-12 col-sm-5 order-1">
                 <DateInput
                     :label="startLabel"
-                    :value="defaultDates && startDate === '' ? defaultStartDate : startDate"
+                    :value="defaultDates && startDate === '' && endDate ? defaultStartDate : startDate"
                     name="isostartdate"
                     id="startDate"
                     @change-date="(selectedDate) => {
                         startDate = selectedDate;
-                        checkMinDate();
+                        dateUpdated();
                     }"
-                    class="data-range__input mb-4"
+                    class="mb-4"
                 />
             </div>
             <div class="col-12 col-sm-5 order-2">
                 <DateInput
                     :label="endLabel"
-                    :value="defaultDates && endDate === '' ? defaultEndDate : endDate"
+                    :value="defaultDates && endDate === '' && startDate ? defaultEndDate : endDate"
                     :min-date="minDate"
                     name="isoenddate"
                     id="endDate"
-                    @change-date="(selectedDate) => endDate = selectedDate"
-                    class="data-range__input mb-4"
+                    @change-date="(selectedDate) => {
+                        endDate = selectedDate;
+                        dateUpdated();
+                    }"
+                    class="mb-4"
                 />
             </div>
             <div class="col-12 col-sm-2 order-first order-sm-3 text-sm-right">
@@ -145,7 +162,7 @@ function checkMinDate() {
                     type="button"
                     v-if="hasDate"
                     @click="clearDates"
-                    class="date-range__clear"
+                    class="vs-date-range__clear"
                 >
                     {{ getLabelText('reset', 'Clear') }}
                 </button>
@@ -157,7 +174,7 @@ function checkMinDate() {
 </template>
 
 <style lang="scss">
-    .date-range {
+    .vs-date-range {
         position: relative;
 
         &__clear {

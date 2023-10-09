@@ -1,0 +1,2390 @@
+[
+    {
+        "name": "Abbotsford",
+        "slug": "abbotsford",
+        "lat": "49.05037681",
+        "lng": "-122.2999874"
+    },
+    {
+        "name": "Aberdeen",
+        "slug": "aberdeen",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Aberdeen & Aberdeenshire",
+        "slug": "aberdeen-and-aberdeenshire",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Aberdeen Airport",
+        "slug": "aberdeen-airport",
+        "lat": "57.2002",
+        "lng": "-2.2042"
+    },
+    {
+        "name": "Aberdeen City Centre",
+        "slug": "aberdeen-city-centre",
+        "lat": "57.14471",
+        "lng": "-2.10557"
+    },
+    {
+        "name": "Aberdour",
+        "slug": "aberdour",
+        "lat": "56.05466",
+        "lng": "-3.30255"
+    },
+    {
+        "name": "Aberfeldy",
+        "slug": "aberfeldy",
+        "lat": "56.61834",
+        "lng": "-3.86717"
+    },
+    {
+        "name": "Aberfeldy, Loch Tay and Glen Lyon",
+        "slug": "aberfeldy-loch-tay-and-glen-lyon",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Aberfoyle",
+        "slug": "aberfoyle",
+        "lat": "56.17821",
+        "lng": "-4.38175"
+    },
+    {
+        "name": "Aberlady",
+        "slug": "aberlady",
+        "lat": "56.00784",
+        "lng": "-2.86369"
+    },
+    {
+        "name": "Aberlour",
+        "slug": "aberlour",
+        "lat": "57.47203",
+        "lng": "-3.2223"
+    },
+    {
+        "name": "Abernethy",
+        "slug": "abernethy",
+        "lat": "56.33299",
+        "lng": "-3.3168"
+    },
+    {
+        "name": "Aboyne",
+        "slug": "aboyne",
+        "lat": "57.07535",
+        "lng": "-2.78278"
+    },
+    {
+        "name": "Acharacle",
+        "slug": "acharacle",
+        "lat": "56.74609",
+        "lng": "-5.80239"
+    },
+    {
+        "name": "Achiltibuie",
+        "slug": "achiltibuie",
+        "lat": "58.02148",
+        "lng": "-5.34696"
+    },
+    {
+        "name": "Alexandria",
+        "slug": "alexandria",
+        "lat": "55.98695",
+        "lng": "-4.57902"
+    },
+    {
+        "name": "Alford",
+        "slug": "alford",
+        "lat": "57.23284",
+        "lng": "-2.70219"
+    },
+    {
+        "name": "Alva",
+        "slug": "alva",
+        "lat": "56.15309",
+        "lng": "-3.8038"
+    },
+    {
+        "name": "Alyth",
+        "slug": "alyth",
+        "lat": "56.62262",
+        "lng": "-3.23298"
+    },
+    {
+        "name": "Angus Glens",
+        "slug": "angus-glens",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Annan",
+        "slug": "annan",
+        "lat": "54.98516",
+        "lng": "-3.25786"
+    },
+    {
+        "name": "Anstruther",
+        "slug": "anstruther",
+        "lat": "56.22448",
+        "lng": "-2.70086"
+    },
+    {
+        "name": "Applecross",
+        "slug": "applecross",
+        "lat": "57.43163",
+        "lng": "-5.81034"
+    },
+    {
+        "name": "Arbroath",
+        "slug": "arbroath",
+        "lat": "56.56279",
+        "lng": "-2.59443"
+    },
+    {
+        "name": "Ardgartan",
+        "slug": "ardgartan",
+        "lat": "56.18379",
+        "lng": "-4.78097"
+    },
+    {
+        "name": "Ardgour",
+        "slug": "ardgour",
+        "lat": "56.72406",
+        "lng": "-5.24642"
+    },
+    {
+        "name": "Ardrossan",
+        "slug": "ardrossan",
+        "lat": "55.64754",
+        "lng": "-4.81076"
+    },
+    {
+        "name": "Ardvasar",
+        "slug": "ardvasar",
+        "lat": "57.06112",
+        "lng": "-5.91878"
+    },
+    {
+        "name": "Argyll & The Isles",
+        "slug": "argyll-and-the-isles",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Arisaig",
+        "slug": "arisaig",
+        "lat": "56.91045",
+        "lng": "-5.84196"
+    },
+    {
+        "name": "Armadale",
+        "slug": "armadale",
+        "lat": "57.06544",
+        "lng": "-5.9003"
+    },
+    {
+        "name": "Arran",
+        "slug": "arran",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Arrochar",
+        "slug": "arrochar",
+        "lat": "56.20132",
+        "lng": "-4.74489"
+    },
+    {
+        "name": "Auchterarder",
+        "slug": "auchterarder",
+        "lat": "56.29416",
+        "lng": "-3.71698"
+    },
+    {
+        "name": "Auchterarder, Gleneagles and The Ochils",
+        "slug": "auchterarder-gleneagles-and-the-ochils",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Aviemore",
+        "slug": "aviemore",
+        "lat": "57.19399",
+        "lng": "-3.82213"
+    },
+    {
+        "name": "Aviemore and the Cairngorms",
+        "slug": "aviemore-and-the-cairngorms",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Ayr",
+        "slug": "ayr",
+        "lat": "55.45728",
+        "lng": "-4.63195"
+    },
+    {
+        "name": "Ayrshire & Arran",
+        "slug": "ayrshire-and-arran",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Ballachulish",
+        "slug": "ballachulish",
+        "lat": "56.67423",
+        "lng": "-5.13778"
+    },
+    {
+        "name": "Ballantrae",
+        "slug": "ballantrae",
+        "lat": "55.10161",
+        "lng": "-5.0061"
+    },
+    {
+        "name": "Ballater",
+        "slug": "ballater",
+        "lat": "57.04846",
+        "lng": "-3.0441"
+    },
+    {
+        "name": "Ballindalloch",
+        "slug": "ballindalloch",
+        "lat": "57.41138",
+        "lng": "-3.35856"
+    },
+    {
+        "name": "Balloch",
+        "slug": "balloch",
+        "lat": "56.004",
+        "lng": "-4.5798"
+    },
+    {
+        "name": "Balmaha",
+        "slug": "balmaha",
+        "lat": "56.08578",
+        "lng": "-4.54241"
+    },
+    {
+        "name": "Balmoral",
+        "slug": "balmoral",
+        "lat": "57.0397",
+        "lng": "-3.24165"
+    },
+    {
+        "name": "Banchory",
+        "slug": "banchory",
+        "lat": "57.05539",
+        "lng": "-2.49941"
+    },
+    {
+        "name": "Barr",
+        "slug": "barr",
+        "lat": "55.21092",
+        "lng": "-4.71229"
+    },
+    {
+        "name": "Barra",
+        "slug": "barra",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Barrhill",
+        "slug": "barrhill",
+        "lat": "55.10333",
+        "lng": "-4.77329"
+    },
+    {
+        "name": "Beauly",
+        "slug": "beauly",
+        "lat": "57.48133",
+        "lng": "-4.46294"
+    },
+    {
+        "name": "Beauly and Strathglass area",
+        "slug": "beauly-and-strathglass-area",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Benbecula",
+        "slug": "benbecula",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Biggar",
+        "slug": "biggar",
+        "lat": "55.62322",
+        "lng": "-3.52464"
+    },
+    {
+        "name": "Birmingham",
+        "slug": "birmingham",
+        "lat": "52.47497398",
+        "lng": "-1.919996787"
+    },
+    {
+        "name": "Black Isle",
+        "slug": "black-isle",
+        "lat": "57.58713",
+        "lng": "-4.26818"
+    },
+    {
+        "name": "Blackwaterfoot",
+        "slug": "blackwaterfoot",
+        "lat": "55.50437",
+        "lng": "-5.33794"
+    },
+    {
+        "name": "Blair Atholl",
+        "slug": "blair-atholl",
+        "lat": "56.76493",
+        "lng": "-3.8436"
+    },
+    {
+        "name": "Blairgowrie",
+        "slug": "blairgowrie",
+        "lat": "56.58548",
+        "lng": "-3.33367"
+    },
+    {
+        "name": "Blairgowrie and East Perthshire",
+        "slug": "blairgowrie-and-east-perthshire",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Boat of Garten",
+        "slug": "boat-of-garten",
+        "lat": "57.24956",
+        "lng": "-3.75852"
+    },
+    {
+        "name": "Bonar Bridge",
+        "slug": "bonar-bridge",
+        "lat": "57.8923",
+        "lng": "-4.34657"
+    },
+    {
+        "name": "Braemar",
+        "slug": "braemar",
+        "lat": "57.00481",
+        "lng": "-3.40355"
+    },
+    {
+        "name": "Bridge of Cally",
+        "slug": "bridge-of-cally",
+        "lat": "56.64746",
+        "lng": "-3.39592"
+    },
+    {
+        "name": "Bridge of Earn",
+        "slug": "bridge-of-earn",
+        "lat": "56.3443",
+        "lng": "-3.40615"
+    },
+    {
+        "name": "Bridge of Orchy",
+        "slug": "bridge-of-orchy",
+        "lat": "56.51826",
+        "lng": "-4.76843"
+    },
+    {
+        "name": "Broadford",
+        "slug": "broadford",
+        "lat": "57.2313",
+        "lng": "-5.8869"
+    },
+    {
+        "name": "Brodick",
+        "slug": "brodick",
+        "lat": "55.57684",
+        "lng": "-5.14876"
+    },
+    {
+        "name": "Brora",
+        "slug": "brora",
+        "lat": "58.01126",
+        "lng": "-3.85433"
+    },
+    {
+        "name": "Broughty Ferry",
+        "slug": "broughty-ferry",
+        "lat": "56.4684",
+        "lng": "-2.8753"
+    },
+    {
+        "name": "Buckie",
+        "slug": "buckie",
+        "lat": "57.67483",
+        "lng": "-2.96804"
+    },
+    {
+        "name": "Burghead",
+        "slug": "burghead",
+        "lat": "57.70071",
+        "lng": "-3.4879"
+    },
+    {
+        "name": "Burntisland",
+        "slug": "burntisland",
+        "lat": "56.06087",
+        "lng": "-3.2338"
+    },
+    {
+        "name": "Burra",
+        "slug": "burra",
+        "lat": "60.08274",
+        "lng": "-1.33192"
+    },
+    {
+        "name": "Cairndow",
+        "slug": "cairndow",
+        "lat": "56.25223",
+        "lng": "-4.93125"
+    },
+    {
+        "name": "Caithness and North Coast Sutherland area",
+        "slug": "caithness-and-north-coast-sutherland-area",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Callander",
+        "slug": "callander",
+        "lat": "56.24037",
+        "lng": "-4.21073"
+    },
+    {
+        "name": "Cambridge",
+        "slug": "cambridge",
+        "lat": "52.20039125",
+        "lng": "0.116623086"
+    },
+    {
+        "name": "Campbeltown",
+        "slug": "campbeltown",
+        "lat": "55.42455",
+        "lng": "-5.6071"
+    },
+    {
+        "name": "Carbost",
+        "slug": "carbost",
+        "lat": "57.302",
+        "lng": "-6.35418"
+    },
+    {
+        "name": "Carlisle",
+        "slug": "carlisle",
+        "lat": "54.87999514",
+        "lng": "-2.929986818"
+    },
+    {
+        "name": "Carnoustie",
+        "slug": "carnoustie",
+        "lat": "56.50162",
+        "lng": "-2.72285"
+    },
+    {
+        "name": "Carradale",
+        "slug": "carradale",
+        "lat": "55.59019",
+        "lng": "-5.47019"
+    },
+    {
+        "name": "Carrbridge",
+        "slug": "carrbridge",
+        "lat": "57.28142",
+        "lng": "-3.8147"
+    },
+    {
+        "name": "Castle Douglas",
+        "slug": "castle-douglas",
+        "lat": "54.94201",
+        "lng": "-3.92903"
+    },
+    {
+        "name": "Castlebay",
+        "slug": "castlebay",
+        "lat": "56.95704",
+        "lng": "-7.48845"
+    },
+    {
+        "name": "Central Aberdeenshire",
+        "slug": "central-aberdeenshire",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Central Mainland",
+        "slug": "central-mainland",
+        "lat": "60.15312",
+        "lng": "-1.20849"
+    },
+    {
+        "name": "Central Scottish Borders",
+        "slug": "central-scottish-borders",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Cockburnspath",
+        "slug": "cockburnspath",
+        "lat": "55.92704",
+        "lng": "-2.36165"
+    },
+    {
+        "name": "Coldingham",
+        "slug": "coldingham",
+        "lat": "55.88671",
+        "lng": "-2.15905"
+    },
+    {
+        "name": "Coll",
+        "slug": "coll",
+        "lat": "56.62753",
+        "lng": "-6.55747"
+    },
+    {
+        "name": "Colonsay",
+        "slug": "colonsay",
+        "lat": "56.07105",
+        "lng": "-6.21953"
+    },
+    {
+        "name": "Comrie",
+        "slug": "comrie",
+        "lat": "56.3746",
+        "lng": "-3.9854"
+    },
+    {
+        "name": "Corrie",
+        "slug": "corrie",
+        "lat": "55.64479",
+        "lng": "-5.14001"
+    },
+    {
+        "name": "Craigellachie",
+        "slug": "craigellachie",
+        "lat": "57.48507",
+        "lng": "-3.1942"
+    },
+    {
+        "name": "Craignure & South Mull",
+        "slug": "craignure-and-south-mull",
+        "lat": "56.46435",
+        "lng": "-5.69678"
+    },
+    {
+        "name": "Crail",
+        "slug": "crail",
+        "lat": "56.26074",
+        "lng": "-2.62566"
+    },
+    {
+        "name": "Cramond",
+        "slug": "cramond",
+        "lat": "55.97521",
+        "lng": "-3.29963"
+    },
+    {
+        "name": "Crianlarich",
+        "slug": "crianlarich",
+        "lat": "56.39306",
+        "lng": "-4.61948"
+    },
+    {
+        "name": "Crieff, Comrie and Strathearn",
+        "slug": "crieff-comrie-and-strathearn",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Cromarty",
+        "slug": "cromarty",
+        "lat": "57.68049",
+        "lng": "-4.03555"
+    },
+    {
+        "name": "Cuillins & central Skye",
+        "slug": "cuillins-and-central-skye",
+        "lat": "57.23373",
+        "lng": "-6.1441"
+    },
+    {
+        "name": "Cullen",
+        "slug": "cullen",
+        "lat": "57.69008",
+        "lng": "-2.82092"
+    },
+    {
+        "name": "Culross",
+        "slug": "culross",
+        "lat": "56.05519",
+        "lng": "-3.62969"
+    },
+    {
+        "name": "Dailly",
+        "slug": "dailly",
+        "lat": "55.27628",
+        "lng": "-4.72606"
+    },
+    {
+        "name": "Dalmally",
+        "slug": "dalmally",
+        "lat": "56.4014",
+        "lng": "-4.98586"
+    },
+    {
+        "name": "Dalwhinnie",
+        "slug": "dalwhinnie",
+        "lat": "56.93653",
+        "lng": "-4.24274"
+    },
+    {
+        "name": "Deerness",
+        "slug": "deerness",
+        "lat": "58.94773",
+        "lng": "-2.75267"
+    },
+    {
+        "name": "Dingwall Area",
+        "slug": "dingwall-area",
+        "lat": "57.593",
+        "lng": "-4.43588"
+    },
+    {
+        "name": "Dollar",
+        "slug": "dollar",
+        "lat": "56.16658",
+        "lng": "-3.67672"
+    },
+    {
+        "name": "Dornie",
+        "slug": "dornie",
+        "lat": "57.27954",
+        "lng": "-5.5168"
+    },
+    {
+        "name": "Dornoch",
+        "slug": "dornoch",
+        "lat": "57.88045",
+        "lng": "-4.03092"
+    },
+    {
+        "name": "Doune",
+        "slug": "doune",
+        "lat": "56.18854",
+        "lng": "-4.05587"
+    },
+    {
+        "name": "Drumnadrochit",
+        "slug": "drumnadrochit",
+        "lat": "57.33442",
+        "lng": "-4.47892"
+    },
+    {
+        "name": "Drymen",
+        "slug": "drymen",
+        "lat": "56.066",
+        "lng": "-4.45175"
+    },
+    {
+        "name": "Dublin",
+        "slug": "dublin",
+        "lat": "53.33306114",
+        "lng": "-6.248905682"
+    },
+    {
+        "name": "Dufftown",
+        "slug": "dufftown",
+        "lat": "57.44566",
+        "lng": "-3.13099"
+    },
+    {
+        "name": "Dumfries",
+        "slug": "dumfries",
+        "lat": "55.06833",
+        "lng": "-3.6104"
+    },
+    {
+        "name": "Dumfries & Galloway",
+        "slug": "dumfries-and-galloway",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Dumfries and Surrounding Area",
+        "slug": "dumfries-and-surrounding-area",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Dunbar",
+        "slug": "dunbar",
+        "lat": "55.9994",
+        "lng": "-2.52477"
+    },
+    {
+        "name": "Dunbeath",
+        "slug": "dunbeath",
+        "lat": "58.24625",
+        "lng": "-3.42413"
+    },
+    {
+        "name": "Dunblane",
+        "slug": "dunblane",
+        "lat": "56.18719",
+        "lng": "-3.96651"
+    },
+    {
+        "name": "Dundee",
+        "slug": "dundee",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Dundee and Angus",
+        "slug": "dundee-and-angus",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Dundee City",
+        "slug": "dundee-city",
+        "lat": "56.45576",
+        "lng": "-2.97058"
+    },
+    {
+        "name": "Dundonald",
+        "slug": "dundonald",
+        "lat": "55.5773",
+        "lng": "-4.59874"
+    },
+    {
+        "name": "Dunfermline",
+        "slug": "dunfermline",
+        "lat": "56.07277",
+        "lng": "-3.44984"
+    },
+    {
+        "name": "Dunfermline and West Fife",
+        "slug": "dunfermline-and-west-fife",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Dunkeld",
+        "slug": "dunkeld",
+        "lat": "56.56827",
+        "lng": "-3.58718"
+    },
+    {
+        "name": "Dunkeld and Birnam",
+        "slug": "dunkeld-and-birnam",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Dunoon",
+        "slug": "dunoon",
+        "lat": "55.95827",
+        "lng": "-4.92746"
+    },
+    {
+        "name": "Dunvegan",
+        "slug": "dunvegan",
+        "lat": "57.43914",
+        "lng": "-6.58033"
+    },
+    {
+        "name": "Durness",
+        "slug": "durness",
+        "lat": "58.56844",
+        "lng": "-4.74875"
+    },
+    {
+        "name": "Easdale",
+        "slug": "easdale",
+        "lat": "56.29254",
+        "lng": "-5.65883"
+    },
+    {
+        "name": "East Dumfries and Galloway",
+        "slug": "east-dumfries-and-galloway",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "East Lothian",
+        "slug": "east-lothian",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "East Neuk of Fife",
+        "slug": "east-neuk-of-fife",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "East Scottish Borders",
+        "slug": "east-scottish-borders",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Edinburgh",
+        "slug": "edinburgh",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Edinburgh - City Centre",
+        "slug": "edinburgh---city-centre",
+        "lat": "55.9518",
+        "lng": "-3.198"
+    },
+    {
+        "name": "Edinburgh & The Lothians",
+        "slug": "edinburgh-and-the-lothians",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Edinburgh Airport",
+        "slug": "edinburgh-airport",
+        "lat": "55.94823",
+        "lng": "-3.34607"
+    },
+    {
+        "name": "Elgin",
+        "slug": "elgin",
+        "lat": "57.64709",
+        "lng": "-3.32368"
+    },
+    {
+        "name": "Elgol",
+        "slug": "elgol",
+        "lat": "57.14547",
+        "lng": "-6.09313"
+    },
+    {
+        "name": "Elie",
+        "slug": "elie",
+        "lat": "56.18973",
+        "lng": "-2.81867"
+    },
+    {
+        "name": "Ellon",
+        "slug": "ellon",
+        "lat": "57.36672",
+        "lng": "-2.07212"
+    },
+    {
+        "name": "Evie",
+        "slug": "evie",
+        "lat": "59.11261",
+        "lng": "-3.10502"
+    },
+    {
+        "name": "Eyemouth",
+        "slug": "eyemouth",
+        "lat": "55.868",
+        "lng": "-2.09375"
+    },
+    {
+        "name": "Falkirk",
+        "slug": "falkirk",
+        "lat": "55.99593",
+        "lng": "-3.76847"
+    },
+    {
+        "name": "Falkirk & Forth Valley",
+        "slug": "falkirk-and-forth-valley",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Falkland",
+        "slug": "falkland",
+        "lat": "56.25276",
+        "lng": "-3.20632"
+    },
+    {
+        "name": "Findhorn",
+        "slug": "findhorn",
+        "lat": "57.65881",
+        "lng": "-3.61038"
+    },
+    {
+        "name": "Fionnphort & the Ross of Mull",
+        "slug": "fionnphort-and-the-ross-of-mull",
+        "lat": "56.32696",
+        "lng": "-6.36109"
+    },
+    {
+        "name": "Flotta",
+        "slug": "flotta",
+        "lat": "58.82876",
+        "lng": "-3.11548"
+    },
+    {
+        "name": "Fochabers",
+        "slug": "fochabers",
+        "lat": "57.61307",
+        "lng": "-3.10055"
+    },
+    {
+        "name": "Forfar",
+        "slug": "forfar",
+        "lat": "56.64296",
+        "lng": "-2.89258"
+    },
+    {
+        "name": "Forres",
+        "slug": "forres",
+        "lat": "57.61139",
+        "lng": "-3.61253"
+    },
+    {
+        "name": "Fort Augustus",
+        "slug": "fort-augustus",
+        "lat": "57.14554",
+        "lng": "-4.68408"
+    },
+    {
+        "name": "Fort William",
+        "slug": "fort-william",
+        "lat": "56.818",
+        "lng": "-5.111"
+    },
+    {
+        "name": "Fort William & Lochaber",
+        "slug": "fort-william-and-lochaber",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Fraserburgh",
+        "slug": "fraserburgh",
+        "lat": "57.68758",
+        "lng": "-2.01557"
+    },
+    {
+        "name": "Gairloch",
+        "slug": "gairloch",
+        "lat": "57.72904",
+        "lng": "-5.69835"
+    },
+    {
+        "name": "Gairlochy",
+        "slug": "gairlochy",
+        "lat": "56.91546",
+        "lng": "-4.99333"
+    },
+    {
+        "name": "Galashiels",
+        "slug": "galashiels",
+        "lat": "55.61476",
+        "lng": "-2.80456"
+    },
+    {
+        "name": "Gigha",
+        "slug": "gigha",
+        "lat": "55.68901",
+        "lng": "-5.74527"
+    },
+    {
+        "name": "Girvan",
+        "slug": "girvan",
+        "lat": "55.23793",
+        "lng": "-4.85362"
+    },
+    {
+        "name": "Glamis",
+        "slug": "glamis",
+        "lat": "56.60844",
+        "lng": "-3.00337"
+    },
+    {
+        "name": "Glasgow",
+        "slug": "glasgow",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Glasgow Airport",
+        "slug": "glasgow-airport",
+        "lat": "55.8699",
+        "lng": "-4.42947"
+    },
+    {
+        "name": "Glasgow City Centre",
+        "slug": "glasgow-city-centre",
+        "lat": "55.86214",
+        "lng": "-4.24649"
+    },
+    {
+        "name": "Glasgow East End",
+        "slug": "glasgow-east-end",
+        "lat": "55.8513",
+        "lng": "-4.237"
+    },
+    {
+        "name": "Glasgow South Side",
+        "slug": "glasgow-south-side",
+        "lat": "55.8495",
+        "lng": "-4.2737"
+    },
+    {
+        "name": "Glasgow West End",
+        "slug": "glasgow-west-end",
+        "lat": "55.8718",
+        "lng": "-4.2884"
+    },
+    {
+        "name": "Glencoe",
+        "slug": "glencoe",
+        "lat": "56.67972",
+        "lng": "-5.09504"
+    },
+    {
+        "name": "Glencoe and Loch Leven area",
+        "slug": "glencoe-and-loch-leven-area",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Glenfinnan",
+        "slug": "glenfinnan",
+        "lat": "56.87149",
+        "lng": "-5.44457"
+    },
+    {
+        "name": "Glenlivet",
+        "slug": "glenlivet",
+        "lat": "57.34389",
+        "lng": "-3.3377"
+    },
+    {
+        "name": "Glenshee",
+        "slug": "glenshee",
+        "lat": "56.81281",
+        "lng": "-3.45997"
+    },
+    {
+        "name": "Golspie",
+        "slug": "golspie",
+        "lat": "57.97459",
+        "lng": "-3.98115"
+    },
+    {
+        "name": "Gorebridge",
+        "slug": "gorebridge",
+        "lat": "55.8417",
+        "lng": "-3.04762"
+    },
+    {
+        "name": "Gourock",
+        "slug": "gourock",
+        "lat": "55.95292",
+        "lng": "-4.83578"
+    },
+    {
+        "name": "Grantown on Spey",
+        "slug": "grantown-on-spey",
+        "lat": "57.32927",
+        "lng": "-3.61009"
+    },
+    {
+        "name": "Greater Glasgow & The Clyde Valley",
+        "slug": "greater-glasgow-and-the-clyde-valley",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Greenock",
+        "slug": "greenock",
+        "lat": "55.94638",
+        "lng": "-4.76856"
+    },
+    {
+        "name": "Gretna",
+        "slug": "gretna",
+        "lat": "54.99513",
+        "lng": "-3.0671"
+    },
+    {
+        "name": "Gretna Green",
+        "slug": "gretna-green",
+        "lat": "55",
+        "lng": "-3.06"
+    },
+    {
+        "name": "Gullane",
+        "slug": "gullane",
+        "lat": "56.03691",
+        "lng": "-2.83222"
+    },
+    {
+        "name": "Haddington",
+        "slug": "haddington",
+        "lat": "55.95581",
+        "lng": "-2.78464"
+    },
+    {
+        "name": "Hamilton",
+        "slug": "hamilton",
+        "lat": "55.77903",
+        "lng": "-4.06449"
+    },
+    {
+        "name": "Hawick",
+        "slug": "hawick",
+        "lat": "55.42618",
+        "lng": "-2.7855"
+    },
+    {
+        "name": "Helensburgh",
+        "slug": "helensburgh",
+        "lat": "56.006",
+        "lng": "-4.732"
+    },
+    {
+        "name": "Helmsdale",
+        "slug": "helmsdale",
+        "lat": "58.11641",
+        "lng": "-3.64995"
+    },
+    {
+        "name": "Hopeman",
+        "slug": "hopeman",
+        "lat": "57.70681",
+        "lng": "-3.4334"
+    },
+    {
+        "name": "Houton",
+        "slug": "houton",
+        "lat": "58.91812",
+        "lng": "-3.19518"
+    },
+    {
+        "name": "Hoy",
+        "slug": "hoy",
+        "lat": "58.9151",
+        "lng": "-3.33003"
+    },
+    {
+        "name": "Huntly",
+        "slug": "huntly",
+        "lat": "57.44987",
+        "lng": "-2.79108"
+    },
+    {
+        "name": "Innerleithen",
+        "slug": "innerleithen",
+        "lat": "55.62017",
+        "lng": "-3.06257"
+    },
+    {
+        "name": "Insh",
+        "slug": "insh",
+        "lat": "57.09009",
+        "lng": "-3.9629"
+    },
+    {
+        "name": "Inveraray",
+        "slug": "inveraray",
+        "lat": "56.23004",
+        "lng": "-5.07673"
+    },
+    {
+        "name": "Inverarnan",
+        "slug": "inverarnan",
+        "lat": "56.3284",
+        "lng": "-4.72199"
+    },
+    {
+        "name": "Invergordon",
+        "slug": "invergordon",
+        "lat": "57.69351",
+        "lng": "-4.16954"
+    },
+    {
+        "name": "Inverkip",
+        "slug": "inverkip",
+        "lat": "55.90894",
+        "lng": "-4.8661"
+    },
+    {
+        "name": "Invermoriston",
+        "slug": "invermoriston",
+        "lat": "57.21175",
+        "lng": "-4.626"
+    },
+    {
+        "name": "Inverness",
+        "slug": "inverness",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Inverness Airport",
+        "slug": "inverness-airport",
+        "lat": "57.53994",
+        "lng": "-4.05206"
+    },
+    {
+        "name": "Inverness City Centre",
+        "slug": "inverness-city-centre",
+        "lat": "57.48002",
+        "lng": "-4.22817"
+    },
+    {
+        "name": "Inverness, Loch Ness & Nairn",
+        "slug": "inverness-loch-ness-and-nairn",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Inverurie",
+        "slug": "inverurie",
+        "lat": "57.28635",
+        "lng": "-2.38731"
+    },
+    {
+        "name": "Islay",
+        "slug": "islay",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Isle of Iona",
+        "slug": "isle-of-iona",
+        "lat": "56.3342",
+        "lng": "-6.41049"
+    },
+    {
+        "name": "Isleornsay",
+        "slug": "isleornsay",
+        "lat": "57.14625",
+        "lng": "-5.80769"
+    },
+    {
+        "name": "Jedburgh",
+        "slug": "jedburgh",
+        "lat": "55.47914",
+        "lng": "-2.55417"
+    },
+    {
+        "name": "John o' Groats",
+        "slug": "john-o-groats",
+        "lat": "58.63786",
+        "lng": "-3.07141"
+    },
+    {
+        "name": "Jura",
+        "slug": "jura",
+        "lat": "56.08609",
+        "lng": "-5.75474"
+    },
+    {
+        "name": "Keith",
+        "slug": "keith",
+        "lat": "57.54256",
+        "lng": "-2.95505"
+    },
+    {
+        "name": "Kelso",
+        "slug": "kelso",
+        "lat": "55.59884",
+        "lng": "-2.43255"
+    },
+    {
+        "name": "Kenmore",
+        "slug": "kenmore",
+        "lat": "56.5856",
+        "lng": "-3.9929"
+    },
+    {
+        "name": "Kilchoan",
+        "slug": "kilchoan",
+        "lat": "56.26248",
+        "lng": "-5.56627"
+    },
+    {
+        "name": "Killearn",
+        "slug": "killearn",
+        "lat": "56.0409",
+        "lng": "-4.37569"
+    },
+    {
+        "name": "Killiecrankie",
+        "slug": "killiecrankie",
+        "lat": "56.74147",
+        "lng": "-3.77546"
+    },
+    {
+        "name": "Killin",
+        "slug": "killin",
+        "lat": "56.46681",
+        "lng": "-4.3208"
+    },
+    {
+        "name": "Kilmartin",
+        "slug": "kilmartin",
+        "lat": "56.13503",
+        "lng": "-5.48428"
+    },
+    {
+        "name": "Kilmory",
+        "slug": "kilmory",
+        "lat": "55.44761",
+        "lng": "-5.22339"
+    },
+    {
+        "name": "Kilsyth",
+        "slug": "kilsyth",
+        "lat": "55.9769",
+        "lng": "-4.05859"
+    },
+    {
+        "name": "Kincardine",
+        "slug": "kincardine",
+        "lat": "56.06771",
+        "lng": "-3.71848"
+    },
+    {
+        "name": "Kincraig",
+        "slug": "kincraig",
+        "lat": "57.1256",
+        "lng": "-3.92597"
+    },
+    {
+        "name": "Kingsbarns",
+        "slug": "kingsbarns",
+        "lat": "56.2988",
+        "lng": "-2.6569"
+    },
+    {
+        "name": "Kingussie",
+        "slug": "kingussie",
+        "lat": "57.08034",
+        "lng": "-4.0557"
+    },
+    {
+        "name": "Kinlochewe",
+        "slug": "kinlochewe",
+        "lat": "57.60427",
+        "lng": "-5.30124"
+    },
+    {
+        "name": "Kinlochleven",
+        "slug": "kinlochleven",
+        "lat": "56.71338",
+        "lng": "-4.97285"
+    },
+    {
+        "name": "Kinross",
+        "slug": "kinross",
+        "lat": "56.2086",
+        "lng": "-3.42814"
+    },
+    {
+        "name": "Kirk Yetholm",
+        "slug": "kirk-yetholm",
+        "lat": "55.54735",
+        "lng": "-2.28639"
+    },
+    {
+        "name": "Kirkcaldy",
+        "slug": "kirkcaldy",
+        "lat": "56.11489",
+        "lng": "-3.16619"
+    },
+    {
+        "name": "Kirkcaldy, Leven and District",
+        "slug": "kirkcaldy-leven-and-district",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Kirkcudbright",
+        "slug": "kirkcudbright",
+        "lat": "54.83902",
+        "lng": "-4.04834"
+    },
+    {
+        "name": "Kirkmichael",
+        "slug": "kirkmichael",
+        "lat": "55.34479",
+        "lng": "-4.6164"
+    },
+    {
+        "name": "Kirkmichael - Perthshire",
+        "slug": "kirkmichael---perthshire",
+        "lat": "56.7223",
+        "lng": "-3.5085"
+    },
+    {
+        "name": "Kirkwall",
+        "slug": "kirkwall",
+        "lat": "58.9816",
+        "lng": "-2.95487"
+    },
+    {
+        "name": "Kyle of Lochalsh",
+        "slug": "kyle-of-lochalsh",
+        "lat": "57.28096",
+        "lng": "-5.72034"
+    },
+    {
+        "name": "Kyleakin",
+        "slug": "kyleakin",
+        "lat": "57.27382",
+        "lng": "-5.72561"
+    },
+    {
+        "name": "Kylesku",
+        "slug": "kylesku",
+        "lat": "58.254",
+        "lng": "-5.0215"
+    },
+    {
+        "name": "Laggan",
+        "slug": "laggan",
+        "lat": "57.02076",
+        "lng": "-4.28299"
+    },
+    {
+        "name": "Lairg",
+        "slug": "lairg",
+        "lat": "58.0255",
+        "lng": "-4.40084"
+    },
+    {
+        "name": "Lamlash",
+        "slug": "lamlash",
+        "lat": "55.53264",
+        "lng": "-5.12931"
+    },
+    {
+        "name": "Langholm",
+        "slug": "langholm",
+        "lat": "55.15116",
+        "lng": "-3.0018"
+    },
+    {
+        "name": "Largs",
+        "slug": "largs",
+        "lat": "55.79741",
+        "lng": "-4.8659"
+    },
+    {
+        "name": "Leicester",
+        "slug": "leicester",
+        "lat": "52.62997744",
+        "lng": "-1.133248943"
+    },
+    {
+        "name": "Leith",
+        "slug": "leith",
+        "lat": "55.97599",
+        "lng": "-3.16331"
+    },
+    {
+        "name": "Lerwick",
+        "slug": "lerwick",
+        "lat": "60.15185",
+        "lng": "-1.14875"
+    },
+    {
+        "name": "Leuchars",
+        "slug": "leuchars",
+        "lat": "56.38259",
+        "lng": "-2.88734"
+    },
+    {
+        "name": "Leven",
+        "slug": "leven",
+        "lat": "56.20036",
+        "lng": "-3.00387"
+    },
+    {
+        "name": "Lincoln",
+        "slug": "lincoln",
+        "lat": "-34.88000405",
+        "lng": "-61.53994938"
+    },
+    {
+        "name": "Linlithgow",
+        "slug": "linlithgow",
+        "lat": "55.97527",
+        "lng": "-3.60105"
+    },
+    {
+        "name": "Liverpool",
+        "slug": "liverpool",
+        "lat": "44.03995913",
+        "lng": "-64.72001367"
+    },
+    {
+        "name": "Loch Lomond Area",
+        "slug": "loch-lomond-area",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Loch Lomond, The Trossachs, Stirling & Forth Valley",
+        "slug": "loch-lomond-the-trossachs-stirling-and-forth-valley",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Loch Ness",
+        "slug": "loch-ness",
+        "lat": "57.2724",
+        "lng": "-4.49323"
+    },
+    {
+        "name": "Loch Ness area",
+        "slug": "loch-ness-area",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Lochinver",
+        "slug": "lochinver",
+        "lat": "58.15153",
+        "lng": "-5.23351"
+    },
+    {
+        "name": "Lochranza",
+        "slug": "lochranza",
+        "lat": "55.7063",
+        "lng": "-5.29107"
+    },
+    {
+        "name": "Lockerbie",
+        "slug": "lockerbie",
+        "lat": "55.12234",
+        "lng": "-3.35972"
+    },
+    {
+        "name": "London",
+        "slug": "london",
+        "lat": "42.9699986",
+        "lng": "-81.24998661"
+    },
+    {
+        "name": "Longniddry",
+        "slug": "longniddry",
+        "lat": "55.97547",
+        "lng": "-2.90166"
+    },
+    {
+        "name": "Lossiemouth",
+        "slug": "lossiemouth",
+        "lat": "57.71626",
+        "lng": "-3.29573"
+    },
+    {
+        "name": "Luss",
+        "slug": "luss",
+        "lat": "56.09687",
+        "lng": "-4.64605"
+    },
+    {
+        "name": "Lybster",
+        "slug": "lybster",
+        "lat": "58.30388",
+        "lng": "-3.27897"
+    },
+    {
+        "name": "Macduff",
+        "slug": "macduff",
+        "lat": "57.67052",
+        "lng": "-2.49767"
+    },
+    {
+        "name": "Machrie",
+        "slug": "machrie",
+        "lat": "55.5586",
+        "lng": "-5.33934"
+    },
+    {
+        "name": "Machrihanish",
+        "slug": "machrihanish",
+        "lat": "55.42311",
+        "lng": "-5.73537"
+    },
+    {
+        "name": "Maidens",
+        "slug": "maidens",
+        "lat": "55.33421",
+        "lng": "-4.8167"
+    },
+    {
+        "name": "Mainland, Shetland",
+        "slug": "mainland-shetland",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Mallaig",
+        "slug": "mallaig",
+        "lat": "57.00621",
+        "lng": "-5.82717"
+    },
+    {
+        "name": "Manchester",
+        "slug": "manchester",
+        "lat": "53.50041526",
+        "lng": "-2.247987103"
+    },
+    {
+        "name": "Maryculter",
+        "slug": "maryculter",
+        "lat": "57.08623",
+        "lng": "-2.25736"
+    },
+    {
+        "name": "Maybole",
+        "slug": "maybole",
+        "lat": "55.35401",
+        "lng": "-4.68393"
+    },
+    {
+        "name": "Melrose",
+        "slug": "melrose",
+        "lat": "55.60089",
+        "lng": "-2.73597"
+    },
+    {
+        "name": "Melvich",
+        "slug": "melvich",
+        "lat": "58.55422",
+        "lng": "-3.91785"
+    },
+    {
+        "name": "Mey",
+        "slug": "mey",
+        "lat": "58.63742",
+        "lng": "-3.22562"
+    },
+    {
+        "name": "Mid Argyll, Kintyre & Islay",
+        "slug": "mid-argyll-kintyre-and-islay",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Milngavie",
+        "slug": "milngavie",
+        "lat": "55.94227",
+        "lng": "-4.32598"
+    },
+    {
+        "name": "Monkton",
+        "slug": "monkton",
+        "lat": "55.51649",
+        "lng": "-4.59319"
+    },
+    {
+        "name": "Morar",
+        "slug": "morar",
+        "lat": "56.97212",
+        "lng": "-5.82046"
+    },
+    {
+        "name": "Moray Firth and Nairn",
+        "slug": "moray-firth-and-nairn",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Moray Speyside",
+        "slug": "moray-speyside",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Morebattle",
+        "slug": "morebattle",
+        "lat": "55.51765",
+        "lng": "-2.36459"
+    },
+    {
+        "name": "Mull",
+        "slug": "mull",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Musselburgh",
+        "slug": "musselburgh",
+        "lat": "55.93939",
+        "lng": "-3.0473"
+    },
+    {
+        "name": "Nairn",
+        "slug": "nairn",
+        "lat": "57.58082",
+        "lng": "-3.87622"
+    },
+    {
+        "name": "Nethy Bridge",
+        "slug": "nethy-bridge",
+        "lat": "57.26788",
+        "lng": "-3.64671"
+    },
+    {
+        "name": "New Glasgow",
+        "slug": "new-glasgow",
+        "lat": "45.58327578",
+        "lng": "-62.63331934"
+    },
+    {
+        "name": "New Haven",
+        "slug": "new-haven",
+        "lat": "41.33038291",
+        "lng": "-72.90000533"
+    },
+    {
+        "name": "New York",
+        "slug": "new-york",
+        "lat": "40.74997906",
+        "lng": "-73.98001693"
+    },
+    {
+        "name": "Newburgh, Aberdeenshire",
+        "slug": "newburgh-aberdeenshire",
+        "lat": "57.31707",
+        "lng": "-2.00363"
+    },
+    {
+        "name": "Newcastle",
+        "slug": "newcastle",
+        "lat": "-32.84534788",
+        "lng": "151.8150122"
+    },
+    {
+        "name": "Newcastleton",
+        "slug": "newcastleton",
+        "lat": "55.17874",
+        "lng": "-2.81453"
+    },
+    {
+        "name": "Newhaven",
+        "slug": "newhaven",
+        "lat": "55.98093",
+        "lng": "-3.19512"
+    },
+    {
+        "name": "Newport-on-Tay",
+        "slug": "newport-on-tay",
+        "lat": "56.43981",
+        "lng": "-2.94173"
+    },
+    {
+        "name": "Newton Stewart",
+        "slug": "newton-stewart",
+        "lat": "54.9611",
+        "lng": "-4.48293"
+    },
+    {
+        "name": "Newtonmore",
+        "slug": "newtonmore",
+        "lat": "57.06396",
+        "lng": "-4.12257"
+    },
+    {
+        "name": "Norfolk",
+        "slug": "norfolk",
+        "lat": "42.02871238",
+        "lng": "-97.43359827"
+    },
+    {
+        "name": "North Ayrshire",
+        "slug": "north-ayrshire",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "North Berwick",
+        "slug": "north-berwick",
+        "lat": "56.05671",
+        "lng": "-2.72664"
+    },
+    {
+        "name": "North Fife",
+        "slug": "north-fife",
+        "lat": "56.3584",
+        "lng": "-2.95257"
+    },
+    {
+        "name": "North Highlands",
+        "slug": "north-highlands",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "North Queensferry",
+        "slug": "north-queensferry",
+        "lat": "56.00975",
+        "lng": "-3.39454"
+    },
+    {
+        "name": "North Uist",
+        "slug": "north-uist",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Oban",
+        "slug": "oban",
+        "lat": "56.41526",
+        "lng": "-5.47079"
+    },
+    {
+        "name": "Oban, Mull and Lorn",
+        "slug": "oban-mull-and-lorn",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Ord",
+        "slug": "ord",
+        "lat": "57.1146",
+        "lng": "-5.8755"
+    },
+    {
+        "name": "Orkney",
+        "slug": "orkney",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Orphir",
+        "slug": "orphir",
+        "lat": "58.92266",
+        "lng": "-3.15621"
+    },
+    {
+        "name": "Outer Hebrides",
+        "slug": "outer-hebrides",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Oxford",
+        "slug": "oxford",
+        "lat": "51.7704175",
+        "lng": "-1.249986004"
+    },
+    {
+        "name": "Paisley",
+        "slug": "paisley",
+        "lat": "55.84305",
+        "lng": "-4.41899"
+    },
+    {
+        "name": "Peebles",
+        "slug": "peebles",
+        "lat": "55.65378",
+        "lng": "-3.18934"
+    },
+    {
+        "name": "Perth",
+        "slug": "perth",
+        "lat": "56.39768",
+        "lng": "-3.43529"
+    },
+    {
+        "name": "Perth Area",
+        "slug": "perth-area",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Perthshire",
+        "slug": "perthshire",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Peterculter",
+        "slug": "peterculter",
+        "lat": "57.09766",
+        "lng": "-2.26499"
+    },
+    {
+        "name": "Peterhead",
+        "slug": "peterhead",
+        "lat": "57.50544",
+        "lng": "-1.79705"
+    },
+    {
+        "name": "Pitlochry",
+        "slug": "pitlochry",
+        "lat": "56.70557",
+        "lng": "-3.73658"
+    },
+    {
+        "name": "Pitlochry and Highland Perthshire",
+        "slug": "pitlochry-and-highland-perthshire",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Plockton",
+        "slug": "plockton",
+        "lat": "57.33941",
+        "lng": "-5.65166"
+    },
+    {
+        "name": "Port Askaig",
+        "slug": "port-askaig",
+        "lat": "55.85027",
+        "lng": "-6.09961"
+    },
+    {
+        "name": "Port Ellen",
+        "slug": "port-ellen",
+        "lat": "55.6305",
+        "lng": "-6.19113"
+    },
+    {
+        "name": "Port Seton",
+        "slug": "port-seton",
+        "lat": "55.96907",
+        "lng": "-2.9498"
+    },
+    {
+        "name": "Portavadie",
+        "slug": "portavadie",
+        "lat": "55.87144",
+        "lng": "-5.30467"
+    },
+    {
+        "name": "Portmahomack",
+        "slug": "portmahomack",
+        "lat": "57.83591",
+        "lng": "-3.82975"
+    },
+    {
+        "name": "Portree",
+        "slug": "portree",
+        "lat": "57.41429",
+        "lng": "-6.19963"
+    },
+    {
+        "name": "Prestwick",
+        "slug": "prestwick",
+        "lat": "55.49713",
+        "lng": "-4.60765"
+    },
+    {
+        "name": "Road to the Isles",
+        "slug": "road-to-the-isles",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Rosyth",
+        "slug": "rosyth",
+        "lat": "56.03641",
+        "lng": "-3.42703"
+    },
+    {
+        "name": "Rothes",
+        "slug": "rothes",
+        "lat": "57.50239",
+        "lng": "-3.20512"
+    },
+    {
+        "name": "Rothesay",
+        "slug": "rothesay",
+        "lat": "55.83682",
+        "lng": "-5.0475"
+    },
+    {
+        "name": "Rousay",
+        "slug": "rousay",
+        "lat": "59.15707",
+        "lng": "-3.04212"
+    },
+    {
+        "name": "Rowardennan",
+        "slug": "rowardennan",
+        "lat": "56.14944",
+        "lng": "-4.64086"
+    },
+    {
+        "name": "Royal Deeside",
+        "slug": "royal-deeside",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Royal Deeside and The Mearns",
+        "slug": "royal-deeside-and-the-mearns",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Sannox",
+        "slug": "sannox",
+        "lat": "55.66232",
+        "lng": "-5.15732"
+    },
+    {
+        "name": "Scotland",
+        "slug": "scotland",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Scourie",
+        "slug": "scourie",
+        "lat": "58.35004",
+        "lng": "-5.15448"
+    },
+    {
+        "name": "Seil",
+        "slug": "seil",
+        "lat": "56.2971",
+        "lng": "-5.61373"
+    },
+    {
+        "name": "Selkirk",
+        "slug": "selkirk",
+        "lat": "55.55018",
+        "lng": "-2.84525"
+    },
+    {
+        "name": "Shetland",
+        "slug": "shetland",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Skye",
+        "slug": "skye",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Skye & Lochalsh",
+        "slug": "skye-and-lochalsh",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "South Ayrshire",
+        "slug": "south-ayrshire",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "South Lanarkshire",
+        "slug": "south-lanarkshire",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "South Queensferry",
+        "slug": "south-queensferry",
+        "lat": "55.98806",
+        "lng": "-3.4017"
+    },
+    {
+        "name": "South Ronaldsay",
+        "slug": "south-ronaldsay",
+        "lat": "58.7853",
+        "lng": "-2.96115"
+    },
+    {
+        "name": "South Uist",
+        "slug": "south-uist",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Southend",
+        "slug": "southend",
+        "lat": "55.31641",
+        "lng": "-5.63426"
+    },
+    {
+        "name": "Spean Bridge",
+        "slug": "spean-bridge",
+        "lat": "56.89249",
+        "lng": "-4.91755"
+    },
+    {
+        "name": "St Andrews",
+        "slug": "st-andrews",
+        "lat": "56.33934",
+        "lng": "-2.79632"
+    },
+    {
+        "name": "St Andrews, North Fife & the Howe of Fife",
+        "slug": "st-andrews-north-fife-and-the-howe-of-fife",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "St Boswells",
+        "slug": "st-boswells",
+        "lat": "55.57173",
+        "lng": "-2.64526"
+    },
+    {
+        "name": "St Kilda",
+        "slug": "st-kilda",
+        "lat": "57.81569",
+        "lng": "-8.58376"
+    },
+    {
+        "name": "St Monans",
+        "slug": "st-monans",
+        "lat": "56.20524",
+        "lng": "-2.76773"
+    },
+    {
+        "name": "Stirling",
+        "slug": "stirling",
+        "lat": "56.11898",
+        "lng": "-3.93971"
+    },
+    {
+        "name": "Stirling Area",
+        "slug": "stirling-area",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Stonehaven",
+        "slug": "stonehaven",
+        "lat": "56.9638",
+        "lng": "-2.2088"
+    },
+    {
+        "name": "Stornoway",
+        "slug": "stornoway",
+        "lat": "58.21533",
+        "lng": "-6.3736"
+    },
+    {
+        "name": "Straiton",
+        "slug": "straiton",
+        "lat": "55.30801",
+        "lng": "-4.54597"
+    },
+    {
+        "name": "Strathblane",
+        "slug": "strathblane",
+        "lat": "55.98635",
+        "lng": "-4.3076"
+    },
+    {
+        "name": "Strathpeffer",
+        "slug": "strathpeffer",
+        "lat": "57.58635",
+        "lng": "-4.54194"
+    },
+    {
+        "name": "Strathyre",
+        "slug": "strathyre",
+        "lat": "56.32807",
+        "lng": "-4.32233"
+    },
+    {
+        "name": "Stromness",
+        "slug": "stromness",
+        "lat": "58.96547",
+        "lng": "-3.31001"
+    },
+    {
+        "name": "Strontian",
+        "slug": "strontian",
+        "lat": "56.69791",
+        "lng": "-5.56884"
+    },
+    {
+        "name": "Tain",
+        "slug": "tain",
+        "lat": "57.81",
+        "lng": "-4.05927"
+    },
+    {
+        "name": "Tarbert",
+        "slug": "tarbert",
+        "lat": "55.86484",
+        "lng": "-5.40847"
+    },
+    {
+        "name": "Tarbet",
+        "slug": "tarbet",
+        "lat": "56.20334",
+        "lng": "-4.71143"
+    },
+    {
+        "name": "Tayinloan",
+        "slug": "tayinloan",
+        "lat": "55.65201",
+        "lng": "-5.66063"
+    },
+    {
+        "name": "The Highlands",
+        "slug": "the-highlands",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "The Kingdom of Fife",
+        "slug": "the-kingdom-of-fife",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "The Scottish Borders",
+        "slug": "the-scottish-borders",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Thornhill",
+        "slug": "thornhill",
+        "lat": "55.24002",
+        "lng": "-3.7669"
+    },
+    {
+        "name": "Thurso",
+        "slug": "thurso",
+        "lat": "58.59212",
+        "lng": "-3.5243"
+    },
+    {
+        "name": "Tiree",
+        "slug": "tiree",
+        "lat": "56.50268",
+        "lng": "-6.8747"
+    },
+    {
+        "name": "Tobermory & North Mull",
+        "slug": "tobermory-and-north-mull",
+        "lat": "56.62425",
+        "lng": "-6.07079"
+    },
+    {
+        "name": "Torridon",
+        "slug": "torridon",
+        "lat": "57.54945",
+        "lng": "-5.51962"
+    },
+    {
+        "name": "Tours",
+        "slug": "tours",
+        "lat": "47.38037539",
+        "lng": "0.699946654"
+    },
+    {
+        "name": "Troon",
+        "slug": "troon",
+        "lat": "55.55172",
+        "lng": "-4.65894"
+    },
+    {
+        "name": "Turnberry",
+        "slug": "turnberry",
+        "lat": "55.31357",
+        "lng": "-4.83098"
+    },
+    {
+        "name": "Tyndrum",
+        "slug": "tyndrum",
+        "lat": "56.43799",
+        "lng": "-4.71296"
+    },
+    {
+        "name": "Ullapool",
+        "slug": "ullapool",
+        "lat": "57.89649",
+        "lng": "-5.15852"
+    },
+    {
+        "name": "Unst",
+        "slug": "unst",
+        "lat": "60.76377",
+        "lng": "-0.87313"
+    },
+    {
+        "name": "Warwick",
+        "slug": "warwick",
+        "lat": "-28.22924721",
+        "lng": "152.0203226"
+    },
+    {
+        "name": "Waternish",
+        "slug": "waternish",
+        "lat": "57.50989",
+        "lng": "-6.55823"
+    },
+    {
+        "name": "West Dumfries and Galloway",
+        "slug": "west-dumfries-and-galloway",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "West Lothian",
+        "slug": "west-lothian",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "West Scottish Borders",
+        "slug": "west-scottish-borders",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Wester Ross area",
+        "slug": "wester-ross-area",
+        "lat": "",
+        "lng": ""
+    },
+    {
+        "name": "Westray",
+        "slug": "westray",
+        "lat": "59.2813",
+        "lng": "-3.0013"
+    },
+    {
+        "name": "Whiting Bay",
+        "slug": "whiting-bay",
+        "lat": "55.48784",
+        "lng": "-5.09907"
+    },
+    {
+        "name": "Wick",
+        "slug": "wick",
+        "lat": "58.44109",
+        "lng": "-3.08505"
+    },
+    {
+        "name": "Wormit",
+        "slug": "wormit",
+        "lat": "56.4247",
+        "lng": "-2.97892"
+    }
+]

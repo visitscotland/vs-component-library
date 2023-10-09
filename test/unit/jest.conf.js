@@ -9,7 +9,7 @@ module.exports = {
     },
     testMatch: ['**/?(*.)jest.spec.js?(x)'],
     modulePaths: ['<rootDir>'],
-    moduleFileExtensions: ['js', 'json', 'vue'],
+    moduleFileExtensions: ['js', 'json', 'vue', 'ts'],
     moduleNameMapper: {
         '^@components/(.*)$': '<rootDir>/src/components/$1',
         '^@/(.*)$': '<rootDir>/src/$1',
