@@ -805,8 +805,8 @@ export default {
                 boundingBox = this.getBoundsFromPolygon();
             } else {
                 boundingBox = [
-                    [-7.555827, 55.308836], // south-west point.
-                    [-0.778285, 60.830894], // north-east point.
+                    [-7.555827, 54.608836], // south-west point.
+                    [-0.778285, 60.880894], // north-east point.
                 ];
             }
 
