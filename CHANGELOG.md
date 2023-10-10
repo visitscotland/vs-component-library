@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.42](https://github.com/visitscotland/vs-component-library/compare/v1.0.41...v1.0.42) (2023-10-10)
+
+
+### ✅ Tests
+
+* **psw:** add unit tests for guest selection ([ded7941](https://github.com/visitscotland/vs-component-library/commit/ded79410800ec9a9124a067c1066edd6ecd678bf))
+* **psw:** add unit tests for guest selector ([1ef5eb6](https://github.com/visitscotland/vs-component-library/commit/1ef5eb64102ead493aedd4106498bf111eb8909a))
+
+
+### ♻️ Code Refactoring
+
+* **psw:** fix linting errors ([b49a659](https://github.com/visitscotland/vs-component-library/commit/b49a659b5c4557a13df867abe1ec92f1932bb45c))
+
+
+### 🐛 Bug Fixes
+
+* **map:** correct zoom level in second undefined case ([b6bd843](https://github.com/visitscotland/vs-component-library/commit/b6bd843bf59601c03b0ff613ade231d0b31e8669))
+* **psw:** add back dates exist functionality ([c45e146](https://github.com/visitscotland/vs-component-library/commit/c45e146cf1ed9a11404419a54fcb7d8d525d87c4))
+
+
+### 🔖 Others
+
+* **package.json:** add back missing theo script to test ([99784b6](https://github.com/visitscotland/vs-component-library/commit/99784b6d1d333c9a22df0b3904f6f702d458f05f))
+* **release:** 1.0.41 ([584832f](https://github.com/visitscotland/vs-component-library/commit/584832fbf7221e7120c6a21fe46d0a24f5c88de0))
+
 ### [1.0.41](https://github.com/visitscotland/vs-component-library/compare/v1.0.40...v1.0.41) (2023-10-02)
 
 
