@@ -407,6 +407,7 @@
                                 </template>
                                 <VsTable
                                     :table-caption="level.colour + ' - ' + level.name"
+                                    class="vs-ski-scotland-status__run-status-table"
                                 >
                                     <VsTableHead>
                                         <VsTableHeaderCell>{{ statusLabel }}</VsTableHeaderCell>
@@ -1142,6 +1143,12 @@ export default {
 
         .vs-table .vs-icon {
             width: $spacer-5;
+        }
+
+        &__run-status-table {
+            thead th {
+                width: 50%;
+            }
         }
     }
 </style>
