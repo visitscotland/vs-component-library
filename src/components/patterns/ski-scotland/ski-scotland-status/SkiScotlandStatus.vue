@@ -1100,6 +1100,26 @@ export default {
                 margin-bottom: $spacer-7;
                 margin-top: $spacer-0;
             }
+
+            li {
+                > .vs-icon {
+                    display: inline-block;
+                    width: 1.25rem;
+                }
+
+                > a {
+                    display: inline-block;
+                    width: calc(100% - #{$spacer-7});
+                    vertical-align: top;
+                    word-break: break-word;
+                }
+
+                > span {
+                    display: inline-block;
+                    width: calc(100% - #{$spacer-8});
+                    vertical-align: top;
+                }
+            }
         }
 
         &__detailed-status-link {
