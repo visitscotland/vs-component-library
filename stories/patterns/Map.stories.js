@@ -1,5 +1,6 @@
 import VsMap from '@components/patterns/map/Map.vue';
 import placesData from '@/assets/fixtures/maps/places-data.json';
+import routesData from '@/assets/fixtures/maps/routes-data.json';
 
 export default {
     component: VsMap,
@@ -17,7 +18,7 @@ const Template = (args) => ({
         };
     },
     template: `
-        <div style="height: 75vh; width: 600px;">
+        <div style="height: 90vh; width: 650px;">
             <VsMap
                 v-bind="args"
                 :class="args.jsDisabled ? 'no-js' : ''"
@@ -45,10 +46,21 @@ const Template = (args) => ({
 const base = {
     mapId: 'vs-map',
     isVisible: true,
-    places: placesData.features,
+    places: [],
 };
 
 export const Default = Template.bind({
 });
 
-Default.args = base;
+Default.args = {
+    ...base,
+    places: placesData.features,
+};
+
+export const Routes = Template.bind({
+});
+
+Routes.args = {
+    ...base,
+    places: routesData.features,
+};

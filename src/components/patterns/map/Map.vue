@@ -197,6 +197,7 @@ export default {
                 },
             },
             markers: [],
+            routeNames: [],
             popup: null,
             hoveredStateId: null,
             activeStateId: null,
@@ -242,6 +243,7 @@ export default {
                 // this.geojsonData.features.splice(0, this.geojsonData.features.length);
                 this.addMapFeatures();
                 this.addMapMarkers();
+                this.addMapRoutes();
             },
             deep: true,
         },
@@ -390,6 +392,10 @@ export default {
                         ];
                     }
 
+                    if (place.geometry.type === 'Route') {
+                        coordinateArray = place.geometry.coordinates;
+                    }
+
                     return this.geojsonData.features.push({
                         type: 'Feature',
                         geometry: {
@@ -453,6 +459,60 @@ export default {
                             .addTo(this.mapbox.map);
                         this.markers.push(mapboxMarker);
                         renderer.remove();
+                    }
+                });
+            }, timeout);
+        },
+        /**
+         * Adds routes to map
+         */
+        addMapRoutes() {
+            // timeout needed to give the store a chance to load
+            // so that watchers update
+            let timeout = 0;
+
+            if (this.initialLoad) {
+                timeout = 1000;
+            }
+            setTimeout(() => {
+                if (this.routeNames !== null) {
+                    for (let i = this.routeNames.length - 1; i >= 0; i--) {
+                        this.mapbox.map.removeLayer(this.routeNames[i]);
+                        this.mapbox.map.removeSource(this.routeNames[i]);
+                    }
+                    this.routeNames = [];
+                }
+
+                this.geojsonData.features.forEach((feature) => {
+                    if (feature.geometry.type === 'Route') {
+                        this.mapbox.map.addSource(feature.properties.title, {
+                            type: 'geojson',
+                            data: {
+                                type: 'Feature',
+                                properties: {
+                                },
+                                geometry: {
+                                    type: 'LineString',
+                                    coordinates: feature.geometry.coordinates,
+                                },
+                            },
+                        });
+
+                        this.mapbox.map.addLayer({
+                            id: feature.properties.title,
+                            type: 'line',
+                            source: feature.properties.title,
+                            layout: {
+                                'line-join': 'round',
+                                'line-cap': 'round',
+                            },
+                            paint: {
+                                'line-color': '#AF006E',
+                                'line-width': 4,
+                            },
+                        });
+
+                        this.routeNames.push(feature.properties.title);
                     }
                 });
             }, timeout);
@@ -737,6 +797,10 @@ export default {
                     this.fitToBounds();
                 }
             }
+
+            this.mapbox.map.on('load', () => {
+                this.addMapRoutes();
+            });
         },
         /**
          * Initialises lazy loading
