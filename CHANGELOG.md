@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.43](https://github.com/visitscotland/vs-component-library/compare/v1.0.42...v1.0.43) (2023-10-11)
+
+
+### 🐛 Bug Fixes
+
+* **ski scotland:** add styles to tidy up responsive behaviour of status info ([87e566c](https://github.com/visitscotland/vs-component-library/commit/87e566cb76f9a95e33a6a1fbdbbecbf016a97309))
+* **ski scotland:** make status table cols consistent widths ([4ca4774](https://github.com/visitscotland/vs-component-library/commit/4ca477497b3bd6edb5729f3d7cb74f60f1e404a3))
+
 ### [1.0.42](https://github.com/visitscotland/vs-component-library/compare/v1.0.41...v1.0.42) (2023-10-10)
 
 
