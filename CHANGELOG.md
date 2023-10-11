@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.44](https://github.com/visitscotland/vs-component-library/compare/v1.0.43...v1.0.44) (2023-10-11)
+
+
+### 🐛 Bug Fixes
+
+* **ski scotland:** extend fix to lift status table ([f32ebec](https://github.com/visitscotland/vs-component-library/commit/f32ebec263b0891c622080835ec6b5f6c4be3814))
+
 ### [1.0.43](https://github.com/visitscotland/vs-component-library/compare/v1.0.42...v1.0.43) (2023-10-11)
 
 
