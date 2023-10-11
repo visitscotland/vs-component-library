@@ -310,6 +310,7 @@
 
                     <VsTable
                         :table-caption="liftStatusLabel"
+                        class="vs-ski-scotland-status__run-status-table"
                     >
                         <VsTableHead>
                             <VsTableHeaderCell>{{ statusLabel }}</VsTableHeaderCell>
