@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.45](https://github.com/visitscotland/vs-component-library/compare/v1.0.44...v1.0.45) (2023-10-12)
+
+
+### ✨ Features
+
+* **carbon calculator:** increase chart font size in line with a11y recommendations ([ec0c50d](https://github.com/visitscotland/vs-component-library/commit/ec0c50d83ec49a81367cab222ea1ccee27e26ed1))
+
 ### [1.0.44](https://github.com/visitscotland/vs-component-library/compare/v1.0.43...v1.0.44) (2023-10-11)
 
 
