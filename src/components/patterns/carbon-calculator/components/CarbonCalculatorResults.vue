@@ -318,6 +318,10 @@ export default {
             width: 100%;
 
             @include media-breakpoint-up(md) {
+                width: 75%;
+            }
+
+            @include media-breakpoint-up(lg) {
                 width: 50%;
             }
         }
@@ -328,13 +332,21 @@ export default {
                 position: absolute;
                 top: 50%;
                 text-align: center;
-                left: -#{$spacer-8};
+                left: -#{$spacer-9};
                 transform: translateY(-50%) rotate(-90deg);
 
                 @include media-breakpoint-up(md) {
                     max-width: 7rem;
-                    left: -#{$spacer-11};
+                    left: -#{$spacer-12};
                     transform: translateY(-100%);
+                }
+            }
+
+            text {
+                font-size: $font-size-2;
+
+                @include media-breakpoint-up(md) {
+                    font-size: $font-size-4;
                 }
             }
         }
