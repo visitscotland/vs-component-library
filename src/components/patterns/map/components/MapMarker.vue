@@ -7,9 +7,9 @@
         variant="transparent"
         @click="handleClick"
         @keydown.enter="handleClick"
-        @mouseover="handleHover(feature.properties.id)"
+        @mouseover="handleHover(feature)"
         @mouseleave="handleHover('')"
-        @focusin="handleHover(feature.properties.id)"
+        @focusin="handleHover(feature)"
         @focusout="handleHover('')"
     >
         <VsMapMarkerIcon
@@ -73,7 +73,8 @@ export default {
     computed: {
         isActive() {
             if (this.activePlace === this.feature.properties.id
-                || this.highlightedPlace === this.feature.properties.id) {
+                || (this.highlightedPlace
+                    && this.highlightedPlace.properties.id === this.feature.properties.id)) {
                 return true;
             }
 
@@ -114,7 +115,8 @@ export default {
     watch: {
         isActive() {
             if (this.activePlace === this.feature.properties.id
-                || this.highlightedPlace === this.feature.properties.id) {
+                || (this.highlightedPlace
+                    && this.highlightedPlace.properties.id === this.feature.properties.id)) {
                 return true;
             }
 
@@ -151,10 +153,10 @@ export default {
         /**
          * Fires on hover over the maker
          */
-        handleHover(id) {
+        handleHover(feature) {
             mapStore.setHoveredPlace({
                 mapId: this.mapId,
-                hoveredId: id,
+                hoveredFeature: feature,
             });
         },
     },

@@ -256,6 +256,7 @@ export default {
                 this.removeHoveredPolygon();
             } else {
                 this.addHoveredPolygon(newVal);
+                // this.addMapPopup(newVal);
             }
         },
         selectedItem(newVal) {
@@ -450,7 +451,7 @@ export default {
             });
         },
         /**
-         * Initialise map markers
+         * Initialise add map markers
          */
         initialiseMapMarkers() {
             // timeout needed to give the store a chance to load
@@ -602,7 +603,7 @@ export default {
                 if (e.features.length > 0) {
                     this.addMapPopup(e);
                     this.removeHoveredPolygon();
-                    this.addHoveredPolygon(e.features[0].id);
+                    this.addHoveredPolygon(e.features[0]);
                 }
             });
 
@@ -683,7 +684,7 @@ export default {
 
             mapStore.setHoveredPlace({
                 mapId: this.mapId,
-                hoveredId: '',
+                hoveredFeature: '',
             });
 
             this.hoveredStateId = null;
@@ -691,8 +692,8 @@ export default {
         /**
          * Add a hovered polygon
          */
-        addHoveredPolygon(polyId) {
-            this.hoveredStateId = polyId;
+        addHoveredPolygon(feature) {
+            this.hoveredStateId = feature;
             this.mapbox.map.setFeatureState(
                 {
                     source: 'regions',
@@ -705,25 +706,15 @@ export default {
 
             mapStore.setHoveredPlace({
                 mapId: this.mapId,
-                hoveredId: polyId,
+                hoveredFeature: feature,
             });
         },
         /**
          * Adds map pop ups
          */
         addMapPopup(e) {
-            function findCenter(markers) {
-                const lats = [];
-                const lngs = [];
-                markers[0].forEach((m) => {
-                    lats.push(m[1]);
-                    lngs.push(m[0]);
-                });
-                return {
-                    lat: (Math.min(...lats) + Math.max(...lats)) / 2,
-                    lng: (Math.min(...lngs) + Math.max(...lngs)) / 2,
-                };
-            };
+            const popupPoint = this.getPopupCoordinates(e);
+            const popupHtml = this.getPopupHtml(e);
 
             const detectEsc = (keyEvent) => {
                 if (keyEvent.key === 'Escape') {
@@ -732,16 +723,15 @@ export default {
                 }
             };
 
-            const centerPoint = findCenter(e.features[0].geometry.coordinates);
-
             if (e.features[0].id !== this.hoveredStateId
                 && e.features[0].id !== this.activeStateId) {
                 this.removeMapPopup();
                 document.body.removeEventListener('keyup', detectEsc);
 
-                this.popup = new mapboxgl.Popup()
-                    .setLngLat(centerPoint)
-                    .setHTML(e.features[0].properties.title)
+                this.popup = new mapboxgl.Popup({
+                    closeButton: false,
+                }).setLngLat(popupPoint)
+                    .setHTML(popupHtml)
                     .addTo(this.mapbox.map);
             }
 
@@ -755,6 +745,32 @@ export default {
                 this.popup.remove();
                 this.popup = null;
             }
+        },
+        getPopupCoordinates(e) {
+            if (e.features[0].geometry.type === 'Polygon') {
+                return this.findFeatureCentre(e.features[0].geometry.coordinates);
+            }
+
+            return e.features[0].geometry.coordinates;
+        },
+        findFeatureCentre(markers) {
+            const lats = [];
+            const lngs = [];
+            markers[0].forEach((m) => {
+                lats.push(m[1]);
+                lngs.push(m[0]);
+            });
+            return {
+                lat: (Math.min(...lats) + Math.max(...lats)) / 2,
+                lng: (Math.min(...lngs) + Math.max(...lngs)) / 2,
+            };
+        },
+        getPopupHtml(e) {
+            if (e.features[0].geometry.type === 'Polygon') {
+                return e.features[0].properties.title;
+            }
+
+            return e.features[0].geometry.coordinates;
         },
         /**
          * Ensures map fits to bounds

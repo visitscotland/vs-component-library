@@ -162,7 +162,7 @@
                     <VsMapWithSidebarListItem
                         v-if="typeof place.properties !== 'undefined'
                             && place.properties.category.id === selectedCategory"
-                        :item-data="place.properties"
+                        :item-data="place"
                         @show-item-detail="showDetail(place.properties.id)"
                     />
                 </div>
