@@ -52,7 +52,7 @@
 import VsWarning from '@components/patterns/warning/Warning.vue';
 import VsLoading from '@components/elements/loading-spinner/LoadingSpinner.vue';
 import osBranding from '@/utils/os-branding';
-
+import { v4 as uuidv4 } from 'uuid';
 import { render, h } from 'vue';
 import pinia from '@/stores/index.ts';
 import { mapState } from 'pinia';
@@ -239,9 +239,8 @@ export default {
         places: {
             handler() {
                 this.geojsonData.features = [];
-                // this.geojsonData.features.splice(0, this.geojsonData.features.length);
-                this.addMapFeatures();
-                this.addMapMarkers();
+                this.initialiseMapFeatures();
+                this.initialiseMapMarkers();
             },
             deep: true,
         },
@@ -317,7 +316,7 @@ export default {
     },
     methods: {
         /**
-         * Adds a map to the page
+         * Adds a mapbox map to the page
          */
         addMap() {
             const boundingBox = this.calculateBoundingBox();
@@ -360,7 +359,7 @@ export default {
             });
         },
         /**
-         * Adds map to controls
+         * Adds mapbox map controls
          */
         addMapControls() {
             const nav = new mapboxgl.NavigationControl();
@@ -368,51 +367,92 @@ export default {
             this.mapbox.map.addControl(new mapboxgl.FullscreenControl());
         },
         /**
-         * Adds map features
+         * Initialise features array for points & polygons
          */
-        addMapFeatures() {
+        initialiseMapFeatures() {
             this.places.map((place) => {
                 if (typeof place.geometry !== 'undefined') {
-                    let coordinateArray = [
-                        place.geometry.coordinates[0],
-                        place.geometry.coordinates[1],
-                    ];
+                    const coordinateArray = this.getCoordinateArray(place);
+                    return this.getMapFeatures(place, coordinateArray);
+                }
 
-                    if (place.geometry.type === 'Polygon') {
-                        coordinateArray = [
-                            place.geometry.coordinates[0],
-                        ];
-                    }
-
-                    if (place.geometry.type === 'MultiPolygon') {
-                        coordinateArray = [
-                            place.geometry.coordinates,
-                        ];
-                    }
-
-                    return this.geojsonData.features.push({
-                        type: 'Feature',
-                        geometry: {
-                            type: place.geometry.type,
-                            coordinates: coordinateArray,
-                        },
-                        properties: {
-                            title: place.properties.title,
-                            imageSrc: place.image,
-                            type: typeof place.properties.category !== 'undefined' ? place.properties.category.id : '',
-                            id: place.properties.id,
-                        },
-                        id: place.properties.id,
-                    });
+                if (place.latitude && place.longitude) {
+                    return this.getItineraryMapFeatures(place);
                 }
 
                 return false;
             });
         },
         /**
-         * Adds map markers
+         * Returns correct coordinates for points & polygons
          */
-        addMapMarkers() {
+        getCoordinateArray(place) {
+            if (place.geometry.type === 'Polygon') {
+                return [
+                    place.geometry.coordinates[0],
+                ];
+            }
+
+            if (place.geometry.type === 'MultiPolygon') {
+                return [
+                    place.geometry.coordinates,
+                ];
+            }
+
+            return [
+                place.geometry.coordinates[0],
+                place.geometry.coordinates[1],
+            ];
+        },
+        /**
+         * Returns object for a map feature
+         * including points, polygons or multi-polygons
+         */
+        getMapFeatures(place, coordinateArray) {
+            return this.geojsonData.features.push({
+                type: 'Feature',
+                geometry: {
+                    type: place.geometry.type,
+                    coordinates: coordinateArray,
+                },
+                properties: {
+                    title: place.properties.title,
+                    imageSrc: place.image,
+                    type: typeof place.properties.category !== 'undefined' ? place.properties.category.id : '',
+                    id: place.properties.id,
+                },
+                id: place.properties.id,
+            });
+        },
+        /**
+         * Returns object for itinerary points
+         */
+        getItineraryMapFeatures(place) {
+            const stopId = uuidv4();
+
+            return this.geojsonData.features.push({
+                type: 'Feature',
+                geometry: {
+                    type: 'Point',
+                    coordinates: [
+                        parseFloat(place.longitude),
+                        parseFloat(place.latitude),
+                    ],
+                },
+                properties: {
+                    title: place.title,
+                    imageSrc: place.imageSrc,
+                    type: 'itinerary-stop',
+                    stopCount: place.stopCount,
+                    id: stopId,
+                },
+                id: stopId,
+            });
+        },
+        /**
+         * Initialise map markers
+         */
+        initialiseMapMarkers() {
             // timeout needed to give the store a chance to load
             // so that watchers update
             let timeout = 0;
@@ -421,6 +461,7 @@ export default {
                 timeout = 1000;
             }
             setTimeout(() => {
+                // Remove any existing markers from the page
                 if (this.markers !== null) {
                     for (let i = this.markers.length - 1; i >= 0; i--) {
                         this.markers[i].remove();
@@ -428,34 +469,42 @@ export default {
                     this.markers = [];
                 }
 
+                // Create new markers for each point
                 this.geojsonData.features.forEach((feature) => {
                     if (feature.geometry.type === 'Point') {
-                        const markerComponent = h(
-                            VsMapMarker,
-                            {
-                                feature,
-                                mapId: this.mapId,
-                                onShowDetail: (id) => {
-                                    this.$emit('showDetail', id);
-                                },
-                                onSetCategory: (type) => {
-                                    this.$emit('setCategory', type);
-                                },
-                            },
-                        );
-
-                        const renderer = document.createElement('div');
-                        this.$refs.mapboxOuter.appendChild(renderer);
-                        render(markerComponent, renderer);
-
-                        const mapboxMarker = new mapboxgl.Marker(renderer.children[0])
-                            .setLngLat(feature.geometry.coordinates)
-                            .addTo(this.mapbox.map);
-                        this.markers.push(mapboxMarker);
-                        renderer.remove();
+                        this.createMapMarker(feature);
                     }
                 });
             }, timeout);
+        },
+        /**
+         * Creates a map marker component instance for a point
+         * and appends it to the map
+         */
+        createMapMarker(feature) {
+            const markerComponent = h(
+                VsMapMarker,
+                {
+                    feature,
+                    mapId: this.mapId,
+                    onShowDetail: (id) => {
+                        this.$emit('showDetail', id);
+                    },
+                    onSetCategory: (type) => {
+                        this.$emit('setCategory', type);
+                    },
+                },
+            );
+
+            const renderer = document.createElement('div');
+            this.$refs.mapboxOuter.appendChild(renderer);
+            render(markerComponent, renderer);
+
+            const mapboxMarker = new mapboxgl.Marker(renderer.children[0])
+                .setLngLat(feature.geometry.coordinates)
+                .addTo(this.mapbox.map);
+            this.markers.push(mapboxMarker);
+            renderer.remove();
         },
         /**
          * Hide all polygons
@@ -728,11 +777,11 @@ export default {
             this.addMapControls();
 
             if (this.places.length) {
-                this.addMapFeatures();
+                this.initialiseMapFeatures();
             }
 
             if (this.geojsonData.features.length) {
-                this.addMapMarkers();
+                this.initialiseMapMarkers();
                 if (this.fitToMarkers) {
                     this.fitToBounds();
                 }

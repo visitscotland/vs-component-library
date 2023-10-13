@@ -10,7 +10,18 @@
             :class="markerClasses"
         />
 
+        <span
+            v-if="number"
+            class="vs-map-marker-icon__count"
+        >
+            <span class="sr-only">
+                Stop
+            </span>
+            {{ number }}
+        </span>
+
         <VsIcon
+            v-else
             class="vs-map-marker-icon__icon"
             :name="getIconDetails(id).name"
             size="xxs"
@@ -41,6 +52,10 @@ export default {
         isHovered: {
             type: Boolean,
             default: false,
+        },
+        number: {
+            type: String,
+            default: '',
         },
         isMapMarker: {
             type: Boolean,
@@ -99,6 +114,19 @@ export default {
             -webkit-text-stroke-color: $color-white;;
             -webkit-text-stroke-width: 1px;
         }
+    }
+
+    &__count {
+        color: $color-white;
+        display: block;
+        font-size: $font-size-4;
+        font-family: $headings-font-family;
+        position: absolute;
+        top: 4px;
+        left: 0;
+        transition: $transition-base;
+        text-align: center;
+        width: 100%;
     }
 
     &__icon.vs-icon {

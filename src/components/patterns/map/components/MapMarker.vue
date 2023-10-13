@@ -16,6 +16,7 @@
             class="vs-main-map-category__icon"
             :id="getMarkerIcon"
             :is-map-marker="true"
+            :number="feature.properties.stopCount ? feature.properties.stopCount : ''"
         />
     </button>
 </template>
@@ -178,19 +179,6 @@ export default {
             transform: scale(1.2);
             transition: $transition-base;
         }
-    }
-
-    &__count {
-        color: $color-white;
-        display: block;
-        font-size: $font-size-4;
-        font-family: $headings-font-family;
-        position: absolute;
-        top: 4px;
-        left: 0;
-        transition: $transition-base;
-        text-align: center;
-        width: 100%;
     }
 }
 </style>
