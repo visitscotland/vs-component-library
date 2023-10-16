@@ -256,7 +256,7 @@ export default {
                 this.removeHoveredPolygon();
             } else {
                 this.addHoveredPolygon(newVal);
-                // this.addMapPopup(newVal);
+                this.addMapPopup(newVal);
             }
         },
         selectedItem(newVal) {
@@ -693,7 +693,7 @@ export default {
          * Add a hovered polygon
          */
         addHoveredPolygon(feature) {
-            this.hoveredStateId = feature;
+            this.hoveredStateId = feature.properties.id;
             this.mapbox.map.setFeatureState(
                 {
                     source: 'regions',
@@ -710,23 +710,22 @@ export default {
             });
         },
         /**
-         * Adds map pop ups
+         * Add a map popup when feature is hovered
          */
-        addMapPopup(e) {
-            const popupPoint = this.getPopupCoordinates(e);
-            const popupHtml = this.getPopupHtml(e);
+        addMapPopup(feature) {
+            let featureData = '';
+            if (feature.features) {
+                featureData = feature.features[0];
+            } else {
+                featureData = feature;
+            }
+            const popupPoint = this.getPopupCoordinates(featureData);
+            const popupHtml = this.getPopupHtml(featureData);
 
-            const detectEsc = (keyEvent) => {
-                if (keyEvent.key === 'Escape') {
-                    this.removeMapPopup();
-                    document.body.removeEventListener('keyup', detectEsc);
-                }
-            };
-
-            if (e.features[0].id !== this.hoveredStateId
-                && e.features[0].id !== this.activeStateId) {
+            if (featureData.id !== this.hoveredStateId
+                && featureData.id !== this.activeStateId) {
                 this.removeMapPopup();
-                document.body.removeEventListener('keyup', detectEsc);
+                document.body.removeEventListener('keyup', this.detectEsc);
 
                 this.popup = new mapboxgl.Popup({
                     closeButton: false,
@@ -735,7 +734,7 @@ export default {
                     .addTo(this.mapbox.map);
             }
 
-            document.body.addEventListener('keyup', detectEsc);
+            document.body.addEventListener('keyup', this.detectEsc);
         },
         /**
          * Remove the popup from the map
@@ -746,13 +745,23 @@ export default {
                 this.popup = null;
             }
         },
-        getPopupCoordinates(e) {
-            if (e.features[0].geometry.type === 'Polygon') {
-                return this.findFeatureCentre(e.features[0].geometry.coordinates);
+        /**
+         * Get coordinates to decide where to show popup
+         */
+        getPopupCoordinates(feature) {
+            if (feature.geometry.type === 'Polygon') {
+                return this.findFeatureCentre(feature.geometry.coordinates);
             }
 
-            return e.features[0].geometry.coordinates;
+            if (feature.geometry.type === 'MultiPolygon') {
+                return this.findFeatureCentre(feature.geometry.coordinates[0]);
+            }
+
+            return feature.geometry.coordinates;
         },
+        /**
+         * Find the centre of a polygon to display popup
+         */
         findFeatureCentre(markers) {
             const lats = [];
             const lngs = [];
@@ -765,12 +774,24 @@ export default {
                 lng: (Math.min(...lngs) + Math.max(...lngs)) / 2,
             };
         },
-        getPopupHtml(e) {
-            if (e.features[0].geometry.type === 'Polygon') {
-                return e.features[0].properties.title;
+        /**
+         * Get correct popup html based on map feature type
+         */
+        getPopupHtml(feature) {
+            if (feature.geometry.type === 'Polygon' || feature.geometry.type === 'MultiPolygon') {
+                return feature.properties.title;
             }
 
-            return e.features[0].geometry.coordinates;
+            return feature.geometry.coordinates;
+        },
+        /**
+         * Detect esc key to close popup
+         */
+        detectEsc(keyEvent) {
+            if (keyEvent.key === 'Escape') {
+                this.removeMapPopup();
+                document.body.removeEventListener('keyup', this.detectEsc);
+            }
         },
         /**
          * Ensures map fits to bounds
