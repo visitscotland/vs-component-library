@@ -253,9 +253,8 @@ export default {
         },
         highlightedPlace(newVal) {
             if (newVal.length === 0) {
-                this.removeHoveredPolygon();
+                this.removeMapPopup();
             } else {
-                this.addHoveredPolygon(newVal);
                 this.addMapPopup(newVal);
             }
         },
@@ -601,7 +600,6 @@ export default {
             // we'll update the feature state for the feature under the mouse.
             this.mapbox.map.on('mousemove', 'regions-fills', (e) => {
                 if (e.features.length > 0) {
-                    this.addMapPopup(e);
                     this.removeHoveredPolygon();
                     this.addHoveredPolygon(e.features[0]);
                 }
@@ -610,7 +608,6 @@ export default {
             // When the mouse leaves the state-fill layer, update the
             // feature state of the previously hovered feature.
             this.mapbox.map.on('mouseleave', 'regions-fills', () => {
-                this.removeMapPopup();
                 this.removeHoveredPolygon();
             });
 
@@ -722,13 +719,18 @@ export default {
             const popupPoint = this.getPopupCoordinates(featureData);
             const popupHtml = this.getPopupHtml(featureData);
 
-            if (featureData.id !== this.hoveredStateId
-                && featureData.id !== this.activeStateId) {
+            if (featureData.id) {
                 this.removeMapPopup();
                 document.body.removeEventListener('keyup', this.detectEsc);
 
                 this.popup = new mapboxgl.Popup({
                     closeButton: false,
+                    offset: {
+                        top: [0, 0],
+                        bottom: [0, -30],
+                        left: [0, 0],
+                        right: [0, 0],
+                    },
                 }).setLngLat(popupPoint)
                     .setHTML(popupHtml)
                     .addTo(this.mapbox.map);
@@ -778,11 +780,19 @@ export default {
          * Get correct popup html based on map feature type
          */
         getPopupHtml(feature) {
-            if (feature.geometry.type === 'Polygon' || feature.geometry.type === 'MultiPolygon') {
-                return feature.properties.title;
+            if (feature.properties.imageSrc && feature.properties.stopCount) {
+                return `
+                    <img class="vs-map__popup-image" src="${feature.properties.imageSrc}" />
+                    <div>
+                        <h4 class="vs-map__popup-subtitle">Stop ${feature.properties.stopCount}</h4>
+                        <p class="vs-map__popup-title">${feature.properties.title}</p>
+                    </div>
+                `;
             }
 
-            return feature.geometry.coordinates;
+            return `
+                <p class="vs-map__popup-title">${feature.properties.title}</p>
+            `;
         },
         /**
          * Detect esc key to close popup
@@ -1123,6 +1133,34 @@ export default {
         .mapboxgl-ctrl-icon {
             display: none;
         }
+    }
+
+    .mapboxgl-popup {
+        z-index: 999;
+
+        &-content {
+            display: flex;
+            padding: $spacer-2;
+        }
+    }
+
+    &__popup-subtitle {
+        font-family: $font-family-base;
+        font-size: $font-size-4;
+        font-weight: $font-weight-bold;
+        margin-bottom: $spacer-1;
+    }
+
+    &__popup-title {
+        font-family: $font-family-base;
+        font-size: $font-size-4;
+        font-weight: $font-weight-normal;
+        margin-bottom: 0;
+    }
+
+    &__popup-image {
+        width: 105px;
+        margin-right: $spacer-2;
     }
 }
 

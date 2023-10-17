@@ -13,7 +13,6 @@
         @focusout="handleHover('')"
     >
         <VsMapMarkerIcon
-            class="vs-main-map-category__icon"
             :id="getMarkerIcon"
             :is-map-marker="true"
             :number="feature.properties.stopCount ? feature.properties.stopCount : ''"
