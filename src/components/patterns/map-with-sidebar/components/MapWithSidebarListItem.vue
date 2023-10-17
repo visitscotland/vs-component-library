@@ -4,8 +4,8 @@
         class="vs-map-with-sidebar-list-item"
         :class="isActive ? 'vs-map-with-sidebar-list-item--hovered' : ''"
         data-test="vs-map-with-sidebar-list-item"
-        @click="showItemDetail(formattedData.properties.id)"
-        @keyup.enter="showItemDetail(formattedData.properties.id)"
+        @click="showItemDetail(formattedData)"
+        @keyup.enter="showItemDetail(formattedData)"
         @mouseover="itemHover(formattedData)"
         @mouseleave="itemHover('')"
         @focusin="itemHover(formattedData)"
@@ -132,23 +132,23 @@ export default {
          * Emits an event with the ID of the chosen
          * item as the payload
          */
-        showItemDetail(id) {
+        showItemDetail(feature) {
             mapStore.setActivePlace({
                 mapId: this.mapId,
-                placeId: id,
+                activeFeature: feature,
             });
 
-            this.$parent.$emit('show-item-detail', id);
+            this.$parent.$emit('show-item-detail', feature);
             this.$parent.$emit('set-stage', 2);
         },
         /**
          * Emits an event with the ID of the chosen
          * item on hover
          */
-        itemHover(formattedData) {
+        itemHover(feature) {
             mapStore.setHoveredPlace({
                 mapId: this.mapId,
-                hoveredFeature: formattedData,
+                hoveredFeature: feature,
             });
         },
     },

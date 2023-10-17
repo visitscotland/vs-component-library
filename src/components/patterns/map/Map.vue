@@ -148,7 +148,7 @@ export default {
          * The current selectdd item
          */
         selectedItem: {
-            type: String,
+            type: Object,
             default: null,
         },
         /**
@@ -226,6 +226,12 @@ export default {
                 }
                 return null;
             },
+            activePlace(store) {
+                if (this.mapbox.map) {
+                    return store.getActivePlace(this.mapId);
+                }
+                return null;
+            },
         }),
     },
     watch: {
@@ -253,14 +259,24 @@ export default {
         },
         highlightedPlace(newVal) {
             if (newVal.length === 0) {
+                // this.removeMapPopup();
+            } else {
+                // this.addMapPopup(newVal);
+            }
+        },
+        activePlace(newVal) {
+            if (newVal.length === 0) {
                 this.removeMapPopup();
             } else {
                 this.addMapPopup(newVal);
             }
         },
         selectedItem(newVal) {
-            const isPolygon = this.polygons.features
-                .filter((feature) => feature.properties.id === newVal);
+            let isPolygon = [];
+            if (newVal) {
+                isPolygon = this.polygons.features
+                    .filter((feature) => feature.properties.id === newVal.properties.id);
+            }
 
             if (!newVal) {
                 this.removeActivePolygon();
@@ -487,8 +503,8 @@ export default {
                 {
                     feature,
                     mapId: this.mapId,
-                    onShowDetail: (id) => {
-                        this.$emit('showDetail', id);
+                    onShowDetail: (featureShow) => {
+                        this.$emit('showDetail', featureShow);
                     },
                     onSetCategory: (type) => {
                         this.$emit('setCategory', type);
@@ -615,7 +631,7 @@ export default {
             // feature state of the active feature.
             this.mapbox.map.on('click', 'regions-fills', (e) => {
                 this.removeActivePolygon();
-                this.addActivePolygon(e.features[0].id);
+                this.addActivePolygon(e.features[0]);
             });
         },
         /**
@@ -637,8 +653,8 @@ export default {
         /**
          * Add a new active polygon
          */
-        addActivePolygon(polyId) {
-            this.activeStateId = polyId;
+        addActivePolygon(feature) {
+            this.activeStateId = feature.properties.id;
 
             this.mapbox.map.setFeatureState(
                 {
@@ -652,10 +668,10 @@ export default {
 
             mapStore.setActivePlace({
                 mapId: this.mapId,
-                placeId: polyId,
+                activeFeature: feature,
             });
 
-            this.$emit('showDetail', polyId);
+            this.$emit('showDetail', feature);
             this.$emit('setCategory', 'regions');
         },
         /**
@@ -716,25 +732,26 @@ export default {
             } else {
                 featureData = feature;
             }
-            const popupPoint = this.getPopupCoordinates(featureData);
-            const popupHtml = this.getPopupHtml(featureData);
 
-            if (featureData.id) {
-                this.removeMapPopup();
-                document.body.removeEventListener('keyup', this.detectEsc);
+            // const popupPoint = this.getPopupCoordinates(featureData);
+            // const popupHtml = this.getPopupHtml(featureData);
 
-                this.popup = new mapboxgl.Popup({
-                    closeButton: false,
-                    offset: {
-                        top: [0, 0],
-                        bottom: [0, -30],
-                        left: [0, 0],
-                        right: [0, 0],
-                    },
-                }).setLngLat(popupPoint)
-                    .setHTML(popupHtml)
-                    .addTo(this.mapbox.map);
-            }
+            // if (featureData.id) {
+            //     this.removeMapPopup();
+            //     document.body.removeEventListener('keyup', this.detectEsc);
+
+            //     this.popup = new mapboxgl.Popup({
+            //         closeButton: false,
+            //         offset: {
+            //             top: [0, 0],
+            //             bottom: [0, -30],
+            //             left: [0, 0],
+            //             right: [0, 0],
+            //         },
+            //     }).setLngLat(popupPoint)
+            //         .setHTML(popupHtml)
+            //         .addTo(this.mapbox.map);
+            // }
 
             document.body.addEventListener('keyup', this.detectEsc);
         },

@@ -71,7 +71,7 @@ export default {
     ],
     computed: {
         isActive() {
-            if (this.activePlace === this.feature.properties.id
+            if ((this.activePlace && this.activePlace.properties.id === this.feature.properties.id)
                 || (this.highlightedPlace
                     && this.highlightedPlace.properties.id === this.feature.properties.id)) {
                 return true;
@@ -113,20 +113,20 @@ export default {
     },
     watch: {
         isActive() {
-            if (this.activePlace === this.feature.properties.id
+            if ((this.activePlace && this.activePlace.properties.id === this.feature.properties.id)
                 || (this.highlightedPlace
                     && this.highlightedPlace.properties.id === this.feature.properties.id)) {
                 return true;
             }
 
-            if (this.activePlace === this.feature.properties.id) {
+            if (this.activePlace && this.activePlace.properties.id === this.feature.properties.id) {
                 mapStore.setActiveMarkerPos(this.feature.geometry.coordinates);
             }
 
             return false;
         },
         activePlace() {
-            if (this.activePlace === this.feature.properties.id) {
+            if (this.activePlace && this.activePlace.properties.id === this.feature.properties.id) {
                 mapStore.setActiveMarkerPos(this.feature.geometry.coordinates);
             }
         },
@@ -143,10 +143,10 @@ export default {
 
             mapStore.setActivePlace({
                 mapId: this.mapId,
-                placeId: this.feature.properties.id,
+                activeFeature: this.feature,
             });
 
-            this.$emit('showDetail', this.feature.properties.id);
+            this.$emit('showDetail', this.feature);
             this.$emit('setCategory', this.feature.properties.type);
         },
         /**
