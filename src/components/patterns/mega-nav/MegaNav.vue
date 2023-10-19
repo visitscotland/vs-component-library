@@ -23,7 +23,7 @@
                             <VsSvgLink
                                 class="vs-mega-nav__logo"
                                 data-test="vs-mega-nav__logo"
-                                link-alt-text="VisitScotland Home"
+                                :link-alt-text="logoAltText"
                                 :href="href"
                                 svg-fill="#700e57"
                                 svg-path="visitscotland-logo"
@@ -156,6 +156,13 @@ export default {
         menuToggleAltText: {
             type: String,
             required: true,
+        },
+        /**
+         * Search button text
+         */
+        logoAltText: {
+            type: String,
+            default: 'VisitScotland Home',
         },
         /**
          * Search button text

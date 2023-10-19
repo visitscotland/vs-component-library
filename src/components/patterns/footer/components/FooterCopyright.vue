@@ -16,7 +16,7 @@
                         :link-alt-text="linkAltText"
                         :href="href"
                         svg-fill="#ffffff"
-                        svg-path="vs-logo"
+                        svg-path="brandscotland-logo"
                         link-variant="on-dark"
                     />
 
@@ -90,6 +90,10 @@ export default {
 
     .vs-footer-copyright__logo {
         display: inline-block;
+
+        svg{
+            width: 166px;
+        }
 
         &.vs-link.primary{
             &:focus {
