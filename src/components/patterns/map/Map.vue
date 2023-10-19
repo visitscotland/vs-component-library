@@ -172,6 +172,13 @@ export default {
             type: Boolean,
             default: false,
         },
+        /**
+         * Turn popups off on map markers
+         */
+        showMarkerPopups: {
+            type: Boolean,
+            default: true,
+        },
     },
     data() {
         return {
@@ -266,9 +273,9 @@ export default {
         },
         activePlace(newVal) {
             if (newVal.length === 0) {
-                this.removeMapPopup();
+                // this.removeMapPopup();
             } else {
-                this.addMapPopup(newVal);
+                // this.addMapPopup(newVal);
             }
         },
         selectedItem(newVal) {
@@ -319,6 +326,7 @@ export default {
 
         this.lazyloadMapComponent();
         this.isTablet = window.innerWidth >= 768;
+        document.body.addEventListener('keyup', this.detectEsc);
         window.addEventListener('resize', this.onResize);
 
         /**
@@ -516,9 +524,15 @@ export default {
             this.$refs.mapboxOuter.appendChild(renderer);
             render(markerComponent, renderer);
 
+            if (feature && this.showMarkerPopups) {
+                this.addMapPopup(feature);
+            }
+
             const mapboxMarker = new mapboxgl.Marker(renderer.children[0])
                 .setLngLat(feature.geometry.coordinates)
+                .setPopup(this.popup)
                 .addTo(this.mapbox.map);
+
             this.markers.push(mapboxMarker);
             renderer.remove();
         },
@@ -572,67 +586,70 @@ export default {
                 });
             });
 
-            this.mapbox.map.addSource('regions', {
-                type: 'geojson',
-                data: this.polygons,
-                promoteId: 'id',
-            });
+            if (this.polygons.features.length > 0) {
+                this.mapbox.map.addSource('regions', {
+                    type: 'geojson',
+                    data: this.polygons,
+                    promoteId: 'id',
+                });
 
-            this.mapbox.map.addLayer({
-                id: 'regions-fills',
-                type: 'fill',
-                source: 'regions',
-                layout: {
-                },
-                paint: {
-                    'fill-color': [
-                        'case',
-                        ['==', ['feature-state', 'interaction-state'], 'hover'],
-                        'rgba(173,14,110,0.698)',
-                        ['==', ['feature-state', 'interaction-state'], 'active'],
-                        'rgba(173,14,110,0.533)',
-                        '#A5A5A5',
-                    ],
-                    'fill-opacity': 0.8,
-                },
-            });
+                this.mapbox.map.addLayer({
+                    id: 'regions-fills',
+                    type: 'fill',
+                    source: 'regions',
+                    layout: {
+                    },
+                    paint: {
+                        'fill-color': [
+                            'case',
+                            ['==', ['feature-state', 'interaction-state'], 'hover'],
+                            'rgba(173,14,110,0.698)',
+                            ['==', ['feature-state', 'interaction-state'], 'active'],
+                            'rgba(173,14,110,0.533)',
+                            '#A5A5A5',
+                        ],
+                        'fill-opacity': 0.8,
+                    },
+                });
 
-            this.mapbox.map.addLayer({
-                id: 'regions-borders',
-                type: 'line',
-                source: 'regions',
-                layout: {
-                },
-                paint: {
-                    'line-color': '#fff',
-                    'line-width': 1,
-                },
-            });
+                this.mapbox.map.addLayer({
+                    id: 'regions-borders',
+                    type: 'line',
+                    source: 'regions',
+                    layout: {
+                    },
+                    paint: {
+                        'line-color': '#fff',
+                        'line-width': 1,
+                    },
+                });
 
-            // Hide map polygons by default
-            this.hideMapPolygons();
+                // Hide map polygons by default
+                this.hideMapPolygons();
 
-            // When the user moves their mouse over the state-fill layer,
-            // we'll update the feature state for the feature under the mouse.
-            this.mapbox.map.on('mousemove', 'regions-fills', (e) => {
-                if (e.features.length > 0) {
+                // When the user moves their mouse over the state-fill layer,
+                // we'll update the feature state for the feature under the mouse.
+                this.mapbox.map.on('mousemove', 'regions-fills', (e) => {
+                    if (e.features.length > 0) {
+                        this.removeHoveredPolygon();
+                        this.addHoveredPolygon(e.features[0]);
+                    }
+                });
+
+                // When the mouse leaves the state-fill layer, update the
+                // feature state of the previously hovered feature.
+                this.mapbox.map.on('mouseleave', 'regions-fills', () => {
                     this.removeHoveredPolygon();
-                    this.addHoveredPolygon(e.features[0]);
-                }
-            });
+                });
 
-            // When the mouse leaves the state-fill layer, update the
-            // feature state of the previously hovered feature.
-            this.mapbox.map.on('mouseleave', 'regions-fills', () => {
-                this.removeHoveredPolygon();
-            });
-
-            // When the clicks the the state-fill layer, update the
-            // feature state of the active feature.
-            this.mapbox.map.on('click', 'regions-fills', (e) => {
-                this.removeActivePolygon();
-                this.addActivePolygon(e.features[0]);
-            });
+                // When the clicks the the state-fill layer, update the
+                // feature state of the active feature.
+                this.mapbox.map.on('click', 'regions-fills', (e) => {
+                    this.removeActivePolygon();
+                    this.addActivePolygon(e.features[0]);
+                    this.addMapPopup(e.features[0]);
+                });
+            };
         },
         /**
          * Remove the current active polygon
@@ -732,34 +749,29 @@ export default {
             } else {
                 featureData = feature;
             }
+            const coordinates = this.getCoordinates(featureData);
+            const popupHtml = this.getPopupHtml(featureData);
 
-            // const popupPoint = this.getPopupCoordinates(featureData);
-            // const popupHtml = this.getPopupHtml(featureData);
-
-            // if (featureData.id) {
-            //     this.removeMapPopup();
-            //     document.body.removeEventListener('keyup', this.detectEsc);
-
-            //     this.popup = new mapboxgl.Popup({
-            //         closeButton: false,
-            //         offset: {
-            //             top: [0, 0],
-            //             bottom: [0, -30],
-            //             left: [0, 0],
-            //             right: [0, 0],
-            //         },
-            //     }).setLngLat(popupPoint)
-            //         .setHTML(popupHtml)
-            //         .addTo(this.mapbox.map);
-            // }
-
-            document.body.addEventListener('keyup', this.detectEsc);
+            if (featureData.id) {
+                this.popup = new mapboxgl.Popup({
+                    closeButton: false,
+                    offset: {
+                        top: [0, 0],
+                        bottom: [0, -30],
+                        left: [0, 0],
+                        right: [0, 0],
+                    },
+                }).setLngLat(coordinates)
+                    .setHTML(popupHtml)
+                    .addTo(this.mapbox.map);
+            }
         },
         /**
          * Remove the popup from the map
          */
         removeMapPopup() {
             if (this.popup) {
+                console.log('remove');
                 this.popup.remove();
                 this.popup = null;
             }
@@ -767,7 +779,7 @@ export default {
         /**
          * Get coordinates to decide where to show popup
          */
-        getPopupCoordinates(feature) {
+        getCoordinates(feature) {
             if (feature.geometry.type === 'Polygon') {
                 return this.findFeatureCentre(feature.geometry.coordinates);
             }
@@ -816,8 +828,8 @@ export default {
          */
         detectEsc(keyEvent) {
             if (keyEvent.key === 'Escape') {
+                console.log('escaped');
                 this.removeMapPopup();
-                document.body.removeEventListener('keyup', this.detectEsc);
             }
         },
         /**
@@ -1153,7 +1165,7 @@ export default {
     }
 
     .mapboxgl-popup {
-        z-index: 999;
+        z-index: 99999;
 
         &-content {
             display: flex;

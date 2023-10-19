@@ -85,6 +85,7 @@
                             @zoom-reset="resetZoom = false"
                             :bounds-data="regionBounds"
                             :reset-zoom="resetZoom"
+                            :show-marker-popups="false"
                         >
                             <template v-slot:map-loading-text>
                                 <!-- @slot Message to show when map is loading  -->
