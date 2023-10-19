@@ -26,7 +26,7 @@
                                 link-alt-text="VisitScotland Home"
                                 :href="href"
                                 svg-fill="#700e57"
-                                svg-path="visitscotland"
+                                svg-path="visitscotland-logo"
                                 data-layer-value="homePageLogoClickDataEvent"
                             />
                         </div>
@@ -253,7 +253,6 @@ export default {
 
     &__logo svg {
         width: 184px;
-        height: 16px;
         vertical-align: top;
         margin-top: $spacer-1;
 
