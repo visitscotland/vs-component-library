@@ -42,7 +42,9 @@ export const OnDark = Template.bind({
 
 OnDark.args = {
     ...base,
-    svgPath: 'visitscotland-logo',
+    svgPath: 'brandscotland-logo',
+    svgFill: '#ffffff',
+    svgWidth: '180',
     linkVariant: 'on-dark',
 };
 
