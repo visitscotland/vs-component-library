@@ -25,7 +25,7 @@ const Template = (args) => ({
 const base = {
     href: 'https://visitscotland.com',
     linkAltText: 'VisitScotland Home',
-    svgPath: 'visitscotland',
+    svgPath: 'visitscotland-logo',
     svgFill: '#700e57',
     svgHeight: '',
     svgWidth: '',
