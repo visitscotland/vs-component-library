@@ -512,6 +512,10 @@ export default {
 
             &--disabled {
                 cursor: default;
+
+                &::after {
+                    display: none;
+                }
             }
 
             &:focus {
