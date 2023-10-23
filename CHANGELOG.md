@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.47](https://github.com/visitscotland/vs-component-library/compare/v1.0.46...v1.0.47) (2023-10-23)
+
+
+### 🐛 Bug Fixes
+
+* **carousel:** ensure expanded link hit area is unclickable for disabled cards ([ac59db7](https://github.com/visitscotland/vs-component-library/commit/ac59db7a80bfae89049f7abb739500eabbbc82c7))
+* **megalinks:** correct responsive image sizing ([c19e475](https://github.com/visitscotland/vs-component-library/commit/c19e475b0b0aa6ed41292c407453775d69879200))
+
 ### [1.0.46](https://github.com/visitscotland/vs-component-library/compare/v1.0.45...v1.0.46) (2023-10-20)
 
 
