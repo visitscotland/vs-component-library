@@ -44,8 +44,8 @@
                         <VsWarning
                             :type="cookiesInitStatus === true ? 'cookie' : 'normal'"
                             theme="light"
-                            data-test="vs-embed-wrapper__error"
                             class="vs-embed-wrapper__error"
+                            data-test="vs-embed-wrapper__error"
                         >
                             {{ warningText }}
 
