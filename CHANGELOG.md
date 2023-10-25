@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.48](https://github.com/visitscotland/vs-component-library/compare/v1.0.47...v1.0.48) (2023-10-25)
+
+
+### ✨ Features
+
+* **preferences:** make warnings v-show so they're usable after rejecting cookies ([755ca89](https://github.com/visitscotland/vs-component-library/commit/755ca899b94165b9fe127f2cf07758ace973146b))
+
+
+### 🐛 Bug Fixes
+
+* **warning:** correct failing tests ([54eb755](https://github.com/visitscotland/vs-component-library/commit/54eb7555f103c3f73d63f8804d43d04768c737be))
+
 ### [1.0.47](https://github.com/visitscotland/vs-component-library/compare/v1.0.46...v1.0.47) (2023-10-23)
 
 
