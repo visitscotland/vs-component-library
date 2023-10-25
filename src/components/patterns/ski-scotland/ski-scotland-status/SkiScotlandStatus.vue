@@ -15,7 +15,7 @@
                 </VsCol>
             </VsRow>
         </VsContainer>
-        <VsContainer v-if="!jsDisabled && displayError">
+        <VsContainer v-show="!jsDisabled && displayError">
             <VsRow>
                 <VsCol class="text-center py-4">
                     <VsWarning

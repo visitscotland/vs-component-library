@@ -151,7 +151,7 @@ describe('VsEmbedWrapper', () => {
             await wrapper.vm.$nextTick();
 
             const warning = wrapper.find('[data-test="vs-embed-wrapper__error"]');
-            expect(warning.exists()).toBe(false);
+            expect(warning.isVisible()).toBe(false);
         });
 
         it('should not display a warning div if `noCookiesRequired` is true', async() => {
@@ -165,7 +165,7 @@ describe('VsEmbedWrapper', () => {
             await wrapper.vm.$nextTick();
 
             const warning = wrapper.find('[data-test="vs-embed-wrapper__error"]');
-            expect(warning.exists()).toBe(false);
+            expect(warning.isVisible()).toBe(false);
         });
 
         it('should set correct warning type to `cookie` if cookies have been initialised', async() => {
