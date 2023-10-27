@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.49](https://github.com/visitscotland/vs-component-library/compare/v1.0.48...v1.0.49) (2023-10-27)
+
+
+### 🐛 Bug Fixes
+
+* **meganav:** correct focus area on new logo for firefox/safari ([af01aff](https://github.com/visitscotland/vs-component-library/commit/af01aff27c3ebcc2bc132426ed09ac9b3bdf7d0a))
+
 ### [1.0.48](https://github.com/visitscotland/vs-component-library/compare/v1.0.47...v1.0.48) (2023-10-25)
 
 
