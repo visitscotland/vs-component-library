@@ -258,6 +258,15 @@ export default {
         height: 55px;
     }
 
+    &__logo {
+        display: inline-block;
+        height: calc(#{$spacer-8} + #{$spacer-1});
+
+        @include media-breakpoint-up(lg) {
+            height: calc(#{$spacer-8} + #{$spacer-2});
+        }
+    }
+
     &__logo svg {
         width: 184px;
         vertical-align: top;
