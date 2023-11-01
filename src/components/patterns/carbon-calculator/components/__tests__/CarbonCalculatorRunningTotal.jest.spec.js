@@ -10,7 +10,7 @@ const soFar = 'Your calculation so far:';
 const factoryShallowMount = (propsData) => shallowMount(VsCarbonCalculatorRunningTotal, {
     propsData: {
         ...propsData,
-        totalKilos: 13,
+        totalKilos: 13.5,
     },
     global: {
         provide: {
@@ -35,7 +35,15 @@ describe('VsCarbonCalculatorRunningTotal', () => {
         it('should properly display the totalKilos prop', () => {
             const wrapper = factoryShallowMount();
 
-            expect(wrapper.text()).toContain('13');
+            expect(wrapper.text()).toContain('13.5');
+        });
+
+        it('should render the total kilos value with a comma delimeter if the locale is set to de-de', () => {
+            const wrapper = factoryShallowMount({
+                language: 'de-de',
+            });
+
+            expect(wrapper.text()).toContain('13,5');
         });
 
         it('should correctly render the labelsMap `kgsOf`', () => {

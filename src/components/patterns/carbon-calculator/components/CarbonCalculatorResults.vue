@@ -43,7 +43,9 @@
         <VsCol
             cols="12"
         >
-            <p>{{ interpolKGsPerDay }}</p>
+            <p class="vs-carbon-calculator-results__per-day">
+                {{ interpolKGsPerDay }}
+            </p>
             <p v-if="totalPerDay <= labelsMap.perDayTarget">
                 {{ interpolPerDaySuccess }}
             </p>
