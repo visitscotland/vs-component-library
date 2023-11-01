@@ -24,6 +24,7 @@
                                 "
                                 :isStepped="true"
                                 :isFull="activeQuestion > formData.fields.length"
+                                :progressLabel="labelsMap.progress"
                                 ref="progress"
                             />
 

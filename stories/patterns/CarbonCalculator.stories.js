@@ -57,6 +57,7 @@ const base = {
         accommodation: 'Accommodation',
         food: 'Food',
         restart: 'Restart',
+        progress: 'Step xxx of yyy',
         'section-1.title': 'Transport',
         'section-2.title': 'Transport',
         'section-3.title': 'Accommodation',
