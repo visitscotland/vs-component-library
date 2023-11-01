@@ -27,7 +27,7 @@
         <VsButton
             v-bind="btnAttrs"
             variant="secondary"
-            v-if="$slots['button-text'] && $slots['button-text']()"
+            v-show="$slots['button-text'] && $slots['button-text']()"
             class="vs-warning__button"
         >
             <slot name="button-text" />

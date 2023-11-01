@@ -231,10 +231,6 @@ export default {
                     max-width: 33%;
                 }
 
-                @include media-breakpoint-up(md) {
-                    padding-bottom: calc(#{$spacer-8} + #{$spacer-7});
-                }
-
                 @include media-breakpoint-up(xl) {
                     padding-bottom: $spacer-0;
                 }

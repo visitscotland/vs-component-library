@@ -45,19 +45,17 @@
                     -->
                     <slot name="data-loading" />
                 </template>
-                <template v-if="!jsDisabled && displayError">
-                    <VsWarning
-                        theme="light"
-                        size="small"
-                        data-test="vs-ski-scotland-card__error"
-                    >
-                        <!--
-                            @slot Slot for data unavailable message
-                            Expects text
-                        -->
-                        <slot name="data-unavailable" />
-                    </VsWarning>
-                </template>
+                <VsWarning
+                    theme="light"
+                    size="small"
+                    data-test="vs-ski-scotland-card__error"
+                    v-show="!jsDisabled && displayError">
+                    <!--
+                        @slot Slot for data unavailable message
+                        Expects text
+                    -->
+                    <slot name="data-unavailable" />
+                </VsWarning>
                 <template v-if="jsDisabled">
                     <VsWarning
                         theme="light"

@@ -2,6 +2,49 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.49](https://github.com/visitscotland/vs-component-library/compare/v1.0.48...v1.0.49) (2023-10-27)
+
+
+### 🐛 Bug Fixes
+
+* **meganav:** correct focus area on new logo for firefox/safari ([af01aff](https://github.com/visitscotland/vs-component-library/commit/af01aff27c3ebcc2bc132426ed09ac9b3bdf7d0a))
+
+### [1.0.48](https://github.com/visitscotland/vs-component-library/compare/v1.0.47...v1.0.48) (2023-10-25)
+
+
+### ✨ Features
+
+* **preferences:** make warnings v-show so they're usable after rejecting cookies ([755ca89](https://github.com/visitscotland/vs-component-library/commit/755ca899b94165b9fe127f2cf07758ace973146b))
+
+
+### 🐛 Bug Fixes
+
+* **warning:** correct failing tests ([54eb755](https://github.com/visitscotland/vs-component-library/commit/54eb7555f103c3f73d63f8804d43d04768c737be))
+
+### [1.0.47](https://github.com/visitscotland/vs-component-library/compare/v1.0.46...v1.0.47) (2023-10-23)
+
+
+### 🐛 Bug Fixes
+
+* **carousel:** ensure expanded link hit area is unclickable for disabled cards ([ac59db7](https://github.com/visitscotland/vs-component-library/commit/ac59db7a80bfae89049f7abb739500eabbbc82c7))
+* **megalinks:** correct responsive image sizing ([c19e475](https://github.com/visitscotland/vs-component-library/commit/c19e475b0b0aa6ed41292c407453775d69879200))
+
+### [1.0.46](https://github.com/visitscotland/vs-component-library/compare/v1.0.45...v1.0.46) (2023-10-20)
+
+
+### 🎨 Styling
+
+* **footer:** update logo in footer to brand scotland logo ([b8c6c89](https://github.com/visitscotland/vs-component-library/commit/b8c6c89345658b2a3db71a2ddbf2d3b8165a4d7a))
+* **meganav:** replacing vs meganav logo ([d358ac2](https://github.com/visitscotland/vs-component-library/commit/d358ac2cca24c2d757ac49c8fb0f6cb17b9208a0))
+
+
+### 🐛 Bug Fixes
+
+* **svglink:** update dark logo to be white ([d62449c](https://github.com/visitscotland/vs-component-library/commit/d62449cca296d16135c798a68aab9e4d2a5628bf))
+* **svglink:** update path for missing svg ([6ff898f](https://github.com/visitscotland/vs-component-library/commit/6ff898f731e161ec0898acea7257d55f4ba8ed4f))
+* **svg:** update path for missing svg ([f7356af](https://github.com/visitscotland/vs-component-library/commit/f7356afb71761dfed851b8306b2c8fed47b7682b))
+* **webpack:** stop hashing font file names ([47515b9](https://github.com/visitscotland/vs-component-library/commit/47515b98bb131286647d4119b7444ddc480d14b6))
+
 ### [1.0.45](https://github.com/visitscotland/vs-component-library/compare/v1.0.44...v1.0.45) (2023-10-12)
 
 

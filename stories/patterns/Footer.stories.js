@@ -249,8 +249,8 @@ const Template = (args) => ({
         </VsFooterUtilityList>
 
         <VsFooterCopyright
-            link-alt-text="VisitScotland Home"
-            href="/"
+            link-alt-text="Brand Scotland"
+            href="https://www.scotland.org/"
         >
             <template v-slot:copyright>
                 <span>VisitScotland. All rights reserved.</span>

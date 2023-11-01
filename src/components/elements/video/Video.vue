@@ -21,7 +21,7 @@
             </div>
 
             <VsWarning
-                v-if="showError"
+                v-show="showError"
                 theme="light"
                 :type="cookiesInitStatus === true ? 'cookie' : 'normal'"
                 data-test="vs-video__warning"

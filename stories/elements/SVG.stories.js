@@ -23,7 +23,7 @@ const Template = (args) => ({
 });
 
 const base = {
-    path: 'visitscotland',
+    path: 'visitscotland-logo',
     height: '',
 };
 
