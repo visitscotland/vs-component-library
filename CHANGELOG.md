@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.51](https://github.com/visitscotland/vs-component-library/compare/v1.0.50...v1.0.51) (2023-11-03)
+
+
+### 🐛 Bug Fixes
+
+* **marketo:** remove duplicate ID on checkbox ([99d5c7e](https://github.com/visitscotland/vs-component-library/commit/99d5c7ec89ecf3e4303d7c52b94035b430dd05f3))
+* **psw:** fixes active state for autocomplete dropdown ([6907c50](https://github.com/visitscotland/vs-component-library/commit/6907c50f3679d507d020de2a896de19a65902737))
+* **test:** under cookie mock changes to fix tests ([a8c8914](https://github.com/visitscotland/vs-component-library/commit/a8c89141b70fd95db7196f58b795de1f0787f709))
+
 ### [1.0.50](https://github.com/visitscotland/vs-component-library/compare/v1.0.49...v1.0.50) (2023-11-03)
 
 
