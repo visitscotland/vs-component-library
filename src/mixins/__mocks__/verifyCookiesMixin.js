@@ -3,7 +3,7 @@ const cookieCheckerMixin = {
         return {
             timesRun: 0,
             cookiesInitStatus: true,
-            mockCookiesExist: false,
+            mockCookiesExist: true,
         };
     },
     computed: {
@@ -16,11 +16,6 @@ const cookieCheckerMixin = {
         requiredCookiesExist() {
             return this.mockCookiesExist;
         },
-    },
-    mounted() {
-        setTimeout(() => {
-            this.mockCookiesExist = true;
-        }, 50);
     },
 };
 
