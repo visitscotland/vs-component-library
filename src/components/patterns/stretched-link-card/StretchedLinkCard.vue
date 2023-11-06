@@ -7,7 +7,7 @@
         @keypress="emitShowModal"
     >
         <VsWarning
-            v-if="showWarning === 'full'"
+            v-show="showWarning === 'full'"
             :size="warningSize"
             :theme="theme"
             :type="showCookieWarning ? 'cookie' : 'normal'"
@@ -25,7 +25,7 @@
         </VsWarning>
 
         <VsWarning
-            v-if="errorType === 'full' && videoId !== ''"
+            v-show="errorType === 'full' && videoId !== ''"
             :size="warningSize"
             data-test="vs-stretched-link-card__full-warning"
             class="vs-stretched-link-card__full-warning
@@ -56,7 +56,7 @@
             </template>
 
             <VsWarning
-                v-if="showWarning === 'image'"
+                v-show="showWarning === 'image'"
                 :size="warningSize"
                 :type="showCookieWarning ? 'cookie' : 'normal'"
                 data-test="vs-stretched-link-card__image-warning"
@@ -74,7 +74,7 @@
             </VsWarning>
 
             <VsWarning
-                v-if="videoId !== '' && errorType === 'image'"
+                v-show="videoId !== '' && errorType === 'image'"
                 :size="warningSize"
                 data-test="vs-stretched-link-card__warning"
                 class="vs-stretched-link-card__image-warning
@@ -512,6 +512,10 @@ export default {
 
             &--disabled {
                 cursor: default;
+
+                &::after {
+                    display: none;
+                }
             }
 
             &:focus {

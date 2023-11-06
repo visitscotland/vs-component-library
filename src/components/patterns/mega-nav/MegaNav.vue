@@ -23,10 +23,10 @@
                             <VsSvgLink
                                 class="vs-mega-nav__logo"
                                 data-test="vs-mega-nav__logo"
-                                link-alt-text="VisitScotland Home"
+                                :link-alt-text="logoAltText"
                                 :href="href"
                                 svg-fill="#700e57"
-                                svg-path="visitscotland"
+                                svg-path="visitscotland-logo"
                                 data-layer-value="homePageLogoClickDataEvent"
                             />
                         </div>
@@ -160,6 +160,13 @@ export default {
         /**
          * Search button text
          */
+        logoAltText: {
+            type: String,
+            default: 'VisitScotland Home',
+        },
+        /**
+         * Search button text
+         */
         searchButtonText: {
             type: String,
             required: true,
@@ -251,15 +258,19 @@ export default {
         height: 55px;
     }
 
-    &__logo svg {
-        width: 184px;
-        height: 16px;
-        vertical-align: top;
-        margin-top: $spacer-1;
+    &__logo {
+        display: inline-block;
+        height: calc(#{$spacer-8} + #{$spacer-1});
 
         @include media-breakpoint-up(lg) {
-            margin-top: $spacer-2;
+            height: calc(#{$spacer-8} + #{$spacer-2});
         }
+    }
+
+    &__logo svg {
+        width: 184px;
+        vertical-align: top;
+        margin-top: $spacer-1;
     }
 
     .vs-mega-nav__menu {

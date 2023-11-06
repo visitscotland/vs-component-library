@@ -38,14 +38,14 @@
                         <slot name="embed-widget" />
                     </div>
                     <div
-                        v-if="showError"
+                        v-show="showError"
                         key="fallback"
                     >
                         <VsWarning
                             :type="cookiesInitStatus === true ? 'cookie' : 'normal'"
                             theme="light"
-                            data-test="vs-embed-wrapper__error"
                             class="vs-embed-wrapper__error"
+                            data-test="vs-embed-wrapper__error"
                         >
                             {{ warningText }}
 

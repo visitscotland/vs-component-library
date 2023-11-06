@@ -50,7 +50,7 @@
         </div>
 
         <div
-            v-else-if="showCookieMessage"
+            v-show="!(videoLoaded && requiredCookiesExist) && showCookieMessage"
             class="vs-video-caption vs-video-caption--warning"
         >
             <VsWarning
@@ -65,7 +65,7 @@
             </VsWarning>
         </div>
         <div
-            v-else-if="cookiesInitStatus === 'error'"
+            v-show="!(videoLoaded && requiredCookiesExist) && cookiesInitStatus === 'error'"
             class="vs-video-caption vs-video-caption--warning"
         >
             <VsWarning

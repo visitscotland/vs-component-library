@@ -125,7 +125,7 @@ const webpackConfig = {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
                 type: 'asset/resource',
                 generator: {
-                    filename: buildMode === 'development' ? 'fonts/[name][ext]' : 'fonts/[name].[hash:7][ext]',
+                    filename: 'fonts/[name][ext]',
                 },
             },
             {

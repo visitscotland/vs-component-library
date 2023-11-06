@@ -27,5 +27,19 @@ describe('VsProgressBar', () => {
 
             expect(wrapper.findAll('b-progress-stub').length).toBe(4);
         });
+
+        it('should render the current progress as a generic string if no progressLabel supplied', () => {
+            const wrapper = factoryShallowMount();
+
+            expect(wrapper.text()).toContain('1 / 4');
+        });
+
+        it('should render the current progress as an interpolated string if progressLabel supplied', () => {
+            const wrapper = factoryShallowMount({
+                progressLabel: 'Step xxx of yyy',
+            });
+
+            expect(wrapper.text()).toContain('Step 1 of 4');
+        });
     });
 });

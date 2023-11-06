@@ -16,7 +16,7 @@
         >
             <p>{{ labelsMap.soFar }}</p>
             <p>
-                <span class="font-weight-bold">{{ totalKilos.toFixed(3) }}</span> {{ labelsMap.kgsOf }}
+                <span class="font-weight-bold">{{ totalKilos.toLocaleString(language) }}</span> {{ labelsMap.kgsOf }}
             </p>
         </div>
     </div>
@@ -45,6 +45,16 @@ export default {
         totalKilos: {
             type: Number,
             default: 0,
+        },
+        /**
+         * Language locale string. Used to determine correct formatting for numbers (decimal
+         * delimeter)
+         *
+         * Example: "en-gb"
+         */
+        language: {
+            type: String,
+            default: 'en-gb',
         },
     },
 };

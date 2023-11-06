@@ -82,7 +82,8 @@ onMounted(() => {
 
 <style lang="scss">
     .simple-typeahead {
-        &-list-item:hover, &-list-item.pseudo-hover{
+        .simple-typeahead-list 
+        .simple-typeahead-list-item.simple-typeahead-list-item-active{
             background-color: $color-gray-tint-7!important;
             color: $color-pink!important;
         }
