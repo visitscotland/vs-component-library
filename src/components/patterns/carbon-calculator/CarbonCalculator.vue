@@ -492,10 +492,19 @@ export default {
                 return selectedValue * multiplier;
             }
 
+            if (field.multiplyByValue && fieldName !== field.multiplyByValue) {
+                let multiplier = this.getNumberValue(
+                    field.multiplyByValue.question,
+                    this.form[field.multiplyByValue.question],
+                ) || 0;
+                multiplier = Math.max(multiplier, field.multiplyByValue.minimum);
+                return selectedValue * multiplier;
+            }
+
             return selectedValue;
         },
         /**
-         * Calculates the current value of a number inputbased question in the carbon calculator
+         * Calculates the current value of a number input based question in the carbon calculator
          * form. Each field has an actual raw value which is retruned by the radio button
          * component, but also has a potential multiplication factor which could be based on
          * another field or on a static value.
@@ -518,7 +527,15 @@ export default {
             }
 
             if (field.multiplyByAnswer) {
-                const multiplier = this.form[field.multiplyByAnswer] || 0;
+                const multiplier = this.form[field.multiplyByAnswer.question] || 0;
+                return (parseInt(key, 10) * multiplier);
+            }
+
+            if (field.multiplyByValue && fieldName !== field.multiplyByValue) {
+                const multiplier = this.getNumberValue(
+                    field.multiplyByValue.question,
+                    this.form[field.multiplyByValue.question],
+                );
                 return (parseInt(key, 10) * multiplier);
             }
 
