@@ -74,7 +74,6 @@
                                     :ref="field.name"
                                     :name="field.name"
                                     :value="field.value"
-                                    :id="field.name"
                                     :label="getTranslatedLabel(field.name, index)"
                                     @status-update="updateFieldData"
                                     :field-name="field.name"

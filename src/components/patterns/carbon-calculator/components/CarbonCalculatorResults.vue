@@ -23,7 +23,7 @@
                     <p>{{ labelsMap.resultsIntro }}</p>
                     <p>
                         <span class="vs-carbon-calculator-results__total">
-                            {{ totalKilos.toFixed(3) }}
+                            {{ totalKilos.toLocaleString(language) }}
                         </span>
                         {{ labelsMap.kgsOf }}
                     </p>
@@ -43,7 +43,9 @@
         <VsCol
             cols="12"
         >
-            <p>{{ interpolKGsPerDay }}</p>
+            <p class="vs-carbon-calculator-results__per-day">
+                {{ interpolKGsPerDay }}
+            </p>
             <p v-if="totalPerDay <= labelsMap.perDayTarget">
                 {{ interpolPerDaySuccess }}
             </p>
@@ -180,6 +182,16 @@ export default {
             type: Array,
             default: () => [],
         },
+        /**
+         * Language locale string. Used to determine correct formatting for numbers (decimal
+         * delimeter)
+         *
+         * Example: "en-gb"
+         */
+        language: {
+            type: String,
+            default: 'en-gb',
+        },
     },
     data() {
         return {
@@ -227,7 +239,8 @@ export default {
             for (let x = 0; x < this.comparisonReplacements.length; x++) {
                 baseComparison = baseComparison.replace(
                     this.comparisonReplacements[x].repl,
-                    (this.totalKilos / this.comparisonReplacements[x].divisor).toFixed(3),
+                    (this.totalKilos / this.comparisonReplacements[x].divisor)
+                        .toLocaleString(this.language),
                 );
             }
 
@@ -255,7 +268,7 @@ export default {
             return (this.foodKilos / this.totalKilos) * 100;
         },
         totalPerDay() {
-            return (this.totalKilos / Math.max(this.stayDuration, 1)).toFixed(3);
+            return (this.totalKilos / Math.max(this.stayDuration, 1)).toLocaleString(this.language);
         },
     },
     mounted() {
