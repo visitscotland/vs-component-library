@@ -10,29 +10,34 @@
             >
                 <VsCol>
                     <VsCarbonCalculatorIntro
-                        v-if="!activeQuestion"
+                        v-if="!activeStage"
                     />
 
                     <form
-                        v-if="activeQuestion"
+                        v-if="activeStage"
                     >
                         <fieldset>
                             <VsProgressBar
                                 :max="formData.stages"
-                                :currentStep="
-                                    currentQuestion ? currentQuestion.stage : formData.stages
-                                "
+                                :currentStep="activeStage <= formData.stages
+                                    ? activeStage : formData.stages"
                                 :isStepped="true"
-                                :isFull="activeQuestion > formData.fields.length"
+                                :isFull="activeStage > formData.fields.length"
                                 ref="progress"
                             />
 
                             <div
-                                v-show="activeQuestion <= formData.fields.length"
+                                v-show="activeStage <= formData.fields.length"
                             >
+                                <VsHeading
+                                    level="3"
+                                >
+                                    {{ currentCategory }}
+                                </VsHeading>
+
                                 <VsCarbonCalculatorQuestion
                                     v-for="(field, index) in formData.fields"
-                                    v-show="(index + 1) === activeQuestion"
+                                    v-show="field.stage === activeStage"
                                     ref="questions"
                                     tabindex="0"
                                     :key="field.name"
@@ -45,7 +50,6 @@
                                     :options="getQuestionOptions(index)"
                                     :minimum="field.element === 'number' ? field.validation.min : 0"
                                     :maximum="field.element === 'number' ? field.validation.max : 0"
-                                    :fieldCategory="getQuestionCategory(field.stage)"
                                     @updateFieldData="updateFieldData"
                                 />
                             </div>
@@ -60,11 +64,11 @@
                     cols="12"
                 >
                     <VsCarbonCalculatorRunningTotal
-                        v-if="activeQuestion > 0 && activeQuestion <= formData.fields.length"
+                        v-if="activeStage > 0 && activeStage <= formData.stages"
                         :total-kilos="totalKilos"
                     />
                     <VsCarbonCalculatorResults
-                        v-if="activeQuestion > formData.fields.length"
+                        v-if="activeStage > formData.stages"
                         :total-kilos="totalKilos"
                         :transport-kilos="transportKilos"
                         :food-kilos="foodKilos"
@@ -79,7 +83,7 @@
                 <VsCol
                     class="text-center"
                     cols="12"
-                    v-if="activeQuestion === 0"
+                    v-if="activeStage === 0"
                 >
                     <VsButton
                         variant="primary"
@@ -92,14 +96,14 @@
                 </VsCol>
                 <VsCol
                     cols="12"
-                    v-if="activeQuestion > 0"
+                    v-if="activeStage > 0"
                 >
                     <VsButton
-                        :variant="activeQuestion <= formData.fields.length ? 'primary' : 'secondary'"
+                        :variant="activeStage <= formData.fields.length ? 'primary' : 'secondary'"
                         type="submit"
                         class="vs-form__submit mt-9 float-left"
                         ref="backPage"
-                        v-if="activeQuestion > 1"
+                        v-if="activeStage > 1"
                         @click="backwardPage()"
                     >
                         {{ labelsMap['previous'] }}
@@ -110,8 +114,8 @@
                         type="submit"
                         class="vs-form__submit mt-9 float-right"
                         ref="forwardPage"
-                        v-if="activeQuestion < formData.fields.length"
-                        :disabled="activeQuestion > 0 && !answerSet"
+                        v-if="activeStage < formData.stages"
+                        :disabled="activeStage > 0 && !answerSet"
                         @click="forwardPage()"
                     >
                         {{ labelsMap['next'] }}
@@ -121,7 +125,7 @@
                         variant="primary"
                         type="submit"
                         class="vs-form__submit mt-9 float-right"
-                        v-if="activeQuestion === formData.fields.length"
+                        v-if="activeStage === formData.stages"
                         :disabled="!answerSet"
                         @click="forwardPage()"
                     >
@@ -132,7 +136,7 @@
                         variant="primary"
                         type="submit"
                         class="vs-form__submit mt-9 float-right"
-                        v-if="activeQuestion > formData.fields.length"
+                        v-if="activeStage > formData.stages"
                         @click="restart()"
                     >
                         {{ labelsMap['restart'] }}
@@ -159,6 +163,7 @@ import dataLayerMixin from '@/mixins/dataLayerMixin';
 import VsWarning from '@/components/patterns/warning/Warning.vue';
 import VsButton from '@/components/elements/button/Button.vue';
 import VsProgressBar from '@/components/elements/progress-bar/ProgressBar.vue';
+import VsHeading from '@components/elements/heading/Heading.vue';
 
 import VsCarbonCalculatorTip from './components/CarbonCalculatorTip.vue';
 import VsCarbonCalculatorResults from './components/CarbonCalculatorResults.vue';
@@ -181,6 +186,7 @@ export default {
         VsRow,
         VsWarning,
         VsProgressBar,
+        VsHeading,
         VsCarbonCalculatorResults,
         VsCarbonCalculatorTip,
         VsCarbonCalculatorRunningTotal,
@@ -206,11 +212,11 @@ export default {
          * should contain global props like a translation for `next`, `previous`,
          * `results` and so on, as well as question by question labels. Those should
          * take the form
-         *    `page-1.title` <- the category for the first question
-         *    `page-1.question` <- the content of the first question
-         *    `page-1.option-1` <- the first option for the first question
-         *    `page-1.option-1.tip` <- the content of the tip for the above option
-         * and then repeat for each page-x beyond that.
+         *    `question-1.title` <- the category for the first question
+         *    `question-1.question` <- the content of the first question
+         *    `question-1.option-1` <- the first option for the first question
+         *    `question-1.option-1.tip` <- the content of the tip for the above option
+         * and then repeat for each question-x beyond that.
          */
         labelsMap: {
             type: Object,
@@ -226,11 +232,11 @@ export default {
          * the user is on the intro or results page.
          */
         currentQuestion() {
-            if (!this.formData || !this.activeQuestion) {
+            if (!this.formData || !this.activeStage) {
                 return null;
             }
 
-            return this.formData.fields[this.activeQuestion - 1];
+            return this.formData.fields[this.activeStage - 1];
         },
         /**
          * The tip which is currently being displayed to the user, based on their
@@ -239,8 +245,8 @@ export default {
         currentTip() {
             let tip = null;
 
-            if (this.formData.fields[this.activeQuestion - 1]) {
-                switch (this.formData.fields[this.activeQuestion - 1].stage) {
+            if (this.formData.fields[this.activeStage - 1]) {
+                switch (this.formData.fields[this.activeStage - 1].stage) {
                 case (1):
                     tip = this.transportTip;
                     break;
@@ -269,6 +275,17 @@ export default {
             }
 
             return 0;
+        },
+        /**
+         * Retrieves the category for a given stage from the localised labelsMap provided
+         * by the CMS
+         */
+        currentCategory() {
+            if (this.labelsMap[`stage-${this.activeStage}.title`]) {
+                return this.labelsMap[`stage-${this.activeStage}.title`];
+            }
+
+            return '';
         },
     },
     mounted() {
@@ -303,7 +320,7 @@ export default {
                 transportTip: null,
                 foodTip: null,
                 accommodationTip: null,
-                activeQuestion: 0,
+                activeStage: 0,
                 answerSet: false,
             };
         },
@@ -366,23 +383,12 @@ export default {
             return '';
         },
         /**
-         * Retrieves the category for a given question from the localised labelsMap provided
-         * by the CMS
-         */
-        getQuestionCategory(stage) {
-            if (this.labelsMap[`section-${stage}.title`]) {
-                return this.labelsMap[`section-${stage}.title`];
-            }
-
-            return '';
-        },
-        /**
          * Retrieves the label for a given question from the localised labelsMap provided
          * by the CMS
          */
         getQuestionLabel(index) {
-            if (this.labelsMap[`page-${index + 1}.question`]) {
-                return this.labelsMap[`page-${index + 1}.question`];
+            if (this.labelsMap[`question-${index + 1}.question`]) {
+                return this.labelsMap[`question-${index + 1}.question`];
             }
 
             return '';
@@ -392,8 +398,8 @@ export default {
          * by the CMS
          */
         getQuestionHint(index) {
-            if (this.labelsMap[`page-${index + 1}.hint`]) {
-                return this.labelsMap[`page-${index + 1}.hint`];
+            if (this.labelsMap[`question-${index + 1}.hint`]) {
+                return this.labelsMap[`question-${index + 1}.hint`];
             }
 
             return '';
@@ -409,7 +415,7 @@ export default {
                 const { options } = field;
 
                 for (let x = 0; x < options.length; x++) {
-                    options[x].text = this.labelsMap[`page-${index + 1}.option-${x + 1}`];
+                    options[x].text = this.labelsMap[`question-${index + 1}.option-${x + 1}`];
                 }
 
                 return options;
@@ -545,7 +551,7 @@ export default {
             if (key && field.options) {
                 for (let x = 0; x < field.options.length; x++) {
                     if (field.options[x].value === key) {
-                        const checkTip = this.labelsMap[`page-${questionIndex + 1}.option-${x + 1}.tip`];
+                        const checkTip = this.labelsMap[`question-${questionIndex + 1}.option-${x + 1}.tip`];
                         if (checkTip) {
                             return [{
                                 text: checkTip,
@@ -679,15 +685,14 @@ export default {
                 event.preventDefault();
             }
 
-            if (this.activeQuestion) {
+            if (this.activeStage) {
                 this.createDataLayerObject('carbonQuestionEvent', {
-                    questionNumber: this.activeQuestion,
+                    questionNumber: this.activeStage,
                     answer: this.form[this.currentQuestion.name],
                 });
             }
 
-            this.activeQuestion += 1;
-            this.checkCurrentConditional(true);
+            this.activeStage += 1;
             this.checkNewAnswerSet();
             this.resetFocus();
         },
@@ -699,8 +704,7 @@ export default {
                 event.preventDefault();
             }
 
-            this.activeQuestion -= 1;
-            this.checkCurrentConditional(false);
+            this.activeStage -= 1;
             this.checkNewAnswerSet();
             this.resetFocus();
         },
@@ -709,33 +713,22 @@ export default {
          * is necessary to proceed
          */
         checkNewAnswerSet() {
-            if (this.activeQuestion > this.formData.fields.length) {
+            if (this.activeStage > this.formData.stages) {
                 this.answerSet = true;
                 return;
             }
 
-            const newQuestion = this.formData.fields[this.activeQuestion - 1];
-            if (this.form[newQuestion.name]) {
-                this.answerSet = true;
-            } else if (newQuestion.element === 'number') {
-                this.form[newQuestion.name] = newQuestion.validation.min;
-                this.answerSet = true;
-            } else {
-                this.answerSet = false;
-            }
-        },
-        /**
-         * Checks if the current question is a currently inactive conditional question,
-         * and if so skips passed it. Used in page navigation to ensure the user doesn't land
-         * on an irrelevant question.
-         */
-        checkCurrentConditional(isForward) {
-            const question = this.formData.fields[this.activeQuestion - 1];
-            if (question && this.conditionalElementClass(question.name)) {
-                if (isForward) {
-                    this.forwardPage();
-                } else {
-                    this.backwardPage();
+            this.answerSet = true;
+
+            for (let x = 0; x < this.formData.fields.length; x++) {
+                if (this.formData.fields[x].stage === this.activeStage) {
+                    const nextCheckQuestion = this.formData.fields[x];
+
+                    if (nextCheckQuestion.element === 'radio' && !this.form[nextCheckQuestion.name]) {
+                        this.answerSet = false;
+                    } else if (nextCheckQuestion.element === 'number' && !this.form[nextCheckQuestion.name]) {
+                        this.form[nextCheckQuestion.name] = nextCheckQuestion.validation.min;
+                    }
                 }
             }
         },
@@ -755,7 +748,7 @@ export default {
         resetFocus() {
             this.$nextTick(() => {
                 this.$nextTick(() => {
-                    this.$refs.questions[this.activeQuestion - 1].$el.focus();
+                    this.$refs.questions[this.activeStage - 1].$el.focus();
                     this.$refs.progress.$el.scrollIntoView();
                 });
             });

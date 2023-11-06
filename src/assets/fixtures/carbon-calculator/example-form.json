@@ -82,6 +82,72 @@
                     "dieselCamper"
                 ]
             },
+            "stage": 1
+        },
+        {
+            "name": "transportModeWithin",
+            "element": "radio",
+            "options": [
+                { "value": "petrolCar"},
+                { "value": "dieselCar"},
+                { "value": "electricCar"},
+                { "value": "dieselCamper"},
+                { "value": "petrolCamper"},
+                { "value": "coach"},
+                { "value": "bus"},
+                { "value": "train"},
+                { "value": "motorbike"},
+                { "value": "walking"}
+            ],
+            "validation": {
+                "required": true
+            },
+            "validationMessages": {
+                "required": "Please choose an item"
+            },
+            "values": {
+                "petrolCar": 29.58232,
+                "dieselCar": 30.6646,
+                "electricCar": 9.9209,
+                "petrolCamper": 37.501002,
+                "dieselCamper": 32.630742,
+                "coach": 3.53808,
+                "bus": 3.53808,
+                "train": 7.1939,
+                "motorbike": 29.58232,
+                "walking": 0
+            },
+            "multiplyByAnswer": {
+                "question": "howLongWithin",
+                "minimum": 0
+            },
+            "stage": 2
+        },
+        {
+            "name": "howLongWithin",
+            "element": "number",
+            "validation": {
+                "required": true,
+                "min": 0,
+                "max": 24
+            },
+            "multiplyByNumber": 0,
+            "validationMessages": {
+                "required": "Please choose a duration"
+            },
+            "conditional": {
+                "transportModeWithin": [
+                    "petrolCar",
+                    "dieselCar",
+                    "electricCar",
+                    "petrolCamper",
+                    "dieselCamper",
+                    "train",
+                    "bus",
+                    "coach",
+                    "motorbike"
+                ]
+            },
             "stage": 2
         },
         {
