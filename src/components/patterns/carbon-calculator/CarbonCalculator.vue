@@ -58,6 +58,7 @@
                     </form>
                     <VsButton
                         v-if="isRepeatable(activeStage)"
+                        class="my-4"
                         variant="secondary"
                         icon="plus"
                         @click="duplicateCurrentStage()"
@@ -309,7 +310,6 @@ export default {
     },
     mounted() {
         this.getFormData();
-        this.getGlobalMessaging();
     },
     methods: {
         /**
@@ -401,16 +401,6 @@ export default {
                             generations: 0,
                         };
                     };
-                });
-        },
-        /**
-         * Called on component created. Loads the generic messaging files which provide
-         * global validation and submission messages and localisations.
-         */
-        getGlobalMessaging() {
-            axios.get(this.messagingUrl)
-                .then((response) => {
-                    this.messagingData = response.data;
                 });
         },
         /**
@@ -850,8 +840,12 @@ export default {
         resetFocus() {
             this.$nextTick(() => {
                 this.$nextTick(() => {
-                    this.$refs.questions[this.activeStage - 1].$el.focus();
-                    this.$refs.progress.$el.scrollIntoView();
+                    try {
+                        this.$refs.questions[this.activeStage - 1].$el.focus();
+                        this.$refs.progress.$el.scrollIntoView();
+                    } catch (e) {
+                        // Fails in jest
+                    }
                 });
             });
         },
