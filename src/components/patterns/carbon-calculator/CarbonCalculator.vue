@@ -41,20 +41,29 @@
                                     ref="questions"
                                     tabindex="0"
                                     :key="field.name"
-                                    :label="getQuestionLabel(index)"
+                                    :label="getQuestionLabel(field, index)"
                                     :label-for="field.name"
-                                    :hint="getQuestionHint(index)"
+                                    :hint="getQuestionHint(field, index)"
                                     :fieldClass="conditionalElementClass(field.name)"
                                     :fieldType="field.element"
                                     :fieldName="field.name"
-                                    :options="getQuestionOptions(index)"
+                                    :options="getQuestionOptions(field, index)"
                                     :minimum="field.element === 'number' ? field.validation.min : 0"
                                     :maximum="field.element === 'number' ? field.validation.max : 0"
                                     @updateFieldData="updateFieldData"
                                 />
+
                             </div>
                         </fieldset>
                     </form>
+                    <VsButton
+                        v-if="isRepeatable(activeStage)"
+                        variant="secondary"
+                        icon="plus"
+                        @click="duplicateCurrentStage()"
+                    >
+                        {{ activeStageRepeatable }}
+                    </VsButton>
                     <VsCarbonCalculatorTip
                         v-if="currentTip"
                         :tip="currentTip.text"
@@ -287,6 +296,16 @@ export default {
 
             return '';
         },
+        /**
+         * Retrieves the CTA to add an extra answer for a given stage, if that stage is repeatable
+         */
+        activeStageRepeatable() {
+            if (this.labelsMap[`stage-${this.activeStage}.repeat`]) {
+                return this.labelsMap[`stage-${this.activeStage}.repeat`];
+            }
+
+            return '';
+        },
     },
     mounted() {
         this.getFormData();
@@ -322,6 +341,8 @@ export default {
                 accommodationTip: null,
                 activeStage: 0,
                 answerSet: false,
+                repeatableStages: {
+                },
             };
         },
         /**
@@ -330,9 +351,27 @@ export default {
          * so can be held and set in the component to avoid doubling the load.
          */
         restart() {
-            const { formData } = this;
+            const { formData, repeatableStages } = this;
             Object.assign(this.$data, this.initialState());
             this.$data.formData = formData;
+            this.$data.repeatableStages = repeatableStages;
+
+            this.cleanFields();
+        },
+        /**
+         * Remove leftover duplicated fields from form field data on reset, and reset count for
+         * each field that has been duplicated.
+         */
+        cleanFields() {
+            for (let x = this.formData.fields.length - 1; x >= 0; x--) {
+                if (this.formData.fields[x].isClone) {
+                    this.formData.fields.splice(x, 1);
+                }
+            }
+
+            for (let x = 0; x < Object.keys(this.repeatableStages).length; x++) {
+                this.repeatableStages[Object.keys(this.repeatableStages)[x]].generations = 0;
+            }
         },
         /**
          * Called on component created. Loads the json file located at this.dataUrl which
@@ -353,6 +392,15 @@ export default {
                             this.conditionalFields[field.name] = false;
                         }
                     });
+
+                    this.repeatableStages = {
+                    };
+
+                    for (let x = 0; x < response.data.repeatableStages.length; x++) {
+                        this.repeatableStages[response.data.repeatableStages[x]] = {
+                            generations: 0,
+                        };
+                    };
                 });
         },
         /**
@@ -386,7 +434,17 @@ export default {
          * Retrieves the label for a given question from the localised labelsMap provided
          * by the CMS
          */
-        getQuestionLabel(index) {
+        getQuestionLabel(field, index) {
+            if (field.isClone) {
+                if (this.labelsMap[`question-${field.originalNumber + 1}.clone-question`]) {
+                    return this.labelsMap[`question-${field.originalNumber + 1}.clone-question`];
+                }
+
+                if (this.labelsMap[`question-${field.originalNumber + 1}.question`]) {
+                    return this.labelsMap[`question-${field.originalNumber + 1}.question`];
+                }
+            }
+
             if (this.labelsMap[`question-${index + 1}.question`]) {
                 return this.labelsMap[`question-${index + 1}.question`];
             }
@@ -397,7 +455,17 @@ export default {
          * Retrieves the hint for a given question from the localised labelsMap provided
          * by the CMS
          */
-        getQuestionHint(index) {
+        getQuestionHint(field, index) {
+            if (field.isClone) {
+                if (this.labelsMap[`question-${field.originalNumber + 1}.clone-hint`]) {
+                    return this.labelsMap[`question-${field.originalNumber + 1}.clone-hint`];
+                }
+
+                if (this.labelsMap[`question-${field.originalNumber + 1}.hint`]) {
+                    return this.labelsMap[`question-${field.originalNumber + 1}.hint`];
+                }
+            }
+
             if (this.labelsMap[`question-${index + 1}.hint`]) {
                 return this.labelsMap[`question-${index + 1}.hint`];
             }
@@ -408,14 +476,20 @@ export default {
          * Retrieves the options for a given question from the localised labelsMap provided
          * by the CMS
          */
-        getQuestionOptions(index) {
-            const field = this.formData.fields[index];
+        getQuestionOptions(field, index) {
+            let optionIndex;
+
+            if (field.isClone) {
+                optionIndex = field.originalNumber;
+            } else {
+                optionIndex = index;
+            }
 
             if (field.element === 'radio') {
                 const { options } = field;
 
                 for (let x = 0; x < options.length; x++) {
-                    options[x].text = this.labelsMap[`question-${index + 1}.option-${x + 1}`];
+                    options[x].text = this.labelsMap[`question-${optionIndex + 1}.option-${x + 1}`];
                 }
 
                 return options;
@@ -750,6 +824,17 @@ export default {
             }
         },
         /**
+         * Check if the current stage appears in the list of repeatableStages defined in the form
+         * data. If so it should be possible to enter multiple values for it.
+         */
+        isRepeatable(stage) {
+            if (this.repeatableStages[stage] && this.repeatableStages[stage].generations < 3) {
+                return true;
+            }
+
+            return false;
+        },
+        /**
          * Sets the 'd-none' class on conditional fields which are currently not displaying.
          */
         conditionalElementClass(fieldName) {
@@ -769,6 +854,38 @@ export default {
                     this.$refs.progress.$el.scrollIntoView();
                 });
             });
+        },
+        /**
+         * Adds a duplicate for each question in the current stage to the form data. Duplicates
+         * are marked as clones to ensure subsequent duplicates are only added one set at a time
+         * rather than doubled.
+         */
+        duplicateCurrentStage(event) {
+            if (event) {
+                event.preventDefault();
+            }
+
+            const nextGeneration = this.repeatableStages[this.activeStage].generations + 1;
+
+            for (let x = 0; x < this.formData.fields.length; x++) {
+                const nextQuestion = this.formData.fields[x];
+
+                if (nextQuestion.stage === this.activeStage && !nextQuestion.isClone) {
+                    const cloneQuestion = JSON.parse(JSON.stringify(nextQuestion));
+                    cloneQuestion.isClone = true;
+
+                    const cloneName = `${nextQuestion.name}${nextGeneration}`;
+
+                    cloneQuestion.name = cloneName;
+                    cloneQuestion.originalNumber = x;
+
+                    this.form[cloneName] = '';
+
+                    this.formData.fields.push(cloneQuestion);
+                }
+            }
+
+            this.repeatableStages[this.activeStage].generations = nextGeneration;
         },
     },
 };

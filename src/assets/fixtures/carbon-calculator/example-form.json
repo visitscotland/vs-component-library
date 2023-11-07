@@ -10,6 +10,9 @@
             "divisor": 105.124
         }
     ],
+    "repeatableStages": [
+        3
+    ],
     "fields": [
         {
             "name": "transportModeTo",
@@ -151,19 +154,6 @@
             },
             "validationMessages": {
                 "required": "Please choose a duration"
-            },
-            "conditional": {
-                "transportModeWithin": [
-                    "petrolCar",
-                    "dieselCar",
-                    "electricCar",
-                    "petrolCamper",
-                    "dieselCamper",
-                    "train",
-                    "bus",
-                    "coach",
-                    "motorbike"
-                ]
             },
             "stage": 3
         },
