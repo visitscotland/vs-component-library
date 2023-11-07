@@ -326,7 +326,6 @@ export default {
 
         this.lazyloadMapComponent();
         this.isTablet = window.innerWidth >= 768;
-        document.body.addEventListener('keyup', this.detectEsc);
         window.addEventListener('resize', this.onResize);
 
         /**
@@ -533,6 +532,7 @@ export default {
                 .setPopup(this.popup)
                 .addTo(this.mapbox.map);
 
+            this.setupMarkerListeners(mapboxMarker);
             this.markers.push(mapboxMarker);
             renderer.remove();
         },
@@ -631,6 +631,7 @@ export default {
                 // we'll update the feature state for the feature under the mouse.
                 this.mapbox.map.on('mousemove', 'regions-fills', (e) => {
                     if (e.features.length > 0) {
+                        this.addMapPopup(e.features[0]);
                         this.removeHoveredPolygon();
                         this.addHoveredPolygon(e.features[0]);
                     }
@@ -638,7 +639,8 @@ export default {
 
                 // When the mouse leaves the state-fill layer, update the
                 // feature state of the previously hovered feature.
-                this.mapbox.map.on('mouseleave', 'regions-fills', () => {
+                this.mapbox.map.on('mouseleave', 'regions-fills', (e) => {
+                    this.removeMapPopup(e);
                     this.removeHoveredPolygon();
                 });
 
@@ -753,6 +755,8 @@ export default {
             const popupHtml = this.getPopupHtml(featureData);
 
             if (featureData.id) {
+                this.removeMapPopup(feature);
+
                 this.popup = new mapboxgl.Popup({
                     closeButton: false,
                     offset: {
@@ -769,11 +773,14 @@ export default {
         /**
          * Remove the popup from the map
          */
-        removeMapPopup() {
+        removeMapPopup(marker) {
             if (this.popup) {
-                console.log('remove');
                 this.popup.remove();
                 this.popup = null;
+            }
+
+            if (marker._popup) {
+                marker._popup.remove();
             }
         },
         /**
@@ -824,13 +831,23 @@ export default {
             `;
         },
         /**
-         * Detect esc key to close popup
+         * Detect keyboard nav to toggle popup
          */
-        detectEsc(keyEvent) {
-            if (keyEvent.key === 'Escape') {
-                console.log('escaped');
-                this.removeMapPopup();
-            }
+        setupMarkerListeners(marker) {
+            document.body.addEventListener('keyup', (e) => {
+                if (e.key === 'Escape' || e.key === 'Tab') {
+                    this.removeMapPopup(marker);
+                };
+            });
+
+            const markerEl = marker.getElement();
+            markerEl.addEventListener('keyup', (e) => {
+                if (e.key === 'Enter') {
+                    if (!marker._popup.isOpen()) {
+                        marker._popup.addTo(this.mapbox.map);
+                    }
+                }
+            });
         },
         /**
          * Ensures map fits to bounds
