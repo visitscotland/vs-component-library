@@ -30,8 +30,8 @@ beforeEach(() => {
     wrapper = factoryShallowMount();
 
     wrapper.vm.initialiseMapComponent = jest.fn();
-    wrapper.vm.addMapFeatures = mockAddMethod;
-    wrapper.vm.addMapMarkers = mockMarkerMethod;
+    wrapper.vm.initialiseMapFeatures = mockAddMethod;
+    wrapper.vm.initialiseMapMarkers = mockMarkerMethod;
 });
 
 describe('VsMap', () => {

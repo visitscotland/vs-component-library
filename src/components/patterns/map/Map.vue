@@ -279,16 +279,18 @@ export default {
             }
         },
         selectedItem(newVal) {
-            let isPolygon = [];
-            if (newVal) {
-                isPolygon = this.polygons.features
-                    .filter((feature) => feature.properties.id === newVal.properties.id);
-            }
+            if (this.activeStateId) {
+                let isPolygon = [];
+                if (newVal) {
+                    isPolygon = this.polygons.features
+                        .filter((feature) => feature.properties.id === newVal.properties.id);
+                }
 
-            if (!newVal) {
-                this.removeActivePolygon();
-            } else if (isPolygon.length > 0) {
-                this.addActivePolygon(newVal);
+                if (!newVal) {
+                    this.removeActivePolygon();
+                } else if (isPolygon.length > 0) {
+                    this.addActivePolygon(newVal);
+                }
             }
         },
         activeMarkerPostion(coords) {

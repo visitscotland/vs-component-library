@@ -71,10 +71,16 @@ export default {
     ],
     computed: {
         isActive() {
-            if ((this.activePlace && this.activePlace.properties.id === this.feature.properties.id)
-                || (this.highlightedPlace
-                    && this.highlightedPlace.properties.id === this.feature.properties.id)) {
-                return true;
+            if (this.activePlace) {
+                if (this.activePlace.properties.id === this.feature.properties.id) {
+                    return true;
+                }
+            }
+
+            if (this.highlightedPlace) {
+                if (this.highlightedPlace.properties.id === this.feature.properties.id) {
+                    return true;
+                }
             }
 
             return false;

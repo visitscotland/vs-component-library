@@ -1,20 +1,24 @@
 import { shallowMount } from '@vue/test-utils';
 import VsMapWithSidebarListItem from '../MapWithSidebarListItem.vue';
 
+const itemDataObj = {
+    properties: {
+        category: {
+            id: 'cities',
+            label: 'Cities',
+        },
+        title: 'Glasgow',
+        id: 'glasgow',
+        image: 'https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm',
+    },
+};
+
 const factoryShallowMount = () => shallowMount(VsMapWithSidebarListItem, {
     slots: {
         default: 'Button text',
     },
     propsData: {
-        itemData: {
-            category: {
-                id: 'cities',
-                label: 'Cities',
-            },
-            title: 'Glasgow',
-            id: 'glasgow',
-            image: 'https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm',
-        },
+        itemData: itemDataObj,
     },
     computed: {
         isActive() {
@@ -51,7 +55,7 @@ describe('VsMapWithSidebarListItem', () => {
             const mockMethod = jest.spyOn(wrapper.vm, 'showItemDetail');
             await wrapper.trigger('click');
 
-            expect(mockMethod).toHaveBeenCalledWith('glasgow');
+            expect(mockMethod).toHaveBeenCalledWith(itemDataObj);
         });
     });
 });
