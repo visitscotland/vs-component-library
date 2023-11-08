@@ -65,15 +65,14 @@ const labelsMap = {
     'question-4.option-8': 'Train',
     'question-4.option-9': 'Motorbike',
     'question-4.option-10': 'Walking / Cycling',
-    'question-5.question': 'Roughly how many hours will you spend travelling per day using this mode of transport? (This exludes your travel to and from Scotland)',
-    'question-6.question': 'How would you describe your diet?',
-    'question-6.option-1': 'Frequent meat-eater',
-    'question-6.option-2': 'Moderate meat-eater',
-    'question-6.option-3': 'Infrequent meat-eater',
-    'question-6.option-4': 'Pescatarian',
-    'question-6.option-5': 'Vegetarian',
-    'question-6.option-6': 'Vegan',
-    'question-6.hint': 'Frequent meat eater: 5 times a week, moderate meat eater: 3 times a week, infrequent meat eater: 1 - 2 times a week',
+    'question-5.question': 'How would you describe your diet?',
+    'question-5.option-1': 'Frequent meat-eater',
+    'question-5.option-2': 'Moderate meat-eater',
+    'question-5.option-3': 'Infrequent meat-eater',
+    'question-5.option-4': 'Pescatarian',
+    'question-5.option-5': 'Vegetarian',
+    'question-5.option-6': 'Vegan',
+    'question-5.hint': 'Frequent meat eater: 5 times a week, moderate meat eater: 3 times a week, infrequent meat eater: 1 - 2 times a week',
 };
 
 const factoryMount = (propsData) => mount(VsCarbonCalculator, {
@@ -120,6 +119,6 @@ describe('VsCarbonCalculator', () => {
 
         const Questions = wrapper.findAll('[data-test=vs-carbon-calculator-question]');
 
-        expect(Questions.length).toBe(6);
+        expect(Questions.length).toBe(5);
     });
 });
