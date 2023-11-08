@@ -64,6 +64,7 @@ const base = {
         'stage-3.title': 'Travel around Scotland',
         'stage-4.title': 'Food',
         'stage-3.repeat': 'Add another mode of transport',
+        'stage-3.tip': '<a href="https://www.visitscotland.com/inspiration/touring/easy-public-transport-trips" target="_blank">Check out some of our tips about traveling around Scotland by public transport</a>',
         'question-1.question': 'How are you travelling to Scotland?',
         'question-1.option-1': 'I live in Scotland',
         'question-1.option-2': 'Domestic Flight',

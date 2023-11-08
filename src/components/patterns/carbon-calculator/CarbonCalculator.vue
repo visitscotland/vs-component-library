@@ -22,7 +22,7 @@
                                 :currentStep="activeStage <= formData.stages
                                     ? activeStage : formData.stages"
                                 :isStepped="true"
-                                :isFull="activeQuestion > formData.stages"
+                                :isFull="activeStage > formData.stages"
                                 :progressLabel="labelsMap.progress"
                                 ref="progress"
                             />
@@ -68,7 +68,7 @@
                     </VsButton>
                     <VsCarbonCalculatorTip
                         v-if="currentTip"
-                        :tip="currentTip.text"
+                        :tip="currentTip"
                     />
                 </VsCol>
                 <VsCol
@@ -85,9 +85,6 @@
                         :transport-kilos="transportKilos"
                         :food-kilos="foodKilos"
                         :accommodation-kilos="accommodationKilos"
-                        :transport-tip="transportTip"
-                        :food-tip="foodTip"
-                        :accommodation-tip="accommodationTip"
                         :stay-duration="stayDuration"
                         :comparisonReplacements="formData.comparisonReplacements"
                         :language="language"
@@ -228,7 +225,7 @@ export default {
          *    `question-1.title` <- the category for the first question
          *    `question-1.question` <- the content of the first question
          *    `question-1.option-1` <- the first option for the first question
-         *    `question-1.option-1.tip` <- the content of the tip for the above option
+         *    `question-1.tip` <- the content of the tip for the above option
          * and then repeat for each question-x beyond that.
          */
         labelsMap: {
@@ -266,26 +263,13 @@ export default {
          * answer to the current question and what tips are available in their language
          */
         currentTip() {
-            let tip = null;
-
-            if (this.formData.fields[this.activeStage - 1]) {
-                switch (this.formData.fields[this.activeStage - 1].stage) {
-                case (1):
-                    tip = this.transportTip;
-                    break;
-                case (2):
-                    tip = this.accommodationTip;
-                    break;
-                case (3):
-                    tip = this.foodTip;
-                    break;
-                default:
-                    tip = null;
-                    break;
+            if (this.activeStage) {
+                if (this.labelsMap[`stage-${this.activeStage}.tip`]) {
+                    return this.labelsMap[`stage-${this.activeStage}.tip`];
                 }
             }
 
-            return tip;
+            return '';
         },
         /**
          * The length of the user's stay, parsed to an int from an answer
@@ -352,6 +336,7 @@ export default {
                 transportTip: null,
                 foodTip: null,
                 accommodationTip: null,
+                transportInternalTip: null,
                 activeStage: 0,
                 answerSet: false,
                 repeatableStages: {
@@ -524,7 +509,6 @@ export default {
             this.manageErrorStatus(data.field, data.errors);
             this.checkConditionalFields();
             this.calculateEmissions();
-            this.retrieveTips();
         },
         /**
          * Updates the errorFields list with the current validated state of each field.
@@ -641,49 +625,27 @@ export default {
             return 0;
         },
         /**
-         * Retrieves all relevant tips based on the user's responses to a given question
-         */
-        getTips(field, key, questionIndex) {
-            if (key && field.options) {
-                for (let x = 0; x < field.options.length; x++) {
-                    if (field.options[x].value === key) {
-                        const checkTip = this.labelsMap[`question-${questionIndex + 1}.option-${x + 1}.tip`];
-                        if (checkTip) {
-                            return [{
-                                text: checkTip,
-                            }];
-                        }
-                    }
-                }
-            }
-
-            return [];
-        },
-        /**
          * Calculates the current total emissions value, and category specific emission values
          * for the user based on their submitted answers.
          */
         calculateEmissions() {
             this.transportKilos = 0;
-            this.transportTip = null;
 
             this.accommodationKilos = 0;
-            this.accommodationTips = null;
 
             this.foodKilos = 0;
-            this.foodTip = null;
 
             for (let x = 0; x < this.formData.fields.length; x++) {
                 const currentField = this.formData.fields[x];
 
                 switch (currentField.stage) {
                 case 1:
-                case 2:
+                case 3:
                     this.transportKilos += this.getFieldValue(
                         currentField,
                     );
                     break;
-                case 3:
+                case 2:
                     this.accommodationKilos += this.getFieldValue(
                         currentField,
                     );
@@ -699,46 +661,6 @@ export default {
             }
 
             this.totalKilos = this.transportKilos + this.accommodationKilos + this.foodKilos;
-        },
-        /**
-         * Retrieves all relevant tips for the for the user based on their submitted answers, then
-         * selects a random one from each category to display.
-         */
-        retrieveTips() {
-            let transportTips = [];
-            let accommodationTips = [];
-            let foodTips = [];
-
-            for (let x = 0; x < this.formData.fields.length; x++) {
-                const currentField = this.formData.fields[x];
-
-                switch (currentField.stage) {
-                case 1:
-                case 2:
-                    transportTips = transportTips.concat(
-                        this.getTips(currentField, this.form[currentField.name], x),
-                    );
-                    break;
-                case 3:
-                    accommodationTips = accommodationTips.concat(
-                        this.getTips(currentField, this.form[currentField.name], x),
-                    );
-                    break;
-                case 4:
-                    foodTips = foodTips.concat(
-                        this.getTips(currentField, this.form[currentField.name], x),
-                    );
-                    break;
-                default:
-                    break;
-                }
-            }
-
-            this.transportTip = transportTips[Math.floor(Math.random() * transportTips.length)];
-            this.accommodationTip = accommodationTips[
-                Math.floor(Math.random() * accommodationTips.length)
-            ];
-            this.foodTip = foodTips[Math.floor(Math.random() * foodTips.length)];
         },
         /**
          * Checks whether conditional fields meet the rules to show them

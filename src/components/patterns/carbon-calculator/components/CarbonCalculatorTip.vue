@@ -33,9 +33,8 @@
                 class="vs-carbon-calculator-tip__content"
                 v-if="!showingAllTips"
                 data-test="vs-carbon-calculator-tip__content"
-            >
-                {{ tip }}
-            </p>
+                v-html="tip"
+            />
         </div>
     </div>
 </template>
