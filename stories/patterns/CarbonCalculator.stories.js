@@ -132,10 +132,6 @@ const goToResults = async({ canvasElement }) => {
         await canvas.getByLabelText('Ferry').click();
     });
 
-    await waitFor(async() => {
-        await canvas.getByText('Next').click();
-    });
-
     const hoursInput = canvas.getByLabelText('How many hours will your journey take?');
 
     await waitFor(async() => {
@@ -148,6 +144,10 @@ const goToResults = async({ canvasElement }) => {
 
     await waitFor(async() => {
         await canvas.getByText('Next').click();
+    });
+
+    await waitFor(async() => {
+        await canvas.getByLabelText('Bus').click();
     });
 
     await waitFor(async() => {
@@ -196,10 +196,6 @@ CarbonUnicorn.play = async({ canvasElement }) => {
         await canvas.getByLabelText('Ferry').click();
     });
 
-    await waitFor(async() => {
-        await canvas.getByText('Next').click();
-    });
-
     const hoursInput = canvas.getByLabelText('How many hours will your journey take?');
 
     await waitFor(async() => {
@@ -214,6 +210,14 @@ CarbonUnicorn.play = async({ canvasElement }) => {
 
     await waitFor(async() => {
         await userEvent.type(nightsInput, '5');
+    });
+
+    await waitFor(async() => {
+        await canvas.getByText('Next').click();
+    });
+
+    await waitFor(async() => {
+        await canvas.getByLabelText('Bus').click();
     });
 
     await waitFor(async() => {
