@@ -71,13 +71,13 @@ export default {
     ],
     computed: {
         isActive() {
-            if (this.activePlace) {
+            if (this.activePlace && this.activePlace.properties) {
                 if (this.activePlace.properties.id === this.feature.properties.id) {
                     return true;
                 }
             }
 
-            if (this.highlightedPlace) {
+            if (this.highlightedPlace && this.highlightedPlace.properties) {
                 if (this.highlightedPlace.properties.id === this.feature.properties.id) {
                     return true;
                 }

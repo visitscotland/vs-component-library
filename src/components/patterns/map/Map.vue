@@ -264,20 +264,6 @@ export default {
                 this.hideMapPolygons();
             }
         },
-        highlightedPlace(newVal) {
-            if (newVal.length === 0) {
-                // this.removeMapPopup();
-            } else {
-                // this.addMapPopup(newVal);
-            }
-        },
-        activePlace(newVal) {
-            if (newVal.length === 0) {
-                // this.removeMapPopup();
-            } else {
-                // this.addMapPopup(newVal);
-            }
-        },
         selectedItem(newVal) {
             if (this.activeStateId) {
                 let isPolygon = [];
@@ -633,7 +619,7 @@ export default {
                 // we'll update the feature state for the feature under the mouse.
                 this.mapbox.map.on('mousemove', 'regions-fills', (e) => {
                     if (e.features.length > 0) {
-                        this.addMapPopup(e.features[0]);
+                        this.addMapPopup(e);
                         this.removeHoveredPolygon();
                         this.addHoveredPolygon(e.features[0]);
                     }
