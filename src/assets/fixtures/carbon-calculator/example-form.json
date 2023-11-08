@@ -10,9 +10,6 @@
             "divisor": 105.124
         }
     ],
-    "repeatableStages": [
-        3
-    ],
     "fields": [
         {
             "name": "transportModeTo",
@@ -134,26 +131,9 @@
                 "motorbike": 28.58232,
                 "walking": 0
             },
-            "multiplyByValue": {
-                "question": "howLongWithin",
-                "minimum": 0
-            },
-            "stage": 3
-        },
-        {
-            "name": "howLongWithin",
-            "element": "number",
-            "validation": {
-                "required": true,
-                "min": 0,
-                "max": 24
-            },
             "multiplyByAnswer": {
                 "question": "howLongStay",
-                "minimum": 1
-            },
-            "validationMessages": {
-                "required": "Please choose a duration"
+                "minimum": 0
             },
             "stage": 3
         },

@@ -396,11 +396,13 @@ export default {
                     this.repeatableStages = {
                     };
 
-                    for (let x = 0; x < response.data.repeatableStages.length; x++) {
-                        this.repeatableStages[response.data.repeatableStages[x]] = {
-                            generations: 0,
+                    if (response.data.repeatableStages) {
+                        for (let x = 0; x < response.data.repeatableStages.length; x++) {
+                            this.repeatableStages[response.data.repeatableStages[x]] = {
+                                generations: 0,
+                            };
                         };
-                    };
+                    }
                 });
         },
         /**
