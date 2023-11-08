@@ -271,10 +271,6 @@ export default {
         width: 184px;
         vertical-align: top;
         margin-top: $spacer-1;
-
-        @include media-breakpoint-up(lg) {
-            margin-top: $spacer-2;
-        }
     }
 
     .vs-mega-nav__menu {

@@ -30,6 +30,13 @@
 
         <p
             class="vs-progress-bar__label"
+            v-if="interpolProgressLabel"
+        >
+            {{ interpolProgressLabel }}
+        </p>
+        <p
+            class="vs-progress-bar__label"
+            v-else
         >
             {{ currentStep }} / {{ max }}
         </p>
@@ -85,6 +92,17 @@ export default {
             type: Boolean,
             required: false,
         },
+        /**
+         * Localised string to indicate the current stage of the progress bar. Will be interpolated
+         * with the current step (on xxx) and total count (on yyy) to allow for different sentence
+         * orders.
+         *
+         * e.g. "Step xxx of yyy"
+         */
+        progressLabel: {
+            type: String,
+            default: '',
+        },
     },
     computed: {
         computedClasses() {
@@ -99,6 +117,18 @@ export default {
             }
 
             return classes;
+        },
+        /**
+         * Interpolates the progress label into a localised string.
+         */
+        interpolProgressLabel() {
+            if (this.progressLabel) {
+                let out = this.progressLabel.replace('xxx', this.currentStep);
+                out = out.replace('yyy', this.max);
+                return out;
+            }
+
+            return '';
         },
     },
 };

@@ -33,6 +33,7 @@ const Template = (args) => ({
 
 const base = {
     jsDisabled: false,
+    language: 'en-gb',
     labelsMap: {
         noJsMessage: 'You need Javascript enabled to use this calculator',
         formUrl: '/fixtures/carbon-calculator/example-form.json',
@@ -57,6 +58,7 @@ const base = {
         accommodation: 'Accommodation',
         food: 'Food',
         restart: 'Restart',
+        progress: 'Step xxx of yyy',
         'stage-1.title': 'Travel to Scotland',
         'stage-2.title': 'Accommodation',
         'stage-3.title': 'Travel around Scotland',
@@ -118,14 +120,7 @@ QuestionOpen.play = async({ canvasElement }) => {
     });
 };
 
-export const ResultsPage = Template.bind({
-});
-
-ResultsPage.args = base;
-
-ResultsPage.args = base;
-
-ResultsPage.play = async({ canvasElement }) => {
+const goToResults = async({ canvasElement }) => {
     const canvas = within(canvasElement);
 
     await waitFor(async() => {
@@ -162,6 +157,23 @@ ResultsPage.play = async({ canvasElement }) => {
         await canvas.getByText('Results').click();
     });
 };
+
+export const ResultsPage = Template.bind({
+});
+
+ResultsPage.args = base;
+
+ResultsPage.play = goToResults;
+
+export const GermanNumbers = Template.bind({
+});
+
+GermanNumbers.args = {
+    ...base,
+    language: 'de-de',
+};
+
+GermanNumbers.play = goToResults;
 
 export const CarbonUnicorn = Template.bind({
 });

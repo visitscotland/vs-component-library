@@ -22,7 +22,8 @@
                                 :currentStep="activeStage <= formData.stages
                                     ? activeStage : formData.stages"
                                 :isStepped="true"
-                                :isFull="activeStage > formData.fields.length"
+                                :isFull="activeQuestion > formData.stages"
+                                :progressLabel="labelsMap.progress"
                                 ref="progress"
                             />
 
@@ -76,6 +77,7 @@
                     <VsCarbonCalculatorRunningTotal
                         v-if="activeStage > 0 && activeStage <= formData.stages"
                         :total-kilos="totalKilos"
+                        :language="language"
                     />
                     <VsCarbonCalculatorResults
                         v-if="activeStage > formData.stages"
@@ -88,6 +90,7 @@
                         :accommodation-tip="accommodationTip"
                         :stay-duration="stayDuration"
                         :comparisonReplacements="formData.comparisonReplacements"
+                        :language="language"
                     />
                 </VsCol>
                 <VsCol
@@ -231,6 +234,16 @@ export default {
         labelsMap: {
             type: Object,
             required: true,
+        },
+        /**
+         * Language locale string. Used to determine correct formatting for numbers (decimal
+         * delimeter)
+         *
+         * Example: "en-gb"
+         */
+        language: {
+            type: String,
+            default: 'en-gb',
         },
     },
     data() {

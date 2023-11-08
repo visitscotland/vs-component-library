@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.51](https://github.com/visitscotland/vs-component-library/compare/v1.0.50...v1.0.51) (2023-11-03)
+
+
+### 🐛 Bug Fixes
+
+* **marketo:** remove duplicate ID on checkbox ([99d5c7e](https://github.com/visitscotland/vs-component-library/commit/99d5c7ec89ecf3e4303d7c52b94035b430dd05f3))
+* **psw:** fixes active state for autocomplete dropdown ([6907c50](https://github.com/visitscotland/vs-component-library/commit/6907c50f3679d507d020de2a896de19a65902737))
+* **test:** under cookie mock changes to fix tests ([a8c8914](https://github.com/visitscotland/vs-component-library/commit/a8c89141b70fd95db7196f58b795de1f0787f709))
+
+### [1.0.50](https://github.com/visitscotland/vs-component-library/compare/v1.0.49...v1.0.50) (2023-11-03)
+
+
+### ✨ Features
+
+* **carbon calculator:** ensure numbers are formatted properly for different locales ([46a0086](https://github.com/visitscotland/vs-component-library/commit/46a00860b993c8d9c6fc49e75f80980ff4ea066b))
+* **progress bar:** add option for longhand progress label ([4bf09ec](https://github.com/visitscotland/vs-component-library/commit/4bf09ec51bed79411ef1021244682d41028832a7))
+
+
+### ✅ Tests
+
+* **carbon calculator:** add tests for localised labels ([2447b59](https://github.com/visitscotland/vs-component-library/commit/2447b59c3ce5c1dd0d16c9b278b5333813d6aef9))
+* **progress bar:** add tests for longhand label ([ba71ee3](https://github.com/visitscotland/vs-component-library/commit/ba71ee3715d4b6801400b8f69dfaa813f451b039))
+
 ### [1.0.49](https://github.com/visitscotland/vs-component-library/compare/v1.0.48...v1.0.49) (2023-10-27)
 
 

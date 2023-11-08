@@ -36,6 +36,14 @@ export const Default = Template.bind({
 
 Default.args = base;
 
+export const ProgressLabel = Template.bind({
+});
+
+ProgressLabel.args = {
+    ...base,
+    progressLabel: 'Step xxx of yyy',
+};
+
 export const Full = Template.bind({
 });
 
