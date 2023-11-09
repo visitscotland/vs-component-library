@@ -88,7 +88,7 @@ export const DefaultLocation = Template.bind({
 
 DefaultLocation.args = {
     ...base,
-    defaultLocation: '4161',
+    defaultLocation: 'kingdom-fife',
 };
 
 export const DefaultLanguage = Template.bind({
