@@ -23,7 +23,7 @@ const useMapStore = defineStore('map', () => {
         maps.value.forEach((map) => {
             if (map.id === payload.mapId) {
                 /* eslint-disable no-param-reassign */
-                map.hovered = payload.hoveredId;
+                map.hovered = payload.hoveredFeature;
             }
         });
     }

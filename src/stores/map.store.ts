@@ -4,7 +4,7 @@ import { defineStore } from 'pinia';
 const useMapStore = defineStore('map', () => {
     const maps: Ref<Array<any>> = ref([]);
     const activeSubcatFilters: Ref<Array<any>> = ref([]);
-    const selectedSubCategory: Ref<string> = ref(null);
+    const selectedSubCategory = ref(null);
     const activeMarkerPos = ref(null);
     const activePlace = ref(null);
 
@@ -23,7 +23,7 @@ const useMapStore = defineStore('map', () => {
         maps.value.forEach((map) => {
             if (map.id === payload.mapId) {
                 /* eslint-disable no-param-reassign */
-                map.hovered = payload.hoveredId;
+                map.hovered = payload.hoveredFeature;
             }
         });
     }
@@ -32,7 +32,7 @@ const useMapStore = defineStore('map', () => {
         maps.value.forEach((map) => {
             if (map.id === payload.mapId) {
                 /* eslint-disable no-param-reassign */
-                map.activePlace = payload.placeId;
+                map.activePlace = payload.activeFeature;
             }
         });
     }
