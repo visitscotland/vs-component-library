@@ -10,70 +10,81 @@
             >
                 <VsCol>
                     <VsCarbonCalculatorIntro
-                        v-if="!activeQuestion"
+                        v-if="!activeStage"
                     />
 
                     <form
-                        v-if="activeQuestion"
+                        v-if="activeStage"
                     >
                         <fieldset>
                             <VsProgressBar
                                 :max="formData.stages"
-                                :currentStep="
-                                    currentQuestion ? currentQuestion.stage : formData.stages
-                                "
+                                :currentStep="activeStage <= formData.stages
+                                    ? activeStage : formData.stages"
                                 :isStepped="true"
-                                :isFull="activeQuestion > formData.fields.length"
+                                :isFull="activeStage > formData.stages"
                                 :progressLabel="labelsMap.progress"
                                 ref="progress"
                             />
 
                             <div
-                                v-show="activeQuestion <= formData.fields.length"
+                                v-show="activeStage <= formData.fields.length"
                             >
+                                <VsHeading
+                                    level="3"
+                                >
+                                    {{ currentCategory }}
+                                </VsHeading>
+
                                 <VsCarbonCalculatorQuestion
                                     v-for="(field, index) in formData.fields"
-                                    v-show="(index + 1) === activeQuestion"
+                                    v-show="field.stage === activeStage"
                                     ref="questions"
                                     tabindex="0"
                                     :key="field.name"
-                                    :label="getQuestionLabel(index)"
+                                    :label="getQuestionLabel(field, index)"
                                     :label-for="field.name"
-                                    :hint="getQuestionHint(index)"
+                                    :hint="getQuestionHint(field, index)"
                                     :fieldClass="conditionalElementClass(field.name)"
                                     :fieldType="field.element"
                                     :fieldName="field.name"
-                                    :options="getQuestionOptions(index)"
+                                    :options="getQuestionOptions(field, index)"
                                     :minimum="field.element === 'number' ? field.validation.min : 0"
                                     :maximum="field.element === 'number' ? field.validation.max : 0"
-                                    :fieldCategory="getQuestionCategory(field.stage)"
                                     @updateFieldData="updateFieldData"
                                 />
+
                             </div>
                         </fieldset>
                     </form>
+                    <VsButton
+                        v-if="isRepeatable(activeStage)"
+                        class="my-4"
+                        variant="secondary"
+                        icon="plus"
+                        @click="duplicateCurrentStage()"
+                    >
+                        {{ activeStageRepeatable }}
+                    </VsButton>
                     <VsCarbonCalculatorTip
                         v-if="currentTip"
-                        :tip="currentTip.text"
+                        :tip="currentTip"
                     />
                 </VsCol>
                 <VsCol
                     cols="12"
                 >
                     <VsCarbonCalculatorRunningTotal
-                        v-if="activeQuestion > 0 && activeQuestion <= formData.fields.length"
+                        v-if="activeStage > 0 && activeStage <= formData.stages"
                         :total-kilos="totalKilos"
                         :language="language"
                     />
                     <VsCarbonCalculatorResults
-                        v-if="activeQuestion > formData.fields.length"
+                        v-if="activeStage > formData.stages"
                         :total-kilos="totalKilos"
                         :transport-kilos="transportKilos"
                         :food-kilos="foodKilos"
                         :accommodation-kilos="accommodationKilos"
-                        :transport-tip="transportTip"
-                        :food-tip="foodTip"
-                        :accommodation-tip="accommodationTip"
                         :stay-duration="stayDuration"
                         :comparisonReplacements="formData.comparisonReplacements"
                         :language="language"
@@ -82,7 +93,7 @@
                 <VsCol
                     class="text-center"
                     cols="12"
-                    v-if="activeQuestion === 0"
+                    v-if="activeStage === 0"
                 >
                     <VsButton
                         variant="primary"
@@ -95,14 +106,14 @@
                 </VsCol>
                 <VsCol
                     cols="12"
-                    v-if="activeQuestion > 0"
+                    v-if="activeStage > 0"
                 >
                     <VsButton
-                        :variant="activeQuestion <= formData.fields.length ? 'primary' : 'secondary'"
+                        :variant="activeStage <= formData.fields.length ? 'primary' : 'secondary'"
                         type="submit"
                         class="vs-form__submit mt-9 float-left"
                         ref="backPage"
-                        v-if="activeQuestion > 1"
+                        v-if="activeStage > 1"
                         @click="backwardPage()"
                     >
                         {{ labelsMap['previous'] }}
@@ -113,8 +124,8 @@
                         type="submit"
                         class="vs-form__submit mt-9 float-right"
                         ref="forwardPage"
-                        v-if="activeQuestion < formData.fields.length"
-                        :disabled="activeQuestion > 0 && !answerSet"
+                        v-if="activeStage < formData.stages"
+                        :disabled="activeStage > 0 && !answerSet"
                         @click="forwardPage()"
                     >
                         {{ labelsMap['next'] }}
@@ -124,7 +135,7 @@
                         variant="primary"
                         type="submit"
                         class="vs-form__submit mt-9 float-right"
-                        v-if="activeQuestion === formData.fields.length"
+                        v-if="activeStage === formData.stages"
                         :disabled="!answerSet"
                         @click="forwardPage()"
                     >
@@ -135,7 +146,7 @@
                         variant="primary"
                         type="submit"
                         class="vs-form__submit mt-9 float-right"
-                        v-if="activeQuestion > formData.fields.length"
+                        v-if="activeStage > formData.stages"
                         @click="restart()"
                     >
                         {{ labelsMap['restart'] }}
@@ -162,6 +173,7 @@ import dataLayerMixin from '@/mixins/dataLayerMixin';
 import VsWarning from '@/components/patterns/warning/Warning.vue';
 import VsButton from '@/components/elements/button/Button.vue';
 import VsProgressBar from '@/components/elements/progress-bar/ProgressBar.vue';
+import VsHeading from '@components/elements/heading/Heading.vue';
 
 import VsCarbonCalculatorTip from './components/CarbonCalculatorTip.vue';
 import VsCarbonCalculatorResults from './components/CarbonCalculatorResults.vue';
@@ -184,6 +196,7 @@ export default {
         VsRow,
         VsWarning,
         VsProgressBar,
+        VsHeading,
         VsCarbonCalculatorResults,
         VsCarbonCalculatorTip,
         VsCarbonCalculatorRunningTotal,
@@ -209,11 +222,11 @@ export default {
          * should contain global props like a translation for `next`, `previous`,
          * `results` and so on, as well as question by question labels. Those should
          * take the form
-         *    `page-1.title` <- the category for the first question
-         *    `page-1.question` <- the content of the first question
-         *    `page-1.option-1` <- the first option for the first question
-         *    `page-1.option-1.tip` <- the content of the tip for the above option
-         * and then repeat for each page-x beyond that.
+         *    `question-1.title` <- the category for the first question
+         *    `question-1.question` <- the content of the first question
+         *    `question-1.option-1` <- the first option for the first question
+         *    `question-1.tip` <- the content of the tip for the above option
+         * and then repeat for each question-x beyond that.
          */
         labelsMap: {
             type: Object,
@@ -239,37 +252,24 @@ export default {
          * the user is on the intro or results page.
          */
         currentQuestion() {
-            if (!this.formData || !this.activeQuestion) {
+            if (!this.formData || !this.activeStage) {
                 return null;
             }
 
-            return this.formData.fields[this.activeQuestion - 1];
+            return this.formData.fields[this.activeStage - 1];
         },
         /**
          * The tip which is currently being displayed to the user, based on their
          * answer to the current question and what tips are available in their language
          */
         currentTip() {
-            let tip = null;
-
-            if (this.formData.fields[this.activeQuestion - 1]) {
-                switch (this.formData.fields[this.activeQuestion - 1].stage) {
-                case (1):
-                    tip = this.transportTip;
-                    break;
-                case (2):
-                    tip = this.accommodationTip;
-                    break;
-                case (3):
-                    tip = this.foodTip;
-                    break;
-                default:
-                    tip = null;
-                    break;
+            if (this.activeStage) {
+                if (this.labelsMap[`stage-${this.activeStage}.tip`]) {
+                    return this.labelsMap[`stage-${this.activeStage}.tip`];
                 }
             }
 
-            return tip;
+            return '';
         },
         /**
          * The length of the user's stay, parsed to an int from an answer
@@ -283,10 +283,30 @@ export default {
 
             return 0;
         },
+        /**
+         * Retrieves the category for a given stage from the localised labelsMap provided
+         * by the CMS
+         */
+        currentCategory() {
+            if (this.labelsMap[`stage-${this.activeStage}.title`]) {
+                return this.labelsMap[`stage-${this.activeStage}.title`];
+            }
+
+            return '';
+        },
+        /**
+         * Retrieves the CTA to add an extra answer for a given stage, if that stage is repeatable
+         */
+        activeStageRepeatable() {
+            if (this.labelsMap[`stage-${this.activeStage}.repeat`]) {
+                return this.labelsMap[`stage-${this.activeStage}.repeat`];
+            }
+
+            return '';
+        },
     },
     mounted() {
         this.getFormData();
-        this.getGlobalMessaging();
     },
     methods: {
         /**
@@ -316,8 +336,11 @@ export default {
                 transportTip: null,
                 foodTip: null,
                 accommodationTip: null,
-                activeQuestion: 0,
+                transportInternalTip: null,
+                activeStage: 0,
                 answerSet: false,
+                repeatableStages: {
+                },
             };
         },
         /**
@@ -326,9 +349,27 @@ export default {
          * so can be held and set in the component to avoid doubling the load.
          */
         restart() {
-            const { formData } = this;
+            const { formData, repeatableStages } = this;
             Object.assign(this.$data, this.initialState());
             this.$data.formData = formData;
+            this.$data.repeatableStages = repeatableStages;
+
+            this.cleanFields();
+        },
+        /**
+         * Remove leftover duplicated fields from form field data on reset, and reset count for
+         * each field that has been duplicated.
+         */
+        cleanFields() {
+            for (let x = this.formData.fields.length - 1; x >= 0; x--) {
+                if (this.formData.fields[x].isClone) {
+                    this.formData.fields.splice(x, 1);
+                }
+            }
+
+            for (let x = 0; x < Object.keys(this.repeatableStages).length; x++) {
+                this.repeatableStages[Object.keys(this.repeatableStages)[x]].generations = 0;
+            }
         },
         /**
          * Called on component created. Loads the json file located at this.dataUrl which
@@ -349,16 +390,17 @@ export default {
                             this.conditionalFields[field.name] = false;
                         }
                     });
-                });
-        },
-        /**
-         * Called on component created. Loads the generic messaging files which provide
-         * global validation and submission messages and localisations.
-         */
-        getGlobalMessaging() {
-            axios.get(this.messagingUrl)
-                .then((response) => {
-                    this.messagingData = response.data;
+
+                    this.repeatableStages = {
+                    };
+
+                    if (response.data.repeatableStages) {
+                        for (let x = 0; x < response.data.repeatableStages.length; x++) {
+                            this.repeatableStages[response.data.repeatableStages[x]] = {
+                                generations: 0,
+                            };
+                        };
+                    }
                 });
         },
         /**
@@ -379,23 +421,22 @@ export default {
             return '';
         },
         /**
-         * Retrieves the category for a given question from the localised labelsMap provided
-         * by the CMS
-         */
-        getQuestionCategory(stage) {
-            if (this.labelsMap[`section-${stage}.title`]) {
-                return this.labelsMap[`section-${stage}.title`];
-            }
-
-            return '';
-        },
-        /**
          * Retrieves the label for a given question from the localised labelsMap provided
          * by the CMS
          */
-        getQuestionLabel(index) {
-            if (this.labelsMap[`page-${index + 1}.question`]) {
-                return this.labelsMap[`page-${index + 1}.question`];
+        getQuestionLabel(field, index) {
+            if (field.isClone) {
+                if (this.labelsMap[`question-${field.originalNumber + 1}.clone-question`]) {
+                    return this.labelsMap[`question-${field.originalNumber + 1}.clone-question`];
+                }
+
+                if (this.labelsMap[`question-${field.originalNumber + 1}.question`]) {
+                    return this.labelsMap[`question-${field.originalNumber + 1}.question`];
+                }
+            }
+
+            if (this.labelsMap[`question-${index + 1}.question`]) {
+                return this.labelsMap[`question-${index + 1}.question`];
             }
 
             return '';
@@ -404,9 +445,19 @@ export default {
          * Retrieves the hint for a given question from the localised labelsMap provided
          * by the CMS
          */
-        getQuestionHint(index) {
-            if (this.labelsMap[`page-${index + 1}.hint`]) {
-                return this.labelsMap[`page-${index + 1}.hint`];
+        getQuestionHint(field, index) {
+            if (field.isClone) {
+                if (this.labelsMap[`question-${field.originalNumber + 1}.clone-hint`]) {
+                    return this.labelsMap[`question-${field.originalNumber + 1}.clone-hint`];
+                }
+
+                if (this.labelsMap[`question-${field.originalNumber + 1}.hint`]) {
+                    return this.labelsMap[`question-${field.originalNumber + 1}.hint`];
+                }
+            }
+
+            if (this.labelsMap[`question-${index + 1}.hint`]) {
+                return this.labelsMap[`question-${index + 1}.hint`];
             }
 
             return '';
@@ -415,14 +466,20 @@ export default {
          * Retrieves the options for a given question from the localised labelsMap provided
          * by the CMS
          */
-        getQuestionOptions(index) {
-            const field = this.formData.fields[index];
+        getQuestionOptions(field, index) {
+            let optionIndex;
+
+            if (field.isClone) {
+                optionIndex = field.originalNumber;
+            } else {
+                optionIndex = index;
+            }
 
             if (field.element === 'radio') {
                 const { options } = field;
 
                 for (let x = 0; x < options.length; x++) {
-                    options[x].text = this.labelsMap[`page-${index + 1}.option-${x + 1}`];
+                    options[x].text = this.labelsMap[`question-${optionIndex + 1}.option-${x + 1}`];
                 }
 
                 return options;
@@ -452,7 +509,6 @@ export default {
             this.manageErrorStatus(data.field, data.errors);
             this.checkConditionalFields();
             this.calculateEmissions();
-            this.retrieveTips();
         },
         /**
          * Updates the errorFields list with the current validated state of each field.
@@ -499,10 +555,19 @@ export default {
                 return selectedValue * multiplier;
             }
 
+            if (field.multiplyByValue && fieldName !== field.multiplyByValue) {
+                let multiplier = this.getNumberValue(
+                    field.multiplyByValue.question,
+                    this.form[field.multiplyByValue.question],
+                ) || 0;
+                multiplier = Math.max(multiplier, field.multiplyByValue.minimum);
+                return selectedValue * multiplier;
+            }
+
             return selectedValue;
         },
         /**
-         * Calculates the current value of a number inputbased question in the carbon calculator
+         * Calculates the current value of a number input based question in the carbon calculator
          * form. Each field has an actual raw value which is retruned by the radio button
          * component, but also has a potential multiplication factor which could be based on
          * another field or on a static value.
@@ -525,7 +590,15 @@ export default {
             }
 
             if (field.multiplyByAnswer) {
-                const multiplier = this.form[field.multiplyByAnswer] || 0;
+                const multiplier = this.form[field.multiplyByAnswer.question] || 0;
+                return (parseInt(key, 10) * multiplier);
+            }
+
+            if (field.multiplyByValue && fieldName !== field.multiplyByValue) {
+                const multiplier = this.getNumberValue(
+                    field.multiplyByValue.question,
+                    this.form[field.multiplyByValue.question],
+                );
                 return (parseInt(key, 10) * multiplier);
             }
 
@@ -552,49 +625,27 @@ export default {
             return 0;
         },
         /**
-         * Retrieves all relevant tips based on the user's responses to a given question
-         */
-        getTips(field, key, questionIndex) {
-            if (key && field.options) {
-                for (let x = 0; x < field.options.length; x++) {
-                    if (field.options[x].value === key) {
-                        const checkTip = this.labelsMap[`page-${questionIndex + 1}.option-${x + 1}.tip`];
-                        if (checkTip) {
-                            return [{
-                                text: checkTip,
-                            }];
-                        }
-                    }
-                }
-            }
-
-            return [];
-        },
-        /**
          * Calculates the current total emissions value, and category specific emission values
          * for the user based on their submitted answers.
          */
         calculateEmissions() {
             this.transportKilos = 0;
-            this.transportTip = null;
 
             this.accommodationKilos = 0;
-            this.accommodationTips = null;
 
             this.foodKilos = 0;
-            this.foodTip = null;
 
             for (let x = 0; x < this.formData.fields.length; x++) {
                 const currentField = this.formData.fields[x];
 
                 switch (currentField.stage) {
                 case 1:
-                case 2:
+                case 3:
                     this.transportKilos += this.getFieldValue(
                         currentField,
                     );
                     break;
-                case 3:
+                case 2:
                     this.accommodationKilos += this.getFieldValue(
                         currentField,
                     );
@@ -610,46 +661,6 @@ export default {
             }
 
             this.totalKilos = this.transportKilos + this.accommodationKilos + this.foodKilos;
-        },
-        /**
-         * Retrieves all relevant tips for the for the user based on their submitted answers, then
-         * selects a random one from each category to display.
-         */
-        retrieveTips() {
-            let transportTips = [];
-            let accommodationTips = [];
-            let foodTips = [];
-
-            for (let x = 0; x < this.formData.fields.length; x++) {
-                const currentField = this.formData.fields[x];
-
-                switch (currentField.stage) {
-                case 1:
-                case 2:
-                    transportTips = transportTips.concat(
-                        this.getTips(currentField, this.form[currentField.name], x),
-                    );
-                    break;
-                case 3:
-                    accommodationTips = accommodationTips.concat(
-                        this.getTips(currentField, this.form[currentField.name], x),
-                    );
-                    break;
-                case 4:
-                    foodTips = foodTips.concat(
-                        this.getTips(currentField, this.form[currentField.name], x),
-                    );
-                    break;
-                default:
-                    break;
-                }
-            }
-
-            this.transportTip = transportTips[Math.floor(Math.random() * transportTips.length)];
-            this.accommodationTip = accommodationTips[
-                Math.floor(Math.random() * accommodationTips.length)
-            ];
-            this.foodTip = foodTips[Math.floor(Math.random() * foodTips.length)];
         },
         /**
          * Checks whether conditional fields meet the rules to show them
@@ -692,15 +703,14 @@ export default {
                 event.preventDefault();
             }
 
-            if (this.activeQuestion) {
+            if (this.activeStage) {
                 this.createDataLayerObject('carbonQuestionEvent', {
-                    questionNumber: this.activeQuestion,
+                    questionNumber: this.activeStage,
                     answer: this.form[this.currentQuestion.name],
                 });
             }
 
-            this.activeQuestion += 1;
-            this.checkCurrentConditional(true);
+            this.activeStage += 1;
             this.checkNewAnswerSet();
             this.resetFocus();
         },
@@ -712,8 +722,7 @@ export default {
                 event.preventDefault();
             }
 
-            this.activeQuestion -= 1;
-            this.checkCurrentConditional(false);
+            this.activeStage -= 1;
             this.checkNewAnswerSet();
             this.resetFocus();
         },
@@ -722,35 +731,35 @@ export default {
          * is necessary to proceed
          */
         checkNewAnswerSet() {
-            if (this.activeQuestion > this.formData.fields.length) {
+            if (this.activeStage > this.formData.stages) {
                 this.answerSet = true;
                 return;
             }
 
-            const newQuestion = this.formData.fields[this.activeQuestion - 1];
-            if (this.form[newQuestion.name]) {
-                this.answerSet = true;
-            } else if (newQuestion.element === 'number') {
-                this.form[newQuestion.name] = newQuestion.validation.min;
-                this.answerSet = true;
-            } else {
-                this.answerSet = false;
+            this.answerSet = true;
+
+            for (let x = 0; x < this.formData.fields.length; x++) {
+                if (this.formData.fields[x].stage === this.activeStage) {
+                    const nextCheckQuestion = this.formData.fields[x];
+
+                    if (nextCheckQuestion.element === 'radio' && !this.form[nextCheckQuestion.name]) {
+                        this.answerSet = false;
+                    } else if (nextCheckQuestion.element === 'number' && !this.form[nextCheckQuestion.name]) {
+                        this.form[nextCheckQuestion.name] = nextCheckQuestion.validation.min;
+                    }
+                }
             }
         },
         /**
-         * Checks if the current question is a currently inactive conditional question,
-         * and if so skips passed it. Used in page navigation to ensure the user doesn't land
-         * on an irrelevant question.
+         * Check if the current stage appears in the list of repeatableStages defined in the form
+         * data. If so it should be possible to enter multiple values for it.
          */
-        checkCurrentConditional(isForward) {
-            const question = this.formData.fields[this.activeQuestion - 1];
-            if (question && this.conditionalElementClass(question.name)) {
-                if (isForward) {
-                    this.forwardPage();
-                } else {
-                    this.backwardPage();
-                }
+        isRepeatable(stage) {
+            if (this.repeatableStages[stage] && this.repeatableStages[stage].generations < 3) {
+                return true;
             }
+
+            return false;
         },
         /**
          * Sets the 'd-none' class on conditional fields which are currently not displaying.
@@ -768,10 +777,46 @@ export default {
         resetFocus() {
             this.$nextTick(() => {
                 this.$nextTick(() => {
-                    this.$refs.questions[this.activeQuestion - 1].$el.focus();
-                    this.$refs.progress.$el.scrollIntoView();
+                    try {
+                        this.$refs.questions[this.activeStage - 1].$el.focus();
+                        this.$refs.progress.$el.scrollIntoView();
+                    } catch (e) {
+                        // Fails in jest
+                    }
                 });
             });
+        },
+        /**
+         * Adds a duplicate for each question in the current stage to the form data. Duplicates
+         * are marked as clones to ensure subsequent duplicates are only added one set at a time
+         * rather than doubled.
+         */
+        duplicateCurrentStage(event) {
+            if (event) {
+                event.preventDefault();
+            }
+
+            const nextGeneration = this.repeatableStages[this.activeStage].generations + 1;
+
+            for (let x = 0; x < this.formData.fields.length; x++) {
+                const nextQuestion = this.formData.fields[x];
+
+                if (nextQuestion.stage === this.activeStage && !nextQuestion.isClone) {
+                    const cloneQuestion = JSON.parse(JSON.stringify(nextQuestion));
+                    cloneQuestion.isClone = true;
+
+                    const cloneName = `${nextQuestion.name}${nextGeneration}`;
+
+                    cloneQuestion.name = cloneName;
+                    cloneQuestion.originalNumber = x;
+
+                    this.form[cloneName] = '';
+
+                    this.formData.fields.push(cloneQuestion);
+                }
+            }
+
+            this.repeatableStages[this.activeStage].generations = nextGeneration;
         },
     },
 };

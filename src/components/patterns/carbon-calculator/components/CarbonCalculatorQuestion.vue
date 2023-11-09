@@ -7,15 +7,9 @@
         <div
             :class="fieldClass"
         >
-            <VsHeading
-                level="3"
-            >
-                {{ fieldCategory }}
-            </VsHeading>
-
             <!-- eslint-disable -->
             <label
-                class="vs-carbon-calculator-question__label"
+                class="vs-carbon-calculator-question__label my-4"
                 :for="fieldName"
             >
                 {{ label }}
@@ -48,7 +42,6 @@
 <script>
 import { BFormGroup } from 'bootstrap-vue-next';
 import VsRadioButton from '@components/elements/radio-button/RadioButton.vue';
-import VsHeading from '@components/elements/heading/Heading.vue';
 import VsNumberInput from '@components/elements/number-input/NumberInput.vue';
 
 /**
@@ -61,7 +54,6 @@ export default {
     components: {
         BFormGroup,
         VsRadioButton,
-        VsHeading,
         VsNumberInput,
     },
     props: {
@@ -108,14 +100,6 @@ export default {
          * value of the field to the calculator as a whole
          */
         fieldName: {
-            type: String,
-            required: true,
-        },
-        /**
-         * The localised name of the category which the question is part of. Displayed
-         * at the top of the question to provide context for the user.
-         */
-        fieldCategory: {
             type: String,
             required: true,
         },

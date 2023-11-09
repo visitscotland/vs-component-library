@@ -82,7 +82,7 @@
                     "dieselCamper"
                 ]
             },
-            "stage": 2
+            "stage": 1
         },
         {
             "name": "howLongStay",
@@ -95,6 +95,45 @@
             "multiplyByNumber": 10.4,
             "validationMessages": {
                 "required": "Please choose a duration"
+            },
+            "stage": 2
+        },
+        {
+            "name": "transportModeWithin",
+            "element": "radio",
+            "options": [
+                { "value": "petrolCar"},
+                { "value": "dieselCar"},
+                { "value": "electricCar"},
+                { "value": "dieselCamper"},
+                { "value": "petrolCamper"},
+                { "value": "coach"},
+                { "value": "bus"},
+                { "value": "train"},
+                { "value": "motorbike"},
+                { "value": "walking"}
+            ],
+            "validation": {
+                "required": true
+            },
+            "validationMessages": {
+                "required": "Please choose an item"
+            },
+            "values": {
+                "petrolCar": 29.58232,
+                "dieselCar": 30.6646,
+                "electricCar": 9.9209,
+                "petrolCamper": 37.501002,
+                "dieselCamper": 32.630742,
+                "coach": 3.53808,
+                "bus": 3.53808,
+                "train": 7.1939,
+                "motorbike": 10.25196,
+                "walking": 0
+            },
+            "multiplyByAnswer": {
+                "question": "howLongStay",
+                "minimum": 0
             },
             "stage": 3
         },
