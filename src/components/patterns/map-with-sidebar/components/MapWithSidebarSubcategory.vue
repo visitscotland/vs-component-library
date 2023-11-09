@@ -16,7 +16,7 @@
                     @change="emitChange"
                 >
                     <VsMapMarkerIcon
-                        class="vs-main-map-category__icon"
+                        class="vs-main-map-subcategory__icon"
                         :id="selectedSubCategory"
                     />
                     {{ item.name }}
@@ -131,6 +131,11 @@ export default {
 <style lang="scss">
     .vs-main-map-subcategory {
         position: relative;
+
+        &__icon {
+            vertical-align: middle;
+            margin-right: $spacer-2;
+        }
 
         .form-check {
             display: flex;

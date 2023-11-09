@@ -134,7 +134,7 @@
                         :item-data="place"
                         :from-endpoint="true"
                         :focussed="index === currentListItemFocus"
-                        @show-item-detail="showDetail(place.id)"
+                        @show-item-detail="showDetail(place)"
                     />
 
                     <VsButton
@@ -162,8 +162,8 @@
                     <VsMapWithSidebarListItem
                         v-if="typeof place.properties !== 'undefined'
                             && place.properties.category.id === selectedCategory"
-                        :item-data="place.properties"
-                        @show-item-detail="showDetail(place.properties.id)"
+                        :item-data="place"
+                        @show-item-detail="showDetail(place)"
                     />
                 </div>
             </template>
@@ -278,8 +278,8 @@ export default {
          * The ID of thecurrently selected item
          */
         selectedItem: {
-            type: String,
-            default: '',
+            type: Object,
+            default: null,
         },
         /**
          * The ID of the currently hover item
@@ -409,7 +409,7 @@ export default {
 
             return data.filter((obj) => {
                 if (typeof obj.properties !== 'undefined') {
-                    return obj.properties.id === this.selectedItem;
+                    return obj.properties.id === this.selectedItem.properties.id;
                 }
 
                 return false;

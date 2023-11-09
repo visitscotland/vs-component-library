@@ -7,13 +7,12 @@
         variant="transparent"
         @click="handleClick"
         @keydown.enter="handleClick"
-        @mouseover="handleHover(feature.properties.id)"
+        @mouseover="handleHover(feature)"
         @mouseleave="handleHover('')"
-        @focusin="handleHover(feature.properties.id)"
+        @focusin="handleHover(feature)"
         @focusout="handleHover('')"
     >
         <VsMapMarkerIcon
-            class="vs-main-map-category__icon"
             :id="getMarkerIcon"
             :is-map-marker="true"
             :number="feature.properties.stopCount ? feature.properties.stopCount : ''"
@@ -72,9 +71,16 @@ export default {
     ],
     computed: {
         isActive() {
-            if (this.activePlace === this.feature.properties.id
-                || this.highlightedPlace === this.feature.properties.id) {
-                return true;
+            if (this.activePlace && this.activePlace.properties) {
+                if (this.activePlace.properties.id === this.feature.properties.id) {
+                    return true;
+                }
+            }
+
+            if (this.highlightedPlace && this.highlightedPlace.properties) {
+                if (this.highlightedPlace.properties.id === this.feature.properties.id) {
+                    return true;
+                }
             }
 
             return false;
@@ -113,19 +119,20 @@ export default {
     },
     watch: {
         isActive() {
-            if (this.activePlace === this.feature.properties.id
-                || this.highlightedPlace === this.feature.properties.id) {
+            if ((this.activePlace && this.activePlace.properties.id === this.feature.properties.id)
+                || (this.highlightedPlace
+                    && this.highlightedPlace.properties.id === this.feature.properties.id)) {
                 return true;
             }
 
-            if (this.activePlace === this.feature.properties.id) {
+            if (this.activePlace && this.activePlace.properties.id === this.feature.properties.id) {
                 mapStore.setActiveMarkerPos(this.feature.geometry.coordinates);
             }
 
             return false;
         },
         activePlace() {
-            if (this.activePlace === this.feature.properties.id) {
+            if (this.activePlace && this.activePlace.properties.id === this.feature.properties.id) {
                 mapStore.setActiveMarkerPos(this.feature.geometry.coordinates);
             }
         },
@@ -142,19 +149,19 @@ export default {
 
             mapStore.setActivePlace({
                 mapId: this.mapId,
-                placeId: this.feature.properties.id,
+                activeFeature: this.feature,
             });
 
-            this.$emit('showDetail', this.feature.properties.id);
+            this.$emit('showDetail', this.feature);
             this.$emit('setCategory', this.feature.properties.type);
         },
         /**
          * Fires on hover over the maker
          */
-        handleHover(id) {
+        handleHover(feature) {
             mapStore.setHoveredPlace({
                 mapId: this.mapId,
-                hoveredId: id,
+                hoveredFeature: feature,
             });
         },
     },

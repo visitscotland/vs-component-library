@@ -4,25 +4,25 @@
         class="vs-map-with-sidebar-list-item"
         :class="isActive ? 'vs-map-with-sidebar-list-item--hovered' : ''"
         data-test="vs-map-with-sidebar-list-item"
-        @click="showItemDetail(formattedData.id)"
-        @keyup.enter="showItemDetail(formattedData.id)"
-        @mouseover="itemHover(formattedData.id)"
+        @click="showItemDetail(formattedData)"
+        @keyup.enter="showItemDetail(formattedData)"
+        @mouseover="itemHover(formattedData)"
         @mouseleave="itemHover('')"
-        @focusin="itemHover(formattedData.id)"
+        @focusin="itemHover(formattedData)"
         @focusout="itemHover('')"
         ref="btn"
     >
         <div class="vs-map-with-sidebar-list-item__img-container">
             <VsImg
-                v-if="typeof formattedData.image !== 'undefined'"
-                :src="formattedData.image"
+                v-if="typeof formattedData.properties.image !== 'undefined'"
+                :src="formattedData.properties.image"
                 class="vs-map-with-sidebar-list-item__img"
             />
         </div>
         <span
             class="vs-map-with-sidebar-list-item__text"
         >
-            {{ formattedData.title }}
+            {{ formattedData.properties.title }}
         </span>
 
         <VsIcon
@@ -89,7 +89,8 @@ export default {
     },
     computed: {
         isActive() {
-            if (this.highlightedPlace === this.formattedData.id) {
+            if (this.highlightedPlace && this.formattedData
+                && this.highlightedPlace.properties.id === this.formattedData.properties.id) {
                 return true;
             }
 
@@ -101,25 +102,27 @@ export default {
             },
         }),
     },
-    mounted() {
-        mapStore = useMapStore(pinia());
-
+    created() {
         if (!this.fromEndpoint) {
             this.formattedData = this.itemData;
         } else {
             this.formattedData = {
                 ...this.formattedData,
-                id: this.itemData.id,
-                title: this.itemData.name,
+                id: this.itemData.properties.id,
+                title: this.itemData.properties.name,
             };
 
-            if (typeof this.itemData.images !== 'undefined') {
+            if (typeof this.itemData.properties.images !== 'undefined') {
                 this.formattedData = {
                     ...this.formattedData,
-                    image: this.itemData.images[0].mediaUrl,
+                    image: this.itemData.properties.images[0].mediaUrl,
                 };
             }
         }
+    },
+    mounted() {
+        mapStore = useMapStore(pinia());
+
         if (this.focussed) {
             this.$refs.btn.focus();
         }
@@ -129,23 +132,23 @@ export default {
          * Emits an event with the ID of the chosen
          * item as the payload
          */
-        showItemDetail(id) {
+        showItemDetail(feature) {
             mapStore.setActivePlace({
                 mapId: this.mapId,
-                placeId: id,
+                activeFeature: feature,
             });
 
-            this.$parent.$emit('show-item-detail', id);
+            this.$parent.$emit('show-item-detail', feature);
             this.$parent.$emit('set-stage', 2);
         },
         /**
          * Emits an event with the ID of the chosen
          * item on hover
          */
-        itemHover(id) {
+        itemHover(feature) {
             mapStore.setHoveredPlace({
                 mapId: this.mapId,
-                hoveredId: id,
+                hoveredFeature: feature,
             });
         },
     },

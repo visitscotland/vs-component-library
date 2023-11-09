@@ -85,6 +85,7 @@
                             @zoom-reset="resetZoom = false"
                             :bounds-data="regionBounds"
                             :reset-zoom="resetZoom"
+                            :show-marker-popups="false"
                         >
                             <template v-slot:map-loading-text>
                                 <!-- @slot Message to show when map is loading  -->
@@ -321,7 +322,7 @@ export default {
             panelVisible: false,
             selectedCategory: '',
             filterCategories: this.filters,
-            selectedItem: '',
+            selectedItem: null,
             activePins: this.placesData,
             currentlyHovered: '',
             showRegions: false,
@@ -409,11 +410,11 @@ export default {
         /**
          * Show an item's details
          */
-        showDetail(id) {
+        showDetail(feature) {
             if (document.fullscreenElement) {
                 document.exitFullscreen();
             }
-            this.selectedItem = id;
+            this.selectedItem = feature;
             this.setStage(2);
             this.openPanel();
             if (this.selectedSubCategory === null) {
@@ -538,7 +539,7 @@ export default {
             // ensure that if data is coming from an endpoint then
             // it is loaded before moving to the next stage
             if (num === 2 && this.detailsEndpoint !== '' && this.selectedSubCategory !== null) {
-                const endpoint = `${this.detailsEndpoint}${this.selectedItem}`;
+                const endpoint = `${this.detailsEndpoint}${this.selectedItem.properties.id}`;
                 axios.get(endpoint).then((response) => {
                     const dataArr = [];
                     dataArr.push(response.data.data);
@@ -569,7 +570,7 @@ export default {
                 // make sure the store doesn't have an active place set
                 mapStore.setActivePlace({
                     mapId: this.mapId,
-                    placeId: '',
+                    activeFeature: '',
                 });
 
                 this.selectedItem = null;
