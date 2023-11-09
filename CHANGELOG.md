@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.52](https://github.com/visitscotland/vs-component-library/compare/v1.0.51...v1.0.52) (2023-11-09)
+
+
+### ✨ Features
+
+* **carbon calculator:** add data for motorbike and coach ([61f4452](https://github.com/visitscotland/vs-component-library/commit/61f4452e0ca7a7797cfa4dccdd3c33260ae4a4f3))
+* **carbon calculator:** add more height to pages" ([4ff5911](https://github.com/visitscotland/vs-component-library/commit/4ff59113dcd6971fa60963114756675ed1f752ea))
+* **carbon calculator:** add tests for duplicate functionality ([e84767f](https://github.com/visitscotland/vs-component-library/commit/e84767fa60c859053d13a05b948ef0e9487b23b5))
+* **carbon calculator:** adjust tips to per-stage ([eee4415](https://github.com/visitscotland/vs-component-library/commit/eee44150f634aeb95365428a03411306e4fc0d4e))
+* **carbon calculator:** allow questions with recursive multipliers ([bc0a8d2](https://github.com/visitscotland/vs-component-library/commit/bc0a8d2f4f0350393d0e85759b54b3224f25f3e2))
+* **carbon calculator:** remove duplicable question for now ([c898884](https://github.com/visitscotland/vs-component-library/commit/c8988843939a55189eb3ab082cd8fef479ba3bf8))
+* **carbon calculator:** set up question duplication ([1549b97](https://github.com/visitscotland/vs-component-library/commit/1549b97b66f14f610eff290e8b45dabc264068bd))
+* **carbon calculator:** switch to stage-by-stage multi-question display ([d38c734](https://github.com/visitscotland/vs-component-library/commit/d38c73445b33e0d103211e20c37b06ca9cf955a4))
+
+
+### 🐛 Bug Fixes
+
+* **carbon calculator:** adjust test to account for removed question ([f896792](https://github.com/visitscotland/vs-component-library/commit/f896792b710342c1d2a64be4d1ea58627ef2d52e))
+* **carbon calculator:** and again ([80455fb](https://github.com/visitscotland/vs-component-library/commit/80455fb8bf3418ba7100824da9c73b6b26e641ff))
+* **carbon calculator:** fix broken story automation ([496a71c](https://github.com/visitscotland/vs-component-library/commit/496a71ca5c8ac4ef32e6b95dec19d4dcd29d0f4b))
+
 ### [1.0.51](https://github.com/visitscotland/vs-component-library/compare/v1.0.50...v1.0.51) (2023-11-03)
 
 
