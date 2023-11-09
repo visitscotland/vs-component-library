@@ -321,14 +321,15 @@ const getToursAttractionData = async () => {
     }
 };
 
-const getPlaceData = (placeKey, type?) => {
+const getPlaceData = (placeKey, type) => {
     if (type === 'key') {
         chosenLocation.value = locations.value.find(place => place.key === placeKey);
+    } else if (type === 'id') {
+        chosenLocation.value = locations.value.find(place => place.id === placeKey);
     } else {
         chosenLocation.value = locations.value.find(place => place.name === placeKey);
     }
 };
-
 
 const onChange = (e) => {
     const prodType = e.value;
@@ -351,7 +352,7 @@ const setRender = () => {
         reRender.value = false;
 
         if (props.defaultLocation !== '' && locationDataLoaded) {
-            getPlaceData(props.defaultLocation, 'key');
+            getPlaceData(props.defaultLocation, 'id');
         }
     });
 }
