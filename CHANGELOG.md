@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.53](https://github.com/visitscotland/vs-component-library/compare/v1.0.52...v1.0.53) (2023-11-09)
+
+
+### 🐛 Bug Fixes
+
+* **psw:** add back optional param ([45a01f6](https://github.com/visitscotland/vs-component-library/commit/45a01f68fae87d54f947e442c8996611dcbafb72))
+* **psw:** fix default location when theres duplicate key ([41cbeee](https://github.com/visitscotland/vs-component-library/commit/41cbeeef17f557ed4e7d31bed0b6a2dc5a078c34))
+
 ### [1.0.52](https://github.com/visitscotland/vs-component-library/compare/v1.0.51...v1.0.52) (2023-11-09)
 
 
