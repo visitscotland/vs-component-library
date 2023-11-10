@@ -264,6 +264,13 @@ export default {
                 this.hideMapPolygons();
             }
         },
+        highlightedPlace(feature) {
+            if (feature.length === 0) {
+                this.removeHoveredPolygon();
+            } else if (feature.geometry.type !== 'Point') {
+                this.addHoveredPolygon(feature);
+            }
+        },
         selectedItem(newVal) {
             if (this.activeStateId) {
                 let isPolygon = [];
@@ -724,6 +731,8 @@ export default {
                 },
             );
 
+            this.addMapPopup(feature);
+
             mapStore.setHoveredPlace({
                 mapId: this.mapId,
                 hoveredFeature: feature,
@@ -742,7 +751,7 @@ export default {
             const coordinates = this.getCoordinates(featureData);
             const popupHtml = this.getPopupHtml(featureData);
 
-            if (featureData.id) {
+            if (featureData.properties.id) {
                 this.removeMapPopup(feature);
 
                 this.popup = new mapboxgl.Popup({
