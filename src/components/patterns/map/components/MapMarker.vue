@@ -5,8 +5,8 @@
         :class="isActive ? 'vs-map-marker--active' : ''"
         data-test="vs-map-marker"
         variant="transparent"
-        @click="handleClick"
-        @keydown.enter="handleClick"
+        @click="markerClick"
+        @keydown.enter="markerClick"
         @mouseover="handleHover(feature)"
         @mouseleave="handleHover('')"
         @focusin="handleHover(feature)"
@@ -55,6 +55,13 @@ export default {
          */
         mapId: {
             type: String,
+            required: true,
+        },
+        /**
+         * If the map has enabled popups for markers
+         */
+        hasPopups: {
+            type: Boolean,
             required: true,
         },
         /**
@@ -139,12 +146,19 @@ export default {
     },
     mounted() {
         mapStore = useMapStore(pinia());
+
+        if (this.hasPopups) {
+            document.body.addEventListener('click', this.handleClickEvent);
+        }
+    },
+    beforeUnmount() {
+        document.body.removeEventListener('click', this.handleClickEvent);
     },
     methods: {
         /**
          * Fires on click of the marker
          */
-        handleClick() {
+        markerClick() {
             mapStore.setActiveMarkerPos(this.feature.geometry.coordinates);
 
             mapStore.setActivePlace({
@@ -163,6 +177,20 @@ export default {
                 mapId: this.mapId,
                 hoveredFeature: feature,
             });
+        },
+        /**
+         * Sets up event listener to remove active
+         * marker on map click
+         */
+        handleClickEvent(e) {
+            const mapCanvas = document.getElementsByClassName('mapboxgl-canvas');
+
+            if (e.target === mapCanvas[0]) {
+                mapStore.setActivePlace({
+                    mapId: this.mapId,
+                    activeFeature: null,
+                });
+            }
         },
     },
 };
@@ -183,7 +211,8 @@ export default {
 
         .vs-map-marker-icon--map-marker {
             transform: scale(1.4);
-            transition: all $duration-base;
+            transform-origin: bottom center;
+            transition: ease-in-out .15s;
         }
 
         .vs-map-marker-icon__count{

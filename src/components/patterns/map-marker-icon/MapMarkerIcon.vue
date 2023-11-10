@@ -95,13 +95,6 @@ export default {
     display: inline-block;
 
     &--map-marker {
-        &:hover {
-            // transition: ease-in 0.1s;
-            transform: scale(1.2) translate3d(0,0,0);
-            transform-origin: bottom center;
-            transition: ease-in-out 0.15s;
-        }
-
         .vs-map-marker-icon__marker {
             -webkit-text-stroke-color: $color-white;;
             -webkit-text-stroke-width: 1px;

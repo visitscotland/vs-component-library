@@ -505,6 +505,7 @@ export default {
                 {
                     feature,
                     mapId: this.mapId,
+                    hasPopups: this.showMarkerPopups,
                     onShowDetail: (featureShow) => {
                         this.$emit('showDetail', featureShow);
                     },
@@ -679,7 +680,6 @@ export default {
                     'interaction-state': 'active',
                 },
             );
-
             mapStore.setActivePlace({
                 mapId: this.mapId,
                 activeFeature: feature,
@@ -757,10 +757,10 @@ export default {
                 this.popup = new mapboxgl.Popup({
                     closeButton: false,
                     offset: {
-                        top: [0, 0],
-                        bottom: [0, -30],
-                        left: [0, 0],
-                        right: [0, 0],
+                        top: [0, 20],
+                        bottom: [0, -40],
+                        left: [30, -20],
+                        right: [-30, -20],
                     },
                 }).setLngLat(coordinates)
                     .setHTML(popupHtml)
