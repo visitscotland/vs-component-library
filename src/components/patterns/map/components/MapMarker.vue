@@ -173,7 +173,6 @@ export default {
     background: transparent;
     border: none;
     display: block;
-    font-weight: $font-weight-bold;
     padding: 0;
     position: absolute;
 
@@ -183,8 +182,12 @@ export default {
         z-index: 1 !important;
 
         .vs-map-marker-icon--map-marker {
-            transform: scale(1.2);
-            transition: $transition-base;
+            transform: scale(1.4);
+            transition: all $duration-base;
+        }
+
+        .vs-map-marker-icon__count{
+            font-size: $font-size-3;
         }
     }
 }

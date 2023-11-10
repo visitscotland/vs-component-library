@@ -8,6 +8,7 @@
             :name="mapMarkerType"
             class="vs-map-marker-icon__marker"
             :class="markerClasses"
+            size="xl"
         />
 
         <span
@@ -24,7 +25,7 @@
             v-else
             class="vs-map-marker-icon__icon"
             :name="getIconDetails(id).name"
-            size="xxs"
+            size="xs"
             variant="color-white"
         />
     </div>
@@ -108,10 +109,8 @@ export default {
     }
 
     &__marker {
-        font-size: 30px !important;
-
         &--outline {
-            -webkit-text-stroke-color: $color-white;;
+            -webkit-text-stroke-color: $color-white;
             -webkit-text-stroke-width: 1px;
         }
     }
@@ -134,7 +133,6 @@ export default {
         left: 50%;
         top: 5px;
         transform: translateX(-50%);
-        font-size: $font-size-2 !important;
         color: $color-white;
     }
 
