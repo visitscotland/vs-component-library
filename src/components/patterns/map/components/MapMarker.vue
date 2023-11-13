@@ -209,14 +209,20 @@ export default {
     &--active {
         z-index: 1 !important;
 
-        .vs-map-marker-icon--map-marker {
-            transform: scale(1.4);
-            transform-origin: bottom center;
-            transition: ease-in-out .15s;
-        }
+        .vs-map-marker-icon {
+            &__marker{
+                color: #161616;
+            }
 
-        .vs-map-marker-icon__count{
-            font-size: $font-size-3;
+            &--map-marker {
+                transform: scale(1.4);
+                transform-origin: bottom center;
+                transition: ease-in-out .15s;
+            }
+
+            &__count {
+                font-size: $font-size-3;
+            }
         }
     }
 }
