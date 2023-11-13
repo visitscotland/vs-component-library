@@ -1082,6 +1082,12 @@ export default {
     }
 
     .mapboxgl-ctrl-fullscreen {
+        display: none;
+
+        @include media-breakpoint-up(lg) {
+            display: block;
+        }
+
         &::after {
             font-family: "Font Awesome Kit";
             content: "\e017";
