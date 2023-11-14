@@ -210,10 +210,6 @@ export default {
         z-index: 1 !important;
 
         .vs-map-marker-icon {
-            &__marker{
-                color: #161616;
-            }
-
             &--map-marker {
                 transform: scale(1.4);
                 transform-origin: bottom center;
@@ -222,6 +218,14 @@ export default {
 
             &__count {
                 font-size: $font-size-3;
+            }
+        }
+    }
+
+    &--active {
+        .vs-map-marker-icon {
+            &__marker{
+                color: #161616;
             }
         }
     }

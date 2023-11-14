@@ -834,6 +834,13 @@ export default {
             document.body.addEventListener('keyup', (e) => {
                 if (e.key === 'Escape' || e.key === 'Tab') {
                     this.removeMapPopup(marker);
+
+                    if (this.showMarkerPopups) {
+                        mapStore.setActivePlace({
+                            mapId: this.mapId,
+                            activeFeature: null,
+                        });
+                    }
                 };
             });
 
