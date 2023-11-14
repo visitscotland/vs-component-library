@@ -272,18 +272,19 @@ export default {
             }
         },
         selectedItem(newVal) {
-            if (this.activeStateId) {
+            console.log(newVal);
+            if (newVal && newVal.geometry.type !== 'Point') {
                 let isPolygon = [];
-                if (newVal) {
-                    isPolygon = this.polygons.features
-                        .filter((feature) => feature.properties.id === newVal.properties.id);
-                }
+                isPolygon = this.polygons.features
+                    .filter((feature) => feature.properties.id === newVal.properties.id);
 
-                if (!newVal) {
-                    this.removeActivePolygon();
-                } else if (isPolygon.length > 0) {
+                if (isPolygon.length > 0) {
                     this.addActivePolygon(newVal);
                 }
+            }
+
+            if (!newVal) {
+                this.removeActivePolygon();
             }
         },
         activeMarkerPostion(coords) {
