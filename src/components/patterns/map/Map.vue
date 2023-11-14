@@ -272,7 +272,6 @@ export default {
             }
         },
         selectedItem(newVal) {
-            console.log(newVal);
             if (newVal && newVal.geometry.type !== 'Point') {
                 let isPolygon = [];
                 isPolygon = this.polygons.features
