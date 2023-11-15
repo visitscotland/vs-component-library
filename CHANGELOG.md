@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.54](https://github.com/visitscotland/vs-component-library/compare/v1.0.53...v1.0.54) (2023-11-15)
+
+
+### ✨ Features
+
+* **cookies:** add option to bypass cookie checks for cms preview mode ([7e06ae0](https://github.com/visitscotland/vs-component-library/commit/7e06ae01eb00dc39388cb0e80de851c0f3fdef2e))
+* **cookies:** make variables more consistent in verify mixin ([69d656e](https://github.com/visitscotland/vs-component-library/commit/69d656eb2e56d24f4f4b7ff549087958254e3644))
+
 ### [1.0.53](https://github.com/visitscotland/vs-component-library/compare/v1.0.52...v1.0.53) (2023-11-09)
 
 
