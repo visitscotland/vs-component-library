@@ -38,7 +38,7 @@ const cookieCheckerMixin = {
         },
         cookiesInitStatus() {
             if (window.bypassCookieChecks) {
-                return true;
+                return this.bypassCookiesExist;
             }
 
             if (typeof this.onetrustActiveGroups === 'undefined' || this.cookiesSet.length === 0) {
