@@ -46,9 +46,34 @@
             <p class="vs-carbon-calculator-results__per-day">
                 {{ interpolKGsPerDay }}
             </p>
-            <p v-if="totalPerDay <= labelsMap.perDayTarget">
-                {{ interpolPerDaySuccess }}
-            </p>
+        </VsCol>
+        <VsCol
+            cols="12"
+            v-if="totalPerDay <= labelsMap.perDayTarget"
+            class="vs-carbon-calculator-results__unicorn"
+        >
+            <div
+                class="vs-carbon-calculator-results__unicorn-icon-container"
+            >
+                <VsIcon
+                    name="unicorn"
+                    size="lg"
+                    class="vs-carbon-calculator-results__unicorn-icon"
+                />
+            </div>
+            <div
+                class="vs-carbon-calculator-results__unicorn-content"
+            >
+                <VsHeading
+                    level="6"
+                >
+                    {{ labelsMap.perDayCongratulations }}
+                </VsHeading>
+
+                <p>
+                    {{ interpolPerDaySuccess }}
+                </p>
+            </div>
         </VsCol>
         <VsCol>
             <VsHeading
@@ -96,6 +121,7 @@
 
 <script>
 import { VsCol, VsRow } from '@components/elements/grid';
+import VsIcon from '@components/elements/icon/Icon.vue';
 import VsHeading from '@components/elements/heading/Heading.vue';
 import { ref } from 'vue';
 import {
@@ -118,6 +144,7 @@ export default {
         VsCol,
         VsRow,
         VsHeading,
+        VsIcon,
         VsCarbonCalculatorTip,
         Chart,
         Grid,
@@ -370,6 +397,37 @@ export default {
 
         @include media-breakpoint-up(md) {
             margin-bottom: $spacer-10;
+        }
+    }
+
+    .vs-carbon-calculator-results__unicorn {
+        box-shadow: $shadow_card_tight;
+        padding: $spacer-8 $spacer-4;
+        background-color: $color-yellow-tint-6;
+
+        .vs-heading {
+            margin-top: 0;
+        }
+
+        .vs-carbon-calculator-results__unicorn-content {
+            margin-bottom: $spacer-0;
+        }
+
+        .vs-carbon-calculator-results__unicorn-icon-container {
+            display: inline-flex;
+            justify-content: center;
+            vertical-align: top;
+            width: $spacer-10;
+
+            .vs-icon {
+                color: $color-pink;
+            }
+        }
+
+        .vs-carbon-calculator-results__unicorn-content {
+            display: inline-block;
+            width: calc(100% - $spacer-10);
+            vertical-align: top;
         }
     }
 </style>
