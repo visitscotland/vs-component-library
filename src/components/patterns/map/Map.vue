@@ -272,18 +272,18 @@ export default {
             }
         },
         selectedItem(newVal) {
-            if (this.activeStateId) {
+            if (newVal && newVal.geometry.type !== 'Point') {
                 let isPolygon = [];
-                if (newVal) {
-                    isPolygon = this.polygons.features
-                        .filter((feature) => feature.properties.id === newVal.properties.id);
-                }
+                isPolygon = this.polygons.features
+                    .filter((feature) => feature.properties.id === newVal.properties.id);
 
-                if (!newVal) {
-                    this.removeActivePolygon();
-                } else if (isPolygon.length > 0) {
+                if (isPolygon.length > 0) {
                     this.addActivePolygon(newVal);
                 }
+            }
+
+            if (!newVal) {
+                this.removeActivePolygon();
             }
         },
         activeMarkerPostion(coords) {
@@ -505,6 +505,7 @@ export default {
                 {
                     feature,
                     mapId: this.mapId,
+                    hasPopups: this.showMarkerPopups,
                     onShowDetail: (featureShow) => {
                         this.$emit('showDetail', featureShow);
                     },
@@ -679,7 +680,6 @@ export default {
                     'interaction-state': 'active',
                 },
             );
-
             mapStore.setActivePlace({
                 mapId: this.mapId,
                 activeFeature: feature,
@@ -757,10 +757,10 @@ export default {
                 this.popup = new mapboxgl.Popup({
                     closeButton: false,
                     offset: {
-                        top: [0, 0],
-                        bottom: [0, -30],
-                        left: [0, 0],
-                        right: [0, 0],
+                        top: [0, 20],
+                        bottom: [0, -40],
+                        left: [30, -20],
+                        right: [-30, -20],
                     },
                 }).setLngLat(coordinates)
                     .setHTML(popupHtml)
@@ -834,6 +834,13 @@ export default {
             document.body.addEventListener('keyup', (e) => {
                 if (e.key === 'Escape' || e.key === 'Tab') {
                     this.removeMapPopup(marker);
+
+                    if (this.showMarkerPopups) {
+                        mapStore.setActivePlace({
+                            mapId: this.mapId,
+                            activeFeature: null,
+                        });
+                    }
                 };
             });
 
