@@ -124,6 +124,12 @@ module.exports = {
         ],
         'no-debugger': 'warn',
         'no-underscore-dangle': 'off',
+        'prefer-destructuring': ['error', {
+            array: false,
+            object: false,
+        }, {
+            enforceForRenamedProperties: false,
+        }],
     },
     settings: {
         'import/resolver': {
