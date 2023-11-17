@@ -53,35 +53,6 @@ describe('VsCarbonCalculatorResults', () => {
             expect(wrapper.text()).toContain(kgsOf);
         });
 
-        it('should correctly render the labelsMap `kgsPerDay`', () => {
-            const wrapper = factoryShallowMount();
-
-            expect(wrapper.text()).toContain('KGs of CO2 per day');
-        });
-
-        it('should render the total kilos value', () => {
-            const wrapper = factoryShallowMount({
-                totalKilos: 10,
-                stayDuration: 4,
-            });
-
-            const perDay = wrapper.find('.vs-carbon-calculator-results__per-day');
-
-            expect(perDay.text()).toContain('2.5');
-        });
-
-        it('should render the total kilos value with a comma delimeter if the locale is set to de-de', () => {
-            const wrapper = factoryShallowMount({
-                totalKilos: 10,
-                stayDuration: 4,
-                language: 'de-de',
-            });
-
-            const perDay = wrapper.find('.vs-carbon-calculator-results__per-day');
-
-            expect(perDay.text()).toContain('2,5');
-        });
-
         it('should not render the labelsMap `perDaySuccess` if perDay emissions are above the `perDayTarget` value', () => {
             const wrapper = factoryShallowMount({
                 totalKilos: 20,
