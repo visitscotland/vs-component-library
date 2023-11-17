@@ -32,6 +32,7 @@
                             >
                                 <VsHeading
                                     level="3"
+                                    class="vs-carbon-calculator__category-heading"
                                 >
                                     {{ currentCategory }}
                                 </VsHeading>
@@ -825,6 +826,15 @@ export default {
 <style lang='scss'>
     .vs-carbon-calculator {
         display: block;
+
+        .vs-progress-bar {
+            margin-bottom: $spacer-8;
+        }
+
+        .vs-carbon-calculator__category-heading {
+            margin-top: 0;
+            margin-bottom: $spacer-6;
+        }
     }
 
     .vs-carbon-calculator__wrapper .vs-warning {

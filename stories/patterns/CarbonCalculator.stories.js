@@ -42,7 +42,7 @@ const base = {
         results: 'Results',
         resultsIntro: 'Your estimated total carbon emission for your trip is',
         chartTitle: 'Your emissions breakdown',
-        comparison: 'That\'s the equivalent of xxx kms in a medium-sized petrol car, which would take you from Edinburgh to London yyy times!',
+        comparison: 'That\'s the equivalent of <b>xxx kms</b> in a medium-sized petrol car, which would take you from <b>Edinburgh to London yyy times</b>!',
         kilos: 'kilos',
         begin: 'Start Questionnaire',
         introHeading: 'Calculate Your Carbon',

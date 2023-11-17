@@ -10,42 +10,40 @@
                 {{ labelsMap.results }}
             </VsHeading>
         </VsCol>
-        <VsCol
-            cols="12"
-        >
+        <VsCol cols="12">
             <VsRow
-                class="vs-carbon-calculator-results__headline"
+                class="vs-carbon-calculator-results__summary"
             >
                 <VsCol
                     cols="12"
                     md="6"
                 >
-                    <p>{{ labelsMap.resultsIntro }}</p>
-                    <p>
-                        <span class="vs-carbon-calculator-results__total">
-                            {{ totalKilos.toLocaleString(language) }}
-                        </span>
-                        {{ labelsMap.kgsOf }}
-                    </p>
+                    <div
+                        class="vs-carbon-calculator-results__headline"
+                    >
+                        <p class="mb-2">
+                            {{ labelsMap.resultsIntro }}
+                        </p>
+                        <p>
+                            <span class="vs-carbon-calculator-results__total">
+                                {{ totalKilos.toLocaleString(language) }}
+                            </span>
+                            {{ labelsMap.kgsOf }}
+                        </p>
+                    </div>
+                </VsCol>
+                <VsCol
+                    cols="12"
+                    md="6"
+                    class="vs-carbon-calculator-results__comparison"
+                >
+                    <!-- eslint-disable -->
+                    <p
+                        v-html="interpolComparison"
+                    />
+                    <!-- eslint-enable -->
                 </VsCol>
             </VsRow>
-        </VsCol>
-        <VsCol
-            cols="12"
-            class="vs-carbon-calculator-results__comparison"
-        >
-            <!-- eslint-disable -->
-            <p
-                v-html="interpolComparison"
-            />
-            <!-- eslint-enable -->
-        </VsCol>
-        <VsCol
-            cols="12"
-        >
-            <p class="vs-carbon-calculator-results__per-day">
-                {{ interpolKGsPerDay }}
-            </p>
         </VsCol>
         <VsCol
             cols="12"
@@ -78,6 +76,7 @@
         <VsCol>
             <VsHeading
                 level="3"
+                class="mt-0"
             >
                 {{ labelsMap.chartTitle }}
             </VsHeading>
@@ -330,6 +329,10 @@ export default {
 </script>
 
 <style lang='scss'>
+    .vs-carbon-calculator-results__summary {
+        margin-bottom: $spacer-8;
+    }
+
     .vs-carbon-calculator-results__total {
         font-size: $font-size-10;
         font-weight: $font-weight-bold;
@@ -351,7 +354,7 @@ export default {
         margin-top: $spacer-6;
 
         @include media-breakpoint-up(md) {
-            margin-top: $spacer-10;
+            margin-top: $spacer-7;
         }
 
         > div {
@@ -404,6 +407,7 @@ export default {
         box-shadow: $shadow_card_tight;
         padding: $spacer-8 $spacer-4;
         background-color: $color-yellow-tint-6;
+        margin-bottom: $spacer-8;
 
         .vs-heading {
             margin-top: 0;
