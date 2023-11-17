@@ -107,14 +107,6 @@
                 </template>
             </Responsive>
         </VsCol>
-        <VsCol
-            cols="12"
-            class="mt-8"
-        >
-            <VsCarbonCalculatorTip
-                :showing-all-tips="true"
-            />
-        </VsCol>
     </VsRow>
 </template>
 
@@ -130,7 +122,6 @@ import {
     Responsive,
 } from 'vue3-charts';
 import dataLayerMixin from '@/mixins/dataLayerMixin';
-import VsCarbonCalculatorTip from './CarbonCalculatorTip.vue';
 
 /**
  * @displayName Carbon Form Results
@@ -144,7 +135,6 @@ export default {
         VsRow,
         VsHeading,
         VsIcon,
-        VsCarbonCalculatorTip,
         Chart,
         Grid,
         Bar,
