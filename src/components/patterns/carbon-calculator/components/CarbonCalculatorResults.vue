@@ -26,7 +26,9 @@
                         </p>
                         <p>
                             <span class="vs-carbon-calculator-results__total">
-                                {{ totalKilos.toLocaleString(language) }}
+                                {{ totalKilos.toLocaleString(language, {
+                                    minimumFractionDigits: 3,
+                                }) }}
                             </span>
                             {{ labelsMap.kgsOf }}
                         </p>
@@ -256,7 +258,9 @@ export default {
                 baseComparison = baseComparison.replace(
                     this.comparisonReplacements[x].repl,
                     (this.totalKilos / this.comparisonReplacements[x].divisor)
-                        .toLocaleString(this.language),
+                        .toLocaleString(this.language, {
+                            minimumFractionDigits: 3,
+                        }),
                 );
             }
 
@@ -284,7 +288,10 @@ export default {
             return (this.foodKilos / this.totalKilos) * 100;
         },
         totalPerDay() {
-            return (this.totalKilos / Math.max(this.stayDuration, 1)).toLocaleString(this.language);
+            return (this.totalKilos / Math.max(this.stayDuration, 1))
+                .toLocaleString(this.language, {
+                    minimumFractionDigits: 3,
+                });
         },
     },
     mounted() {
