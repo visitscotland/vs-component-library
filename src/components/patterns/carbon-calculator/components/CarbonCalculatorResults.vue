@@ -288,10 +288,7 @@ export default {
             return (this.foodKilos / this.totalKilos) * 100;
         },
         totalPerDay() {
-            return (this.totalKilos / Math.max(this.stayDuration, 1))
-                .toLocaleString(this.language, {
-                    minimumFractionDigits: 3,
-                });
+            return (this.totalKilos / Math.max(this.stayDuration, 1));
         },
     },
     mounted() {
