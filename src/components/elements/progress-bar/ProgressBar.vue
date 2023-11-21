@@ -144,7 +144,7 @@ export default {
 
         .progress {
             width: 100%;
-            margin: $spacer-2 $spacer-0 $spacer-4;
+            margin: $spacer-2 $spacer-0 $spacer-2;
             background: $color-gray-tint-7;
             border-radius: $spacer-2;
             overflow: hidden;

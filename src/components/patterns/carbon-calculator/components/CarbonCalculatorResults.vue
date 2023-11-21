@@ -10,49 +10,75 @@
                 {{ labelsMap.results }}
             </VsHeading>
         </VsCol>
-        <VsCol
-            cols="12"
-        >
+        <VsCol cols="12">
             <VsRow
-                class="vs-carbon-calculator-results__headline"
+                class="vs-carbon-calculator-results__summary"
             >
                 <VsCol
                     cols="12"
                     md="6"
                 >
-                    <p>{{ labelsMap.resultsIntro }}</p>
-                    <p>
-                        <span class="vs-carbon-calculator-results__total">
-                            {{ totalKilos.toLocaleString(language) }}
-                        </span>
-                        {{ labelsMap.kgsOf }}
-                    </p>
+                    <div
+                        class="vs-carbon-calculator-results__headline"
+                    >
+                        <p class="mb-2">
+                            {{ labelsMap.resultsIntro }}
+                        </p>
+                        <p>
+                            <span class="vs-carbon-calculator-results__total">
+                                {{ totalKilos.toLocaleString(language, {
+                                    minimumFractionDigits: 3,
+                                }) }}
+                            </span>
+                            {{ labelsMap.kgsOf }}
+                        </p>
+                    </div>
+                </VsCol>
+                <VsCol
+                    cols="12"
+                    md="6"
+                    class="vs-carbon-calculator-results__comparison"
+                >
+                    <!-- eslint-disable -->
+                    <p
+                        v-html="interpolComparison"
+                    />
+                    <!-- eslint-enable -->
                 </VsCol>
             </VsRow>
         </VsCol>
         <VsCol
             cols="12"
-            class="vs-carbon-calculator-results__comparison"
+            v-if="totalPerDay <= labelsMap.perDayTarget"
+            class="vs-carbon-calculator-results__unicorn"
         >
-            <!-- eslint-disable -->
-            <p
-                v-html="interpolComparison"
-            />
-            <!-- eslint-enable -->
-        </VsCol>
-        <VsCol
-            cols="12"
-        >
-            <p class="vs-carbon-calculator-results__per-day">
-                {{ interpolKGsPerDay }}
-            </p>
-            <p v-if="totalPerDay <= labelsMap.perDayTarget">
-                {{ interpolPerDaySuccess }}
-            </p>
+            <div
+                class="vs-carbon-calculator-results__unicorn-icon-container"
+            >
+                <VsIcon
+                    name="unicorn"
+                    size="lg"
+                    class="vs-carbon-calculator-results__unicorn-icon"
+                />
+            </div>
+            <div
+                class="vs-carbon-calculator-results__unicorn-content"
+            >
+                <VsHeading
+                    level="6"
+                >
+                    {{ labelsMap.perDayCongratulations }}
+                </VsHeading>
+
+                <p>
+                    {{ interpolPerDaySuccess }}
+                </p>
+            </div>
         </VsCol>
         <VsCol>
             <VsHeading
                 level="3"
+                class="mt-0"
             >
                 {{ labelsMap.chartTitle }}
             </VsHeading>
@@ -83,19 +109,12 @@
                 </template>
             </Responsive>
         </VsCol>
-        <VsCol
-            cols="12"
-            class="mt-8"
-        >
-            <VsCarbonCalculatorTip
-                :showing-all-tips="true"
-            />
-        </VsCol>
     </VsRow>
 </template>
 
 <script>
 import { VsCol, VsRow } from '@components/elements/grid';
+import VsIcon from '@components/elements/icon/Icon.vue';
 import VsHeading from '@components/elements/heading/Heading.vue';
 import { ref } from 'vue';
 import {
@@ -105,7 +124,6 @@ import {
     Responsive,
 } from 'vue3-charts';
 import dataLayerMixin from '@/mixins/dataLayerMixin';
-import VsCarbonCalculatorTip from './CarbonCalculatorTip.vue';
 
 /**
  * @displayName Carbon Form Results
@@ -118,7 +136,7 @@ export default {
         VsCol,
         VsRow,
         VsHeading,
-        VsCarbonCalculatorTip,
+        VsIcon,
         Chart,
         Grid,
         Bar,
@@ -240,7 +258,9 @@ export default {
                 baseComparison = baseComparison.replace(
                     this.comparisonReplacements[x].repl,
                     (this.totalKilos / this.comparisonReplacements[x].divisor)
-                        .toLocaleString(this.language),
+                        .toLocaleString(this.language, {
+                            minimumFractionDigits: 3,
+                        }),
                 );
             }
 
@@ -268,7 +288,7 @@ export default {
             return (this.foodKilos / this.totalKilos) * 100;
         },
         totalPerDay() {
-            return (this.totalKilos / Math.max(this.stayDuration, 1)).toLocaleString(this.language);
+            return (this.totalKilos / Math.max(this.stayDuration, 1));
         },
     },
     mounted() {
@@ -303,6 +323,10 @@ export default {
 </script>
 
 <style lang='scss'>
+    .vs-carbon-calculator-results__summary {
+        margin-bottom: $spacer-8;
+    }
+
     .vs-carbon-calculator-results__total {
         font-size: $font-size-10;
         font-weight: $font-weight-bold;
@@ -324,7 +348,7 @@ export default {
         margin-top: $spacer-6;
 
         @include media-breakpoint-up(md) {
-            margin-top: $spacer-10;
+            margin-top: $spacer-7;
         }
 
         > div {
@@ -370,6 +394,38 @@ export default {
 
         @include media-breakpoint-up(md) {
             margin-bottom: $spacer-10;
+        }
+    }
+
+    .vs-carbon-calculator-results__unicorn {
+        box-shadow: $shadow_card_tight;
+        padding: $spacer-8 $spacer-4;
+        background-color: $color-yellow-tint-6;
+        margin-bottom: $spacer-8;
+
+        .vs-heading {
+            margin-top: 0;
+        }
+
+        .vs-carbon-calculator-results__unicorn-content {
+            margin-bottom: $spacer-0;
+        }
+
+        .vs-carbon-calculator-results__unicorn-icon-container {
+            display: inline-flex;
+            justify-content: center;
+            vertical-align: top;
+            width: $spacer-10;
+
+            .vs-icon {
+                color: $color-pink;
+            }
+        }
+
+        .vs-carbon-calculator-results__unicorn-content {
+            display: inline-block;
+            width: calc(100% - $spacer-10);
+            vertical-align: top;
         }
     }
 </style>
