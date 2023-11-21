@@ -283,6 +283,7 @@ export default {
 
     .vs-radio-button {
         width: 100%;
+        margin: -#{$spacer-3} $spacer-0;
 
         .vs-radio-button__option {
             display: inline-block;
