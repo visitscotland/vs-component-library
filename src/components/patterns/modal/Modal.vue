@@ -9,6 +9,7 @@
         hide-header
         :static="isVideoModal"
         v-model="show"
+        v-if="mounted"
     >
         <VsContainer>
             <VsRow>
@@ -91,9 +92,12 @@ export default {
     data() {
         return {
             show: false,
+            mounted: false,
         };
     },
     mounted() {
+        this.mounted = true;
+
         this.emitter.on('showModal', (id) => this.showModal(id));
 
         if (this.isVideoModal) {
