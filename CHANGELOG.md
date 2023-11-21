@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/visitscotland/vs-component-library/compare/v1.1.0...v1.1.1) (2023-11-21)
+
+
+### 🐛 Bug Fixes
+
+* **carbon calculator:** correct analytics mixin path ([16df17a](https://github.com/visitscotland/vs-component-library/commit/16df17a6f96dcac2fad87e78d907217b31dd9e4b))
+* **carbon calculator:** remove deprecated per day tests ([fc930bd](https://github.com/visitscotland/vs-component-library/commit/fc930bd7ae3b0b33e3c29f49462e909f72f1ef36))
+
+
+### ✨ Features
+
+* **carbon calculator:** add new icon and style carbon unicorn box ([01e7d86](https://github.com/visitscotland/vs-component-library/commit/01e7d8622712483ea0271a6a33c88e055787a139))
+* **carbon calculator:** correct vertical spacing throughout calculator ([dd46b56](https://github.com/visitscotland/vs-component-library/commit/dd46b5686057f7b6cf30cc0544fccd4e72e04f5b))
+* **carbon calculator:** ensure non-en-gb languages see carbon unicorn ([30b9092](https://github.com/visitscotland/vs-component-library/commit/30b9092d186514673ff9c5b95e7eee5358cddb31))
+* **carbon calculator:** make localised number decimal count consistent ([318f402](https://github.com/visitscotland/vs-component-library/commit/318f402c92020b99b4d18f3616e0bf859a120bac))
+* **carbon calculator:** remove tips from results page ([432fd16](https://github.com/visitscotland/vs-component-library/commit/432fd163061eaba4d4631b7a994dd02314683e86))
+
 ## [1.1.0](https://github.com/visitscotland/vs-component-library/compare/v1.0.54...v1.1.0) (2023-11-16)
 
 
