@@ -56,19 +56,7 @@ export default {
         }),
     },
     mounted() {
-        if (this.emitter) {
-            this.emitter.on('checkboxes-selected', (val) => {
-                if (val) {
-                    this.isDisabled = false;
-                } else {
-                    this.isDisabled = true;
-                }
-            });
-        }
-
-        if (this.getSubcatFilters.length > 0) {
-            this.isDisabled = false;
-        }
+        this.disableSubmitButton();
     },
     methods: {
         /**
@@ -87,6 +75,21 @@ export default {
         submitCheckboxes() {
             if (this.emitter) {
                 this.emitter.emit('submitCheckboxData');
+            }
+        },
+        disableSubmitButton() {
+            if (this.emitter) {
+                this.emitter.on('checkboxes-selected', (val) => {
+                    if (val.length > 0) {
+                        this.isDisabled = false;
+                    } else {
+                        this.isDisabled = true;
+                    }
+                });
+            }
+
+            if (this.getSubcatFilters.length > 0) {
+                this.isDisabled = false;
             }
         },
     },
