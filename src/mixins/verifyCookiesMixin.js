@@ -20,7 +20,7 @@ const cookieCheckerMixin = {
             return null;
         },
         requiredCookiesExist() {
-            if (window.bypassCookieChecks) {
+            if (typeof window !== 'undefined' && window.bypassCookieChecks) {
                 return this.bypassCookiesExist;
             }
 
@@ -34,10 +34,11 @@ const cookieCheckerMixin = {
             } else {
                 cookiesExist = false;
             }
+
             return cookiesExist;
         },
         cookiesInitStatus() {
-            if (window.bypassCookieChecks) {
+            if (typeof window !== 'undefined' && window.bypassCookieChecks) {
                 return this.bypassCookiesExist;
             }
 

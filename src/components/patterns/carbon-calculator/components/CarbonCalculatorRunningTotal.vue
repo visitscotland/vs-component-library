@@ -16,7 +16,7 @@
         >
             <p>{{ labelsMap.soFar }}</p>
             <p>
-                <span class="font-weight-bold">{{ totalKilos.toLocaleString(language) }}</span> {{ labelsMap.kgsOf }}
+                <span class="font-weight-bold">{{ totalKilos.toLocaleString(language, { minimumFractionDigits: 3 }) }}</span> {{ labelsMap.kgsOf }}
             </p>
         </div>
     </div>

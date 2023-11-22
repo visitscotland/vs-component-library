@@ -9,7 +9,7 @@
         >
             <!-- eslint-disable -->
             <label
-                class="vs-carbon-calculator-question__label my-4"
+                class="vs-carbon-calculator-question__label mb-8"
                 :for="fieldName"
             >
                 {{ label }}
@@ -142,7 +142,7 @@ export default {
 
 <style lang='scss'>
     .vs-carbon-calculator-question {
-        margin-bottom: $spacer-4;
+        margin-bottom: $spacer-8;
     }
 
     .vs-carbon-calculator-question__label {

@@ -2,6 +2,80 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.2](https://github.com/visitscotland/vs-component-library/compare/v1.1.1...v1.1.2) (2023-11-22)
+
+
+### 🐛 Bug Fixes
+
+* **modal:** don't attempt to render the modal component in ssr ([b91dd33](https://github.com/visitscotland/vs-component-library/commit/b91dd332954bf24707921d4dd7f69ae99649fa98))
+
+
+### ✅ Tests
+
+* **modal:** bypass mount checks for jest environment ([ab8d368](https://github.com/visitscotland/vs-component-library/commit/ab8d3680ed4f30b25a0376360b62ede41c280c15))
+
+### [1.1.1](https://github.com/visitscotland/vs-component-library/compare/v1.1.0...v1.1.1) (2023-11-21)
+
+
+### 🐛 Bug Fixes
+
+* **carbon calculator:** correct analytics mixin path ([16df17a](https://github.com/visitscotland/vs-component-library/commit/16df17a6f96dcac2fad87e78d907217b31dd9e4b))
+* **carbon calculator:** remove deprecated per day tests ([fc930bd](https://github.com/visitscotland/vs-component-library/commit/fc930bd7ae3b0b33e3c29f49462e909f72f1ef36))
+
+
+### ✨ Features
+
+* **carbon calculator:** add new icon and style carbon unicorn box ([01e7d86](https://github.com/visitscotland/vs-component-library/commit/01e7d8622712483ea0271a6a33c88e055787a139))
+* **carbon calculator:** correct vertical spacing throughout calculator ([dd46b56](https://github.com/visitscotland/vs-component-library/commit/dd46b5686057f7b6cf30cc0544fccd4e72e04f5b))
+* **carbon calculator:** ensure non-en-gb languages see carbon unicorn ([30b9092](https://github.com/visitscotland/vs-component-library/commit/30b9092d186514673ff9c5b95e7eee5358cddb31))
+* **carbon calculator:** make localised number decimal count consistent ([318f402](https://github.com/visitscotland/vs-component-library/commit/318f402c92020b99b4d18f3616e0bf859a120bac))
+* **carbon calculator:** remove tips from results page ([432fd16](https://github.com/visitscotland/vs-component-library/commit/432fd163061eaba4d4631b7a994dd02314683e86))
+
+## [1.1.0](https://github.com/visitscotland/vs-component-library/compare/v1.0.54...v1.1.0) (2023-11-16)
+
+
+### 🐛 Bug Fixes
+
+* **map:** fix breaking unit tests ([1f24a3e](https://github.com/visitscotland/vs-component-library/commit/1f24a3e2651f82d75ed4c4a616788517a10bfc7d))
+* **map:** fix failing tests ([861bfe6](https://github.com/visitscotland/vs-component-library/commit/861bfe6d49e0aa384ce23e718a9d215db43ae0bc))
+* **map:** fix regions active state to work when clicking sidebar ([43f9f72](https://github.com/visitscotland/vs-component-library/commit/43f9f72e3b69a3d2400acbbc9b759877b14f70f5))
+* **map:** fix sidebar hover for polygons ([0e034b4](https://github.com/visitscotland/vs-component-library/commit/0e034b43bbe9ef98ff715224d149fc5cc6c8addc))
+* **map:** remove active map pin when tabbing to next pin ([7b13f1e](https://github.com/visitscotland/vs-component-library/commit/7b13f1e537f93574445b555e075d8f90d0eeb338))
+
+
+### ♻️ Code Refactoring
+
+* **itinerary:** update itinerary stories with new, working example ([2c5c5c8](https://github.com/visitscotland/vs-component-library/commit/2c5c5c8322e63934d54636afd02bf15e438f6bcf))
+* **map marker:** update marker popup with new marker dimensions ([7942cc1](https://github.com/visitscotland/vs-component-library/commit/7942cc1e2ad5936d1ee6dedbf08f9b9ef64db61d))
+* **map:** add new proper to toggle map popups ([0d61ed4](https://github.com/visitscotland/vs-component-library/commit/0d61ed499d1c8a0538fbcee43bb0ccf3f6966c2b))
+* **map:** add number to map icon ([5e9697e](https://github.com/visitscotland/vs-component-library/commit/5e9697e5069205e53957de8199645556f62970ac))
+* **map:** add popup functionality to all map features ([dfaee86](https://github.com/visitscotland/vs-component-library/commit/dfaee86986ff1ca8fb008cd54a5b71745519d8ae))
+* **map:** fix popup functionality across all maps ([498b8e8](https://github.com/visitscotland/vs-component-library/commit/498b8e8822d54bbc578b9d9aca4f0ac9dd5dc4e6))
+* **map:** refactor adding popup html to get full map object ([cdc2712](https://github.com/visitscotland/vs-component-library/commit/cdc271294b53ed4f7bd99635bee146de0604fa47))
+* **map:** refactor hovered place to always be full feature object not id ([c1e6ea8](https://github.com/visitscotland/vs-component-library/commit/c1e6ea868279c16ddcc63d813696e5505d635433))
+* **map:** refactor to use feature object instead of id ([1dbafc0](https://github.com/visitscotland/vs-component-library/commit/1dbafc0fe0796f6947d99916626e68dd07f0360b))
+* **map:** refactoring map code to be more readable ([7062564](https://github.com/visitscotland/vs-component-library/commit/7062564c7cba288c24d660f7e22700389e2218a6))
+* **map:** remove console.log statement ([b704904](https://github.com/visitscotland/vs-component-library/commit/b704904ccd26702a540912ae1f29a3eac43f50a5))
+* **map:** rename main map wrapper to map with sidebar ([b6a4dc7](https://github.com/visitscotland/vs-component-library/commit/b6a4dc7d68136e418551ca903800d73e9528bf81))
+* **map:** rename map with sidebar story file ([ddfcf40](https://github.com/visitscotland/vs-component-library/commit/ddfcf4014c20ecd1d7ff94b364a3f63cc451bf2c))
+* **map:** renaming files to follow our naming convention and fixing unit tests ([56a22d4](https://github.com/visitscotland/vs-component-library/commit/56a22d41a9a042f1d1782e8b0382e839c082aa12))
+* **maps:** move map into its own component ([0177121](https://github.com/visitscotland/vs-component-library/commit/0177121fc9d26cc458df5785bcdfacf0cb789c7a))
+* **maps:** update itineraries to use default map component ([c317aa7](https://github.com/visitscotland/vs-component-library/commit/c317aa7c6156fe426696424ee8a2ed05e26171ec))
+* **map:** tidy class names after map refactor ([99178c6](https://github.com/visitscotland/vs-component-library/commit/99178c654975b6424545a387f0a6a99fa7cbb867))
+
+
+### 🔖 Others
+
+* **package.json:** updating Storybook and Babel to fix security alerts ([17e9093](https://github.com/visitscotland/vs-component-library/commit/17e9093c493d07f18f37d3c42886062514fe013f))
+
+
+### 🎨 Styling
+
+* **,ap:** hide full screen button on mobile ([fdc57ad](https://github.com/visitscotland/vs-component-library/commit/fdc57adac266cdd76dacff297c2d9e42bf3f3813))
+* **map marker:** update map marker style to be bigger ([947cd26](https://github.com/visitscotland/vs-component-library/commit/947cd26ce6cd964679ce2fcfec7acf6ab40ea505))
+* **map:** add correct colour for marker on hover ([65f6633](https://github.com/visitscotland/vs-component-library/commit/65f663394c24db114a3e758d8d3ec5c837e2aded))
+* **map:** updating to correct marker color ([b30319f](https://github.com/visitscotland/vs-component-library/commit/b30319fd127554fc6df3778e18c2b8c02867725b))
+
 ### [1.0.54](https://github.com/visitscotland/vs-component-library/compare/v1.0.53...v1.0.54) (2023-11-15)
 
 

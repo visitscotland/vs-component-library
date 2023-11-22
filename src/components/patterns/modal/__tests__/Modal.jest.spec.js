@@ -15,6 +15,7 @@ const slotOptions = {
 const propOptions = {
     modalId: 'my-modal',
     closeBtnText: 'Close',
+    autoMount: true,
 };
 
 const factoryShallowMount = (propsData) => shallowMount(VsModal, {
