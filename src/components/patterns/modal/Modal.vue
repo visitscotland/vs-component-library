@@ -9,6 +9,7 @@
         hide-header
         :static="isVideoModal"
         v-model="show"
+        v-if="mounted"
     >
         <VsContainer>
             <VsRow>
@@ -87,13 +88,26 @@ export default {
             type: Boolean,
             default: false,
         },
+        /**
+         * In the jest environment we don't want to have to wait for the mounted
+         * trigger to occur before rendering the component, that fix is only necessary
+         * for the SSR environment and it slows our tests down. There we can skip
+         * through it and render the modal immediately.
+         */
+        autoMount: {
+            type: Boolean,
+            default: false,
+        },
     },
     data() {
         return {
             show: false,
+            mounted: this.autoMount,
         };
     },
     mounted() {
+        this.mounted = true;
+
         this.emitter.on('showModal', (id) => this.showModal(id));
 
         if (this.isVideoModal) {
