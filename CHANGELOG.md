@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.2](https://github.com/visitscotland/vs-component-library/compare/v1.1.1...v1.1.2) (2023-11-22)
+
+
+### 🐛 Bug Fixes
+
+* **modal:** don't attempt to render the modal component in ssr ([b91dd33](https://github.com/visitscotland/vs-component-library/commit/b91dd332954bf24707921d4dd7f69ae99649fa98))
+
+
+### ✅ Tests
+
+* **modal:** bypass mount checks for jest environment ([ab8d368](https://github.com/visitscotland/vs-component-library/commit/ab8d3680ed4f30b25a0376360b62ede41c280c15))
+
 ### [1.1.1](https://github.com/visitscotland/vs-component-library/compare/v1.1.0...v1.1.1) (2023-11-21)
 
 
