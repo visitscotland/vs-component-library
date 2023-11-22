@@ -536,15 +536,15 @@ export default {
          * Hide all polygons
          */
         hideMapPolygons() {
-            this.mapbox.map.setLayoutProperty('regions-fills', 'visibility', 'none');
-            this.mapbox.map.setLayoutProperty('regions-borders', 'visibility', 'none');
+            this.mapbox.map.setLayoutProperty('regionFills', 'visibility', 'none');
+            this.mapbox.map.setLayoutProperty('regionBorders', 'visibility', 'none');
         },
         /**
          * Show all polygons
          */
         showMapPolygons() {
-            this.mapbox.map.setLayoutProperty('regions-fills', 'visibility', 'visible');
-            this.mapbox.map.setLayoutProperty('regions-borders', 'visibility', 'visible');
+            this.mapbox.map.setLayoutProperty('regionFills', 'visibility', 'visible');
+            this.mapbox.map.setLayoutProperty('regionBorders', 'visibility', 'visible');
         },
         /**
          * Add polygons from data into map
@@ -590,7 +590,7 @@ export default {
                 });
 
                 this.mapbox.map.addLayer({
-                    id: 'regions-fills',
+                    id: 'regionFills',
                     type: 'fill',
                     source: 'regions',
                     layout: {
@@ -609,7 +609,7 @@ export default {
                 });
 
                 this.mapbox.map.addLayer({
-                    id: 'regions-borders',
+                    id: 'regionBorders',
                     type: 'line',
                     source: 'regions',
                     layout: {
@@ -625,7 +625,7 @@ export default {
 
                 // When the user moves their mouse over the state-fill layer,
                 // we'll update the feature state for the feature under the mouse.
-                this.mapbox.map.on('mousemove', 'regions-fills', (e) => {
+                this.mapbox.map.on('mousemove', 'regionFills', (e) => {
                     if (e.features.length > 0) {
                         this.addMapPopup(e);
                         this.removeHoveredPolygon();
@@ -635,14 +635,14 @@ export default {
 
                 // When the mouse leaves the state-fill layer, update the
                 // feature state of the previously hovered feature.
-                this.mapbox.map.on('mouseleave', 'regions-fills', (e) => {
+                this.mapbox.map.on('mouseleave', 'regionFills', (e) => {
                     this.removeMapPopup(e);
                     this.removeHoveredPolygon();
                 });
 
                 // When the clicks the the state-fill layer, update the
                 // feature state of the active feature.
-                this.mapbox.map.on('click', 'regions-fills', (e) => {
+                this.mapbox.map.on('click', 'regionFills', (e) => {
                     this.removeActivePolygon();
                     this.addActivePolygon(e.features[0]);
                     this.addMapPopup(e.features[0]);
@@ -653,17 +653,19 @@ export default {
          * Remove the current active polygon
          */
         removeActivePolygon() {
-            this.mapbox.map.setFeatureState(
-                {
-                    source: 'regions',
-                    id: this.activeStateId,
-                },
-                {
-                    'interaction-state': '',
-                },
-            );
+            if (this.mapbox.map.style._layers.regionFills) {
+                this.mapbox.map.setFeatureState(
+                    {
+                        source: 'regions',
+                        id: this.activeStateId,
+                    },
+                    {
+                        'interaction-state': '',
+                    },
+                );
 
-            this.activeStateId = null;
+                this.activeStateId = null;
+            }
         },
         /**
          * Add a new active polygon
