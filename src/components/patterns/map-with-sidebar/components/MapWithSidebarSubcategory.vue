@@ -162,6 +162,7 @@ export default {
             font-weight: $font-weight-bold;
             display: flex;
             align-items: center;
+            margin-right: $spacer-2;
         }
     }
 </style>
