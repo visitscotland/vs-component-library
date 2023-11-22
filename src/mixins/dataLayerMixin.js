@@ -16,6 +16,7 @@ import {
     shareTemplate,
     carbonQuestionTemplate,
     carbonCompleteTemplate,
+    productSearchTemplate,
 } from '../utils/data-layer-templates';
 
 /**
@@ -89,6 +90,22 @@ const dataLayerMixin = {
             }
 
             switch (type) {
+            case 'productSearchDataEvent':
+                eventName = 'psr_search';
+                tagName = 'VS - GA4 - Event - PSR Search';
+
+                templateValues = {
+                    event: eventName,
+                    psr_search_type: event.searchType,
+                    psr_search_location: event.searchLocation,
+                    page_path: href,
+                    tag_name: tagName,
+                };
+
+                fullTemplate = this.compileFullTemplate(templateValues);
+                dataLayerData = this.templateFiller(productSearchTemplate, fullTemplate);
+                break;
+
             case 'pageViewTemplateDataEvent':
                 eventName = 'page_view';
 

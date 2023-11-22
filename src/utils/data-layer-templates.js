@@ -43,6 +43,22 @@ const pageViewTemplate = [
     'meta_data',
 ];
 
+const productSearchTemplate = [
+    'event',
+    'site_language',
+    'page_category_1',
+    'page_category_2',
+    'page_category_3',
+    'page_category_4',
+    'user_country_setting',
+    'hit_timestamp',
+    'tag_name',
+    'meta_data',
+    'psr_search_type',
+    'psr_search_location',
+    'page_path',
+];
+
 const menuNavigationTemplate = [
     'event',
     'site_language',
@@ -315,4 +331,5 @@ export {
     formsTemplate,
     carbonQuestionTemplate,
     carbonCompleteTemplate,
+    productSearchTemplate,
 };
