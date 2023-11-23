@@ -4,8 +4,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [1.1.4](https://github.com/visitscotland/vs-component-library/compare/v1.1.5...v1.1.4) (2023-11-23)
 
-### [1.1.5](https://github.com/visitscotland/vs-component-library/compare/v1.1.3...v1.1.5) (2023-11-23)
-
 ### [1.1.3](https://github.com/visitscotland/vs-component-library/compare/v1.1.0...v1.1.3) (2023-11-23)
 
 
