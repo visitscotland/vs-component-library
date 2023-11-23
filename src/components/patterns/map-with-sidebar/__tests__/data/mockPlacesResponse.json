@@ -11,7 +11,7 @@
                     "image": "http://www.visitscotland.com/wsimgs/Royal%20Mile%20%20Kenny%20Lam_1848791035.jpg",
                     "link": {
                         "label": "Discover Old town hideouts",
-                        "link": "http://172.28.81.65:8089/info/towns-villages/royal-mile-and-grassmarket-p918401",
+                        "link": "https://www.visitscotland.com/info/towns-villages/royal-mile-and-grassmarket-p918401",
                         "type": "INTERNAL"
                     }
                 },
@@ -27,7 +27,7 @@
                     "image": "http://www.visitscotland.com/wsimgs/3.%20Fountain.jpg",
                     "link": {
                         "label": "Discover TreeZone Aerial Adventure Course - Loch Lomond",
-                        "link": "http://172.28.81.65:8089/info/see-do/inverness-botanic-gardens-p255531",
+                        "link": "https://www.visitscotland.com/info/see-do/inverness-botanic-gardens-p255531",
                         "type": "INTERNAL"
                     }
                 },
@@ -59,7 +59,7 @@
                     "image": "http://www.visitscotland.com/wsimgs/visitscotland_49002709930_1970963108.jpg",
                     "link": {
                         "label": "Discover Clava Cairns",
-                        "link": "http://172.28.81.65:8089/info/see-do/clava-cairns-p245611",
+                        "link": "https://www.visitscotland.com/info/see-do/clava-cairns-p245611",
                         "type": "INTERNAL"
                     }
                 },
@@ -75,7 +75,7 @@
                     "image": "http://www.visitscotland.com/wsimgs/Small_20Header2_561210442.jpg",
                     "link": {
                         "label": "Discover Finzean Estate",
-                        "link": "http://172.28.81.65:8089/info/food-drink/finzean-estate-farm-shop-tearoom-p256061",
+                        "link": "https://www.visitscotland.com/info/food-drink/finzean-estate-farm-shop-tearoom-p256061",
                         "type": "INTERNAL"
                     }
                 },
@@ -188,7 +188,7 @@
                     "image": "http://www.visitscotland.com/wsimgs/External%20View%20Media%20Res%20c%20Andrew%20Lee.jpg",
                     "link": {
                         "label": "Discover National Museum of Scotland",
-                        "link": "http://172.28.81.65:8089/info/see-do/national-museum-of-scotland-p246591",
+                        "link": "https://www.visitscotland.com/info/see-do/national-museum-of-scotland-p246591",
                         "type": "INTERNAL"
                     }
                 },

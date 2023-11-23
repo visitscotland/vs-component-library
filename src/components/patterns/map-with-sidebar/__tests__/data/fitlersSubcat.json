@@ -6,9 +6,9 @@
     {
         "id": "acco",
         "label": "Accommodation",
-        "pinsEndpoint": "http://172.28.81.65:8089/data/product-search/map?prodtypes=acco&avail=off&locplace=4161&loc=Edinburgh&locprox=0",
-        "listProductsEndPoint": "http://172.28.81.65:8089/data/component/cannedsearch?prodtypes=acco&avail=off&locplace=4161&loc=Edinburgh&locprox=0",
-        "pinClickEndPoint": "http://172.28.81.65:8089/data/component/mapcard?",
+        "pinsEndpoint": "https://www.visitscotland.com/data/product-search/map?prodtypes=acco&avail=off&locplace=4161&loc=Edinburgh&locprox=0",
+        "listProductsEndPoint": "https://www.visitscotland.com/data/component/cannedsearch?prodtypes=acco&avail=off&locplace=4161&loc=Edinburgh&locprox=0",
+        "pinClickEndPoint": "https://www.visitscotland.com/data/component/mapcard?",
         "subCategory": [
             {
                 "id": "cgbandbguesthouse",
@@ -43,9 +43,9 @@
     {
         "id": "attr",
         "label": "Attractions",
-        "pinsEndpoint": "http://172.28.81.65:8089/data/product-search/map?prodtypes=attr&locplace=4161&loc=Edinburgh&locprox=0",
-        "listProductsEndPoint": "http://172.28.81.65:8089/data/component/cannedsearch?prodtypes=attr&locplace=4161&loc=Edinburgh&locprox=0",
-        "pinClickEndPoint": "http://172.28.81.65:8089/data/private/products/mapcard?",
+        "pinsEndpoint": "https://www.visitscotland.com/data/product-search/map?prodtypes=attr&locplace=4161&loc=Edinburgh&locprox=0",
+        "listProductsEndPoint": "https://www.visitscotland.com/data/component/cannedsearch?prodtypes=attr&locplace=4161&loc=Edinburgh&locprox=0",
+        "pinClickEndPoint": "https://www.visitscotland.com/data/private/products/mapcard?",
         "subCategory": [
             {
                 "id": "cgartsculture",
@@ -96,9 +96,9 @@
     {
         "id": "acti",
         "label": "Activities",
-        "pinsEndpoint": "http://172.28.81.65:8089/data/product-search/map?prodtypes=acti&locplace=4161&loc=Edinburgh&locprox=0",
-        "listProductsEndPoint": "http://172.28.81.65:8089/data/component/cannedsearch?prodtypes=acti&locplace=4161&loc=Edinburgh&locprox=0",
-        "pinClickEndPoint": "http://172.28.81.65:8089/data/private/products/mapcard?",
+        "pinsEndpoint": "https://www.visitscotland.com/data/product-search/map?prodtypes=acti&locplace=4161&loc=Edinburgh&locprox=0",
+        "listProductsEndPoint": "https://www.visitscotland.com/data/component/cannedsearch?prodtypes=acti&locplace=4161&loc=Edinburgh&locprox=0",
+        "pinClickEndPoint": "https://www.visitscotland.com/data/private/products/mapcard?",
         "subCategory": [
             {
                 "id": "cgallacti",
@@ -117,9 +117,9 @@
     {
         "id": "even",
         "label": "Events",
-        "pinsEndpoint": "http://172.28.81.65:8089/data/product-search/map?prodtypes=even&locplace=4161&loc=Edinburgh&locprox=0",
-        "listProductsEndPoint": "http://172.28.81.65:8089/data/component/cannedsearch?prodtypes=even&locplace=4161&loc=Edinburgh&locprox=0",
-        "pinClickEndPoint": "http://172.28.81.65:8089/data/private/products/mapcard?",
+        "pinsEndpoint": "https://www.visitscotland.com/data/product-search/map?prodtypes=even&locplace=4161&loc=Edinburgh&locprox=0",
+        "listProductsEndPoint": "https://www.visitscotland.com/data/component/cannedsearch?prodtypes=even&locplace=4161&loc=Edinburgh&locprox=0",
+        "pinClickEndPoint": "https://www.visitscotland.com/data/private/products/mapcard?",
         "subCategory": [
             {
                 "id": "cgartscultev",
@@ -166,9 +166,9 @@
     {
         "id": "cate",
         "label": "Food & Drink",
-        "pinsEndpoint": "http://172.28.81.65:8089/data/product-search/map?prodtypes=cate&locplace=4161&loc=Edinburgh&locprox=0",
-        "listProductsEndPoint": "http://172.28.81.65:8089/data/component/cannedsearch?prodtypes=cate&locplace=4161&loc=Edinburgh&locprox=0",
-        "pinClickEndPoint": "http://172.28.81.65:8089/data/private/products/mapcard?",
+        "pinsEndpoint": "https://www.visitscotland.com/data/product-search/map?prodtypes=cate&locplace=4161&loc=Edinburgh&locprox=0",
+        "listProductsEndPoint": "https://www.visitscotland.com/data/component/cannedsearch?prodtypes=cate&locplace=4161&loc=Edinburgh&locprox=0",
+        "pinClickEndPoint": "https://www.visitscotland.com/data/private/products/mapcard?",
         "subCategory": [
             {
                 "id": "cgbarspubs",
@@ -187,9 +187,9 @@
     {
         "id": "reta",
         "label": "Shopping",
-        "pinsEndpoint": "http://172.28.81.65:8089/data/product-search/map?prodtypes=reta&locplace=4161&loc=Edinburgh&locprox=0",
-        "listProductsEndPoint": "http://172.28.81.65:8089/data/component/cannedsearch?prodtypes=reta&locplace=4161&loc=Edinburgh&locprox=0",
-        "pinClickEndPoint": "http://172.28.81.65:8089/data/private/products/mapcard?",
+        "pinsEndpoint": "https://www.visitscotland.com/data/product-search/map?prodtypes=reta&locplace=4161&loc=Edinburgh&locprox=0",
+        "listProductsEndPoint": "https://www.visitscotland.com/data/component/cannedsearch?prodtypes=reta&locplace=4161&loc=Edinburgh&locprox=0",
+        "pinClickEndPoint": "https://www.visitscotland.com/data/private/products/mapcard?",
         "subCategory": [
             {
                 "id": "cgfashionscotcloth",
