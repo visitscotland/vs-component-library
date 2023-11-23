@@ -2,6 +2,50 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.3](https://github.com/visitscotland/vs-component-library/compare/v1.1.0...v1.1.3) (2023-11-23)
+
+
+### ♻️ Code Refactoring
+
+* **map:** remove old itinerary map ([802b8d2](https://github.com/visitscotland/vs-component-library/commit/802b8d2d513007856ae64c3a7e0c06a15ffe146c))
+
+
+### ✅ Tests
+
+* **modal:** bypass mount checks for jest environment ([ab8d368](https://github.com/visitscotland/vs-component-library/commit/ab8d3680ed4f30b25a0376360b62ede41c280c15))
+
+
+### 🔖 Others
+
+* **release:** 1.1.1 ([bc15626](https://github.com/visitscotland/vs-component-library/commit/bc15626acf1bf434c16dacb82483dc3667994137))
+* **release:** 1.1.2 ([10a9209](https://github.com/visitscotland/vs-component-library/commit/10a920988b4964e86ef5357c42e8888d5bc53966))
+
+
+### 🐛 Bug Fixes
+
+* **carbon calculator:** correct analytics mixin path ([16df17a](https://github.com/visitscotland/vs-component-library/commit/16df17a6f96dcac2fad87e78d907217b31dd9e4b))
+* **carbon calculator:** remove deprecated per day tests ([fc930bd](https://github.com/visitscotland/vs-component-library/commit/fc930bd7ae3b0b33e3c29f49462e909f72f1ef36))
+* **map:** fix map API data not displaying ([e14bac4](https://github.com/visitscotland/vs-component-library/commit/e14bac4889708fe5c66edc27f6826231c057751f))
+* **map:** fix submit button being disabled when filters still selected ([a04ed4f](https://github.com/visitscotland/vs-component-library/commit/a04ed4f9b82eb6533c0179bc894b9feeb0af888a))
+* **modal:** don't attempt to render the modal component in ssr ([b91dd33](https://github.com/visitscotland/vs-component-library/commit/b91dd332954bf24707921d4dd7f69ae99649fa98))
+* **productsearchembed:** add analytics to ProductSearchEmbed component ([7b5fcde](https://github.com/visitscotland/vs-component-library/commit/7b5fcdeaaa28f88adc207a2181f73180e5a3ee89))
+
+
+### 🎨 Styling
+
+* **map:** fix margin between label and icon ([9c2545e](https://github.com/visitscotland/vs-component-library/commit/9c2545e9d704717b868b025819a2f7dc8b4e588b))
+
+
+### ✨ Features
+
+* **carbon calculator:** add new icon and style carbon unicorn box ([01e7d86](https://github.com/visitscotland/vs-component-library/commit/01e7d8622712483ea0271a6a33c88e055787a139))
+* **carbon calculator:** correct vertical spacing throughout calculator ([dd46b56](https://github.com/visitscotland/vs-component-library/commit/dd46b5686057f7b6cf30cc0544fccd4e72e04f5b))
+* **carbon calculator:** ensure non-en-gb languages see carbon unicorn ([30b9092](https://github.com/visitscotland/vs-component-library/commit/30b9092d186514673ff9c5b95e7eee5358cddb31))
+* **carbon calculator:** make localised number decimal count consistent ([318f402](https://github.com/visitscotland/vs-component-library/commit/318f402c92020b99b4d18f3616e0bf859a120bac))
+* **carbon calculator:** remove tips from results page ([432fd16](https://github.com/visitscotland/vs-component-library/commit/432fd163061eaba4d4631b7a994dd02314683e86))
+* **images:** construct srcset in mixin to ensure they work with additional params ([03ede19](https://github.com/visitscotland/vs-component-library/commit/03ede19be923a7608b6706765ec2295e905c1051))
+* **images:** reduce code duplication in src set mixin ([c099eae](https://github.com/visitscotland/vs-component-library/commit/c099eae2be0058f6b78a8a32890b1e0545a17fdb))
+
 ### [1.1.2](https://github.com/visitscotland/vs-component-library/compare/v1.1.1...v1.1.2) (2023-11-22)
 
 
