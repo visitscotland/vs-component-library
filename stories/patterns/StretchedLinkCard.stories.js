@@ -70,7 +70,7 @@ const Template = (args) => ({
 const base = {
     link: 'https://visitscotland.com',
     type: 'internal',
-    imgSrc: 'https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm',
+    imgSrc: 'https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander',
     imgAlt: 'This is the alt text',
     theme: 'light',
     headingLevel: '3',

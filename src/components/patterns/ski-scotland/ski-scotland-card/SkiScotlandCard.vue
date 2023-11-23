@@ -12,12 +12,9 @@
                 <VsImg
                     :src="imgSrc"
                     :alt="imgAlt"
-                    :srcset="`${imgSrc}?size=xs 300w,
-                        ${imgSrc}?size=sm 600w,
-                        ${imgSrc}?size=md 1200w,
-                        ${imgSrc}?size=lg 2048w`"
+                    :srcset="fullSrcSet"
                     sizes="(min-width: 768px) 50vw, 100vw"
-                    :low-res-image="`${imgSrc}?size=xxs`"
+                    :low-res-image="specificImgSize('xxs')"
                     class="vs-ski-scotland-card__img"
                     data-test="vs-ski-scotland-card__img"
                 />
@@ -262,8 +259,8 @@ import VsTableBody from '@components/patterns/table/components/TableBody.vue';
 import VsTableRow from '@components/patterns/table/components/TableRow.vue';
 import VsTableDataCell from '@components/patterns/table/components/TableDataCell.vue';
 import VsTableFooter from '@components/patterns/table/components/TableFooter.vue';
-
 import axios from 'axios';
+import srcSetMixin from '../../../../mixins/srcSetMixin';
 
 /**
  * The ski scotland card component displays ski run status information for a specific
@@ -290,6 +287,9 @@ export default {
         VsTableDataCell,
         VsTableFooter,
     },
+    mixins: [
+        srcSetMixin,
+    ],
     props: {
         /**
         * The url that the centre's summary information should be retrieved from for display

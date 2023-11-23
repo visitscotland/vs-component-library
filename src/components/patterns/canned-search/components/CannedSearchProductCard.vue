@@ -21,12 +21,9 @@
                         <VsImg
                             :src="imgSrc"
                             alt=""
-                            :srcset="`${imgSrc}?size=xs 300w,
-                            ${imgSrc}?size=sm 600w,
-                            ${imgSrc}?size=md 1200w,
-                            ${imgSrc}?size=lg 2048w`"
+                            :srcset="fullSrcSet"
                             sizes="(min-width: 768px) 50vw, 100vw"
-                            :low-res-image="`${imgSrc}?size=xxs`"
+                            :low-res-image="specificImgSize('xxs')"
                             :use-generic-lqip="useGenericLqip"
                             class="vs-product-card__img"
                             data-test="vs-product-card__img"
@@ -132,6 +129,7 @@ import VsImg from '@components/elements/img/Img.vue';
 import VsHeading from '@components/elements/heading/Heading.vue';
 import VsLink from '@components/elements/link/Link.vue';
 import VsCol from '@components/elements/grid/Col.vue';
+import srcSetMixin from '../../../../mixins/srcSetMixin';
 
 /**
 * Generic product card for canned search
@@ -148,6 +146,9 @@ export default {
         VsLink,
         VsCol,
     },
+    mixins: [
+        srcSetMixin,
+    ],
     inject: ['slideCols', 'visibleSlides'],
     provide() {
         return {
