@@ -143,6 +143,7 @@
                             data-test="psw-submit"
                             type="submit"
                             variant="dark"
+                            @click="trackSubmit(selectedProd, typeof chosenLocation === 'undefined' ? '' : chosenLocation)"
                         >
                             {{ getLabelText('search', 'Search') }}
                         </VsButton>
@@ -156,6 +157,30 @@
         </div>
     </div>
 </template>
+
+
+ 
+<script lang="ts">
+    //  Options API script block used to allow Vue 2 mixin to be used
+    import { defineComponent } from "vue"; 
+    import dataLayer from '../../../../mixins/dataLayerMixin';
+    
+    export default defineComponent({
+        mixins: [dataLayer],
+        methods: {
+            trackSubmit(type, location) {
+                this.createDataLayerObject(
+                    'productSearchDataEvent',
+                    {
+                        searchType: type,
+                        searchLocation: location.name,
+                    },
+                     this.href
+                );
+            }
+        },
+    });
+</script>
 
 <script setup lang="ts">
 import { computed, ref, onMounted, onBeforeMount, nextTick } from 'vue';
@@ -205,6 +230,12 @@ const selectedProd = ref();
 const keywords = ref([]);
 const form = ref(null);
 let chosenLocation = ref<Location>();
+chosenLocation.value = {
+    id: '',
+    key: '',
+    name: '',
+    type: '', 
+}
 const availSearch = ref('off');
 const defaultDates = ref(false);
 const path = computed(() => {
@@ -381,7 +412,7 @@ onMounted(async () => {
         getToursAttractionData();
     }
 
-    initProductTypes();  
+    initProductTypes();
 });
 
 const dateUpdated = (datesExist) => {
@@ -391,6 +422,7 @@ const dateUpdated = (datesExist) => {
 const preSubmitChecks = (e) => {
     defaultDates.value = true;
     const form = e.currentTarget;
+
     setTimeout(function() {
         form.submit();
     }, 500);
