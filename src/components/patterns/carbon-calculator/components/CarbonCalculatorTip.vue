@@ -17,7 +17,8 @@
             class="vs-carbon-calculator-tip__content"
         >
             <VsHeading
-                level="6"
+                level="3"
+                overrideStyleLevel="6"
             >
                 {{ labelsMap.topTip }}
             </VsHeading>
