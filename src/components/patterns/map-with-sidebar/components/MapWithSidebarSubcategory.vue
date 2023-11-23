@@ -117,11 +117,9 @@ export default {
         /**
          * Emits change event declaring if any selections have been made
          */
-        emitChange(checked) {
-            if (checked.length > 0 && this.emitter) {
-                this.emitter.emit('checkboxes-selected', true);
-            } else {
-                this.emitter.emit('checkboxes-selected', false);
+        emitChange() {
+            if (this.emitter) {
+                this.emitter.emit('checkboxes-selected', this.selected);
             }
         },
     },
@@ -164,6 +162,7 @@ export default {
             font-weight: $font-weight-bold;
             display: flex;
             align-items: center;
+            margin-right: $spacer-2;
         }
     }
 </style>

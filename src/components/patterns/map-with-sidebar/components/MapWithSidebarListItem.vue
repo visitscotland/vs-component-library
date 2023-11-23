@@ -106,18 +106,7 @@ export default {
         if (!this.fromEndpoint) {
             this.formattedData = this.itemData;
         } else {
-            this.formattedData = {
-                ...this.formattedData,
-                id: this.itemData.properties.id,
-                title: this.itemData.properties.name,
-            };
-
-            if (typeof this.itemData.properties.images !== 'undefined') {
-                this.formattedData = {
-                    ...this.formattedData,
-                    image: this.itemData.properties.images[0].mediaUrl,
-                };
-            }
+            this.formatApiData();
         }
     },
     mounted() {
@@ -150,6 +139,33 @@ export default {
                 mapId: this.mapId,
                 hoveredFeature: feature,
             });
+        },
+        /**
+         * Formats API data to match internal data
+         */
+        formatApiData() {
+            this.formattedData = {
+                geometry: {
+                    coordinates: [
+                        this.itemData.longitude,
+                        this.itemData.latitude,
+                    ],
+                    type: 'Point',
+                },
+                properties: {
+                    category: this.itemData.category[0],
+                    description: this.itemData.description,
+                    id: this.itemData.id,
+                    image: typeof this.itemData.images !== 'undefined' ? this.itemData.images[0].mediaUrl : '',
+                    title: this.itemData.name,
+                    link: {
+                        label: this.itemData.website.label,
+                        link: this.itemData.website.link,
+                        type: this.itemData.website.type,
+                    },
+                },
+                type: 'Point',
+            };
         },
     },
 };
