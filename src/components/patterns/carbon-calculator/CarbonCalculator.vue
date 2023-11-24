@@ -34,6 +34,7 @@
                                     level="2"
                                     overrideStyleLevel="3"
                                     class="vs-carbon-calculator__category-heading"
+                                    v-if="currentCategory"
                                 >
                                     {{ currentCategory }}
                                 </VsHeading>
