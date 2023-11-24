@@ -40,8 +40,7 @@
             :autocomplete="autocompleteValue(fieldName)"
             :v="inputVal"
             :aria-invalid="(v$.inputVal && v$.inputVal.$anyError) || invalid"
-            :aria-describedby="(v$.inputVal && v$.inputVal.$anyError) || invalid
-                ? `error-${fieldName}` : `hint-${fieldName}`"
+            :aria-describedby="ariaDescription"
             :maxlength="validationRules.maxLength ? validationRules.maxLength : null"
             :minlength="validationRules.minLength ? validationRules.minLength : null"
             @blur="validateErrors"
@@ -233,6 +232,17 @@ export default {
             }
 
             return false;
+        },
+        ariaDescription() {
+            if ((this.v$.inputVal && this.v$.inputVal.$anyError) || this.invalid) {
+                return `error-${this.fieldName}`;
+            }
+
+            if (this.hintText) {
+                return `hint-${this.fieldName}`;
+            }
+
+            return null;
         },
     },
     watch: {
