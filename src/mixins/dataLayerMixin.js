@@ -452,10 +452,8 @@ const dataLayerMixin = {
                     dataLayer.push(object);
                 });
             } else {
-                checkVendorLibrary('dataLayer', () => {
                 // eslint-disable-next-line
-                    dataLayer.push(object);
-                });
+                dataLayer.push(object);
             }
         },
         compileFullTemplate(templateValues) {
