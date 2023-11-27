@@ -57,6 +57,7 @@
 import useVuelidate from '@vuelidate/core';
 import { BFormCheckbox } from 'bootstrap-vue-next';
 import validateFormElementMixin from '../../../mixins/validateFormElementMixin';
+import ariaDescriptionMixin from '../../../mixins/ariaDescriptionMixin';
 
 /**
  * Checkboxes allow a user to select multiple options from in a
@@ -74,6 +75,7 @@ export default {
     },
     mixins: [
         validateFormElementMixin,
+        ariaDescriptionMixin,
     ],
     props: {
         /**
@@ -182,17 +184,6 @@ export default {
     computed: {
         errorClass() {
             return this.isInvalid ? 'vs-checkbox--error' : '';
-        },
-        ariaDescription() {
-            if ((this.v$.inputVal && this.v$.inputVal.$anyError) || this.invalid) {
-                return `error-${this.fieldName}`;
-            }
-
-            if (this.hintText) {
-                return `hint-${this.fieldName}`;
-            }
-
-            return null;
         },
     },
     watch: {
