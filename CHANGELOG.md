@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.5](https://github.com/visitscotland/vs-component-library/compare/v1.1.4...v1.1.5) (2023-11-27)
+
+
+### ✨ Features
+
+* **carbon calculator:** correct heading hierarchy ([be08d06](https://github.com/visitscotland/vs-component-library/commit/be08d06d397d6f8c70a42a3bf9fbab506cc6ffc5))
+* **carbon calculator:** remove cat heading if empty ([9229f5e](https://github.com/visitscotland/vs-component-library/commit/9229f5e66442b403919da57ad3d09b14c7369b7b))
+* **form:** stop aria description pointing to missing hint ([ed48232](https://github.com/visitscotland/vs-component-library/commit/ed482329fd2d0f9175fca8f6b306db0a564143c1))
+* **progress bar:** add aria labelled by for pointing to progress label ([4657bac](https://github.com/visitscotland/vs-component-library/commit/4657bac03a4e231e491ac59d5f7b8ab3ecd44414))
+
+
+### 🐛 Bug Fixes
+
+* **carbon calculator:** correct heading levels for unicorn ([2ca327b](https://github.com/visitscotland/vs-component-library/commit/2ca327b89fc73dc296eb34f46ec27cba5b856b94))
+* **carousel:** ensure off screen text links are fully disabled in carousel ([df4ee54](https://github.com/visitscotland/vs-component-library/commit/df4ee5457921a5485188fbb559aa126205352616))
+* **datalayer:** fix dataLayer not being defined error ([c8d4685](https://github.com/visitscotland/vs-component-library/commit/c8d46853ad9f004905cd7695f359cad0ea4b5cfe))
+* **datalayer:** fix timeout issue for datalayer on meganav ([5f55931](https://github.com/visitscotland/vs-component-library/commit/5f55931f54df0ba100ae165c769369986293c741))
+
+
+### 🔖 Others
+
+* **release:** 1.1.5 ([b2b9a64](https://github.com/visitscotland/vs-component-library/commit/b2b9a64dda5e25747a9bbc78bc4c733648e3597e))
+* **release:** 1.1.5 ([1655640](https://github.com/visitscotland/vs-component-library/commit/1655640a433ccbdae0aeaee413c105c481714659))
+
 ### [1.1.4](https://github.com/visitscotland/vs-component-library/compare/v1.1.5...v1.1.4) (2023-11-23)
 
 ### [1.1.3](https://github.com/visitscotland/vs-component-library/compare/v1.1.0...v1.1.3) (2023-11-23)
