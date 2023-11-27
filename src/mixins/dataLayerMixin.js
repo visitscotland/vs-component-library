@@ -38,7 +38,7 @@ const dataLayerMixin = {
     },
     data() {
         return {
-            dataLayerLoadConfirmed: [],
+            dataLayerLoadConfirmed: false,
             dataLayerStore: null,
         };
     },
@@ -448,14 +448,10 @@ const dataLayerMixin = {
             if (!this.dataLayerLoadConfirmed) {
                 checkVendorLibrary('dataLayer', () => {
                     this.dataLayerLoadConfirmed = true;
-                    // eslint-disable-next-line
-                    dataLayer.push(object);
+                    window.dataLayer.push(object);
                 });
             } else {
-                checkVendorLibrary('dataLayer', () => {
-                // eslint-disable-next-line
-                    dataLayer.push(object);
-                });
+                window.dataLayer.push(object);
             }
         },
         compileFullTemplate(templateValues) {
