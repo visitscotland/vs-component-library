@@ -23,6 +23,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### 🔖 Others
 
+* **release:** 1.1.5 ([b2b9a64](https://github.com/visitscotland/vs-component-library/commit/b2b9a64dda5e25747a9bbc78bc4c733648e3597e))
 * **release:** 1.1.5 ([1655640](https://github.com/visitscotland/vs-component-library/commit/1655640a433ccbdae0aeaee413c105c481714659))
 
 ### [1.1.4](https://github.com/visitscotland/vs-component-library/compare/v1.1.5...v1.1.4) (2023-11-23)
