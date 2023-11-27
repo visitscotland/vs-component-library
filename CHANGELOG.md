@@ -20,6 +20,11 @@ All notable changes to this project will be documented in this file. See [standa
 * **datalayer:** fix dataLayer not being defined error ([c8d4685](https://github.com/visitscotland/vs-component-library/commit/c8d46853ad9f004905cd7695f359cad0ea4b5cfe))
 * **datalayer:** fix timeout issue for datalayer on meganav ([5f55931](https://github.com/visitscotland/vs-component-library/commit/5f55931f54df0ba100ae165c769369986293c741))
 
+
+### 🔖 Others
+
+* **release:** 1.1.5 ([1655640](https://github.com/visitscotland/vs-component-library/commit/1655640a433ccbdae0aeaee413c105c481714659))
+
 ### [1.1.4](https://github.com/visitscotland/vs-component-library/compare/v1.1.5...v1.1.4) (2023-11-23)
 
 ### [1.1.3](https://github.com/visitscotland/vs-component-library/compare/v1.1.0...v1.1.3) (2023-11-23)
