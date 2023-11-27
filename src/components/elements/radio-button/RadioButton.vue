@@ -23,8 +23,7 @@
         <BFormRadioGroup
             :id="fieldName"
             :aria-invalid="(v$.inputVal && v$.inputVal.$anyError) || invalid"
-            :aria-describedby="(v$.inputVal && v$.inputVal.$anyError) || invalid
-                ? `error-${fieldName}` : `hint-${fieldName}`"
+            :aria-describedby="ariaDescription"
             @blur="validateErrors"
             @change="validateErrors"
             @focus="resetErrors"
@@ -211,6 +210,17 @@ export default {
         },
         errorClass() {
             return (this.v$.inputVal && this.v$.inputVal.$anyError) || this.invalid ? 'vs-input--error' : '';
+        },
+        ariaDescription() {
+            if ((this.v$.inputVal && this.v$.inputVal.$anyError) || this.invalid) {
+                return `error-${this.fieldName}`;
+            }
+
+            if (this.hintText) {
+                return `hint-${this.fieldName}`;
+            }
+
+            return null;
         },
     },
     watch: {

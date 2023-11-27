@@ -38,8 +38,7 @@
                 class="vs-select__element"
                 :required="isRequired"
                 :aria-invalid="(v$.inputVal && v$.inputVal.$anyError) || invalid"
-                :aria-describedby="(v$.inputVal && v$.inputVal.$anyError) || invalid
-                    ? `error-${fieldName}` : `hint-${fieldName}`"
+                :aria-describedby="ariaDescription"
                 :class="errorClass"
                 :autocomplete="autocompleteValue(fieldName)"
             />
@@ -188,6 +187,17 @@ export default {
         },
         fieldOptions() {
             return this.countries ? this.countryList : this.options;
+        },
+        ariaDescription() {
+            if ((this.v$.inputVal && this.v$.inputVal.$anyError) || this.invalid) {
+                return `error-${this.fieldName}`;
+            }
+
+            if (this.hintText) {
+                return `hint-${this.fieldName}`;
+            }
+
+            return null;
         },
     },
     watch: {

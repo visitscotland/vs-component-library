@@ -31,8 +31,10 @@
                                 v-show="activeStage <= formData.fields.length"
                             >
                                 <VsHeading
-                                    level="3"
+                                    level="2"
+                                    overrideStyleLevel="3"
                                     class="vs-carbon-calculator__category-heading"
+                                    v-if="currentCategory"
                                 >
                                     {{ currentCategory }}
                                 </VsHeading>

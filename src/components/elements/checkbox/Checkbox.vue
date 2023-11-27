@@ -46,8 +46,7 @@
             @change="emitStatus"
             :required="isRequired"
             :aria-invalid="(v$.inputVal && v$.inputVal.$anyError) || invalid"
-            :aria-describedby="(v$.inputVal && v$.inputVal.$anyError) || invalid
-                ? `error-${fieldName}` : `hint-${fieldName}`"
+            :aria-describedby="ariaDescription"
         >
             <span class="vs-checkbox__label">{{ label }}</span>
         </BFormCheckbox>
@@ -183,6 +182,17 @@ export default {
     computed: {
         errorClass() {
             return this.isInvalid ? 'vs-checkbox--error' : '';
+        },
+        ariaDescription() {
+            if ((this.v$.inputVal && this.v$.inputVal.$anyError) || this.invalid) {
+                return `error-${this.fieldName}`;
+            }
+
+            if (this.hintText) {
+                return `hint-${this.fieldName}`;
+            }
+
+            return null;
         },
     },
     watch: {

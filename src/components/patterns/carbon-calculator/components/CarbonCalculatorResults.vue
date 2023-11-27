@@ -65,7 +65,8 @@
                 class="vs-carbon-calculator-results__unicorn-content"
             >
                 <VsHeading
-                    level="6"
+                    level="3"
+                    overrideStyleLevel="6"
                 >
                     {{ labelsMap.perDayCongratulations }}
                 </VsHeading>

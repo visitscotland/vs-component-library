@@ -10,6 +10,7 @@
         >
             <BProgressBar
                 :value="currentStep"
+                :aria-labelledBy="'progress-bar-' + compId"
             />
         </BProgress>
 
@@ -24,18 +25,21 @@
             >
                 <BProgressBar
                     :value="(index <= currentStep) ? 1 : 0"
+                    :aria-labelledBy="'progress-bar-' + compId"
                 />
             </BProgress>
         </div>
 
         <p
             class="vs-progress-bar__label"
+            :id="'progress-bar-' + compId"
             v-if="interpolProgressLabel"
         >
             {{ interpolProgressLabel }}
         </p>
         <p
             class="vs-progress-bar__label"
+            :id="'progress-bar-' + compId"
             v-else
         >
             {{ currentStep }} / {{ max }}
@@ -48,6 +52,8 @@ import {
     BProgress,
     BProgressBar,
 } from 'bootstrap-vue-next';
+
+import { ref, getCurrentInstance } from 'vue';
 
 /**
  * A simple progress bar component
@@ -104,6 +110,11 @@ export default {
             default: '',
         },
     },
+    data() {
+        return {
+            compId: null,
+        };
+    },
     computed: {
         computedClasses() {
             let classes = '';
@@ -130,6 +141,10 @@ export default {
 
             return '';
         },
+    },
+    mounted() {
+        const instance = getCurrentInstance();
+        this.compId = ref(instance.uid);
     },
 };
 </script>
