@@ -70,6 +70,7 @@ import {
 } from 'bootstrap-vue-next';
 import useVuelidate from '@vuelidate/core';
 import validateFormElementMixin from '../../../mixins/validateFormElementMixin';
+import ariaDescriptionMixin from '../../../mixins/ariaDescriptionMixin';
 
 /**
  * An input allows a user to enter a short amount of text.
@@ -87,6 +88,7 @@ export default {
     },
     mixins: [
         validateFormElementMixin,
+        ariaDescriptionMixin,
     ],
     props: {
         /**
@@ -210,17 +212,6 @@ export default {
         },
         errorClass() {
             return (this.v$.inputVal && this.v$.inputVal.$anyError) || this.invalid ? 'vs-input--error' : '';
-        },
-        ariaDescription() {
-            if ((this.v$.inputVal && this.v$.inputVal.$anyError) || this.invalid) {
-                return `error-${this.fieldName}`;
-            }
-
-            if (this.hintText) {
-                return `hint-${this.fieldName}`;
-            }
-
-            return null;
         },
     },
     watch: {

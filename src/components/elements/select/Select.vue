@@ -54,6 +54,7 @@ import { BFormSelect } from 'bootstrap-vue-next';
 import axios from 'axios';
 
 import validateFormElementMixin from '../../../mixins/validateFormElementMixin';
+import ariaDescriptionMixin from '../../../mixins/ariaDescriptionMixin';
 
 /**
  * A select element allows a user to choose a value from a list of options.
@@ -70,6 +71,7 @@ export default {
     },
     mixins: [
         validateFormElementMixin,
+        ariaDescriptionMixin,
     ],
     props: {
         /**
@@ -187,17 +189,6 @@ export default {
         },
         fieldOptions() {
             return this.countries ? this.countryList : this.options;
-        },
-        ariaDescription() {
-            if ((this.v$.inputVal && this.v$.inputVal.$anyError) || this.invalid) {
-                return `error-${this.fieldName}`;
-            }
-
-            if (this.hintText) {
-                return `hint-${this.fieldName}`;
-            }
-
-            return null;
         },
     },
     watch: {

@@ -88,6 +88,7 @@ import useVuelidate from '@vuelidate/core';
 import { BFormInput } from 'bootstrap-vue-next';
 import VsButton from '@components/elements/button/Button.vue';
 import validateFormElementMixin from '../../../mixins/validateFormElementMixin';
+import ariaDescriptionMixin from '../../../mixins/ariaDescriptionMixin';
 
 /**
  * A number input allows a user to select a number within a defined range
@@ -105,6 +106,7 @@ export default {
     },
     mixins: [
         validateFormElementMixin,
+        ariaDescriptionMixin,
     ],
     props: {
         /**
@@ -244,17 +246,6 @@ export default {
         },
         errorClass() {
             return (this.v$.inputVal && this.v$.inputVal.$anyError) || this.invalid ? 'vs-input--error' : '';
-        },
-        ariaDescription() {
-            if ((this.v$.inputVal && this.v$.inputVal.$anyError) || this.invalid) {
-                return `error-${this.fieldName}`;
-            }
-
-            if (this.hintText) {
-                return `hint-${this.fieldName}`;
-            }
-
-            return null;
         },
     },
     watch: {
