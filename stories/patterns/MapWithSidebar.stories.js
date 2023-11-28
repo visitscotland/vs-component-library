@@ -70,7 +70,7 @@ const base = {
     buttonsLabel: 'Select map type',
     clearSelectionText: 'Clear all',
     applyFiltersText: 'Show results',
-    detailsEndpoint: 'http://172.28.81.65:8089/data/component/mapcard?id=',
+    detailsEndpoint: 'https://www.visitscotland.com/data/component/mapcard?id=',
     filtersAppliedText: 'filters applied',
     clearFiltersText: 'clear filters',
     mapFilterMessage: 'Please apply filter(s) to refine results.',

@@ -3,7 +3,7 @@ import VsCannedSearch from '../CannedSearch.vue';
 
 config.global.renderStubDefaultSlot = true;
 
-const apiUrl = 'http://172.28.81.65:8089/data/search/productsearch?areaproxdist=10&loc=Scotland&locplace=&locprox=1&prodtypes=acco&locale=';
+const apiUrl = 'https://www.visitscotland.com/data/search/productsearch?areaproxdist=10&loc=Scotland&locplace=&locprox=1&prodtypes=acco&locale=';
 const slotContent = 'These are some buttons';
 const creditSlotContent = 'This is some credit info';
 

@@ -95,7 +95,7 @@ const Template = (args) => ({
                             v-if="item.title === 'Things to do'"
                         >
                             <VsMegaNavFeaturedEvent
-                                source-url="http://172.28.81.65:8089/data/component/cannedsearch?prodtypes=even&locplace=&locprox=&loc=Scotland&size=1"
+                                source-url="https://www.visitscotland.com/data/component/cannedsearch?prodtypes=even&locplace=&locprox=&loc=Scotland&size=1"
                             />
                         </template>
         
@@ -181,7 +181,7 @@ const Template = (args) => ({
                                     v-if="item.title === 'Things to do'"
                                 >
                                     <VsMegaNavFeaturedEvent
-                                        source-url="http://172.28.81.65:8089/data/component/cannedsearch?prodtypes=even&locplace=&locprox=&loc=Scotland&size=1"
+                                        source-url="https://develop-nightly.visitscotland.com/data/component/cannedsearch?prodtypes=even&locplace=&locprox=&loc=Scotland&size=1"
                                     />
                                 </template>
                                 <template
