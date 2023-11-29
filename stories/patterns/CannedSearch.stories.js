@@ -1,5 +1,5 @@
-import VsCannedSearch from '@/components/patterns/canned-search/CannedSearch.vue';
-import VsButton from '@/components/elements/button/Button.vue';
+import VsCannedSearch from '@/components/canned-search/CannedSearch.vue';
+import VsButton from '@/components/button/Button.vue';
 
 export default {
     component: VsCannedSearch,

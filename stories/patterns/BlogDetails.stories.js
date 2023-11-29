@@ -1,4 +1,4 @@
-import VsBlogDetails from '@/components/patterns/blog-details/BlogDetails.vue';
+import VsBlogDetails from '@/components/blog-details/BlogDetails.vue';
 
 export default {
     component: VsBlogDetails,

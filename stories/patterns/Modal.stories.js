@@ -1,9 +1,9 @@
-import VsButton from '@/components/elements/button/Button.vue';
-import VsModal from '@/components/patterns/modal/Modal.vue';
-import VsRichTextWrapper from '@/components/elements/rich-text-wrapper/RichTextWrapper.vue';
-import VsVideo from '@/components/elements/video/Video.vue';
+import VsButton from '@/components/button/Button.vue';
+import VsModal from '@/components/modal/Modal.vue';
+import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsVideo from '@/components/video/Video.vue';
 import { userEvent, within } from '@storybook/testing-library';
-import { VsCol, VsRow } from '../../src/components/elements/grid';
+import { VsCol, VsRow } from '../../src/components/grid';
 
 export default {
     component: VsModal,

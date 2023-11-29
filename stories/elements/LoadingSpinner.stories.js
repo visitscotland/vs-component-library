@@ -1,4 +1,4 @@
-import VsLoadingSpinner from '@/components/elements/loading-spinner/LoadingSpinner.vue';
+import VsLoadingSpinner from '@/components/loading-spinner/LoadingSpinner.vue';
 
 export default {
     component: VsLoadingSpinner,

@@ -1,4 +1,4 @@
-import VsSvg from '@/components/elements/svg/Svg.vue';
+import VsSvg from '@/components/svg/Svg.vue';
 
 export default {
     component: VsSvg,

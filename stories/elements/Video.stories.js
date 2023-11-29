@@ -1,4 +1,4 @@
-import VsVideo from '@/components/elements/video/Video.vue';
+import VsVideo from '@/components/video/Video.vue';
 
 export default {
     component: VsVideo,

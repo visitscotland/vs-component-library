@@ -1,5 +1,5 @@
-import VsPanel from '@/components/elements/panel/Panel.vue';
-import VsHeading from '@/components/elements/heading/Heading.vue';
+import VsPanel from '@/components/panel/Panel.vue';
+import VsHeading from '@/components/heading/Heading.vue';
 
 export default {
     component: VsPanel,

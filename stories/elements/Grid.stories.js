@@ -1,6 +1,6 @@
-import VsContainer from '@/components/elements/grid/Container.vue';
-import VsRow from '@/components/elements/grid/Row.vue';
-import VsCol from '@/components/elements/grid/Col.vue';
+import VsContainer from '@/components/grid/Container.vue';
+import VsRow from '@/components/grid/Row.vue';
+import VsCol from '@/components/grid/Col.vue';
 
 export default {
     component: VsCol,

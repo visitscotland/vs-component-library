@@ -1,4 +1,4 @@
-import VsSkipTo from '@/components/patterns/skip-to/SkipTo.vue';
+import VsSkipTo from '@/components/skip-to/SkipTo.vue';
 
 export default {
     component: VsSkipTo,

@@ -1,12 +1,12 @@
-import VsVideoCaption from '@/components/patterns/video-caption/VideoCaption.vue';
-import VsImageWithCaption from '@/components/patterns/image-with-caption/ImageWithCaption.vue';
-import VsModal from '@/components/patterns/modal/Modal.vue';
+import VsVideoCaption from '@/components/video-caption/VideoCaption.vue';
+import VsImageWithCaption from '@/components/image-with-caption/ImageWithCaption.vue';
+import VsModal from '@/components/modal/Modal.vue';
 
-import VsVideo from '@/components/elements/video/Video.vue';
+import VsVideo from '@/components/video/Video.vue';
 import {
     VsRow,
     VsCol,
-} from '@/components/elements/grid';
+} from '@/components/grid';
 
 export default {
     component: VsVideoCaption,

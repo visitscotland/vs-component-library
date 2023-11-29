@@ -1,6 +1,6 @@
 import { BTab } from 'bootstrap-vue-next';
-import VsTabs from '@/components/patterns/tabs/Tabs.vue';
-import VsTabItem from '@/components/patterns/tabs/components/TabItem.vue';
+import VsTabs from '@/components/tabs/Tabs.vue';
+import VsTabItem from '@/components/tabs/components/TabItem.vue';
 
 export default {
     component: VsTabs,

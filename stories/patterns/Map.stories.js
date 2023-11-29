@@ -1,4 +1,4 @@
-import VsMap from '@components/patterns/map/Map.vue';
+import VsMap from '@components/map/Map.vue';
 import placesData from '@/assets/fixtures/maps/places-data.json';
 
 export default {

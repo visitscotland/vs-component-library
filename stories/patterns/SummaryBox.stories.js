@@ -1,6 +1,6 @@
-import VsSummaryBoxList from '@/components/patterns/summary-box/SummaryBoxList.vue';
-import VsSummaryBoxListItem from '@/components/patterns/summary-box/components/SummaryBoxListItem.vue';
-import VsSummaryBoxDistanceListItem from '@/components/patterns/summary-box/components/SummaryBoxDistanceListItem.vue';
+import VsSummaryBoxList from '@/components/summary-box/SummaryBoxList.vue';
+import VsSummaryBoxListItem from '@/components/summary-box/components/SummaryBoxListItem.vue';
+import VsSummaryBoxDistanceListItem from '@/components/summary-box/components/SummaryBoxDistanceListItem.vue';
 
 import sampleItinerary from '@/assets/fixtures/itineraries/sample-itinerary.json';
 

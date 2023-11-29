@@ -1,4 +1,4 @@
-import VsImg from '@/components/elements/img/Img.vue';
+import VsImg from '@/components/img/Img.vue';
 
 export default {
     component: VsImg,

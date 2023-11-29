@@ -1,6 +1,6 @@
-import VsRichTextWrapper from '@/components/elements/rich-text-wrapper/RichTextWrapper.vue';
-import VsLink from '@/components/elements/link/Link.vue';
-import VsHeading from '@/components/elements/heading/Heading.vue';
+import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsLink from '@/components/link/Link.vue';
+import VsHeading from '@/components/heading/Heading.vue';
 
 export default {
     component: VsRichTextWrapper,

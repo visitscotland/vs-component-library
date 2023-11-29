@@ -1,7 +1,7 @@
-import VsCaption from '@/components/patterns/caption/Caption.vue';
-import VsImg from '@/components/elements/img/Img.vue';
-import VsImageWithCaption from '@/components/patterns/image-with-caption/ImageWithCaption.vue';
-import VsSocialCreditLink from '@/components/patterns/social-credit-link/SocialCreditLink.vue';
+import VsCaption from '@/components/caption/Caption.vue';
+import VsImg from '@/components/img/Img.vue';
+import VsImageWithCaption from '@/components/image-with-caption/ImageWithCaption.vue';
+import VsSocialCreditLink from '@/components/social-credit-link/SocialCreditLink.vue';
 
 export default {
     component: VsImageWithCaption,

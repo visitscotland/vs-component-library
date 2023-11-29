@@ -1,6 +1,6 @@
 import { within, waitFor } from '@storybook/testing-library';
 
-import VsCheckbox from '@/components/elements/checkbox/Checkbox.vue';
+import VsCheckbox from '@/components/checkbox/Checkbox.vue';
 
 export default {
     component: VsCheckbox,

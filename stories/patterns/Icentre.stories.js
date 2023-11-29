@@ -1,10 +1,10 @@
-import VsIcentre from '@/components/patterns/icentre/Icentre.vue';
-import VsImageWithCaption from '@/components/patterns/image-with-caption/ImageWithCaption.vue';
-import VsQuote from '@/components/patterns/quote/Quote.vue';
-import VsCaption from '@/components/patterns/caption/Caption.vue';
-import VsButton from '@/components/elements/button/Button.vue';
-import VsImg from '@/components/elements/img/Img.vue';
-import VsLink from '@/components/elements/link/Link.vue';
+import VsIcentre from '@/components/icentre/Icentre.vue';
+import VsImageWithCaption from '@/components/image-with-caption/ImageWithCaption.vue';
+import VsQuote from '@/components/quote/Quote.vue';
+import VsCaption from '@/components/caption/Caption.vue';
+import VsButton from '@/components/button/Button.vue';
+import VsImg from '@/components/img/Img.vue';
+import VsLink from '@/components/link/Link.vue';
 
 export default {
     component: VsIcentre,

@@ -1,6 +1,6 @@
-import VsGlobalMenu from '@/components/patterns/global-menu/GlobalMenu.vue';
-import VsGlobalMenuLanguage from '@/components/patterns/global-menu/components/GlobalMenuLanguage.vue';
-import VsGlobalMenuLanguageItem from '@/components/patterns/global-menu/components/GlobalMenuLanguageItem.vue';
+import VsGlobalMenu from '@/components/global-menu/GlobalMenu.vue';
+import VsGlobalMenuLanguage from '@/components/global-menu/components/GlobalMenuLanguage.vue';
+import VsGlobalMenuLanguageItem from '@/components/global-menu/components/GlobalMenuLanguageItem.vue';
 
 export default {
     component: VsGlobalMenu,

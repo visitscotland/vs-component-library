@@ -1,4 +1,4 @@
-import VsRecaptcha from '@/components/elements/recaptcha/Recaptcha.vue';
+import VsRecaptcha from '@/components/recaptcha/Recaptcha.vue';
 
 export default {
     component: VsRecaptcha,

@@ -1,4 +1,4 @@
-import VsAlert from '@/components/elements/alert/Alert.vue';
+import VsAlert from '@/components/alert/Alert.vue';
 
 export default {
     component: VsAlert,

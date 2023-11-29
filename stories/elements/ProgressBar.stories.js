@@ -1,4 +1,4 @@
-import VsProgressBar from '@/components/elements/progress-bar/ProgressBar.vue';
+import VsProgressBar from '@/components/progress-bar/ProgressBar.vue';
 
 export default {
     component: VsProgressBar,

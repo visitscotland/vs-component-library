@@ -1,9 +1,9 @@
-import VsListicleItem from '@/components/patterns/listicle/ListicleItem.vue';
+import VsListicleItem from '@/components/listicle/ListicleItem.vue';
 
-import VsIconList from '@/components/patterns/icon-list/IconList.vue';
-import VsIconListItem from '@/components/patterns/icon-list/components/IconListItem.vue';
-import VsImageWithCaption from '@/components/patterns/image-with-caption/ImageWithCaption.vue';
-import VsCaption from '@/components/patterns/caption/Caption.vue';
+import VsIconList from '@/components/icon-list/IconList.vue';
+import VsIconListItem from '@/components/icon-list/components/IconListItem.vue';
+import VsImageWithCaption from '@/components/image-with-caption/ImageWithCaption.vue';
+import VsCaption from '@/components/caption/Caption.vue';
 
 export default {
     component: VsListicleItem,

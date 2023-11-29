@@ -1,5 +1,5 @@
-import VsSiteSearch from '@/components/patterns/site-search/SiteSearch.vue';
-import VsSiteSearchForm from '@/components/patterns/site-search/components/SiteSearchForm.vue';
+import VsSiteSearch from '@/components/site-search/SiteSearch.vue';
+import VsSiteSearchForm from '@/components/site-search/components/SiteSearchForm.vue';
 
 export default {
     component: VsSiteSearch,

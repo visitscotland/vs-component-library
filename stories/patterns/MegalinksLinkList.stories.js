@@ -1,14 +1,14 @@
-import VsMegalinks from '@/components/patterns/megalinks/Megalinks.vue';
-import VsMegalinkLinkList from '@/components/patterns/megalinks/components/megalink-link-list/MegalinkLinkList.vue';
-import VsImageWithCaption from '@/components/patterns/image-with-caption/ImageWithCaption.vue';
-import VsCaption from '@/components/patterns/caption/Caption.vue';
-import VsLink from '@/components/elements/link/Link.vue';
-import VsModal from '@/components/patterns/modal/Modal.vue';
-import VsVideo from '@/components/elements/video/Video.vue';
+import VsMegalinks from '@/components/megalinks/Megalinks.vue';
+import VsMegalinkLinkList from '@/components/megalinks/components/megalink-link-list/MegalinkLinkList.vue';
+import VsImageWithCaption from '@/components/image-with-caption/ImageWithCaption.vue';
+import VsCaption from '@/components/caption/Caption.vue';
+import VsLink from '@/components/link/Link.vue';
+import VsModal from '@/components/modal/Modal.vue';
+import VsVideo from '@/components/video/Video.vue';
 import {
     VsRow,
     VsCol,
-} from '@/components/elements/grid';
+} from '@/components/grid';
 
 export default {
     component: VsMegalinks,

@@ -1,11 +1,11 @@
-import VsArticle from '@/components/patterns/article/Article.vue';
-import VsArticleSidebar from '@/components/patterns/article/components/ArticleSidebar.vue';
-import VsArticleSection from '@/components/patterns/article/components/ArticleSection.vue';
-import VsHeading from '@/components/elements/heading/Heading.vue';
-import VsImageWithCaption from '@/components/patterns/image-with-caption/ImageWithCaption.vue';
-import VsImg from '@/components/elements/img/Img.vue';
-import VsCaption from '@/components/patterns/caption/Caption.vue';
-import VsQuote from '@/components/patterns/quote/Quote.vue';
+import VsArticle from '@/components/article/Article.vue';
+import VsArticleSidebar from '@/components/article/components/ArticleSidebar.vue';
+import VsArticleSection from '@/components/article/components/ArticleSection.vue';
+import VsHeading from '@/components/heading/Heading.vue';
+import VsImageWithCaption from '@/components/image-with-caption/ImageWithCaption.vue';
+import VsImg from '@/components/img/Img.vue';
+import VsCaption from '@/components/caption/Caption.vue';
+import VsQuote from '@/components/quote/Quote.vue';
 
 export default {
     component: VsArticle,

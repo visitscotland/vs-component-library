@@ -1,4 +1,4 @@
-import VsIcon from '@/components/elements/icon/Icon.vue';
+import VsIcon from '@/components/icon/Icon.vue';
 
 export default {
     component: VsIcon,

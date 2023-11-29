@@ -2,7 +2,7 @@ import {
     userEvent, within, waitFor,
 } from '@storybook/testing-library';
 
-import VsMarketoForm from '@/components/patterns/marketo-form/MarketoForm.vue';
+import VsMarketoForm from '@/components/marketo-form/MarketoForm.vue';
 
 export default {
     component: VsMarketoForm,

@@ -1,4 +1,4 @@
-import VsNumberInput from '@/components/elements/number-input/NumberInput.vue';
+import VsNumberInput from '@/components/number-input/NumberInput.vue';
 
 export default {
     component: VsNumberInput,

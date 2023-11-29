@@ -1,5 +1,5 @@
-import VsLinkList from '@/components/patterns/link-list/LinkList.vue';
-import VsLinkListItem from '@/components/patterns/link-list/components/LinkListItem.vue';
+import VsLinkList from '@/components/link-list/LinkList.vue';
+import VsLinkListItem from '@/components/link-list/components/LinkListItem.vue';
 
 export default {
     component: VsLinkListItem,

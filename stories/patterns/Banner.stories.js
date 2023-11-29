@@ -1,5 +1,5 @@
-import VsBanner from '@/components/patterns/banner/Banner.vue';
-import VsLink from '@/components/elements/link/Link.vue';
+import VsBanner from '@/components/banner/Banner.vue';
+import VsLink from '@/components/link/Link.vue';
 
 export default {
     component: VsBanner,

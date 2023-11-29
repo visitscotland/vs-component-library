@@ -1,5 +1,5 @@
-import VsIconList from '@/components/patterns/icon-list/IconList.vue';
-import VsIconListItem from '@/components/patterns/icon-list/components/IconListItem.vue';
+import VsIconList from '@/components/icon-list/IconList.vue';
+import VsIconListItem from '@/components/icon-list/components/IconListItem.vue';
 
 export default {
     component: VsIconList,

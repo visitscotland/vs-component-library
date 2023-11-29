@@ -1,4 +1,4 @@
-import VsLink from '@/components/elements/link/Link.vue';
+import VsLink from '@/components/link/Link.vue';
 
 export default {
     component: VsLink,

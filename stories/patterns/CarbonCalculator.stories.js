@@ -2,7 +2,7 @@ import {
     within, waitFor, userEvent,
 } from '@storybook/testing-library';
 
-import VsCarbonCalculator from '@/components/patterns/carbon-calculator/CarbonCalculator.vue';
+import VsCarbonCalculator from '@/components/carbon-calculator/CarbonCalculator.vue';
 
 export default {
     component: VsCarbonCalculator,

@@ -1,21 +1,21 @@
-import VsBlogDetails from '@/components/patterns/blog-details/BlogDetails.vue';
-import VsBreadcrumb from '@/components/patterns/breadcrumb/Breadcrumb.vue';
-import VsBreadcrumbItem from '@/components/patterns/breadcrumb/components/BreadcrumbItem.vue';
-import VsCaption from '@/components/patterns/caption/Caption.vue';
+import VsBlogDetails from '@/components/blog-details/BlogDetails.vue';
+import VsBreadcrumb from '@/components/breadcrumb/Breadcrumb.vue';
+import VsBreadcrumbItem from '@/components/breadcrumb/components/BreadcrumbItem.vue';
+import VsCaption from '@/components/caption/Caption.vue';
 import {
     VsCol,
     VsContainer,
     VsRow,
-} from '@components/elements/grid';
-import VsDescriptionList from '@/components/patterns/description-list/DescriptionList.vue';
-import VsDescriptionListItem from '@/components/patterns/description-list/components/DescriptionListItem.vue';
-import VsImageWithCaption from '@/components/patterns/image-with-caption/ImageWithCaption.vue';
-import VsPageIntro from '@/components/patterns/page-intro/PageIntro.vue';
-import VsSocialShare from '@/components/patterns/social-share/SocialShare.vue';
-import VsSocialShareItem from '@/components/patterns/social-share/components/SocialShareItem.vue';
-import VsSummaryBoxList from '@/components/patterns/summary-box/SummaryBoxList.vue';
-import VsSummaryBoxListItem from '@/components/patterns/summary-box/components/SummaryBoxListItem.vue';
-import VsSummaryBoxDistanceListItem from '@/components/patterns/summary-box/components/SummaryBoxDistanceListItem.vue';
+} from '@components/grid';
+import VsDescriptionList from '@/components/description-list/DescriptionList.vue';
+import VsDescriptionListItem from '@/components/description-list/components/DescriptionListItem.vue';
+import VsImageWithCaption from '@/components/image-with-caption/ImageWithCaption.vue';
+import VsPageIntro from '@/components/page-intro/PageIntro.vue';
+import VsSocialShare from '@/components/social-share/SocialShare.vue';
+import VsSocialShareItem from '@/components/social-share/components/SocialShareItem.vue';
+import VsSummaryBoxList from '@/components/summary-box/SummaryBoxList.vue';
+import VsSummaryBoxListItem from '@/components/summary-box/components/SummaryBoxListItem.vue';
+import VsSummaryBoxDistanceListItem from '@/components/summary-box/components/SummaryBoxDistanceListItem.vue';
 
 import { Default as blogDetailsDefault } from './BlogDetails.stories';
 import { Default as breadcrumbDefault } from './Breadcrumb.stories';

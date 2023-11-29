@@ -1,4 +1,4 @@
-import VsCaption from '@/components/patterns/caption/Caption.vue';
+import VsCaption from '@/components/caption/Caption.vue';
 
 export default {
     component: VsCaption,

@@ -1,5 +1,5 @@
-import VsStretchedLinkCard from '@/components/patterns/stretched-link-card/StretchedLinkCard.vue';
-import VsStretchedLinkPanels from '@/components/patterns/stretched-link-card/components/StretchedLinkPanels.vue';
+import VsStretchedLinkCard from '@/components/stretched-link-card/StretchedLinkCard.vue';
+import VsStretchedLinkPanels from '@/components/stretched-link-card/components/StretchedLinkPanels.vue';
 
 export default {
     component: VsStretchedLinkCard,

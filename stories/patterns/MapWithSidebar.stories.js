@@ -1,4 +1,4 @@
-import VsMapWithSidebar from '@/components/patterns/map-with-sidebar/MapWithSidebar.vue';
+import VsMapWithSidebar from '@/components/map-with-sidebar/MapWithSidebar.vue';
 import mapFiltersSubcategories from '@/assets/fixtures/maps/map-filters-subcategories.json';
 import mapFiltersOutlanderSubcategories from '@/assets/fixtures/maps/map-filters-outlander-subcategories.json';
 import mapFiltersRegions from '@/assets/fixtures/maps/map-filters-regions.json';

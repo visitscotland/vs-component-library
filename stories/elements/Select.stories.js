@@ -2,7 +2,7 @@ import {
     within, waitFor, userEvent,
 } from '@storybook/testing-library';
 
-import VsSelect from '@/components/elements/select/Select.vue';
+import VsSelect from '@/components/select/Select.vue';
 
 export default {
     component: VsSelect,

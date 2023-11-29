@@ -1,5 +1,5 @@
-import VsSocialShare from '@/components/patterns/social-share/SocialShare.vue';
-import VsSocialShareItem from '@/components/patterns/social-share/components/SocialShareItem.vue';
+import VsSocialShare from '@/components/social-share/SocialShare.vue';
+import VsSocialShareItem from '@/components/social-share/components/SocialShareItem.vue';
 
 import { userEvent, within } from '@storybook/testing-library';
 

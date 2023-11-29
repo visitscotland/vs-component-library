@@ -1,4 +1,4 @@
-import VsProductSearch from '@/components/patterns/product-search/ProductSearch.vue';
+import VsProductSearch from '@/components/product-search/ProductSearch.vue';
 
 import enLocations from '@/assets/fixtures/product-search/enLocations.json';
 import frLocations from '@/assets/fixtures/product-search/frLocations.json';

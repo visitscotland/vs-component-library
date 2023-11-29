@@ -1,4 +1,4 @@
-import VsAddress from '@/components/elements/address/Address.vue';
+import VsAddress from '@/components/address/Address.vue';
 
 export default {
     component: VsAddress,

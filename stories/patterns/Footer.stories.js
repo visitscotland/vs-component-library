@@ -1,14 +1,14 @@
-import VsIcon from '@/components/elements/icon/Icon.vue';
-import VsList from '@/components/elements/list/List.vue';
-import VsCol from '@/components/elements/grid/Col.vue';
+import VsIcon from '@/components/icon/Icon.vue';
+import VsList from '@/components/list/List.vue';
+import VsCol from '@/components/grid/Col.vue';
 
-import VsFooter from '@/components/patterns/footer/Footer.vue';
-import VsFooterAccordionItem from '@/components/patterns/footer/components/FooterAccordionItem.vue';
-import VsFooterNavListItem from '@/components/patterns/footer/components/FooterNavListItem.vue';
-import VsFooterSocialMenu from '@/components/patterns/footer/components/FooterSocialMenu.vue';
-import VsFooterSocialItem from '@/components/patterns/footer/components/FooterSocialItem.vue';
-import VsFooterUtilityList from '@/components/patterns/footer/components/FooterUtilityList.vue';
-import VsFooterCopyright from '@/components/patterns/footer/components/FooterCopyright.vue';
+import VsFooter from '@/components/footer/Footer.vue';
+import VsFooterAccordionItem from '@/components/footer/components/FooterAccordionItem.vue';
+import VsFooterNavListItem from '@/components/footer/components/FooterNavListItem.vue';
+import VsFooterSocialMenu from '@/components/footer/components/FooterSocialMenu.vue';
+import VsFooterSocialItem from '@/components/footer/components/FooterSocialItem.vue';
+import VsFooterUtilityList from '@/components/footer/components/FooterUtilityList.vue';
+import VsFooterCopyright from '@/components/footer/components/FooterCopyright.vue';
 
 export default {
     component: VsFooter,

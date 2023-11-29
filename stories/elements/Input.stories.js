@@ -2,7 +2,7 @@ import {
     within, waitFor, userEvent,
 } from '@storybook/testing-library';
 
-import VsInput from '@/components/elements/input/Input.vue';
+import VsInput from '@/components/input/Input.vue';
 
 export default {
     component: VsInput,

@@ -1,10 +1,10 @@
-import VsSkiScotlandCard from '@/components/patterns/ski-scotland/ski-scotland-card/SkiScotlandCard.vue';
+import VsSkiScotlandCard from '@/components/ski-scotland/ski-scotland-card/SkiScotlandCard.vue';
 
 import {
     VsContainer,
     VsRow,
     VsCol,
-} from '@/components/elements/grid';
+} from '@/components/grid';
 
 export default {
     component: VsSkiScotlandCard,

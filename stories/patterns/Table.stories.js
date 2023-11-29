@@ -1,11 +1,11 @@
-import VsTable from '@/components/patterns/table/Table.vue';
-import VsTableHead from '@/components/patterns/table/components/TableHead.vue';
-import VsTableRow from '@/components/patterns/table/components/TableRow.vue';
-import VsTableHeaderCell from '@/components/patterns/table/components/TableHeaderCell.vue';
-import VsTableBody from '@/components/patterns/table/components/TableBody.vue';
-import VsTableDataCell from '@/components/patterns/table/components/TableDataCell.vue';
-import VsTableFooter from '@/components/patterns/table/components/TableFooter.vue';
-import VsHeading from '@/components/elements/heading/Heading.vue';
+import VsTable from '@/components/table/Table.vue';
+import VsTableHead from '@/components/table/components/TableHead.vue';
+import VsTableRow from '@/components/table/components/TableRow.vue';
+import VsTableHeaderCell from '@/components/table/components/TableHeaderCell.vue';
+import VsTableBody from '@/components/table/components/TableBody.vue';
+import VsTableDataCell from '@/components/table/components/TableDataCell.vue';
+import VsTableFooter from '@/components/table/components/TableFooter.vue';
+import VsHeading from '@/components/heading/Heading.vue';
 
 export default {
     component: VsTable,

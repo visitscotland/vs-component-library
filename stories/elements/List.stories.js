@@ -1,4 +1,4 @@
-import VsList from '@/components/elements/list/List.vue';
+import VsList from '@/components/list/List.vue';
 
 export default {
     component: VsList,

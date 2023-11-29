@@ -1,4 +1,4 @@
-import VsTooltip from '@/components/elements/tooltip/Tooltip.vue';
+import VsTooltip from '@/components/tooltip/Tooltip.vue';
 
 export default {
     component: VsTooltip,

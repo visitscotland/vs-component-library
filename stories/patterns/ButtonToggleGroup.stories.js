@@ -1,4 +1,4 @@
-import VsButtonToggleGroup from '@/components/patterns/button-toggle-group/ButtonToggleGroup.vue';
+import VsButtonToggleGroup from '@/components/button-toggle-group/ButtonToggleGroup.vue';
 
 export default {
     component: VsButtonToggleGroup,

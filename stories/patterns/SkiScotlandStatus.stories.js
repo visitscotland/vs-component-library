@@ -1,4 +1,4 @@
-import VsSkiScotlandStatus from '@/components/patterns/ski-scotland/ski-scotland-status/SkiScotlandStatus.vue';
+import VsSkiScotlandStatus from '@/components/ski-scotland/ski-scotland-status/SkiScotlandStatus.vue';
 
 export default {
     component: VsSkiScotlandStatus,

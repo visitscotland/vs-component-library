@@ -1,4 +1,4 @@
-import VsRadioButton from '@/components/elements/radio-button/RadioButton.vue';
+import VsRadioButton from '@/components/radio-button/RadioButton.vue';
 
 export default {
     component: VsRadioButton,

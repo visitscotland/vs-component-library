@@ -1,4 +1,4 @@
-import VsHeading from '@/components/elements/heading/Heading.vue';
+import VsHeading from '@/components/heading/Heading.vue';
 
 export default {
     component: VsHeading,

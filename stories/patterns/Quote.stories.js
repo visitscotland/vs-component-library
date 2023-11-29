@@ -1,6 +1,6 @@
-import VsButton from '@/components/elements/button/Button.vue';
-import VsImg from '@/components/elements/img/Img.vue';
-import VsQuote from '@/components/patterns/quote/Quote.vue';
+import VsButton from '@/components/button/Button.vue';
+import VsImg from '@/components/img/Img.vue';
+import VsQuote from '@/components/quote/Quote.vue';
 
 export default {
     component: VsQuote,

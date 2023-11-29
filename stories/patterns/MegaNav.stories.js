@@ -1,14 +1,14 @@
 import { userEvent, within } from '@storybook/testing-library';
 
-import VsMeganav from '@/components/patterns/mega-nav/MegaNav.vue';
-import VsMegaNavTopMenuItem from '@/components/patterns/mega-nav/components/MegaNavTopMenuItem.vue';
-import VsMegaNavList from '@/components/patterns/mega-nav/components/MegaNavList.vue';
-import VsMegaNavListItem from '@/components/patterns/mega-nav/components/MegaNavListItem.vue';
-import VsMegaNavAccordionItem from '@/components/patterns/mega-nav/components/MegaNavAccordionItem.vue';
-import VsMegaNavFeaturedItem from '@/components/patterns/mega-nav/components/MegaNavFeaturedItem.vue';
-import VsMegaNavFeaturedEvent from '@/components/patterns/mega-nav/components/MegaNavFeaturedEvent.vue';
+import VsMeganav from '@/components/mega-nav/MegaNav.vue';
+import VsMegaNavTopMenuItem from '@/components/mega-nav/components/MegaNavTopMenuItem.vue';
+import VsMegaNavList from '@/components/mega-nav/components/MegaNavList.vue';
+import VsMegaNavListItem from '@/components/mega-nav/components/MegaNavListItem.vue';
+import VsMegaNavAccordionItem from '@/components/mega-nav/components/MegaNavAccordionItem.vue';
+import VsMegaNavFeaturedItem from '@/components/mega-nav/components/MegaNavFeaturedItem.vue';
+import VsMegaNavFeaturedEvent from '@/components/mega-nav/components/MegaNavFeaturedEvent.vue';
 
-import VsAccordion from '@/components/patterns/accordion/Accordion.vue';
+import VsAccordion from '@/components/accordion/Accordion.vue';
 
 import navExample from '@/assets/fixtures/header/main-nav.json';
 

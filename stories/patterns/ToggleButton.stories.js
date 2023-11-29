@@ -1,4 +1,4 @@
-import VsToggleButton from '@/components/patterns/toggle-button/ToggleButton.vue';
+import VsToggleButton from '@/components/toggle-button/ToggleButton.vue';
 
 export default {
     component: VsToggleButton,

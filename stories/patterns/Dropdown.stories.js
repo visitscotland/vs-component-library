@@ -1,5 +1,5 @@
-import VsDropdown from '@/components/patterns/dropdown/Dropdown.vue';
-import VsDropdownItem from '@/components/patterns/dropdown/components/DropdownItem.vue';
+import VsDropdown from '@/components/dropdown/Dropdown.vue';
+import VsDropdownItem from '@/components/dropdown/components/DropdownItem.vue';
 
 export default {
     component: VsDropdown,

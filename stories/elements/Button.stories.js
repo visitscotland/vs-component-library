@@ -1,4 +1,4 @@
-import VsButton from '@/components/elements/button/Button.vue';
+import VsButton from '@/components/button/Button.vue';
 
 export default {
     component: VsButton,

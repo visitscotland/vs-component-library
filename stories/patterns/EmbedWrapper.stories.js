@@ -1,4 +1,4 @@
-import VsEmbedWrapper from '@/components/patterns/embed-wrapper/EmbedWrapper.vue';
+import VsEmbedWrapper from '@/components/embed-wrapper/EmbedWrapper.vue';
 
 export default {
     component: VsEmbedWrapper,

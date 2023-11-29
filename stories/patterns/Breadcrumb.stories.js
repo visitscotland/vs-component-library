@@ -1,5 +1,5 @@
-import VsBreadcrumb from '@/components/patterns/breadcrumb/Breadcrumb.vue';
-import VsBreadcrumbItem from '@/components/patterns/breadcrumb/components/BreadcrumbItem.vue';
+import VsBreadcrumb from '@/components/breadcrumb/Breadcrumb.vue';
+import VsBreadcrumbItem from '@/components/breadcrumb/components/BreadcrumbItem.vue';
 
 export default {
     component: VsBreadcrumbItem,

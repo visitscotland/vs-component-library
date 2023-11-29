@@ -1,4 +1,4 @@
-import VsWarning from '@/components/patterns/warning/Warning.vue';
+import VsWarning from '@/components/warning/Warning.vue';
 
 export default {
     component: VsWarning,
