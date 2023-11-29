@@ -12,7 +12,7 @@ import {
 
 export default {
     component: VsMegalinks,
-    title: 'Patterns/Megalinks/SingleImage',
+    title: 'Megalinks/SingleImage',
     tags: ['autodocs'],
 };
 

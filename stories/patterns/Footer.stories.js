@@ -12,7 +12,7 @@ import VsFooterCopyright from '@/components/footer/components/FooterCopyright.vu
 
 export default {
     component: VsFooter,
-    title: 'Patterns/Footer',
+    title: 'Footer',
     tags: ['autodocs'],
 };
 

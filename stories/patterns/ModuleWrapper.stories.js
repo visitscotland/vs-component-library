@@ -2,7 +2,7 @@ import VsModuleWrapper from '@/components/module-wrapper/ModuleWrapper.vue';
 
 export default {
     component: VsModuleWrapper,
-    title: 'Patterns/ModuleWrapper',
+    title: 'ModuleWrapper',
     tags: ['autodocs'],
     argTypes: {
         theme: {

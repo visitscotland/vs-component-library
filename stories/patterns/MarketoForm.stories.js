@@ -6,7 +6,7 @@ import VsMarketoForm from '@/components/marketo-form/MarketoForm.vue';
 
 export default {
     component: VsMarketoForm,
-    title: 'Patterns/MarketoForm',
+    title: 'MarketoForm',
     tags: ['autodocs'],
 };
 

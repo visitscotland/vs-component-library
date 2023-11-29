@@ -2,7 +2,7 @@ import VsToggleButton from '@/components/toggle-button/ToggleButton.vue';
 
 export default {
     component: VsToggleButton,
-    title: 'Patterns/ToggleButton',
+    title: 'ToggleButton',
     tags: ['autodocs'],
 };
 

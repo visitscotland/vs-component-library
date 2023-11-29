@@ -2,7 +2,7 @@ import VsSvgLink from '@/components/svg-link/SvgLink.vue';
 
 export default {
     component: VsSvgLink,
-    title: 'Elements/SvgLink',
+    title: 'SvgLink',
     tags: ['autodocs'],
 };
 

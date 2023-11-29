@@ -2,7 +2,7 @@ import VsSkiScotlandStatus from '@/components/ski-scotland/ski-scotland-status/S
 
 export default {
     component: VsSkiScotlandStatus,
-    title: 'Patterns/SkiScotland/Status',
+    title: 'SkiScotland/Status',
     tags: ['autodocs'],
 };
 

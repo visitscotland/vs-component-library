@@ -6,7 +6,7 @@ import VsInput from '@/components/input/Input.vue';
 
 export default {
     component: VsInput,
-    title: 'Elements/Input',
+    title: 'Input',
     tags: ['autodocs'],
 };
 

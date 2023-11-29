@@ -2,7 +2,7 @@ import VsImg from '@/components/img/Img.vue';
 
 export default {
     component: VsImg,
-    title: 'Elements/Img',
+    title: 'Img',
     tags: ['autodocs'],
 };
 

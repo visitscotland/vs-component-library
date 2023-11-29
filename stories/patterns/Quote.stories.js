@@ -4,7 +4,7 @@ import VsQuote from '@/components/quote/Quote.vue';
 
 export default {
     component: VsQuote,
-    title: 'Patterns/Quote',
+    title: 'Quote',
     tags: ['autodocs'],
     argTypes: {
         variant: {

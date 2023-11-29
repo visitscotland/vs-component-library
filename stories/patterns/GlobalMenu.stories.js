@@ -4,7 +4,7 @@ import VsGlobalMenuLanguageItem from '@/components/global-menu/components/Global
 
 export default {
     component: VsGlobalMenu,
-    title: 'Patterns/GlobalMenu',
+    title: 'GlobalMenu',
     tags: ['autodocs'],
 };
 

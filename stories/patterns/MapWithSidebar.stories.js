@@ -11,7 +11,7 @@ import placesDataDistillery from '@/assets/fixtures/maps/places-data-distillerie
 
 export default {
     component: VsMapWithSidebar,
-    title: 'Patterns/MapWithSidebar',
+    title: 'MapWithSidebar',
     tags: ['autodocs'],
 };
 

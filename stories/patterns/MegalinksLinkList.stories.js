@@ -12,7 +12,7 @@ import {
 
 export default {
     component: VsMegalinks,
-    title: 'Patterns/Megalinks/LinkList',
+    title: 'Megalinks/LinkList',
     tags: ['autodocs'],
 };
 

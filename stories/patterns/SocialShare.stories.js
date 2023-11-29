@@ -5,7 +5,7 @@ import { userEvent, within } from '@storybook/testing-library';
 
 export default {
     component: VsSocialShare,
-    title: 'Patterns/Social Share Button',
+    title: 'Social Share Button',
     tags: ['autodocs'],
     decorators: [() => ({
         template: '<div style="display: flex; justify-content: flex-end;"><story /></div>',

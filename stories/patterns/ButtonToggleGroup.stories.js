@@ -2,7 +2,7 @@ import VsButtonToggleGroup from '@/components/button-toggle-group/ButtonToggleGr
 
 export default {
     component: VsButtonToggleGroup,
-    title: 'Patterns/ButtonToggleGroup',
+    title: 'ButtonToggleGroup',
     tags: ['autodocs'],
 };
 

@@ -8,7 +8,7 @@ import VsLink from '@/components/link/Link.vue';
 
 export default {
     component: VsIcentre,
-    title: 'Patterns/Icentre',
+    title: 'Icentre',
     tags: ['autodocs'],
 };
 

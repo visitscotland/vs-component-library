@@ -2,7 +2,7 @@ import VsList from '@/components/list/List.vue';
 
 export default {
     component: VsList,
-    title: 'Elements/List',
+    title: 'List',
     tags: ['autodocs'],
 };
 

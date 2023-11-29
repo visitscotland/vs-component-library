@@ -2,7 +2,7 @@ import VsSocialCreditLink from '@/components/social-credit-link/SocialCreditLink
 
 export default {
     component: VsSocialCreditLink,
-    title: 'Patterns/SocialCreditLink',
+    title: 'SocialCreditLink',
     tags: ['autodocs'],
     decorators: [() => ({
         template: '<div style="background-color: #000;" class="p-4"><story /></div>',

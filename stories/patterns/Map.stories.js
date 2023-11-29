@@ -3,7 +3,7 @@ import placesData from '@/assets/fixtures/maps/places-data.json';
 
 export default {
     component: VsMap,
-    title: 'Patterns/Map',
+    title: 'Map',
     tags: ['autodocs'],
 };
 

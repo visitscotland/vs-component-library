@@ -2,7 +2,7 @@ import VsVideo from '@/components/video/Video.vue';
 
 export default {
     component: VsVideo,
-    title: 'Elements/Video',
+    title: 'Video',
     tags: ['autodocs'],
 };
 

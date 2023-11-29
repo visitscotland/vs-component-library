@@ -2,7 +2,7 @@ import VsBlogDetails from '@/components/blog-details/BlogDetails.vue';
 
 export default {
     component: VsBlogDetails,
-    title: 'Patterns/BlogDetails',
+    title: 'BlogDetails',
     tags: ['autodocs'],
     argTypes: {
         blogPublishDate: {

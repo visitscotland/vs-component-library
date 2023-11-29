@@ -10,7 +10,7 @@ import {
 
 export default {
     component: VsVideoCaption,
-    title: 'Patterns/VideoCaption',
+    title: 'VideoCaption',
     tags: ['autodocs'],
 };
 

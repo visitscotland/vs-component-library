@@ -3,7 +3,7 @@ import VsLinkListItem from '@/components/link-list/components/LinkListItem.vue';
 
 export default {
     component: VsLinkListItem,
-    title: 'Patterns/LinkList',
+    title: 'LinkList',
     tags: ['autodocs'],
     argTypes: {
         type: {

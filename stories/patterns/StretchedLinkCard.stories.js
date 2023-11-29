@@ -3,7 +3,7 @@ import VsStretchedLinkPanels from '@/components/stretched-link-card/components/S
 
 export default {
     component: VsStretchedLinkCard,
-    title: 'Patterns/StretchedLinkCard',
+    title: 'StretchedLinkCard',
     tags: ['autodocs'],
     decorators: [() => ({
         template: '<div style="max-width:350px;"><story /></div>',

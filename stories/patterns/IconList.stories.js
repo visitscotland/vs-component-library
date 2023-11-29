@@ -3,7 +3,7 @@ import VsIconListItem from '@/components/icon-list/components/IconListItem.vue';
 
 export default {
     component: VsIconList,
-    title: 'Patterns/IconList',
+    title: 'IconList',
     tags: ['autodocs'],
 };
 

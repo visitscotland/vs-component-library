@@ -6,7 +6,7 @@ import VsSelect from '@/components/select/Select.vue';
 
 export default {
     component: VsSelect,
-    title: 'Elements/Select',
+    title: 'Select',
     tags: ['autodocs'],
 };
 

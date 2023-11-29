@@ -3,7 +3,7 @@ import VsDropdownItem from '@/components/dropdown/components/DropdownItem.vue';
 
 export default {
     component: VsDropdown,
-    title: 'Patterns/Dropdown',
+    title: 'Dropdown',
     tags: ['autodocs'],
 };
 

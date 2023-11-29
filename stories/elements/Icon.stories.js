@@ -2,7 +2,7 @@ import VsIcon from '@/components/icon/Icon.vue';
 
 export default {
     component: VsIcon,
-    title: 'Elements/Icon',
+    title: 'Icon',
     tags: ['autodocs'],
     argTypes: {
         variant: {

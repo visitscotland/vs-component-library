@@ -2,7 +2,7 @@ import VsRecaptcha from '@/components/recaptcha/Recaptcha.vue';
 
 export default {
     component: VsRecaptcha,
-    title: 'Elements/Recaptcha',
+    title: 'Recaptcha',
     tags: ['autodocs'],
 };
 

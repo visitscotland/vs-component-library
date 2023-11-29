@@ -2,7 +2,7 @@ import VsButton from '@/components/button/Button.vue';
 
 export default {
     component: VsButton,
-    title: 'Elements/Button',
+    title: 'Button',
     tags: ['autodocs'],
     argTypes: {
         variant: {

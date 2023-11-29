@@ -7,7 +7,7 @@ import VsCaption from '@/components/caption/Caption.vue';
 
 export default {
     component: VsListicleItem,
-    title: 'Patterns/ListicleItem',
+    title: 'ListicleItem',
     tags: ['autodocs'],
 };
 

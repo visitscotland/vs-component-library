@@ -9,7 +9,7 @@ import VsQuote from '@/components/quote/Quote.vue';
 
 export default {
     component: VsArticle,
-    title: 'Patterns/Article',
+    title: 'Article',
     tags: ['autodocs'],
     argTypes: {
         vsArticleIntro: {

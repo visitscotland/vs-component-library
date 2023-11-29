@@ -2,7 +2,7 @@ import VsProgressBar from '@/components/progress-bar/ProgressBar.vue';
 
 export default {
     component: VsProgressBar,
-    title: 'Elements/ProgressBar',
+    title: 'ProgressBar',
     tags: ['autodocs'],
     argTypes: {
 

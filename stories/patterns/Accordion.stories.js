@@ -4,6 +4,7 @@ import VsAccordionToggle from '@/components/accordion/components/AccordionToggle
 
 export default {
     component: VsAccordion,
+    title: 'Accordion',
     tags: ['autodocs'],
     argTypes: {
         breakPoint: {

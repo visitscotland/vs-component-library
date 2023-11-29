@@ -5,7 +5,7 @@ import VsSocialCreditLink from '@/components/social-credit-link/SocialCreditLink
 
 export default {
     component: VsImageWithCaption,
-    title: 'Patterns/ImageWithCaption',
+    title: 'ImageWithCaption',
     tags: ['autodocs'],
     decorators: [() => ({
         template: '<div style="max-width: 500px;"><story /></div>',

@@ -2,7 +2,7 @@ import VsLoadingSpinner from '@/components/loading-spinner/LoadingSpinner.vue';
 
 export default {
     component: VsLoadingSpinner,
-    title: 'Elements/LoadingSpinner',
+    title: 'LoadingSpinner',
     tags: ['autodocs'],
     argTypes: {
         variant: {

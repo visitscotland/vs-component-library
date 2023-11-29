@@ -2,7 +2,7 @@ import VsWarning from '@/components/warning/Warning.vue';
 
 export default {
     component: VsWarning,
-    title: 'Patterns/Warning',
+    title: 'Warning',
     tags: ['autodocs'],
     argTypes: {
         type: {

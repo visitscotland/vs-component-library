@@ -3,7 +3,7 @@ import VsButton from '@/components/button/Button.vue';
 
 export default {
     component: VsCannedSearch,
-    title: 'Patterns/CannedSearch',
+    title: 'CannedSearch',
     tags: ['autodocs'],
 };
 

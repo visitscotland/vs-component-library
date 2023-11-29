@@ -14,7 +14,7 @@ import {
 
 export default {
     component: VsMegalinks,
-    title: 'Patterns/Megalinks/MultiImage',
+    title: 'Megalinks/MultiImage',
     tags: ['autodocs'],
 };
 

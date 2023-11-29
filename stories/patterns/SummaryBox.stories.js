@@ -6,7 +6,7 @@ import sampleItinerary from '@/assets/fixtures/itineraries/sample-itinerary.json
 
 export default {
     component: VsSummaryBoxList,
-    title: 'Patterns/Summary Box',
+    title: 'Summary Box',
     tags: ['autodocs'],
     argTypes: {
         transportKey: {

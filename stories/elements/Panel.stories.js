@@ -3,7 +3,7 @@ import VsHeading from '@/components/heading/Heading.vue';
 
 export default {
     component: VsPanel,
-    title: 'Elements/Panel',
+    title: 'Panel',
     tags: ['autodocs'],
 };
 

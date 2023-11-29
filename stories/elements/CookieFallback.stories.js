@@ -2,7 +2,7 @@ import VsCookieFallback from '@/components/cookie-fallback/CookiesFallback.vue';
 
 export default {
     component: VsCookieFallback,
-    title: 'Elements/CookieFallback',
+    title: 'CookieFallback',
     tags: ['autodocs'],
     argTypes: {
 

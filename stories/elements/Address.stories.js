@@ -2,7 +2,7 @@ import VsAddress from '@/components/address/Address.vue';
 
 export default {
     component: VsAddress,
-    title: 'Elements/Address',
+    title: 'Address',
     tags: ['autodocs'],
     argTypes: {
 

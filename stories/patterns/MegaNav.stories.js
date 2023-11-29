@@ -14,7 +14,7 @@ import navExample from '@/assets/fixtures/header/main-nav.json';
 
 export default {
     component: VsMeganav,
-    title: 'Patterns/MegaNav',
+    title: 'MegaNav',
     tags: ['autodocs'],
     argTypes: {
         topMenuItemAlign: {

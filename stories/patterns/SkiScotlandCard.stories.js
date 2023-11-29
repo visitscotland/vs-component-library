@@ -8,7 +8,7 @@ import {
 
 export default {
     component: VsSkiScotlandCard,
-    title: 'Patterns/SkiScotland/Card',
+    title: 'SkiScotland/Card',
     tags: ['autodocs'],
 };
 

@@ -3,7 +3,7 @@ import VsLink from '@/components/link/Link.vue';
 
 export default {
     component: VsBanner,
-    title: 'Patterns/Banner',
+    title: 'Banner',
     tags: ['autodocs'],
     argTypes: {
         onClick: {

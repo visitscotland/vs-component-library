@@ -3,7 +3,7 @@ import VsBreadcrumbItem from '@/components/breadcrumb/components/BreadcrumbItem.
 
 export default {
     component: VsBreadcrumbItem,
-    title: 'Patterns/Breadcrumb',
+    title: 'Breadcrumb',
     tags: ['autodocs'],
 };
 

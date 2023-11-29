@@ -2,7 +2,7 @@ import VsSkipTo from '@/components/skip-to/SkipTo.vue';
 
 export default {
     component: VsSkipTo,
-    title: 'Patterns/SkipTo',
+    title: 'SkipTo',
     tags: ['autodocs'],
     argTypes: {
         skipToText: {

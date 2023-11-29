@@ -2,7 +2,7 @@ import VsSvg from '@/components/svg/Svg.vue';
 
 export default {
     component: VsSvg,
-    title: 'Elements/Svg',
+    title: 'Svg',
     tags: ['autodocs'],
 };
 
