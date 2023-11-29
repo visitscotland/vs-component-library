@@ -30,7 +30,7 @@
 import VsLink from '@components/link/Link.vue';
 import VsIcon from '@components/icon/Icon.vue';
 import { VsCol } from '@components/grid';
-import dataLayerMixin from '../../../../mixins/dataLayerMixin';
+import dataLayerMixin from '../../../mixins/dataLayerMixin';
 
 /**
  * This component displays an icon and link to a social sharing channel

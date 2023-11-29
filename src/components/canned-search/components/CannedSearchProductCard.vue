@@ -129,7 +129,7 @@ import VsImg from '@components/img/Img.vue';
 import VsHeading from '@components/heading/Heading.vue';
 import VsLink from '@components/link/Link.vue';
 import VsCol from '@components/grid/Col.vue';
-import srcSetMixin from '../../../../mixins/srcSetMixin';
+import srcSetMixin from '../../../mixins/srcSetMixin';
 
 /**
 * Generic product card for canned search

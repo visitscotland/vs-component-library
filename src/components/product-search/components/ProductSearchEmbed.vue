@@ -163,7 +163,7 @@
 <script lang="ts">
     //  Options API script block used to allow Vue 2 mixin to be used
     import { defineComponent } from "vue"; 
-    import dataLayer from '../../../../mixins/dataLayerMixin';
+    import dataLayer from '../../../mixins/dataLayerMixin';
     
     export default defineComponent({
         mixins: [dataLayer],
@@ -184,18 +184,18 @@
 
 <script setup lang="ts">
 import { computed, ref, onMounted, onBeforeMount, nextTick } from 'vue';
-import { getLabelText, getLocale, getProductName } from '../../../../utils/lang';
-import { paths, monthsEnglish } from '../../../../constants';
-import { getProductTypes } from '../../../../utils/utils';
-import { getData } from '../../../../utils/axios';
-import type { Location, TmsApiDataItem, SelectOption } from '../../../../types';
+import { getLabelText, getLocale, getProductName } from '../../../utils/lang';
+import { paths, monthsEnglish } from '../../../constants';
+import { getProductTypes } from '../../../utils/utils';
+import { getData } from '../../../utils/axios';
+import type { Location, TmsApiDataItem, SelectOption } from '../../../types';
 import VsLoadingSpinner from '@components/loading-spinner/LoadingSpinner.vue';
-import VsSelect from '../../../elements/select/Select.vue';
-import VsInput from '../../../elements/input/Input.vue';
+import VsSelect from '@components/select/Select.vue';
+import VsInput from '@components/input/Input.vue';
 import Autocomplete from './Autocomplete.vue';
 import GuestSelector from './GuestSelector.vue';
 import DateRange from './DateRange.vue';
-import VsButton from '../../../elements/button/Button.vue';
+import VsButton from '@components/button/Button.vue';
 
 /**
  * A module housing the PSR widget, a title and optional text

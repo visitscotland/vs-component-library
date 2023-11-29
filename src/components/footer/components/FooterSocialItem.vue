@@ -24,7 +24,7 @@
 
 import VsLink from '@components/link/Link.vue';
 import VsIcon from '@components/icon/Icon.vue';
-import dataLayerMixin from '../../../../mixins/dataLayerMixin';
+import dataLayerMixin from '../../../mixins/dataLayerMixin';
 
 /**
  * The FooterSocialItem is used inside the FooterSocialMenu to

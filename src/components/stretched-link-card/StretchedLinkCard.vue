@@ -180,9 +180,9 @@ import VsWarning from '@components/warning/Warning.vue';
 import jsIsDisabled from '@/utils/js-is-disabled';
 import useVideoStore from '@/stores/video.store.ts';
 import { mapState } from 'pinia';
-import verifyCookiesMixin from '../../../mixins/verifyCookiesMixin';
-import srcSetMixin from '../../../mixins/srcSetMixin';
-import requiredCookiesData from '../../../utils/required-cookies-data';
+import verifyCookiesMixin from '../../mixins/verifyCookiesMixin';
+import srcSetMixin from '../../mixins/srcSetMixin';
+import requiredCookiesData from '../../utils/required-cookies-data';
 
 const cookieValues = requiredCookiesData.youtube;
 

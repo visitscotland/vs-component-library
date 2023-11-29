@@ -87,8 +87,8 @@
 import useVuelidate from '@vuelidate/core';
 import { BFormInput } from 'bootstrap-vue-next';
 import VsButton from '@components/button/Button.vue';
-import validateFormElementMixin from '../../../mixins/validateFormElementMixin';
-import ariaDescriptionMixin from '../../../mixins/ariaDescriptionMixin';
+import validateFormElementMixin from '../../mixins/validateFormElementMixin';
+import ariaDescriptionMixin from '../../mixins/ariaDescriptionMixin';
 
 /**
  * A number input allows a user to select a number within a defined range

@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import dataLayerMixin from '../../../mixins/dataLayerMixin';
+import dataLayerMixin from '../../mixins/dataLayerMixin';
 
 /**
  * A simple, renderless component that reports an HTML Error code to the datalayer

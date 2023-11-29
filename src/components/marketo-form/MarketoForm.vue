@@ -160,14 +160,14 @@
 import { BFormGroup } from 'bootstrap-vue-next';
 import axios from 'axios';
 import getEnvValue from '@/utils/get-env-value';
-import VsInput from '../../elements/input/Input.vue';
-import VsSelect from '../../elements/select/Select.vue';
-import VsCheckbox from '../../elements/checkbox/Checkbox.vue';
-import VsIcon from '../../elements/icon/Icon.vue';
-import VsRecaptcha from '../../elements/recaptcha/Recaptcha.vue';
-import VsButton from '../../elements/button/Button.vue';
-import VsHeading from '../../elements/heading/Heading.vue';
-import dataLayerMixin from '../../../mixins/dataLayerMixin';
+import VsInput from '@components/input/Input.vue';
+import VsSelect from '@components/select/Select.vue';
+import VsCheckbox from '@components/checkbox/Checkbox.vue';
+import VsIcon from '@components/icon/Icon.vue';
+import VsRecaptcha from '@components/recaptcha/Recaptcha.vue';
+import VsButton from '@components/button/Button.vue';
+import VsHeading from '@components/heading/Heading.vue';
+import dataLayerMixin from '../../mixins/dataLayerMixin';
 
 /**
  * A form that results in a user posting data to Marketo.

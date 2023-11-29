@@ -28,7 +28,7 @@
 <script>
 import { BButton } from 'bootstrap-vue-next';
 import VsIcon from '@/components/icon/Icon.vue';
-import dataLayerMixin from '../../../mixins/dataLayerMixin';
+import dataLayerMixin from '../../mixins/dataLayerMixin';
 
 /**
  * Buttons are used to let users carry out actions on

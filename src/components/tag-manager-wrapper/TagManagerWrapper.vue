@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import dataLayerMixin from '../../../mixins/dataLayerMixin';
+import dataLayerMixin from '../../mixins/dataLayerMixin';
 
 /**
  * This is a hidden "Global" component that sits on

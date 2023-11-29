@@ -38,7 +38,7 @@
 <script>
 import VsIcon from '@components/icon/Icon.vue';
 import VsDropdown from '@components/dropdown/Dropdown.vue';
-import cookieMixin from '../../../../mixins/cookieMixin';
+import cookieMixin from '../../../mixins/cookieMixin';
 
 /**
  * TODO: Document usage

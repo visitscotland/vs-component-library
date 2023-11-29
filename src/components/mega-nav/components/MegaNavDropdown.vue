@@ -57,7 +57,7 @@ import {
 } from '@components/grid';
 import { BDropdown } from 'bootstrap-vue-next';
 import VsButton from '@components/button/Button.vue';
-import dataLayerMixin from '../../../../mixins/dataLayerMixin';
+import dataLayerMixin from '../../../mixins/dataLayerMixin';
 
 /**
  *  This component includes a slot for toggle button content

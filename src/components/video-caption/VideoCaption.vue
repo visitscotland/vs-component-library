@@ -97,8 +97,8 @@ import VsWarning from '@components/warning/Warning.vue';
 import { mapState } from 'pinia';
 import useVideoStore from '@/stores/video.store.ts';
 
-import verifyCookiesMixin from '../../../mixins/verifyCookiesMixin';
-import requiredCookiesData from '../../../utils/required-cookies-data';
+import verifyCookiesMixin from '../../mixins/verifyCookiesMixin';
+import requiredCookiesData from '../../utils/required-cookies-data';
 
 const cookieValues = requiredCookiesData.youtube;
 

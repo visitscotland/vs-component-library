@@ -115,7 +115,7 @@ import VsSiteSearch from '@components/site-search/SiteSearch.vue';
 import VsSiteSearchForm from '@components/site-search/components/SiteSearchForm.vue';
 
 import clickOutside from '@/directives/click-outside';
-import dataLayerMixin from '../../../mixins/dataLayerMixin';
+import dataLayerMixin from '../../mixins/dataLayerMixin';
 
 /**
  *  The Mega Nav bar component includes main VS logo and slots for

@@ -53,8 +53,8 @@ import { BFormSelect } from 'bootstrap-vue-next';
 
 import axios from 'axios';
 
-import validateFormElementMixin from '../../../mixins/validateFormElementMixin';
-import ariaDescriptionMixin from '../../../mixins/ariaDescriptionMixin';
+import validateFormElementMixin from '../../mixins/validateFormElementMixin';
+import ariaDescriptionMixin from '../../mixins/ariaDescriptionMixin';
 
 /**
  * A select element allows a user to choose a value from a list of options.

@@ -56,8 +56,8 @@
 <script>
 import useVuelidate from '@vuelidate/core';
 import { BFormCheckbox } from 'bootstrap-vue-next';
-import validateFormElementMixin from '../../../mixins/validateFormElementMixin';
-import ariaDescriptionMixin from '../../../mixins/ariaDescriptionMixin';
+import validateFormElementMixin from '../../mixins/validateFormElementMixin';
+import ariaDescriptionMixin from '../../mixins/ariaDescriptionMixin';
 
 /**
  * Checkboxes allow a user to select multiple options from in a

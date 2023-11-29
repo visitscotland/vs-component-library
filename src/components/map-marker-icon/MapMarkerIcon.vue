@@ -33,7 +33,7 @@
 
 <script>
 import VsIcon from '@/components/icon/Icon.vue';
-import mapIconMapping from '../../../mixins/mapIconMapping';
+import mapIconMapping from '../../mixins/mapIconMapping';
 
 export default {
     name: 'VsMapMarkerIcon',

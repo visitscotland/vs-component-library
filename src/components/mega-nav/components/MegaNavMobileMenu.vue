@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import dataLayerMixin from '../../../../mixins/dataLayerMixin';
+import dataLayerMixin from '../../../mixins/dataLayerMixin';
 
 export default {
     name: 'VsMegaNavMobileMenu',

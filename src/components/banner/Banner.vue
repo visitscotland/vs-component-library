@@ -72,7 +72,7 @@ import VsIcon from '@components/icon/Icon.vue';
 import {
     VsContainer, VsRow, VsCol,
 } from '@components/grid';
-import cookieMixin from '../../../mixins/cookieMixin';
+import cookieMixin from '../../mixins/cookieMixin';
 
 /**
  * A banner used globally at the top of a page to display

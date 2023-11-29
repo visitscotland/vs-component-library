@@ -176,7 +176,7 @@ import VsWarning from '@/components/warning/Warning.vue';
 import VsButton from '@/components/button/Button.vue';
 import VsProgressBar from '@/components/progress-bar/ProgressBar.vue';
 import VsHeading from '@components/heading/Heading.vue';
-import dataLayerMixin from '../../../mixins/dataLayerMixin';
+import dataLayerMixin from '../../mixins/dataLayerMixin';
 
 import VsCarbonCalculatorTip from './components/CarbonCalculatorTip.vue';
 import VsCarbonCalculatorResults from './components/CarbonCalculatorResults.vue';

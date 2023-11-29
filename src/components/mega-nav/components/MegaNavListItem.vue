@@ -18,7 +18,7 @@
 
 <script>
 import VsLink from '@components/link/Link.vue';
-import dataLayerMixin from '../../../../mixins/dataLayerMixin';
+import dataLayerMixin from '../../../mixins/dataLayerMixin';
 
 /**
  *  Meganav list items with link and slot for link content

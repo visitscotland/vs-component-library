@@ -10,7 +10,7 @@
 
 <script>
 import VsDropdownItem from '@components/dropdown/components/DropdownItem.vue';
-import cookieMixin from '../../../../mixins/cookieMixin';
+import cookieMixin from '../../../mixins/cookieMixin';
 
 /**
  * TODO: Document usage

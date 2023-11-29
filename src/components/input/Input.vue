@@ -68,8 +68,8 @@
 import useVuelidate from '@vuelidate/core';
 import { BFormInput } from 'bootstrap-vue-next';
 import VsButton from '@components/button/Button.vue';
-import validateFormElementMixin from '../../../mixins/validateFormElementMixin';
-import ariaDescriptionMixin from '../../../mixins/ariaDescriptionMixin';
+import validateFormElementMixin from '../../mixins/validateFormElementMixin';
+import ariaDescriptionMixin from '../../mixins/ariaDescriptionMixin';
 
 /**
  * An input allows a user to enter a short amount of text.

@@ -3,7 +3,7 @@ import { setActivePinia, createPinia } from 'pinia';
 import mapboxgl from 'mapbox-gl';
 
 import VsMap from '../Map.vue';
-import placeData from '../../../../assets/fixtures/maps/places-data.json';
+import placeData from '../../../assets/fixtures/maps/places-data.json';
 
 jest.mock('@/stores/map.store.ts');
 

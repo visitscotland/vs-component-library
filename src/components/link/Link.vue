@@ -26,7 +26,7 @@
 
 <script>
 import VsIcon from '@/components/icon/Icon.vue';
-import dataLayerMixin from '../../../mixins/dataLayerMixin';
+import dataLayerMixin from '../../mixins/dataLayerMixin';
 
 /**
  * Links allow a user to navigate through

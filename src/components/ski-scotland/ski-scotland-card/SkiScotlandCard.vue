@@ -260,7 +260,7 @@ import VsTableRow from '@components/table/components/TableRow.vue';
 import VsTableDataCell from '@components/table/components/TableDataCell.vue';
 import VsTableFooter from '@components/table/components/TableFooter.vue';
 import axios from 'axios';
-import srcSetMixin from '../../../../mixins/srcSetMixin';
+import srcSetMixin from '../../../mixins/srcSetMixin';
 
 /**
  * The ski scotland card component displays ski run status information for a specific

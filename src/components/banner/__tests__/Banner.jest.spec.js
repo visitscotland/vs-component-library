@@ -1,5 +1,5 @@
 import { config, shallowMount } from '@vue/test-utils';
-import cookieMixin from '../../../../mixins/cookieMixin';
+import cookieMixin from '../../../mixins/cookieMixin';
 import VsBanner from '../Banner.vue';
 
 config.global.renderStubDefaultSlot = true;
