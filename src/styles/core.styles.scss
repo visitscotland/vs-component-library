@@ -11,6 +11,10 @@
 @import "./resources.scss";
 @import "bootstrap/scss/reboot";
 @import "bootstrap/scss/utilities";
+@import "bootstrap/scss/utilities/api";
+@import "bootstrap/scss/helpers";
+@import "bootstrap/scss/root";
+
 @import "./sr-only-resets";
 @import "./fa-styles.scss";
 @import "./global-styles.scss";
