@@ -71,7 +71,7 @@ const Template = (args) => ({
                     </template>
                     <template v-slot:quote-link>
                         <VsButton
-                            :args="buttonHref"
+                            :args="args.buttonHref"
                         >
                             {{ args.buttonText }}
                         </VsButton>

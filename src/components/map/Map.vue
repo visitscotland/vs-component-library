@@ -982,7 +982,7 @@ export default {
 
 <style lang="scss">
 @import "mapbox-gl/dist/mapbox-gl.css";
-@import "../../../styles/_os-branding.scss";
+@import "../../styles/_os-branding.scss";
 
 .os-api-branding.logo {
     margin: $spacer-2;

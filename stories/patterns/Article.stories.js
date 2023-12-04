@@ -78,27 +78,13 @@ const Template = (args) => ({
                             <VsImageWithCaption
                                 v-bind="args.sidebarImg"
                             >
-                                <template v-slot:img-caption>
-                                    <VsCaption>
-                                        <template v-slot:caption>
-                                            {{ args.sidebarImg.caption }}
-                                        </template>
-
-                                        <template v-slot:credit>
-                                            {{ args.sidebarImg.credit }}
-                                        </template>
-                                    </VsCaption>
-                                </template>
+                                
                             </VsImageWithCaption>
                         </template>
 
                         <template v-slot:vs-article-sidebar-quote>
                             <VsQuote>
-                                <template v-slot:quote-content>
-                                    <p>
-                                        {{ args.sidebarQuote }}
-                                    </p>
-                                </template>
+                               
                             </VsQuote>
                         </template>
                     </VsArticleSidebar>

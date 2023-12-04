@@ -3,7 +3,7 @@
         <img
             class="warning-icon"
             style="margin: 0 auto; height: 60px; margin-bottom: 2rem"
-            src="../../../assets/images/icons/warning.png"
+            src="../../assets/images/icons/warning.png"
             alt="warning icon"
         >
         <p
