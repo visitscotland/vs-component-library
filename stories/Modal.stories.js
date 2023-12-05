@@ -3,7 +3,7 @@ import VsModal from '@/components/modal/Modal.vue';
 import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
 import VsVideo from '@/components/video/Video.vue';
 import { userEvent, within } from '@storybook/testing-library';
-import { VsCol, VsRow } from '../../src/components/grid';
+import { VsCol, VsRow } from '@/components/grid';
 
 export default {
     component: VsModal,
