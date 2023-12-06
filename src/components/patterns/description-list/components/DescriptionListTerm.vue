@@ -40,7 +40,7 @@ export default {
         font-family: $headings-font-family;
         @include make-col(4);
 
-        @include media-breakpoint-down(md) {
+        @include media-breakpoint-down(lg) {
             @include make-col(6);
         }
 

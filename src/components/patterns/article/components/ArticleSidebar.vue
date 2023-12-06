@@ -90,7 +90,7 @@ export default {
 
     .vs-image-with-caption__image-wrapper {
         .vs-toggle-btn {
-            @include media-breakpoint-between(sm, md) {
+            @include media-breakpoint-between(sm, lg) {
                 display: block;
             }
         }

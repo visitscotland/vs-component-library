@@ -509,7 +509,7 @@ export default {
                     }
 
                     .vs-toggle-btn {
-                        @include media-breakpoint-between(sm, md) {
+                        @include media-breakpoint-between(sm, lg) {
                             display: block;
                         }
                     }
@@ -565,7 +565,7 @@ export default {
                             }
                         }
 
-                        @include media-breakpoint-between(sm, md) {
+                        @include media-breakpoint-between(sm, lg) {
                             width: 100%;
                             height: auto;
                             text-align: left;

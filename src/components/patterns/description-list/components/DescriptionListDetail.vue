@@ -44,7 +44,7 @@ export default {
         @include make-col(8);
         @include make-col-offset(4);
 
-        @include media-breakpoint-down(md) {
+        @include media-breakpoint-down(lg) {
             @include make-col(6);
             @include make-col-offset(6);
         }
