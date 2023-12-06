@@ -9,8 +9,8 @@ const path = require('path');
 const { camelCase, upperFirst } = require('lodash');
 
 const componentPaths = [
-    './src/components/elements/**/*.vue',
-    './src/components/patterns/**/*.vue',
+    './src/components/**/*.vue',
+    './src/components/**/*.vue',
     './src/components/modules/**/*.vue',
     './src/components/templates/**/*.vue',
     './src/components/examples/**/*.vue',

@@ -12,7 +12,7 @@ WARN No story files found for the specified pattern: stories\**\*.mdx
 transforming...
 info => Copying static files: C:\vsdev\workspace\storybook-component-library\src\assets at C:\Users\MICHAE~1.PRO\AppData\Local\Temp\chromatic--11364-GYaMFEu4rSM8\
 
-~@/assets/images/placeholders/generic-lqip.png referenced in C:/vsdev/workspace/storybook-component-library/src/components/elements/img/Img.vue?vue&type=style&index=0&lang.scss didn't resolve at build time, it will remain unchanged to be resolved at runtime
+~@/assets/images/placeholders/generic-lqip.png referenced in C:/vsdev/workspace/storybook-component-library/src/components/img/Img.vue?vue&type=style&index=0&lang.scss didn't resolve at build time, it will remain unchanged to be resolved at runtime
 Use of eval in "node_modules/telejson/dist/index.mjs" is strongly discouraged as it poses security risks and may cause issues with minification.
 Use of eval in "node_modules/telejson/dist/index.mjs" is strongly discouraged as it poses security risks and may cause issues with minification.
 [32m✓[39m 532 modules transformed.
