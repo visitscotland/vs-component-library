@@ -8,7 +8,7 @@
         :stacked="stacked"
     >
         <caption
-            class="sr-only"
+            class="visually-hidden"
             data-test="vs-table__caption"
         >
             {{ tableCaption }}

@@ -30,7 +30,7 @@ const Template = (args) => ({
             :class="args.jsDisabled ? 'no-js' : ''"
         >
             <template v-slot:close-side-panel-text>
-                <span class="sr-only">
+                <span class="visually-hidden">
                     Close map filters
                 </span>
             </template>

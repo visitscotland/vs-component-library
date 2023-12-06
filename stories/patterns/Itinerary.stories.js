@@ -105,7 +105,7 @@ const Template = (args) => ({
                                     icon-only
                                     variant="transparent"
                                 >
-                                    <span class="sr-only">
+                                    <span class="visually-hidden">
                                         {{transportType.value}}
                                     </span>
                                 </VsTooltip>

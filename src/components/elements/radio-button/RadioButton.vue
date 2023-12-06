@@ -15,7 +15,7 @@
                 :key="error"
                 class="error mb-0"
             >
-                <span class="sr-only">{{ fieldName }}</span>
+                <span class="visually-hidden">{{ fieldName }}</span>
                 {{ validationMessages[error] || genericValidation[error] }}
             </p>
         </div>

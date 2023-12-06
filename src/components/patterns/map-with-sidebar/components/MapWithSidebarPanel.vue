@@ -22,7 +22,7 @@
                         @click="stageBack"
                         data-test="vs-map-with-sidebar-panel--btn-back"
                     >
-                        <span class="sr-only">
+                        <span class="visually-hidden">
                             <!-- @slot Text for panel back button  -->
                             <slot name="back-btn-text" />
                         </span>
@@ -40,7 +40,7 @@
                         @click="closePanel"
                         data-test="vs-map-with-sidebar-panel--btn-close"
                     >
-                        <span class="sr-only">
+                        <span class="visually-hidden">
                             <!-- @slot Text for panel close button  -->
                             <slot name="close-side-panel-text" />
                         </span>
@@ -61,7 +61,7 @@
                     @click="stageBack"
                     data-test="vs-map-with-sidebar-panel--btn-back"
                 >
-                    <span class="sr-only">
+                    <span class="visually-hidden">
                         <!-- @slot Text for panel back button  -->
                         <slot name="back-btn-text" />
                     </span>
@@ -91,7 +91,7 @@
                     @click="resetPanel"
                     data-test="vs-map-with-sidebar-panel--btn-reset"
                 >
-                    <span class="sr-only">
+                    <span class="visually-hidden">
                         <!-- @slot Text for panel reset button  -->
                         <slot name="reset-side-panel-text" />
                     </span>

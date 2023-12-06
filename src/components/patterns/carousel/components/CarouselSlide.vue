@@ -31,7 +31,7 @@
                 </template>
 
                 <template v-slot:stretched-card-category>
-                    <span class="sr-only">{{ categoryLabel }}: </span>{{ category }}
+                    <span class="visually-hidden">{{ categoryLabel }}: </span>{{ category }}
                 </template>
 
                 <template

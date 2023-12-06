@@ -37,7 +37,7 @@
                                 variant="transparent"
                                 @click="closeMenu"
                             >
-                                <span class="sr-only">
+                                <span class="visually-hidden">
                                     {{ menuToggleAltText }}
                                 </span>
                             </VsButton>

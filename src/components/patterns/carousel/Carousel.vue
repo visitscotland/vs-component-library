@@ -75,7 +75,7 @@
                                     tabindex="0"
                                     :data-test="`vs-carousel__nav-${index}`"
                                 >
-                                    <span class="sr-only">
+                                    <span class="visually-hidden">
                                         <!-- @slot 'navigate to page' text to allow translation -->
                                         <slot name="vs-carousel-navigate" /> {{ index }}
                                     </span>

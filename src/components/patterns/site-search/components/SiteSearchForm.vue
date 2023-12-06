@@ -19,7 +19,7 @@
                                 for="site-search"
                                 class="vs-site-search-form__label"
                             >
-                                <span class="sr-only">
+                                <span class="visually-hidden">
                                     {{ labelText }}
                                 </span>
                                 <VsIcon
@@ -63,7 +63,7 @@
             icon-only
             @click="closeSearchForm"
         >
-            <span class="sr-only">
+            <span class="visually-hidden">
                 {{ closeButtonText }}
             </span>
         </VsButton>
@@ -104,7 +104,7 @@ export default {
             default: false,
         },
         /**
-         * Text that renders in form label (sr-only) and input placeholder
+         * Text that renders in form label (visually-hidden) and input placeholder
          */
         labelText: {
             type: String,
@@ -118,14 +118,14 @@ export default {
             default: '',
         },
         /**
-         * Text that renders inside the clear button (sr-only)
+         * Text that renders inside the clear button (visually-hidden)
          */
         clearButtonText: {
             type: String,
             default: '',
         },
         /**
-         * Text that renders inside the close button (sr-only)
+         * Text that renders inside the close button (visually-hidden)
          */
         closeButtonText: {
             type: String,

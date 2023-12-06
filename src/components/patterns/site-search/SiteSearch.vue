@@ -11,7 +11,7 @@
     >
         <!-- Default slot for Search button text -->
         <span
-            class="sr-only-xxl-down"
+            class="visually-hidden-xxl-down"
         >
             <slot />
         </span>
@@ -92,7 +92,7 @@ export default {
             padding: $spacer-3;
         }
 
-        span.sr-only-lg-down {
+        span.visually-hidden-lg-down {
             overflow: visible;
         }
     }
