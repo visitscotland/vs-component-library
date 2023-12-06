@@ -183,7 +183,7 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
                 <VsButton
                     v-if="units.length < unitLimit"
                     variant="secondary"
-                    class="c-search__popup__btn-link mr-2 align-self-start"
+                    class="c-search__popup__btn-link me-2 align-self-start"
                     @click.prevent="addUnit"
                 >
                     {{ addUnitLabel }}

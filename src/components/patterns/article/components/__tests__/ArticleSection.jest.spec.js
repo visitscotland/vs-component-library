@@ -35,7 +35,7 @@ describe('VsArticleSection', () => {
             const content = wrapper.find('[data-test="vs-article-section__content"');
 
             expect(section.classes()).toContain('vs-article-section--sidebar-left');
-            expect(sidebar.classes()).toContain('pl-md-0');
+            expect(sidebar.classes()).toContain('ps-md-0');
             expect(content.classes()).toContain('offset-xl-1');
         });
 
@@ -48,7 +48,7 @@ describe('VsArticleSection', () => {
             const sidebar = wrapper.find('[data-test="vs-article-section__sidebar"');
 
             expect(section.classes()).toContain('vs-article-section--sidebar-right');
-            expect(sidebar.classes()).toContain('pr-md-0');
+            expect(sidebar.classes()).toContain('pe-md-0');
             expect(sidebar.classes()).toContain('order-md-2');
             expect(sidebar.classes()).toContain('offset-xl-1');
         });

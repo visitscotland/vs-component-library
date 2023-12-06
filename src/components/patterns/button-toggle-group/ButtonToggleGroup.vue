@@ -34,7 +34,7 @@
                         <VsIcon
                             v-if="option.icon"
                             :name="option.icon"
-                            class="mr-1"
+                            class="me-1"
                         />
                         {{ option.text }}
                     </span>

@@ -25,7 +25,7 @@
             data-test="vs-summary-box-list-item-icon-with-label"
             v-if="icon"
         >
-            <div class="icon-wrapper text-right">
+            <div class="icon-wrapper text-end">
                 <VsIcon
                     :name="icon"
                     variant="dark"

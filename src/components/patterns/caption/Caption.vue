@@ -29,11 +29,11 @@
             </VsCol>
             <VsCol
                 class="col-12 col-sm-auto order-1
-                order-sm-2 pl-sm-0 align-self-end
+                order-sm-2 ps-sm-0 align-self-end
                 align-self-sm-start"
                 v-if="showMap && isLargeCaption"
             >
-                <div class="vs-caption__map-wrapper pt-3 pt-sm-2 pb-sm-2 pr-sm-4 mx-auto">
+                <div class="vs-caption__map-wrapper pt-3 pt-sm-2 pb-sm-2 pe-sm-4 mx-auto">
                     <VsCaptionImageMap
                         :latitude="latitude"
                         :longitude="longitude"

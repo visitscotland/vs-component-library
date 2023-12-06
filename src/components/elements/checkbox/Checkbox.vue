@@ -35,7 +35,7 @@
         <BFormCheckbox
             v-if="fieldName"
             v-model="inputVal"
-            class="mr-4"
+            class="me-4"
             :name="fieldName"
             :id="fieldName"
             :value="value"

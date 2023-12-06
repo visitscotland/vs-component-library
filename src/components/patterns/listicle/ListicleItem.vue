@@ -34,7 +34,7 @@
             <VsCol
                 cols="12"
                 lg="8"
-                class="mt-2 mt-sm-9 mb-4 mt-lg-2 pr-lg-9"
+                class="mt-2 mt-sm-9 mb-4 mt-lg-2 pe-lg-9"
             >
                 <!-- @slot Contains the description to be shown.  -->
                 <slot name="description-slot" />
