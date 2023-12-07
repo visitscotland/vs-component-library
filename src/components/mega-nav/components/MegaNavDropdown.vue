@@ -18,7 +18,7 @@
                     fluid="lg"
                     class="px-0 px-lg-3"
                 >
-                    <VsRow class="no-gutters">
+                    <VsRow class="g-0">
                         <VsCol cols="12">
                             <!-- @slot Used to display the top menu link
                             at the top of the dropdown menu  -->

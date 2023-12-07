@@ -138,7 +138,7 @@ export default {
     }
 }
 
-.row:not(.no-gutters) > .vs-global-menu__wrapper{
+.row:not(.g-0) > .vs-global-menu__wrapper{
     @include media-breakpoint-down(lg) {
         padding: 0;
     }
