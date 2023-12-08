@@ -177,7 +177,7 @@ export default {
     }
 
     @include no-js {
-        @include media-breakpoint-down(lg) {
+        @include media-breakpoint-down(xl) {
             .card.vs-mega-nav-featured-item {
                 .vs-stretched-link-card__img-container {
                     width: 100%;

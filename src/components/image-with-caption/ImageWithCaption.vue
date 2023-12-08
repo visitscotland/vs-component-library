@@ -318,7 +318,7 @@ export default {
                     z-index: 2;
                 }
 
-                @include media-breakpoint-down(xs) {
+                @include media-breakpoint-down(sm) {
                     &--large,
                     &--fullwidth {
                         position: absolute;
@@ -534,7 +534,7 @@ export default {
                         position: relative;
                         top: 0;
 
-                        @include media-breakpoint-down(xs) {
+                        @include media-breakpoint-down(sm) {
                             text-align: left;
                             display: block;
 

@@ -44,12 +44,12 @@ export default {
         @include make-col(8);
         @include make-col-offset(4);
 
-        @include media-breakpoint-down(lg) {
+        @include media-breakpoint-down(xl) {
             @include make-col(6);
             @include make-col-offset(6);
         }
 
-        @include media-breakpoint-down(sm) {
+        @include media-breakpoint-down(md) {
             @include make-col(12);
             @include make-col-offset(0);
         }

@@ -57,7 +57,7 @@ export default {
     }
 
     .vs-panel__text {
-        @include media-breakpoint-down(xs) {
+        @include media-breakpoint-down(sm) {
             .vs-rich-text-wrapper--lead {
                 font-size: $font-size-4;
                 line-height: $line-height-m;

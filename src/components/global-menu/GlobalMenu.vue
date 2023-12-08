@@ -132,14 +132,14 @@ export default {
         display: flex;
         align-items: center;
 
-        @include media-breakpoint-down(lg) {
+        @include media-breakpoint-down(xl) {
             margin: 0;
         }
     }
 }
 
 .row:not(.g-0) > .vs-global-menu__wrapper{
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down(xl) {
         padding: 0;
     }
 }

@@ -40,11 +40,11 @@ export default {
         font-family: $headings-font-family;
         @include make-col(4);
 
-        @include media-breakpoint-down(lg) {
+        @include media-breakpoint-down(xl) {
             @include make-col(6);
         }
 
-        @include media-breakpoint-down(sm) {
+        @include media-breakpoint-down(md) {
             border-bottom: 1px solid $color-gray-tint-5;
             margin-bottom: $spacer-2;
             @include make-col(12);

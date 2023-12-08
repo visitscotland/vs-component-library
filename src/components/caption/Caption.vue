@@ -221,7 +221,7 @@ export default {
 
 @include no-js {
     .vs-image-with-caption__caption-wrapper{
-        @include media-breakpoint-down(xs) {
+        @include media-breakpoint-down(sm) {
             .vs-caption{
                 &--large {
                     position: relative;
@@ -263,7 +263,7 @@ export default {
         .vs-caption{
             &--large,
             &--fullwidth {
-                @include media-breakpoint-down(xs) {
+                @include media-breakpoint-down(sm) {
                     position: relative;
                 }
             }
