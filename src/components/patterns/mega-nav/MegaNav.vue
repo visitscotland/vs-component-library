@@ -106,13 +106,13 @@
 <script>
 import {
     VsCol, VsRow, VsContainer,
-} from '@components/elements/grid';
-import VsSvgLink from '@components/elements/svg-link/SvgLink.vue';
-import VsMegaNavTopMenu from '@components/patterns/mega-nav/components/MegaNavTopMenu.vue';
-import VsMegaNavMobileMenu from '@components/patterns/mega-nav/components/MegaNavMobileMenu.vue';
-import VsButton from '@components/elements/button/Button.vue';
-import VsSiteSearch from '@components/patterns/site-search/SiteSearch.vue';
-import VsSiteSearchForm from '@components/patterns/site-search/components/SiteSearchForm.vue';
+} from '@/components/elements/grid';
+import VsSvgLink from '@/components/elements/svg-link/SvgLink.vue';
+import VsMegaNavTopMenu from '@/components/patterns/mega-nav/components/MegaNavTopMenu.vue';
+import VsMegaNavMobileMenu from '@/components/patterns/mega-nav/components/MegaNavMobileMenu.vue';
+import VsButton from '@/components/elements/button/Button.vue';
+import VsSiteSearch from '@/components/patterns/site-search/SiteSearch.vue';
+import VsSiteSearchForm from '@/components/patterns/site-search/components/SiteSearchForm.vue';
 
 import clickOutside from '@/directives/click-outside';
 import dataLayerMixin from '../../../mixins/dataLayerMixin';

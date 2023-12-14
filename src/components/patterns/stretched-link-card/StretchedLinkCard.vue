@@ -172,11 +172,11 @@
 </template>
 
 <script>
-import VsHeading from '@components/elements/heading/Heading.vue';
-import VsLink from '@components/elements/link/Link.vue';
-import VsImg from '@components/elements/img/Img.vue';
-import VsButton from '@components/elements/button/Button.vue';
-import VsWarning from '@components/patterns/warning/Warning.vue';
+import VsHeading from '@/components/elements/heading/Heading.vue';
+import VsLink from '@/components/elements/link/Link.vue';
+import VsImg from '@/components/elements/img/Img.vue';
+import VsButton from '@/components/elements/button/Button.vue';
+import VsWarning from '@/components/patterns/warning/Warning.vue';
 import jsIsDisabled from '@/utils/js-is-disabled';
 import useVideoStore from '@/stores/video.store.ts';
 import { mapState } from 'pinia';

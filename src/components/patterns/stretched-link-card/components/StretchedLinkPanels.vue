@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import VsIcon from '@components/elements/icon/Icon.vue';
+import VsIcon from '@/components/elements/icon/Icon.vue';
 /**
  * Panels to show information in the stretched link component
  *

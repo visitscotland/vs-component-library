@@ -189,7 +189,7 @@ import { paths, monthsEnglish } from '../../../../constants';
 import { getProductTypes } from '../../../../utils/utils';
 import { getData } from '../../../../utils/axios';
 import type { Location, TmsApiDataItem, SelectOption } from '../../../../types';
-import VsLoadingSpinner from '@components/elements/loading-spinner/LoadingSpinner.vue';
+import VsLoadingSpinner from '@/components/elements/loading-spinner/LoadingSpinner.vue';
 import VsSelect from '../../../elements/select/Select.vue';
 import VsInput from '../../../elements/input/Input.vue';
 import Autocomplete from './Autocomplete.vue';

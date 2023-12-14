@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import VsLink from '@components/elements/link/Link.vue';
+import VsLink from '@/components/elements/link/Link.vue';
 
 /**
  * The SkipTo component provides users of assistive

@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import VsList from '@components/elements/list/List.vue';
+import VsList from '@/components/elements/list/List.vue';
 
 /**
  * This component is the list used inside the Global Menu component.

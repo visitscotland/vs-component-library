@@ -69,10 +69,10 @@
 </template>
 
 <script>
-import VsSvg from '@components/elements/svg/Svg.vue';
+import VsSvg from '@/components/elements/svg/Svg.vue';
 import {
     VsContainer, VsRow, VsCol,
-} from '@components/elements/grid';
+} from '@/components/elements/grid';
 
 /**
  * A summary block for an icentre with a name, cover image and an optional slot for an

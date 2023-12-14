@@ -24,8 +24,8 @@
 </template>
 
 <script>
-import VsSvg from '@components/elements/svg/Svg.vue';
-import VsLink from '@components/elements/link/Link.vue';
+import VsSvg from '@/components/elements/svg/Svg.vue';
+import VsLink from '@/components/elements/link/Link.vue';
 
 /**
  * An SVG link component provides an SVG wrapped in a

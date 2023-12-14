@@ -76,8 +76,8 @@
 <script>
 import {
     VsContainer, VsRow, VsCol,
-} from '@components/elements/grid';
-import VsLink from '@components/elements/link/Link.vue';
+} from '@/components/elements/grid';
+import VsLink from '@/components/elements/link/Link.vue';
 
 /**
 * Component that displays a grey summary box for product cards within canned

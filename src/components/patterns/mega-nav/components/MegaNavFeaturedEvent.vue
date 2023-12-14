@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import VsStretchedLinkCard from '@components/patterns/stretched-link-card/StretchedLinkCard.vue';
+import VsStretchedLinkCard from '@/components/patterns/stretched-link-card/StretchedLinkCard.vue';
 
 import axios from 'axios';
 

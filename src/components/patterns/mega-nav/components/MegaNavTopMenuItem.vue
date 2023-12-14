@@ -67,8 +67,8 @@
 </template>
 
 <script>
-import VsMegaNavDropdown from '@components/patterns/mega-nav/components/MegaNavDropdown.vue';
-import VsLink from '@components/elements/link/Link.vue';
+import VsMegaNavDropdown from '@/components/patterns/mega-nav/components/MegaNavDropdown.vue';
+import VsLink from '@/components/elements/link/Link.vue';
 import { LazyHydrationWrapper } from 'vue3-lazy-hydration';
 
 /**

@@ -1,7 +1,6 @@
 import requireContext from 'require-context.macro';
 
 let files = null;
-
 // Jest doesn't handle the resourceQueried path properly through webpack and errors
 
 if (typeof jest !== 'undefined') {

@@ -1,5 +1,5 @@
 const getEnvValue = (key) => {
-    if (process.env) {
+    if (process.env[key]) {
         return process.env[key];
     }
 

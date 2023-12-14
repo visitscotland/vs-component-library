@@ -4,6 +4,13 @@ import path from 'path';
 import ViteRequireContext from '@originjs/vite-plugin-require-context';
 
 export default defineConfig({
+    css: {
+        preprocessorOptions: {
+            scss: {
+                additionalData: '@import "@/styles/core.styles.scss";',
+            },
+        },
+    },
     resolve: {
         alias: {
             '@': path.resolve(__dirname, './src'),
@@ -15,4 +22,23 @@ export default defineConfig({
         vue(),
         ViteRequireContext(),
     ],
+    build: {
+        lib: {
+            entry: path.resolve(__dirname, 'src/test.js'),
+            name: 'vs-component-library',
+            fileName: 'vs-component-library',
+        },
+        rollupOptions: {
+            external: [
+                'vue',
+                'bootstrap-vue-next',
+            ],
+            output: {
+                globals: {
+                    vue: 'Vue',
+                    'bootstrap-vue-next': 'BootstrapVueNext',
+                },
+            },
+        },
+    },
 });

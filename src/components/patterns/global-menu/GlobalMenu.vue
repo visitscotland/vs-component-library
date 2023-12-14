@@ -44,7 +44,7 @@
 <script>
 import {
     VsContainer, VsRow, VsCol,
-} from '@components/elements/grid';
+} from '@/components/elements/grid';
 import { LazyHydrationWrapper } from 'vue3-lazy-hydration';
 import VsGlobalMenuDropdown from './components/GlobalMenuDropdown.vue';
 import VsGlobalMenuList from './components/GlobalMenuList.vue';

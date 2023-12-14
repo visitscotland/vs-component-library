@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import VsIcon from '@components/elements/icon/Icon.vue';
+import VsIcon from '@/components/elements/icon/Icon.vue';
 
 /**
  * An icon list item is a child component used within icon list components.

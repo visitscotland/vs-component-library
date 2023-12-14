@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import VsList from '@components/elements/list/List.vue';
-import VsHeading from '@components/elements/heading/Heading.vue';
+import VsList from '@/components/elements/list/List.vue';
+import VsHeading from '@/components/elements/heading/Heading.vue';
 
 /**
  * The FooterSocialMenu is used inside the FooterNavList.

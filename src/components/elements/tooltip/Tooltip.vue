@@ -11,7 +11,7 @@
 
 <script>
 import { vBTooltip } from 'bootstrap-vue-next';
-import VsButton from '@components/elements/button/Button.vue';
+import VsButton from '@/components/elements/button/Button.vue';
 
 /**
  * A tooltip is a short, informative message that appears

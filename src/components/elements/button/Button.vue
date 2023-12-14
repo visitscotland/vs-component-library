@@ -223,7 +223,7 @@ export default {
 </script>
 
 <style lang="scss">
-    .vs-button{
+    .vs-button {
         @extend %button-default-styles;
 
         .vs-icon {

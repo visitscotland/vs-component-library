@@ -90,9 +90,9 @@
 </template>
 
 <script>
-import VsButton from '@components/elements/button/Button.vue';
-import VsToggleButton from '@components/patterns/toggle-button/ToggleButton.vue';
-import VsWarning from '@components/patterns/warning/Warning.vue';
+import VsButton from '@/components/elements/button/Button.vue';
+import VsToggleButton from '@/components/patterns/toggle-button/ToggleButton.vue';
+import VsWarning from '@/components/patterns/warning/Warning.vue';
 
 import { mapState } from 'pinia';
 import useVideoStore from '@/stores/video.store.ts';

@@ -76,9 +76,9 @@
 </template>
 
 <script>
-import VsAccordionToggle from '@components/patterns/accordion/components/AccordionToggle.vue';
-import VsIcon from '@components/elements/icon/Icon.vue';
-import VsHeading from '@components/elements/heading/Heading.vue';
+import VsAccordionToggle from '@/components/patterns/accordion/components/AccordionToggle.vue';
+import VsIcon from '@/components/elements/icon/Icon.vue';
+import VsHeading from '@/components/elements/heading/Heading.vue';
 import { inject } from 'vue';
 
 import {

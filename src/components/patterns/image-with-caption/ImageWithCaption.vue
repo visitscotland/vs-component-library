@@ -70,9 +70,9 @@
 <script>
 
 import { v4 as uuidv4 } from 'uuid';
-import VsImg from '@components/elements/img/Img.vue';
-import VsToggleButton from '@components/patterns/toggle-button/ToggleButton.vue';
-import VsVideoCaption from '@components/patterns/video-caption/VideoCaption.vue';
+import VsImg from '@/components/elements/img/Img.vue';
+import VsToggleButton from '@/components/patterns/toggle-button/ToggleButton.vue';
+import VsVideoCaption from '@/components/patterns/video-caption/VideoCaption.vue';
 import verifyCookiesMixin from '../../../mixins/verifyCookiesMixin';
 import requiredCookiesData from '../../../utils/required-cookies-data';
 

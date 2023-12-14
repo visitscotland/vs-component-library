@@ -53,8 +53,8 @@
 </template>
 
 <script>
-import VsHeading from '@components/elements/heading/Heading.vue';
-import { VsRow, VsCol } from '@components/elements/grid';
+import VsHeading from '@/components/elements/heading/Heading.vue';
+import { VsRow, VsCol } from '@/components/elements/grid';
 
 /**
  * TODO: Document usage

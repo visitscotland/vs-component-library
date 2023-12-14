@@ -210,24 +210,24 @@
 </template>
 
 <script>
-import VsCannedSearchProductCard from '@components/patterns/canned-search/components/CannedSearchProductCard.vue';
-import VsCannedSearchStars from '@components/patterns/canned-search/components/CannedSearchStars.vue';
-import VsCannedSearchLogos from '@components/patterns/canned-search/components/CannedSearchLogos.vue';
-import VsCannedSearchCategories from '@components/patterns/canned-search/components/CannedSearchCategories.vue';
-import VsCannedSearchPrice from '@components/patterns/canned-search/components/CannedSearchPrice.vue';
-import VsCannedSearchDuration from '@components/patterns/canned-search/components/CannedSearchDuration.vue';
-import VsCannedSearchSummaryBox from '@components/patterns/canned-search/components/CannedSearchSummaryBox.vue';
-import VsCannedSearchDates from '@components/patterns/canned-search/components/CannedSearchDates.vue';
-import VsCannedSearchBadges from '@components/patterns/canned-search/components/CannedSearchBadges.vue';
-import VsCannedSearchCuisines from '@components/patterns/canned-search/components/CannedSearchCuisines.vue';
-import VsCannedSearchSubHeading from '@components/patterns/canned-search/components/CannedSearchSubHeading.vue';
-import VsCannedSearchTourRuns from '@components/patterns/canned-search/components/CannedSearchTourRuns.vue';
-import VsCannedSearchTourDeparts from '@components/patterns/canned-search/components/CannedSearchTourDeparts.vue';
-import VsCarousel from '@components/patterns/carousel/Carousel.vue';
-import VsModuleWrapper from '@components/patterns/module-wrapper/ModuleWrapper.vue';
+import VsCannedSearchProductCard from '@/components/patterns/canned-search/components/CannedSearchProductCard.vue';
+import VsCannedSearchStars from '@/components/patterns/canned-search/components/CannedSearchStars.vue';
+import VsCannedSearchLogos from '@/components/patterns/canned-search/components/CannedSearchLogos.vue';
+import VsCannedSearchCategories from '@/components/patterns/canned-search/components/CannedSearchCategories.vue';
+import VsCannedSearchPrice from '@/components/patterns/canned-search/components/CannedSearchPrice.vue';
+import VsCannedSearchDuration from '@/components/patterns/canned-search/components/CannedSearchDuration.vue';
+import VsCannedSearchSummaryBox from '@/components/patterns/canned-search/components/CannedSearchSummaryBox.vue';
+import VsCannedSearchDates from '@/components/patterns/canned-search/components/CannedSearchDates.vue';
+import VsCannedSearchBadges from '@/components/patterns/canned-search/components/CannedSearchBadges.vue';
+import VsCannedSearchCuisines from '@/components/patterns/canned-search/components/CannedSearchCuisines.vue';
+import VsCannedSearchSubHeading from '@/components/patterns/canned-search/components/CannedSearchSubHeading.vue';
+import VsCannedSearchTourRuns from '@/components/patterns/canned-search/components/CannedSearchTourRuns.vue';
+import VsCannedSearchTourDeparts from '@/components/patterns/canned-search/components/CannedSearchTourDeparts.vue';
+import VsCarousel from '@/components/patterns/carousel/Carousel.vue';
+import VsModuleWrapper from '@/components/patterns/module-wrapper/ModuleWrapper.vue';
 import {
     VsContainer, VsRow, VsCol,
-} from '@components/elements/grid';
+} from '@/components/elements/grid';
 
 import axios from 'axios';
 

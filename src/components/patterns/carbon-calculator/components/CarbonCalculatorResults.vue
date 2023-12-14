@@ -114,9 +114,9 @@
 </template>
 
 <script>
-import { VsCol, VsRow } from '@components/elements/grid';
-import VsIcon from '@components/elements/icon/Icon.vue';
-import VsHeading from '@components/elements/heading/Heading.vue';
+import { VsCol, VsRow } from '@/components/elements/grid';
+import VsIcon from '@/components/elements/icon/Icon.vue';
+import VsHeading from '@/components/elements/heading/Heading.vue';
 import { ref } from 'vue';
 import {
     Chart,

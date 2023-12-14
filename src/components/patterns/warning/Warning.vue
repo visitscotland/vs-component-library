@@ -36,8 +36,8 @@
 </template>
 
 <script>
-import VsIcon from '@components/elements/icon/Icon.vue';
-import VsButton from '@components/elements/button/Button.vue';
+import VsIcon from '@/components/elements/icon/Icon.vue';
+import VsButton from '@/components/elements/button/Button.vue';
 
 /**
  * A generic warning component that expands to cover whatever component

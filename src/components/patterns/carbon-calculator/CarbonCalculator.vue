@@ -170,12 +170,12 @@
 import axios from 'axios';
 import {
     VsContainer, VsCol, VsRow,
-} from '@components/elements/grid';
+} from '@/components/elements/grid';
 
 import VsWarning from '@/components/patterns/warning/Warning.vue';
 import VsButton from '@/components/elements/button/Button.vue';
 import VsProgressBar from '@/components/elements/progress-bar/ProgressBar.vue';
-import VsHeading from '@components/elements/heading/Heading.vue';
+import VsHeading from '@/components/elements/heading/Heading.vue';
 import dataLayerMixin from '../../../mixins/dataLayerMixin';
 
 import VsCarbonCalculatorTip from './components/CarbonCalculatorTip.vue';

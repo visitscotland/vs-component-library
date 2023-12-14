@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import VsAccordion from '@components/patterns/accordion/Accordion.vue';
-import { VsRow, VsContainer } from '@components/elements/grid';
+import VsAccordion from '@/components/patterns/accordion/Accordion.vue';
+import { VsRow, VsContainer } from '@/components/elements/grid';
 import { LazyHydrationWrapper } from 'vue3-lazy-hydration';
 
 /**

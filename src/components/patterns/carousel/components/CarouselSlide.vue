@@ -51,9 +51,9 @@
 </template>
 
 <script>
-import VsStretchedLinkCard from '@components/patterns/stretched-link-card/StretchedLinkCard.vue';
-import VsStretchedLinkPanels from '@components/patterns/stretched-link-card/components/StretchedLinkPanels.vue';
-import { VsCol } from '@components/elements/grid';
+import VsStretchedLinkCard from '@/components/patterns/stretched-link-card/StretchedLinkCard.vue';
+import VsStretchedLinkPanels from '@/components/patterns/stretched-link-card/components/StretchedLinkPanels.vue';
+import { VsCol } from '@/components/elements/grid';
 
 /**
 * Multi purpose carousel component to use

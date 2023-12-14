@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import VsIcon from '@components/elements/icon/Icon.vue';
+import VsIcon from '@/components/elements/icon/Icon.vue';
 
 /**
  * The address component uses the HTML address tag

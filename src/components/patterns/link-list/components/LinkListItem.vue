@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import VsLink from '@components/elements/link/Link.vue';
+import VsLink from '@/components/elements/link/Link.vue';
 import { mapState } from 'pinia';
 import useVideoStore from '@/stores/video.store.ts';
 

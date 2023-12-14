@@ -42,9 +42,9 @@
 </template>
 
 <script>
-import VsAccordionItem from '@components/patterns/accordion/components/AccordionItem.vue';
-import VsIcon from '@components/elements/icon/Icon.vue';
-import VsLink from '@components/elements/link/Link.vue';
+import VsAccordionItem from '@/components/patterns/accordion/components/AccordionItem.vue';
+import VsIcon from '@/components/elements/icon/Icon.vue';
+import VsLink from '@/components/elements/link/Link.vue';
 
 /**
  *  This component is used in the mobile menu for groups of links

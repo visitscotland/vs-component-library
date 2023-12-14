@@ -105,12 +105,12 @@
 </template>
 
 <script>
-import VsButton from '@components/elements/button';
+import VsButton from '@/components/elements/button';
 import {
     VsContainer,
     VsRow,
     VsCol,
-} from '@components/elements/grid';
+} from '@/components/elements/grid';
 
 /**
 * Multi purpose carousel component to use

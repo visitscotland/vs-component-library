@@ -125,10 +125,10 @@
 </template>
 
 <script>
-import VsImg from '@components/elements/img/Img.vue';
-import VsHeading from '@components/elements/heading/Heading.vue';
-import VsLink from '@components/elements/link/Link.vue';
-import VsCol from '@components/elements/grid/Col.vue';
+import VsImg from '@/components/elements/img/Img.vue';
+import VsHeading from '@/components/elements/heading/Heading.vue';
+import VsLink from '@/components/elements/link/Link.vue';
+import VsCol from '@/components/elements/grid/Col.vue';
 import srcSetMixin from '../../../../mixins/srcSetMixin';
 
 /**

@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import VsHeading from '@components/elements/heading/Heading.vue';
+import VsHeading from '@/components/elements/heading/Heading.vue';
 
 /**
 * Shows a formatted sub-heading for a canned search product card,

@@ -15,7 +15,7 @@
 
 <script>
 
-import VsHeading from '@components/elements/heading/Heading.vue';
+import VsHeading from '@/components/elements/heading/Heading.vue';
 
 /**
  * @displayName Carbon Form Running Total

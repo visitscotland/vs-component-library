@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import VsStretchedLinkCard from '@components/patterns/stretched-link-card/StretchedLinkCard.vue';
+import VsStretchedLinkCard from '@/components/patterns/stretched-link-card/StretchedLinkCard.vue';
 
 /**
  *  This component is used to show a featured item in the meganav

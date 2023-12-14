@@ -1,6 +1,7 @@
 import { createApp, createSSRApp } from 'vue';
 import pinia from '@/stores/index.ts';
 import mitt from 'mitt';
+import 'bootstrap-vue-next/dist/bootstrap-vue-next.css';
 
 const { Vue } = require('vue');
 const { isObject, each } = require('lodash');

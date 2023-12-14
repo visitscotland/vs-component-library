@@ -33,11 +33,11 @@
 </template>
 
 <script>
-import VsSvgLink from '@components/elements/svg-link/SvgLink.vue';
+import VsSvgLink from '@/components/elements/svg-link/SvgLink.vue';
 
 import {
     VsRow, VsContainer, VsCol,
-} from '@components/elements/grid';
+} from '@/components/elements/grid';
 
 /**
  * The VsFooterCopyright holds an image and copyright notices for the footer.
