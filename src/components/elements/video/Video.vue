@@ -6,9 +6,9 @@
     >
         <h1>Video</h1>
         <div class="vs-video__iframe-wrapper">
-           <div v-if="requiredCookiesExist">
+            <div v-if="requiredCookiesExist">
                 <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
-                <!-- <YoutubeVue3
+                <YoutubeVue3
                     :autoplay="0"
                     :videoid="videoId"
                     :vars="playerVars"
@@ -16,7 +16,7 @@
                     @paused="youtubePaused"
                     @ended="youtubeEnded"
                     ref="youtube"
-                /> -->
+                />
                 <p>Bob is amazing</p>
             </div>
 

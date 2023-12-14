@@ -64,6 +64,7 @@ export { default as VsGlobalMenuLanguageItem } from './patterns/global-menu/comp
 // export { default as VsIcentre } from './patterns/icentre/Icentre.vue';
 export { default as VsIconList } from './patterns/icon-list/IconList.vue';
 export { default as VsIconListItem } from './patterns/icon-list/components/IconListItem.vue';
+// eslint-disable-next-line vue/max-len
 // export { default as VsImageWithCaption } from './patterns/image-with-caption/ImageWithCaption.vue';
 // itineraries
 export { default as VsLinkList } from './patterns/link-list/LinkList.vue';
