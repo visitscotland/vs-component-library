@@ -258,6 +258,7 @@ export default {
             display: flex;
             align-items: center;
             padding-left: 0;
+            margin-bottom: 0;
         }
 
         label {

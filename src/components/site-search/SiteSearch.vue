@@ -92,7 +92,7 @@ export default {
             padding: $spacer-3;
         }
 
-        span.visually-hidden-lg-down {
+        span.visually-hidden-xxl-down {
             overflow: visible;
         }
     }

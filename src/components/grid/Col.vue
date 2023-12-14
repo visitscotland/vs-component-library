@@ -1,5 +1,5 @@
 <template>
-    <BCol 
+    <BCol
         class="position-relative"
         v-bind="$attrs"
     >
