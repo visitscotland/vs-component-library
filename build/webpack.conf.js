@@ -188,7 +188,7 @@ const webpackConfig = {
             extensions: ['js', 'vue'],
             exclude: [
                 '/ssr/',
-                '/src/components/patterns/header/components/Chart/',
+                '/src/components/header/components/Chart/',
                 './node_modules/',
                 '/dist/',
             ],
