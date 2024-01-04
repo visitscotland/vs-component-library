@@ -7,12 +7,14 @@ config.global.renderStubDefaultSlot = true;
 
 const factoryShallowMount = (propsData) => shallowMount(VsDateRange, {
     propsData: {
+        selectedProd: 'even',
         ...propsData,
     },
 });
 
 const factoryMount = (propsData) => mount(VsDateRange, {
     propsData: {
+        selectedProd: 'even',
         ...propsData,
     },
 });
@@ -55,6 +57,34 @@ describe('VsDateRange', () => {
             });
             const endDate = wrapper.find('date-input-stub#endDate');
             expect(endDate.attributes('label')).toBe('End Date');
+        });
+
+        it('sets startDate field name to `isostartdate` when `selectedProd` is `even`', () => {
+            const wrapper = factoryShallowMount();
+            const startDateField = wrapper.find('date-input-stub#startDate');
+            expect(startDateField.attributes('name')).toBe('isostartdate');
+        });
+
+        it('sets endDate field name to `isoenddate` when `selectedProd` is `even`', () => {
+            const wrapper = factoryShallowMount();
+            const endDateField = wrapper.find('date-input-stub#endDate');
+            expect(endDateField.attributes('name')).toBe('isoenddate');
+        });
+
+        it('sets startDate field name to `stay` when `selectedProd` is `acco`', () => {
+            const wrapper = factoryShallowMount({
+                selectedProd: 'acco',
+            });
+            const startDateField = wrapper.find('date-input-stub#startDate');
+            expect(startDateField.attributes('name')).toBe('stay');
+        });
+
+        it('sets endDate field name to `endDate` when `selectedProd` is `acco`', () => {
+            const wrapper = factoryShallowMount({
+                selectedProd: 'acco',
+            });
+            const endDateField = wrapper.find('date-input-stub#endDate');
+            expect(endDateField.attributes('name')).toBe('endDate');
         });
     });
 
