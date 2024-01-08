@@ -34,3 +34,10 @@ export default {
     },
 };
 </script>
+
+<style lang="scss">
+    .table td {
+        border-top: 1px solid $color_gray_tint_4;
+        border-bottom: none;
+    }
+</style>
