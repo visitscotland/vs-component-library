@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.6](https://github.com/visitscotland/vs-component-library/compare/v1.1.5...v1.1.6) (2024-01-08)
+
+
+### ✨ Features
+
+* **form:** move aria description logic into mixin for all inputs ([b27e850](https://github.com/visitscotland/vs-component-library/commit/b27e850d240cc6fff023cbce1e68e41eefc29cbc))
+
+
+### ♻️ Code Refactoring
+
+* **components:** fix file paths after directory move ([fe90bbe](https://github.com/visitscotland/vs-component-library/commit/fe90bbe79f25ae2f79c3b6103e76c37eb32523f2))
+* **components:** move all components into one folder and remove Elements and Patterns ([88fc86c](https://github.com/visitscotland/vs-component-library/commit/88fc86c055d3739d59f5242a66ac039d9dc782ce))
+* **stories:** remove element and patterns folders from stories ([d1a691a](https://github.com/visitscotland/vs-component-library/commit/d1a691aa1534f287bd98a13fa31dca72ee353d9d))
+* **stories:** remove elements and patterns from Storybook ([eece70d](https://github.com/visitscotland/vs-component-library/commit/eece70d20d5f95810a450523481c7d5131c58856))
+
+
+### 🐛 Bug Fixes
+
+* **components:** fix file paths ([cd30365](https://github.com/visitscotland/vs-component-library/commit/cd30365307cabfea88736c6bd9bbb9341c949f5a))
+* **map:** fix map test data urls so they work in chromatic ([85649aa](https://github.com/visitscotland/vs-component-library/commit/85649aada3920f98298384e6038682a2d3fe9486))
+* **modal:** fix file path in modal story ([e30ae4c](https://github.com/visitscotland/vs-component-library/commit/e30ae4cc1e96f8a1c0b16d46809e96971f54cc86))
+* **psw:** update accommodation to have correct date names ([d5bb7a7](https://github.com/visitscotland/vs-component-library/commit/d5bb7a758f13bf26d593b30ea1f7062a6f850155))
+
+
+### ✅ Tests
+
+* **psw:** add tests for new selectedProd prop in dateRange ([40afc3c](https://github.com/visitscotland/vs-component-library/commit/40afc3cedb24d1dddcb4551914f3e6351404e232))
+
 ### [1.1.5](https://github.com/visitscotland/vs-component-library/compare/v1.1.4...v1.1.5) (2023-11-27)
 
 
