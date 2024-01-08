@@ -318,6 +318,7 @@ export default {
             border: 1px solid $color-theme-primary;
             height: 3.5rem;
             box-sizing: border-box;
+            margin-bottom: 0;
 
             &:hover:not(:focus):not(:focus-within):not(:active) {
                 background-color: $color-purple;
