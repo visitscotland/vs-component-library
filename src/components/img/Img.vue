@@ -121,7 +121,7 @@ export default {
         display: block;
 
         &.generic-lqip {
-            background-image: url('images/placeholders/generic-lqip.jpg'),
+            background-image: url('@/assets/images/placeholders/generic-lqip.jpg'),
         }
     }
 </style>
