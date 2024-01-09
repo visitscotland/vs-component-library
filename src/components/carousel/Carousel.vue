@@ -437,6 +437,10 @@ export default {
     .vs-carousel {
         overflow: hidden;
 
+        .slider {
+            position: relative;
+        }
+
         &__track {
             flex-wrap: nowrap;
             transition: transform $duration-slowly ease-out;
