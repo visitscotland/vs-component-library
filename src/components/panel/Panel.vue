@@ -39,6 +39,10 @@ export default {
     background-color: $color-theme-light;
     padding: $spacer-9 $spacer-4 $spacer-9;
 
+    .card-body {
+        padding: $spacer-5;
+    }
+
     @include media-breakpoint-up(md) {
         padding: $spacer-9 $spacer-8 $spacer-10;
     }
