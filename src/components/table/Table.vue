@@ -67,6 +67,10 @@ export default {
 
 <style lang="scss">
 .vs-table {
+    th > span {
+        padding: 0;
+    }
+
     .table-sm th, .table-sm td {
         font-size: $font-size-4;
         padding: $spacer-1;
