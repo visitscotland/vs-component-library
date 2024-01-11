@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.7](https://github.com/visitscotland/vs-component-library/compare/v1.1.6...v1.1.7) (2024-01-11)
+
+
+### 🐛 Bug Fixes
+
+* **img:** change generic-lqip image to jpg ([b64c98a](https://github.com/visitscotland/vs-component-library/commit/b64c98a4127492c84ec9a6b72b8dcb764d2456de))
+* **img:** fix css image url in img.vue ([070095e](https://github.com/visitscotland/vs-component-library/commit/070095e76beaa65564eb1bd06eeb00332d67ffea))
+* **psw:** adds refine date for dates except accommodation ([eef08ac](https://github.com/visitscotland/vs-component-library/commit/eef08aca942a4e1157400fc808d59119ae07a777))
+
 ### [1.1.6](https://github.com/visitscotland/vs-component-library/compare/v1.1.5...v1.1.6) (2024-01-08)
 
 
