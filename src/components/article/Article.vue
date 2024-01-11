@@ -57,9 +57,9 @@
 <script>
 import {
     VsCol, VsRow, VsContainer,
-} from '@components/grid';
-import VsRichTextWrapper from '@components/rich-text-wrapper/RichTextWrapper.vue';
-import VsHeading from '@components/heading/Heading.vue';
+} from '@/components/grid';
+import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsHeading from '@/components/heading/Heading.vue';
 
 /**
  * The article component is used for in-depth editorial style

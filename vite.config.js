@@ -32,11 +32,13 @@ export default defineConfig({
             external: [
                 'vue',
                 'bootstrap-vue-next',
+                'youtube-vue3',
             ],
             output: {
                 globals: {
                     vue: 'Vue',
                     'bootstrap-vue-next': 'BootstrapVueNext',
+                    'youtube-vue3': 'YoutubeVue3',
                 },
             },
         },

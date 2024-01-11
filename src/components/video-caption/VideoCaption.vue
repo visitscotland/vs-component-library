@@ -94,7 +94,7 @@ import VsButton from '@/components/button/Button.vue';
 import VsToggleButton from '@/components/toggle-button/ToggleButton.vue';
 import VsWarning from '@/components/warning/Warning.vue';
 
-import { mapState } from 'pinia';
+// import { mapState } from 'pinia';
 import useVideoStore from '@/stores/video.store.ts';
 
 import verifyCookiesMixin from '../../mixins/verifyCookiesMixin';
@@ -168,6 +168,12 @@ export default {
             ),
         },
     },
+    setup() {
+        const videoStore = useVideoStore();
+        return {
+            videoStore,
+        };
+    },
     data() {
         return {
             requiredCookies: cookieValues,
@@ -175,11 +181,14 @@ export default {
         };
     },
     computed: {
-        ...mapState(useVideoStore, {
-            videoDetails(store) {
-                return store.getVideo(this.videoId);
-            },
-        }),
+        // ...mapState(useVideoStore, {
+        //     videoDetails(store) {
+        //         return store.getVideo(this.videoId);
+        //     },
+        // }),
+        videoDetails() {
+            return this.videoStore.getVideo(this.videoId);
+        },
         videoLoaded() {
             if (typeof this.videoDetails !== 'undefined' && this.videoDetails.videoDuration > 0) {
                 return true;

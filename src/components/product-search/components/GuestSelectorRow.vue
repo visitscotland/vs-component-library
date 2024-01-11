@@ -3,7 +3,7 @@ import { computed, ref } from 'vue';
 import { getLabelText } from '../../../utils/lang';
 import type { GuestUnit } from '../../../../types';
 import GuestSelectorNumberGroup from './GuestSelectorNumberGroup.vue';
-import VsButton from '@components/button/Button.vue';
+import VsButton from '@/components/button/Button.vue';
 
 const props = defineProps<{
     name: string,

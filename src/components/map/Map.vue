@@ -49,8 +49,8 @@
 </template>
 
 <script>
-import VsWarning from '@components/warning/Warning.vue';
-import VsLoading from '@components/loading-spinner/LoadingSpinner.vue';
+import VsWarning from '@/components/warning/Warning.vue';
+import VsLoading from '@/components/loading-spinner/LoadingSpinner.vue';
 import osBranding from '@/utils/os-branding';
 import { v4 as uuidv4 } from 'uuid';
 import { render, h } from 'vue';
@@ -179,6 +179,9 @@ export default {
             type: Boolean,
             default: true,
         },
+    },
+    setup() {
+        mapStore = useMapStore(pinia());
     },
     data() {
         return {
@@ -310,7 +313,7 @@ export default {
         },
     },
     mounted() {
-        mapStore = useMapStore(pinia());
+        // mapStore = useMapStore(pinia());
 
         mapStore.addMapInstance({
             id: this.mapId,

@@ -52,7 +52,7 @@ const Template = (args) => ({
                     <template v-slot:vs-single-image>
                         <VsImageWithCaption
                             mobile-overlap
-                            :altText="args.imageAltText"
+                            :altText="args.altText"
                             :imageSrc="args.imageSrc"
                             :errorMessage="args.videoErrorMessage"
                         >
