@@ -186,7 +186,17 @@ const endDateName = computed(() => {
                 >
                     {{ getLabelText('reset', 'Clear') }}
                 </button>
-                <input type="hidden" name="nights" :value="nights">
+                <input
+                    v-if="selectedProd !== 'acco'"
+                    type="hidden" 
+                    name="refine-date" 
+                    value="on"
+                >
+                <input 
+                    type="hidden" 
+                    name="nights" 
+                    :value="nights"
+                >
             </div>
         </div>
     </fieldset>
