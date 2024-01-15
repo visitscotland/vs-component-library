@@ -19,7 +19,7 @@
                     class="px-0 px-lg-3"
                 >
                     <VsRow class="g-0">
-                        <VsCol cols="12">
+                        <VsCol cols="12" class="position-relative">
                             <!-- @slot Used to display the top menu link
                             at the top of the dropdown menu  -->
                             <slot name="cta-link" />
