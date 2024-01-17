@@ -8,6 +8,13 @@
   "files": [
     "dist/*"
   ],
+  "exports": {
+    "./components": {
+      "import": "./dist/components/vs-component-library.mjs",
+      "require": "./dist/components/vs-component-library.umd.js"
+    },
+    "./components/style.css": "./dist/components/style.css"
+  },
   "license": "MIT",
   "scripts": {
     "storybook": "yarn theo && storybook dev -p 6006",
