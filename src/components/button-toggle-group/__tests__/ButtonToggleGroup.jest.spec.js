@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsButtonToggleGroup from '../ButtonToggleGroup.vue';
 
 const factoryMount = () => mount(VsButtonToggleGroup, {
@@ -48,6 +49,12 @@ describe('VsButtonToggleGroup', () => {
             const secondInput = wrapper.findAll('.vs-button-toggle-group--button').at(1);
 
             expect(secondInput.classes('active')).toBe(true);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

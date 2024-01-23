@@ -15,8 +15,14 @@ const mountOptions = {
     },
 };
 
-const factoryShallowMount = () => shallowMount(VsBreadcrumb, mountOptions);
-const factoryMount = () => mount(VsBreadcrumb, mountOptions);
+const factoryShallowMount = () => shallowMount(
+    VsBreadcrumb,
+    mountOptions,
+);
+const factoryMount = () => mount(
+    VsBreadcrumb,
+    mountOptions,
+);
 
 describe('VsBreadcrumb', () => {
     it('should render a nav with a b-breadcrumb-stub', () => {

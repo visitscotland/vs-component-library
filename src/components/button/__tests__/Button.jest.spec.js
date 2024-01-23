@@ -1,5 +1,5 @@
 import { shallowMount, mount } from '@vue/test-utils';
-
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsButton from '../Button.vue';
 
 const slotText = 'Button text';
@@ -206,6 +206,13 @@ describe('VsButton', () => {
             const wrapper = factoryMount();
 
             expect(wrapper.text()).toContain(slotText);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

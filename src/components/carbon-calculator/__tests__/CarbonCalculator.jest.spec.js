@@ -1,4 +1,5 @@
 import { config, mount } from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import moxios from 'moxios';
 
 import sampleFormData from '@/assets/fixtures/carbon-calculator/example-form.json';
@@ -120,5 +121,11 @@ describe('VsCarbonCalculator', () => {
         const Questions = wrapper.findAll('[data-test=vs-carbon-calculator-question]');
 
         expect(Questions.length).toBe(5);
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            expect(await axe(wrapper.html())).toHaveNoViolations();
+        });
     });
 });

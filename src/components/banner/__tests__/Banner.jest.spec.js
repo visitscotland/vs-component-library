@@ -88,7 +88,7 @@ describe('VsBanner', () => {
     });
 
     describe(':accessibility', () => {
-        it.only('should not have aXe accessibility issues', async() => {
+        it('should not have aXe accessibility issues', async() => {
             expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });

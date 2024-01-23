@@ -1,4 +1,7 @@
-import { config, shallowMount } from '@vue/test-utils';
+import {
+    config, mount, shallowMount,
+} from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsCannedSearch from '../CannedSearch.vue';
 
 config.global.renderStubDefaultSlot = true;
@@ -7,7 +10,7 @@ const apiUrl = 'https://www.visitscotland.com/data/search/productsearch?areaprox
 const slotContent = 'These are some buttons';
 const creditSlotContent = 'This is some credit info';
 
-const factoryShallowMount = () => shallowMount(VsCannedSearch, {
+const mountOptions = {
     propsData: {
         linkUrl: apiUrl,
     },
@@ -15,7 +18,16 @@ const factoryShallowMount = () => shallowMount(VsCannedSearch, {
         'vs-canned-search-buttons': slotContent,
         'vs-canned-search-credit': creditSlotContent,
     },
-});
+};
+
+const factoryShallowMount = () => shallowMount(
+    VsCannedSearch,
+    mountOptions,
+);
+const factoryMount = () => mount(
+    VsCannedSearch,
+    mountOptions,
+);
 
 describe('VsCannedSearch', () => {
     it('should render a component with the data-test attribute `vs-canned-search`', () => {
@@ -32,6 +44,13 @@ describe('VsCannedSearch', () => {
         it('should render the content of the `vs-canned-search-credit` slot', () => {
             const wrapper = factoryShallowMount();
             expect(wrapper.html()).toContain(creditSlotContent);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

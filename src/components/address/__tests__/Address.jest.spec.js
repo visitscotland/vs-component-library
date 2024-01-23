@@ -4,10 +4,7 @@ import VsAddress from '../Address.vue';
 
 const defaultSlot = 'Default Slot';
 
-const factoryShallowMount = (propsData) => shallowMount(VsAddress, {
-    propsData: {
-        ...propsData,
-    },
+const factoryShallowMount = () => shallowMount(VsAddress, {
     slots: {
         default: defaultSlot,
     },
@@ -16,7 +13,6 @@ const factoryShallowMount = (propsData) => shallowMount(VsAddress, {
 describe('VsAddress', () => {
     it('should render address', () => {
         const wrapper = factoryShallowMount();
-
         const Address = wrapper.find('div[data-test=vs-address]');
 
         expect(Address.exists()).toBe(true);
