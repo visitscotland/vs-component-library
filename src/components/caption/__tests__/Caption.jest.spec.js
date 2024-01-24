@@ -9,25 +9,27 @@ config.global.renderStubDefaultSlot = true;
 const captionSlot = 'A Scottish Castle';
 const creditSlot = 'VisitScotland';
 
-const factoryShallowMount = (propsData) => shallowMount(VsCaption, {
-    propsData: {
-        ...propsData,
-    },
-    slots: {
-        caption: captionSlot,
-        credit: creditSlot,
-    },
-});
+function mountOptions(propsData) {
+    return {
+        propsData: {
+            ...propsData,
+        },
+        slots: {
+            caption: captionSlot,
+            credit: creditSlot,
+        },
+    };
+};
 
-const factoryMount = (propsData) => mount(VsCaption, {
-    propsData: {
-        ...propsData,
-    },
-    slots: {
-        caption: captionSlot,
-        credit: creditSlot,
-    },
-});
+const factoryShallowMount = (propsData) => shallowMount(
+    VsCaption,
+    mountOptions(propsData),
+);
+
+const factoryMount = (propsData) => mount(
+    VsCaption,
+    mountOptions(propsData),
+);
 
 describe('VsCaption', () => {
     it('should render a caption element', () => {

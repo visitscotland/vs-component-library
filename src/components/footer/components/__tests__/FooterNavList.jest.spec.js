@@ -1,5 +1,5 @@
 import { config, shallowMount } from '@vue/test-utils';
-
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsFooterNavList from '../FooterNavList.vue';
 
 config.global.renderStubDefaultSlot = true;
@@ -28,6 +28,13 @@ describe('VsFooterNavList', () => {
     describe(':slots', () => {
         it('renders content inserted into the `default` slot', () => {
             expect(wrapper.text()).toContain(slotContent);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            console.log(wrapper.html());
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

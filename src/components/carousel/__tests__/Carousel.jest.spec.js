@@ -15,23 +15,26 @@ const dataObj = {
     currentWidth: 'lg',
 };
 
-const factoryShallowMount = (slotsData) => shallowMount(VsCarousel, {
-    data() {
-        return {
-            dataObj,
-        };
-    },
-    ...slotsData,
-});
+function mountOptions(slotsData) {
+    return {
+        data() {
+            return {
+                dataObj,
+            };
+        },
+        ...slotsData,
+    };
+};
 
-const factoryMount = (slotsData) => mount(VsCarousel, {
-    data() {
-        return {
-            dataObj,
-        };
-    },
-    ...slotsData,
-});
+const factoryShallowMount = (slotsData) => shallowMount(
+    VsCarousel,
+    mountOptions(slotsData),
+);
+
+const factoryMount = (slotsData) => mount(
+    VsCarousel,
+    mountOptions(slotsData),
+);
 
 /* eslint-disable */
 window.matchMedia = window.matchMedia || function() {
