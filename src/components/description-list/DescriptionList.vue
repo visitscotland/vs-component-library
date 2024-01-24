@@ -1,11 +1,12 @@
 <template>
     <VsRow
-        tag="dl"
         class="vs-description-list"
         :class="{ 'list-inline': inline }"
     >
-        <!-- @slot The description content goes here -->
-        <slot />
+        <dl>
+            <!-- @slot The description content goes here -->
+            <slot />
+        </dl>
     </VsRow>
 </template>
 
@@ -50,6 +51,9 @@ export default {
 
 <style lang="scss">
 .vs-description-list {
+    dl {
+        margin: 0;
+    }
 
     // turns offset column off for first item after a term to avoid layout errors
     .vs-description-list__term+.vs-description-list__detail {
