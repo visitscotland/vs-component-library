@@ -1,12 +1,25 @@
-import { config, shallowMount } from '@vue/test-utils';
-
+import {
+    config, mount, shallowMount,
+} from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsIconList from '../IconList.vue';
 
 config.global.renderStubDefaultSlot = true;
 
-const slotContent = 'Slot Content';
+const slotContent = `
+    <li class="vs-icon-list__item"><i class="fak fa-facility-wifi vs-icon"></i> wifi</li>
+`;
 
 const factoryShallowMount = (propsData) => shallowMount(VsIconList, {
+    propsData: {
+        ...propsData,
+    },
+    slots: {
+        default: slotContent,
+    },
+});
+
+const factoryMount = (propsData) => mount(VsIconList, {
     propsData: {
         ...propsData,
     },
@@ -36,7 +49,14 @@ describe('VsIconList', () => {
 
     describe(':slots', () => {
         it('renders content inserted into the default `slot`', () => {
-            expect(wrapper.text()).toContain(slotContent);
+            expect(wrapper.text()).toContain('wifi');
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const modifiedWrapper = factoryMount();
+            expect(await axe(modifiedWrapper.html())).toHaveNoViolations();
         });
     });
 });

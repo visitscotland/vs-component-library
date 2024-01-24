@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsIcon from '../Icon.vue';
 
 const factoryShallowMount = (propsData) => shallowMount(VsIcon, {
@@ -55,6 +55,13 @@ describe('VsIcon', () => {
             });
 
             expect(wrapper.classes(`vs-icon--sm-size-${testSize}`)).toBe(true);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryShallowMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

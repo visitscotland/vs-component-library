@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import axe from '../../../../test/unit/helpers/axe-helper';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsLink from '../Link.vue';
 import VsIcon from '../../icon/Icon.vue';
 

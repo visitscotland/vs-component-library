@@ -67,6 +67,7 @@ describe('VsBreadcrumbItem', () => {
 
             const results = await axe(html, {
                 rules: {
+                    // must have a parent wil ul/ol element
                     listitem: {
                         enabled: false,
                     },
