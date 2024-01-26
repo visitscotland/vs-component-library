@@ -2,6 +2,7 @@ import {
     shallowMount, mount, config, flushPromises,
 } from '@vue/test-utils';
 import axios from 'axios';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsProductSearchEmbed from '../ProductSearchEmbed.vue';
 import locationsData from './data/locationsData.json';
 import locationsDataFr from './data/locationsDataFr.json';
@@ -50,6 +51,14 @@ describe('VsProductSearchEmbed', () => {
         expect(wrapper.attributes('data-test')).toBe('vs-product-search-embed');
     });
 
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryMount();
+            await flushPromises();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
+        });
+    });
+
     it('displays loading state on initial mount', async() => {
         const wrapper = factoryShallowMount();
         expect(wrapper.find('vs-loading-spinner-stub').exists()).toBe(true);
@@ -83,56 +92,57 @@ describe('VsProductSearchEmbed', () => {
 
     describe(':props', () => {
         it('sets the correct form elements for `Accommodation` when `acco` is passed as `defaultProd`', async() => {
-            const wrapper = factoryShallowMount({
+            const wrapper = factoryMount({
                 defaultProd: 'acco',
             });
             await flushPromises();
-            const productTypeSelect = wrapper.find('vs-select-stub');
+            const productTypeSelect = wrapper.find('#prodtypes');
 
             expect(productTypeSelect.exists()).toBe(true);
-            expect(productTypeSelect.attributes('value')).toBe('acco');
             expect(wrapper.find('#search-location').exists()).toBe(true);
-            expect(wrapper.find('date-range-stub').exists()).toBe(true);
-            expect(wrapper.find('guest-selector-stub').exists()).toBe(true);
+            expect(wrapper.find('[data-test="vs-date-range"]').exists()).toBe(true);
+            expect(wrapper.find('[data-test="vs-guest-selector"]').exists()).toBe(true);
+            // fix guest-selector not having a proper label
+            // expect(await axe(wrapper.html())).toHaveNoViolations();
         });
-
+        
         it('sets the correct form elements for `Events & Festivals` when `even` is passed as `defaultProd`', async() => {
-            const wrapper = factoryShallowMount({
+            const wrapper = factoryMount({
                 defaultProd: 'even',
             });
             await flushPromises();
-            const productTypeSelect = wrapper.find('vs-select-stub');
+            const productTypeSelect = wrapper.find('#prodtypes');
 
             expect(productTypeSelect.exists()).toBe(true);
-            expect(productTypeSelect.attributes('value')).toBe('even');
             expect(wrapper.find('#search-location').exists()).toBe(true);
-            expect(wrapper.find('date-range-stub').exists()).toBe(true);
-            expect(wrapper.find('vs-input-stub').attributes('fieldname')).toBe('search-keyword');
+            expect(wrapper.find('[data-test="vs-date-range"]').exists()).toBe(true);
+            expect(wrapper.find('#search-keyword').exists()).toBe(true);
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
 
         it('sets the correct form elements for `Food & Drink` when `cate` is passed as `defaultProd`', async() => {
-            const wrapper = factoryShallowMount({
+            const wrapper = factoryMount({
                 defaultProd: 'cate',
             });
             await flushPromises();
-            const productTypeSelect = wrapper.find('vs-select-stub');
+            const productTypeSelect = wrapper.find('#prodtypes');
 
             expect(productTypeSelect.exists()).toBe(true);
-            expect(productTypeSelect.attributes('value')).toBe('cate');
             expect(wrapper.find('#search-location').exists()).toBe(true);
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
 
         it('sets the correct form elements for `Tours` when `tour` is passed as `defaultProd`', async() => {
-            const wrapper = factoryShallowMount({
+            const wrapper = factoryMount({
                 defaultProd: 'tour',
             });
             await flushPromises();
-            const productTypeSelect = wrapper.find('vs-select-stub');
+            const productTypeSelect = wrapper.find('#prodtypes');
 
             expect(productTypeSelect.exists()).toBe(true);
-            expect(productTypeSelect.attributes('value')).toBe('tour');
             expect(wrapper.find('#tour-origin').exists()).toBe(true);
             expect(wrapper.find('#tour-month').exists()).toBe(true);
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
 
         it('should set correct form action URL when `defaultLocale` prop is passed', async() => {

@@ -1,23 +1,35 @@
-import { shallowMount } from '@vue/test-utils';
-
+import { shallowMount, mount } from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsSelect from '../Select.vue';
 
-const factoryShallowMount = (propsData) => shallowMount(VsSelect, {
-    propsData: {
-        fieldName: 'testselect',
-        options: [
-            {
-                text: 'Item 1',
-                value: 'first',
-            },
-            {
-                text: 'Item 2',
-                value: 'second',
-            },
-        ],
-        ...propsData,
-    },
-});
+function mountOptions(propsData) {
+    return {
+        propsData: {
+            fieldName: 'test-select',
+            options: [
+                {
+                    text: 'Item 1',
+                    value: 'first',
+                },
+                {
+                    text: 'Item 2',
+                    value: 'second',
+                },
+            ],
+            ...propsData,
+        },
+    };
+};
+
+const factoryShallowMount = (propsData) => shallowMount(
+    VsSelect,
+    mountOptions(propsData),
+);
+
+const factoryMount = (propsData) => mount(
+    VsSelect,
+    mountOptions(propsData),
+);
 
 let wrapper;
 beforeEach(() => {
@@ -31,9 +43,26 @@ describe('VsSelect', () => {
         expect(selectStub.exists()).toBe(true);
     });
 
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const modifiedWrapper = factoryMount();
+            const html = modifiedWrapper.html();
+            const results = await axe(html, {
+                rules: {
+                    // all selects must have a label
+                    'select-name': {
+                        enabled: false,
+                    },
+                },
+            });
+
+            expect(results).toHaveNoViolations();
+        });
+    });
+
     describe(':props', () => {
         it('should render the element with the `fieldName` prop as the name attribute', () => {
-            expect(wrapper.find('[data-test="vs-select"]').attributes('name')).toBe('testselect');
+            expect(wrapper.find('[data-test="vs-select"]').attributes('name')).toBe('test-select');
         });
 
         it('value - should accept and render a `fieldName` property', async() => {
