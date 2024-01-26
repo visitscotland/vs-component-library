@@ -51,7 +51,7 @@ describe('VsIconListItem', () => {
 
             const results = await axe(html, {
                 rules: {
-                    // must have a parent wil ul/ol element
+                    // must have a parent with ul/ol element
                     listitem: {
                         enabled: false,
                     },

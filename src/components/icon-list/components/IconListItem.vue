@@ -37,7 +37,6 @@ export default {
          */
         label: {
             type: String,
-            default: 'wifi',
             required: true,
         },
         /**
@@ -45,7 +44,6 @@ export default {
          */
         icon: {
             type: String,
-            default: 'facility-wifi',
             required: true,
         },
     },

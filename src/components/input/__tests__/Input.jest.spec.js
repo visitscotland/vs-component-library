@@ -1,15 +1,30 @@
-import { shallowMount, config } from '@vue/test-utils';
+import {
+    shallowMount, mount, config,
+} from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsInput from '../Input.vue';
 
 config.global.renderStubDefaultSlot = true;
 
-const factoryShallowMount = (propsData) => shallowMount(VsInput, {
-    propsData: {
-        fieldName: 'testname',
-        type: 'text',
-        ...propsData,
-    },
-});
+function mountOptions(propsData) {
+    return {
+        propsData: {
+            fieldName: 'testname',
+            type: 'text',
+            ...propsData,
+        },
+    };
+};
+
+const factoryShallowMount = (propsData) => shallowMount(
+    VsInput,
+    mountOptions(propsData),
+);
+
+const factoryMount = (propsData) => mount(
+    VsInput,
+    mountOptions(propsData),
+);
 
 let wrapper;
 beforeEach(() => {
@@ -19,6 +34,23 @@ beforeEach(() => {
 describe('VsInput', () => {
     it('should render an element with the `vs-input` test attribute', () => {
         expect(wrapper.attributes('data-test')).toBe('vs-input');
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const modifiedWrapper = factoryMount();
+            const html = modifiedWrapper.html();
+            const results = await axe(html, {
+                rules: {
+                    // all inputs must have a label
+                    label: {
+                        enabled: false,
+                    },
+                },
+            });
+
+            expect(results).toHaveNoViolations();
+        });
     });
 
     describe(':props', () => {

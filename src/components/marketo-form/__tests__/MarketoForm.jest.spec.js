@@ -1,4 +1,7 @@
-import { config, shallowMount } from '@vue/test-utils';
+import {
+    config, shallowMount, mount,
+} from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsMarketoForm from '../MarketoForm.vue';
 
 config.global.renderStubDefaultSlot = true;
@@ -114,28 +117,40 @@ const globalMessaging = {
     },
 };
 
-const factoryShallowMount = () => shallowMount(VsMarketoForm, {
-    slots: {
-        'submit-error': 'error text',
-        invalid: 'invalid text',
-        submitting: 'submitting text',
-        submitted: 'submitted text',
-    },
-    propsData: {
-        dataUrl: 'testUrl',
-        marketoInstance: '123',
-        munchkinId: '123',
-        messagingUrl: 'test',
-        recaptchaKey: 'xyz',
-        formId: '123',
-    },
-    data() {
-        return {
-            formData,
-            messagingData: globalMessaging,
-        };
-    },
-});
+function mountOptions() {
+    return {
+        slots: {
+            'submit-error': 'error text',
+            invalid: 'invalid text',
+            submitting: 'submitting text',
+            submitted: 'submitted text',
+        },
+        propsData: {
+            dataUrl: 'testUrl',
+            marketoInstance: '123',
+            munchkinId: '123',
+            messagingUrl: 'test',
+            recaptchaKey: 'xyz',
+            formId: '123',
+        },
+        data() {
+            return {
+                formData,
+                messagingData: globalMessaging,
+            };
+        },
+    };
+};
+
+const factoryShallowMount = () => shallowMount(
+    VsMarketoForm,
+    mountOptions(),
+);
+
+const factoryMount = () => mount(
+    VsMarketoForm,
+    mountOptions(),
+);
 
 beforeEach(() => {
     window.MktoForms2 = {
@@ -274,6 +289,13 @@ describe('VsMarketoForm', () => {
 
             const submitEl = wrapper.find('vs-button-stub[type="submit"]');
             expect(submitEl.text()).toBe('Subscribe (de)');
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

@@ -109,7 +109,7 @@ export default {
          */
         name: {
             type: String,
-            required: true,
+            default: '',
         },
         /**
          * Type of input

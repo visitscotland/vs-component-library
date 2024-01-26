@@ -1,4 +1,5 @@
 import { shallowMount, config } from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import axios from 'axios';
 import VsMapWithSidebar from '../MapWithSidebar.vue';
 import placesJson from './data/places.json';
@@ -182,6 +183,13 @@ describe('VsMapWithSidebar', () => {
             const wrapper = factoryShallowMount();
             const warning = wrapper.find('vs-warning-stub');
             expect(warning.text()).toContain('Javascript is needed for this map');
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryShallowMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

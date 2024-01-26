@@ -1,4 +1,5 @@
 import { config, mount } from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import { setActivePinia, createPinia } from 'pinia';
 import VsMegalinkLinkList from '../MegalinkLinkList.vue';
 
@@ -7,7 +8,7 @@ const videoBtnText = 'Play Video';
 
 config.global.renderStubDefaultSlot = true;
 
-const factoryMount = (slotData) => mount(VsMegalinkLinkList, {
+const factoryMount = () => mount(VsMegalinkLinkList, {
     propsData: {
         featured: true,
         imgSrc: 'test',
@@ -21,7 +22,10 @@ const factoryMount = (slotData) => mount(VsMegalinkLinkList, {
         videoId,
         videoBtnText,
     },
-    ...slotData,
+    slots: {
+        'vs-link-list-heading': 'Megalink heading',
+        'vs-link-list-content': 'Megalink content',
+    },
 });
 
 describe('VsMegalinkLinkList', () => {
@@ -79,6 +83,13 @@ describe('VsMegalinkLinkList', () => {
             const wrapper = factoryMount();
 
             expect(wrapper.find('[data-test="vs-itinerary-panels"]').exists()).toBe(true);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

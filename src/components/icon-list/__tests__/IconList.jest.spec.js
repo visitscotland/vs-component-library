@@ -1,32 +1,36 @@
 import {
     config, mount, shallowMount,
 } from '@vue/test-utils';
+import { h } from 'vue';
 import axe from '@/../test/unit/helpers/axe-helper';
 import VsIconList from '../IconList.vue';
+import VsIconListItem from '../components/IconListItem.vue';
 
 config.global.renderStubDefaultSlot = true;
 
-const slotContent = `
-    <li class="vs-icon-list__item"><i class="fak fa-facility-wifi vs-icon"></i> wifi</li>
-`;
+function mountOptions(propsData) {
+    return {
+        propsData: {
+            ...propsData,
+        },
+        slots: {
+            default: h(VsIconListItem, {
+                label: 'wifi',
+                icon: 'facility-wifi',
+            }),
+        },
+    };
+};
 
-const factoryShallowMount = (propsData) => shallowMount(VsIconList, {
-    propsData: {
-        ...propsData,
-    },
-    slots: {
-        default: slotContent,
-    },
-});
+const factoryShallowMount = (propsData) => shallowMount(
+    VsIconList,
+    mountOptions(propsData),
+);
 
-const factoryMount = (propsData) => mount(VsIconList, {
-    propsData: {
-        ...propsData,
-    },
-    slots: {
-        default: slotContent,
-    },
-});
+const factoryMount = (propsData) => mount(
+    VsIconList,
+    mountOptions(propsData),
+);
 
 let wrapper;
 beforeEach(() => {
@@ -49,7 +53,9 @@ describe('VsIconList', () => {
 
     describe(':slots', () => {
         it('renders content inserted into the default `slot`', () => {
-            expect(wrapper.text()).toContain('wifi');
+            const modifiedWrapper = factoryMount();
+            const listItem = modifiedWrapper.find('.vs-icon-list__item');
+            expect(listItem.exists()).toBe(true);
         });
     });
 

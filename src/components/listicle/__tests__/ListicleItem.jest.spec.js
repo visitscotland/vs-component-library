@@ -1,5 +1,5 @@
 import { config, shallowMount } from '@vue/test-utils';
-
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsListicleItem from '../ListicleItem.vue';
 
 config.global.renderStubDefaultSlot = true;
@@ -46,6 +46,23 @@ describe('VsListicleItem', () => {
 
         it('renders content inserted into the `facilities-slot` slot', () => {
             expect(wrapper.text()).toContain(facilitiesSlot);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const html = wrapper.html();
+
+            const results = await axe(html, {
+                rules: {
+                    // must have a parent with ul/ol element
+                    listitem: {
+                        enabled: false,
+                    },
+                },
+            });
+
+            expect(results).toHaveNoViolations();
         });
     });
 });
