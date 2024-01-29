@@ -5,6 +5,8 @@ import VsMegalinkLinkList from '../MegalinkLinkList.vue';
 
 const videoId = '12345';
 const videoBtnText = 'Play Video';
+const slotHeading = 'Megalink heading';
+const slotContent = 'Megalink content';
 
 config.global.renderStubDefaultSlot = true;
 
@@ -23,8 +25,8 @@ const factoryMount = () => mount(VsMegalinkLinkList, {
         videoBtnText,
     },
     slots: {
-        'vs-link-list-heading': 'Megalink heading',
-        'vs-link-list-content': 'Megalink content',
+        'vs-link-list-heading': slotHeading,
+        'vs-link-list-content': slotContent,
     },
 });
 
@@ -61,23 +63,15 @@ describe('VsMegalinkLinkList', () => {
     });
     describe(':slots', () => {
         it('renders content inserted in a vs-link-list-heading slot', () => {
-            const wrapper = factoryMount({
-                slots: {
-                    'vs-link-list-heading': 'Multi-image heading',
-                },
-            });
+            const wrapper = factoryMount();
 
-            expect(wrapper.find('[data-test="megalink-link-list__title"]').text()).toBe('Multi-image heading');
+            expect(wrapper.find('[data-test="megalink-link-list__title"]').text()).toBe(slotHeading);
         });
 
         it('renders content inserted in a vs-link-list-content slot', () => {
-            const wrapper = factoryMount({
-                slots: {
-                    'vs-link-list-content': '<p>Multi-image content</p>',
-                },
-            });
+            const wrapper = factoryMount();
 
-            expect(wrapper.find('[data-test="megalink-link-list__content"]').html()).toContain('<p>Multi-image content</p>');
+            expect(wrapper.find('[data-test="megalink-link-list__content"]').html()).toContain(slotContent);
         });
         it('renders card panels if days and transport are provided', () => {
             const wrapper = factoryMount();

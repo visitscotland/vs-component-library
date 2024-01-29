@@ -1,4 +1,7 @@
-import { shallowMount, config } from '@vue/test-utils';
+import {
+    shallowMount, mount, config,
+} from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsSkipTo from '../SkipTo.vue';
 
 config.global.renderStubDefaultSlot = true;
@@ -8,17 +11,29 @@ const mainContentText = 'Main content';
 const searchText = 'Search Text';
 const footerText = 'Footer Text';
 
-const factoryShallowMount = () => shallowMount(VsSkipTo, {
-    props: {
-        skipToText: 'Skip to',
-    },
-    slots: {
-        'main-menu-text': mainMenuText,
-        'main-content-text': mainContentText,
-        'search-text': searchText,
-        'footer-text': footerText,
-    },
-});
+function mountOptions() {
+    return {
+        props: {
+            skipToText: 'Skip to',
+        },
+        slots: {
+            'main-menu-text': mainMenuText,
+            'main-content-text': mainContentText,
+            'search-text': searchText,
+            'footer-text': footerText,
+        },
+    };
+};
+
+const factoryShallowMount = () => shallowMount(
+    VsSkipTo,
+    mountOptions(),
+);
+
+const factoryMount = () => mount(
+    VsSkipTo,
+    mountOptions(),
+);
 
 let wrapper;
 beforeEach(() => {
@@ -73,6 +88,13 @@ describe('VsSiteSearch', () => {
             await wrapper.vm.$nextTick();
 
             expect(mockMethod).toHaveBeenCalled();
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const modifiedWrapper = factoryMount();
+            expect(await axe(modifiedWrapper.html())).toHaveNoViolations();
         });
     });
 });

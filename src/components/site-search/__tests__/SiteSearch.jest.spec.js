@@ -1,16 +1,31 @@
-import { config, shallowMount } from '@vue/test-utils';
+import {
+    config, shallowMount, mount,
+} from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsSiteSearch from '../SiteSearch.vue';
 
 config.global.renderStubDefaultSlot = true;
 
-const factoryShallowMount = () => shallowMount(VsSiteSearch, {
-    propsData: {
-        isShowing: false,
-    },
-    slots: {
-        default: 'Search',
-    },
-});
+function mountOptions() {
+    return {
+        propsData: {
+            isShowing: false,
+        },
+        slots: {
+            default: 'Search',
+        },
+    };
+};
+
+const factoryShallowMount = () => shallowMount(
+    VsSiteSearch,
+    mountOptions(),
+);
+
+const factoryMount = () => mount(
+    VsSiteSearch,
+    mountOptions(),
+);
 
 let wrapper;
 beforeEach(() => {
@@ -47,6 +62,13 @@ describe('VsSiteSearch', () => {
             await wrapper.vm.$nextTick();
 
             expect(wrapper.emitted().toggleAction).toBeTruthy();
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const modifiedWrapper = factoryMount();
+            expect(await axe(modifiedWrapper.html())).toHaveNoViolations();
         });
     });
 });

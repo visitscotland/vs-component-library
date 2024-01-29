@@ -1,4 +1,7 @@
-import { shallowMount, config } from '@vue/test-utils';
+import {
+    shallowMount, mount, config,
+} from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsSocialShareItem from '../SocialShareItem.vue';
 
 config.global.renderStubDefaultSlot = true;
@@ -13,21 +16,33 @@ Object.assign(navigator, {
     },
 });
 
-const factoryShallowMount = (propsData) => shallowMount(VsSocialShareItem, {
-    propsData: {
-        ...propsData,
-        name: 'facebook',
-        linkText: 'Facebook',
-        linkCopiedText: 'Link copied',
-    },
-    global: {
-        provide: {
-            referringPageUrl: url,
-            pageTitle: title,
-            noJs: false,
+function mountOptions(propsData) {
+    return {
+        propsData: {
+            ...propsData,
+            name: 'facebook',
+            linkText: 'Facebook',
+            linkCopiedText: 'Link copied',
         },
-    },
-});
+        global: {
+            provide: {
+                referringPageUrl: url,
+                pageTitle: title,
+                noJs: false,
+            },
+        },
+    };
+};
+
+const factoryShallowMount = (propsData) => shallowMount(
+    VsSocialShareItem,
+    mountOptions(propsData),
+);
+
+const factoryMount = (propsData) => mount(
+    VsSocialShareItem,
+    mountOptions(propsData),
+);
 
 let wrapper;
 beforeEach(() => {
@@ -186,6 +201,14 @@ describe('VsSocialShareItem', () => {
             shareLink.trigger('click');
 
             expect(wrapper.emitted('copyLinkClicked')).toBeTruthy();
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const modifiedWrapper = factoryMount();
+            console.log(modifiedWrapper.html());
+            expect(await axe(modifiedWrapper.html())).toHaveNoViolations();
         });
     });
 });
