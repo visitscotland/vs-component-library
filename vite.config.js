@@ -25,6 +25,9 @@ export default defineConfig({
         ViteRequireContext(),
     ],
     build: {
+        transpile: [
+            'youtube-vue3',
+        ],
         lib: {
             entry: path.resolve(__dirname, 'src/test.js'),
             name: 'vs-component-library',
