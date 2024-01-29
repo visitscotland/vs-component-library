@@ -12,5 +12,8 @@
 //     DsButton,
 // };
 
+export * from '@/styles/core.styles.scss';
+export * from '@/assets/fonts/fonts.scss';
+
 // eslint-disable-next-line import/extensions, import/no-unresolved
 export * from './components';
