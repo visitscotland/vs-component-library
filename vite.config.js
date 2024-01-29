@@ -45,4 +45,9 @@ export default defineConfig({
             },
         },
     },
+    define: {
+        'process.env': process.env,
+        'process.versions': process.versions,
+        'process.platform': `"${process.platform}"`,
+    },
 });
