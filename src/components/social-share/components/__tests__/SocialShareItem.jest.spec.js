@@ -207,7 +207,6 @@ describe('VsSocialShareItem', () => {
     describe(':accessibility', () => {
         it('should not have aXe accessibility issues', async() => {
             const modifiedWrapper = factoryMount();
-            console.log(modifiedWrapper.html());
             expect(await axe(modifiedWrapper.html())).toHaveNoViolations();
         });
     });
