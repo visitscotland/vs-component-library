@@ -15,7 +15,9 @@ export default defineConfig(({ mode }) => {
         css: {
             preprocessorOptions: {
                 scss: {
-                    additionalData: '@import "@/styles/core.styles.scss";',
+                    additionalData: `
+                        @import "@/styles/resources.scss";
+                    `,
                 },
             },
         },
@@ -31,6 +33,9 @@ export default defineConfig(({ mode }) => {
             ViteRequireContext(),
         ],
         build: {
+            transpile: [
+                'youtube-vue3',
+            ],
             lib: {
                 entry: path.resolve(__dirname, 'src/test.ts'),
                 name: 'vs-component-library',
