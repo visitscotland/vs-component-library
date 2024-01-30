@@ -3,7 +3,7 @@
         class="vs-description-list"
         :class="{ 'list-inline': inline }"
     >
-        <dl>
+        <dl v-bind="$attrs">
             <!-- @slot The description content goes here -->
             <slot />
         </dl>
@@ -55,7 +55,7 @@ export default {
         margin: 0;
         display: flex;
         flex-wrap: wrap;
-        width: 100%;
+        flex-grow: 1;
     }
 
     // turns offset column off for first item after a term to avoid layout errors
