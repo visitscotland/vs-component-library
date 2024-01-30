@@ -8,7 +8,7 @@ config.global.renderStubDefaultSlot = true;
 
 const TestComponent = {
     template: `
-        <dt class="vs-description-list__term">Description list term</dd>
+        <dt class="vs-description-list__term">Description list term</dt>
         <dd class="vs-description-list__detail">Description list item</dd>
     `,
 };
@@ -38,7 +38,7 @@ beforeEach(() => {
 
 describe('VsDescriptionList', () => {
     it('should render a vsrow-stub with a `description-list` class', () => {
-        expect(wrapper.element.tagName).toBe('VS-ROW-STUB');
+        expect(wrapper.element.tagName).toBe('DL');
         expect(wrapper.classes('vs-description-list')).toBe(true);
     });
 
