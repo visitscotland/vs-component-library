@@ -53,6 +53,9 @@ export default {
 .vs-description-list {
     dl {
         margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
     }
 
     // turns offset column off for first item after a term to avoid layout errors
