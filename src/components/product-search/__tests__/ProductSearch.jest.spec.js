@@ -1,4 +1,7 @@
-import { shallowMount, config } from '@vue/test-utils';
+import {
+    config, shallowMount, mount,
+} from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsProductSearch from '../ProductSearch.vue';
 
 config.global.renderStubDefaultSlot = true;
@@ -6,16 +9,28 @@ config.global.renderStubDefaultSlot = true;
 const headingSlot = 'Find experiences';
 const introSlot = 'Search a wide range of accommodation, events, food & drink options and things to do from indoor and outdoor attractions to activities, tours and more.';
 
-const factoryShallowMount = (propsData) => shallowMount(VsProductSearch, {
-    propsData: {
-        noJsMessage: 'JS is turned off',
-        ...propsData,
-    },
-    slots: {
-        'vs-module-heading': headingSlot,
-        'vs-module-intro': introSlot,
-    },
-});
+function mountOptions(propsData) {
+    return {
+        propsData: {
+            noJsMessage: 'JS is turned off',
+            ...propsData,
+        },
+        slots: {
+            'vs-module-heading': headingSlot,
+            'vs-module-intro': introSlot,
+        },
+    };
+};
+
+const factoryShallowMount = (propsData) => shallowMount(
+    VsProductSearch,
+    mountOptions(propsData),
+);
+
+const factoryMount = (propsData) => mount(
+    VsProductSearch,
+    mountOptions(propsData),
+);
 
 describe('VsProductSearch', () => {
     it('should render a component with the data-test attribute `vs-product-search`', () => {
@@ -60,6 +75,13 @@ describe('VsProductSearch', () => {
         it('renders content inserted into the `vs-module-intro` slot', () => {
             const wrapper = factoryShallowMount();
             expect(wrapper.find('.vs-product-search__intro').text()).toContain(introSlot);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

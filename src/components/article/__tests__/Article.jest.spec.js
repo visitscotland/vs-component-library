@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsArticle from '../Article.vue';
 
 const defaultSlotText = 'Article content';
@@ -50,6 +51,12 @@ describe('VsArticle', () => {
 
         it('renders content inserted in the default slot', () => {
             expect(wrapper.text()).toContain(defaultSlotText);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

@@ -1,5 +1,5 @@
 import { shallowMount, mount } from '@vue/test-utils';
-
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsSocialCreditLink from '../SocialCreditLink.vue';
 
 const initialPropsData = {
@@ -61,6 +61,13 @@ describe('VsSocialCreditLink', () => {
             });
 
             expect(icon.props().name).toBe('instagram');
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

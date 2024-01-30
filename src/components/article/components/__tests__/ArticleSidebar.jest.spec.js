@@ -1,4 +1,5 @@
 import { config, shallowMount } from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsArticleSidebar from '../ArticleSidebar.vue';
 
 config.global.renderStubDefaultSlot = true;
@@ -80,6 +81,12 @@ describe('VsArticleSidebar', () => {
 
         it('renders content inserted in a `imgSlotText` slot', () => {
             expect(wrapper.text()).toContain(imgSlotText);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

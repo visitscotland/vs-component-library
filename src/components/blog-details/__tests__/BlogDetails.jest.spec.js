@@ -1,4 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsBlogDetails from '../BlogDetails.vue';
 
 const factoryShallowMount = (propsData) => shallowMount(VsBlogDetails, {
@@ -34,6 +35,12 @@ describe('VsBlogDetails', () => {
         it('should render a read time when passed `blogReadTime` prop', () => {
             const blogDetails = wrapper.find('[data-test=vs-blog-details]').find('.vs-blog-details__read-time');
             expect(blogDetails.text()).toContain('Reading time: 2 minutes');
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

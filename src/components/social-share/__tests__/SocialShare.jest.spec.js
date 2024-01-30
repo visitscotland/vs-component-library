@@ -1,4 +1,7 @@
-import { shallowMount, config } from '@vue/test-utils';
+import {
+    shallowMount, mount, config,
+} from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsSocialShare from '../SocialShare.vue';
 
 config.global.renderStubDefaultSlot = true;
@@ -7,25 +10,37 @@ const defaultSlotText = 'Share items content';
 const url = 'https://www.visitscotland.com';
 const title = 'VisitScotland';
 
-const factoryShallowMount = () => shallowMount(VsSocialShare, {
-    propsData: {
-        id: 'default',
-        shareBtnText: 'Share',
-        sharePopoverTitle: 'Share on',
-        pageUrl: url,
-        pageTitle: title,
-        closeAltText: 'Close',
-        noJs: false,
-    },
-    slots: {
-        default: defaultSlotText,
-    },
-    data() {
-        return {
-            copyLink: false,
-        };
-    },
-});
+function mountOptions() {
+    return {
+        propsData: {
+            id: 'default',
+            shareBtnText: 'Share',
+            sharePopoverTitle: 'Share on',
+            pageUrl: url,
+            pageTitle: title,
+            closeAltText: 'Close',
+            noJs: false,
+        },
+        slots: {
+            default: defaultSlotText,
+        },
+        data() {
+            return {
+                copyLink: false,
+            };
+        },
+    };
+};
+
+const factoryShallowMount = () => shallowMount(
+    VsSocialShare,
+    mountOptions(),
+);
+
+const factoryMount = () => mount(
+    VsSocialShare,
+    mountOptions(),
+);
 
 let wrapper;
 beforeEach(() => {
@@ -77,6 +92,13 @@ describe('VsSocialShare', () => {
         it('should provide a `noJs` property down to children components', () => {
             /* eslint-disable no-underscore-dangle */
             expect(wrapper.vm.noJs).toBe(false);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const modifiedWrapper = factoryMount();
+            expect(await axe(modifiedWrapper.html())).toHaveNoViolations();
         });
     });
 });

@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import { BBreadcrumbItem } from 'bootstrap-vue-next';
-
 import VsBreadcrumbItem from '../BreadcrumbItem.vue';
 
 const factoryMount = (propsData) => mount(VsBreadcrumbItem, {
@@ -57,6 +57,24 @@ describe('VsBreadcrumbItem', () => {
             const span = wrapper.find('span');
 
             expect(span.attributes('aria-current')).toBe('page');
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryMount();
+            const html = wrapper.html();
+
+            const results = await axe(html, {
+                rules: {
+                    // must have a parent with ul/ol element
+                    listitem: {
+                        enabled: false,
+                    },
+                },
+            });
+
+            expect(results).toHaveNoViolations();
         });
     });
 });

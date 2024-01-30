@@ -1,7 +1,7 @@
 import {
     config, shallowMount, mount,
 } from '@vue/test-utils';
-
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsGlobalMenuDropdown from '../components/GlobalMenuDropdown.vue';
 
 config.global.renderStubDefaultSlot = true;
@@ -100,6 +100,13 @@ describe('<VsGlobalMenuDropdown />', () => {
             const dropdown = modifiedWrapper.find('.vs-dropdown');
 
             expect(dropdown.text()).toContain(translationLabel);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const modifiedWrapper = factoryMount();
+            expect(await axe(modifiedWrapper.html())).toHaveNoViolations();
         });
     });
 });

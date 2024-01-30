@@ -1,4 +1,5 @@
 import { mount } from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsCannedSearchProductCard from '../CannedSearchProductCard.vue';
 
 const imgSrc = 'https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm';
@@ -120,6 +121,12 @@ describe('VsCannedSearchProductCard', () => {
 
         it('should render the content of the `vs-canned-search-summary` slot', () => {
             expect(wrapper.html()).toContain(summarySlotContent);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

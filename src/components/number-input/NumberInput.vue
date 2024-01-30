@@ -34,7 +34,11 @@
             icon="minus"
             :disabled="(inputVal <= minimumNumber) ? true : null"
             @click="decrementValue"
-        />
+        >
+            <span class="sr-only">
+                Add 1
+            </span>
+        </VsButton>
 
         <BFormInput
             ref="input"
@@ -64,7 +68,11 @@
             icon="plus"
             :disabled="(inputVal >= maximumNumber) ? true : null"
             @click="incrementValue"
-        />
+        >
+            <span class="sr-only">
+                Remove 1
+            </span>
+        </VsButton>
 
         <VsButton
             v-if="showClearButton"

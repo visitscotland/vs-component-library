@@ -1,4 +1,7 @@
-import { config, shallowMount } from '@vue/test-utils';
+import {
+    config, shallowMount, mount,
+} from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsMegalinkSingleImage from '../MegalinkSingleImage.vue';
 
 config.global.renderStubDefaultSlot = true;
@@ -8,20 +11,32 @@ const vsSingleImageContentSlot = '<p>This is the content for the single image co
 const vsSingleImageLinksSlot = '<li>This is just one link</li>';
 const vsSingleImageButtonTextSlot = 'This is the button text';
 
-const factoryShallowMount = () => shallowMount(VsMegalinkSingleImage, {
-    propsData: {
-        alternate: false,
-        title: 'The Single Image title',
-        buttonLink: 'http://www.visitscotland.com',
-        theme: 'dark',
-    },
-    slots: {
-        'vs-single-image': vsSingleImageSlot,
-        'vs-single-image-content': vsSingleImageContentSlot,
-        'vs-single-image-links': vsSingleImageLinksSlot,
-        'vs-single-image-button-text': vsSingleImageButtonTextSlot,
-    },
-});
+function mountOptions() {
+    return {
+        propsData: {
+            alternate: false,
+            title: 'The Single Image title',
+            buttonLink: 'http://www.visitscotland.com',
+            theme: 'dark',
+        },
+        slots: {
+            'vs-single-image': vsSingleImageSlot,
+            'vs-single-image-content': vsSingleImageContentSlot,
+            'vs-single-image-links': vsSingleImageLinksSlot,
+            'vs-single-image-button-text': vsSingleImageButtonTextSlot,
+        },
+    };
+};
+
+const factoryShallowMount = () => shallowMount(
+    VsMegalinkSingleImage,
+    mountOptions(),
+);
+
+const factoryMount = () => mount(
+    VsMegalinkSingleImage,
+    mountOptions(),
+);
 
 let wrapper;
 beforeEach(() => {
@@ -72,6 +87,13 @@ describe('VsMegalinkSingleImage', () => {
 
         it('renders content inserted in a vs-single-image-button-text slot', () => {
             expect(wrapper.find('[data-test="megalink-single-image__content"]').html()).toContain(vsSingleImageButtonTextSlot);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const modifiedWrapper = factoryMount();
+            expect(await axe(modifiedWrapper.html())).toHaveNoViolations();
         });
     });
 });

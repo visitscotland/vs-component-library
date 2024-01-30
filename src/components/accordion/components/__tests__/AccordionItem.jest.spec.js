@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsAccordionItem from '../AccordionItem.vue';
 
 const titleSlot = 'Item Title';
@@ -8,6 +8,9 @@ const factoryMount = (propsData) => mount(VsAccordionItem, {
     propsData: {
         ...propsData,
         controlId: '1234',
+    },
+    slots: {
+        title: titleSlot,
     },
 });
 
@@ -101,16 +104,20 @@ describe('VsAccordionItem', () => {
 
     describe('slots:', () => {
         it('should render content inserted into title slot', () => {
-            const wrapper = mount(VsAccordionItem, {
-                props: {
-                    controlId: '1234',
-                },
-                slots: {
-                    title: titleSlot,
-                },
-            });
-
+            const wrapper = factoryMount();
             expect(wrapper.text()).toContain(titleSlot);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
+
+            const accordionToggle = wrapper.find('.vs-accordion-toggle');
+            await accordionToggle.trigger('click');
+
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

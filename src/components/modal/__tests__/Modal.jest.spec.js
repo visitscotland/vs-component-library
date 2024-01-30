@@ -1,7 +1,7 @@
 import {
     config, shallowMount, mount,
 } from '@vue/test-utils';
-
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsModal from '../Modal.vue';
 
 config.global.renderStubDefaultSlot = true;
@@ -111,6 +111,13 @@ describe('VsModal', () => {
             await wrapper.vm.$nextTick();
 
             expect(wrapper.vm.show).toBe(false);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryShallowMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

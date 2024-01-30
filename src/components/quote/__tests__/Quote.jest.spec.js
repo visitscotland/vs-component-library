@@ -1,5 +1,5 @@
 import { config, shallowMount } from '@vue/test-utils';
-
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsQuote from '../Quote.vue';
 
 config.global.renderStubDefaultSlot = true;
@@ -61,6 +61,13 @@ describe('VsQuote', () => {
             });
 
             expect(wrapper.text()).toContain(linkContent);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryShallowMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

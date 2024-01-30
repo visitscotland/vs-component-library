@@ -1,8 +1,8 @@
 import { shallowMount } from '@vue/test-utils';
-
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsList from '../List.vue';
 
-const slotText = 'List text';
+const slotText = '<li>List text</li>';
 
 const factoryShallowMount = (propsData) => shallowMount(VsList, {
     slots: {
@@ -54,7 +54,14 @@ describe('VsList', () => {
         it('renders content inserted into default `slot`', () => {
             const wrapper = factoryShallowMount();
 
-            expect(wrapper.text()).toContain(slotText);
+            expect(wrapper.text()).toContain('List text');
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryShallowMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

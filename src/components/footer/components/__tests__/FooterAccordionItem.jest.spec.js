@@ -1,9 +1,7 @@
 import {
-    config,
-    shallowMount,
-    mount,
+    config, shallowMount, mount,
 } from '@vue/test-utils';
-
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsFooterAccordionItem from '../FooterAccordionItem.vue';
 
 config.global.renderStubDefaultSlot = true;
@@ -12,29 +10,30 @@ const slotContent = 'Default slot content';
 const iconOpenSlotContent = 'An open icon';
 const iconClosedSlotContent = 'A closed icon';
 
-const factoryShallowMount = (propsData) => shallowMount(VsFooterAccordionItem, {
-    propsData: {
-        ...propsData,
-        controlId: '123',
-    },
-    slots: {
-        default: slotContent,
-        'icon-open': iconOpenSlotContent,
-        'icon-closed': iconClosedSlotContent,
-    },
-});
+function mountOptions(propsData) {
+    return {
+        propsData: {
+            ...propsData,
+            title: 'Accordion title',
+            controlId: '123',
+        },
+        slots: {
+            default: slotContent,
+            'icon-open': iconOpenSlotContent,
+            'icon-closed': iconClosedSlotContent,
+        },
+    };
+};
 
-const factoryMount = (propsData) => mount(VsFooterAccordionItem, {
-    propsData: {
-        ...propsData,
-        controlId: '123',
-    },
-    slots: {
-        default: slotContent,
-        'icon-open': iconOpenSlotContent,
-        'icon-closed': iconClosedSlotContent,
-    },
-});
+const factoryShallowMount = (propsData) => shallowMount(
+    VsFooterAccordionItem,
+    mountOptions(propsData),
+);
+
+const factoryMount = (propsData) => mount(
+    VsFooterAccordionItem,
+    mountOptions(propsData),
+);
 
 describe('VsFooterAccordionItem', () => {
     it('should render a component with the data-test attribute `vs-footer-accordion-item`', () => {
@@ -47,14 +46,8 @@ describe('VsFooterAccordionItem', () => {
         it('should accept and render a `title` property', async() => {
             const wrapper = factoryMount();
 
-            await wrapper.setProps({
-                title: 'Some title',
-            });
-
-            expect(wrapper.text()).toContain('Some title');
+            expect(wrapper.text()).toContain('Accordion title');
         });
-
-        // All other props are passed directly to the child and tested in AccordionItem
     });
 
     describe(':slots', () => {
@@ -78,6 +71,13 @@ describe('VsFooterAccordionItem', () => {
             });
 
             expect(wrapper.text()).toContain(iconClosedSlotContent);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

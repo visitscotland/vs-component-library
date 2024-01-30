@@ -1,6 +1,7 @@
 import {
     config, shallowMount, mount,
 } from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import { setActivePinia, createPinia } from 'pinia';
 import VsMegalinkMultiImage from '../MegalinkMultiImage.vue';
 
@@ -88,6 +89,13 @@ describe('VsMegalinkMultiImage', () => {
 
         it('renders content inserted in a vs-multi-image-content slot', () => {
             expect(wrapper.find('[data-test="megalink-multi-image-card__content"]').html()).toContain('<p>Multi-image content</p>');
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

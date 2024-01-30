@@ -1,16 +1,14 @@
 <template>
-    <VsRow
-        tag="dl"
+    <dl
         class="vs-description-list"
         :class="{ 'list-inline': inline }"
     >
         <!-- @slot The description content goes here -->
         <slot />
-    </VsRow>
+    </dl>
 </template>
 
 <script>
-import { VsRow } from '@components/grid';
 import { computed } from 'vue';
 /**
  * A description list can be used where there is a list of terms and descriptions.
@@ -25,9 +23,6 @@ export default {
     name: 'VsDescriptionList',
     status: 'prototype',
     release: '0.0.1',
-    components: {
-        VsRow,
-    },
     /**
      * Provides inline prop to be injected to child components
      */
@@ -50,6 +45,17 @@ export default {
 
 <style lang="scss">
 .vs-description-list {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    margin-right: -12px;
+    margin-left: -12px;
+
+    @media (max-width: 575px) {
+        margin-right: -4px;
+        margin-left: -4px;
+    }
 
     // turns offset column off for first item after a term to avoid layout errors
     .vs-description-list__term+.vs-description-list__detail {

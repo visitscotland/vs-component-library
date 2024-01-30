@@ -1,19 +1,36 @@
-import { config, shallowMount } from '@vue/test-utils';
-
+import {
+    config, mount, shallowMount,
+} from '@vue/test-utils';
+import { h } from 'vue';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsIconList from '../IconList.vue';
+import VsIconListItem from '../components/IconListItem.vue';
 
 config.global.renderStubDefaultSlot = true;
 
-const slotContent = 'Slot Content';
+function mountOptions(propsData) {
+    return {
+        propsData: {
+            ...propsData,
+        },
+        slots: {
+            default: h(VsIconListItem, {
+                label: 'wifi',
+                icon: 'facility-wifi',
+            }),
+        },
+    };
+};
 
-const factoryShallowMount = (propsData) => shallowMount(VsIconList, {
-    propsData: {
-        ...propsData,
-    },
-    slots: {
-        default: slotContent,
-    },
-});
+const factoryShallowMount = (propsData) => shallowMount(
+    VsIconList,
+    mountOptions(propsData),
+);
+
+const factoryMount = (propsData) => mount(
+    VsIconList,
+    mountOptions(propsData),
+);
 
 let wrapper;
 beforeEach(() => {
@@ -36,7 +53,16 @@ describe('VsIconList', () => {
 
     describe(':slots', () => {
         it('renders content inserted into the default `slot`', () => {
-            expect(wrapper.text()).toContain(slotContent);
+            const modifiedWrapper = factoryMount();
+            const listItem = modifiedWrapper.find('.vs-icon-list__item');
+            expect(listItem.exists()).toBe(true);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const modifiedWrapper = factoryMount();
+            expect(await axe(modifiedWrapper.html())).toHaveNoViolations();
         });
     });
 });

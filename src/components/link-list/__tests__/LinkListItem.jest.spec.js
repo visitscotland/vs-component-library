@@ -1,4 +1,5 @@
 import { config, shallowMount } from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import { setActivePinia, createPinia } from 'pinia';
 import VsLinkListItem from '../components/LinkListItem.vue';
 
@@ -56,6 +57,24 @@ describe('VsLinkListItem', () => {
             });
 
             await expect(wrapper.html()).toContain('0:59');
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryShallowMount();
+            const html = wrapper.html();
+
+            const results = await axe(html, {
+                rules: {
+                    // must have a parent with ul/ol element
+                    listitem: {
+                        enabled: false,
+                    },
+                },
+            });
+
+            expect(results).toHaveNoViolations();
         });
     });
 });
