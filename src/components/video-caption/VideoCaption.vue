@@ -95,7 +95,7 @@ import VsToggleButton from '@/components/toggle-button/ToggleButton.vue';
 import VsWarning from '@/components/warning/Warning.vue';
 
 // import { mapState } from 'pinia';
-import useVideoStore from '@/stores/video.store.ts';
+import useVideoStore from '@/stores/video.store';
 
 import verifyCookiesMixin from '../../mixins/verifyCookiesMixin';
 import requiredCookiesData from '../../utils/required-cookies-data';

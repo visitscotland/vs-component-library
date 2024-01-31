@@ -35,11 +35,11 @@
 </template>
 
 <script>
-import VsImg from '@components/img/Img.vue';
-import VsIcon from '@components/icon/Icon.vue';
-import pinia from '@/stores/index.ts';
+import VsImg from '@/components/img/Img.vue';
+import VsIcon from '@/components/icon/Icon.vue';
+import pinia from '@/stores';
 import { mapState } from 'pinia';
-import useMapStore from '@/stores/map.store.ts';
+import useMapStore from '@/stores/map.store';
 
 let mapStore = null;
 

@@ -1,5 +1,5 @@
 import { createApp, createSSRApp } from 'vue';
-import pinia from '@/stores/index.ts';
+import pinia from '@/stores';
 import mitt from 'mitt';
 import 'bootstrap-vue-next/dist/bootstrap-vue-next.css';
 

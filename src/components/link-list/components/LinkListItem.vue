@@ -21,7 +21,7 @@
 <script>
 import VsLink from '@/components/link/Link.vue';
 import { mapState } from 'pinia';
-import useVideoStore from '@/stores/video.store.ts';
+import useVideoStore from '@/stores/video.store';
 
 /**
  * This component is an item appearing in a list of links.

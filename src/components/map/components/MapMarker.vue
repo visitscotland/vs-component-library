@@ -23,7 +23,7 @@
 <script>
 // import pinia from '@/stores/index.ts';
 import { mapState } from 'pinia';
-import useMapStore from '@/stores/map.store.ts';
+import useMapStore from '@/stores/map.store';
 import VsMapMarkerIcon from '@/components/map-marker-icon/MapMarkerIcon.vue';
 
 let mapStore = null;

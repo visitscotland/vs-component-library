@@ -1,5 +1,5 @@
 import { mapState } from 'pinia';
-import useCookiesStore from '@/stores/cookies.store.ts';
+import useCookiesStore from '@/stores/cookies.store';
 
 const cookieCheckerMixin = {
     data() {

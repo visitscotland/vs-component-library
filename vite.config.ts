@@ -2,6 +2,7 @@ import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import path from 'path';
 import ViteRequireContext from '@originjs/vite-plugin-require-context';
+import dts from 'vite-plugin-dts';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, process.cwd(), '');
@@ -31,13 +32,33 @@ export default defineConfig(({ mode }) => {
         plugins: [
             vue(),
             ViteRequireContext(),
+            dts({
+                outDir: './dist/components',
+                include: [
+                    './src/components',
+                    './src/directives',
+                    './src/mixins',
+                    './src/stores',
+                    './src/styles',
+                    './src/tokens',
+                    './src/types',
+                    './src/utils',
+                    './src/component-entry.ts',
+                    './src/constants.ts',
+                ],
+                exclude: [
+                    './src/components/**/__tests__/**',
+                    './src/stores/__mocks__/**',
+                    './src/utils/__mocks__/**',
+                ],
+            }),
         ],
         build: {
             transpile: [
                 'youtube-vue3',
             ],
             lib: {
-                entry: path.resolve(__dirname, 'src/test.ts'),
+                entry: path.resolve(__dirname, 'src/component-entry.ts'),
                 name: 'vs-component-library',
                 fileName: 'vs-component-library',
             },
@@ -49,6 +70,7 @@ export default defineConfig(({ mode }) => {
                 ],
                 output: {
                     dir: 'dist/components',
+                    // assetFileNames: 'vs-component-library.[ext]',
                     globals: {
                         vue: 'Vue',
                         'bootstrap-vue-next': 'BootstrapVueNext',

@@ -1,6 +1,6 @@
 import { mapState } from 'pinia';
-import pinia from '../stores/index.ts';
-import useDataLayerStore from '../stores/dataLayer.store.ts';
+import pinia from '../stores';
+import useDataLayerStore from '../stores/dataLayer.store';
 
 import checkVendorLibrary from '../utils/check-vendor-library';
 import {

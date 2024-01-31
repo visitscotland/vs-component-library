@@ -32,10 +32,10 @@ import {
     BFormCheckboxGroup,
     BFormCheckbox,
 } from 'bootstrap-vue-next';
-import pinia from '@/stores/index.ts';
+import pinia from '@/stores';
 import { mapState } from 'pinia';
-import useMapStore from '@/stores/map.store.ts';
-import VsMapMarkerIcon from '@components/map-marker-icon/MapMarkerIcon.vue';
+import useMapStore from '@/stores/map.store';
+import VsMapMarkerIcon from '@/components/map-marker-icon/MapMarkerIcon.vue';
 
 let mapStore = null;
 

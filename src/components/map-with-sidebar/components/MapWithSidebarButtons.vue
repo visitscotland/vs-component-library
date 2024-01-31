@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import VsButton from '@components/button/Button.vue';
+import VsButton from '@/components/button/Button.vue';
 
 /**
  * Renders link buttons for a map place

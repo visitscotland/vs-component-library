@@ -178,7 +178,7 @@ import VsImg from '@/components/img/Img.vue';
 import VsButton from '@/components/button/Button.vue';
 import VsWarning from '@/components/warning/Warning.vue';
 import jsIsDisabled from '@/utils/js-is-disabled';
-import useVideoStore from '@/stores/video.store.ts';
+import useVideoStore from '@/stores/video.store';
 import { mapState } from 'pinia';
 import verifyCookiesMixin from '../../mixins/verifyCookiesMixin';
 import srcSetMixin from '../../mixins/srcSetMixin';

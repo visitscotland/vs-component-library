@@ -52,8 +52,8 @@ import { YoutubeVue3 } from 'youtube-vue3';
 
 import VsWarning from '@/components/warning/Warning.vue';
 
-import pinia from '@/stores/index.ts';
-import useVideoStore from '@/stores/video.store.ts';
+import pinia from '@/stores';
+import useVideoStore from '@/stores/video.store';
 import jsIsDisabled from '@/utils/js-is-disabled';
 
 import verifyCookiesMixin from '../../mixins/verifyCookiesMixin';
