@@ -54,9 +54,6 @@ export default defineConfig(({ mode }) => {
             }),
         ],
         build: {
-            transpile: [
-                'youtube-vue3',
-            ],
             lib: {
                 entry: path.resolve(__dirname, 'src/component-entry.ts'),
                 name: 'vs-component-library',
