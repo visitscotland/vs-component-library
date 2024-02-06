@@ -1,0 +1,62 @@
+{
+    "stages": 3,
+    "fields": [
+        {
+            "name": "beachesMountains",
+            "element": "radio",
+            "options": [
+                { "value": "beaches"},
+                { "value": "mountains"}
+            ],
+            "validation": {
+                "required": true
+            },
+            "validationMessages": {
+                "required": "Please choose an item"
+            },
+            "values": {
+                "beaches": "Beaches",
+                "mountains": "Mountains"
+            },
+            "stage": 1
+        },
+        {
+            "name": "historyOutdoors",
+            "element": "radio",
+            "options": [
+                { "value": "history"},
+                { "value": "outdoors"}
+            ],
+            "validation": {
+                "required": true
+            },
+            "validationMessages": {
+                "required": "Please choose an item"
+            },
+            "values": {
+                "history": "History",
+                "outdoors": "Outdoors"
+            },
+            "stage": 2
+        },
+        {
+            "name": "scenicCity",
+            "element": "radio",
+            "options": [
+                { "value": "scenic"},
+                { "value": "city"}
+            ],
+            "validation": {
+                "required": true
+            },
+            "validationMessages": {
+                "required": "Please choose an item"
+            },
+            "values": {
+                "scenic": "Scenic",
+                "city": "City"
+            },
+            "stage": 3
+        }
+    ]
+}
