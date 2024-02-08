@@ -37,6 +37,9 @@ const Template = (args) => ({
             <template v-if="${'sub-heading' in args}" v-slot:sub-heading>
                 ${args['sub-heading']}
             </template>
+            <template v-if="${'local-details-context' in args}" v-slot:local-details-context>
+                ${args['local-details-context']}
+            </template>
         </VsHeading>
     `,
 });
@@ -77,6 +80,11 @@ WithSubheading.args = {
 export const WithLocalDetails = Template.bind({
 });
 
+const localDetailsContext = `
+    <p>Coming from the Scottish Gaelic, meaning 'Gaeldom' or 'Land of the Gaels'.</p>
+    <p>The Scottish Gaelic language has its origins in the Highlands & Islands, and is still spoken by many Scots, to this day. You can learn more about Gaelic on <a href="#">our dedicated Gaelic page</a>.</p>
+`;
+
 WithLocalDetails.args = {
     ...base,
     default: 'Highlands and Islands',
@@ -84,6 +92,7 @@ WithLocalDetails.args = {
     hasLocalDetails: true,
     pronunciation: 'gayl-tacht',
     pronunciationVideoId: 'zFq5-ioDILw',
+    'local-details-context': localDetailsContext,
 };
 
 export const Thin = Template.bind({

@@ -11,17 +11,40 @@
             :class="hasLocalDetails ? 'vs-heading__local-sub-heading' : 'vs-heading__sub-heading'"
             v-if="!!$slots['sub-heading']"
         >
-            <VsSvg
+            <a
+                href="#"
                 v-if="hasLocalDetails"
-                class="vs-heading__sub-heading-knot-icon"
-                path="knot"
-                width="24"
-                height="24"
-                fill="#122B80"
-            />
+                class="vs-heading__sub-heading-modal-link"
+                @click.prevent="emitter.emit('showModal', componentId)"
+            >
+                <VsSvg
+                    class="vs-heading__sub-heading-knot-icon"
+                    path="knot"
+                    width="24"
+                    height="24"
+                    fill="#122B80"
+                />
+
+                <!-- @slot Slot for sub-heading content -->
+                <slot name="sub-heading" />
+            </a>
+
+            <VsModal
+                v-if="hasLocalDetails"
+                :modal-id="componentId"
+                closeBtnText="Close"
+                cookieBtnText="Manage cookies"
+            >
+                <div class="vs-heading__localised-details-context">
+                    <slot name="local-details-context" />
+                </div>
+            </VsModal>
 
             <!-- @slot Slot for sub-heading content -->
-            <slot name="sub-heading" />
+            <slot
+                name="sub-heading"
+                v-if="!hasLocalDetails"
+            />
 
             <span v-if="pronunciation">
                 ({{ pronunciation }}
@@ -31,11 +54,13 @@
                     class="vs-heading__sub-heading-audio-icon"
                     icon="facility-audioloop"
                     :iconOnly="true"
+                    size="lg"
                     @click="emitter.emit('showModal', pronunciationVideoId)"
-                />g)
+                />)
             </span>
 
             <VsModal
+                v-if="pronunciationVideoId"
                 :modal-id="pronunciationVideoId"
                 closeBtnText="Close"
                 cookieBtnText="Manage cookies"
@@ -133,6 +158,11 @@ export default {
             default: '',
         },
     },
+    data() {
+        return {
+            componentId: '',
+        };
+    },
     computed: {
         hasSubtitle() {
             return !!this.$slots['sub-heading'];
@@ -150,6 +180,9 @@ export default {
             return `h${this.level}`;
         },
     },
+    mounted() {
+        this.componentId = this._uid;
+    },
 };
 </script>
 
@@ -162,6 +195,11 @@ export default {
         color: #122B80;
         font-size: $font-size-6;
         margin-top: $spacer-4;
+
+        .vs-heading__sub-heading-modal-link {
+            color: #122B80;
+            text-decoration: none;
+        }
 
         .vs-heading__sub-heading-knot-icon {
             display: inline-block;
@@ -176,4 +214,7 @@ export default {
     }
 }
 
+.vs-heading__localised-details-context {
+    color: $color-white;
+}
 </style>
