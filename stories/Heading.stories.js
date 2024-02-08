@@ -72,6 +72,16 @@ WithSubheading.args = {
     'sub-heading': 'test something',
 };
 
+export const WithLocalDetails = Template.bind({
+});
+
+WithLocalDetails.args = {
+    ...base,
+    default: 'Highlands and Islands',
+    'sub-heading': 'Gàidhealtachd (gayl - tacht)',
+    hasLocalDetails: true,
+};
+
 export const Thin = Template.bind({
 });
 
