@@ -41,6 +41,8 @@ const Template = (args) => ({
     `,
 });
 
+window.bypassCookieChecks = true;
+
 const base = {
     default: 'VisitScotland',
     'sub-heading': '',
@@ -78,8 +80,10 @@ export const WithLocalDetails = Template.bind({
 WithLocalDetails.args = {
     ...base,
     default: 'Highlands and Islands',
-    'sub-heading': 'Gàidhealtachd (gayl - tacht)',
+    'sub-heading': 'Gàidhealtachd',
     hasLocalDetails: true,
+    pronunciation: 'gayl-tacht',
+    pronunciationVideoId: 'zFq5-ioDILw',
 };
 
 export const Thin = Template.bind({
