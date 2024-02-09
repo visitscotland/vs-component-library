@@ -2,6 +2,7 @@
     <div
         class="vs-radio-button"
         data-test="vs-radio-button"
+        :class="withImageClass"
     >
         <div
             role="alert"
@@ -48,6 +49,11 @@
                         value: option.value,
                     })"
                 >
+                    <img
+                        v-if="withImage"
+                        :src="option.img"
+                        alt=""
+                    >
                     <span>{{ option.text }}</span>
                 </BFormRadio>
             </div>
@@ -182,6 +188,13 @@ export default {
             type: String,
             default: '',
         },
+        /**
+         * Option to hide radio button with an image
+         */
+        withImage: {
+            type: Boolean,
+            default: false,
+        },
     },
     setup: () => ({
         v$: useVuelidate(),
@@ -194,9 +207,6 @@ export default {
         };
     },
     computed: {
-        /**
-         * element type class plus error classes
-         */
         elementClass() {
             const errorClass = (this.v$.inputVal && this.v$.inputVal.$anyError) || this.invalid ? 'vs-input--error' : '';
             const nameClass = `vs-input--${this.fieldName}`;
@@ -212,6 +222,9 @@ export default {
         },
         errorClass() {
             return (this.v$.inputVal && this.v$.inputVal.$anyError) || this.invalid ? 'vs-input--error' : '';
+        },
+        withImageClass() {
+            return this.withImage ? 'vs-radio-button--with-image' : '';
         },
     },
     watch: {
@@ -393,6 +406,42 @@ export default {
 
         .hint-text {
             margin-top: $spacer-2;
+        }
+
+        &--with-image{
+            .form-check-inline .form-check-input{
+                margin-right: 0;
+            }
+
+            .form-check{
+                height: 100%;
+
+                &:focus-within, &:focus, &:active {
+                    height: 100%;
+                }
+
+                label {
+                    padding: $spacer-2;
+
+                    &::before {
+                        margin-left: $spacer-2;
+                        bottom: $spacer-4;
+                        position: absolute;
+                    }
+
+                    span{
+                        padding-left: $spacer-9;
+                    }
+                }
+            }
+
+            input {
+                &[type=radio] + label>img {
+                    width: 100%;
+                    margin-bottom: $spacer-3;
+                    aspect-ratio: 3/2;
+                }
+            }
         }
     }
 </style>

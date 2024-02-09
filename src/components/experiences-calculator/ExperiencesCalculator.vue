@@ -130,7 +130,7 @@
                     </VsButton>
 
                     <VsButton
-                        variant="primary"
+                        variant="secondary"
                         type="submit"
                         class="vs-form__submit mt-9 float-right"
                         v-if="activeStage > formData.stages"
@@ -441,7 +441,11 @@ export default {
                 const { options } = field;
 
                 for (let x = 0; x < options.length; x++) {
-                    options[x].text = this.labelsMap[`question-${optionIndex + 1}.option-${x + 1}`];
+                    const option = `question-${optionIndex + 1}.option-${x + 1}`;
+                    const optionImg = `${option}-img`;
+
+                    options[x].text = this.labelsMap[option];
+                    options[x].img = this.labelsMap[optionImg] ? this.labelsMap[optionImg] : '';
                 }
 
                 return options;

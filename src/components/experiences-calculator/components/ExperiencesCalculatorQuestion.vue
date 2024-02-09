@@ -22,18 +22,8 @@
                 :options="options"
                 :required="true"
                 :hintText="hint"
+                :withImage="true"
                 @updateFieldData="valueChanged"
-            />
-
-            <VsNumberInput
-                v-if="fieldType === 'number'"
-                :fieldName="fieldName"
-                :incrementControls="true"
-                :value="0"
-                :minimumNumber="minimum"
-                :maximumNumber="maximum"
-                :hintText="hint"
-                @updated="valueChanged"
             />
         </div>
     </BFormGroup>
@@ -42,7 +32,6 @@
 <script>
 import { BFormGroup } from 'bootstrap-vue-next';
 import VsRadioButton from '@components/radio-button/RadioButton.vue';
-import VsNumberInput from '@components/number-input/NumberInput.vue';
 
 /**
  * @displayName Experiences Form Question
@@ -54,7 +43,6 @@ export default {
     components: {
         BFormGroup,
         VsRadioButton,
-        VsNumberInput,
     },
     props: {
         /**

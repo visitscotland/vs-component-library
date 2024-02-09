@@ -60,6 +60,32 @@ Selected.args = {
     value: 'plane',
 };
 
+export const WithImage = Template.bind({
+});
+
+WithImage.args = {
+    fieldName: 'outdoors',
+    label: 'I\'d like to spend time outdoors...',
+    options: [
+        {
+            text: 'Hiking',
+            value: 'hiking',
+            img: 'src/assets/fixtures/experiences-calculator/images/hiking.jpg',
+        },
+        {
+            text: 'Adventure sports',
+            value: 'adventureSports',
+            img: 'src/assets/fixtures/experiences-calculator/images/adventure.jpg',
+        },
+        {
+            text: 'Taking in the views',
+            value: 'views',
+            img: 'src/assets/fixtures/experiences-calculator/images/views.jpg',
+        },
+    ],
+    withImage: true,
+};
+
 export const WithHint = Template.bind({
 });
 

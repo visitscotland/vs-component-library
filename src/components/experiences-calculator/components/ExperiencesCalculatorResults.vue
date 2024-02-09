@@ -1,36 +1,42 @@
 <template>
     <VsRow data-test="vs-experiences-calculator-results">
         <VsCol cols="12">
-            <VsHeading
-                level="2"
-            >
-                {{ labelsMap.results }}
+            <VsHeading level="2">
+                {{ labelsMap.resultsHeading }}
             </VsHeading>
-        </VsCol>
-        <VsCol cols="12">
-            <VsRow
-                class="vs-experiences-calculator-results__summary"
-            >
-                <VsCol
-                    cols="12"
-                    md="6"
-                >
-                    <div
-                        class="vs-experiences-calculator-results__headline"
-                    >
-                        <p class="mb-2">
+
+            <VsRow class="vs-experiences-calculator-results__summary">
+                <VsCol cols="12">
+                    <div class="vs-experiences-calculator-results__headline">
+                        <p>
                             {{ labelsMap.resultsIntro }}
                         </p>
+
+                        <p class="mb-8">
+                            {{ labelsMap.resultsLocation }}
+                        </p>
+
+                        <VsImg
+                            :src="labelsMap.resultsImg"
+                            class="vs-experiences-calculator-results__img mb-8"
+                        />
+
+                        <VsButton :href="labelsMap.ctaLink">
+                            {{ labelsMap.ctaText }}
+                        </VsButton>
                     </div>
                 </VsCol>
             </VsRow>
         </VsCol>
+
     </VsRow>
 </template>
 
 <script>
 import { VsCol, VsRow } from '@components/grid';
 import VsHeading from '@components/heading/Heading.vue';
+import VsImg from '@components/img/Img.vue';
+import VsButton from '@components/button/Button.vue';
 import dataLayerMixin from '@/mixins/dataLayerMixin';
 
 /**
@@ -43,6 +49,8 @@ export default {
     components: {
         VsCol,
         VsRow,
+        VsImg,
+        VsButton,
         VsHeading,
     },
     mixins: [
@@ -72,6 +80,11 @@ export default {
 </script>
 
 <style lang='scss'>
+
+    .vs-experiences-calculator-results__img{
+        width: 100%;
+    }
+
     .vs-experiences-calculator-results__summary {
         margin-bottom: $spacer-8;
     }

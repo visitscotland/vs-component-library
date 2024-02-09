@@ -1,49 +1,11 @@
 {
-    "stages": 3,
+    "stages": 8,
     "fields": [
         {
-            "name": "beachesMountains",
+            "name": "outdoorsCity",
             "element": "radio",
             "options": [
-                { "value": "beaches"},
-                { "value": "mountains"}
-            ],
-            "validation": {
-                "required": true
-            },
-            "validationMessages": {
-                "required": "Please choose an item"
-            },
-            "values": {
-                "beaches": "Beaches",
-                "mountains": "Mountains"
-            },
-            "stage": 1
-        },
-        {
-            "name": "historyOutdoors",
-            "element": "radio",
-            "options": [
-                { "value": "history"},
-                { "value": "outdoors"}
-            ],
-            "validation": {
-                "required": true
-            },
-            "validationMessages": {
-                "required": "Please choose an item"
-            },
-            "values": {
-                "history": "History",
-                "outdoors": "Outdoors"
-            },
-            "stage": 2
-        },
-        {
-            "name": "scenicCity",
-            "element": "radio",
-            "options": [
-                { "value": "scenic"},
+                { "value": "outdoors"},
                 { "value": "city"}
             ],
             "validation": {
@@ -53,10 +15,149 @@
                 "required": "Please choose an item"
             },
             "values": {
-                "scenic": "Scenic",
-                "city": "City"
+                "outdoors": "The great outdoors",
+                "city": "City break"
+            },
+            "stage": 1
+        },
+        {
+            "name": "mountainsCoast",
+            "element": "radio",
+            "options": [
+                { "value": "mountains"},
+                { "value": "coast"}
+            ],
+            "validation": {
+                "required": true
+            },
+            "validationMessages": {
+                "required": "Please choose an item"
+            },
+            "values": {
+                "mountains": "Mountains",
+                "coast": "Coast"
+            },
+            "stage": 2
+        },
+        {
+            "name": "furtherClose",
+            "element": "radio",
+            "options": [
+                { "value": "further"},
+                { "value": "close"}
+            ],
+            "validation": {
+                "required": true
+            },
+            "validationMessages": {
+                "required": "Please choose an item"
+            },
+            "values": {
+                "further": "Further",
+                "close": "Close"
             },
             "stage": 3
+        },
+        {
+            "name": "timeOutdoors",
+            "element": "radio",
+            "options": [
+                { "value": "hiking"},
+                { "value": "sports"},
+                { "value": "views"}
+            ],
+            "validation": {
+                "required": true
+            },
+            "validationMessages": {
+                "required": "Please choose an item"
+            },
+            "values": {
+                "hiking": "Hiking",
+                "sports": "Adventure sports",
+                "views": "Taking in the views"
+            },
+            "stage": 4
+        },
+        {
+            "name": "hotelCamping",
+            "element": "radio",
+            "options": [
+                { "value": "luxury"},
+                { "value": "budget"}
+            ],
+            "validation": {
+                "required": true
+            },
+            "validationMessages": {
+                "required": "Please choose an item"
+            },
+            "values": {
+                "luxury": "Five star hotel",
+                "budget": "Sleeping under the stars"
+            },
+            "stage": 5
+        },
+        {
+            "name": "yourAnimal",
+            "element": "radio",
+            "options": [
+                { "value": "organised"},
+                { "value": "easy-going"}
+            ],
+            "validation": {
+                "required": true
+            },
+            "validationMessages": {
+                "required": "Please choose an item"
+            },
+            "values": {
+                "organised": "Busy red squirrel",
+                "easy-going": "Easy-going highland cow"
+            },
+            "stage": 6
+        },
+        {
+            "name": "summerWinter",
+            "element": "radio",
+            "options": [
+                { "value": "summer"},
+                { "value": "winter"}
+            ],
+            "validation": {
+                "required": true
+            },
+            "validationMessages": {
+                "required": "Please choose an item"
+            },
+            "values": {
+                "summer": "Have a picnic in the sun",
+                "winter": "Be cozy by the fire"
+            },
+            "stage": 7
+        },
+        {
+            "name": "whosInvited",
+            "element": "radio",
+            "options": [
+                { "value": "family"},
+                { "value": "friends"},
+                { "value": "partner"},
+                { "value": "solo"}
+            ],
+            "validation": {
+                "required": true
+            },
+            "validationMessages": {
+                "required": "Please choose an item"
+            },
+            "values": {
+                "family": "Family",
+                "friends": "Friends",
+                "partner": "Partner",
+                "solo": "Solo"
+            },
+            "stage": 8
         }
     ]
 }
