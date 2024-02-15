@@ -39,6 +39,10 @@ export default {
 
 .vs-experiences-calculator-intro {
     width: 100%;
+
+    &__img{
+        width: 100%;
+    }
 }
 
 </style>

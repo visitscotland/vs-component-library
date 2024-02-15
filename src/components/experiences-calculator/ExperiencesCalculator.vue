@@ -1,146 +1,142 @@
 <template>
     <div class="vs-experiences-calculator__wrapper">
-        <VsContainer
+        <VsRow
             class="vs-experiences-calculator"
             data-test="vs-experiences-calculator"
+            v-if="formData && formData.fields"
         >
-            <VsRow
-                class="vs-experiences-calculator__survey"
-                v-if="formData && formData.fields"
-            >
-                <VsCol>
-                    <VsExperiencesCalculatorIntro
-                        v-if="!activeStage"
-                    />
+            <VsCol>
+                <VsExperiencesCalculatorIntro
+                    v-if="!activeStage"
+                />
 
-                    <form
-                        v-if="activeStage"
-                    >
-                        <fieldset>
-                            <VsProgressBar
-                                :max="formData.stages"
-                                :currentStep="activeStage <= formData.stages
-                                    ? activeStage : formData.stages"
-                                :isStepped="true"
-                                :isFull="activeStage > formData.stages"
-                                :progressLabel="labelsMap.progress"
-                                ref="progress"
+                <form
+                    v-if="activeStage"
+                >
+                    <fieldset>
+                        <VsProgressBar
+                            :max="formData.stages"
+                            :currentStep="activeStage <= formData.stages
+                                ? activeStage : formData.stages"
+                            :isStepped="true"
+                            :isFull="activeStage > formData.stages"
+                            :progressLabel="labelsMap.progress"
+                            ref="progress"
+                        />
+
+                        <div
+                            v-show="activeStage <= formData.fields.length"
+                        >
+                            <VsHeading
+                                level="2"
+                                overrideStyleLevel="3"
+                                class="vs-experiences-calculator__category-heading"
+                                v-if="currentCategory"
+                            >
+                                {{ currentCategory }}
+                            </VsHeading>
+
+                            <VsExperiencesCalculatorQuestion
+                                v-for="(field, index) in formData.fields"
+                                v-show="field.stage === activeStage"
+                                ref="questions"
+                                tabindex="0"
+                                :key="field.name"
+                                :label="getQuestionLabel(field, index)"
+                                :label-for="field.name"
+                                :hint="getQuestionHint(field, index)"
+                                :fieldClass="conditionalElementClass(field.name)"
+                                :fieldType="field.element"
+                                :fieldName="field.name"
+                                :options="getQuestionOptions(field, index)"
+                                :minimum="field.element === 'number' ? field.validation.min : 0"
+                                :maximum="field.element === 'number' ? field.validation.max : 0"
+                                @updateFieldData="updateFieldData"
                             />
 
-                            <div
-                                v-show="activeStage <= formData.fields.length"
-                            >
-                                <VsHeading
-                                    level="2"
-                                    overrideStyleLevel="3"
-                                    class="vs-experiences-calculator__category-heading"
-                                    v-if="currentCategory"
-                                >
-                                    {{ currentCategory }}
-                                </VsHeading>
-
-                                <VsExperiencesCalculatorQuestion
-                                    v-for="(field, index) in formData.fields"
-                                    v-show="field.stage === activeStage"
-                                    ref="questions"
-                                    tabindex="0"
-                                    :key="field.name"
-                                    :label="getQuestionLabel(field, index)"
-                                    :label-for="field.name"
-                                    :hint="getQuestionHint(field, index)"
-                                    :fieldClass="conditionalElementClass(field.name)"
-                                    :fieldType="field.element"
-                                    :fieldName="field.name"
-                                    :options="getQuestionOptions(field, index)"
-                                    :minimum="field.element === 'number' ? field.validation.min : 0"
-                                    :maximum="field.element === 'number' ? field.validation.max : 0"
-                                    @updateFieldData="updateFieldData"
-                                />
-
-                            </div>
-                        </fieldset>
-                    </form>
-                    <VsButton
-                        v-if="isRepeatable(activeStage)"
-                        class="my-4"
-                        variant="secondary"
-                        icon="plus"
-                        @click="duplicateCurrentStage()"
-                    >
-                        {{ activeStageRepeatable }}
-                    </VsButton>
-                </VsCol>
-                <VsCol
-                    cols="12"
+                        </div>
+                    </fieldset>
+                </form>
+                <VsButton
+                    v-if="isRepeatable(activeStage)"
+                    class="my-4"
+                    variant="secondary"
+                    icon="plus"
+                    @click="duplicateCurrentStage()"
                 >
-                    <VsExperiencesCalculatorResults
-                        v-if="activeStage > formData.stages"
-                    />
-                </VsCol>
-                <VsCol
-                    class="text-center"
-                    cols="12"
-                    v-if="activeStage === 0"
+                    {{ activeStageRepeatable }}
+                </VsButton>
+            </VsCol>
+            <VsCol
+                cols="12"
+            >
+                <VsExperiencesCalculatorResults
+                    v-if="activeStage > formData.stages"
+                />
+            </VsCol>
+            <VsCol
+                class="text-center"
+                cols="12"
+                v-if="activeStage === 0"
+            >
+                <VsButton
+                    variant="primary"
+                    type="submit"
+                    class="vs-form__submit mt-9"
+                    @click="forwardPage()"
                 >
-                    <VsButton
-                        variant="primary"
-                        type="submit"
-                        class="vs-form__submit mt-9"
-                        @click="forwardPage()"
-                    >
-                        {{ labelsMap['begin'] }}
-                    </VsButton>
-                </VsCol>
-                <VsCol
-                    cols="12"
-                    v-if="activeStage > 0"
+                    {{ labelsMap['begin'] }}
+                </VsButton>
+            </VsCol>
+            <VsCol
+                cols="12"
+                v-if="activeStage > 0"
+            >
+                <VsButton
+                    :variant="activeStage <= formData.fields.length ? 'primary' : 'secondary'"
+                    type="submit"
+                    class="vs-form__submit mt-9 float-left"
+                    ref="backPage"
+                    v-if="activeStage > 1"
+                    @click="backwardPage()"
                 >
-                    <VsButton
-                        :variant="activeStage <= formData.fields.length ? 'primary' : 'secondary'"
-                        type="submit"
-                        class="vs-form__submit mt-9 float-left"
-                        ref="backPage"
-                        v-if="activeStage > 1"
-                        @click="backwardPage()"
-                    >
-                        {{ labelsMap['previous'] }}
-                    </VsButton>
+                    {{ labelsMap['previous'] }}
+                </VsButton>
 
-                    <VsButton
-                        variant="primary"
-                        type="submit"
-                        class="vs-form__submit mt-9 float-right"
-                        ref="forwardPage"
-                        v-if="activeStage < formData.stages"
-                        :disabled="activeStage > 0 && !answerSet"
-                        @click="forwardPage()"
-                    >
-                        {{ labelsMap['next'] }}
-                    </VsButton>
+                <VsButton
+                    variant="primary"
+                    type="submit"
+                    class="vs-form__submit mt-9 float-right"
+                    ref="forwardPage"
+                    v-if="activeStage < formData.stages"
+                    :disabled="activeStage > 0 && !answerSet"
+                    @click="forwardPage()"
+                >
+                    {{ labelsMap['next'] }}
+                </VsButton>
 
-                    <VsButton
-                        variant="primary"
-                        type="submit"
-                        class="vs-form__submit mt-9 float-right"
-                        v-if="activeStage === formData.stages"
-                        :disabled="!answerSet"
-                        @click="forwardPage()"
-                    >
-                        {{ labelsMap['results'] }}
-                    </VsButton>
+                <VsButton
+                    variant="primary"
+                    type="submit"
+                    class="vs-form__submit mt-9 float-right"
+                    v-if="activeStage === formData.stages"
+                    :disabled="!answerSet"
+                    @click="forwardPage()"
+                >
+                    {{ labelsMap['results'] }}
+                </VsButton>
 
-                    <VsButton
-                        variant="secondary"
-                        type="submit"
-                        class="vs-form__submit mt-9 float-right"
-                        v-if="activeStage > formData.stages"
-                        @click="restart()"
-                    >
-                        {{ labelsMap['restart'] }}
-                    </VsButton>
-                </VsCol>
-            </VsRow>
-        </VsContainer>
+                <VsButton
+                    variant="secondary"
+                    type="submit"
+                    class="vs-form__submit mt-9 float-right"
+                    v-if="activeStage > formData.stages"
+                    @click="restart()"
+                >
+                    {{ labelsMap['restart'] }}
+                </VsButton>
+            </VsCol>
+        </VsRow>
 
         <VsWarning
             theme="light"
@@ -152,15 +148,11 @@
 
 <script>
 import axios from 'axios';
-import {
-    VsContainer, VsCol, VsRow,
-} from '@components/grid';
-
+import { VsCol, VsRow } from '@components/grid';
 import VsWarning from '@/components/warning/Warning.vue';
 import VsButton from '@/components/button/Button.vue';
 import VsProgressBar from '@/components/progress-bar/ProgressBar.vue';
 import VsHeading from '@components/heading/Heading.vue';
-import dataLayerMixin from '../../mixins/dataLayerMixin';
 
 import VsExperiencesCalculatorResults from './components/ExperiencesCalculatorResults.vue';
 import VsExperiencesCalculatorIntro from './components/ExperiencesCalculatorIntro.vue';
@@ -176,7 +168,6 @@ export default {
     release: '0.0.1',
     components: {
         VsButton,
-        VsContainer,
         VsCol,
         VsRow,
         VsWarning,
@@ -186,9 +177,6 @@ export default {
         VsExperiencesCalculatorIntro,
         VsExperiencesCalculatorQuestion,
     },
-    mixins: [
-        dataLayerMixin,
-    ],
     /**
      * All labels come from the CMS to simplify localisation. As there are so many of them
      * and the question labels are dynamic, they come as a single json object which needs
@@ -667,13 +655,6 @@ export default {
         forwardPage(event) {
             if (event) {
                 event.preventDefault();
-            }
-
-            if (this.activeStage) {
-                this.createDataLayerObject('experiencesQuestionEvent', {
-                    questionNumber: this.activeStage,
-                    answer: this.form[this.currentQuestion.name],
-                });
             }
 
             this.activeStage += 1;

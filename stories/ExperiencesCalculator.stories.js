@@ -1,6 +1,7 @@
 import { within, waitFor } from '@storybook/testing-library';
 
 import VsExperiencesCalculator from '@/components/experiences-calculator/ExperiencesCalculator.vue';
+import { VsContainer } from '@/components/grid';
 
 export default {
     component: VsExperiencesCalculator,
@@ -13,6 +14,7 @@ export default {
 const Template = (args) => ({
     components: {
         VsExperiencesCalculator,
+        VsContainer,
     },
     setup() {
         return {
@@ -23,8 +25,10 @@ const Template = (args) => ({
         <div
             :class="args.jsDisabled ? 'no-js' : ''"
         >
-            <VsExperiencesCalculator v-bind="args">
-            </VsExperiencesCalculator>
+            <VsContainer>
+                <VsExperiencesCalculator v-bind="args">
+                </VsExperiencesCalculator>
+            </VsContainer>
         </div>
     `,
 });
