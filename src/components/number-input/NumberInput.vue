@@ -35,7 +35,7 @@
             :disabled="(inputVal <= minimumNumber) ? true : null"
             @click="decrementValue"
         >
-            <span class="sr-only">
+            <span class="visually-hidden">
                 Add 1
             </span>
         </VsButton>
@@ -69,7 +69,7 @@
             :disabled="(inputVal >= maximumNumber) ? true : null"
             @click="incrementValue"
         >
-            <span class="sr-only">
+            <span class="visually-hidden">
                 Remove 1
             </span>
         </VsButton>
