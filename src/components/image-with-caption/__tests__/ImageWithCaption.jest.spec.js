@@ -1,6 +1,7 @@
 import {
     config, shallowMount, mount,
 } from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import { v4 as uuidv4 } from 'uuid';
 import { setActivePinia, createPinia } from 'pinia';
 import VsImageWithCaption from '../ImageWithCaption.vue';
@@ -23,37 +24,36 @@ jest.mock('uuid', () => ({
     v4: () => '00000000-0000-0000-0000-000000000000',
 }));
 
-const initialPropsData = {
-    imageSrc: imageSrcValue,
-    isVideo: true,
-    playButtonText: 'Play video',
-    videoId: youtubeId,
+function mountOptions(propsData) {
+    return {
+        slots: {
+            'toggle-icon': toggleIconSlot,
+            'img-caption': captionSlot,
+            'video-no-js-alert': alertSlot,
+            'video-title': videoTitleSlot,
+            'video-duration': videoDurationSlot,
+            default: defaultSlotText,
+        },
+        propsData: {
+            ...propsData,
+            imageSrc: imageSrcValue,
+            isVideo: true,
+            playButtonText: 'Play video',
+            videoId: youtubeId,
+            toggleButtonText: 'Toggle caption',
+        },
+    };
 };
 
-const slots = {
-    'toggle-icon': toggleIconSlot,
-    'img-caption': captionSlot,
-    'video-no-js-alert': alertSlot,
-    'video-title': videoTitleSlot,
-    'video-duration': videoDurationSlot,
-    default: defaultSlotText,
-};
+const factoryShallowMount = (propsData) => shallowMount(
+    VsImageWithCaption,
+    mountOptions(propsData),
+);
 
-const factoryShallowMount = (propsData) => shallowMount(VsImageWithCaption, {
-    propsData: {
-        ...initialPropsData,
-        ...propsData,
-    },
-    slots,
-});
-
-const factoryMount = (propsData) => mount(VsImageWithCaption, {
-    propsData: {
-        ...initialPropsData,
-        ...propsData,
-    },
-    slots,
-});
+const factoryMount = (propsData) => mount(
+    VsImageWithCaption,
+    mountOptions(propsData),
+);
 
 describe('VsImageWithCaption', () => {
     beforeEach(() => {
@@ -104,9 +104,7 @@ describe('VsImageWithCaption', () => {
         });
 
         it('should render correct `toggleButtonText` on the toggle button', () => {
-            const wrapper = factoryShallowMount({
-                toggleButtonText: 'Toggle caption',
-            });
+            const wrapper = factoryShallowMount();
             const toggleCaptionBtn = wrapper.find('vs-toggle-button-stub');
 
             expect(toggleCaptionBtn.text()).toContain('Toggle caption');
@@ -184,6 +182,13 @@ describe('VsImageWithCaption', () => {
             await wrapper.vm.$nextTick();
 
             expect(captionWrapper.classes('d-block')).toBe(false);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

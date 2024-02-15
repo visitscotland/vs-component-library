@@ -1,4 +1,5 @@
 import { config, shallowMount } from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsItinerary from '../Itinerary.vue';
 
 config.global.renderStubDefaultSlot = true;
@@ -31,6 +32,13 @@ describe('VsItinerary', () => {
                 showMap: true,
             });
             expect(toggleBtn.text()).toBe('list');
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryShallowMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

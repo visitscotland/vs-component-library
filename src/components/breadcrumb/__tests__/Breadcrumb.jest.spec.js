@@ -1,33 +1,39 @@
-import { config, shallowMount } from '@vue/test-utils';
-
+import {
+    config, shallowMount, mount,
+} from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsBreadcrumb from '../Breadcrumb.vue';
 
 config.global.renderStubDefaultSlot = true;
 
-const slotText = 'Breadcrumb text';
-
-const factoryShallowMount = () => shallowMount(VsBreadcrumb, {
+const mountOptions = {
     slots: {
-        default: slotText,
+        default: '<li class="vs-breadcrumb-item"><a href="#" target="_self">Breadcrumb Item</a></li>',
     },
     attrs: {
         class: 'test-class',
     },
-});
+};
 
-let wrapper;
-beforeEach(() => {
-    wrapper = factoryShallowMount();
-});
+const factoryShallowMount = () => shallowMount(
+    VsBreadcrumb,
+    mountOptions,
+);
+const factoryMount = () => mount(
+    VsBreadcrumb,
+    mountOptions,
+);
 
 describe('VsBreadcrumb', () => {
     it('should render a nav with a b-breadcrumb-stub', () => {
+        const wrapper = factoryShallowMount();
         const breadcrumb = wrapper.find('b-breadcrumb-stub');
 
         expect(breadcrumb.exists()).toBe(true);
     });
 
     it('should bind given attributes to b-breadcrumb-stub', () => {
+        const wrapper = factoryShallowMount();
         const breadcrumb = wrapper.find('b-breadcrumb-stub');
 
         expect(breadcrumb.classes()).toContain('test-class');
@@ -35,7 +41,15 @@ describe('VsBreadcrumb', () => {
 
     describe(':slots', () => {
         it('renders content inserted into default `slot`', () => {
-            expect(wrapper.text()).toContain(slotText);
+            const wrapper = factoryShallowMount();
+            expect(wrapper.find('.vs-breadcrumb-item').exists()).toBe(true);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

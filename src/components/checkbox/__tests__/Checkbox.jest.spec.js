@@ -1,5 +1,5 @@
 import { shallowMount, mount } from '@vue/test-utils';
-
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsCheckbox from '../Checkbox.vue';
 
 const defaultData = {
@@ -93,6 +93,13 @@ describe('VsCheckbox', () => {
             await wrapper.vm.$nextTick();
 
             expect(mockedMethod).toBeCalled();
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const mountedWrapper = factoryMount();
+            expect(await axe(mountedWrapper.html())).toHaveNoViolations();
         });
     });
 });

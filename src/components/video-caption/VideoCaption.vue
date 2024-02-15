@@ -31,7 +31,9 @@
                 <VsToggleButton
                     v-if="withToggleBtn"
                     @toggleAction="emitToggle"
-                />
+                >
+                    Toggle caption
+                </VsToggleButton>
             </div>
 
             <div

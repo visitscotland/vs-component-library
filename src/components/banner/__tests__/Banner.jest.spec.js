@@ -1,4 +1,5 @@
 import { config, shallowMount } from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import cookieMixin from '../../../mixins/cookieMixin';
 import VsBanner from '../Banner.vue';
 
@@ -83,6 +84,12 @@ describe('VsBanner', () => {
 
             expect(mockGet).toBeCalled();
             expect(banner.exists()).toBe(false);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

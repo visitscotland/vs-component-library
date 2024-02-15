@@ -1,9 +1,8 @@
 import { config, mount } from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import moxios from 'moxios';
-
 import sampleSkiData from '@/assets/fixtures/ski-scotland/sample-ski-data.json';
 import sampleCairngormsData from '@/assets/fixtures/ski-scotland/sample-cairngorms-ski-data.json';
-
 import VsSkiScotlandStatus from '../SkiScotlandStatus.vue';
 
 config.global.renderStubDefaultSlot = true;
@@ -278,6 +277,13 @@ describe('VsSkiScotlandStatus', () => {
 
             expect(easyRuns.length).toBe(14);
             expect(difficultRuns.length).toBe(6);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 

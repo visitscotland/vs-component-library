@@ -1,21 +1,40 @@
-import { config, shallowMount } from '@vue/test-utils';
+import {
+    config, mount, shallowMount,
+} from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsCarousel from '../Carousel.vue';
 
 config.global.renderStubDefaultSlot = true;
 
-const factoryShallowMount = (slotsData) => shallowMount(VsCarousel, {
-    data() {
-        return {
-            totalSlides: 20,
-            currentPage: 0,
-            maxPages: 1,
-            nextDisabled: false,
-            prevDisabled: true,
-            currentWidth: 'lg',
-        };
-    },
-    ...slotsData,
-});
+const dataObj = {
+    totalSlides: 20,
+    currentPage: 0,
+    maxPages: 1,
+    nextDisabled: false,
+    prevDisabled: true,
+    currentWidth: 'lg',
+};
+
+function mountOptions(slotsData) {
+    return {
+        data() {
+            return {
+                dataObj,
+            };
+        },
+        ...slotsData,
+    };
+};
+
+const factoryShallowMount = (slotsData) => shallowMount(
+    VsCarousel,
+    mountOptions(slotsData),
+);
+
+const factoryMount = (slotsData) => mount(
+    VsCarousel,
+    mountOptions(slotsData),
+);
 
 /* eslint-disable */
 window.matchMedia = window.matchMedia || function() {
@@ -32,6 +51,13 @@ describe('VsCarousel', () => {
         const wrapper = factoryShallowMount();
 
         expect(wrapper.find('[data-test="vs-carousel"]').exists()).toBe(true);
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
+        });
     });
 
     describe(':slots', () => {

@@ -1,17 +1,32 @@
-import { config, shallowMount } from '@vue/test-utils';
+import {
+    config, shallowMount, mount,
+} from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsSiteSearchForm from '../SiteSearchForm.vue';
 
 config.global.renderStubDefaultSlot = true;
 
-const factoryShallowMount = (propsData) => shallowMount(VsSiteSearchForm, {
-    propsData: {
-        ...propsData,
-        labelText: 'What are you looking for?',
-        submitButtonText: 'Search',
-        clearButtonText: 'Clear form',
-        closeButtonText: 'Close search form',
-    },
-});
+function mountOptions(propsData) {
+    return {
+        propsData: {
+            ...propsData,
+            labelText: 'What are you looking for?',
+            submitButtonText: 'Search',
+            clearButtonText: 'Clear form',
+            closeButtonText: 'Close search form',
+        },
+    };
+};
+
+const factoryShallowMount = (propsData) => shallowMount(
+    VsSiteSearchForm,
+    mountOptions(propsData),
+);
+
+const factoryMount = (propsData) => mount(
+    VsSiteSearchForm,
+    mountOptions(propsData),
+);
 
 describe('VsSiteSearchForm', () => {
     it('should render a component with the data-test attribute `vs-site-search-form`', () => {
@@ -53,6 +68,13 @@ describe('VsSiteSearchForm', () => {
             await wrapper.vm.$nextTick();
 
             expect(wrapper.emitted().toggleAction).toBeTruthy();
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const modifiedWrapper = factoryMount();
+            expect(await axe(modifiedWrapper.html())).toHaveNoViolations();
         });
     });
 });

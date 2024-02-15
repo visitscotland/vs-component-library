@@ -3,36 +3,36 @@ import {
     shallowMount,
     mount,
 } from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsMegaNav from '../MegaNav.vue';
 
 config.global.renderStubDefaultSlot = true;
 
 jest.mock('@/utils/svg-context');
 
-const baseProps = {
-    href: 'https://www.visitscotland.com',
-    menuToggleAltText: 'Open Menu',
-    searchButtonText: 'Search',
+function mountOptions(propsData) {
+    return {
+        propsData: {
+            href: 'https://www.visitscotland.com',
+            menuToggleAltText: 'Open Menu',
+            searchButtonText: 'Search',
+            ...propsData,
+        },
+        slots: {
+            'mega-nav-top-menu-items': '<li class="mega-nav-top-menu-items"></li>',
+        },
+    };
 };
 
-const slots = {
-    'mega-nav-top-menu-items': '<div class="mega-nav-top-menu-items"></div>',
-};
+const factoryShallowMount = (propsData) => shallowMount(
+    VsMegaNav,
+    mountOptions(propsData),
+);
 
-const factoryShallowMount = (propsData) => shallowMount(VsMegaNav, {
-    propsData: {
-        ...baseProps,
-        ...propsData,
-    },
-    slots,
-});
-
-const factoryMount = () => mount(VsMegaNav, {
-    propsData: {
-        ...baseProps,
-    },
-    slots,
-});
+const factoryMount = (propsData) => mount(
+    VsMegaNav,
+    mountOptions(propsData),
+);
 
 describe('VsMegaNav', () => {
     it('should render a component with the data-test attribute `vs-mega-nav`', () => {
@@ -118,6 +118,13 @@ describe('VsMegaNav', () => {
             setTimeout(() => {
                 expect(siteSearchForm.attributes('style')).toBe('');
             }, 100);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsHeading from '../Heading.vue';
 
 const defaultSlot = 'Default Slot';
@@ -8,6 +8,9 @@ const subHeadingSlot = 'Sub Heading Slot';
 const factoryShallowMount = (propsData) => shallowMount(VsHeading, {
     propsData: {
         ...propsData,
+    },
+    slots: {
+        default: defaultSlot,
     },
 });
 
@@ -55,23 +58,19 @@ describe('VsHeading', () => {
 
     describe('slots:', () => {
         it('should render content inserted into `default` slot', () => {
-            const modifiedWrapper = shallowMount(VsHeading, {
-                slots: {
-                    default: defaultSlot,
-                },
-            });
+            const wrapper = factoryShallowMount();
 
-            expect(modifiedWrapper.text()).toContain(defaultSlot);
+            expect(wrapper.text()).toContain(defaultSlot);
         });
 
         it('should render content inserted into `sub-heading` slot', () => {
-            const modifiedWrapper = shallowMount(VsHeading, {
+            const wrapper = shallowMount(VsHeading, {
                 slots: {
                     'sub-heading': subHeadingSlot,
                 },
             });
 
-            expect(modifiedWrapper.text()).toContain(subHeadingSlot);
+            expect(wrapper.text()).toContain(subHeadingSlot);
         });
 
         it('should *NOT* render a div with the class `heading__sub-heading` if sub-heading slot is not provided', () => {
@@ -81,6 +80,13 @@ describe('VsHeading', () => {
             const subHeading = wrapper.find('.heading__sub-heading');
 
             expect(subHeading.exists()).toBe(false);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryShallowMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

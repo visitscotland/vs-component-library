@@ -1,6 +1,7 @@
 import {
     config, shallowMount, mount,
 } from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsEmbedWrapper from '../EmbedWrapper.vue';
 
 config.global.renderStubDefaultSlot = true;
@@ -221,6 +222,13 @@ describe('VsEmbedWrapper', () => {
         it('renders content inserted into the `embed-widget` slot', () => {
             const wrapper = factoryShallowMount();
             expect(wrapper.text()).toContain(widgetcontent);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

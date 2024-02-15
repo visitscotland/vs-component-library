@@ -1,32 +1,46 @@
-import { config, shallowMount } from '@vue/test-utils';
-
+import {
+    config, shallowMount, mount,
+} from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsItineraryStop from '../ItineraryStop.vue';
 
 config.global.renderStubDefaultSlot = true;
 
-const factoryShallowMount = () => shallowMount(VsItineraryStop, {
-    propsData: {
-        stopLabel: 'Test stop label',
-        stopNumber: '0',
-        stopTitle: 'Test stop title',
-        openingTimesLink: 'http://www.visitscotland.com',
-        dayName: 'Thursday',
-    },
-    slots: {
-        default: '<img src="test" alt="">',
-        'stop-description': 'Test stop description',
-        'stop-address': '<p>address line one<br>address line two</p>',
-        'stop-tips': 'Test stop tips',
-        'stop-closed': 'Closed',
-        'stop-open': 'Open',
-        'stop-closing-soon': 'Closing soon',
-        'stop-opening-text': 'Usually open today',
-        'stop-link-text': 'All opening times',
-        'stop-charge-text': 'Free admission',
-        'stop-facilities': 'Test facilities content',
-        'stop-button': 'Test button text',
-    },
-});
+function mountOptions() {
+    return {
+        propsData: {
+            stopLabel: 'Test stop label',
+            stopNumber: '0',
+            stopTitle: 'Test stop title',
+            openingTimesLink: 'http://www.visitscotland.com',
+            dayName: 'Thursday',
+        },
+        slots: {
+            default: '<img src="test" alt="">',
+            'stop-description': 'Test stop description',
+            'stop-address': '<p>address line one<br>address line two</p>',
+            'stop-tips': 'Test stop tips',
+            'stop-closed': 'Closed',
+            'stop-open': 'Open',
+            'stop-closing-soon': 'Closing soon',
+            'stop-opening-text': 'Usually open today',
+            'stop-link-text': 'All opening times',
+            'stop-charge-text': 'Free admission',
+            'stop-facilities': 'Test facilities content',
+            'stop-button': 'Test button text',
+        },
+    };
+};
+
+const factoryShallowMount = () => shallowMount(
+    VsItineraryStop,
+    mountOptions(),
+);
+
+const factoryMount = () => mount(
+    VsItineraryStop,
+    mountOptions(),
+);
 
 let wrapper;
 beforeEach(() => {
@@ -67,6 +81,24 @@ describe('VsItineraryStop', () => {
 
         it('renders content inserted into the vs-stop-facilities slot', () => {
             expect(wrapper.html()).toContain('Test facilities content');
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const modifiedWrapper = factoryMount();
+            const html = modifiedWrapper.html();
+
+            const results = await axe(html, {
+                rules: {
+                    // must have a parent with ul/ol element
+                    listitem: {
+                        enabled: false,
+                    },
+                },
+            });
+
+            expect(results).toHaveNoViolations();
         });
     });
 });
