@@ -11,6 +11,7 @@
                     offset="1"
                     sm="12"
                     offset-sm="0"
+                    class="position-relative"
                 >
                     <div class="slider">
                         <VsButton
@@ -436,10 +437,6 @@ export default {
 <style lang="scss">
     .vs-carousel {
         overflow: hidden;
-
-        .slider {
-            position: relative;
-        }
 
         &__track {
             flex-wrap: nowrap;
