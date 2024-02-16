@@ -354,7 +354,6 @@ export default {
 
             span {
                 display: inline-block;
-                vertical-align: middle;
                 width: calc(100% - #{$spacer-9});
             }
 
