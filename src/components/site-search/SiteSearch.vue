@@ -11,7 +11,7 @@
     >
         <!-- Default slot for Search button text -->
         <span
-            class="visually-hidden sr-only-xxl-down"
+            class="visually-hidden-xxl-down"
         >
             <slot />
         </span>
@@ -81,6 +81,20 @@ export default {
         padding: $spacer-2;
     }
 
+    @include media-breakpoint-down(xxl) {
+        .visually-hidden-xxl-down {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0px;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0px, 0px, 0px, 0px);
+            white-space: nowrap;
+            border: 0px;
+        }
+    }
+
     @include media-breakpoint-up(lg) {
         height: 55px;
 
@@ -92,7 +106,7 @@ export default {
             padding: $spacer-3;
         }
 
-        span.sr-only-xxl-down {
+        span.visually-hidden-xxl-down {
             overflow: visible;
         }
     }
