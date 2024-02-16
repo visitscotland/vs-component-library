@@ -340,7 +340,6 @@ export default {
 @include forms-common;
 
 .vs-input {
-    line-height: 1.25;
     @include form-element-styles;
     margin-top: $spacer-2;
 
