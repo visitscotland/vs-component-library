@@ -64,7 +64,7 @@ export default {
         }
     }
 
-    @include media-breakpoint-down(xl) {
+    @include media-breakpoint-down(lg) {
         border-left: 0;
 
         .vs-list {

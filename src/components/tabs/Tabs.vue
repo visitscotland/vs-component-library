@@ -44,9 +44,9 @@ export default {
             font-size: $font-size-6;
 
             &.disabled {
-            color: $nav-link-disabled-color;
-            background-color: transparent;
-            border-color: transparent;
+                color: $nav-link-disabled-color;
+                background-color: transparent;
+                border-color: transparent;
             }
 
             @include media-breakpoint-up(sm) {

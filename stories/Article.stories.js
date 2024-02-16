@@ -76,15 +76,30 @@ const Template = (args) => ({
                     <VsArticleSidebar :sidebar-align="args.sidebarAlign">
                         <template v-slot:vs-article-sidebar-img>
                             <VsImageWithCaption
-                                v-bind="args.sidebarImg"
+                                :alt-text="args['sidebarImg'].alt"
+                                :image-src="args['sidebarImg'].imageSrc"
                             >
-                                
+                                <template v-slot:img-caption>
+                                    <VsCaption>
+                                        <template v-slot:caption>{{ args['sidebarImg'].caption }}</template>
+                                        <template v-slot:credit>{{ args['sidebarImg'].credit }}</template>
+                                    </VsCaption>
+                                </template>
                             </VsImageWithCaption>
                         </template>
 
                         <template v-slot:vs-article-sidebar-quote>
                             <VsQuote>
-                               
+                                <template v-slot:quote-content>
+                                    <p>Scotland’s largest mountain was once a massive active volcano which exploded 
+                                    and collapsed inwards on itself millions of years ago.</p>
+                                </template>
+                                <template v-slot:quote-author-name>
+                                    Penny
+                                </template>
+                                <template v-slot:quote-author-title>
+                                    Visitor Services Advisor at Fort William iCentre
+                                </template>
                             </VsQuote>
                         </template>
                     </VsArticleSidebar>

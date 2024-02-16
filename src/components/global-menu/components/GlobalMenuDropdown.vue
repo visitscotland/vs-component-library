@@ -125,7 +125,7 @@ export default {
         overflow: hidden;
         opacity: $opacity-0;
 
-        @include media-breakpoint-down(xl) {
+        @include media-breakpoint-down(lg) {
             width: 100%!important;
         }
 

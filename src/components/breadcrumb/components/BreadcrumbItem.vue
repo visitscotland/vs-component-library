@@ -74,7 +74,7 @@ export default {
         font-weight: $font-weight-light;
     }
 
-    @include media-breakpoint-down(xl) {
+    @include media-breakpoint-down(lg) {
         font-size: $font-size-2;
     }
 
