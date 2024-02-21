@@ -152,17 +152,11 @@ export default {
         padding: 0;
     }
 
-    .dropdown {
-        position: static;
+    .btn.dropdown-toggle.show {
+        color: $color-pink;
 
-        &.show {
-            .btn.dropdown-toggle {
-                color: $color-pink;
-
-                &::after {
-                    width: 100%;
-                }
-            }
+        &::after {
+            width: 100%;
         }
     }
 

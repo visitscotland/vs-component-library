@@ -220,29 +220,6 @@ export default {
         }
     }
 
-    &__input{
-        &.vs-form-input.form-control {
-            font-size: $font-size-4;
-            height: auto;
-            padding: $spacer-3 $spacer-3 $spacer-3 $spacer-7;
-            border-color: $color-white;
-
-            &:focus{
-                box-shadow: $shadow-form-input inset;
-                border-color: $color-pink;
-            }
-
-            @include media-breakpoint-up(lg) {
-                padding: $spacer-4 $spacer-10 $spacer-4 $spacer-11;
-                font-size: $font-size-9;
-            }
-
-            @include media-breakpoint-up(xl) {
-                font-size: $font-size-10;
-            }
-        }
-    }
-
     .vs-input--site-search.form-control {
         @extend %reset-clear;
         font-size: $font-size-body;
@@ -250,6 +227,10 @@ export default {
         padding: $spacer-3 $spacer-7 $spacer-3 $spacer-6;
         margin: 0;
         border-color: $color-white;
+
+        &:focus{
+            @include form-focus-state;
+        }
 
         @include media-breakpoint-up(lg) {
             padding: $spacer-4 $spacer-10 $spacer-4 $spacer-12;
