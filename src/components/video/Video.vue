@@ -7,14 +7,14 @@
         <div class="vs-video__iframe-wrapper">
             <div v-if="requiredCookiesExist">
                 <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
-                <YoutubeVue3
+                <LiteYouTubeEmbed
                     :autoplay="0"
-                    :videoid="videoId"
+                    :id="videoId"
                     :vars="playerVars"
                     @played="youtubePlaying"
                     @paused="youtubePaused"
                     @ended="youtubeEnded"
-                    ref="youtube"
+                    ref="video"
                 />
             </div>
 
@@ -48,7 +48,9 @@
 </template>
 
 <script>
-import { YoutubeVue3 } from 'youtube-vue3';
+import { ref } from 'vue';
+import LiteYouTubeEmbed from 'vue-lite-youtube-embed';
+import 'vue-lite-youtube-embed/style.css';
 
 import VsWarning from '@/components/warning/Warning.vue';
 
@@ -59,6 +61,8 @@ import jsIsDisabled from '@/utils/js-is-disabled';
 import verifyCookiesMixin from '../../mixins/verifyCookiesMixin';
 import requiredCookiesData from '../../utils/required-cookies-data';
 import dataLayerMixin from '../../mixins/dataLayerMixin';
+
+const video = ref(null);
 
 let videoStore = null;
 const cookieValues = requiredCookiesData.youtube;
@@ -76,7 +80,7 @@ export default {
     release: '0.0.1',
     components: {
         VsWarning,
-        YoutubeVue3,
+        LiteYouTubeEmbed,
     },
     mixins: [
         verifyCookiesMixin,
@@ -230,17 +234,13 @@ export default {
          * Plays the video
          */
         playVideo() {
-            if (this.player) {
-                this.player.playVideo();
-            }
+            video.value?.playVideo();
         },
         /**
          * Pauses the video
          */
         pauseVideo() {
-            if (this.player) {
-                this.player.pauseVideo();
-            }
+            video.value?.pauseVideo();
         },
         /**
          * Triggered by video status events from the vue-youtube component. When any of these

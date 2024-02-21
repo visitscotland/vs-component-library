@@ -28,6 +28,9 @@ export default defineConfig(({ mode }) => {
                 find: '@vue/runtime-core',
                 replacement: '@vue/runtime-core/dist/runtime-core.esm-bundler.js',
             },
+            dedupe: [
+                'vue',
+            ],
         },
         plugins: [
             vue(),
@@ -71,7 +74,6 @@ export default defineConfig(({ mode }) => {
                     globals: {
                         vue: 'Vue',
                         'bootstrap-vue-next': 'BootstrapVueNext',
-                        'youtube-vue3': 'YoutubeVue3',
                     },
                 },
             },
