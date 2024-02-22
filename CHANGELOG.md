@@ -2,6 +2,73 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/visitscotland/vs-component-library/compare/v1.1.7...v1.2.0) (2024-02-22)
+
+
+### ♻️ Code Refactoring
+
+* **_bootstrap-overrides.scss:** set body-emphasis var to color-base-text ([5961de2](https://github.com/visitscotland/vs-component-library/commit/5961de28d2eab450b9b5ff80c0f5bfe5d6a9b92c))
+* **_global-styles.css:** add and hr rule to override new bootstrap default opacity ([3b703da](https://github.com/visitscotland/vs-component-library/commit/3b703da0dac89f9bd4f5b9e98cd33f6beba36eba))
+* **bootstrap voverrides:** reset new spacer defaults from BS5 ([ecb4175](https://github.com/visitscotland/vs-component-library/commit/ecb417538587f53bcda68ba763d13f3e7c4ba74b))
+* **bootstrap-overrides.scss:** override new default custom property ([8c78b83](https://github.com/visitscotland/vs-component-library/commit/8c78b8387918bc555747ae6347605f3c6e7c3ca5))
+* **bootstrap:** include missing Bootstrap 5 files ([db47ece](https://github.com/visitscotland/vs-component-library/commit/db47eced98bd803784c201659e7dae723569ebe2))
+* **bootstrrap overrides:** enable negative margin utility classes ([90021c8](https://github.com/visitscotland/vs-component-library/commit/90021c8a87baa79deba7ca76e95a4e83e837ff87))
+* **col.vue and  carousel.vue:** remove position util from col and apply in .slider ([b06a772](https://github.com/visitscotland/vs-component-library/commit/b06a77211a9a273fe8ac8d1502d1bf3b615e6885))
+* **gutters and  coreestyles:** update gutter utils for brevity per BS5 and import containers ([29d3f0f](https://github.com/visitscotland/vs-component-library/commit/29d3f0f81746a474cedf16ecc381962871553bac))
+* **input.vue:** reduce line-height to override BS default value ([f8b1c88](https://github.com/visitscotland/vs-component-library/commit/f8b1c88c0e2d6aa8d4d492c66f1a56d4ee2d4fb7))
+* **media-breakpoint mixin:** increase 2nd arg of -between() and arg of -down() to next width up ([3289bd5](https://github.com/visitscotland/vs-component-library/commit/3289bd59a56ab59fe739438a0366a5558ba07ab4))
+* **media-breakpoint-down mixin:** move param up one level per BS5 ([17875c8](https://github.com/visitscotland/vs-component-library/commit/17875c81de60ec709967aeade58f046f96581955))
+* **meganav  component; pageintro story:** add position-relative to columns ([1fa22d6](https://github.com/visitscotland/vs-component-library/commit/1fa22d644005a0d193f5c0590213971cb91b66dc))
+* **overrides and story:** remove util in pattern story, override new BS5 default ([6235529](https://github.com/visitscotland/vs-component-library/commit/6235529454ec9c99988748b76deff5a72ed9e6a0))
+* **panel.vue:** set padding per previous baseline ([3374277](https://github.com/visitscotland/vs-component-library/commit/33742779417532d608a4928707e7a21edfc0d5d3))
+* **radiobutton:** override 0.125rem margin bottom with 0 ([cfee12d](https://github.com/visitscotland/vs-component-library/commit/cfee12dbc07f8ce033e2a7ade63a0d11acfed683))
+* **select.vue:** override new bootstrap bg image icon ([8ee322e](https://github.com/visitscotland/vs-component-library/commit/8ee322e0db5e93e945ce0f5ea0d73ade724a0007))
+* **sitesearch.vue:** apply visually-hidden class - updated from sr-only BS change ([5a1eb99](https://github.com/visitscotland/vs-component-library/commit/5a1eb993712e66a883ef33ee4581603728542abb))
+* **sr-only:** replace sr-only with visually-hidden per BS5 ([4daa1a4](https://github.com/visitscotland/vs-component-library/commit/4daa1a41f67d0e90933985692c7d6429ed90df3b))
+* **summaryboxdistancelistitem.vue:** auto margins l/r ([29e8b7c](https://github.com/visitscotland/vs-component-library/commit/29e8b7cc197d8bd28bebaee48134b67982cb15df))
+* **tabelheadercell.vue:** set border:0 to preserve snapshot styles ([1c211d4](https://github.com/visitscotland/vs-component-library/commit/1c211d49a9af6ec59bcb70943b2ef3327dc30149))
+* **table.vue:** remove padding from th > span to correct alignment bug ([e51e360](https://github.com/visitscotland/vs-component-library/commit/e51e360b2c632844bbbd93861397fb4ab5ad9dd9))
+* **tabledatacell and tableheadercell:** adapt default value and styles to match baseline UI ([dbb39a3](https://github.com/visitscotland/vs-component-library/commit/dbb39a3568b12892e5b585124a95dc975d78dafb))
+* **tabs.vue:** replace some styles removed in BS5 ([2cceca6](https://github.com/visitscotland/vs-component-library/commit/2cceca6c7fd61dfb7bea4d903186511fd373af6b))
+* **utility classes:** replace left/right paradigm with start/end paradigm per BS5 ([b3b1543](https://github.com/visitscotland/vs-component-library/commit/b3b1543fd7fc7f2523ca7ff17795843b4494f80c))
+* various small tweaks to fix layout / value discrepancies ([12f528a](https://github.com/visitscotland/vs-component-library/commit/12f528a41f71a58cd6c6822ef914291a8bc80f2f))
+* **vscol:** add position-relative utiliy to replace property removed in BS5 ([21d0d93](https://github.com/visitscotland/vs-component-library/commit/21d0d93ffd9b0e55942bd0657b396079843c148d))
+* **vsradiobutton:** fix layout bug introduced by BS5 ([d3747a5](https://github.com/visitscotland/vs-component-library/commit/d3747a56c41a2fa46bccc7ab80f88c7a8b2c11fc))
+
+
+### 🎨 Styling
+
+* **description-list:** fixing layout for description list ([16c5293](https://github.com/visitscotland/vs-component-library/commit/16c529384fe971860572d53c92aa7b26b59498be))
+* **description-list:** fixing layout for description list ([c4e911f](https://github.com/visitscotland/vs-component-library/commit/c4e911fe76032643571dd4accdbe54b03b823138))
+
+
+### ✅ Tests
+
+* add accessibility tests for image with caption ([456855f](https://github.com/visitscotland/vs-component-library/commit/456855f5183a9849b35adeaf93192874e9c08949))
+* adds next round of accessibility tests ([8102ce4](https://github.com/visitscotland/vs-component-library/commit/8102ce44b0796715eaca590a5eadc91102fc61bf))
+* **description list:** fixing description list to be accessible and remove unused components ([89de9a5](https://github.com/visitscotland/vs-component-library/commit/89de9a5b214f3a210328fcb6fccc98790b7145d1))
+* fix description list unit test ([a1a514c](https://github.com/visitscotland/vs-component-library/commit/a1a514c8d4fce070c3f1628597f41dc62d5ba062))
+* fixing layout for description list ([7f2e27b](https://github.com/visitscotland/vs-component-library/commit/7f2e27beaeb0a2efb1993297c4bc352e24d6c83d))
+* **jest:** add jest-axe to test ([576e2f6](https://github.com/visitscotland/vs-component-library/commit/576e2f6a1a31dd3179f3231811765754a6438a80))
+* remove console log ([a1aaad5](https://github.com/visitscotland/vs-component-library/commit/a1aaad5d040c27c7ce37c81cc1cc9bc63fd048a9))
+* **test:** add first round of accessibility tests ([953480c](https://github.com/visitscotland/vs-component-library/commit/953480c2597d34d6ff01b223964946089432ed32))
+* **test:** adds next batch of accessibility tests ([fa0b68a](https://github.com/visitscotland/vs-component-library/commit/fa0b68aab865eb40c2012ef455d2c170f6081c63))
+* **test:** adds next round of accessibility tests ([beccec1](https://github.com/visitscotland/vs-component-library/commit/beccec17456427f227a48091f78f5fe84f87afc2))
+* **tests:** adds next round of accessibility tests ([f47f039](https://github.com/visitscotland/vs-component-library/commit/f47f0397c195fde223a808b6f2dc1a3fa4e10a1e))
+* **tests:** last batch of accessibility tests ([7fbe18c](https://github.com/visitscotland/vs-component-library/commit/7fbe18c0d52e2e0e538932c7f5931d309c8c83c6))
+* **tests:** next batch of accessibility tests added ([b73e8b9](https://github.com/visitscotland/vs-component-library/commit/b73e8b9f408ce3589a571cd8ea5b573e1ba46ba0))
+
+
+### 🐛 Bug Fixes
+
+* **bootstrap:** fix layout issues after bootstrap migration on number input and description list ([b4cefcb](https://github.com/visitscotland/vs-component-library/commit/b4cefcbc96c4f57685bf431a0a2782767ec19a85))
+* **bootstrap:** fixing various layout issues ([77f11b2](https://github.com/visitscotland/vs-component-library/commit/77f11b286ca3f17700b3d8146f17ff7ef1a87d28))
+* **carousel:** fix carousel layout ([8766433](https://github.com/visitscotland/vs-component-library/commit/8766433edf52de8fec8a54bc5af413f536d71641))
+* **input:** fix input focus states ([8a76cf5](https://github.com/visitscotland/vs-component-library/commit/8a76cf59fc02e2f3146b405e577afe1c63972848))
+* **nav:** fix bootstrap 5 issues in the nav ([5c381c6](https://github.com/visitscotland/vs-component-library/commit/5c381c621a352f91c5969923db726bdb03394ea6))
+* **radio:** fix radio button text alignment ([d095955](https://github.com/visitscotland/vs-component-library/commit/d09595545fd0dc90587c89b8b71aed94f4ee60aa))
+* **search:** fix missing label in search bar ([0ec4d8e](https://github.com/visitscotland/vs-component-library/commit/0ec4d8e47bbd3ac39ce5f37938db673aa58f6ae3))
+
 ### [1.1.7](https://github.com/visitscotland/vs-component-library/compare/v1.1.6...v1.1.7) (2024-01-11)
 
 
