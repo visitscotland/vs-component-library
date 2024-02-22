@@ -15,7 +15,7 @@
                 :key="error"
                 class="error mb-0"
             >
-                <span class="sr-only">{{ fieldName }}</span>
+                <span class="visually-hidden">{{ fieldName }}</span>
                 {{ validationMessages[error] || genericValidation[error] }}
             </p>
         </div>
@@ -315,9 +315,13 @@ export default {
         }
 
         .form-check {
+            width: 100%;
             border: 1px solid $color-theme-primary;
             height: 3.5rem;
             box-sizing: border-box;
+            margin-bottom: 0;
+            display: inline-flex;
+            align-items: center;
 
             &:hover:not(:focus):not(:focus-within):not(:active) {
                 background-color: $color-purple;
@@ -350,7 +354,6 @@ export default {
 
             span {
                 display: inline-block;
-                vertical-align: middle;
                 width: calc(100% - #{$spacer-9});
             }
 
@@ -367,10 +370,6 @@ export default {
                 margin-right: $spacer-4;
                 background-color: $color-white;
             }
-        }
-
-        .form-check-inline {
-            width: 100%;
         }
 
         input {

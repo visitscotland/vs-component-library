@@ -55,7 +55,7 @@
                         icon-only
                         @click="hideBanner"
                     >
-                        <span class="sr-only">
+                        <span class="visually-hidden">
                             {{ closeBtnText }}
                         </span>
                     </VsButton>

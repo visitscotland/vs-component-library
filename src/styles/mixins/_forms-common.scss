@@ -27,11 +27,12 @@
 }
 
 @mixin form-error-state {
-    border: 2px solid $color-theme-danger;
+    border-color: $color-theme-danger;
+    box-shadow: 0 0 0 1px $color-theme-danger inset;
 }
 
 @mixin form-focus-state {
-    border: $color-pink 4px solid;
+    border-color: $color-pink;
+    box-shadow: 0 0 0 3px $color-pink inset;
     outline: none;
-    box-shadow: none;
 }

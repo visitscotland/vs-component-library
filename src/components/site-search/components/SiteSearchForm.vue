@@ -19,7 +19,7 @@
                                 for="site-search"
                                 class="vs-site-search-form__label"
                             >
-                                <span class="sr-only">
+                                <span class="visually-hidden">
                                     {{ labelText }}
                                 </span>
                                 <VsIcon
@@ -63,7 +63,7 @@
             icon-only
             @click="closeSearchForm"
         >
-            <span class="sr-only">
+            <span class="visually-hidden">
                 {{ closeButtonText }}
             </span>
         </VsButton>
@@ -104,7 +104,7 @@ export default {
             default: false,
         },
         /**
-         * Text that renders in form label (sr-only) and input placeholder
+         * Text that renders in form label (visually-hidden) and input placeholder
          */
         labelText: {
             type: String,
@@ -118,14 +118,14 @@ export default {
             default: '',
         },
         /**
-         * Text that renders inside the clear button (sr-only)
+         * Text that renders inside the clear button (visually-hidden)
          */
         clearButtonText: {
             type: String,
             default: '',
         },
         /**
-         * Text that renders inside the close button (sr-only)
+         * Text that renders inside the close button (visually-hidden)
          */
         closeButtonText: {
             type: String,
@@ -220,29 +220,6 @@ export default {
         }
     }
 
-    &__input{
-        &.vs-form-input.form-control {
-            font-size: $font-size-4;
-            height: auto;
-            padding: $spacer-3 $spacer-3 $spacer-3 $spacer-7;
-            border-color: $color-white;
-
-            &:focus{
-                box-shadow: $shadow-form-input inset;
-                border-color: $color-pink;
-            }
-
-            @include media-breakpoint-up(lg) {
-                padding: $spacer-4 $spacer-10 $spacer-4 $spacer-11;
-                font-size: $font-size-9;
-            }
-
-            @include media-breakpoint-up(xl) {
-                font-size: $font-size-10;
-            }
-        }
-    }
-
     .vs-input--site-search.form-control {
         @extend %reset-clear;
         font-size: $font-size-body;
@@ -250,6 +227,10 @@ export default {
         padding: $spacer-3 $spacer-7 $spacer-3 $spacer-6;
         margin: 0;
         border-color: $color-white;
+
+        &:focus{
+            @include form-focus-state;
+        }
 
         @include media-breakpoint-up(lg) {
             padding: $spacer-4 $spacer-10 $spacer-4 $spacer-12;

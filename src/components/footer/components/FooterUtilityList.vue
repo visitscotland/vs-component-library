@@ -52,7 +52,7 @@ export default {
 
 <style lang="scss">
 .vs-footer-utility-list {
-    @include media-breakpoint-down(xs) {
+    @include media-breakpoint-down(sm) {
         .container {
             max-width: 100%;
             padding: 0 4px;
@@ -99,7 +99,7 @@ export default {
             padding: $spacer-3;
             flex: 1 0 50%;
 
-            @include media-breakpoint-down(sm) {
+            @include media-breakpoint-down(md) {
                 &:nth-child(odd){
                     padding-left: 0;
                 }

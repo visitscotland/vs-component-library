@@ -7,7 +7,7 @@
         :variant="linkVariant"
     >
         <span
-            class="sr-only"
+            class="visually-hidden"
             data-test="link-alt-text"
         >
             {{ linkAltText }}

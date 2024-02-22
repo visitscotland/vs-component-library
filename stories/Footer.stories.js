@@ -46,7 +46,7 @@ const Template = (args) => ({
                     title="Visitor information"
                     variant="dark"
                     control-id="footer_accordion_item_1"
-                    class="border-left-0 pl-md-0"
+                    class="border-start-0 ps-md-0"
                 >
                     <template v-slot:icon-open>
                         <VsIcon

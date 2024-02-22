@@ -468,8 +468,8 @@ export default {
             }
 
             .vs-stretched-link-card__video-button {
-                background-color: darken($color-theme-primary, 10%);
-                border-color: darken($color-theme-primary, 12%);
+                background-color: shade-color($color-theme-primary, 10%);
+                border-color: shade-color($color-theme-primary, 12%);
             }
         }
 

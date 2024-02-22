@@ -149,8 +149,7 @@ export default {
 .vs-summary-box-distance__divider {
     width: 85%;
     border-top: 1px solid rgba(0, 0, 0, 0.2);
-    margin-top: $spacer-1;
-    margin-bottom: $spacer-1;
+    margin: $spacer-1 auto;
 
     @include media-breakpoint-up(lg) {
         margin-top: $spacer-2;

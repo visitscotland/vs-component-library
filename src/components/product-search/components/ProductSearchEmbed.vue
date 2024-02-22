@@ -16,7 +16,7 @@
                         data-test="psw-form"
                         v-if="locationDataLoaded"
                     >   
-                        <div class="form-group">
+                        <div class="form-group mb-4">
                             <label for="prodtypes">
                                 {{ getLabelText('search_for', 'I\'m looking for') }}
                             </label>
