@@ -160,7 +160,7 @@ export default {
                     'vs-button--on-dark': this.onDark,
                     'vs-button--icon-only': this.iconOnly,
                     'vs-button--icon-with-text': this.iconWithText,
-                    'd-flex': this.icon && !this.iconOnly && !this.iconWithText,
+                    'button-flex': this.icon && !this.iconOnly && !this.iconWithText,
                     'vs-button--flex-reverse': this.iconPosition === 'right',
                     'text-uppercase': this.uppercase && !this.iconWithText,
                 },
@@ -223,17 +223,17 @@ export default {
 </script>
 
 <style lang="scss">
-    .vs-button{
+    .vs-button {
         @extend %button-default-styles;
 
         .vs-icon {
             margin-top: -.05rem;
 
-            &--right{
+            &--right {
                 margin-left: $spacer-2;
             }
 
-            &--left{
+            &--left {
                 margin-right: $spacer-2;
             }
         }
@@ -242,8 +242,8 @@ export default {
             @extend %primary-button-focus;
         }
 
-        &.vs-button--on-dark{
-            &:focus{
+        &.vs-button--on-dark {
+            &:focus {
                 box-shadow: 0 0 0 4px $color-theme-dark, 0 0 0 8px $color-yellow;
             }
         }
@@ -257,14 +257,14 @@ export default {
         }
 
         &.btn-primary, &.btn-secondary,
-        &.btn-dark, &.btn-light{
+        &.btn-dark, &.btn-light {
             &.disabled {
                 background-color: $color-secondary-gray-tint-4;
                 border-color: $color-secondary-gray-tint-4;
                 color: $color-white;
                 opacity: $opacity-100;
 
-                &:hover{
+                &:hover {
                     background-color: $color-secondary-gray-tint-4;
                     border-color: $color-secondary-gray-tint-4;
                 }
@@ -273,14 +273,14 @@ export default {
 
         /* Button Variants
         ------------------------------------------ */
-        &.btn-primary{
+        &.btn-primary {
             @include vs-button-variant(
                 $color-white, $color-pink, $color-pink,
                 $color-white, $color-pink-shade-2, $color-pink-shade-2,
                 $color-pink, $color-white, $color-pink,
             );
 
-            &.vs-button--on-dark{
+            &.vs-button--on-dark {
                 @include vs-button-variant(
                     $color-theme-dark, $color-yellow, $color-yellow,
                     $color-theme-dark, $color-yellow-tint-2, $color-yellow-tint-2,
@@ -296,7 +296,7 @@ export default {
                 $color-white, $color-pink, $color-pink,
             );
 
-            &.vs-button--on-dark{
+            &.vs-button--on-dark {
                 @include vs-button-variant(
                     $color-yellow, $color-theme-dark, $color-yellow,
                     $color-theme-dark, $color-yellow, $color-yellow,
@@ -305,19 +305,19 @@ export default {
             }
         }
 
-        &.btn-dark{
+        &.btn-dark {
             @include vs-button-variant(
                 $color-white, $color-theme-dark, $color-theme-dark,
                 $color-white, $color-secondary-gray-shade-1, $color-secondary-gray-shade-1,
                 $color-theme-dark, $color-white, $color-secondary-gray-shade-1,
             );
 
-            &:focus{
+            &:focus {
                 box-shadow: $shadow-button-focus-on-dark, 0 0 0 8px $color-theme-dark;
             }
         }
 
-        &.btn-light{
+        &.btn-light {
             @include vs-button-variant(
                 $color-gray-shade-7, $color-gray-tint-7, $color-gray-tint-7,
                 $color-gray-shade-7, $color-gray-tint-6, $color-gray-tint-6,
@@ -325,7 +325,7 @@ export default {
             );
         }
 
-        &.btn-transparent{
+        &.btn-transparent {
             &:not(.vs-main-map-category__button) {
                 @include vs-button-variant(
                     $color-gray-shade-7, transparent, transparent,
@@ -333,39 +333,39 @@ export default {
                     $color-pink, transparent, transparent,
                 );
 
-                &:focus{
+                &:focus {
                     box-shadow: $shadow-button-focus;
                 }
 
-                &.vs-button--on-dark{
+                &.vs-button--on-dark {
                     @include vs-button-variant(
                         $color-white, transparent, transparent,
                         $color-gray-tint-6, transparent, transparent,
                         $color-white, transparent, transparent,
                     );
 
-                    &:focus{
+                    &:focus {
                         box-shadow: $shadow-button-focus-on-dark;
                     }
                 }
             }
         }
 
-        &.vs-button--icon-with-text{
+        &.vs-button--icon-with-text {
             letter-spacing: initial;
             font-weight: $font-weight-normal;
             font-size: $font-size-3;
             transition: none;
 
-            &.btn-sm, &.btn-md, &.btn-lg{
+            &.btn-sm, &.btn-md, &.btn-lg {
                 padding: $spacer-1;
             }
 
-            .vs-button__text{
+            .vs-button__text {
                 text-decoration: underline;
             }
 
-            .vs-icon{
+            .vs-icon {
                 display: block;
                 margin: 0 auto $spacer-1;
             }
@@ -374,26 +374,26 @@ export default {
         &.vs-button--icon-only {
             line-height: 1;
 
-            &.btn-sm, &.btn-md, &.btn-lg{
+            &.btn-sm, &.btn-md, &.btn-lg {
                 padding: $spacer-1 0;
             }
 
-            .vs-icon{
+            .vs-icon {
                 margin: 0;
             }
         }
 
         /* Button Sizes
         ------------------------------------------ */
-        &.btn-sm{
+        &.btn-sm {
             padding: $spacer-1 $spacer-4;
         }
 
-        &.btn-md{
+        &.btn-md {
             padding: $spacer-3 $spacer-8;
         }
 
-        &.btn-lg{
+        &.btn-lg {
             padding: $spacer-4 $spacer-9;
         }
 
@@ -435,6 +435,10 @@ export default {
             &.vs-button--is-animating::after {
                 animation: bubble 500ms ease-in-out;
             }
+        }
+
+        &.button-flex .btn-content {
+            display: flex;
         }
     }
 </style>
