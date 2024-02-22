@@ -7,14 +7,14 @@
         <div class="vs-video__iframe-wrapper">
             <div v-if="requiredCookiesExist">
                 <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
-                <LiteYouTubeEmbed
+                <VueYoutube
                     :autoplay="0"
-                    :id="videoId"
+                    :video-id="videoId"
                     :vars="playerVars"
-                    @played="youtubePlaying"
+                    ref="youtube"
+                    @playing="youtubePlaying"
                     @paused="youtubePaused"
                     @ended="youtubeEnded"
-                    ref="video"
                 />
             </div>
 
@@ -48,9 +48,7 @@
 </template>
 
 <script>
-import { ref } from 'vue';
-import LiteYouTubeEmbed from 'vue-lite-youtube-embed';
-import 'vue-lite-youtube-embed/style.css';
+import VueYoutube from 'vue-youtube-vue-3';
 
 import VsWarning from '@/components/warning/Warning.vue';
 
@@ -61,8 +59,6 @@ import jsIsDisabled from '@/utils/js-is-disabled';
 import verifyCookiesMixin from '../../mixins/verifyCookiesMixin';
 import requiredCookiesData from '../../utils/required-cookies-data';
 import dataLayerMixin from '../../mixins/dataLayerMixin';
-
-const video = ref(null);
 
 let videoStore = null;
 const cookieValues = requiredCookiesData.youtube;
@@ -80,7 +76,7 @@ export default {
     release: '0.0.1',
     components: {
         VsWarning,
-        LiteYouTubeEmbed,
+        VueYoutube,
     },
     mixins: [
         verifyCookiesMixin,
@@ -234,13 +230,13 @@ export default {
          * Plays the video
          */
         playVideo() {
-            video.value?.playVideo();
+            this.player.playVideo();
         },
         /**
          * Pauses the video
          */
         pauseVideo() {
-            video.value?.pauseVideo();
+            this.player.pauseVideo();
         },
         /**
          * Triggered by video status events from the vue-youtube component. When any of these
