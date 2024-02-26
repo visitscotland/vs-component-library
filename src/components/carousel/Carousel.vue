@@ -11,6 +11,7 @@
                     offset="1"
                     sm="12"
                     offset-sm="0"
+                    class="position-relative"
                 >
                     <div class="slider">
                         <VsButton
@@ -75,7 +76,7 @@
                                     tabindex="0"
                                     :data-test="`vs-carousel__nav-${index}`"
                                 >
-                                    <span class="sr-only">
+                                    <span class="visually-hidden">
                                         <!-- @slot 'navigate to page' text to allow translation -->
                                         <slot name="vs-carousel-navigate" /> {{ index }}
                                     </span>

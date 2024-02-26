@@ -19,7 +19,7 @@
                 :key="error"
                 class="error mb-0"
             >
-                <span class="sr-only">{{ fieldName }}</span>
+                <span class="visually-hidden">{{ fieldName }}</span>
                 {{ validationMessages[error] || genericValidation[error] }}
             </p>
         </div>
@@ -278,6 +278,7 @@ export default {
             // A reset of styles, including removing the default dropdown arrow
             appearance: none;
             background-color: transparent;
+            background-image: none;
             border: none;
             padding: 0 $spacer-4 0;
             margin: 0;

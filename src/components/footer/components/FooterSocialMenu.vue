@@ -14,7 +14,7 @@
 
         <VsList
             unstyled
-            class="mt-5 mt-md-0 mt-lg-5 pr-lg-8 pr-xl-4"
+            class="mt-5 mt-md-0 mt-lg-5 pe-lg-8 pe-xl-4"
         >
             <!-- @slot The default slot is the content for the menu social items -->
             <slot />
@@ -64,7 +64,7 @@ export default {
         }
     }
 
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
         border-left: 0;
 
         .vs-list {

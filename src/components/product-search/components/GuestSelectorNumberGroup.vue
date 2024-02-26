@@ -90,7 +90,7 @@ onMounted(() => {
                 @click.prevent="handleDecrease"
                 :disabled="counter === minValue"
             > 
-                <span class="sr-only">
+                <span class="visually-hidden">
                     Remove
                 </span>
             </VsButton>
@@ -114,7 +114,7 @@ onMounted(() => {
                 @click.prevent="handleIncrease"
                 :disabled="counter === maxValue"
             >
-                <span class="sr-only">
+                <span class="visually-hidden">
                     Add
                 </span>
             </VsButton>

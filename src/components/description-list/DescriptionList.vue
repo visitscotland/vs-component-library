@@ -49,13 +49,6 @@ export default {
     display: flex;
     flex-wrap: wrap;
     flex-grow: 1;
-    margin-right: -12px;
-    margin-left: -12px;
-
-    @media (max-width: 575px) {
-        margin-right: -4px;
-        margin-left: -4px;
-    }
 
     // turns offset column off for first item after a term to avoid layout errors
     .vs-description-list__term+.vs-description-list__detail {

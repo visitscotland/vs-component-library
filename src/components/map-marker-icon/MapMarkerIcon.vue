@@ -15,7 +15,7 @@
             v-if="number"
             class="vs-map-marker-icon__count"
         >
-            <span class="sr-only">
+            <span class="visually-hidden">
                 Stop
             </span>
             {{ number }}

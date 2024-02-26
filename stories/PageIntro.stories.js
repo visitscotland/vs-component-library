@@ -137,7 +137,7 @@ const Template = (args) => ({
                 v-slot:vs-intro-summary-box
                 v-if="args['vs-intro-summary-box']"
             >
-                <VsCol cols="12" md="6" lg="5" xl="4">
+                <VsCol cols="12" md="6" lg="5" xl="4" class="position-relative">
                     <VsSummaryBoxList>
                         <VsSummaryBoxListItem
                             :text="args['vs-intro-summary-box'].totalDays"
