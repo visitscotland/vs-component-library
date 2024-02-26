@@ -54,7 +54,6 @@ import VsLoading from '@/components/loading-spinner/LoadingSpinner.vue';
 import osBranding from '@/utils/os-branding';
 import { v4 as uuidv4 } from 'uuid';
 import { render, h } from 'vue';
-import pinia from '@/stores';
 import { mapState } from 'pinia';
 import useMapStore from '@/stores/map.store';
 import mapboxgl from 'mapbox-gl';
@@ -181,7 +180,7 @@ export default {
         },
     },
     setup() {
-        mapStore = useMapStore(pinia());
+        mapStore = useMapStore();
     },
     data() {
         return {
@@ -313,7 +312,7 @@ export default {
         },
     },
     mounted() {
-        // mapStore = useMapStore(pinia());
+        // mapStore = useMapStore();
 
         mapStore.addMapInstance({
             id: this.mapId,

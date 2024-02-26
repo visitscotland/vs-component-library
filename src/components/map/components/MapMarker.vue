@@ -148,7 +148,7 @@ export default {
         },
     },
     mounted() {
-        // mapStore = useMapStore(pinia());
+        // mapStore = useMapStore();
 
         if (this.hasPopups) {
             document.body.addEventListener('click', this.handleClickEvent);

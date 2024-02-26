@@ -15,6 +15,7 @@
                     @playing="youtubePlaying"
                     @paused="youtubePaused"
                     @ended="youtubeEnded"
+                    @ready="playerReady"
                 />
             </div>
 
@@ -52,7 +53,6 @@ import VueYoutube from 'vue-youtube-vue-3';
 
 import VsWarning from '@/components/warning/Warning.vue';
 
-import pinia from '@/stores';
 import useVideoStore from '@/stores/video.store';
 import jsIsDisabled from '@/utils/js-is-disabled';
 
@@ -168,7 +168,6 @@ export default {
                 hl: this.language,
             },
             requiredCookies: cookieValues,
-            player: null,
             reRendering: false,
             shouldAutoPlay: false,
             jsDisabled: true,
@@ -203,40 +202,36 @@ export default {
 
             return text;
         },
-    },
-    watch: {
-        requiredCookiesExist() {
-            this.$nextTick(() => {
-                if (this.$refs.youtube) {
-                    this.player = this.$refs.youtube.player;
-                    this.getPlayerDetails();
-                }
-
-                if (this.shouldAutoPlay) {
-                    this.shouldAutoPlay = false;
-                    this.playVideo();
-                }
-            });
+        player() {
+            return this.$refs.youtube.player;
         },
     },
     mounted() {
         this.jsDisabled = jsIsDisabled();
-        videoStore = useVideoStore(pinia());
+        videoStore = useVideoStore();
 
         this.setEventListeners();
     },
     methods: {
+        async playerReady() {
+            await this.getPlayerDetails();
+
+            if (this.shouldAutoPlay) {
+                this.shouldAutoPlay = false;
+                this.playVideo();
+            }
+        },
         /**
          * Plays the video
          */
-        playVideo() {
-            this.player.playVideo();
+        async playVideo() {
+            await this.player.playVideo();
         },
         /**
          * Pauses the video
          */
-        pauseVideo() {
-            this.player.pauseVideo();
+        async pauseVideo() {
+            await this.player.pauseVideo();
         },
         /**
          * Triggered by video status events from the vue-youtube component. When any of these
@@ -279,17 +274,15 @@ export default {
                     );
                 });
         },
-        getPlayerDetails() {
+        async getPlayerDetails() {
             /**
              * Upon promise resolution, if the video ID returns
              * a YouTube video, process the time into the desired format.
              */
-            if (typeof this.player !== 'undefined') {
-                this.player.getDuration().then((response) => {
-                    this.formatTime(response);
-                    this.storeVideoDetails();
-                });
-            }
+            await this.player.getDuration().then((response) => {
+                this.formatTime(response);
+                this.storeVideoDetails();
+            });
         },
         /**
          * Converts time in seconds to minutes and seconds,

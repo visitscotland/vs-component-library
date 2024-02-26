@@ -199,7 +199,6 @@
 <script>
 import VsButton from '@/components/button/Button.vue';
 import VsHeading from '@/components/heading/Heading.vue';
-import pinia from '@/stores';
 import { mapState } from 'pinia';
 import useMapStore from '@/stores/map.store';
 import VsMapWithSidebarCategory from './MapWithSidebarCategory.vue';
@@ -451,7 +450,7 @@ export default {
         },
     },
     mounted() {
-        mapStore = useMapStore(pinia());
+        mapStore = useMapStore();
     },
     methods: {
         /**

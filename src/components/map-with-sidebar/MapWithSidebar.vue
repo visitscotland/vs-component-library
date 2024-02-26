@@ -140,7 +140,6 @@ import VsButton from '@/components/button/Button.vue';
 import VsWarning from '@/components/warning/Warning.vue';
 import VsButtonToggleGroup from '@/components/button-toggle-group/ButtonToggleGroup.vue';
 import axios from 'axios';
-import pinia from '@/stores';
 import { mapState } from 'pinia';
 import useMapStore from '@/stores/map.store';
 import VsMap from '@/components/map/Map.vue';
@@ -385,7 +384,7 @@ export default {
         },
     },
     mounted() {
-        mapStore = useMapStore(pinia());
+        mapStore = useMapStore();
         this.selectedToggle = this.initialSelected;
 
         if (this.emitter) {

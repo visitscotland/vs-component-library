@@ -32,7 +32,6 @@ import {
     BFormCheckboxGroup,
     BFormCheckbox,
 } from 'bootstrap-vue-next';
-import pinia from '@/stores';
 import { mapState } from 'pinia';
 import useMapStore from '@/stores/map.store';
 import VsMapMarkerIcon from '@/components/map-marker-icon/MapMarkerIcon.vue';
@@ -80,7 +79,7 @@ export default {
         }),
     },
     mounted() {
-        mapStore = useMapStore(pinia());
+        mapStore = useMapStore();
 
         this.selected = this.activeSubcatFilters;
 

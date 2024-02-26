@@ -447,7 +447,9 @@ export default {
              * @property {string} triggerRef the #ref of the button that triggered the event,
              * focus is returned here after the modal closes
              */
-            this.emitter.emit('showModal', this.videoId, '#videoShow');
+            if (this.emitter) {
+                this.emitter.emit('showModal', this.videoId, '#videoShow');
+            }
         },
     },
 };

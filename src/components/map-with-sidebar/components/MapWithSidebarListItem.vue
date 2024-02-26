@@ -37,7 +37,6 @@
 <script>
 import VsImg from '@/components/img/Img.vue';
 import VsIcon from '@/components/icon/Icon.vue';
-import pinia from '@/stores';
 import { mapState } from 'pinia';
 import useMapStore from '@/stores/map.store';
 
@@ -110,7 +109,7 @@ export default {
         }
     },
     mounted() {
-        mapStore = useMapStore(pinia());
+        mapStore = useMapStore();
 
         if (this.focussed) {
             this.$refs.btn.focus();

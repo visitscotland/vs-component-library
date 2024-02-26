@@ -66,7 +66,7 @@ export default defineConfig(({ mode }) => {
                 external: [
                     'vue',
                     'bootstrap-vue-next',
-                    'youtube-vue3',
+                    'pinia',
                 ],
                 output: {
                     dir: 'dist/components',
@@ -74,6 +74,7 @@ export default defineConfig(({ mode }) => {
                     globals: {
                         vue: 'Vue',
                         'bootstrap-vue-next': 'BootstrapVueNext',
+                        pinia: 'Pinia',
                     },
                 },
             },
