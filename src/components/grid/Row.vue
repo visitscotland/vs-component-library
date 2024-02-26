@@ -25,12 +25,12 @@ export default {
 <style lang="scss">
 // Setting gutter width for XS
 @media (max-width: map-get($grid-breakpoints, sm)){
-    .row:not(.no-gutters) {
+    .row:not(.g-0) {
         margin-right: -4px;
         margin-left: -4px;
     }
-    .row:not(.no-gutters) > .col,
-    .row:not(.no-gutters) > [class*="col-"] {
+    .row:not(.g-0) > .col,
+    .row:not(.g-0) > [class*="col-"] {
         padding-right: 4px;
         padding-left: 4px;
     }

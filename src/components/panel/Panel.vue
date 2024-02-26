@@ -39,6 +39,10 @@ export default {
     background-color: $color-theme-light;
     padding: $spacer-9 $spacer-4 $spacer-9;
 
+    .card-body {
+        padding: $spacer-5;
+    }
+
     @include media-breakpoint-up(md) {
         padding: $spacer-9 $spacer-8 $spacer-10;
     }
@@ -57,7 +61,7 @@ export default {
     }
 
     .vs-panel__text {
-        @include media-breakpoint-down(xs) {
+        @include media-breakpoint-down(sm) {
             .vs-rich-text-wrapper--lead {
                 font-size: $font-size-4;
                 line-height: $line-height-m;

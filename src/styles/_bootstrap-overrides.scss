@@ -3,6 +3,8 @@ $enable-rounded: false;
 $enable-shadows: false;
 $enable-gradients: false;
 $enable-transitions: false;
+$enable-dark-mode: false;
+$enable-negative-margins: true;
 
 
 // Responsive font sizes
@@ -28,6 +30,7 @@ $theme-colors: (
 );
 
 $body-color: $color-base-text;
+$body-emphasis-color: $color-base-text;
 
 
 /* Links */
@@ -115,3 +118,10 @@ $breadcrumb-border-radius: 0;
 /* Links */
 $link-decoration: underline;
 $standard-line-height: 1.2;
+
+/* BS5 custom property overrides */
+$card-cap-padding-y: 0.75rem;
+$card-cap-padding-x: 1.25rem;
+$gutter-y: 1rem;
+$card-spacer-x: $spacer-5;
+$card-spacer-y: $spacer-5;

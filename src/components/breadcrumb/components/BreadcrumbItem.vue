@@ -74,11 +74,11 @@ export default {
         font-weight: $font-weight-light;
     }
 
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
         font-size: $font-size-2;
     }
 
-    @include media-breakpoint-down(sm) {
+    @include media-breakpoint-down(md) {
         display: none;
 
         &:last-child,

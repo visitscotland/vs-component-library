@@ -279,7 +279,7 @@ $variants: (
     @each $size in map-keys($sizes) {
         $this-size: map-get($sizes, $size);
 
-        @include media-breakpoint-down(sm) {
+        @include media-breakpoint-down(md) {
             &.vs-icon--sm-size-#{$size} {
                 font-size: $this-size;
                 padding: 0;

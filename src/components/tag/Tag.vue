@@ -1,6 +1,6 @@
 <template>
     <VsLink
-        class="vs-tag mr-2 mb-4"
+        class="vs-tag me-2 mb-4"
         data-test="vs-tag"
         :href="href"
     >

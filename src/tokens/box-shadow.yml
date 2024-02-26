@@ -20,8 +20,6 @@ props:
     value: "0 0 0 4px $color-pink"
   shadow_button_focus_on_dark:
     value: "0 0 0 4px $color-yellow"
-  shadow_form_input:
-    value: "0 0 0 0.2rem rgba(187, 38, 132, 0.5)"
 global:
   type: ...
   category: box-shadow

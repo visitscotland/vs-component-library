@@ -65,7 +65,7 @@
                         :type="linkType.toLowerCase()"
                         :disabled="!slideVisible()"
                     >
-                        {{ linkLabel }} <span class="sr-only">: {{ linkTitle }}</span>
+                        {{ linkLabel }} <span class="visually-hidden">: {{ linkTitle }}</span>
                     </VsLink>
                 </VsCol>
             </VsRow>

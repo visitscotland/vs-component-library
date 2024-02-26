@@ -18,8 +18,8 @@
                     fluid="lg"
                     class="px-0 px-lg-3"
                 >
-                    <VsRow class="no-gutters">
-                        <VsCol cols="12">
+                    <VsRow class="g-0">
+                        <VsCol cols="12" class="position-relative">
                             <!-- @slot Used to display the top menu link
                             at the top of the dropdown menu  -->
                             <slot name="cta-link" />
@@ -37,7 +37,7 @@
                                 variant="transparent"
                                 @click="closeMenu"
                             >
-                                <span class="sr-only">
+                                <span class="visually-hidden">
                                     {{ menuToggleAltText }}
                                 </span>
                             </VsButton>
@@ -152,17 +152,11 @@ export default {
         padding: 0;
     }
 
-    .dropdown {
-        position: static;
+    .btn.dropdown-toggle.show {
+        color: $color-pink;
 
-        &.show {
-            .btn.dropdown-toggle {
-                color: $color-pink;
-
-                &::after {
-                    width: 100%;
-                }
-            }
+        &::after {
+            width: 100%;
         }
     }
 

@@ -74,7 +74,7 @@
                                 ref="toggleButton"
                                 aria-haspopup="true"
                             >
-                                <span class="sr-only">
+                                <span class="visually-hidden">
                                     {{ menuToggleAltText }}
                                 </span>
                             </VsButton>
