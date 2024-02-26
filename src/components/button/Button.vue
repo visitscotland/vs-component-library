@@ -437,6 +437,7 @@ export default {
             }
         }
 
+        &.button-flex,
         &.button-flex .btn-content {
             display: flex;
         }
