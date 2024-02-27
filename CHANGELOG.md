@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.1](https://github.com/visitscotland/vs-component-library/compare/v1.2.0...v1.2.1) (2024-02-27)
+
+
+### ✨ Features
+
+* **map with sidebar:** add icon to map menu button ([1773188](https://github.com/visitscotland/vs-component-library/commit/1773188b47aa65e60e6ca9404770d9d4e0f43643)), closes [#307](https://github.com/visitscotland/vs-component-library/issues/307)
+
+
+### 🐛 Bug Fixes
+
+* **button.vue:** icon position ([ec84b3b](https://github.com/visitscotland/vs-component-library/commit/ec84b3b37fa7e25a9ec07b19527c42b091bf83e2)), closes [#307](https://github.com/visitscotland/vs-component-library/issues/307)
+* **button:** small icon position ([e540eb3](https://github.com/visitscotland/vs-component-library/commit/e540eb36226036b278b4b71826affda570315be2)), closes [#307](https://github.com/visitscotland/vs-component-library/issues/307)
+
 ## [1.2.0](https://github.com/visitscotland/vs-component-library/compare/v1.1.7...v1.2.0) (2024-02-22)
 
 
