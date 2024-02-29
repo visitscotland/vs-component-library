@@ -65,6 +65,21 @@ aliases:
   vs-black-03:
     value: "#484063"
 
+  vs-grey-01:
+    value: "#5D5478"
+  vs-grey-02:
+    value: "#756D94"
+  vs-grey-03:
+    value: "#9F9AB8"
+
+  vs-grey-04:
+    value: "#C3BFD6"
+  vs-grey-05:
+    value: "#DEDBE6"
+  vs-ptarmigan:
+    value: "#F0EFF4"
+
+
   vs-snow:
     value: "#ffffff"
     
