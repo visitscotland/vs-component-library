@@ -1,0 +1,18 @@
+props:
+    - name: vs-color-icon
+      value: "{!vs-black-01}"
+    - name: vs-color-icon-primary
+      value: "{!vs-saltire}"
+    - name: vs-color-icon-inverse
+      value: "{!vs-snow}"
+    - name: vs-color-icon-disabled
+      value: "{!vs-grey-01}"
+    - name: vs-color-icon-tertiary
+      value: "{!vs-bramble}"
+    - name: vs-color-icon-danger
+      value: "{!vs-cuillin}"
+imports:
+  - ./color-core.yml
+global:
+    type: color
+    category: color-icons

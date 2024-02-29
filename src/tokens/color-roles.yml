@@ -1,0 +1,26 @@
+props:
+    - name: vs-color-brand
+      value: "{!vs-thistle}"
+    - name: vs-color-primary
+      value: "{!vs-saltire}"
+    - name: vs-color-inverse
+      value: "{!vs-snow}"
+    - name: vs-color-tertiary
+      value: "{!vs-bramble}"
+    - name: vs-color-neutral
+      value: "{!vs-black-03}"
+    - name: vs-color-danger
+      value: "{!vs-cuillin}"
+    - name: vs-color-warning
+      value: "{!vs-gorse}"
+    - name: vs-color-success
+      value: "{!vs-glencoe}"
+    - name: vs-color-disabled
+      value: "{!vs-grey-05}"
+    - name: vs-color-information
+      value: "{!vs-ptarmigan}"
+imports:
+  - ./color-core.yml
+global:
+    type: color
+    category: color-roles

@@ -1,0 +1,18 @@
+props:
+    - name: vs-color-text
+      value: "{!vs-black-01}"
+    - name: vs-color-text-primary
+      value: "{!vs-saltire}"
+    - name: vs-color-text-inverse
+      value: "{!vs-snow}"
+    - name: vs-color-text-tertiary
+      value: "{!vs-bramble}"
+    - name: vs-color-text-danger
+      value: "{!vs-cuillin}"
+    - name: vs-color-text-disabled
+      value: "{!vs-grey-01}"
+imports:
+  - ./color-core.yml
+global:
+    type: color
+    category: color-text
