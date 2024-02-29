@@ -1,0 +1,29 @@
+props:
+    - name: vs-color-brand
+      value: "{!vs-thistle}"
+    - name: vs-color-background-primary
+      value: "{!vs-saltire}"
+    - name: vs-color-background-primary-hover
+      value: "{!vs-loch-ness}"
+    - name: vs-color-background-active
+      value: "{!vs-harr}"
+    - name: vs-color-background-inverse
+      value: "{!vs-snow}"
+    - name: vs-color-background-tertiary
+      value: "{!vs-bramble}"
+    - name: vs-color-background-input
+      value: "{!vs-snow}"
+    - name: vs-color-background-footer
+      value: "{!vs-black-02}"
+    - name: vs-color-background-neutral
+      value: "{!vs-black-03}"
+    - name: vs-color-background-disabled
+      value: "{!vs-grey-04}"
+    - name: vs-color-background-information
+      value: "{!vs-harr}"
+
+imports:
+  - ./color-core.yml
+global:
+    type: color
+    category: color-background
