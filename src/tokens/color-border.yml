@@ -1,0 +1,18 @@
+props:
+    - name: vs-color-border
+      value: "{!vs-grey-04}"
+    - name: vs-color-border-primary
+      value: "{!vs-saltire}"
+    - name: vs-color-border-input
+      value: "{!vs-grey-01}"
+    - name: vs-color-border-focus
+      value: "{!vs-saltire}"
+    - name: vs-color-border-tertiary
+      value: "{!vs-bramble}"
+    - name: vs-color-border-danger
+      value: "{!vs-cuillin}"
+imports:
+  - ./color-core.yml
+global:
+    type: color
+    category: color-border

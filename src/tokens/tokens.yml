@@ -20,6 +20,16 @@ imports:
   - ./grid-layout.yml
   - ./utility.yml
   - ./themes.yml
+
+  - ./color-background.yml
+  - ./color-border.yml
+  - ./color-core.yml
+  - ./color-icons.yml
+  - ./color-links.yml
+  - ./color-roles.yml
+  - ./color-text.yml
+  - ./elevation-shadow.yml
+  - ./elevation-surface.yml
 global:
   type: global
   category: all
