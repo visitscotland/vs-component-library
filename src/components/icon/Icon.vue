@@ -41,13 +41,13 @@ export default {
         },
         /**
          * The color of the icon.
-         * `primary|secondary|light|dark|color-white|secondary-teal`
+         * `default|primary|inverse|disabled|tertiary|danger`
          */
         variant: {
             type: String,
-            default: null,
+            default: 'default',
             validator: (value) => value.match(
-                /(primary|secondary|light|dark|color-white|secondary-teal)/,
+                /(default|primary|inverse|disabled|tertiary|danger)/,
             ),
         },
         /**
@@ -249,12 +249,12 @@ $sizes: (
 );
 
 $variants: (
-    primary: $color-theme-primary,
-    secondary: $color-theme-secondary,
-    light: $color-theme-light,
-    dark: $color-theme-dark,
-    color-white: $color-white,
-    secondary-teal: $color-secondary-teal-shade-3,
+    default: $vs-color-icon,
+    primary: $vs-color-icon-primary,
+    inverse: $vs-color-icon-inverse,
+    disabled: $vs-color-icon-disabled,
+    tertiary: $vs-color-icon-tertiary,
+    danger: $vs-color-icon-danger,
 );
 
 .vs-icon {
@@ -262,6 +262,7 @@ $variants: (
     overflow: visible;
     pointer-events: none;
     line-height: 1;
+    transition: all $duration_base ease-in-out;
 
     @each $size in map-keys($sizes) {
         $this-size: map-get($sizes, $size);

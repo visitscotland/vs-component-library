@@ -328,9 +328,9 @@ export default {
         &.btn-transparent {
             &:not(.vs-main-map-category__button) {
                 @include vs-button-variant(
-                    $color-gray-shade-7, transparent, transparent,
-                    $color-pink, transparent, transparent,
-                    $color-pink, transparent, transparent,
+                    $vs-color-text, transparent, transparent,
+                    $vs-color-text-primary, transparent, transparent,
+                    $vs-color-text-primary, transparent, transparent,
                 );
 
                 &:focus {

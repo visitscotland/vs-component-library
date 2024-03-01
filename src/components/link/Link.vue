@@ -134,40 +134,10 @@ export default {
 <style lang="scss">
 .vs-link {
     &.vs-link--variant-primary {
-        color: $color_pink;
+        color: $vs-color-link;
 
         &:focus {
             @extend %outline-link-focus;
-        }
-    }
-
-    &.vs-link--variant-on-dark {
-        color: $color_yellow;
-
-        .vs-icon {
-            color: $color_yellow;
-        }
-
-        &:focus {
-            @extend %outline-link-focus-dark;
-        }
-    }
-
-    .vs-link__icon {
-        vertical-align: baseline;
-    }
-}
-
-@include themed-text-editor("dark") {
-    .vs-link {
-        color: $color_yellow;
-
-        .vs-icon {
-            color: $color_yellow;
-        }
-
-        &:focus {
-            @extend %outline-link-focus-dark;
         }
     }
 

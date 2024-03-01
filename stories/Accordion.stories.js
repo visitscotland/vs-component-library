@@ -1,6 +1,7 @@
 import VsAccordion from '@/components/accordion/Accordion.vue';
 import VsAccordionItem from '@/components/accordion/components/AccordionItem.vue';
 import VsAccordionToggle from '@/components/accordion/components/AccordionToggle.vue';
+import VsIcon from '@/components/icon/Icon.vue';
 
 export default {
     component: VsAccordion,
@@ -29,6 +30,7 @@ const Template = (args) => ({
         VsAccordion,
         VsAccordionItem,
         VsAccordionToggle,
+        VsIcon,
     },
     setup() {
         return {
@@ -48,6 +50,12 @@ const Template = (args) => ({
                 :colour-badge="accordionItem.colourBadge"
             >
                 <template v-slot:title>
+                <VsIcon
+                    v-if="accordionItem.icon"
+                    :name="accordionItem.icon"
+                    size="sm"
+                    class="me-1"
+                />
                     {{ accordionItem.title }}
                 </template>
 
@@ -85,6 +93,27 @@ export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const WithIcon = Template.bind({
+});
+
+WithIcon.args = {
+    ...base,
+    accordionItems: [
+        {
+            ...base.accordionItems[0],
+            icon: 'walk',
+        },
+        {
+            ...base.accordionItems[1],
+            icon: 'car',
+        },
+        {
+            ...base.accordionItems[2],
+            icon: 'cycle',
+        },
+    ],
+};
 
 export const Responsive = Template.bind({
 });
