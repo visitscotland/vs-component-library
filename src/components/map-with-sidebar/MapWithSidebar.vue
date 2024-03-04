@@ -43,8 +43,8 @@
                                 <slot name="reset-side-panel-text" />
                             </template>
 
-                            <template v-slot:back-btn-text>
-                                <slot name="back-btn-text" />
+                            <template v-slot:menu-btn-text>
+                                <slot name="menu-btn-text" />
                             </template>
 
                             <template v-slot:panel-loading-message>

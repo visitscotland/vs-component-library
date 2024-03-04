@@ -11,7 +11,24 @@
             <div class="vs-map-with-sidebar-panel__buttons d-lg-none">
                 <div
                     class="vs-map-with-sidebar-panel__back"
-                    v-if="currentStage > 0 || selectedSubcategory"
+                    v-if="currentStage > 1 || selectedSubcategory"
+                >
+                    <VsButton
+                        class="vs-map-with-sidebar-panel_menu"
+                        icon="bars-mobile-menu"
+                        size="sm"
+                        @click="stageBack"
+                        data-test="vs-map-with-sidebar__map-toggle"
+                        variant="secondary"
+                    >
+                        <!-- @slot Text for panel menu button  -->
+                        <slot name="menu-btn-text" />
+                    </VsButton>
+                </div>
+
+                <div
+                    class="vs-map-with-sidebar-panel__back"
+                    v-if="currentStage === 1 || selectedSubcategory"
                 >
                     <VsButton
                         icon-only
@@ -28,7 +45,6 @@
                         </span>
                     </VsButton>
                 </div>
-
                 <div
                     class="vs-map-with-sidebar-panel__close"
                 >
