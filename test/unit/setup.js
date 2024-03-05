@@ -24,7 +24,7 @@ jest.mock('mapbox-gl/dist/mapbox-gl', () => ({
     NavigationControl: jest.fn(),
 }));
 
-jest.mock('youtube-vue3', () => ({
-    YoutubeVue3: jest.fn(() => ({
+jest.mock('vue-youtube-vue-3', () => ({
+    VueYoutube: jest.fn(() => ({
     })),
 }));

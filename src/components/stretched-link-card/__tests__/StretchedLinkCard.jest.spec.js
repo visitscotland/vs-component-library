@@ -62,32 +62,6 @@ describe('VsStretchedLinkCard', () => {
             await expect(wrapper.find('[data-test="vs-stretched-link__img"]').exists()).toBe(false);
         });
 
-        it('should construct the srcSet using a ? if the srcSet contains no query parameter', async() => {
-            const wrapper = shallowMount(VsStretchedLinkCard, {
-                propsData: {
-                    link: 'https://www.visitscotland.com/',
-                    type: 'external',
-                    imgSrc: 'https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander',
-                    imgAlt: 'Image alt',
-                },
-            });
-
-            await expect(wrapper.find('vs-img-stub').attributes('srcset')).toContain('?size=');
-        });
-
-        it('should construct the srcSet using an & if the srcSet contains a query parameter', async() => {
-            const wrapper = shallowMount(VsStretchedLinkCard, {
-                propsData: {
-                    link: 'https://www.visitscotland.com/',
-                    type: 'external',
-                    imgSrc: 'https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?preview-token=test',
-                    imgAlt: 'Image alt',
-                },
-            });
-
-            await expect(wrapper.find('vs-img-stub').attributes('srcset')).toContain('&size=');
-        });
-
         it('should render a video play button if a videoId is set', async() => {
             const wrapper = mount(VsStretchedLinkCard, {
                 propsData: {

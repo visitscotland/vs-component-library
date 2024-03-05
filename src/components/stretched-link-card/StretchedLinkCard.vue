@@ -44,8 +44,6 @@
                 <VsImg
                     :src="imgSrc"
                     :alt="imgAlt"
-                    :srcset="fullSrcSet"
-                    sizes="(min-width: 768px) 50vw, 100vw"
                     :low-res-image="specificImgSize('xxs')"
                     class="vs-stretched-link-card__img"
                     data-test="vs-stretched-link-card__img"
@@ -181,7 +179,6 @@ import jsIsDisabled from '@/utils/js-is-disabled';
 import useVideoStore from '@/stores/video.store';
 import { mapState } from 'pinia';
 import verifyCookiesMixin from '../../mixins/verifyCookiesMixin';
-import srcSetMixin from '../../mixins/srcSetMixin';
 import requiredCookiesData from '../../utils/required-cookies-data';
 
 const cookieValues = requiredCookiesData.youtube;
@@ -205,7 +202,6 @@ export default {
     },
     mixins: [
         verifyCookiesMixin,
-        srcSetMixin,
     ],
     inject: {
         noJsMessage: {
