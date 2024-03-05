@@ -62,9 +62,11 @@
                     >
                         <VsButton
                             class="vs-map-with-sidebar__map-toggle"
+                            icon="bars-mobile-menu"
                             size="sm"
                             @click="openPanel"
                             data-test="vs-map-with-sidebar__map-toggle"
+                            variant="secondary"
                         >
                             <!-- @slot Text for panel open button  -->
                             <slot name="open-side-panel-text" />

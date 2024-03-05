@@ -141,7 +141,7 @@ export default {
 .vs-itinerary-day{
     border-top: 5px solid $color-base-text;
 
-    @include media-breakpoint-down(xs) {
+    @include media-breakpoint-down(sm) {
         max-width: initial;
         width: calc(100% + #{$spacer-4});
         margin-left: -#{$spacer-2};
@@ -217,14 +217,14 @@ export default {
     }
 
     &__panel .list-inline-item:not(:last-child) {
-        @include media-breakpoint-down(xs) {
+        @include media-breakpoint-down(sm) {
             margin-right: $spacer-1;
         }
     }
 }
 
 @include no-js {
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down(xl) {
         .vs-itinerary-day__list-item {
             .vs-itinerary-day__header:first-child {
                 display: none !important;

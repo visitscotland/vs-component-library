@@ -1,13 +1,16 @@
 import {
     config, shallowMount, mount,
 } from '@vue/test-utils';
-
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsDescriptionList from '../DescriptionList.vue';
 
 config.global.renderStubDefaultSlot = true;
 
 const TestComponent = {
-    template: '<div>Test Component</div>',
+    template: `
+        <dt class="vs-description-list__term">Description list term</dt>
+        <dd class="vs-description-list__detail">Description list item</dd>
+    `,
 };
 
 const factoryShallowMount = (propsData) => shallowMount(VsDescriptionList, {
@@ -35,7 +38,7 @@ beforeEach(() => {
 
 describe('VsDescriptionList', () => {
     it('should render a vsrow-stub with a `description-list` class', () => {
-        expect(wrapper.element.tagName).toBe('VS-ROW-STUB');
+        expect(wrapper.element.tagName).toBe('DL');
         expect(wrapper.classes('vs-description-list')).toBe(true);
     });
 
@@ -66,7 +69,14 @@ describe('VsDescriptionList', () => {
         it('renders content inserted into default `slot`', () => {
             const modifiedWrapper = factoryMount();
 
-            expect(modifiedWrapper.text()).toContain('Test Component');
+            expect(modifiedWrapper.text()).toContain('Description list item');
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const modifiedWrapper = factoryMount();
+            expect(await axe(modifiedWrapper.html())).toHaveNoViolations();
         });
     });
 });

@@ -1,31 +1,33 @@
 import { shallowMount, mount } from '@vue/test-utils';
-
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsButton from '../Button.vue';
 
 const slotText = 'Button text';
-
-const factoryShallowMount = (propsData) => shallowMount(VsButton, {
-    slots: {
-        default: slotText,
-    },
-    propsData: {
-        ...propsData,
-    },
-    attrs: {
-        'test-attribute': 'test-value',
-    },
-});
-
-const factoryMount = (propsData) => mount(VsButton, {
-    slots: {
-        default: slotText,
-    },
-    propsData: {
-        ...propsData,
-    },
-});
-
 const testIcon = 'food';
+
+function mountOptions(propsData) {
+    return {
+        slots: {
+            default: slotText,
+        },
+        propsData: {
+            ...propsData,
+        },
+        attrs: {
+            'test-attribute': 'test-value',
+        },
+    };
+};
+
+const factoryShallowMount = (propsData) => shallowMount(
+    VsButton,
+    mountOptions(propsData),
+);
+
+const factoryMount = (propsData) => mount(
+    VsButton,
+    mountOptions(propsData),
+);
 
 describe('VsButton', () => {
     it('should render a bbutton-stub', () => {
@@ -206,6 +208,13 @@ describe('VsButton', () => {
             const wrapper = factoryMount();
 
             expect(wrapper.text()).toContain(slotText);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

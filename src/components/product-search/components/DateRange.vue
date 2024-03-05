@@ -18,6 +18,10 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
+    selectedProd: {
+        type: String,
+        required: true,
+    },
 });
 
 const emit = defineEmits(['dateUpdated'])
@@ -121,6 +125,22 @@ function dateUpdated() {
     checkMinDate();
 }
 
+const startDateName = computed(() => {
+    if (props.selectedProd === 'acco') {
+        return 'stay'
+    }
+
+    return 'isostartdate'
+});
+
+const endDateName = computed(() => {
+    if (props.selectedProd === 'acco') {
+        return 'endDate'
+    }
+
+    return 'isoenddate'
+});
+
 </script>
 
 <template>
@@ -133,7 +153,7 @@ function dateUpdated() {
                 <DateInput
                     :label="startLabel"
                     :value="defaultDates && startDate === '' && endDate ? defaultStartDate : startDate"
-                    name="isostartdate"
+                    :name="startDateName"
                     id="startDate"
                     @change-date="(selectedDate) => {
                         startDate = selectedDate;
@@ -147,7 +167,7 @@ function dateUpdated() {
                     :label="endLabel"
                     :value="defaultDates && endDate === '' && startDate ? defaultEndDate : endDate"
                     :min-date="minDate"
-                    name="isoenddate"
+                    :name="endDateName"
                     id="endDate"
                     @change-date="(selectedDate) => {
                         endDate = selectedDate;
@@ -166,8 +186,17 @@ function dateUpdated() {
                 >
                     {{ getLabelText('reset', 'Clear') }}
                 </button>
-                <input type="hidden" name="refine-date" value="on">
-                <input type="hidden" name="nights" :value="nights">
+                <input
+                    v-if="selectedProd !== 'acco'"
+                    type="hidden" 
+                    name="refine-date" 
+                    value="on"
+                >
+                <input 
+                    type="hidden" 
+                    name="nights" 
+                    :value="nights"
+                >
             </div>
         </div>
     </fieldset>

@@ -1,19 +1,34 @@
-import { config, shallowMount } from '@vue/test-utils';
+import {
+    shallowMount, mount, config,
+} from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsSvgLink from '../SvgLink.vue';
 
 config.global.renderStubDefaultSlot = true;
 
 jest.mock('@/utils/svg-context');
 
-const factoryShallowMount = (values) => shallowMount(VsSvgLink, {
-    propsData: {
-        linkAltText: 'VisitScotland Home',
-        href: 'https://www.visitscotland.com/',
-        svgFill: '700e57',
-        svgPath: 'visitscotland',
-        ...values,
-    },
-});
+function mountOptions(propsData) {
+    return {
+        props: {
+            linkAltText: 'VisitScotland Home',
+            href: 'https://www.visitscotland.com/',
+            svgFill: '700e57',
+            svgPath: 'visitscotland',
+            ...propsData,
+        },
+    };
+};
+
+const factoryShallowMount = (propsData) => shallowMount(
+    VsSvgLink,
+    mountOptions(propsData),
+);
+
+const factoryMount = (propsData) => mount(
+    VsSvgLink,
+    mountOptions(propsData),
+);
 
 describe('VsSvgLink', () => {
     it('should render a component with the data-test attribute `vs-svg-link`', () => {
@@ -48,6 +63,13 @@ describe('VsSvgLink', () => {
                 variant: 'on-dark',
             });
             expect(wrapper.find('[data-test="vs-svg-link"]').attributes().variant).toBe('on-dark');
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

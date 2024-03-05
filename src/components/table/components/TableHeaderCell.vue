@@ -29,7 +29,7 @@ export default {
          */
         stackedHeading: {
             type: String,
-            default: '',
+            default: undefined,
         },
     },
 };
@@ -39,7 +39,7 @@ export default {
 .vs-table{
     .table {
         th{
-            border-top:0;
+            border: 0;
         }
         thead th{
             border-bottom: 0;

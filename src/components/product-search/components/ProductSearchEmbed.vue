@@ -16,7 +16,7 @@
                         data-test="psw-form"
                         v-if="locationDataLoaded"
                     >   
-                        <div class="form-group">
+                        <div class="form-group mb-4">
                             <label for="prodtypes">
                                 {{ getLabelText('search_for', 'I\'m looking for') }}
                             </label>
@@ -71,11 +71,11 @@
 
                             <div v-if="selectedProd === 'even' || selectedProd === 'acco'">
                                 <DateRange
-                                    v-if="selectedProd === 'even' || selectedProd === 'acco'"
                                     :start-label="getLabelText('startdate', 'Start Date', 'dates')"
                                     :end-label="getLabelText('enddate', 'End Date', 'dates')"
                                     @date-updated="(datesExist) => dateUpdated(datesExist)"
                                     :default-dates="defaultDates"
+                                    :selected-prod="selectedProd"
                                 />
 
                                 <div 

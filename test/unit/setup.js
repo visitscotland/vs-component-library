@@ -1,6 +1,11 @@
 import { config } from '@vue/test-utils';
 import mitt from 'mitt';
+import { toHaveNoViolations } from 'jest-axe';
 
+// used for Axe accessibility testing
+expect.extend(toHaveNoViolations);
+
+// used for testing events
 const testEmitter = mitt();
 
 config.global.mocks = {
@@ -9,6 +14,7 @@ config.global.mocks = {
 
 window.URL.createObjectURL = function() {};
 
+// test mocks
 jest.mock('mapbox-gl/dist/mapbox-gl', () => ({
     GeolocateControl: jest.fn(),
     Map: jest.fn(() => ({

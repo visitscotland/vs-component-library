@@ -55,7 +55,7 @@
                 @click="onClose"
                 @keydown.tab="tabFromClose($event)"
             >
-                <span class="sr-only">
+                <span class="visually-hidden">
                     {{ closeAltText }}
                 </span>
             </VsButton>

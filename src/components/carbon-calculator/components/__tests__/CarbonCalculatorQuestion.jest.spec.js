@@ -1,5 +1,5 @@
 import { config, mount } from '@vue/test-utils';
-
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsCarbonCalculatorQuestion from '../CarbonCalculatorQuestion.vue';
 
 jest.mock('@/utils/svg-context');
@@ -52,6 +52,13 @@ describe('VsCarbonCalculatorQuestion', () => {
             wrapper.vm.valueChanged();
 
             expect(wrapper.emitted().updateFieldData).toBeTruthy();
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

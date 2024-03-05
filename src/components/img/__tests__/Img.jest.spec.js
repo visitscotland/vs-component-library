@@ -1,5 +1,5 @@
 import { shallowMount, mount } from '@vue/test-utils';
-
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsImg from '../Img.vue';
 
 const slotText = 'Image text';
@@ -101,6 +101,13 @@ describe('VsImg', () => {
             });
 
             await expect(wrapper.find('vs-img-stub').attributes('srcset')).toContain('&size=');
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

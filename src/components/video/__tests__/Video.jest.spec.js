@@ -1,6 +1,7 @@
 import {
     shallowMount, mount, config,
 } from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import { setActivePinia, createPinia } from 'pinia';
 import VsVideo from '../Video.vue';
 
@@ -16,33 +17,31 @@ const noCookiesContent = 'Cookies are off';
 const errorContent = 'Error content';
 const cookieBtnText = 'Cookie link text';
 
-const factoryShallowMount = () => shallowMount(VsVideo, {
-    propsData: {
-        videoId,
-        singleMinuteDescriptor,
-        pluralMinuteDescriptor,
-        language,
-        cookieBtnText,
-        noCookiesMessage: noCookiesContent,
-        errorMessage: errorContent,
-        noJsMessage: noJsContent,
-        player: null,
-    },
-});
+function mountOptions() {
+    return {
+        propsData: {
+            videoId,
+            singleMinuteDescriptor,
+            pluralMinuteDescriptor,
+            language,
+            cookieBtnText,
+            noCookiesMessage: noCookiesContent,
+            errorMessage: errorContent,
+            noJsMessage: noJsContent,
+            player: null,
+        },
+    };
+};
 
-const factoryMount = () => mount(VsVideo, {
-    propsData: {
-        videoId,
-        singleMinuteDescriptor,
-        pluralMinuteDescriptor,
-        language,
-        cookieBtnText,
-        noCookiesMessage: noCookiesContent,
-        errorMessage: errorContent,
-        noJsMessage: noJsContent,
-        player: null,
-    },
-});
+const factoryShallowMount = () => shallowMount(
+    VsVideo,
+    mountOptions(),
+);
+
+const factoryMount = () => mount(
+    VsVideo,
+    mountOptions(),
+);
 
 describe('VsVideo', () => {
     beforeEach(() => {
@@ -53,6 +52,13 @@ describe('VsVideo', () => {
         const wrapper = factoryShallowMount();
 
         expect(wrapper.find('div[data-test=vs-video]').exists()).toBe(true);
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
+        });
     });
 
     describe(':props', () => {

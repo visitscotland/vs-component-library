@@ -313,7 +313,7 @@ export default {
                     z-index: 2;
                 }
 
-                @include media-breakpoint-down(xs) {
+                @include media-breakpoint-down(sm) {
                     &--large,
                     &--fullwidth {
                         position: absolute;
@@ -504,7 +504,7 @@ export default {
                     }
 
                     .vs-toggle-btn {
-                        @include media-breakpoint-between(sm, md) {
+                        @include media-breakpoint-between(sm, lg) {
                             display: block;
                         }
                     }
@@ -529,7 +529,7 @@ export default {
                         position: relative;
                         top: 0;
 
-                        @include media-breakpoint-down(xs) {
+                        @include media-breakpoint-down(sm) {
                             text-align: left;
                             display: block;
 
@@ -560,7 +560,7 @@ export default {
                             }
                         }
 
-                        @include media-breakpoint-between(sm, md) {
+                        @include media-breakpoint-between(sm, lg) {
                             width: 100%;
                             height: auto;
                             text-align: left;

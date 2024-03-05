@@ -122,7 +122,7 @@ export default {
     }
 
     &__image-offset {
-        @include media-breakpoint-down(xs) {
+        @include media-breakpoint-down(sm) {
             padding: 0;
 
             figure {

@@ -11,6 +11,10 @@
 @import "./resources.scss";
 @import "bootstrap/scss/reboot";
 @import "bootstrap/scss/utilities";
+@import "bootstrap/scss/utilities/api";
+@import "bootstrap/scss/helpers";
+@import "bootstrap/scss/root";
+
 @import "./sr-only-resets";
 @import "./fa-styles.scss";
 @import "./global-styles.scss";
@@ -24,8 +28,9 @@
 @import "bootstrap/scss/dropdown";
 @import "bootstrap/scss/forms";
 @import "bootstrap/scss/grid";
+@import "bootstrap/scss/containers"; 
 @import "bootstrap/scss/images";
-@import "bootstrap/scss/input-group";
+@import "bootstrap/scss/forms/input-group";
 @import "bootstrap/scss/list-group";
 @import "bootstrap/scss/nav";
 @import "bootstrap/scss/type";

@@ -141,7 +141,7 @@ export default {
     background-color: $color-white;
 
     .vs-itinerary__outer-container {
-        @include media-breakpoint-down(sm) {
+        @include media-breakpoint-down(md) {
             max-width: 100%;
         }
 
@@ -160,7 +160,7 @@ export default {
         width: 100vw;
         z-index: 1020;
 
-        @include media-breakpoint-down(lg) {
+        @include media-breakpoint-down(xl) {
             bottom: 0;
             left: 0;
             right: 0;

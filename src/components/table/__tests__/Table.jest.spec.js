@@ -1,20 +1,49 @@
-import { config, shallowMount } from '@vue/test-utils';
-
+import {
+    shallowMount, mount, config,
+} from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsTable from '../Table.vue';
 
 config.global.renderStubDefaultSlot = true;
 
-const slotContent = 'A table goes here';
+const slotContent = `
+    <thead>
+        <tr>
+            <th>Company</th>
+            <th>Contact</th>
+            <th>Country</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Centro comercial Moctezuma</td>
+            <td>Francisco Chang</td>
+            <td>Mexico</td>
+        </tr>
+    </tbody>
+`;
 
-const factoryShallowMount = (propsData) => shallowMount(VsTable, {
-    propsData: {
-        ...propsData,
-        tableCaption: 'A table with information',
-    },
-    slots: {
-        default: slotContent,
-    },
-});
+function mountOptions(propsData) {
+    return {
+        propsData: {
+            ...propsData,
+            tableCaption: 'A table with information',
+        },
+        slots: {
+            default: slotContent,
+        },
+    };
+};
+
+const factoryShallowMount = (propsData) => shallowMount(
+    VsTable,
+    mountOptions(propsData),
+);
+
+const factoryMount = (propsData) => mount(
+    VsTable,
+    mountOptions(propsData),
+);
 
 describe('VsTable', () => {
     it('should render a btablesimple-stub', () => {
@@ -44,9 +73,16 @@ describe('VsTable', () => {
     });
 
     describe(':slots', () => {
-        const wrapper = factoryShallowMount();
         it('renders content inserted into the default `slot`', () => {
-            expect(wrapper.text()).toContain(slotContent);
+            const wrapper = factoryShallowMount();
+            expect(wrapper.find('thead').exists()).toBe(true);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

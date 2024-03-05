@@ -1,30 +1,32 @@
 import { shallowMount, mount } from '@vue/test-utils';
-
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsFooterNavListItem from '../FooterNavListItem.vue';
 
 const slotContent = 'Some slot content';
 
-const factoryShallowMount = (propsData) => shallowMount(VsFooterNavListItem, {
-    propsData: {
-        ...propsData,
-        type: 'external',
-    },
-    slots: {
-        default: slotContent,
-    },
-});
+function mountOptions(propsData) {
+    return {
+        propsData: {
+            ...propsData,
+            href: 'https://google.com',
+            type: 'external',
+            linkText: 'This is a link',
+        },
+        slots: {
+            default: slotContent,
+        },
+    };
+};
 
-const factoryMount = (propsData) => mount(VsFooterNavListItem, {
-    propsData: {
-        ...propsData,
-        href: 'https://google.com',
-        type: 'external',
-        linkText: 'This is a link',
-    },
-    slots: {
-        default: slotContent,
-    },
-});
+const factoryShallowMount = (propsData) => shallowMount(
+    VsFooterNavListItem,
+    mountOptions(propsData),
+);
+
+const factoryMount = (propsData) => mount(
+    VsFooterNavListItem,
+    mountOptions(propsData),
+);
 
 describe('VsFooterNavListItem', () => {
     it('should render a component with the data-test attribute `vs-footer-nav-list-item`', () => {
@@ -52,6 +54,24 @@ describe('VsFooterNavListItem', () => {
             const vsLink = wrapper.find('[data-test="vs-footer-nav-list-item__link"');
 
             expect(vsLink.attributes().type).toBe('external');
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryMount();
+            const html = wrapper.html();
+
+            const results = await axe(html, {
+                rules: {
+                    // must have a parent with an aria-role="menu"
+                    'aria-required-parent': {
+                        enabled: false,
+                    },
+                },
+            });
+
+            expect(results).toHaveNoViolations();
         });
     });
 });

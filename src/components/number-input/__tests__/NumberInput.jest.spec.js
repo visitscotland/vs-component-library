@@ -1,14 +1,29 @@
-import { shallowMount, config } from '@vue/test-utils';
+import {
+    config, shallowMount, mount,
+} from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsNumberInput from '../NumberInput.vue';
 
 config.global.renderStubDefaultSlot = true;
 
-const factoryShallowMount = (propsData) => shallowMount(VsNumberInput, {
-    propsData: {
-        fieldName: 'testname',
-        ...propsData,
-    },
-});
+function mountOptions(propsData) {
+    return {
+        propsData: {
+            fieldName: 'testname',
+            ...propsData,
+        },
+    };
+};
+
+const factoryShallowMount = (propsData) => shallowMount(
+    VsNumberInput,
+    mountOptions(propsData),
+);
+
+const factoryMount = (propsData) => mount(
+    VsNumberInput,
+    mountOptions(propsData),
+);
 
 let wrapper;
 beforeEach(() => {
@@ -20,9 +35,26 @@ describe('VsInput', () => {
         expect(wrapper.attributes('data-test')).toBe('vs-number-input');
     });
 
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const modifiedWrapper = factoryMount();
+            const html = modifiedWrapper.html();
+            const results = await axe(html, {
+                rules: {
+                    // all inputs must have a label
+                    label: {
+                        enabled: false,
+                    },
+                },
+            });
+
+            expect(results).toHaveNoViolations();
+        });
+    });
+
     describe(':props', () => {
         it('value - should accept and render a `value` property', async() => {
-            const testValue = 'Test Value';
+            const testValue = 0;
             wrapper.setProps({
                 value: testValue,
             });

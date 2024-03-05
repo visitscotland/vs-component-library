@@ -11,7 +11,7 @@
                 xl="4"
                 data-test="vs-article-section__sidebar"
                 class="col-xxl-4"
-                :class="sidebarAlign === 'right' ? 'pr-md-0' : 'pl-md-0'"
+                :class="sidebarAlign === 'right' ? 'pe-md-0' : 'ps-md-0'"
                 :offset-xl="sidebarAlign === 'right' ? '1' : null"
                 :order-md="sidebarAlign === 'right' ? '2' : null"
             >

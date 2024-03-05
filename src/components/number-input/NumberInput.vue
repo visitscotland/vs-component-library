@@ -22,7 +22,7 @@
                 :key="error"
                 class="error mb-0"
             >
-                <span class="sr-only">{{ fieldName }}</span>
+                <span class="visually-hidden">{{ fieldName }}</span>
                 {{ validationMessages[error] || genericValidation[error] }}
             </p>
         </div>
@@ -34,7 +34,11 @@
             icon="minus"
             :disabled="(inputVal <= minimumNumber) ? true : null"
             @click="decrementValue"
-        />
+        >
+            <span class="visually-hidden">
+                Add 1
+            </span>
+        </VsButton>
 
         <BFormInput
             ref="input"
@@ -64,7 +68,11 @@
             icon="plus"
             :disabled="(inputVal >= maximumNumber) ? true : null"
             @click="incrementValue"
-        />
+        >
+            <span class="visually-hidden">
+                Remove 1
+            </span>
+        </VsButton>
 
         <VsButton
             v-if="showClearButton"
@@ -76,7 +84,7 @@
             icon-only
             @click.prevent="clearInputAndFocus()"
         >
-            <span class="sr-only">
+            <span class="visually-hidden">
                 {{ clearButtonText }}
             </span>
         </VsButton>

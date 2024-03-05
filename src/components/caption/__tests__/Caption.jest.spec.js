@@ -1,4 +1,7 @@
-import { config, shallowMount } from '@vue/test-utils';
+import {
+    config, mount, shallowMount,
+} from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsCaption from '../Caption.vue';
 
 config.global.renderStubDefaultSlot = true;
@@ -6,15 +9,27 @@ config.global.renderStubDefaultSlot = true;
 const captionSlot = 'A Scottish Castle';
 const creditSlot = 'VisitScotland';
 
-const factoryShallowMount = (propsData) => shallowMount(VsCaption, {
-    propsData: {
-        ...propsData,
-    },
-    slots: {
-        caption: captionSlot,
-        credit: creditSlot,
-    },
-});
+function mountOptions(propsData) {
+    return {
+        propsData: {
+            ...propsData,
+        },
+        slots: {
+            caption: captionSlot,
+            credit: creditSlot,
+        },
+    };
+};
+
+const factoryShallowMount = (propsData) => shallowMount(
+    VsCaption,
+    mountOptions(propsData),
+);
+
+const factoryMount = (propsData) => mount(
+    VsCaption,
+    mountOptions(propsData),
+);
 
 describe('VsCaption', () => {
     it('should render a caption element', () => {
@@ -92,6 +107,13 @@ describe('VsCaption', () => {
             const captionInfo = wrapper.find('[data-test="vs-caption"]').find('.vs-caption__caption-info');
 
             expect(captionInfo.text()).toContain(creditSlot);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

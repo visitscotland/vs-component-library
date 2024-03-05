@@ -68,7 +68,7 @@ export default {
     background: $color-theme-dark;
 
     .vs-footer__social-menu-wrapper {
-        @include media-breakpoint-down(sm) {
+        @include media-breakpoint-down(md) {
             .container {
                 max-width: 100%;
                 padding: 0;

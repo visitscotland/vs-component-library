@@ -1,8 +1,16 @@
-import { shallowMount } from '@vue/test-utils';
-
+import { mount, shallowMount } from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsIconListItem from '../IconListItem.vue';
 
 const factoryShallowMount = (propsData) => shallowMount(VsIconListItem, {
+    propsData: {
+        ...propsData,
+        icon: 'facility-wifi',
+        label: 'wifi',
+    },
+});
+
+const factoryMount = (propsData) => mount(VsIconListItem, {
     propsData: {
         ...propsData,
         icon: 'facility-wifi',
@@ -33,6 +41,24 @@ describe('VsIconListItem', () => {
         it('should accept an `icon` property and pass it to the icon', async() => {
             const vsLink = wrapper.find('vs-icon-stub');
             expect(vsLink.attributes('name')).toBe('facility-wifi');
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const modifiedWrapper = factoryMount();
+            const html = modifiedWrapper.html();
+
+            const results = await axe(html, {
+                rules: {
+                    // must have a parent with ul/ol element
+                    listitem: {
+                        enabled: false,
+                    },
+                },
+            });
+
+            expect(results).toHaveNoViolations();
         });
     });
 });

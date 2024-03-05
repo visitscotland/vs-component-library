@@ -1,5 +1,4 @@
 import { shallowMount, mount } from '@vue/test-utils';
-
 import VsAccordionToggle from '../AccordionToggle.vue';
 
 const iconOpenSlot = 'Icon Open';

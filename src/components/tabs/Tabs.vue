@@ -43,6 +43,12 @@ export default {
             padding: $spacer-3;
             font-size: $font-size-6;
 
+            &.disabled {
+                color: $nav-link-disabled-color;
+                background-color: transparent;
+                border-color: transparent;
+            }
+
             @include media-breakpoint-up(sm) {
                 padding: $spacer-5;
                 font-size: $font-size-7;

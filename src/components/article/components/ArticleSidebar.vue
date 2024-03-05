@@ -88,13 +88,13 @@ export default {
         padding: $spacer-0;
     }
 
-    .vs-image-with-caption__image-wrapper {
-        .vs-toggle-btn {
-            @include media-breakpoint-between(sm, md) {
-                display: block;
-            }
-        }
-    }
+    // .vs-article-sidebar__img-wrapper {
+    //     .vs-toggle-btn {
+    //         @include media-breakpoint-between(md, lg) {
+    //             display: block;
+    //         }
+    //     }
+    // }
 
     .vs-caption .col {
         padding: $spacer-0;

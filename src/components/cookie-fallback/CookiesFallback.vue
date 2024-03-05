@@ -1,5 +1,8 @@
 <template>
-    <div class="cookies-fallback">
+    <div
+        class="vs-cookies-fallback"
+        data-test="vs-cookies-fallback"
+    >
         <img
             class="warning-icon"
             style="margin: 0 auto; height: 60px; margin-bottom: 2rem"
@@ -42,7 +45,7 @@ export default {
 };
 </script>
 <style lang="scss">
-.cookies-fallback {
+.vs-cookies-fallback {
     background-color: #e2e2e2;
     padding-top: 20px;
     margin-top: 30px;
@@ -59,7 +62,7 @@ export default {
 }
 
 @media (max-width: 575px) {
-    .cookies-fallback {
+    .vs-cookies-fallback {
         width: 100%;
         padding: 15px;
 

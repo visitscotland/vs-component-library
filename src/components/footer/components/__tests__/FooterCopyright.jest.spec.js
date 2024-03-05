@@ -1,7 +1,7 @@
 import {
     config, shallowMount, mount,
 } from '@vue/test-utils';
-
+import axe from '@/../test/unit/helpers/axe-helper';
 import VsFooterCopyright from '../FooterCopyright.vue';
 
 config.global.renderStubDefaultSlot = true;
@@ -10,27 +10,28 @@ jest.mock('@/utils/svg-context');
 
 const slotContent = 'Some copyright info';
 
-const factoryShallowMount = (propsData) => shallowMount(VsFooterCopyright, {
-    propsData: {
-        ...propsData,
-        href: 'https://google.com',
-        linkAltText: 'A link to google',
-    },
-    slots: {
-        copyright: slotContent,
-    },
-});
+function mountOptions(propsData) {
+    return {
+        propsData: {
+            ...propsData,
+            href: 'https://google.com',
+            linkAltText: 'A link to google',
+        },
+        slots: {
+            copyright: slotContent,
+        },
+    };
+};
 
-const factoryMount = (propsData) => mount(VsFooterCopyright, {
-    propsData: {
-        ...propsData,
-        href: 'https://google.com',
-        linkAltText: 'A link to google',
-    },
-    slots: {
-        copyright: slotContent,
-    },
-});
+const factoryShallowMount = (propsData) => shallowMount(
+    VsFooterCopyright,
+    mountOptions(propsData),
+);
+
+const factoryMount = (propsData) => mount(
+    VsFooterCopyright,
+    mountOptions(propsData),
+);
 
 describe('VsFooterCopyright', () => {
     it('should render a component with the data-test attribute `vs-footer-copyright`', () => {
@@ -60,6 +61,13 @@ describe('VsFooterCopyright', () => {
             const wrapper = factoryShallowMount();
 
             expect(wrapper.text()).toContain(slotContent);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

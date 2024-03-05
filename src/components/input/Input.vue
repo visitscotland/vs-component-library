@@ -22,7 +22,7 @@
                 :key="error"
                 class="error mb-0"
             >
-                <span class="sr-only">{{ fieldName }}</span>
+                <span class="visually-hidden">{{ fieldName }}</span>
                 {{ validationMessages[error] || genericValidation[error] }}
             </p>
         </div>
@@ -57,7 +57,7 @@
             icon-only
             @click.prevent="clearInputAndFocus()"
         >
-            <span class="sr-only">
+            <span class="visually-hidden">
                 {{ clearButtonText }}
             </span>
         </VsButton>
@@ -109,7 +109,7 @@ export default {
          */
         name: {
             type: String,
-            required: true,
+            default: '',
         },
         /**
          * Type of input

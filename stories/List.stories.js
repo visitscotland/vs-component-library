@@ -82,10 +82,10 @@ export const Inline = Template.bind({
 
 Inline.args = {
     ...base,
-    default: `<li class="mr-7">Car</li>
-    <li class="mr-7">Ferry</li>
-    <li class="mr-7">Bike</li>
-    <li class="mr-7">Plane</li>
-    <li class="mr-7">Walk</li>`,
+    default: `<li class="me-7">Car</li>
+    <li class="me-7">Ferry</li>
+    <li class="me-7">Bike</li>
+    <li class="me-7">Plane</li>
+    <li class="me-7">Walk</li>`,
     inline: true,
 };

@@ -9,7 +9,7 @@
         @click="toggleAction"
     >
         <!-- @slot Default slot for screenreader text -->
-        <span class="sr-only">
+        <span class="visually-hidden">
             <slot />
         </span>
 
