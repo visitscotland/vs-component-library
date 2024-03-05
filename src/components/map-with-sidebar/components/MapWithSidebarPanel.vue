@@ -459,6 +459,9 @@ export default {
          */
         closePanel() {
             this.$emit('close-panel');
+            if (this.currentStage === 2) {
+                this.$emit('set-subcategory', null);
+            }
         },
         /**
          * Moves back stages dependent on current state

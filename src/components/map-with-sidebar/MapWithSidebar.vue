@@ -64,7 +64,7 @@
                             class="vs-map-with-sidebar__map-toggle"
                             icon="bars-mobile-menu"
                             size="sm"
-                            @click="openPanel"
+                            @click="openMenu"
                             data-test="vs-map-with-sidebar__map-toggle"
                             variant="secondary"
                         >
@@ -397,6 +397,10 @@ export default {
         }
     },
     methods: {
+        openMenu() {
+            this.setStage(0);
+            this.openPanel();
+        },
         /**
          * Close the side panel
          */
