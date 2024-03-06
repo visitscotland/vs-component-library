@@ -1,5 +1,6 @@
 import { config } from '@vue/test-utils';
 import mitt from 'mitt';
+import { createTestingPinia } from '@pinia/testing';
 import { toHaveNoViolations } from 'jest-axe';
 
 // used for Axe accessibility testing
@@ -11,6 +12,10 @@ const testEmitter = mitt();
 config.global.mocks = {
     emitter: testEmitter,
 };
+
+config.global.plugins = [
+    createTestingPinia(),
+];
 
 window.URL.createObjectURL = function() {};
 
