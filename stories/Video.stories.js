@@ -28,9 +28,24 @@ const base = {
     cookieBtnText: 'Manage cookies',
 };
 
-export const Default = Template.bind({
-});
-
+export const Default = Template.bind();
 Default.args = {
     ...base,
 };
+
+export const NoCookies = Template.bind();
+NoCookies.args = {
+    ...base,
+};
+
+NoCookies.decorators = [
+    () => {
+        window.bypassCookieChecks = false;
+
+        return {
+            template: `
+                <story/>
+            `,
+        };
+    },
+];
