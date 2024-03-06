@@ -44,7 +44,6 @@
                 <VsImg
                     :src="imgSrc"
                     :alt="imgAlt"
-                    :low-res-image="specificImgSize('xxs')"
                     class="vs-stretched-link-card__img"
                     data-test="vs-stretched-link-card__img"
                 />

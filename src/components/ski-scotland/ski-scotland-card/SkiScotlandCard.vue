@@ -12,7 +12,6 @@
                 <VsImg
                     :src="imgSrc"
                     :alt="imgAlt"
-                    :low-res-image="specificImgSize('xxs')"
                     class="vs-ski-scotland-card__img"
                     data-test="vs-ski-scotland-card__img"
                 />

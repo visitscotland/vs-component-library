@@ -22,7 +22,6 @@
                             :src="imgSrc"
                             alt=""
                             sizes="(min-width: 768px) 50vw, 100vw"
-                            :low-res-image="specificImgSize('xxs')"
                             :use-generic-lqip="useGenericLqip"
                             class="vs-product-card__img"
                             data-test="vs-product-card__img"

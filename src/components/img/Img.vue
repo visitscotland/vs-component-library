@@ -10,6 +10,7 @@
         class="low-res-img"
         :class="useGenericLqip ? 'generic-lqip' : ''"
         :srcset="$attrs.srcset ? $attrs.srcset : fullSrcSet"
+        :low-res-image="specificImgSize('xxs')"
         sizes="(min-width: 768px) 50vw, 100vw"
     >
         <VsIcon name="user" size="lg" />
