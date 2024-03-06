@@ -7,6 +7,8 @@ import VsMegalinkMultiImage from '../MegalinkMultiImage.vue';
 
 config.global.renderStubDefaultSlot = true;
 
+jest.mock('@/stores/video.store.ts');
+
 const videoId = '12345';
 const videoBtnText = 'Play Video';
 

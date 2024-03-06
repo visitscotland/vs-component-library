@@ -70,7 +70,7 @@ describe('VsStretchedLinkCard', () => {
             const wrapper = factoryMount();
 
             wrapper.setProps({
-                videoId: '12345',
+                videoId: '123456',
             });
 
             wrapper.setData({
@@ -87,7 +87,7 @@ describe('VsStretchedLinkCard', () => {
             const wrapper = factoryMount();
 
             wrapper.setProps({
-                videoId: '12345',
+                videoId: '123456',
                 videoBtnText,
             });
 
@@ -104,7 +104,7 @@ describe('VsStretchedLinkCard', () => {
             const wrapper = factoryShallowMount();
 
             wrapper.setProps({
-                videoId: '12345',
+                videoId: '123456',
                 videoBtnText: 'Play',
                 errorType: 'full',
             });
@@ -116,7 +116,7 @@ describe('VsStretchedLinkCard', () => {
             const wrapper = factoryShallowMount();
 
             wrapper.setProps({
-                videoId: '12345',
+                videoId: '123456',
                 errorMessage: 'Error',
                 errorType: 'image',
             });

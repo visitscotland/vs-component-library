@@ -20,7 +20,6 @@
 
 <script>
 import VsLink from '@/components/link/Link.vue';
-import { mapState } from 'pinia';
 import useVideoStore from '@/stores/video.store';
 
 /**
@@ -77,6 +76,12 @@ export default {
             default: null,
         },
     },
+    setup() {
+        const videoStore = useVideoStore();
+        return {
+            videoStore,
+        };
+    },
     computed: {
         formattedVideoDuration() {
             if (this.videoDetails) {
@@ -91,11 +96,9 @@ export default {
 
             return '';
         },
-        ...mapState(useVideoStore, {
-            videoDetails(store) {
-                return store.getVideo(this.videoId);
-            },
-        }),
+        videoDetails() {
+            return this.videoStore.videos[this.videoId];
+        },
         videoLoaded() {
             if (typeof this.videoDetails !== 'undefined' && this.videoDetails.videoDuration > 0) {
                 return true;

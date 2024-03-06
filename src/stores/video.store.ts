@@ -12,13 +12,18 @@ type Video = {
     videoDuration: number,
     videoFullDuration: FullDuration,
 }
+
+type VideoSet = {
+    [key: string]: Video,
+}
 interface IVideosState {
-    videos: Video[],
+    videos: VideoSet,
 }
 
 const useVideoStore = defineStore('video', {
     state: (): IVideosState => ({
-        videos: [],
+        videos: {
+        },
     }),
     actions: {
         addVideo(newVideo: Video) {
@@ -26,9 +31,6 @@ const useVideoStore = defineStore('video', {
                 ...this.videos,
                 newVideo,
             ];
-        },
-        getVideo(id: string) {
-            return this.videos.find((video) => video.videoId === id);
         },
     },
 });

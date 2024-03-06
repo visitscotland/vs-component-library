@@ -183,13 +183,8 @@ export default {
         };
     },
     computed: {
-        // ...mapState(useVideoStore, {
-        //     videoDetails(store) {
-        //         return store.getVideo(this.videoId);
-        //     },
-        // }),
         videoDetails() {
-            return this.videoStore.getVideo(this.videoId);
+            return this.videoStore.videos[this.videoId];
         },
         videoLoaded() {
             if (typeof this.videoDetails !== 'undefined' && this.videoDetails.videoDuration > 0) {
