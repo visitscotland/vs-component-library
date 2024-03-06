@@ -18,7 +18,7 @@
                         icon="bars-mobile-menu"
                         size="sm"
                         @click="stageBack"
-                        data-test="vs-map-with-sidebar__map-toggle"
+                        data-test="vs-map-with-sidebar__menu-toggle"
                         variant="secondary"
                     >
                         <!-- @slot Text for panel menu button  -->
@@ -424,7 +424,7 @@ export default {
             }
 
             return data.filter((obj) => {
-                if (typeof obj.properties !== 'undefined') {
+                if (typeof obj.properties !== 'undefined' && this.selectedItem) {
                     return obj.properties.id === this.selectedItem.properties.id;
                 }
 
