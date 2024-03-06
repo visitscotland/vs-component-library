@@ -408,7 +408,7 @@ export default {
             }
 
             return data.filter((obj) => {
-                if (typeof obj.properties !== 'undefined') {
+                if (typeof obj.properties !== 'undefined' && this.selectedItem) {
                     return obj.properties.id === this.selectedItem.properties.id;
                 }
 

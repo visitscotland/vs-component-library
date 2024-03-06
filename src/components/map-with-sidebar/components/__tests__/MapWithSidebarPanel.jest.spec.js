@@ -88,6 +88,17 @@ describe('VsMapWithSidebarPanel', () => {
             expect(wrapper.emitted('close-panel')).toBeTruthy();
         });
 
+        it('should emit `set-subcategory` when the close button is clicked and the currentStage is 2', async() => {
+            const wrapper = factoryShallowMount({
+                currentStage: 2,
+            });
+            const closeBtn = wrapper.find('[data-test="vs-map-with-sidebar-panel--btn-close"]');
+
+            await closeBtn.trigger('click');
+
+            expect(wrapper.emitted('set-subcategory')).toBeTruthy();
+        });
+
         it('should emit `set-stage` with a value of currentStage - 1 when the back button is clicked', async() => {
             const wrapper = factoryShallowMount({
                 currentStage: 1,
