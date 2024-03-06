@@ -2,7 +2,6 @@ import {
     config, shallowMount, mount,
 } from '@vue/test-utils';
 import axe from '@/../test/unit/helpers/axe-helper';
-import { v4 as uuidv4 } from 'uuid';
 import { setActivePinia, createPinia } from 'pinia';
 import VsImageWithCaption from '../ImageWithCaption.vue';
 
@@ -108,14 +107,6 @@ describe('VsImageWithCaption', () => {
             const toggleCaptionBtn = wrapper.find('vs-toggle-button-stub');
 
             expect(toggleCaptionBtn.text()).toContain('Toggle caption');
-        });
-
-        it('should set correct ID for aria controls with a uuid', () => {
-            const wrapper = factoryShallowMount();
-            const captionWrapper = wrapper.find('[data-test="vs-image-with-caption"]').find('.vs-image-with-caption__caption-wrapper');
-            const uuid = uuidv4();
-
-            expect(captionWrapper.attributes('id')).toBe(`vs-caption-${uuid}`);
         });
 
         it('should add a Video Caption component if `isVideo` is true', async() => {

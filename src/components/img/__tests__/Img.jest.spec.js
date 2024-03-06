@@ -90,7 +90,7 @@ describe('VsImg', () => {
                 },
             });
 
-            await expect(wrapper.find('vs-img-stub').attributes('srcset')).toContain('?size=');
+            await expect(wrapper.attributes('srcset')).toContain('?size=');
         });
 
         it('should construct the srcSet using an & if the src contains a query parameter', async() => {
@@ -100,7 +100,7 @@ describe('VsImg', () => {
                 },
             });
 
-            await expect(wrapper.find('vs-img-stub').attributes('srcset')).toContain('&size=');
+            await expect(wrapper.attributes('srcset')).toContain('&size=');
         });
     });
 

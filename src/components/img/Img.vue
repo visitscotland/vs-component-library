@@ -39,9 +39,9 @@ export default {
         BImg,
         VsIcon,
     },
-    mixins: {
+    mixins: [
         srcSetMixin,
-    },
+    ],
     props: {
         /**
          * The source URL
