@@ -14,7 +14,7 @@ const videoTitleSlot = 'Video title';
 const videoDurationSlot = 'Video duration';
 const captionSlot = 'Image caption';
 const imageSrcValue = 'visitscotland';
-const youtubeId = 'abc213';
+const youtubeId = '123456';
 
 jest.mock('@/utils/svg-context');
 jest.mock('@/stores/video.store.ts');

@@ -34,7 +34,7 @@ describe('VsLinkListItem', () => {
 
             const wrapper = shallowMount(VsLinkListItem, {
                 propsData: {
-                    videoId: 'g-Fhvj7vW-E',
+                    videoId: '123456',
                     videoDescriptor,
                     type: 'video',
                     href: '#',
@@ -49,7 +49,7 @@ describe('VsLinkListItem', () => {
 
             const wrapper = shallowMount(VsLinkListItem, {
                 propsData: {
-                    videoId: 'g-Fhvj7vW-E',
+                    videoId: '123456',
                     videoDescriptor,
                     type: 'video',
                     href: '#',
