@@ -267,10 +267,12 @@ export default {
             }
         },
         highlightedPlace(feature) {
-            if (feature.length === 0) {
-                this.removeHoveredPolygon();
-            } else if (feature.geometry.type !== 'Point') {
-                this.addHoveredPolygon(feature);
+            if (feature) {
+                if (feature.length === 0) {
+                    this.removeHoveredPolygon();
+                } else if (feature.geometry.type !== 'Point') {
+                    this.addHoveredPolygon(feature);
+                }
             }
         },
         selectedItem(newVal) {

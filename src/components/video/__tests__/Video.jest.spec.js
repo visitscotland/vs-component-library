@@ -71,7 +71,7 @@ describe('VsVideo', () => {
 
             await wrapper.vm.$nextTick();
 
-            expect(wrapper.find('youtube-vue3-stub').attributes('videoid')).toBe(videoId);
+            expect(wrapper.find('vue-youtube-stub').attributes('video-id')).toBe(videoId);
         });
 
         it('should pass a language prop to `playerVars` data object', () => {

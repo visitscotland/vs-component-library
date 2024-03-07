@@ -203,7 +203,11 @@ export default {
             return text;
         },
         player() {
-            return this.$refs.youtube.player;
+            if (this.$refs.youtube) {
+                return this.$refs.youtube.player;
+            }
+
+            return null;
         },
     },
     mounted() {
@@ -225,13 +229,17 @@ export default {
          * Plays the video
          */
         async playVideo() {
-            await this.player.playVideo();
+            if (this.player) {
+                await this.player.playVideo();
+            }
         },
         /**
          * Pauses the video
          */
         async pauseVideo() {
-            await this.player.pauseVideo();
+            if (this.player) {
+                await this.player.pauseVideo();
+            }
         },
         /**
          * Triggered by video status events from the vue-youtube component. When any of these
