@@ -100,7 +100,6 @@ const base = {
     },
     isHeroImage: false,
     mobileOverlap: false,
-    showToggle: false,
     toggleButtonText: 'Toggle image caption',
     useLazyLoading: true,
     isVideo: false,
@@ -155,6 +154,7 @@ WithVideo.args = {
     isVideo: true,
     videoId: 'c05sg3G4oA4',
     videoTitle: 'Only in Scotland',
+    showToggle: false,
 };
 
 export const WithVideoNoCookies = Template.bind({
