@@ -262,7 +262,7 @@ HeroVideo.args = {
         isHeroImage: true,
         isVideo: true,
         videoId: 'c05sg3G4oA4',
-        videoTitle: 'This is the video title',
+        videoTitle: 'Only in Scotland',
         smallPlayButton: false,
         playButtonText: 'Play the video',
         toggleButtonText: 'Toggle image caption',

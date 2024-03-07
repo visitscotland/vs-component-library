@@ -3,7 +3,6 @@ import VsImg from '@/components/img/Img.vue';
 import VsImageWithCaption from '@/components/image-with-caption/ImageWithCaption.vue';
 import VsSocialCreditLink from '@/components/social-credit-link/SocialCreditLink.vue';
 import VsModal from '@/components/modal/Modal.vue';
-import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
 import VsVideo from '@/components/video/Video.vue';
 import { VsCol, VsRow } from '@/components/grid';
 
@@ -22,7 +21,6 @@ const Template = (args) => ({
         VsImageWithCaption,
         VsSocialCreditLink,
         VsModal,
-        VsRichTextWrapper,
         VsVideo,
         VsCol,
         VsRow,
@@ -86,19 +84,6 @@ const Template = (args) => ({
                         no-js-message="You need JavaScript enabled to see this video"
                         no-cookies-message="You need cookies enabled to see this video"
                     />
-                </VsCol>
-                
-                <VsCol
-                    cols="10"
-                    offset="1"
-                >
-                    <VsRichTextWrapper>
-                        <p>
-                            Discover our incredible castles from a new perspective.
-                            This incredible drone footage shows castles from Dumfries &amp;
-                            Galloway to Wick on the north coastline.
-                        </p>
-                    </VsRichTextWrapper>
                 </VsCol>
             </VsRow>
         </VsModal>
@@ -169,7 +154,7 @@ WithVideo.args = {
     ...base,
     isVideo: true,
     videoId: 'c05sg3G4oA4',
-    videoTitle: 'This is the video title',
+    videoTitle: 'Only in Scotland',
 };
 
 export const WithVideoNoCookies = Template.bind({
@@ -179,7 +164,7 @@ WithVideoNoCookies.args = {
     ...base,
     isVideo: true,
     videoId: 'c05sg3G4oA4',
-    videoTitle: 'This is the video title',
+    videoTitle: 'Only in Scotland',
 };
 
 WithVideoNoCookies.decorators = [

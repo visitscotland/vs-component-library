@@ -6,6 +6,10 @@ import VsImageWithCaption from '@/components/image-with-caption/ImageWithCaption
 import VsImg from '@/components/img/Img.vue';
 import VsCaption from '@/components/caption/Caption.vue';
 import VsQuote from '@/components/quote/Quote.vue';
+import VsModal from '@/components/modal/Modal.vue';
+import VsVideo from '@/components/video/Video.vue';
+import VsVideoCaption from '@/components/video-caption/VideoCaption.vue';
+import { VsCol, VsRow } from '@/components/grid';
 
 export default {
     component: VsArticle,
@@ -39,6 +43,11 @@ const Template = (args) => ({
         VsImg,
         VsCaption,
         VsQuote,
+        VsModal,
+        VsVideo,
+        VsVideoCaption,
+        VsCol,
+        VsRow,
     },
     setup() {
         return {
@@ -62,6 +71,18 @@ const Template = (args) => ({
                         </VsCaption>
                     </template>
                 </VsImageWithCaption>
+            </template>
+
+            <template
+                v-if="args['vs-article-img'].videoId"
+                v-slot:vs-article-img
+            >
+                <VsVideo :video-id="args['vs-article-img'].videoId"></VsVideo>
+                <VsVideoCaption :videoId="args['vs-article-img'].videoId">
+                    <template v-slot:video-title>
+                        ${args['vs-article-img'].videoTitle}
+                    </template>
+                </VsVideoCaption>
             </template>
 
             <template
@@ -105,25 +126,9 @@ const Template = (args) => ({
                                 :no-cookies-message="args['sidebarImg'].noCookiesMessage"
                             >
 
-                                <template v-slot:video-no-js-alert>
-                                    <span>
-                                        JavaScript needs to be enabled to watch this video.
-                                        You can turn this on in your browser settings.
-                                    </span>
-                                </template>
-                                <template v-slot:video-title>
-                                <span>This is the video title</span>
-                                </template>
-                                <template v-slot:video-duration>
-                                <span>This is the video length</span>
-                                </template>
-
-                                <template v-slot:img-caption>
-                                    <VsCaption>
-                                        <template v-slot:caption>{{ args['sidebarImg'].caption }}</template>
-                                        <template v-slot:credit>{{ args['sidebarImg'].credit }}</template>
-                                    </VsCaption>
-                                </template>
+                            <template v-slot:video-title>
+                                {{ args['sidebarImg'].videoTitle}}
+                            </template>
                             </VsImageWithCaption>
                         </template>
 
@@ -148,6 +153,26 @@ const Template = (args) => ({
 
             </VsArticleSection>
         </VsArticle>
+
+        <VsModal
+            modal-id='c05sg3G4oA4' 
+            close-btn-text='Close' 
+            :is-video-modal='true'
+        >
+            <VsRow>
+                <VsCol cols="12">
+                    <VsVideo
+                        video-id="c05sg3G4oA4"
+                        video-title="Test Video"
+                        class="mb-8"
+                        cookie-btn-text="Manage cookies"
+                        error-message="Sorry, something's gone wrong. Please try again later"
+                        no-js-message="You need JavaScript enabled to see this video"
+                        no-cookies-message="You need cookies enabled to see this video"
+                    />
+                </VsCol>
+            </VsRow>
+        </VsModal>
     `,
 });
 
@@ -171,14 +196,10 @@ const base = {
     ],
 };
 
-export const Default = Template.bind({
-});
-
+export const Default = Template.bind();
 Default.args = base;
 
-export const CoverImage = Template.bind({
-});
-
+export const CoverImage = Template.bind();
 CoverImage.args = {
     ...base,
     'vs-article-img': {
@@ -190,23 +211,28 @@ CoverImage.args = {
     },
 };
 
-export const SidebarRightAligned = Template.bind({
-});
+export const CoverVideo = Template.bind();
+CoverVideo.args = {
+    ...base,
+    'vs-article-img': {
+        videoId: 'c05sg3G4oA4',
+        videoTitle: 'Only in Scotland',
+    },
+};
 
+export const SidebarRightAligned = Template.bind();
 SidebarRightAligned.args = {
     ...base,
     sidebarAlign: 'right',
 };
 
-export const SidebarVideo = Template.bind({
-});
-
+export const SidebarVideo = Template.bind();
 SidebarVideo.args = {
     ...base,
     sidebarImg: {
         isVideo: true,
         videoId: 'c05sg3G4oA4',
-        videoTitle: 'This is the video title',
+        videoTitle: 'Only in Scotland',
         smallPlayButton: true,
         showToggle: false,
         playButtonText: 'Play',
