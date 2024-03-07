@@ -74,13 +74,21 @@ const Template = (args) => ({
             </template>
 
             <template
-                v-if="args['vs-article-img'].videoId"
+                v-if="args['vs-article-video']"
                 v-slot:vs-article-img
             >
-                <VsVideo :video-id="args['vs-article-img'].videoId"></VsVideo>
-                <VsVideoCaption :videoId="args['vs-article-img'].videoId">
+                <VsVideo 
+                    :video-id="args['vs-article-video'].videoId"
+                    error-message="Sorry, something's gone wrong. Please try again later"
+                    no-js-message="You need Javascript enabled to see this video"
+                    no-cookies-message="You need cookies enabled to see this video"
+                    cookie-btn-text="Manage cookies"
+                ></VsVideo>
+                <VsVideoCaption 
+                    :videoId="args['vs-article-video'].videoId"
+                >
                     <template v-slot:video-title>
-                        ${args['vs-article-img'].videoTitle}
+                        {{ args['vs-article-video'].videoTitle }}
                     </template>
                 </VsVideoCaption>
             </template>
@@ -126,9 +134,9 @@ const Template = (args) => ({
                                 :no-cookies-message="args['sidebarImg'].noCookiesMessage"
                             >
 
-                            <template v-slot:video-title>
-                                {{ args['sidebarImg'].videoTitle}}
-                            </template>
+                                <template v-slot:video-title>
+                                    {{ args['sidebarImg'].videoTitle}}
+                                </template>
                             </VsImageWithCaption>
                         </template>
 
@@ -214,7 +222,7 @@ CoverImage.args = {
 export const CoverVideo = Template.bind();
 CoverVideo.args = {
     ...base,
-    'vs-article-img': {
+    'vs-article-video': {
         videoId: 'c05sg3G4oA4',
         videoTitle: 'Only in Scotland',
     },
