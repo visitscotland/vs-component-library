@@ -294,7 +294,7 @@ export default {
             line-height: 1.1;
 
             .vs-icon {
-                margin-right: $spacer-6;
+                margin-right: $spacer-5;
             }
         }
 

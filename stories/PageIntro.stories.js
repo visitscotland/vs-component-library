@@ -16,6 +16,8 @@ import VsSocialShareItem from '@/components/social-share/components/SocialShareI
 import VsSummaryBoxList from '@/components/summary-box/SummaryBoxList.vue';
 import VsSummaryBoxListItem from '@/components/summary-box/components/SummaryBoxListItem.vue';
 import VsSummaryBoxDistanceListItem from '@/components/summary-box/components/SummaryBoxDistanceListItem.vue';
+import VsModal from '@/components/modal/Modal.vue';
+import VsVideo from '@/components/video/Video.vue';
 
 import { Default as blogDetailsDefault } from './BlogDetails.stories';
 import { Default as breadcrumbDefault } from './Breadcrumb.stories';
@@ -57,6 +59,8 @@ const Template = (args) => ({
         VsSummaryBoxList,
         VsSummaryBoxListItem,
         VsSummaryBoxDistanceListItem,
+        VsModal,
+        VsVideo,
     },
     setup() {
         return {
@@ -73,6 +77,13 @@ const Template = (args) => ({
                 <VsImageWithCaption
                     v-bind="args['vs-intro-hero']"
                 >
+                    <template 
+                        v-if="args['vs-intro-hero'].videoTitle"
+                        v-slot:video-title
+                    >
+                        {{ args['vs-intro-hero'].videoTitle }}
+                    </template>
+
                     <template v-slot:img-caption>
                         <VsCaption
                             :latitude="args['vs-intro-hero'].latitude"
@@ -190,6 +201,26 @@ const Template = (args) => ({
             </template>
             
         </VsPageIntro>
+
+        <VsModal
+            modal-id='c05sg3G4oA4' 
+            close-btn-text='Close' 
+            :is-video-modal='true'
+        >
+            <VsRow>
+                <VsCol cols="12">
+                    <VsVideo
+                        video-id="c05sg3G4oA4"
+                        video-title="Test Video"
+                        class="mb-8"
+                        cookie-btn-text="Manage cookies"
+                        error-message="Sorry, something's gone wrong. Please try again later"
+                        no-js-message="You need JavaScript enabled to see this video"
+                        no-cookies-message="You need cookies enabled to see this video"
+                    />
+                </VsCol>
+            </VsRow>
+        </VsModal>
     `,
 });
 
@@ -204,22 +235,16 @@ const base = {
     'vs-intro-content': '<a href="https://www.visitscotland.com/destinations-maps/kingdom-fife/">Fife</a> and <a href="https://www.visitscotland.com/destinations-maps/dundee-angus/">Dundee &amp; Angus</a> are ideal for a few days away on a quality family break. You could base yourself in a seafront cottage, a self-catering lodge in a country estate, or perhaps a luxury caravan in an amenity-filled holiday park. Think of days playing by the seaside, roaming bridle paths in the countryside, visiting exciting attractions that wee ones will love and soaking up a bit of cosmopolitan culture in the city - you won\'t be short of ways to have fun on this family holiday!',
 };
 
-export const Default = Template.bind({
-});
-
+export const Default = Template.bind();
 Default.args = base;
 
-export const DefaultDark = Template.bind({
-});
-
+export const DefaultDark = Template.bind();
 DefaultDark.args = {
     ...base,
     background: 'dark',
 };
 
-export const WithBlogData = Template.bind({
-});
-
+export const WithBlogData = Template.bind();
 WithBlogData.args = {
     ...base,
     'vs-blog-data': {
@@ -227,9 +252,7 @@ WithBlogData.args = {
     },
 };
 
-export const WithHero = Template.bind({
-});
-
+export const WithHero = Template.bind();
 WithHero.args = {
     ...base,
     heroIntro: true,
@@ -245,9 +268,7 @@ WithHero.args = {
     },
 };
 
-export const HeroVideo = Template.bind({
-});
-
+export const HeroVideo = Template.bind();
 HeroVideo.args = {
     ...base,
     heroIntro: true,
@@ -264,18 +285,11 @@ HeroVideo.args = {
         videoId: 'c05sg3G4oA4',
         videoTitle: 'Only in Scotland',
         smallPlayButton: false,
-        playButtonText: 'Play the video',
-        toggleButtonText: 'Toggle image caption',
-        errorMessage: 'Sorry, something has gone wrong, Please try again later',
-        cookieLinkText: 'Manage cookies',
-        noJsMessage: 'You need JavaScript enabled to see this video',
-        noCookiesMessage: 'You need cookies enabled to see this video',
+        playButtonText: 'Discover Scotland',
     },
 };
 
-export const Itinerary = Template.bind({
-});
-
+export const Itinerary = Template.bind();
 Itinerary.args = {
     ...WithHero.args,
     isItinerary: true,
