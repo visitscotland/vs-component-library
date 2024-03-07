@@ -97,6 +97,7 @@ const Template = (args) => ({
                                 :video-title="args['sidebarImg'].videoTitle"
                                 :small-play-button="args['sidebarImg'].smallPlayButton"
                                 :play-button-text="args['sidebarImg'].playButtonText"
+                                :show-toggle="args['sidebarImg'].showToggle"
                                 :toggle-button-text="args['sidebarImg'].toggleButtonText"
                                 :error-message="args['sidebarImg'].errorMessage"
                                 :cookie-link-text="args['sidebarImg'].cookieLinkText"
@@ -207,6 +208,7 @@ SidebarVideo.args = {
         videoId: 'c05sg3G4oA4',
         videoTitle: 'This is the video title',
         smallPlayButton: true,
+        showToggle: false,
         playButtonText: 'Play',
         toggleButtonText: 'Toggle image caption',
         errorMessage: 'Sorry, something has gone wrong, Please try again later',
