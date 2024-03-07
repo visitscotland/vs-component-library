@@ -6,7 +6,7 @@ export default {
     title: 'Video',
     tags: ['autodocs'],
     decorators: [() => ({
-        template: '<div style="max-width: 800px;"><story /></div>',
+        template: '<div style="max-width: 520px;"><story /></div>',
     })],
 };
 
