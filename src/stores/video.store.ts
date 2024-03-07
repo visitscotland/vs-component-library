@@ -27,10 +27,9 @@ const useVideoStore = defineStore('video', {
     }),
     actions: {
         addVideo(newVideo: Video) {
-            this.videos = [
-                ...this.videos,
-                newVideo,
-            ];
+            this.videos[newVideo.videoId] = {
+                ...newVideo,
+            };
         },
     },
 });
