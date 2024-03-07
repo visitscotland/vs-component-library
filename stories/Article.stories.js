@@ -76,9 +76,47 @@ const Template = (args) => ({
                     <VsArticleSidebar :sidebar-align="args.sidebarAlign">
                         <template v-slot:vs-article-sidebar-img>
                             <VsImageWithCaption
+                                v-if="!args['sidebarImg'].isVideo"
                                 :alt-text="args['sidebarImg'].alt"
                                 :image-src="args['sidebarImg'].imageSrc"
                             >
+                                <template v-slot:img-caption>
+                                    <VsCaption>
+                                        <template v-slot:caption>{{ args['sidebarImg'].caption }}</template>
+                                        <template v-slot:credit>{{ args['sidebarImg'].credit }}</template>
+                                    </VsCaption>
+                                </template>
+                            </VsImageWithCaption>
+
+                            <VsImageWithCaption
+                                v-if="args['sidebarImg'].isVideo"
+                                :alt-text="args['sidebarImg'].alt"
+                                :image-src="args['sidebarImg'].imageSrc"
+                                :is-video="args['sidebarImg'].isVideo"
+                                :video-id="args['sidebarImg'].videoId"
+                                :video-title="args['sidebarImg'].videoTitle"
+                                :small-play-button="args['sidebarImg'].smallPlayButton"
+                                :play-button-text="args['sidebarImg'].playButtonText"
+                                :toggle-button-text="args['sidebarImg'].toggleButtonText"
+                                :error-message="args['sidebarImg'].errorMessage"
+                                :cookie-link-text="args['sidebarImg'].cookieLinkText"
+                                :no-js-message="args['sidebarImg'].noJsMessage"
+                                :no-cookies-message="args['sidebarImg'].noCookiesMessage"
+                            >
+
+                                <template v-slot:video-no-js-alert>
+                                    <span>
+                                        JavaScript needs to be enabled to watch this video.
+                                        You can turn this on in your browser settings.
+                                    </span>
+                                </template>
+                                <template v-slot:video-title>
+                                <span>This is the video title</span>
+                                </template>
+                                <template v-slot:video-duration>
+                                <span>This is the video length</span>
+                                </template>
+
                                 <template v-slot:img-caption>
                                     <VsCaption>
                                         <template v-slot:caption>{{ args['sidebarImg'].caption }}</template>
@@ -175,5 +213,6 @@ SidebarVideo.args = {
         cookieLinkText: 'Manage cookies',
         noJsMessage: 'You need JavaScript enabled to see this video',
         noCookiesMessage: 'You need cookies enabled to see this video',
+        imageSrc: 'fixtures/article/images/corpach-sea-lock-and-lighthouse.jpg',
     },
 };
