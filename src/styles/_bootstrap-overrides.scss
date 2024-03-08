@@ -29,14 +29,14 @@ $black: $color-black;
 //     secondary-light: $color-theme-secondary-light,
 // );
 
-$body-color: $color-base-text;
-$body-emphasis-color: $color-base-text;
+$body-color: $vs-color-text;
+$body-emphasis-color: $vs-color-text;
 
 
 /* Links */
 // $link-color: $color-theme-primary;
 $link-decoration: none;
-$link-hover-color: $color-base-text;
+$link-hover-color: $vs-color-text;
 $link-hover-decoration: none;
 
 

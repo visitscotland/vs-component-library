@@ -20,7 +20,7 @@ props:
     - name: vs-color-background-disabled
       value: "{!vs-grey-04}"
     - name: vs-color-background-information
-      value: "{!vs-harr}"
+      value: "{!vs-ptarmigan}"
 
 imports:
   - ./color-core.yml
