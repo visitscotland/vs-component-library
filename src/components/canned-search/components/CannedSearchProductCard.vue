@@ -292,7 +292,7 @@ export default {
         }
 
         .stretched-link {
-            color: $color-base-text;
+            color: $vs-color-text;
             text-decoration: none;
             letter-spacing: 0;
             display: block;
@@ -334,7 +334,7 @@ export default {
             font-size: $font-size-4;
             line-height: $line-height-s;
             letter-spacing: $letter-spacing-l;
-            color: $color-base-text;
+            color: $vs-color-text;
             display: flex;
             margin: $spacer-3 $spacer-0 $spacer-2;
 

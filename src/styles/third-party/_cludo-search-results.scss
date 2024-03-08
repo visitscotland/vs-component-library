@@ -87,7 +87,7 @@
                 display: block;
                 font-size: $font-size-4;
                 text-decoration: none;
-                color: $color-base-text;
+                color: $vs-color-text;
                 transition: all .2s;                
                 line-height: $line-height-standard;
                 padding: $spacer-3 $spacer-3;
@@ -225,7 +225,7 @@
     
                         a{
                             text-decoration: none;
-                            color: $color-base-text;
+                            color: $vs-color-text;
 
                             &:hover{
                                 text-decoration: underline;

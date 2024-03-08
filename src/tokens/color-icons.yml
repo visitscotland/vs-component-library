@@ -6,7 +6,7 @@ props:
     - name: vs-color-icon-inverse
       value: "{!vs-snow}"
     - name: vs-color-icon-disabled
-      value: "{!vs-grey-01}"
+      value: "{!vs-grey-03}"
     - name: vs-color-icon-tertiary
       value: "{!vs-bramble}"
     - name: vs-color-icon-danger

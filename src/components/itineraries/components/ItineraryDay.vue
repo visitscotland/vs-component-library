@@ -139,7 +139,7 @@ export default {
 
 <style lang="scss">
 .vs-itinerary-day{
-    border-top: 5px solid $color-base-text;
+    border-top: 5px solid $vs-color-text;
 
     @include media-breakpoint-down(sm) {
         max-width: initial;
@@ -172,7 +172,7 @@ export default {
         margin: $spacer-5 0 $spacer-5;
 
         .vs-itinerary-day__title  {
-            border-bottom: 1px solid $color-base-text;
+            border-bottom: 1px solid $vs-color-text;
             color: $color-secondary-teal-shade-3;
             padding: 0 $spacer-6 $spacer-3;
             margin-bottom: $spacer-4;
@@ -188,7 +188,7 @@ export default {
     }
 
     &__toggle-button {
-        border: 1px solid $color-base-text;
+        border: 1px solid $vs-color-text;
         border-radius: 50%;
         height: 24px;
         width: 24px;

@@ -262,7 +262,7 @@ export default {
                     font-size: $font-size-2;
                     letter-spacing: $letter-spacing-l;
                     line-height: $line-height-m;
-                    color: $color-base-text;
+                    color: $vs-color-text;
                     text-decoration: none;
                 }
 

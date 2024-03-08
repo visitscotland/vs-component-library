@@ -235,7 +235,7 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
             right: $spacer-4;
             pointer-events: none;
             font-size: $font-size-5;
-            color: $color-base-text;
+            color: $vs-color-text;
         }
     }
 

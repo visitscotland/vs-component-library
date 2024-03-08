@@ -309,7 +309,7 @@ export default {
                 left: 0;
                 width: 100%;
                 height: 4px;
-                background: $color-base-text;
+                background: $vs-color-text;
                 transition: width $duration-base linear;
                 border: 0;
                 margin: 0;

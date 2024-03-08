@@ -10,7 +10,13 @@ props:
     - name: vs-color-text-danger
       value: "{!vs-cuillin}"
     - name: vs-color-text-disabled
+      value: "{!vs-grey-03}"
+    - name: vs-color-text-subtle
+      value: "{!vs-grey-02}"
+    - name: vs-color-text-caption
       value: "{!vs-grey-01}"
+    - name: vs-color-text-accent-lavender
+      value: "{!vs-lavender}"      
 imports:
   - ./color-core.yml
 global:

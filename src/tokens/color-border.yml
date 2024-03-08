@@ -11,6 +11,8 @@ props:
       value: "{!vs-bramble}"
     - name: vs-color-border-danger
       value: "{!vs-cuillin}"
+    - name: vs-color-border-inverse
+      value: "{!vs-snow}"
 imports:
   - ./color-core.yml
 global:
