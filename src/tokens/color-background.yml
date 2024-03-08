@@ -3,7 +3,7 @@ props:
       value: "{!vs-thistle}"
     - name: vs-color-background-primary
       value: "{!vs-saltire}"
-    - name: vs-color-background-primary-hover
+    - name: vs-color-background-hover
       value: "{!vs-loch-ness}"
     - name: vs-color-background-active
       value: "{!vs-harr}"

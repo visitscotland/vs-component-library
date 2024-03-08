@@ -32,12 +32,14 @@ BUTTON STYLES
     letter-spacing: $letter-spacing-m;
     position: relative;
     overflow: hidden;
-    border-width: 2px;
+    border-width: 1px;
     line-height: $line-height-standard;
 }
 
 %primary-button-focus {
-    box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-pink;
+    box-shadow: 
+        0 0 0 2px $vs-color-background-inverse, 
+        0 0 0 4px $vs-color-border-primary;
 }
 
 

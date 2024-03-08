@@ -129,6 +129,7 @@ export default {
             $color-white, $color-theme-dark, $color-theme-dark,
             $color-white, $color-theme-dark, $color-theme-dark,
             $color-white, $color-theme-dark, $color-theme-dark,
+            $color-white, $color-theme-dark, $color-theme-dark,
         );
 
         &:hover{

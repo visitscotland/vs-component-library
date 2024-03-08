@@ -93,13 +93,6 @@ export default {
             default: true,
         },
         /**
-         * By default, button text is uppercase. Pass `false` to disable.
-         */
-        uppercase: {
-            type: Boolean,
-            default: true,
-        },
-        /**
          * Set this for a button on a dark background for better colour contrast
          */
         onDark: {
@@ -162,7 +155,6 @@ export default {
                     'vs-button--icon-with-text': this.iconWithText,
                     'button-flex': this.icon && !this.iconOnly && !this.iconWithText,
                     'vs-button--flex-reverse': this.iconPosition === 'right',
-                    'text-uppercase': this.uppercase && !this.iconWithText,
                 },
             ];
         },
@@ -259,30 +251,37 @@ export default {
         &.btn-primary, &.btn-secondary,
         &.btn-dark, &.btn-light {
             &.disabled {
-                background-color: $color-secondary-gray-tint-4;
-                border-color: $color-secondary-gray-tint-4;
-                color: $color-white;
+                background-color: $vs-color-background-disabled;
+                border-color: $vs-color-background-disabled;
+                color: $vs-color-text-inverse;
                 opacity: $opacity-100;
 
                 &:hover {
-                    background-color: $color-secondary-gray-tint-4;
-                    border-color: $color-secondary-gray-tint-4;
+                    background-color: $vs-color-background-disabled;
+                    border-color: $vs-color-background-disabled;
                 }
             }
         }
 
         /* Button Variants
         ------------------------------------------ */
+
+        // $color, $background, $border,
+        // $hover-color, $hover-background, $hover-border,
+        // $focus-color, $focus-background, $focus-border,
+
         &.btn-primary {
             @include vs-button-variant(
-                $color-white, $color-pink, $color-pink,
-                $color-white, $color-pink-shade-2, $color-pink-shade-2,
-                $color-pink, $color-white, $color-pink,
+                $vs-color-text-inverse, $vs-color-background-primary, $vs-color-border-primary,
+                $vs-color-text-inverse, $vs-color-background-hover, $vs-color-background-hover,
+                $vs-color-text-primary, $vs-color-background-active, $vs-color-background-active,
+                $vs-color-text-primary, $vs-color-background-inverse, $vs-color-border-primary,
             );
 
             &.vs-button--on-dark {
                 @include vs-button-variant(
                     $color-theme-dark, $color-yellow, $color-yellow,
+                    $color-theme-dark, $color-yellow-tint-2, $color-yellow-tint-2,
                     $color-theme-dark, $color-yellow-tint-2, $color-yellow-tint-2,
                     $color-yellow, $color-theme-dark, $color-yellow,
                 );
@@ -294,11 +293,13 @@ export default {
                 $color-pink, $color-white, $color-pink,
                 $color-white, $color-pink, $color-pink,
                 $color-white, $color-pink, $color-pink,
+                $color-white, $color-pink, $color-pink,
             );
 
             &.vs-button--on-dark {
                 @include vs-button-variant(
                     $color-yellow, $color-theme-dark, $color-yellow,
+                    $color-theme-dark, $color-yellow, $color-yellow,
                     $color-theme-dark, $color-yellow, $color-yellow,
                     $color-theme-dark, $color-yellow, $color-yellow,
                 );
@@ -308,6 +309,7 @@ export default {
         &.btn-dark {
             @include vs-button-variant(
                 $color-white, $color-theme-dark, $color-theme-dark,
+                $color-white, $color-secondary-gray-shade-1, $color-secondary-gray-shade-1,
                 $color-white, $color-secondary-gray-shade-1, $color-secondary-gray-shade-1,
                 $color-theme-dark, $color-white, $color-secondary-gray-shade-1,
             );
@@ -321,6 +323,7 @@ export default {
             @include vs-button-variant(
                 $color-gray-shade-7, $color-gray-tint-7, $color-gray-tint-7,
                 $color-gray-shade-7, $color-gray-tint-6, $color-gray-tint-6,
+                $color-gray-shade-7, $color-gray-tint-6, $color-gray-tint-6,
                 $color-white, $color-gray-shade-7, $color-gray-shade-7,
             );
         }
@@ -329,6 +332,7 @@ export default {
             &:not(.vs-main-map-category__button) {
                 @include vs-button-variant(
                     $vs-color-text, transparent, transparent,
+                    $vs-color-text-primary, transparent, transparent,
                     $vs-color-text-primary, transparent, transparent,
                     $vs-color-text-primary, transparent, transparent,
                 );
@@ -340,6 +344,7 @@ export default {
                 &.vs-button--on-dark {
                     @include vs-button-variant(
                         $color-white, transparent, transparent,
+                        $color-gray-tint-6, transparent, transparent,
                         $color-gray-tint-6, transparent, transparent,
                         $color-white, transparent, transparent,
                     );

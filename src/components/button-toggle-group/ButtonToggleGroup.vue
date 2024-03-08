@@ -154,7 +154,7 @@ export default {
         }
 
         &--radios {
-            background-color: $color-purple;
+            background-color: $vs-color-background-tertiary;
             display: flex;
             border-radius: $border-radius-pill;
             overflow: hidden;
@@ -167,7 +167,6 @@ export default {
 
             label.btn-secondary {
                 @extend %button-default-styles;
-                text-transform: uppercase;
                 padding-top: $spacer-2;
                 margin-bottom: $spacer-0;
                 padding-bottom: $spacer-2;
@@ -202,7 +201,7 @@ export default {
 
         &--button {
             display: flex;
-            border: 1px solid $color-purple;
+            border: 1px solid $vs-color-border-tertiary;
 
             &:first-child {
                 margin-right: -(#{$spacer-4});
@@ -222,7 +221,8 @@ export default {
 
             label {
                 @include vs-button-variant(
-                    $color-white, $color-purple, $color-purple,
+                    $color-white, $vs-color-background-tertiary, $vs-color-border-tertiary,
+                    $color-white, $color-purple-shade-2, $color-purple-shade-2,
                     $color-white, $color-purple-shade-2, $color-purple-shade-2,
                     $color-purple, $color-white, $color-purple,
                 );
@@ -234,6 +234,7 @@ export default {
                     border-radius: $border-radius-pill;
 
                     @include vs-button-variant(
+                        $vs-color-text-tertiary, $color-white, $vs-color-border-tertiary,
                         $color-purple, $color-white, $color-purple,
                         $color-purple, $color-white, $color-purple,
                         $color-white, $color-purple, $color-purple,
@@ -241,13 +242,15 @@ export default {
 
                     @include media-breakpoint-up(lg) {
                         @include vs-button-variant(
-                            $color-purple, $color-white, $color-purple,
+                            $vs-color-text-tertiary, $color-white, $vs-color-border-tertiary,
+                            $color-white, $color-purple, $color-purple,
                             $color-white, $color-purple, $color-purple,
                             $color-white, $color-purple, $color-purple,
                         );
 
                         &:hover {
                             @include vs-button-variant(
+                                $color-purple, $color-white, $color-purple,
                                 $color-purple, $color-white, $color-purple,
                                 $color-purple, $color-white, $color-purple,
                                 $color-white, $color-purple, $color-purple,
