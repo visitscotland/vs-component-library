@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/visitscotland/vs-component-library/compare/v1.2.1...v0.0.5) (2024-03-08)
+
+
+### ✨ Features
+
+* **build:** add process definitions ([2bc5469](https://github.com/visitscotland/vs-component-library/commit/2bc54694e89f0a3c691121e1388d535af30622f3))
+* **build:** add theo to build script ([3dc6993](https://github.com/visitscotland/vs-component-library/commit/3dc6993e67634a38a35a94d65207fc2cade86266))
+* **build:** load bootstrap styles globally ([6048409](https://github.com/visitscotland/vs-component-library/commit/6048409c144511aca75c8c1162a5a36a57f7fdbc))
+* **build:** transpile youtube-vue3 ([5f2c71b](https://github.com/visitscotland/vs-component-library/commit/5f2c71b7cc786f9eb44c8b9c3a8c2b0c4516c9db))
+* **build:** update yarn lock ([2aecbcc](https://github.com/visitscotland/vs-component-library/commit/2aecbcc1eaaab0ea9b9cabd1e7776d7e3708fb36))
+* **components:** add vite library build ([041bdc9](https://github.com/visitscotland/vs-component-library/commit/041bdc9337ea09b978c2f2d3593d2b92feab188e))
+* **components:** export more components ([38109ad](https://github.com/visitscotland/vs-component-library/commit/38109adf885f08c209a50153ed1eb6382b45e25c))
+* **git:** restore removed changes from merge ([e7d06e6](https://github.com/visitscotland/vs-component-library/commit/e7d06e618e5ecbdebf252b76e2ac628c2dca738b))
+* **image scaler:** move low rez image logic into img ([b5ccf6a](https://github.com/visitscotland/vs-component-library/commit/b5ccf6a482d7334bf42d3ac1d98fe80923deaeb6))
+* **image scaling:** move srcset in for all imgs ([ffd4570](https://github.com/visitscotland/vs-component-library/commit/ffd45701553707e4bf9a964cac1a2589c40ccf16))
+* **images:** tidy up image mixin move ([6f246ac](https://github.com/visitscotland/vs-component-library/commit/6f246ac05591340a6c68f18bc7868e636600408d))
+* **imagewithcaption:** generate uid for caption without nuxt-unfriendly dependency ([4422755](https://github.com/visitscotland/vs-component-library/commit/4422755d0e20cb578a1241d0328eac6dce37895f))
+* **release:** change to temporary separate package name ([704ccb5](https://github.com/visitscotland/vs-component-library/commit/704ccb5db959941c73b0cd3aa3f05661151fd362))
+* **test:** move pinia test setup to base file ([79c47b7](https://github.com/visitscotland/vs-component-library/commit/79c47b7db3d61e47a4cd7f29661349bbd67f2e4f))
+* **typescript:** generate declaration files in vite library build ([fd7148e](https://github.com/visitscotland/vs-component-library/commit/fd7148e6b1e267b77f78298276755c8b7c5a51e2))
+* **video:** change video export for nuxt ([2825238](https://github.com/visitscotland/vs-component-library/commit/28252384a8e4917b89a63836171810f4320773b4))
+* **video:** switch video integration ([9f716d5](https://github.com/visitscotland/vs-component-library/commit/9f716d5c5a4a68d8141fde6cddb80732defc9f60))
+* **video:** switch vue 3 youtube embed ([343a947](https://github.com/visitscotland/vs-component-library/commit/343a9477da5c8f33864bfd2b3c14d2c2036c0af9))
+
+
+### ✅ Tests
+
+* **video:** correct id in other comp tests ([b5dccbb](https://github.com/visitscotland/vs-component-library/commit/b5dccbb458e89b677aa23bfa84c3625109dad9d9))
+* **video:** correct video mock usage ([608dd46](https://github.com/visitscotland/vs-component-library/commit/608dd46e35498714a24fba2a5dae8b0e454067a4))
+* **video:** update video stub name ([202a40d](https://github.com/visitscotland/vs-component-library/commit/202a40d445159e9c67fd7762a0833cadeca335a7))
+
+
+### 🐛 Bug Fixes
+
+* **all:** resolve merge conflicts ([57879a1](https://github.com/visitscotland/vs-component-library/commit/57879a1b1df5d6e8d2cc7c57fc6e3028ede8ca0c))
+* **build:** remove unnecessary transpile ([b0bb066](https://github.com/visitscotland/vs-component-library/commit/b0bb06619fddf4c540be1079920414f6c9ec08d4))
+* **case names:** correct case names ([733093d](https://github.com/visitscotland/vs-component-library/commit/733093d94d2fba5b1e4296c520938eb58c9874a4))
+* **components:** linting errors ([644139a](https://github.com/visitscotland/vs-component-library/commit/644139a7a1650d03602a74d2f868972f4a2868c9))
+* **merge:** more merge errors ([5382a49](https://github.com/visitscotland/vs-component-library/commit/5382a49a47fde2ab37ee1a83ea79b1fa287bb5c4))
+* **video:** correct addVideo for new store setup ([971be32](https://github.com/visitscotland/vs-component-library/commit/971be32acffc3e39f3a94d33066d0aee95287c77))
+* **vite.config.js:** define process ([e1b15ce](https://github.com/visitscotland/vs-component-library/commit/e1b15cee86d783062b4b25e01ab7555fbc47ae19))
+
 ### [1.2.1](https://github.com/visitscotland/vs-component-library/compare/v1.2.0...v1.2.1) (2024-02-27)
 
 
