@@ -6,6 +6,10 @@ import VsImageWithCaption from '@/components/image-with-caption/ImageWithCaption
 import VsImg from '@/components/img/Img.vue';
 import VsCaption from '@/components/caption/Caption.vue';
 import VsQuote from '@/components/quote/Quote.vue';
+import VsModal from '@/components/modal/Modal.vue';
+import VsVideo from '@/components/video/Video.vue';
+import VsVideoCaption from '@/components/video-caption/VideoCaption.vue';
+import { VsCol, VsRow } from '@/components/grid';
 
 export default {
     component: VsArticle,
@@ -39,6 +43,11 @@ const Template = (args) => ({
         VsImg,
         VsCaption,
         VsQuote,
+        VsModal,
+        VsVideo,
+        VsVideoCaption,
+        VsCol,
+        VsRow,
     },
     setup() {
         return {
@@ -65,6 +74,26 @@ const Template = (args) => ({
             </template>
 
             <template
+                v-if="args['vs-article-video']"
+                v-slot:vs-article-img
+            >
+                <VsVideo 
+                    :video-id="args['vs-article-video'].videoId"
+                    error-message="Sorry, something's gone wrong. Please try again later"
+                    no-js-message="You need Javascript enabled to see this video"
+                    no-cookies-message="You need cookies enabled to see this video"
+                    cookie-btn-text="Manage cookies"
+                ></VsVideo>
+                <VsVideoCaption 
+                    :videoId="args['vs-article-video'].videoId"
+                >
+                    <template v-slot:video-title>
+                        {{ args['vs-article-video'].videoTitle }}
+                    </template>
+                </VsVideoCaption>
+            </template>
+
+            <template
                 v-if="args['vs-article-intro']"
                 v-slot:vs-article-intro
             >
@@ -76,6 +105,7 @@ const Template = (args) => ({
                     <VsArticleSidebar :sidebar-align="args.sidebarAlign">
                         <template v-slot:vs-article-sidebar-img>
                             <VsImageWithCaption
+                                v-if="!args['sidebarImg'].isVideo"
                                 :alt-text="args['sidebarImg'].alt"
                                 :image-src="args['sidebarImg'].imageSrc"
                             >
@@ -84,6 +114,28 @@ const Template = (args) => ({
                                         <template v-slot:caption>{{ args['sidebarImg'].caption }}</template>
                                         <template v-slot:credit>{{ args['sidebarImg'].credit }}</template>
                                     </VsCaption>
+                                </template>
+                            </VsImageWithCaption>
+
+                            <VsImageWithCaption
+                                v-if="args['sidebarImg'].isVideo"
+                                :alt-text="args['sidebarImg'].alt"
+                                :image-src="args['sidebarImg'].imageSrc"
+                                :is-video="args['sidebarImg'].isVideo"
+                                :video-id="args['sidebarImg'].videoId"
+                                :video-title="args['sidebarImg'].videoTitle"
+                                :small-play-button="args['sidebarImg'].smallPlayButton"
+                                :play-button-text="args['sidebarImg'].playButtonText"
+                                :show-toggle="args['sidebarImg'].showToggle"
+                                :toggle-button-text="args['sidebarImg'].toggleButtonText"
+                                :error-message="args['sidebarImg'].errorMessage"
+                                :cookie-link-text="args['sidebarImg'].cookieLinkText"
+                                :no-js-message="args['sidebarImg'].noJsMessage"
+                                :no-cookies-message="args['sidebarImg'].noCookiesMessage"
+                            >
+
+                                <template v-slot:video-title>
+                                    {{ args['sidebarImg'].videoTitle}}
                                 </template>
                             </VsImageWithCaption>
                         </template>
@@ -109,6 +161,26 @@ const Template = (args) => ({
 
             </VsArticleSection>
         </VsArticle>
+
+        <VsModal
+            modal-id='c05sg3G4oA4' 
+            close-btn-text='Close' 
+            :is-video-modal='true'
+        >
+            <VsRow>
+                <VsCol cols="12">
+                    <VsVideo
+                        video-id="c05sg3G4oA4"
+                        video-title="Test Video"
+                        class="mb-8"
+                        cookie-btn-text="Manage cookies"
+                        error-message="Sorry, something's gone wrong. Please try again later"
+                        no-js-message="You need JavaScript enabled to see this video"
+                        no-cookies-message="You need cookies enabled to see this video"
+                    />
+                </VsCol>
+            </VsRow>
+        </VsModal>
     `,
 });
 
@@ -132,14 +204,10 @@ const base = {
     ],
 };
 
-export const Default = Template.bind({
-});
-
+export const Default = Template.bind();
 Default.args = base;
 
-export const CoverImage = Template.bind({
-});
-
+export const CoverImage = Template.bind();
 CoverImage.args = {
     ...base,
     'vs-article-img': {
@@ -151,29 +219,36 @@ CoverImage.args = {
     },
 };
 
-export const SidebarRightAligned = Template.bind({
-});
+export const CoverVideo = Template.bind();
+CoverVideo.args = {
+    ...base,
+    'vs-article-video': {
+        videoId: 'c05sg3G4oA4',
+        videoTitle: 'Only in Scotland',
+    },
+};
 
+export const SidebarRightAligned = Template.bind();
 SidebarRightAligned.args = {
     ...base,
     sidebarAlign: 'right',
 };
 
-export const SidebarVideo = Template.bind({
-});
-
+export const SidebarVideo = Template.bind();
 SidebarVideo.args = {
     ...base,
     sidebarImg: {
         isVideo: true,
         videoId: 'c05sg3G4oA4',
-        videoTitle: 'This is the video title',
+        videoTitle: 'Only in Scotland',
         smallPlayButton: true,
+        showToggle: false,
         playButtonText: 'Play',
         toggleButtonText: 'Toggle image caption',
         errorMessage: 'Sorry, something has gone wrong, Please try again later',
         cookieLinkText: 'Manage cookies',
         noJsMessage: 'You need JavaScript enabled to see this video',
         noCookiesMessage: 'You need cookies enabled to see this video',
+        imageSrc: 'fixtures/article/images/corpach-sea-lock-and-lighthouse.jpg',
     },
 };
