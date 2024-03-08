@@ -29,6 +29,18 @@ const preview = {
             ],
         },
     },
+    decorators: [
+        (story) => {
+            window.bypassCookieChecks = true;
+
+            return {
+              components: { story },
+              template: `
+                <story/>
+            `,
+            };
+        },
+    ],
 };
 
 export default preview;
