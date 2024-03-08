@@ -208,7 +208,7 @@ export default {
         box-shadow: 0px -1px 0px 0px $vs-color-border;
 
         &:focus {
-            box-shadow: $shadow-button-focus inset;
+            box-shadow: $vs-box-shadow-focus inset;
         }
     }
 

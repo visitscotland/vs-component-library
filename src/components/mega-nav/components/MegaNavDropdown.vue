@@ -193,7 +193,7 @@ export default {
         padding: .125rem;
 
         &:focus, &:active, &:active:focus {
-            box-shadow: $shadow-button-focus;
+            box-shadow: $vs-box-shadow-focus;
             z-index: 1001;
         }
 
@@ -266,7 +266,7 @@ export default {
                     box-shadow: inset 0px 10px 6px -8px rgba(0, 0, 0, 0.16);
 
                     &:focus{
-                        box-shadow: $shadow-button-focus inset;
+                        box-shadow: $vs-box-shadow-focus inset;
                     }
                 }
             }
@@ -294,7 +294,7 @@ export default {
             }
 
             &:focus {
-                box-shadow: $shadow-button-focus inset;
+                box-shadow: $vs-box-shadow-focus inset;
 
                 &::after{
                     display: none;

@@ -16,9 +16,9 @@ props:
     value: "0 0px 20px rgba(0, 0, 0, 0.3)"
   shadow_popover_dark:
     value: "0 0px 20px $color-theme-dark"
-  shadow_button_focus:
+  vs-box-shadow-focus:
     value: "0 0 0 2px $vs-color-border-primary"
-  shadow_button_focus_on_dark:
+  vs-box-shadow-focus-on-dark:
     value: "0 0 0 4px $color-yellow"
 global:
   type: ...

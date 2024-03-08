@@ -313,7 +313,7 @@ export default {
             );
 
             &:focus {
-                box-shadow: $shadow-button-focus-on-dark, 0 0 0 8px $color-theme-dark;
+                box-shadow: $vs-box-shadow-focus-on-dark, 0 0 0 8px $color-theme-dark;
             }
         }
 
@@ -334,7 +334,7 @@ export default {
                 );
 
                 &:focus {
-                    box-shadow: $shadow-button-focus;
+                    box-shadow: $vs-box-shadow-focus;
                 }
 
                 &.vs-button--on-dark {
@@ -345,7 +345,7 @@ export default {
                     );
 
                     &:focus {
-                        box-shadow: $shadow-button-focus-on-dark;
+                        box-shadow: $vs-box-shadow-focus-on-dark;
                     }
                 }
             }

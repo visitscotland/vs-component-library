@@ -1,6 +1,6 @@
 props:
     - name: vs-color-border
-      value: "{!vs-grey-04}"
+      value: "{!vs-grey-05}"
     - name: vs-color-border-primary
       value: "{!vs-saltire}"
     - name: vs-color-border-input

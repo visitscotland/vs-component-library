@@ -136,7 +136,7 @@ export default {
         }
 
         &:focus {
-            box-shadow: $shadow-button-focus-on-dark inset;
+            box-shadow: $vs-box-shadow-focus-on-dark inset;
         }
 
          .icon.icon-xs {

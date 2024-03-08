@@ -55,7 +55,7 @@ export default {
             }
 
             &:focus-visible{
-                box-shadow: $shadow-button-focus;
+                box-shadow: $vs-box-shadow-focus;
                 outline: none;
             }
 
