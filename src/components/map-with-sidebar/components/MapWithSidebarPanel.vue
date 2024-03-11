@@ -408,7 +408,7 @@ export default {
             }
 
             return data.filter((obj) => {
-                if (typeof obj.properties !== 'undefined') {
+                if (typeof obj.properties !== 'undefined' && this.selectedItem) {
                     return obj.properties.id === this.selectedItem.properties.id;
                 }
 
@@ -459,6 +459,9 @@ export default {
          */
         closePanel() {
             this.$emit('close-panel');
+            if (this.currentStage === 2) {
+                this.$emit('set-subcategory', null);
+            }
         },
         /**
          * Moves back stages dependent on current state
