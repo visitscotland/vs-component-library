@@ -265,11 +265,6 @@ export default {
 
         /* Button Variants
         ------------------------------------------ */
-
-        // $color, $background, $border,
-        // $hover-color, $hover-background, $hover-border,
-        // $focus-color, $focus-background, $focus-border,
-
         &.btn-primary {
             @include vs-button-variant(
                 $vs-color-text-inverse, $vs-color-background-primary, $vs-color-border-primary,
@@ -290,10 +285,10 @@ export default {
 
         &.btn-secondary {
             @include vs-button-variant(
-                $color-pink, $color-white, $color-pink,
-                $color-white, $color-pink, $color-pink,
-                $color-white, $color-pink, $color-pink,
-                $color-white, $color-pink, $color-pink,
+                $vs-color-text-primary, $vs-color-background-inverse, $vs-color-border-primary,
+                $vs-color-text-inverse, $vs-color-background-hover, $vs-color-background-hover,
+                $vs-color-text-primary, $vs-color-background-active, $vs-color-background-active,
+                $vs-color-text-inverse, $vs-color-background-primary, $vs-color-border-focus,
             );
 
             &.vs-button--on-dark {

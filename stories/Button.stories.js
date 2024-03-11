@@ -99,15 +99,6 @@ PrimaryHover.parameters = {
     },
 };
 
-export const PrimaryFocus = Template.bind();
-PrimaryFocus.args = base;
-
-PrimaryFocus.parameters = {
-    pseudo: {
-        focus: true,
-    },
-};
-
 export const PrimaryActive = Template.bind();
 PrimaryActive.args = base;
 
@@ -117,10 +108,46 @@ PrimaryActive.parameters = {
     },
 };
 
+export const PrimaryFocus = Template.bind();
+PrimaryFocus.args = base;
+
+PrimaryFocus.parameters = {
+    pseudo: {
+        focus: true,
+    },
+};
+
 export const Secondary = Template.bind();
 Secondary.args = {
     ...base,
     variant: 'secondary',
+};
+
+export const SecondaryHover = Template.bind();
+SecondaryHover.args = base;
+
+SecondaryHover.parameters = {
+    pseudo: {
+        hover: true,
+    },
+};
+
+export const SecondaryActive = Template.bind();
+SecondaryActive.args = base;
+
+SecondaryActive.parameters = {
+    pseudo: {
+        active: true,
+    },
+};
+
+export const SecondaryFocus = Template.bind();
+SecondaryFocus.args = base;
+
+SecondaryFocus.parameters = {
+    pseudo: {
+        focus: true,
+    },
 };
 
 export const Disabled = Template.bind();
