@@ -488,7 +488,7 @@ export default {
 
         &--hero{
             margin-bottom: 0;
-            background: $color-gray-shade-6;
+            background: $vs-color-background-bold;
 
             .vs-image-with-caption {
                 &__image-wrapper {
