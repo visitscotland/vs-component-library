@@ -1,7 +1,7 @@
 import { userEvent, within } from '@storybook/testing-library';
 
 import VsMeganav from '@/components/mega-nav/MegaNav.vue';
-import VsMegaNavTopMenuItem from '@/components/mega-nav/components/MegaNavTopMenuItem.vue';
+import VsMegaNavDropdownContainer from '@/components/mega-nav/components/MegaNavDropdownContainer.vue';
 import VsMegaNavList from '@/components/mega-nav/components/MegaNavList.vue';
 import VsMegaNavListItem from '@/components/mega-nav/components/MegaNavListItem.vue';
 import VsMegaNavAccordionItem from '@/components/mega-nav/components/MegaNavAccordionItem.vue';
@@ -32,7 +32,7 @@ export default {
 const Template = (args) => ({
     components: {
         VsMeganav,
-        VsMegaNavTopMenuItem,
+        VsMegaNavDropdownContainer,
         VsAccordion,
         VsMegaNavAccordionItem,
         VsMegaNavList,
@@ -52,7 +52,7 @@ const Template = (args) => ({
                 v-bind="args"
             >
                 <template #mega-nav-top-menu-items>
-                    <VsMegaNavTopMenuItem
+                    <VsMegaNavDropdownContainer
                         v-for="(item, index) in navExample"
                         :key="index"
                         :href="item.href"
@@ -127,7 +127,7 @@ const Template = (args) => ({
 
                         <div class="featured-items">
                         </div>
-                    </VsMegaNavTopMenuItem>
+                    </VsMegaNavDropdownContainer>
                 </template>
 
                 <template v-slot:mega-nav-accordion-items>

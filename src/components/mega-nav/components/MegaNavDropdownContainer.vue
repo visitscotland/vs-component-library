@@ -1,7 +1,7 @@
 <template>
     <li
-        class="vs-mega-nav-top-menu-item"
-        data-test="vs-mega-nav-top-menu-item"
+        class="vs-mega-nav-dropdown-container"
+        data-test="vs-mega-nav-dropdown-container"
         ref="menuToggle"
     >
         <LazyHydrationWrapper :on-interaction="['focus', 'click']">
@@ -18,43 +18,43 @@
                         v-if="href && ctaText"
                         :href="href"
                         role="menuitem"
-                        data-test="vs-mega-nav-top-menu-item__cta-link"
-                        class="vs-mega-nav-top-menu-item__cta-link"
+                        data-test="vs-mega-nav-dropdown-container__cta-link"
+                        class="vs-mega-nav-dropdown-container__cta-link"
                     >
                         {{ ctaText }}
                     </VsLink>
-                    <hr class="vs-mega-nav-top-menu-item__divider">
+                    <hr class="vs-mega-nav-dropdown-container__divider">
                 </template>
 
                 <template #dropdown-content>
                     <!-- @slot Slot for dropdown menu list content -->
-                    <div class="vs-mega-nav-top-menu-item__columns-wrapper">
+                    <div class="vs-mega-nav-dropdown-container__columns-wrapper">
                         <slot name="dropdown-content" />
 
                         <div
                             class="
-                                vs-mega-nav-top-menu-item__featured
-                                vs-mega-nav-top-menu-item__featured--left
+                                vs-mega-nav-dropdown-container__featured
+                                vs-mega-nav-dropdown-container__featured--left
                             "
                             :class="alignmentClass"
-                            data-test="vs-mega-nav-top-menu-item__featured"
+                            data-test="vs-mega-nav-dropdown-container__featured"
                             v-if="hasFeaturedItemLeft"
                         >
                             <slot name="nav-featured-item-left" />
                         </div>
 
                         <div
-                            class="vs-mega-nav-top-menu-item__featured"
+                            class="vs-mega-nav-dropdown-container__featured"
                             :class="alignmentClass"
-                            data-test="vs-mega-nav-top-menu-item__featured"
+                            data-test="vs-mega-nav-dropdown-container__featured"
                             v-if="hasFeaturedItem"
                         >
                             <slot name="nav-featured-item" />
                         </div>
 
                         <div
-                            class="vs-mega-nav-top-menu-item__featured-event"
-                            data-test="vs-mega-nav-top-menu-item__featured-event"
+                            class="vs-mega-nav-dropdown-container__featured-event"
+                            data-test="vs-mega-nav-dropdown-container__featured-event"
                             v-if="hasFeaturedEvent"
                         >
                             <slot name="nav-featured-event" />
@@ -77,7 +77,7 @@ import { LazyHydrationWrapper } from 'vue3-lazy-hydration';
  * @displayName MegaNav Top Menu Item
  */
 export default {
-    name: 'VsMegaNavTopMenuItem',
+    name: 'VsMegaNavDropdownContainer',
     status: 'prototype',
     release: '0.1.0',
     components: {
@@ -121,7 +121,7 @@ export default {
         },
         alignmentClass() {
             return this.align === 'bottom'
-                ? 'vs-mega-nav-top-menu-item__featured--bottom' : '';
+                ? 'vs-mega-nav-dropdown-container__featured--bottom' : '';
         },
     },
 };
@@ -130,7 +130,7 @@ export default {
 <style lang="scss">
 /* needed for specificity */
 .vs-list.vs-list--unstyled {
-    .vs-mega-nav-top-menu-item {
+    .vs-mega-nav-dropdown-container {
         &__featured {
             @include media-breakpoint-up(lg) {
                 margin: $spacer-2 $spacer-0 $spacer-5 $spacer-6;
@@ -225,7 +225,7 @@ export default {
 
 @include no-js {
     .vs-list.vs-list--unstyled {
-        .vs-mega-nav-top-menu-item{
+        .vs-mega-nav-dropdown-container{
             &__divider {
                 margin-bottom: $spacer-4;
             }
