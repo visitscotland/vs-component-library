@@ -13,7 +13,7 @@
         >
             <VsIcon
                 :name="icon"
-                variant="light"
+                variant="inverse"
                 size="md"
             />
         </VsLink>

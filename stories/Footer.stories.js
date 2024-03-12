@@ -51,7 +51,7 @@ const Template = (args) => ({
                     <template v-slot:icon-open>
                         <VsIcon
                             name="chevron"
-                            variant="light"
+                            variant="inverse"
                             size="xs"
                         />
                     </template>
@@ -60,7 +60,7 @@ const Template = (args) => ({
                         <VsIcon
                             name="chevron"
                             orientation="down"
-                            variant="light"
+                            variant="inverse"
                             size="xs"
                         />
                     </template>
@@ -102,7 +102,7 @@ const Template = (args) => ({
                     <template v-slot:icon-open>
                         <VsIcon
                             name="chevron"
-                            variant="light"
+                            variant="inverse"
                             size="xs"
                         />
                     </template>
@@ -111,7 +111,7 @@ const Template = (args) => ({
                         <VsIcon
                             name="chevron"
                             orientation="down"
-                            variant="light"
+                            variant="inverse"
                             size="xs"
                         />
                     </template>
@@ -151,7 +151,7 @@ const Template = (args) => ({
                     <template v-slot:icon-open>
                         <VsIcon
                             name="chevron"
-                            variant="light"
+                            variant="inverse"
                             size="xs"
                         />
                     </template>
@@ -160,7 +160,7 @@ const Template = (args) => ({
                         <VsIcon
                             name="chevron"
                             orientation="down"
-                            variant="light"
+                            variant="inverse"
                             size="xs"
                         />
                     </template>

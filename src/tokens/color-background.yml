@@ -18,8 +18,6 @@ props:
     - name: vs-color-background-neutral
       value: "{!vs-grey-05}"
     - name: vs-color-background-bold
-      value: "{!vs-black-03}"
-    - name: vs-color-background-footer
       value: "{!vs-black-02}"
     - name: vs-color-background-information
       value: "{!vs-ptarmigan}"

@@ -137,7 +137,7 @@ export default {
             };
 
             if (this.theme === 'dark') {
-                iconAttrs.customColour = '#FCCA1B';
+                iconAttrs.customColour = '#ffffff';
             } else {
                 iconAttrs.variant = 'primary';
             }
@@ -194,8 +194,8 @@ export default {
         }
 
         &--dark {
-            color: $color-white;
-            background: $color-gray-shade-6;
+            color: $vs-color-text-inverse;
+            background-color: $vs-color-background-bold;
 
             &.vs-warning--transparent {
                 background: rgba(0,0,0,0.8);

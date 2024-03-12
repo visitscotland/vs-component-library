@@ -36,7 +36,7 @@
 
         <figcaption class="vs-image-with-caption__captions">
             <div
-                class="vs-image-with-caption__video-caption-wrapper container-lg"
+                class="vs-image-with-caption__video-caption-wrapper"
                 v-if="isVideo"
             >
                 <VsVideoCaption
@@ -384,7 +384,7 @@ export default {
                 position: relative;
                 top: auto;
                 left: auto;
-                background: $color-gray-shade-6;
+                background: $vs-color-background-bold;
             }
 
             .vs-caption {
@@ -392,16 +392,8 @@ export default {
                     margin-bottom: $spacer-2;
                 }
 
-                &__caption-info {
-                    padding-left: $spacer-5;
-                }
-
                 .row {
                     margin: 0;
-                }
-
-                .col {
-                    padding: 0;
                 }
             }
 

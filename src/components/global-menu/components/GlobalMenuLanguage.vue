@@ -7,7 +7,7 @@
             <VsIcon
                 class="vs-global-menu__languages__icon"
                 name="globe"
-                variant="light"
+                variant="inverse"
                 size="xxs"
                 focusable="false"
             />
@@ -23,7 +23,7 @@
         >
             <VsIcon
                 name="globe"
-                variant="light"
+                variant="inverse"
                 size="xxs"
                 focusable="false"
             />
