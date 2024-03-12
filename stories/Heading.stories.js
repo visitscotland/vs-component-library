@@ -69,7 +69,8 @@ export const WithSubheading = Template.bind({
 
 WithSubheading.args = {
     ...base,
-    'sub-heading': 'test something',
+    default: 'Heart of Neolithic Orkney',
+    'sub-heading': 'Mainland, Orkney',
 };
 
 export const Thin = Template.bind({
@@ -77,6 +78,7 @@ export const Thin = Template.bind({
 
 Thin.args = {
     ...base,
+    default: 'Find out more',
     thin: true,
 };
 
@@ -85,5 +87,7 @@ export const Alternative = Template.bind({
 
 Alternative.args = {
     ...base,
+    default: 'Find experiences',
+    level: '2',
     alternative: true,
 };
