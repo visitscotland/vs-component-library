@@ -95,7 +95,7 @@ export default {
 </script>
 
 <style lang="scss">
-.vs-footer-accordion-item.card {
+.vs-footer-accordion-item.vs-accordion-item.card {
     border-bottom: 1px solid $color-gray-shade-2;
     border-top: 0;
 
