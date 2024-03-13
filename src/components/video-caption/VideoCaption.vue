@@ -195,7 +195,6 @@ export default {
         },
         showCookieMessage() {
             if (!this.requiredCookiesExist
-                && this.cookiesSet.length > 0
                 && this.noCookiesMessage) {
                 return true;
             }
