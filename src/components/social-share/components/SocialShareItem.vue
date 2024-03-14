@@ -109,6 +109,9 @@ export default {
             case 'twitter':
                 colour = '#08A0E9';
                 break;
+            case 'x-twitter':
+                colour = '#0F1419';
+                break;
             case 'pinterest':
                 colour = '#E60023';
                 break;
