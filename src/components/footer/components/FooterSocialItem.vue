@@ -88,6 +88,7 @@ export default {
                     border-color: $color-facebook;
                 }
             }
+
             &.instagram {
                 &:hover {
                     background: $color-instagram;
@@ -95,6 +96,7 @@ export default {
                     border-color: $color-instagram;
                 }
             }
+
             &.twitter {
                 &:hover {
                     background: $color-twitter;
@@ -102,6 +104,20 @@ export default {
                     border-color: $color-twitter;
                 }
             }
+
+            &.x-twitter {
+                &:hover {
+                    background: $color-white;
+                    box-shadow: 0 0 0 2px $color-white;
+                    border-color: $color-white;
+                    color: $color-xtwitter;
+
+                    .vs-icon {
+                        color: $color-xtwitter;
+                    }
+                }
+            }
+
             &.youtube {
                 &:hover {
                     background: $color-youtube;
