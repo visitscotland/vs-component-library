@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7](https://github.com/visitscotland/vs-component-library/compare/v0.0.6...v0.0.7) (2024-03-14)
+
+
+### 🐛 Bug Fixes
+
+* **video:** remove redundant check from computed prop in videocaption ([a9480f7](https://github.com/visitscotland/vs-component-library/commit/a9480f7a039c3b7cad82d355e415616a5ca95a70))
+
 ### [0.0.5](https://github.com/visitscotland/vs-component-library/compare/v1.2.1...v0.0.5) (2024-03-08)
 
 
