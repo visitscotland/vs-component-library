@@ -86,9 +86,9 @@ describe('VsSocialShareItem', () => {
             expect(shareIcon.attributes('customcolour')).toBe('#455a64');
         });
 
-        it('should render the correct icon and URL when `name` is `twitter`', async() => {
+        it('should render the correct icon and URL when `name` is `x-twitter`', async() => {
             await wrapper.setProps({
-                name: 'twitter',
+                name: 'x-twitter',
             });
 
             const shareItem = wrapper.find('[data-test="vs-social-share-item"]');
@@ -96,8 +96,8 @@ describe('VsSocialShareItem', () => {
             const shareIcon = shareItem.find('vs-icon-stub');
 
             expect(shareLink.attributes('href')).toBe('https://twitter.com/intent/tweet?text=VisitScotland%20@VisitScotland&url=https://www.visitscotland.com');
-            expect(shareIcon.attributes('name')).toBe('twitter');
-            expect(shareIcon.attributes('customcolour')).toBe('#08A0E9');
+            expect(shareIcon.attributes('name')).toBe('x-twitter');
+            expect(shareIcon.attributes('customcolour')).toBe('#0F1419');
         });
 
         it('should render the correct icon and URL when `name` is `pinterest`', async() => {

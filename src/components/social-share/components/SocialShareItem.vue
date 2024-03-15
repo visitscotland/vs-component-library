@@ -130,7 +130,7 @@ export default {
             case 'facebook':
                 url = `https://www.facebook.com/sharer/sharer.php?u=${this.referringPageUrl}&t=${this.encodedPageTitle}`;
                 break;
-            case 'twitter':
+            case 'x-twitter':
                 url = `https://twitter.com/intent/tweet?text=${this.encodedPageTitle}%20@VisitScotland&url=${this.referringPageUrl}`;
                 break;
             case 'pinterest':
