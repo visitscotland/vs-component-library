@@ -52,12 +52,12 @@ export default {
         },
         /**
          * Social icon to show, will also be used to choose hover colour
-         * `facebook, instagram, twitter, youtube`
+         * `facebook, instagram, x-twitter, youtube`
          */
         icon: {
             type: String,
             required: true,
-            validator: (value) => value.match(/(facebook|instagram|twitter|youtube)/),
+            validator: (value) => value.match(/(facebook|instagram|x-twitter|youtube)/),
         },
     },
 };
@@ -94,14 +94,6 @@ export default {
                     background: $color-instagram;
                     box-shadow: 0 0 0 2px $color-instagram;
                     border-color: $color-instagram;
-                }
-            }
-
-            &.twitter {
-                &:hover {
-                    background: $color-twitter;
-                    box-shadow: 0 0 0 2px $color-twitter;
-                    border-color: $color-twitter;
                 }
             }
 
