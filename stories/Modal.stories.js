@@ -28,6 +28,9 @@ const Template = (args) => ({
         };
     },
     template: `
+    <div
+        :class="args.jsDisabled ? 'no-js' : ''"
+    >
         <VsButton
             id="toggle-btn"
             class="mb-4"
@@ -65,6 +68,7 @@ const Template = (args) => ({
                 </VsCol>
             </VsRow>
         </VsModal>
+    </div>
     `,
 });
 
@@ -72,6 +76,7 @@ const base = {
     modalId: 'c05sg3G4oA4',
     closeBtnText: 'Close',
     isVideoModal: true,
+    jsDisabled: false,
 };
 
 export const Default = Template.bind({
@@ -89,4 +94,12 @@ ModalOpen.play = async({ canvasElement }) => {
     const button = canvas.getByText('Play Video');
 
     await userEvent.click(button);
+};
+
+export const NoJavascript = Template.bind({
+});
+
+NoJavascript.args = {
+    ...base,
+    jsDisabled: true,
 };

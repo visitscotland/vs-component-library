@@ -18,8 +18,12 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsCannedSearch v-bind="args">
-        </VsCannedSearch>
+        <div
+            :class="args.jsDisabled ? 'no-js' : ''"
+        >
+            <VsCannedSearch v-bind="args">
+            </VsCannedSearch>
+        </div>
     `,
 });
 
@@ -37,6 +41,7 @@ const base = {
             View All Accommodation
         </VsButton>
     `,
+    jsDisabled: false,
 };
 
 export const Accommodation = Template.bind({
@@ -84,4 +89,11 @@ Tours.args = {
             View All Tours
         </VsButton>
     `,
+};
+
+export const NoJavascript = Template.bind();
+
+NoJavascript.args = {
+    ...base,
+    jsDisabled: true,
 };

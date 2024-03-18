@@ -5,6 +5,9 @@ export default {
     component: VsMap,
     title: 'Map',
     tags: ['autodocs'],
+    decorators: [() => ({
+        template: '<div style="height: 75vh; width: 600px;"><story /></div>',
+    })],
 };
 
 const Template = (args) => ({
@@ -17,7 +20,9 @@ const Template = (args) => ({
         };
     },
     template: `
-        <div style="height: 75vh; width: 600px;">
+        <div
+            :class="args.jsDisabled ? 'no-js' : ''"
+        >
             <VsMap
                 v-bind="args"
                 :class="args.jsDisabled ? 'no-js' : ''"
@@ -46,9 +51,18 @@ const base = {
     mapId: 'vs-map',
     isVisible: true,
     places: placesData.features,
+    jsDisabled: false,
 };
 
 export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const NoJavascript = Template.bind({
+});
+
+NoJavascript.args = {
+    ...base,
+    jsDisabled: true,
+};
