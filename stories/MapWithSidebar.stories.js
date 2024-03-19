@@ -187,10 +187,10 @@ Distilleries.args = {
     mapId: 'vs-map-distillery',
 };
 
-export const NoJs = Template.bind({
+export const NoJavascript = Template.bind({
 });
 
-NoJs.args = {
+NoJavascript.args = {
     ...base,
     ...regionsExample,
     mapId: 'vs-map-nojs',

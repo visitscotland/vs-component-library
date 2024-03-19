@@ -4,6 +4,7 @@ import VsIconList from '@/components/icon-list/IconList.vue';
 import VsIconListItem from '@/components/icon-list/components/IconListItem.vue';
 import VsImageWithCaption from '@/components/image-with-caption/ImageWithCaption.vue';
 import VsCaption from '@/components/caption/Caption.vue';
+import VsLink from '@/components/link/Link.vue';
 
 export default {
     component: VsListicleItem,
@@ -18,6 +19,7 @@ const Template = (args) => ({
         VsIconListItem,
         VsImageWithCaption,
         VsCaption,
+        VsLink,
     },
     setup() {
         return {
@@ -35,7 +37,11 @@ const Template = (args) => ({
                         :altText="args.imageAltText"
                     >
                         <template v-slot:img-caption>
-                            <VsCaption>
+                            <VsCaption 
+                                :variant="args.imageVariant"
+                                :latitude="args.imageLatitude"
+                                :longitude="args.imageLongitude"
+                            >
                                 <template v-slot:caption>
                                     <span>{{ args.imageCaption }}</span>
                                 </template>
@@ -48,9 +54,24 @@ const Template = (args) => ({
                     </VsImageWithCaption>
                 </template>
 
-                <template v-if="${'sub-heading' in args}" v-slot:sub-heading>${args['sub-heading']}</template>
-                <template v-if="${'description-slot' in args}" v-slot:description-slot>${args['description-slot']}</template>
-                <template v-if="${'facilities-slot' in args}" v-slot:facilities-slot>${args['facilities-slot']}</template>
+                <template v-if="${'sub-heading' in args}" v-slot:sub-heading>
+                    ${args['sub-heading']}
+                </template>
+
+                <template v-if="${'description-slot' in args}" v-slot:description-slot>
+                    ${args['description-slot']}
+
+                    <VsLink
+                        v:if="args.ctaLink"
+                        :href="args.ctaLink"
+                    >
+                        {{ args.ctaLabel }}
+                    </VsLink>
+                </template>
+
+                <template v-if="${'facilities-slot' in args}" v-slot:facilities-slot>
+                    ${args['facilities-slot']}
+                </template>
             </VsListicleItem>
         </ul>
     `,
@@ -89,6 +110,11 @@ const base = {
     imageAltText: 'A photo of the Standing Stones of Stenness against a blue Sky',
     imageCaption: 'The Standing Stones of Stenness make up a a small circle dating from the third millennium BC. ',
     imageCredit: 'Historic Environment Scotland',
+    imageVariant: 'large',
+    imageLatitude: '58.9940314',
+    imageLongitude: '-3.2106113',
+    ctaLink: '#',
+    ctaLabel: 'Discover more about The Stones of Stenness',
 };
 
 export const Default = Template.bind({

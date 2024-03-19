@@ -89,10 +89,10 @@ Invalid.play = async({ canvasElement }) => {
     });
 };
 
-export const NoJs = Template.bind({
+export const NoJavascript = Template.bind({
 });
 
-NoJs.args = {
+NoJavascript.args = {
     ...base,
     jsDisabled: true,
 };

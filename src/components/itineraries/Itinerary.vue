@@ -189,4 +189,10 @@ export default {
         }
     }
 }
+
+@include no-js {
+    .vs-itinerary__map-toggle-button {
+        display: none !important;
+    }
+}
 </style>

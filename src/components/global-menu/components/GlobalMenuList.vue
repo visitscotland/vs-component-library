@@ -142,10 +142,11 @@ export default {
 
             a {
                 max-height: none;
+                height: auto;
                 display: block;
                 text-align: center;
                 font-size: $font-size-4;
-                padding: $spacer-5;
+                padding: $spacer-3 $spacer-5;
                 line-height: $line-height-standard;
             }
         }
