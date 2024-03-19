@@ -222,14 +222,4 @@ export default {
         }
     }
 }
-
-@include no-js {
-    @include media-breakpoint-down(xl) {
-        .vs-itinerary-day__list-item {
-            .vs-itinerary-day__header:first-child {
-                display: none !important;
-            }
-        }
-    }
-}
 </style>

@@ -56,14 +56,18 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsStretchedLinkCard v-bind="args">
-            <template v-if="${'default' in args}" v-slot>${args.default}</template>
-            <template v-if="args['stretched-card-category']" v-slot:stretched-card-category>${args['stretched-card-category']}</template>
-            <template v-if="args['stretched-card-header']" v-slot:stretched-card-header>${args['stretched-card-header']}</template>
-            <template v-if="args['stretched-card-content']" v-slot:stretched-card-content>${args['stretched-card-content']}</template>
-            <template v-if="args['stretched-card-panels']" v-slot:stretched-card-panels>${args['stretched-card-panels']}</template>
-            <template v-if="args['stretched-card-link']" v-slot:stretched-card-link>${args['stretched-card-link']}</template>
-        </VsStretchedLinkCard>
+        <div
+            :class="args.jsDisabled ? 'no-js' : ''"
+        >
+            <VsStretchedLinkCard v-bind="args">
+                <template v-if="${'default' in args}" v-slot>${args.default}</template>
+                <template v-if="args['stretched-card-category']" v-slot:stretched-card-category>${args['stretched-card-category']}</template>
+                <template v-if="args['stretched-card-header']" v-slot:stretched-card-header>${args['stretched-card-header']}</template>
+                <template v-if="args['stretched-card-content']" v-slot:stretched-card-content>${args['stretched-card-content']}</template>
+                <template v-if="args['stretched-card-panels']" v-slot:stretched-card-panels>${args['stretched-card-panels']}</template>
+                <template v-if="args['stretched-card-link']" v-slot:stretched-card-link>${args['stretched-card-link']}</template>
+            </VsStretchedLinkCard>
+        </div>
     `,
 });
 
@@ -85,6 +89,7 @@ const base = {
     'stretched-card-content': '<p>See Outlander filming locations, book locations, and attractions with real life Jacobite connections.</p>',
     'stretched-card-panels': '',
     'stretched-card-link': '',
+    jsDisabled: false,
 };
 
 export const Default = Template.bind({

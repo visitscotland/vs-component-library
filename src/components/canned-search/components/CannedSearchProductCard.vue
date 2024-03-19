@@ -376,4 +376,26 @@ export default {
             }
         }
     }
+
+    @include no-js {
+        .vs-product-card {
+            &--disabled {
+                .card {
+                    opacity: $opacity-100;
+
+                    &:hover {
+                        box-shadow: $shadow_card;
+                        padding: $spacer-2 $spacer-2 $spacer-5;
+                        margin-left: -$spacer-2;
+                        margin-right: -$spacer-2;
+                        margin-top: -$spacer-2;
+                    }
+                }
+
+                .stretched-link {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
 </style>

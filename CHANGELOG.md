@@ -2,6 +2,57 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.4](https://github.com/visitscotland/vs-component-library/compare/v1.2.3...v1.2.4) (2024-03-19)
+
+
+### ✨ Features
+
+* **font awesome:** add all font awesome icons ([f8ed056](https://github.com/visitscotland/vs-component-library/commit/f8ed05671fe7c1d016ea5a83879784ca140b4850)), closes [#81](https://github.com/visitscotland/vs-component-library/issues/81)
+* **footer:** updated twitter icon ([8a0f473](https://github.com/visitscotland/vs-component-library/commit/8a0f473d25a2eeff24949397a4a36515275f6f62)), closes [#81](https://github.com/visitscotland/vs-component-library/issues/81)
+* **social share:** update twitter icon ([65c43bc](https://github.com/visitscotland/vs-component-library/commit/65c43bc8b9a9f473a9e021c46990d2d66da7860d)), closes [#81](https://github.com/visitscotland/vs-component-library/issues/81)
+
+
+### ♻️ Code Refactoring
+
+* **font awesome:** remove unused scss and font files ([0c823a3](https://github.com/visitscotland/vs-component-library/commit/0c823a3f326471aab8b11d246d24e1ec439d6197))
+* **footer social item:** remove old twitter icon styles ([c2d7f83](https://github.com/visitscotland/vs-component-library/commit/c2d7f83051f3a6df144e13be31341dbc143f8b9f))
+* **social share item:** remove old twitter icon styles ([3a9ae9a](https://github.com/visitscotland/vs-component-library/commit/3a9ae9a74c1bd02f5aec3420c6520c29802dad82))
+
+
+### ✅ Tests
+
+* **social share item:** update test ([cb0e472](https://github.com/visitscotland/vs-component-library/commit/cb0e47276cb80a5092bc837ec8a93b93bcd282d2))
+
+### [1.2.3](https://github.com/visitscotland/vs-component-library/compare/v1.2.2...v1.2.3) (2024-03-11)
+
+
+### ✅ Tests
+
+* **map with sidebar:** add new tests ([b5ba1d6](https://github.com/visitscotland/vs-component-library/commit/b5ba1d680a8a2afd3d829169dbf60279b30046c0))
+* **map with sidebar:** add tests for new button ([c20ad0e](https://github.com/visitscotland/vs-component-library/commit/c20ad0e5f6575f0d0d570056ad236bc9de2da4f7))
+
+
+### ✨ Features
+
+* **article:** add video article story ([05803e7](https://github.com/visitscotland/vs-component-library/commit/05803e7e7176be278b16dcc015f109dd137bfac7))
+* **cookies:** adds decorators to turn cookies on/off ([94fb43a](https://github.com/visitscotland/vs-component-library/commit/94fb43af59110a28e79e21d687839e6065c35145))
+* **map with side bar:** replace card back button with menu button ([e477637](https://github.com/visitscotland/vs-component-library/commit/e4776379370e4a43edf660c4c2fbacd92eeb2401)), closes [#308](https://github.com/visitscotland/vs-component-library/issues/308)
+* **video:** add missing video stories ([37cd10f](https://github.com/visitscotland/vs-component-library/commit/37cd10f9384dd313805d79ed5ef5f570dca05dc1))
+
+
+### 🎨 Styling
+
+* **video:** fix video ui with caption ([83da976](https://github.com/visitscotland/vs-component-library/commit/83da976ad80406cc3fd5a3189a84136e253da411))
+
+
+### 🐛 Bug Fixes
+
+* **article:** fix article cover video story syntax ([1aadbd6](https://github.com/visitscotland/vs-component-library/commit/1aadbd61c240de051f91e8f2f909674ad7cdb76f))
+* **article:** fix article video and add cover video story ([1d4f4c8](https://github.com/visitscotland/vs-component-library/commit/1d4f4c82f8dd47646727d3500cfc3d3c635ad0e6))
+* **imagewithcaption:** hide toggle only for image with video ([8f45c2f](https://github.com/visitscotland/vs-component-library/commit/8f45c2f039e03cbfc302fb005b38d84f3cbe760a))
+* **map with sidebar:** reset filters when closing card ([b25cd3c](https://github.com/visitscotland/vs-component-library/commit/b25cd3c99a355c5bb6b4ed7bbab4459eea95713d)), closes [#309](https://github.com/visitscotland/vs-component-library/issues/309) [#310](https://github.com/visitscotland/vs-component-library/issues/310)
+* **pageintro:** fix hero video in page intro ([b61bf66](https://github.com/visitscotland/vs-component-library/commit/b61bf668292ffafbc312845be052ea793971e14c))
+
 ### [1.2.2](https://github.com/visitscotland/vs-component-library/compare/v1.2.1...v1.2.2) (2024-03-08)
 
 

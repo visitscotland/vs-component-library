@@ -43,8 +43,8 @@
                                 <slot name="reset-side-panel-text" />
                             </template>
 
-                            <template v-slot:back-btn-text>
-                                <slot name="back-btn-text" />
+                            <template v-slot:menu-btn-text>
+                                <slot name="menu-btn-text" />
                             </template>
 
                             <template v-slot:panel-loading-message>
@@ -64,7 +64,7 @@
                             class="vs-map-with-sidebar__map-toggle"
                             icon="bars-mobile-menu"
                             size="sm"
-                            @click="openPanel"
+                            @click="openMenu"
                             data-test="vs-map-with-sidebar__map-toggle"
                             variant="secondary"
                         >
@@ -397,6 +397,10 @@ export default {
         }
     },
     methods: {
+        openMenu() {
+            this.setStage(0);
+            this.openPanel();
+        },
         /**
          * Close the side panel
          */

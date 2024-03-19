@@ -86,7 +86,7 @@ describe('VsMapWithSidebar', () => {
             expect(panel.classes('d-none')).toBe(true);
         });
 
-        it('should show the side panel after the `openPanel` method is fired', async() => {
+        it('should show the side panel after the `openMenu` method is fired', async() => {
             const wrapper = factoryShallowMount();
             const panel = wrapper.find('[data-test="vs-map-with-sidebar__side-panel"]');
 
@@ -94,11 +94,28 @@ describe('VsMapWithSidebar', () => {
 
             await wrapper.vm.$nextTick();
 
-            wrapper.vm.openPanel();
+            wrapper.vm.openMenu();
 
             await wrapper.vm.$nextTick();
 
             expect(panel.classes('d-none')).toBe(false);
+        });
+
+        it('should set the stage to 0 when the `openMenu` method is fired', async() => {
+            const wrapper = factoryShallowMount();
+            wrapper.setProps({
+                currentStage: 2,
+            });
+
+            wrapper.vm.closePanel();
+
+            await wrapper.vm.$nextTick();
+
+            wrapper.vm.openMenu();
+
+            await wrapper.vm.$nextTick();
+
+            expect(wrapper.vm.currentStage).toBe(0);
         });
 
         it('should change the `selectedItem` data when the `showDetail` method is fired', async() => {

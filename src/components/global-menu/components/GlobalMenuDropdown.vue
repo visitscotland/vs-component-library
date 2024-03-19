@@ -166,4 +166,11 @@ export default {
         display: none;
     }
 }
+
+@include no-js {
+    .vs-global-menu__dropdown ~ .dropdown-menu li{
+        border-bottom: 0;
+    }
+}
+
 </style>
