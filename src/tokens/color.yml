@@ -93,6 +93,9 @@ props:
     - name: color_instagram
       value: "#F00075"
       category: "Social Media Colours"
+    - name: color_xtwitter
+      value: "#0F1419"
+      category: "Social Media Colours"
       
     - name: color_map_blue
       value: "#1066D6"

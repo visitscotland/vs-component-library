@@ -55,8 +55,8 @@ const base = {
             linkText: 'WhatsApp',
         },
         {
-            name: 'twitter',
-            linkText: 'Twitter',
+            name: 'x-twitter',
+            linkText: 'X',
         },
         {
             name: 'email',
