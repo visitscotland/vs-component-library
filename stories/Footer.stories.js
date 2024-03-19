@@ -1,4 +1,3 @@
-import { userEvent, within } from '@storybook/testing-library';
 import VsIcon from '@/components/icon/Icon.vue';
 import VsList from '@/components/list/List.vue';
 import VsCol from '@/components/grid/Col.vue';
@@ -291,25 +290,6 @@ FooterMobile.parameters = {
     viewport: {
         defaultViewport: 'mobile2',
     },
-};
-
-export const FooterMobileOpen = Template.bind({
-});
-
-FooterMobileOpen.args = {
-    ...base,
-};
-
-FooterMobileOpen.parameters = {
-    viewport: {
-        defaultViewport: 'mobile2',
-    },
-};
-
-FooterMobileOpen.play = async({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    const button = within(canvas.getByTestId('footer_accordion_item_2')).getByRole('button');
-    await userEvent.click(button);
 };
 
 export const NoJavascript = Template.bind({
