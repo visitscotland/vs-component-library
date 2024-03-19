@@ -208,7 +208,7 @@ const Template = (args) => ({
                     />
                     <VsFooterSocialItem
                         href="#"
-                        icon="twitter"
+                        icon="x-twitter"
                     />
                     <VsFooterSocialItem
                         href="#"
@@ -276,8 +276,7 @@ const base = {
     jsDisabled: false,
 };
 
-export const Default = Template.bind({
-});
+export const Default = Template.bind();
 
 Default.args = base;
 

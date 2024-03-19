@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.4](https://github.com/visitscotland/vs-component-library/compare/v1.2.3...v1.2.4) (2024-03-19)
+
+
+### ✨ Features
+
+* **font awesome:** add all font awesome icons ([f8ed056](https://github.com/visitscotland/vs-component-library/commit/f8ed05671fe7c1d016ea5a83879784ca140b4850)), closes [#81](https://github.com/visitscotland/vs-component-library/issues/81)
+* **footer:** updated twitter icon ([8a0f473](https://github.com/visitscotland/vs-component-library/commit/8a0f473d25a2eeff24949397a4a36515275f6f62)), closes [#81](https://github.com/visitscotland/vs-component-library/issues/81)
+* **social share:** update twitter icon ([65c43bc](https://github.com/visitscotland/vs-component-library/commit/65c43bc8b9a9f473a9e021c46990d2d66da7860d)), closes [#81](https://github.com/visitscotland/vs-component-library/issues/81)
+
+
+### ♻️ Code Refactoring
+
+* **font awesome:** remove unused scss and font files ([0c823a3](https://github.com/visitscotland/vs-component-library/commit/0c823a3f326471aab8b11d246d24e1ec439d6197))
+* **footer social item:** remove old twitter icon styles ([c2d7f83](https://github.com/visitscotland/vs-component-library/commit/c2d7f83051f3a6df144e13be31341dbc143f8b9f))
+* **social share item:** remove old twitter icon styles ([3a9ae9a](https://github.com/visitscotland/vs-component-library/commit/3a9ae9a74c1bd02f5aec3420c6520c29802dad82))
+
+
+### ✅ Tests
+
+* **social share item:** update test ([cb0e472](https://github.com/visitscotland/vs-component-library/commit/cb0e47276cb80a5092bc837ec8a93b93bcd282d2))
+
 ### [1.2.3](https://github.com/visitscotland/vs-component-library/compare/v1.2.2...v1.2.3) (2024-03-11)
 
 

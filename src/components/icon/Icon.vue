@@ -213,6 +213,10 @@ export default {
                     key: 'wetroom',
                     value: 'level-entry-shower',
                 },
+                {
+                    key: 'x-twitter',
+                    value: 'x-twitter fa-brands',
+                },
             ],
         };
     },

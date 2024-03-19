@@ -106,8 +106,8 @@ export default {
             case 'facebook':
                 colour = '#1877f2';
                 break;
-            case 'twitter':
-                colour = '#08A0E9';
+            case 'x-twitter':
+                colour = '#0F1419';
                 break;
             case 'pinterest':
                 colour = '#E60023';
@@ -130,7 +130,7 @@ export default {
             case 'facebook':
                 url = `https://www.facebook.com/sharer/sharer.php?u=${this.referringPageUrl}&t=${this.encodedPageTitle}`;
                 break;
-            case 'twitter':
+            case 'x-twitter':
                 url = `https://twitter.com/intent/tweet?text=${this.encodedPageTitle}%20@VisitScotland&url=${this.referringPageUrl}`;
                 break;
             case 'pinterest':
