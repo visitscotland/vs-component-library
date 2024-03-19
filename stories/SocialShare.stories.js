@@ -8,7 +8,7 @@ export default {
     title: 'Social Share Button',
     tags: ['autodocs'],
     decorators: [() => ({
-        template: '<div style="display: flex; justify-content: flex-end;"><story /></div>',
+        template: '<story />',
     })],
 };
 
@@ -23,13 +23,18 @@ const Template = (args) => ({
         };
     },
     template: `
-        <div style="position:absolute">
-            <VsSocialShare v-bind="args">
-                <VsSocialShareItem
-                    v-for="item in args.default"
-                    v-bind="item"
-                />
-            </VsSocialShare>
+        <div :style="!args.jsDisabled ? 'display: flex; justify-content: flex-end' : ''">
+            <div 
+                :style="!args.jsDisabled ? 'position:absolute' : ''" 
+                :class="args.jsDisabled ? 'no-js' : ''"
+            >
+                <VsSocialShare v-bind="args">
+                    <VsSocialShareItem
+                        v-for="item in args.default"
+                        v-bind="item"
+                    />
+                </VsSocialShare>
+            </div>
         </div>
     `,
 });
@@ -69,6 +74,7 @@ const base = {
             linkCopiedText: 'Link Copied!',
         },
     ],
+    jsDisabled: false,
 };
 
 export const Default = Template.bind({
@@ -87,4 +93,14 @@ Open.play = async({ canvasElement }) => {
     const shareButton = canvas.getByText(base.shareBtnText);
 
     await userEvent.click(shareButton);
+};
+
+export const NoJavascript = Template.bind({
+});
+
+NoJavascript.args = {
+    ...base,
+    jsDisabled: true,
+    id: 'nojs',
+    noJs: true,
 };

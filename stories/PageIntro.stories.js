@@ -68,6 +68,9 @@ const Template = (args) => ({
         };
     },
     template: `
+    <div
+        :class="args.jsDisabled ? 'no-js' : ''"
+    >
         <VsPageIntro v-bind="args">
             
             <template
@@ -221,6 +224,7 @@ const Template = (args) => ({
                 </VsCol>
             </VsRow>
         </VsModal>
+    </div>
     `,
 });
 
@@ -233,6 +237,7 @@ const base = {
     },
     'vs-intro-heading': 'A 4-day break in Fife and Dundee for families with young kids',
     'vs-intro-content': '<a href="https://www.visitscotland.com/destinations-maps/kingdom-fife/">Fife</a> and <a href="https://www.visitscotland.com/destinations-maps/dundee-angus/">Dundee &amp; Angus</a> are ideal for a few days away on a quality family break. You could base yourself in a seafront cottage, a self-catering lodge in a country estate, or perhaps a luxury caravan in an amenity-filled holiday park. Think of days playing by the seaside, roaming bridle paths in the countryside, visiting exciting attractions that wee ones will love and soaking up a bit of cosmopolitan culture in the city - you won\'t be short of ways to have fun on this family holiday!',
+    jsDisabled: false,
 };
 
 export const Default = Template.bind();
@@ -252,8 +257,8 @@ WithBlogData.args = {
     },
 };
 
-export const WithHero = Template.bind();
-WithHero.args = {
+export const WithHeroImage = Template.bind();
+WithHeroImage.args = {
     ...base,
     heroIntro: true,
     'vs-intro-hero': {
@@ -268,8 +273,8 @@ WithHero.args = {
     },
 };
 
-export const HeroVideo = Template.bind();
-HeroVideo.args = {
+export const WithHeroVideo = Template.bind();
+WithHeroVideo.args = {
     ...base,
     heroIntro: true,
     'vs-intro-hero': {
@@ -289,9 +294,16 @@ HeroVideo.args = {
     },
 };
 
+export const HeroVideoNoJavascript = Template.bind();
+HeroVideoNoJavascript.args = {
+    ...base,
+    ...WithHeroVideo.args,
+    jsDisabled: true,
+};
+
 export const Itinerary = Template.bind();
 Itinerary.args = {
-    ...WithHero.args,
+    ...WithHeroImage.args,
     isItinerary: true,
     'vs-share-button': {
         ...socialShareDefault.args,
