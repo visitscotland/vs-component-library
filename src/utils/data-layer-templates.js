@@ -141,7 +141,7 @@ const homePageLogoClickTemplate = [
 
 const videoTrackingTemplate = [
     'event',
-    'site_language',
+    'language',
     'page_category_1',
     'page_category_2',
     'page_category_3',
