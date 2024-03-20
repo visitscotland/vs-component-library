@@ -740,7 +740,8 @@ export default {
     @include no-js {
         .card.vs-stretched-link-card {
             .vs-stretched-link-card__image-warning,
-            .vs-stretched-link-card__full-warning {
+            .vs-stretched-link-card__full-warning,
+            .vs-stretched-link-card__video-button {
                 display: none;
             }
 
