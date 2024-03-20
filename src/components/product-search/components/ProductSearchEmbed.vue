@@ -20,7 +20,7 @@
                             <label for="prodtypes">
                                 {{ getLabelText('search_for', 'I\'m looking for') }}
                             </label>
-                            <div :class="{ 'd-lg-flex': selectedProd !== 'cate' && selectedProd !== 'acti,attr,reta' }">
+                            <div :class="productSearchTypeClass">
                                 <VsSelect
                                     :options="translatedProds"
                                     :value="defaultProd"
@@ -393,6 +393,10 @@ const setRender = () => {
     });
 }
 
+const productSearchTypeClass = computed(() => {
+    return selectedProd.value !== 'cate' && selectedProd.value !== 'acti,attr,reta' ? 'd-lg-flex' : ''
+});
+
 onBeforeMount(async () => {
     window.VS = {
     };
@@ -432,6 +436,7 @@ const preSubmitChecks = (e) => {
         form.submit();
     }, 500);
 }
+
 </script>
 
 <style lang="scss">
