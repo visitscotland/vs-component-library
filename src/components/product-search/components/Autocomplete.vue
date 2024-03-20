@@ -28,10 +28,10 @@ const inputValueFormatted = computed(() => {
             const chosenOption = props.options.find(option => option.name === inputValue.value);
 
             if (typeof chosenOption !== 'undefined') {
-                return chosenOption.slug;
+                return chosenOption.slug.trim();
             }
         }
-        return inputValue.value;
+        return inputValue.value.trim();
     }
 })
 
@@ -80,6 +80,38 @@ onMounted(() => {
 });
 </script>
 
+<template>
+    <div 
+        data-test="vs-autocomplete"
+        class="mb-4"
+    >
+        <label :for="id">{{ label }}</label>
+        <TypeAhead
+            class="vs-input form-control"
+            :id="id"
+            :placeholder="placeholder"
+            :searchable="true"
+            :track-by="trackBy"
+            :valueProp="trackBy"
+            v-model="inputValue"
+            autocomplete="off"
+            :items="options"
+            :minInputLength="0"
+            :itemProjection="(item) => item[selectBy]"        
+            @selectItem="updateValue"
+            :defaultItem="props.defaultVal"
+        />
+
+        <!-- need to check inputValue length to ensure it's not an empty array -->
+        <input
+            v-if="showHiddenInput"
+            type="hidden"  
+            :name="name"
+            v-model="inputValueFormatted"
+        />
+    </div>
+</template>
+
 <style lang="scss">
     .simple-typeahead {
         .simple-typeahead-list 
@@ -99,36 +131,3 @@ onMounted(() => {
         }
     }    
 </style>
-
-<template>
-    <div 
-        data-test="vs-autocomplete"
-        class="mb-4">
-        <label :for="id">{{ label }}</label>
-        <TypeAhead
-            class="vs-input form-control"
-            :id="id"
-            :placeholder="placeholder"
-            :searchable="true"
-            :track-by="trackBy"
-            :valueProp="trackBy"
-            v-model="inputValue"
-            autocomplete="off"
-            :items="options"
-            :minInputLength="0"
-            :itemProjection="(item) => item[selectBy]"        
-            @selectItem="updateValue"
-            :defaultItem="props.defaultVal"
-        />
-
-        <!-- need to check inputValue length to ensure it's not an empty array -->
-        <input v-if="showHiddenInput"
-            type="hidden"  
-            :name="name"
-            v-model="inputValueFormatted"
-        />
-    </div>
-</template>
-
-
-
