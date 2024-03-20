@@ -17,6 +17,7 @@ const config = {
     "storybook-addon-pseudo-states",
     "@storybook/addon-mdx-gfm",
     "storybook-addon-mock",
+    'storybook-addon-datalayer-watcher',
   ],
   framework: {
     name: "@storybook/vue3-vite",
