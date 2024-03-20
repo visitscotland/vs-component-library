@@ -226,8 +226,6 @@ export default {
         this.jsDisabled = jsIsDisabled();
         videoStore = useVideoStore(pinia());
 
-        console.log(this.cookiesInitStatus);
-
         this.setEventListeners();
     },
     methods: {

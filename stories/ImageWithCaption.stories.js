@@ -184,10 +184,10 @@ WithVideoNoCookies.decorators = [
     },
 ];
 
-export const WithVideoNoJs = Template.bind({
+export const WithVideoNoJavascript = Template.bind({
 });
 
-WithVideoNoJs.args = {
+WithVideoNoJavascript.args = {
     ...base,
     isVideo: true,
     videoId: 'c05sg3G4oA4',

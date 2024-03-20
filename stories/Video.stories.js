@@ -72,8 +72,8 @@ NoCookies.decorators = [
     },
 ];
 
-export const NoJs = Template.bind();
-NoJs.args = {
+export const NoJavascript = Template.bind();
+NoJavascript.args = {
     ...base,
     jsDisabled: true,
 };
