@@ -578,8 +578,7 @@ const preSubmitChecks = (e) => {
                 }
 
                 .product-search__in {
-                    margin-right: $spacer-4;
-                    margin-left: $spacer-4;
+                    margin: 0 $spacer-4;
                 }
             }
         }
