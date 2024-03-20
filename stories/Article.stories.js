@@ -55,132 +55,136 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsArticle v-bind="args">
-            <template
-                v-if="args['vs-article-img']"
-                v-slot:vs-article-img
-            >
-                <VsImageWithCaption
-                    :alt-text="args['vs-article-img'].alt"
-                    :image-src="args['vs-article-img'].src"
+        <div
+            :class="args.jsDisabled ? 'no-js' : ''"
+        >
+            <VsArticle v-bind="args">
+                <template
+                    v-if="args['vs-article-img']"
+                    v-slot:vs-article-img
                 >
-                    <template v-slot:img-caption>
-                        <VsCaption>
-                            <template v-slot:caption>{{ args['vs-article-img'].caption }}</template>
-                            <template v-slot:credit>{{ args['vs-article-img'].credit }}</template>
-                        </VsCaption>
-                    </template>
-                </VsImageWithCaption>
-            </template>
-
-            <template
-                v-if="args['vs-article-video']"
-                v-slot:vs-article-img
-            >
-                <VsVideo 
-                    :video-id="args['vs-article-video'].videoId"
-                    error-message="Sorry, something's gone wrong. Please try again later"
-                    no-js-message="You need Javascript enabled to see this video"
-                    no-cookies-message="You need cookies enabled to see this video"
-                    cookie-btn-text="Manage cookies"
-                ></VsVideo>
-                <VsVideoCaption 
-                    :videoId="args['vs-article-video'].videoId"
-                >
-                    <template v-slot:video-title>
-                        {{ args['vs-article-video'].videoTitle }}
-                    </template>
-                </VsVideoCaption>
-            </template>
-
-            <template
-                v-if="args['vs-article-intro']"
-                v-slot:vs-article-intro
-            >
-                {{ args['vs-article-intro'] }}
-            </template>
-
-            <VsArticleSection :sidebar-align="args.sidebarAlign">
-                <template v-slot:article-sidebar>
-                    <VsArticleSidebar :sidebar-align="args.sidebarAlign">
-                        <template v-slot:vs-article-sidebar-img>
-                            <VsImageWithCaption
-                                v-if="!args['sidebarImg'].isVideo"
-                                :alt-text="args['sidebarImg'].alt"
-                                :image-src="args['sidebarImg'].imageSrc"
-                            >
-                                <template v-slot:img-caption>
-                                    <VsCaption>
-                                        <template v-slot:caption>{{ args['sidebarImg'].caption }}</template>
-                                        <template v-slot:credit>{{ args['sidebarImg'].credit }}</template>
-                                    </VsCaption>
-                                </template>
-                            </VsImageWithCaption>
-
-                            <VsImageWithCaption
-                                v-if="args['sidebarImg'].isVideo"
-                                :alt-text="args['sidebarImg'].alt"
-                                :image-src="args['sidebarImg'].imageSrc"
-                                :is-video="args['sidebarImg'].isVideo"
-                                :video-id="args['sidebarImg'].videoId"
-                                :video-title="args['sidebarImg'].videoTitle"
-                                :small-play-button="args['sidebarImg'].smallPlayButton"
-                                :play-button-text="args['sidebarImg'].playButtonText"
-                                :show-toggle="args['sidebarImg'].showToggle"
-                                :toggle-button-text="args['sidebarImg'].toggleButtonText"
-                                :error-message="args['sidebarImg'].errorMessage"
-                                :cookie-link-text="args['sidebarImg'].cookieLinkText"
-                                :no-js-message="args['sidebarImg'].noJsMessage"
-                                :no-cookies-message="args['sidebarImg'].noCookiesMessage"
-                            >
-
-                                <template v-slot:video-title>
-                                    {{ args['sidebarImg'].videoTitle}}
-                                </template>
-                            </VsImageWithCaption>
+                    <VsImageWithCaption
+                        :alt-text="args['vs-article-img'].alt"
+                        :image-src="args['vs-article-img'].src"
+                    >
+                        <template v-slot:img-caption>
+                            <VsCaption>
+                                <template v-slot:caption>{{ args['vs-article-img'].caption }}</template>
+                                <template v-slot:credit>{{ args['vs-article-img'].credit }}</template>
+                            </VsCaption>
                         </template>
-
-                        <template v-slot:vs-article-sidebar-quote>
-                            <VsQuote>
-                                <template v-slot:quote-content>
-                                    <p>Scotland’s largest mountain was once a massive active volcano which exploded 
-                                    and collapsed inwards on itself millions of years ago.</p>
-                                </template>
-                                <template v-slot:quote-author-name>
-                                    Penny
-                                </template>
-                                <template v-slot:quote-author-title>
-                                    Visitor Services Advisor at Fort William iCentre
-                                </template>
-                            </VsQuote>
-                        </template>
-                    </VsArticleSidebar>
+                    </VsImageWithCaption>
                 </template>
 
-                <p v-for="paragraph in args.default">{{ paragraph }}</p>
-
-            </VsArticleSection>
-        </VsArticle>
-
-        <VsModal
-            modal-id='c05sg3G4oA4' 
-            close-btn-text='Close' 
-            :is-video-modal='true'
-        >
-            <VsRow>
-                <VsCol cols="12">
-                    <VsVideo
-                        video-id="c05sg3G4oA4"
-                        video-title="Test Video"
-                        class="mb-8"
-                        cookie-btn-text="Manage cookies"
+                <template
+                    v-if="args['vs-article-video']"
+                    v-slot:vs-article-img
+                >
+                    <VsVideo 
+                        :video-id="args['vs-article-video'].videoId"
                         error-message="Sorry, something's gone wrong. Please try again later"
-                        no-js-message="You need JavaScript enabled to see this video"
+                        no-js-message="You need Javascript enabled to see this video"
                         no-cookies-message="You need cookies enabled to see this video"
-                    />
-                </VsCol>
-            </VsRow>
-        </VsModal>
+                        cookie-btn-text="Manage cookies"
+                    ></VsVideo>
+                    <VsVideoCaption 
+                        :videoId="args['vs-article-video'].videoId"
+                    >
+                        <template v-slot:video-title>
+                            {{ args['vs-article-video'].videoTitle }}
+                        </template>
+                    </VsVideoCaption>
+                </template>
+
+                <template
+                    v-if="args['vs-article-intro']"
+                    v-slot:vs-article-intro
+                >
+                    {{ args['vs-article-intro'] }}
+                </template>
+
+                <VsArticleSection :sidebar-align="args.sidebarAlign">
+                    <template v-slot:article-sidebar>
+                        <VsArticleSidebar :sidebar-align="args.sidebarAlign">
+                            <template v-slot:vs-article-sidebar-img>
+                                <VsImageWithCaption
+                                    v-if="!args['sidebarImg'].isVideo"
+                                    :alt-text="args['sidebarImg'].alt"
+                                    :image-src="args['sidebarImg'].imageSrc"
+                                >
+                                    <template v-slot:img-caption>
+                                        <VsCaption>
+                                            <template v-slot:caption>{{ args['sidebarImg'].caption }}</template>
+                                            <template v-slot:credit>{{ args['sidebarImg'].credit }}</template>
+                                        </VsCaption>
+                                    </template>
+                                </VsImageWithCaption>
+
+                                <VsImageWithCaption
+                                    v-if="args['sidebarImg'].isVideo"
+                                    :alt-text="args['sidebarImg'].alt"
+                                    :image-src="args['sidebarImg'].imageSrc"
+                                    :is-video="args['sidebarImg'].isVideo"
+                                    :video-id="args['sidebarImg'].videoId"
+                                    :video-title="args['sidebarImg'].videoTitle"
+                                    :small-play-button="args['sidebarImg'].smallPlayButton"
+                                    :play-button-text="args['sidebarImg'].playButtonText"
+                                    :show-toggle="args['sidebarImg'].showToggle"
+                                    :toggle-button-text="args['sidebarImg'].toggleButtonText"
+                                    :error-message="args['sidebarImg'].errorMessage"
+                                    :cookie-link-text="args['sidebarImg'].cookieLinkText"
+                                    :no-js-message="args['sidebarImg'].noJsMessage"
+                                    :no-cookies-message="args['sidebarImg'].noCookiesMessage"
+                                >
+
+                                    <template v-slot:video-title>
+                                        {{ args['sidebarImg'].videoTitle}}
+                                    </template>
+                                </VsImageWithCaption>
+                            </template>
+
+                            <template v-slot:vs-article-sidebar-quote>
+                                <VsQuote>
+                                    <template v-slot:quote-content>
+                                        <p>Scotland’s largest mountain was once a massive active volcano which exploded 
+                                        and collapsed inwards on itself millions of years ago.</p>
+                                    </template>
+                                    <template v-slot:quote-author-name>
+                                        Penny
+                                    </template>
+                                    <template v-slot:quote-author-title>
+                                        Visitor Services Advisor at Fort William iCentre
+                                    </template>
+                                </VsQuote>
+                            </template>
+                        </VsArticleSidebar>
+                    </template>
+
+                    <p v-for="paragraph in args.default">{{ paragraph }}</p>
+
+                </VsArticleSection>
+            </VsArticle>
+
+            <VsModal
+                modal-id='c05sg3G4oA4' 
+                close-btn-text='Close' 
+                :is-video-modal='true'
+            >
+                <VsRow>
+                    <VsCol cols="12">
+                        <VsVideo
+                            video-id="c05sg3G4oA4"
+                            video-title="Test Video"
+                            class="mb-8"
+                            cookie-btn-text="Manage cookies"
+                            error-message="Sorry, something's gone wrong. Please try again later"
+                            no-js-message="You need JavaScript enabled to see this video"
+                            no-cookies-message="You need cookies enabled to see this video"
+                        />
+                    </VsCol>
+                </VsRow>
+            </VsModal>
+        </div>
     `,
 });
 
@@ -202,6 +206,7 @@ const base = {
         'Read on for an overview of walking routes up the mountain, or visit Walk Highlands for detailed maps, difficulty levels and walking advice.',
         'Remember it\'s never \'easy\' to bag a Scottish Munro or Corbett. You\'ll need a good amount of hillwalking experience, fitness, hill craft and navigation skills using a map and compass, before attempting any Scottish mountains, even more so in winter.',
     ],
+    jsDisabled: false,
 };
 
 export const Default = Template.bind();
@@ -251,4 +256,31 @@ SidebarVideo.args = {
         noCookiesMessage: 'You need cookies enabled to see this video',
         imageSrc: 'fixtures/article/images/corpach-sea-lock-and-lighthouse.jpg',
     },
+};
+
+export const NoCookies = Template.bind();
+NoCookies.args = {
+    ...base,
+    ...CoverVideo.args,
+    ...SidebarVideo.args,
+};
+
+NoCookies.decorators = [
+    () => {
+        window.bypassCookieChecks = false;
+
+        return {
+            template: `
+                <story/>
+            `,
+        };
+    },
+];
+
+export const NoJavascript = Template.bind();
+NoJavascript.args = {
+    ...base,
+    ...CoverVideo.args,
+    ...SidebarVideo.args,
+    jsDisabled: true,
 };

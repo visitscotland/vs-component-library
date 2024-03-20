@@ -21,7 +21,7 @@
             </div>
 
             <VsWarning
-                v-show="showError"
+                v-if="showError"
                 theme="light"
                 :type="cookiesInitStatus === true ? 'cookie' : 'normal'"
                 data-test="vs-video__warning"
@@ -225,6 +225,8 @@ export default {
     mounted() {
         this.jsDisabled = jsIsDisabled();
         videoStore = useVideoStore(pinia());
+
+        console.log(this.cookiesInitStatus);
 
         this.setEventListeners();
     },

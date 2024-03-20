@@ -52,7 +52,7 @@
         </div>
 
         <div
-            v-show="!(videoLoaded && requiredCookiesExist) && showCookieMessage"
+            v-if="!(videoLoaded && requiredCookiesExist) && showCookieMessage"
             class="vs-video-caption vs-video-caption--warning"
         >
             <VsWarning
@@ -67,7 +67,7 @@
             </VsWarning>
         </div>
         <div
-            v-show="!(videoLoaded && requiredCookiesExist) && cookiesInitStatus === 'error'"
+            v-if="!(videoLoaded && requiredCookiesExist) && cookiesInitStatus === 'error'"
             class="vs-video-caption vs-video-caption--warning"
         >
             <VsWarning
@@ -78,6 +78,7 @@
             </VsWarning>
         </div>
         <div
+            v-if="noJsMessage"
             class="vs-video-caption vs-video-caption--no-js vs-video-caption--warning"
             data-test="video-caption-nojs"
         >
