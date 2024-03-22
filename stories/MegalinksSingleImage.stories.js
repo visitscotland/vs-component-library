@@ -34,9 +34,6 @@ const Template = (args) => ({
         };
     },
     template: `
-    <div
-        :class="args.jsDisabled ? 'no-js' : ''"
-    >
         <VsMegalinks
             :title="args.mainTitle"
             class="vs-megalinks--single-image"
@@ -56,6 +53,7 @@ const Template = (args) => ({
                     :title="args.subTitle"
                     :buttonLink="args.buttonLink"
                     :theme="args.theme"
+                    :alternate="args.alternate"
                 >
                     <template v-slot:vs-single-image>
                         <VsImageWithCaption
@@ -68,7 +66,7 @@ const Template = (args) => ({
                                 v-slot:img-caption
                             >
                                 <VsCaption
-                                    text-align="right"
+                                    :text-align="args.alternate ? 'left' : 'right'"
                                 >
                                     <template v-slot:caption>
                                         {{ args.imageCaption }}
@@ -106,6 +104,9 @@ const Template = (args) => ({
             closeBtnText="Close"
             :isVideoModal="true"
         >
+            <div
+                :class="args.jsDisabled ? 'no-js' : ''"
+            >
             <VsRow>
                 <VsCol cols="12">
                     <VsVideo
@@ -117,8 +118,9 @@ const Template = (args) => ({
                     />
                 </VsCol>
             </VsRow>
+            </div>
         </VsModal>
-    </div>
+   
     `,
 });
 
@@ -169,6 +171,14 @@ export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const Alternate = Template.bind({
+});
+
+Alternate.args = {
+    ...base,
+    alternate: true,
+};
 
 export const WithVideo = Template.bind({
 });
