@@ -38,7 +38,7 @@
                         :latitude="latitude"
                         :longitude="longitude"
                         :map-outline-color="tokens['vs-color-icon-inverse']"
-                        :map-marker-color="tokens['vs-color-icon-tertiary']"
+                        :map-marker-color="tokens['vs-color-icon-accent-tolsta']"
                     />
                 </div>
             </VsCol>
