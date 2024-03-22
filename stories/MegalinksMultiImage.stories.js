@@ -48,7 +48,7 @@ const Template = (args) => ({
             :theme="args.theme"
             :noJsMessage="args.noJsMessage"
             :noCookiesMessage="args.noCookiesMessage"
-            :noCookiesLink="args.noCookiesLink"
+            :cookieLinkText="args.cookieLinkText"
         >
             <template v-slot:vs-megalinks-intro>
                 <p>{{ args.megalinksIntro }}</p>
@@ -117,10 +117,7 @@ const base = {
     buttonText: 'Get more inspiration',
     noJsMessage: 'JavaScript is needed to watch this video.',
     noCookiesMessage: 'Cookies are needed to watch this video.',
-    noCookiesLink: {
-        url: 'https://google.com',
-        label: 'Update my cookie settings',
-    },
+    cookieLinkText: 'Update my cookie settings',
     megalinksIntro,
     links: [
         {
