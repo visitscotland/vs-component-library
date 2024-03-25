@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.5](https://github.com/visitscotland/vs-component-library/compare/v1.2.4...v1.2.5) (2024-03-25)
+
+
+### 🎨 Styling
+
+* **stories:** add in missing no-js stories and fix occasional ui bug ([313eb7c](https://github.com/visitscotland/vs-component-library/commit/313eb7c8b8d2397518901a57126c6e33021e11d6))
+* **stories:** add more no javascript stories and fix small ui bugs ([e2ca64d](https://github.com/visitscotland/vs-component-library/commit/e2ca64dc3ecbfb308e98bfaf87e738065a4df405))
+
+
+### ✨ Features
+
+* **storybook:** add datalayer watcher addon to test datalayer events ([7907e2c](https://github.com/visitscotland/vs-component-library/commit/7907e2cd1be0c1c6756e131d826f5aaee239c171))
+
+
+### 🐛 Bug Fixes
+
+* **data-layer-templates.js:** incorrect datalayer key ([fbed052](https://github.com/visitscotland/vs-component-library/commit/fbed0526d7047439535719fd7bf6348110254c92)), closes [#141](https://github.com/visitscotland/vs-component-library/issues/141)
+* **footer:** remove footer story breaking chromatic build ([b880aec](https://github.com/visitscotland/vs-component-library/commit/b880aec5d22015334055111f475ea242ef982365))
+* **product search:** trim autocomplete inputs ([f4165f0](https://github.com/visitscotland/vs-component-library/commit/f4165f06d41a156e8349f4a46d93cd2a9957cd20)), closes [#317](https://github.com/visitscotland/vs-component-library/issues/317)
+
 ### [1.2.4](https://github.com/visitscotland/vs-component-library/compare/v1.2.3...v1.2.4) (2024-03-19)
 
 
