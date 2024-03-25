@@ -16,16 +16,21 @@
                         data-test="psw-form"
                         v-if="locationDataLoaded"
                     >   
-                        <div class="form-group mb-4">
+                        <div class="form-group product-search__type mb-4">
                             <label for="prodtypes">
                                 {{ getLabelText('search_for', 'I\'m looking for') }}
                             </label>
-                            <VsSelect
-                                :options="translatedProds"
-                                :value="defaultProd"
-                                @updated="onChange($event)"
-                                field-name="prodtypes"
-                            />
+                            <div :class="productSearchTypeClass">
+                                <VsSelect
+                                    :options="translatedProds"
+                                    :value="defaultProd"
+                                    @updated="onChange($event)"
+                                    field-name="prodtypes"
+                                />
+                                <div class="product-search__in d-none d-md-block mt-4">
+                                    {{ getLabelText('in', 'in') }}
+                                </div>
+                            </div>
                         </div>
 
                         <div aria-live="polite">
@@ -358,7 +363,7 @@ const getPlaceData = (placeKey, type?) => {
     } else if (type === 'id') {
         chosenLocation.value = locations.value.find(place => place.id === placeKey);
     } else {
-        chosenLocation.value = locations.value.find(place => place.name === placeKey);
+        chosenLocation.value = locations.value.find(place => place.name === placeKey.trim());
     }
 };
 
@@ -387,6 +392,10 @@ const setRender = () => {
         }
     });
 }
+
+const productSearchTypeClass = computed(() => {
+    return selectedProd.value !== 'cate' && selectedProd.value !== 'acti,attr,reta' ? 'd-lg-flex' : ''
+});
 
 onBeforeMount(async () => {
     window.VS = {
@@ -427,6 +436,7 @@ const preSubmitChecks = (e) => {
         form.submit();
     }, 500);
 }
+
 </script>
 
 <style lang="scss">
@@ -558,5 +568,23 @@ const preSubmitChecks = (e) => {
     .multiselect-placeholder {
         color: $vs-color-text;
         opacity: 0.8;
+    }
+
+    .product-search__type {
+        @include media-breakpoint-up(lg) {
+            .d-lg-flex {
+                .vs-select {
+                    width: 100%;
+                }
+
+                .product-search__in {
+                    margin: 0 $spacer-4;
+                }
+            }
+        }
+
+        .product-search__in {
+            font-weight: $font-weight-semi-bold;
+        }
     }
 </style>
