@@ -363,7 +363,7 @@ const getPlaceData = (placeKey, type?) => {
     } else if (type === 'id') {
         chosenLocation.value = locations.value.find(place => place.id === placeKey);
     } else {
-        chosenLocation.value = locations.value.find(place => place.name === placeKey);
+        chosenLocation.value = locations.value.find(place => place.name === placeKey.trim());
     }
 };
 
