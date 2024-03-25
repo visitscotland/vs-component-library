@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.6](https://github.com/visitscotland/vs-component-library/compare/v1.2.5...v1.2.6) (2024-03-25)
+
+
+### ♻️ Code Refactoring
+
+* **product search:** condense margin css ([23f23f8](https://github.com/visitscotland/vs-component-library/commit/23f23f884178130435793649e8ba9fa4020d880c))
+* **product search:** move class logic to a computed variable ([71c9d28](https://github.com/visitscotland/vs-component-library/commit/71c9d28fe4f4cb6bbe08ce65bd67fbce62fef2d6))
+
+
+### 🐛 Bug Fixes
+
+* **product search:** add missing label ([296787c](https://github.com/visitscotland/vs-component-library/commit/296787c3d6b18530f64a348538884bae5bf55833)), closes [#188](https://github.com/visitscotland/vs-component-library/issues/188)
+* **product search:** trim location value ([3045196](https://github.com/visitscotland/vs-component-library/commit/3045196f0f7704d0fe427b7c002a2ecac3c6194b))
+
 ### [1.2.5](https://github.com/visitscotland/vs-component-library/compare/v1.2.4...v1.2.5) (2024-03-25)
 
 
