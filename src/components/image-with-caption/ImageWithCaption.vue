@@ -294,9 +294,21 @@ export default {
                 bottom: $spacer-2;
                 right: $spacer-2;
 
+                @include media-breakpoint-down(sm) {
+                    .fa-icon-colours--white {
+                        --fa-primary-color: #{$vs-color-icon};
+                        --fa-secondary-color: #{$vs-color-icon-inverse};
+                    }
+                }
+
                 @include media-breakpoint-up(sm) {
                     .vs-image-with-caption--closed-default & {
                         display: block;
+
+                        .fa-icon-colours--white {
+                            --fa-primary-color: #{$vs-color-icon};
+                            --fa-secondary-color: #{$vs-color-icon-inverse};
+                        }
                     }
                 }
 
