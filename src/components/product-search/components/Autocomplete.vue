@@ -58,7 +58,7 @@ const showHiddenInput = computed(() => {
 });
 
 watch(inputValue, (newInputVal) => {
-    emit('changeValue', newInputVal)
+    emit('changeValue', newInputVal);
 });
 
 watch(() => props.defaultVal, () => {
