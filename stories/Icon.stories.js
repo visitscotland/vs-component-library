@@ -49,7 +49,7 @@ const Template = (args) => ({
 const base = {
     name: 'user',
     variant: 'dark',
-    size: 'md',
+    size: 'lg',
 };
 
 export const Default = Template.bind({
@@ -57,4 +57,14 @@ export const Default = Template.bind({
 
 Default.args = {
     ...base,
+};
+
+export const Duotone = Template.bind({
+});
+
+Duotone.args = {
+    ...base,
+    name: 'crow',
+    duotone: true,
+    style: '--fa-secondary-opacity: 1.0; --fa-primary-color: dodgerblue; --fa-secondary-color: gold;',
 };

@@ -9,6 +9,7 @@
             [`vs-icon--${formattedName}`]: true,
             ['icon--' + orientation]: orientation,
             [`vs-icon--variant-${variant}`]: variant,
+            [`fa-duotone`]: duotone,
         }"
         :style="[customColour ? { color: customColour } : {}]"
         v-bind="$attrs"
@@ -88,6 +89,13 @@ export default {
             type: String,
             default: null,
             validator: (value) => value.match(/(xxs|xs|sm|md|lg|xl)/),
+        },
+        /**
+        * Uses FontAwesome Duotone
+        */
+        duotone: {
+            type: Boolean,
+            default: false,
         },
     },
     data() {
