@@ -34,11 +34,10 @@ const Template = (args) => ({
         <div
             :class="args.jsDisabled ? 'no-js' : ''"
         >
-            <VsImageWithCaption v-bind="args">
-                <template v-slot:video-title>
-                    {{ args.videoTitle}}
-                </template>
-
+            <VsImageWithCaption
+                v-if="!args.isVideo"
+                v-bind="args"
+            >
                 <template v-slot:img-caption>
                     <VsCaption
                         :latitude='args.latitude'
@@ -70,6 +69,19 @@ const Template = (args) => ({
                     </VsCaption>
                 </template>
             </VsImageWithCaption>
+
+            <VsImageWithCaption
+                v-if="args.isVideo"
+                v-bind="args"
+            >
+
+                <template v-slot:video-title>
+                    {{ args.videoTitle}}
+                </template>
+            </VsImageWithCaption>
+
+
+            
         </div>
 
         <VsModal
@@ -162,17 +174,15 @@ WithVideo.args = {
     showToggle: false,
 };
 
-export const WithVideoNoCookies = Template.bind({
+export const NoCookies = Template.bind({
 });
 
-WithVideoNoCookies.args = {
+NoCookies.args = {
     ...base,
-    isVideo: true,
-    videoId: 'c05sg3G4oA4',
-    videoTitle: 'Only in Scotland',
+    ...WithVideo.args,
 };
 
-WithVideoNoCookies.decorators = [
+NoCookies.decorators = [
     () => {
         window.bypassCookieChecks = false;
 
@@ -184,13 +194,11 @@ WithVideoNoCookies.decorators = [
     },
 ];
 
-export const WithVideoNoJavascript = Template.bind({
+export const NoJavascript = Template.bind({
 });
 
-WithVideoNoJavascript.args = {
+NoJavascript.args = {
     ...base,
-    isVideo: true,
-    videoId: 'c05sg3G4oA4',
-    videoTitle: 'Only in Scotland',
+    ...WithVideo.args,
     jsDisabled: true,
 };

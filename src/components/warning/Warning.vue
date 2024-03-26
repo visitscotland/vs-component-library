@@ -26,7 +26,7 @@
 
         <VsButton
             v-bind="btnAttrs"
-            variant="secondary"
+            variant="primary"
             v-show="$slots['button-text'] && $slots['button-text']()"
             class="vs-warning__button"
         >
@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import designTokens from '@/assets/tokens/tokens.json';
 import VsIcon from '@components/icon/Icon.vue';
 import VsButton from '@components/button/Button.vue';
 
@@ -109,6 +110,11 @@ export default {
             default: true,
         },
     },
+    data() {
+        return {
+            tokens: designTokens,
+        };
+    },
     computed: {
         warningClasses() {
             return [
@@ -123,9 +129,6 @@ export default {
             if (this.type === 'cookie') {
                 attrsObj.class = 'ot-sdk-show-settings vs-warning__cookie-trigger';
             }
-            if (this.theme === 'dark') {
-                attrsObj.onDark = true;
-            }
             if (this.size === 'small') {
                 attrsObj.size = 'sm';
             }
@@ -137,15 +140,9 @@ export default {
             };
 
             if (this.theme === 'dark') {
-                iconAttrs.customColour = '#ffffff';
+                iconAttrs.variant = 'warning';
             } else {
-                iconAttrs.variant = 'primary';
-            }
-
-            if (this.size === 'small') {
-                iconAttrs.size = 'md';
-            } else {
-                iconAttrs.size = 'lg';
+                iconAttrs.variant = 'tertiary';
             }
 
             return iconAttrs;
@@ -163,7 +160,7 @@ export default {
         flex-direction: column;
         text-align: left;
         padding: $spacer-5;
-        background: $color-gray-tint-7;
+        background: $vs-color-background-information;
         height: 100%;
         line-height: 1.1;
 
@@ -197,8 +194,12 @@ export default {
             color: $vs-color-text-inverse;
             background-color: $vs-color-background-bold;
 
+            .vs-link.vs-link--variant-primary{
+                color: $vs-color-text-accent-etive;
+            }
+
             &.vs-warning--transparent {
-                background: rgba(0,0,0,0.8);
+                background: $vs-color-background-bold;
             }
         }
 

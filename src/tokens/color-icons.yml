@@ -12,7 +12,9 @@ props:
       value: "{!vs-bramble}"
     - name: vs-color-icon-danger
       value: "{!vs-cuillin}"
-    
+    - name: vs-color-icon-warning
+      value: "{!vs-buachaille}"
+      
     ## Accent colours
     - name: vs-color-icon-accent-lavender
       value: "{!vs-lavender}"    

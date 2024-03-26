@@ -42,7 +42,6 @@
 </style>
 
 <script>
-import designTokens from '@/assets/tokens/tokens.json';
 import VsButton from '@components/button/Button.vue';
 import VsIcon from '@components/icon/Icon.vue';
 
@@ -73,7 +72,6 @@ export default {
     data() {
         return {
             show: false,
-            tokens: designTokens,
         };
     },
     methods: {

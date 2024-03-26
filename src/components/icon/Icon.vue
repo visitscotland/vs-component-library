@@ -48,7 +48,7 @@ export default {
             type: String,
             default: 'default',
             validator: (value) => value.match(
-                /(default|primary|inverse|disabled|tertiary|danger)/,
+                /(default|primary|inverse|disabled|tertiary|danger|warning)/,
             ),
         },
         /**
@@ -267,6 +267,7 @@ $variants: (
     disabled: $vs-color-icon-disabled,
     tertiary: $vs-color-icon-tertiary,
     danger: $vs-color-icon-danger,
+    warning: $vs-color-icon-warning,
 );
 
 .vs-icon {
