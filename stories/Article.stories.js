@@ -160,7 +160,7 @@ const Template = (args) => ({
                         </VsArticleSidebar>
                     </template>
 
-                    <p v-for="paragraph in args.default">{{ paragraph }}</p>
+                    ${args.defaultContent}
 
                 </VsArticleSection>
             </VsArticle>
@@ -200,12 +200,12 @@ const base = {
         credit: '© CutMedia / Chris Rowland',
     },
     sidebarQuote: 'Scotland\'s largest mountain was once a massive active volcano which exploded and collapsed inwards on itself millions of years ago.',
-    default: [
-        'Ben Nevis is the king of them all. In the north west Highlands, near the town of Fort William and part of the Grampian Mountain range, the famous peak attracts 125k walkers a year. Whether you\'re an avid ambler or you just love beautiful landscapes, bagging \'the Ben\' is likely to feature near the top of your Scottish bucket list.',
-        'An ancient giant of the land, Ben Nevis was once a massive active volcano which exploded and collapsed inwards on itself millions of years ago. At the summit, there is evidence of an explosion in the form of light-coloured granite. The name itself has two translations from the ancient Gaelic language, meaning \'mountain with its head in the clouds\', thanks to its iconic mist-shrouded peak, or it can also mean \'venomous mountain\' - you can decide which translation you prefer after the climb!',
-        'Read on for an overview of walking routes up the mountain, or visit Walk Highlands for detailed maps, difficulty levels and walking advice.',
-        'Remember it\'s never \'easy\' to bag a Scottish Munro or Corbett. You\'ll need a good amount of hillwalking experience, fitness, hill craft and navigation skills using a map and compass, before attempting any Scottish mountains, even more so in winter.',
-    ],
+    defaultContent: `
+        <p>Ben Nevis is the king of them all. In the north west <a href='#'>Highlands</a>, near the town of <a href='#'>Fort William</a> and part of the <a href='#'>Grampian Mountain</a> range, the famous peak attracts 125k walkers a year. Whether you're an avid ambler or you just love beautiful landscapes, bagging 'the Ben' is likely to feature near the top of your Scottish bucket list.</p>
+        <p>An ancient giant of the land, Ben Nevis was once a massive active volcano which exploded and collapsed inwards on itself millions of years ago. At the summit, there is evidence of an explosion in the form of light-coloured granite. The name itself has two translations from the ancient Gaelic language, meaning 'mountain with its head in the clouds', thanks to its iconic mist-shrouded peak, or it can also mean 'venomous mountain' - you can decide which translation you prefer after the climb!</p>
+        <p>Read on for an overview of walking routes up the mountain, or visit <a href='#'>Walk Highlands</a> for detailed maps, difficulty levels and walking advice.</p>
+        <p>Remember it's never 'easy' to bag a Scottish Munro or Corbett. You'll need a good amount of hillwalking experience, fitness, hill craft and navigation skills using a map and compass, before attempting any Scottish mountains, even more so in winter.</p>
+    `,
     jsDisabled: false,
 };
 
