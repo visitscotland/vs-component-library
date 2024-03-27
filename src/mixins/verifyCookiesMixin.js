@@ -1,18 +1,20 @@
-import { mapState } from 'pinia';
 import useCookiesStore from '@/stores/cookies.store';
 
 const cookieCheckerMixin = {
     data() {
         return {
             bypassCookiesExist: false,
+            cookiesStore: null,
         };
     },
     computed: {
-        ...mapState(useCookiesStore, {
-            cookiesSet(store) {
-                return store.allowedCookies;
-            },
-        }),
+        cookiesSet() {
+            if (this.cookiesStore) {
+                return this.cookiesStore.allowedCookies;
+            }
+
+            return [];
+        },
         onetrustActiveGroups() {
             if (typeof window !== 'undefined') {
                 return window.OnetrustActiveGroups;
@@ -50,6 +52,8 @@ const cookieCheckerMixin = {
         },
     },
     mounted() {
+        this.cookiesStore = useCookiesStore();
+
         setTimeout(() => {
             this.bypassCookiesExist = true;
         }, 50);
