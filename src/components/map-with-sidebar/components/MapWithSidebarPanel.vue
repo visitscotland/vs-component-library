@@ -11,7 +11,24 @@
             <div class="vs-map-with-sidebar-panel__buttons d-lg-none">
                 <div
                     class="vs-map-with-sidebar-panel__back"
-                    v-if="currentStage > 0 || selectedSubcategory"
+                    v-if="currentStage > 1 || selectedSubcategory"
+                >
+                    <VsButton
+                        class="vs-map-with-sidebar-panel_menu"
+                        icon="bars-mobile-menu"
+                        size="sm"
+                        @click="stageBack"
+                        data-test="vs-map-with-sidebar__menu-toggle"
+                        variant="secondary"
+                    >
+                        <!-- @slot Text for panel menu button  -->
+                        <slot name="menu-btn-text" />
+                    </VsButton>
+                </div>
+
+                <div
+                    class="vs-map-with-sidebar-panel__back"
+                    v-if="currentStage === 1 || selectedSubcategory"
                 >
                     <VsButton
                         icon-only
@@ -28,7 +45,6 @@
                         </span>
                     </VsButton>
                 </div>
-
                 <div
                     class="vs-map-with-sidebar-panel__close"
                 >
@@ -408,7 +424,7 @@ export default {
             }
 
             return data.filter((obj) => {
-                if (typeof obj.properties !== 'undefined') {
+                if (typeof obj.properties !== 'undefined' && this.selectedItem) {
                     return obj.properties.id === this.selectedItem.properties.id;
                 }
 
@@ -459,6 +475,9 @@ export default {
          */
         closePanel() {
             this.$emit('close-panel');
+            if (this.currentStage === 2) {
+                this.$emit('set-subcategory', null);
+            }
         },
         /**
          * Moves back stages dependent on current state

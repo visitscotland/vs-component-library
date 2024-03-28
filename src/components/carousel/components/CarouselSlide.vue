@@ -231,6 +231,7 @@ export default {
                 border: none;
                 height: 100%;
                 transition: box-shadow $duration-slowly;
+                cursor: pointer;
 
                 &:hover {
                     box-shadow: $shadow_card;
@@ -242,6 +243,7 @@ export default {
 
                 .stretched-link {
                     text-decoration: none;
+                    letter-spacing: 0;
                 }
 
                 .card-body {
@@ -252,7 +254,7 @@ export default {
                     text-align: left;
                 }
 
-                &__img {
+                &__img-container {
                     width: 33%;
                     align-self: flex-start;
                     margin-right: $spacer-4;
@@ -268,10 +270,6 @@ export default {
 
                 &__category {
                     margin-bottom: $spacer-2;
-                }
-
-                .stretched-link {
-                    letter-spacing: 0;
                 }
 
                 .card-title {

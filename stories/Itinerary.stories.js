@@ -48,207 +48,211 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsItinerary v-bind="args">
-            <template
-                v-slot:map
-            >
-                <VsMap 
-                    listViewText="List"
-                    mapViewText="Map"
-                    mapId="vs-itinerary-map"
-                    :isVisible="true"
-                    :places="args.stops"
-                    :fitToMarkers="true"
-                />
-            </template>
-
-            <template
-                v-slot:list
-            >
-                <VsItineraryDay
-                    v-for="day in args.days"
-                    :defaultShow="(day.dayCount < 3) ? true : false"
-                    :dayNumber="day.dayCount"
-                    dayLabel="Day"
-                    :dayTitle="day.title"
+        <div
+            :class="args.jsDisabled ? 'no-js' : ''"
+        >
+            <VsItinerary v-bind="args">
+                <template
+                    v-slot:map
                 >
-                    <template
-                        v-slot:day-introduction
-                    >
-                        <div class="mb-5" v-html="day.introduction"></div>
-                    </template>
+                    <VsMap 
+                        listViewText="List"
+                        mapViewText="Map"
+                        mapId="vs-itinerary-map"
+                        :isVisible="true"
+                        :places="args.stops"
+                        :fitToMarkers="true"
+                    />
+                </template>
 
-                    <template
-                        v-slot:day-transport
+                <template
+                    v-slot:list
+                >
+                    <VsItineraryDay
+                        v-for="day in args.days"
+                        :defaultShow="(day.dayCount < 3) ? true : false"
+                        :dayNumber="day.dayCount"
+                        dayLabel="Day"
+                        :dayTitle="day.title"
                     >
-                        <VsDescriptionList
-                            v-if="day.transport.length"
-                            class="text-center justify-content-center align-items-center"
-                            inline
-                        >
-                            <VsDescriptionListItem
-                                title
-                                class="col-auto px-0"
-                            >
-                                Transport
-                            </VsDescriptionListItem>
-                            <VsDescriptionListItem
-                                class="col-auto px-0"
-                                v-for="(transportType, transportTypeIndex) in day.transport"
-                                :key="transportTypeIndex"
-                            >
-                                <VsTooltip
-                                    :title="transportType.value"
-                                    href="#"
-                                    :icon="transportType.key"
-                                    size="lg"
-                                    icon-only
-                                    variant="transparent"
-                                >
-                                    <span class="visually-hidden">
-                                        {{transportType.value}}
-                                    </span>
-                                </VsTooltip>
-                            </VsDescriptionListItem>
-                        </VsDescriptionList>
-                    </template>
-
-                    <template
-                        v-slot:stops
-                    >
-                    <VsItineraryStop 
-                        v-for="stop in day.stops"
-                        :stopNumber="stop.stopCount"
-                        :stopLabel="stop.title"
-                        :stopTitle="stop.subtitle"
-                    >
-                        <VsImageWithCaption
-                            :altText="stop.image.altText"
-                            :image-src="stop.image.imageSrc"
-                        >
-                            <template v-slot:img-caption>
-                                <VsCaption>
-                                    <template v-slot:caption>
-                                        <span>
-                                            {{ stop.image.caption }}
-                                        </span>
-                                    </template>
-        
-                                    <template v-slot:credit>
-                                        <span>
-                                            &copy; {{ stop.image.credit }}
-                                        </span>
-                                    </template>
-                                </VsCaption>
-                            </template>
-                        </VsImageWithCaption>
-        
                         <template
-                            v-slot:stop-description
+                            v-slot:day-introduction
                         >
-                            <div
-                                v-html="stop.description"
-                            ></div>
-        
-                            <VsLink href="stop.href">
-                                Find out more
-                            </VsLink>
+                            <div class="mb-5" v-html="day.introduction"></div>
                         </template>
-        
+
                         <template
-                            v-if="stop.timeToExplore"
+                            v-slot:day-transport
                         >
-                            <VsDescriptionList class="my-4 justify-content-start" inline>
-                                <VsDescriptionListItem title class="mb-0 me-0 pe-1 col-auto">
-                                    Time to explore
+                            <VsDescriptionList
+                                v-if="day.transport.length"
+                                class="text-center justify-content-center align-items-center"
+                                inline
+                            >
+                                <VsDescriptionListItem
+                                    title
+                                    class="col-auto px-0"
+                                >
+                                    Transport
                                 </VsDescriptionListItem>
-                                <VsDescriptionListItem class="mb-0 col-auto px-0">
-                                    {{stop.timeToExplore}}
+                                <VsDescriptionListItem
+                                    class="col-auto px-0"
+                                    v-for="(transportType, transportTypeIndex) in day.transport"
+                                    :key="transportTypeIndex"
+                                >
+                                    <VsTooltip
+                                        :title="transportType.value"
+                                        href="#"
+                                        :icon="transportType.key"
+                                        size="lg"
+                                        icon-only
+                                        variant="transparent"
+                                    >
+                                        <span class="visually-hidden">
+                                            {{transportType.value}}
+                                        </span>
+                                    </VsTooltip>
                                 </VsDescriptionListItem>
                             </VsDescriptionList>
                         </template>
-        
+
                         <template
-                            v-slot:stop-tips
+                            v-slot:stops
                         >
-                            <VsItineraryTips
-                                v-if="stop.tips.tipsTitle.length > 0 && stop.tips.tipsBody.length > 0"
+                        <VsItineraryStop 
+                            v-for="stop in day.stops"
+                            :stopNumber="stop.stopCount"
+                            :stopLabel="stop.title"
+                            :stopTitle="stop.subtitle"
+                        >
+                            <VsImageWithCaption
+                                :altText="stop.image.altText"
+                                :image-src="stop.image.imageSrc"
                             >
-                                <template v-slot:text>
-                                    <div>
-                                        <strong>{{stop.tips.tipsTitle}}</strong>
-                                        <div v-html="stop.tips.tipsBody"></div>
-                                    </div>
+                                <template v-slot:img-caption>
+                                    <VsCaption>
+                                        <template v-slot:caption>
+                                            <span>
+                                                {{ stop.image.caption }}
+                                            </span>
+                                        </template>
+            
+                                        <template v-slot:credit>
+                                            <span>
+                                                &copy; {{ stop.image.credit }}
+                                            </span>
+                                        </template>
+                                    </VsCaption>
                                 </template>
-                                <template v-slot:svg>
-                                    <VsSvg path="highland-cow" />
-                                </template>
-                            </VsItineraryTips>
-                        </template>
-        
-                        <template v-slot:stop-address>
-                            <VsAddress v-if="stop.address && stop.address.line1">
-                                <span v-if="stop.address.line1">{{ stop.address.line1 }},<br></span>
-                                <span v-if="stop.address.line2">{{ stop.address.line2 }},<br></span>
-                                <span v-if="stop.address.line3">{{ stop.address.line3 }},<br></span>
-                                <span v-if="stop.address.city">{{ stop.address.city }},<br></span>
-                                <span
-                                    v-if="stop.address.postcode"
+                            </VsImageWithCaption>
+            
+                            <template
+                                v-slot:stop-description
+                            >
+                                <div
+                                    v-html="stop.description"
+                                ></div>
+            
+                                <VsLink href="stop.href">
+                                    Find out more
+                                </VsLink>
+                            </template>
+            
+                            <template
+                                v-if="stop.timeToExplore"
+                            >
+                                <VsDescriptionList class="my-4 justify-content-start" inline>
+                                    <VsDescriptionListItem title class="mb-0 me-0 pe-1 col-auto">
+                                        Time to explore
+                                    </VsDescriptionListItem>
+                                    <VsDescriptionListItem class="mb-0 col-auto px-0">
+                                        {{stop.timeToExplore}}
+                                    </VsDescriptionListItem>
+                                </VsDescriptionList>
+                            </template>
+            
+                            <template
+                                v-slot:stop-tips
+                            >
+                                <VsItineraryTips
+                                    v-if="stop.tips.tipsTitle.length > 0 && stop.tips.tipsBody.length > 0"
                                 >
-                                    {{ stop.address.postcode }}
-                                </span>
-                            </VsAddress>
-                        </template>
-        
-                        <template
-                            v-slot:stop-info
-                        >
-                            <VsItineraryStopInfo
-                                v-if="args.showOpeningHours"
-                                :openingHours="args.openingHours"
-                                openingTimesLink="https://www.visitscotland.com"
-                                closedText="Closed"
-                                closingSoonText="Closing soon"
-                                openText="Open"
-                                hoursLinkUrl="https://www.visitscotland.com"
-                                usualText="Usually"
-                                provisionalText="Provisionally"
-                                temporarilyClosedText="Temporarily closed"
-                                toText="to"
-                                andText="and"
+                                    <template v-slot:text>
+                                        <div>
+                                            <strong>{{stop.tips.tipsTitle}}</strong>
+                                            <div v-html="stop.tips.tipsBody"></div>
+                                        </div>
+                                    </template>
+                                    <template v-slot:svg>
+                                        <VsSvg path="highland-cow" />
+                                    </template>
+                                </VsItineraryTips>
+                            </template>
+            
+                            <template v-slot:stop-address>
+                                <VsAddress v-if="stop.address && stop.address.line1">
+                                    <span v-if="stop.address.line1">{{ stop.address.line1 }},<br></span>
+                                    <span v-if="stop.address.line2">{{ stop.address.line2 }},<br></span>
+                                    <span v-if="stop.address.line3">{{ stop.address.line3 }},<br></span>
+                                    <span v-if="stop.address.city">{{ stop.address.city }},<br></span>
+                                    <span
+                                        v-if="stop.address.postcode"
+                                    >
+                                        {{ stop.address.postcode }}
+                                    </span>
+                                </VsAddress>
+                            </template>
+            
+                            <template
+                                v-slot:stop-info
                             >
-                                <template v-slot:stop-to>
-                                    to
-                                </template>
-        
-                                <template v-slot:stop-link-text>
-                                    Check opening times
-                                </template>
-        
-                                <template v-slot:stop-charge-text>
-                                    Admission charge
-                                </template>
-                            </VsItineraryStopInfo>
+                                <VsItineraryStopInfo
+                                    v-if="args.showOpeningHours"
+                                    :openingHours="args.openingHours"
+                                    openingTimesLink="https://www.visitscotland.com"
+                                    closedText="Closed"
+                                    closingSoonText="Closing soon"
+                                    openText="Open"
+                                    hoursLinkUrl="https://www.visitscotland.com"
+                                    usualText="Usually"
+                                    provisionalText="Provisionally"
+                                    temporarilyClosedText="Temporarily closed"
+                                    toText="to"
+                                    andText="and"
+                                >
+                                    <template v-slot:stop-to>
+                                        to
+                                    </template>
+            
+                                    <template v-slot:stop-link-text>
+                                        Check opening times
+                                    </template>
+            
+                                    <template v-slot:stop-charge-text>
+                                        Admission charge
+                                    </template>
+                                </VsItineraryStopInfo>
+                            </template>
+            
+                            <template v-slot:stop-facilities>
+                                <VsIconList
+                                    v-if="stop.facilities.length"
+                                    title="Key facilities"
+                                >
+                                    <VsIconListItem
+                                        v-for="(facility) in stop.facilities"
+                                        :label="facility.value"
+                                        :icon="facility.key"
+                                    />
+                                </VsIconList>
+                            </template>
+                        
+                        </VsItineraryStop>
                         </template>
-        
-                        <template v-slot:stop-facilities>
-                            <VsIconList
-                                v-if="stop.facilities.length"
-                                title="Key facilities"
-                            >
-                                <VsIconListItem
-                                    v-for="(facility) in stop.facilities"
-                                    :label="facility.value"
-                                    :icon="facility.key"
-                                />
-                            </VsIconList>
-                        </template>
-                    
-                    </VsItineraryStop>
-                    </template>
-                </VsItineraryDay>
-            </template>
-        </VsItinerary>
+                    </VsItineraryDay>
+                </template>
+            </VsItinerary>
+        </div>
     `,
 });
 
@@ -269,9 +273,43 @@ sampleItinerary.days.map((day) => {
 const base = {
     days: sampleItinerary.days,
     stops: mapStops,
+    jsDisabled: false,
 };
 
 export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const ItineraryMobile = Template.bind({
+});
+
+ItineraryMobile.args = base;
+
+ItineraryMobile.parameters = {
+    viewport: {
+        defaultViewport: 'mobile2',
+    },
+};
+
+export const NoJavascript = Template.bind({
+});
+
+NoJavascript.args = {
+    ...base,
+    jsDisabled: true,
+};
+
+export const ItineraryMobileNoJavascript = Template.bind({
+});
+
+ItineraryMobileNoJavascript.args = {
+    ...base,
+    jsDisabled: true,
+};
+
+ItineraryMobileNoJavascript.parameters = {
+    viewport: {
+        defaultViewport: 'mobile2',
+    },
+};

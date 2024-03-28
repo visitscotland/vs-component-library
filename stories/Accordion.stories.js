@@ -36,24 +36,28 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsAccordion
-            v-bind="args"
-            :break-point="args.breakPoint"
+        <div
+            :class="args.jsDisabled ? 'no-js' : ''"
         >
-            <VsAccordionItem
-                v-for="accordionItem in args.accordionItems"
-                :open-by-default="accordionItem.openByDefault"
-                :variant="accordionItem.variant"
-                :control-id="accordionItem.controlId"
-                :colour-badge="accordionItem.colourBadge"
+            <VsAccordion
+                v-bind="args"
+                :break-point="args.breakPoint"
             >
-                <template v-slot:title>
-                    {{ accordionItem.title }}
-                </template>
+                <VsAccordionItem
+                    v-for="accordionItem in args.accordionItems"
+                    :open-by-default="accordionItem.openByDefault"
+                    :variant="accordionItem.variant"
+                    :control-id="accordionItem.controlId"
+                    :colour-badge="accordionItem.colourBadge"
+                >
+                    <template v-slot:title>
+                        {{ accordionItem.title }}
+                    </template>
 
-                <div class="p-3" v-html="accordionItem.content" />
-            </VsAccordionItem>
-        </VsAccordion>
+                    <div class="p-3" v-html="accordionItem.content" />
+                </VsAccordionItem>
+            </VsAccordion>
+        </div>
     `,
 });
 
@@ -79,6 +83,7 @@ const base = {
             content: '<p>Perth\'s central location makes reaching it from the rest of the UK and beyond pretty simple. <a href="https://www.visitscotland.com/info/transport/glasgow-airport-gla-p267891" target="_self" class="vs-link vs-link--variant-primary">Glasgow Airport<i data-test="vs-icon" class="ms-1 vs-link__icon fak fa-external-link vs-icon vs-icon--size-xxs vs-icon--external-link vs-icon--variant-primary"></i></a> is located under an hour and a half\'s drive from Perthshire while <a href="https://www.visitscotland.com/info/transport/edinburgh-airport-p2534181" target="_self" class="vs-link vs-link--variant-primary">Edinburgh <i data-test="vs-icon" class="ms-1 vs-link__icon fak fa-external-link vs-icon vs-icon--size-xxs vs-icon--external-link vs-icon--variant-primary"></i></a>is just an hour and <a href="https://www.hial.co.uk/dundee-airport" target="_blank" rel="noopener noreferrer" class="vs-link vs-link--variant-primary">Dundee Airport<i data-test="vs-icon" class="ms-1 vs-link__icon fak fa-external-link vs-icon vs-icon--size-xxs vs-icon--external-link vs-icon--variant-primary"></i></a> is 30 minutes away. Travel time to Perthshire from <a href="https://www.aberdeenairport.com/" target="_blank" rel="noopener noreferrer" class="vs-link vs-link--variant-primary">Aberdeen Airport<i data-test="vs-icon" class="ms-1 vs-link__icon fak fa-external-link vs-icon vs-icon--size-xxs vs-icon--external-link vs-icon--variant-primary"></i></a> is around two hours.</p>',
         },
     ],
+    jsDisabled: false,
 };
 
 export const Default = Template.bind({
@@ -114,4 +119,12 @@ ColourBadge.args = {
             colourBadge: 'red',
         },
     ],
+};
+
+export const NoJavascript = Template.bind({
+});
+
+NoJavascript.args = {
+    ...base,
+    jsDisabled: true,
 };

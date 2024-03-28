@@ -31,11 +31,14 @@ const Template = (args) => ({
         >
             <template v-slot:close-side-panel-text>
                 <span class="visually-hidden">
-                    Close map filters
+                    Close map menu
                 </span>
             </template>
             <template v-slot:open-side-panel-text>
-                Map filters
+                Map menu
+            </template>
+            <template v-slot:menu-btn-text>
+                Map menu
             </template>
             <template v-slot:back-btn-text>
                 Go back one step
@@ -184,10 +187,10 @@ Distilleries.args = {
     mapId: 'vs-map-distillery',
 };
 
-export const NoJs = Template.bind({
+export const NoJavascript = Template.bind({
 });
 
-NoJs.args = {
+NoJavascript.args = {
     ...base,
     ...regionsExample,
     mapId: 'vs-map-nojs',

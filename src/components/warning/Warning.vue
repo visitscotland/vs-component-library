@@ -124,7 +124,7 @@ export default {
                 attrsObj.class = 'ot-sdk-show-settings vs-warning__cookie-trigger';
             }
             if (this.theme === 'dark') {
-                attrsObj.onDark = '';
+                attrsObj.onDark = true;
             }
             if (this.size === 'small') {
                 attrsObj.size = 'sm';
