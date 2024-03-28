@@ -492,7 +492,7 @@ const preSubmitChecks = (e) => {
 
                 &:hover{
                     background-color: $color-secondary-gray-tint-6;
-                    color: $color-base-text;
+                    color: $vs-color-text;
                 }
             }
         }
@@ -535,7 +535,7 @@ const preSubmitChecks = (e) => {
 
         .multiselect-tag{
             background: $color-secondary-gray-tint-5;
-            color: $color-base-text;
+            color: $vs-color-text;
         }
     }
 
@@ -558,7 +558,7 @@ const preSubmitChecks = (e) => {
 
     .multiselect-option.is-pointed{
         background-color: $color-secondary-gray-tint-6;
-        color: $color-base-text;
+        color: $vs-color-text;
     }
 
     .multiselect-caret {
@@ -566,7 +566,7 @@ const preSubmitChecks = (e) => {
     }
 
     .multiselect-placeholder {
-        color: $color-base-text;
+        color: $vs-color-text;
         opacity: 0.8;
     }
 

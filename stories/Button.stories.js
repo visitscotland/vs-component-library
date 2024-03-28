@@ -63,7 +63,10 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsButton v-bind="args">
+        <VsButton 
+            v-bind="args" 
+            :disabled="args.disabled ? true : false"
+        >
             <template v-if="${'default' in args}" v-slot>${args.default}</template>
         </VsButton>
     `,
@@ -82,127 +85,103 @@ const base = {
     iconWithText: false,
     iconPosition: 'left',
     tabindex: '',
-    uppercase: true,
 };
 
-export const Primary = Template.bind({
-});
-
+export const Primary = Template.bind();
 Primary.args = base;
 
-export const HoverState = Template.bind({
-});
+export const PrimaryHover = Template.bind();
+PrimaryHover.args = base;
 
-HoverState.args = base;
-
-HoverState.parameters = {
+PrimaryHover.parameters = {
     pseudo: {
         hover: true,
     },
 };
 
-export const FocusState = Template.bind({
-});
+export const PrimaryActive = Template.bind();
+PrimaryActive.args = base;
 
-FocusState.args = base;
-
-FocusState.parameters = {
-    pseudo: {
-        focus: true,
-    },
-};
-
-export const ActiveState = Template.bind({
-});
-
-ActiveState.args = base;
-
-ActiveState.parameters = {
+PrimaryActive.parameters = {
     pseudo: {
         active: true,
     },
 };
 
-export const Secondary = Template.bind({
-});
+export const PrimaryFocus = Template.bind();
+PrimaryFocus.args = base;
 
+PrimaryFocus.parameters = {
+    pseudo: {
+        focus: true,
+    },
+};
+
+export const Secondary = Template.bind();
 Secondary.args = {
     ...base,
     variant: 'secondary',
 };
 
-export const Small = Template.bind({
-});
+export const SecondaryHover = Template.bind();
+SecondaryHover.args = base;
 
+SecondaryHover.parameters = {
+    pseudo: {
+        hover: true,
+    },
+};
+
+export const SecondaryActive = Template.bind();
+SecondaryActive.args = base;
+
+SecondaryActive.parameters = {
+    pseudo: {
+        active: true,
+    },
+};
+
+export const SecondaryFocus = Template.bind();
+SecondaryFocus.args = base;
+
+SecondaryFocus.parameters = {
+    pseudo: {
+        focus: true,
+    },
+};
+
+export const Disabled = Template.bind();
+Disabled.args = {
+    ...base,
+    disabled: 'disabled',
+};
+
+export const Small = Template.bind();
 Small.args = {
     ...base,
     size: 'sm',
 };
 
-export const Large = Template.bind({
-});
-
+export const Large = Template.bind();
 Large.args = {
     ...base,
     size: 'lg',
 };
 
-export const Transparent = Template.bind({
-});
-
-Transparent.args = {
-    ...base,
-    variant: 'transparent',
-};
-
-export const Dark = Template.bind({
-});
-
-Dark.args = {
-    ...base,
-    variant: 'dark',
-};
-
-Dark.parameters = {
-    backgrounds: {
-        default: 'Yellow',
-    },
-};
-
-export const OnDark = Template.bind({
-});
-
-OnDark.args = {
-    ...base,
-    onDark: true,
-};
-
-OnDark.parameters = {
-    backgrounds: {
-        default: 'Dark',
-    },
-};
-
-export const WithIcon = Template.bind({
-});
-
+export const WithIcon = Template.bind();
 WithIcon.args = {
     ...base,
     icon: 'user',
 };
 
-export const WithIconOnRight = Template.bind({
-});
-
+export const WithIconOnRight = Template.bind();
 WithIconOnRight.args = {
     ...base,
     icon: 'user',
     iconPosition: 'right',
 };
 
-export const IconOnly = Template.bind({
-});
-
+export const IconOnly = Template.bind();
 IconOnly.args = {
     ...base,
     icon: 'search',
@@ -210,9 +189,16 @@ IconOnly.args = {
     default: '',
 };
 
-export const IconPrimaryWithText = Template.bind({
-});
+export const IconOnlyTransparent = Template.bind();
+IconOnlyTransparent.args = {
+    ...base,
+    icon: 'close',
+    iconOnly: true,
+    default: '',
+    variant: 'transparent',
+};
 
+export const IconPrimaryWithText = Template.bind();
 IconPrimaryWithText.args = {
     ...base,
     variant: 'transparent',

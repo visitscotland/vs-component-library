@@ -13,7 +13,7 @@
         >
             <VsIcon
                 :name="icon"
-                variant="light"
+                variant="inverse"
                 size="md"
             />
         </VsLink>
@@ -119,7 +119,7 @@ export default {
             }
 
             &:focus {
-                box-shadow: $shadow-button-focus-on-dark;
+                box-shadow: $vs-box-shadow-focus-on-dark;
                 background-color: $color-white;
                 color: $color-gray-shade-1;
                 outline: none;

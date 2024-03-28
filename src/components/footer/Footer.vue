@@ -20,7 +20,7 @@
             </VsCol>
         </VsFooterNavList>
 
-        <div class="vs-footer__social-menu-wrapper border-top border-secondary-light">
+        <div class="vs-footer__social-menu-wrapper">
             <VsContainer>
                 <VsRow>
                     <VsCol
@@ -68,6 +68,8 @@ export default {
     background: $color-theme-dark;
 
     .vs-footer__social-menu-wrapper {
+        border-top: 1px solid $vs-color-border;
+
         @include media-breakpoint-down(md) {
             .container {
                 max-width: 100%;
@@ -87,9 +89,7 @@ export default {
         }
 
         @include media-breakpoint-up(lg) {
-            &.border-top {
-                border-top: 0 !important;
-            }
+            border-top: 0 !important;
         }
     }
 }

@@ -7,7 +7,7 @@
             <VsIcon
                 class="vs-alert__icon"
                 name="information"
-                variant="light"
+                variant="inverse"
             />
         </div>
         <div class="vs-alert__content-wrapper">
@@ -45,16 +45,14 @@ export default {
     }
 
     .vs-alert__icon-holder {
-        background-color: $color-pink-shade-1;
+        background-color: $vs-color-text-tertiary;
         display: inline-flex;
         justify-content: center;
-        align-items: flex-start;
-        padding: $spacer-4 $spacer-0;
-        width: 2.5rem;
+        align-items: center;
+        padding: $spacer-4 $spacer-3;
         min-height: 2.5rem;
 
         @include media-breakpoint-up(lg) {
-            width: $spacer-9;
             min-height: $spacer-9;
         }
     }
@@ -69,8 +67,8 @@ export default {
         display: flex;
         align-items: center;
         padding: $spacer-3;
-        background-color: $color-pink-tint-6;
-        border: 1px solid $color-pink-tint-1;
+        background-color: $vs-color-background-information;
+        border: 1px solid $vs-color-border-tertiary;
         min-height: 100%;
     }
 </style>

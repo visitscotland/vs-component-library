@@ -11,7 +11,6 @@
             icon="internal-link"
             icon-position="right"
             size="sm"
-            :uppercase="false"
             @click="selectCategory(type)"
             @mouseover="isHovered = true"
             @mouseout="isHovered = false"

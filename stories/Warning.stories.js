@@ -1,4 +1,5 @@
 import VsWarning from '@/components/warning/Warning.vue';
+import VsLink from '@/components/link/Link.vue';
 
 export default {
     component: VsWarning,
@@ -48,6 +49,7 @@ export default {
 const Template = (args) => ({
     components: {
         VsWarning,
+        VsLink,
     },
     setup() {
         return {
@@ -63,7 +65,7 @@ const Template = (args) => ({
                 v-if="args['extra-content']"
                 v-slot:extra-content
             >
-                ${args['extra-content']}
+                ${args['extra-content']} <VsLink href="#">${args.ctaLink}</VsLink>.
             </template>
 
             <template
@@ -93,7 +95,8 @@ export const ExtraContent = Template.bind({
 ExtraContent.args = {
     ...base,
     default: 'JavaScript needs to be enabled to watch this video.',
-    'extra-content': ' You can turn this on in your browser settings.',
+    'extra-content': 'You can turn this on in your browser settings or subscribe by sending an email to',
+    ctaLink: 'info@visitscotland.com',
 };
 
 export const WithButton = Template.bind({
@@ -114,6 +117,8 @@ LightTheme.args = {
     theme: 'light',
     type: 'cookie',
     default: 'Cookies need to be enabled to watch this video',
+    'extra-content': 'You can turn this on in your browser settings or subscribe by sending an email to',
+    ctaLink: 'info@visitscotland.com',
     'button-text': 'Manage cookies settings',
 };
 

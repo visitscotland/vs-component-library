@@ -6,7 +6,7 @@
         <VsIcon
             v-if="source"
             :name="source"
-            variant="light"
+            variant="inverse"
             size="xs"
             class="me-1"
             data-test="vs-social-credit-link__icon"

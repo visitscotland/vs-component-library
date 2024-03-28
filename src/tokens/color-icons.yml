@@ -1,4 +1,5 @@
 props:
+    ## Color roles
     - name: vs-color-icon
       value: "{!vs-black-01}"
     - name: vs-color-icon-primary
@@ -6,11 +7,67 @@ props:
     - name: vs-color-icon-inverse
       value: "{!vs-snow}"
     - name: vs-color-icon-disabled
-      value: "{!vs-grey-01}"
+      value: "{!vs-grey-03}"
     - name: vs-color-icon-tertiary
       value: "{!vs-bramble}"
     - name: vs-color-icon-danger
       value: "{!vs-cuillin}"
+    - name: vs-color-icon-warning
+      value: "{!vs-buachaille}"
+
+    ## SkiScotland colours
+    - name: vs-color-icon-ski-grade-easy
+      value: "{!vs-glencoe}"
+    - name: vs-color-icon-ski-grade-intermediate
+      value: "{!vs-loch-ness}"
+    - name: vs-color-icon-ski-grade-difficult
+      value: "{!vs-cuillin}"
+    - name: vs-color-icon-ski-grade-very-difficult
+      value: "{!vs-black-01}" 
+    - name: vs-color-icon-ski-grade-itineraries
+      value: "{!vs-irn-bru}" 
+    - name: vs-color-icon-ski-grade-other
+      value: "{!vs-grey-04}"       
+      
+    ## Accent colours
+    - name: vs-color-icon-accent-lavender
+      value: "{!vs-lavender}"    
+    - name: vs-color-icon-accent-etive
+      value: "{!vs-etive}"    
+    - name: vs-color-icon-accent-heather
+      value: "{!vs-heather}" 
+    - name: vs-color-icon-accent-glencoe
+      value: "{!vs-glencoe}"  
+    - name: vs-color-icon-accent-bog-myrtle
+      value: "{!vs-bog-myrtle}"    
+    - name: vs-color-icon-accent-kelp
+      value: "{!vs-kelp}"  
+    - name: vs-color-icon-accent-unicorn
+      value: "{!vs-unicorn}" 
+    - name: vs-color-icon-accent-foxglove
+      value: "{!vs-foxglove}" 
+    - name: vs-color-icon-accent-cranachan
+      value: "{!vs-cranachan}" 
+    - name: vs-color-icon-accent-bluebell
+      value: "{!vs-bluebell}"      
+    - name: vs-color-icon-accent-tolsta
+      value: "{!vs-tolsta}"    
+    - name: vs-color-icon-accent-dunnock
+      value: "{!vs-dunnock}" 
+    - name: vs-color-icon-accent-harr
+      value: "{!vs-harr}"  
+    - name: vs-color-icon-accent-salmon
+      value: "{!vs-salmon}"    
+    - name: vs-color-icon-accent-whisky
+      value: "{!vs-whisky}"  
+    - name: vs-color-icon-accent-irn-bru
+      value: "{!vs-irn-bru}" 
+    - name: vs-color-icon-accent-buachaille
+      value: "{!vs-buachaille}" 
+    - name: vs-color-icon-accent-gorse
+      value: "{!vs-gorse}" 
+    - name: vs-color-icon-accent-limestone
+      value: "{!vs-limestone}"  
 imports:
   - ./color-core.yml
 global:

@@ -123,7 +123,7 @@ describe('VsEmbedWrapper', () => {
 
         it('should display a warning div if cookies have not been accepted', async() => {
             const wrapper = factoryMount();
-            wrapper.setData({
+            await wrapper.setData({
                 mockCookiesExist: false,
             });
             await wrapper.vm.$nextTick();
@@ -145,19 +145,19 @@ describe('VsEmbedWrapper', () => {
 
         it('should not display a warning div if cookies are initialised and have been accepted', async() => {
             const wrapper = factoryMount();
-            wrapper.setData({
+            await wrapper.setData({
                 requiredCookies: [],
                 cookiesInitStatus: true,
             });
             await wrapper.vm.$nextTick();
 
             const warning = wrapper.find('[data-test="vs-embed-wrapper__error"]');
-            expect(warning.isVisible()).toBe(false);
+            expect(warning.exists()).toBe(false);
         });
 
         it('should not display a warning div if `noCookiesRequired` is true', async() => {
             const wrapper = factoryShallowMount();
-            wrapper.setProps({
+            await wrapper.setProps({
                 noCookiesRequired: true,
             });
             wrapper.setData({
@@ -166,7 +166,7 @@ describe('VsEmbedWrapper', () => {
             await wrapper.vm.$nextTick();
 
             const warning = wrapper.find('[data-test="vs-embed-wrapper__error"]');
-            expect(warning.isVisible()).toBe(false);
+            expect(warning.exists()).toBe(false);
         });
 
         it('should set correct warning type to `cookie` if cookies have been initialised', async() => {

@@ -5,7 +5,7 @@ import { userEvent, within } from '@storybook/testing-library';
 
 export default {
     component: VsSocialShare,
-    title: 'Social Share Button',
+    title: 'SocialShareButton',
     tags: ['autodocs'],
     decorators: [() => ({
         template: '<story />',

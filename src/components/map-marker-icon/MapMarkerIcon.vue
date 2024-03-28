@@ -26,7 +26,6 @@
             class="vs-map-marker-icon__icon"
             :name="getIconDetails(id).name"
             size="xs"
-            variant="color-white"
         />
     </div>
 </template>

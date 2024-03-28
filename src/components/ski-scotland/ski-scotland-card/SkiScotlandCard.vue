@@ -46,7 +46,7 @@
                     theme="light"
                     size="small"
                     data-test="vs-ski-scotland-card__error"
-                    v-show="!jsDisabled && displayError">
+                    v-if="!jsDisabled && displayError">
                     <!--
                         @slot Slot for data unavailable message
                         Expects text

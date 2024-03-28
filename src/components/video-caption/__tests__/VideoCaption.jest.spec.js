@@ -66,8 +66,12 @@ describe('VsVideoCaption', () => {
             expect(durationText.text()).toBe('1 minute video');
         });
 
-        it('should show the content if a video has been loaded', () => {
+        it('should show the content if a video has been loaded', async() => {
             const wrapper = factoryShallowMount();
+            wrapper.setData({
+                requiredCookies: [],
+            });
+            await wrapper.vm.$nextTick();
 
             expect(wrapper.find('.vs-video-caption').exists()).toBe(true);
         });

@@ -27,14 +27,14 @@ const base = {
     initialSelected: 'places',
     options: [
         {
-            text: 'Regions',
-            value: 'regions',
-            icon: 'regions',
-        },
-        {
             text: 'Places',
             value: 'places',
             icon: 'map-marker',
+        },
+        {
+            text: 'Regions',
+            value: 'regions',
+            icon: 'map',
         },
     ],
 };
@@ -43,3 +43,11 @@ export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const Toggled = Template.bind({
+});
+
+Toggled.args = {
+    ...base,
+    initialSelected: 'regions',
+};

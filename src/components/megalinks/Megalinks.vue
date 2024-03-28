@@ -120,6 +120,7 @@ export default {
             type: String,
             required: false,
             default: null,
+            validator: (value) => value.match(/(multi-image|single-image|link-list)/),
         },
         /**
         * The component color theme

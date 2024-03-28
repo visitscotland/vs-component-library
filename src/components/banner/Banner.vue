@@ -18,7 +18,6 @@
                             <VsIcon
                                 size="sm"
                                 name="review"
-                                custom-colour="#700E57"
                                 class="vs-banner__icon"
                             />
                         </VsCol>
@@ -146,7 +145,7 @@ export default {
 
 <style lang="scss">
 .vs-banner {
-    background: $color-secondary-indigo-tint-6;
+    background: $vs-color-background-information;
     padding: $spacer-3 0;
 
     &__icon-wrapper{
@@ -157,6 +156,8 @@ export default {
         }
 
         @include media-breakpoint-up(lg) {
+            display: inline-flex;
+            align-items: center;
             flex: 0 0 5%;
             max-width: 5%;
         }
@@ -175,12 +176,6 @@ export default {
 
             &.vs-icon.vs-icon--size-sm {
                 font-size: 24px;
-            }
-        }
-
-        @include media-breakpoint-up(lg) {
-            &.vs-icon.vs-icon--size-sm {
-                font-size: 30px;
             }
         }
     }
