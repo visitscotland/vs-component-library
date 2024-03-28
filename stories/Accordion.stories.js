@@ -137,15 +137,15 @@ ColourBadge.args = {
         {
             ...base.accordionItems[0],
             openByDefault: false,
-            colourBadge: 'green',
+            colourBadge: '#04C852',
         },
         {
             ...base.accordionItems[1],
-            colourBadge: 'blue',
+            colourBadge: '#122B80',
         },
         {
             ...base.accordionItems[2],
-            colourBadge: 'red',
+            colourBadge: '#E71845',
         },
     ],
 };

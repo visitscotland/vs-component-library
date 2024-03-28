@@ -36,7 +36,6 @@
 </template>
 
 <script>
-import designTokens from '@/assets/tokens/tokens.json';
 import VsIcon from '@components/icon/Icon.vue';
 import VsButton from '@components/button/Button.vue';
 
@@ -109,11 +108,6 @@ export default {
             type: Boolean,
             default: true,
         },
-    },
-    data() {
-        return {
-            tokens: designTokens,
-        };
     },
     computed: {
         warningClasses() {

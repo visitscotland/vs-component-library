@@ -393,7 +393,7 @@
                             <VsAccordionItem
                                 variant="transparent"
                                 :control-id="'accordion_item_' + level.name"
-                                :colour-badge="level.colour"
+                                :colour-badge="level.colourToken"
                             >
                                 <template
                                     v-slot:title
@@ -507,6 +507,7 @@ import VsIcon from '@components/icon/Icon.vue';
 import VsLink from '@components/link/Link.vue';
 import VsHeading from '@components/heading/Heading.vue';
 import VsLoadingSpinner from '@components/loading-spinner/LoadingSpinner.vue';
+import designTokens from '@/assets/tokens/tokens.json';
 
 import axios from 'axios';
 
@@ -831,6 +832,7 @@ export default {
     },
     data() {
         return {
+            tokens: designTokens,
             componentId: 0,
             statusSummary: {
                 runs: {
@@ -859,31 +861,43 @@ export default {
             runLevels: [
                 {
                     colour: 'green',
+                    colourToken: '',
+                    id: 'easy',
                     name: this.easyLabel,
                     runs: [],
                 },
                 {
                     colour: 'blue',
+                    colourToken: '',
+                    id: 'intermediate',
                     name: this.intermediateLabel,
                     runs: [],
                 },
                 {
                     colour: 'red',
+                    colourToken: '',
+                    id: 'difficult',
                     name: this.difficultLabel,
                     runs: [],
                 },
                 {
                     colour: 'black',
+                    colourToken: '',
+                    id: 'very-difficult',
                     name: this.veryDifficultLabel,
                     runs: [],
                 },
                 {
                     colour: 'orange',
+                    colourToken: '',
+                    id: 'itineraries',
                     name: this.itinerariesLabel,
                     runs: [],
                 },
                 {
                     colour: 'grey',
+                    colourToken: '',
+                    id: 'other',
                     name: this.otherLabel,
                     runs: [],
                 },
@@ -896,7 +910,8 @@ export default {
     },
     computed: {
         filteredRunLevels() {
-            return this.runLevels.filter((level) => level.runs.length > 0);
+            const runLevelsArr = this.setColourToken();
+            return runLevelsArr.filter((level) => level.runs.length > 0);
         },
     },
     mounted() {
@@ -1070,6 +1085,13 @@ export default {
         // Returns the localised label value for a given colour
         getColourLabel(colour) {
             return this[`${colour}Label`];
+        },
+        // Returns the correct design token colour for colour badge
+        setColourToken() {
+            return this.runLevels.map(({ ...level }) => ({
+                ...level,
+                colourToken: this.tokens[`vs-color-icon-ski-grade-${level.id}`],
+            }));
         },
     },
 };

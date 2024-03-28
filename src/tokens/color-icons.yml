@@ -14,6 +14,20 @@ props:
       value: "{!vs-cuillin}"
     - name: vs-color-icon-warning
       value: "{!vs-buachaille}"
+
+    ## SkiScotland colours
+    - name: vs-color-icon-ski-grade-easy
+      value: "{!vs-glencoe}"
+    - name: vs-color-icon-ski-grade-intermediate
+      value: "{!vs-loch-ness}"
+    - name: vs-color-icon-ski-grade-difficult
+      value: "{!vs-cuillin}"
+    - name: vs-color-icon-ski-grade-very-difficult
+      value: "{!vs-black-01}" 
+    - name: vs-color-icon-ski-grade-itineraries
+      value: "{!vs-irn-bru}" 
+    - name: vs-color-icon-ski-grade-other
+      value: "{!vs-grey-04}"       
       
     ## Accent colours
     - name: vs-color-icon-accent-lavender

@@ -18,9 +18,6 @@
 </template>
 
 <script>
-import { get } from 'lodash';
-import designTokens from '@/assets/tokens/tokens.raw.json';
-
 /**
  * Icons are used to visually communicate available actions
  * or ideas and can help users navigate the product.
@@ -231,9 +228,6 @@ export default {
     computed: {
         icon() {
             return this.formattedName;
-        },
-        dimension() {
-            return get(designTokens, `props.icon_size_${this.size}.value`, '40px');
         },
         formattedName() {
             /*
