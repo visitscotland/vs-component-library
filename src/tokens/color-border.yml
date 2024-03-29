@@ -1,8 +1,10 @@
 props:
     - name: vs-color-border
-      value: "{!vs-grey-04}"
+      value: "{!vs-grey-05}"
     - name: vs-color-border-primary
       value: "{!vs-saltire}"
+    - name: vs-color-border-primary-hover
+      value: "{!vs-loch-ness}"
     - name: vs-color-border-input
       value: "{!vs-grey-01}"
     - name: vs-color-border-focus
@@ -11,6 +13,8 @@ props:
       value: "{!vs-bramble}"
     - name: vs-color-border-danger
       value: "{!vs-cuillin}"
+    - name: vs-color-border-inverse
+      value: "{!vs-snow}"
 imports:
   - ./color-core.yml
 global:

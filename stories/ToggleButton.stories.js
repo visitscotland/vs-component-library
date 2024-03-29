@@ -23,7 +23,6 @@ const Template = (args) => ({
 });
 
 const base = {
-    path: 'visitscotland',
     height: '',
 };
 

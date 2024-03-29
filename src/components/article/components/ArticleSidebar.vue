@@ -55,10 +55,10 @@ export default {
 
 <style lang="scss">
 .vs-article-sidebar {
-    background: $color-white;
+    background: $vs-color-background-inverse;
 
     &__quote-wrapper {
-        background: $color-white;
+        background: $vs-color-background-inverse;
         margin-left: -1px;
         padding: $spacer-8 $spacer-6;
 
@@ -72,39 +72,15 @@ export default {
         &--right{
             .vs-article-sidebar__quote-wrapper {
                 padding-left: $spacer-0;
-                padding-right: $spacer-8;
+                padding-right: $spacer-5;
             }
         }
 
         &--left{
             .vs-article-sidebar__quote-wrapper {
-                padding-left: $spacer-8;
+                padding-left: $spacer-5;
                 padding-right: $spacer-0;
             }
-        }
-    }
-
-    .vs-image-with-caption__video-caption-wrapper {
-        padding: $spacer-0;
-    }
-
-    // .vs-article-sidebar__img-wrapper {
-    //     .vs-toggle-btn {
-    //         @include media-breakpoint-between(md, lg) {
-    //             display: block;
-    //         }
-    //     }
-    // }
-
-    .vs-caption .col {
-        padding: $spacer-0;
-    }
-
-    .vs-caption .vs-caption__caption-info {
-        padding: $spacer-3 $spacer-2 $spacer-3;
-
-        @include media-breakpoint-up(sm) {
-            padding: $spacer-3;
         }
     }
 }

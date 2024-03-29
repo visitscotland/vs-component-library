@@ -37,7 +37,9 @@ BUTTON STYLES
 }
 
 %primary-button-focus {
-    box-shadow: 0 0 0 4px $color-white, 0 0 0 8px $color-pink;
+    box-shadow: 
+        0 0 0 2px $vs-color-background-inverse, 
+        0 0 0 4px $vs-color-border-primary;
 }
 
 
@@ -46,7 +48,7 @@ LINK STYLES
 ***************/
 
 %outline-link-focus {
-    outline: 2px solid $color-pink;
+    outline: 2px solid $vs-color-border-focus;
 }
 
 %outline-link-focus-dark {

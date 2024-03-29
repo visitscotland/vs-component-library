@@ -186,14 +186,14 @@ export default {
         > .vs-accordion-item__card-header{
             .vs-accordion-toggle.btn-primary{
                 background-color: $color-white;
-                color: $color-base-text;
+                color: $vs-color-text;
                 font-size: $font-size-6;
                 padding-left: $spacer-5;
                 padding-right: $spacer-5;
 
                 &:hover, &:focus, &:active, &:active:focus {
                     background-color: $color-secondary-gray-tint-6;
-                    color: $color-base-text;
+                    color: $vs-color-text;
                 }
             }
         }

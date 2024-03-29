@@ -2,6 +2,7 @@
     <BCard
         no-body
         class="vs-accordion-item"
+        :class="breakPoint ? 'vs-accordion-item__responsive' : ''"
         data-test="vs-accordion__item"
     >
         <BCardHeader
@@ -32,7 +33,6 @@
                     <slot name="icon-open">
                         <VsIcon
                             name="chevron"
-                            variant="dark"
                             size="sm"
                         />
                     </slot>
@@ -43,7 +43,6 @@
                         <VsIcon
                             name="chevron"
                             orientation="down"
-                            variant="dark"
                             size="sm"
                         />
                     </slot>
@@ -184,9 +183,13 @@ export default {
 </script>
 
 <style lang="scss">
+
 .vs-accordion-item.card {
     border: 0;
-    border-top: 1px solid $color-gray-tint-5;
+
+    &.vs-accordion-item__responsive{
+        border-top: 1px solid $vs-color-border;
+    }
 
     .vs-accordion-item__card-header {
         padding: 0;
@@ -201,9 +204,11 @@ export default {
         letter-spacing: normal;
         padding: $spacer-3;
         border: 0;
+        margin-bottom: 1px;
+        box-shadow: 0px -1px 0px 0px $vs-color-border;
 
         &:focus {
-            box-shadow: $shadow-button-focus inset;
+            box-shadow: $vs-box-shadow-focus inset;
         }
     }
 

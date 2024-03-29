@@ -7,7 +7,7 @@
         @keypress="emitShowModal"
     >
         <VsWarning
-            v-show="showWarning === 'full'"
+            v-if="showWarning === 'full'"
             :size="warningSize"
             :theme="theme"
             :type="showCookieWarning ? 'cookie' : 'normal'"
@@ -25,7 +25,7 @@
         </VsWarning>
 
         <VsWarning
-            v-show="errorType === 'full' && videoId !== ''"
+            v-if="errorType === 'full' && videoId !== ''"
             :size="warningSize"
             data-test="vs-stretched-link-card__full-warning"
             class="vs-stretched-link-card__full-warning
@@ -53,7 +53,7 @@
             </template>
 
             <VsWarning
-                v-show="showWarning === 'image'"
+                v-if="showWarning === 'image'"
                 :size="warningSize"
                 :type="showCookieWarning ? 'cookie' : 'normal'"
                 data-test="vs-stretched-link-card__image-warning"
@@ -71,7 +71,7 @@
             </VsWarning>
 
             <VsWarning
-                v-show="videoId !== '' && errorType === 'image'"
+                v-if="videoId !== '' && errorType === 'image'"
                 :size="warningSize"
                 data-test="vs-stretched-link-card__warning"
                 class="vs-stretched-link-card__image-warning
@@ -504,7 +504,7 @@ export default {
         }
 
         .stretched-link {
-            color: $color-base-text;
+            color: $vs-color-text;
             text-decoration: none;
             letter-spacing: 0;
             display: block;
@@ -550,7 +550,7 @@ export default {
             font-size: $font-size-3;
             line-height: $line-height-s;
             letter-spacing: $letter-spacing-l;
-            color: $color-base-text;
+            color: $vs-color-text;
             display: flex;
 
             a {
@@ -740,7 +740,8 @@ export default {
     @include no-js {
         .card.vs-stretched-link-card {
             .vs-stretched-link-card__image-warning,
-            .vs-stretched-link-card__full-warning {
+            .vs-stretched-link-card__full-warning,
+            .vs-stretched-link-card__video-button {
                 display: none;
             }
 

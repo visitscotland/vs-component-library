@@ -1,9 +1,10 @@
 props:
+    ## Color roles
     - name: vs-color-brand
       value: "{!vs-thistle}"
     - name: vs-color-background-primary
       value: "{!vs-saltire}"
-    - name: vs-color-background-primary-hover
+    - name: vs-color-background-hover
       value: "{!vs-loch-ness}"
     - name: vs-color-background-active
       value: "{!vs-harr}"
@@ -13,15 +14,54 @@ props:
       value: "{!vs-bramble}"
     - name: vs-color-background-input
       value: "{!vs-snow}"
-    - name: vs-color-background-footer
-      value: "{!vs-black-02}"
-    - name: vs-color-background-neutral
-      value: "{!vs-black-03}"
     - name: vs-color-background-disabled
       value: "{!vs-grey-04}"
+    - name: vs-color-background-neutral
+      value: "{!vs-grey-05}"
+    - name: vs-color-background-bold
+      value: "{!vs-black-02}"
     - name: vs-color-background-information
-      value: "{!vs-harr}"
+      value: "{!vs-ptarmigan}"
 
+    ## Accent colours
+    - name: vs-color-background-accent-lavender
+      value: "{!vs-lavender}"  
+    - name: vs-color-background-accent-etive
+      value: "{!vs-etive}"    
+    - name: vs-color-background-accent-heather
+      value: "{!vs-heather}" 
+    - name: vs-color-background-accent-glencoe
+      value: "{!vs-glencoe}"  
+    - name: vs-color-background-accent-bog-myrtle
+      value: "{!vs-bog-myrtle}"    
+    - name: vs-color-background-accent-kelp
+      value: "{!vs-kelp}"  
+    - name: vs-color-background-accent-unicorn
+      value: "{!vs-unicorn}" 
+    - name: vs-color-background-accent-foxglove
+      value: "{!vs-foxglove}" 
+    - name: vs-color-background-accent-cranachan
+      value: "{!vs-cranachan}" 
+    - name: vs-color-background-accent-bluebell
+      value: "{!vs-bluebell}"      
+    - name: vs-color-background-accent-tolsta
+      value: "{!vs-tolsta}"    
+    - name: vs-color-background-accent-dunnock
+      value: "{!vs-dunnock}" 
+    - name: vs-color-background-accent-harr
+      value: "{!vs-harr}"  
+    - name: vs-color-background-accent-salmon
+      value: "{!vs-salmon}"    
+    - name: vs-color-background-accent-whisky
+      value: "{!vs-whisky}"  
+    - name: vs-color-background-accent-irn-bru
+      value: "{!vs-irn-bru}" 
+    - name: vs-color-background-accent-buachaille
+      value: "{!vs-buachaille}" 
+    - name: vs-color-background-accent-gorse
+      value: "{!vs-gorse}" 
+    - name: vs-color-background-accent-limestone
+      value: "{!vs-limestone}" 
 imports:
   - ./color-core.yml
 global:

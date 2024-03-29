@@ -37,7 +37,7 @@
             </div>
 
             <div
-                class="vs-video-caption__details container"
+                class="vs-video-caption__details"
                 v-if="requiredCookiesExist"
             >
                 <p class="vs-video-caption__title">
@@ -52,7 +52,7 @@
         </div>
 
         <div
-            v-show="!(videoLoaded && requiredCookiesExist) && showCookieMessage"
+            v-if="!(videoLoaded && requiredCookiesExist) && showCookieMessage"
             class="vs-video-caption vs-video-caption--warning"
         >
             <VsWarning
@@ -67,7 +67,7 @@
             </VsWarning>
         </div>
         <div
-            v-show="!(videoLoaded && requiredCookiesExist) && cookiesInitStatus === 'error'"
+            v-if="!(videoLoaded && requiredCookiesExist) && cookiesInitStatus === 'error'"
             class="vs-video-caption vs-video-caption--warning"
         >
             <VsWarning
@@ -78,6 +78,7 @@
             </VsWarning>
         </div>
         <div
+            v-if="noJsMessage"
             class="vs-video-caption vs-video-caption--no-js vs-video-caption--warning"
             data-test="video-caption-nojs"
         >
@@ -191,7 +192,6 @@ export default {
         },
         showCookieMessage() {
             if (!this.requiredCookiesExist
-                && this.cookiesSet.length > 0
                 && this.noCookiesMessage) {
                 return true;
             }
@@ -222,8 +222,8 @@ export default {
         }
 
         &__details {
-            background-color: $color-gray-shade-6;
-            color: $color-white;
+            background-color: $vs-color-background-bold;
+            color: $vs-color-text-inverse;
             padding: $spacer-3;
         }
 
@@ -317,8 +317,6 @@ export default {
     .vs-video-caption--wide {
         @include media-breakpoint-up(sm) {
             .vs-video-caption__details {
-                display: flex;
-                align-items: baseline;
                 padding: $spacer-4 $spacer-3 $spacer-5;
             }
 
@@ -403,30 +401,6 @@ export default {
                 .vs-icon {
                     font-size: $font-size-9;
                 }
-            }
-        }
-
-        @include media-breakpoint-up(sm) {
-            .vs-video-caption__details {
-                display: flex;
-                align-items: baseline;
-                padding: $spacer-4 $spacer-5 $spacer-5;
-            }
-
-            .vs-caption .vs-caption__caption-info {
-                padding: $spacer-4 $spacer-5 $spacer-5;
-            }
-        }
-
-        @include media-breakpoint-up(lg) {
-            .vs-video-caption__details {
-                display: block;
-                padding: $spacer-4 $spacer-2 $spacer-3;
-
-            }
-
-            .vs-caption .vs-caption__caption-info {
-                padding: $spacer-4 $spacer-2 $spacer-3;
             }
         }
     }

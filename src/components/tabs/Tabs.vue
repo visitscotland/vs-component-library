@@ -37,7 +37,7 @@ export default {
         .nav-link {
             width: 100%;
             background-color: $color-secondary-gray-tint-6;
-            color: $color-base-text;
+            color: $vs-color-text;
             font-weight: $font-weight-bold;
             border-color: $color-secondary-gray-tint-6 $color-secondary-gray-tint-6 $color-white;
             padding: $spacer-3;
@@ -55,7 +55,7 @@ export default {
             }
 
             &:focus-visible{
-                box-shadow: $shadow-button-focus;
+                box-shadow: $vs-box-shadow-focus;
                 outline: none;
             }
 
@@ -73,7 +73,7 @@ export default {
 
         .tab-pane {
             background-color: $color-white;
-            color: $color-base-text;
+            color: $vs-color-text;
             text-align: left;
 
             .vs-heading{
@@ -101,7 +101,7 @@ export default {
                 background-color: $color-white;
                 padding: $spacer-7 $spacer-5;
                 font-family: $font-family-sans-serif;
-                color: $color-base-text;
+                color: $vs-color-text;
                 font-size: $font-size-7;
                 font-weight: $font-weight-bold;
                 text-align: center;

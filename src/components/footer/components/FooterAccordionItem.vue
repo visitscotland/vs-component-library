@@ -95,7 +95,7 @@ export default {
 </script>
 
 <style lang="scss">
-.vs-footer-accordion-item.card {
+.vs-footer-accordion-item.vs-accordion-item.card {
     border-bottom: 1px solid $color-gray-shade-2;
     border-top: 0;
 
@@ -129,6 +129,7 @@ export default {
             $color-white, $color-theme-dark, $color-theme-dark,
             $color-white, $color-theme-dark, $color-theme-dark,
             $color-white, $color-theme-dark, $color-theme-dark,
+            $color-white, $color-theme-dark, $color-theme-dark,
         );
 
         &:hover{
@@ -136,7 +137,7 @@ export default {
         }
 
         &:focus {
-            box-shadow: $shadow-button-focus-on-dark inset;
+            box-shadow: $vs-box-shadow-focus-on-dark inset;
         }
 
          .icon.icon-xs {

@@ -154,7 +154,7 @@ export default {
         }
 
         &--radios {
-            background-color: $color-purple;
+            background-color: $vs-color-background-tertiary;
             display: flex;
             border-radius: $border-radius-pill;
             overflow: hidden;
@@ -167,12 +167,16 @@ export default {
 
             label.btn-secondary {
                 @extend %button-default-styles;
-                text-transform: uppercase;
+                transition: none;
                 padding-top: $spacer-2;
                 margin-bottom: $spacer-0;
                 padding-bottom: $spacer-2;
                 display: flex;
                 align-items: center;
+
+                .vs-icon{
+                    transition: none;
+                }
 
                 & > span {
                     display: flex;
@@ -186,7 +190,8 @@ export default {
                 }
 
                 &:hover {
-                    background-color: $color_pink_shade_4;
+                    background-color: $vs-color-background-hover;
+                    border-color: $vs-color-background-hover;
                 }
             }
         }
@@ -194,15 +199,13 @@ export default {
         &--tabbed-focus {
             input:focus {
                 + label span {
-                    background-color: $color_yellow_tint_4;
-                    border-bottom: 3px solid $color_theme_primary;
+                    border: 2px solid $vs-color-border-focus;
                 }
             }
         }
 
         &--button {
             display: flex;
-            border: 1px solid $color-purple;
 
             &:first-child {
                 margin-right: -(#{$spacer-4});
@@ -216,13 +219,13 @@ export default {
             }
 
             .btn {
-                padding-left: $spacer-4;
-                padding-right: $spacer-4;
+                padding: 0 $spacer-6;
             }
 
             label {
                 @include vs-button-variant(
-                    $color-white, $color-purple, $color-purple,
+                    $color-white, $vs-color-background-tertiary, $vs-color-border-tertiary,
+                    $color-white, $color-purple-shade-2, $color-purple-shade-2,
                     $color-white, $color-purple-shade-2, $color-purple-shade-2,
                     $color-purple, $color-white, $color-purple,
                 );
@@ -232,27 +235,22 @@ export default {
                 label {
                     z-index: 2;
                     border-radius: $border-radius-pill;
+                    cursor: default;
 
                     @include vs-button-variant(
-                        $color-purple, $color-white, $color-purple,
-                        $color-purple, $color-white, $color-purple,
-                        $color-white, $color-purple, $color-purple,
+                        $vs-color-text-tertiary, $color-white, $vs-color-border-tertiary,
+                        $vs-color-text-tertiary, $color-white, $vs-color-border-tertiary,
+                        $vs-color-text-tertiary, $color-white, $vs-color-border-tertiary,
+                        $vs-color-text-tertiary, $color-white, $vs-color-border-tertiary,
                     );
 
                     @include media-breakpoint-up(lg) {
                         @include vs-button-variant(
-                            $color-purple, $color-white, $color-purple,
-                            $color-white, $color-purple, $color-purple,
-                            $color-white, $color-purple, $color-purple,
+                            $vs-color-text-tertiary, $color-white, $vs-color-border-tertiary,
+                            $vs-color-text-tertiary, $color-white, $vs-color-border-tertiary,
+                            $vs-color-text-tertiary, $color-white, $vs-color-border-tertiary,
+                            $vs-color-text-tertiary, $color-white, $vs-color-border-tertiary,
                         );
-
-                        &:hover {
-                            @include vs-button-variant(
-                                $color-purple, $color-white, $color-purple,
-                                $color-purple, $color-white, $color-purple,
-                                $color-white, $color-purple, $color-purple,
-                            );
-                        }
                     }
                 }
             }

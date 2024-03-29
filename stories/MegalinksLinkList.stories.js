@@ -34,11 +34,18 @@ const Template = (args) => ({
         };
     },
     template: `
+    <div
+        :class="args.jsDisabled ? 'no-js' : ''"
+    >
         <VsMegalinks
             :title="args.mainTitle"
             class="vs-megalinks--single-image"
             :buttonLink="args.buttonLink"
             variant="link-list"
+            :theme="args.theme"
+            :noJsMessage="args.noJsMessage"
+            :noCookiesMessage="args.noCookiesMessage"
+            :cookieLinkText="args.cookieLinkText"
         >
             <template v-slot:vs-megalinks-intro>
                 <p>{{ args.megalinksIntro }}</p>
@@ -55,6 +62,7 @@ const Template = (args) => ({
             >
                 <vs-megalink-link-list
                     v-bind="link"
+                    :theme="args.theme"
                 >
                     <template v-slot:vs-link-list-heading>
                         {{ link.heading }}
@@ -83,6 +91,7 @@ const Template = (args) => ({
                 </VsCol>
             </VsRow>
         </VsModal>
+    </div>
     `,
 });
 
@@ -129,6 +138,10 @@ const base = {
             content: 'Get inspiration on city accommodation, attractions and hidden gems loved by locals',
         },
     ],
+    noJsMessage: 'JavaScript is needed to watch this video.',
+    noCookiesMessage: 'Cookies are needed to watch this video.',
+    cookieLinkText: 'Update my cookie settings',
+    jsDisabled: false,
 };
 
 export const Default = Template.bind({
@@ -164,4 +177,71 @@ WithVideo.args = {
             content: 'Slow down and refresh your mind, body and spirit in Scotland.',
         },
     ],
+};
+
+export const NoCookies = Template.bind({
+});
+
+NoCookies.args = {
+    ...base,
+    ...WithVideo.args,
+};
+
+NoCookies.decorators = [
+    () => {
+        window.bypassCookieChecks = false;
+
+        return {
+            template: `
+                <story/>
+            `,
+        };
+    },
+];
+
+export const NoJavascript = Template.bind({
+});
+
+NoJavascript.args = {
+    ...base,
+    ...WithVideo.args,
+    jsDisabled: true,
+};
+
+export const DarkTheme = Template.bind({
+});
+
+DarkTheme.args = {
+    ...base,
+    theme: 'dark',
+    ...WithVideo.args,
+};
+
+export const DarkThemeNoCookies = Template.bind({
+});
+
+DarkThemeNoCookies.args = {
+    ...base,
+    ...DarkTheme.args,
+};
+
+DarkThemeNoCookies.decorators = [
+    () => {
+        window.bypassCookieChecks = false;
+
+        return {
+            template: `
+                <story/>
+            `,
+        };
+    },
+];
+
+export const DarkThemeNoJavascript = Template.bind({
+});
+
+DarkThemeNoJavascript.args = {
+    ...base,
+    ...DarkTheme.args,
+    jsDisabled: true,
 };

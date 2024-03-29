@@ -38,7 +38,7 @@
                         <slot name="embed-widget" />
                     </div>
                     <div
-                        v-show="showError"
+                        v-if="showError"
                         key="fallback"
                     >
                         <VsWarning
