@@ -11,13 +11,13 @@
 
     .error {
         font-size: $font-size-body;
-        color: $color-theme-danger;
+        color: $vs-color-text-danger;
         display: block;
     }
 
     .hint-text {
         font-size: $font-size-body;
-        color: $color-gray-shade-1;
+        color: $vs-color-text-subtle;
         margin-bottom: 0;
     }
 }
