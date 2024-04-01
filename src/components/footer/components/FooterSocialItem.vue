@@ -71,9 +71,9 @@ export default {
         margin-bottom: $spacer-3;
 
         .vs-link.vs-link--variant-primary {
-            background: $color-gray-shade-1;
-            box-shadow: 0 0 0 2px $color-gray-shade-1;
-            border: 1px solid $color-gray-shade-1;
+            background: $vs-color-icon-accent-lavender;
+            box-shadow: 0 0 0 2px $vs-color-icon-accent-lavender;
+            border: 1px solid $vs-color-icon-accent-lavender;
             border-radius: $border-radius-xl;
             display: block;
             height: 42px;
@@ -129,15 +129,8 @@ export default {
                 }
             }
 
-            &:hover {
-                .vs-icon {
-                    color: $color-white;
-                }
-            }
-
             .vs-icon {
                 text-align: center;
-                color: $color-white;
                 line-height: $line-height-m;
                 display: block;
 

@@ -46,12 +46,12 @@ export default {
 
 <style lang="scss">
 .vs-footer-social-menu {
-    border-left: 1px solid $color-gray-shade-2;
-    background: $color-gray-shade-7;
+    border-left: 1px solid $vs-color-border-inverse;
+    background: $vs-color-background-bold;
 
     &__title.vs-heading{
-        background: $color-gray-shade-7;
-        color: $color-white;
+        background: $vs-color-background-bold;
+        color: $vs-color-text-inverse;
         margin: 0 $spacer-3;
 
         @include media-breakpoint-up(sm) {
