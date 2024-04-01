@@ -1,4 +1,5 @@
-import useDataLayerStore from '@/stores/dataLayer.store';
+import { mapState } from 'pinia';
+import useDataLayerStore from '../stores/dataLayer.store';
 
 import checkVendorLibrary from '../utils/check-vendor-library';
 import {
@@ -28,24 +29,20 @@ const dataLayerMixin = {
         // Retrieving page url from the page store created by:
         // dataLayer.store.js (Central Store)
         // TagManagerWrapper.vue (Global component that reads and updates the store)
-        pageUrl() {
-            if (this.dataLayerStore) {
-                return this.dataLayerStore.pageUrl;
-            }
-
-            return '';
-        },
+        ...mapState(useDataLayerStore, {
+            pageUrl(store) {
+                return store.pageUrl;
+            },
+        }),
     },
     data() {
         return {
             dataLayerLoadConfirmed: false,
+            dataLayerStore: null,
         };
     },
-    setup() {
-        const dataLayerStore = useDataLayerStore();
-        return {
-            dataLayerStore,
-        };
+    mounted() {
+        this.dataLayerStore = useDataLayerStore();
     },
     methods: {
         // This function matches values passed as an object

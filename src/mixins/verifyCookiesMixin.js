@@ -1,3 +1,4 @@
+import { mapState } from 'pinia';
 import useCookiesStore from '@/stores/cookies.store';
 
 const cookieCheckerMixin = {
@@ -7,13 +8,11 @@ const cookieCheckerMixin = {
         };
     },
     computed: {
-        cookiesSet() {
-            if (this.cookiesStore) {
-                return this.cookiesStore.allowedCookies;
-            }
-
-            return [];
-        },
+        ...mapState(useCookiesStore, {
+            cookiesSet(store) {
+                return store.allowedCookies;
+            },
+        }),
         onetrustActiveGroups() {
             if (typeof window !== 'undefined') {
                 return window.OnetrustActiveGroups;
@@ -49,12 +48,6 @@ const cookieCheckerMixin = {
 
             return true;
         },
-    },
-    setup() {
-        const cookiesStore = useCookiesStore();
-        return {
-            cookiesStore,
-        };
     },
     mounted() {
         setTimeout(() => {
