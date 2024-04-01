@@ -1,4 +1,4 @@
-import useDataLayerStore from '../stores/dataLayer.store';
+import useDataLayerStore from '@/stores/dataLayer.store';
 
 import checkVendorLibrary from '../utils/check-vendor-library';
 import {
@@ -39,11 +39,13 @@ const dataLayerMixin = {
     data() {
         return {
             dataLayerLoadConfirmed: false,
-            dataLayerStore: null,
         };
     },
     setup() {
-        this.dataLayerStore = useDataLayerStore();
+        const dataLayerStore = useDataLayerStore();
+        return {
+            dataLayerStore,
+        };
     },
     methods: {
         // This function matches values passed as an object

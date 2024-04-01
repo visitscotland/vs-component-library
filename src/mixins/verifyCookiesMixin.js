@@ -4,7 +4,6 @@ const cookieCheckerMixin = {
     data() {
         return {
             bypassCookiesExist: false,
-            cookiesStore: null,
         };
     },
     computed: {
@@ -52,7 +51,10 @@ const cookieCheckerMixin = {
         },
     },
     setup() {
-        this.cookiesStore = useCookiesStore();
+        const cookiesStore = useCookiesStore();
+        return {
+            cookiesStore,
+        };
     },
     mounted() {
         setTimeout(() => {
