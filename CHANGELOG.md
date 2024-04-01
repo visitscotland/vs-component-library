@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.10](https://github.com/visitscotland/vs-component-library/compare/v0.0.9...v0.0.10) (2024-04-01)
+
+
+### 🐛 Bug Fixes
+
+* **stores:** move instantiation to setup ([c73f420](https://github.com/visitscotland/vs-component-library/commit/c73f4202a1ddf507188a3579d4bd1d444cda6278))
+
 ### [0.0.9](https://github.com/visitscotland/vs-component-library/compare/v0.0.8...v0.0.9) (2024-03-27)
 
 
