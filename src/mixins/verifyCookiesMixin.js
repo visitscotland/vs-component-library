@@ -51,9 +51,10 @@ const cookieCheckerMixin = {
             return true;
         },
     },
-    mounted() {
+    setup() {
         this.cookiesStore = useCookiesStore();
-
+    },
+    mounted() {
         setTimeout(() => {
             this.bypassCookiesExist = true;
         }, 50);

@@ -42,7 +42,7 @@ const dataLayerMixin = {
             dataLayerStore: null,
         };
     },
-    mounted() {
+    setup() {
         this.dataLayerStore = useDataLayerStore();
     },
     methods: {
