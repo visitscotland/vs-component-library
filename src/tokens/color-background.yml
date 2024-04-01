@@ -16,6 +16,10 @@ props:
       value: "{!vs-snow}"
     - name: vs-color-background-disabled
       value: "{!vs-grey-04}"
+    - name: vs-color-background-success
+      value: "{!vs-glencoe}"
+    - name: vs-color-background-danger
+      value: "{!vs-cuillin}"
     - name: vs-color-background-neutral
       value: "{!vs-grey-05}"
     - name: vs-color-background-bold

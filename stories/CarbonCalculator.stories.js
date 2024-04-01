@@ -65,7 +65,7 @@ const base = {
         'stage-3.title': 'Travel around Scotland',
         'stage-4.title': 'Food',
         'stage-3.repeat': 'Add another mode of transport',
-        'stage-3.tip': '<a href="https://www.visitscotland.com/inspiration/touring/easy-public-transport-trips" target="_blank">Check out some of our tips about traveling around Scotland by public transport</a>',
+        'stage-3.tip': 'View all our <a href="#" target="_blank">sustainable travel tips </a>. We\'ve got you covered!',
         'question-1.question': 'How are you travelling to Scotland?',
         'question-1.option-1': 'I live in Scotland',
         'question-1.option-2': 'Domestic Flight',
@@ -119,6 +119,31 @@ QuestionOpen.play = async({ canvasElement }) => {
 
     await waitFor(() => {
         canvas.getByText('Start Questionnaire').click();
+    });
+};
+
+export const WithTopTip = Template.bind({
+});
+
+WithTopTip.args = base;
+
+WithTopTip.play = async({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await waitFor(() => {
+        canvas.getByText('Start Questionnaire').click();
+    });
+
+    await waitFor(async() => {
+        await canvas.getByLabelText('I live in Scotland').click();
+    });
+
+    await waitFor(async() => {
+        await canvas.getByText('Next').click();
+    });
+
+    await waitFor(async() => {
+        await canvas.getByText('Next').click();
     });
 };
 
