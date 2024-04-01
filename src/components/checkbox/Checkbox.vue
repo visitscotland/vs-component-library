@@ -209,7 +209,7 @@ export default {
 
     .vs-checkbox {
         input[type="checkbox"] {
-            outline: $color-gray-shade-3 1px solid;
+            outline: $vs-color-border-input 1px solid;
             border: none;
             width: 38px;
             height: 38px;
@@ -221,7 +221,7 @@ export default {
                 content: '';
                 width: 100%;
                 height: 100%;
-                background-color: $color-white;
+                background-color: $vs-color-background-inverse;
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -245,8 +245,9 @@ export default {
             &:checked {
                 &:before {
                     font-family: "Font Awesome Kit";
+                    background-color: $vs-color-background-primary;
                     content: "\e001";
-                    color: $color-pink;
+                    color: $vs-color-icon-inverse;
                     text-align: center;
                     line-height: 2;
                     font-size: $font-size-6;

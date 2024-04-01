@@ -28,11 +28,11 @@
 
 @mixin form-error-state {
     border-color: $vs-color-border-danger;
-    box-shadow: 0 0 0 1px $vs-color-border-danger inset;
+    box-shadow: 0 0 0 2px $vs-color-border-danger inset;
 }
 
 @mixin form-focus-state {
     border-color: $vs-color-border-focus;
-    box-shadow: 0 0 0 1px $vs-color-border-focus inset;
+    box-shadow: 0 0 0 2px $vs-color-border-focus inset;
     outline: none;
 }
