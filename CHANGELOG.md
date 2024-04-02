@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.13](https://github.com/visitscotland/vs-component-library/compare/v0.0.12...v0.0.13) (2024-04-02)
+
+
+### ✨ Features
+
+* **cookies:** add cookie checker to index ([358fd04](https://github.com/visitscotland/vs-component-library/commit/358fd047326507ea4f6ffaacc20c95c830849d3d))
+
 ### [0.0.12](https://github.com/visitscotland/vs-component-library/compare/v0.0.11...v0.0.12) (2024-04-01)
 
 
