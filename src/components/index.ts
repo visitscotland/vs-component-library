@@ -20,6 +20,7 @@ export { default as VsCarbonCalculator } from './carbon-calculator/CarbonCalcula
 export { default as VsCarousel } from './carousel/Carousel.vue';
 export { default as VsCarouselSlide } from './carousel/components/CarouselSlide.vue';
 export { default as VsCheckbox } from './checkbox/Checkbox.vue';
+export { default as VsCookieChecker } from './cookie-checker/CookieChecker.vue';
 export { default as VsCookieFallback } from './cookie-fallback/CookiesFallback.vue';
 export { default as VsDescriptionList } from './description-list/DescriptionList.vue';
 export { default as VsDescriptionListItem } from './description-list/components/DescriptionListItem.vue';
