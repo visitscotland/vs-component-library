@@ -14,7 +14,7 @@
 
         <VsList
             unstyled
-            class="mt-5 mt-md-0 mt-lg-5 pe-lg-8 pe-xl-4"
+            class="mt-5 mt-md-0 mt-lg-5 pe-lg-10 pe-xl-9"
         >
             <!-- @slot The default slot is the content for the menu social items -->
             <slot />

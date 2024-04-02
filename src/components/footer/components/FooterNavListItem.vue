@@ -78,8 +78,7 @@ export default {
         }
 
         &:focus {
-            box-shadow: $vs-box-shadow-focus;
-            outline: 0;
+            @extend %outline-link-focus-dark;
         }
 
         .vs-icon {
