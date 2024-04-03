@@ -44,6 +44,8 @@ props:
       value: "{!vs-unicorn}" 
     - name: vs-color-background-accent-foxglove
       value: "{!vs-foxglove}" 
+    - name: vs-color-background-accent-cuillin
+      value: "{!vs-cuillin}" 
     - name: vs-color-background-accent-cranachan
       value: "{!vs-cranachan}" 
     - name: vs-color-background-accent-bluebell
