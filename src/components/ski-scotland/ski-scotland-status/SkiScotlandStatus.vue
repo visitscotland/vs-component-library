@@ -18,9 +18,7 @@
         <VsContainer v-if="!jsDisabled && displayError">
             <VsRow>
                 <VsCol class="text-center py-4">
-                    <VsWarning
-                        theme="light"
-                    >
+                    <VsWarning>
                         <!--
                             @slot Slot for data unavailable message
                             Expects text
@@ -38,9 +36,7 @@
                     v-if="jsDisabled"
                     data-test="vs-ski__js-disabled"
                 >
-                    <VsWarning
-                        theme="light"
-                    >
+                    <VsWarning>
                         <!--
                             @slot Slot for JS required message
                             Expects text

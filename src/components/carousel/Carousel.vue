@@ -442,10 +442,6 @@ export default {
             flex-wrap: nowrap;
             transition: transform $duration-slowly ease-out;
             margin-bottom: $spacer-9;
-
-            & > [class^="col-"] {
-                display: flex;
-            }
         }
 
         .vs-button.vs-carousel__control {
@@ -631,6 +627,7 @@ export default {
                     width: 100%;
                     max-width: 100%;
                     flex: 0 0 100%;
+                    margin-bottom: $spacer-8;
 
                     @include media-breakpoint-up(md) {
                         width: 50%;

@@ -43,7 +43,6 @@
                     <slot name="data-loading" />
                 </template>
                 <VsWarning
-                    theme="light"
                     size="small"
                     data-test="vs-ski-scotland-card__error"
                     v-if="!jsDisabled && displayError">
@@ -55,7 +54,6 @@
                 </VsWarning>
                 <template v-if="jsDisabled">
                     <VsWarning
-                        theme="light"
                         size="small"
                         data-test="vs-ski-scotland-card__js-disabled"
                     >

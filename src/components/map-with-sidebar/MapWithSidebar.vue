@@ -120,10 +120,7 @@
                     </div>
                 </div>
 
-                <VsWarning
-                    class="vs-map-with-sidebar__no-js"
-                    theme="light"
-                >
+                <VsWarning class="vs-map-with-sidebar__no-js">
                     <!-- @slot Message to show when JS is disabled  -->
                     <slot name="no-js" />
                 </VsWarning>
