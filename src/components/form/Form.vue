@@ -7,7 +7,9 @@
         <form class="d-none" />
 
         <template v-if="!submitted">
-            <form @submit.prevent="preSubmit">
+            <form
+                @submit.prevent="preSubmit"
+            >
                 <fieldset>
                     <legend
                         class="vs-form__main-heading vs-heading--style-level-2 float-none"
@@ -170,13 +172,13 @@ import VsHeading from '@/components/heading/Heading.vue';
 import dataLayerMixin from '../../mixins/dataLayerMixin';
 
 /**
- * A form that results in a user posting data to Marketo.
+ * A form that results in a user posting data to either Marketo or a defined.
  *
- * @displayName Marketo Form
+ * @displayName Form
  */
 
 export default {
-    name: 'VsMarketoForm',
+    name: 'VsForm',
     status: 'prototype',
     release: '0.0.1',
     components: {
@@ -191,6 +193,22 @@ export default {
     },
     mixins: [dataLayerMixin],
     props: {
+        /**
+         * If set to true, the form submits through the marketo library
+         * using a hidden form. If false it submits using native browser
+         * form logic.
+         */
+        isMarketo: {
+            type: Boolean,
+            default: true,
+        },
+        /**
+         * The target url for the form, if not marketo
+         */
+        submitUrl: {
+            type: String,
+            default: '',
+        },
         /**
          * The URL for the form data file
          */
@@ -306,7 +324,7 @@ export default {
                 .then((response) => {
                     this.formData = response.data;
 
-                    if (window.MktoForms2) {
+                    if (this.isMarketo && window.MktoForms2) {
                         window.MktoForms2
                             .loadForm(this.marketoInstance, this.munchkinId, this.formId);
                     }
@@ -635,7 +653,20 @@ export default {
             }
 
             if (!this.formIsInvalid && this.recaptchaVerified) {
-                this.marketoSubmit();
+                if (this.isMarketo) {
+                    this.marketoSubmit();
+                } else {
+                    this.submitting = true;
+
+                    axios.post(
+                        this.submitUrl,
+                        this.form,
+                    ).then(() => {
+                        this.submitting = false;
+                        this.submitted = true;
+                        return false;
+                    }).catch(() => {});
+                }
             } else {
                 this.showErrorMessage = true;
                 this.reAlertErrors = true;

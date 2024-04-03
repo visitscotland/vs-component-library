@@ -64,7 +64,7 @@ export { default as VsMap } from './map/Map.vue';
 export { default as VsMapMarker } from './map/components/MapMarker.vue';
 export { default as VsMapMarkerIcon } from './map-marker-icon/MapMarkerIcon.vue';
 export { default as VsMapWithSidebar } from './map-with-sidebar/MapWithSidebar.vue';
-export { default as VsMarketoForm } from './marketo-form/MarketoForm.vue';
+export { default as VsForm } from './form/Form.vue';
 export { default as VsMeganav } from './mega-nav/MegaNav.vue';
 export { default as VsMegaNavDropdownContainer } from './mega-nav/components/MegaNavDropdownContainer.vue';
 export { default as VsMegaNavList } from './mega-nav/components/MegaNavList.vue';

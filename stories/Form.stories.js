@@ -2,17 +2,17 @@ import {
     userEvent, within, waitFor,
 } from '@storybook/testing-library';
 
-import VsMarketoForm from '@/components/marketo-form/MarketoForm.vue';
+import VsForm from '@/components/form/Form.vue';
 
 export default {
-    component: VsMarketoForm,
-    title: 'MarketoForm',
+    component: VsForm,
+    title: 'Form',
     tags: ['autodocs'],
 };
 
 const Template = (args) => ({
     components: {
-        VsMarketoForm,
+        VsForm,
     },
     setup() {
         return {
@@ -23,18 +23,20 @@ const Template = (args) => ({
         <div
             :class="args.jsDisabled ? 'no-js' : ''"
         >
-            <VsMarketoForm
+            <VsForm
                 v-bind="args"
             >
                 <template v-slot:no-js v-if="args['no-js']">
                     <p>{{ args['no-js'] }}</p>
                 </template>
-            </VsMarketoForm>
+            </VsForm>
         </div>
     `,
 });
 
 const base = {
+    isMarketo: false,
+    submitUrl: '/test/api/url',
     dataUrl: '/fixtures/marketo-forms/form-example.json',
     messagingUrl: '/fixtures/marketo-forms/messaging.json',
     countryListUrl: '/fixtures/marketo-forms/countries.json',
@@ -53,6 +55,14 @@ export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const Marketo = Template.bind({
+});
+
+Marketo.args = {
+    ...base,
+    isMarketo: true,
+};
 
 export const ShowingConditionalField = Template.bind({
 });

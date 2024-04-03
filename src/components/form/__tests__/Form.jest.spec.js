@@ -2,7 +2,7 @@ import {
     config, shallowMount, mount,
 } from '@vue/test-utils';
 import axe from '@/../test/unit/helpers/axe-helper';
-import VsMarketoForm from '../MarketoForm.vue';
+import VsForm from '../Form.vue';
 
 config.global.renderStubDefaultSlot = true;
 
@@ -143,12 +143,12 @@ function mountOptions() {
 };
 
 const factoryShallowMount = () => shallowMount(
-    VsMarketoForm,
+    VsForm,
     mountOptions(),
 );
 
 const factoryMount = () => mount(
-    VsMarketoForm,
+    VsForm,
     mountOptions(),
 );
 
@@ -158,7 +158,7 @@ beforeEach(() => {
     };
 });
 
-describe('VsMarketoForm', () => {
+describe('VsForm', () => {
     it('should render a component with the data-test attribute `vs-form`', () => {
         const wrapper = factoryShallowMount();
 
