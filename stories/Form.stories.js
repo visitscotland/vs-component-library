@@ -35,11 +35,11 @@ const Template = (args) => ({
 });
 
 const base = {
-    isMarketo: false,
+    isMarketo: true,
     submitUrl: '/test/api/url',
-    dataUrl: '/fixtures/marketo-forms/form-example.json',
-    messagingUrl: '/fixtures/marketo-forms/messaging.json',
-    countryListUrl: '/fixtures/marketo-forms/countries.json',
+    dataUrl: '/fixtures/forms/form-example.json',
+    messagingUrl: '/fixtures/forms/messaging.json',
+    countryListUrl: '/fixtures/forms/countries.json',
     marketoInstance: '',
     munchkinId: '',
     language: 'en',
@@ -56,12 +56,13 @@ export const Default = Template.bind({
 
 Default.args = base;
 
-export const Marketo = Template.bind({
+export const FEPL = Template.bind({
 });
 
-Marketo.args = {
+FEPL.args = {
     ...base,
-    isMarketo: true,
+    isMarketo: false,
+    dataUrl: '/fixtures/forms/fepl-form-example.json',
 };
 
 export const ShowingConditionalField = Template.bind({

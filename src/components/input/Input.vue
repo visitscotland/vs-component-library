@@ -43,6 +43,8 @@
             :aria-describedby="ariaDescription"
             :maxlength="validationRules.maxLength ? validationRules.maxLength : null"
             :minlength="validationRules.minLength ? validationRules.minLength : null"
+            :min="validationRules.min ? validationRules.min : null"
+            :max="validationRules.max ? validationRules.max : null"
             @blur="validateErrors"
             @change="validateErrors"
             @focus="resetErrors"
