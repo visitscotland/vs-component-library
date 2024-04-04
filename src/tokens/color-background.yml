@@ -68,6 +68,16 @@ props:
       value: "{!vs-gorse}" 
     - name: vs-color-background-accent-limestone
       value: "{!vs-limestone}" 
+    - name: vs-color-background-accent-grey-01
+      value: "{!vs-grey-01}"  
+    - name: vs-color-background-accent-grey-02
+      value: "{!vs-grey-02}" 
+    - name: vs-color-background-accent-grey-03
+      value: "{!vs-grey-03}" 
+    - name: vs-color-background-accent-grey-04
+      value: "{!vs-grey-04}" 
+    - name: vs-color-background-accent-grey-05
+      value: "{!vs-grey-05}" 
 imports:
   - ./color-core.yml
 global:

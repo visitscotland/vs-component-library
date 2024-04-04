@@ -8,6 +8,8 @@ props:
       value: "{!vs-loch-ness}"
     - name: vs-color-border-input
       value: "{!vs-grey-01}"
+    - name: vs-color-border-bold
+      value: "{!vs-black-02}"
     - name: vs-color-border-focus
       value: "{!vs-saltire}"
     - name: vs-color-border-tertiary

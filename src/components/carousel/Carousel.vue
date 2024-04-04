@@ -445,7 +445,11 @@ export default {
         }
 
         .vs-button.vs-carousel__control {
-            padding: $spacer-3;
+            padding: $spacer-2;
+
+            @include media-breakpoint-up(sm) {
+                padding: $spacer-3;
+            }
         }
 
         &__control {
@@ -453,10 +457,14 @@ export default {
             top: 25%;
             z-index: 20;
             min-width: 35px;
-            height: 35px;
+            height: 40px;
             border-radius: 0;
             align-items: center;
             justify-content: center;
+
+            @include media-breakpoint-up(sm) {
+                height: 48px;
+            }
 
             &--next {
                 right: 0;
@@ -475,9 +483,7 @@ export default {
             }
 
             &-label {
-                color: $color-white;
                 white-space: nowrap;
-                text-transform: uppercase;
                 font-weight: $font-weight-semi-bold;
 
                 &--next {
@@ -491,7 +497,8 @@ export default {
 
             .vs-icon {
                 margin-left: $spacer-0 !important;
-                margin-right: $spacer-0 !important
+                margin-right: $spacer-0 !important;
+                margin-top: 0;
             }
 
             .vs-carousel__control-label-container {
@@ -499,25 +506,14 @@ export default {
                 max-width: 0;
                 overflow: hidden;
                 display: inline-block;
-            }
-
-            &:active {
-                .vs-carousel__control-label {
-                    color: $color-white;
-                }
-            }
-
-            &:focus:not(:active) {
-                .vs-carousel__control-label {
-                    color: $color-theme-primary;
-                }
+                margin-top: 2px;
             }
 
             @media (hover: hover) {
                 &:hover, &:focus {
                     outline: none;
-                    background-color: $color-theme-primary;
-                    border-color: $color-theme-primary;
+                    background-color: $vs-color-background-primary;
+                    border-color: $vs-color-border-primary;
 
                     .vs-carousel__control-label-container {
                         max-width: 15rem;
@@ -547,7 +543,7 @@ export default {
             width: 10px;
             height: 10px;
             border-radius: 5px;
-            background: $color-gray-tint-1;
+            background: $vs-color-background-accent-grey-04;
             transform: translateY(2px);
             margin: 0 2px;
             border: none;
@@ -556,34 +552,35 @@ export default {
             padding: 0;
 
             &:hover {
-                background: $color_pink_shade_2;
+                background: $vs-color-background-hover;
             }
 
             &:focus {
-                outline: 1px solid $color-pink;
+                @extend %primary-button-focus;
+                outline: none;
             }
 
             &--active {
                 width: 14px;
                 height: 14px;
                 border-radius: 7px;
-                background: $color-pink;
+                background: $vs-color-background-tertiary;
                 transform: none;
                 cursor: default;
 
                 &:hover {
-                    background: $color-pink;
+                    background: $vs-color-background-tertiary;
                 }
             }
 
             @media (hover: none) {
                 &:hover {
-                    background: $color-gray-tint-1;
+                    background: $vs-color-background-hover;
                 }
 
                 &--active {
                     &:hover {
-                        background: $color-pink;
+                        background: $vs-color-background-tertiary;
                     }
                 }
             }
@@ -600,9 +597,9 @@ export default {
         }
 
         &__mobile-pagination {
-            background: $color-gray-tint-7;
+            background: $vs-color-background-information;
+            color: $vs-color-text;
             padding: $spacer-1 $spacer-2;
-            color: $color-black;
             font-size: $font-size-2;
             font-weight: bold;
             margin: 0;

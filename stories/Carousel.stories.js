@@ -80,6 +80,17 @@ WithPanels.args = {
     transportName: 'Bus',
 };
 
+export const Mobile = Template.bind({
+});
+
+Mobile.args = base;
+
+Mobile.parameters = {
+    viewport: {
+        defaultViewport: 'mobile2',
+    },
+};
+
 export const NoJavascript = Template.bind({
 });
 
