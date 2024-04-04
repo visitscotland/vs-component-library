@@ -151,8 +151,6 @@ describe('VsInput', () => {
 
             await mountedWrapper.vm.$nextTick();
 
-            console.log(mountedWrapper.html());
-
             expect(mountedWrapper.find('.vs-input').attributes('min')).toBe('0');
             expect(mountedWrapper.find('.vs-input').attributes('max')).toBe('200');
         });
