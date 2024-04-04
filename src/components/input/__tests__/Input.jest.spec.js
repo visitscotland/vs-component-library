@@ -137,6 +137,26 @@ describe('VsInput', () => {
             expect(wrapper.find('.vs-input').attributes('required')).toBe('true');
         });
 
+        it('should add a min and max attribute when its included in validation rules for number inputs', async() => {
+            const mountedWrapper = factoryMount();
+
+            mountedWrapper.setProps({
+                type: 'number',
+                validationRules: {
+                    required: true,
+                    min: 0,
+                    max: 200,
+                },
+            });
+
+            await mountedWrapper.vm.$nextTick();
+
+            console.log(mountedWrapper.html());
+
+            expect(mountedWrapper.find('.vs-input').attributes('min')).toBe('0');
+            expect(mountedWrapper.find('.vs-input').attributes('max')).toBe('200');
+        });
+
         it('should display a validation message if validation fails', async() => {
             wrapper.setProps({
                 value: '',
