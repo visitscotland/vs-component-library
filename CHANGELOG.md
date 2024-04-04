@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.15](https://github.com/visitscotland/vs-component-library/compare/v0.0.14...v0.0.15) (2024-04-04)
+
+
+### ✨ Features
+
+* **input:** add min and max to number type inputs ([a68cd86](https://github.com/visitscotland/vs-component-library/commit/a68cd8683c958694f645121e735a321ac9337d0b))
+* **input:** add tests for min max validation ([c2de0f2](https://github.com/visitscotland/vs-component-library/commit/c2de0f2267966e771ca4260d4b61db2f6b9d8a6e))
+* **input:** add tests for min/max validation ([ac52e11](https://github.com/visitscotland/vs-component-library/commit/ac52e114325efddc6660f7086bc28343cb2f030f))
+
 ### [0.0.14](https://github.com/visitscotland/vs-component-library/compare/v0.0.13...v0.0.14) (2024-04-03)
 
 
