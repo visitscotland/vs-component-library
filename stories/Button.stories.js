@@ -90,64 +90,10 @@ const base = {
 export const Primary = Template.bind();
 Primary.args = base;
 
-export const PrimaryHover = Template.bind();
-PrimaryHover.args = base;
-
-PrimaryHover.parameters = {
-    pseudo: {
-        hover: true,
-    },
-};
-
-export const PrimaryActive = Template.bind();
-PrimaryActive.args = base;
-
-PrimaryActive.parameters = {
-    pseudo: {
-        active: true,
-    },
-};
-
-export const PrimaryFocus = Template.bind();
-PrimaryFocus.args = base;
-
-PrimaryFocus.parameters = {
-    pseudo: {
-        focus: true,
-    },
-};
-
 export const Secondary = Template.bind();
 Secondary.args = {
     ...base,
     variant: 'secondary',
-};
-
-export const SecondaryHover = Template.bind();
-SecondaryHover.args = base;
-
-SecondaryHover.parameters = {
-    pseudo: {
-        hover: true,
-    },
-};
-
-export const SecondaryActive = Template.bind();
-SecondaryActive.args = base;
-
-SecondaryActive.parameters = {
-    pseudo: {
-        active: true,
-    },
-};
-
-export const SecondaryFocus = Template.bind();
-SecondaryFocus.args = base;
-
-SecondaryFocus.parameters = {
-    pseudo: {
-        focus: true,
-    },
 };
 
 export const Disabled = Template.bind();
@@ -189,6 +135,15 @@ IconOnly.args = {
     default: '',
 };
 
+export const IconOnlySecondary = Template.bind();
+IconOnlySecondary.args = {
+    ...base,
+    icon: 'search',
+    variant: 'secondary',
+    iconOnly: true,
+    default: '',
+};
+
 export const IconOnlyTransparent = Template.bind();
 IconOnlyTransparent.args = {
     ...base,
@@ -196,6 +151,24 @@ IconOnlyTransparent.args = {
     iconOnly: true,
     default: '',
     variant: 'transparent',
+};
+
+export const IconOnlySmall = Template.bind();
+IconOnlySmall.args = {
+    ...base,
+    icon: 'search',
+    iconOnly: true,
+    size: 'sm',
+    default: '',
+};
+
+export const IconOnlyLarge = Template.bind();
+IconOnlyLarge.args = {
+    ...base,
+    icon: 'search',
+    iconOnly: true,
+    size: 'lg',
+    default: '',
 };
 
 export const IconPrimaryWithText = Template.bind();
