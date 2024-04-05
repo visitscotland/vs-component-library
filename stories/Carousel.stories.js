@@ -40,6 +40,10 @@ const Template = (args) => ({
                 >
                     <template v-if="${'vs-carousel-slide-heading' in args}" v-slot:vs-carousel-slide-heading>${args['vs-carousel-slide-heading']}</template>
                 </VsCarouselSlide>
+
+                <template v-slot:vs-carousel-of>
+                    of
+                </template>
             </VsCarousel>
         </div>
     `,

@@ -15,19 +15,13 @@ $enable-responsive-font-sizes: true;
 $white: $color-white;
 $black: $color-black;
 
-// $theme-colors: (
-//     primary: $color-theme-primary,
-//     secondary: $color-theme-secondary,
-//     success: $color-theme-success,
-//     info: $color-theme-info,
-//     warning: $color-theme-warning,
-//     danger: $color-theme-danger,
-//     light: $color-theme-light,
-//     dark: $color-theme-dark,
-//     primary-purple: $color-theme-primary-purple,
-//     secondary-teal: $color-theme-secondary-teal,
-//     secondary-light: $color-theme-secondary-light,
-// );
+$theme-colors: (
+    primary: $vs-color-primary,
+    success: $vs-color-success,
+    info: $vs-color-information,
+    warning: $vs-color-warning,
+    danger: $vs-color-danger,
+);
 
 $body-color: $vs-color-text;
 $body-emphasis-color: $vs-color-text;
@@ -111,6 +105,14 @@ $breadcrumb-active-color: $vs-color-text;
 $breadcrumb-divider: quote("|");
 
 $breadcrumb-border-radius: 0;
+
+
+/* Dropdowns */
+$dropdown-padding-y: 0;
+$dropdown-border-color: $vs-color-border;
+$dropdown-box-shadow: none;
+$dropdown-item-padding-x: $spacer-2;
+$dropdown-item-padding-y: $spacer-2;
 
 
 /* Links */

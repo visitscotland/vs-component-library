@@ -1,5 +1,7 @@
+import { userEvent, within } from '@storybook/testing-library';
 import VsDropdown from '@/components/dropdown/Dropdown.vue';
 import VsDropdownItem from '@/components/dropdown/components/DropdownItem.vue';
+import VsIcon from '@/components/icon/Icon.vue';
 
 export default {
     component: VsDropdown,
@@ -11,6 +13,7 @@ const Template = (args) => ({
     components: {
         VsDropdown,
         VsDropdownItem,
+        VsIcon,
     },
     setup() {
         return {
@@ -18,11 +21,25 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsDropdown v-bind="args">
+        <VsDropdown 
+            v-bind="args" 
+            data-testid="dropdown-btn"
+        >   
+            <template #button-content>
+                <VsIcon
+                    v-if="args.icon"
+                    :name="args.icon"
+                    variant="inverse"
+                    size="xs"
+                    focusable="false"
+                />
+                {{ args.text }}
+            </template>
+
             <VsDropdownItem title>English</VsDropdownItem>
             <VsDropdownItem>Deutsch</VsDropdownItem>
-            <VsDropdownItem>Español</VsDropdownItem>
-            <VsDropdownItem>Français</VsDropdownItem>
+            <VsDropdownItem :active="args.isActive ? true : false">Español</VsDropdownItem>
+            <VsDropdownItem >Français</VsDropdownItem>
             <VsDropdownItem>Italiano</VsDropdownItem>
             <VsDropdownItem>Nederlands</VsDropdownItem>
         </VsDropdown>
@@ -30,10 +47,43 @@ const Template = (args) => ({
 });
 
 const base = {
-    text: 'Language (EN)',
+    text: 'Language',
 };
 
 export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const MenuOpen = Template.bind({
+});
+
+MenuOpen.args = base;
+
+MenuOpen.play = async({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = within(canvas.getByTestId('dropdown-btn')).getByRole('button');
+    await userEvent.click(button);
+};
+
+export const Active = Template.bind({
+});
+
+Active.play = async({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = within(canvas.getByTestId('dropdown-btn')).getByRole('button');
+    await userEvent.click(button);
+};
+
+Active.args = {
+    ...base,
+    isActive: true,
+};
+
+export const WithIcon = Template.bind({
+});
+
+WithIcon.args = {
+    ...base,
+    icon: 'globe',
+};
