@@ -19,7 +19,7 @@ props:
   vs-box-shadow-focus:
     value: "0 0 0 2px $vs-color-border-primary"
   vs-box-shadow-focus-on-dark:
-    value: "0 0 0 4px $color-yellow"
+    value: "0 0 0 2px $vs-color-border-accent-gorse"
 global:
   type: ...
   category: box-shadow

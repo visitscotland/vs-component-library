@@ -52,7 +52,7 @@ export default {
 
 <style lang="scss">
 .vs-footer-utility-list {
-    border-top: 1px solid $vs-color-border;
+    border-top: 1px solid $vs-color-border-inverse;
 
     @include media-breakpoint-down(sm) {
         .container {

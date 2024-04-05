@@ -11,28 +11,28 @@
 
     .error {
         font-size: $font-size-body;
-        color: $color-theme-danger;
+        color: $vs-color-text-danger;
         display: block;
     }
 
     .hint-text {
         font-size: $font-size-body;
-        color: $color-gray-shade-1;
+        color: $vs-color-text-subtle;
         margin-bottom: 0;
     }
 }
 
 @mixin form-element-styles {
-    border: $color-gray-shade-3 1px solid;
+    border: $vs-color-border-input 1px solid;
 }
 
 @mixin form-error-state {
-    border-color: $color-theme-danger;
-    box-shadow: 0 0 0 1px $color-theme-danger inset;
+    border-color: $vs-color-border-danger;
+    box-shadow: 0 0 0 2px $vs-color-border-danger inset;
 }
 
 @mixin form-focus-state {
-    border-color: $color-pink;
-    box-shadow: 0 0 0 3px $color-pink inset;
+    border-color: $vs-color-border-focus;
+    box-shadow: 0 0 0 2px $vs-color-border-focus inset;
     outline: none;
 }

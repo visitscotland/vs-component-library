@@ -6,10 +6,7 @@
         <div
             v-if="min && max && min !== max"
         >
-            <span
-                class="vs-canned-search-stars__star"
-                :class="{ 'vs-canned-search-stars__star--gold': gold }"
-            >
+            <span class="vs-canned-search-stars__star">
                 &#9733;
             </span>
             {{ min }}-{{ max }}
@@ -21,7 +18,6 @@
                 v-for="index in min"
                 :key="index"
                 class="vs-canned-search-stars__star"
-                :class="{ 'vs-canned-search-stars__star--gold': gold }"
             >
                 &#9733;
             </span>
@@ -59,14 +55,6 @@ export default {
             type: Number,
             default: null,
         },
-        /**
-        * Whether the stars should be displayed in gold, if false they
-        * will be purple
-        */
-        gold: {
-            type: Boolean,
-            default: false,
-        },
     },
 };
 
@@ -79,10 +67,6 @@ export default {
     }
 
     .vs-canned-search-stars__star {
-        color: $color-purple;
-
-        &--gold {
-            color: $color-yellow;
-        }
+        color: $vs-color-icon-tertiary;
     }
 </style>

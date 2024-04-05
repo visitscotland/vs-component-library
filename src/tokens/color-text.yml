@@ -14,8 +14,6 @@ props:
       value: "{!vs-grey-03}"
     - name: vs-color-text-subtle
       value: "{!vs-grey-02}"
-    - name: vs-color-text-caption
-      value: "{!vs-grey-01}" 
 
     ## Accent colours
     - name: vs-color-text-accent-lavender

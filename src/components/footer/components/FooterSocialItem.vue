@@ -14,7 +14,7 @@
             <VsIcon
                 :name="icon"
                 variant="inverse"
-                size="md"
+                size="sm"
             />
         </VsLink>
     </li>
@@ -71,79 +71,30 @@ export default {
         margin-bottom: $spacer-3;
 
         .vs-link.vs-link--variant-primary {
-            background: $color-gray-shade-1;
-            box-shadow: 0 0 0 2px $color-gray-shade-1;
-            border: 1px solid $color-gray-shade-1;
-            border-radius: $border-radius-xl;
             display: block;
-            height: 42px;
-            width: 42px;
-            transition: $transition-base;
+            height: 32px;
+            width: 32px;
+            transition: color $duration-base;
             text-decoration: none;
-
-            &.facebook {
-                &:hover {
-                    background: $color-facebook;
-                    box-shadow: 0 0 0 2px $color-facebook;
-                    border-color: $color-facebook;
-                }
-            }
-
-            &.instagram {
-                &:hover {
-                    background: $color-instagram;
-                    box-shadow: 0 0 0 2px $color-instagram;
-                    border-color: $color-instagram;
-                }
-            }
-
-            &.x-twitter {
-                &:hover {
-                    background: $color-white;
-                    box-shadow: 0 0 0 2px $color-white;
-                    border-color: $color-white;
-                    color: $color-xtwitter;
-
-                    .vs-icon {
-                        color: $color-xtwitter;
-                    }
-                }
-            }
-
-            &.youtube {
-                &:hover {
-                    background: $color-youtube;
-                    box-shadow: 0 0 0 2px $color-youtube;
-                    border-color: $color-youtube;
-                }
-            }
-
-            &:focus {
-                box-shadow: $vs-box-shadow-focus-on-dark;
-                background-color: $color-white;
-                color: $color-gray-shade-1;
-                outline: none;
-
-                .vs-icon {
-                    color: $color-gray-shade-1;
-                }
-            }
-
-            &:hover {
-                .vs-icon {
-                    color: $color-white;
-                }
-            }
 
             .vs-icon {
                 text-align: center;
-                color: $color-white;
                 line-height: $line-height-m;
                 display: block;
 
                 &.vs-icon--external-link {
                     display: none;
                 }
+            }
+
+            &:hover {
+                .vs-icon {
+                    color: $vs-color-icon-accent-etive;
+                }
+            }
+
+            &:focus {
+                @extend %outline-link-focus-dark;
             }
         }
     }

@@ -333,7 +333,7 @@ export default {
                 );
 
                 &:focus {
-                    box-shadow: $vs-box-shadow-focus;
+                    box-shadow: $vs-box-shadow-focus inset;
                 }
 
                 &.vs-button--on-dark {
@@ -345,7 +345,7 @@ export default {
                     );
 
                     &:focus {
-                        box-shadow: $vs-box-shadow-focus-on-dark;
+                        box-shadow: $vs-box-shadow-focus-on-dark inset;
                     }
                 }
             }
@@ -374,8 +374,22 @@ export default {
         &.vs-button--icon-only {
             line-height: 1;
 
-            &.btn-sm, &.btn-md, &.btn-lg {
-                padding: $spacer-1 0;
+            &.btn-sm{
+                padding: $spacer-1 $spacer-1;
+                width: 32px;
+                height: 32px;
+            }
+
+            &.btn-md{
+                padding: $spacer-2 $spacer-1;
+                width: 40px;
+                height: 40px;
+            }
+
+            &.btn-lg {
+                padding: $spacer-2 $spacer-1;
+                width: 48px;
+                height: 48px;
             }
 
             .vs-icon {

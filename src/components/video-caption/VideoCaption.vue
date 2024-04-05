@@ -58,7 +58,6 @@
             <VsWarning
                 size="small"
                 type="cookie"
-                :transparent="false"
             >
                 {{ noCookiesMessage }}
                 <template v-slot:button-text>
@@ -72,7 +71,6 @@
         >
             <VsWarning
                 size="small"
-                :transparent="false"
             >
                 {{ errorMessage }}
             </VsWarning>
@@ -84,7 +82,6 @@
         >
             <VsWarning
                 size="small"
-                :transparent="false"
             >
                 {{ noJsMessage }}
             </VsWarning>

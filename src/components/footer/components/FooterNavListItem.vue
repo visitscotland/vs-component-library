@@ -69,7 +69,7 @@ export default {
 
     .vs-link {
         &--variant-on-dark {
-            color: $color-white;
+            color: $vs-color-text-inverse;
             text-decoration: none;
         }
 
@@ -77,8 +77,12 @@ export default {
             text-decoration: underline;
         }
 
+        &:focus {
+            @extend %outline-link-focus-dark;
+        }
+
         .vs-icon {
-            color: $color-white;
+            color: $vs-color-icon-inverse;
         }
     }
 
