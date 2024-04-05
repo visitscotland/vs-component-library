@@ -305,7 +305,7 @@ export default {
                     padding: 0;
                 }
                 .vs-toggle-btn {
-                    top: calc(50% - 12px);
+                    top: calc(50% - 20px);
                 }
             }
         }
