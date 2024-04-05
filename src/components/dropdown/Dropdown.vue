@@ -77,8 +77,6 @@ export default {
     }
 
     ~ .dropdown-menu {
-        margin-top: $spacer-2;
-
         li {
             border-bottom: 1px solid $vs-color-border;
 
