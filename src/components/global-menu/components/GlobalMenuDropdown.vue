@@ -71,25 +71,13 @@ export default {
 </script>
 
 <style lang="scss">
-.vs-global-menu__dropdown,
-.vs-global-menu__dropdown .btn {
-    padding: 0;
-    background: transparent;
-    border: none;
-}
-
+.vs-global-menu__dropdown .btn,
 .vs-global-menu__dropdown {
     position: initial;
     flex: auto;
-
-    a {
-        color: white;
-        text-decoration: none;
-
-        &:hover {
-            background: $color-purple-shade-2;
-        }
-    }
+    padding: 0;
+    background: transparent;
+    border: none;
 
     .btn-primary.dropdown-toggle {
         padding: 0.3rem $spacer-3;
@@ -97,30 +85,28 @@ export default {
         align-items: center;
 
         &:not(:disabled):not(.disabled):active {
-            background: $color-purple-shade-2;
+            background: $vs-color-background-inverse;
+            color: $vs-color-text;
+
+            &:after, .vs-icon{
+                color: $vs-color-text;
+                transition: $duration-base color;
+            }
         }
 
         &:focus {
             box-shadow: $vs-box-shadow-focus-on-dark inset;
         }
 
-        &.show{
-            background: $color-purple-shade-2;
-
-            &:active, &:focus{
-                background: $color-purple-shade-2;
-            }
-
-            &:focus {
-                box-shadow: $vs-box-shadow-focus-on-dark inset;
-            }
+        &:hover {
+            background: $vs-color-background-accent-heather;
         }
     }
 
     ~ .dropdown-menu {
         min-width: auto;
         margin: 0;
-        background: $color-purple;
+        background: $vs-color-background-brand;
         max-height: 0;
         overflow: hidden;
         opacity: $opacity-0;
@@ -130,26 +116,24 @@ export default {
         }
 
         li {
-            border-bottom: 1px solid $color-purple-tint-3;
-
-            &:last-of-type {
-                border: none;
+            &:not(:last-of-type) {
+                border-bottom: 1px solid $vs-color-border-inverse;
             }
 
-            a {
-                padding: $spacer-3;
-                color: $color-white;
-                text-decoration: none;
+            .dropdown-item {
                 font-size: $font-size-2;
-                line-height: $line-height-s;
+                padding: $spacer-3;
+                color: $vs-color-background-inverse;
+                text-decoration: none;
+                line-height: $line-height-xs;
 
-                &:hover, &:focus {
-                    background: $color-purple-shade-2;
+                &:hover {
+                    background: $vs-color-background-accent-heather;
                 }
 
                 &:focus {
-                    outline: 3px solid $color-yellow;
-                    outline-offset: -3px;
+                    background: $vs-color-background-brand;
+                    box-shadow: $vs-box-shadow-focus-on-dark inset;
                 }
             }
         }
