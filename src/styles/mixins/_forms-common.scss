@@ -36,3 +36,9 @@
     box-shadow: 0 0 0 2px $vs-color-border-focus inset;
     outline: none;
 }
+
+@mixin form-disabled-state {
+    background-color: $vs-color-background-inverse;
+    border-color: $vs-color-border-disabled;
+    opacity: 0.5;
+}

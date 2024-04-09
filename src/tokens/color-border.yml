@@ -12,6 +12,8 @@ props:
       value: "{!vs-black-02}"
     - name: vs-color-border-focus
       value: "{!vs-saltire}"
+    - name: vs-color-border-disabled
+      value: "{!vs-grey-04}"
     - name: vs-color-border-tertiary
       value: "{!vs-bramble}"
     - name: vs-color-border-danger
