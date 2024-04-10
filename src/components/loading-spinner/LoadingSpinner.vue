@@ -88,19 +88,19 @@ export default {
                 width: $spacer-1;
                 height: $spacer-1;
                 border-radius: 50%;
-                background-color: $color_purple;
+                background-color: $vs-color-background-tertiary;
             }
         }
 
         &--light{
             .vs-loading-spinner__dot::after{
-                background-color: $color_purple;
+                background-color: $vs-color-background-tertiary;
             }
         }
 
         &--dark{
             .vs-loading-spinner__dot::after{
-                background-color: $color-theme-dark;
+                background-color: $vs-color-background-inverse;
             }
         }
     }

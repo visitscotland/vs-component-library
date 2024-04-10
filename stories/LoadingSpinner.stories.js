@@ -38,3 +38,17 @@ export const Default = Template.bind({
 Default.args = {
     ...base,
 };
+
+export const OnDark = Template.bind({
+});
+
+OnDark.args = {
+    ...base,
+    variant: 'dark',
+};
+
+OnDark.parameters = {
+    backgrounds: {
+        default: 'Dark',
+    },
+};
