@@ -37,6 +37,7 @@
         <figcaption class="vs-image-with-caption__captions">
             <div
                 class="vs-image-with-caption__video-caption-wrapper"
+                :class="isHeroImage ? 'container-lg' : ''"
                 v-if="isVideo"
             >
                 <VsVideoCaption

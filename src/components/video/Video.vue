@@ -22,7 +22,6 @@
 
             <VsWarning
                 v-if="showError"
-                theme="light"
                 :type="cookiesInitStatus === true ? 'cookie' : 'normal'"
                 data-test="vs-video__warning"
                 class="vs-video__warning"
@@ -39,7 +38,6 @@
             </VsWarning>
 
             <VsWarning
-                theme="light"
                 data-test="vs-video__warning--no-js"
                 class="vs-video__warning vs-video__warning--no-js"
             >

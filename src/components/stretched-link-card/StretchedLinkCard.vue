@@ -9,7 +9,6 @@
         <VsWarning
             v-if="showWarning === 'full'"
             :size="warningSize"
-            :theme="theme"
             :type="showCookieWarning ? 'cookie' : 'normal'"
             data-test="vs-stretched-link-card__full-warning"
             class="vs-stretched-link-card__full-warning"
@@ -30,7 +29,6 @@
             data-test="vs-stretched-link-card__full-warning"
             class="vs-stretched-link-card__full-warning
                 vs-stretched-link-card__full-warning--no-js"
-            :theme="theme"
         >
             {{ noJsMessage }}
         </VsWarning>
@@ -58,7 +56,6 @@
                 :type="showCookieWarning ? 'cookie' : 'normal'"
                 data-test="vs-stretched-link-card__image-warning"
                 class="vs-stretched-link-card__image-warning"
-                :theme="theme"
             >
                 {{ warningMessage }}
 
@@ -76,7 +73,6 @@
                 data-test="vs-stretched-link-card__warning"
                 class="vs-stretched-link-card__image-warning
                     vs-stretched-link-card__image-warning--no-js"
-                :theme="theme"
             >
                 {{ noJsMessage }}
             </VsWarning>
@@ -416,9 +412,6 @@ export default {
             };
             if (this.type === 'cookie') {
                 attrsObj.class = 'ot-sdk-show-settings vs-warning__cookie-trigger';
-            }
-            if (this.theme === 'dark') {
-                attrsObj.onDark = '';
             }
             if (this.size === 'small') {
                 attrsObj.size = 'sm';

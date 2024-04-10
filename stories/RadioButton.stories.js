@@ -67,3 +67,28 @@ WithHint.args = {
     ...base,
     hintText: 'Select the option that best describes your journey to get to Scotland.',
 };
+
+export const Disabled = Template.bind({
+});
+
+Disabled.args = {
+    ...base,
+    options: [
+        {
+            text: 'I\'m already here',
+            value: 'noTravel',
+            icon: 'city',
+        },
+        {
+            text: 'Plane',
+            value: 'plane',
+            icon: 'plane',
+        },
+        {
+            text: 'Car (Petrol)',
+            value: 'petrolCar',
+            icon: 'car',
+            disabled: true,
+        },
+    ],
+};

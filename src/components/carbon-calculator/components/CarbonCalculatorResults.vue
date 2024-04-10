@@ -58,6 +58,7 @@
                 <VsIcon
                     name="unicorn"
                     size="lg"
+                    variant="tertiary"
                     class="vs-carbon-calculator-results__unicorn-icon"
                 />
             </div>
@@ -102,7 +103,7 @@
                             <Grid strokeDasharray="2,2" />
                             <Bar
                                 :dataKeys="['name', 'emissions']"
-                                :barStyle="{ fill: '#AF006E' }"
+                                :barStyle="{ fill: tokens['vs-color-background-tertiary'] }"
                                 :gap="20"
                             />
                         </template>
@@ -114,6 +115,7 @@
 </template>
 
 <script>
+import designTokens from '@/assets/tokens/tokens.json';
 import { VsCol, VsRow } from '@components/grid';
 import VsIcon from '@components/icon/Icon.vue';
 import VsHeading from '@components/heading/Heading.vue';
@@ -221,6 +223,7 @@ export default {
                 },
             }),
             cssProps: `--chart-label: '${ this.labelsMap.kgsOf }'`,
+            tokens: designTokens,
         };
     },
     computed: {
@@ -365,6 +368,8 @@ export default {
         }
 
         .chart {
+            color: $vs-color-text-subtle;
+
             &::before {
                 content: var(--chart-label);
                 position: absolute;
@@ -400,8 +405,8 @@ export default {
 
     .vs-carbon-calculator-results__unicorn {
         box-shadow: $shadow_card_tight;
-        padding: $spacer-8 $spacer-4;
-        background-color: $color-yellow-tint-6;
+        padding: $spacer-4;
+        background-color: $vs-color-background-accent-limestone;
         margin-bottom: $spacer-8;
 
         .vs-heading {
@@ -410,17 +415,16 @@ export default {
 
         .vs-carbon-calculator-results__unicorn-content {
             margin-bottom: $spacer-0;
+
+            p:last-of-type{
+                margin-bottom: 0;
+            }
         }
 
         .vs-carbon-calculator-results__unicorn-icon-container {
             display: inline-flex;
-            justify-content: center;
             vertical-align: top;
-            width: $spacer-10;
-
-            .vs-icon {
-                color: $color-pink;
-            }
+            width: $spacer-9;
         }
 
         .vs-carbon-calculator-results__unicorn-content {

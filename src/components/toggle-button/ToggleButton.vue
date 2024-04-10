@@ -4,6 +4,7 @@
         data-test="vs-toggle-btn"
         variant="transparent"
         icon-only
+        size="lg"
         :aria-controls="toggleId"
         :aria-expanded="show ? 'true' : 'false'"
         @click="toggleAction"

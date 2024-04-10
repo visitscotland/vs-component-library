@@ -15,15 +15,6 @@ export default {
                 type: 'radio',
             },
         },
-        theme: {
-            options: [
-                'light',
-                'dark',
-            ],
-            control: {
-                type: 'radio',
-            },
-        },
         size: {
             options: [
                 'xs',
@@ -106,28 +97,9 @@ WithButton.args = {
     ...base,
     type: 'cookie',
     default: 'Cookies need to be enabled to watch this video',
-    'button-text': 'Manage cookies settings',
-};
-
-export const LightTheme = Template.bind({
-});
-
-LightTheme.args = {
-    ...base,
-    theme: 'light',
-    type: 'cookie',
-    default: 'Cookies need to be enabled to watch this video',
     'extra-content': 'You can turn this on in your browser settings or subscribe by sending an email to',
     ctaLink: 'info@visitscotland.com',
     'button-text': 'Manage cookies settings',
-};
-
-export const RightAligned = Template.bind({
-});
-
-RightAligned.args = {
-    ...base,
-    align: 'right',
 };
 
 export const Small = Template.bind({
@@ -135,7 +107,8 @@ export const Small = Template.bind({
 
 Small.args = {
     ...base,
-    ...WithButton.args,
+    default: 'Cookies need to be enabled to watch this video',
+    'button-text': 'Manage cookies settings',
     size: 'small',
 };
 

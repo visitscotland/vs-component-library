@@ -141,6 +141,12 @@ export default {
         }
     }
 
+    &.vs-link--variant-on-dark {
+        &:focus {
+            @extend %outline-link-focus-dark;
+        }
+    }
+
     .vs-link__icon {
         vertical-align: baseline;
     }
