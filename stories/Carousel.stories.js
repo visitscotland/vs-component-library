@@ -21,23 +21,27 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsCarousel
-            :nextText="args.nextText"
-            :prevText="args.prevText"
-            :slidesXs="args.slidesXs"
-            :slidesSm="args.slidesSm"
-            :slidesMd="args.slidesMd"
-            :slidesLg="args.slidesLg"
+        <div
+            :class="args.jsDisabled ? 'no-js' : ''"
         >
-            <VsCarouselSlide
-                v-for="n in ['0','1','2','3','4','5','6','7','8','9','10','11']"
-                :key="n"
-                v-bind="args"
-                :slide-index="n"
+            <VsCarousel
+                :nextText="args.nextText"
+                :prevText="args.prevText"
+                :slidesXs="args.slidesXs"
+                :slidesSm="args.slidesSm"
+                :slidesMd="args.slidesMd"
+                :slidesLg="args.slidesLg"
             >
-                <template v-if="${'vs-carousel-slide-heading' in args}" v-slot:vs-carousel-slide-heading>${args['vs-carousel-slide-heading']}</template>
-            </VsCarouselSlide>
-        </VsCarousel>
+                <VsCarouselSlide
+                    v-for="n in ['0','1','2','3','4','5','6','7','8','9','10','11']"
+                    :key="n"
+                    v-bind="args"
+                    :slide-index="n"
+                >
+                    <template v-if="${'vs-carousel-slide-heading' in args}" v-slot:vs-carousel-slide-heading>${args['vs-carousel-slide-heading']}</template>
+                </VsCarouselSlide>
+            </VsCarousel>
+        </div>
     `,
 });
 
@@ -58,6 +62,7 @@ const base = {
     transportName: '',
     'vs-carousel-slide-heading': 'Tour Scotland with Outlander',
     slideIndex: '0',
+    jsDisabled: false,
 };
 
 export const Default = Template.bind({
@@ -73,4 +78,15 @@ WithPanels.args = {
     days: '14',
     transport: 'bus',
     transportName: 'Bus',
+};
+
+export const NoJavascript = Template.bind({
+});
+
+NoJavascript.args = {
+    ...base,
+    days: '14',
+    transport: 'bus',
+    transportName: 'Bus',
+    jsDisabled: true,
 };

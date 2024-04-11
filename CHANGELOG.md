@@ -89,13 +89,39 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### ✅ Tests
 
+<<<<<<< HEAD
 * **video:** correct id in other comp tests ([b5dccbb](https://github.com/visitscotland/vs-component-library/commit/b5dccbb458e89b677aa23bfa84c3625109dad9d9))
 * **video:** correct video mock usage ([608dd46](https://github.com/visitscotland/vs-component-library/commit/608dd46e35498714a24fba2a5dae8b0e454067a4))
 * **video:** update video stub name ([202a40d](https://github.com/visitscotland/vs-component-library/commit/202a40d445159e9c67fd7762a0833cadeca335a7))
+=======
+* **social share item:** update test ([cb0e472](https://github.com/visitscotland/vs-component-library/commit/cb0e47276cb80a5092bc837ec8a93b93bcd282d2))
+
+### [1.2.3](https://github.com/visitscotland/vs-component-library/compare/v1.2.2...v1.2.3) (2024-03-11)
+
+
+### ✅ Tests
+
+* **map with sidebar:** add new tests ([b5ba1d6](https://github.com/visitscotland/vs-component-library/commit/b5ba1d680a8a2afd3d829169dbf60279b30046c0))
+* **map with sidebar:** add tests for new button ([c20ad0e](https://github.com/visitscotland/vs-component-library/commit/c20ad0e5f6575f0d0d570056ad236bc9de2da4f7))
+
+
+### ✨ Features
+
+* **article:** add video article story ([05803e7](https://github.com/visitscotland/vs-component-library/commit/05803e7e7176be278b16dcc015f109dd137bfac7))
+* **cookies:** adds decorators to turn cookies on/off ([94fb43a](https://github.com/visitscotland/vs-component-library/commit/94fb43af59110a28e79e21d687839e6065c35145))
+* **map with side bar:** replace card back button with menu button ([e477637](https://github.com/visitscotland/vs-component-library/commit/e4776379370e4a43edf660c4c2fbacd92eeb2401)), closes [#308](https://github.com/visitscotland/vs-component-library/issues/308)
+* **video:** add missing video stories ([37cd10f](https://github.com/visitscotland/vs-component-library/commit/37cd10f9384dd313805d79ed5ef5f570dca05dc1))
+
+
+### 🎨 Styling
+
+* **video:** fix video ui with caption ([83da976](https://github.com/visitscotland/vs-component-library/commit/83da976ad80406cc3fd5a3189a84136e253da411))
+>>>>>>> bf736ade4083b37875e9837f2d1cf339a691690a
 
 
 ### 🐛 Bug Fixes
 
+<<<<<<< HEAD
 * **all:** resolve merge conflicts ([57879a1](https://github.com/visitscotland/vs-component-library/commit/57879a1b1df5d6e8d2cc7c57fc6e3028ede8ca0c))
 * **build:** remove unnecessary transpile ([b0bb066](https://github.com/visitscotland/vs-component-library/commit/b0bb06619fddf4c540be1079920414f6c9ec08d4))
 * **case names:** correct case names ([733093d](https://github.com/visitscotland/vs-component-library/commit/733093d94d2fba5b1e4296c520938eb58c9874a4))
@@ -103,6 +129,20 @@ All notable changes to this project will be documented in this file. See [standa
 * **merge:** more merge errors ([5382a49](https://github.com/visitscotland/vs-component-library/commit/5382a49a47fde2ab37ee1a83ea79b1fa287bb5c4))
 * **video:** correct addVideo for new store setup ([971be32](https://github.com/visitscotland/vs-component-library/commit/971be32acffc3e39f3a94d33066d0aee95287c77))
 * **vite.config.js:** define process ([e1b15ce](https://github.com/visitscotland/vs-component-library/commit/e1b15cee86d783062b4b25e01ab7555fbc47ae19))
+=======
+* **article:** fix article cover video story syntax ([1aadbd6](https://github.com/visitscotland/vs-component-library/commit/1aadbd61c240de051f91e8f2f909674ad7cdb76f))
+* **article:** fix article video and add cover video story ([1d4f4c8](https://github.com/visitscotland/vs-component-library/commit/1d4f4c82f8dd47646727d3500cfc3d3c635ad0e6))
+* **imagewithcaption:** hide toggle only for image with video ([8f45c2f](https://github.com/visitscotland/vs-component-library/commit/8f45c2f039e03cbfc302fb005b38d84f3cbe760a))
+* **map with sidebar:** reset filters when closing card ([b25cd3c](https://github.com/visitscotland/vs-component-library/commit/b25cd3c99a355c5bb6b4ed7bbab4459eea95713d)), closes [#309](https://github.com/visitscotland/vs-component-library/issues/309) [#310](https://github.com/visitscotland/vs-component-library/issues/310)
+* **pageintro:** fix hero video in page intro ([b61bf66](https://github.com/visitscotland/vs-component-library/commit/b61bf668292ffafbc312845be052ea793971e14c))
+
+### [1.2.2](https://github.com/visitscotland/vs-component-library/compare/v1.2.1...v1.2.2) (2024-03-08)
+
+
+### 🐛 Bug Fixes
+
+* **bootstrap5:** prevent smooth autoscroll for selenium ([873d669](https://github.com/visitscotland/vs-component-library/commit/873d66912e4c99ec58fca59d9fd26e0dd20c54ca))
+>>>>>>> bf736ade4083b37875e9837f2d1cf339a691690a
 
 ### [1.2.1](https://github.com/visitscotland/vs-component-library/compare/v1.2.0...v1.2.1) (2024-02-27)
 

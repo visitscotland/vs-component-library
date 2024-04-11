@@ -2,6 +2,9 @@ import VsCaption from '@/components/caption/Caption.vue';
 import VsImg from '@/components/img/Img.vue';
 import VsImageWithCaption from '@/components/image-with-caption/ImageWithCaption.vue';
 import VsSocialCreditLink from '@/components/social-credit-link/SocialCreditLink.vue';
+import VsModal from '@/components/modal/Modal.vue';
+import VsVideo from '@/components/video/Video.vue';
+import { VsCol, VsRow } from '@/components/grid';
 
 export default {
     component: VsImageWithCaption,
@@ -17,6 +20,10 @@ const Template = (args) => ({
         VsImg,
         VsImageWithCaption,
         VsSocialCreditLink,
+        VsModal,
+        VsVideo,
+        VsCol,
+        VsRow,
     },
     setup() {
         return {
@@ -24,16 +31,18 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsImageWithCaption
-            v-bind="args"
-        >
+        <VsImageWithCaption v-bind="args">
+            <template v-slot:video-title>
+                {{ args.videoTitle}}
+            </template>
+
             <template v-slot:img-caption>
                 <VsCaption
                     :latitude='args.latitude'
                     :longitude='args.longitude'
                     :variant="args.variant"
+                    text-align="left"
                 >
-
                     <template v-slot:caption>
                         {{ args['img-caption'].caption }}
                     </template>
@@ -51,37 +60,56 @@ const Template = (args) => ({
                     >
                         <VsSocialCreditLink
                             :credit="args['img-caption'].credit"
-                            :socialPostUrl="args.socialPostUrl"
+                            :social-post-url="args.socialPostUrl"
                             :source="args.source"
                         />
                     </template>
                 </VsCaption>
             </template>
         </VsImageWithCaption>
+
+        <VsModal
+            modal-id='c05sg3G4oA4' 
+            close-btn-text='Close' 
+            :is-video-modal='true'
+        >
+            <VsRow>
+                <VsCol cols="12">
+                    <VsVideo
+                        video-id="c05sg3G4oA4"
+                        video-title="Test Video"
+                        class="mb-8"
+                        cookie-btn-text="Manage cookies"
+                        error-message="Sorry, something's gone wrong. Please try again later"
+                        no-js-message="You need JavaScript enabled to see this video"
+                        no-cookies-message="You need cookies enabled to see this video"
+                    />
+                </VsCol>
+            </VsRow>
+        </VsModal>
     `,
 });
 
 const base = {
+    imageSrc: 'fixtures/image-with-caption/images/jm-barrie.jpg',
     altText: 'Visit the birthplace of JM Barrie in Kirriemuir',
     closedDefaultCaption: false,
-    cookieLinkText: '',
-    errorMessage: '',
     'img-caption': {
         caption: 'Visit the birthplace of JM Barrie in Kirriemuir',
         credit: 'VisitScotland / Kenny Lam',
     },
-    imageSrc: 'fixtures/image-with-caption/images/jm-barrie.jpg',
     isHeroImage: false,
-    isVideo: false,
     mobileOverlap: false,
-    noCookiesMessage: '',
-    noJsMessage: '',
-    playButtonText: '',
-    showToggle: true,
-    smallPlayButton: '',
-    toggleButtonText: '',
+    toggleButtonText: 'Toggle image caption',
     useLazyLoading: true,
+    isVideo: false,
     videoId: '',
+    playButtonText: 'Play',
+    smallPlayButton: true,
+    errorMessage: 'Sorry, something has gone wrong, Please try again later',
+    cookieLinkText: 'Manage cookies',
+    noJsMessage: 'You need JavaScript enabled to see this video',
+    noCookiesMessage: 'You need cookies enabled to see this video',
 };
 
 export const Default = Template.bind({
@@ -117,3 +145,36 @@ WithSocialLink.args = {
     socialPostUrl: '#',
     source: 'instagram',
 };
+
+export const WithVideo = Template.bind({
+});
+
+WithVideo.args = {
+    ...base,
+    isVideo: true,
+    videoId: 'c05sg3G4oA4',
+    videoTitle: 'Only in Scotland',
+    showToggle: false,
+};
+
+export const WithVideoNoCookies = Template.bind({
+});
+
+WithVideoNoCookies.args = {
+    ...base,
+    isVideo: true,
+    videoId: 'c05sg3G4oA4',
+    videoTitle: 'Only in Scotland',
+};
+
+WithVideoNoCookies.decorators = [
+    () => {
+        window.bypassCookieChecks = false;
+
+        return {
+            template: `
+                <story/>
+            `,
+        };
+    },
+];

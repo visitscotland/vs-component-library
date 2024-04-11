@@ -297,7 +297,7 @@ export default {
             line-height: 1.1;
 
             .vs-icon {
-                margin-right: $spacer-6;
+                margin-right: $spacer-5;
             }
         }
 
@@ -354,10 +354,6 @@ export default {
         }
     }
 
-    .vs-video-caption__wrapper--narrow {
-        width: 100%;
-    }
-
     @mixin small-play-button {
         .vs-video-caption__buttons-container {
             .vs-video-caption__button {
@@ -397,7 +393,8 @@ export default {
         }
     }
 
-    .vs-article-sidebar {
+    .vs-video-caption__wrapper--narrow {
+        width: 100%;
         @include small-play-button;
 
         .vs-video-caption__buttons-container {

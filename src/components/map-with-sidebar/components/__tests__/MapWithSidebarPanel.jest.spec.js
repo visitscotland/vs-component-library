@@ -10,6 +10,7 @@ const factoryShallowMount = (propsData) => shallowMount(VsMapWithSidebarPanel, {
         'close-side-panel-text': 'Close panel',
         'back-btn-text': 'Back',
         'reset-side-panel-text': 'Reset panel',
+        'menu-btn-text': 'Map menu',
     },
     propsData: {
         ...propsData,
@@ -88,6 +89,17 @@ describe('VsMapWithSidebarPanel', () => {
             expect(wrapper.emitted('close-panel')).toBeTruthy();
         });
 
+        it('should emit `set-subcategory` when the close button is clicked and the currentStage is 2', async() => {
+            const wrapper = factoryShallowMount({
+                currentStage: 2,
+            });
+            const closeBtn = wrapper.find('[data-test="vs-map-with-sidebar-panel--btn-close"]');
+
+            await closeBtn.trigger('click');
+
+            expect(wrapper.emitted('set-subcategory')).toBeTruthy();
+        });
+
         it('should emit `set-stage` with a value of currentStage - 1 when the back button is clicked', async() => {
             const wrapper = factoryShallowMount({
                 currentStage: 1,
@@ -98,6 +110,18 @@ describe('VsMapWithSidebarPanel', () => {
             backBtn.trigger('click');
 
             expect(wrapper.emitted('set-stage')[0]).toEqual([0]);
+        });
+
+        it('should emit `set-stage` with a value of currentStage - 2 when the map toggle button is clicked', async() => {
+            const wrapper = factoryShallowMount({
+                currentStage: 2,
+            });
+            await wrapper.vm.$nextTick();
+            const backBtn = wrapper.find('[data-test="vs-map-with-sidebar__menu-toggle"]');
+
+            backBtn.trigger('click');
+
+            expect(wrapper.emitted('set-stage')[0]).toEqual([1]);
         });
 
         it('should emit `set-stage` with a value of 0 when the `resetPanel` method is called', () => {
@@ -167,6 +191,16 @@ describe('VsMapWithSidebarPanel', () => {
             const backBtn = wrapper.find('[data-test="vs-map-with-sidebar-panel--btn-back"]');
 
             expect(backBtn.text()).toBe('Back');
+        });
+
+        it('should display a button with the `menu-btn-text` slot value', async() => {
+            const wrapper = factoryShallowMount({
+                currentStage: 2,
+            });
+            await wrapper.vm.$nextTick();
+            const menuBtn = wrapper.find('[data-test="vs-map-with-sidebar__menu-toggle"]');
+
+            expect(menuBtn.text()).toBe('Map menu');
         });
 
         it('should display a button with the `resetSidePanelText` slot value', () => {
