@@ -11,7 +11,7 @@
         "even": $vs-color-icon-accent-saltire,
         "cate": $vs-color-background-accent-whisky,
         "reta": $vs-color-icon-accent-loch-ness,
-        "twnv": $vs-color-icon-accent-bramble,
+        "twnv": $vs-color-icon-accent-loch-ness,
         "vics": $vs-color-icon-accent-bramble,
         "outlander-castle": $vs-color-icon-accent-heather,
         "outlander-church-abbey": $vs-color-icon-accent-cranachan,
@@ -24,16 +24,37 @@
     );
 
     @each $name, $color in $themes {
-        .vs-main-map-category__button--#{$name} {
-            &:hover,
-            &:focus {
+        .vs-main-map-category__button--#{$name}.vs-button.btn-transparent {
+            &:hover{
                 background: $color;
+                color: $vs-color-text-inverse;
+
+                .vs-icon--internal-link {
+                    color: $vs-color-icon-inverse;
+                }
+
+                @if $color == $vs-color-icon-accent-buachaille 
+                or $color == $vs-color-icon-accent-whisky {
+                    color: $vs-color-text!important;
+
+                    .vs-icon--internal-link {
+                        color: $vs-color-icon;
+                    }
+
+                    .vs-icon.vs-map-marker-icon__marker--#{$name}{
+                        -webkit-text-stroke-color: $vs-color-border-bold;
+                    }
+
+                    .vs-map-marker-icon__icon{
+                        color: $vs-color-icon;
+                    }
+                }
             }
         };
 
         .vs-icon.vs-map-marker-icon__marker--#{$name},
         .vs-button.btn-transparent .vs-icon .vs-map-marker-icon__marker--#{$name} {
-            color: $color;
+            color: $color;            
         }
     };
 };

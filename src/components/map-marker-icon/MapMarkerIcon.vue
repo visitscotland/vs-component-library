@@ -123,7 +123,7 @@ export default {
     &__icon.vs-icon {
         position: absolute;
         left: 50%;
-        top: 5px;
+        top: 6px;
         transform: translateX(-50%);
         color: $vs-color-icon-inverse;
     }

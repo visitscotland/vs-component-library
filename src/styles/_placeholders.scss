@@ -42,6 +42,18 @@ BUTTON STYLES
         0 0 0 3px $vs-color-border-primary inset;
 }
 
+%button-disabled { 
+    background-color: $vs-color-background-disabled;
+    border-color: $vs-color-background-disabled;
+    color: $vs-color-text-inverse;
+    opacity: $opacity-100;
+
+    &:hover {
+        background-color: $vs-color-background-disabled;
+        border-color: $vs-color-background-disabled;
+    }
+}
+
 
 /**************
 LINK STYLES

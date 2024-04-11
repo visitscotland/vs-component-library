@@ -251,15 +251,7 @@ export default {
         &.btn-primary, &.btn-secondary,
         &.btn-dark, &.btn-light {
             &.disabled {
-                background-color: $vs-color-background-disabled;
-                border-color: $vs-color-background-disabled;
-                color: $vs-color-text-inverse;
-                opacity: $opacity-100;
-
-                &:hover {
-                    background-color: $vs-color-background-disabled;
-                    border-color: $vs-color-background-disabled;
-                }
+                @extend %button-disabled;
             }
         }
 
