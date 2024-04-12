@@ -152,14 +152,6 @@ export default {
         padding: 0;
     }
 
-    .btn.dropdown-toggle.show {
-        color: $color-pink;
-
-        &::after {
-            width: 100%;
-        }
-    }
-
     .btn.vs-mega-nav-dropdown__close-btn{
         border: 0;
         height: 26px;
@@ -170,7 +162,7 @@ export default {
 
         &:hover {
             .vs-icon{
-                color: $color-pink;
+                color: $vs-color-icon-primary;
             }
         }
 
@@ -197,14 +189,14 @@ export default {
             z-index: 1001;
         }
 
-        &:hover, &:focus {
-            .vs-icon {
-                color: $color-pink;
-            }
-        }
-
         &::after {
             display: none;
+        }
+
+        &.show {
+            &::after {
+                width: 100%;
+            }
         }
 
         @include media-breakpoint-up(lg) {
@@ -221,14 +213,14 @@ export default {
                 left: 0;
                 width: 0;
                 height: 4px;
-                background: $color-pink;
+                background: $vs-color-background-primary;
                 transition: width $duration-base linear;
                 border: 0;
                 margin: 0;
             }
 
             &:hover {
-                color: $color-pink;
+                color: $vs-color-text-primary;
 
                 &::after {
                     width: 100%;
@@ -242,7 +234,7 @@ export default {
     }
 
     .dropdown-menu {
-        background: $color-gray-tint-8;
+        background: $vs-color-background-inverse;
         width: 100% !important;
         top: 0 !important;
         left: 0 !important;
@@ -309,18 +301,17 @@ export default {
                 left: 0;
                 width: 100%;
                 height: 4px;
-                background: $vs-color-text;
                 transition: width $duration-base linear;
                 border: 0;
                 margin: 0;
             }
 
             &:hover {
-                color: $color-pink;
+                color: $vs-color-text-primary;
 
                 &::after {
                     width: 100%;
-                    background: $color-pink;
+                    background: $vs-color-background-primary;
                 }
             }
         }

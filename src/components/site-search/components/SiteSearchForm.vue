@@ -25,7 +25,6 @@
                                 <VsIcon
                                     name="search"
                                     size="xxs"
-                                    variant="secondary"
                                 />
                             </label>
                             <VsInput

@@ -48,13 +48,6 @@ export default {
             type: Boolean,
             default: false,
         },
-        /**
-         * Check if link is a CTA link
-         */
-        ctaLink: {
-            type: Boolean,
-            default: false,
-        },
     },
     computed: {
         navItemClasses() {
@@ -62,7 +55,6 @@ export default {
                 'vs-mega-nav-list-item__heading': this.href === '#',
                 'vs-mega-nav-list-item__link': this.href !== '#',
                 'vs-mega-nav-list-item__subheading-link': this.subheadingLink,
-                'vs-mega-nav-list-item__cta-link': this.ctaLink,
             };
         },
     },
@@ -73,31 +65,35 @@ export default {
 .vs-list li.vs-mega-nav-list-item{
     position: relative;
     list-style-type: none;
-    background-color: $color-gray-tint-7;
-    border-top: 1px solid $color-gray-tint-6;
+    background-color: $vs-color-background-information;
+    border-top: 1px solid $vs-color-border;
     margin-bottom: 0;
 
     @include media-breakpoint-up(lg) {
         border-top: 0;
-        background-color: $color-white;
+        background-color: $vs-color-background-inverse;
     }
 
     .vs-link--variant-primary{
         text-decoration: none;
         display: block;
         padding: $spacer-3 $spacer-9;
-        border: 2px solid $color-gray-tint-7;
+        border: 2px solid $vs-color-background-information;
         line-height: 1.4;
         font-size: $font-size-4;
 
-        @include media-breakpoint-up(lg) {
-            border: 2px solid $color-white;
-            line-height: $line-height-s;
-            padding: 0.125rem $spacer-4;
+        &:hover{
+            border: 2px solid $vs-color-background-information;
         }
 
-        &:hover{
-            border: 2px solid $color-white;
+        @include media-breakpoint-up(lg) {
+            border: 2px solid $vs-color-border-inverse;
+            line-height: $line-height-s;
+            padding: 0.125rem $spacer-4;
+
+            &:hover{
+                border: 2px solid $vs-color-border-inverse;
+            }
         }
 
         &:focus{
@@ -112,12 +108,12 @@ export default {
             transition: $duration-base color;
 
             @include media-breakpoint-up(lg) {
-                color: $color-secondary-gray;
+                color: $vs-color-text;
             }
 
             &:hover{
-                background-color: $color-white;
-                color: $color-pink;
+                background-color: $vs-color-background-information;
+                color: $vs-color-link;
 
                 @include media-breakpoint-up(lg) {
                     background-color: transparent;
@@ -136,7 +132,7 @@ export default {
                 left: 0;
                 width: 12px;
                 height: 100%;
-                background: #AAA9A7;
+                background: $vs-color-border-accent-bluebell;
             }
 
             @include media-breakpoint-up(lg) {
@@ -144,7 +140,7 @@ export default {
                     width: 6px;
                     height: 100%;
                     opacity: $opacity-0;
-                    background: $color-pink;
+                    background: $vs-color-background-primary;
                     transition: opacity 0.16s ease-in-out;
                 }
             }
@@ -153,34 +149,7 @@ export default {
 
     &__subheading-link{
         .vs-link--variant-primary{
-            color: $color-pink;
-        }
-    }
-
-    &__cta-link{
-        .vs-link--variant-primary{
-            background-color: $color-white;
-            color: $color-pink;
-            font-size: $font-size-5;
-            line-height: $line-height-s;
-            padding-left: $spacer-8;
-            padding-right: $spacer-5;
-            border: 0;
-
-            &::after{
-                display: none;
-            }
-
-            &:hover {
-                border: 0;
-                background-color: $color-gray-tint-7;
-            }
-
-            &:focus, &:active, &:active:focus {
-                border: 0;
-                background-color: $color-white;
-                box-shadow: 0 0 0 0.1rem $color-pink inset;
-            }
+            color: $vs-color-link;
         }
     }
 }
@@ -191,7 +160,7 @@ export default {
         border: 0;
 
         .vs-link--variant-primary{
-            border: 2px solid $color-white;
+            border: 2px solid $vs-color-border-inverse;
             line-height: $line-height-s;
             padding: $spacer-1 $spacer-5;
         }
@@ -210,7 +179,7 @@ export default {
                     width: 6px;
                     height: 100%;
                     opacity: $opacity-0;
-                    background: $color-pink;
+                    background: $vs-color-background-primary;
                     transition: opacity 0.16s ease-in-out;
                 }
             }

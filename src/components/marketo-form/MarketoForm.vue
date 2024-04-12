@@ -115,20 +115,9 @@
             </form>
         </template>
 
-        <div
-            class="vs-form__no-js"
-            data-test="vs-form-no-js"
-        >
-            <VsIcon
-                name="review"
-                variant="primary"
-                size="xl"
-                class="mb-5"
-            />
-            <div>
-                <slot name="no-js" />
-            </div>
-        </div>
+        <VsWarning class="vs-form__no-js">
+            <slot name="no-js" />
+        </VsWarning>
 
         <div aria-live="assertive">
             <p v-if="submitting">
@@ -163,10 +152,10 @@ import getEnvValue from '@/utils/get-env-value';
 import VsInput from '@components/input/Input.vue';
 import VsSelect from '@components/select/Select.vue';
 import VsCheckbox from '@components/checkbox/Checkbox.vue';
-import VsIcon from '@components/icon/Icon.vue';
 import VsRecaptcha from '@components/recaptcha/Recaptcha.vue';
 import VsButton from '@components/button/Button.vue';
 import VsHeading from '@components/heading/Heading.vue';
+import VsWarning from '@components/warning/Warning.vue';
 import dataLayerMixin from '../../mixins/dataLayerMixin';
 
 /**
@@ -186,8 +175,8 @@ export default {
         BFormGroup,
         VsRecaptcha,
         VsButton,
-        VsIcon,
         VsHeading,
+        VsWarning,
     },
     mixins: [dataLayerMixin],
     props: {
@@ -765,7 +754,6 @@ export default {
 
     @include no-js {
         .vs-form {
-
             & > form {
                 display: none;
             }

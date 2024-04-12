@@ -176,7 +176,7 @@ export default {
                         bottom: 12px;
                         right: 0;
                         width: 1px;
-                        background: $color-gray-tint-6;
+                        background: $vs-color-border;
                     }
                 }
             }
@@ -202,13 +202,13 @@ export default {
             transition: $duration-base color;
 
             &:hover{
-                color: $color-secondary-gray-shade-3;
+                color: $vs-color-text;
             }
         }
 
         &__divider{
             margin: $spacer-3 0 $spacer-4;
-            border-color: $color-gray-tint-6;
+            border-color: $vs-color-border;
         }
 
         &__columns-wrapper{

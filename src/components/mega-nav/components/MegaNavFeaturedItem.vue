@@ -72,7 +72,9 @@ export default {
         border-top: 1px solid #e0e0e0;
 
         &:hover {
-            box-shadow: -7px 12px 27px -13px rgba(0, 0, 0, 0.4);
+            .card-title {
+                text-decoration: underline;
+            }
         }
 
         &:focus {

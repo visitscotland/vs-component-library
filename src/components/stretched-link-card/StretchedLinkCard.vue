@@ -448,14 +448,11 @@ export default {
 
 <style lang="scss">
     .card.vs-stretched-link-card {
-        transition: box-shadow $duration-slowly;
         border: none;
         position: relative;
         line-height: $line-height-xs;
 
         &:hover {
-            box-shadow: $shadow_card;
-
             .megalink-link-list__title {
                 text-decoration: underline;
             }
@@ -483,10 +480,6 @@ export default {
         }
 
         &--disabled {
-            &:hover {
-                box-shadow: none;
-            }
-
             .megalink-link-list__title {
                 text-decoration: none;
             }
@@ -580,7 +573,7 @@ export default {
 
         .vs-stretched-link-card__link {
             margin: $spacer-4 $spacer-0 $spacer-0;
-            color: $color-pink;
+            color: $vs-color-link;
             text-decoration: underline;
         }
 

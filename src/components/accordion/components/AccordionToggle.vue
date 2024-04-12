@@ -5,6 +5,7 @@
         aria-haspopup="true"
         @click="triggerToggle"
         class="vs-accordion-toggle clearfix"
+        :class="visible ? 'vs-accordion-toggle--open' : ''"
         :variant="variant"
     >
         <!-- @slot Default slot contains text for the button -->
