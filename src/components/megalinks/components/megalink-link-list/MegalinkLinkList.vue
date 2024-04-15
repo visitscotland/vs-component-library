@@ -107,7 +107,7 @@ export default {
         theme: {
             type: String,
             default: 'light',
-            validator: (value) => value.match(/(light|dark)/),
+            validator: (value) => value.match(/(light|grey)/),
         },
         /**
         * The link destination
@@ -181,7 +181,7 @@ export default {
 
         &:after {
             content: '';
-            border-bottom: 1px solid $color-gray-tint-5;
+            border-bottom: 1px solid $vs-color-border;
             position: absolute;
             width: calc(100% - 16px);
             left: 8px;
@@ -195,11 +195,8 @@ export default {
             border: none;
             height: 100%;
             background: transparent;
-            transition: box-shadow $duration-slowly;
 
             &:hover {
-                box-shadow: $shadow_card;
-
                 .vs-megalink-link-list__title {
                     text-decoration: underline;
                 }
@@ -270,14 +267,6 @@ export default {
                     -webkit-line-clamp: 3;
                     -webkit-box-orient: vertical;
                     overflow: hidden;
-                }
-            }
-        }
-
-        &--dark {
-            .vs-megalink-link-list__wrapper.card {
-                .vs-megalink-link-list__title {
-                    color: $color-white;
                 }
             }
         }

@@ -46,3 +46,11 @@ export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const Grey = Template.bind({
+});
+
+Grey.args = {
+    ...base,
+    theme: 'grey',
+};

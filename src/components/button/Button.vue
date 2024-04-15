@@ -236,7 +236,7 @@ export default {
 
         &.vs-button--on-dark {
             &:focus {
-                box-shadow: 0 0 0 4px $color-theme-dark, 0 0 0 8px $color-yellow;
+                box-shadow: $vs-box-shadow-focus-on-dark;
             }
         }
 

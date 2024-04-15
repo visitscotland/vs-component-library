@@ -126,7 +126,7 @@ export default {
         theme: {
             type: String,
             default: 'light',
-            validator: (value) => value.match(/(light|dark)/),
+            validator: (value) => value.match(/(light|grey)/),
         },
         /**
         * Optional prop for number of days
@@ -200,11 +200,8 @@ export default {
         background: transparent;
         position: relative;
         margin-bottom: $spacer-8;
-        transition: box-shadow $duration-slowly;
 
         &:hover {
-            box-shadow: $shadow_popover;
-
             .vs-megalink-multi-image-card__title {
                 text-decoration: underline;
             }
@@ -244,24 +241,6 @@ export default {
             }
         }
     };
-
-    .vs-megalink-multi-image-card--dark.card {
-        .vs-stretched-link-card__title {
-            color: $color-white;
-
-            .stretched-link {
-                color: $color-white;
-            }
-        }
-
-        &:hover {
-            box-shadow: $shadow_popover_dark;
-
-            &:not(.vs-megalink-multi-image-card--featured) {
-                background-color: $color-secondary-gray-shade-5;
-            }
-        }
-    }
 
     @include media-breakpoint-up(xl) {
         .vs-megalinks--multi-image .vs-megalinks__links-wrapper{
@@ -316,12 +295,11 @@ export default {
 
             .card-body {
                 position: absolute !important;
-                background-color: $color-white;
+                background-color: $vs-color-background-inverse;
                 width: 40%;
                 right: 0;
                 top: $spacer-10;
                 padding: $spacer-8;
-                transition: box-shadow $duration-slowly;
                 z-index: 10;
             }
 
@@ -362,26 +340,6 @@ export default {
                 .vs-stretched-link-card__video-button {
                     left: auto;
                     right: $spacer-2;
-                }
-            }
-
-            &:hover {
-                box-shadow: none !important;
-
-                .card-body {
-                    box-shadow: $shadow_popover;
-                }
-            }
-
-            &.vs-megalink-multi-image-card--dark {
-                .card-body {
-                    background-color: $color-secondary-gray-shade-5;
-                }
-
-                &:hover {
-                    .card-body {
-                        box-shadow: $shadow_popover_dark;
-                    }
                 }
             }
         }

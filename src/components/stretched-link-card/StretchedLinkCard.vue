@@ -458,24 +458,16 @@ export default {
             }
 
             .vs-stretched-link-card__video-button {
-                background-color: shade-color($color-theme-primary, 10%);
-                border-color: shade-color($color-theme-primary, 12%);
+                background-color: $vs-color-background-hover;
+                border-color: $vs-color-background-hover;
             }
         }
 
         &:active {
             .vs-stretched-link-card__video-button {
-                .vs-icon {
-                    color: $color-theme-primary;
-                }
-            }
-        }
-
-        &:focus {
-            .vs-stretched-link-card__video-button {
-                background-color: $color-white;
-                border-color: $color-theme-primary;
-                color: $color-theme-primary;
+                background-color: $vs-color-background-active;
+                border-color: $vs-color-background-active;
+                color: $vs-color-text-primary;
             }
         }
 

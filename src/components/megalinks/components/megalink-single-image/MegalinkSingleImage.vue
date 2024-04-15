@@ -48,7 +48,6 @@
                         <VsButton
                             :href="buttonLink"
                             variant="secondary"
-                            :on-dark="theme === 'dark'"
                             v-if="buttonLink"
                         >
                             <!-- @slot Slot for button text -->
@@ -115,7 +114,7 @@ export default {
         theme: {
             type: String,
             default: 'light',
-            validator: (value) => value.match(/(light|dark)/),
+            validator: (value) => value.match(/(light|grey)/),
         },
     },
     data() {
@@ -209,17 +208,6 @@ export default {
             margin-top: $spacer-7;
         }
 
-        &--dark {
-            .vs-megalink-single-image__content {
-                background: $color-gray-shade-7;
-            }
-
-            .vs-megalink-single-image__title,
-            p {
-                color: $color-white;
-            }
-        }
-
         @include media-breakpoint-up(sm) {
             margin: 0;
 
@@ -229,12 +217,6 @@ export default {
 
             .vs-megalink-single-image__content {
                 background: transparent;
-            }
-
-            &--dark {
-                .vs-megalink-single-image__content {
-                    background: $color-secondary-gray-shade-4;
-                }
             }
         }
 
@@ -272,16 +254,6 @@ export default {
 
                 .vs-megalink-single-image__content {
                     align-self: flex-end;
-                }
-            }
-
-            &--dark {
-                .vs-megalink-single-image__title {
-                    color: $color-white;
-                }
-
-                .vs-megalink-single-image__content {
-                    background: $color-gray-shade-7;
                 }
             }
         }
