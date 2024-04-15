@@ -101,12 +101,6 @@ export default {
             margin-bottom: $spacer-0;
         }
 
-        &:hover {
-            .vs-mega-nav-featured-event__title {
-                text-decoration: underline;
-            }
-        }
-
         &:focus {
             .vs-stretched-link-card__link {
                 outline: 2px;
@@ -154,6 +148,10 @@ export default {
 
             @include media-breakpoint-up(lg) {
                 margin-left: $spacer-0;
+            }
+
+            &:hover {
+                text-decoration: none;
             }
         }
 

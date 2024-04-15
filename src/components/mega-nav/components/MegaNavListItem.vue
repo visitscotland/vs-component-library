@@ -104,11 +104,11 @@ export default {
 
     &__link{
         .vs-link--variant-primary{
-            color: $color-secondary-gray-shade-3;
+            color: $vs-color-text;
             transition: $duration-base color;
 
             @include media-breakpoint-up(lg) {
-                color: $vs-color-text;
+                color: $vs-color-text-less-subtle;
             }
 
             &:hover{

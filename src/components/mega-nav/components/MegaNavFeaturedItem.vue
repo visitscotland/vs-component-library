@@ -71,12 +71,6 @@ export default {
     .card.vs-mega-nav-featured-item {
         border-top: 1px solid #e0e0e0;
 
-        &:hover {
-            .card-title {
-                text-decoration: underline;
-            }
-        }
-
         &:focus {
             .vs-stretched-link-card__link {
                 outline: 2px;
@@ -93,7 +87,6 @@ export default {
             width: 80%;
             bottom: 0;
             left: 0;
-            background: $color-white;
             padding: $spacer-5 $spacer-3;
         }
 
@@ -115,6 +108,10 @@ export default {
 
         .vs-stretched-link-card__link {
             font-size: $font-size-3;
+
+            &:hover {
+                text-decoration: none;
+            }
         }
 
         @include media-breakpoint-up(sm) {

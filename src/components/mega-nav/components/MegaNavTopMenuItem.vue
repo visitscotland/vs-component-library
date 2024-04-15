@@ -202,7 +202,7 @@ export default {
             transition: $duration-base color;
 
             &:hover{
-                color: $vs-color-text;
+                text-decoration: underline;
             }
         }
 

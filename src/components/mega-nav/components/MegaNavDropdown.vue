@@ -243,7 +243,7 @@ export default {
         margin: 0;
         border: 0;
         box-shadow: 0px 9px 5px -7px rgba(0,0,0,0.1),
-        inset 0px 10px 6px -8px rgba(0, 0, 0, 0.16);
+        inset 0px 10px 6px -8px rgba(0, 0, 0, 0.15);
         transform: translate3d(0px, 45px, 0px) !important;
 
         @include media-breakpoint-up(lg) {
