@@ -23,7 +23,7 @@ const Template = (args) => ({
 });
 
 const base = {
-    src: 'images/placeholders/list-default.jpg',
+    src: 'images/placeholders/placeholder-img.jpg',
     lowResImage: 'images/placeholders/generic-lqip.jpg',
     alt: '',
     fluid: false,

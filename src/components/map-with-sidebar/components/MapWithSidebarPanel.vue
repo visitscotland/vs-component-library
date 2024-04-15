@@ -580,7 +580,7 @@ export default {
 <style lang="scss">
     .vs-map-with-sidebar-panel {
         padding: $spacer-5 $spacer-3 $spacer-0;
-        border: 1px solid $color-gray;
+        border: 1px solid $vs-color-border;
         height: 100%;
         overflow-y: auto;
         overflow-x: hidden;
@@ -619,7 +619,7 @@ export default {
             width: calc(100% - 2px);
             top: 1px;
             left: 1px;
-            background-color: white;
+            background-color: $vs-color-background-inverse;
             z-index: 1;
         }
 
@@ -656,11 +656,11 @@ export default {
         }
 
         &__overlay-box {
-            border: 1px solid $color-pink;
+            border: 1px solid $vs-color-border-tertiary;
             border-radius: $border-radius-default;
             height: 142px;
             width: 200px;
-            background: $color-white;
+            background: $vs-color-background-inverse;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -692,7 +692,7 @@ export default {
         &__bottom-message {
             position: absolute;
             bottom: 1px;
-            background: $color-white;
+            background: $vs-color-background-inverse;
             left: 1px;
             font-size: $font-size-4;
             text-align: center;
@@ -749,7 +749,7 @@ export default {
                 bottom: -1px;
                 padding: $spacer-4 0;
                 width: 100%;
-                background: $color-white;
+                background: $vs-color-background-inverse;
                 text-align: center;
                 margin-bottom: $spacer-0;
                 font-size: $font-size-4;

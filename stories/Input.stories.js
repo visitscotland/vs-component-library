@@ -110,3 +110,12 @@ Invalid.play = async({ canvasElement }) => {
         await input.blur();
     });
 };
+
+export const Disabled = Template.bind({
+});
+
+Disabled.args = {
+    ...base,
+    disabled: true,
+    placeholder: 'e.g john.smith@gmail.com',
+};

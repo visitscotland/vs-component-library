@@ -11,7 +11,7 @@
                 <div class="position-relative">
                     <VsIcon
                         name="map-marker-filled"
-                        variant="secondary-teal"
+                        variant="tertiary"
                         size="xl"
                     />
                     <span

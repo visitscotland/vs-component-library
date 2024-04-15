@@ -1,6 +1,6 @@
 props:
     ## Color roles
-    - name: vs-color-brand
+    - name: vs-color-background-brand
       value: "{!vs-thistle}"
     - name: vs-color-background-primary
       value: "{!vs-saltire}"

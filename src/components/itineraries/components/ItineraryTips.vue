@@ -29,7 +29,7 @@ export default {
 
 <style lang="scss">
 .vs-itinerary-tips {
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: $vs-elevation-shadow-raised;
     padding: $spacer-4 $spacer-4 $spacer-4 $spacer-9;
 }
 .vs-itinerary-tips__text {
