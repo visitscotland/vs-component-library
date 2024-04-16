@@ -66,13 +66,13 @@ export default {
         },
         /**
          * Style variation to give additional meaning
-         * `primary|secondary|transparent|light`.
+         * `primary|secondary|transparent`.
          */
         variant: {
             type: String,
             default: 'primary',
             validator: (value) => value.match(
-                /(primary|secondary|transparent|light)/,
+                /(primary|secondary|transparent)/,
             ),
         },
         /**
@@ -248,8 +248,7 @@ export default {
             box-shadow: none;
         }
 
-        &.btn-primary, &.btn-secondary,
-        &.btn-light {
+        &.btn-primary, &.btn-secondary {
             &.disabled {
                 @extend %button-disabled;
             }
@@ -291,15 +290,6 @@ export default {
                     $color-theme-dark, $color-yellow, $color-yellow,
                 );
             }
-        }
-
-        &.btn-light {
-            @include vs-button-variant(
-                $color-gray-shade-7, $color-gray-tint-7, $color-gray-tint-7,
-                $color-gray-shade-7, $color-gray-tint-6, $color-gray-tint-6,
-                $color-gray-shade-7, $color-gray-tint-6, $color-gray-tint-6,
-                $color-white, $color-gray-shade-7, $color-gray-shade-7,
-            );
         }
 
         &.btn-transparent {
