@@ -1,0 +1,54 @@
+/* 
+ * Various video button styles used within stretchedLinkCards 
+ */
+
+@mixin square-video-button {
+    .vs-stretched-link-card__video-button {
+        padding: $spacer-3 $spacer-4 $spacer-2;
+        flex-direction: column;
+
+        .vs-icon {
+            margin-right: $spacer-0;
+            margin-top: $spacer-0;
+            margin-bottom: $spacer-1;
+        }
+    }
+
+    .vs-stretched-link-card__video-btn-text {
+        display: none;
+    }
+}
+
+@mixin small-rectangle-video-button {
+    .vs-stretched-link-card__video-button {
+        padding: $spacer-3 $spacer-4;
+        flex-direction: row;
+
+        .vs-icon {
+            margin-right: $spacer-2;
+            margin-top: -.05em;
+            margin-bottom: $spacer-0;
+        }
+    }
+
+    .vs-stretched-link-card__video-btn-text {
+        display: none;
+    }
+}
+
+@mixin full-rectangle-video-button {
+    .vs-stretched-link-card__video-button {
+        padding: $spacer-3 calc(#{$spacer-8} + #{$spacer-2});
+        flex-direction: row;
+
+        .vs-icon {
+            margin-right: $spacer-2;
+            margin-top: -.05rem;
+            margin-bottom: $spacer-0;
+        }
+    }
+
+    .vs-stretched-link-card__video-btn-text {
+        display: inline-block;
+    }
+}

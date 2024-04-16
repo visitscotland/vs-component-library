@@ -453,10 +453,6 @@ export default {
         line-height: $line-height-xs;
 
         &:hover {
-            .megalink-link-list__title {
-                text-decoration: underline;
-            }
-
             .vs-stretched-link-card__video-button {
                 background-color: $vs-color-background-hover;
                 border-color: $vs-color-background-hover;
@@ -471,38 +467,8 @@ export default {
             }
         }
 
-        &--disabled {
-            .megalink-link-list__title {
-                text-decoration: none;
-            }
-        }
-
         &--video {
             cursor: pointer;
-        }
-
-        .stretched-link {
-            color: $vs-color-text;
-            text-decoration: none;
-            letter-spacing: 0;
-            display: block;
-
-            &--disabled {
-                cursor: default;
-
-                &::after {
-                    display: none;
-                }
-            }
-
-            &:focus {
-                @extend %outline-link-focus;
-            }
-        }
-
-        .vs-link__icon {
-            height: 12px;
-            width: 12px;
         }
 
         .vs-stretched-link-card__img-container {
@@ -514,14 +480,19 @@ export default {
             @supports not (aspect-ratio: 3/2) {
                 padding-bottom: 66.6%;
             }
+
+            .vs-stretched-link-card__img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                align-self: flex-start;
+                flex-shrink: 0; // IE11 fix, prevents image vertical stretching
+            }
         }
 
-        .vs-stretched-link-card__img {
+        .card-body{
+            padding: $spacer-4 0 $spacer-2;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            align-self: flex-start;
-            flex-shrink: 0; // IE11 fix, prevents image vertical stretching
         }
 
         .vs-stretched-link-card__title {
@@ -531,8 +502,36 @@ export default {
             color: $vs-color-text;
             display: flex;
 
-            a {
+            .stretched-link {
+                color: $vs-color-text;
+                text-decoration: none;
                 letter-spacing: inherit;
+                display: block;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+
+                &--disabled {
+                    cursor: default;
+
+                    &::after {
+                        display: none;
+                    }
+                }
+
+                &:focus {
+                    @extend %outline-link-focus;
+                }
+
+                .vs-icon {
+                    color: $vs-color-icon-tertiary;
+                }
+            }
+
+            @include media-breakpoint-up(xl) {
+                font-size: $font-size-3;
+                line-height: $line-height-s;
             }
         }
 
@@ -540,7 +539,7 @@ export default {
             font-family: $font-family-base;
             font-size: $font-size-3;
             line-height: $line-height-xs;
-            color: $color-secondary-teal-shade-3;
+            color: $vs-color-text-subtle;
             letter-spacing: normal;
             margin-bottom: $spacer-4;
         }
@@ -561,6 +560,11 @@ export default {
             right: $spacer-1;
             display: flex;
             flex-direction: row;
+
+            @include media-breakpoint-up(sm) {
+                top: $spacer-2;
+                right: $spacer-2;
+            }
         }
 
         .vs-stretched-link-card__link {
@@ -598,122 +602,39 @@ export default {
         .vs-stretched-link-card__image-warning--no-js {
             display: none;
         }
-
-        @include media-breakpoint-up(sm) {
-            .vs-stretched-link-card__panels {
-                top: $spacer-2;
-                right: $spacer-2;
-            }
-        }
-
-        @include media-breakpoint-up(xl) {
-            .vs-stretched-link-card__title {
-                font-size: $font-size-3;
-                line-height: $line-height-s;
-            }
-
-             .card-body {
-                padding-bottom: $spacer-5;
-            }
-        }
     }
 
-    @mixin square-video-button {
-        .vs-stretched-link-card__video-button {
-            padding: $spacer-3 $spacer-4 $spacer-2;
-            flex-direction: column;
+    // .vs-stretched-link-card.vs-megalink-multi-image-card {
+    //     .vs-stretched-link-card__video-button {
+    //         position: absolute;
+    //         bottom: 100%;
+    //         left: 0;
+    //     }
 
-            .vs-icon {
-                margin-right: $spacer-0;
-                margin-top: $spacer-0;
-                margin-bottom: $spacer-1;
-            }
-        }
+    //     @include square-video-button();
 
-        .vs-stretched-link-card__video-btn-text {
-            display: none;
-        }
-    }
+    //     @include media-breakpoint-up(lg) {
+    //         &.vs-megalink-multi-image-card--featured {
+    //             .vs-stretched-link-card__video-button {
+    //                 bottom: 100%;
+    //                 left: $spacer-0;
+    //             }
 
-    @mixin small-rectangle-video-button {
-        .vs-stretched-link-card__video-button {
-            padding: $spacer-3 $spacer-4;
-            flex-direction: row;
+    //             @include full-rectangle-video-button();
+    //         }
+    //     }
 
-            .vs-icon {
-                margin-right: $spacer-2;
-                margin-top: -.05em;
-                margin-bottom: $spacer-0;
-            }
-        }
+    //     @include media-breakpoint-up(xl) {
+    //         &.vs-megalink-multi-image-card--featured {
 
-        .vs-stretched-link-card__video-btn-text {
-            display: none;
-        }
-    }
-
-    @mixin full-rectangle-video-button {
-        .vs-stretched-link-card__video-button {
-            padding: $spacer-3 calc(#{$spacer-8} + #{$spacer-2});
-            flex-direction: row;
-
-            .vs-icon {
-                margin-right: $spacer-2;
-                margin-top: -.05rem;
-                margin-bottom: $spacer-0;
-            }
-        }
-
-        .vs-stretched-link-card__video-btn-text {
-            display: inline-block;
-        }
-    }
-
-    .vs-stretched-link-card.vs-megalink-multi-image-card {
-        .vs-stretched-link-card__video-button {
-            position: absolute;
-            bottom: 100%;
-            left: 0;
-        }
-
-        @include square-video-button();
-
-        @include media-breakpoint-up(lg) {
-            &.vs-megalink-multi-image-card--featured {
-                .vs-stretched-link-card__video-button {
-                    bottom: 100%;
-                    left: $spacer-0;
-                }
-
-                @include full-rectangle-video-button();
-            }
-        }
-
-        @include media-breakpoint-up(xl) {
-            &.vs-megalink-multi-image-card--featured {
-
-                .vs-stretched-link-card__video-button {
-                    bottom: $spacer-2;
-                    left: $spacer-2;
-                    z-index: 2;
-                }
-            }
-        }
-    }
-
-    .vs-megalink-link-list .vs-stretched-link-card {
-        .card-body {
-            position: initial !important;
-        }
-
-        .vs-stretched-link-card__video-button {
-            bottom: $spacer-2;
-            left: $spacer-2;
-            z-index: 2;
-        }
-
-        @include small-rectangle-video-button();
-    }
+    //             .vs-stretched-link-card__video-button {
+    //                 bottom: $spacer-2;
+    //                 left: $spacer-2;
+    //                 z-index: 2;
+    //             }
+    //         }
+    //     }
+    // }
 
     @include no-js {
         .card.vs-stretched-link-card {
@@ -726,26 +647,6 @@ export default {
             .vs-stretched-link-card__full-warning--no-js,
             .vs-stretched-link-card__image-warning--no-js {
                 display: flex;
-            }
-        }
-
-        .vs-megalink-link-list {
-            .vs-stretched-link-card--warning {
-                overflow: hidden;
-                padding: 0;
-
-                &__img-container {
-                    width: 100%;
-                    max-width: 100%;
-                    position: absolute;
-                    left: 0;
-                    top: 50%;
-                    transform: translateY(-50%);
-                }
-
-                .card-body {
-                    display: none;
-                }
             }
         }
     }

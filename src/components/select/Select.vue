@@ -271,6 +271,7 @@ export default {
                 top: calc(50% - #{$spacer-3});
                 right: $spacer-4;
                 pointer-events: none;
+                color: $vs-color-icon-primary;
             }
         }
 
