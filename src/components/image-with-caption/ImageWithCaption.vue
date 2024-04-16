@@ -614,14 +614,6 @@ export default {
             &__caption-wrapper {
                 display: block;
             }
-
-            @include media-breakpoint-up(lg) {
-                &--video {
-                    .vs-image-with-caption__video-caption-wrapper {
-                        margin-bottom: $spacer-2;
-                    }
-                }
-            }
         }
 
         .vs-image-with-caption--closed-default {
