@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.18](https://github.com/visitscotland/vs-component-library/compare/v0.0.17...v0.0.18) (2024-04-16)
+
+
+### 🐛 Bug Fixes
+
+* **form:** correct formType path ([e78522c](https://github.com/visitscotland/vs-component-library/commit/e78522c46fe5aa9eae8424dd7074ea5e5b913f07))
+
 ### [0.0.17](https://github.com/visitscotland/vs-component-library/compare/v0.0.16...v0.0.17) (2024-04-16)
 
 
