@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.17](https://github.com/visitscotland/vs-component-library/compare/v0.0.16...v0.0.17) (2024-04-16)
+
+
+### ✨ Features
+
+* **forms:** add formType and recaptcha to ajax form ([fca48a0](https://github.com/visitscotland/vs-component-library/commit/fca48a09ceff913243b36458d9726879ebf9b7b7))
+
 ### [0.0.16](https://github.com/visitscotland/vs-component-library/compare/v0.0.15...v0.0.16) (2024-04-11)
 
 ### [1.2.6](https://github.com/visitscotland/vs-component-library/compare/v1.2.5...v1.2.6) (2024-03-25)
