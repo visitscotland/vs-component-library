@@ -666,7 +666,10 @@ export default {
 
                     const formPayload = new FormData();
 
-                    formPayload.append('formType', this.formData.content);
+                    if (this.formType.content) {
+                        formPayload.append('formType', this.formData.content.formType);
+                    }
+
                     formPayload.append('g-recaptcha-response', gRecaptchaResponse);
 
                     const keys = Object.keys(this.form);
