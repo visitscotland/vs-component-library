@@ -24,7 +24,7 @@
                                 </span>
                                 <VsIcon
                                     name="search"
-                                    size="xxs"
+                                    size="xs"
                                 />
                             </label>
                             <VsInput
@@ -181,7 +181,7 @@ export default {
 <style lang="scss">
 
 .vs-site-search-form {
-    background-color: rgba(239, 239, 239, 0.5);
+    background-color: rgba($vs-color-background-information, 0.75);
     backdrop-filter: blur(30px);
     padding: $spacer-5 0;
     position: absolute;
@@ -204,17 +204,15 @@ export default {
 
     &__label {
         position: absolute;
-        left: $spacer-2;
+        left: $spacer-3;
         top: 50%;
         transform: translate(0, -50%);
 
         @include media-breakpoint-up(lg) {
-            left: $spacer-8;
+            left: $spacer-6;
 
             .vs-icon{
-                height: $icon-size-lg;
-                width: $icon-size-lg;
-                font-size: $icon-size-lg;
+                font-size: $icon-size-sm;
             }
         }
     }
@@ -223,23 +221,18 @@ export default {
         @extend %reset-clear;
         font-size: $font-size-body;
         height: 50px;
-        padding: $spacer-3 $spacer-7 $spacer-3 $spacer-6;
+        padding: $spacer-3 $spacer-5 $spacer-3 2.5rem;
         margin: 0;
-        border-color: $color-white;
+        border-color: $vs-color-border-inverse;
 
         &:focus{
             @include form-focus-state;
         }
 
         @include media-breakpoint-up(lg) {
-            padding: $spacer-4 $spacer-10 $spacer-4 $spacer-12;
-            font-size: $font-size-9;
-            height: 79px;
-        }
-
-        @include media-breakpoint-up(xl) {
-            font-size: $font-size-10;
-            height: 94px;
+            padding: $spacer-4 $spacer-10;
+            font-size: $font-size-6;
+            height: 64px;
         }
     }
 
@@ -250,13 +243,9 @@ export default {
             font-size: $font-size-3;
 
             @include media-breakpoint-up(lg) {
-                height: 79px;
+                height: 64px;
                 padding: $spacer-3 $spacer-8;
-                font-size: $font-size-6;
-            }
-
-            @include media-breakpoint-up(xl) {
-                height: 94px;
+                font-size: $font-size-4;
             }
         }
     }
