@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.22](https://github.com/visitscotland/vs-component-library/compare/v0.0.21...v0.0.22) (2024-04-16)
+
+
+### 🐛 Bug Fixes
+
+* **forms:** aaaaaaaa ([84ae697](https://github.com/visitscotland/vs-component-library/commit/84ae6971a85b2732cb616d046738c409a592721e))
+
 ### [0.0.21](https://github.com/visitscotland/vs-component-library/compare/v0.0.20...v0.0.21) (2024-04-16)
 
 
