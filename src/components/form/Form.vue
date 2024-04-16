@@ -658,9 +658,19 @@ export default {
                 } else {
                     this.submitting = true;
 
+                    let gRecaptchaResponse = '';
+
+                    if (window.grecaptcha) {
+                        gRecaptchaResponse = window.grecaptcha.getResponse();
+                    }
+
                     axios.post(
                         this.submitUrl,
-                        this.form,
+                        {
+                            ...this.form,
+                            formType: this.formData.formType,
+                            'g-recaptcha-response': gRecaptchaResponse,
+                        },
                     ).then(() => {
                         this.submitting = false;
                         this.submitted = true;
