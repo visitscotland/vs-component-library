@@ -278,7 +278,7 @@ export default {
         &__element {
             // A reset of styles, including removing the default dropdown arrow
             appearance: none;
-            background-color: transparent;
+            background-color: $vs-color-background-input;
             background-image: none;
             border: none;
             padding: 0 $spacer-4 0;

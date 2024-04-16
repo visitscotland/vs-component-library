@@ -49,7 +49,9 @@ props:
     - name: vs-color-background-accent-cranachan
       value: "{!vs-cranachan}" 
     - name: vs-color-background-accent-bluebell
-      value: "{!vs-bluebell}"      
+      value: "{!vs-bluebell}" 
+    - name: vs-color-background-accent-oatcake
+      value: "{!vs-oatcake}"      
     - name: vs-color-background-accent-tolsta
       value: "{!vs-tolsta}"    
     - name: vs-color-background-accent-dunnock
