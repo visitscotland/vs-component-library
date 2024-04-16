@@ -12,6 +12,8 @@ props:
       value: "{!vs-cuillin}"
     - name: vs-color-text-disabled
       value: "{!vs-grey-03}"
+    - name: vs-color-text-less-subtle
+      value: "{!vs-grey-01}"
     - name: vs-color-text-subtle
       value: "{!vs-grey-02}"
 

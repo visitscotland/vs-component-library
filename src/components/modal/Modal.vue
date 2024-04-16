@@ -178,10 +178,10 @@ export default {
     }
 
     .modal-content {
-        background-color: $color-black;
+        background-color: $vs-color-background-bold;
 
-        p {
-            color: $color-white;
+        .vs-rich-text-wrapper p {
+            color: $vs-color-text-inverse;
         }
     }
 

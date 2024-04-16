@@ -42,11 +42,11 @@ describe('VsSiteSearch', () => {
             expect(wrapper.attributes().variant).toBe('primary');
         });
 
-        it('should display a button `light` variant when `isShowing` is true', async() => {
+        it('should set correct class when `isShowing` is true', async() => {
             await wrapper.setProps({
                 isShowing: true,
             });
-            expect(wrapper.attributes().variant).toBe('light');
+            expect(wrapper.classes()).toContain('vs-site-search--active');
         });
     });
 

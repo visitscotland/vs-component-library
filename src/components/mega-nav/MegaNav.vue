@@ -25,7 +25,7 @@
                                 data-test="vs-mega-nav__logo"
                                 :link-alt-text="logoAltText"
                                 :href="href"
-                                svg-fill="#700e57"
+                                :svg-fill="tokens['vs-color-brand']"
                                 svg-path="visitscotland-logo"
                                 data-layer-value="homePageLogoClickDataEvent"
                             />
@@ -66,7 +66,6 @@
                         >
                             <VsButton
                                 class="vs-mega-nav__mobile-menu-toggle p-0"
-                                :size="isOpen ? 'sm' : 'lg'"
                                 icon-only
                                 :icon="isOpen ? 'close' : 'bars-mobile-menu'"
                                 variant="transparent"
@@ -113,7 +112,7 @@ import VsMegaNavMobileMenu from '@components/mega-nav/components/MegaNavMobileMe
 import VsButton from '@components/button/Button.vue';
 import VsSiteSearch from '@components/site-search/SiteSearch.vue';
 import VsSiteSearchForm from '@components/site-search/components/SiteSearchForm.vue';
-
+import designTokens from '@/assets/tokens/tokens.json';
 import clickOutside from '@/directives/click-outside';
 import dataLayerMixin from '../../mixins/dataLayerMixin';
 
@@ -200,6 +199,7 @@ export default {
         return {
             isOpen: false,
             showSearch: false,
+            tokens: designTokens,
         };
     },
     mounted() {
@@ -252,7 +252,7 @@ export default {
     display: flex;
     align-items: center;
     height: 45px;
-    box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.16);
+    box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.15);
 
     @include media-breakpoint-up(lg) {
         height: 55px;

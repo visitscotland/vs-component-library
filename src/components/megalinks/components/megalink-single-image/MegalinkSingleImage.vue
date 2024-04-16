@@ -48,7 +48,6 @@
                         <VsButton
                             :href="buttonLink"
                             variant="secondary"
-                            :on-dark="theme === 'dark'"
                             v-if="buttonLink"
                         >
                             <!-- @slot Slot for button text -->
@@ -115,7 +114,7 @@ export default {
         theme: {
             type: String,
             default: 'light',
-            validator: (value) => value.match(/(light|dark)/),
+            validator: (value) => value.match(/(light|grey)/),
         },
     },
     data() {
@@ -163,7 +162,6 @@ export default {
     .vs-megalink-single-image {
         --negative-margin: -200px;
         --image-height: 400px;
-
         min-width: 100%;
 
         .vs-megalink-single-image__title {
@@ -174,14 +172,24 @@ export default {
         .vs-megalink-single-image__content {
             position: relative;
             z-index: 10;
-            background: $color-white;
+            background-color: $vs-elevation-surface-raised;
+            box-shadow: $vs-elevation-shadow-raised;
             margin: $spacer-0 $spacer-3;
             padding: $spacer-8 $spacer-6;
             clear: both;
-            width: 100%;
 
             p {
                 margin-bottom: $spacer-4;
+            }
+
+            @include media-breakpoint-up(sm) {
+                background-color: $vs-color-background-inverse;
+                box-shadow: none;
+            }
+
+            @include media-breakpoint-up(lg) {
+                background-color: $vs-elevation-surface-raised;
+                box-shadow: $vs-elevation-shadow-raised;
             }
         }
 
@@ -209,17 +217,6 @@ export default {
             margin-top: $spacer-7;
         }
 
-        &--dark {
-            .vs-megalink-single-image__content {
-                background: $color-gray-shade-7;
-            }
-
-            .vs-megalink-single-image__title,
-            p {
-                color: $color-white;
-            }
-        }
-
         @include media-breakpoint-up(sm) {
             margin: 0;
 
@@ -229,12 +226,6 @@ export default {
 
             .vs-megalink-single-image__content {
                 background: transparent;
-            }
-
-            &--dark {
-                .vs-megalink-single-image__content {
-                    background: $color-secondary-gray-shade-4;
-                }
             }
         }
 
@@ -272,16 +263,6 @@ export default {
 
                 .vs-megalink-single-image__content {
                     align-self: flex-end;
-                }
-            }
-
-            &--dark {
-                .vs-megalink-single-image__title {
-                    color: $color-white;
-                }
-
-                .vs-megalink-single-image__content {
-                    background: $color-gray-shade-7;
                 }
             }
         }

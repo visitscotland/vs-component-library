@@ -12,7 +12,7 @@ import {
 
 export default {
     component: VsMegalinks,
-    title: 'Megalinks/LinkList',
+    title: 'MegalinksLinkList',
     tags: ['autodocs'],
 };
 
@@ -166,6 +166,22 @@ WithVideo.args = {
             content: 'We\'ve pulled together a handy guide on dates and times, travel info, accommodation and things to see near host venues.',
         },
         {
+            imgSrc: '/fixtures/megalinks/grand-hotel.jpg',
+            imgAlt: 'Luxury holidays and breaks in Scotland',
+            linkType: 'internal',
+            linkUrl: '#',
+            heading: 'Luxury holidays and breaks in Scotland',
+            content: 'Plan your luxury getaway in SCotland, from 5-star accommodation to Michelin-star dining.',
+        },
+        {
+            imgSrc: '/fixtures/megalinks/grand-hotel.jpg',
+            imgAlt: 'Luxury holidays and breaks in Scotland',
+            linkType: 'internal',
+            linkUrl: '#',
+            heading: 'Luxury holidays and breaks in Scotland',
+            content: 'Plan your luxury getaway in SCotland, from 5-star accommodation to Michelin-star dining.',
+        },
+        {
             imgSrc: '/fixtures/megalinks/wellness.jpg',
             imgAlt: 'Wellness breaks in Scotland',
             linkType: 'video',
@@ -208,24 +224,24 @@ NoJavascript.args = {
     jsDisabled: true,
 };
 
-export const DarkTheme = Template.bind({
+export const GreyTheme = Template.bind({
 });
 
-DarkTheme.args = {
+GreyTheme.args = {
     ...base,
-    theme: 'dark',
+    theme: 'grey',
     ...WithVideo.args,
 };
 
-export const DarkThemeNoCookies = Template.bind({
+export const GreyThemeNoCookies = Template.bind({
 });
 
-DarkThemeNoCookies.args = {
+GreyThemeNoCookies.args = {
     ...base,
-    ...DarkTheme.args,
+    ...GreyTheme.args,
 };
 
-DarkThemeNoCookies.decorators = [
+GreyThemeNoCookies.decorators = [
     () => {
         window.bypassCookieChecks = false;
 
@@ -237,11 +253,11 @@ DarkThemeNoCookies.decorators = [
     },
 ];
 
-export const DarkThemeNoJavascript = Template.bind({
+export const GreyThemeNoJavascript = Template.bind({
 });
 
-DarkThemeNoJavascript.args = {
+GreyThemeNoJavascript.args = {
     ...base,
-    ...DarkTheme.args,
+    ...GreyTheme.args,
     jsDisabled: true,
 };
