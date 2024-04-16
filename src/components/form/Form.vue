@@ -666,7 +666,7 @@ export default {
 
                     const formPayload = new FormData();
 
-                    if (this.formType.content) {
+                    if (this.formData.content) {
                         formPayload.append('formType', this.formData.content.formType);
                     }
 
