@@ -664,16 +664,16 @@ export default {
                         gRecaptchaResponse = window.grecaptcha.getResponse();
                     }
 
-                    const formData = new FormData();
+                    const formPayload = new FormData();
 
-                    formData.append('formType', this.formData.content);
-                    formData.append('g-recaptcha-response', gRecaptchaResponse);
+                    formPayload.append('formType', this.formData.content);
+                    formPayload.append('g-recaptcha-response', gRecaptchaResponse);
 
                     const keys = Object.keys(this.form);
 
                     for (let x = 0; x < keys.length; x++) {
                         const key = keys[x];
-                        formData.append(
+                        formPayload.append(
                             key,
                             this.form[key],
                         );
@@ -681,11 +681,7 @@ export default {
 
                     axios.post(
                         this.submitUrl,
-                        {
-                            ...this.form,
-                            formType: this.formData.content ? this.formData.content.formType : '',
-                            'g-recaptcha-response': gRecaptchaResponse,
-                        },
+                        formPayload,
                     ).then(() => {
                         this.submitting = false;
                         this.submitted = true;
