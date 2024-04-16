@@ -668,7 +668,7 @@ export default {
                         this.submitUrl,
                         {
                             ...this.form,
-                            formType: this.formData.formType,
+                            formType: this.formData.content ? this.formData.content.formType : '',
                             'g-recaptcha-response': gRecaptchaResponse,
                         },
                     ).then(() => {
