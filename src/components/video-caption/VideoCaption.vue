@@ -271,12 +271,8 @@ export default {
 
             // override OneTrust styles
             #ot-sdk-btn.ot-sdk-show-settings {
-                color: $color-white;
+                color: $vs-color-text-inverse;
                 text-decoration: underline;
-
-                &:hover {
-                    color: $color-yellow;
-                }
             }
         }
 
@@ -436,7 +432,7 @@ export default {
                 &__details {
                     max-width: 84%;
                     margin: 0 auto;
-                    border-bottom: $color-secondary-gray 1px solid;
+                    border-bottom: $vs-color-border 1px solid;
                 }
             }
 

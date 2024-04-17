@@ -75,12 +75,12 @@ export default {
     line-height: $line_height_xs;
 
     .social-credit__link {
-        color: $color-white;
+        color: $vs-color-text-inverse;
         font-weight: $font-weight-light;
         font-size: $font-size-3;
 
         .vs-icon {
-            color: $color-white;
+            color: $vs-color-icon-inverse;
             vertical-align: middle;
         }
     }
