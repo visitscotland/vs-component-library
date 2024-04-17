@@ -181,7 +181,7 @@ export default {
 <style lang="scss">
 .vs-social-share-item{
     &__link.vs-link.vs-link--variant-primary{
-        border: 1px solid $color-secondary-gray-tint-4;
+        border: 1px solid $vs-color-border;
         display: block;
         margin-bottom: $spacer-2;
         padding: $spacer-4 $spacer-2;
@@ -201,8 +201,8 @@ export default {
 
         &:focus, &:focus-visible{
             outline-offset: 0px;
-            border: 1px solid $color-pink;
-            outline: 3px solid rgba($color-pink, .3);
+            border: 1px solid $vs-color-border-primary;
+            outline: 3px solid rgba($vs-color-border-primary, .3);
         }
 
         .vs-icon{
