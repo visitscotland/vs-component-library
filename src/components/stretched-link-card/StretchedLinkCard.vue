@@ -604,38 +604,6 @@ export default {
         }
     }
 
-    // .vs-stretched-link-card.vs-megalink-multi-image-card {
-    //     .vs-stretched-link-card__video-button {
-    //         position: absolute;
-    //         bottom: 100%;
-    //         left: 0;
-    //     }
-
-    //     @include square-video-button();
-
-    //     @include media-breakpoint-up(lg) {
-    //         &.vs-megalink-multi-image-card--featured {
-    //             .vs-stretched-link-card__video-button {
-    //                 bottom: 100%;
-    //                 left: $spacer-0;
-    //             }
-
-    //             @include full-rectangle-video-button();
-    //         }
-    //     }
-
-    //     @include media-breakpoint-up(xl) {
-    //         &.vs-megalink-multi-image-card--featured {
-
-    //             .vs-stretched-link-card__video-button {
-    //                 bottom: $spacer-2;
-    //                 left: $spacer-2;
-    //                 z-index: 2;
-    //             }
-    //         }
-    //     }
-    // }
-
     @include no-js {
         .card.vs-stretched-link-card {
             .vs-stretched-link-card__image-warning,
