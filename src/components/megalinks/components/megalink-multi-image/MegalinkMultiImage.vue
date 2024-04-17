@@ -126,7 +126,7 @@ export default {
         theme: {
             type: String,
             default: 'light',
-            validator: (value) => value.match(/(light|dark)/),
+            validator: (value) => value.match(/(light|grey)/),
         },
         /**
         * Optional prop for number of days
@@ -200,29 +200,15 @@ export default {
         background: transparent;
         position: relative;
         margin-bottom: $spacer-8;
-        transition: box-shadow $duration-slowly;
 
         &:hover {
-            box-shadow: $shadow_popover;
-
             .vs-megalink-multi-image-card__title {
                 text-decoration: underline;
             }
         }
 
-        .card-body {
-            padding: $spacer-4 0 $spacer-2;
-            width: 100%;
-        }
-
         .vs-megalink-multi-image-card__img {
             max-width: 100%;
-        }
-
-        .vs-megalink-multi-image-card__title {
-            font-size: $font-size-2;
-            line-height: $line-height-s;
-            letter-spacing: $letter-spacing-xl;
         }
 
         .card-title {
@@ -230,38 +216,35 @@ export default {
             margin-top: 0;
         }
 
-        .vs-link__icon {
-            height: 12px;
-            width: 12px;
+        .vs-stretched-link-card__video-button {
+            position: absolute;
+            bottom: 100%;
+            left: 0;
         }
 
-        .vs-megalink-multi-image-card__content {
-            margin-top: $spacer-2;
-            line-height: $line-height-s;
+        @include square-video-button();
 
-            p:last-of-type {
-                margin-bottom: 0;
+        @include media-breakpoint-up(xl) {
+            &.vs-megalink-multi-image-card--featured {
+                .vs-stretched-link-card__video-button {
+                    bottom: 100%;
+                    left: $spacer-0;
+                }
+
+                @include full-rectangle-video-button();
+            }
+        }
+
+        @include media-breakpoint-up(xl) {
+            &.vs-megalink-multi-image-card--featured {
+                .vs-stretched-link-card__video-button {
+                    bottom: $spacer-2;
+                    left: $spacer-2;
+                    z-index: 2;
+                }
             }
         }
     };
-
-    .vs-megalink-multi-image-card--dark.card {
-        .vs-stretched-link-card__title {
-            color: $color-white;
-
-            .stretched-link {
-                color: $color-white;
-            }
-        }
-
-        &:hover {
-            box-shadow: $shadow_popover_dark;
-
-            &:not(.vs-megalink-multi-image-card--featured) {
-                background-color: $color-secondary-gray-shade-5;
-            }
-        }
-    }
 
     @include media-breakpoint-up(xl) {
         .vs-megalinks--multi-image .vs-megalinks__links-wrapper{
@@ -276,11 +259,6 @@ export default {
 
         .vs-megalink-multi-image-card.card {
             margin-bottom: $spacer-11;
-
-            .vs-megalink-multi-image-card__title {
-                font-size: $font-size-3;
-                line-height: $line-height-s;
-            }
 
             .card-body {
                 padding-bottom: $spacer-5;
@@ -300,8 +278,7 @@ export default {
             }
 
             .vs-link__icon {
-                height: 16px;
-                width: 16px;
+                font-size: 16px;
             }
 
             .vs-stretched-link-card__img-container {
@@ -316,13 +293,13 @@ export default {
 
             .card-body {
                 position: absolute !important;
-                background-color: $color-white;
+                background-color: $vs-elevation-surface-raised;
                 width: 40%;
                 right: 0;
                 top: $spacer-10;
                 padding: $spacer-8;
-                transition: box-shadow $duration-slowly;
                 z-index: 10;
+                box-shadow: $vs-elevation-shadow-raised;
             }
 
             .vs-stretched-link-card__video-button {
@@ -362,26 +339,6 @@ export default {
                 .vs-stretched-link-card__video-button {
                     left: auto;
                     right: $spacer-2;
-                }
-            }
-
-            &:hover {
-                box-shadow: none !important;
-
-                .card-body {
-                    box-shadow: $shadow_popover;
-                }
-            }
-
-            &.vs-megalink-multi-image-card--dark {
-                .card-body {
-                    background-color: $color-secondary-gray-shade-5;
-                }
-
-                &:hover {
-                    .card-body {
-                        box-shadow: $shadow_popover_dark;
-                    }
                 }
             }
         }

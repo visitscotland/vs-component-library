@@ -6,7 +6,7 @@ export default {
     title: 'StretchedLinkCard',
     tags: ['autodocs'],
     decorators: [() => ({
-        template: '<div style="max-width:350px;"><story /></div>',
+        template: '<div style="max-width:280px;"><story /></div>',
     })],
     argTypes: {
         type: {

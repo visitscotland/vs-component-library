@@ -195,7 +195,6 @@ export default {
         }
 
         .card-body {
-            padding: $spacer-3 0 0;
             text-align: left;
 
             .vs-heading__sub-heading {
@@ -230,12 +229,9 @@ export default {
                 padding: $spacer-2;
                 border: none;
                 height: 100%;
-                transition: box-shadow $duration-slowly;
                 cursor: pointer;
 
                 &:hover {
-                    box-shadow: $shadow_card;
-
                     .vs-stretched-link-card__title {
                         text-decoration: underline;
                     }

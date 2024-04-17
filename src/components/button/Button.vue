@@ -66,13 +66,13 @@ export default {
         },
         /**
          * Style variation to give additional meaning
-         * `primary|secondary|transparent|dark|light`.
+         * `primary|secondary|transparent`.
          */
         variant: {
             type: String,
             default: 'primary',
             validator: (value) => value.match(
-                /(primary|secondary|transparent|dark|light)/,
+                /(primary|secondary|transparent)/,
             ),
         },
         /**
@@ -236,7 +236,7 @@ export default {
 
         &.vs-button--on-dark {
             &:focus {
-                box-shadow: 0 0 0 4px $color-theme-dark, 0 0 0 8px $color-yellow;
+                box-shadow: $vs-box-shadow-focus-on-dark;
             }
         }
 
@@ -248,8 +248,7 @@ export default {
             box-shadow: none;
         }
 
-        &.btn-primary, &.btn-secondary,
-        &.btn-dark, &.btn-light {
+        &.btn-primary, &.btn-secondary {
             &.disabled {
                 @extend %button-disabled;
             }
@@ -291,28 +290,6 @@ export default {
                     $color-theme-dark, $color-yellow, $color-yellow,
                 );
             }
-        }
-
-        &.btn-dark {
-            @include vs-button-variant(
-                $color-white, $color-theme-dark, $color-theme-dark,
-                $color-white, $color-secondary-gray-shade-1, $color-secondary-gray-shade-1,
-                $color-white, $color-secondary-gray-shade-1, $color-secondary-gray-shade-1,
-                $color-theme-dark, $color-white, $color-secondary-gray-shade-1,
-            );
-
-            &:focus {
-                box-shadow: $vs-box-shadow-focus-on-dark, 0 0 0 8px $color-theme-dark;
-            }
-        }
-
-        &.btn-light {
-            @include vs-button-variant(
-                $color-gray-shade-7, $color-gray-tint-7, $color-gray-tint-7,
-                $color-gray-shade-7, $color-gray-tint-6, $color-gray-tint-6,
-                $color-gray-shade-7, $color-gray-tint-6, $color-gray-tint-6,
-                $color-white, $color-gray-shade-7, $color-gray-shade-7,
-            );
         }
 
         &.btn-transparent {

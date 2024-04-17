@@ -15,7 +15,8 @@
         >
             <VsIcon
                 :name="transport"
-                variant="color-white"
+                variant="inverse"
+                size="sm"
                 class="vs-stretched-link-panels__icon"
             />
             <p data-test="vs-stretched-link-panel__icon">
@@ -84,16 +85,16 @@ export default {
         &__panel {
             width: 55px;
             height: 55px;
-            background: $color-black;
+            background: $vs-color-background-accent-heather;
             margin-left: $spacer-2;
-            color: $color-white;
+            color: $vs-color-text-inverse;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
 
             &--days {
-                background: $color-secondary-teal-shade-3;
+                background: $vs-color-background-accent-grey-02;
             }
 
             p {

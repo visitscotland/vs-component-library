@@ -12,7 +12,7 @@ import {
 
 export default {
     component: VsMegalinks,
-    title: 'Megalinks/SingleImage',
+    title: 'MegalinksSingleImage',
     tags: ['autodocs'],
 };
 
@@ -172,10 +172,10 @@ export const Default = Template.bind({
 
 Default.args = base;
 
-export const Alternate = Template.bind({
+export const RightAligned = Template.bind({
 });
 
-Alternate.args = {
+RightAligned.args = {
     ...base,
     alternate: true,
 };
@@ -232,24 +232,24 @@ NoJavascript.args = {
     jsDisabled: true,
 };
 
-export const DarkTheme = Template.bind({
+export const GreyTheme = Template.bind({
 });
 
-DarkTheme.args = {
+GreyTheme.args = {
     ...base,
-    theme: 'dark',
+    theme: 'grey',
     ...WithVideo.args,
 };
 
-export const DarkThemeNoCookies = Template.bind({
+export const GreyThemeNoCookies = Template.bind({
 });
 
-DarkThemeNoCookies.args = {
+GreyThemeNoCookies.args = {
     ...base,
-    ...DarkTheme.args,
+    ...GreyTheme.args,
 };
 
-DarkThemeNoCookies.decorators = [
+GreyThemeNoCookies.decorators = [
     () => {
         window.bypassCookieChecks = false;
 
@@ -261,11 +261,11 @@ DarkThemeNoCookies.decorators = [
     },
 ];
 
-export const DarkThemeNoJavascript = Template.bind({
+export const GreyThemeNoJavascript = Template.bind({
 });
 
-DarkThemeNoJavascript.args = {
+GreyThemeNoJavascript.args = {
     ...base,
-    ...DarkTheme.args,
+    ...GreyTheme.args,
     jsDisabled: true,
 };
