@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.24](https://github.com/visitscotland/vs-component-library/compare/v0.0.23...v0.0.24) (2024-04-18)
+
+
+### ✨ Features
+
+* **footer:** add linkedin option to validator ([287362a](https://github.com/visitscotland/vs-component-library/commit/287362aebe598b1cdab26a8618bfb1a832492bb9))
+* **meganav:** add static link styles ([208bd9c](https://github.com/visitscotland/vs-component-library/commit/208bd9c1114cde3bba19365417336b19e2a498a8))
+* **nav:** add option to remove search ([33a20cf](https://github.com/visitscotland/vs-component-library/commit/33a20cfa343cd92b40cfd5d3145c6b7b184950e6))
+
 ### [0.0.23](https://github.com/visitscotland/vs-component-library/compare/v0.0.22...v0.0.23) (2024-04-17)
 
 
