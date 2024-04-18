@@ -95,6 +95,24 @@ describe('VsMegaNav', () => {
 
             expect(siteSearchFormStub.attributes().closebuttontext).toBe('Close search form');
         });
+
+        it('should display the search button entirely if noSearch is set to false', () => {
+            const wrapper = factoryShallowMount({
+                noSearch: false,
+            });
+            const siteSearchStub = wrapper.find('vs-site-search-stub');
+
+            expect(siteSearchStub.exists()).toBe(true);
+        });
+
+        it('should remove the search button entirely if noSearch is set to true', () => {
+            const wrapper = factoryShallowMount({
+                noSearch: true,
+            });
+            const siteSearchStub = wrapper.find('vs-site-search-stub');
+
+            expect(siteSearchStub.exists()).toBe(false);
+        });
     });
 
     describe(':slots', () => {

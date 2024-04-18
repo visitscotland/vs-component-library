@@ -55,6 +55,7 @@
                         <VsSiteSearch
                             @toggleAction="toggleSearch"
                             :is-showing="showSearch"
+                            v-if="!noSearch"
                         >
                             {{ searchButtonText }}
                         </VsSiteSearch>
@@ -194,6 +195,14 @@ export default {
         searchCloseButtonText: {
             type: String,
             default: 'Close search form',
+        },
+        /**
+         * If true, completely remove the search button from the nav
+         * to render search inaccessible
+         */
+        noSearch: {
+            type: Boolean,
+            default: false,
         },
     },
     data() {

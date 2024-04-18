@@ -279,6 +279,14 @@ InspirationOpenMobile.play = async({ canvasElement }) => {
     await userEvent.click(inspLink);
 };
 
+export const NoSearch = Template.bind({
+});
+
+NoSearch.args = {
+    ...base,
+    noSearch: true,
+};
+
 export const NoJavascript = Template.bind({
 });
 
