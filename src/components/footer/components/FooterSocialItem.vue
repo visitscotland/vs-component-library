@@ -57,7 +57,7 @@ export default {
         icon: {
             type: String,
             required: true,
-            validator: (value) => value.match(/(facebook|instagram|x-twitter|youtube)/),
+            validator: (value) => value.match(/(facebook|instagram|x-twitter|youtube|linkedin)/),
         },
     },
 };
