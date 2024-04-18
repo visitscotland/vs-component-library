@@ -306,6 +306,53 @@ export default {
     &__mobile-menu {
         display: none
     }
+
+    .vs-mega-nav-static-link {
+        padding: $spacer-3 $spacer-2;
+        height: auto;
+        width: auto;
+        font-size: $font-size-4;
+        margin-bottom: $spacer-2;
+
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 0;
+        }
+
+        &.disabled {
+            opacity: $opacity-100;
+        }
+
+        &:focus {
+            box-shadow: $shadow-button-focus inset;
+
+            &::after{
+                display: none;
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            display: block;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: $color-base-text;
+            transition: width $duration-base linear;
+            border: 0;
+            margin: 0;
+        }
+
+        &:hover {
+            color: $color-pink;
+
+            &::after {
+                width: 100%;
+                background: $color-pink;
+            }
+        }
+    }
 }
 
 @include no-js {
