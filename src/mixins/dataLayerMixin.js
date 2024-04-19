@@ -67,6 +67,13 @@ const dataLayerMixin = {
                 // This also ignores any key passed by the user that doesn't match
                 // a key from the template
                 obj[element] = values[element] || undefined;
+
+                // The videoTrackingTemplate has changed 'site_language' to
+                // 'language' but this change hasn't been reflected in the
+                // GTMData so we need to account for it here.
+                if (element === 'language' && obj[element] === undefined) {
+                    obj[element] = values.site_language || undefined;
+                }
             });
 
             // Return an object ready to be pushed to the data-layer
