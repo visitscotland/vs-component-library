@@ -104,7 +104,7 @@ export default {
     }
 
     &::after {
-        border: 1px solid $color-theme-dark;
+        border: 1px solid $vs-color-border-bold;
         content: "";
         display: block;
         padding-bottom: 100%;

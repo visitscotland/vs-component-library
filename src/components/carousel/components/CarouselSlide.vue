@@ -195,7 +195,6 @@ export default {
         }
 
         .card-body {
-            padding: $spacer-3 0 0;
             text-align: left;
 
             .vs-heading__sub-heading {
@@ -215,7 +214,7 @@ export default {
                 bottom: $spacer-1;
                 height: 1px;
                 width: calc(100% - 24px);
-                background: $color-gray-tint-5;
+                background: $vs-color-border;
 
                 @include media-breakpoint-up(sm) {
                     width: calc(100% - 40px);
@@ -230,12 +229,9 @@ export default {
                 padding: $spacer-2;
                 border: none;
                 height: 100%;
-                transition: box-shadow $duration-slowly;
                 cursor: pointer;
 
                 &:hover {
-                    box-shadow: $shadow_card;
-
                     .vs-stretched-link-card__title {
                         text-decoration: underline;
                     }
@@ -264,7 +260,7 @@ export default {
                     font-size: $font-size-2;
                     letter-spacing: $letter-spacing-l;
                     line-height: $line-height-m;
-                    color: $color-base-text;
+                    color: $vs-color-text;
                     text-decoration: none;
                 }
 

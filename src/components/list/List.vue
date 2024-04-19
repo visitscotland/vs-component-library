@@ -63,7 +63,6 @@ export default {
 
         &::before {
             content: "• ";
-            color: $color-pink;
             padding-right: 0.7rem;
             margin-left: -$spacer-6;
             font-size: $font-size-6;

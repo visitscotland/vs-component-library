@@ -81,7 +81,7 @@ export default {
         theme: {
             type: String,
             default: 'light',
-            validator: (value) => value.match(/(light|grey|dark)/),
+            validator: (value) => value.match(/(light|grey)/),
         },
     },
 };
@@ -112,16 +112,7 @@ export default {
         }
 
         &--grey {
-            background-color: $theme-grey;
-        }
-
-        &--dark {
-            background-color: $theme-dark;
-            color: $color-white;
-
-            .vs-module-wrapper__heading.vs-heading {
-                color: $color-yellow;
-            }
+            background-color: $vs-color-background-information;
         }
     }
 

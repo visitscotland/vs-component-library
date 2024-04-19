@@ -244,6 +244,11 @@ describe('VsSkiScotlandStatus', () => {
             expect(easyRuns.length).toBe(8);
             expect(difficultRuns.length).toBe(5);
         });
+
+        it('should set correct colour token status', () => {
+            const colourBadge = wrapper.find('[data-test="vs-accordion-item__card-colour-badge"]');
+            expect(colourBadge.attributes().style).toBe('background-color: rgb(4, 200, 82);');
+        });
     });
 
     describe(':cairngormsData', () => {

@@ -6,7 +6,7 @@ export default {
     tags: ['autodocs'],
     argTypes: {
         variant: {
-            options: ['primary', 'secondary', 'light', 'dark', 'color-white', 'secondary-teal'],
+            options: ['default', 'primary', 'inverse', 'disabled', 'tertiary', 'danger', 'warning'],
             control: {
                 type: 'radio',
             },
@@ -48,8 +48,8 @@ const Template = (args) => ({
 
 const base = {
     name: 'user',
-    variant: 'dark',
-    size: 'md',
+    variant: 'primary',
+    size: 'lg',
 };
 
 export const Default = Template.bind({
@@ -57,4 +57,14 @@ export const Default = Template.bind({
 
 Default.args = {
     ...base,
+};
+
+export const Duotone = Template.bind({
+});
+
+Duotone.args = {
+    ...base,
+    name: 'crow',
+    duotone: true,
+    style: '--fa-secondary-opacity: 1.0; --fa-primary-color: dodgerblue; --fa-secondary-color: gold;',
 };

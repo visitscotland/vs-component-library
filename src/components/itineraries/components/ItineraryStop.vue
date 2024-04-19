@@ -11,7 +11,7 @@
                 <div class="position-relative">
                     <VsIcon
                         name="map-marker-filled"
-                        variant="secondary-teal"
+                        variant="tertiary"
                         size="xl"
                     />
                     <span
@@ -127,8 +127,8 @@ export default {
 
     .border {
         position: relative;
-        background-color: $color-white;
-        border: 1px solid $color-gray-tint-5;
+        background-color: $vs-color-background-inverse;
+        border: 1px solid $vs-color-border;
         padding: $spacer-4;
     }
 
@@ -139,7 +139,7 @@ export default {
         }
     }
     .map-marker__count {
-        color: $color-white;
+        color: $vs-color-text-inverse;
         font-family: $headings-font-family;
         font-size: $font-size-4;
         display: block;
@@ -151,7 +151,7 @@ export default {
     }
 
     .vs-icon-list {
-        border-top: 1px solid $color-gray-tint-5;
+        border-top: 1px solid $vs-color-border;
         margin-top: $spacer-4;
 
         .vs-icon-list__title {
@@ -161,7 +161,6 @@ export default {
 
     &__address {
         @include media-breakpoint-up(md) {
-            // border-right: 1px solid $color-gray-tint-5;
             margin-bottom: -#{$spacer-4};
             padding: $spacer-4 $spacer-0;
             margin-right: $spacer-6;

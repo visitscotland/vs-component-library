@@ -7,7 +7,7 @@
             <VsIcon
                 class="vs-global-menu__languages__icon"
                 name="globe"
-                variant="light"
+                variant="inverse"
                 size="xxs"
                 focusable="false"
             />
@@ -23,7 +23,7 @@
         >
             <VsIcon
                 name="globe"
-                variant="light"
+                variant="inverse"
                 size="xxs"
                 focusable="false"
             />
@@ -92,7 +92,7 @@ export default {
 
     ~ .dropdown-menu {
         width: 100%;
-        background: $color-purple;
+        background: $vs-color-background-brand;
         font-size: $font-size-2;
         margin: 0;
         padding: 0;
@@ -110,7 +110,7 @@ export default {
     .btn-primary.dropdown-toggle {
         padding: 0.3rem $spacer-4;
         font-size: $font-size-2;
-        background: $color-purple;
+        background: $vs-color-background-brand;
         border: none;
 
         @include media-breakpoint-up(lg) {
@@ -118,23 +118,22 @@ export default {
         }
 
         &:not(:disabled):not(.disabled):active {
-            background: $color-purple-shade-2;
+            background: $vs-color-background-inverse;
+            color: $vs-color-text;
+
+            &:after, .vs-icon{
+                color: $vs-color-text;
+                transition: $duration-base color;
+            }
         }
 
         &:focus {
-            box-shadow: $shadow-button-focus-on-dark inset;
+            box-shadow: $vs-box-shadow-focus-on-dark inset;
+            background: $vs-color-background-brand;
         }
 
         &:hover {
-            background: $color-purple-shade-2;
-        }
-    }
-
-    &.show {
-        .btn-primary.dropdown-toggle,
-        .btn-primary.dropdown-toggle:active,
-        .btn-primary.dropdown-toggle:focus {
-            background: $color-purple-shade-2;
+            background: $vs-color-background-accent-heather;
         }
     }
 
@@ -182,7 +181,7 @@ export default {
             transform: translate3d(0px, 0px, 0px) !important;
             text-align: center;
             max-height: none;
-            border-top: 1px solid $color-white;
+            border-top: 1px solid $vs-color-border-inverse;
             padding: $spacer-3 0;
 
             @include media-breakpoint-up(md) {
@@ -194,7 +193,7 @@ export default {
 
         &__label {
             display: inline;
-            color: $color-white;
+            color: $vs-color-text-inverse;
             padding: $spacer-3;
             line-height: $line-height-s;
             font-size: $font-size-4;

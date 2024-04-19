@@ -11,28 +11,83 @@
 
     .error {
         font-size: $font-size-body;
-        color: $color-theme-danger;
+        color: $vs-color-text-danger;
         display: block;
     }
 
     .hint-text {
         font-size: $font-size-body;
-        color: $color-gray-shade-1;
+        color: $vs-color-text-subtle;
         margin-bottom: 0;
     }
 }
 
 @mixin form-element-styles {
-    border: $color-gray-shade-3 1px solid;
+    border: $vs-color-border-input 1px solid;
 }
 
 @mixin form-error-state {
-    border-color: $color-theme-danger;
-    box-shadow: 0 0 0 1px $color-theme-danger inset;
+    border-color: $vs-color-border-danger;
+    box-shadow: 0 0 0 2px $vs-color-border-danger inset;
 }
 
 @mixin form-focus-state {
-    border-color: $color-pink;
-    box-shadow: 0 0 0 3px $color-pink inset;
+    border-color: $vs-color-border-focus;
+    box-shadow: 0 0 0 2px $vs-color-border-focus inset;
     outline: none;
 }
+
+@mixin form-disabled-state {
+    background-color: $vs-color-background-inverse;
+    border-color: $vs-color-border-disabled;
+    opacity: 0.5;
+}
+
+@mixin form-checkbox($size, $font-size, $line-height) {
+    input[type="checkbox"] {
+        outline: $vs-color-border-input 1px solid;
+        border: none;
+        width: $size;
+        height: $size;
+        align-self: flex-start;
+        position: relative;
+    
+         &:before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            background-color: $vs-color-background-inverse;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    
+        &:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    
+        &:focus {
+            outline: none;
+    
+            &:after {
+                @include form-focus-state
+            }
+        }
+    
+        &:checked {
+            &:before {
+                font-family: "Font Awesome Kit";
+                background-color: $vs-color-background-primary;
+                content: "\e001";
+                color: $vs-color-icon-inverse;
+                text-align: center;
+                line-height: $line-height;
+                font-size: $font-size;
+            }
+        }
+    }    
+}
+

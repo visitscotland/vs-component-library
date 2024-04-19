@@ -69,13 +69,13 @@ const Template = (args) => ({
 });
 
 const base = {
-    discoverText: 'discover',
+    discoverText: 'Discover',
     buttonsLabel: 'Select map type',
     clearSelectionText: 'Clear all',
     applyFiltersText: 'Show results',
     detailsEndpoint: 'https://www.visitscotland.com/data/component/mapcard?id=',
-    filtersAppliedText: 'filters applied',
-    clearFiltersText: 'clear filters',
+    filtersAppliedText: 'Filters applied',
+    clearFiltersText: 'Clear filters',
     mapFilterMessage: 'Please apply filter(s) to refine results.',
     mapNoResultsMessage: 'There are no results, please try again',
 };

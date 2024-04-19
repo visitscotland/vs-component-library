@@ -6,9 +6,7 @@ config.global.renderStubDefaultSlot = true;
 jest.mock('@/utils/svg-context');
 
 const toggleIdValue = 'toggle-id';
-
 const defaultSlotText = 'Click here to toggle caption';
-const toggleIconSlot = 'Toggle icon';
 
 const factoryShallowMount = (propsData) => shallowMount(VsToggleButton, {
     propsData: {
@@ -16,7 +14,6 @@ const factoryShallowMount = (propsData) => shallowMount(VsToggleButton, {
         ...propsData,
     },
     slots: {
-        'toggle-icon': toggleIconSlot,
         default: defaultSlotText,
     },
 });
@@ -38,10 +35,11 @@ describe('VsToggleButton', () => {
     });
 
     describe(':slots', () => {
-        it('renders content in the `toggle-icon` slot', () => {
+        it('renders info icon in the `toggle-icon` slot', () => {
             const wrapper = factoryShallowMount();
 
-            expect(wrapper.html()).toContain(toggleIconSlot);
+            expect(wrapper.find('[data-test="vs-toggle-btn"]').attributes('aria-expanded')).toContain('false');
+            expect(wrapper.find('vs-icon-stub').attributes('name')).toContain('circle-info');
         });
 
         it('renders content in the `default` slot', () => {
@@ -65,18 +63,11 @@ describe('VsToggleButton', () => {
             const wrapper = factoryShallowMount();
             const toggleCaptionBtn = wrapper.find('[data-test="vs-toggle-btn"]');
 
-            await toggleCaptionBtn.trigger('click');
-
-            expect(wrapper.find('vs-svg-stub').attributes('path')).toContain('close-circle-filled');
-        });
-
-        it(':toggleCaption - caption hide icon when toggled twice', async() => {
-            const wrapper = factoryShallowMount();
-            wrapper.vm.toggleAction();
-            wrapper.vm.toggleAction();
+            toggleCaptionBtn.trigger('click');
             await wrapper.vm.$nextTick();
 
-            expect(wrapper.html()).toContain(toggleIconSlot);
+            expect(toggleCaptionBtn.attributes('aria-expanded')).toContain('true');
+            expect(wrapper.find('vs-icon-stub').attributes('name')).toContain('circle-xmark');
         });
     });
 });

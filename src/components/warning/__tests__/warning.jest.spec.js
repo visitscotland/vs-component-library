@@ -42,42 +42,12 @@ describe('VsWarning', () => {
             expect(icon.classes()).toContain('vs-icon--test');
         });
 
-        it(':theme - should render a class matching the `theme` prop', () => {
-            const wrapper = factoryMount({
-                theme: 'dark',
-            });
-
-            expect(wrapper.classes()).toContain('vs-warning--dark');
-        });
-
         it(':size - should render a class matching the `size` prop', () => {
             const wrapper = factoryMount({
                 size: 'small',
             });
 
             expect(wrapper.classes()).toContain('vs-warning--small');
-        });
-
-        it(':transparent - should render a class if the `transparent` prop is true', () => {
-            const wrapper = factoryMount();
-
-            expect(wrapper.classes()).toContain('vs-warning--transparent');
-        });
-
-        it(':transparent - should not render a class if the `transparent` prop is false', () => {
-            const wrapper = factoryMount({
-                transparent: false,
-            });
-
-            expect(wrapper.classes('vs-warning--transparent')).toBe(false);
-        });
-
-        it(':align - should render a class matching the `align` prop', () => {
-            const wrapper = factoryMount({
-                align: 'right',
-            });
-
-            expect(wrapper.classes()).toContain('vs-warning--right');
         });
 
         it(':type - should show a cookie manangement button if `type` is `cookie` and the slot is populated', () => {

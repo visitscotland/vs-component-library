@@ -38,12 +38,11 @@
                         <slot name="embed-widget" />
                     </div>
                     <div
-                        v-show="showError"
+                        v-if="showError"
                         key="fallback"
                     >
                         <VsWarning
                             :type="cookiesInitStatus === true ? 'cookie' : 'normal'"
-                            theme="light"
                             class="vs-embed-wrapper__error"
                             data-test="vs-embed-wrapper__error"
                         >
@@ -61,7 +60,6 @@
 
                     <VsWarning
                         type="normal"
-                        theme="light"
                         data-test="vs-embed-wrapper__error--no-js"
                         class="vs-embed-wrapper__error vs-embed-wrapper__error--no-js"
                     >

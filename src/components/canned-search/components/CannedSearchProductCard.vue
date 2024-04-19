@@ -269,14 +269,7 @@ export default {
             padding-bottom: $spacer-5;
 
             &:hover {
-                box-shadow: $shadow_card;
-
-                padding: $spacer-2 $spacer-2 $spacer-5;
-                margin-left: -$spacer-2;
-                margin-right: -$spacer-2;
-                margin-top: -$spacer-2;
-
-                .megalink-link-list__title {
+                .vs-product-card__title a{
                     text-decoration: underline;
                 }
             }
@@ -292,7 +285,7 @@ export default {
         }
 
         .stretched-link {
-            color: $color-base-text;
+            color: $vs-color-text;
             text-decoration: none;
             letter-spacing: 0;
             display: block;
@@ -304,7 +297,7 @@ export default {
 
         .vs-product-card__link {
             &:focus {
-                border: 2px solid $color_pink;
+                border: 2px solid $vs-color-border-primary;
             }
         }
 
@@ -334,7 +327,7 @@ export default {
             font-size: $font-size-4;
             line-height: $line-height-s;
             letter-spacing: $letter-spacing-l;
-            color: $color-base-text;
+            color: $vs-color-text;
             display: flex;
             margin: $spacer-3 $spacer-0 $spacer-2;
 
@@ -364,11 +357,9 @@ export default {
             }
 
             .card:hover {
-                box-shadow: none;
-                padding: $spacer-0 $spacer-0 $spacer-5;
-                margin-left: $spacer-0;
-                margin-right: $spacer-0;
-                margin-top: $spacer-0;
+                .vs-product-card__title a{
+                    text-decoration: none;
+                }
             }
 
             .stretched-link {
@@ -383,12 +374,8 @@ export default {
                 .card {
                     opacity: $opacity-100;
 
-                    &:hover {
-                        box-shadow: $shadow_card;
-                        padding: $spacer-2 $spacer-2 $spacer-5;
-                        margin-left: -$spacer-2;
-                        margin-right: -$spacer-2;
-                        margin-top: -$spacer-2;
+                    .vs-product-card__title a{
+                        text-decoration: underline;
                     }
                 }
 

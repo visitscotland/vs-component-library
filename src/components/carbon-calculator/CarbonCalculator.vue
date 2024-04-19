@@ -158,9 +158,7 @@
             </VsRow>
         </VsContainer>
 
-        <VsWarning
-            theme="light"
-        >
+        <VsWarning>
             {{ labelsMap['noJsMessage'] }}
         </VsWarning>
     </div>

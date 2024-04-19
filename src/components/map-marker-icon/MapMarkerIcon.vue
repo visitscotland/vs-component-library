@@ -26,7 +26,6 @@
             class="vs-map-marker-icon__icon"
             :name="getIconDetails(id).name"
             size="xs"
-            variant="color-white"
         />
     </div>
 </template>
@@ -96,20 +95,20 @@ export default {
 
     &--map-marker {
         .vs-map-marker-icon__marker {
-            -webkit-text-stroke-color: $color-white;;
+            -webkit-text-stroke-color: $vs-color-border-inverse;
             -webkit-text-stroke-width: 1px;
         }
     }
 
     &__marker {
         &--outline {
-            -webkit-text-stroke-color: $color-white;
+            -webkit-text-stroke-color: $vs-color-border-inverse;
             -webkit-text-stroke-width: 1px;
         }
     }
 
     &__count {
-        color: $color-white;
+        color: $vs-color-text-inverse;
         display: block;
         font-size: $font-size-4;
         font-family: $headings-font-family;
@@ -124,9 +123,9 @@ export default {
     &__icon.vs-icon {
         position: absolute;
         left: 50%;
-        top: 5px;
+        top: 6px;
         transform: translateX(-50%);
-        color: $color-white;
+        color: $vs-color-icon-inverse;
     }
 
     .vs-icon {
@@ -136,6 +135,6 @@ export default {
 
 // override transparent button styles
 .vs-button.btn-transparent .vs-map-marker-icon__icon {
-    color: $color-white;
+    color: $vs-color-icon-inverse;
 }
 </style>

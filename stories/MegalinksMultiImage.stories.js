@@ -14,7 +14,7 @@ import {
 
 export default {
     component: VsMegalinks,
-    title: 'Megalinks/MultiImage',
+    title: 'MegalinksMultiImage',
     tags: ['autodocs'],
 };
 
@@ -37,14 +37,18 @@ const Template = (args) => ({
         };
     },
     template: `
+    <div
+        :class="args.jsDisabled ? 'no-js' : ''"
+    >
         <VsMegalinks
             :title="args.mainTitle"
             class="vs-megalinks--single-image"
             :buttonLink="args.buttonLink"
             variant="multi-image"
+            :theme="args.theme"
             :noJsMessage="args.noJsMessage"
             :noCookiesMessage="args.noCookiesMessage"
-            :noCookiesLink="args.noCookiesLink"
+            :cookieLinkText="args.cookieLinkText"
         >
             <template v-slot:vs-megalinks-intro>
                 <p>{{ args.megalinksIntro }}</p>
@@ -65,6 +69,7 @@ const Template = (args) => ({
                         >
                             <VsMegalinkMultiImage
                                 v-bind="link"
+                                :theme="args.theme"
                             >
                                 <template v-slot:vs-multi-image-heading>
                                     {{ link.heading }}
@@ -98,6 +103,7 @@ const Template = (args) => ({
                 </VsContainer>
             </VsCol>
         </VsMegalinks>
+    </div>
     `,
 });
 
@@ -111,10 +117,7 @@ const base = {
     buttonText: 'Get more inspiration',
     noJsMessage: 'JavaScript is needed to watch this video.',
     noCookiesMessage: 'Cookies are needed to watch this video.',
-    noCookiesLink: {
-        url: 'https://google.com',
-        label: 'Update my cookie settings',
-    },
+    cookieLinkText: 'Update my cookie settings',
     megalinksIntro,
     links: [
         {
@@ -163,6 +166,7 @@ const base = {
             content: 'Get inspiration on city accommodation, attractions and hidden gems loved by locals',
         },
     ],
+    jsDisabled: false,
 };
 
 export const Default = Template.bind({
@@ -223,55 +227,69 @@ WithVideo.args = {
     ],
 };
 
-export const WithVideoNoCookies = Template.bind({
+export const NoCookies = Template.bind({
 });
 
-WithVideoNoCookies.args = {
+NoCookies.args = {
     ...base,
-    links: [
-        {
-            featured: false,
-            imgSrc: '/fixtures/megalinks/glentress-forest.jpg',
-            imgAlt: 'Cycling in glentress forest',
-            linkType: 'video',
-            linkUrl: '#',
-            heading: '2023 UCI Cycling World Championships',
-            content: 'We\'ve pulled together a handy guide on dates and times, travel info, accommodation and things to see near host venues.',
-            videoId: 'v8IQAUvopnI',
-            videoBtnText: 'Play Video',
-            errorMessage: 'We\'re sorry, there\'s been an error',
-            modalCloseBtnText: 'Close',
-        },
-        {
-            featured: false,
-            imgSrc: '/fixtures/megalinks/wellness.jpg',
-            imgAlt: 'Wellness breaks in Scotland',
-            linkType: 'video',
-            linkUrl: '#',
-            heading: 'Wellness breaks in Scotland',
-            content: 'Slow down and refresh your mind, body and spirit in Scotland.',
-            videoId: 'g-Fhvj7vW-E',
-            videoBtnText: 'Play Video',
-            errorMessage: 'We\'re sorry, there\'s been an error',
-            modalCloseBtnText: 'Close',
-        },
-        {
-            featured: false,
-            imgSrc: '/fixtures/megalinks/outlander-wedding.jpg',
-            imgAlt: 'Tour Scotland with Outlander',
-            linkType: 'internal',
-            linkUrl: '#',
-            heading: 'Tour Scotland with Outlander',
-            content: 'See Outlander filming locations, book locations and attractions with real-life Jacobite connections.',
-        },
-        {
-            featured: false,
-            imgSrc: '/fixtures/megalinks/ashton-lane.jpg',
-            imgAlt: 'City breaks',
-            linkType: 'internal',
-            linkUrl: '#',
-            heading: 'City breaks',
-            content: 'Get inspiration on city accommodation, attractions and hidden gems loved by locals',
-        },
-    ],
+    ...WithVideo.args,
+};
+
+NoCookies.decorators = [
+    () => {
+        window.bypassCookieChecks = false;
+
+        return {
+            template: `
+                <story/>
+            `,
+        };
+    },
+];
+
+export const NoJavascript = Template.bind({
+});
+
+NoJavascript.args = {
+    ...base,
+    ...WithVideo.args,
+    jsDisabled: true,
+};
+
+export const GreyTheme = Template.bind({
+});
+
+GreyTheme.args = {
+    ...base,
+    theme: 'grey',
+    ...WithVideo.args,
+};
+
+export const GreyThemeNoCookies = Template.bind({
+});
+
+GreyThemeNoCookies.args = {
+    ...base,
+    ...GreyTheme.args,
+};
+
+GreyThemeNoCookies.decorators = [
+    () => {
+        window.bypassCookieChecks = false;
+
+        return {
+            template: `
+                <story/>
+            `,
+        };
+    },
+];
+
+export const GreyThemeNoJavascript = Template.bind({
+});
+
+GreyThemeNoJavascript.args = {
+    ...base,
+    ...GreyTheme.args,
+    jsDisabled: true,
 };

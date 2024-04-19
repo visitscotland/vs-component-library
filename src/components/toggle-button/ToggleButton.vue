@@ -4,6 +4,7 @@
         data-test="vs-toggle-btn"
         variant="transparent"
         icon-only
+        size="lg"
         :aria-controls="toggleId"
         :aria-expanded="show ? 'true' : 'false'"
         @click="toggleAction"
@@ -13,11 +14,11 @@
             <slot />
         </span>
 
-        <VsSvg
+        <VsIcon
             v-if="show"
-            path="icons/close-circle-filled"
-            height="24"
-            width="24"
+            duotone
+            class="fa-icon-colours fa-icon-colours--white"
+            name="circle-xmark"
         />
 
         <!-- @slot Slot for custom toggle icon - used for social images -->
@@ -25,10 +26,10 @@
             v-else
             name="toggle-icon"
         >
-            <VsSvg
-                path="icons/information-filled"
-                height="24"
-                width="24"
+            <VsIcon
+                duotone
+                class="fa-icon-colours"
+                name="circle-info"
             />
         </slot>
     </VsButton>
@@ -43,7 +44,7 @@
 
 <script>
 import VsButton from '@components/button/Button.vue';
-import VsSvg from '@components/svg/Svg.vue';
+import VsIcon from '@components/icon/Icon.vue';
 
 /**
  * Toggle button to toggle elements in other components.
@@ -58,7 +59,7 @@ export default {
     release: '0.0.1',
     components: {
         VsButton,
-        VsSvg,
+        VsIcon,
     },
     props: {
         /**
@@ -82,3 +83,19 @@ export default {
     },
 };
 </script>
+<style lang="scss">
+    .vs-toggle-btn{
+        .fa-icon-colours,
+        .fa-icon-colours--white {
+            --fa-primary-color: #{$vs-color-icon-inverse};
+            --fa-secondary-color: #{$vs-color-icon};
+            --fa-secondary-opacity: 1.0;
+        }
+
+        &:hover .fa-icon-colours,
+        &:hover .fa-icon-colours--white{
+            --fa-secondary-color: #{$vs-color-icon-primary};
+        }
+    }
+
+</style>

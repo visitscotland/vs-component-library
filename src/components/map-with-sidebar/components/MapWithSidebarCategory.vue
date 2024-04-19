@@ -11,7 +11,6 @@
             icon="internal-link"
             icon-position="right"
             size="sm"
-            :uppercase="false"
             @click="selectCategory(type)"
             @mouseover="isHovered = true"
             @mouseout="isHovered = false"
@@ -99,7 +98,7 @@ export default {
             bottom: 0;
             left: 0;
             width: 100%;
-            background: $color-gray-tint-5;
+            background: $vs-color-border;
             height: 1px;
         }
 
@@ -126,7 +125,7 @@ export default {
             }
 
             .vs-icon--internal-link {
-                color: $color-pink;
+                color: $vs-color-icon-tertiary;
             }
 
             &::after {
@@ -134,13 +133,7 @@ export default {
             }
 
             &:hover {
-                color: $color-white;
                 border: none;
-                box-shadow: none;
-
-                .vs-icon--internal-link {
-                    color: $color-white;
-                }
 
                 &::after {
                     display: none;
@@ -148,8 +141,8 @@ export default {
             }
 
             &:focus {
-                box-shadow: inset 0px 0px 0px 2px $color-theme-primary;
-                background: $color-white;
+                box-shadow: $vs-box-shadow-focus inset;
+                background: $vs-color-background-inverse;
             }
 
             @include media-breakpoint-up(lg) {

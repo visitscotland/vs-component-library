@@ -1,14 +1,14 @@
 <template>
     <div
         class="vs-warning"
-        :class="[warningClasses, transparent ? 'vs-warning--transparent' : '']"
+        :class="warningClasses"
         data-test="vs-warning"
     >
         <div class="vs-warning__content">
             <VsIcon
                 class="vs-warning__icon"
                 :name="icon"
-                v-bind="iconAttrs"
+                variant="tertiary"
             />
 
             <div>
@@ -26,7 +26,7 @@
 
         <VsButton
             v-bind="btnAttrs"
-            variant="secondary"
+            variant="primary"
             v-show="$slots['button-text'] && $slots['button-text']()"
             class="vs-warning__button"
         >
@@ -72,49 +72,20 @@ export default {
             ),
         },
         /**
-        * Color theme - can be `light` or `dark`
-        */
-        theme: {
-            type: String,
-            default: 'dark',
-            validator: (value) => value.match(
-                /(light|dark)/,
-            ),
-        },
-        /**
         * Message size - can be `small` or `normal`
         */
         size: {
             type: String,
             default: 'normal',
             validator: (value) => value.match(
-                /(xs|small|normal)/,
+                /(small|normal)/,
             ),
-        },
-        /**
-        * Alignment of message - can be `left` or `right`
-        */
-        align: {
-            type: String,
-            default: 'left',
-            validator: (value) => value.match(
-                /(left|right)/,
-            ),
-        },
-        /**
-        * Whether the background should be semi-transparent
-        */
-        transparent: {
-            type: Boolean,
-            default: true,
         },
     },
     computed: {
         warningClasses() {
             return [
-                `vs-warning--${this.theme}`,
                 `vs-warning--${this.size}`,
-                `vs-warning--${this.align}`,
             ];
         },
         btnAttrs() {
@@ -123,32 +94,11 @@ export default {
             if (this.type === 'cookie') {
                 attrsObj.class = 'ot-sdk-show-settings vs-warning__cookie-trigger';
             }
-            if (this.theme === 'dark') {
-                attrsObj.onDark = true;
-            }
             if (this.size === 'small') {
                 attrsObj.size = 'sm';
             }
 
             return attrsObj;
-        },
-        iconAttrs() {
-            const iconAttrs = {
-            };
-
-            if (this.theme === 'dark') {
-                iconAttrs.customColour = '#FCCA1B';
-            } else {
-                iconAttrs.variant = 'primary';
-            }
-
-            if (this.size === 'small') {
-                iconAttrs.size = 'md';
-            } else {
-                iconAttrs.size = 'lg';
-            }
-
-            return iconAttrs;
         },
     },
 };
@@ -158,21 +108,17 @@ export default {
     .vs-warning {
         position: relative;
         display: flex;
-        align-items: flex-end;
+        align-items: flex-start;
         justify-content: flex-end;
         flex-direction: column;
         text-align: left;
         padding: $spacer-5;
-        background: $color-gray-tint-7;
+        background: $vs-color-background-neutral;
         height: 100%;
         line-height: 1.1;
 
         @include media-breakpoint-up(lg) {
             padding: $spacer-9;
-        }
-
-        &--left {
-            align-items: flex-start;
         }
 
         &--small {
@@ -193,26 +139,9 @@ export default {
             }
         }
 
-        &--dark {
-            color: $color-white;
-            background: $color-gray-shade-6;
-
-            &.vs-warning--transparent {
-                background: rgba(0,0,0,0.8);
-            }
-        }
-
-        &--right {
-            justify-content: flex-end;
-
-            .vs-warning__button {
-                display: flex;
-                margin-left: auto;
-            }
-        }
-
         &__icon {
             margin-right: $spacer-3;
+            line-height: $line-height-standard;
         }
 
         &__button {
@@ -225,7 +154,6 @@ export default {
 
         &__content {
             display: flex;
-            // flex-direction: row;
             align-items: flex-start;
             justify-content: flex-start;
             max-width: 80%;

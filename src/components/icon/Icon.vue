@@ -9,6 +9,7 @@
             [`vs-icon--${formattedName}`]: true,
             ['icon--' + orientation]: orientation,
             [`vs-icon--variant-${variant}`]: variant,
+            [`fa-duotone`]: duotone,
         }"
         :style="[customColour ? { color: customColour } : {}]"
         v-bind="$attrs"
@@ -17,9 +18,6 @@
 </template>
 
 <script>
-import { get } from 'lodash';
-import designTokens from '@/assets/tokens/tokens.raw.json';
-
 /**
  * Icons are used to visually communicate available actions
  * or ideas and can help users navigate the product.
@@ -41,13 +39,13 @@ export default {
         },
         /**
          * The color of the icon.
-         * `primary|secondary|light|dark|color-white|secondary-teal`
+         * `default|primary|inverse|disabled|tertiary|danger`
          */
         variant: {
             type: String,
-            default: null,
+            default: 'default',
             validator: (value) => value.match(
-                /(primary|secondary|light|dark|color-white|secondary-teal)/,
+                /(default|primary|inverse|disabled|tertiary|danger|warning)/,
             ),
         },
         /**
@@ -88,6 +86,13 @@ export default {
             type: String,
             default: null,
             validator: (value) => value.match(/(xxs|xs|sm|md|lg|xl)/),
+        },
+        /**
+        * Uses FontAwesome Duotone
+        */
+        duotone: {
+            type: Boolean,
+            default: false,
         },
     },
     data() {
@@ -224,9 +229,6 @@ export default {
         icon() {
             return this.formattedName;
         },
-        dimension() {
-            return get(designTokens, `props.icon_size_${this.size}.value`, '40px');
-        },
         formattedName() {
             /*
              * To facilitate more readable icon names and
@@ -253,19 +255,20 @@ $sizes: (
 );
 
 $variants: (
-    primary: $color-theme-primary,
-    secondary: $color-theme-secondary,
-    light: $color-theme-light,
-    dark: $color-theme-dark,
-    color-white: $color-white,
-    secondary-teal: $color-secondary-teal-shade-3,
+    default: $vs-color-icon,
+    primary: $vs-color-icon-primary,
+    inverse: $vs-color-icon-inverse,
+    disabled: $vs-color-icon-disabled,
+    tertiary: $vs-color-icon-tertiary,
+    danger: $vs-color-icon-danger,
+    warning: $vs-color-icon-warning,
 );
 
 .vs-icon {
-    color: $color-black;
     overflow: visible;
     pointer-events: none;
     line-height: 1;
+    transition: all $duration_base ease-in-out;
 
     @each $size in map-keys($sizes) {
         $this-size: map-get($sizes, $size);
@@ -294,11 +297,6 @@ $variants: (
     @each $variant in map-keys($variants) {
         &.vs-icon--variant-#{$variant} {
             color: map-get($variants, $variant);
-
-             &.icon--reverse {
-                color: $color-white;
-                background: map-get($variants, $variant);
-            }
         }
     }
 

@@ -61,13 +61,13 @@ export default {
     }
 
     &__date {
-        color: $color-gray-shade-1;
+        color: $vs-color-text-subtle;
     }
 
     &__read-time {
         display: block;
         margin-bottom: $spacer-6;
-        color: $color-gray-shade-1;
+        color: $vs-color-text-subtle;
     }
 
     &__divider {
