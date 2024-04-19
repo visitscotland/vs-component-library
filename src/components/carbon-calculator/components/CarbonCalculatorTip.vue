@@ -71,8 +71,8 @@ export default {
 
 <style lang='scss'>
     .vs-carbon-calculator-tip {
-        box-shadow: $shadow_card_tight;
-        padding: $spacer-8 $spacer-4;
+        padding: $spacer-4;
+        background: $vs-color-background-information;
 
         .vs-heading {
             margin-top: 0;
@@ -85,12 +85,11 @@ export default {
 
     .vs-carbon-calculator-tip__icon-container {
         display: inline-flex;
-        justify-content: center;
         vertical-align: top;
-        width: $spacer-10;
+        width: $spacer-9;
 
         .vs-icon {
-            color: $color-theme-secondary-orange;
+            color: $vs-color-icon-accent-whisky;
         }
     }
 

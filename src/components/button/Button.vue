@@ -66,13 +66,13 @@ export default {
         },
         /**
          * Style variation to give additional meaning
-         * `primary|secondary|transparent|dark|light`.
+         * `primary|secondary|transparent`.
          */
         variant: {
             type: String,
             default: 'primary',
             validator: (value) => value.match(
-                /(primary|secondary|transparent|dark|light)/,
+                /(primary|secondary|transparent)/,
             ),
         },
         /**
@@ -236,7 +236,7 @@ export default {
 
         &.vs-button--on-dark {
             &:focus {
-                box-shadow: 0 0 0 4px $color-theme-dark, 0 0 0 8px $color-yellow;
+                box-shadow: $vs-box-shadow-focus-on-dark;
             }
         }
 
@@ -248,18 +248,9 @@ export default {
             box-shadow: none;
         }
 
-        &.btn-primary, &.btn-secondary,
-        &.btn-dark, &.btn-light {
+        &.btn-primary, &.btn-secondary {
             &.disabled {
-                background-color: $vs-color-background-disabled;
-                border-color: $vs-color-background-disabled;
-                color: $vs-color-text-inverse;
-                opacity: $opacity-100;
-
-                &:hover {
-                    background-color: $vs-color-background-disabled;
-                    border-color: $vs-color-background-disabled;
-                }
+                @extend %button-disabled;
             }
         }
 
@@ -301,28 +292,6 @@ export default {
             }
         }
 
-        &.btn-dark {
-            @include vs-button-variant(
-                $color-white, $color-theme-dark, $color-theme-dark,
-                $color-white, $color-secondary-gray-shade-1, $color-secondary-gray-shade-1,
-                $color-white, $color-secondary-gray-shade-1, $color-secondary-gray-shade-1,
-                $color-theme-dark, $color-white, $color-secondary-gray-shade-1,
-            );
-
-            &:focus {
-                box-shadow: $vs-box-shadow-focus-on-dark, 0 0 0 8px $color-theme-dark;
-            }
-        }
-
-        &.btn-light {
-            @include vs-button-variant(
-                $color-gray-shade-7, $color-gray-tint-7, $color-gray-tint-7,
-                $color-gray-shade-7, $color-gray-tint-6, $color-gray-tint-6,
-                $color-gray-shade-7, $color-gray-tint-6, $color-gray-tint-6,
-                $color-white, $color-gray-shade-7, $color-gray-shade-7,
-            );
-        }
-
         &.btn-transparent {
             &:not(.vs-main-map-category__button) {
                 @include vs-button-variant(
@@ -333,7 +302,7 @@ export default {
                 );
 
                 &:focus {
-                    box-shadow: $vs-box-shadow-focus;
+                    box-shadow: $vs-box-shadow-focus inset;
                 }
 
                 &.vs-button--on-dark {
@@ -345,7 +314,7 @@ export default {
                     );
 
                     &:focus {
-                        box-shadow: $vs-box-shadow-focus-on-dark;
+                        box-shadow: $vs-box-shadow-focus-on-dark inset;
                     }
                 }
             }
@@ -374,8 +343,22 @@ export default {
         &.vs-button--icon-only {
             line-height: 1;
 
-            &.btn-sm, &.btn-md, &.btn-lg {
-                padding: $spacer-1 0;
+            &.btn-sm{
+                padding: $spacer-1 $spacer-1;
+                width: 32px;
+                height: 32px;
+            }
+
+            &.btn-md{
+                padding: $spacer-2 $spacer-1;
+                width: 40px;
+                height: 40px;
+            }
+
+            &.btn-lg {
+                padding: $spacer-2 $spacer-1;
+                width: 48px;
+                height: 48px;
             }
 
             .vs-icon {

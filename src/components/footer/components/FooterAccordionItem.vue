@@ -96,24 +96,24 @@ export default {
 
 <style lang="scss">
 .vs-footer-accordion-item.vs-accordion-item.card {
-    border-bottom: 1px solid $color-gray-shade-2;
+    border-bottom: 1px solid $vs-color-border-inverse;
     border-top: 0;
 
       .vs-accordion-item__card-header{
-        background-color: $color-gray-shade-7;
+        background-color: $vs-color-background-bold;
     }
 
     .vs-accordion-item__title.vs-heading {
         margin: $spacer-3 0;
-        background-color: $color-gray-shade-7;
+        background-color: $vs-color-background-bold;
         color: $color-white;
         padding: 0;
     }
 
      .vs-accordion-item__panel.card-body {
-        background-color: $color-gray-shade-6;
+        background-color: $vs-color-background-bold;
         color: $color-white;
-        border-top: 1px solid $color-gray-shade-2;
+        border-top: 1px solid $vs-color-border-inverse;
     }
 
     .vs-accordion-toggle {
@@ -126,10 +126,10 @@ export default {
         text-align: left;
 
         @include vs-button-variant(
-            $color-white, $color-theme-dark, $color-theme-dark,
-            $color-white, $color-theme-dark, $color-theme-dark,
-            $color-white, $color-theme-dark, $color-theme-dark,
-            $color-white, $color-theme-dark, $color-theme-dark,
+            $vs-color-text-inverse, $vs-color-background-bold, $vs-color-background-bold,
+            $vs-color-text-inverse, $vs-color-background-bold, $vs-color-background-bold,
+            $vs-color-text-inverse, $vs-color-background-bold, $vs-color-background-bold,
+            $vs-color-text-inverse, $vs-color-background-bold, $vs-color-background-bold,
         );
 
         &:hover{
@@ -153,9 +153,9 @@ export default {
 
     @include media-breakpoint-up(md) {
         border: 0;
-        border-left: 1px solid $color-gray-shade-2;
+        border-left: 1px solid $vs-color-border-inverse;
         padding: 0 $spacer-3;
-        background-color: $color-theme-dark;
+        background-color: $vs-color-background-bold;
 
         .vs-accordion-item__title {
             margin-top: $spacer-1;
@@ -163,7 +163,7 @@ export default {
 
         .vs-accordion-item__panel.card-body {
             padding: 0;
-            background-color: $color-theme-dark;
+            background-color: $vs-color-background-bold;
             border-top: 0;
         }
     }

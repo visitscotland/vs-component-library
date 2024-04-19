@@ -97,8 +97,7 @@ export default {
         display: none;
         padding: $spacer-1 $spacer-4;
         margin: 0 0 $spacer-1;
-        border-bottom: 1px solid $color-gray-tint-5;
-        color: $color-secondary-gray-shade-3;
+        border-bottom: 1px solid $vs-color-border;
         font-size: $font-size-6;
         font-family: $font-family-sans-serif;
         line-height: $line-height-standard;

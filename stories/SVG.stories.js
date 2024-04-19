@@ -16,7 +16,7 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsSvg v-bind="args">
+        <VsSvg v-bind="args" fill="#000000">
             <template v-if="${'default' in args}" v-slot>${args.default}</template>
         </VsSvg>
     `,

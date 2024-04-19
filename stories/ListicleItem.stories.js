@@ -10,6 +10,9 @@ export default {
     component: VsListicleItem,
     title: 'ListicleItem',
     tags: ['autodocs'],
+    decorators: [() => ({
+        template: '<div style="max-width: 1150px;"><story /></div>',
+    })],
 };
 
 const Template = (args) => ({
@@ -110,9 +113,6 @@ const base = {
     imageAltText: 'A photo of the Standing Stones of Stenness against a blue Sky',
     imageCaption: 'The Standing Stones of Stenness make up a a small circle dating from the third millennium BC. ',
     imageCredit: 'Historic Environment Scotland',
-    imageVariant: 'large',
-    imageLatitude: '58.9940314',
-    imageLongitude: '-3.2106113',
     ctaLink: '#',
     ctaLabel: 'Discover more about The Stones of Stenness',
 };

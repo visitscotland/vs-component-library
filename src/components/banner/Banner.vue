@@ -9,6 +9,7 @@
             <VsRow>
                 <VsCol
                     cols="11"
+                    class="vs-banner__content-wrapper"
                 >
                     <VsRow>
                         <VsCol
@@ -168,6 +169,10 @@ export default {
         }
     }
 
+    &__content-wrapper{
+        align-self: center;
+    }
+
     &__icon{
         display: inline-block;
 
@@ -219,11 +224,6 @@ export default {
 
     &__close-btn.vs-button.vs-button--icon-only.btn-md {
         float: right;
-        padding: 0;
-
-        @include media-breakpoint-up(lg) {
-            padding: $spacer-1;
-        }
     }
 }
 </style>

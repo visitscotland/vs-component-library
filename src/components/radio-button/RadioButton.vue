@@ -34,9 +34,11 @@
                         options
                 "
                 class="vs-radio-button__option"
-                :class="checkedValue === option.value
-                    ? 'vs-radio-button__option--checked' : ''
-                "
+                :class="[
+                    checkedValue === option.value
+                        ? 'vs-radio-button__option--checked' : '', {
+                        'vs-radio-button__option--disabled': option.disabled,
+                    }]"
                 :key="optionIndex"
             >
                 <BFormRadio
@@ -47,6 +49,7 @@
                         field: fieldName,
                         value: option.value,
                     })"
+                    :disabled="option.disabled"
                 >
                     <span>{{ option.text }}</span>
                 </BFormRadio>
@@ -291,13 +294,13 @@ export default {
             vertical-align: top;
             cursor: pointer;
             box-sizing: border-box;
-            background-color: $color-white;
+            background-color: $vs-color-background-inverse;
             padding: $spacer-3 $spacer-0;
             width: 100%;
+            font-size: $font-size-4;
 
             @include media-breakpoint-up(md) {
                 padding: $spacer-3;
-
                 width: 50%;
 
                 &:nth-of-type(odd) {
@@ -312,82 +315,122 @@ export default {
             * {
                 cursor: pointer;
             }
-        }
 
-        .form-check {
-            width: 100%;
-            border: 1px solid $color-theme-primary;
-            height: 3.5rem;
-            box-sizing: border-box;
-            margin-bottom: 0;
-            display: inline-flex;
-            align-items: center;
-
-            &:hover:not(:focus):not(:focus-within):not(:active) {
-                background-color: $color-purple;
-                border-color: $color-purple;
-                color: $color-white;
-            }
-
-            &:focus-within, &:focus, &:active {
-                background-color: $color-purple;
-                border-color: $color-white;
-                border-width: 2px;
-                outline: 2px solid $color-theme-primary;
-                color: $color-white;
-                width: calc(100% - 4px);
-                height: calc(3.5rem - 4px);
-                transform: translate(2px, 2px);
-            }
-
-            &:disabled {
-                background-color: $color-secondary-gray-tint-4;
-                color: $color-white;
-            }
-        }
-
-        .form-check label {
-            width: 100%;
-            transform: translateY(-2px);
-            padding: $spacer-2 $spacer-4;
-            font-weight: normal;
-
-            span {
-                display: inline-block;
-                width: calc(100% - #{$spacer-9});
-            }
-
-            &::before {
-                content: "";
-                display: inline-block;
-                vertical-align: middle;
-                width: $spacer-6;
-                height: $spacer-6;
-                outline: 2px solid $color-theme-primary;
-                border-radius: 50%;
-                vertical-align: baseline;
-                transform: translateY(6px);
-                margin-right: $spacer-4;
-                background-color: $color-white;
-            }
-        }
-
-        input {
-            opacity: 0;
-            width: 0;
-        }
-
-        .vs-radio-button__option--checked {
             .form-check {
-                border-width: 2px;
+                width: 100%;
+                border: 1px solid $vs-color-border-primary;
+                height: 3rem;
+                box-sizing: border-box;
+                margin-bottom: 0;
+                display: inline-flex;
+                align-items: center;
+                transition: $duration-quickly background;
+
+                &:hover:not(:focus):not(:focus-within):not(:active) {
+                    background-color: $vs-color-background-hover;
+                    border-color: $vs-color-background-hover;
+                    color: $vs-color-text-inverse;
+
+                    label {
+                        &::before {
+                            outline: 2px solid $vs-color-background-hover;
+                        }
+                    }
+                }
+
+                &:focus-within, &:focus {
+                    background-color: $vs-color-background-primary;
+                    border-color: $vs-color-border-inverse;
+                    border-width: 2px;
+                    outline: 2px solid $vs-color-border-primary;
+                    color: $vs-color-text-inverse;
+                    width: calc(100% - 4px);
+                    height: calc(3rem - 4px);
+                    transform: translate(2px, 2px);
+                }
+
+                &:active {
+                    background-color: $vs-color-background-active;
+                    border-color: $vs-color-background-active;
+                    color: $vs-color-text-primary;
+                }
 
                 label {
+                    width: 100%;
+                    transform: translateY(-2px);
+                    padding: $spacer-2 $spacer-4;
+                    font-weight: normal;
+
+                    span {
+                        display: inline-block;
+                        width: calc(100% - #{$spacer-9});
+                    }
+
                     &::before {
-                        border: $spacer-1 solid $color-white;
-                        background-color: $color-theme-primary;
+                        content: "";
+                        display: inline-block;
+                        vertical-align: middle;
+                        width: $spacer-6;
+                        height: $spacer-6;
+                        outline: 2px solid $vs-color-border-primary;
+                        border-radius: 50%;
+                        vertical-align: baseline;
+                        transform: translateY(6px);
+                        margin-right: $spacer-4;
+                        background-color: $vs-color-background-inverse;
                     }
                 }
             }
+
+            &--disabled {
+                cursor: default;
+
+                .form-check,
+                .form-check:hover:not(:focus):not(:focus-within):not(:active),
+                .form-check:focus,
+                .form-check:active {
+                    background-color: $vs-color-background-disabled;
+                    border-color: $vs-color-background-disabled;
+                    color: $vs-color-text-inverse;
+
+                    label {
+                        &::before {
+                            outline: 2px solid $vs-color-background-disabled;
+                        }
+                    }
+                }
+
+                .form-check-input[disabled] ~ .form-check-label,
+                .form-check-input:disabled ~ .form-check-label {
+                    opacity: 1;
+                }
+
+                * {
+                    cursor: default;
+                }
+            }
+
+            &--checked {
+                .form-check {
+                    background-color: $vs-color-background-active;
+                    border-color: $vs-color-background-active;
+                    color: $vs-color-text-primary;
+                    border-width: 2px;
+
+                    label {
+                        &::before {
+                            border: $spacer-1 solid $vs-color-background-active;
+                            background-color: $vs-color-background-primary;
+                        }
+                    }
+                }
+            }
+        }
+
+        .form-check-input,
+        .form-check-input:disabled{
+            opacity: 0;
+            width: 0;
         }
 
         .hint-text {

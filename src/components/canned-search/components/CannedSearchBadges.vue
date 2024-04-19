@@ -4,7 +4,7 @@
     >
         <div
             v-if="badgeOne"
-            class="vs-canned-search-badges__badge vs-canned-search-badges__badge--teal
+            class="vs-canned-search-badges__badge vs-canned-search-badges__badge--category
             vs-canned-search-badges__badge--tr"
         >
             {{ badgeOne }}
@@ -16,7 +16,7 @@
             <div
                 v-for="(badge, index) in limitedMulti"
                 :key="index"
-                class="vs-canned-search-badges__badge vs-canned-search-badges__badge--teal
+                class="vs-canned-search-badges__badge vs-canned-search-badges__badge--category
                 vs-canned-search-badges__multi-badge"
             >
                 {{ badge }}
@@ -24,14 +24,14 @@
         </div>
         <div
             v-if="badgeTwo"
-            class="vs-canned-search-badges__badge vs-canned-search-badges__badge--pink
+            class="vs-canned-search-badges__badge vs-canned-search-badges__badge--offer
             vs-canned-search-badges__badge--tr2"
         >
             {{ badgeTwo }}
         </div>
         <div
             v-if="badgeThree"
-            class="vs-canned-search-badges__badge vs-canned-search-badges__badge--light-pink
+            class="vs-canned-search-badges__badge vs-canned-search-badges__badge--open
             vs-canned-search-badges__badge--br"
         >
             {{ badgeThree }}
@@ -53,14 +53,14 @@ export default {
     release: '0.0.1',
     props: {
         /**
-        * Content for the top right, teal badge
+        * Content for the top right, category badge
         */
         badgeOne: {
             type: String,
             default: '',
         },
         /**
-        * Content for multiple top right, teal badges
+        * Content for multiple top right, category badges
         * Only appears if badgeOne not set
         *
         * Expects an array of strings
@@ -122,19 +122,19 @@ export default {
             white-space: nowrap;
             font-size: $font-size-3;
 
-            &--teal {
-                color: $color-white;
-                background-color: $color-secondary-teal-shade-3;
+            &--category {
+                color: $vs-color-text-inverse;
+                background-color: $vs-color-background-tertiary;
             }
 
-            &--pink {
-                color: $color-white;
-                background-color: $color_pink;
+            &--offer {
+                color: $vs-color-text-inverse;
+                background-color: $vs-color-background-accent-cuillin;
             }
 
-            &--light-pink {
-                background-color: $color_pink_tint_6;
-                color: $color_pink;
+            &--open {
+                color: $vs-color-text-tertiary;
+                background-color: $vs-color-background-information;
                 font-weight: $font-weight-bold;
             }
 

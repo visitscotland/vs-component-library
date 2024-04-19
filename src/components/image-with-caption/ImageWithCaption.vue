@@ -37,6 +37,7 @@
         <figcaption class="vs-image-with-caption__captions">
             <div
                 class="vs-image-with-caption__video-caption-wrapper"
+                :class="isHeroImage ? 'container-lg' : ''"
                 v-if="isVideo"
             >
                 <VsVideoCaption
@@ -612,14 +613,6 @@ export default {
 
             &__caption-wrapper {
                 display: block;
-            }
-
-            @include media-breakpoint-up(lg) {
-                &--video {
-                    .vs-image-with-caption__video-caption-wrapper {
-                        margin-bottom: $spacer-2;
-                    }
-                }
             }
         }
 

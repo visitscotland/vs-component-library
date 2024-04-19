@@ -49,6 +49,7 @@ export const Full = Template.bind({
 
 Full.args = {
     ...base,
+    isFull: true,
     currentStep: 5,
 };
 

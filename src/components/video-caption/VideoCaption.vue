@@ -58,7 +58,6 @@
             <VsWarning
                 size="small"
                 type="cookie"
-                :transparent="false"
             >
                 {{ noCookiesMessage }}
                 <template v-slot:button-text>
@@ -72,7 +71,6 @@
         >
             <VsWarning
                 size="small"
-                :transparent="false"
             >
                 {{ errorMessage }}
             </VsWarning>
@@ -84,7 +82,6 @@
         >
             <VsWarning
                 size="small"
-                :transparent="false"
             >
                 {{ noJsMessage }}
             </VsWarning>
@@ -308,7 +305,7 @@ export default {
                     padding: 0;
                 }
                 .vs-toggle-btn {
-                    top: calc(50% - 12px);
+                    top: calc(50% - 20px);
                 }
             }
         }

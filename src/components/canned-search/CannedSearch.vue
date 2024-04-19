@@ -95,7 +95,6 @@
                         <VsCannedSearchStars
                             :min="prod.grading.minStars"
                             :max="prod.grading.maxStars"
-                            :gold="prod.grading.gold"
                         />
                     </template>
                     <template

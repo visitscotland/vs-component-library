@@ -1,14 +1,14 @@
 <template>
     <div
         class="vs-warning"
-        :class="[warningClasses, transparent ? 'vs-warning--transparent' : '']"
+        :class="warningClasses"
         data-test="vs-warning"
     >
         <div class="vs-warning__content">
             <VsIcon
                 class="vs-warning__icon"
                 :name="icon"
-                v-bind="iconAttrs"
+                variant="tertiary"
             />
 
             <div>
@@ -72,16 +72,6 @@ export default {
             ),
         },
         /**
-        * Color theme - can be `light` or `dark`
-        */
-        theme: {
-            type: String,
-            default: 'dark',
-            validator: (value) => value.match(
-                /(light|dark)/,
-            ),
-        },
-        /**
         * Message size - can be `small` or `normal`
         */
         size: {
@@ -91,30 +81,11 @@ export default {
                 /(xs|small|normal)/,
             ),
         },
-        /**
-        * Alignment of message - can be `left` or `right`
-        */
-        align: {
-            type: String,
-            default: 'left',
-            validator: (value) => value.match(
-                /(left|right)/,
-            ),
-        },
-        /**
-        * Whether the background should be semi-transparent
-        */
-        transparent: {
-            type: Boolean,
-            default: true,
-        },
     },
     computed: {
         warningClasses() {
             return [
-                `vs-warning--${this.theme}`,
                 `vs-warning--${this.size}`,
-                `vs-warning--${this.align}`,
             ];
         },
         btnAttrs() {
@@ -129,18 +100,6 @@ export default {
 
             return attrsObj;
         },
-        iconAttrs() {
-            const iconAttrs = {
-            };
-
-            if (this.theme === 'dark') {
-                iconAttrs.variant = 'warning';
-            } else {
-                iconAttrs.variant = 'tertiary';
-            }
-
-            return iconAttrs;
-        },
     },
 };
 </script>
@@ -149,21 +108,17 @@ export default {
     .vs-warning {
         position: relative;
         display: flex;
-        align-items: flex-end;
+        align-items: flex-start;
         justify-content: flex-end;
         flex-direction: column;
         text-align: left;
         padding: $spacer-5;
-        background: $vs-color-background-information;
+        background: $vs-color-background-neutral;
         height: 100%;
         line-height: 1.1;
 
         @include media-breakpoint-up(lg) {
             padding: $spacer-9;
-        }
-
-        &--left {
-            align-items: flex-start;
         }
 
         &--small {
@@ -184,30 +139,9 @@ export default {
             }
         }
 
-        &--dark {
-            color: $vs-color-text-inverse;
-            background-color: $vs-color-background-bold;
-
-            .vs-link.vs-link--variant-primary{
-                color: $vs-color-text-accent-etive;
-            }
-
-            &.vs-warning--transparent {
-                background: $vs-color-background-bold;
-            }
-        }
-
-        &--right {
-            justify-content: flex-end;
-
-            .vs-warning__button {
-                display: flex;
-                margin-left: auto;
-            }
-        }
-
         &__icon {
             margin-right: $spacer-3;
+            line-height: $line-height-standard;
         }
 
         &__button {
@@ -220,7 +154,6 @@ export default {
 
         &__content {
             display: flex;
-            // flex-direction: row;
             align-items: flex-start;
             justify-content: flex-start;
             max-width: 80%;

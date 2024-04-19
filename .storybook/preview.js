@@ -24,7 +24,7 @@ const preview = {
             values: [
                 { name: 'Light', value: '#fff' },
                 { name: 'Grey', value: '#efefef' },
-                { name: 'Dark', value: '#191919' },
+                { name: 'Dark', value: '#271438' },
                 { name: 'Yellow', value: '#fcca1b' },
             ],
         },

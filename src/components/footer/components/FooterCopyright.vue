@@ -86,7 +86,7 @@ export default {
 
 <style lang="scss">
 .vs-footer-copyright {
-    border-top: 1px solid $vs-color-border;
+    border-top: 1px solid $vs-color-border-inverse;
     padding: $spacer-6 0;
 
     .vs-footer-copyright__logo {
@@ -96,15 +96,15 @@ export default {
             width: 166px;
         }
 
-        &.vs-link.primary{
+        &.vs-link{
             &:focus {
-                outline-color: #ffffff;
+                @extend %outline-link-focus-dark;
             }
         }
     }
 
     .vs-footer-copyright__text {
-        color: $color-white;
+        color: $vs-color-text-inverse;
         margin: 0;
         font-size: $font-size-2;
 

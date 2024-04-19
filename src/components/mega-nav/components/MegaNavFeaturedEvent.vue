@@ -94,15 +94,11 @@ export default {
 
 <style lang="scss">
     .card.vs-mega-nav-featured-event {
-        border-top: 1px solid #e0e0e0;
+        border-top: 1px solid $vs-color-border;
         margin-bottom: -#{$spacer-2};
 
         @include media-breakpoint-up(lg) {
             margin-bottom: $spacer-0;
-        }
-
-        &:hover {
-            box-shadow: -7px 12px 27px -13px rgba(0, 0, 0, 0.4);
         }
 
         &:focus {
@@ -121,9 +117,9 @@ export default {
             width: 80%;
             bottom: 0;
             left: 0;
-            background: $color-white;
+            background: $vs-elevation-surface-raised;
             padding: $spacer-0 $spacer-0 $spacer-4;
-            border-left: $spacer-1 solid $color-pink;
+            border-left: $spacer-1 solid $vs-color-border-tertiary;
 
             @include media-breakpoint-up(md) {
                 padding: $spacer-0;
@@ -142,7 +138,7 @@ export default {
             padding: $spacer-0 $spacer-5;
 
             @include media-breakpoint-up(lg) {
-                border-left: $spacer-1 solid $color-pink;
+                border-left: $spacer-1 solid $vs-color-border-tertiary;
             }
         }
 
@@ -153,10 +149,14 @@ export default {
             @include media-breakpoint-up(lg) {
                 margin-left: $spacer-0;
             }
+
+            &:hover {
+                text-decoration: none;
+            }
         }
 
         .vs-mega-nav-featured-event__date-range {
-            color: $color-pink;
+            color: $vs-color-text-tertiary;
             margin-bottom: $spacer-2;
             font-size: $small-font-size;
         }

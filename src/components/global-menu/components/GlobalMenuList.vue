@@ -2,9 +2,7 @@
     <VsList
         unstyled
         inline
-        class="
-            vs-global-menu__list
-        "
+        class="vs-global-menu__list"
     >
         <li
             v-for="site in websites"
@@ -68,44 +66,43 @@ export default {
     position: initial;
     flex: auto;
 
-    a {
-        color: white;
-        text-decoration: none;
-
-        &:hover {
-            background: $color-purple-shade-2;
-        }
-    }
-
     &_item {
         a {
+            color: $vs-color-text-inverse;;
+            text-decoration: none;
+            transition: $duration-base all;
             padding: 0 $spacer-5;
             line-height: 35px;
             height: 35px;
             display: inline-block;
 
             &:focus {
-                outline: 4px solid  $color-yellow;
-                outline-offset: -4px;
+                outline: 0;
+                box-shadow: $vs-box-shadow-focus-on-dark inset;
+            }
+
+            &:hover {
+                background: $vs-color-background-accent-heather;
             }
 
             &:active {
-                background: white;
-                color: $color-purple-shade-2;
+                background: $vs-color-background-inverse;
+                color: $vs-color-text;
                 outline: none;
             }
         }
 
         &--active {
             a {
-                background: $color-white;
-                color: $color-purple-shade-2;
+                background: $vs-color-background-inverse;
+                color: $vs-color-text;
 
                 &:hover {
-                    color: white;
+                    background: $vs-color-background-inverse;
                 }
                 &:active {
-                    background: $color-purple-shade-2;
+                    background: $vs-color-background-inverse;
+                    color: $vs-color-text;
                 }
             }
         }

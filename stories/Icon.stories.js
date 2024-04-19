@@ -6,7 +6,7 @@ export default {
     tags: ['autodocs'],
     argTypes: {
         variant: {
-            options: ['primary', 'secondary', 'light', 'dark', 'color-white', 'secondary-teal'],
+            options: ['default', 'primary', 'inverse', 'disabled', 'tertiary', 'danger', 'warning'],
             control: {
                 type: 'radio',
             },
@@ -48,7 +48,7 @@ const Template = (args) => ({
 
 const base = {
     name: 'user',
-    variant: 'dark',
+    variant: 'primary',
     size: 'lg',
 };
 

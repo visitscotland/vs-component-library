@@ -40,7 +40,7 @@ const Template = (args) => ({
             Play Video
         </VsButton>
 
-        <VsModal v-bind="args">
+        <VsModal v-bind="args" :class="args.jsDisabled ? 'no-js' : ''">
             <VsRow>
                 <VsCol cols="12">
                     <VsVideo
@@ -102,4 +102,37 @@ export const NoJavascript = Template.bind({
 NoJavascript.args = {
     ...base,
     jsDisabled: true,
+};
+
+NoJavascript.play = async({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByText('Play Video');
+
+    await userEvent.click(button);
+};
+
+export const NoCookies = Template.bind({
+});
+
+NoCookies.args = {
+    ...base,
+};
+
+NoCookies.decorators = [
+    () => {
+        window.bypassCookieChecks = false;
+
+        return {
+            template: `
+                <story/>
+            `,
+        };
+    },
+];
+
+NoCookies.play = async({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByText('Play Video');
+
+    await userEvent.click(button);
 };

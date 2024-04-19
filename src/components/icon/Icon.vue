@@ -265,7 +265,6 @@ $variants: (
 );
 
 .vs-icon {
-    color: $color-black;
     overflow: visible;
     pointer-events: none;
     line-height: 1;
@@ -298,11 +297,6 @@ $variants: (
     @each $variant in map-keys($variants) {
         &.vs-icon--variant-#{$variant} {
             color: map-get($variants, $variant);
-
-             &.icon--reverse {
-                color: $color-white;
-                background: map-get($variants, $variant);
-            }
         }
     }
 
