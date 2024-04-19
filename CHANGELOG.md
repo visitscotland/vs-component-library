@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.7](https://github.com/visitscotland/vs-component-library/compare/v1.2.6...v1.2.7) (2024-04-19)
+
+
+### 🐛 Bug Fixes
+
+* **datalayermixin.js:** map GTMData property to template property ([1c99679](https://github.com/visitscotland/vs-component-library/commit/1c996793bf7b227d137d5e71955ed5f68992dc6d))
+
+### [1.2.9](https://github.com/visitscotland/vs-component-library/compare/v1.2.6...v1.2.9) (2024-04-19)
+
+
+### 🐛 Bug Fixes
+
+* **datalayermixin.js:** map GTMData property to template property ([1c99679](https://github.com/visitscotland/vs-component-library/commit/1c996793bf7b227d137d5e71955ed5f68992dc6d))
+
+### [1.2.8](https://github.com/visitscotland/vs-component-library/compare/v1.2.6...v1.2.8) (2024-04-19)
+
+
+### 🐛 Bug Fixes
+
+* **datalayermixin.js:** map GTMData property to template property ([1c99679](https://github.com/visitscotland/vs-component-library/commit/1c996793bf7b227d137d5e71955ed5f68992dc6d))
+
+### [1.2.7](https://github.com/visitscotland/vs-component-library/compare/v1.2.6...v1.2.7) (2024-04-19)
+
+
+### 🐛 Bug Fixes
+
+* **datalayermixin.js:** map GTMData property to template property ([1c99679](https://github.com/visitscotland/vs-component-library/commit/1c996793bf7b227d137d5e71955ed5f68992dc6d))
+
+### [1.2.8](https://github.com/visitscotland/vs-component-library/compare/v1.2.6...v1.2.8) (2024-04-19)
+
+
+### 🐛 Bug Fixes
+
+* **datalayermixin.js:** map GTMData property to template property ([1c99679](https://github.com/visitscotland/vs-component-library/commit/1c996793bf7b227d137d5e71955ed5f68992dc6d))
+
+### [1.2.7](https://github.com/visitscotland/vs-component-library/compare/v1.2.6...v1.2.7) (2024-04-19)
+
+
+### 🐛 Bug Fixes
+
+* **datalayermixin.js:** map GTMData property to template property ([1c99679](https://github.com/visitscotland/vs-component-library/commit/1c996793bf7b227d137d5e71955ed5f68992dc6d))
+
 ### [1.2.6](https://github.com/visitscotland/vs-component-library/compare/v1.2.5...v1.2.6) (2024-03-25)
 
 
