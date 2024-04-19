@@ -171,8 +171,17 @@ IconOnlyLarge.args = {
     default: '',
 };
 
-export const IconPrimaryWithText = Template.bind();
-IconPrimaryWithText.args = {
+export const IconWithText = Template.bind();
+IconWithText.args = {
+    ...base,
+    variant: 'transparent',
+    icon: 'share',
+    iconWithText: true,
+    default: 'Share',
+};
+
+export const IconWithTextOnDark = Template.bind();
+IconWithTextOnDark.args = {
     ...base,
     variant: 'transparent',
     icon: 'close-circle',
@@ -181,7 +190,7 @@ IconPrimaryWithText.args = {
     onDark: true,
 };
 
-IconPrimaryWithText.parameters = {
+IconWithTextOnDark.parameters = {
     backgrounds: {
         default: 'Dark',
     },

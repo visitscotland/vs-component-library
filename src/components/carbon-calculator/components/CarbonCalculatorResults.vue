@@ -126,7 +126,7 @@ import {
     Bar,
     Responsive,
 } from 'vue3-charts';
-import dataLayerMixin from '@/mixins/dataLayerMixin';
+import dataLayerMixin from '../../../mixins/dataLayerMixin';
 
 /**
  * @displayName Carbon Form Results
@@ -404,7 +404,7 @@ export default {
     }
 
     .vs-carbon-calculator-results__unicorn {
-        box-shadow: $shadow_card_tight;
+        box-shadow: $vs-elevation-shadow-raised;
         padding: $spacer-4;
         background-color: $vs-color-background-accent-limestone;
         margin-bottom: $spacer-8;

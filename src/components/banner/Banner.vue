@@ -186,7 +186,6 @@ export default {
     }
 
     &__title.vs-heading {
-        color: $color-purple;
         margin-bottom: $spacer-2;
 
         .vs-icon {

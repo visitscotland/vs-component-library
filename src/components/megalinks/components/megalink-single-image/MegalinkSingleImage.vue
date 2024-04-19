@@ -108,14 +108,6 @@ export default {
             type: String,
             default: '',
         },
-        /**
-        * The component theme
-        */
-        theme: {
-            type: String,
-            default: 'light',
-            validator: (value) => value.match(/(light|grey)/),
-        },
     },
     data() {
         return {
@@ -126,7 +118,6 @@ export default {
     computed: {
         singleImageClasses() {
             return [
-                `vs-megalink-single-image--${this.theme}`,
                 this.alternate ? 'vs-megalink-single-image--alternate' : '',
             ];
         },
@@ -243,7 +234,7 @@ export default {
                 min-height: 100%;
                 padding: $spacer-9 $spacer-9 $spacer-9 $spacer-9;
                 margin: 0;
-                background: $color-white;
+                background: $vs-color-background-inverse;
             }
 
             .vs-megalink-single-image__image-container {

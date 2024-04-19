@@ -190,7 +190,7 @@ export default {
 
     .key-facilities-list {
         &.has-facilities {
-            border-top: 1px solid $color-gray-tint-5;
+            border-top: 1px solid $vs-color-border;
             padding-top: $spacer-4;
 
             @include media-breakpoint-up(sm) {
@@ -199,7 +199,7 @@ export default {
             }
 
             @include media-breakpoint-up(lg) {
-                border-left: 1px solid $color-gray-tint-5;
+                border-left: 1px solid $vs-color-border;
             }
 
             .vs-icon-list {
@@ -208,7 +208,7 @@ export default {
                 }
 
                 @include media-breakpoint-up(sm) {
-                    border-top: 1px solid $color-gray-tint-5;
+                    border-top: 1px solid $vs-color-border;
                     padding-top: $spacer-4;
 
                     .vs-icon-list__item {

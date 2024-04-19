@@ -100,7 +100,7 @@ export default {
         }
 
         .dropdown-item {
-            color: $color-white;
+            color: $vs-color-text-inverse;
             text-decoration: underline;
             font-size: $font-size-4;
 
