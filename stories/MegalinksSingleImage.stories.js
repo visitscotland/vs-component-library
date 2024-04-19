@@ -52,7 +52,6 @@ const Template = (args) => ({
                 <vs-megalink-single-image
                     :title="args.subTitle"
                     :buttonLink="args.buttonLink"
-                    :theme="args.theme"
                     :alternate="args.alternate"
                 >
                     <template v-slot:vs-single-image>

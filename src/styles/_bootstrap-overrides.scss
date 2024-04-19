@@ -10,11 +10,6 @@ $enable-negative-margins: true;
 // Responsive font sizes
 $enable-responsive-font-sizes: true;
 
-
-/* Colors */
-$white: $color-white;
-$black: $color-black;
-
 $theme-colors: (
     primary: $vs-color-primary,
     success: $vs-color-success,
@@ -130,3 +125,6 @@ $enable-smooth-scroll: false;
 
 /* Forms */
 $input-placeholder-color: $vs-color-text-subtle;
+
+/* Tooltips */
+$tooltip-bg: $vs-color-background-bold;

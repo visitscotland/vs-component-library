@@ -214,7 +214,7 @@ export default {
                 bottom: $spacer-1;
                 height: 1px;
                 width: calc(100% - 24px);
-                background: $color-gray-tint-5;
+                background: $vs-color-border;
 
                 @include media-breakpoint-up(sm) {
                     width: calc(100% - 40px);

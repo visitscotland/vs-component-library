@@ -4,9 +4,6 @@ export default {
     component: VsSocialCreditLink,
     title: 'SocialCreditLink',
     tags: ['autodocs'],
-    decorators: [() => ({
-        template: '<div style="background-color: #000;" class="p-4"><story /></div>',
-    })],
 };
 
 const Template = (args) => ({
@@ -33,3 +30,9 @@ export const Default = Template.bind({
 });
 
 Default.args = base;
+
+Default.parameters = {
+    backgrounds: {
+        default: 'Dark',
+    },
+};
