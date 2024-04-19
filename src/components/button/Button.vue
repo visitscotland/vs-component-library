@@ -263,15 +263,6 @@ export default {
                 $vs-color-text-primary, $vs-color-background-active, $vs-color-background-active,
                 $vs-color-text-primary, $vs-color-background-inverse, $vs-color-border-primary,
             );
-
-            &.vs-button--on-dark {
-                @include vs-button-variant(
-                    $color-theme-dark, $color-yellow, $color-yellow,
-                    $color-theme-dark, $color-yellow-tint-2, $color-yellow-tint-2,
-                    $color-theme-dark, $color-yellow-tint-2, $color-yellow-tint-2,
-                    $color-yellow, $color-theme-dark, $color-yellow,
-                );
-            }
         }
 
         &.btn-secondary {
@@ -281,15 +272,6 @@ export default {
                 $vs-color-text-primary, $vs-color-background-active, $vs-color-background-active,
                 $vs-color-text-inverse, $vs-color-background-primary, $vs-color-border-focus,
             );
-
-            &.vs-button--on-dark {
-                @include vs-button-variant(
-                    $color-yellow, $color-theme-dark, $color-yellow,
-                    $color-theme-dark, $color-yellow, $color-yellow,
-                    $color-theme-dark, $color-yellow, $color-yellow,
-                    $color-theme-dark, $color-yellow, $color-yellow,
-                );
-            }
         }
 
         &.btn-transparent {
@@ -307,11 +289,15 @@ export default {
 
                 &.vs-button--on-dark {
                     @include vs-button-variant(
-                        $color-white, transparent, transparent,
-                        $color-gray-tint-6, transparent, transparent,
-                        $color-gray-tint-6, transparent, transparent,
-                        $color-white, transparent, transparent,
+                        $vs-color-text-inverse, transparent, transparent,
+                        $vs-color-text-inverse, transparent, transparent,
+                        $vs-color-text-inverse, transparent, transparent,
+                        $vs-color-text-inverse, transparent, transparent,
                     );
+
+                    &:hover .vs-button__text {
+                        text-decoration: none;
+                    }
 
                     &:focus {
                         box-shadow: $vs-box-shadow-focus-on-dark inset;

@@ -31,11 +31,11 @@
                 <slot name="centre-name" />
             </VsHeading>
             <div
-                class="text-center pt-8 py-4 position-relative"
+                class="text-center pb-8 position-relative"
                 v-if="jsDisabled || isLoading || displayError"
             >
                 <template v-if="!jsDisabled && isLoading">
-                    <VsLoadingSpinner />
+                    <VsLoadingSpinner class="mb-4 d-block" />
                     <!--
                         @slot Slot for data loading message
                         Expects text
@@ -213,17 +213,10 @@
                 vs-ski-scotland-card__button-holder--left"
             >
                 <VsButton
-                    v-if="pisteMapLink"
                     variant="secondary"
                     :href="pisteMapLink"
                     size="sm"
-                >
-                    {{ pisteMapLabel }}
-                </VsButton>
-                <VsButton
-                    v-else
-                    disabled
-                    size="sm"
+                    :disabled="!pisteMapLink ? true : false"
                 >
                     {{ pisteMapLabel }}
                 </VsButton>
@@ -603,10 +596,11 @@ export default {
 
 <style lang="scss">
     .vs-ski-scotland-card {
+        background: $vs-elevation-surface-raised;
+        box-shadow: $vs-elevation-shadow-raised;
         border: none;
         border-radius: $border_radius_xl;
         overflow: hidden;
-        box-shadow: $shadow_card_dark;
         margin-bottom: $spacer-9;
         height: calc(100% - #{$spacer-9});
 
@@ -685,14 +679,6 @@ export default {
             &.disabled {
                 margin-bottom: 2px;
             }
-        }
-
-        .vs-loading-spinner {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 0.5rem;
-            width: auto;
         }
     }
 

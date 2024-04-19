@@ -90,10 +90,10 @@ ExtraContent.args = {
     ctaLink: 'info@visitscotland.com',
 };
 
-export const WithButton = Template.bind({
+export const NoCookies = Template.bind({
 });
 
-WithButton.args = {
+NoCookies.args = {
     ...base,
     type: 'cookie',
     default: 'Cookies need to be enabled to watch this video',
@@ -119,4 +119,5 @@ DifferentIcon.args = {
     ...base,
     default: 'You have 10 minutes before this form times out',
     icon: 'clock',
+    size: 'small',
 };

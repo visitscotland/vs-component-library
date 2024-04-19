@@ -138,7 +138,7 @@ export default {
         &__embed {
             &--error {
                 & > div {
-                    outline: 2px solid $color-theme-danger;
+                    outline: 2px solid $vs-color-border-danger;
                     margin-top: $spacer-2;
                 }
             }

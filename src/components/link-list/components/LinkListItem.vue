@@ -3,7 +3,6 @@
         <VsLink
             :href="href"
             :type="type == 'video' ? 'default' : type"
-            :variant="variant"
             :role="type == 'video' ? 'button' : null"
             @click="emitShowModal"
         >
@@ -52,15 +51,6 @@ export default {
             type: String,
             default: 'default',
             validator: (value) => value.match(/(default|external|internal|download|video)/),
-        },
-        /**
-         * Option to choose a pre-defined style variant
-         * `primary, on-dark`
-         */
-        variant: {
-            type: String,
-            default: 'primary',
-            validator: (value) => value.match(/(primary|on-dark)/),
         },
         /**
          * The video id that a video type link should open

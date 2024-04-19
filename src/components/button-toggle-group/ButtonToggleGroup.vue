@@ -167,6 +167,7 @@ export default {
 
             label.btn-secondary {
                 @extend %button-default-styles;
+                color: $vs-color-text-inverse;
                 transition: none;
                 padding-top: $spacer-2;
                 margin-bottom: $spacer-0;
@@ -176,6 +177,7 @@ export default {
 
                 .vs-icon{
                     transition: none;
+                    color: $vs-color-text-inverse;
                 }
 
                 & > span {
@@ -192,6 +194,11 @@ export default {
                 &:hover {
                     background-color: $vs-color-background-hover;
                     border-color: $vs-color-background-hover;
+                    color: $vs-color-text-inverse;
+
+                    .vs-icon {
+                        color: $vs-color-text-inverse;
+                    }
                 }
             }
         }
@@ -222,15 +229,6 @@ export default {
                 padding: 0 $spacer-6;
             }
 
-            label {
-                @include vs-button-variant(
-                    $color-white, $vs-color-background-tertiary, $vs-color-border-tertiary,
-                    $color-white, $color-purple-shade-2, $color-purple-shade-2,
-                    $color-white, $color-purple-shade-2, $color-purple-shade-2,
-                    $color-purple, $color-white, $color-purple,
-                );
-            }
-
             &:not(:disabled):not(.disabled).active {
                 label {
                     z-index: 2;
@@ -238,18 +236,18 @@ export default {
                     cursor: default;
 
                     @include vs-button-variant(
-                        $vs-color-text-tertiary, $color-white, $vs-color-border-tertiary,
-                        $vs-color-text-tertiary, $color-white, $vs-color-border-tertiary,
-                        $vs-color-text-tertiary, $color-white, $vs-color-border-tertiary,
-                        $vs-color-text-tertiary, $color-white, $vs-color-border-tertiary,
+                        $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
+                        $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
+                        $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
+                        $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
                     );
 
                     @include media-breakpoint-up(lg) {
                         @include vs-button-variant(
-                            $vs-color-text-tertiary, $color-white, $vs-color-border-tertiary,
-                            $vs-color-text-tertiary, $color-white, $vs-color-border-tertiary,
-                            $vs-color-text-tertiary, $color-white, $vs-color-border-tertiary,
-                            $vs-color-text-tertiary, $color-white, $vs-color-border-tertiary,
+                            $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
+                            $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
+                            $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
+                            $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
                         );
                     }
                 }

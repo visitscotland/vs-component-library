@@ -78,7 +78,7 @@ export default {
             type: String,
             default: 'normal',
             validator: (value) => value.match(
-                /(xs|small|normal)/,
+                /(small|normal)/,
             ),
         },
     },

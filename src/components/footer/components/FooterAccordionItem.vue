@@ -106,13 +106,13 @@ export default {
     .vs-accordion-item__title.vs-heading {
         margin: $spacer-3 0;
         background-color: $vs-color-background-bold;
-        color: $color-white;
+        color: $vs-color-text-inverse;
         padding: 0;
     }
 
      .vs-accordion-item__panel.card-body {
         background-color: $vs-color-background-bold;
-        color: $color-white;
+        color: $vs-color-text-inverse;
         border-top: 1px solid $vs-color-border-inverse;
     }
 

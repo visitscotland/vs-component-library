@@ -39,7 +39,7 @@ BUTTON STYLES
 %primary-button-focus {
     box-shadow: 
         0 0 0 2px $vs-color-background-inverse inset, 
-        0 0 0 3px $vs-color-border-primary inset;
+        0 0 0 3px $vs-color-border-focus inset;
 }
 
 %button-disabled { 

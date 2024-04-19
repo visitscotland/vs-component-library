@@ -730,17 +730,6 @@ export default {
             margin-bottom: 0;
         }
 
-        .error {
-            font-size: $font-size-body;
-            color: $color-theme-danger;
-        }
-
-        .hint-text {
-            font-size: $font-size-body;
-            color: $color-gray-shade-1;
-            margin-bottom: 0;
-        }
-
         fieldset {
             > div {
                 margin-bottom: $spacer-6;
