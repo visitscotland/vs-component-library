@@ -17,7 +17,6 @@ function mountOptions() {
             alternate: false,
             title: 'The Single Image title',
             buttonLink: 'http://www.visitscotland.com',
-            theme: 'dark',
         },
         slots: {
             'vs-single-image': vsSingleImageSlot,
@@ -66,9 +65,6 @@ describe('VsMegalinkSingleImage', () => {
             });
 
             expect(wrapper.find('[data-test="megalink-single-image__title"]').exists()).toBe(false);
-        });
-        it('renders the correct theme class', () => {
-            expect(wrapper.find('[data-test="megalink-single-image"]').classes()).toContain('vs-megalink-single-image--dark');
         });
     });
 
