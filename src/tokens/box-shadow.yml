@@ -4,10 +4,6 @@
 #
 
 props:
-  shadow_card:
-    value: "10px 10px 20px $color-gray-tint-4"
-  shadow_popover:
-    value: "0 0px 20px rgba(0, 0, 0, 0.3)"
   vs-box-shadow-focus:
     value: "0 0 0 2px $vs-color-border-focus"
   vs-box-shadow-focus-on-dark:
