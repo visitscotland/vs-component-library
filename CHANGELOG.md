@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/visitscotland/vs-component-library/compare/v2.0.0...v2.0.1) (2024-04-23)
+
+
+### 🔖 Others
+
+* **tokens:** remove unused color.yml ([fd77b15](https://github.com/visitscotland/vs-component-library/commit/fd77b150b32c3dd9a09adcfdd0d67641ba17b4cd))
+
+
+### 🎨 Styling
+
+* **cludo:** rebrand cludo search colours ([3262fd8](https://github.com/visitscotland/vs-component-library/commit/3262fd8bfbb1547010f948bedf4abbe1fa4e0483))
+* **tabs:** fix tab border ([1e4a439](https://github.com/visitscotland/vs-component-library/commit/1e4a439463f169786d12f8509963a2989eeef19b))
+* **tabs:** remove border on tabs no-js ([ba81c1e](https://github.com/visitscotland/vs-component-library/commit/ba81c1e13d52d6d157b15fb911065434aae8f475))
+
 ## [2.0.0](https://github.com/visitscotland/vs-component-library/compare/v1.2.7...v2.0.0) (2024-04-19)
 
 
