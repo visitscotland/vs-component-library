@@ -99,6 +99,7 @@ export default {
             position: relative;
             display: block!important;
             margin-bottom: $spacer-9;
+            border: 0;
         }
 
         .nav-tabs {
