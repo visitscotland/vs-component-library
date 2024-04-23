@@ -41,7 +41,6 @@ export default {
             font-weight: $font-weight-bold;
             border-width: 1px;
             border-color: $vs-color-background-neutral;
-            border-right-color: $vs-color-border-inverse;
             padding: $spacer-3;
             font-size: $font-size-6;
             transition: $duration-base all;
@@ -50,7 +49,6 @@ export default {
 
             &:hover:not(.active) {
                 border-color: $vs-color-background-neutral;
-                border-right-color: $vs-color-border-inverse;
                 background-color: $vs-color-background-hover;
                 color: $vs-color-text-inverse;
             }
@@ -86,6 +84,8 @@ export default {
             background-color: $vs-color-background-inverse;
             color: $vs-color-text;
             text-align: left;
+            border: 1px solid $vs-color-border;
+            border-top: 0;
 
             .vs-heading{
                 display: none;
@@ -99,6 +99,7 @@ export default {
             position: relative;
             display: block!important;
             margin-bottom: $spacer-9;
+            border: 0;
         }
 
         .nav-tabs {

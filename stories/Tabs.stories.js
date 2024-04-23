@@ -96,6 +96,17 @@ DisabledTab.args = {
     disabled: true,
 };
 
+export const GreyTheme = Template.bind({
+});
+
+GreyTheme.args = base;
+
+GreyTheme.parameters = {
+    backgrounds: {
+        default: 'Grey',
+    },
+};
+
 export const NoJavascript = Template.bind({
 });
 

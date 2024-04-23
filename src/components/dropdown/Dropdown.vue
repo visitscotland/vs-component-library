@@ -85,16 +85,20 @@ export default {
             }
 
             .dropdown-item{
-                &.active {
-                    border: 2px solid $vs-color-border-focus;
+                &.active, &:active {
                     color: $vs-color-text-primary;
                     background-color: $vs-color-background-active;
                 }
 
-                &:hover, &:focus {
+                &:hover {
                     color: $vs-color-text-inverse;
                     background-color: $vs-color-background-hover;
                     outline: 0;
+                }
+
+                &:focus {
+                    outline: 0;
+                    box-shadow: $vs-box-shadow-focus inset;
                 }
             }
         }

@@ -140,7 +140,7 @@ export default {
             const img = imgWithCaption.querySelector('img');
 
             img.addEventListener('load', () => {
-                const offsetPercentToMiddle = img.clientHeight / 2 / img.clientWidth;
+                const offsetPercentToMiddle = img.clientHeight / 2.5 / img.clientWidth;
                 this.negativeMargin = `${offsetPercentToMiddle * 100}%`;
                 this.imageHeight = `${img.clientHeight}px`;
             });

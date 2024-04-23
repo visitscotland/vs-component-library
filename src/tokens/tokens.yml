@@ -12,7 +12,6 @@ imports:
   - ./color-text.yml
   - ./elevation-shadow.yml
   - ./elevation-surface.yml
-  - ./color.yml
   - ./font-size.yml
   - ./font-weight.yml
   - ./font.yml
