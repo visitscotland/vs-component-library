@@ -72,6 +72,7 @@ export { default as VsMegaNavListItem } from './mega-nav/components/MegaNavListI
 export { default as VsMegaNavAccordionItem } from './mega-nav/components/MegaNavAccordionItem.vue';
 export { default as VsMegaNavFeaturedItem } from './mega-nav/components/MegaNavFeaturedItem.vue';
 export { default as VsMegaNavFeaturedEvent } from './mega-nav/components/MegaNavFeaturedEvent.vue';
+export { default as VsMegaNavStaticLink } from './mega-nav/components/MegaNavStaticLink.vue';
 export { default as VsMegalinks } from './megalinks/Megalinks.vue';
 export { default as VsMegalinkLinkList } from './megalinks/components/megalink-link-list/MegalinkLinkList.vue';
 export { default as VsMegalinkMultiImage } from './megalinks/components/megalink-multi-image/MegalinkMultiImage.vue';
