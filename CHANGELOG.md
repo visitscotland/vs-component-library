@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.27](https://github.com/visitscotland/vs-component-library/compare/v0.0.26...v0.0.27) (2024-04-24)
+
+
+### ✨ Features
+
+* **nav:** add mobile static link options ([a4adf8f](https://github.com/visitscotland/vs-component-library/commit/a4adf8f46f97d2ecd930265766ebcf36d7102515))
+
 ### [0.0.26](https://github.com/visitscotland/vs-component-library/compare/v0.0.25...v0.0.26) (2024-04-24)
 
 
