@@ -7,10 +7,12 @@ import VsMegaNavListItem from '@/components/mega-nav/components/MegaNavListItem.
 import VsMegaNavAccordionItem from '@/components/mega-nav/components/MegaNavAccordionItem.vue';
 import VsMegaNavFeaturedItem from '@/components/mega-nav/components/MegaNavFeaturedItem.vue';
 import VsMegaNavFeaturedEvent from '@/components/mega-nav/components/MegaNavFeaturedEvent.vue';
+import VsMegaNavStaticLink from '@/components/mega-nav/components/MegaNavStaticLink.vue';
 
 import VsAccordion from '@/components/accordion/Accordion.vue';
 
 import navExample from '@/assets/fixtures/header/main-nav.json';
+import staticNavExample from '@/assets/fixtures/header/static-nav.json';
 
 export default {
     component: VsMeganav,
@@ -39,11 +41,13 @@ const Template = (args) => ({
         VsMegaNavListItem,
         VsMegaNavFeaturedItem,
         VsMegaNavFeaturedEvent,
+        VsMegaNavStaticLink,
     },
     setup() {
         return {
             args,
             navExample,
+            staticNavExample,
         };
     },
     template: `   
@@ -51,7 +55,23 @@ const Template = (args) => ({
             <VsMeganav
                 v-bind="args"
             >
-                <template #mega-nav-top-menu-items>
+                <template
+                    #mega-nav-top-menu-items
+                    v-if="!args.dropdownNav"
+                >
+                    <VsMegaNavStaticLink
+                        v-for="(item, index) in staticNavExample"
+                        :key="index"
+                        :href="item.href"
+                    >
+                        {{ item.title }}
+                    </VsMegaNavStaticLink>
+                </template>
+
+                <template
+                    #mega-nav-top-menu-items
+                    v-if="args.dropdownNav"
+                >
                     <VsMegaNavDropdownContainer
                         v-for="(item, index) in navExample"
                         :key="index"
@@ -227,6 +247,7 @@ const base = {
     'mega-nav-top-menu-items': '',
     'mega-nav-accordion-items': '',
     jsDisabled: false,
+    dropdownNav: true,
 };
 
 export const Default = Template.bind({
@@ -285,6 +306,14 @@ export const NoSearch = Template.bind({
 NoSearch.args = {
     ...base,
     noSearch: true,
+};
+
+export const StaticNav = Template.bind({
+});
+
+StaticNav.args = {
+    ...base,
+    dropdownNav: false,
 };
 
 export const NoJavascript = Template.bind({
