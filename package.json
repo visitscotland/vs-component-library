@@ -1,6 +1,6 @@
 {
   "name": "@visitscotland/component-library-export",
-  "version": "0.0.25",
+  "version": "0.0.26",
   "description": "VisitScotland Component Library With Component Export (Beta)",
   "author": "VisitScotland",
   "main": "dist/ssr/index.js",

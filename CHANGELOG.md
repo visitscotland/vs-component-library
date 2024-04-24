@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.26](https://github.com/visitscotland/vs-component-library/compare/v0.0.25...v0.0.26) (2024-04-24)
+
+
+### ✨ Features
+
+* **export:** add new comp to export index ([5157e26](https://github.com/visitscotland/vs-component-library/commit/5157e26818b1537b7b2abee627ac2bd03a0822ef))
+
 ### [0.0.25](https://github.com/visitscotland/vs-component-library/compare/v0.0.24...v0.0.25) (2024-04-24)
 
 
