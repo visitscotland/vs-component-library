@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.25](https://github.com/visitscotland/vs-component-library/compare/v0.0.24...v0.0.25) (2024-04-24)
+
+
+### ✨ Features
+
+* **meganav:** implement Static link ([1111d5a](https://github.com/visitscotland/vs-component-library/commit/1111d5a4ca5dbb3126479d7ada1eedb55dbb5291))
+
 ### [0.0.24](https://github.com/visitscotland/vs-component-library/compare/v0.0.23...v0.0.24) (2024-04-18)
 
 
