@@ -150,7 +150,24 @@ const Template = (args) => ({
                     </VsMegaNavDropdownContainer>
                 </template>
 
-                <template v-slot:mega-nav-accordion-items>
+                <template
+                    v-slot:mega-nav-accordion-items
+                    v-if="!args.dropdownNav"
+                >
+                    <VsMegaNavStaticLink
+                        v-for="(item, index) in staticNavExample"
+                        :key="index"
+                        :href="item.href"
+                        :is-full-width="true"
+                    >
+                        {{ item.title }}
+                    </VsMegaNavStaticLink>
+                </template>
+
+                <template
+                    v-slot:mega-nav-accordion-items
+                    v-if="args.dropdownNav"
+                >
                     <VsAccordion>
                         <VsMegaNavAccordionItem
                             v-for="(item, mobileItemIndex) in navExample"

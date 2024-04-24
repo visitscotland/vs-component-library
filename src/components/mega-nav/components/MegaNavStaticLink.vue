@@ -1,6 +1,7 @@
 <template>
     <li
         class="vs-mega-nav-static-link"
+        :class="isFullWidth ? 'vs-mega-nav-static-link--full-width' : ''"
         data-test="vs-mega-nav-static-link"
         role="presentation"
     >
@@ -43,6 +44,14 @@ export default {
             type: String,
             default: '#',
         },
+        /**
+         * If the should fill the full width of its container, usually in
+         * a dropdown on mobile
+         */
+        isFullWidth: {
+            type: Boolean,
+            default: false,
+        },
     },
 };
 </script>
@@ -69,6 +78,16 @@ export default {
             &::after{
                 display: none;
             }
+        }
+
+        &--full-width {
+            background: white;
+            list-style: none;
+            margin: 0;
+            padding: 0.75rem 1.25rem;
+            border-top: 1px solid $color-gray-tint-6;
+            font-size: $font-size-5;
+            line-height: $line-height-s;
         }
 
         .vs-mega-nav-static-link__inner {
