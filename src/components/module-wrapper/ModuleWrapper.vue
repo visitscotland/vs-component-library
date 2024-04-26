@@ -81,7 +81,7 @@ export default {
         theme: {
             type: String,
             default: 'light',
-            validator: (value) => value.match(/(light|grey)/),
+            validator: (value) => value.match(/(light|grey|neutral)/),
         },
     },
 };
@@ -113,6 +113,10 @@ export default {
 
         &--grey {
             background-color: $vs-color-background-information;
+        }
+
+        &--neutral {
+            background-color: $vs-color-background-neutral;
         }
     }
 
