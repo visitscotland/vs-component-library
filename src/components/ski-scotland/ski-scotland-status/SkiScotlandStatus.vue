@@ -498,7 +498,7 @@ import VsAccordionItem from '@/components/accordion/components/AccordionItem.vue
 import VsWarning from '@/components/warning/Warning.vue';
 import {
     VsContainer, VsRow, VsCol,
-} from '@components/grid';
+} from '@/components/grid';
 import VsIcon from '@/components/icon/Icon.vue';
 import VsLink from '@/components/link/Link.vue';
 import VsHeading from '@/components/heading/Heading.vue';

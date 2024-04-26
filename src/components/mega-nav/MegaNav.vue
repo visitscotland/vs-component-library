@@ -106,7 +106,7 @@
 <script>
 import {
     VsCol, VsRow, VsContainer,
-} from '@components/grid';
+} from '@/components/grid';
 import VsSvgLink from '@/components/svg-link/SvgLink.vue';
 import VsMegaNavTopMenu from '@/components/mega-nav/components/MegaNavTopMenu.vue';
 import VsMegaNavMobileMenu from '@/components/mega-nav/components/MegaNavMobileMenu.vue';
