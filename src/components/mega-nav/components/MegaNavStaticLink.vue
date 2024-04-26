@@ -73,7 +73,7 @@ export default {
         }
 
         &:focus {
-            box-shadow: $shadow-button-focus inset;
+            box-shadow: $vs-box-shadow-focus inset;
 
             &::after{
                 display: none;
@@ -85,7 +85,7 @@ export default {
             list-style: none;
             margin: 0;
             padding: 0.75rem 1.25rem;
-            border-top: 1px solid $color-gray-tint-6;
+            border-top: 1px solid $vs-color-border;
             font-size: $font-size-5;
             line-height: $line-height-s;
         }
@@ -93,7 +93,7 @@ export default {
         .vs-mega-nav-static-link__inner {
             position: relative;
             text-decoration: none;
-            color: $color-base-text;
+            color: $vs-color-text;
             padding: $spacer-3 $spacer-2;
             margin: $spacer-0 $spacer-0;
 
@@ -109,14 +109,14 @@ export default {
                 left: $spacer-1;
                 width: 0;
                 height: 4px;
-                background: $color-pink;
+                background: $vs-color-link;
                 transition: width $duration-base linear;
                 border: 0;
                 margin: 0;
             }
 
             &:hover {
-                color: $color-pink;
+                color: $vs-color-link;
 
                 &::after {
                     width: calc(100% - #{$spacer-2});
