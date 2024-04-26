@@ -26,8 +26,6 @@
     "lint:build": "yarn lint \"build/*.{js,vue,ts}\"",
     "lint:stories": "yarn lint \"stories/**/*.{js,vue,ts}\"",
     "lint:fix": "yarn lint \"src/**/*.{js,vue,ts}\" \"stories/**/*.js\" --fix",
-    "lint:style": "stylelint",
-    "lint:style:all": "lint:style \"src/**/*.{vue,scss}\"",
     "theo": "theo ./src/tokens/tokens.yml --transform web --format map.scss,scss,raw.json,json --dest ./src/assets/tokens",
     "third-party": "webpack --config ./build/third-party.webpack.conf.js",
     "commit": "cz",
@@ -36,6 +34,9 @@
     "release:patch": "standard-version --release-as patch",
     "release:minor": "standard-version --release-as minor",
     "release:major": "standard-version --release-as major"
+  },
+  "lint-staged": {
+    "*.{js,vue,ts}": "eslint"
   },
   "repository": {
     "type": "git",
@@ -97,6 +98,7 @@
     "jest-axe": "^8.0.0",
     "jest-environment-jsdom": "^29.5.0",
     "jest-serializer-vue": "^3.1.0",
+    "lint-staged": "^15.2.2",
     "mini-css-extract-plugin": "^2.7.5",
     "moxios": "^0.4.0",
     "node-polyfill-webpack-plugin": "^2.0.1",
