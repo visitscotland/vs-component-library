@@ -113,9 +113,9 @@ export default {
         bottom: 0;
         padding: $spacer-4 0;
         width: 100%;
-        background: $color-white;
+        background: $vs-color-background-inverse;
         text-align: center;
-        box-shadow: 0px -12px 10px -10px #c69fbc;
+        box-shadow: 0px -5px 10px 0px $vs-color-background-inverse;
 
         @include media-breakpoint-up(lg) {
             padding: $spacer-4;

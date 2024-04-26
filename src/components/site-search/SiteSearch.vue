@@ -2,10 +2,10 @@
     <VsButton
         data-test="vs-site-search"
         class="vs-site-search"
+        :class="isShowing ? 'vs-site-search--active' : ''"
         icon="search"
         size="md"
         :animate="false"
-        :variant="isShowing ? 'light' : 'primary'"
         @click="toggleAction"
         id="site-search-btn"
     >
@@ -68,7 +68,7 @@ export default {
 </script>
 
 <style lang="scss">
-.vs-site-search {
+.vs-site-search.vs-button.btn-primary {
     z-index: 1;
     height: 45px;
     align-items: center;
@@ -79,6 +79,23 @@ export default {
 
     &.vs-button.btn-md{
         padding: $spacer-2;
+    }
+
+    &.vs-site-search--active, &:active, &:active:focus{
+        background-color: $vs-color-background-active;
+        border-color: $vs-color-background-active;
+        color: $vs-color-text-primary;
+
+        .vs-icon {
+            color: $vs-color-text-primary;
+        }
+
+        &:focus {
+            @extend %primary-button-focus;
+            background-color: $vs-color-background-inverse;
+            border-color: $vs-color-border-primary;
+            color: $vs-color-text-primary;
+        }
     }
 
     @include media-breakpoint-down(xxl) {

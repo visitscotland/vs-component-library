@@ -40,6 +40,10 @@ const Template = (args) => ({
                 >
                     <template v-if="${'vs-carousel-slide-heading' in args}" v-slot:vs-carousel-slide-heading>${args['vs-carousel-slide-heading']}</template>
                 </VsCarouselSlide>
+
+                <template v-slot:vs-carousel-of>
+                    of
+                </template>
             </VsCarousel>
         </div>
     `,
@@ -78,6 +82,17 @@ WithPanels.args = {
     days: '14',
     transport: 'bus',
     transportName: 'Bus',
+};
+
+export const Mobile = Template.bind({
+});
+
+Mobile.args = base;
+
+Mobile.parameters = {
+    viewport: {
+        defaultViewport: 'mobile2',
+    },
 };
 
 export const NoJavascript = Template.bind({

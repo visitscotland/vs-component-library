@@ -74,7 +74,9 @@ const handleRemove = () => {
             size="sm"
             v-if="name !== 'r1'"
         >
-            {{ removeText }}
+            <span class="visually-hidden">
+                {{ removeText }}
+            </span>
         </VsButton>
 
         <div v-if="unitOptions" class="c-search__rooms-guests-picker__row">
@@ -125,7 +127,7 @@ const handleRemove = () => {
 <style lang="scss">
     .vs-guest-selector-row {
         position: relative;
-        border-bottom: 1px solid $color-gray-tint-5;
+        border-bottom: 1px solid $vs-color-border;
         margin-bottom: $spacer-4;
 
         &:last-of-type{

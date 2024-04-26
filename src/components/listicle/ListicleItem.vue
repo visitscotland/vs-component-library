@@ -110,7 +110,7 @@ export default {
     }
 
     .count {
-        color: $color-white;
+        color: $vs-color-text-inverse;
         font-family: $headings-font-family;
         font-size: $font-size-8;
         line-height: $line-height-xs;
@@ -120,7 +120,7 @@ export default {
 
         &:after {
             content: "";
-            border-bottom: 1px solid $color-white;
+            border-bottom: 1px solid $vs-color-text-inverse;
             display: block;
             margin: $spacer-1 $spacer-4 0;
             margin-top: $spacer-1;
@@ -136,7 +136,7 @@ export default {
     }
 
     .count__bg {
-        background: $color_secondary_teal;
+        background: $vs-color-background-tertiary;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -190,7 +190,7 @@ export default {
 
     .key-facilities-list {
         &.has-facilities {
-            border-top: 1px solid $color-gray-tint-5;
+            border-top: 1px solid $vs-color-border;
             padding-top: $spacer-4;
 
             @include media-breakpoint-up(sm) {
@@ -199,7 +199,7 @@ export default {
             }
 
             @include media-breakpoint-up(lg) {
-                border-left: 1px solid $color-gray-tint-5;
+                border-left: 1px solid $vs-color-border;
             }
 
             .vs-icon-list {
@@ -208,7 +208,7 @@ export default {
                 }
 
                 @include media-breakpoint-up(sm) {
-                    border-top: 1px solid $color-gray-tint-5;
+                    border-top: 1px solid $vs-color-border;
                     padding-top: $spacer-4;
 
                     .vs-icon-list__item {

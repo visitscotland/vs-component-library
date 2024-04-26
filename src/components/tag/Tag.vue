@@ -38,17 +38,25 @@ export default {
 </script>
 
 <style lang="scss">
-    .vs-tag {
+    .vs-tag.vs-link {
         display: inline-block;
-        border: 2px solid $color-pink;
+        border: 2px solid $vs-color-border-tertiary;
         border-radius: $border-radius-pill;
         transition: background $duration-base;
         text-decoration: none;
-        padding: $spacer-1 $spacer-2;
+        padding: $spacer-1 $spacer-3;
+        font-size: $font-size-4;
 
-        &:hover {
-            background-color: $color-pink;
-            color: $color-white;
+        @include vs-button-variant(
+            $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
+            $vs-color-text-inverse, $vs-color-background-hover, $vs-color-background-hover,
+            $vs-color-text-inverse, $vs-color-background-tertiary, $vs-color-background-tertiary,
+            $vs-color-text-inverse, $vs-color-background-tertiary, $vs-color-border-tertiary,
+        );
+
+        &:focus {
+            outline: 0px;
+            box-shadow: $vs-color-background-inverse 0px 0px 0px 2px inset, $vs-color-background-tertiary 0px 0px 0px 3px inset;
         }
     }
 </style>

@@ -27,7 +27,7 @@
 
         <VsIcon
             name="internal-link"
-            variant="primary"
+            variant="tertiary"
             size="xxs"
             class="vs-map-with-sidebar-list-item__icon"
         />
@@ -172,7 +172,7 @@ export default {
 
 <style lang="scss">
     .vs-map-with-sidebar-list-item {
-        color: $color-black;
+        color: $vs-color-text;
         display: flex;
         position: relative;
         width: 100%;
@@ -187,14 +187,11 @@ export default {
         font-weight: $font-weight-bold;
         padding: $spacer-1;
         min-height: 88px;
-        transition: box-shadow $duration-slowly;
-        border-bottom: 1px solid $color-gray-tint-5;
+        border-bottom: 1px solid $vs-color-border;
         text-align: left;
 
         &:hover,
         &--hovered {
-            box-shadow: $shadow_card;
-
             .vs-map-with-sidebar-list-item__text{
                 text-decoration: underline;
             }

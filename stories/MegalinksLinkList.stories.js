@@ -12,7 +12,7 @@ import {
 
 export default {
     component: VsMegalinks,
-    title: 'Megalinks/LinkList',
+    title: 'MegalinksLinkList',
     tags: ['autodocs'],
 };
 
@@ -34,11 +34,18 @@ const Template = (args) => ({
         };
     },
     template: `
+    <div
+        :class="args.jsDisabled ? 'no-js' : ''"
+    >
         <VsMegalinks
             :title="args.mainTitle"
             class="vs-megalinks--single-image"
             :buttonLink="args.buttonLink"
             variant="link-list"
+            :theme="args.theme"
+            :noJsMessage="args.noJsMessage"
+            :noCookiesMessage="args.noCookiesMessage"
+            :cookieLinkText="args.cookieLinkText"
         >
             <template v-slot:vs-megalinks-intro>
                 <p>{{ args.megalinksIntro }}</p>
@@ -55,6 +62,7 @@ const Template = (args) => ({
             >
                 <vs-megalink-link-list
                     v-bind="link"
+                    :theme="args.theme"
                 >
                     <template v-slot:vs-link-list-heading>
                         {{ link.heading }}
@@ -83,6 +91,7 @@ const Template = (args) => ({
                 </VsCol>
             </VsRow>
         </VsModal>
+    </div>
     `,
 });
 
@@ -129,6 +138,10 @@ const base = {
             content: 'Get inspiration on city accommodation, attractions and hidden gems loved by locals',
         },
     ],
+    noJsMessage: 'JavaScript is needed to watch this video.',
+    noCookiesMessage: 'Cookies are needed to watch this video.',
+    cookieLinkText: 'Update my cookie settings',
+    jsDisabled: false,
 };
 
 export const Default = Template.bind({
@@ -153,6 +166,22 @@ WithVideo.args = {
             content: 'We\'ve pulled together a handy guide on dates and times, travel info, accommodation and things to see near host venues.',
         },
         {
+            imgSrc: '/fixtures/megalinks/grand-hotel.jpg',
+            imgAlt: 'Luxury holidays and breaks in Scotland',
+            linkType: 'internal',
+            linkUrl: '#',
+            heading: 'Luxury holidays and breaks in Scotland',
+            content: 'Plan your luxury getaway in SCotland, from 5-star accommodation to Michelin-star dining.',
+        },
+        {
+            imgSrc: '/fixtures/megalinks/grand-hotel.jpg',
+            imgAlt: 'Luxury holidays and breaks in Scotland',
+            linkType: 'internal',
+            linkUrl: '#',
+            heading: 'Luxury holidays and breaks in Scotland',
+            content: 'Plan your luxury getaway in SCotland, from 5-star accommodation to Michelin-star dining.',
+        },
+        {
             imgSrc: '/fixtures/megalinks/wellness.jpg',
             imgAlt: 'Wellness breaks in Scotland',
             linkType: 'video',
@@ -164,4 +193,71 @@ WithVideo.args = {
             content: 'Slow down and refresh your mind, body and spirit in Scotland.',
         },
     ],
+};
+
+export const NoCookies = Template.bind({
+});
+
+NoCookies.args = {
+    ...base,
+    ...WithVideo.args,
+};
+
+NoCookies.decorators = [
+    () => {
+        window.bypassCookieChecks = false;
+
+        return {
+            template: `
+                <story/>
+            `,
+        };
+    },
+];
+
+export const NoJavascript = Template.bind({
+});
+
+NoJavascript.args = {
+    ...base,
+    ...WithVideo.args,
+    jsDisabled: true,
+};
+
+export const GreyTheme = Template.bind({
+});
+
+GreyTheme.args = {
+    ...base,
+    theme: 'grey',
+    ...WithVideo.args,
+};
+
+export const GreyThemeNoCookies = Template.bind({
+});
+
+GreyThemeNoCookies.args = {
+    ...base,
+    ...GreyTheme.args,
+};
+
+GreyThemeNoCookies.decorators = [
+    () => {
+        window.bypassCookieChecks = false;
+
+        return {
+            template: `
+                <story/>
+            `,
+        };
+    },
+];
+
+export const GreyThemeNoJavascript = Template.bind({
+});
+
+GreyThemeNoJavascript.args = {
+    ...base,
+    ...GreyTheme.args,
+    jsDisabled: true,
 };

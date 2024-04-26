@@ -107,7 +107,7 @@ export default {
         theme: {
             type: String,
             default: 'light',
-            validator: (value) => value.match(/(light|dark)/),
+            validator: (value) => value.match(/(light|grey)/),
         },
         /**
         * The link destination
@@ -181,7 +181,7 @@ export default {
 
         &:after {
             content: '';
-            border-bottom: 1px solid $color-gray-tint-5;
+            border-bottom: 1px solid $vs-color-border;
             position: absolute;
             width: calc(100% - 16px);
             left: 8px;
@@ -195,25 +195,37 @@ export default {
             border: none;
             height: 100%;
             background: transparent;
-            transition: box-shadow $duration-slowly;
 
             &:hover {
-                box-shadow: $shadow_card;
-
                 .vs-megalink-link-list__title {
                     text-decoration: underline;
                 }
             }
 
-            .stretched-link {
-                text-decoration: none;
+            &--disabled {
+                .megalink-link-list__title {
+                    text-decoration: none;
+                }
             }
+
+            .vs-stretched-link-card__video-button {
+                bottom: $spacer-2;
+                left: $spacer-2;
+                z-index: 2;
+            }
+
+            @include small-rectangle-video-button();
 
             .card-body {
                 background: transparent;
                 padding: 0;
                 align-self: flex-start;
                 width: 50%;
+                position: initial !important;
+
+                @include media-breakpoint-up(xl) {
+                    padding-bottom: $spacer-5;
+                }
 
                 @include media-breakpoint-up(sm) {
                     width: 66%;
@@ -246,20 +258,9 @@ export default {
                 }
             }
 
-            .vs-megalink-link-list__title {
-                font-size: $font-size-2;
-                letter-spacing: $letter-spacing-l;
-                line-height: $line-height-m;
-            }
-
             .card-title {
-                display: flex;
                 margin-bottom: 0;
                 margin-top: 0;
-
-                & > a {
-                    line-height: 0;
-                }
             }
 
             .vs-megalink-link-list__content {
@@ -274,14 +275,6 @@ export default {
             }
         }
 
-        &--dark {
-            .vs-megalink-link-list__wrapper.card {
-                .vs-megalink-link-list__title {
-                    color: $color-white;
-                }
-            }
-        }
-
         @include media-breakpoint-up(sm) {
             .vs-megalink-link-list__wrapper.card {
                 .vs-megalink-link-list__content {
@@ -292,9 +285,6 @@ export default {
 
         @include media-breakpoint-up(md) {
             .vs-megalink-link-list__wrapper.card {
-                .vs-megalink-link-list__title {
-                    font-size: $font-size-3;
-                }
 
                 .vs-megalink-link-list__content {
                     margin: $spacer-2 0 0;
@@ -352,6 +342,28 @@ export default {
                 &__days {
                     font-size: $font-size-6;
                     margin-bottom: $spacer-1;
+                }
+            }
+        }
+    }
+
+    @include no-js {
+        .vs-megalink-link-list {
+            .vs-stretched-link-card--warning {
+                overflow: hidden;
+                padding: 0;
+
+                &__img-container {
+                    width: 100%;
+                    max-width: 100%;
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+
+                .card-body {
+                    display: none;
                 }
             }
         }

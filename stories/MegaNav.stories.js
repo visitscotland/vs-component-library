@@ -145,6 +145,32 @@ const Template = (args) => ({
                             </VsMegaNavFeaturedItem>
                         </template>
 
+                        <template
+                            v-slot:nav-featured-item-left
+                            v-if="item.title === 'Inspiration'"
+                        >
+                            <VsMegaNavFeaturedItem
+                                link="www.visitscotland.com"
+                                img-url="fixtures/carousel/claire-standing-stones-craigh-na-dun-outlander.jfif"
+                                img-alt="Alt text"
+                            >
+                                <template v-slot:vs-featured-item-header>
+                                    From our home to yours – see Scotland virtually
+                                </template>
+        
+                                <template v-slot:vs-featured-item-content>
+                                    <p>
+                                        Although it’s not possible to come to Scotland at the moment,
+                                        thanks to modern technology, you can still see stunning
+                                    </p>
+                                </template>
+        
+                                <template v-slot:vs-featured-item-link>
+                                    A link to a page
+                                </template>
+                            </VsMegaNavFeaturedItem>
+                        </template>
+
                         <div class="featured-items">
                         </div>
                     </VsMegaNavDropdownContainer>
@@ -272,12 +298,25 @@ export const Default = Template.bind({
 
 Default.args = base;
 
-export const InspirationOpen = Template.bind({
+export const MenuOpen = Template.bind({
 });
 
-InspirationOpen.args = base;
+MenuOpen.args = base;
 
-InspirationOpen.play = async({ canvasElement }) => {
+MenuOpen.play = async({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const thingsToDoLink = canvas.getByText('Things to do');
+
+    await userEvent.click(thingsToDoLink);
+};
+
+export const TwoFeaturedItems = Template.bind({
+});
+
+TwoFeaturedItems.args = base;
+
+TwoFeaturedItems.play = async({ canvasElement }) => {
     const canvas = within(canvasElement);
 
     const inspirationLink = canvas.getByText('Inspiration');
@@ -296,23 +335,23 @@ OnMobile.parameters = {
     },
 };
 
-export const InspirationOpenMobile = Template.bind({
+export const MenuOpenMobile = Template.bind({
 });
 
-InspirationOpenMobile.args = base;
+MenuOpenMobile.args = base;
 
-InspirationOpenMobile.parameters = {
+MenuOpenMobile.parameters = {
     viewport: {
         defaultViewport: 'mobile2',
     },
 };
 
-InspirationOpenMobile.play = async({ canvasElement }) => {
+MenuOpenMobile.play = async({ canvasElement }) => {
     const burgerLink = canvasElement.querySelector('.vs-mega-nav__mobile-menu-toggle');
 
     await userEvent.click(burgerLink);
 
-    const inspLink = canvasElement.querySelector(['[aria-controls="vs-mega-nav-accordion-item-vs-mega-nav-inspiration-3"']);
+    const inspLink = canvasElement.querySelector(['[aria-controls="vs-mega-nav-accordion-item-vs-mega-nav-things-to-do-1"']);
 
     await userEvent.click(inspLink);
 };

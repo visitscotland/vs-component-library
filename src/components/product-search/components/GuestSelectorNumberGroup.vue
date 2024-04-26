@@ -135,12 +135,6 @@ onMounted(() => {
         justify-content: space-between;
         margin-bottom: $spacer-3;
 
-        &__button {
-            color: rgb(255, 255, 255);
-            background-color: $color-pink;
-            border-color: $color-pink;
-        }
-
         &__input {
             width: 30px;
             text-align: center;

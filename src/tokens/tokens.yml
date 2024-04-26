@@ -3,7 +3,15 @@
 #
 
 imports:
-  - ./color.yml
+  - ./color-background.yml
+  - ./color-border.yml
+  - ./color-core.yml
+  - ./color-icons.yml
+  - ./color-links.yml
+  - ./color-roles.yml
+  - ./color-text.yml
+  - ./elevation-shadow.yml
+  - ./elevation-surface.yml
   - ./font-size.yml
   - ./font-weight.yml
   - ./font.yml

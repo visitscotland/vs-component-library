@@ -235,7 +235,7 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
             right: $spacer-4;
             pointer-events: none;
             font-size: $font-size-5;
-            color: $color-base-text;
+            color: $vs-color-icon-primary;
         }
     }
 
@@ -246,14 +246,14 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
             width: 100%;
             display: none;
             padding: $spacer-4;
-            box-shadow: $shadow-card-tight;
+            box-shadow: $vs-elevation-shadow-raised;
         }
 
         &__modal--visible {
             display: flex;
             flex-direction: column;
             position: absolute;
-            background: $color-white;
+            background: $vs-elevation-surface-raised;
             z-index: 1;
         }
 

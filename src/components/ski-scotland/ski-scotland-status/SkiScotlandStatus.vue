@@ -15,12 +15,10 @@
                 </VsCol>
             </VsRow>
         </VsContainer>
-        <VsContainer v-show="!jsDisabled && displayError">
+        <VsContainer v-if="!jsDisabled && displayError">
             <VsRow>
                 <VsCol class="text-center py-4">
-                    <VsWarning
-                        theme="light"
-                    >
+                    <VsWarning>
                         <!--
                             @slot Slot for data unavailable message
                             Expects text
@@ -38,9 +36,7 @@
                     v-if="jsDisabled"
                     data-test="vs-ski__js-disabled"
                 >
-                    <VsWarning
-                        theme="light"
-                    >
+                    <VsWarning>
                         <!--
                             @slot Slot for JS required message
                             Expects text
@@ -393,7 +389,7 @@
                             <VsAccordionItem
                                 variant="transparent"
                                 :control-id="'accordion_item_' + level.name"
-                                :colour-badge="level.colour"
+                                :colour-badge="level.colourToken"
                             >
                                 <template
                                     v-slot:title
@@ -502,11 +498,12 @@ import VsAccordionItem from '@/components/accordion/components/AccordionItem.vue
 import VsWarning from '@/components/warning/Warning.vue';
 import {
     VsContainer, VsRow, VsCol,
-} from '@/components/grid';
+} from '@components/grid';
 import VsIcon from '@/components/icon/Icon.vue';
 import VsLink from '@/components/link/Link.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsLoadingSpinner from '@/components/loading-spinner/LoadingSpinner.vue';
+import designTokens from '@/assets/tokens/tokens.json';
 
 import axios from 'axios';
 
@@ -831,6 +828,7 @@ export default {
     },
     data() {
         return {
+            tokens: designTokens,
             componentId: 0,
             statusSummary: {
                 runs: {
@@ -859,31 +857,43 @@ export default {
             runLevels: [
                 {
                     colour: 'green',
+                    colourToken: '',
+                    id: 'easy',
                     name: this.easyLabel,
                     runs: [],
                 },
                 {
                     colour: 'blue',
+                    colourToken: '',
+                    id: 'intermediate',
                     name: this.intermediateLabel,
                     runs: [],
                 },
                 {
                     colour: 'red',
+                    colourToken: '',
+                    id: 'difficult',
                     name: this.difficultLabel,
                     runs: [],
                 },
                 {
                     colour: 'black',
+                    colourToken: '',
+                    id: 'very-difficult',
                     name: this.veryDifficultLabel,
                     runs: [],
                 },
                 {
                     colour: 'orange',
+                    colourToken: '',
+                    id: 'itineraries',
                     name: this.itinerariesLabel,
                     runs: [],
                 },
                 {
                     colour: 'grey',
+                    colourToken: '',
+                    id: 'other',
                     name: this.otherLabel,
                     runs: [],
                 },
@@ -896,7 +906,8 @@ export default {
     },
     computed: {
         filteredRunLevels() {
-            return this.runLevels.filter((level) => level.runs.length > 0);
+            const runLevelsArr = this.setColourToken();
+            return runLevelsArr.filter((level) => level.runs.length > 0);
         },
     },
     mounted() {
@@ -1070,6 +1081,13 @@ export default {
         // Returns the localised label value for a given colour
         getColourLabel(colour) {
             return this[`${colour}Label`];
+        },
+        // Returns the correct design token colour for colour badge
+        setColourToken() {
+            return this.runLevels.map(({ ...level }) => ({
+                ...level,
+                colourToken: this.tokens[`vs-color-icon-ski-grade-${level.id}`],
+            }));
         },
     },
 };

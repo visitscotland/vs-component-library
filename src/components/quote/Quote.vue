@@ -103,7 +103,7 @@ export default {
 
     &__speech-mark {
         font-weight: $font-weight-bold;
-        color: $color-gray;
+        color: $vs-color-text-accent-lavender;
         font-size: 7rem;
         height: 5rem;
         line-height: $line-height-xs;

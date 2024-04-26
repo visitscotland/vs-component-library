@@ -7,7 +7,7 @@
             class="vs-main-map-controls__clear-selection"
             data-test="vs-main-map-subcategory__clear-selection"
             size="sm"
-            variant="transparent"
+            variant="secondary"
             @click="clearSelection"
             @keyup.enter="clearSelection"
         >
@@ -105,14 +105,10 @@ export default {
             justify-content: space-around;
             align-items: center;
             min-height: 75px;
-            border-top: $color-gray-tint-4 solid 1px;
-            background: $color-white;
+            border-top: $vs-color-border solid 1px;
+            background: $vs-color-background-inverse;
             width: calc(100% + #{$spacer-8});
             margin-top: auto;
             margin-left: -#{$spacer-4};
-
-            &__clear-selection.vs-button.btn-transparent {
-                color: $color-pink;
-            }
         }
 </style>

@@ -48,7 +48,6 @@
                     >
                         <VsButton
                             :href="buttonLink"
-                            :on-dark="theme === 'dark'"
                         >
                             <!-- @slot Slot to contain button text -->
                             <slot name="vs-megalinks-button" />
@@ -120,6 +119,7 @@ export default {
             type: String,
             required: false,
             default: null,
+            validator: (value) => value.match(/(multi-image|single-image|link-list)/),
         },
         /**
         * The component color theme
@@ -127,7 +127,7 @@ export default {
         theme: {
             type: String,
             default: 'light',
-            validator: (value) => value.match(/(light|dark)/),
+            validator: (value) => value.match(/(light|grey)/),
         },
         /**
         * A message explaining why the component has been disabled js is disabled, is provided
@@ -246,30 +246,11 @@ export default {
             }
         }
 
-        &--dark {
-            background: $color-secondary-gray-shade-4;
+        &--grey {
+            background: $vs-color-background-information;
 
-            & + .vs-megalinks--dark {
+            & + .vs-megalinks--grey {
                 padding-top: 0;
-            }
-
-            .vs-megalinks__heading {
-                color: $color-yellow;
-            }
-
-            p {
-                color: $color-white;
-            }
-
-            .vs-megalink-multi-image-card.card,
-            .vs-megalink-link-list .vs-megalink-link-list__wrapper.card {
-                &:hover {
-                    box-shadow: 10px 10px 15px #000000;
-                }
-
-                .stretched-link:focus {
-                    outline: 2px $color-yellow solid;
-                }
             }
         }
     }
@@ -279,7 +260,7 @@ export default {
         padding-top: 0;
     }
 
-    .has-edit-button.theme-dark + .has-edit-button.theme-dark .vs-megalinks {
+    .has-edit-button.theme-grey + .has-edit-button.theme-grey .vs-megalinks {
         padding-top: 0;
     }
 </style>

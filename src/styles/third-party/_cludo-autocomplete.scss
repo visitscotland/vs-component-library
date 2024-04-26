@@ -5,8 +5,8 @@
         position: absolute;
         width: 85%;
         list-style: none;
-        background: $color-white;
-        box-shadow: $shadow-popover;
+        background: $vs-elevation-surface-overlay;
+        box-shadow: $vs-elevation-shadow-overlay;
         padding: $spacer-2 0;
         left: 0;
         right: 0;
@@ -20,25 +20,21 @@
         }
 
         li{
-            color: $color-gray-shade-3;
+            color: $vs-color-text-subtle;
             font-size: $font-size-4;
             line-height: $line-height-standard;
             transition: all .1s;
             padding: $spacer-2 $spacer-4;
 
             @include media-breakpoint-up(lg) {
-                font-size: $font-size-9;
+                font-size: $font-size-6;
                 padding: $spacer-2 $spacer-8;
-            }
-
-            @include media-breakpoint-up(xl) {
-                font-size: $font-size-10;
             }
 
             &:hover, &.active{
                 cursor: pointer;
-                background: $color-pink;
-                color: $color-white;
+                background: $vs-color-background-hover;
+                color: $vs-color-text-inverse;
             }
         }
     }

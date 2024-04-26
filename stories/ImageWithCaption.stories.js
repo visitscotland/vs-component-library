@@ -31,42 +31,58 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsImageWithCaption v-bind="args">
-            <template v-slot:video-title>
-                {{ args.videoTitle}}
-            </template>
-
-            <template v-slot:img-caption>
-                <VsCaption
-                    :latitude='args.latitude'
-                    :longitude='args.longitude'
-                    :variant="args.variant"
-                    text-align="left"
-                >
-                    <template v-slot:caption>
-                        {{ args['img-caption'].caption }}
-                    </template>
-
-                    <template
-                        v-if="!args.socialPostUrl"
-                        v-slot:credit
+        <div
+            :class="args.jsDisabled ? 'no-js' : ''"
+        >
+            <VsImageWithCaption
+                v-if="!args.isVideo"
+                v-bind="args"
+            >
+                <template v-slot:img-caption>
+                    <VsCaption
+                        :latitude='args.latitude'
+                        :longitude='args.longitude'
+                        :variant="args.variant"
+                        text-align="left"
                     >
-                        {{ args['img-caption'].credit }}
-                    </template>
+                        <template v-slot:caption>
+                            {{ args['img-caption'].caption }}
+                        </template>
 
-                    <template
-                        v-else
-                        v-slot:credit
-                    >
-                        <VsSocialCreditLink
-                            :credit="args['img-caption'].credit"
-                            :social-post-url="args.socialPostUrl"
-                            :source="args.source"
-                        />
-                    </template>
-                </VsCaption>
-            </template>
-        </VsImageWithCaption>
+                        <template
+                            v-if="!args.socialPostUrl"
+                            v-slot:credit
+                        >
+                            {{ args['img-caption'].credit }}
+                        </template>
+
+                        <template
+                            v-else
+                            v-slot:credit
+                        >
+                            <VsSocialCreditLink
+                                :credit="args['img-caption'].credit"
+                                :social-post-url="args.socialPostUrl"
+                                :source="args.source"
+                            />
+                        </template>
+                    </VsCaption>
+                </template>
+            </VsImageWithCaption>
+
+            <VsImageWithCaption
+                v-if="args.isVideo"
+                v-bind="args"
+            >
+
+                <template v-slot:video-title>
+                    {{ args.videoTitle}}
+                </template>
+            </VsImageWithCaption>
+
+
+            
+        </div>
 
         <VsModal
             modal-id='c05sg3G4oA4' 
@@ -110,6 +126,7 @@ const base = {
     cookieLinkText: 'Manage cookies',
     noJsMessage: 'You need JavaScript enabled to see this video',
     noCookiesMessage: 'You need cookies enabled to see this video',
+    jsDisabled: false,
 };
 
 export const Default = Template.bind({
@@ -157,17 +174,15 @@ WithVideo.args = {
     showToggle: false,
 };
 
-export const WithVideoNoCookies = Template.bind({
+export const NoCookies = Template.bind({
 });
 
-WithVideoNoCookies.args = {
+NoCookies.args = {
     ...base,
-    isVideo: true,
-    videoId: 'c05sg3G4oA4',
-    videoTitle: 'Only in Scotland',
+    ...WithVideo.args,
 };
 
-WithVideoNoCookies.decorators = [
+NoCookies.decorators = [
     () => {
         window.bypassCookieChecks = false;
 
@@ -178,3 +193,12 @@ WithVideoNoCookies.decorators = [
         };
     },
 ];
+
+export const NoJavascript = Template.bind({
+});
+
+NoJavascript.args = {
+    ...base,
+    ...WithVideo.args,
+    jsDisabled: true,
+};

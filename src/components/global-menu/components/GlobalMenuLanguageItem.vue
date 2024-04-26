@@ -65,25 +65,26 @@ export default {
 </script>
 
 <style lang="scss">
-.vs-global-menu__languages__item {
-    &:not(:last-of-type) {
-        border-bottom: 1px solid $color-purple-tint-3;
-    }
-
-    .dropdown-item {
-        padding: $spacer-3;
-        color: white;
-        text-decoration: none;
-        line-height: $line-height-s;
-
-        &:hover {
-            background: $color-purple-shade-2;
+.vs-dropdown ~ .dropdown-menu {
+    .vs-global-menu__languages__item {
+        &:not(:last-of-type) {
+            border-bottom: 1px solid $vs-color-border-inverse;
         }
 
-        &:focus {
-            outline: 3px solid $color-yellow;
-            outline-offset: -3px;
-            background: $color-purple;
+        .dropdown-item {
+            padding: $spacer-3;
+            color: $vs-color-background-inverse;
+            text-decoration: none;
+            line-height: $line-height-xs;
+
+            &:hover {
+                background: $vs-color-background-accent-heather;
+            }
+
+            &:focus {
+                background: $vs-color-background-brand;
+                box-shadow: $vs-box-shadow-focus-on-dark inset;
+            }
         }
     }
 }
@@ -99,7 +100,7 @@ export default {
         }
 
         .dropdown-item {
-            color: $color-white;
+            color: $vs-color-text-inverse;
             text-decoration: underline;
             font-size: $font-size-4;
 

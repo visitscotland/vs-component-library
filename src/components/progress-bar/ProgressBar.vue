@@ -153,21 +153,21 @@ export default {
     .vs-progress-bar {
         .progress-bar {
             height: $spacer-4;
-            background-color: $color-theme-primary;
+            background-color: $vs-color-background-tertiary;
             transition: width ease-out .5s;
         }
 
         .progress {
             width: 100%;
             margin: $spacer-2 $spacer-0 $spacer-2;
-            background: $color-gray-tint-7;
+            background: $vs-color-background-neutral;
             border-radius: $spacer-2;
             overflow: hidden;
         }
 
         &--full {
             .progress-bar {
-                background-color: $color-theme-success;
+                background-color: $vs-color-background-success;
             }
         }
 
@@ -186,6 +186,6 @@ export default {
     .vs-progress-bar__label {
         margin-bottom: $spacer-2;
         text-align: left;
-        color: $color-gray-shade-1;
+        color: $vs-color-text-subtle;
     }
 </style>

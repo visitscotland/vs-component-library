@@ -100,10 +100,10 @@ describe('VsStretchedLinkCard', () => {
             expect(wrapper.html()).toContain(videoBtnText);
         });
 
-        it('should render a full warning component if `errorType` is `full`', () => {
+        it('should render a full warning component if `errorType` is `full`', async() => {
             const wrapper = factoryShallowMount();
 
-            wrapper.setProps({
+            await wrapper.setProps({
                 videoId: '123456',
                 videoBtnText: 'Play',
                 errorType: 'full',

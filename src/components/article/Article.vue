@@ -100,7 +100,7 @@ export default {
 <style lang="scss">
 .vs-article {
     &__wrapper{
-        border: 1px solid $color-gray-tint-5;
+        border: 1px solid $vs-color-border;
 
         figure{
             margin-bottom: 0;

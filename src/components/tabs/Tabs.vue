@@ -36,17 +36,27 @@ export default {
 
         .nav-link {
             width: 100%;
-            background-color: $color-secondary-gray-tint-6;
-            color: $color-base-text;
+            background-color: $vs-color-background-neutral;
+            color: $vs-color-text;
             font-weight: $font-weight-bold;
-            border-color: $color-secondary-gray-tint-6 $color-secondary-gray-tint-6 $color-white;
+            border-width: 1px;
+            border-color: $vs-color-background-neutral;
             padding: $spacer-3;
             font-size: $font-size-6;
+            transition: $duration-base all;
+            transition: all 200ms ease;
+            transition-property: background-color, color;
+
+            &:hover:not(.active) {
+                border-color: $vs-color-background-neutral;
+                background-color: $vs-color-background-hover;
+                color: $vs-color-text-inverse;
+            }
 
             &.disabled {
-                color: $nav-link-disabled-color;
-                background-color: transparent;
-                border-color: transparent;
+                color: $vs-color-text-disabled;
+                background-color: $vs-color-background-disabled;
+                border-color: $vs-color-background-disabled;
             }
 
             @include media-breakpoint-up(sm) {
@@ -55,14 +65,13 @@ export default {
             }
 
             &:focus-visible{
-                box-shadow: $shadow-button-focus;
+                box-shadow: $vs-box-shadow-focus;
                 outline: none;
             }
 
             &.active{
                 position: relative;
-                z-index: 2;
-                background-color: $color-white;
+                background-color: $vs-color-background-inverse;
                 padding: $spacer-5 $spacer-3;
 
                 @include media-breakpoint-up(sm) {
@@ -72,9 +81,11 @@ export default {
         }
 
         .tab-pane {
-            background-color: $color-white;
-            color: $color-base-text;
+            background-color: $vs-color-background-inverse;
+            color: $vs-color-text;
             text-align: left;
+            border: 1px solid $vs-color-border;
+            border-top: 0;
 
             .vs-heading{
                 display: none;
@@ -88,6 +99,7 @@ export default {
             position: relative;
             display: block!important;
             margin-bottom: $spacer-9;
+            border: 0;
         }
 
         .nav-tabs {
@@ -98,10 +110,10 @@ export default {
             .vs-heading {
                 display: block;
                 margin: 0;
-                background-color: $color-white;
+                background-color: $vs-color-background-inverse;
                 padding: $spacer-7 $spacer-5;
                 font-family: $font-family-sans-serif;
-                color: $color-base-text;
+                color: $vs-color-text;
                 font-size: $font-size-7;
                 font-weight: $font-weight-bold;
                 text-align: center;

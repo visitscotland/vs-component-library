@@ -1,6 +1,6 @@
 <template>
     <div
-        class="border-top border-secondary-light vs-footer-utility-list"
+        class="vs-footer-utility-list"
         data-test="vs-footer-utility-list"
         data-unique-id="vs-footer-utility_links"
     >
@@ -52,6 +52,8 @@ export default {
 
 <style lang="scss">
 .vs-footer-utility-list {
+    border-top: 1px solid $vs-color-border-inverse;
+
     @include media-breakpoint-down(sm) {
         .container {
             max-width: 100%;

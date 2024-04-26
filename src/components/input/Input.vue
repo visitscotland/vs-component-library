@@ -45,6 +45,7 @@
             :minlength="validationRules.minLength ? validationRules.minLength : null"
             :min="validationRules.min !== undefined ? validationRules.min : null"
             :max="validationRules.max !== undefined ? validationRules.max : null"
+            :disabled="disabled"
             @blur="validateErrors"
             @change="validateErrors"
             @focus="resetErrors"
@@ -138,6 +139,13 @@ export default {
          * Prop to define invalid from parent
          */
         invalid: {
+            type: Boolean,
+            default: false,
+        },
+        /**
+        * Option to disable the input
+        */
+        disabled: {
             type: Boolean,
             default: false,
         },
@@ -355,6 +363,10 @@ export default {
 
     &--error {
         @include form-error-state;
+    }
+
+    &:disabled {
+        @include form-disabled-state;
     }
 
     &__clear-button {

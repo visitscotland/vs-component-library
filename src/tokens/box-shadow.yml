@@ -4,22 +4,10 @@
 #
 
 props:
-  shadow_s:
-    value: "0 0 0 1px rgba(92,106,196,.1)"
-  shadow_card:
-    value: "10px 10px 20px $color-gray-tint-4"
-  shadow_card_dark:
-    value: "0 8px 8px rgba(0, 0, 0, 0.3)"
-  shadow_card_tight:
-    value: "0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30)"
-  shadow_popover:
-    value: "0 0px 20px rgba(0, 0, 0, 0.3)"
-  shadow_popover_dark:
-    value: "0 0px 20px $color-theme-dark"
-  shadow_button_focus:
-    value: "0 0 0 4px $color-pink"
-  shadow_button_focus_on_dark:
-    value: "0 0 0 4px $color-yellow"
+  vs-box-shadow-focus:
+    value: "0 0 0 2px $vs-color-border-focus"
+  vs-box-shadow-focus-on-dark:
+    value: "0 0 0 2px $vs-color-border-accent-gorse"
 global:
   type: ...
   category: box-shadow

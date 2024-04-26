@@ -114,10 +114,34 @@ onMounted(() => {
 
 <style lang="scss">
     .simple-typeahead {
-        .simple-typeahead-list 
-        .simple-typeahead-list-item.simple-typeahead-list-item-active{
-            background-color: $color-gray-tint-7!important;
-            color: $color-pink!important;
+        position: relative;
+
+        &-list {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            max-height: 250px;
+            overflow-y: scroll;
+            background: #fff;
+            width: 100%;
+            z-index: 10;
+
+            &-item{
+                cursor: pointer;
+                font-size: $font-size-4;
+                padding: $spacer-2 $spacer-4;
+
+                &:hover{
+                    background-color: $vs-color-background-primary;
+                    color: $vs-color-text-inverse;
+                }
+            }
+        }
+
+        &-list-list 
+        &-list-list-item.simple-typeahead-list-item-active{
+            background-color: $vs-color-background-primary!important;
+            color: $vs-color-text-inverse!important;
         }
 
         &::after {
@@ -128,6 +152,7 @@ onMounted(() => {
             top: calc(50% - $spacer-3);
             right: $spacer-4;
             pointer-events: none;
+            color: $vs-color-icon-primary;
         }
     }    
 </style>

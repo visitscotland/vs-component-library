@@ -37,7 +37,7 @@
             </div>
 
             <div
-                class="vs-video-caption__details container"
+                class="vs-video-caption__details"
                 v-if="requiredCookiesExist"
             >
                 <p class="vs-video-caption__title">
@@ -52,13 +52,12 @@
         </div>
 
         <div
-            v-show="!(videoLoaded && requiredCookiesExist) && showCookieMessage"
+            v-if="!(videoLoaded && requiredCookiesExist) && showCookieMessage"
             class="vs-video-caption vs-video-caption--warning"
         >
             <VsWarning
                 size="small"
                 type="cookie"
-                :transparent="false"
             >
                 {{ noCookiesMessage }}
                 <template v-slot:button-text>
@@ -67,23 +66,22 @@
             </VsWarning>
         </div>
         <div
-            v-show="!(videoLoaded && requiredCookiesExist) && cookiesInitStatus === 'error'"
+            v-if="!(videoLoaded && requiredCookiesExist) && cookiesInitStatus === 'error'"
             class="vs-video-caption vs-video-caption--warning"
         >
             <VsWarning
                 size="small"
-                :transparent="false"
             >
                 {{ errorMessage }}
             </VsWarning>
         </div>
         <div
+            v-if="noJsMessage"
             class="vs-video-caption vs-video-caption--no-js vs-video-caption--warning"
             data-test="video-caption-nojs"
         >
             <VsWarning
                 size="small"
-                :transparent="false"
             >
                 {{ noJsMessage }}
             </VsWarning>
@@ -225,8 +223,8 @@ export default {
         }
 
         &__details {
-            background-color: $color-gray-shade-6;
-            color: $color-white;
+            background-color: $vs-color-background-bold;
+            color: $vs-color-text-inverse;
             padding: $spacer-3;
         }
 
@@ -277,12 +275,8 @@ export default {
 
             // override OneTrust styles
             #ot-sdk-btn.ot-sdk-show-settings {
-                color: $color-white;
+                color: $vs-color-text-inverse;
                 text-decoration: underline;
-
-                &:hover {
-                    color: $color-yellow;
-                }
             }
         }
 
@@ -311,7 +305,7 @@ export default {
                     padding: 0;
                 }
                 .vs-toggle-btn {
-                    top: calc(50% - 12px);
+                    top: calc(50% - 20px);
                 }
             }
         }
@@ -320,8 +314,6 @@ export default {
     .vs-video-caption--wide {
         @include media-breakpoint-up(sm) {
             .vs-video-caption__details {
-                display: flex;
-                align-items: baseline;
                 padding: $spacer-4 $spacer-3 $spacer-5;
             }
 
@@ -408,30 +400,6 @@ export default {
                 }
             }
         }
-
-        @include media-breakpoint-up(sm) {
-            .vs-video-caption__details {
-                display: flex;
-                align-items: baseline;
-                padding: $spacer-4 $spacer-5 $spacer-5;
-            }
-
-            .vs-caption .vs-caption__caption-info {
-                padding: $spacer-4 $spacer-5 $spacer-5;
-            }
-        }
-
-        @include media-breakpoint-up(lg) {
-            .vs-video-caption__details {
-                display: block;
-                padding: $spacer-4 $spacer-2 $spacer-3;
-
-            }
-
-            .vs-caption .vs-caption__caption-info {
-                padding: $spacer-4 $spacer-2 $spacer-3;
-            }
-        }
     }
 
     .vs-image-with-caption--hero.vs-image-with-caption--video {
@@ -468,7 +436,7 @@ export default {
                 &__details {
                     max-width: 84%;
                     margin: 0 auto;
-                    border-bottom: $color-secondary-gray 1px solid;
+                    border-bottom: $vs-color-border 1px solid;
                 }
             }
 

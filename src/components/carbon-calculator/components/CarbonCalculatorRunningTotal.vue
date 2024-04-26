@@ -63,7 +63,7 @@ export default {
 <style lang='scss'>
     .vs-carbon-calculator-running-total {
         margin-top: $spacer-8;
-        border: 1px solid $color-gray;
+        border: 1px solid $vs-color-border-tertiary;
         padding: $spacer-4;
 
         @include media-breakpoint-up(md) {
@@ -84,7 +84,7 @@ export default {
 
         p {
             display: inline-block;
-            margin-right: $spacer-4;
+            margin-right: $spacer-2;
             margin-bottom: 0;
             vertical-align: middle;
         }

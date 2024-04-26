@@ -1,6 +1,7 @@
 <template>
     <BDropdown
         v-bind="$attrs"
+        variant="primary"
         class="vs-dropdown"
     >
         <template
@@ -55,15 +56,51 @@ export default {
 <style lang="scss">
 .vs-dropdown {
     .dropdown-toggle {
+        @extend %button-default-styles;
+
+        &:hover {
+            background-color: $vs-color-background-hover;
+        }
+
+        &:focus {
+            @extend %primary-button-focus;
+        }
+
         &::after {
             display: inline-block;
-            margin: 0.1rem 0 0 0.4rem;
-            vertical-align: 0.155em;
-            content: "";
-            border: solid $color-white;
-            border-width: 0 1px 1px 0;
-            padding: $spacer-1;
-            transform: rotate(45deg);
+            font-family: "Font Awesome Kit";
+            content: "\e06c";
+            color: $vs-color-icon-inverse;
+            border: 0;
+            vertical-align: bottom;
+        }
+    }
+
+    ~ .dropdown-menu {
+        li {
+            border-bottom: 1px solid $vs-color-border;
+
+            &:last-of-type{
+                border-bottom: 0;
+            }
+
+            .dropdown-item{
+                &.active, &:active {
+                    color: $vs-color-text-primary;
+                    background-color: $vs-color-background-active;
+                }
+
+                &:hover {
+                    color: $vs-color-text-inverse;
+                    background-color: $vs-color-background-hover;
+                    outline: 0;
+                }
+
+                &:focus {
+                    outline: 0;
+                    box-shadow: $vs-box-shadow-focus inset;
+                }
+            }
         }
     }
 

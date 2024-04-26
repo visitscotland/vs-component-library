@@ -283,7 +283,7 @@ export default {
             left: unset !important;
             right: 10px;
 
-            .arrow {
+            .popover-arrow {
                 display: none;
             }
 
@@ -309,7 +309,7 @@ export default {
             @include media-breakpoint-up(sm) {
                 max-width: 450px;
                 width: 450px !important;
-                box-shadow: -25px 25px 20px 1px rgba(0, 0, 0, 0.1);
+                box-shadow: $vs-elevation-shadow-overlay;
                 right: 50px !important;
             }
 

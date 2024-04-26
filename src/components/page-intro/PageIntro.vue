@@ -120,7 +120,7 @@ export default {
         background: {
             type: String,
             default: 'light',
-            validator: (value) => value.match(/(light|dark)/),
+            validator: (value) => value.match(/(light|grey)/),
         },
         /**
         * Option for an intro to be used on simple page type
@@ -172,7 +172,7 @@ export default {
 .vs-page-intro {
     &__wrapper {
         position: relative;
-        background: $color-white;
+        background: $vs-color-background-inverse;
 
         @include media-breakpoint-up(lg) {
             background: transparent;
@@ -191,7 +191,7 @@ export default {
         }
 
         > .container {
-            background: $color-white;
+            background: $vs-color-background-inverse;
             padding-bottom: $spacer-8;
 
             @include media-breakpoint-up(lg) {
@@ -264,11 +264,11 @@ export default {
 
     &__lower,
     &__lower .row {
-        background-color: $color-theme-light;
+        background-color: $vs-color-background-information;
     }
 
-    &--dark {
-        background: $color-secondary-gray-shade-4;
+    &--grey {
+        background: $vs-color-background-information;
     }
 }
 </style>

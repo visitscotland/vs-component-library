@@ -37,8 +37,7 @@
                             <VsIcon
                                 name="chevron"
                                 orientation="down"
-                                variant="dark"
-                                size="xs"
+                                size="lg"
                                 :padding="3"
                                 class="vs-itinerary-day__toggle-button"
                             />
@@ -47,8 +46,7 @@
                             <!-- @slot Slot for the icon to show when accordion item is closed  -->
                             <VsIcon
                                 name="chevron"
-                                variant="dark"
-                                size="xs"
+                                size="lg"
                                 :padding="3"
                                 class="vs-itinerary-day__toggle-button"
                             />
@@ -139,7 +137,8 @@ export default {
 
 <style lang="scss">
 .vs-itinerary-day{
-    border-top: 5px solid $color-base-text;
+    border-top: 1px solid $vs-color-border-bold;
+    margin-top: $spacer-9;
 
     @include media-breakpoint-down(sm) {
         max-width: initial;
@@ -148,34 +147,49 @@ export default {
         padding: $spacer-0 $spacer-2;
     }
 
-    &:first-of-type {
-        @include media-breakpoint-up(md) {
-            border-top: none;
-        }
-    }
-
-    &__list-item.card {
+    &__list-item.card.vs-accordion-item {
         width: calc(100% + #{$spacer-4});
         margin-left: -#{$spacer-2};
         padding: 0 $spacer-3 0;
+        border-top: 0;
 
         @include media-breakpoint-up(md) {
             width: calc(100% + #{$spacer-6});
             margin-left: -#{$spacer-3};
             padding: $spacer-4 $spacer-4 0;
         }
+
+        .vs-accordion-toggle {
+            box-shadow: none;
+            padding: 0;
+
+            &:focus {
+                box-shadow: $vs-box-shadow-focus;
+            }
+
+            .vs-accordion-toggle__icon {
+                align-self: auto;
+                margin-top: $spacer-6;
+
+                .vs-icon {
+                    color: $vs-color-icon;
+                }
+
+                @include media-breakpoint-up(lg) {
+                    align-self: center;
+                    margin-top: 0;
+                }
+            }
+        }
     }
 
     &__header{
         display: block;
-        text-align: center;
-        margin: $spacer-5 0 $spacer-5;
+        text-align: left;
+        margin: $spacer-6 0;
 
         .vs-itinerary-day__title  {
-            border-bottom: 1px solid $color-base-text;
-            color: $color-secondary-teal-shade-3;
-            padding: 0 $spacer-6 $spacer-3;
-            margin-bottom: $spacer-4;
+            color: $vs-color-text-tertiary;
         }
 
         .vs-itinerary-day__sub-heading{
@@ -185,35 +199,15 @@ export default {
             font-weight: $font-weight-normal;
             display: block;
         }
-    }
 
-    &__toggle-button {
-        border: 1px solid $color-base-text;
-        border-radius: 50%;
-        height: 24px;
-        width: 24px;
-
-        .vs-icon {
-            height: 100%;
-            margin: 0 auto;
-            display: block;
-        }
-
-        &.vs-icon.vs-icon--size-xs {
-            height: 32px;
-            width: 32px;
-            padding: 6px 5px;
+        @include media-breakpoint-up(lg) {
+            text-align: center;
+            margin: 0 0 $spacer-6;
         }
     }
 
     &__intro-content {
-        padding: $spacer-0 $spacer-5;
-        margin-bottom: $spacer-9;
-
-        @include media-breakpoint-up(md) {
-            padding: $spacer-0;
-            margin-bottom: $spacer-0;
-        }
+        margin-bottom: $spacer-8;
     }
 
     &__panel .list-inline-item:not(:last-child) {

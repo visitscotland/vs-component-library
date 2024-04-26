@@ -37,8 +37,8 @@
                     <VsCaptionImageMap
                         :latitude="latitude"
                         :longitude="longitude"
-                        :map-outline-color="tokens.color_white"
-                        :map-marker-color="tokens.color_secondary_teal_tint_3"
+                        :map-outline-color="tokens['vs-color-icon-inverse']"
+                        :map-marker-color="tokens['vs-color-icon-accent-tolsta']"
                     />
                 </div>
             </VsCol>
@@ -128,8 +128,8 @@ export default {
 
 <style lang="scss">
 .vs-caption {
-    background-color: $color-gray-shade-6;
-    color: $color-white;
+    background-color: $vs-color-background-bold;
+    color: $vs-color-text-inverse;
 
     &--large,
     &--fullwidth {

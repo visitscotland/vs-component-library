@@ -139,21 +139,16 @@ export default {
             flex-direction: row-reverse;
             justify-content: space-between;
             padding: $spacer-3 0;
-            border-top: 1px solid $color-gray-tint-5;
+            border-top: 1px solid $vs-color-border;
 
             &::last-of-type {
-                border-bottom: 1px solid $color-gray-tint-5;
+                border-bottom: 1px solid $vs-color-border;
             }
 
-            input[type="checkbox"] {
-                width: 30px;
-                height: 30px;
-                border-radius: 8px;
-                border: 1px solid $color-gray-tint-5;
+            @include form-checkbox(20px, $font-size-2, $line-height-l);
 
-                &:checked {
-                    background: red;
-                }
+            input[type="checkbox"] {
+                margin-top: $spacer-3;
             }
         }
 

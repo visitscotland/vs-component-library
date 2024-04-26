@@ -37,7 +37,21 @@ BUTTON STYLES
 }
 
 %primary-button-focus {
-    box-shadow: 0 0 0 4px $color-white, 0 0 0 8px $color-pink;
+    box-shadow: 
+        0 0 0 2px $vs-color-background-inverse inset, 
+        0 0 0 3px $vs-color-border-focus inset;
+}
+
+%button-disabled { 
+    background-color: $vs-color-background-disabled;
+    border-color: $vs-color-background-disabled;
+    color: $vs-color-text-inverse;
+    opacity: $opacity-100;
+
+    &:hover {
+        background-color: $vs-color-background-disabled;
+        border-color: $vs-color-background-disabled;
+    }
 }
 
 
@@ -46,11 +60,11 @@ LINK STYLES
 ***************/
 
 %outline-link-focus {
-    outline: 2px solid $color-pink;
+    outline: 2px solid $vs-color-border-focus;
 }
 
 %outline-link-focus-dark {
-    outline: 2px solid $color-yellow;
+    outline: 2px solid $vs-color-border-accent-gorse;
 }
 
 /**************

@@ -208,50 +208,10 @@ export default {
     @include forms-common;
 
     .vs-checkbox {
+        @include form-checkbox(38px, $font-size-6, $line-height-xl);
+
         input[type="checkbox"] {
-            outline: $color-gray-shade-3 1px solid;
-            border: none;
-            width: 38px;
-            height: 38px;
             margin: $spacer-2 $spacer-4 0 0;
-            align-self: flex-start;
-            position: relative;
-
-             &:before {
-                content: '';
-                width: 100%;
-                height: 100%;
-                background-color: $color-white;
-                position: absolute;
-                top: 0;
-                left: 0;
-            }
-
-            &:after {
-                content: '';
-                position: absolute;
-                width: 100%;
-                height: 100%;
-            }
-
-            &:focus {
-                outline: none;
-
-                &:after {
-                    @include form-focus-state
-                }
-            }
-
-            &:checked {
-                &:before {
-                    font-family: "Font Awesome Kit";
-                    content: "\e001";
-                    color: $color-pink;
-                    text-align: center;
-                    line-height: 2;
-                    font-size: $font-size-6;
-                }
-            }
         }
 
         .form-check {

@@ -5,7 +5,6 @@
     >
         <VsIcon
             :name="icon"
-            variant="dark"
             size="md"
             class="d-block mx-auto"
         />

@@ -33,7 +33,7 @@ export default {
         background: {
             options: [
                 'light',
-                'dark',
+                'grey',
             ],
             control: {
                 type: 'radio',
@@ -243,12 +243,6 @@ const base = {
 export const Default = Template.bind();
 Default.args = base;
 
-export const DefaultDark = Template.bind();
-DefaultDark.args = {
-    ...base,
-    background: 'dark',
-};
-
 export const WithBlogData = Template.bind();
 WithBlogData.args = {
     ...base,
@@ -273,6 +267,13 @@ WithHeroImage.args = {
     },
 };
 
+export const GreyTheme = Template.bind();
+GreyTheme.args = {
+    ...base,
+    ...WithHeroImage.args,
+    background: 'grey',
+};
+
 export const WithHeroVideo = Template.bind();
 WithHeroVideo.args = {
     ...base,
@@ -294,8 +295,28 @@ WithHeroVideo.args = {
     },
 };
 
-export const HeroVideoNoJavascript = Template.bind();
-HeroVideoNoJavascript.args = {
+export const NoCookies = Template.bind({
+});
+
+NoCookies.args = {
+    ...base,
+    ...WithHeroVideo.args,
+};
+
+NoCookies.decorators = [
+    () => {
+        window.bypassCookieChecks = false;
+
+        return {
+            template: `
+                <story/>
+            `,
+        };
+    },
+];
+
+export const NoJavascript = Template.bind();
+NoJavascript.args = {
     ...base,
     ...WithHeroVideo.args,
     jsDisabled: true,

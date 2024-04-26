@@ -5,8 +5,8 @@
         aria-haspopup="true"
         @click="triggerToggle"
         class="vs-accordion-toggle clearfix"
+        :class="visible ? 'vs-accordion-toggle--open' : ''"
         :variant="variant"
-        :uppercase="false"
     >
         <!-- @slot Default slot contains text for the button -->
         <span class="vs-accordion-toggle__text">
@@ -69,7 +69,7 @@ export default {
 </script>
 
 <style lang="scss">
-.btn.vs-accordion-toggle {
+.btn.vs-button.vs-accordion-toggle {
     display: flex;
     width: 100%;
 
@@ -88,6 +88,10 @@ export default {
 
     .vs-accordion-toggle__icon {
         align-self: center;
+
+        .vs-icon {
+            color: $vs-color-icon-primary;
+        }
     }
 }
 

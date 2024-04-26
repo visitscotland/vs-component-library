@@ -36,7 +36,8 @@
 
         <figcaption class="vs-image-with-caption__captions">
             <div
-                class="vs-image-with-caption__video-caption-wrapper container-lg"
+                class="vs-image-with-caption__video-caption-wrapper"
+                :class="isHeroImage ? 'container-lg' : ''"
                 v-if="isVideo"
             >
                 <VsVideoCaption
@@ -289,9 +290,21 @@ export default {
                 bottom: $spacer-2;
                 right: $spacer-2;
 
+                @include media-breakpoint-down(sm) {
+                    .fa-icon-colours--white {
+                        --fa-primary-color: #{$vs-color-icon};
+                        --fa-secondary-color: #{$vs-color-icon-inverse};
+                    }
+                }
+
                 @include media-breakpoint-up(sm) {
                     .vs-image-with-caption--closed-default & {
                         display: block;
+
+                        .fa-icon-colours--white {
+                            --fa-primary-color: #{$vs-color-icon};
+                            --fa-secondary-color: #{$vs-color-icon-inverse};
+                        }
                     }
                 }
 
@@ -379,7 +392,7 @@ export default {
                 position: relative;
                 top: auto;
                 left: auto;
-                background: $color-gray-shade-6;
+                background: $vs-color-background-bold;
             }
 
             .vs-caption {
@@ -387,16 +400,8 @@ export default {
                     margin-bottom: $spacer-2;
                 }
 
-                &__caption-info {
-                    padding-left: $spacer-5;
-                }
-
                 .row {
                     margin: 0;
-                }
-
-                .col {
-                    padding: 0;
                 }
             }
 
@@ -491,7 +496,7 @@ export default {
 
         &--hero{
             margin-bottom: 0;
-            background: $color-gray-shade-6;
+            background: $vs-color-background-bold;
 
             .vs-image-with-caption {
                 &__image-wrapper {
@@ -603,14 +608,6 @@ export default {
 
             &__caption-wrapper {
                 display: block;
-            }
-
-            @include media-breakpoint-up(lg) {
-                &--video {
-                    .vs-image-with-caption__video-caption-wrapper {
-                        margin-bottom: $spacer-2;
-                    }
-                }
             }
         }
 

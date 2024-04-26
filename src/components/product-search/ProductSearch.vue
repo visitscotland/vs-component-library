@@ -107,7 +107,7 @@ export default {
 <style lang="scss">
     .vs-product-search {
         width: 100%;
-        background: $color-gray-shade-5;
+        background: $vs-color-background-accent-heather;
         padding: $spacer-8 $spacer-1;
         font-family: $font-family-sans-serif;
 
@@ -117,7 +117,7 @@ export default {
 
         &__heading,
         &__intro {
-            color: $color-white;
+            color: $vs-color-text-inverse;
         }
 
         &__heading.vs-heading {
@@ -127,7 +127,7 @@ export default {
         }
 
         &__col--left {
-            background: $color-gray-shade-5;
+            background: $vs-color-background-accent-heather;
             font-family: $font-family-sans-serif;
             margin-bottom: $spacer-9;
         }
@@ -136,7 +136,7 @@ export default {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            background: $color-yellow;
+            background: $vs-color-background-accent-oatcake;
             padding: $spacer-6 $spacer-4;
         }
 
@@ -151,7 +151,7 @@ export default {
 
             &__heading,
             &__intro {
-                color: $color-white;
+                color: $vs-color-text-inverse;
                 margin-left: $spacer-10;
                 max-width: 70%;
             }

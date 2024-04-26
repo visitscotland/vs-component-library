@@ -603,10 +603,10 @@ export default {
                         'fill-color': [
                             'case',
                             ['==', ['feature-state', 'interaction-state'], 'hover'],
-                            'rgba(173,14,110,0.698)',
+                            'rgba(168,48,140,0.5)',
                             ['==', ['feature-state', 'interaction-state'], 'active'],
-                            'rgba(173,14,110,0.533)',
-                            '#A5A5A5',
+                            'rgba(168,48,140,0.5)',
+                            'rgba(25,200,197,0.6)',
                         ],
                         'fill-opacity': 0.8,
                     },
@@ -999,6 +999,7 @@ export default {
 
     &__map, &__map-outer {
         height: 100%;
+        width: 100%;
         position: relative;
     }
 
@@ -1019,11 +1020,11 @@ export default {
     }
 
     &__message-box {
-        border: 1px solid $color-pink;
+        border: 1px solid $vs-color-border-tertiary;
         border-radius: $border-radius-default;
         height: 142px;
         width: 200px;
-        background: $color-white;
+        background: $vs-color-background-inverse;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -1049,10 +1050,14 @@ export default {
         margin: $spacer-2;
 
         & > button {
-            border: 2px solid $color-theme-primary;
+            border: 2px solid $vs-color-border-primary;
             background-position: center center;
             background-repeat: no-repeat;
             background-size: 1rem 1rem;
+        }
+
+        .mapboxgl-ctrl-icon {
+            display: none;
         }
     }
 
@@ -1064,20 +1069,25 @@ export default {
         & > button {
             width: 32px;
             height: 32px;
-            background-color: $color-white;
             border-radius: 0 !important;
-
-            &:active {
-                background-color: $color-white;
-            }
+            font-size: $font-size-4;
+            transition: $duration-base all;
 
             &:focus {
                 @extend %primary-button-focus;
             }
 
-            &:not(:disabled):hover {
-                background-color: $color-theme-primary;
+            &:active, &:active:focus {
+                box-shadow: none;
+                border: $vs-color-background-active;
             }
+
+            @include vs-button-variant(
+                $vs-color-text-primary, $vs-color-background-inverse, $vs-color-border-primary,
+                $vs-color-text-inverse, $vs-color-background-hover, $vs-color-background-hover,
+                $vs-color-text-primary, $vs-color-background-active, $vs-color-background-active,
+                $vs-color-text-inverse, $vs-color-background-primary, $vs-color-border-focus,
+            );
 
             &.mapboxgl-ctrl-zoom-in {
                 margin-bottom: $spacer-2;
@@ -1090,83 +1100,16 @@ export default {
         }
     }
 
-    .mapboxgl-ctrl-compass {
-        display: none;
-    }
-
-    .mapboxgl-ctrl-fullscreen {
-        display: none;
-
-        @include media-breakpoint-up(lg) {
-            display: block;
-        }
-
-        &::after {
-            font-family: "Font Awesome Kit";
-            content: "\e017";
-            display: inline-block;
-            color: $color-theme-primary;
-        }
-
-        &:hover,
-        &:focus {
-            &::after {
-                color: $color-white;
-            }
-        }
-    }
-
-    .mapboxgl-ctrl-shrink {
-        &::after {
-            font-family: "Font Awesome Kit";
-            content: "\e07b";
-            display: inline-block;
-            color: $color-theme-primary;
-        }
-
-        &:hover,
-        &:focus {
-            &::after {
-                color: $color-white;
-            }
-        }
-    }
-
-    .mapboxgl-ctrl-zoom-in {
-        &::after {
-            font-family: "Font Awesome Kit";
-            content: "\e05c";
-            display: inline-block;
-            color: $color-theme-primary;
-        }
-
-        &:hover,
-        &:focus {
-            &::after {
-                color: $color-white;
-            }
-        }
-    }
-
-    .mapboxgl-ctrl-zoom-out {
-        &::after {
-            font-family: "Font Awesome Kit";
-            content: "\e034";
-            display: inline-block;
-            color: $color-theme-primary;
-        }
-
-        &:hover,
-        &:focus {
-            &::after {
-                color: $color-white;
-            }
-        }
-    }
-
+    .mapboxgl-ctrl-fullscreen,
+    .mapboxgl-ctrl-shrink,
     .mapboxgl-ctrl-zoom-in,
     .mapboxgl-ctrl-zoom-out {
         position: relative;
+
+        &::after {
+            font-family: "Font Awesome Kit";
+            display: inline-block;
+        }
 
         &:disabled {
             &::after {
@@ -1178,23 +1121,43 @@ export default {
                 align-items: center;
                 width: calc(100% + 4px);
                 height: calc(100% + 4px);
-                background-color: #c3c1c2;
-                color: white;
+                @extend %button-disabled;
             }
         }
     }
 
-    .mapboxgl-ctrl {
-        & > button {
-            &:hover,
-            &:focus {
-                background-color: $color-theme-primary;
-            }
+    .mapboxgl-ctrl-fullscreen {
+        display: none;
+
+        @include media-breakpoint-up(lg) {
+            display: block;
         }
 
-        .mapboxgl-ctrl-icon {
-            display: none;
+        &::after {
+            content: "\e017";
         }
+    }
+
+    .mapboxgl-ctrl-shrink {
+        &::after {
+            content: "\e07b";
+        }
+    }
+
+    .mapboxgl-ctrl-zoom-in {
+        &::after {
+            content: "\e05c";
+        }
+    }
+
+    .mapboxgl-ctrl-zoom-out {
+        &::after {
+            content: "\e034";
+        }
+    }
+
+    .mapboxgl-ctrl-compass {
+        display: none;
     }
 
     .mapboxgl-popup {

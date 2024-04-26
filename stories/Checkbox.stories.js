@@ -39,6 +39,14 @@ export const Default = Template.bind({
 
 Default.args = base;
 
+export const Checked = Template.bind({
+});
+
+Checked.args = {
+    ...base,
+    value: '',
+};
+
 export const InfoText = Template.bind({
 });
 
@@ -68,6 +76,14 @@ Invalid.args = {
     },
 };
 
+export const Disabled = Template.bind({
+});
+
+Disabled.args = {
+    ...base,
+    disabled: true,
+};
+
 Invalid.play = async({ canvasElement }) => {
     const canvas = within(canvasElement);
     const input = canvas.getByLabelText('I accept the terms and conditions');
@@ -87,14 +103,6 @@ Invalid.play = async({ canvasElement }) => {
     await waitFor(async() => {
         await input.blur();
     });
-};
-
-export const Checked = Template.bind({
-});
-
-Checked.args = {
-    ...base,
-    value: '',
 };
 
 const GroupTemplate = (args) => ({

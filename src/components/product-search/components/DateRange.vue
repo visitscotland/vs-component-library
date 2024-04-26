@@ -224,7 +224,7 @@ const endDateName = computed(() => {
             }
 
             &:focus{
-                box-shadow: 0 0 0 4px rgb(25, 25, 25);
+                box-shadow: $vs-box-shadow-focus;
                 outline: 0;
             }
         }

@@ -86,7 +86,7 @@ const Template = (args) => ({
                         >
                             <VsDescriptionList
                                 v-if="day.transport.length"
-                                class="text-center justify-content-center align-items-center"
+                                class="text-center justify-content-center align-items-center mb-3"
                                 inline
                             >
                                 <VsDescriptionListItem

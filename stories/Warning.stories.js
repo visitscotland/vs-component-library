@@ -1,4 +1,5 @@
 import VsWarning from '@/components/warning/Warning.vue';
+import VsLink from '@/components/link/Link.vue';
 
 export default {
     component: VsWarning,
@@ -9,15 +10,6 @@ export default {
             options: [
                 'normal',
                 'cookie',
-            ],
-            control: {
-                type: 'radio',
-            },
-        },
-        theme: {
-            options: [
-                'light',
-                'dark',
             ],
             control: {
                 type: 'radio',
@@ -48,6 +40,7 @@ export default {
 const Template = (args) => ({
     components: {
         VsWarning,
+        VsLink,
     },
     setup() {
         return {
@@ -63,7 +56,7 @@ const Template = (args) => ({
                 v-if="args['extra-content']"
                 v-slot:extra-content
             >
-                ${args['extra-content']}
+                ${args['extra-content']} <VsLink href="#">${args.ctaLink}</VsLink>.
             </template>
 
             <template
@@ -93,36 +86,20 @@ export const ExtraContent = Template.bind({
 ExtraContent.args = {
     ...base,
     default: 'JavaScript needs to be enabled to watch this video.',
-    'extra-content': ' You can turn this on in your browser settings.',
+    'extra-content': 'You can turn this on in your browser settings or subscribe by sending an email to',
+    ctaLink: 'info@visitscotland.com',
 };
 
-export const WithButton = Template.bind({
+export const NoCookies = Template.bind({
 });
 
-WithButton.args = {
+NoCookies.args = {
     ...base,
     type: 'cookie',
     default: 'Cookies need to be enabled to watch this video',
+    'extra-content': 'You can turn this on in your browser settings or subscribe by sending an email to',
+    ctaLink: 'info@visitscotland.com',
     'button-text': 'Manage cookies settings',
-};
-
-export const LightTheme = Template.bind({
-});
-
-LightTheme.args = {
-    ...base,
-    theme: 'light',
-    type: 'cookie',
-    default: 'Cookies need to be enabled to watch this video',
-    'button-text': 'Manage cookies settings',
-};
-
-export const RightAligned = Template.bind({
-});
-
-RightAligned.args = {
-    ...base,
-    align: 'right',
 };
 
 export const Small = Template.bind({
@@ -130,7 +107,8 @@ export const Small = Template.bind({
 
 Small.args = {
     ...base,
-    ...WithButton.args,
+    default: 'Cookies need to be enabled to watch this video',
+    'button-text': 'Manage cookies settings',
     size: 'small',
 };
 
@@ -141,4 +119,5 @@ DifferentIcon.args = {
     ...base,
     default: 'You have 10 minutes before this form times out',
     icon: 'clock',
+    size: 'small',
 };

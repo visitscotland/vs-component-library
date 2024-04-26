@@ -372,6 +372,7 @@ export default {
     margin-left: $spacer-4;
     margin-right: $spacer-4;
     font-size: $font-size-lead-md;
+    padding: $spacer-2 $spacer-3;
 
     &.form-control-md {
         height: 50px;
