@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.30](https://github.com/visitscotland/vs-component-library/compare/v0.0.29...v0.0.30) (2024-04-26)
+
+
+### ✨ Features
+
+* **rebrand:** correct [@component](https://github.com/component) paths ([81dbfdf](https://github.com/visitscotland/vs-component-library/commit/81dbfdfe6850f4c2cad26aeeceaa8b12b6c79363))
+
 ### [0.0.29](https://github.com/visitscotland/vs-component-library/compare/v0.0.28...v0.0.29) (2024-04-26)
 
 
