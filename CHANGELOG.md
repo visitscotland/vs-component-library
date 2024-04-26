@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.29](https://github.com/visitscotland/vs-component-library/compare/v0.0.28...v0.0.29) (2024-04-26)
+
+
+### ✨ Features
+
+* **tokens:** update border token in description list ([60b6d93](https://github.com/visitscotland/vs-component-library/commit/60b6d93a918d438b11f903ad8d4b0fb7ee332b2f))
+
 ### [0.0.28](https://github.com/visitscotland/vs-component-library/compare/v0.0.27...v0.0.28) (2024-04-26)
 
 
