@@ -54,3 +54,11 @@ Grey.args = {
     ...base,
     theme: 'grey',
 };
+
+export const Neutral = Template.bind({
+});
+
+Neutral.args = {
+    ...base,
+    theme: 'neutral',
+};

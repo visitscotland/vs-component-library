@@ -2,6 +2,7 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<<<<<<< HEAD
 ### [0.0.30](https://github.com/visitscotland/vs-component-library/compare/v0.0.29...v0.0.30) (2024-04-26)
 
 
@@ -42,10 +43,14 @@ All notable changes to this project will be documented in this file. See [standa
 * **site-search:** fix breaking site-search test ([996db96](https://github.com/visitscotland/vs-component-library/commit/996db960b7543fd7b9fa44ff79f6a3947426c6da))
 * **togglebutton:** fix togglebutton unit tests ([3e14616](https://github.com/visitscotland/vs-component-library/commit/3e14616e5283756f87c8344b53821a4339d7ccf3))
 * **warning:** remove failing warning tests ([481dd2a](https://github.com/visitscotland/vs-component-library/commit/481dd2a67535fceb7c34d66196dabfc4772b1d2b))
+=======
+### [2.0.2](https://github.com/visitscotland/vs-component-library/compare/v2.0.1...v2.0.2) (2024-04-29)
+>>>>>>> 9a180ea40da6ebe6ad8cf50939725f9b1261ab19
 
 
 ### 🎨 Styling
 
+<<<<<<< HEAD
 * **accordion:** rebrand accordion and icon components ([1373d09](https://github.com/visitscotland/vs-component-library/commit/1373d09371628986d83777f11389abc859b8e54d))
 * **article:** updating article colours ([01f9ab7](https://github.com/visitscotland/vs-component-library/commit/01f9ab7f95d3c75d6bb864d6168f38bac0959a88))
 * **box-shadow:** rename box-shadow tokens ([7626aab](https://github.com/visitscotland/vs-component-library/commit/7626aaba7181a8de2f914672307507c824beb917))
@@ -110,6 +115,9 @@ All notable changes to this project will be documented in this file. See [standa
 * **tokens:** add new tokens to import ([54e0618](https://github.com/visitscotland/vs-component-library/commit/54e0618b394abf336555608a2578a2763387b795))
 * **tokens:** add new tokens to the library ([af135e9](https://github.com/visitscotland/vs-component-library/commit/af135e9eec89878358b9071b1636898515cf70d9))
 * **tokens:** update token names in static link ([15c28be](https://github.com/visitscotland/vs-component-library/commit/15c28bed5c2b561911193ab330e864ef8861783f))
+=======
+* **modulewrapper:** add new background theme to module wrapper ([6bcfc51](https://github.com/visitscotland/vs-component-library/commit/6bcfc515b6aee6b0d6bcbca4e4e458c8042f54f4))
+>>>>>>> 9a180ea40da6ebe6ad8cf50939725f9b1261ab19
 
 ### [2.0.1](https://github.com/visitscotland/vs-component-library/compare/v2.0.0...v2.0.1) (2024-04-23)
 
