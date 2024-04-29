@@ -15,18 +15,18 @@
             "name": "transportModeTo",
             "element": "radio",
             "options": [
-                { "value": "noTravel"},
-                { "value": "domesticPlane"},
-                { "value": "shortPlane"},
-                { "value": "longPlane"},
-                { "value": "petrolCar"},
-                { "value": "dieselCar"},
-                { "value": "electricCar"},
-                { "value": "train"},
-                { "value": "coach"},
-                { "value": "ferry"},
-                { "value": "petrolCamper"},
-                { "value": "dieselCamper"}
+                { "value": "noTravel" },
+                { "value": "domesticPlane" },
+                { "value": "shortPlane" },
+                { "value": "longPlane" },
+                { "value": "petrolCar" },
+                { "value": "dieselCar" },
+                { "value": "electricCar" },
+                { "value": "train" },
+                { "value": "coach" },
+                { "value": "ferry" },
+                { "value": "petrolCamper" },
+                { "value": "dieselCamper" }
             ],
             "validation": {
                 "required": true
@@ -48,7 +48,7 @@
                 "petrolCamper": 37.501002,
                 "dieselCamper": 32.630742
             },
-            
+
             "multiplyByAnswer": {
                 "question": "howLongJourney",
                 "minimum": 0
@@ -102,16 +102,16 @@
             "name": "transportModeWithin",
             "element": "radio",
             "options": [
-                { "value": "petrolCar"},
-                { "value": "dieselCar"},
-                { "value": "electricCar"},
-                { "value": "dieselCamper"},
-                { "value": "petrolCamper"},
-                { "value": "coach"},
-                { "value": "bus"},
-                { "value": "train"},
-                { "value": "motorbike"},
-                { "value": "walking"}
+                { "value": "petrolCar" },
+                { "value": "dieselCar" },
+                { "value": "electricCar" },
+                { "value": "dieselCamper" },
+                { "value": "petrolCamper" },
+                { "value": "coach" },
+                { "value": "bus" },
+                { "value": "train" },
+                { "value": "motorbike" },
+                { "value": "walking" }
             ],
             "validation": {
                 "required": true

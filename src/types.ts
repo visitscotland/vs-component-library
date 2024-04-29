@@ -17,7 +17,7 @@ export type GuestNumberGroup = {
     count: number;
     name: string;
     unitLabel: string;
-}
+};
 
 export type GuestUnit = {
     id: string;
@@ -27,7 +27,7 @@ export type GuestUnit = {
         children: GuestNumberGroup;
         infants: GuestNumberGroup;
     };
-}
+};
 
 export type TmsApiDataItem = {
     name: string;

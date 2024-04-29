@@ -26,8 +26,8 @@ export const initApp = (options, skipRemoveNoJsClass) => {
         components: {
             BTab,
         },
-        ...isObject(options) ? options : {
-        },
+        ...(isObject(options) ? options : {
+        }),
     });
 
     app.use(pinia());
@@ -48,8 +48,9 @@ export const initSSRApp = (options, skipRemoveNoJsClass) => {
         components: {
             BTab,
         },
-        ...isObject(options) ? options : {
-        },
+        ...(isObject(options) ? options : {
+
+        }),
     });
 
     app.use(pinia());

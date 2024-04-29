@@ -1,1 +1,967 @@
-{"data": {"products":[{"id":"1039541","name":"Amber Whisky Bar at The Scotch Whisky Experience","category":[{"id":"whiskybars","name":"Whisky"}],"images":[{"mediaType":"PICTURE","mediaUrl":"https://www.visitscotland.com/wsimgs/_7R32524_40151982.jpg","altText":"Amber Whisky Bar","copyright":"The Scotch Whisky Experience","default":true}],"address":{"line1":"354 Castlehill","line2":"The Royal Mile","city":"Edinburgh - City Centre","county":"Edinburgh & The Lothians","postCode":"EH1 2NE","shortAddress":"Edinburgh - City Centre, Edinburgh & The Lothians","streetAddress":"354 Castlehill, The Royal Mile","empty":false},"description":"Located within The Scotch Whisky Experience, Amber Whisky Bar has a mission to inform and impassion people about Scotch Whisky. 380+ Whiskies, superb Scottish cuisine, and an informal, friendly atmosphere make this a must visit bar.","productLink":{"label":"View Details","link":"/info/food-drink/amber-whisky-bar-at-the-scotch-whisky-experience-p1039541","type":"INTERNAL"},"website":{"label":"Visit Website","link":"https://www.scotchwhiskyexperience.co.uk/amber-restaurant/","type":"EXTERNAL"},"covidInformation":{},"cuisines":[{"id":"scottish","name":"Scottish"}],"awards":[{"id":"qatasteourbest","name":"Taste Our Best","image":"https://www.visitscotland.com/wsimgs/awards/TOB-updated-white-back_286148508.jpg"}],"latitude":55.94877,"longitude":-3.19469},{"id":"1111531","name":"Cannonball Restaurant & Bar","category":[{"id":"restaurants","name":"Restaurants"}],"images":[{"mediaType":"PICTURE","mediaUrl":"https://www.visitscotland.com/wsimgs/Guests_toasting_1414816655.jpg","altText":"Guests toasting on private event","default":true}],"address":{"line1":"Cannonball Restaurant & Bar","line2":"Cannonball House","line3":"356 Castlehill","city":"Edinburgh - City Centre","county":"Edinburgh & The Lothians","postCode":"EH1 2NE","shortAddress":"Edinburgh - City Centre, Edinburgh & The Lothians","streetAddress":"Cannonball Restaurant & Bar, Cannonball House","empty":false},"description":"Cannonball Restaurant offers the finest in Scottish dining in the very heart of the Old Town, with fabulous views of Edinburgh and the Castle, showcasing Scotland's best and freshest ingredients.","productLink":{"label":"View Details","link":"/info/food-drink/cannonball-restaurant-bar-p1111531","type":"INTERNAL"},"website":{"label":"Visit Website","link":"http://www.contini.com","type":"EXTERNAL"},"cuisines":[{"id":"scottish","name":"Scottish"},{"id":"italian","name":"Italian"}],"latitude":55.94867,"longitude":-3.19621},{"id":"1219741","name":"Oink Grassmarket","category":[{"id":"takeaway","name":"Takeaway"}],"images":[{"mediaType":"PICTURE","mediaUrl":"https://www.visitscotland.com/wsimgs/Hog%20Roast%20Roll_Oink%20Edinburgh_202752878.jpg","altText":"Oink Hog Roast, Victoria Street, Edinburgh","default":true}],"address":{"line1":"34 Victoria Street","city":"Edinburgh - City Centre","county":"Edinburgh & The Lothians","postCode":"EH1 2JW","shortAddress":"Edinburgh - City Centre, Edinburgh & The Lothians","streetAddress":"34 Victoria Street","empty":false},"description":"Located on Victoria Street in Edinburgh's Grassmarket we simply serve Hog Roast Rolls – freshly carved hog roast, served in a white or brown roll with a choice of sage & onion, apple sauce, chilli relish or haggis.","productLink":{"label":"View Details","link":"/info/food-drink/oink-grassmarket-p1219741","type":"INTERNAL"},"website":{"label":"Visit Website","link":"http://www.oinkhogroast.co.uk/","type":"EXTERNAL"},"latitude":55.94871,"longitude":-3.19298},{"id":"1367441","name":"Makars Gourmet Mash Bar","category":[{"id":"bistrosbrassery","name":"Bistros & Brasseries"}],"images":[{"mediaType":"PICTURE","mediaUrl":"https://www.visitscotland.com/wsimgs/haggis500_637756286.jpg","default":true}],"address":{"line1":"9 North Bank Street","city":"Edinburgh - City Centre","county":"Edinburgh & The Lothians","postCode":"EH1 2LP","shortAddress":"Edinburgh - City Centre, Edinburgh & The Lothians","streetAddress":"9 North Bank Street","empty":false},"description":"Our food is inspired by the fine Craft Beer micro industry that is flourishing in Scotland. Like these artisan producers, we carefully select combinations of local ingredients, to create traditional Scottish dishes with bags of flavours.","productLink":{"label":"View Details","link":"/info/food-drink/makars-gourmet-mash-bar-p1367441","type":"INTERNAL"},"website":{"label":"Visit Website","link":"http://www.gourmet-mash-bar.com","type":"EXTERNAL"},"covidInformation":{},"cuisines":[{"id":"scottish","name":"Scottish"}],"latitude":55.95004,"longitude":-3.19329},{"id":"1468841","name":"Demijohn","category":[{"id":"delicatessen","name":"Delicatessen"}],"images":[{"mediaType":"PICTURE","mediaUrl":"https://www.visitscotland.com/wsimgs/8D2AB608F452AA8992398C71B6AAA093AF915F24.jpg","default":true}],"address":{"line1":"32 Victoria Street","city":"Edinburgh","county":"Edinburgh & The Lothians","postCode":"EH1 2JW","shortAddress":"Edinburgh, Edinburgh & The Lothians","streetAddress":"32 Victoria Street","empty":false},"description":"Scotland's award winning liquid deli.","productLink":{"label":"View Details","link":"/info/food-drink/demijohn-p1468841","type":"INTERNAL"},"website":{"label":"Visit Website","link":"http://www.demijohn.co.uk","type":"EXTERNAL"},"latitude":55.94867,"longitude":-3.19299},{"id":"1532281","name":"Palace of Holyroodhouse-Cafe at the Palace","category":[{"id":"cafestearooms","name":"Cafes & Tearooms"}],"images":[{"mediaType":"PICTURE","mediaUrl":"https://www.visitscotland.com/wsimgs/_DSC8538_1498856106.gif","default":true}],"address":{"line1":"Abbey strand","city":"Edinburgh - City Centre","county":"Edinburgh & The Lothians","postCode":"EH8 8DX","shortAddress":"Edinburgh - City Centre, Edinburgh & The Lothians","streetAddress":"Abbey strand","empty":false},"description":"In a striking setting at the end of the famous Royal Mile in Edinburgh, The Café at the Palace of Holyroodhouse is one of the ultimate Afternoon Tea destinations. Its outdoor terrace in the historic Mews Courtyard gives diners views over Arthur's Seat, and the tea is served in specially commissioned chinaware.","productLink":{"label":"View Details","link":"/info/food-drink/palace-of-holyroodhousecafe-at-the-palace-p1532281","type":"INTERNAL"},"website":{"label":"Visit Website","link":"https://www.royalcollection.org.uk/visit/palaceofholyroodhouse/what-to-see-and-do/cafe-at-the-palace","type":"EXTERNAL"},"cuisines":[{"id":"scottish","name":"Scottish"},{"id":"vege","name":"Vegetarian/Vegan"},{"id":"+more","name":"+ More"}],"awards":[{"id":"qatasteourbest","name":"Taste Our Best","image":"https://www.visitscotland.com/wsimgs/awards/TOB-updated-white-back_286148508.jpg"}],"latitude":55.95258,"longitude":-3.17239},{"id":"1715171","name":"The Worlds End Bar","category":[{"id":"traditional","name":"Traditional"}],"images":[{"mediaType":"PICTURE","mediaUrl":"https://www.visitscotland.com/wsimgs/84D13B3A54F52FEC71842E4914B7729A2190DA8D.jpg","default":true}],"address":{"line1":"4 High Street","city":"Edinburgh - City Centre","county":"Edinburgh & The Lothians","postCode":"EH1 1TB","shortAddress":"Edinburgh - City Centre, Edinburgh & The Lothians","streetAddress":"4 High Street","empty":false},"description":"The World's End is a traditional Scottish bar set on Edinburgh's historic Royal Mile. Our bar retains it's traditional feel welcoming guests from all over the world as well as the friendly locals. Join us here at The World's End for a real feel of Scotland.","productLink":{"label":"View Details","link":"/info/food-drink/the-worlds-end-bar-p1715171","type":"INTERNAL"},"website":{"label":"Visit Website","link":"http://www.worldsend-edinburgh.co.uk","type":"EXTERNAL"},"cuisines":[{"id":"scottish","name":"Scottish"},{"id":"modbrit","name":"British"},{"id":"+more","name":"+ More"}],"latitude":55.94976,"longitude":-3.18511},{"id":"1718081","name":"Malt Shovel Inn","category":[{"id":"barpubfood","name":"Bar and Pub Food"}],"images":[{"mediaType":"PICTURE","mediaUrl":"https://www.visitscotland.com/wsimgs/6CCEDB0895CC00CE51D874C13D64BB10D0F7068B.jpg","default":true}],"address":{"line1":"11-15 Cockburn Street","city":"Edinburgh - City Centre","county":"Edinburgh & The Lothians","postCode":"EH1 1BP","shortAddress":"Edinburgh - City Centre, Edinburgh & The Lothians","streetAddress":"11-15 Cockburn Street","empty":false},"description":"A very traditional pub at the heart of Edinburgh, serving great food and a fantastic range of beers and spirits.","productLink":{"label":"View Details","link":"/info/food-drink/malt-shovel-inn-p1718081","type":"INTERNAL"},"website":{"label":"Visit Website","link":"http://www.maltshovelinn-edinburgh.co.uk/","type":"EXTERNAL"},"latitude":55.95062,"longitude":-3.18995},{"id":"1721601","name":"The Albanach","category":[{"id":"traditional","name":"Traditional"}],"images":[{"mediaType":"PICTURE","mediaUrl":"https://www.visitscotland.com/wsimgs/09DFE5F00852E73D84C4730C19DAE7DB4639548D.jpg","default":true}],"address":{"line1":"197 High Street","line2":"Royal Mile","city":"Edinburgh - City Centre","county":"Edinburgh & The Lothians","postCode":"EH1 1PE","shortAddress":"Edinburgh - City Centre, Edinburgh & The Lothians","streetAddress":"197 High Street, Royal Mile","empty":false},"description":"The Albanach is a traditional Scottish bar and restaurant located on Edinburgh's busy Royal Mile. With over 220 Scottish Malt Whiskies, and a packed traditional Scottish food, this pub is ideal for tourists after a taste of Scotland.","productLink":{"label":"View Details","link":"/info/food-drink/the-albanach-p1721601","type":"INTERNAL"},"website":{"label":"Visit Website","link":"http://www.albanach-edinburgh.co.uk/","type":"EXTERNAL"},"cuisines":[{"id":"scottish","name":"Scottish"},{"id":"vege","name":"Vegetarian/Vegan"},{"id":"+more","name":"+ More"}],"latitude":55.94973,"longitude":-3.18832},{"id":"2042021","name":"The Haggis Box","category":[{"id":"takeaway","name":"Takeaway"}],"images":[{"mediaType":"PICTURE","mediaUrl":"https://www.visitscotland.com/wsimgs/image_6483441_1__1136925071.JPG","default":true}],"address":{"line1":"Scottish Storytelling Centre","line2":"43-45 High Street","city":"Edinburgh - City Centre","county":"Edinburgh & The Lothians","postCode":"EH1 1SR","shortAddress":"Edinburgh - City Centre, Edinburgh & The Lothians","streetAddress":"Scottish Storytelling Centre, 43-45 High Street","empty":false},"description":"Complete your Scottish Experience with Haggis served the Traditional Way with neeps & tatties! Vegetarian, vegan, gluten-free & dairy free options available.  Delicious sauces!","productLink":{"label":"View Details","link":"/info/food-drink/the-haggis-box-p2042021","type":"INTERNAL"},"website":{"label":"Visit Website","link":"http://www.thehaggisbox.com","type":"EXTERNAL"},"cuisines":[{"id":"scottish","name":"Scottish"},{"id":"vege","name":"Vegetarian/Vegan"}],"latitude":55.95157,"longitude":-3.18063},{"id":"2233721","name":"Brewhemia","category":[{"id":"otherspecial","name":"Other Specialities"}],"images":[{"mediaType":"PICTURE","mediaUrl":"https://www.visitscotland.com/wsimgs/6C009221F60B486D1FBF9604D14F2E6DDF7C4C11.jpg","default":true}],"address":{"line1":"1 Market Street","city":"Edinburgh - City Centre","county":"Edinburgh & The Lothians","postCode":"EH1 1DE","shortAddress":"Edinburgh - City Centre, Edinburgh & The Lothians","streetAddress":"1 Market Street","empty":false},"description":"Our story is one steeped in adventure, a love of great food, drinks and a passion for theatrics. A haven for those with a thirst for discovery, tank fresh beer, artisan coffee, fresh Scottish scran, cocktails and super fine wine.","productLink":{"label":"View Details","link":"/info/food-drink/brewhemia-p2233721","type":"INTERNAL"},"website":{"label":"Visit Website","link":"https://brewhemia.co.uk/","type":"EXTERNAL"},"latitude":55.95062,"longitude":-3.18995},{"id":"2396231","name":"Howies Restaurant Victoria Street","category":[{"id":"restaurants","name":"Restaurants"}],"images":[{"mediaType":"PICTURE","mediaUrl":"https://www.visitscotland.com/wsimgs/15971532B009C966234773A1AA70F448280DB47C.jpg","default":true}],"address":{"line1":"10-14 Victoria Street","city":"Edinburgh - City Centre","county":"Edinburgh & The Lothians","postCode":"EH1 2HG","shortAddress":"Edinburgh - City Centre, Edinburgh & The Lothians","streetAddress":"10-14 Victoria Street","empty":false},"description":"Scottish, seasonal & seriously tasty, Howies Victoria Street is a celebration of Scottish produce. Located on Edinburgh's most photographed street - Victoria Street - it's the perfect spot for lunch or dinner.","productLink":{"label":"View Details","link":"/info/food-drink/howies-restaurant-victoria-street-p2396231","type":"INTERNAL"},"website":{"label":"Visit Website","link":"http://www.howies.uk.com","type":"EXTERNAL"},"covidInformation":{},"latitude":55.9488,"longitude":-3.19343},{"id":"254961","name":"Scotch Whisky Experience - Whisky Shop","category":[{"id":"whisky","name":"Whisky Shop"}],"images":[{"mediaType":"PICTURE","mediaUrl":"https://www.visitscotland.com/wsimgs/SWESTOCK%20IMAGES%20002.JPG","default":true}],"address":{"line1":"354 Castlehill, The Royal Mile","city":"Edinburgh - City Centre","county":"Edinburgh & The Lothians","postCode":"EH1 2NE","shortAddress":"Edinburgh - City Centre, Edinburgh & The Lothians","streetAddress":"354 Castlehill, The Royal Mile","empty":false},"description":"A wonderful world of whisky awaits you at our Scotch Whisky Shop. With over 450 whiskies, you're sure to take home your perfect dram.","productLink":{"label":"View Details","link":"/info/food-drink/scotch-whisky-experience-whisky-shop-p254961","type":"INTERNAL"},"website":{"label":"Visit Website","link":"http://www.scotchwhiskyexperience.co.uk","type":"EXTERNAL"},"covidInformation":{"safeTravels":{"id":"SafeTravels","name":"Safe Travels","image":"https://static.visitscotland.com/img/dms/facilities/WTTC-SafeTravels.png"}},"grading":{"minStars":5,"maxStars":5,"gold":false},"cuisines":[{"id":"modbrit","name":"British"}],"awards":[{"id":"qatasteourbest","name":"Taste Our Best","image":"https://www.visitscotland.com/wsimgs/awards/TOB-updated-white-back_286148508.jpg"},{"id":"qag3g","name":"Green Tourism Gold","image":"https://www.visitscotland.com/wsimgs/awards/GT_gold_200x200_488938477.png","type":"GREEN_TOURISM"},{"id":"qaiknowscotland","name":"iKnow Scotland","image":"https://www.visitscotland.com/wsimgs/awards/iKnow-200x200-white-background_1615836561.jpg","type":"OTHER_AWARDS"}],"latitude":55.94886,"longitude":-3.19513},{"id":"2603861","name":"Luckenbooths","category":[{"id":"restaurants","name":"Restaurants"}],"images":[{"mediaType":"PICTURE","mediaUrl":"https://www.visitscotland.com/wsimgs/98EBF543622F8CEE44EC8C01CD4C520E8814DB62.jpg","default":true}],"address":{"line1":"329 High Street","city":"Edinburgh - City Centre","county":"Edinburgh & The Lothians","postCode":"EH1 1PN","shortAddress":"Edinburgh - City Centre, Edinburgh & The Lothians","streetAddress":"329 High Street","empty":false},"description":"An all day dining destination on the iconic Royal Mile.","productLink":{"label":"View Details","link":"/info/food-drink/luckenbooths-p2603861","type":"INTERNAL"},"website":{"label":"Visit Website","link":"https://luckenboothsedinburgh.co.uk/","type":"EXTERNAL"},"latitude":55.94993,"longitude":-3.19089},{"id":"2630741","name":"The Tolbooth Tavern","category":[{"id":"barpubfood","name":"Bar and Pub Food"}],"images":[{"mediaType":"PICTURE","mediaUrl":"https://www.visitscotland.com/wsimgs/495CB3D1C3BB29A3036DD42FD7A92FD59834191E.jpg","default":true}],"address":{"line1":"167 Canongate","line2":"Off Burnside Road","city":"Edinburgh - City Centre","county":"Edinburgh & The Lothians","postCode":"EH8 8BN","shortAddress":"Edinburgh - City Centre, Edinburgh & The Lothians","streetAddress":"167 Canongate, Off Burnside Road","empty":false},"description":"THE TOLBOOTH TAVERN\nOver 200 years of Scottish Hospitality\nThe Tolbooth Tavern in Edinburgh is part of the original Canongate Tolbooth which was built in 1591.","productLink":{"label":"View Details","link":"/info/food-drink/the-tolbooth-tavern-p2630741","type":"INTERNAL"},"website":{"label":"Visit Website","link":"http://www.tolboothtavern.co.uk","type":"EXTERNAL"},"latitude":55.95169,"longitude":-3.17887},{"id":"2813811","name":"Mimi's Little Bakehouse - Royal Mile","category":[{"id":"cafestearooms","name":"Cafes & Tearooms"}],"images":[{"mediaType":"PICTURE","mediaUrl":"https://www.visitscotland.com/wsimgs/A516B59D734DDA1364842C3E56CFA7FFE258F074.jpg","default":true}],"address":{"line1":"250 Canongate","city":"Edinburgh - City Centre","county":"Edinburgh & The Lothians","postCode":"EH8 8AA","shortAddress":"Edinburgh - City Centre, Edinburgh & The Lothians","streetAddress":"250 Canongate","empty":false},"description":"Mimi’s Little Bakehouse on the Royal Mile was established in 2012. Operating mainly as a takeaway service with limited seating, they serve a small all-day food menu and a selection of award-winning cakes and hot drinks.","productLink":{"label":"View Details","link":"/info/food-drink/mimis-little-bakehouse-royal-mile-p2813811","type":"INTERNAL"},"website":{"label":"Visit Website","link":"https://mimisbakehouse.com/locations/royal-mile/","type":"EXTERNAL"},"latitude":55.95068,"longitude":-3.1833},{"id":"308681","name":"The Witchery by the Castle","category":[{"id":"restaurants","name":"Restaurants"}],"images":[{"mediaType":"PICTURE","mediaUrl":"https://www.visitscotland.com/wsimgs/Witchery%20SG209312.jpg","default":true}],"address":{"line1":"352 Castlehill","city":"Edinburgh","county":"Edinburgh & The Lothians","postCode":"EH1 2NF","shortAddress":"Edinburgh, Edinburgh & The Lothians","streetAddress":"352 Castlehill","empty":false},"description":"A memorable, magical and mouthwatering experience.","productLink":{"label":"View Details","link":"/info/food-drink/the-witchery-by-the-castle-p308681","type":"INTERNAL"},"website":{"label":"Visit Website","link":"http://www.thewitchery.com","type":"EXTERNAL"},"covidInformation":{"safeTravels":{"id":"SafeTravels","name":"Safe Travels","image":"https://static.visitscotland.com/img/dms/facilities/WTTC-SafeTravels.png"}},"cuisines":[{"id":"scottish","name":"Scottish"},{"id":"vege","name":"Vegetarian/Vegan"},{"id":"+more","name":"+ More"}],"awards":[{"id":"qatasteourbest","name":"Taste Our Best","image":"https://www.visitscotland.com/wsimgs/awards/TOB-updated-white-back_286148508.jpg"}],"latitude":55.94879,"longitude":-3.19563},{"id":"312311","name":"WHISKI Bar & Restaurant","category":[{"id":"restaurants","name":"Restaurants"}],"images":[{"mediaType":"PICTURE","mediaUrl":"https://www.visitscotland.com/wsimgs/whiski_-_front_2147317174.jpg","altText":"whiski bar, whiski ednburgh","copyright":"whiski bar","default":true}],"address":{"line1":"WHISKI Bar & Restaurant","line2":"119 High Street","city":"Edinburgh","county":"Edinburgh & The Lothians","postCode":"EH1 1SG","shortAddress":"Edinburgh, Edinburgh & The Lothians","streetAddress":"WHISKI Bar & Restaurant, 119 High Street","empty":false},"description":"WHISKI Bar & Restaurant is a multi award winning whisky bar and restaurant situated midway down Edinburgh's world famous Royal Mile.","productLink":{"label":"View Details","link":"/info/food-drink/whiski-bar-restaurant-p312311","type":"INTERNAL"},"website":{"label":"Visit Website","link":"https://www.whiskibar.co.uk/","type":"EXTERNAL"},"covidInformation":{},"cuisines":[{"id":"scottish","name":"Scottish"},{"id":"modbrit","name":"British"}],"latitude":55.95056,"longitude":-3.18639},{"id":"312521","name":"Whiski Rooms","category":[{"id":"restaurants","name":"Restaurants"}],"images":[{"mediaType":"PICTURE","mediaUrl":"https://www.visitscotland.com/wsimgs/_MG_2534%20small_297666418.jpg","altText":"whiski rooms, edinburgh, edinburgh restaurant, restaurant, scottish restaurant, royal mile","default":true}],"address":{"line1":"Whiski Rooms","line2":"4 - 7 North Bank Street,","city":"Edinburgh - City Centre","county":"Edinburgh & The Lothians","postCode":"EH1 2LP","shortAddress":"Edinburgh - City Centre, Edinburgh & The Lothians","streetAddress":"Whiski Rooms, 4 - 7 North Bank Street,","empty":false},"description":"Multi award winning venue serving freshly prepared local produce cooked to order and served all day. Premium drinks list including real ales, fabulous cocktails, whisky flights & daily whisky tastings.","productLink":{"label":"View Details","link":"/info/food-drink/whiski-rooms-p312521","type":"INTERNAL"},"website":{"label":"Visit Website","link":"https://www.whiskirooms.co.uk/","type":"EXTERNAL"},"covidInformation":{},"cuisines":[{"id":"scottish","name":"Scottish"},{"id":"modbrit","name":"British"}],"latitude":55.9499,"longitude":-3.19402},{"id":"312711","name":"Café at The Scottish Parliament","category":[{"id":"cafestearooms","name":"Cafes & Tearooms"}],"images":[{"mediaType":"PICTURE","mediaUrl":"https://www.visitscotland.com/wsimgs/thumbnail_IMG_0532_2070861287.jpg","default":true}],"address":{"line1":"Cafe at The Scottish Parliament","line2":"The Scottish Parliament","line3":"Holyrood Road,","city":"Edinburgh - City Centre","county":"Edinburgh & The Lothians","postCode":"EH99 1SP","shortAddress":"Edinburgh - City Centre, Edinburgh & The Lothians","streetAddress":"Cafe at The Scottish Parliament, The Scottish Parliament","empty":false},"description":"Located in the Scottish Parliament, you can have something to eat whilst spotting politicians!","productLink":{"label":"View Details","link":"/info/food-drink/cafe-at-the-scottish-parliament-p312711","type":"INTERNAL"},"website":{"label":"Visit Website","link":"https://parliament.scot/index.aspx","type":"EXTERNAL"},"awards":[{"id":"qatasteourbest","name":"Taste Our Best","image":"https://www.visitscotland.com/wsimgs/awards/TOB-updated-white-back_286148508.jpg"}],"latitude":55.95167,"longitude":-3.17411},{"id":"313041","name":"Cafe Hub","category":[{"id":"cafestearooms","name":"Cafes & Tearooms"}],"images":[{"mediaType":"PICTURE","mediaUrl":"https://www.visitscotland.com/wsimgs/Cafe_Hub_c_Blue_Sky_4_Visit_Scotland_Edit_347317661.jpg","altText":"white walls, wood floors, blue chairs, people, green plant, café, Royal Mile, Edinburgh, Scotland","copyright":"Blue Sky Photography","default":true}],"address":{"line1":"The Hub","line2":"The Royal Mile","line3":"Castlehill","city":"Edinburgh - City Centre","county":"Edinburgh & The Lothians","postCode":"EH1 2NE","shortAddress":"Edinburgh - City Centre, Edinburgh & The Lothians","streetAddress":"The Hub, The Royal Mile","empty":false},"description":"Situated at the foot of the Castle and at the heart of Edinburgh's Old Town, Cafe Hub is a relaxed, laid back place to enjoy a range of meals and light bites.","productLink":{"label":"View Details","link":"/info/food-drink/cafe-hub-p313041","type":"INTERNAL"},"website":{"label":"Visit Website","link":"http://www.thehub-edinburgh.com/cafe-hub/","type":"EXTERNAL"},"cuisines":[{"id":"scottish","name":"Scottish"}],"latitude":55.94875,"longitude":-3.19598},{"id":"452281","name":"Cafe Musa","category":[{"id":"cafestearooms","name":"Cafes & Tearooms"}],"images":[{"mediaType":"PICTURE","mediaUrl":"https://www.visitscotland.com/wsimgs/Cafe%20Musa%20visit_scotland_cafe_musa_1515411144.jpg","default":true}],"address":{"line1":"16 North Bank Street","line2":"The Mound","city":"Edinburgh - City Centre","county":"Edinburgh & The Lothians","postCode":"EH1 2LS","shortAddress":"Edinburgh - City Centre, Edinburgh & The Lothians","streetAddress":"16 North Bank Street, The Mound","empty":false},"description":"Café Musa; a vibrant new Cafe on Edinburgh’s historic Mound providing a relaxing haven and unbeatable views across the capital’s famous Princes Street Gardens and the stunning cityscape beyond.","productLink":{"label":"View Details","link":"/info/food-drink/cafe-musa-p452281","type":"INTERNAL"},"website":{"label":"Visit Website","link":"http://www.cafemusa.co.uk","type":"EXTERNAL"},"cuisines":[{"id":"scottish","name":"Scottish"},{"id":"vege","name":"Vegetarian/Vegan"}],"latitude":55.94954,"longitude":-3.19445},{"id":"915371","name":"Colonnades at the Signet Library","category":[{"id":"cafestearooms","name":"Cafes & Tearooms"}],"images":[{"mediaType":"PICTURE","mediaUrl":"https://www.visitscotland.com/wsimgs/Pics-The-Signet-Library-May2015-078%20cropped_1704603552.jpg","altText":"Luxury Colonnades Afternoon Tea - The Signet Library, Edinburgh","default":true}],"address":{"line1":"The Signet Library","line2":"Parliament Square","city":"Edinburgh - City Centre","county":"Edinburgh & The Lothians","postCode":"EH1 1RF","shortAddress":"Edinburgh - City Centre, Edinburgh & The Lothians","streetAddress":"The Signet Library, Parliament Square","empty":false},"description":"Located within the stunning Signet Library, just a few steps away from the hustle and bustle of the world-famous Edinburgh’s Royal Mile, lies the Colonnades, one of Scotland’s most glamorous afternoon tea salons.","productLink":{"label":"View Details","link":"/info/food-drink/colonnades-at-the-signet-library-p915371","type":"INTERNAL"},"website":{"label":"Visit Website","link":"http://www.thesignetlibrary.co.uk/colonnades/","type":"EXTERNAL"},"covidInformation":{},"cuisines":[{"id":"scottish","name":"Scottish"},{"id":"modbrit","name":"British"}],"latitude":55.94882,"longitude":-3.18989},{"id":"915391","name":"Pommery Champagne Café Bar","category":[{"id":"cafestearooms","name":"Cafes & Tearooms"}],"images":[{"mediaType":"PICTURE","mediaUrl":"https://www.visitscotland.com/wsimgs/Pommery%20Bar%20Night%20Time%20068_158452209.jpg","altText":"Pommery Bar Edinburgh","default":true}],"address":{"line1":"The Signet Library","line2":"Parliament Square","city":"Edinburgh - City Centre","county":"Edinburgh & The Lothians","postCode":"EH1 1RF","shortAddress":"Edinburgh - City Centre, Edinburgh & The Lothians","streetAddress":"The Signet Library, Parliament Square","empty":false},"description":"The timelessly elegant, intimate and sophisticated Signet Library, one of Edinburgh’s finest buildings, transforms into one of the hottest, trendiest places in the Scottish capital for the Edinburgh Fringe Festival.","productLink":{"label":"View Details","link":"/info/food-drink/pommery-champagne-cafe-bar-p915391","type":"INTERNAL"},"website":{"label":"Visit Website","link":"http://www.thesignetlibrary.co.uk/pommery-champagne-cafe-bar/","type":"EXTERNAL"},"latitude":55.94882,"longitude":-3.18989}],"count":28,"pageNumber":1,"pageTotal":2}}
+{
+    "data": {
+        "products": [
+            {
+                "id": "1039541",
+                "name": "Amber Whisky Bar at The Scotch Whisky Experience",
+                "category": [{ "id": "whiskybars", "name": "Whisky" }],
+                "images": [
+                    {
+                        "mediaType": "PICTURE",
+                        "mediaUrl": "https://www.visitscotland.com/wsimgs/_7R32524_40151982.jpg",
+                        "altText": "Amber Whisky Bar",
+                        "copyright": "The Scotch Whisky Experience",
+                        "default": true
+                    }
+                ],
+                "address": {
+                    "line1": "354 Castlehill",
+                    "line2": "The Royal Mile",
+                    "city": "Edinburgh - City Centre",
+                    "county": "Edinburgh & The Lothians",
+                    "postCode": "EH1 2NE",
+                    "shortAddress": "Edinburgh - City Centre, Edinburgh & The Lothians",
+                    "streetAddress": "354 Castlehill, The Royal Mile",
+                    "empty": false
+                },
+                "description": "Located within The Scotch Whisky Experience, Amber Whisky Bar has a mission to inform and impassion people about Scotch Whisky. 380+ Whiskies, superb Scottish cuisine, and an informal, friendly atmosphere make this a must visit bar.",
+                "productLink": {
+                    "label": "View Details",
+                    "link": "/info/food-drink/amber-whisky-bar-at-the-scotch-whisky-experience-p1039541",
+                    "type": "INTERNAL"
+                },
+                "website": {
+                    "label": "Visit Website",
+                    "link": "https://www.scotchwhiskyexperience.co.uk/amber-restaurant/",
+                    "type": "EXTERNAL"
+                },
+                "covidInformation": {},
+                "cuisines": [{ "id": "scottish", "name": "Scottish" }],
+                "awards": [
+                    {
+                        "id": "qatasteourbest",
+                        "name": "Taste Our Best",
+                        "image": "https://www.visitscotland.com/wsimgs/awards/TOB-updated-white-back_286148508.jpg"
+                    }
+                ],
+                "latitude": 55.94877,
+                "longitude": -3.19469
+            },
+            {
+                "id": "1111531",
+                "name": "Cannonball Restaurant & Bar",
+                "category": [{ "id": "restaurants", "name": "Restaurants" }],
+                "images": [
+                    {
+                        "mediaType": "PICTURE",
+                        "mediaUrl": "https://www.visitscotland.com/wsimgs/Guests_toasting_1414816655.jpg",
+                        "altText": "Guests toasting on private event",
+                        "default": true
+                    }
+                ],
+                "address": {
+                    "line1": "Cannonball Restaurant & Bar",
+                    "line2": "Cannonball House",
+                    "line3": "356 Castlehill",
+                    "city": "Edinburgh - City Centre",
+                    "county": "Edinburgh & The Lothians",
+                    "postCode": "EH1 2NE",
+                    "shortAddress": "Edinburgh - City Centre, Edinburgh & The Lothians",
+                    "streetAddress": "Cannonball Restaurant & Bar, Cannonball House",
+                    "empty": false
+                },
+                "description": "Cannonball Restaurant offers the finest in Scottish dining in the very heart of the Old Town, with fabulous views of Edinburgh and the Castle, showcasing Scotland's best and freshest ingredients.",
+                "productLink": {
+                    "label": "View Details",
+                    "link": "/info/food-drink/cannonball-restaurant-bar-p1111531",
+                    "type": "INTERNAL"
+                },
+                "website": {
+                    "label": "Visit Website",
+                    "link": "http://www.contini.com",
+                    "type": "EXTERNAL"
+                },
+                "cuisines": [
+                    { "id": "scottish", "name": "Scottish" },
+                    { "id": "italian", "name": "Italian" }
+                ],
+                "latitude": 55.94867,
+                "longitude": -3.19621
+            },
+            {
+                "id": "1219741",
+                "name": "Oink Grassmarket",
+                "category": [{ "id": "takeaway", "name": "Takeaway" }],
+                "images": [
+                    {
+                        "mediaType": "PICTURE",
+                        "mediaUrl": "https://www.visitscotland.com/wsimgs/Hog%20Roast%20Roll_Oink%20Edinburgh_202752878.jpg",
+                        "altText": "Oink Hog Roast, Victoria Street, Edinburgh",
+                        "default": true
+                    }
+                ],
+                "address": {
+                    "line1": "34 Victoria Street",
+                    "city": "Edinburgh - City Centre",
+                    "county": "Edinburgh & The Lothians",
+                    "postCode": "EH1 2JW",
+                    "shortAddress": "Edinburgh - City Centre, Edinburgh & The Lothians",
+                    "streetAddress": "34 Victoria Street",
+                    "empty": false
+                },
+                "description": "Located on Victoria Street in Edinburgh's Grassmarket we simply serve Hog Roast Rolls – freshly carved hog roast, served in a white or brown roll with a choice of sage & onion, apple sauce, chilli relish or haggis.",
+                "productLink": {
+                    "label": "View Details",
+                    "link": "/info/food-drink/oink-grassmarket-p1219741",
+                    "type": "INTERNAL"
+                },
+                "website": {
+                    "label": "Visit Website",
+                    "link": "http://www.oinkhogroast.co.uk/",
+                    "type": "EXTERNAL"
+                },
+                "latitude": 55.94871,
+                "longitude": -3.19298
+            },
+            {
+                "id": "1367441",
+                "name": "Makars Gourmet Mash Bar",
+                "category": [{ "id": "bistrosbrassery", "name": "Bistros & Brasseries" }],
+                "images": [
+                    {
+                        "mediaType": "PICTURE",
+                        "mediaUrl": "https://www.visitscotland.com/wsimgs/haggis500_637756286.jpg",
+                        "default": true
+                    }
+                ],
+                "address": {
+                    "line1": "9 North Bank Street",
+                    "city": "Edinburgh - City Centre",
+                    "county": "Edinburgh & The Lothians",
+                    "postCode": "EH1 2LP",
+                    "shortAddress": "Edinburgh - City Centre, Edinburgh & The Lothians",
+                    "streetAddress": "9 North Bank Street",
+                    "empty": false
+                },
+                "description": "Our food is inspired by the fine Craft Beer micro industry that is flourishing in Scotland. Like these artisan producers, we carefully select combinations of local ingredients, to create traditional Scottish dishes with bags of flavours.",
+                "productLink": {
+                    "label": "View Details",
+                    "link": "/info/food-drink/makars-gourmet-mash-bar-p1367441",
+                    "type": "INTERNAL"
+                },
+                "website": {
+                    "label": "Visit Website",
+                    "link": "http://www.gourmet-mash-bar.com",
+                    "type": "EXTERNAL"
+                },
+                "covidInformation": {},
+                "cuisines": [{ "id": "scottish", "name": "Scottish" }],
+                "latitude": 55.95004,
+                "longitude": -3.19329
+            },
+            {
+                "id": "1468841",
+                "name": "Demijohn",
+                "category": [{ "id": "delicatessen", "name": "Delicatessen" }],
+                "images": [
+                    {
+                        "mediaType": "PICTURE",
+                        "mediaUrl": "https://www.visitscotland.com/wsimgs/8D2AB608F452AA8992398C71B6AAA093AF915F24.jpg",
+                        "default": true
+                    }
+                ],
+                "address": {
+                    "line1": "32 Victoria Street",
+                    "city": "Edinburgh",
+                    "county": "Edinburgh & The Lothians",
+                    "postCode": "EH1 2JW",
+                    "shortAddress": "Edinburgh, Edinburgh & The Lothians",
+                    "streetAddress": "32 Victoria Street",
+                    "empty": false
+                },
+                "description": "Scotland's award winning liquid deli.",
+                "productLink": {
+                    "label": "View Details",
+                    "link": "/info/food-drink/demijohn-p1468841",
+                    "type": "INTERNAL"
+                },
+                "website": {
+                    "label": "Visit Website",
+                    "link": "http://www.demijohn.co.uk",
+                    "type": "EXTERNAL"
+                },
+                "latitude": 55.94867,
+                "longitude": -3.19299
+            },
+            {
+                "id": "1532281",
+                "name": "Palace of Holyroodhouse-Cafe at the Palace",
+                "category": [{ "id": "cafestearooms", "name": "Cafes & Tearooms" }],
+                "images": [
+                    {
+                        "mediaType": "PICTURE",
+                        "mediaUrl": "https://www.visitscotland.com/wsimgs/_DSC8538_1498856106.gif",
+                        "default": true
+                    }
+                ],
+                "address": {
+                    "line1": "Abbey strand",
+                    "city": "Edinburgh - City Centre",
+                    "county": "Edinburgh & The Lothians",
+                    "postCode": "EH8 8DX",
+                    "shortAddress": "Edinburgh - City Centre, Edinburgh & The Lothians",
+                    "streetAddress": "Abbey strand",
+                    "empty": false
+                },
+                "description": "In a striking setting at the end of the famous Royal Mile in Edinburgh, The Café at the Palace of Holyroodhouse is one of the ultimate Afternoon Tea destinations. Its outdoor terrace in the historic Mews Courtyard gives diners views over Arthur's Seat, and the tea is served in specially commissioned chinaware.",
+                "productLink": {
+                    "label": "View Details",
+                    "link": "/info/food-drink/palace-of-holyroodhousecafe-at-the-palace-p1532281",
+                    "type": "INTERNAL"
+                },
+                "website": {
+                    "label": "Visit Website",
+                    "link": "https://www.royalcollection.org.uk/visit/palaceofholyroodhouse/what-to-see-and-do/cafe-at-the-palace",
+                    "type": "EXTERNAL"
+                },
+                "cuisines": [
+                    { "id": "scottish", "name": "Scottish" },
+                    { "id": "vege", "name": "Vegetarian/Vegan" },
+                    { "id": "+more", "name": "+ More" }
+                ],
+                "awards": [
+                    {
+                        "id": "qatasteourbest",
+                        "name": "Taste Our Best",
+                        "image": "https://www.visitscotland.com/wsimgs/awards/TOB-updated-white-back_286148508.jpg"
+                    }
+                ],
+                "latitude": 55.95258,
+                "longitude": -3.17239
+            },
+            {
+                "id": "1715171",
+                "name": "The Worlds End Bar",
+                "category": [{ "id": "traditional", "name": "Traditional" }],
+                "images": [
+                    {
+                        "mediaType": "PICTURE",
+                        "mediaUrl": "https://www.visitscotland.com/wsimgs/84D13B3A54F52FEC71842E4914B7729A2190DA8D.jpg",
+                        "default": true
+                    }
+                ],
+                "address": {
+                    "line1": "4 High Street",
+                    "city": "Edinburgh - City Centre",
+                    "county": "Edinburgh & The Lothians",
+                    "postCode": "EH1 1TB",
+                    "shortAddress": "Edinburgh - City Centre, Edinburgh & The Lothians",
+                    "streetAddress": "4 High Street",
+                    "empty": false
+                },
+                "description": "The World's End is a traditional Scottish bar set on Edinburgh's historic Royal Mile. Our bar retains it's traditional feel welcoming guests from all over the world as well as the friendly locals. Join us here at The World's End for a real feel of Scotland.",
+                "productLink": {
+                    "label": "View Details",
+                    "link": "/info/food-drink/the-worlds-end-bar-p1715171",
+                    "type": "INTERNAL"
+                },
+                "website": {
+                    "label": "Visit Website",
+                    "link": "http://www.worldsend-edinburgh.co.uk",
+                    "type": "EXTERNAL"
+                },
+                "cuisines": [
+                    { "id": "scottish", "name": "Scottish" },
+                    { "id": "modbrit", "name": "British" },
+                    { "id": "+more", "name": "+ More" }
+                ],
+                "latitude": 55.94976,
+                "longitude": -3.18511
+            },
+            {
+                "id": "1718081",
+                "name": "Malt Shovel Inn",
+                "category": [{ "id": "barpubfood", "name": "Bar and Pub Food" }],
+                "images": [
+                    {
+                        "mediaType": "PICTURE",
+                        "mediaUrl": "https://www.visitscotland.com/wsimgs/6CCEDB0895CC00CE51D874C13D64BB10D0F7068B.jpg",
+                        "default": true
+                    }
+                ],
+                "address": {
+                    "line1": "11-15 Cockburn Street",
+                    "city": "Edinburgh - City Centre",
+                    "county": "Edinburgh & The Lothians",
+                    "postCode": "EH1 1BP",
+                    "shortAddress": "Edinburgh - City Centre, Edinburgh & The Lothians",
+                    "streetAddress": "11-15 Cockburn Street",
+                    "empty": false
+                },
+                "description": "A very traditional pub at the heart of Edinburgh, serving great food and a fantastic range of beers and spirits.",
+                "productLink": {
+                    "label": "View Details",
+                    "link": "/info/food-drink/malt-shovel-inn-p1718081",
+                    "type": "INTERNAL"
+                },
+                "website": {
+                    "label": "Visit Website",
+                    "link": "http://www.maltshovelinn-edinburgh.co.uk/",
+                    "type": "EXTERNAL"
+                },
+                "latitude": 55.95062,
+                "longitude": -3.18995
+            },
+            {
+                "id": "1721601",
+                "name": "The Albanach",
+                "category": [{ "id": "traditional", "name": "Traditional" }],
+                "images": [
+                    {
+                        "mediaType": "PICTURE",
+                        "mediaUrl": "https://www.visitscotland.com/wsimgs/09DFE5F00852E73D84C4730C19DAE7DB4639548D.jpg",
+                        "default": true
+                    }
+                ],
+                "address": {
+                    "line1": "197 High Street",
+                    "line2": "Royal Mile",
+                    "city": "Edinburgh - City Centre",
+                    "county": "Edinburgh & The Lothians",
+                    "postCode": "EH1 1PE",
+                    "shortAddress": "Edinburgh - City Centre, Edinburgh & The Lothians",
+                    "streetAddress": "197 High Street, Royal Mile",
+                    "empty": false
+                },
+                "description": "The Albanach is a traditional Scottish bar and restaurant located on Edinburgh's busy Royal Mile. With over 220 Scottish Malt Whiskies, and a packed traditional Scottish food, this pub is ideal for tourists after a taste of Scotland.",
+                "productLink": {
+                    "label": "View Details",
+                    "link": "/info/food-drink/the-albanach-p1721601",
+                    "type": "INTERNAL"
+                },
+                "website": {
+                    "label": "Visit Website",
+                    "link": "http://www.albanach-edinburgh.co.uk/",
+                    "type": "EXTERNAL"
+                },
+                "cuisines": [
+                    { "id": "scottish", "name": "Scottish" },
+                    { "id": "vege", "name": "Vegetarian/Vegan" },
+                    { "id": "+more", "name": "+ More" }
+                ],
+                "latitude": 55.94973,
+                "longitude": -3.18832
+            },
+            {
+                "id": "2042021",
+                "name": "The Haggis Box",
+                "category": [{ "id": "takeaway", "name": "Takeaway" }],
+                "images": [
+                    {
+                        "mediaType": "PICTURE",
+                        "mediaUrl": "https://www.visitscotland.com/wsimgs/image_6483441_1__1136925071.JPG",
+                        "default": true
+                    }
+                ],
+                "address": {
+                    "line1": "Scottish Storytelling Centre",
+                    "line2": "43-45 High Street",
+                    "city": "Edinburgh - City Centre",
+                    "county": "Edinburgh & The Lothians",
+                    "postCode": "EH1 1SR",
+                    "shortAddress": "Edinburgh - City Centre, Edinburgh & The Lothians",
+                    "streetAddress": "Scottish Storytelling Centre, 43-45 High Street",
+                    "empty": false
+                },
+                "description": "Complete your Scottish Experience with Haggis served the Traditional Way with neeps & tatties! Vegetarian, vegan, gluten-free & dairy free options available.  Delicious sauces!",
+                "productLink": {
+                    "label": "View Details",
+                    "link": "/info/food-drink/the-haggis-box-p2042021",
+                    "type": "INTERNAL"
+                },
+                "website": {
+                    "label": "Visit Website",
+                    "link": "http://www.thehaggisbox.com",
+                    "type": "EXTERNAL"
+                },
+                "cuisines": [
+                    { "id": "scottish", "name": "Scottish" },
+                    { "id": "vege", "name": "Vegetarian/Vegan" }
+                ],
+                "latitude": 55.95157,
+                "longitude": -3.18063
+            },
+            {
+                "id": "2233721",
+                "name": "Brewhemia",
+                "category": [{ "id": "otherspecial", "name": "Other Specialities" }],
+                "images": [
+                    {
+                        "mediaType": "PICTURE",
+                        "mediaUrl": "https://www.visitscotland.com/wsimgs/6C009221F60B486D1FBF9604D14F2E6DDF7C4C11.jpg",
+                        "default": true
+                    }
+                ],
+                "address": {
+                    "line1": "1 Market Street",
+                    "city": "Edinburgh - City Centre",
+                    "county": "Edinburgh & The Lothians",
+                    "postCode": "EH1 1DE",
+                    "shortAddress": "Edinburgh - City Centre, Edinburgh & The Lothians",
+                    "streetAddress": "1 Market Street",
+                    "empty": false
+                },
+                "description": "Our story is one steeped in adventure, a love of great food, drinks and a passion for theatrics. A haven for those with a thirst for discovery, tank fresh beer, artisan coffee, fresh Scottish scran, cocktails and super fine wine.",
+                "productLink": {
+                    "label": "View Details",
+                    "link": "/info/food-drink/brewhemia-p2233721",
+                    "type": "INTERNAL"
+                },
+                "website": {
+                    "label": "Visit Website",
+                    "link": "https://brewhemia.co.uk/",
+                    "type": "EXTERNAL"
+                },
+                "latitude": 55.95062,
+                "longitude": -3.18995
+            },
+            {
+                "id": "2396231",
+                "name": "Howies Restaurant Victoria Street",
+                "category": [{ "id": "restaurants", "name": "Restaurants" }],
+                "images": [
+                    {
+                        "mediaType": "PICTURE",
+                        "mediaUrl": "https://www.visitscotland.com/wsimgs/15971532B009C966234773A1AA70F448280DB47C.jpg",
+                        "default": true
+                    }
+                ],
+                "address": {
+                    "line1": "10-14 Victoria Street",
+                    "city": "Edinburgh - City Centre",
+                    "county": "Edinburgh & The Lothians",
+                    "postCode": "EH1 2HG",
+                    "shortAddress": "Edinburgh - City Centre, Edinburgh & The Lothians",
+                    "streetAddress": "10-14 Victoria Street",
+                    "empty": false
+                },
+                "description": "Scottish, seasonal & seriously tasty, Howies Victoria Street is a celebration of Scottish produce. Located on Edinburgh's most photographed street - Victoria Street - it's the perfect spot for lunch or dinner.",
+                "productLink": {
+                    "label": "View Details",
+                    "link": "/info/food-drink/howies-restaurant-victoria-street-p2396231",
+                    "type": "INTERNAL"
+                },
+                "website": {
+                    "label": "Visit Website",
+                    "link": "http://www.howies.uk.com",
+                    "type": "EXTERNAL"
+                },
+                "covidInformation": {},
+                "latitude": 55.9488,
+                "longitude": -3.19343
+            },
+            {
+                "id": "254961",
+                "name": "Scotch Whisky Experience - Whisky Shop",
+                "category": [{ "id": "whisky", "name": "Whisky Shop" }],
+                "images": [
+                    {
+                        "mediaType": "PICTURE",
+                        "mediaUrl": "https://www.visitscotland.com/wsimgs/SWESTOCK%20IMAGES%20002.JPG",
+                        "default": true
+                    }
+                ],
+                "address": {
+                    "line1": "354 Castlehill, The Royal Mile",
+                    "city": "Edinburgh - City Centre",
+                    "county": "Edinburgh & The Lothians",
+                    "postCode": "EH1 2NE",
+                    "shortAddress": "Edinburgh - City Centre, Edinburgh & The Lothians",
+                    "streetAddress": "354 Castlehill, The Royal Mile",
+                    "empty": false
+                },
+                "description": "A wonderful world of whisky awaits you at our Scotch Whisky Shop. With over 450 whiskies, you're sure to take home your perfect dram.",
+                "productLink": {
+                    "label": "View Details",
+                    "link": "/info/food-drink/scotch-whisky-experience-whisky-shop-p254961",
+                    "type": "INTERNAL"
+                },
+                "website": {
+                    "label": "Visit Website",
+                    "link": "http://www.scotchwhiskyexperience.co.uk",
+                    "type": "EXTERNAL"
+                },
+                "covidInformation": {
+                    "safeTravels": {
+                        "id": "SafeTravels",
+                        "name": "Safe Travels",
+                        "image": "https://static.visitscotland.com/img/dms/facilities/WTTC-SafeTravels.png"
+                    }
+                },
+                "grading": { "minStars": 5, "maxStars": 5, "gold": false },
+                "cuisines": [{ "id": "modbrit", "name": "British" }],
+                "awards": [
+                    {
+                        "id": "qatasteourbest",
+                        "name": "Taste Our Best",
+                        "image": "https://www.visitscotland.com/wsimgs/awards/TOB-updated-white-back_286148508.jpg"
+                    },
+                    {
+                        "id": "qag3g",
+                        "name": "Green Tourism Gold",
+                        "image": "https://www.visitscotland.com/wsimgs/awards/GT_gold_200x200_488938477.png",
+                        "type": "GREEN_TOURISM"
+                    },
+                    {
+                        "id": "qaiknowscotland",
+                        "name": "iKnow Scotland",
+                        "image": "https://www.visitscotland.com/wsimgs/awards/iKnow-200x200-white-background_1615836561.jpg",
+                        "type": "OTHER_AWARDS"
+                    }
+                ],
+                "latitude": 55.94886,
+                "longitude": -3.19513
+            },
+            {
+                "id": "2603861",
+                "name": "Luckenbooths",
+                "category": [{ "id": "restaurants", "name": "Restaurants" }],
+                "images": [
+                    {
+                        "mediaType": "PICTURE",
+                        "mediaUrl": "https://www.visitscotland.com/wsimgs/98EBF543622F8CEE44EC8C01CD4C520E8814DB62.jpg",
+                        "default": true
+                    }
+                ],
+                "address": {
+                    "line1": "329 High Street",
+                    "city": "Edinburgh - City Centre",
+                    "county": "Edinburgh & The Lothians",
+                    "postCode": "EH1 1PN",
+                    "shortAddress": "Edinburgh - City Centre, Edinburgh & The Lothians",
+                    "streetAddress": "329 High Street",
+                    "empty": false
+                },
+                "description": "An all day dining destination on the iconic Royal Mile.",
+                "productLink": {
+                    "label": "View Details",
+                    "link": "/info/food-drink/luckenbooths-p2603861",
+                    "type": "INTERNAL"
+                },
+                "website": {
+                    "label": "Visit Website",
+                    "link": "https://luckenboothsedinburgh.co.uk/",
+                    "type": "EXTERNAL"
+                },
+                "latitude": 55.94993,
+                "longitude": -3.19089
+            },
+            {
+                "id": "2630741",
+                "name": "The Tolbooth Tavern",
+                "category": [{ "id": "barpubfood", "name": "Bar and Pub Food" }],
+                "images": [
+                    {
+                        "mediaType": "PICTURE",
+                        "mediaUrl": "https://www.visitscotland.com/wsimgs/495CB3D1C3BB29A3036DD42FD7A92FD59834191E.jpg",
+                        "default": true
+                    }
+                ],
+                "address": {
+                    "line1": "167 Canongate",
+                    "line2": "Off Burnside Road",
+                    "city": "Edinburgh - City Centre",
+                    "county": "Edinburgh & The Lothians",
+                    "postCode": "EH8 8BN",
+                    "shortAddress": "Edinburgh - City Centre, Edinburgh & The Lothians",
+                    "streetAddress": "167 Canongate, Off Burnside Road",
+                    "empty": false
+                },
+                "description": "THE TOLBOOTH TAVERN\nOver 200 years of Scottish Hospitality\nThe Tolbooth Tavern in Edinburgh is part of the original Canongate Tolbooth which was built in 1591.",
+                "productLink": {
+                    "label": "View Details",
+                    "link": "/info/food-drink/the-tolbooth-tavern-p2630741",
+                    "type": "INTERNAL"
+                },
+                "website": {
+                    "label": "Visit Website",
+                    "link": "http://www.tolboothtavern.co.uk",
+                    "type": "EXTERNAL"
+                },
+                "latitude": 55.95169,
+                "longitude": -3.17887
+            },
+            {
+                "id": "2813811",
+                "name": "Mimi's Little Bakehouse - Royal Mile",
+                "category": [{ "id": "cafestearooms", "name": "Cafes & Tearooms" }],
+                "images": [
+                    {
+                        "mediaType": "PICTURE",
+                        "mediaUrl": "https://www.visitscotland.com/wsimgs/A516B59D734DDA1364842C3E56CFA7FFE258F074.jpg",
+                        "default": true
+                    }
+                ],
+                "address": {
+                    "line1": "250 Canongate",
+                    "city": "Edinburgh - City Centre",
+                    "county": "Edinburgh & The Lothians",
+                    "postCode": "EH8 8AA",
+                    "shortAddress": "Edinburgh - City Centre, Edinburgh & The Lothians",
+                    "streetAddress": "250 Canongate",
+                    "empty": false
+                },
+                "description": "Mimi’s Little Bakehouse on the Royal Mile was established in 2012. Operating mainly as a takeaway service with limited seating, they serve a small all-day food menu and a selection of award-winning cakes and hot drinks.",
+                "productLink": {
+                    "label": "View Details",
+                    "link": "/info/food-drink/mimis-little-bakehouse-royal-mile-p2813811",
+                    "type": "INTERNAL"
+                },
+                "website": {
+                    "label": "Visit Website",
+                    "link": "https://mimisbakehouse.com/locations/royal-mile/",
+                    "type": "EXTERNAL"
+                },
+                "latitude": 55.95068,
+                "longitude": -3.1833
+            },
+            {
+                "id": "308681",
+                "name": "The Witchery by the Castle",
+                "category": [{ "id": "restaurants", "name": "Restaurants" }],
+                "images": [
+                    {
+                        "mediaType": "PICTURE",
+                        "mediaUrl": "https://www.visitscotland.com/wsimgs/Witchery%20SG209312.jpg",
+                        "default": true
+                    }
+                ],
+                "address": {
+                    "line1": "352 Castlehill",
+                    "city": "Edinburgh",
+                    "county": "Edinburgh & The Lothians",
+                    "postCode": "EH1 2NF",
+                    "shortAddress": "Edinburgh, Edinburgh & The Lothians",
+                    "streetAddress": "352 Castlehill",
+                    "empty": false
+                },
+                "description": "A memorable, magical and mouthwatering experience.",
+                "productLink": {
+                    "label": "View Details",
+                    "link": "/info/food-drink/the-witchery-by-the-castle-p308681",
+                    "type": "INTERNAL"
+                },
+                "website": {
+                    "label": "Visit Website",
+                    "link": "http://www.thewitchery.com",
+                    "type": "EXTERNAL"
+                },
+                "covidInformation": {
+                    "safeTravels": {
+                        "id": "SafeTravels",
+                        "name": "Safe Travels",
+                        "image": "https://static.visitscotland.com/img/dms/facilities/WTTC-SafeTravels.png"
+                    }
+                },
+                "cuisines": [
+                    { "id": "scottish", "name": "Scottish" },
+                    { "id": "vege", "name": "Vegetarian/Vegan" },
+                    { "id": "+more", "name": "+ More" }
+                ],
+                "awards": [
+                    {
+                        "id": "qatasteourbest",
+                        "name": "Taste Our Best",
+                        "image": "https://www.visitscotland.com/wsimgs/awards/TOB-updated-white-back_286148508.jpg"
+                    }
+                ],
+                "latitude": 55.94879,
+                "longitude": -3.19563
+            },
+            {
+                "id": "312311",
+                "name": "WHISKI Bar & Restaurant",
+                "category": [{ "id": "restaurants", "name": "Restaurants" }],
+                "images": [
+                    {
+                        "mediaType": "PICTURE",
+                        "mediaUrl": "https://www.visitscotland.com/wsimgs/whiski_-_front_2147317174.jpg",
+                        "altText": "whiski bar, whiski ednburgh",
+                        "copyright": "whiski bar",
+                        "default": true
+                    }
+                ],
+                "address": {
+                    "line1": "WHISKI Bar & Restaurant",
+                    "line2": "119 High Street",
+                    "city": "Edinburgh",
+                    "county": "Edinburgh & The Lothians",
+                    "postCode": "EH1 1SG",
+                    "shortAddress": "Edinburgh, Edinburgh & The Lothians",
+                    "streetAddress": "WHISKI Bar & Restaurant, 119 High Street",
+                    "empty": false
+                },
+                "description": "WHISKI Bar & Restaurant is a multi award winning whisky bar and restaurant situated midway down Edinburgh's world famous Royal Mile.",
+                "productLink": {
+                    "label": "View Details",
+                    "link": "/info/food-drink/whiski-bar-restaurant-p312311",
+                    "type": "INTERNAL"
+                },
+                "website": {
+                    "label": "Visit Website",
+                    "link": "https://www.whiskibar.co.uk/",
+                    "type": "EXTERNAL"
+                },
+                "covidInformation": {},
+                "cuisines": [
+                    { "id": "scottish", "name": "Scottish" },
+                    { "id": "modbrit", "name": "British" }
+                ],
+                "latitude": 55.95056,
+                "longitude": -3.18639
+            },
+            {
+                "id": "312521",
+                "name": "Whiski Rooms",
+                "category": [{ "id": "restaurants", "name": "Restaurants" }],
+                "images": [
+                    {
+                        "mediaType": "PICTURE",
+                        "mediaUrl": "https://www.visitscotland.com/wsimgs/_MG_2534%20small_297666418.jpg",
+                        "altText": "whiski rooms, edinburgh, edinburgh restaurant, restaurant, scottish restaurant, royal mile",
+                        "default": true
+                    }
+                ],
+                "address": {
+                    "line1": "Whiski Rooms",
+                    "line2": "4 - 7 North Bank Street,",
+                    "city": "Edinburgh - City Centre",
+                    "county": "Edinburgh & The Lothians",
+                    "postCode": "EH1 2LP",
+                    "shortAddress": "Edinburgh - City Centre, Edinburgh & The Lothians",
+                    "streetAddress": "Whiski Rooms, 4 - 7 North Bank Street,",
+                    "empty": false
+                },
+                "description": "Multi award winning venue serving freshly prepared local produce cooked to order and served all day. Premium drinks list including real ales, fabulous cocktails, whisky flights & daily whisky tastings.",
+                "productLink": {
+                    "label": "View Details",
+                    "link": "/info/food-drink/whiski-rooms-p312521",
+                    "type": "INTERNAL"
+                },
+                "website": {
+                    "label": "Visit Website",
+                    "link": "https://www.whiskirooms.co.uk/",
+                    "type": "EXTERNAL"
+                },
+                "covidInformation": {},
+                "cuisines": [
+                    { "id": "scottish", "name": "Scottish" },
+                    { "id": "modbrit", "name": "British" }
+                ],
+                "latitude": 55.9499,
+                "longitude": -3.19402
+            },
+            {
+                "id": "312711",
+                "name": "Café at The Scottish Parliament",
+                "category": [{ "id": "cafestearooms", "name": "Cafes & Tearooms" }],
+                "images": [
+                    {
+                        "mediaType": "PICTURE",
+                        "mediaUrl": "https://www.visitscotland.com/wsimgs/thumbnail_IMG_0532_2070861287.jpg",
+                        "default": true
+                    }
+                ],
+                "address": {
+                    "line1": "Cafe at The Scottish Parliament",
+                    "line2": "The Scottish Parliament",
+                    "line3": "Holyrood Road,",
+                    "city": "Edinburgh - City Centre",
+                    "county": "Edinburgh & The Lothians",
+                    "postCode": "EH99 1SP",
+                    "shortAddress": "Edinburgh - City Centre, Edinburgh & The Lothians",
+                    "streetAddress": "Cafe at The Scottish Parliament, The Scottish Parliament",
+                    "empty": false
+                },
+                "description": "Located in the Scottish Parliament, you can have something to eat whilst spotting politicians!",
+                "productLink": {
+                    "label": "View Details",
+                    "link": "/info/food-drink/cafe-at-the-scottish-parliament-p312711",
+                    "type": "INTERNAL"
+                },
+                "website": {
+                    "label": "Visit Website",
+                    "link": "https://parliament.scot/index.aspx",
+                    "type": "EXTERNAL"
+                },
+                "awards": [
+                    {
+                        "id": "qatasteourbest",
+                        "name": "Taste Our Best",
+                        "image": "https://www.visitscotland.com/wsimgs/awards/TOB-updated-white-back_286148508.jpg"
+                    }
+                ],
+                "latitude": 55.95167,
+                "longitude": -3.17411
+            },
+            {
+                "id": "313041",
+                "name": "Cafe Hub",
+                "category": [{ "id": "cafestearooms", "name": "Cafes & Tearooms" }],
+                "images": [
+                    {
+                        "mediaType": "PICTURE",
+                        "mediaUrl": "https://www.visitscotland.com/wsimgs/Cafe_Hub_c_Blue_Sky_4_Visit_Scotland_Edit_347317661.jpg",
+                        "altText": "white walls, wood floors, blue chairs, people, green plant, café, Royal Mile, Edinburgh, Scotland",
+                        "copyright": "Blue Sky Photography",
+                        "default": true
+                    }
+                ],
+                "address": {
+                    "line1": "The Hub",
+                    "line2": "The Royal Mile",
+                    "line3": "Castlehill",
+                    "city": "Edinburgh - City Centre",
+                    "county": "Edinburgh & The Lothians",
+                    "postCode": "EH1 2NE",
+                    "shortAddress": "Edinburgh - City Centre, Edinburgh & The Lothians",
+                    "streetAddress": "The Hub, The Royal Mile",
+                    "empty": false
+                },
+                "description": "Situated at the foot of the Castle and at the heart of Edinburgh's Old Town, Cafe Hub is a relaxed, laid back place to enjoy a range of meals and light bites.",
+                "productLink": {
+                    "label": "View Details",
+                    "link": "/info/food-drink/cafe-hub-p313041",
+                    "type": "INTERNAL"
+                },
+                "website": {
+                    "label": "Visit Website",
+                    "link": "http://www.thehub-edinburgh.com/cafe-hub/",
+                    "type": "EXTERNAL"
+                },
+                "cuisines": [{ "id": "scottish", "name": "Scottish" }],
+                "latitude": 55.94875,
+                "longitude": -3.19598
+            },
+            {
+                "id": "452281",
+                "name": "Cafe Musa",
+                "category": [{ "id": "cafestearooms", "name": "Cafes & Tearooms" }],
+                "images": [
+                    {
+                        "mediaType": "PICTURE",
+                        "mediaUrl": "https://www.visitscotland.com/wsimgs/Cafe%20Musa%20visit_scotland_cafe_musa_1515411144.jpg",
+                        "default": true
+                    }
+                ],
+                "address": {
+                    "line1": "16 North Bank Street",
+                    "line2": "The Mound",
+                    "city": "Edinburgh - City Centre",
+                    "county": "Edinburgh & The Lothians",
+                    "postCode": "EH1 2LS",
+                    "shortAddress": "Edinburgh - City Centre, Edinburgh & The Lothians",
+                    "streetAddress": "16 North Bank Street, The Mound",
+                    "empty": false
+                },
+                "description": "Café Musa; a vibrant new Cafe on Edinburgh’s historic Mound providing a relaxing haven and unbeatable views across the capital’s famous Princes Street Gardens and the stunning cityscape beyond.",
+                "productLink": {
+                    "label": "View Details",
+                    "link": "/info/food-drink/cafe-musa-p452281",
+                    "type": "INTERNAL"
+                },
+                "website": {
+                    "label": "Visit Website",
+                    "link": "http://www.cafemusa.co.uk",
+                    "type": "EXTERNAL"
+                },
+                "cuisines": [
+                    { "id": "scottish", "name": "Scottish" },
+                    { "id": "vege", "name": "Vegetarian/Vegan" }
+                ],
+                "latitude": 55.94954,
+                "longitude": -3.19445
+            },
+            {
+                "id": "915371",
+                "name": "Colonnades at the Signet Library",
+                "category": [{ "id": "cafestearooms", "name": "Cafes & Tearooms" }],
+                "images": [
+                    {
+                        "mediaType": "PICTURE",
+                        "mediaUrl": "https://www.visitscotland.com/wsimgs/Pics-The-Signet-Library-May2015-078%20cropped_1704603552.jpg",
+                        "altText": "Luxury Colonnades Afternoon Tea - The Signet Library, Edinburgh",
+                        "default": true
+                    }
+                ],
+                "address": {
+                    "line1": "The Signet Library",
+                    "line2": "Parliament Square",
+                    "city": "Edinburgh - City Centre",
+                    "county": "Edinburgh & The Lothians",
+                    "postCode": "EH1 1RF",
+                    "shortAddress": "Edinburgh - City Centre, Edinburgh & The Lothians",
+                    "streetAddress": "The Signet Library, Parliament Square",
+                    "empty": false
+                },
+                "description": "Located within the stunning Signet Library, just a few steps away from the hustle and bustle of the world-famous Edinburgh’s Royal Mile, lies the Colonnades, one of Scotland’s most glamorous afternoon tea salons.",
+                "productLink": {
+                    "label": "View Details",
+                    "link": "/info/food-drink/colonnades-at-the-signet-library-p915371",
+                    "type": "INTERNAL"
+                },
+                "website": {
+                    "label": "Visit Website",
+                    "link": "http://www.thesignetlibrary.co.uk/colonnades/",
+                    "type": "EXTERNAL"
+                },
+                "covidInformation": {},
+                "cuisines": [
+                    { "id": "scottish", "name": "Scottish" },
+                    { "id": "modbrit", "name": "British" }
+                ],
+                "latitude": 55.94882,
+                "longitude": -3.18989
+            },
+            {
+                "id": "915391",
+                "name": "Pommery Champagne Café Bar",
+                "category": [{ "id": "cafestearooms", "name": "Cafes & Tearooms" }],
+                "images": [
+                    {
+                        "mediaType": "PICTURE",
+                        "mediaUrl": "https://www.visitscotland.com/wsimgs/Pommery%20Bar%20Night%20Time%20068_158452209.jpg",
+                        "altText": "Pommery Bar Edinburgh",
+                        "default": true
+                    }
+                ],
+                "address": {
+                    "line1": "The Signet Library",
+                    "line2": "Parliament Square",
+                    "city": "Edinburgh - City Centre",
+                    "county": "Edinburgh & The Lothians",
+                    "postCode": "EH1 1RF",
+                    "shortAddress": "Edinburgh - City Centre, Edinburgh & The Lothians",
+                    "streetAddress": "The Signet Library, Parliament Square",
+                    "empty": false
+                },
+                "description": "The timelessly elegant, intimate and sophisticated Signet Library, one of Edinburgh’s finest buildings, transforms into one of the hottest, trendiest places in the Scottish capital for the Edinburgh Fringe Festival.",
+                "productLink": {
+                    "label": "View Details",
+                    "link": "/info/food-drink/pommery-champagne-cafe-bar-p915391",
+                    "type": "INTERNAL"
+                },
+                "website": {
+                    "label": "Visit Website",
+                    "link": "http://www.thesignetlibrary.co.uk/pommery-champagne-cafe-bar/",
+                    "type": "EXTERNAL"
+                },
+                "latitude": 55.94882,
+                "longitude": -3.18989
+            }
+        ],
+        "count": 28,
+        "pageNumber": 1,
+        "pageTotal": 2
+    }
+}

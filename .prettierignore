@@ -1,4 +1,6 @@
-package.json
-package-lock.json
-src/assets/tokens/*
-dist/*
+
+/*
+!src/
+!src/*
+!stories/
+!stories/*
