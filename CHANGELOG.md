@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.2](https://github.com/visitscotland/vs-component-library/compare/v2.0.1...v2.0.2) (2024-04-29)
+
+
+### 🎨 Styling
+
+* **modulewrapper:** add new background theme to module wrapper ([6bcfc51](https://github.com/visitscotland/vs-component-library/commit/6bcfc515b6aee6b0d6bcbca4e4e458c8042f54f4))
+
 ### [2.0.1](https://github.com/visitscotland/vs-component-library/compare/v2.0.0...v2.0.1) (2024-04-23)
 
 
