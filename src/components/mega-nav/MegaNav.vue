@@ -36,7 +36,7 @@
                     <VsCol
                         cols="4"
                         md="6"
-                        lg="7"
+                        :lg="noSearch ? 9 : 7"
                         class="vs-mega-nav__menu d-none d-lg-block"
                     >
                         <VsMegaNavTopMenu>

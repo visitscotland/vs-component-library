@@ -370,6 +370,7 @@ export const StaticNav = Template.bind({
 StaticNav.args = {
     ...base,
     dropdownNav: false,
+    noSearch: true,
 };
 
 export const NoJavascript = Template.bind({
