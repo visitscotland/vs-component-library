@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.32](https://github.com/visitscotland/vs-component-library/compare/v0.0.31...v0.0.32) (2024-04-30)
+
+
+### ✨ Features
+
+* **meganav:** if no search, expand nav to fill space ([8e846dc](https://github.com/visitscotland/vs-component-library/commit/8e846dcd13467e52c0d7722ac7eac18e122ed1a4))
+
 ### [0.0.31](https://github.com/visitscotland/vs-component-library/compare/v0.0.30...v0.0.31) (2024-04-29)
 
 
