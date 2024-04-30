@@ -729,19 +729,20 @@
                 "provisional": true
             },
             {
-                "key":"friday",
-                "day":"Fridays",
-                "startTime":"10:00",
-                "endTime":"11:00",
-                "state":"open",
-                "provisional":false
-            },     
-            {  "key":"friday",
-                "day":"Fridays",
-                "startTime":"11:30",
-                "endTime":"12:00",
-                "state":"open",
-                "provisional":false
+                "key": "friday",
+                "day": "Fridays",
+                "startTime": "10:00",
+                "endTime": "11:00",
+                "state": "open",
+                "provisional": false
+            },
+            {
+                "key": "friday",
+                "day": "Fridays",
+                "startTime": "11:30",
+                "endTime": "12:00",
+                "state": "open",
+                "provisional": false
             },
             {
                 "key": "saturday",

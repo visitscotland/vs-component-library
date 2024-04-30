@@ -9,7 +9,7 @@
         "submit": "Subscribe"
     },
     "fields": [
-        { 
+        {
             "name": "Email",
             "element": "input",
             "type": "email",
@@ -44,7 +44,7 @@
             "label": "Postcode",
             "hint": "We'll only use this to email you local content and offers in our newsletter.",
             "conditional": {
-                "Country": [ 
+                "Country": [
                     "United Kingdom (Scotland)",
                     "United Kingdom (England)",
                     "United Kingdom (Wales)",
