@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.3](https://github.com/visitscotland/vs-component-library/compare/v2.0.2...v2.0.3) (2024-04-30)
+
+
+### 🔖 Others
+
+* **eslint:** run eslint only on staged files ([a818cf1](https://github.com/visitscotland/vs-component-library/commit/a818cf154f10b594f6e1c74dddecd6d23e49311f))
+* **prettier:** adding prettier to tidy files ([52ff314](https://github.com/visitscotland/vs-component-library/commit/52ff314bf9c40b86e7582847b455445793f41372))
+
 ### [2.0.2](https://github.com/visitscotland/vs-component-library/compare/v2.0.1...v2.0.2) (2024-04-29)
 
 
