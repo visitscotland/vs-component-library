@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted } from 'vue';
-import {default as slugify} from 'slugify';
 import TypeAhead from 'vue3-simple-typeahead';
 
 const props = defineProps<{

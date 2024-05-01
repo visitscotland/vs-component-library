@@ -345,7 +345,7 @@ export default {
             return `0${toPad}`;
         },
         /**
-         * Send video details to Vuex store
+         * Send video details to Pinia store
          */
         storeVideoDetails() {
             videoStore.addVideo({

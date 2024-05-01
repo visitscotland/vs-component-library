@@ -207,7 +207,7 @@ export default {
         /**
          * Unique ID for the map - used to
          * differentiate between multiple map
-         * instances in the Vuex store
+         * instances in the Pinia store
          */
         mapId: {
             type: String,
