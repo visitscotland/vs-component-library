@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.4](https://github.com/visitscotland/vs-component-library/compare/v2.0.3...v2.0.4) (2024-05-02)
+
+
+### 🎨 Styling
+
+* **socialshare:** remove dark variant from icon ([f9376c7](https://github.com/visitscotland/vs-component-library/commit/f9376c7703e112def12b950426e89eac708f0215))
+
+
+### ✅ Tests
+
+* **test:** fix unit test warnings ([1a98aeb](https://github.com/visitscotland/vs-component-library/commit/1a98aebf801851c4aac8f03703bbc60ece283ca7))
+
 ### [2.0.3](https://github.com/visitscotland/vs-component-library/compare/v2.0.2...v2.0.3) (2024-04-30)
 
 
