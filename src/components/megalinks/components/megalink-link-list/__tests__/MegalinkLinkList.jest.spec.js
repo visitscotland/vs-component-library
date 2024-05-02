@@ -15,7 +15,6 @@ const factoryMount = () => mount(VsMegalinkLinkList, {
         featured: true,
         imgSrc: 'test',
         linkType: 'external',
-        theme: 'dark',
         linkUrl: 'www.visitscotland.com',
         days: '3',
         daysLabel: 'days',
@@ -36,11 +35,6 @@ describe('VsMegalinkLinkList', () => {
     });
 
     describe(':props', () => {
-        it('renders the correct theme class', () => {
-            const wrapper = factoryMount();
-            expect(wrapper.find('.vs-megalink-link-list--dark').exists()).toBe(true);
-        });
-
         it('should accept a `videoId` property and pass it to the stretched-link-card', () => {
             const wrapper = factoryMount();
 

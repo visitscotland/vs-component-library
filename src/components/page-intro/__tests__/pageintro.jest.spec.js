@@ -5,7 +5,7 @@ config.global.renderStubDefaultSlot = true;
 
 const factoryShallowMount = (slotData) => shallowMount(VsPageIntro, {
     propsData: {
-        background: 'dark',
+        background: 'grey',
         simpleIntro: false,
     },
     ...slotData,
@@ -15,7 +15,7 @@ describe('VsPageIntro', () => {
     describe(':props', () => {
         const wrapper = factoryShallowMount();
         it('should render the correct class for the supplied background prop', () => {
-            expect(wrapper.find('[data-test="vs-page-intro"]').classes()).toContain('vs-page-intro--dark');
+            expect(wrapper.find('[data-test="vs-page-intro"]').classes()).toContain('vs-page-intro--grey');
         });
 
         it('should render the correct class for the simpleIntro prop', async() => {
