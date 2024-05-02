@@ -7,6 +7,7 @@
         :img-alt="featuredEvent.name"
         class="vs-mega-nav-featured-event"
         data-test="vs-mega-nav-featured-event"
+        data-chromatic="ignore"
     >
         <template v-slot:stretched-card-content>
             <p

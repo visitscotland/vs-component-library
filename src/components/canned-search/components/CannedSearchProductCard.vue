@@ -104,7 +104,10 @@
                         </VsLink>
                     </div>
                 </div>
-                <div class="vs-product-card__logos-container">
+                <div
+                    class="vs-product-card__logos-container"
+                    data-chromatic="ignore"
+                >
                     <!--
                         @slot Holds an optional list of logos and awards that the product has won
                         Expects a VsCannedSearchLogos component
