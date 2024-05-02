@@ -27,6 +27,7 @@
                             :use-generic-lqip="useGenericLqip"
                             class="vs-product-card__img"
                             data-test="vs-product-card__img"
+                            data-chromatic="ignore"
                         />
                     </div>
                     <!--
