@@ -67,7 +67,6 @@
     "@storybook/addon-essentials": "^7.5.3",
     "@storybook/addon-interactions": "^7.5.3",
     "@storybook/addon-links": "^7.5.3",
-    "@storybook/addon-mdx-gfm": "7.4.1",
     "@storybook/blocks": "^7.5.3",
     "@storybook/jest": "^0.2.3",
     "@storybook/testing-library": "^0.2.2",
@@ -141,8 +140,6 @@
   },
   "dependencies": {
     "@mapbox/geojson-extent": "^1.0.1",
-    "@visitscotland/product-search": "^0.1.9",
-    "@vueform/multiselect": "^2.6.2",
     "@vuelidate/core": "^2.0.2",
     "@vuelidate/validators": "^2.0.2",
     "axios": "^1.4.0",
@@ -158,7 +155,6 @@
     "vue3-charts": "^1.1.33",
     "vue3-lazy-hydration": "^1.2.1",
     "vue3-simple-typeahead": "^1.0.11",
-    "vuelidate": "^0.7.7",
     "youtube-vue3": "^0.1.15"
   },
   "peerDependencies": {
