@@ -14,7 +14,6 @@
             <VsIcon
                 :name="name"
                 :custom-colour="iconColour"
-                variant="dark"
                 size="xl"
                 small-size="lg"
             />
