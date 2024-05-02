@@ -24,14 +24,14 @@ describe('VsModuleWrapper', () => {
             expect(wrapper.find('[data-test="vs-module-wrapper"]').classes()).toContain('vs-module-wrapper--grey');
         });
 
-        it('sets the module wrapper to `dark` theme', async() => {
+        it('sets the module wrapper to `neutral` theme', async() => {
             const wrapper = factoryShallowMount();
 
             await wrapper.setProps({
-                theme: 'dark',
+                theme: 'neutral',
             });
 
-            expect(wrapper.find('[data-test="vs-module-wrapper"]').classes()).toContain('vs-module-wrapper--dark');
+            expect(wrapper.find('[data-test="vs-module-wrapper"]').classes()).toContain('vs-module-wrapper--neutral');
         });
 
         it('sets the module wrapper to `light` theme', async() => {

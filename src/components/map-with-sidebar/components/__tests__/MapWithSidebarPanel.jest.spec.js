@@ -1,5 +1,6 @@
 import { shallowMount, config } from '@vue/test-utils';
 import VsMapWithSidebarPanel from '../MapWithSidebarPanel.vue';
+import placesTestData from './data/places-data.json';
 
 config.global.renderStubDefaultSlot = true;
 
@@ -19,26 +20,7 @@ const factoryShallowMount = (propsData) => shallowMount(VsMapWithSidebarPanel, {
         provide: {
             mapId: '12345',
             focussedListItem: 1,
-            placesData: [{
-                properties: {
-                    category: {
-                        id: 'cities',
-                        label: 'Cities',
-                    },
-                    title: 'Aberdeen',
-                    id: 'aberdeen',
-                },
-            },
-            {
-                properties: {
-                    category: {
-                        id: 'cities',
-                        label: 'Cities',
-                    },
-                    title: 'Dundee',
-                    id: 'dundee',
-                },
-            }],
+            placesData: placesTestData,
             filters: [
                 {
                     id: 'cities',
