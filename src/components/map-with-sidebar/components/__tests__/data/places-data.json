@@ -1,0 +1,20 @@
+[{
+    "properties": {
+        "category":{
+            "id":"cities",
+            "label":"Cities"
+        },
+        "title":"Aberdeen",
+        "id":"aberdeen"
+        }
+    },
+    {
+    "properties": {
+        "category":{
+            "id":"cities",
+            "label":"Cities"
+        },
+        "title":"Dundee",
+        "id":"dundee"
+    }
+}]

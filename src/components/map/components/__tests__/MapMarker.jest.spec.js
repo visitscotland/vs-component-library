@@ -23,6 +23,7 @@ const factoryShallowMount = () => shallowMount(VsMapMarker, {
             },
             id: 'af10c61f-4f4d-412d-ab7a-267834ee4201',
         },
+        hasPopups: true,
     },
 });
 

@@ -28,7 +28,6 @@
             <div class="icon-wrapper text-end">
                 <VsIcon
                     :name="icon"
-                    variant="dark"
                     size="xl"
                 />
             </div>
