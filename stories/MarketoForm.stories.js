@@ -1,6 +1,6 @@
 import {
     userEvent, within, waitFor,
-} from '@storybook/testing-library';
+} from '@storybook/test';
 
 import VsMarketoForm from '@/components/marketo-form/MarketoForm.vue';
 
