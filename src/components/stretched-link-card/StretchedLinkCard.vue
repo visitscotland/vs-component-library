@@ -47,6 +47,7 @@
                     :low-res-image="specificImgSize('xxs')"
                     class="vs-stretched-link-card__img"
                     data-test="vs-stretched-link-card__img"
+                    data-chromatic="ignore"
                 />
             </template>
 

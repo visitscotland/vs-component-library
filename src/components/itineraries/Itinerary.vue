@@ -42,8 +42,6 @@
 </template>
 
 <script>
-// import { get } from 'lodash'
-
 import {
     VsContainer,
     VsRow,

@@ -12,7 +12,7 @@ import dataLayerMixin from '../../mixins/dataLayerMixin';
  * This is a hidden "Global" component that sits on
  * a higher level of the page hierarchy
  * and controls reading and updating global analytic details
- * to and from the Google Tag Manager (GTM) Vuex Store
+ * to and from the Google Tag Manager (GTM) Pinia Store
  * created by dataLayer.store.js
  *
  * @displayName Tag Manager Wrapper
