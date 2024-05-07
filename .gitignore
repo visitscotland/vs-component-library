@@ -3,6 +3,7 @@ dist/
 yarn-error.log
 .env
 storybook-static/
+build-storybook.log
 .yarn/*
 !.yarn/cache
 !.yarn/patches

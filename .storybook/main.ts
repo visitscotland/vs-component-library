@@ -1,34 +1,31 @@
-/** @type { import('@storybook/vue3-vite').StorybookConfig } */
+import path from 'path';
+import { mergeConfig } from 'vite';
+import type { StorybookConfig } from '@storybook/vue3-vite'
 
-const path = require("path");
-const { mergeConfig } = require('vite');
-const turbosnap = require('vite-plugin-turbosnap');
-
-const config = {
+const config: StorybookConfig = {
   stories: [
     "../stories/**/*.mdx",
     "../stories/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@chromatic-com/storybook',
+    '@storybook/addon-interactions',
     "@storybook/addon-a11y",
-    "@storybook/addon-mdx-gfm",
     "storybook-addon-mock",
     'storybook-addon-datalayer-watcher',
   ],
   framework: {
-    name: "@storybook/vue3-vite",
-    options: {},
+    name: '@storybook/vue3-vite',
+    options: {}
   },
   docs: {
-    autodocs: "tag",
+    autodocs: 'tag'
   },
   staticDirs: ['../src/assets'],
-  async viteFinal(config, { configType }) {
-    // return the customized config
-    return mergeConfig(config, {
+  viteFinal: (viteConfig) =>
+    mergeConfig(viteConfig, {
       css: {
         preprocessorOptions: {
           scss: {
@@ -58,9 +55,7 @@ const config = {
           },
         ],
       },
-      plugins: configType === 'PRODUCTION' ? [turbosnap({ rootDir: config.root ?? process.cwd() })] : [],
-    });
-  },
+    }),
 };
 
-module.exports = config;
+export default config;
