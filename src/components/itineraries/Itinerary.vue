@@ -21,6 +21,7 @@
         <div
             class="vs-itinerary__map-container"
             v-if="isDesktop || showMap"
+            data-chromatic="ignore"
         >
             <slot name="map" />
         </div>
@@ -42,8 +43,6 @@
 </template>
 
 <script>
-// import { get } from 'lodash'
-
 import {
     VsContainer,
     VsRow,

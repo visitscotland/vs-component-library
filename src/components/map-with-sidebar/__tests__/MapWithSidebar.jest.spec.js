@@ -121,9 +121,9 @@ describe('VsMapWithSidebar', () => {
         it('should change the `selectedItem` data when the `showDetail` method is fired', async() => {
             const wrapper = factoryShallowMount();
 
-            wrapper.vm.showDetail('test');
+            wrapper.vm.showDetail(placesJson.features[0]);
             await wrapper.vm.$nextTick();
-            expect(wrapper.vm.selectedItem).toBe('test');
+            expect(wrapper.vm.selectedItem).toStrictEqual(placesJson.features[0]);
         });
 
         it('should add all places to `activePins` when `showAllPlaces` is fired', async() => {

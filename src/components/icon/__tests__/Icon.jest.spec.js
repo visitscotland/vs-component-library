@@ -22,7 +22,7 @@ describe('VsIcon', () => {
         });
 
         it(':variant - should accept and render variants as props', () => {
-            const testVariant = 'light';
+            const testVariant = 'inverse';
             const wrapper = factoryShallowMount({
                 variant: testVariant,
             });

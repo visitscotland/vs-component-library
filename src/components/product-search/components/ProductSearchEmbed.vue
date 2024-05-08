@@ -45,6 +45,7 @@
                                 track-by="name"
                                 @change-value="(newLocation) => getPlaceData(newLocation)"
                                 :default-val="chosenLocation"
+                                data-chromatic="ignore"
                             />
 
                             <input

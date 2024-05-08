@@ -19,7 +19,7 @@ const mountOptions = {
         imgSrc: 'test',
         linkType: 'external',
         linkUrl: 'www.visitscotland.com',
-        theme: 'dark',
+        theme: 'grey',
         days: '3',
         daysLabel: 'days',
         transport: 'bus',
@@ -58,7 +58,7 @@ describe('VsMegalinkMultiImage', () => {
         });
 
         it('renders the correct theme class', () => {
-            expect(wrapper.find('[data-test="megalink-multi-image-featured"]').classes()).toContain('vs-megalink-multi-image-card--dark');
+            expect(wrapper.find('[data-test="megalink-multi-image-featured"]').classes()).toContain('vs-megalink-multi-image-card--grey');
         });
 
         it('renders card panels if days and transport are provided', () => {

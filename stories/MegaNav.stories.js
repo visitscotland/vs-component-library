@@ -1,4 +1,4 @@
-import { userEvent, within } from '@storybook/testing-library';
+import { userEvent, within } from '@storybook/test';
 
 import VsMeganav from '@/components/mega-nav/MegaNav.vue';
 import VsMegaNavDropdownContainer from '@/components/mega-nav/components/MegaNavDropdownContainer.vue';

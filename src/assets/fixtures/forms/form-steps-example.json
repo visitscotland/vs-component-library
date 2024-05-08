@@ -10,7 +10,7 @@
     },
     "totalSteps": 2,
     "fields": [
-        { 
+        {
             "name": "Email",
             "element": "input",
             "type": "email",
@@ -45,7 +45,7 @@
             "type": "text",
             "label": "Postcode",
             "conditional": {
-                "Country": [ 
+                "Country": [
                     "United Kingdom (Scotland)",
                     "United Kingdom (England)",
                     "United Kingdom (Wales)",
@@ -86,7 +86,7 @@
         "Email": {
             "label": "Email address (de)",
             "validationMessages": {
-            "required": "Your email is required (de)",
+                "required": "Your email is required (de)",
                 "email": "Please ensure your email is in the correct format (de)"
             }
         },

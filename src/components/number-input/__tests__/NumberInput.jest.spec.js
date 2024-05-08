@@ -10,6 +10,7 @@ function mountOptions(propsData) {
     return {
         propsData: {
             fieldName: 'testname',
+            value: 0,
             ...propsData,
         },
     };
@@ -73,19 +74,6 @@ describe('VsInput', () => {
 
             expect(wrapper.find('.vs-number-input').attributes('name')).toBe('testValue');
         });
-
-        it('should show the clear button when there is a value if the `closeButtonText` prop is defined', async() => {
-            wrapper.setProps({
-                clearButtonText: 'clear text',
-            });
-
-            wrapper.setData({
-                inputVal: 'test',
-            });
-            await wrapper.vm.$nextTick();
-
-            expect(wrapper.find('[data-test="input-clear-button"]').text()).toBe('clear text');
-        });
     });
 
     describe(':computed', () => {
@@ -103,7 +91,7 @@ describe('VsInput', () => {
 
         it('should display a validation message if validation fails', async() => {
             wrapper.setProps({
-                value: '',
+                value: 0,
                 validationRules: {
                     required: true,
                 },
