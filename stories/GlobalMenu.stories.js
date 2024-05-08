@@ -1,4 +1,4 @@
-import { userEvent, within } from '@storybook/testing-library';
+import { userEvent, within } from '@storybook/test';
 import VsGlobalMenu from '@/components/global-menu/GlobalMenu.vue';
 import VsGlobalMenuLanguage from '@/components/global-menu/components/GlobalMenuLanguage.vue';
 import VsGlobalMenuLanguageItem from '@/components/global-menu/components/GlobalMenuLanguageItem.vue';
