@@ -136,6 +136,7 @@
     "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
+    "@headlessui/vue": "^1.7.22",
     "@mapbox/geojson-extent": "^1.0.1",
     "@storybook/test": "^8.0.10",
     "@vuelidate/core": "^2.0.2",
@@ -152,7 +153,6 @@
     "vue-recaptcha": "^2.0.1",
     "vue3-charts": "^1.1.33",
     "vue3-lazy-hydration": "^1.2.1",
-    "vue3-simple-typeahead": "^1.0.11",
     "youtube-vue3": "^0.1.15"
   },
   "peerDependencies": {
