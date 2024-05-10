@@ -33,15 +33,7 @@ const inputValueFormatted = computed(() => {
         }
         return inputValue.value.trim();
     }
-})
-
-const updateValue = (item) => {
-    if (typeof props.trackBy !== 'undefined') {
-        inputValue.value = item[props.trackBy];
-    } else {
-        inputValue.value = item.label;
-    }
-}
+});
 
 const selectBy = computed(() => {
     if (typeof props.multiselectLabel !== 'undefined') {
