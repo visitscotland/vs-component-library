@@ -163,8 +163,6 @@
     </div>
 </template>
 
-
- 
 <script lang="ts">
     //  Options API script block used to allow Vue 2 mixin to be used
     import { defineComponent } from "vue"; 
