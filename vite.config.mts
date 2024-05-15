@@ -55,8 +55,13 @@ export default defineConfig(({ mode }) => {
             }),
         ],
         build: {
+            cssCodeSplit: true,
             lib: {
-                entry: path.resolve(__dirname, 'src/component-entry.ts'),
+                entry: {
+                    'vs-component-library': path.resolve(__dirname, 'src/component-entry.ts'),
+                    fonts: path.resolve(__dirname, 'src/assets/fonts/fonts.scss'),
+                    icons: path.resolve(__dirname, 'src/styles/third-party/_font-awesome.scss'),
+                },
                 name: 'vs-component-library',
                 fileName: 'vs-component-library',
             },
@@ -68,7 +73,6 @@ export default defineConfig(({ mode }) => {
                 ],
                 output: {
                     dir: 'dist/components',
-                    // assetFileNames: 'vs-component-library.[ext]',
                     globals: {
                         vue: 'Vue',
                         'bootstrap-vue-next': 'BootstrapVueNext',

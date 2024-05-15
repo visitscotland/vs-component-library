@@ -14,7 +14,9 @@
       "require": "./dist/components/vs-component-library.umd.js",
       "types": "./dist/components/component-entry.d.ts"
     },
-    "./components/style.css": "./dist/components/style.css"
+    "./components/style.css": "./dist/components/vs-component-library.css",
+    "./components/fonts.css": "./dist/components/fonts.css",
+    "./components/icons.css": "./dist/components/icons.css"
   },
   "license": "MIT",
   "scripts": {
@@ -218,7 +220,8 @@
     "word-wrap": "^1.2.4",
     "highlight.js": "^10.4.1",
     "semver": "^7.5.4",
-    "get-func-name": "^2.0.1"
+    "get-func-name": "^2.0.1",
+    "svgo": "3.2.0"
   },
   "packageManager": "yarn@4.2.1"
 }

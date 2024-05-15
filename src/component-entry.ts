@@ -1,4 +1,3 @@
-export * from '@/styles/core.styles.scss';
-export * from '@/assets/fonts/fonts.scss';
+export * from '@/styles/component.styles.scss';
 
 export * from './components';
