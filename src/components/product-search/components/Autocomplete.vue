@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted } from 'vue';
-import TypeAhead from 'vue3-simple-typeahead';
+import VueComboBlocks from 'vue-combo-blocks';
+import VsIcon from '@/components/icon/Icon.vue';
 
 const props = defineProps<{
     id: string,
@@ -20,6 +21,30 @@ const emit = defineEmits<{
 }>()
 
 const inputValue = ref<string | string[]>([]); // init as empty array so as not to be undefined
+const filteredOptions = ref(props.options);
+
+const getOptionValue = (item) => item ? item[selectBy.value] : '';
+
+const updateOptions = (text) => {
+    filteredOptions.value = props.options.filter((item) =>
+        item[selectBy.value].toLowerCase().includes(text.toLowerCase())
+    );
+};
+
+const updateValue = (item) => {
+    if (typeof props.trackBy !== 'undefined') {
+        emit('changeValue', item[props.trackBy]);
+    } else {
+        emit('changeValue', item.label);
+    }
+}
+
+const selectBy = computed(() => {
+    if (typeof props.multiselectLabel !== 'undefined') {
+        return props.multiselectLabel;
+    }
+    return 'name';
+});
 
 const inputValueFormatted = computed(() => {
     if (typeof inputValue.value === 'string') {
@@ -31,39 +56,17 @@ const inputValueFormatted = computed(() => {
             }
         }
         return inputValue.value.trim();
+    } else if (typeof inputValue.value === 'object' && Object.keys(inputValue.value).length > 0) {
+        return getOptionValue(inputValue.value).trim();
     }
-})
-
-const updateValue = (item) => {
-    if (typeof props.trackBy !== 'undefined') {
-        inputValue.value = item[props.trackBy];
-    } else {
-        inputValue.value = item.label;
-    }
-}
-
-const selectBy = computed(() => {
-    if (typeof props.multiselectLabel !== 'undefined') {
-        return props.multiselectLabel;
-    }
-    return 'name';
+    return;
 });
 
 const showHiddenInput = computed(() => {
-    if (inputValue.value && inputValue.value.length > 0){
+    if (inputValueFormatted.value && inputValueFormatted.value.length > 0) {
         return true;
     }
     return false;
-});
-
-watch(inputValue, (newInputVal) => {
-    emit('changeValue', newInputVal);
-});
-
-watch(() => props.defaultVal, () => {
-    if (typeof props.defaultVal !== 'undefined') {
-        inputValue.value = props.defaultVal.name;
-    }
 });
 
 watch(() => inputValue.value, () => {
@@ -74,7 +77,7 @@ watch(() => inputValue.value, () => {
 
 onMounted(() => {
     if (typeof props.defaultVal !== 'undefined') {
-        inputValue.value = props.defaultVal.name;
+        inputValue.value = props.defaultVal;
     }
 });
 </script>
@@ -82,24 +85,64 @@ onMounted(() => {
 <template>
     <div 
         data-test="vs-autocomplete"
-        class="mb-4"
+        class="vs-autocomplete mb-4"
     >
         <label :for="id">{{ label }}</label>
-        <TypeAhead
-            class="vs-input form-control"
-            :id="id"
-            :placeholder="placeholder"
-            :searchable="true"
-            :track-by="trackBy"
-            :valueProp="trackBy"
+        <VueComboBlocks
+            :input-id="id"
             v-model="inputValue"
-            autocomplete="off"
-            :items="options"
-            :minInputLength="0"
-            :itemProjection="(item) => item[selectBy]"        
-            @selectItem="updateValue"
-            :defaultItem="props.defaultVal"
-        />
+            :itemToString="getOptionValue"
+            :items="filteredOptions"
+            @input-value-change="updateOptions"
+            @select="updateValue"
+            v-slot="{
+                getInputProps,
+                getInputEventListeners,
+                hoveredIndex,
+                isOpen,
+                getMenuProps,
+                getMenuEventListeners,
+                getItemProps,
+                getItemEventListeners,
+                getComboboxProps,
+                openMenu,
+            }"
+        >
+            <div
+                v-bind="getComboboxProps()"
+                class="vs-autocomplete__list-wrapper"
+            >
+                <input
+                    class="vs-input form-control"
+                    v-bind="getInputProps()"
+                    v-on="getInputEventListeners()"
+                    :placeholder="placeholder"
+                    @click="openMenu()"
+                />
+                <VsIcon 
+                    name="chevron-down"
+                    variant="primary"
+                    size="sm"
+                />
+                <ul
+                    v-show="isOpen"
+                    v-bind="getMenuProps()"
+                    v-on="getMenuEventListeners()"
+                    class="vs-autocomplete__list"
+                >
+                    <li
+                        v-for="(item, index) in filteredOptions"
+                        :key="item.id"
+                        v-bind="getItemProps({ item, index })"
+                        v-on="getItemEventListeners({ item, index })"
+                        class="vs-autocomplete__list-item"
+                        :class="{'vs-autocomplete__list-item--hover' : hoveredIndex === index }"
+                    >
+                        {{ item[selectBy] }}
+                    </li>
+                </ul>
+            </div>
+        </VueComboBlocks>
 
         <!-- need to check inputValue length to ensure it's not an empty array -->
         <input
@@ -112,46 +155,40 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
-    .simple-typeahead {
-        position: relative;
+.vs-autocomplete {
+    position: relative;
+    
+    &__list {
+        background-color: $vs-color-background-input;
+        max-height: 250px;
+        overflow-y: scroll;
+        padding-left: 0;
+        position: absolute;
+        width: 100%;
+        z-index: 10;
 
-        &-list {
-            position: absolute;
-            display: flex;
-            flex-direction: column;
-            max-height: 250px;
-            overflow-y: scroll;
-            background: #fff;
-            width: 100%;
-            z-index: 10;
+        &-wrapper {
+            position: relative;
+        }
 
-            &-item{
-                cursor: pointer;
-                font-size: $font-size-4;
-                padding: $spacer-2 $spacer-4;
+        &-item {
+            cursor: pointer;
+            font-size: $font-size-4;
+            list-style: none;
+            padding: $spacer-2 $spacer-4;
 
-                &:hover{
-                    background-color: $vs-color-background-primary;
-                    color: $vs-color-text-inverse;
-                }
+            &:hover,
+            &--hover {
+                background-color: $vs-color-background-primary;
+                color: $vs-color-text-inverse;
             }
         }
+    }
 
-        &-list-list 
-        &-list-list-item.simple-typeahead-list-item-active{
-            background-color: $vs-color-background-primary!important;
-            color: $vs-color-text-inverse!important;
-        }
-
-        &::after {
-            font-family: "Font Awesome Kit";
-            content: "\e06c";
-            display: inline-block;
-            position: absolute;
-            top: calc(50% - $spacer-3);
-            right: $spacer-4;
-            pointer-events: none;
-            color: $vs-color-icon-primary;
-        }
-    }    
+    .vs-icon {
+        position: absolute;
+        top: calc(50% - $spacer-2);
+        right: $spacer-4;
+    }
+}
 </style>
