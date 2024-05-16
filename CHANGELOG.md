@@ -2,6 +2,54 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.5](https://github.com/visitscotland/vs-component-library/compare/v2.0.4...v2.0.5) (2024-05-16)
+
+
+### ♻️ Code Refactoring
+
+* **storybook:** auto migrate to storybook 8 ([7fc7108](https://github.com/visitscotland/vs-component-library/commit/7fc7108e2bdfdd633d20bbc5d6b7cf486e1d52cd))
+* **storybook:** fix storybook build ([3287531](https://github.com/visitscotland/vs-component-library/commit/328753148e2c3393dd791f51731dc40cb8e326d3))
+
+
+### ✨ Features
+
+* **chromatic:** add turbosnap to chromatic local build ([7d4913e](https://github.com/visitscotland/vs-component-library/commit/7d4913ea82217c84f7da9bb68d3ceef6f08b6d9c))
+
+
+### 🏗 Build System
+
+* **chromatic:** add chromatic ignore to card images that change often ([75d2193](https://github.com/visitscotland/vs-component-library/commit/75d21931eccf7834ed28c4a39b5ac379d4188e4f))
+* **chromatic:** add chromatic ignore to elements that change often ([abc1752](https://github.com/visitscotland/vs-component-library/commit/abc175253251af85af4e89ecdaf30c286ea071b6))
+* **vite:** remove ViteRequireContext ([d746a51](https://github.com/visitscotland/vs-component-library/commit/d746a513a5349b467a21c62ba854fdbb5bc0805f))
+* **yarn:** add missing yarn release ([8d8352f](https://github.com/visitscotland/vs-component-library/commit/8d8352fe2684047d6ba6067189e7de043e8903b5))
+* **yarn:** removing unused packages ([0e00b7e](https://github.com/visitscotland/vs-component-library/commit/0e00b7e4165842452fb3d8edea1d87b91180fb0b))
+* **yarn:** upgrade to yarn 4 and fix dependecy issues ([4fc4e8d](https://github.com/visitscotland/vs-component-library/commit/4fc4e8d6f15627e4d33efa8c6bae43bd29543185))
+
+
+### 🔖 Others
+
+* **storybook:** upgrade to latest storybook version ([683e596](https://github.com/visitscotland/vs-component-library/commit/683e5961c0f962a15dd626df555e1c06473366b0))
+* **vite:** update vite config to mts ([8fe28de](https://github.com/visitscotland/vs-component-library/commit/8fe28def1ee67e17e513577dcb6bd7766be765cb))
+* **yarn.lock:** add updated yarn.lock file ([143bdf0](https://github.com/visitscotland/vs-component-library/commit/143bdf01860f06709c3ba6fe5fdc997c3b144c9a))
+
+
+### 🎨 Styling
+
+* **chromatic:** ignore itinerary and psr elements in chromatic ([d28a9dc](https://github.com/visitscotland/vs-component-library/commit/d28a9dc955058c92b4f4f9c9194be2e01206a9e8))
+
+
+### 🐛 Bug Fixes
+
+* **autocomplete:** remove unused function ([1a1ce91](https://github.com/visitscotland/vs-component-library/commit/1a1ce91241535dc344fd54a2d22cce163f79c372))
+* **autocomplete:** replace non-accessible third-party component ([73a9ee3](https://github.com/visitscotland/vs-component-library/commit/73a9ee3129ee79ecc4120429f13c0a965dac29b3))
+* **autocomplete:** replace non-accessible third-party component ([10c45d2](https://github.com/visitscotland/vs-component-library/commit/10c45d244ed3e732d2005c9de13b1591ac259709))
+* **marketo:** fix breaking marketo form story ([b9b95c2](https://github.com/visitscotland/vs-component-library/commit/b9b95c287987c0927f57d8b2c57e8a9d28b591aa))
+
+
+### ✅ Tests
+
+* **autocomplete:** update tests ([b4835db](https://github.com/visitscotland/vs-component-library/commit/b4835dbcc7cba7ca3cf01f5b5844eca10eda02f6))
+
 ### [2.0.4](https://github.com/visitscotland/vs-component-library/compare/v2.0.3...v2.0.4) (2024-05-02)
 
 
