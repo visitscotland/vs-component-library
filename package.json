@@ -14,6 +14,9 @@
       "require": "./dist/components/vs-component-library.umd.js",
       "types": "./dist/components/component-entry.d.ts"
     },
+    "./maps": {
+      "import": "./dist/components/maps.mjs"
+    },
     "./components/style.css": "./dist/components/vs-component-library.css",
     "./components/fonts.css": "./dist/components/fonts.css",
     "./components/icons.css": "./dist/components/icons.css"
