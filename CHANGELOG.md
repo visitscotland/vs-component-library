@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.34](https://github.com/visitscotland/vs-component-library/compare/v0.0.33...v0.0.34) (2024-05-17)
+
+
+### ✨ Features
+
+* **perf:** temporarily remove map ([2a6ce12](https://github.com/visitscotland/vs-component-library/commit/2a6ce12ba14d38a76576e2c4b2b465b1ca43cabe))
+
 ### [0.0.33](https://github.com/visitscotland/vs-component-library/compare/v0.0.32...v0.0.33) (2024-05-15)
 
 
