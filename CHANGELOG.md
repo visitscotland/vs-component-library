@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.35](https://github.com/visitscotland/vs-component-library/compare/v0.0.34...v0.0.35) (2024-05-17)
+
+
+### ✨ Features
+
+* **perf:** separate maps into their own entrypoint ([3fdd9f9](https://github.com/visitscotland/vs-component-library/commit/3fdd9f9bcbc8db9893f6172a5d69b8f293e4838b))
+
 ### [0.0.34](https://github.com/visitscotland/vs-component-library/compare/v0.0.33...v0.0.34) (2024-05-17)
 
 
