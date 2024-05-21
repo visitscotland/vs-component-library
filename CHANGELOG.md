@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.6](https://github.com/visitscotland/vs-component-library/compare/v2.0.5...v2.0.6) (2024-05-21)
+
+
+### 🔖 Others
+
+* **.yarnrc.yml:** add npmPublishAccess setting ([e592f91](https://github.com/visitscotland/vs-component-library/commit/e592f91e18583aae4356d63ad669c7355bf25100))
+
 ### [2.0.5](https://github.com/visitscotland/vs-component-library/compare/v2.0.4...v2.0.5) (2024-05-16)
 
 
