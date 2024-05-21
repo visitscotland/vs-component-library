@@ -1,12 +1,12 @@
 {
   "name": "@visitscotland/component-library",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "VisitScotland Component Library",
   "author": "VisitScotland",
   "main": "dist/ssr/index.js",
   "homepage": "https://github.com/visitscotland/vs-component-library#readme",
   "files": [
-    "dist/*"
+    "dist"
   ],
   "license": "MIT",
   "scripts": {
