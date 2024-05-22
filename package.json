@@ -3,12 +3,14 @@
   "version": "2.0.7",
   "description": "VisitScotland Component Library",
   "author": "VisitScotland",
-  "main": "dist/ssr/index.js",
   "homepage": "https://github.com/visitscotland/vs-component-library#readme",
   "files": [
     "dist"
   ],
   "exports": {
+    ".": {
+      "require": "./dist/ssr/index.js"
+    },
     "./components": {
       "import": "./dist/components/vs-component-library.mjs",
       "require": "./dist/components/vs-component-library.umd.js",
