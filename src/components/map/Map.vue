@@ -314,8 +314,6 @@ export default {
         },
     },
     mounted() {
-        // mapStore = useMapStore();
-
         mapStore.addMapInstance({
             id: this.mapId,
             filters: this.filters,

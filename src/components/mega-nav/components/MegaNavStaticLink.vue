@@ -5,17 +5,15 @@
         data-test="vs-mega-nav-static-link"
         role="presentation"
     >
-        <div>
-            <VsLink
-                class="vs-mega-nav-static-link__inner"
-                :href="href"
-                role="menuitem"
-                data-layer-value="menuNavigationDataEvent"
-            >
-                <!-- @slot Default slot for nav link content  -->
-                <slot />
-            </VsLink>
-        </div>
+        <VsLink
+            class="vs-mega-nav-static-link__inner"
+            :href="href"
+            role="menuitem"
+            data-layer-value="menuNavigationDataEvent"
+        >
+            <!-- @slot Default slot for nav link content  -->
+            <slot />
+        </VsLink>
     </li>
 </template>
 
@@ -81,10 +79,10 @@ export default {
         }
 
         &--full-width {
-            background: white;
+            background: $vs-color-background-inverse;
             list-style: none;
             margin: 0;
-            padding: 0.75rem 1.25rem;
+            padding: $spacer-3 $spacer-5;
             border-top: 1px solid $vs-color-border;
             font-size: $font-size-5;
             line-height: $line-height-s;
