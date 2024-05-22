@@ -73,13 +73,9 @@ ShowingConditionalField.args = base;
 ShowingConditionalField.play = async({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    await waitFor(() => {
-        const countryDropdown = canvas.getByLabelText('Country');
-
-        userEvent.selectOptions(countryDropdown, ['United Kingdom (Scotland)']);
-    }, {
-        timeout: 15000,
-        interval: 250,
+    await waitFor(async() => {
+        const select = canvas.getByLabelText('Country');
+        await userEvent.selectOptions(select, ['United Kingdom (Scotland)']);
     });
 };
 
