@@ -1,5 +1,5 @@
 /* eslint-disable */
-import type { SelectOption } from './types';
+import type { SelectOption } from './types/types';
 
 export const products: SelectOption[] = [
     {
