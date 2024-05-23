@@ -262,7 +262,10 @@ export default {
             this.player.getCurrentTime()
                 .then((time) => {
                     currentTime = time;
-                    return this.player.getDuration();
+                    if (this.player) {
+                        return this.player.getDuration();
+                    }
+                    return null;
                 })
                 .then((length) => {
                     duration = length;
