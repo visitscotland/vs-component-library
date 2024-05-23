@@ -91,49 +91,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 * **release:** 2.0.2 ([9a180ea](https://github.com/visitscotland/vs-component-library/commit/9a180ea40da6ebe6ad8cf50939725f9b1261ab19))
 
-### [0.0.30](https://github.com/visitscotland/vs-component-library/compare/v0.0.29...v0.0.30) (2024-04-26)
-
-
-### ✨ Features
-
-* **rebrand:** correct [@component](https://github.com/component) paths ([81dbfdf](https://github.com/visitscotland/vs-component-library/commit/81dbfdfe6850f4c2cad26aeeceaa8b12b6c79363))
-
-### [0.0.29](https://github.com/visitscotland/vs-component-library/compare/v0.0.28...v0.0.29) (2024-04-26)
-
-
-### ✨ Features
-
-* **tokens:** update border token in description list ([60b6d93](https://github.com/visitscotland/vs-component-library/commit/60b6d93a918d438b11f903ad8d4b0fb7ee332b2f))
-
-### [0.0.28](https://github.com/visitscotland/vs-component-library/compare/v0.0.27...v0.0.28) (2024-04-26)
-
-
-### ♻️ Code Refactoring
-
-* **button:** rebrand secondary button ([3dd4631](https://github.com/visitscotland/vs-component-library/commit/3dd4631823fda6aab221577143ad8c103de53d18))
-* **buttons:** refactoring buttons for rebranf ([7a9d9ca](https://github.com/visitscotland/vs-component-library/commit/7a9d9caee3989fa12774e11aac3d8d6d1a08618e))
-* **skiscotland:** update ski scotlnd status to use colour tokens ([cfd3f6e](https://github.com/visitscotland/vs-component-library/commit/cfd3f6e757a041097714c84d8c87e9ede3295c09))
-* **stories:** rename nojs stories ([92bf342](https://github.com/visitscotland/vs-component-library/commit/92bf342c46a3f7ce6610fe170a16ad10c9eb8398))
-* **stories:** update article and richtextwrapper stories ([c5d007b](https://github.com/visitscotland/vs-component-library/commit/c5d007bc42e84622b5059393b32e3844c2793865))
-* **togglebutton:** update toggle button to use duotone icons ([01df2b7](https://github.com/visitscotland/vs-component-library/commit/01df2b7c086be03b2f88443d282ae9258a3acf5e))
-* **tokens:** add new palette color tokens ([115bbba](https://github.com/visitscotland/vs-component-library/commit/115bbba0f9a8b6907f157ebc4c9597239fb7a569))
-
-
-### 🐛 Bug Fixes
-
-* **datalayermixin.js:** map GTMData property to template property ([1c99679](https://github.com/visitscotland/vs-component-library/commit/1c996793bf7b227d137d5e71955ed5f68992dc6d))
-* **toggle:** fix toggle button alignment ([2bac4bb](https://github.com/visitscotland/vs-component-library/commit/2bac4bb535d0102c5bd5d301838b62bc434f8b6f))
-
-
-### ✅ Tests
-
-* **megalinks:** remove test for removed theme prop ([ea1df9b](https://github.com/visitscotland/vs-component-library/commit/ea1df9b5a1630cc752c9e8384aa55a29aa41c7b9))
-* **site-search:** fix breaking site-search test ([996db96](https://github.com/visitscotland/vs-component-library/commit/996db960b7543fd7b9fa44ff79f6a3947426c6da))
-* **togglebutton:** fix togglebutton unit tests ([3e14616](https://github.com/visitscotland/vs-component-library/commit/3e14616e5283756f87c8344b53821a4339d7ccf3))
-* **warning:** remove failing warning tests ([481dd2a](https://github.com/visitscotland/vs-component-library/commit/481dd2a67535fceb7c34d66196dabfc4772b1d2b))
-=======
 ### [2.0.2](https://github.com/visitscotland/vs-component-library/compare/v2.0.1...v2.0.2) (2024-04-29)
->>>>>>> 9a180ea40da6ebe6ad8cf50939725f9b1261ab19
 
 
 ### 🎨 Styling
@@ -334,95 +292,6 @@ All notable changes to this project will be documented in this file. See [standa
 ### 🔖 Others
 
 * **release:** 1.2.2 ([ea8bae1](https://github.com/visitscotland/vs-component-library/commit/ea8bae1fe5e40da893ac6f314b2ca241e25506cf))
-
-### [0.0.15](https://github.com/visitscotland/vs-component-library/compare/v0.0.14...v0.0.15) (2024-04-04)
-
-
-### ✨ Features
-
-* **input:** add min and max to number type inputs ([a68cd86](https://github.com/visitscotland/vs-component-library/commit/a68cd8683c958694f645121e735a321ac9337d0b))
-* **input:** add tests for min max validation ([c2de0f2](https://github.com/visitscotland/vs-component-library/commit/c2de0f2267966e771ca4260d4b61db2f6b9d8a6e))
-* **input:** add tests for min/max validation ([ac52e11](https://github.com/visitscotland/vs-component-library/commit/ac52e114325efddc6660f7086bc28343cb2f030f))
-
-### [0.0.14](https://github.com/visitscotland/vs-component-library/compare/v0.0.13...v0.0.14) (2024-04-03)
-
-
-### ✨ Features
-
-* **form:** make form generic ([640f0d2](https://github.com/visitscotland/vs-component-library/commit/640f0d2c9c8460320ae85fa5665db5fd45933fcc))
-
-### [0.0.13](https://github.com/visitscotland/vs-component-library/compare/v0.0.12...v0.0.13) (2024-04-02)
-
-
-### ✨ Features
-
-* **cookies:** add cookie checker to index ([358fd04](https://github.com/visitscotland/vs-component-library/commit/358fd047326507ea4f6ffaacc20c95c830849d3d))
-
-### [0.0.12](https://github.com/visitscotland/vs-component-library/compare/v0.0.11...v0.0.12) (2024-04-01)
-
-
-### 🐛 Bug Fixes
-
-* **stores:** revert fix for computed bug ([e21be1a](https://github.com/visitscotland/vs-component-library/commit/e21be1ad7e6332e2641ae1f5c85ab970398ca0a3))
-
-### [0.0.11](https://github.com/visitscotland/vs-component-library/compare/v0.0.10...v0.0.11) (2024-04-01)
-
-
-### 🐛 Bug Fixes
-
-* **stores:** attempt [#2](https://github.com/visitscotland/vs-component-library/issues/2) ([5f2baec](https://github.com/visitscotland/vs-component-library/commit/5f2baec407d3b4514b1f4757de674388730899ca))
-
-### [0.0.10](https://github.com/visitscotland/vs-component-library/compare/v0.0.9...v0.0.10) (2024-04-01)
-
-
-### 🐛 Bug Fixes
-
-* **stores:** move instantiation to setup ([c73f420](https://github.com/visitscotland/vs-component-library/commit/c73f4202a1ddf507188a3579d4bd1d444cda6278))
-
-### [0.0.9](https://github.com/visitscotland/vs-component-library/compare/v0.0.8...v0.0.9) (2024-03-27)
-
-
-### 🐛 Bug Fixes
-
-* **stores:** refactor out mapstates to remove computed warning ([0eccceb](https://github.com/visitscotland/vs-component-library/commit/0eccceb4d14ea6816e1164ed16252fbd91565be3))
-
-### [0.0.8](https://github.com/visitscotland/vs-component-library/compare/v0.0.7...v0.0.8) (2024-03-26)
-
-### [0.0.7](https://github.com/visitscotland/vs-component-library/compare/v0.0.6...v0.0.7) (2024-03-14)
-
-
-### 🐛 Bug Fixes
-
-* **video:** remove redundant check from computed prop in videocaption ([a9480f7](https://github.com/visitscotland/vs-component-library/commit/a9480f7a039c3b7cad82d355e415616a5ca95a70))
-
-### [0.0.5](https://github.com/visitscotland/vs-component-library/compare/v1.2.1...v0.0.5) (2024-03-08)
-
-
-### ✨ Features
-
-* **build:** add process definitions ([2bc5469](https://github.com/visitscotland/vs-component-library/commit/2bc54694e89f0a3c691121e1388d535af30622f3))
-* **build:** add theo to build script ([3dc6993](https://github.com/visitscotland/vs-component-library/commit/3dc6993e67634a38a35a94d65207fc2cade86266))
-* **build:** load bootstrap styles globally ([6048409](https://github.com/visitscotland/vs-component-library/commit/6048409c144511aca75c8c1162a5a36a57f7fdbc))
-* **build:** transpile youtube-vue3 ([5f2c71b](https://github.com/visitscotland/vs-component-library/commit/5f2c71b7cc786f9eb44c8b9c3a8c2b0c4516c9db))
-* **build:** update yarn lock ([2aecbcc](https://github.com/visitscotland/vs-component-library/commit/2aecbcc1eaaab0ea9b9cabd1e7776d7e3708fb36))
-* **components:** add vite library build ([041bdc9](https://github.com/visitscotland/vs-component-library/commit/041bdc9337ea09b978c2f2d3593d2b92feab188e))
-* **components:** export more components ([38109ad](https://github.com/visitscotland/vs-component-library/commit/38109adf885f08c209a50153ed1eb6382b45e25c))
-* **git:** restore removed changes from merge ([e7d06e6](https://github.com/visitscotland/vs-component-library/commit/e7d06e618e5ecbdebf252b76e2ac628c2dca738b))
-* **image scaler:** move low rez image logic into img ([b5ccf6a](https://github.com/visitscotland/vs-component-library/commit/b5ccf6a482d7334bf42d3ac1d98fe80923deaeb6))
-* **image scaling:** move srcset in for all imgs ([ffd4570](https://github.com/visitscotland/vs-component-library/commit/ffd45701553707e4bf9a964cac1a2589c40ccf16))
-* **images:** tidy up image mixin move ([6f246ac](https://github.com/visitscotland/vs-component-library/commit/6f246ac05591340a6c68f18bc7868e636600408d))
-* **imagewithcaption:** generate uid for caption without nuxt-unfriendly dependency ([4422755](https://github.com/visitscotland/vs-component-library/commit/4422755d0e20cb578a1241d0328eac6dce37895f))
-* **release:** change to temporary separate package name ([704ccb5](https://github.com/visitscotland/vs-component-library/commit/704ccb5db959941c73b0cd3aa3f05661151fd362))
-* **test:** move pinia test setup to base file ([79c47b7](https://github.com/visitscotland/vs-component-library/commit/79c47b7db3d61e47a4cd7f29661349bbd67f2e4f))
-* **typescript:** generate declaration files in vite library build ([fd7148e](https://github.com/visitscotland/vs-component-library/commit/fd7148e6b1e267b77f78298276755c8b7c5a51e2))
-* **video:** change video export for nuxt ([2825238](https://github.com/visitscotland/vs-component-library/commit/28252384a8e4917b89a63836171810f4320773b4))
-* **video:** switch video integration ([9f716d5](https://github.com/visitscotland/vs-component-library/commit/9f716d5c5a4a68d8141fde6cddb80732defc9f60))
-* **video:** switch vue 3 youtube embed ([343a947](https://github.com/visitscotland/vs-component-library/commit/343a9477da5c8f33864bfd2b3c14d2c2036c0af9))
-
-
-### ✅ Tests
-
-* **social share item:** update test ([cb0e472](https://github.com/visitscotland/vs-component-library/commit/cb0e47276cb80a5092bc837ec8a93b93bcd282d2))
 
 ### [1.2.3](https://github.com/visitscotland/vs-component-library/compare/v1.2.2...v1.2.3) (2024-03-11)
 
