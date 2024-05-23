@@ -288,10 +288,12 @@ export default {
              * Upon promise resolution, if the video ID returns
              * a YouTube video, process the time into the desired format.
              */
-            await this.player.getDuration().then((response) => {
-                this.formatTime(response);
-                this.storeVideoDetails();
-            });
+            if (this.player) {
+                await this.player.getDuration().then((response) => {
+                    this.formatTime(response);
+                    this.storeVideoDetails();
+                });
+            }
         },
         /**
          * Converts time in seconds to minutes and seconds,
