@@ -2,11 +2,14 @@ import {
     config, shallowMount, mount,
 } from '@vue/test-utils';
 import axe from '@/../test/unit/helpers/axe-helper';
+import moxios from 'moxios';
 import VsForm from '../Form.vue';
 
 config.global.renderStubDefaultSlot = true;
 
 jest.mock('@/utils/get-env-value');
+
+const successContent = 'Form submitted successfully';
 
 const formData = {
     formSandboxId: '90',
@@ -14,7 +17,7 @@ const formData = {
     content: {
         heading: 'What are your details?',
         successHeading: 'What happens next?',
-        successContent: 'submitted text',
+        successContent,
         submit: 'Subscribe',
         noJs: 'no js content',
     },
@@ -123,7 +126,7 @@ function mountOptions(propsData) {
             'submit-error': 'error text',
             invalid: 'invalid text',
             submitting: 'submitting text',
-            submitted: 'submitted text',
+            submitted: successContent,
         },
         propsData: {
             dataUrl: 'testUrl',
@@ -214,7 +217,7 @@ describe('VsForm', () => {
 
             await wrapper.vm.$nextTick();
 
-            expect(wrapper.html()).toContain('submitted text');
+            expect(wrapper.html()).toContain(successContent);
         });
 
         it('should render the `submitError` slot', async() => {
@@ -321,6 +324,44 @@ describe('VsForm', () => {
             await wrapper.vm.$nextTick();
 
             expect(axiosSpy).toHaveBeenCalled();
+        });
+
+        it('should call the `submitUrl` if `isMarketo` is false', async() => {
+            moxios.install();
+
+            const submitUrl = '/test/form/url';
+
+            moxios.stubRequest(submitUrl, {
+                status: 200,
+            });
+
+            const wrapper = factoryMount({
+                isMarketo: false,
+                submitUrl,
+                isTest: true,
+            });
+
+            const fnInput = wrapper.find('#FirstName');
+            await fnInput.setValue('Jason');
+
+            const lnInput = wrapper.find('#LastName');
+            await lnInput.setValue('Bourne');
+
+            const eInput = wrapper.find('#Email');
+            await eInput.setValue('test@email.com');
+
+            wrapper.setData({
+                recaptchaVerified: true,
+            });
+            await wrapper.vm.$nextTick();
+
+            await wrapper.find('.vs-form__submit').trigger('click');
+
+            await wrapper.vm.$nextTick();
+
+            expect(wrapper.html()).toContain(successContent);
+
+            moxios.uninstall();
         });
     });
 
