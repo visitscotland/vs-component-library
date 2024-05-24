@@ -117,7 +117,7 @@ const globalMessaging = {
     },
 };
 
-function mountOptions() {
+function mountOptions(propsData) {
     return {
         slots: {
             'submit-error': 'error text',
@@ -132,6 +132,7 @@ function mountOptions() {
             messagingUrl: 'test',
             recaptchaKey: 'xyz',
             formId: '123',
+            ...propsData,
         },
         data() {
             return {
@@ -142,14 +143,14 @@ function mountOptions() {
     };
 };
 
-const factoryShallowMount = () => shallowMount(
+const factoryShallowMount = (propsData) => shallowMount(
     VsForm,
-    mountOptions(),
+    mountOptions(propsData),
 );
 
-const factoryMount = () => mount(
+const factoryMount = (propsData) => mount(
     VsForm,
-    mountOptions(),
+    mountOptions(propsData),
 );
 
 beforeEach(() => {
@@ -289,6 +290,37 @@ describe('VsForm', () => {
 
             const submitEl = wrapper.find('vs-button-stub[type="submit"]');
             expect(submitEl.text()).toBe('Subscribe (de)');
+        });
+
+        it('should invoke the `axiosSubmit` function if `isMarketo` is false', async() => {
+            const submitUrl = '/test/form/url';
+            const axiosSpy = jest.spyOn(VsForm.methods, 'axiosSubmit');
+
+            const wrapper = factoryMount({
+                isMarketo: false,
+                submitUrl,
+                isTest: true,
+            });
+
+            const fnInput = wrapper.find('#FirstName');
+            await fnInput.setValue('Jason');
+
+            const lnInput = wrapper.find('#LastName');
+            await lnInput.setValue('Bourne');
+
+            const eInput = wrapper.find('#Email');
+            await eInput.setValue('test@email.com');
+
+            wrapper.setData({
+                recaptchaVerified: true,
+            });
+            await wrapper.vm.$nextTick();
+
+            wrapper.find('.vs-form__submit').trigger('click');
+
+            await wrapper.vm.$nextTick();
+
+            expect(axiosSpy).toHaveBeenCalled();
         });
     });
 

@@ -262,6 +262,14 @@ export default {
             type: String,
             default: '',
         },
+        /**
+         * We can't interact with recaptcha in the test environment and should
+         * remove it from the form flow.
+         */
+        isTest: {
+            type: Boolean,
+            default: true,
+        },
     },
     data() {
         return {
@@ -557,7 +565,7 @@ export default {
             if (Array.isArray(data.errors)) {
                 this.formIsInvalid = data.errors.length > 0;
             } else {
-                this.formIsInvalid = data.errors;
+                this.formIsInvalid = data.errors !== null;
             }
 
             this.manageErrorStatus(data.field, data.errors);
@@ -611,7 +619,9 @@ export default {
                 return value.validation && value.validation.required;
             }
 
-            this.onRecaptchaVerify();
+            if (!this.isTest) {
+                this.onRecaptchaVerify();
+            }
 
             this.triggerValidate = true;
 
@@ -627,7 +637,7 @@ export default {
                 });
             }
 
-            this.showErrorMessage = this.formIsInvalid.length > 1;
+            this.showErrorMessage = this.formIsInvalid;
 
             // check conditional fields - if they're not shown
             // then clear any value they may have
@@ -645,26 +655,7 @@ export default {
                 if (this.isMarketo) {
                     this.marketoSubmit();
                 } else {
-                    this.submitting = true;
-
-                    let gRecaptchaResponse = '';
-
-                    if (window.grecaptcha) {
-                        gRecaptchaResponse = window.grecaptcha.getResponse();
-                    }
-
-                    axios.post(
-                        this.submitUrl,
-                        {
-                            ...this.form,
-                            formType: this.formData.content ? this.formData.content.formType : '',
-                            'g-recaptcha-response': gRecaptchaResponse,
-                        },
-                    ).then(() => {
-                        this.submitting = false;
-                        this.submitted = true;
-                        return false;
-                    }).catch(() => {});
+                    this.axiosSubmit();
                 }
             } else {
                 this.showErrorMessage = true;
@@ -701,6 +692,31 @@ export default {
             });
 
             myForm.submit();
+        },
+        /**
+         * Submits the form using Axios, submitting a json object to the submitUrl
+         */
+        axiosSubmit() {
+            this.submitting = true;
+
+            let gRecaptchaResponse = '';
+
+            if (window.grecaptcha) {
+                gRecaptchaResponse = window.grecaptcha.getResponse();
+            }
+
+            axios.post(
+                this.submitUrl,
+                {
+                    ...this.form,
+                    formType: this.formData.content ? this.formData.content.formType : '',
+                    'g-recaptcha-response': gRecaptchaResponse,
+                },
+            ).then(() => {
+                this.submitting = false;
+                this.submitted = true;
+                return false;
+            }).catch(() => {});
         },
         /**
          * Checks recaptcha response from the server
