@@ -25,8 +25,8 @@
 </template>
 
 <script>
-import VsAccordionItem from '@components/accordion/components/AccordionItem.vue';
-import VsLink from '@components/link/Link.vue';
+import VsAccordionItem from '@/components/accordion/components/AccordionItem.vue';
+import VsLink from '@/components/link/Link.vue';
 
 /**
  *  This component is used in the mobile menu for groups of links

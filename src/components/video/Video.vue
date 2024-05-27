@@ -4,19 +4,18 @@
         data-test="vs-video"
         v-if="!reRendering"
     >
-        <div
-            class="vs-video__iframe-wrapper"
-        >
+        <div class="vs-video__iframe-wrapper">
             <div v-if="requiredCookiesExist">
                 <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
-                <YoutubeVue3
+                <VueYoutube
                     :autoplay="0"
-                    :videoid="videoId"
+                    :video-id="videoId"
                     :vars="playerVars"
-                    @played="youtubePlaying"
+                    ref="youtube"
+                    @playing="youtubePlaying"
                     @paused="youtubePaused"
                     @ended="youtubeEnded"
-                    ref="youtube"
+                    @ready="playerReady"
                 />
             </div>
 
@@ -48,13 +47,11 @@
 </template>
 
 <script>
-import { YoutubeVue3 } from 'youtube-vue3';
+import VueYoutube from 'vue-youtube-vue-3';
 
-import VsWarning from '@components/warning/Warning.vue';
+import VsWarning from '@/components/warning/Warning.vue';
 
-import pinia from '@/stores/index.ts';
-import useVideoStore from '@/stores/video.store.ts';
-
+import useVideoStore from '@/stores/video.store';
 import jsIsDisabled from '@/utils/js-is-disabled';
 
 import verifyCookiesMixin from '../../mixins/verifyCookiesMixin';
@@ -77,7 +74,7 @@ export default {
     release: '0.0.1',
     components: {
         VsWarning,
-        YoutubeVue3,
+        VueYoutube,
     },
     mixins: [
         verifyCookiesMixin,
@@ -169,7 +166,6 @@ export default {
                 hl: this.language,
             },
             requiredCookies: cookieValues,
-            player: null,
             reRendering: false,
             shouldAutoPlay: false,
             jsDisabled: true,
@@ -204,43 +200,43 @@ export default {
 
             return text;
         },
-    },
-    watch: {
-        requiredCookiesExist() {
-            this.$nextTick(() => {
-                if (this.$refs.youtube) {
-                    this.player = this.$refs.youtube.player;
-                    this.getPlayerDetails();
-                }
+        player() {
+            if (this.$refs.youtube) {
+                return this.$refs.youtube.player;
+            }
 
-                if (this.shouldAutoPlay) {
-                    this.shouldAutoPlay = false;
-                    this.playVideo();
-                }
-            });
+            return null;
         },
     },
     mounted() {
         this.jsDisabled = jsIsDisabled();
-        videoStore = useVideoStore(pinia());
+        videoStore = useVideoStore();
 
         this.setEventListeners();
     },
     methods: {
+        async playerReady() {
+            await this.getPlayerDetails();
+
+            if (this.shouldAutoPlay) {
+                this.shouldAutoPlay = false;
+                this.playVideo();
+            }
+        },
         /**
          * Plays the video
          */
-        playVideo() {
+        async playVideo() {
             if (this.player) {
-                this.player.playVideo();
+                await this.player.playVideo();
             }
         },
         /**
          * Pauses the video
          */
-        pauseVideo() {
+        async pauseVideo() {
             if (this.player) {
-                this.player.pauseVideo();
+                await this.player.pauseVideo();
             }
         },
         /**
@@ -266,7 +262,10 @@ export default {
             this.player.getCurrentTime()
                 .then((time) => {
                     currentTime = time;
-                    return this.player.getDuration();
+                    if (this.player) {
+                        return this.player.getDuration();
+                    }
+                    return null;
                 })
                 .then((length) => {
                     duration = length;
@@ -284,13 +283,13 @@ export default {
                     );
                 });
         },
-        getPlayerDetails() {
+        async getPlayerDetails() {
             /**
              * Upon promise resolution, if the video ID returns
              * a YouTube video, process the time into the desired format.
              */
-            if (typeof this.player !== 'undefined') {
-                this.player.getDuration().then((response) => {
+            if (this.player) {
+                await this.player.getDuration().then((response) => {
                     this.formatTime(response);
                     this.storeVideoDetails();
                 });

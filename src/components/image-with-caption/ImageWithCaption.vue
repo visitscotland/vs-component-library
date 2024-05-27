@@ -70,10 +70,9 @@
 
 <script>
 
-import { v4 as uuidv4 } from 'uuid';
-import VsImg from '@components/img/Img.vue';
-import VsToggleButton from '@components/toggle-button/ToggleButton.vue';
-import VsVideoCaption from '@components/video-caption/VideoCaption.vue';
+import VsImg from '@/components/img/Img.vue';
+import VsToggleButton from '@/components/toggle-button/ToggleButton.vue';
+import VsVideoCaption from '@/components/video-caption/VideoCaption.vue';
 import verifyCookiesMixin from '../../mixins/verifyCookiesMixin';
 import requiredCookiesData from '../../utils/required-cookies-data';
 
@@ -255,16 +254,12 @@ export default {
             };
         },
     },
-    created() {
-        this.generateCaptionId();
+    mounted() {
+        this.uniqueCaptionId = this._uid;
     },
     methods: {
         toggleCaption() {
             this.showCaption = !this.showCaption;
-        },
-        generateCaptionId() {
-            const randomUUID = uuidv4();
-            this.uniqueCaptionId = `vs-caption-${randomUUID}`;
         },
     },
 };

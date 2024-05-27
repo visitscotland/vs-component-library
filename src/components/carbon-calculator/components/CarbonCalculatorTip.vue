@@ -41,8 +41,8 @@
 </template>
 
 <script>
-import VsHeading from '@components/heading/Heading.vue';
-import VsIcon from '@components/icon/Icon.vue';
+import VsHeading from '@/components/heading/Heading.vue';
+import VsIcon from '@/components/icon/Icon.vue';
 
 /**
  * @displayName Carbon Form Tip

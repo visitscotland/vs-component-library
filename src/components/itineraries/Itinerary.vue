@@ -47,9 +47,9 @@ import {
     VsContainer,
     VsRow,
     VsCol,
-} from '@components/grid';
-import VsButton from '@components/button/Button.vue';
-import VsAccordion from '@components/accordion/Accordion.vue';
+} from '@/components/grid';
+import VsButton from '@/components/button/Button.vue';
+import VsAccordion from '@/components/accordion/Accordion.vue';
 
 /**
  * A wrapper component that wraps the itinerary map and list.

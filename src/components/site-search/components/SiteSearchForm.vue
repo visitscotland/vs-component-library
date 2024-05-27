@@ -70,12 +70,12 @@
 </template>
 
 <script>
-import VsIcon from '@components/icon/Icon.vue';
-import VsInput from '@components/input/Input.vue';
-import VsButton from '@components/button/Button.vue';
+import VsIcon from '@/components/icon/Icon.vue';
+import VsInput from '@/components/input/Input.vue';
+import VsButton from '@/components/button/Button.vue';
 import {
     VsCol, VsRow, VsContainer,
-} from '@components/grid';
+} from '@/components/grid';
 
 /**
  * Search form used for the global site search.

@@ -1,6 +1,5 @@
 import { mapState } from 'pinia';
-import pinia from '../stores/index.ts';
-import useDataLayerStore from '../stores/dataLayer.store.ts';
+import useDataLayerStore from '../stores/dataLayer.store';
 
 import checkVendorLibrary from '../utils/check-vendor-library';
 import {
@@ -43,7 +42,7 @@ const dataLayerMixin = {
         };
     },
     mounted() {
-        this.dataLayerStore = useDataLayerStore(pinia());
+        this.dataLayerStore = useDataLayerStore();
     },
     methods: {
         // This function matches values passed as an object

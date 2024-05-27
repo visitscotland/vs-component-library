@@ -24,8 +24,8 @@
 </template>
 
 <script>
-import VsLink from '@components/link/Link.vue';
-import VsIcon from '@components/icon/Icon.vue';
+import VsLink from '@/components/link/Link.vue';
+import VsIcon from '@/components/icon/Icon.vue';
 
 /**
  * TODO: Document Usage

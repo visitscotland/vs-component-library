@@ -21,10 +21,9 @@
 </template>
 
 <script>
-import pinia from '@/stores/index.ts';
 import { mapState } from 'pinia';
-import useMapStore from '@/stores/map.store.ts';
-import VsMapMarkerIcon from '@components/map-marker-icon/MapMarkerIcon.vue';
+import useMapStore from '@/stores/map.store';
+import VsMapMarkerIcon from '@/components/map-marker-icon/MapMarkerIcon.vue';
 
 let mapStore = null;
 
@@ -76,6 +75,9 @@ export default {
         'showDetail',
         'setCategory',
     ],
+    setup() {
+        mapStore = useMapStore();
+    },
     computed: {
         isActive() {
             if (this.activePlace && this.activePlace.properties) {
@@ -145,8 +147,6 @@ export default {
         },
     },
     mounted() {
-        mapStore = useMapStore(pinia());
-
         if (this.hasPopups) {
             document.body.addEventListener('click', this.handleClickEvent);
         }

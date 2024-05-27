@@ -1,4 +1,3 @@
-import { ref, type Ref } from 'vue';
 import { defineStore } from 'pinia';
 
 type FullDuration = {
@@ -14,25 +13,25 @@ type Video = {
     videoFullDuration: FullDuration,
 }
 
-const useVideoStore = defineStore('video', () => {
-    const videos: Ref<Video[]> = ref([]);
+type VideoSet = {
+    [key: string]: Video,
+}
+interface IVideosState {
+    videos: VideoSet,
+}
 
-    function addVideo(newVideo: Video) {
-        videos.value = [
-            ...videos.value,
-            newVideo,
-        ];
-    }
-
-    function getVideo(id: string) {
-        return videos.value.find((video) => video.videoId === id);
-    }
-
-    return {
-        videos,
-        addVideo,
-        getVideo,
-    };
+const useVideoStore = defineStore('video', {
+    state: (): IVideosState => ({
+        videos: {
+        },
+    }),
+    actions: {
+        addVideo(newVideo: Video) {
+            this.videos[newVideo.videoId] = {
+                ...newVideo,
+            };
+        },
+    },
 });
 
 export default useVideoStore;

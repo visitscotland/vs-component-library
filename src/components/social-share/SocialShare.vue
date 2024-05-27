@@ -88,12 +88,12 @@
 </template>
 
 <script>
-import VsButton from '@components/button/Button.vue';
-import VsHeading from '@components/heading/Heading.vue';
-import VsModuleWrapper from '@components/module-wrapper/ModuleWrapper.vue';
+import VsButton from '@/components/button/Button.vue';
+import VsHeading from '@/components/heading/Heading.vue';
+import VsModuleWrapper from '@/components/module-wrapper/ModuleWrapper.vue';
 import {
     VsRow, VsContainer, VsCol,
-} from '@components/grid';
+} from '@/components/grid';
 import { BPopover } from 'bootstrap-vue-next';
 
 /**

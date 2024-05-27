@@ -86,13 +86,13 @@
 </template>
 
 <script>
-import VsHeading from '@components/heading/Heading.vue';
-import VsRichTextWrapper from '@components/rich-text-wrapper/RichTextWrapper.vue';
+import VsHeading from '@/components/heading/Heading.vue';
+import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
 import {
     VsContainer,
     VsRow,
     VsCol,
-} from '@components/grid';
+} from '@/components/grid';
 
 /**
 * Component for the page hero and introduction.

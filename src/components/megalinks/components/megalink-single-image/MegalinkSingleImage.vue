@@ -61,11 +61,11 @@
 </template>
 
 <script>
-import VsHeading from '@components/heading/Heading.vue';
-import VsRichTextWrapper from '@components/rich-text-wrapper/RichTextWrapper.vue';
-import VsButton from '@components/button/Button.vue';
-import VsLinkList from '@components/link-list/LinkList.vue';
-import { VsRow, VsCol } from '@components/grid';
+import VsHeading from '@/components/heading/Heading.vue';
+import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsButton from '@/components/button/Button.vue';
+import VsLinkList from '@/components/link-list/LinkList.vue';
+import { VsRow, VsCol } from '@/components/grid';
 
 /**
  * This component is a variant of the megalinks component with a large image

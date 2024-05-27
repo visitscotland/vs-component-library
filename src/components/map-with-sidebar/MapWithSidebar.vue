@@ -134,15 +134,14 @@ import {
     VsContainer,
     VsRow,
     VsCol,
-} from '@components/grid';
-import VsButton from '@components/button/Button.vue';
-import VsWarning from '@components/warning/Warning.vue';
-import VsButtonToggleGroup from '@components/button-toggle-group/ButtonToggleGroup.vue';
+} from '@/components/grid';
+import VsButton from '@/components/button/Button.vue';
+import VsWarning from '@/components/warning/Warning.vue';
+import VsButtonToggleGroup from '@/components/button-toggle-group/ButtonToggleGroup.vue';
 import axios from 'axios';
-import pinia from '@/stores/index.ts';
 import { mapState } from 'pinia';
-import useMapStore from '@/stores/map.store.ts';
-import VsMap from '@components/map/Map.vue';
+import useMapStore from '@/stores/map.store';
+import VsMap from '@/components/map/Map.vue';
 import VsMapWithSidebarPanel from './components/MapWithSidebarPanel.vue';
 
 let mapStore = null;
@@ -384,7 +383,7 @@ export default {
         },
     },
     mounted() {
-        mapStore = useMapStore(pinia());
+        mapStore = useMapStore();
         this.selectedToggle = this.initialSelected;
 
         if (this.emitter) {

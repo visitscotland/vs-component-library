@@ -86,72 +86,17 @@ All notable changes to this project will be documented in this file. See [standa
 
 * **modulewrapper:** add new background theme to module wrapper ([6bcfc51](https://github.com/visitscotland/vs-component-library/commit/6bcfc515b6aee6b0d6bcbca4e4e458c8042f54f4))
 
-### [2.0.1](https://github.com/visitscotland/vs-component-library/compare/v2.0.0...v2.0.1) (2024-04-23)
-
 
 ### 🔖 Others
 
-* **tokens:** remove unused color.yml ([fd77b15](https://github.com/visitscotland/vs-component-library/commit/fd77b150b32c3dd9a09adcfdd0d67641ba17b4cd))
+* **release:** 2.0.2 ([9a180ea](https://github.com/visitscotland/vs-component-library/commit/9a180ea40da6ebe6ad8cf50939725f9b1261ab19))
+
+### [2.0.2](https://github.com/visitscotland/vs-component-library/compare/v2.0.1...v2.0.2) (2024-04-29)
 
 
 ### 🎨 Styling
 
-* **cludo:** rebrand cludo search colours ([3262fd8](https://github.com/visitscotland/vs-component-library/commit/3262fd8bfbb1547010f948bedf4abbe1fa4e0483))
-* **tabs:** fix tab border ([1e4a439](https://github.com/visitscotland/vs-component-library/commit/1e4a439463f169786d12f8509963a2989eeef19b))
-* **tabs:** remove border on tabs no-js ([ba81c1e](https://github.com/visitscotland/vs-component-library/commit/ba81c1e13d52d6d157b15fb911065434aae8f475))
-
-## [2.0.0](https://github.com/visitscotland/vs-component-library/compare/v1.2.7...v2.0.0) (2024-04-19)
-
-
-### ✨ Features
-
-* **alert:** rebrand alert and banner ([81c861f](https://github.com/visitscotland/vs-component-library/commit/81c861f32e806884c32b5b384fe6d827795dd797))
-* **breadcrumb:** rebrand breadcrumb base text update ([cbbb67b](https://github.com/visitscotland/vs-component-library/commit/cbbb67b98b9da82eb7ebc5a01f7879e19a432fe4))
-* **cookies:** add missing article cookies stories ([f8b0290](https://github.com/visitscotland/vs-component-library/commit/f8b02902feb21ce4ff243481443d9afbb5207f1c))
-* **fontawesome:** add FA duotones to the codebase ([89dc48d](https://github.com/visitscotland/vs-component-library/commit/89dc48de5867065805ecc7ffbd48afba4f8413db))
-* **megalinks:** add missin single image stories ([a8b7ec1](https://github.com/visitscotland/vs-component-library/commit/a8b7ec17b03749ae2f78226820706789d706c1d9))
-* **megalinks:** add missing megalinks stories ([1bf9525](https://github.com/visitscotland/vs-component-library/commit/1bf9525be4814b0c5914a59c2e1fd6dc2794d47e))
-* **megalinks:** add missing megalinks stories ([825dfce](https://github.com/visitscotland/vs-component-library/commit/825dfce987d75ccdaa718bb03de2432d5cff3196))
-* **tokens:** add new tokens to import ([54e0618](https://github.com/visitscotland/vs-component-library/commit/54e0618b394abf336555608a2578a2763387b795))
-* **tokens:** add new tokens to the library ([af135e9](https://github.com/visitscotland/vs-component-library/commit/af135e9eec89878358b9071b1636898515cf70d9))
-
-
-### ♻️ Code Refactoring
-
-* **button:** rebrand secondary button ([3dd4631](https://github.com/visitscotland/vs-component-library/commit/3dd4631823fda6aab221577143ad8c103de53d18))
-* **buttons:** refactoring buttons for rebranf ([7a9d9ca](https://github.com/visitscotland/vs-component-library/commit/7a9d9caee3989fa12774e11aac3d8d6d1a08618e))
-* **skiscotland:** update ski scotlnd status to use colour tokens ([cfd3f6e](https://github.com/visitscotland/vs-component-library/commit/cfd3f6e757a041097714c84d8c87e9ede3295c09))
-* **stories:** rename nojs stories ([92bf342](https://github.com/visitscotland/vs-component-library/commit/92bf342c46a3f7ce6610fe170a16ad10c9eb8398))
-* **stories:** update article and richtextwrapper stories ([c5d007b](https://github.com/visitscotland/vs-component-library/commit/c5d007bc42e84622b5059393b32e3844c2793865))
-* **togglebutton:** update toggle button to use duotone icons ([01df2b7](https://github.com/visitscotland/vs-component-library/commit/01df2b7c086be03b2f88443d282ae9258a3acf5e))
-* **tokens:** add new palette color tokens ([115bbba](https://github.com/visitscotland/vs-component-library/commit/115bbba0f9a8b6907f157ebc4c9597239fb7a569))
-
-
-### 🐛 Bug Fixes
-
-* **toggle:** fix toggle button alignment ([2bac4bb](https://github.com/visitscotland/vs-component-library/commit/2bac4bb535d0102c5bd5d301838b62bc434f8b6f))
-
-
-### 🎨 Styling
-
-* **accordion:** rebrand accordion and icon components ([1373d09](https://github.com/visitscotland/vs-component-library/commit/1373d09371628986d83777f11389abc859b8e54d))
-* **article:** updating article colours ([01f9ab7](https://github.com/visitscotland/vs-component-library/commit/01f9ab7f95d3c75d6bb864d6168f38bac0959a88))
-* **box-shadow:** rename box-shadow tokens ([7626aab](https://github.com/visitscotland/vs-component-library/commit/7626aaba7181a8de2f914672307507c824beb917))
-* **button:** remove light button ([65e564b](https://github.com/visitscotland/vs-component-library/commit/65e564beda0e829a1fdb3fbcd886cf95c8287eef))
-* **buttontogglegroup:** colour updates to buttontogglegroup ([7e39db2](https://github.com/visitscotland/vs-component-library/commit/7e39db2b1b7182615276d19d445da0224b6ee686))
-* **button:** update button focus state to match design ([05481f2](https://github.com/visitscotland/vs-component-library/commit/05481f2e792d67014e5ddd054ecb57d91cca2f88))
-* **canned search:** colour rebrand for canned search cards ([ff03d63](https://github.com/visitscotland/vs-component-library/commit/ff03d63364be44ccc4155a2ce028370dc832f370))
-* **carbon calc:** rebrand carbon calculator colours ([b8a2daa](https://github.com/visitscotland/vs-component-library/commit/b8a2daa06b3d86cf608a4d23872bc3f056cf22a8))
-* **carousel:** rebrand carousel colours ([d35892b](https://github.com/visitscotland/vs-component-library/commit/d35892bbb2475e6fc93fbb390e2760b2a671ebaa))
-* **checkbox:** rebrand checkbox colours ([5166904](https://github.com/visitscotland/vs-component-library/commit/516690486d3dee004352d6a9077e0526849b5c27))
-* **dropdown:** fix dropdown margin after button updates ([62b1d02](https://github.com/visitscotland/vs-component-library/commit/62b1d024a07f1942fba214733f0400418c6ae7b9))
-* **dropdown:** rebrand dropdown colours ([487d779](https://github.com/visitscotland/vs-component-library/commit/487d77934a863ceef87fe19521149cc3f4c75ae5))
-* **footer:** rebrand footer colours ([f3b1598](https://github.com/visitscotland/vs-component-library/commit/f3b1598a9a95c6d7127caa34ce057a8864ff9086))
-* **footer:** rebrand footer focus state styles ([6e94dbb](https://github.com/visitscotland/vs-component-library/commit/6e94dbb7b8863487585bc76183f125bd8685a9e0))
-* **footer:** tidy footer border colours ([ad293d2](https://github.com/visitscotland/vs-component-library/commit/ad293d2bbe4ec4f65d5e2519d938b7575bc658e7))
-* **globalmeny:** rebrand global menu colours ([2d8f55b](https://github.com/visitscotland/vs-component-library/commit/2d8f55b2f3bc608718624a37bd80e01dd2a3291c))
 * **imagewithcaption:** rebrand of imagewithcaption component colours ([27ace5a](https://github.com/visitscotland/vs-component-library/commit/27ace5a66327d96cfdbccc80e56212d858d5c19b))
-* **input:** rebrand input colours and tidy up ([911e12f](https://github.com/visitscotland/vs-component-library/commit/911e12f8ed0b1a89ddfc241b0b66e2d901316d16))
 * **itinerary:** rebrand itinerary colours ([56f87a5](https://github.com/visitscotland/vs-component-library/commit/56f87a5c873a7367ecee7729c6c28b55448cd028))
 * **list:** rebrand lists colours ([514e8e3](https://github.com/visitscotland/vs-component-library/commit/514e8e32f9824efa6f3f6909dd7a0e1ca4e9bcbc))
 * **map:** rebrand map component colours ([3a00e1c](https://github.com/visitscotland/vs-component-library/commit/3a00e1c8557057f1f8d48e4ee0e3dec7ee10bceb))
@@ -238,12 +183,16 @@ All notable changes to this project will be documented in this file. See [standa
 * **product search:** add missing label ([296787c](https://github.com/visitscotland/vs-component-library/commit/296787c3d6b18530f64a348538884bae5bf55833)), closes [#188](https://github.com/visitscotland/vs-component-library/issues/188)
 * **product search:** trim location value ([3045196](https://github.com/visitscotland/vs-component-library/commit/3045196f0f7704d0fe427b7c002a2ecac3c6194b))
 
+
+### 🔖 Others
+
+* **release:** 1.2.6 ([bf736ad](https://github.com/visitscotland/vs-component-library/commit/bf736ade4083b37875e9837f2d1cf339a691690a))
+
 ### [1.2.5](https://github.com/visitscotland/vs-component-library/compare/v1.2.4...v1.2.5) (2024-03-25)
 
 
 ### 🎨 Styling
 
-* **stories:** add in missing no-js stories and fix occasional ui bug ([313eb7c](https://github.com/visitscotland/vs-component-library/commit/313eb7c8b8d2397518901a57126c6e33021e11d6))
 * **stories:** add more no javascript stories and fix small ui bugs ([e2ca64d](https://github.com/visitscotland/vs-component-library/commit/e2ca64dc3ecbfb308e98bfaf87e738065a4df405))
 
 
@@ -256,9 +205,21 @@ All notable changes to this project will be documented in this file. See [standa
 
 * **data-layer-templates.js:** incorrect datalayer key ([fbed052](https://github.com/visitscotland/vs-component-library/commit/fbed0526d7047439535719fd7bf6348110254c92)), closes [#141](https://github.com/visitscotland/vs-component-library/issues/141)
 * **footer:** remove footer story breaking chromatic build ([b880aec](https://github.com/visitscotland/vs-component-library/commit/b880aec5d22015334055111f475ea242ef982365))
+* **product search:** add missing label ([296787c](https://github.com/visitscotland/vs-component-library/commit/296787c3d6b18530f64a348538884bae5bf55833)), closes [#188](https://github.com/visitscotland/vs-component-library/issues/188)
 * **product search:** trim autocomplete inputs ([f4165f0](https://github.com/visitscotland/vs-component-library/commit/f4165f06d41a156e8349f4a46d93cd2a9957cd20)), closes [#317](https://github.com/visitscotland/vs-component-library/issues/317)
 
-### [1.2.4](https://github.com/visitscotland/vs-component-library/compare/v1.2.3...v1.2.4) (2024-03-19)
+
+### ♻️ Code Refactoring
+
+* **product search:** condense margin css ([23f23f8](https://github.com/visitscotland/vs-component-library/commit/23f23f884178130435793649e8ba9fa4020d880c))
+* **product search:** move class logic to a computed variable ([71c9d28](https://github.com/visitscotland/vs-component-library/commit/71c9d28fe4f4cb6bbe08ce65bd67fbce62fef2d6))
+
+
+### 🔖 Others
+
+* **release:** 1.2.5 ([45e4b15](https://github.com/visitscotland/vs-component-library/commit/45e4b15478a15ef638edadb75cac45fb789e64c9))
+
+### [1.2.4](https://github.com/visitscotland/vs-component-library/compare/v0.0.7...v1.2.4) (2024-03-19)
 
 
 ### ✨ Features
@@ -278,6 +239,59 @@ All notable changes to this project will be documented in this file. See [standa
 ### ✅ Tests
 
 * **social share item:** update test ([cb0e472](https://github.com/visitscotland/vs-component-library/commit/cb0e47276cb80a5092bc837ec8a93b93bcd282d2))
+
+
+### 🎨 Styling
+
+* **stories:** add in missing no-js stories and fix occasional ui bug ([313eb7c](https://github.com/visitscotland/vs-component-library/commit/313eb7c8b8d2397518901a57126c6e33021e11d6))
+
+
+### 🔖 Others
+
+* **release:** 1.2.4 ([892d5a4](https://github.com/visitscotland/vs-component-library/commit/892d5a4d508ebbbecbe8e1596809739d4ece8086))
+
+### [1.2.3](https://github.com/visitscotland/vs-component-library/compare/v1.2.2...v1.2.3) (2024-03-11)
+
+
+### 🔖 Others
+
+* **release:** 1.2.3 ([933ff73](https://github.com/visitscotland/vs-component-library/commit/933ff73431f293fbf31ac1581db5179d81118c2c))
+
+### [1.2.2](https://github.com/visitscotland/vs-component-library/compare/v1.2.1...v1.2.2) (2024-03-08)
+
+
+### ✅ Tests
+
+* **map with sidebar:** add new tests ([b5ba1d6](https://github.com/visitscotland/vs-component-library/commit/b5ba1d680a8a2afd3d829169dbf60279b30046c0))
+* **map with sidebar:** add tests for new button ([c20ad0e](https://github.com/visitscotland/vs-component-library/commit/c20ad0e5f6575f0d0d570056ad236bc9de2da4f7))
+
+
+### ✨ Features
+
+* **article:** add video article story ([05803e7](https://github.com/visitscotland/vs-component-library/commit/05803e7e7176be278b16dcc015f109dd137bfac7))
+* **cookies:** adds decorators to turn cookies on/off ([94fb43a](https://github.com/visitscotland/vs-component-library/commit/94fb43af59110a28e79e21d687839e6065c35145))
+* **map with side bar:** replace card back button with menu button ([e477637](https://github.com/visitscotland/vs-component-library/commit/e4776379370e4a43edf660c4c2fbacd92eeb2401)), closes [#308](https://github.com/visitscotland/vs-component-library/issues/308)
+* **video:** add missing video stories ([37cd10f](https://github.com/visitscotland/vs-component-library/commit/37cd10f9384dd313805d79ed5ef5f570dca05dc1))
+
+
+### 🎨 Styling
+
+* **video:** fix video ui with caption ([83da976](https://github.com/visitscotland/vs-component-library/commit/83da976ad80406cc3fd5a3189a84136e253da411))
+
+
+### 🐛 Bug Fixes
+
+* **article:** fix article cover video story syntax ([1aadbd6](https://github.com/visitscotland/vs-component-library/commit/1aadbd61c240de051f91e8f2f909674ad7cdb76f))
+* **article:** fix article video and add cover video story ([1d4f4c8](https://github.com/visitscotland/vs-component-library/commit/1d4f4c82f8dd47646727d3500cfc3d3c635ad0e6))
+* **bootstrap5:** prevent smooth autoscroll for selenium ([873d669](https://github.com/visitscotland/vs-component-library/commit/873d66912e4c99ec58fca59d9fd26e0dd20c54ca))
+* **imagewithcaption:** hide toggle only for image with video ([8f45c2f](https://github.com/visitscotland/vs-component-library/commit/8f45c2f039e03cbfc302fb005b38d84f3cbe760a))
+* **map with sidebar:** reset filters when closing card ([b25cd3c](https://github.com/visitscotland/vs-component-library/commit/b25cd3c99a355c5bb6b4ed7bbab4459eea95713d)), closes [#309](https://github.com/visitscotland/vs-component-library/issues/309) [#310](https://github.com/visitscotland/vs-component-library/issues/310)
+* **pageintro:** fix hero video in page intro ([b61bf66](https://github.com/visitscotland/vs-component-library/commit/b61bf668292ffafbc312845be052ea793971e14c))
+
+
+### 🔖 Others
+
+* **release:** 1.2.2 ([ea8bae1](https://github.com/visitscotland/vs-component-library/commit/ea8bae1fe5e40da893ac6f314b2ca241e25506cf))
 
 ### [1.2.3](https://github.com/visitscotland/vs-component-library/compare/v1.2.2...v1.2.3) (2024-03-11)
 

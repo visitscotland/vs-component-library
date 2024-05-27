@@ -2,11 +2,14 @@ import {
     config, shallowMount, mount,
 } from '@vue/test-utils';
 import axe from '@/../test/unit/helpers/axe-helper';
-import VsMarketoForm from '../MarketoForm.vue';
+import moxios from 'moxios';
+import VsForm from '../Form.vue';
 
 config.global.renderStubDefaultSlot = true;
 
 jest.mock('@/utils/get-env-value');
+
+const successContent = 'Form submitted successfully';
 
 const formData = {
     formSandboxId: '90',
@@ -14,7 +17,7 @@ const formData = {
     content: {
         heading: 'What are your details?',
         successHeading: 'What happens next?',
-        successContent: 'submitted text',
+        successContent,
         submit: 'Subscribe',
         noJs: 'no js content',
     },
@@ -117,13 +120,13 @@ const globalMessaging = {
     },
 };
 
-function mountOptions() {
+function mountOptions(propsData) {
     return {
         slots: {
             'submit-error': 'error text',
             invalid: 'invalid text',
             submitting: 'submitting text',
-            submitted: 'submitted text',
+            submitted: successContent,
         },
         propsData: {
             dataUrl: 'testUrl',
@@ -132,6 +135,7 @@ function mountOptions() {
             messagingUrl: 'test',
             recaptchaKey: 'xyz',
             formId: '123',
+            ...propsData,
         },
         data() {
             return {
@@ -142,14 +146,14 @@ function mountOptions() {
     };
 };
 
-const factoryShallowMount = () => shallowMount(
-    VsMarketoForm,
-    mountOptions(),
+const factoryShallowMount = (propsData) => shallowMount(
+    VsForm,
+    mountOptions(propsData),
 );
 
-const factoryMount = () => mount(
-    VsMarketoForm,
-    mountOptions(),
+const factoryMount = (propsData) => mount(
+    VsForm,
+    mountOptions(propsData),
 );
 
 beforeEach(() => {
@@ -158,7 +162,7 @@ beforeEach(() => {
     };
 });
 
-describe('VsMarketoForm', () => {
+describe('VsForm', () => {
     it('should render a component with the data-test attribute `vs-form`', () => {
         const wrapper = factoryShallowMount();
 
@@ -213,7 +217,7 @@ describe('VsMarketoForm', () => {
 
             await wrapper.vm.$nextTick();
 
-            expect(wrapper.html()).toContain('submitted text');
+            expect(wrapper.html()).toContain(successContent);
         });
 
         it('should render the `submitError` slot', async() => {
@@ -289,6 +293,75 @@ describe('VsMarketoForm', () => {
 
             const submitEl = wrapper.find('vs-button-stub[type="submit"]');
             expect(submitEl.text()).toBe('Subscribe (de)');
+        });
+
+        it('should invoke the `axiosSubmit` function if `isMarketo` is false', async() => {
+            const submitUrl = '/test/form/url';
+            const axiosSpy = jest.spyOn(VsForm.methods, 'axiosSubmit');
+
+            const wrapper = factoryMount({
+                isMarketo: false,
+                submitUrl,
+                isTest: true,
+            });
+
+            const fnInput = wrapper.find('#FirstName');
+            await fnInput.setValue('Jason');
+
+            const lnInput = wrapper.find('#LastName');
+            await lnInput.setValue('Bourne');
+
+            const eInput = wrapper.find('#Email');
+            await eInput.setValue('test@email.com');
+
+            wrapper.setData({
+                recaptchaVerified: true,
+            });
+            await wrapper.vm.$nextTick();
+
+            wrapper.find('.vs-form__submit').trigger('click');
+
+            await wrapper.vm.$nextTick();
+
+            expect(axiosSpy).toHaveBeenCalled();
+        });
+
+        it('should call the `submitUrl` if `isMarketo` is false', async() => {
+            moxios.install();
+
+            const submitUrl = '/test/form/url';
+
+            moxios.stubRequest(submitUrl, {
+                status: 200,
+            });
+
+            const wrapper = factoryMount({
+                isMarketo: false,
+                submitUrl,
+                isTest: true,
+            });
+
+            const fnInput = wrapper.find('#FirstName');
+            await fnInput.setValue('Jason');
+
+            const lnInput = wrapper.find('#LastName');
+            await lnInput.setValue('Bourne');
+
+            const eInput = wrapper.find('#Email');
+            await eInput.setValue('test@email.com');
+
+            wrapper.setData({
+                recaptchaVerified: true,
+            });
+            await wrapper.vm.$nextTick();
+
+            await wrapper.find('.vs-form__submit').trigger('click');
+
+            await wrapper.vm.$nextTick();
+
+            expect(wrapper.html()).toContain(successContent);
+
+            moxios.uninstall();
         });
     });
 

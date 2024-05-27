@@ -90,12 +90,11 @@
 </template>
 
 <script>
-import VsButton from '@components/button/Button.vue';
-import VsToggleButton from '@components/toggle-button/ToggleButton.vue';
-import VsWarning from '@components/warning/Warning.vue';
+import VsButton from '@/components/button/Button.vue';
+import VsToggleButton from '@/components/toggle-button/ToggleButton.vue';
+import VsWarning from '@/components/warning/Warning.vue';
 
-import { mapState } from 'pinia';
-import useVideoStore from '@/stores/video.store.ts';
+import useVideoStore from '@/stores/video.store';
 
 import verifyCookiesMixin from '../../mixins/verifyCookiesMixin';
 import requiredCookiesData from '../../utils/required-cookies-data';
@@ -168,6 +167,12 @@ export default {
             ),
         },
     },
+    setup() {
+        const videoStore = useVideoStore();
+        return {
+            videoStore,
+        };
+    },
     data() {
         return {
             requiredCookies: cookieValues,
@@ -175,11 +180,9 @@ export default {
         };
     },
     computed: {
-        ...mapState(useVideoStore, {
-            videoDetails(store) {
-                return store.getVideo(this.videoId);
-            },
-        }),
+        videoDetails() {
+            return this.videoStore.videos[this.videoId];
+        },
         videoLoaded() {
             if (typeof this.videoDetails !== 'undefined' && this.videoDetails.videoDuration > 0) {
                 return true;

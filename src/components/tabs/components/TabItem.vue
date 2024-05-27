@@ -16,7 +16,7 @@
 
 <script>
 
-import VsHeading from '@components/heading/Heading.vue';
+import VsHeading from '@/components/heading/Heading.vue';
 /**
  * Tab item for use within the Tabs component.
  *

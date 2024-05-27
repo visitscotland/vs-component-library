@@ -42,9 +42,6 @@
                 <VsImg
                     :src="imgSrc"
                     :alt="imgAlt"
-                    :srcset="fullSrcSet"
-                    sizes="(min-width: 768px) 50vw, 100vw"
-                    :low-res-image="specificImgSize('xxs')"
                     class="vs-stretched-link-card__img"
                     data-test="vs-stretched-link-card__img"
                     data-chromatic="ignore"
@@ -169,16 +166,14 @@
 </template>
 
 <script>
-import VsHeading from '@components/heading/Heading.vue';
-import VsLink from '@components/link/Link.vue';
-import VsImg from '@components/img/Img.vue';
-import VsButton from '@components/button/Button.vue';
-import VsWarning from '@components/warning/Warning.vue';
+import VsHeading from '@/components/heading/Heading.vue';
+import VsLink from '@/components/link/Link.vue';
+import VsImg from '@/components/img/Img.vue';
+import VsButton from '@/components/button/Button.vue';
+import VsWarning from '@/components/warning/Warning.vue';
 import jsIsDisabled from '@/utils/js-is-disabled';
-import useVideoStore from '@/stores/video.store.ts';
-import { mapState } from 'pinia';
+import useVideoStore from '@/stores/video.store';
 import verifyCookiesMixin from '../../mixins/verifyCookiesMixin';
-import srcSetMixin from '../../mixins/srcSetMixin';
 import requiredCookiesData from '../../utils/required-cookies-data';
 
 const cookieValues = requiredCookiesData.youtube;
@@ -202,7 +197,6 @@ export default {
     },
     mixins: [
         verifyCookiesMixin,
-        srcSetMixin,
     ],
     inject: {
         noJsMessage: {
@@ -306,6 +300,12 @@ export default {
             validator: (value) => value.match(/(normal|small)/),
         },
     },
+    setup() {
+        const videoStore = useVideoStore();
+        return {
+            videoStore,
+        };
+    },
     data() {
         return {
             jsDisabled: true,
@@ -342,17 +342,16 @@ export default {
 
             return outputClasses;
         },
+        videoDetails() {
+            return this.videoStore.videos[this.videoId];
+        },
         videoLoaded() {
             if (typeof this.videoDetails !== 'undefined' && this.videoDetails.videoDuration > 0) {
                 return true;
             }
+
             return false;
         },
-        ...mapState(useVideoStore, {
-            videoDetails(store) {
-                return store.getVideo(this.videoId);
-            },
-        }),
         // Calculates if warning is showing and gives class for appropriate styles
         warningClass() {
             let className = '';
@@ -441,7 +440,9 @@ export default {
              * @property {string} triggerRef the #ref of the button that triggered the event,
              * focus is returned here after the modal closes
              */
-            this.emitter.emit('showModal', this.videoId, '#videoShow');
+            if (this.emitter) {
+                this.emitter.emit('showModal', this.videoId, '#videoShow');
+            }
         },
     },
 };

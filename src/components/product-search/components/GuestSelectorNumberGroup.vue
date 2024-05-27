@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import type { GuestNumberGroup } from '../../../../types';
-import VsButton from '@components/button/Button.vue';
+import type { GuestNumberGroup } from '../../../types/types';
+import VsButton from '@/components/button/Button.vue';
 
 const props = defineProps<{
     adultCount: number,

@@ -2,7 +2,6 @@ import { mount } from '@vue/test-utils';
 import VsTag from '../Tag.vue';
 
 const slotContent = 'Slot Content';
-
 const factoryMount = () => mount(VsTag, {
     propsData: {
         href: 'https://www.visitscotland.com/',

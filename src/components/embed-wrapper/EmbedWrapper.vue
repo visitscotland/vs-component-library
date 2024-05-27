@@ -74,9 +74,9 @@
 <script>
 import {
     VsContainer, VsRow, VsCol,
-} from '@components/grid';
-import VsRichTextWrapper from '@components/rich-text-wrapper/RichTextWrapper.vue';
-import VsWarning from '@components/warning/Warning.vue';
+} from '@/components/grid';
+import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsWarning from '@/components/warning/Warning.vue';
 import verifyCookiesMixin from '../../mixins/verifyCookiesMixin';
 import requiredCookiesData from '../../utils/required-cookies-data';
 

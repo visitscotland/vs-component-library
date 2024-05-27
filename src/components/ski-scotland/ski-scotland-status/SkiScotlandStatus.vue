@@ -486,23 +486,23 @@
 
 <script>
 
-import VsTable from '@components/table/Table.vue';
-import VsTableHead from '@components/table/components/TableHead.vue';
-import VsTableHeaderCell from '@components/table/components/TableHeaderCell.vue';
-import VsTableBody from '@components/table/components/TableBody.vue';
-import VsTableRow from '@components/table/components/TableRow.vue';
-import VsTableDataCell from '@components/table/components/TableDataCell.vue';
-import VsTableFooter from '@components/table/components/TableFooter.vue';
-import VsAccordion from '@components/accordion/Accordion.vue';
-import VsAccordionItem from '@components/accordion/components/AccordionItem.vue';
-import VsWarning from '@components/warning/Warning.vue';
+import VsTable from '@/components/table/Table.vue';
+import VsTableHead from '@/components/table/components/TableHead.vue';
+import VsTableHeaderCell from '@/components/table/components/TableHeaderCell.vue';
+import VsTableBody from '@/components/table/components/TableBody.vue';
+import VsTableRow from '@/components/table/components/TableRow.vue';
+import VsTableDataCell from '@/components/table/components/TableDataCell.vue';
+import VsTableFooter from '@/components/table/components/TableFooter.vue';
+import VsAccordion from '@/components/accordion/Accordion.vue';
+import VsAccordionItem from '@/components/accordion/components/AccordionItem.vue';
+import VsWarning from '@/components/warning/Warning.vue';
 import {
     VsContainer, VsRow, VsCol,
-} from '@components/grid';
-import VsIcon from '@components/icon/Icon.vue';
-import VsLink from '@components/link/Link.vue';
-import VsHeading from '@components/heading/Heading.vue';
-import VsLoadingSpinner from '@components/loading-spinner/LoadingSpinner.vue';
+} from '@/components/grid';
+import VsIcon from '@/components/icon/Icon.vue';
+import VsLink from '@/components/link/Link.vue';
+import VsHeading from '@/components/heading/Heading.vue';
+import VsLoadingSpinner from '@/components/loading-spinner/LoadingSpinner.vue';
 import designTokens from '@/assets/tokens/tokens.json';
 
 import axios from 'axios';

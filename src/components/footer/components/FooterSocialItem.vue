@@ -22,8 +22,8 @@
 
 <script>
 
-import VsLink from '@components/link/Link.vue';
-import VsIcon from '@components/icon/Icon.vue';
+import VsLink from '@/components/link/Link.vue';
+import VsIcon from '@/components/icon/Icon.vue';
 import dataLayerMixin from '../../../mixins/dataLayerMixin';
 
 /**
@@ -57,7 +57,7 @@ export default {
         icon: {
             type: String,
             required: true,
-            validator: (value) => value.match(/(facebook|instagram|x-twitter|youtube)/),
+            validator: (value) => value.match(/(facebook|instagram|x-twitter|youtube|linkedin)/),
         },
     },
 };

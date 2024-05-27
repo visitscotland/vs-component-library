@@ -1,16 +1,18 @@
 import { userEvent, within } from '@storybook/test';
 
 import VsMeganav from '@/components/mega-nav/MegaNav.vue';
-import VsMegaNavTopMenuItem from '@/components/mega-nav/components/MegaNavTopMenuItem.vue';
+import VsMegaNavDropdownContainer from '@/components/mega-nav/components/MegaNavDropdownContainer.vue';
 import VsMegaNavList from '@/components/mega-nav/components/MegaNavList.vue';
 import VsMegaNavListItem from '@/components/mega-nav/components/MegaNavListItem.vue';
 import VsMegaNavAccordionItem from '@/components/mega-nav/components/MegaNavAccordionItem.vue';
 import VsMegaNavFeaturedItem from '@/components/mega-nav/components/MegaNavFeaturedItem.vue';
 import VsMegaNavFeaturedEvent from '@/components/mega-nav/components/MegaNavFeaturedEvent.vue';
+import VsMegaNavStaticLink from '@/components/mega-nav/components/MegaNavStaticLink.vue';
 
 import VsAccordion from '@/components/accordion/Accordion.vue';
 
 import navExample from '@/assets/fixtures/header/main-nav.json';
+import staticNavExample from '@/assets/fixtures/header/static-nav.json';
 
 export default {
     component: VsMeganav,
@@ -32,18 +34,20 @@ export default {
 const Template = (args) => ({
     components: {
         VsMeganav,
-        VsMegaNavTopMenuItem,
+        VsMegaNavDropdownContainer,
         VsAccordion,
         VsMegaNavAccordionItem,
         VsMegaNavList,
         VsMegaNavListItem,
         VsMegaNavFeaturedItem,
         VsMegaNavFeaturedEvent,
+        VsMegaNavStaticLink,
     },
     setup() {
         return {
             args,
             navExample,
+            staticNavExample,
         };
     },
     template: `   
@@ -51,8 +55,24 @@ const Template = (args) => ({
             <VsMeganav
                 v-bind="args"
             >
-                <template #mega-nav-top-menu-items>
-                    <VsMegaNavTopMenuItem
+                <template
+                    #mega-nav-top-menu-items
+                    v-if="!args.dropdownNav"
+                >
+                    <VsMegaNavStaticLink
+                        v-for="(item, index) in staticNavExample"
+                        :key="index"
+                        :href="item.href"
+                    >
+                        {{ item.title }}
+                    </VsMegaNavStaticLink>
+                </template>
+
+                <template
+                    #mega-nav-top-menu-items
+                    v-if="args.dropdownNav"
+                >
+                    <VsMegaNavDropdownContainer
                         v-for="(item, index) in navExample"
                         :key="index"
                         :href="item.href"
@@ -153,10 +173,27 @@ const Template = (args) => ({
 
                         <div class="featured-items">
                         </div>
-                    </VsMegaNavTopMenuItem>
+                    </VsMegaNavDropdownContainer>
                 </template>
 
-                <template v-slot:mega-nav-accordion-items>
+                <template
+                    v-slot:mega-nav-accordion-items
+                    v-if="!args.dropdownNav"
+                >
+                    <VsMegaNavStaticLink
+                        v-for="(item, index) in staticNavExample"
+                        :key="index"
+                        :href="item.href"
+                        :is-full-width="true"
+                    >
+                        {{ item.title }}
+                    </VsMegaNavStaticLink>
+                </template>
+
+                <template
+                    v-slot:mega-nav-accordion-items
+                    v-if="args.dropdownNav"
+                >
                     <VsAccordion>
                         <VsMegaNavAccordionItem
                             v-for="(item, mobileItemIndex) in navExample"
@@ -253,6 +290,7 @@ const base = {
     'mega-nav-top-menu-items': '',
     'mega-nav-accordion-items': '',
     jsDisabled: false,
+    dropdownNav: true,
 };
 
 export const Default = Template.bind({
@@ -316,6 +354,23 @@ MenuOpenMobile.play = async({ canvasElement }) => {
     const inspLink = canvasElement.querySelector(['[aria-controls="vs-mega-nav-accordion-item-vs-mega-nav-things-to-do-1"']);
 
     await userEvent.click(inspLink);
+};
+
+export const NoSearch = Template.bind({
+});
+
+NoSearch.args = {
+    ...base,
+    noSearch: true,
+};
+
+export const StaticNav = Template.bind({
+});
+
+StaticNav.args = {
+    ...base,
+    dropdownNav: false,
+    noSearch: true,
 };
 
 export const NoJavascript = Template.bind({

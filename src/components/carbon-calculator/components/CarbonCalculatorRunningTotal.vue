@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import VsIcon from '@components/icon/Icon.vue';
+import VsIcon from '@/components/icon/Icon.vue';
 
 /**
  * @displayName Carbon Form Running Total

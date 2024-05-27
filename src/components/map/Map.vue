@@ -49,14 +49,13 @@
 </template>
 
 <script>
-import VsWarning from '@components/warning/Warning.vue';
-import VsLoading from '@components/loading-spinner/LoadingSpinner.vue';
+import VsWarning from '@/components/warning/Warning.vue';
+import VsLoading from '@/components/loading-spinner/LoadingSpinner.vue';
 import osBranding from '@/utils/os-branding';
 import { v4 as uuidv4 } from 'uuid';
 import { render, h } from 'vue';
-import pinia from '@/stores/index.ts';
 import { mapState } from 'pinia';
-import useMapStore from '@/stores/map.store.ts';
+import useMapStore from '@/stores/map.store';
 import mapboxgl from 'mapbox-gl';
 import geojsonExtent from '@mapbox/geojson-extent';
 import VsMapMarker from './components/MapMarker.vue';
@@ -180,6 +179,9 @@ export default {
             default: true,
         },
     },
+    setup() {
+        mapStore = useMapStore();
+    },
     data() {
         return {
             isDesktop: false,
@@ -265,10 +267,12 @@ export default {
             }
         },
         highlightedPlace(feature) {
-            if (feature.length === 0) {
-                this.removeHoveredPolygon();
-            } else if (feature.geometry.type !== 'Point') {
-                this.addHoveredPolygon(feature);
+            if (feature) {
+                if (feature.length === 0) {
+                    this.removeHoveredPolygon();
+                } else if (feature.geometry.type !== 'Point') {
+                    this.addHoveredPolygon(feature);
+                }
             }
         },
         selectedItem(newVal) {
@@ -310,8 +314,6 @@ export default {
         },
     },
     mounted() {
-        mapStore = useMapStore(pinia());
-
         mapStore.addMapInstance({
             id: this.mapId,
             filters: this.filters,

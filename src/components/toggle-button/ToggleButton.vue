@@ -43,8 +43,8 @@
 </style>
 
 <script>
-import VsButton from '@components/button/Button.vue';
-import VsIcon from '@components/icon/Icon.vue';
+import VsButton from '@/components/button/Button.vue';
+import VsIcon from '@/components/icon/Icon.vue';
 
 /**
  * Toggle button to toggle elements in other components.

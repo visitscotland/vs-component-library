@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import VsAccordionItem from '@components/accordion/components/AccordionItem.vue';
+import VsAccordionItem from '@/components/accordion/components/AccordionItem.vue';
 
 /**
  * The FooterAccordionItem is an accordion item used inside the FooterNavList.

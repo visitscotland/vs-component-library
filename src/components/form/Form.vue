@@ -7,7 +7,9 @@
         <form class="d-none" />
 
         <template v-if="!submitted">
-            <form @submit.prevent="preSubmit">
+            <form
+                @submit.prevent="preSubmit"
+            >
                 <fieldset>
                     <legend
                         class="vs-form__main-heading vs-heading--style-level-2 float-none"
@@ -149,23 +151,23 @@
 import { BFormGroup } from 'bootstrap-vue-next';
 import axios from 'axios';
 import getEnvValue from '@/utils/get-env-value';
-import VsInput from '@components/input/Input.vue';
-import VsSelect from '@components/select/Select.vue';
-import VsCheckbox from '@components/checkbox/Checkbox.vue';
-import VsRecaptcha from '@components/recaptcha/Recaptcha.vue';
-import VsButton from '@components/button/Button.vue';
-import VsHeading from '@components/heading/Heading.vue';
-import VsWarning from '@components/warning/Warning.vue';
+import VsInput from '@/components/input/Input.vue';
+import VsSelect from '@/components/select/Select.vue';
+import VsCheckbox from '@/components/checkbox/Checkbox.vue';
+import VsRecaptcha from '@/components/recaptcha/Recaptcha.vue';
+import VsButton from '@/components/button/Button.vue';
+import VsHeading from '@/components/heading/Heading.vue';
+import VsWarning from '@/components/warning/Warning.vue';
 import dataLayerMixin from '../../mixins/dataLayerMixin';
 
 /**
- * A form that results in a user posting data to Marketo.
+ * A form that results in a user posting data to either Marketo or a defined.
  *
- * @displayName Marketo Form
+ * @displayName Form
  */
 
 export default {
-    name: 'VsMarketoForm',
+    name: 'VsForm',
     status: 'prototype',
     release: '0.0.1',
     components: {
@@ -180,6 +182,22 @@ export default {
     },
     mixins: [dataLayerMixin],
     props: {
+        /**
+         * If set to true, the form submits through the marketo library
+         * using a hidden form. If false it submits using native browser
+         * form logic.
+         */
+        isMarketo: {
+            type: Boolean,
+            default: true,
+        },
+        /**
+         * The target url for the form, if not marketo
+         */
+        submitUrl: {
+            type: String,
+            default: '',
+        },
         /**
          * The URL for the form data file
          */
@@ -244,6 +262,14 @@ export default {
             type: String,
             default: '',
         },
+        /**
+         * We can't interact with recaptcha in the test environment and should
+         * remove it from the form flow.
+         */
+        isTest: {
+            type: Boolean,
+            default: true,
+        },
     },
     data() {
         return {
@@ -295,7 +321,7 @@ export default {
                 .then((response) => {
                     this.formData = response.data;
 
-                    if (window.MktoForms2) {
+                    if (this.isMarketo && window.MktoForms2) {
                         window.MktoForms2
                             .loadForm(this.marketoInstance, this.munchkinId, this.formId);
                     }
@@ -539,7 +565,7 @@ export default {
             if (Array.isArray(data.errors)) {
                 this.formIsInvalid = data.errors.length > 0;
             } else {
-                this.formIsInvalid = data.errors;
+                this.formIsInvalid = data.errors !== null;
             }
 
             this.manageErrorStatus(data.field, data.errors);
@@ -593,7 +619,9 @@ export default {
                 return value.validation && value.validation.required;
             }
 
-            this.onRecaptchaVerify();
+            if (!this.isTest) {
+                this.onRecaptchaVerify();
+            }
 
             this.triggerValidate = true;
 
@@ -609,7 +637,7 @@ export default {
                 });
             }
 
-            this.showErrorMessage = this.formIsInvalid.length > 1;
+            this.showErrorMessage = this.formIsInvalid;
 
             // check conditional fields - if they're not shown
             // then clear any value they may have
@@ -624,7 +652,11 @@ export default {
             }
 
             if (!this.formIsInvalid && this.recaptchaVerified) {
-                this.marketoSubmit();
+                if (this.isMarketo) {
+                    this.marketoSubmit();
+                } else {
+                    this.axiosSubmit();
+                }
             } else {
                 this.showErrorMessage = true;
                 this.reAlertErrors = true;
@@ -660,6 +692,31 @@ export default {
             });
 
             myForm.submit();
+        },
+        /**
+         * Submits the form using Axios, submitting a json object to the submitUrl
+         */
+        axiosSubmit() {
+            this.submitting = true;
+
+            let gRecaptchaResponse = '';
+
+            if (window.grecaptcha) {
+                gRecaptchaResponse = window.grecaptcha.getResponse();
+            }
+
+            axios.post(
+                this.submitUrl,
+                {
+                    ...this.form,
+                    formType: this.formData.content ? this.formData.content.formType : '',
+                    'g-recaptcha-response': gRecaptchaResponse,
+                },
+            ).then(() => {
+                this.submitting = false;
+                this.submitted = true;
+                return false;
+            }).catch(() => {});
         },
         /**
          * Checks recaptcha response from the server

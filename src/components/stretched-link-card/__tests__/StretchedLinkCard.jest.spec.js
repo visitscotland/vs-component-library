@@ -66,33 +66,11 @@ describe('VsStretchedLinkCard', () => {
             await expect(wrapper.find('[data-test="vs-stretched-link__img"]').exists()).toBe(false);
         });
 
-        it('should construct the srcSet using a ? if the srcSet contains no query parameter', async() => {
-            const wrapper = factoryShallowMount();
-
-            wrapper.setProps({
-                imgSrc: 'https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander',
-            });
-
-            await expect(wrapper.find('vs-img-stub').attributes('srcset')).toContain('?size=');
-        });
-
-        it('should construct the srcSet using an & if the srcSet contains a query parameter', async() => {
-            const wrapper = factoryShallowMount();
-
-            wrapper.setProps({
-                imgSrc: 'https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?preview-token=test',
-            });
-
-            await wrapper.vm.$nextTick();
-
-            expect(wrapper.find('vs-img-stub').attributes('srcset')).toContain('&size=');
-        });
-
         it('should render a video play button if a videoId is set', async() => {
             const wrapper = factoryMount();
 
             wrapper.setProps({
-                videoId: '12345',
+                videoId: '123456',
             });
 
             wrapper.setData({
@@ -109,7 +87,7 @@ describe('VsStretchedLinkCard', () => {
             const wrapper = factoryMount();
 
             wrapper.setProps({
-                videoId: '12345',
+                videoId: '123456',
                 videoBtnText,
             });
 
@@ -126,7 +104,7 @@ describe('VsStretchedLinkCard', () => {
             const wrapper = factoryShallowMount();
 
             await wrapper.setProps({
-                videoId: '12345',
+                videoId: '123456',
                 videoBtnText: 'Play',
                 errorType: 'full',
             });
@@ -138,7 +116,7 @@ describe('VsStretchedLinkCard', () => {
             const wrapper = factoryShallowMount();
 
             wrapper.setProps({
-                videoId: '12345',
+                videoId: '123456',
                 errorMessage: 'Error',
                 errorType: 'image',
             });

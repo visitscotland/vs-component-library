@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import VsButton from '@components/button/Button.vue';
+import VsButton from '@/components/button/Button.vue';
 
 /**
  * Accordion toggle button used with AccordionItem

@@ -1,5 +1,6 @@
 import { config } from '@vue/test-utils';
 import mitt from 'mitt';
+import { createTestingPinia } from '@pinia/testing';
 import { toHaveNoViolations } from 'jest-axe';
 
 // used for Axe accessibility testing
@@ -11,6 +12,10 @@ const testEmitter = mitt();
 config.global.mocks = {
     emitter: testEmitter,
 };
+
+config.global.plugins = [
+    createTestingPinia(),
+];
 
 window.URL.createObjectURL = function() {};
 
@@ -30,7 +35,7 @@ jest.mock('mapbox-gl/dist/mapbox-gl', () => ({
     NavigationControl: jest.fn(),
 }));
 
-jest.mock('youtube-vue3', () => ({
-    YoutubeVue3: jest.fn(() => ({
+jest.mock('vue-youtube-vue-3', () => ({
+    VueYoutube: jest.fn(() => ({
     })),
 }));

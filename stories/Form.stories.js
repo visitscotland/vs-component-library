@@ -2,17 +2,17 @@ import {
     userEvent, within, waitFor,
 } from '@storybook/test';
 
-import VsMarketoForm from '@/components/marketo-form/MarketoForm.vue';
+import VsForm from '@/components/form/Form.vue';
 
 export default {
-    component: VsMarketoForm,
-    title: 'MarketoForm',
+    component: VsForm,
+    title: 'Form',
     tags: ['autodocs'],
 };
 
 const Template = (args) => ({
     components: {
-        VsMarketoForm,
+        VsForm,
     },
     setup() {
         return {
@@ -23,21 +23,23 @@ const Template = (args) => ({
         <div
             :class="args.jsDisabled ? 'no-js' : ''"
         >
-            <VsMarketoForm
+            <VsForm
                 v-bind="args"
             >
                 <template v-slot:no-js v-if="args['no-js']">
                     <p>{{ args['no-js'] }}</p>
                 </template>
-            </VsMarketoForm>
+            </VsForm>
         </div>
     `,
 });
 
 const base = {
-    dataUrl: '/fixtures/marketo-forms/form-example.json',
-    messagingUrl: '/fixtures/marketo-forms/messaging.json',
-    countryListUrl: '/fixtures/marketo-forms/countries.json',
+    isMarketo: true,
+    submitUrl: '/test/api/url',
+    dataUrl: '/fixtures/forms/form-example.json',
+    messagingUrl: '/fixtures/forms/messaging.json',
+    countryListUrl: '/fixtures/forms/countries.json',
     marketoInstance: '',
     munchkinId: '',
     language: 'en',
@@ -53,6 +55,15 @@ export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const FEPL = Template.bind({
+});
+
+FEPL.args = {
+    ...base,
+    isMarketo: false,
+    dataUrl: '/fixtures/forms/fepl-form-example.json',
+};
 
 export const ShowingConditionalField = Template.bind({
 });

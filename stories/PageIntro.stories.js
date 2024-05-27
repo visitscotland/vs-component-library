@@ -6,7 +6,7 @@ import {
     VsCol,
     VsContainer,
     VsRow,
-} from '@components/grid';
+} from '@/components/grid';
 import VsDescriptionList from '@/components/description-list/DescriptionList.vue';
 import VsDescriptionListItem from '@/components/description-list/components/DescriptionListItem.vue';
 import VsImageWithCaption from '@/components/image-with-caption/ImageWithCaption.vue';

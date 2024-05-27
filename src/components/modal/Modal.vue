@@ -44,9 +44,9 @@
 <script>
 import {
     VsCol, VsRow, VsContainer,
-} from '@components/grid';
+} from '@/components/grid';
 import { BModal } from 'bootstrap-vue-next';
-import VsButton from '@components/button';
+import VsButton from '@/components/button';
 
 /**
  * The modal is used as a dialog prompt for users
@@ -108,15 +108,17 @@ export default {
     mounted() {
         this.mounted = true;
 
-        this.emitter.on('showModal', (id) => this.showModal(id));
+        if (this.emitter) {
+            this.emitter.on('showModal', (id) => this.showModal(id));
 
-        if (this.isVideoModal) {
-            this.emitter.on('showModal', (id) => {
-                this.emitter.emit('video-controls', {
-                    action: 'modal-opened',
-                    id,
+            if (this.isVideoModal) {
+                this.emitter.on('showModal', (id) => {
+                    this.emitter.emit('video-controls', {
+                        action: 'modal-opened',
+                        id,
+                    });
                 });
-            });
+            }
         }
     },
     methods: {
@@ -124,10 +126,12 @@ export default {
          * Closes modal window
          */
         hideModal() {
-            this.emitter.emit('video-controls', {
-                action: 'modal-closed',
-                id: this.modalId,
-            });
+            if (this.emitter) {
+                this.emitter.emit('video-controls', {
+                    action: 'modal-closed',
+                    id: this.modalId,
+                });
+            }
             this.show = false;
         },
         showModal(id) {

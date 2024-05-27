@@ -30,8 +30,8 @@
 </template>
 
 <script>
-import VsButton from '@components/button/Button.vue';
-import VsMapMarkerIcon from '@components/map-marker-icon/MapMarkerIcon.vue';
+import VsButton from '@/components/button/Button.vue';
+import VsMapMarkerIcon from '@/components/map-marker-icon/MapMarkerIcon.vue';
 
 export default {
     name: 'VsMapWithSidebarCategories',

@@ -40,10 +40,10 @@
 </template>
 
 <script>
-import VsFooterNavList from '@components/footer/components/FooterNavList.vue';
+import VsFooterNavList from '@/components/footer/components/FooterNavList.vue';
 import {
     VsContainer, VsRow, VsCol,
-} from '@components/grid';
+} from '@/components/grid';
 
 /**
  * This component is the main Footer wrapper for the bottom of the page.

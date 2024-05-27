@@ -120,6 +120,7 @@ module.exports = {
             {
                 vue: 'always',
                 js: 'never',
+                ts: 'never',
             },
         ],
         'no-debugger': 'warn',

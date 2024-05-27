@@ -54,9 +54,9 @@ import {
     VsCol,
     VsRow,
     VsContainer,
-} from '@components/grid';
+} from '@/components/grid';
 import { BDropdown } from 'bootstrap-vue-next';
-import VsButton from '@components/button/Button.vue';
+import VsButton from '@/components/button/Button.vue';
 import dataLayerMixin from '../../../mixins/dataLayerMixin';
 
 /**

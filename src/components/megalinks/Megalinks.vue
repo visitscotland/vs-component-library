@@ -60,14 +60,14 @@
 </template>
 
 <script>
-import VsHeading from '@components/heading/Heading.vue';
-import VsButton from '@components/button/Button.vue';
-import VsRichTextWrapper from '@components/rich-text-wrapper/RichTextWrapper.vue';
+import VsHeading from '@/components/heading/Heading.vue';
+import VsButton from '@/components/button/Button.vue';
+import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
 import {
     VsContainer,
     VsRow,
     VsCol,
-} from '@components/grid';
+} from '@/components/grid';
 
 /**
  * Megalinks wrapper used with Megalinks components.

@@ -41,8 +41,8 @@
 
 <script>
 import { BFormGroup } from 'bootstrap-vue-next';
-import VsRadioButton from '@components/radio-button/RadioButton.vue';
-import VsNumberInput from '@components/number-input/NumberInput.vue';
+import VsRadioButton from '@/components/radio-button/RadioButton.vue';
+import VsNumberInput from '@/components/number-input/NumberInput.vue';
 
 /**
  * @displayName Carbon Form Question

@@ -52,11 +52,11 @@
 </template>
 
 <script>
-import VsHeading from '@components/heading/Heading.vue';
-import VsRichTextWrapper from '@components/rich-text-wrapper/RichTextWrapper.vue';
+import VsHeading from '@/components/heading/Heading.vue';
+import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
 import {
     VsContainer, VsRow, VsCol,
-} from '@components/grid';
+} from '@/components/grid';
 
 /**
 * Header intro and button wrapper for module content

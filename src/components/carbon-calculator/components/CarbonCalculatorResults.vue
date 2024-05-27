@@ -116,9 +116,9 @@
 
 <script>
 import designTokens from '@/assets/tokens/tokens.json';
-import { VsCol, VsRow } from '@components/grid';
-import VsIcon from '@components/icon/Icon.vue';
-import VsHeading from '@components/heading/Heading.vue';
+import { VsCol, VsRow } from '@/components/grid';
+import VsIcon from '@/components/icon/Icon.vue';
+import VsHeading from '@/components/heading/Heading.vue';
 import { ref } from 'vue';
 import {
     Chart,

@@ -48,9 +48,9 @@ import {
     VsContainer,
     VsRow,
     VsCol,
-} from '@components/grid';
-import VsHeading from '@components/heading/Heading.vue';
-import VsWarning from '@components/warning/Warning.vue';
+} from '@/components/grid';
+import VsHeading from '@/components/heading/Heading.vue';
+import VsWarning from '@/components/warning/Warning.vue';
 import VsProductSearchEmbed from './components/ProductSearchEmbed.vue';
 
 /**

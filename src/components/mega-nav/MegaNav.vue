@@ -36,7 +36,7 @@
                     <VsCol
                         cols="4"
                         md="6"
-                        lg="7"
+                        :lg="noSearch ? 9 : 7"
                         class="vs-mega-nav__menu d-none d-lg-block"
                     >
                         <VsMegaNavTopMenu>
@@ -55,6 +55,7 @@
                         <VsSiteSearch
                             @toggleAction="toggleSearch"
                             :is-showing="showSearch"
+                            v-if="!noSearch"
                         >
                             {{ searchButtonText }}
                         </VsSiteSearch>
@@ -105,13 +106,13 @@
 <script>
 import {
     VsCol, VsRow, VsContainer,
-} from '@components/grid';
-import VsSvgLink from '@components/svg-link/SvgLink.vue';
-import VsMegaNavTopMenu from '@components/mega-nav/components/MegaNavTopMenu.vue';
-import VsMegaNavMobileMenu from '@components/mega-nav/components/MegaNavMobileMenu.vue';
-import VsButton from '@components/button/Button.vue';
-import VsSiteSearch from '@components/site-search/SiteSearch.vue';
-import VsSiteSearchForm from '@components/site-search/components/SiteSearchForm.vue';
+} from '@/components/grid';
+import VsSvgLink from '@/components/svg-link/SvgLink.vue';
+import VsMegaNavTopMenu from '@/components/mega-nav/components/MegaNavTopMenu.vue';
+import VsMegaNavMobileMenu from '@/components/mega-nav/components/MegaNavMobileMenu.vue';
+import VsButton from '@/components/button/Button.vue';
+import VsSiteSearch from '@/components/site-search/SiteSearch.vue';
+import VsSiteSearchForm from '@/components/site-search/components/SiteSearchForm.vue';
 import designTokens from '@/assets/tokens/tokens.json';
 import clickOutside from '@/directives/click-outside';
 import dataLayerMixin from '../../mixins/dataLayerMixin';
@@ -193,6 +194,14 @@ export default {
         searchCloseButtonText: {
             type: String,
             default: 'Close search form',
+        },
+        /**
+         * If true, completely remove the search button from the nav
+         * to render search inaccessible
+         */
+        noSearch: {
+            type: Boolean,
+            default: false,
         },
     },
     data() {

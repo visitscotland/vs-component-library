@@ -30,7 +30,7 @@
 <script>
 import VsButton from '@/components/button/Button.vue';
 import { mapState } from 'pinia';
-import useMapStore from '@/stores/map.store.ts';
+import useMapStore from '@/stores/map.store';
 
 export default {
     name: 'VsMapWithSidebarControls',

@@ -2,10 +2,10 @@
 import { ref } from 'vue';
 import { getLabelText } from '../../../utils/lang';
 import { v4 as uuidv4 } from 'uuid';
-import type { GuestUnit } from '../../../../types';
+import type { GuestUnit } from '../../../types/types';
 import GuestSelectorRow from './GuestSelectorRow.vue';
 
-import VsButton from '@components/button/Button.vue';
+import VsButton from '@/components/button/Button.vue';
 
 defineProps<{
     availability: boolean;

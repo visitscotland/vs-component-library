@@ -3,21 +3,38 @@
   "version": "2.0.7",
   "description": "VisitScotland Component Library",
   "author": "VisitScotland",
-  "main": "dist/ssr/index.js",
   "homepage": "https://github.com/visitscotland/vs-component-library#readme",
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "require": "./dist/ssr/index.js"
+    },
+    "./components": {
+      "import": "./dist/components/vs-component-library.mjs",
+      "require": "./dist/components/vs-component-library.umd.js",
+      "types": "./dist/components/component-entry.d.ts"
+    },
+    "./maps": {
+      "import": "./dist/components/maps.mjs"
+    },
+    "./components/style.css": "./dist/components/vs-component-library.css",
+    "./components/fonts.css": "./dist/components/fonts.css",
+    "./components/icons.css": "./dist/components/icons.css"
+  },
   "license": "MIT",
   "scripts": {
     "storybook": "yarn theo && storybook dev -p 6006",
     "build-storybook": "yarn theo && storybook build",
-    "build": "yarn theo && npm-run-all build:library build:ssr third-party",
+    "build": "yarn theo && npm-run-all build:library build:ssr third-party build:vite",
     "build:dev": "yarn theo && npm-run-all build:library:dev build:ssr:dev third-party",
     "build:library": "cross-env NODE_ENV=production webpack --config ./build/webpack.conf.js",
     "build:library:dev": "cross-env NODE_ENV=development webpack --config ./build/webpack.conf.js",
     "build:ssr": "cross-env NODE_ENV=production webpack --config ./build/webpack.ssr.conf.js",
     "build:ssr:dev": "cross-env NODE_ENV=development webpack --config ./build/webpack.ssr.conf.js",
+    "build:vite": "yarn theo && vite build",
+    "build:vite-no-theo": "vite build",
     "test": "yarn theo && jest --config ./test/unit/jest.conf.js",
     "test:no-theo": "jest --config ./test/unit/jest.conf.js",
     "lint": "eslint",
@@ -127,6 +144,10 @@
     "typescript": "^5.0.4",
     "upgrade": "^1.1.0",
     "vite": "^5.2.10",
+    "vite-plugin-dts": "^3.7.2",
+    "vite-plugin-turbosnap": "^1.0.2",
+    "vue": "^3.4.19",
+    "vue-jest": "^5.0.0-alpha.10",
     "vue-loader": "^17.1.0",
     "vue-style-loader": "^4.1.3",
     "webpack": "^5.81.0",
@@ -137,6 +158,8 @@
   },
   "dependencies": {
     "@mapbox/geojson-extent": "^1.0.1",
+    "@pinia/testing": "^0.1.3",
+    "@storybook/addon-a11y": "^7.5.3",
     "@storybook/test": "^8.0.10",
     "@vuelidate/core": "^2.0.2",
     "@vuelidate/validators": "^2.0.2",
@@ -148,12 +171,18 @@
     "mitt": "^3.0.0",
     "pinia": "^2.1.3",
     "uuid": "^9.0.0",
+    "vite": "^5.1.3",
     "vue": "^3.3.4",
     "vue-combo-blocks": "^2.1.1",
     "vue-recaptcha": "^2.0.1",
+    "vue-youtube-vue-3": "^1.5.0",
     "vue3-charts": "^1.1.33",
     "vue3-lazy-hydration": "^1.2.1",
-    "youtube-vue3": "^0.1.15"
+    "vue3-simple-typeahead": "^1.0.11",
+    "vuelidate": "^0.7.7",
+    "vuex": "^4.1.0",
+    "webpack-merge": "^5.1.4",
+    "webpack-node-externals": "^3.0.0"
   },
   "peerDependencies": {
     "@popperjs/core": "*",
@@ -195,7 +224,8 @@
     "word-wrap": "^1.2.4",
     "highlight.js": "^10.4.1",
     "semver": "^7.5.4",
-    "get-func-name": "^2.0.1"
+    "get-func-name": "^2.0.1",
+    "svgo": "3.2.0"
   },
   "packageManager": "yarn@4.2.1"
 }

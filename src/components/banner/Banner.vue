@@ -66,12 +66,12 @@
 </template>
 
 <script>
-import VsButton from '@components/button/Button.vue';
-import VsRichTextWrapper from '@components/rich-text-wrapper/RichTextWrapper.vue';
-import VsIcon from '@components/icon/Icon.vue';
+import VsButton from '@/components/button/Button.vue';
+import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsIcon from '@/components/icon/Icon.vue';
 import {
     VsContainer, VsRow, VsCol,
-} from '@components/grid';
+} from '@/components/grid';
 import cookieMixin from '../../mixins/cookieMixin';
 
 /**

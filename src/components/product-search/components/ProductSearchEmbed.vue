@@ -191,14 +191,14 @@ import { getLabelText, getLocale, getProductName } from '../../../utils/lang';
 import { paths, monthsEnglish } from '../../../constants';
 import { getProductTypes } from '../../../utils/utils';
 import { getData } from '../../../utils/axios';
-import type { Location, TmsApiDataItem, SelectOption } from '../../../types';
-import VsLoadingSpinner from '@components/loading-spinner/LoadingSpinner.vue';
-import VsSelect from '@components/select/Select.vue';
-import VsInput from '@components/input/Input.vue';
+import type { Location, TmsApiDataItem, SelectOption } from '../../../types/types';
+import VsLoadingSpinner from '@/components/loading-spinner/LoadingSpinner.vue';
+import VsSelect from '@/components/select/Select.vue';
+import VsInput from '@/components/input/Input.vue';
 import Autocomplete from './Autocomplete.vue';
 import GuestSelector from './GuestSelector.vue';
 import DateRange from './DateRange.vue';
-import VsButton from '@components/button/Button.vue';
+import VsButton from '@/components/button/Button.vue';
 
 /**
  * A module housing the PSR widget, a title and optional text

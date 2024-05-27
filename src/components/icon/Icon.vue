@@ -222,6 +222,10 @@ export default {
                     key: 'x-twitter',
                     value: 'x-twitter fa-brands',
                 },
+                {
+                    key: 'linkedin',
+                    value: 'linkedin-in fa-brands',
+                },
             ],
         };
     },

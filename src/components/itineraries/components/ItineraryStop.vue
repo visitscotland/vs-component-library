@@ -69,8 +69,8 @@
 </template>
 
 <script>
-import VsIcon from '@components/icon/Icon.vue';
-import VsHeading from '@components/heading/Heading.vue';
+import VsIcon from '@/components/icon/Icon.vue';
+import VsHeading from '@/components/heading/Heading.vue';
 
 /**
  * Itinerary Day list items.

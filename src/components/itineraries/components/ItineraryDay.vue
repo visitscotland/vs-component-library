@@ -75,9 +75,9 @@ import {
     VsContainer,
     VsRow,
     VsCol,
-} from '@components/grid';
-import VsIcon from '@components/icon/Icon.vue';
-import VsAccordionItem from '@components/accordion/components/AccordionItem.vue';
+} from '@/components/grid';
+import VsIcon from '@/components/icon/Icon.vue';
+import VsAccordionItem from '@/components/accordion/components/AccordionItem.vue';
 
 /**
  * Itinerary Day list items.

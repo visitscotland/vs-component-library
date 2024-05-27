@@ -50,7 +50,7 @@ import {
     BFormRadioGroup,
     BFormRadio,
 } from 'bootstrap-vue-next';
-import VsIcon from '@components/icon/Icon.vue';
+import VsIcon from '@/components/icon/Icon.vue';
 
 /**
  * A group of buttons that allow only one to be selected at a time

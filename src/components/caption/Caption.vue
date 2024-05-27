@@ -48,7 +48,7 @@
 
 <script>
 import designTokens from '@/assets/tokens/tokens.json';
-import { VsRow, VsCol } from '@components/grid';
+import { VsRow, VsCol } from '@/components/grid';
 import VsCaptionImageMap from './components/CaptionImageMap.vue';
 
 /**

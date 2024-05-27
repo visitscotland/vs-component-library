@@ -87,7 +87,7 @@ const webpackConfig = {
                 ],
             },
             {
-                test: /\.scss$/,
+                test: /\.(sa|sc|c)ss$/,
                 use: [
                     'style-loader',
                     {

@@ -25,10 +25,10 @@
 </template>
 
 <script>
-import VsList from '@components/list/List.vue';
+import VsList from '@/components/list/List.vue';
 import {
     VsRow, VsContainer, VsCol,
-} from '@components/grid';
+} from '@/components/grid';
 
 /**
  * The FooterUtilityList is a list of FooterNavListItems

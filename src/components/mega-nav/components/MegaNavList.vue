@@ -24,8 +24,8 @@
 </template>
 
 <script>
-import VsList from '@components/list/List.vue';
-import VsHeading from '@components/heading/Heading.vue';
+import VsList from '@/components/list/List.vue';
+import VsHeading from '@/components/heading/Heading.vue';
 /**
  *  Meganav list wrapper with a slots list items
  *
