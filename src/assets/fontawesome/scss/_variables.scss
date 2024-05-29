@@ -46,7 +46,7 @@ $fa-stack-width         : ($fa-fw-width * 2) !default;
 $fa-stack-z-index       : auto !default;
 
 $fa-font-display        : block !default;
-$fa-font-path           : "../webfonts" !default;
+$fa-font-path           : "/src/assets/fontawesome/webfonts";
 
 $fa-var-circle-info: \f05a;
 $fa-var-info-circle: \f05a;
