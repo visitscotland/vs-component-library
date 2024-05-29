@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.1](https://github.com/visitscotland/vs-component-library/compare/v3.0.0...v3.0.1) (2024-05-29)
+
+
+### ✨ Features
+
+* **vsform:** add slot for hidden fields ([0e12a20](https://github.com/visitscotland/vs-component-library/commit/0e12a20686c133ead10b91514f440fe1f2a3c6ca))
+
+
+### 🐛 Bug Fixes
+
+* **form.stories.js:** missing quotes ([e474738](https://github.com/visitscotland/vs-component-library/commit/e47473862fb9fffa0f149cb6d1fd817bedeab68d))
+
 ## [3.0.0](https://github.com/visitscotland/vs-component-library/compare/v2.0.7...v3.0.0) (2024-05-27)
 
 
