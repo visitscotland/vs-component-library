@@ -28,7 +28,7 @@ const Template = (args) => ({
             >
                 <template
                     v-slot:hidden-fields
-                    v-if=args['hidden-fields']
+                    v-if="args['hidden-fields']"
                 >
                     <input
                         v-for="field in args['hidden-fields']"
