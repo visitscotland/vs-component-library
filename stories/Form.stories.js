@@ -26,6 +26,18 @@ const Template = (args) => ({
             <VsForm
                 v-bind="args"
             >
+                <template
+                    v-slot:hidden-fields
+                    v-if=args['hidden-fields']
+                >
+                    <input
+                        v-for="field in args['hidden-fields']"
+                        type="hidden"
+                        :name="field.name"
+                        :value="field.value"
+                    />
+                </template>
+
                 <template v-slot:no-js v-if="args['no-js']">
                     <p>{{ args['no-js'] }}</p>
                 </template>
@@ -63,6 +75,24 @@ FEPL.args = {
     ...base,
     isMarketo: false,
     dataUrl: '/fixtures/forms/fepl-form-example.json',
+};
+
+export const HiddenFields = Template.bind({
+});
+
+HiddenFields.args = {
+    ...base,
+    isMarketo: false,
+    'hidden-fields': [
+        {
+            name: 'activity_description',
+            value: 'Website opt in for Snow Alerts (ski) and VS Email',
+        },
+        {
+            name: 'activity_source',
+            value: 'E-News Signups',
+        },
+    ],
 };
 
 export const ShowingConditionalField = Template.bind({

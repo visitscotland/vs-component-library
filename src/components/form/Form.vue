@@ -95,6 +95,8 @@
                     </BFormGroup>
                 </fieldset>
 
+                <slot name="hidden-fields" />
+
                 <VsRecaptcha
                     @verified="onRecaptchaVerify"
                     :site-key="recaptchaKey"

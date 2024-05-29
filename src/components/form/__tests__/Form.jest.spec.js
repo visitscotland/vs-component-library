@@ -127,6 +127,7 @@ function mountOptions(propsData) {
             invalid: 'invalid text',
             submitting: 'submitting text',
             submitted: successContent,
+            'hidden-fields': '<input type="hidden" name="hidden" value="hidden" />',
         },
         propsData: {
             dataUrl: 'testUrl',
@@ -227,6 +228,13 @@ describe('VsForm', () => {
             await wrapper.vm.$nextTick();
 
             expect(wrapper.html()).toContain('error text');
+        });
+
+        it('should render the `hidden-fields` slot', async() => {
+            const wrapper = factoryShallowMount();
+            const hiddenField = wrapper.find('input[type=hidden][name=hidden]');
+
+            expect(hiddenField.exists()).toBe(true);
         });
     });
 
