@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.3](https://github.com/visitscotland/vs-component-library/compare/v3.0.2...v3.0.3) (2024-05-30)
+
+
+### ✨ Features
+
+* **fontawesome:** add missing variable files ([7f89271](https://github.com/visitscotland/vs-component-library/commit/7f89271738fac1e48018c14b12ec9c2ec3d973af))
+* **icons:** switch to reduced, custom subset of icons ([361726f](https://github.com/visitscotland/vs-component-library/commit/361726f30588f83de87814868fc6442d0aebcb02))
+
 ### [3.0.2](https://github.com/visitscotland/vs-component-library/compare/v3.0.1...v3.0.2) (2024-05-29)
 
 ### [3.0.1](https://github.com/visitscotland/vs-component-library/compare/v3.0.0...v3.0.1) (2024-05-29)
