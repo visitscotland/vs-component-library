@@ -228,7 +228,7 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
 
         &::after{
             font-family: "Font Awesome Kit";
-            content: "\e06c";
+            content: "\e012";
             display: inline-block;
             position: absolute;
             top: $spacer-9;

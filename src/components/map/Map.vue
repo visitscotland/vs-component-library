@@ -1132,25 +1132,25 @@ export default {
         }
 
         &::after {
-            content: "\e017";
+            content: "\e028";
         }
     }
 
     .mapboxgl-ctrl-shrink {
         &::after {
-            content: "\e07b";
+            content: "\e01e";
         }
     }
 
     .mapboxgl-ctrl-zoom-in {
         &::after {
-            content: "\e05c";
+            content: "\e062";
         }
     }
 
     .mapboxgl-ctrl-zoom-out {
         &::after {
-            content: "\e034";
+            content: "\e057";
         }
     }
 
