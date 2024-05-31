@@ -19,9 +19,6 @@ const youtubeId = '123456';
 jest.mock('@/utils/svg-context');
 jest.mock('@/stores/video.store.ts');
 jest.mock('@/utils/required-cookies-data');
-jest.mock('uuid', () => ({
-    v4: () => '00000000-0000-0000-0000-000000000000',
-}));
 
 function mountOptions(propsData) {
     return {
