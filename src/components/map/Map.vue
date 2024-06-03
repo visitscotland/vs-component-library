@@ -52,7 +52,6 @@
 import VsWarning from '@/components/warning/Warning.vue';
 import VsLoading from '@/components/loading-spinner/LoadingSpinner.vue';
 import osBranding from '@/utils/os-branding';
-import { v4 as uuidv4 } from 'uuid';
 import { render, h } from 'vue';
 import { mapState } from 'pinia';
 import useMapStore from '@/stores/map.store';
@@ -448,7 +447,7 @@ export default {
          * Returns object for itinerary points
          */
         getItineraryMapFeatures(place) {
-            const stopId = uuidv4();
+            const stopId = this._uid;
 
             return this.geojsonData.features.push({
                 type: 'Feature',

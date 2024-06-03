@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, getCurrentInstance } from 'vue';
 import { getLabelText } from '../../../utils/lang';
-import { v4 as uuidv4 } from 'uuid';
 import type { GuestUnit } from '../../../types/types';
 import GuestSelectorRow from './GuestSelectorRow.vue';
 
@@ -10,6 +9,8 @@ import VsButton from '@/components/button/Button.vue';
 defineProps<{
     availability: boolean;
 }>();
+
+const vueInstance = getCurrentInstance();
 
 const addUnitLabel = getLabelText('add_room_label', 'Add a Room', 'guests_rooms');
 const addUnitConfirmLabel = getLabelText('save_changes', 'Save', 'guests_rooms');
@@ -21,7 +22,7 @@ const showRemoveBtn = ref(false);
 const totalChildren = ref(0);
 const units = ref<GuestUnit[]>([
     {
-        id: uuidv4(),
+        id: `${vueInstance.uid}`,
         showRemoveBtn: false,
         numberGroups: {
             adults: {
@@ -66,7 +67,7 @@ const togglePicker = () => {
 const addUnit = () => {
     if (units.value.length < unitLimit) {
         const unit: GuestUnit = {
-            id: uuidv4(),
+            id: `${vueInstance.uid}`,
             showRemoveBtn: true,
             numberGroups: {
                 adults: {
