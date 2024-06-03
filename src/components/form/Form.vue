@@ -294,6 +294,8 @@ export default {
             },
             inputVal: '',
             reAlertErrors: false,
+            hiddenFields: {
+            },
         };
     },
     computed: {
@@ -541,6 +543,13 @@ export default {
 
             return '';
         },
+        getHiddenFields() {
+            const hiddenInputFields = document.querySelectorAll('input[type=hidden]');
+
+            hiddenInputFields.forEach((field) => {
+                this.hiddenFields[field.name] = field.value;
+            });
+        },
         /**
          * Returns true if a given value is undefined
          */
@@ -711,6 +720,7 @@ export default {
                 this.submitUrl,
                 {
                     ...this.form,
+                    ...this.hiddenFields,
                     formType: this.formData.content ? this.formData.content.formType : '',
                     'g-recaptcha-response': gRecaptchaResponse,
                 },
