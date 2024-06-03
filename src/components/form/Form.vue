@@ -294,8 +294,6 @@ export default {
             },
             inputVal: '',
             reAlertErrors: false,
-            hiddenFields: {
-            },
         };
     },
     computed: {
@@ -545,10 +543,14 @@ export default {
         },
         getHiddenFields() {
             const hiddenInputFields = document.querySelectorAll('input[type=hidden]');
+            const fieldData = {
+            };
 
             hiddenInputFields.forEach((field) => {
-                this.hiddenFields[field.name] = field.value;
+                fieldData[field.name] = field.value;
             });
+
+            return fieldData;
         },
         /**
          * Returns true if a given value is undefined
@@ -716,11 +718,13 @@ export default {
                 gRecaptchaResponse = window.grecaptcha.getResponse();
             }
 
+            const hiddenFields = this.getHiddenFields();
+
             axios.post(
                 this.submitUrl,
                 {
                     ...this.form,
-                    ...this.hiddenFields,
+                    ...hiddenFields,
                     formType: this.formData.content ? this.formData.content.formType : '',
                     'g-recaptcha-response': gRecaptchaResponse,
                 },
