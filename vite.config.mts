@@ -61,7 +61,6 @@ export default defineConfig(({ mode }) => {
                     'vs-component-library': path.resolve(__dirname, 'src/component-entry.ts'),
                     fonts: path.resolve(__dirname, 'src/assets/fonts/fonts.scss'),
                     icons: path.resolve(__dirname, 'src/styles/third-party/_font-awesome.scss'),
-                    maps: path.resolve(__dirname, 'src/components/map-index.ts'),
                 },
                 name: 'vs-component-library',
                 fileName: '[name]',
@@ -71,6 +70,7 @@ export default defineConfig(({ mode }) => {
                     'vue',
                     'bootstrap-vue-next',
                     'pinia',
+                    'mapbox-gl',
                 ],
                 output: {
                     dir: 'dist/components',
