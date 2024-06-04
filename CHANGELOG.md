@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.4](https://github.com/visitscotland/vs-component-library/compare/v3.0.3...v3.0.4) (2024-06-04)
+
+
+### 🐛 Bug Fixes
+
+* **icons:** update icon shortcodes where used in css ([391073b](https://github.com/visitscotland/vs-component-library/commit/391073b68940d37714ffd4a5dc027b6c2bde2d68))
+
+
+### ✨ Features
+
+* **build:** externalise mapbox and restore map to main bundle ([25c0e66](https://github.com/visitscotland/vs-component-library/commit/25c0e6630f3f184d82547a59ef151bf38ce3b835))
+* **form:** add hidden field(s) info to payload ([0e786e0](https://github.com/visitscotland/vs-component-library/commit/0e786e003efdc1067dbba8e6c4a0ca4ae9a17631))
+* **form:** add hidden field(s) name and value to the submisson payload ([009fbc1](https://github.com/visitscotland/vs-component-library/commit/009fbc18dce268bdc5bf8ca919cead26176a09d7))
+* **icons:** remove un-used fontawesome files ([2192725](https://github.com/visitscotland/vs-component-library/commit/2192725d1d89abca416e2bc33901bb984cb485ba))
+
 ### [3.0.3](https://github.com/visitscotland/vs-component-library/compare/v3.0.2...v3.0.3) (2024-05-30)
 
 
