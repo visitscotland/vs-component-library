@@ -69,7 +69,7 @@ export default {
         &::after {
             display: inline-block;
             font-family: "Font Awesome Kit";
-            content: "\e06c";
+            content: "\e012";
             color: $vs-color-icon-inverse;
             border: 0;
             vertical-align: bottom;

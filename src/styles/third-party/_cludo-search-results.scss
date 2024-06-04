@@ -38,7 +38,7 @@
             &::after {
                 display: inline-block;
                 font-family: "Font Awesome Kit";
-                content: "\e06c";
+                content: "\e012";
                 color: $vs-color-icon-inverse;
                 border: 0;
                 vertical-align: bottom;
@@ -211,7 +211,7 @@
 
                             &:after {
                                 font-family: "Font Awesome Kit";
-                                content: "\e03b";
+                                content: "\e049";
                                 color: $vs-color-icon-tertiary;
                                 font-size: $font-size-4;
                                 top: -4px;
@@ -311,7 +311,7 @@
                     &.next-mobile a:after, 
                     &.previous a:before{
                         font-family: "Font Awesome Kit";
-                        content: "\e03b";
+                        content: "\e049";
                         color: $vs-color-icon-primary;
                         font-weight: $font-weight-normal;
                         font-size: $font-size-3;
