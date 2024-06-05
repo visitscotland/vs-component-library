@@ -1,5 +1,8 @@
 <template>
-    <BDropdownItem v-bind="$attrs">
+    <BDropdownItem
+        v-bind="$attrs"
+        role="menuitem"
+    >
         <slot />
     </BDropdownItem>
 </template>
