@@ -7,6 +7,7 @@
         :class="buttonClasses"
         :size="size"
         v-bind="$attrs"
+        :aria-disabled="$attrs.disabled ? true : false"
         @click="animateHandler($event)"
         @keyup.tab="tabbedIn"
     >
