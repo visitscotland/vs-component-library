@@ -1,5 +1,6 @@
 <template>
     <VsHeading
+        v-if="subHeading"
         level="4"
         class="vs-canned-search-sub-heading"
         :class="lineLimit ? 'vs-canned-search-sub-heading--lines-' + lineLimit : ''"
