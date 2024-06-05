@@ -120,7 +120,10 @@ const Template = (args) => ({
                             />
                         </template>
 
-                        <VsList unstyled>
+                        <VsList
+                            role="menu"
+                            unstyled
+                        >
                             <VsFooterNavListItem
                                 href="#"
                                 link-text="Brochures"
@@ -169,7 +172,10 @@ const Template = (args) => ({
                             />
                         </template>
 
-                        <VsList unstyled>
+                        <VsList
+                            role="menu"
+                            unstyled
+                        >
                             <VsFooterNavListItem
                                 href="#"
                                 link-text="Brochures"
