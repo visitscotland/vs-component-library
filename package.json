@@ -164,7 +164,7 @@
     "@vuelidate/core": "^2.0.2",
     "@vuelidate/validators": "^2.0.2",
     "axios": "^1.4.0",
-    "bootstrap-vue-next": "^0.9.20",
+    "bootstrap-vue-next": "^0.21.0",
     "glob": "^8.1.0",
     "lodash": "^4.17.21",
     "mapbox-gl": "^1.11.1",
