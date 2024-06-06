@@ -24,6 +24,7 @@ const Template = (args) => ({
 
 const base = {
     height: '',
+    default: 'Toggle Button',
 };
 
 export const Default = Template.bind({
