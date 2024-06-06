@@ -38,6 +38,7 @@ const Template = (args) => ({
                     <VsImageWithCaption
                         :imageSrc="args.imageSrc"
                         :altText="args.imageAltText"
+                        :toggleButtonText="args.imageToggleText"
                     >
                         <template v-slot:img-caption>
                             <VsCaption 
@@ -113,6 +114,7 @@ const base = {
     imageAltText: 'A photo of the Standing Stones of Stenness against a blue Sky',
     imageCaption: 'The Standing Stones of Stenness make up a a small circle dating from the third millennium BC. ',
     imageCredit: 'Historic Environment Scotland',
+    imageToggleText: 'Toggle caption',
     ctaLink: '#',
     ctaLabel: 'Discover more about The Stones of Stenness',
 };
