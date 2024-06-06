@@ -16,7 +16,7 @@ const Template = (args, required) => ({
         };
     },
     template: `
-        <label for="args.fieldName">{{ args.label }}</label>
+        <label :for="args.fieldName">{{ args.label }}</label>
         <VsNumberInput v-bind="args" required="${required}"></VsNumberInput>
     `,
 });
