@@ -3,6 +3,7 @@
         data-test="vs-table-data-cell"
         :stacked-heading="stackedHeading"
         v-bind="$attrs"
+        :scope="null"
     >
         <!-- Default slot for table data cell content -->
         <slot />
