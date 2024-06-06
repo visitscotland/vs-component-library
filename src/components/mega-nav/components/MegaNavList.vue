@@ -13,7 +13,10 @@
             {{ listHeading }}
         </VsHeading>
 
-        <VsList class="vs-mega-nav-list__list">
+        <VsList
+            class="vs-mega-nav-list__list"
+            role="menu"
+        >
             <!-- @slot Slot for nav list items  -->
             <slot name="nav-list-items" />
 
