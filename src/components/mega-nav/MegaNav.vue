@@ -142,6 +142,11 @@ export default {
         clickOutside,
     },
     mixins: [dataLayerMixin],
+    provide() {
+        return {
+            isStatic: this.isStatic,
+        };
+    },
     props: {
         /**
          * The URL for the VS logo link
@@ -200,6 +205,14 @@ export default {
          * to render search inaccessible
          */
         noSearch: {
+            type: Boolean,
+            default: false,
+        },
+        /**
+         * Indicates whether the nav contains static links rather than dropdowns. If true some
+         * supporting aria roles must be added.
+         */
+        isStatic: {
             type: Boolean,
             default: false,
         },

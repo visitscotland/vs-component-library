@@ -3,6 +3,7 @@
         unstyled
         class="vs-mega-nav-top-menu"
         data-test="vs-mega-nav-top-menu"
+        :role="isStatic ? 'menu' : null"
     >
         <!-- @slot Default slot for top menu items -->
         <slot />
@@ -24,6 +25,7 @@ export default {
     components: {
         VsList,
     },
+    inject: ['isStatic'],
 };
 </script>
 

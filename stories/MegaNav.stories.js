@@ -371,6 +371,7 @@ StaticNav.args = {
     ...base,
     dropdownNav: false,
     noSearch: true,
+    isStatic: true,
 };
 
 export const NoJavascript = Template.bind({
