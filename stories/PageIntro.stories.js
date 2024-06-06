@@ -141,10 +141,8 @@ const Template = (args) => ({
                 v-slot:vs-intro-start-finish
                 v-if="args['vs-intro-start-finish']"
             >
-                <dl class="list-inline">
-                    <dt class="list-inline-item">{{ args['vs-intro-start-finish'].label }}</dt>
-                    <dd class="list-inline-item">{{ args['vs-intro-start-finish'].startFinish }}</dd>
-                </dl>
+                <dt class="list-inline-item">{{ args['vs-intro-start-finish'].label }}</dt>
+                <dd class="list-inline-item">{{ args['vs-intro-start-finish'].startFinish }}</dd>
             </template>
 
             <template
