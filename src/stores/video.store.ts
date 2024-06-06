@@ -16,7 +16,8 @@ type Video = {
 type VideoSet = {
     [key: string]: Video,
 }
-interface IVideosState {
+
+export interface IVideosState {
     videos: VideoSet,
 }
 
