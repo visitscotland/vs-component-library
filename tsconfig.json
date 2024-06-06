@@ -3,5 +3,9 @@
     "allowJs": true,
     "outDir": "./dist",
     "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
   },
 }
