@@ -196,7 +196,7 @@ export default {
          * Closes popover on close button click
          */
         onClose(event) {
-            this.$refs.popover.hideFn(event);
+            this.$refs.popover.hide(event);
         },
         /**
          * When popover is shown, focuses on the first share button
@@ -279,8 +279,8 @@ export default {
             font-size: inherit;
             text-align: center;
             border: 0;
-            top: 60px !important;
-            left: unset !important;
+            top: 40px !important;
+            left: 20px !important;
             right: 10px;
 
             .popover-arrow {
@@ -316,7 +316,7 @@ export default {
             @include media-breakpoint-up(md) {
                 max-width: 600px;
                 width: 600px !important;
-                top: 60px !important;
+                top: 40px !important;
             }
 
             @include media-breakpoint-up(lg) {
