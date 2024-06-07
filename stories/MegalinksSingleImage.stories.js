@@ -60,6 +60,7 @@ const Template = (args) => ({
                             :altText="args.altText"
                             :imageSrc="args.imageSrc"
                             :errorMessage="args.videoErrorMessage"
+                            :toggleButtonText="args.imageToggleText"
                         >
                             <template
                                 v-slot:img-caption
@@ -141,6 +142,7 @@ const base = {
     videoErrorMessage: 'Something went wrong',
     imageCaption: 'Map of SCotland',
     imageCredit: '@2023 VisitScotland',
+    imageToggleText: 'Toggle caption',
     cardContent,
     megalinksIntro,
     links: [

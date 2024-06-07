@@ -323,7 +323,7 @@ export default {
         .dropdown-menu{
             display: block !important;
             max-height: none;
-            position: relative;
+            position: relative !important;
             border: 0;
             box-shadow: none;
             transform: none!important;

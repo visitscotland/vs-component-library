@@ -61,7 +61,11 @@ const Template = (args) => ({
                         </div>
                     </VsTabItem>
                 </BTab>
-                <BTab title="Where to Stay" :disabled="args.disabled ? true : false">
+                <BTab
+                    title="Where to Stay"
+                    :disabled="args.disabled ? true : false"
+                    :aria-disabled="args.disabled ? true : false"
+                >
                     <VsTabItem title="Where to Stay">
                         <div class="px-5 py-4">
                         <p>

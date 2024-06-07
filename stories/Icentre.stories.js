@@ -33,6 +33,7 @@ const Template = (args) => ({
                 <VsImageWithCaption
                     :imageSrc="args.imageSrc"
                     :altText="args.imageAltText"
+                    :toggleButtonText="args.imageToggleText"
                 >
                     <template v-slot:img-caption>
                         <VsCaption>
@@ -93,6 +94,7 @@ const Template = (args) => ({
 const base = {
     imageSrc: '/fixtures/icentre/icentre.jpg',
     imageAltText: 'Aberdeen iCentre',
+    imageToggleText: 'Toggle caption',
     imageCaption: 'VisitScotland Information Centre',
     imageCredit: '&copy; VisitScotland',
     quoteImageSrc: '/fixtures/icentre/icentre.jpg',

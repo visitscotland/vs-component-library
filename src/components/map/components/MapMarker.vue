@@ -11,6 +11,7 @@
         @mouseleave="handleHover('')"
         @focusin="handleHover(feature)"
         @focusout="handleHover('')"
+        :aria-label="getMarkerIcon"
     >
         <VsMapMarkerIcon
             :id="getMarkerIcon"

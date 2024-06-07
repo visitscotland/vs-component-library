@@ -100,7 +100,7 @@ const Template = (args) => ({
                                         {{ navLink.title }}
                                     </VsMegaNavListItem>
                                     <VsMegaNavListItem
-                                        v-if="subHeading.href"
+                                        v-if="subHeading.href && subHeading.cta"
                                         :href="subHeading.href"
                                         subheading-link
                                     >
@@ -371,6 +371,7 @@ StaticNav.args = {
     ...base,
     dropdownNav: false,
     noSearch: true,
+    isStatic: true,
 };
 
 export const NoJavascript = Template.bind({

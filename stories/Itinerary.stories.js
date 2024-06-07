@@ -128,6 +128,7 @@ const Template = (args) => ({
                             <VsImageWithCaption
                                 :altText="stop.image.altText"
                                 :image-src="stop.image.imageSrc"
+                                :toggleButtonText="args.imageToggleText"
                             >
                                 <template v-slot:img-caption>
                                     <VsCaption>
@@ -271,6 +272,7 @@ sampleItinerary.days.map((day) => {
 });
 
 const base = {
+    imageToggleText: 'Toggle caption',
     days: sampleItinerary.days,
     stops: mapStops,
     jsDisabled: false,
