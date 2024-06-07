@@ -110,7 +110,7 @@ export default {
         @include map-button-themes;
 
         &__button.vs-button.btn-transparent {
-            display: block!important;
+            display: flex !important;
             letter-spacing: normal;
             font-size: $font-size-5;
             font-weight: $font-weight-bold;
@@ -119,10 +119,7 @@ export default {
             text-align: left;
             padding: $spacer-4 $spacer-4;
             border: none;
-
-            .btn-content{
-                justify-content: space-between;
-            }
+            justify-content: space-between;
 
             .vs-icon--internal-link {
                 color: $vs-color-icon-tertiary;
