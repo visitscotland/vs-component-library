@@ -65,7 +65,7 @@ export default {
 </script>
 
 <style lang="scss">
-.vs-dropdown ~ .dropdown-menu {
+.vs-dropdown .dropdown-menu {
     .vs-global-menu__languages__item {
         &:not(:last-of-type) {
             border-bottom: 1px solid $vs-color-border-inverse;
