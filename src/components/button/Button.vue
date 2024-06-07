@@ -369,10 +369,8 @@ export default {
         }
 
         &.vs-button--flex-reverse {
-            .btn-content {
-                display: flex;
-                flex-direction: row-reverse !important;
-            }
+            display: flex;
+            flex-direction: row-reverse !important;
         }
 
         /* Button Animation
@@ -409,7 +407,7 @@ export default {
         }
 
         &.button-flex,
-        &.button-flex .btn-content {
+        &.button-flex {
             display: flex;
         }
     }
