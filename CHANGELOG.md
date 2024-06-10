@@ -2,6 +2,47 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.5](https://github.com/visitscotland/vs-component-library/compare/v3.0.4...v3.0.5) (2024-06-10)
+
+
+### 🏗 Build System
+
+* **build:** stop double building theo in build script ([0f280c3](https://github.com/visitscotland/vs-component-library/commit/0f280c3a176e2ca2ecaefb3119677872d4fefb7c))
+
+
+### ✨ Features
+
+* **bootstrap:** update BVN to v0.17 ([a056c3b](https://github.com/visitscotland/vs-component-library/commit/a056c3b00bed03a68f1ae027b154f4250958fc14))
+* **icons:** add crow icon used in stories ([da78728](https://github.com/visitscotland/vs-component-library/commit/da7872815ee13fd1c264a3efb4ac5719691640fb))
+
+
+### 🐛 Bug Fixes
+
+* **a11y:** add aria-disabled tag to disabled button - prevent colour contrast error ([cf5c7e2](https://github.com/visitscotland/vs-component-library/commit/cf5c7e26e38c66c5e9cc7abd4b03004cbd9257be))
+* **a11y:** add aria-label fallback for icon only buttons ([513d7b8](https://github.com/visitscotland/vs-component-library/commit/513d7b8ed2ac1f07e8263914f1adf2b633ce6418))
+* **a11y:** add correct aria role to footer menus ([4baf7eb](https://github.com/visitscotland/vs-component-library/commit/4baf7eba70cf1f8e55a3f37c38db71d4ac64249a))
+* **a11y:** add fallback aria label to map markers ([bedae08](https://github.com/visitscotland/vs-component-library/commit/bedae0864b81f0bf4235f67ff44f911f4c564ca9))
+* **a11y:** add isStatic option to meganav to add appropriate roles for static container ([e246213](https://github.com/visitscotland/vs-component-library/commit/e24621342e0647ca167568fef37b178f4ff85976))
+* **a11y:** add missing toggle button text to stories ([88328ff](https://github.com/visitscotland/vs-component-library/commit/88328ff43e888e87e9ebabe7ab3fb9379306c916))
+* **a11y:** add more toggle button text ([9091298](https://github.com/visitscotland/vs-component-library/commit/9091298b537508374a813344d0744b56933e3985))
+* **a11y:** add role="menuitem" to dropdown items ([b3b1832](https://github.com/visitscotland/vs-component-library/commit/b3b1832836b5d34fba44b417ff5cfbab57366d9b))
+* **a11y:** correct menu/menuitem aria roles in meganav ([4e2c8d1](https://github.com/visitscotland/vs-component-library/commit/4e2c8d1f560570d64d2e2977f633c8b9ecbfd955))
+* **a11y:** correct number input label anchoring ([b142a7c](https://github.com/visitscotland/vs-component-library/commit/b142a7c733e2023c329b0fd727a4b31c52dc5569))
+* **a11y:** override bootstrap vue next scope behaviour for non-th table cells ([e3bd4fe](https://github.com/visitscotland/vs-component-library/commit/e3bd4fe4fa51e5da6d3996a94a807a2fa56ab57f))
+* **a11y:** remove duplicated description list ([92391c4](https://github.com/visitscotland/vs-component-library/commit/92391c4bd7328f6a756d82a035defa2fd9e3c007))
+* **a11y:** remove h4 from product card if empty ([8d231a5](https://github.com/visitscotland/vs-component-library/commit/8d231a53fa1bc5b84e7943370f9876c239facafe))
+* **a11y:** update bootstrap and add aria-disabled to tag disabled tabs ([52383c8](https://github.com/visitscotland/vs-component-library/commit/52383c8a28e20b5b23a4c8d2edbb35b87be97ad8))
+* **bootstrap vue:** bump to v0.17 ([13e2e29](https://github.com/visitscotland/vs-component-library/commit/13e2e2988812e91051ad1b5d44411ad9c1e57c83))
+* **bootstrap:** adjust popover position and update close function name ([ac8fe12](https://github.com/visitscotland/vs-component-library/commit/ac8fe12af83730441f0770e2f656e31be00c5996))
+* **bootstrap:** correct dropdown menu references for language menu ([b0cbad4](https://github.com/visitscotland/vs-component-library/commit/b0cbad4b67411af173426cb236322fc63cbee10a))
+* **bootstrap:** move reference to dropdown menu ([c98e492](https://github.com/visitscotland/vs-component-library/commit/c98e492611d656c3b9b94b61b7762c1fd3902762))
+* **bootstrap:** remove references to btn-content in button ([95e02de](https://github.com/visitscotland/vs-component-library/commit/95e02de835212d97afda9bac7fcafabb9ed1d5fa))
+* **bootstrap:** remove references to btn-content in Map sidebar ([a9c3608](https://github.com/visitscotland/vs-component-library/commit/a9c3608a9f565402c0386ead3fdf7f46d7f391b3))
+* **bootstrap:** restore background colour for modals ([74a1daa](https://github.com/visitscotland/vs-component-library/commit/74a1daad32e1c6716b5c6fdd6b983b7e77706b7e))
+* **modal:** revert to BVN v0.15 - retains disabled tab fix but removes recent modal bug ([ceed688](https://github.com/visitscotland/vs-component-library/commit/ceed688da3eecd51be9ac4ee0729892d21778305))
+* **typescript:** fix declaration generation error with aliases ([1ec1089](https://github.com/visitscotland/vs-component-library/commit/1ec108991d0abeb546800f54c6536ff70bf9df03))
+* **vs form:** only get hidden fields within form component ([1c7a59f](https://github.com/visitscotland/vs-component-library/commit/1c7a59f1de07889755ddbcf396b266acc791db69))
+
 ### [3.0.4](https://github.com/visitscotland/vs-component-library/compare/v3.0.3...v3.0.4) (2024-06-04)
 
 
