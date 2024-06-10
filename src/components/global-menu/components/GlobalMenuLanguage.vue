@@ -90,7 +90,7 @@ export default {
 .vs-global-menu__languages {
     position: static;
 
-    ~ .dropdown-menu {
+    .dropdown-menu {
         width: 100%;
         background: $vs-color-background-brand;
         font-size: $font-size-2;
@@ -170,7 +170,7 @@ export default {
         display: block;
         width: 100%;
 
-        ~ .dropdown-menu {
+        .dropdown-menu {
             @extend .show;
             max-height: 700px;
             opacity: $opacity-100;
