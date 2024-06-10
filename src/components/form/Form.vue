@@ -542,7 +542,7 @@ export default {
             return '';
         },
         getHiddenFields() {
-            const hiddenInputFields = document.querySelectorAll('input[type=hidden]');
+            const hiddenInputFields = this.$el.querySelectorAll('input[type=hidden]');
             const fieldData = {
             };
 
