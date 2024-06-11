@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.6](https://github.com/visitscotland/vs-component-library/compare/v3.0.5...v3.0.6) (2024-06-11)
+
+
+### 🏗 Build System
+
+* **deps:** bump pug from 3.0.2 to 3.0.3 ([041e941](https://github.com/visitscotland/vs-component-library/commit/041e941c4cf4a1f2be6b0000abc16bd1c658876a))
+
+
+### 🐛 Bug Fixes
+
+* **product search:** set locprox to always be zero ([cdb8d84](https://github.com/visitscotland/vs-component-library/commit/cdb8d8472f1fa59e57d35521f462f5730f4bb092)), closes [#589](https://github.com/visitscotland/vs-component-library/issues/589)
+
 ### [3.0.5](https://github.com/visitscotland/vs-component-library/compare/v3.0.4...v3.0.5) (2024-06-10)
 
 
