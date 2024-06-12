@@ -193,10 +193,4 @@ export default {
         display: block;
     }
 }
-
-.b-overlay {
-    .bg-dark {
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-}
 </style>

@@ -103,7 +103,7 @@ export default {
         }
     }
 
-    ~ .vs-global-menu__languages .dropdown-menu {
+    ~ .dropdown-menu {
         min-width: auto;
         margin: 0;
         background: $vs-color-background-brand;
@@ -152,12 +152,8 @@ export default {
 }
 
 @include no-js {
-    .vs-global-menu__dropdown ~ .vs-global-menu__languages .dropdown-menu {
-        position: relative !important;
-
-        li{
-            border-bottom: 0;
-        }
+    .vs-global-menu__dropdown ~ .dropdown-menu li {
+        border-bottom: 0;
     }
 }
 
