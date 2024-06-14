@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.8](https://github.com/visitscotland/vs-component-library/compare/v3.0.7...v3.0.8) (2024-06-14)
+
+
+### 🐛 Bug Fixes
+
+* **bootstrap vue:** correct tab usage ([903c4db](https://github.com/visitscotland/vs-component-library/commit/903c4dbb2306f55ca01515f199bf7e50fc6dc3ed))
+* **yarn.lock:** some dependencies didn't seem to update correctly ([3167e97](https://github.com/visitscotland/vs-component-library/commit/3167e978057da031f6df62ee7c6d9b33d6939343))
+
 ### [3.0.7](https://github.com/visitscotland/vs-component-library/compare/v3.0.6...v3.0.7) (2024-06-13)
 
 ### [3.0.6](https://github.com/visitscotland/vs-component-library/compare/v3.0.5...v3.0.6) (2024-06-11)
