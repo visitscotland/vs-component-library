@@ -1,7 +1,9 @@
 <template>
-    <div
+    <BTab
         class="vs-tab__item"
         data-test="vs-tab__item"
+        title-link-class="vs-tab-link"
+        :title="title"
     >
         <VsHeading
             level="3"
@@ -11,23 +13,25 @@
         </VsHeading>
         <!-- @slot default slot for tab item body content -->
         <slot />
-    </div>
+    </BTab>
 </template>
 
 <script>
 
 import VsHeading from '@/components/heading/Heading.vue';
+import { BTab } from 'bootstrap-vue-next';
 /**
  * Tab item for use within the Tabs component.
  *
  * @displayName Tab Item
  */
 export default {
-    name: 'BTab',
+    name: 'VsTabItem',
     status: 'prototype',
     release: '0.0.1',
     components: {
         VsHeading,
+        BTab,
     },
     props: {
         /**
