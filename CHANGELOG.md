@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.9](https://github.com/visitscotland/vs-component-library/compare/v3.0.8...v3.0.9) (2024-06-14)
+
+
+### 🐛 Bug Fixes
+
+* **meganavdropdown:** function name has changed within bootstrap-vue-next ([0322ebb](https://github.com/visitscotland/vs-component-library/commit/0322ebbe15f8e4f559041c6e328f5f4f82ff4a8c))
+
 ### [3.0.8](https://github.com/visitscotland/vs-component-library/compare/v3.0.7...v3.0.8) (2024-06-14)
 
 
