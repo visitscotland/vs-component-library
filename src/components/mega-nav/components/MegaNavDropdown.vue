@@ -117,7 +117,7 @@ export default {
          * Close the menu
          */
         closeMenu() {
-            this.$refs.dropdown.close();
+            this.$refs.dropdown.hide();
         },
         /**
          * Submit event to dataLayer for tracking
