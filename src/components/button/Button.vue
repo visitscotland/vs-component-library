@@ -1,14 +1,14 @@
 <template>
     <BButton
         :variant="variant"
-        :href="href || undefined"
-        :tabindex="tabindex || undefined"
+        :href="href"
+        :tabindex="tabindex"
         class="vs-button"
         :class="buttonClasses"
         :size="size"
         v-bind="$attrs"
         :aria-disabled="$attrs.disabled ? true : false"
-        :aria-label="iconOnly ? icon : undefined"
+        :aria-label="iconOnly ? icon : false"
         @click="animateHandler($event)"
         @keyup.tab="tabbedIn"
     >
