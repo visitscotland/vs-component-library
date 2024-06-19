@@ -4,25 +4,25 @@
 #
 props:
     - name: font-size-1
-      value: "0.625rem"
+      value: "clamp(0.5rem, 0.3182rem + 0.9091vi, 1rem)"
     - name: font-size-2
-      value: "0.75rem" 
+      value: "clamp(0.625rem, 0.3977rem + 1.1364vi, 1.25rem)" 
     - name: font-size-3
-      value: "0.875rem"
+      value: "clamp(0.7813rem, 0.4972rem + 1.4205vi, 1.5625rem)"
     - name: font-size-4
-      value: "1rem"
+      value: "clamp(0.9766rem, 0.6214rem + 1.7756vi, 1.9531rem)"
     - name: font-size-5
-      value: "1.125rem"
+      value: "clamp(1.2207rem, 0.7768rem + 2.2195vi, 2.4414rem)"
     - name: font-size-6
-      value: "1.25rem"
+      value: "clamp(1.5259rem, 0.971rem + 2.7743vi, 3.0518rem)"
     - name: font-size-7
-      value: "1.375rem"
+      value: "clamp(1.9073rem, 1.2138rem + 3.4679vi, 3.8147rem)"
     - name: font-size-8
-      value: "1.5rem"
+      value: "clamp(2.3842rem, 1.5172rem + 4.3349vi, 4.7684rem)"
     - name: font-size-9
-      value: "1.875rem"
+      value: "clamp(2.9802rem, 1.8965rem + 5.4186vi, 5.9605rem)"
     - name: font-size-10
-      value: "2.5rem"
+      value: "clamp(3.7253rem, 2.3706rem + 6.7733vi, 7.4506rem)"
     - name: font-size-body
       value: "1rem"
     - name: font-size-body-md
