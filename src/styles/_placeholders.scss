@@ -71,20 +71,20 @@ LINK STYLES
 HEADING STYLES
 ***************/
 
-/* @link https://utopia.fyi/type/calculator?c=320,16,1.067,1200,18,1.125,9,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+/* @link https://utopia.fyi/type/calculator?c=320,16,1.125,1920,18,1.125,9,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
 :root {
-  --vs-font-step--1: clamp(0.9372rem, 0.9144rem + 0.1142vi, 1rem);
-  --vs-font-step-0: clamp(1rem, 0.9545rem + 0.2273vi, 1.125rem);
-  --vs-font-step-1: clamp(1.067rem, 0.9948rem + 0.3611vi, 1.2656rem);
-  --vs-font-step-2: clamp(1.1385rem, 1.0347rem + 0.5188vi, 1.4238rem);
-  --vs-font-step-3: clamp(1.2148rem, 1.074rem + 0.7037vi, 1.6018rem);
-  --vs-font-step-4: clamp(1.2962rem, 1.1122rem + 0.9198vi, 1.802rem);
-  --vs-font-step-5: clamp(1.383rem, 1.1487rem + 1.1714vi, 2.0273rem);
-  --vs-font-step-6: clamp(1.4757rem, 1.1829rem + 1.4637vi, 2.2807rem);
-  --vs-font-step-7: clamp(1.5745rem, 1.2141rem + 1.8023vi, 2.5658rem);
-  --vs-font-step-8: clamp(1.68rem, 1.2413rem + 2.1936vi, 2.8865rem);
-  --vs-font-step-9: clamp(1.7926rem, 1.2636rem + 2.645vi, 3.2473rem);
+  @include utopia.generateTypeScale((
+    "minWidth": 320,
+    "maxWidth": 1920,
+    "minFontSize": 16,
+    "maxFontSize": 18,
+    "minTypeScale": 1.125,
+    "maxTypeScale": 1.125,
+    "positiveSteps": 9,
+    "negativeSteps": 2,
+    "prefix": "step-",
+  ));
 }
 
 $font-sizes: (
@@ -95,15 +95,6 @@ $font-sizes: (
     5: var(--vs-font-step-1),
     6: var(--vs-font-step-0),
 );
-
-// $md-font-sizes: (
-//     1: $font-size-h1-md,
-//     2: $font-size-h2-md,
-//     3: $font-size-h3-md,
-//     4: $font-size-h4,
-//     5: $font-size-h5-md,
-//     6: $font-size-h6-md,
-// );
 
 /* Update font sizes */
 $sub-font-sizes: (
