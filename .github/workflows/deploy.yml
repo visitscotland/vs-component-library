@@ -15,4 +15,6 @@ jobs:
     - id: build-publish
       uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
       with:
-        path: build # change to your build folder
+        path: build
+        install_command: yarn install --immutable
+        build_command: yarn run build-storybook
