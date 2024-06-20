@@ -234,14 +234,14 @@ export default {
          */
         munchkinId: {
             type: String,
-            required: true,
+            default: '',
         },
         /**
          * Marketo instance URL for the form
          */
         marketoInstance: {
             type: String,
-            required: true,
+            default: '',
         },
         /**
          * Language indicator for content
