@@ -113,8 +113,9 @@ export default {
          * Emit checked value when the selected
          * item changes
          */
-        toggleChange(checked) {
-            this.$emit('toggleChanged', checked);
+        toggleChange(event) {
+            const value = event.target.value;
+            this.$emit('toggleChanged', value);
         },
         /**
          * Updates data value to signify that the element
