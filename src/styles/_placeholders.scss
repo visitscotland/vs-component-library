@@ -71,22 +71,29 @@ LINK STYLES
 HEADING STYLES
 ***************/
 
-$font-sizes: (
-    1: $font-size-h1,
-    2: $font-size-h2,
-    3: $font-size-h3,
-    4: $font-size-h4,
-    5: $font-size-h5,
-    6: $font-size-h6,
-);
+/* @link https://utopia.fyi/type/calculator?c=320,16,1.125,1920,18,1.125,9,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
-$md-font-sizes: (
-    1: $font-size-h1-md,
-    2: $font-size-h2-md,
-    3: $font-size-h3-md,
-    4: $font-size-h4,
-    5: $font-size-h5-md,
-    6: $font-size-h6-md,
+:root {
+  @include utopia.generateTypeScale((
+    "minWidth": 320,
+    "maxWidth": 1920,
+    "minFontSize": 16,
+    "maxFontSize": 18,
+    "minTypeScale": 1.125,
+    "maxTypeScale": 1.125,
+    "positiveSteps": 9,
+    "negativeSteps": 2,
+    "prefix": "step-",
+  ));
+}
+
+$font-sizes: (
+    1: var(--step-5),
+    2: var(--step-4),
+    3: var(--step-3),
+    4: var(--step-2),
+    5: var(--step-1),
+    6: var(--step-0),
 );
 
 /* Update font sizes */
@@ -101,32 +108,32 @@ $sub-font-sizes: (
     @each $level, $size in $font-sizes {
         @at-root h#{$level}#{&},
         &.vs-heading--style-level-#{$level} {
-            letter-spacing: $size * 0.1;
-            margin-bottom: $size;
-            margin-top: $size * 0.2;
+            // letter-spacing: $size * 0.1;
+            // margin-bottom: $size;
+            // margin-top: $size * 0.2;
             font-size: $size;
         }
     }
 
-    @each $level, $size in $md-font-sizes {
-        @at-root h#{$level}#{&},
-        &.vs-heading--style-level-#{$level} {
-            @include media-breakpoint-up(md) {
-                letter-spacing: $size * 0.1;
-                margin-bottom: $size;
-                margin-top: $size * 0.6;
-                font-size: $size;
-            }
-        }
-    }
+    // @each $level, $size in $md-font-sizes {
+    //     @at-root h#{$level}#{&},
+    //     &.vs-heading--style-level-#{$level} {
+    //         @include media-breakpoint-up(md) {
+    //             letter-spacing: $size * 0.1;
+    //             margin-bottom: $size;
+    //             margin-top: $size * 0.6;
+    //             font-size: $size;
+    //         }
+    //     }
+    // }
 
-    @at-root h#{5}#{&}, h#{6}#{&},
-    &.vs-heading--style-level-#{5},
-    &.vs-heading--style-level-#{6}{
-        font-family: $font-family-sans-serif;
-        letter-spacing: normal;
-        font-weight: $font-weight-bold;
-    }
+    // @at-root h#{5}#{&}, h#{6}#{&},
+    // &.vs-heading--style-level-#{5},
+    // &.vs-heading--style-level-#{6}{
+    //     font-family: $font-family-sans-serif;
+    //     letter-spacing: normal;
+    //     font-weight: $font-weight-bold;
+    // }
 
     &.vs-heading--thin {
         font-family: $headings-font-family-thin;
