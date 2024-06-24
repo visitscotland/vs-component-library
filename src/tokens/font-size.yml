@@ -4,35 +4,35 @@
 #
 props:
     - name: font-size-1
-      value: "clamp(0.5rem, 0.3182rem + 0.9091vi, 1rem)"
+      value: "clamp(0.7023rem, 0.6718rem + 0.1527vi, 0.7901rem)"
     - name: font-size-2
-      value: "clamp(0.625rem, 0.3977rem + 1.1364vi, 1.25rem)" 
+      value: "clamp(0.7901rem, 0.7558rem + 0.1718vi, 0.8889rem)" 
     - name: font-size-3
-      value: "clamp(0.7813rem, 0.4972rem + 1.4205vi, 1.5625rem)"
+      value: "clamp(0.8889rem, 0.8502rem + 0.1932vi, 1rem)"
     - name: font-size-4
-      value: "clamp(0.9766rem, 0.6214rem + 1.7756vi, 1.9531rem)"
+      value: "clamp(1rem, 0.9565rem + 0.2174vi, 1.125rem)"
     - name: font-size-5
-      value: "clamp(1.2207rem, 0.7768rem + 2.2195vi, 2.4414rem)"
+      value: "clamp(1.125rem, 1.0761rem + 0.2446vi, 1.2656rem)"
     - name: font-size-6
-      value: "clamp(1.5259rem, 0.971rem + 2.7743vi, 3.0518rem)"
+      value: "clamp(1.2656rem, 1.2106rem + 0.2751vi, 1.4238rem)"
     - name: font-size-7
-      value: "clamp(1.9073rem, 1.2138rem + 3.4679vi, 3.8147rem)"
+      value: "clamp(1.4238rem, 1.3619rem + 0.3095vi, 1.6018rem)"
     - name: font-size-8
-      value: "clamp(2.3842rem, 1.5172rem + 4.3349vi, 4.7684rem)"
+      value: "clamp(1.6018rem, 1.5322rem + 0.3482vi, 1.802rem)"
     - name: font-size-9
-      value: "clamp(2.9802rem, 1.8965rem + 5.4186vi, 5.9605rem)"
+      value: "clamp(1.802rem, 1.7237rem + 0.3917vi, 2.0273rem)"
     - name: font-size-10
-      value: "clamp(3.7253rem, 2.3706rem + 6.7733vi, 7.4506rem)"
+      value: "clamp(2.0273rem, 1.9391rem + 0.4407vi, 2.2807rem)"
     - name: font-size-body
-      value: "1rem"
+      value: "clamp(1rem, 0.9565rem + 0.2174vi, 1.125rem)"
     - name: font-size-body-md
-      value: "1.125rem"
+      value: "clamp(1rem, 0.9565rem + 0.2174vi, 1.125rem)"
     - name: font-size-lead
-      value: "1.125rem"
+      value: "clamp(1rem, 0.9565rem + 0.2174vi, 1.125rem)"
     - name: font-size-lead-md
-      value: "1.25rem"
+      value: "clamp(1.125rem, 1.0761rem + 0.2446vi, 1.2656rem)"
     - name: font-size-teaser
-      value: "1rem"
+      value: "clamp(1rem, 0.9565rem + 0.2174vi, 1.125rem)"
 global:
     type: number
     category: font-size
