@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.10](https://github.com/visitscotland/vs-component-library/compare/v3.0.9...v3.0.10) (2024-07-17)
+
+
+### ⏪ Revertions
+
+* **button.vue:** revert changes to main branch ([4ab9e52](https://github.com/visitscotland/vs-component-library/commit/4ab9e52ae04c801316c98ef209c763731fd10a57))
+
+
+### 🐛 Bug Fixes
+
+* **button.vue:** dynamically remove unused attributes ([3590b34](https://github.com/visitscotland/vs-component-library/commit/3590b347a19ded833e5ccf7c1e50bcfabc371958))
+* **button:** dynamically remove unused attributes ([944c654](https://github.com/visitscotland/vs-component-library/commit/944c654cf2ccd55d6c49d339eda67f0f82e57ce6))
+* **heading stories:** replace range input for heading levels with radio buttons ([54c0c11](https://github.com/visitscotland/vs-component-library/commit/54c0c11752f9793c45e9ac3cada2179da1eb3a49))
+* **vsform:** make marketo props optional ([136e386](https://github.com/visitscotland/vs-component-library/commit/136e38654773b0e1572be181460bee1d3fd9d8f4))
+
+
+### ✨ Features
+
+* **storybook:** correct install and build commands ([a588d10](https://github.com/visitscotland/vs-component-library/commit/a588d1074835ae7cd175e88bb470b382e95c4214))
+* **storybook:** deploy static storybook on push to main ([551bdee](https://github.com/visitscotland/vs-component-library/commit/551bdee433bc8ee783a688219d18c82490370384))
+* **storybook:** switch build path ([b0397a1](https://github.com/visitscotland/vs-component-library/commit/b0397a140fc8fe45212bcf677bc983367cd3d226))
+
 ### [3.0.9](https://github.com/visitscotland/vs-component-library/compare/v3.0.8...v3.0.9) (2024-06-14)
 
 
