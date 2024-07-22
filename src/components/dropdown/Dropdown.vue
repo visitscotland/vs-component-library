@@ -3,6 +3,7 @@
         v-bind="$attrs"
         variant="primary"
         class="vs-dropdown"
+        v-if="jsEnabled"
     >
         <template
             v-for="(_, name) in nonButtonContentSlots"
@@ -19,6 +20,19 @@
         </template>
         <slot />
     </BDropdown>
+
+    <!-- No JS version -->
+    <div
+        v-else
+        class="dropdown vs-dropdown"
+    >
+        <ul
+            class="dropdown-menu overflow-auto"
+            role="menu"
+        >
+            <slot />
+        </ul>
+    </div>
 </template>
 
 <script>
@@ -43,12 +57,22 @@ export default {
             default: '',
         },
     },
+    data() {
+        return {
+            jsEnabled: false,
+        };
+    },
     computed: {
         nonButtonContentSlots() {
             return reject(this.$slots, {
                 name: 'button-content',
             });
         },
+    },
+    mounted() {
+        if (!document.querySelector('.no-js')) {
+            this.jsEnabled = true;
+        }
     },
 };
 </script>
