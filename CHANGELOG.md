@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.11](https://github.com/visitscotland/vs-component-library/compare/v3.0.10...v3.0.11) (2024-07-23)
+
+
+### ✨ Features
+
+* **design tokens:** add new colour palette tokens ([93638e6](https://github.com/visitscotland/vs-component-library/commit/93638e612566b93fbd80d335ff09938329f53f7d))
+
+
+### 🎨 Styling
+
+* **cokens:** change ptarmigan to cloud ([0c4739d](https://github.com/visitscotland/vs-component-library/commit/0c4739d9d78fd9ca9b1a628acb990b1e8f059bfb))
+* **product search:** change oatcake to bluebell ([fe2c67d](https://github.com/visitscotland/vs-component-library/commit/fe2c67d74d53995711078cdfe152a5bf15be9f86))
+
 ### [3.0.10](https://github.com/visitscotland/vs-component-library/compare/v3.0.9...v3.0.10) (2024-07-17)
 
 
