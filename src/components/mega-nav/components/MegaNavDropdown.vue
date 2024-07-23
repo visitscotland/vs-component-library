@@ -7,6 +7,7 @@
             variant="transparent"
             ref="dropdown"
             @show="dataLayerSubmit($event)"
+            v-if="jsEnabled"
         >
             <template #button-content>
                 <!-- @slot For dropdown toggle button content  -->
@@ -46,6 +47,54 @@
                 </VsContainer>
             </li>
         </BDropdown>
+
+        <!-- No JS version -->
+        <div
+            v-else
+            class="dropdown vs-dropdown"
+        >
+            <button class="btn btn-md btn-transparent dropdown-toggle" type="button" aria-expanded="true" aria-haspopup="menu">
+                <!-- @slot For dropdown toggle button content  -->
+                <slot name="button-content" />
+            </button>
+            <ul
+                class="dropdown-menu overflow-auto"
+                role="menu"
+            >
+                <li role="menuitem">
+                    <VsContainer
+                        fluid="lg"
+                        class="px-0 px-lg-3"
+                    >
+                        <VsRow class="g-0">
+                            <VsCol cols="12" class="position-relative">
+                                <!-- @slot Used to display the top menu link
+                                at the top of the dropdown menu  -->
+                                <slot name="cta-link" />
+
+                                <!-- @slot The rest of the mega nav links put
+                                here in the dropdown menu  -->
+                                <slot name="dropdown-content" />
+
+                                <VsButton
+                                    class="vs-mega-nav-dropdown__close-btn
+                                    d-none d-lg-block position-absolute"
+                                    icon="close"
+                                    icon-only
+                                    size="sm"
+                                    variant="transparent"
+                                    @click="closeMenu"
+                                >
+                                    <span class="visually-hidden">
+                                        {{ menuToggleAltText }}
+                                    </span>
+                                </VsButton>
+                            </VsCol>
+                        </VsRow>
+                    </VsContainer>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 
@@ -88,6 +137,11 @@ export default {
             required: true,
         },
     },
+    data() {
+        return {
+            jsEnabled: false,
+        };
+    },
     mounted() {
         // Listen for dropdown opening and closing and emit event
         if (this.emitter) {
@@ -108,6 +162,10 @@ export default {
 
         // Close menu on resize screen to fix toggle btn issues
         window.addEventListener('resize', this.closeMenu);
+
+        if (!document.querySelector('.no-js')) {
+            this.jsEnabled = true;
+        }
     },
     beforeUnmount() {
         window.removeEventListener('resize', this.closeMenu);
