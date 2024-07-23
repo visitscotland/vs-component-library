@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.12](https://github.com/visitscotland/vs-component-library/compare/v3.0.11...v3.0.12) (2024-07-23)
+
+
+### 🏗 Build System
+
+* **package.json:** change prePublish to prepack ([dcdd497](https://github.com/visitscotland/vs-component-library/commit/dcdd497cb9432a5bb9dcdc69d9dd680a0de585b8))
+
 ### [3.0.11](https://github.com/visitscotland/vs-component-library/compare/v3.0.10...v3.0.11) (2024-07-23)
 
 
