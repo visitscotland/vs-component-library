@@ -188,25 +188,25 @@ aliases:
   vs-heather-90:
     value: "#23014A"    
 
-  vs-ptarmigan-05:
+  vs-cloud-05:
     value: "#F6F6F6"
-  vs-ptarmigan-10: 
+  vs-cloud-10: 
     value: "#E9E9E9"
-  vs-ptarmigan-20:
+  vs-cloud-20:
     value: "#D3D3D3"
-  vs-ptarmigan-30:
+  vs-cloud-30:
     value: "#B1B1B1"
-  vs-ptarmigan-40:
+  vs-cloud-40:
     value: "#909090"
-  vs-ptarmigan-50:
+  vs-cloud-50:
     value: "#757575"
-  vs-ptarmigan-60:
+  vs-cloud-60:
     value: "#606060"
-  vs-ptarmigan-70:
+  vs-cloud-70:
     value: "#484848"
-  vs-ptarmigan-80:
+  vs-cloud-80:
     value: "#333333"
-  vs-ptarmigan-90:
+  vs-cloud-90:
     value: "#111111"  
 
   vs-snow:
