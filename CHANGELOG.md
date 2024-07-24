@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.13](https://github.com/visitscotland/vs-component-library/compare/v3.0.12...v3.0.13) (2024-07-24)
+
+
+### ✨ Features
+
+* **yarn:** update to 4.3 ([e17f1d4](https://github.com/visitscotland/vs-component-library/commit/e17f1d431b74266f466aecf304887fa99609f7ea))
+
 ### [3.0.12](https://github.com/visitscotland/vs-component-library/compare/v3.0.11...v3.0.12) (2024-07-23)
 
 
