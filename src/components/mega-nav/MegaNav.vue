@@ -342,5 +342,9 @@ export default {
         flex: 0 0 100%;
         position: relative;
     }
+
+    .vs-mega-nav__main-row {
+        flex-wrap: wrap;
+    }
 }
 </style>
