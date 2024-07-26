@@ -11,7 +11,7 @@
                 class="h-100"
             >
                 <VsRow
-                    class="align-items-center h-100"
+                    class="align-items-center h-100 vs-mega-nav__main-row"
                 >
                     <!-- Logo Link -->
                     <VsCol
@@ -278,6 +278,10 @@ export default {
 
     @include media-breakpoint-up(lg) {
         height: 55px;
+    }
+
+    &__main-row {
+        flex-wrap: nowrap;
     }
 
     &__logo {
