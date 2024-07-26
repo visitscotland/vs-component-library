@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.14](https://github.com/visitscotland/vs-component-library/compare/v3.0.13...v3.0.14) (2024-07-26)
+
+
+### 🐛 Bug Fixes
+
+* **meganav:** correct for no-js ([f18467e](https://github.com/visitscotland/vs-component-library/commit/f18467e91c4afc0e2f98b454b92c0822d2561a0e))
+* **meganav:** ensure that nav sits on baseline if final segment is empty ([c80992e](https://github.com/visitscotland/vs-component-library/commit/c80992e4600ac9ce093b58153b00a989b0338b41))
+
 ### [3.0.13](https://github.com/visitscotland/vs-component-library/compare/v3.0.12...v3.0.13) (2024-07-24)
 
 
