@@ -152,10 +152,18 @@ export default {
 }
 
 @include no-js {
+    .vs-global-menu__dropdown ~ .vs-global-menu__languages {
+        display: none;
+    }
+
+    .vs-global-menu__dropdown ~ .vs-global-menu__languages.vs-dropdown--fallback {
+        display: block;
+    }
+
     .vs-global-menu__dropdown ~ .vs-global-menu__languages .dropdown-menu {
         position: relative !important;
 
-        li{
+        li {
             border-bottom: 0;
         }
     }
