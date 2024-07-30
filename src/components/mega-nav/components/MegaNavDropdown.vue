@@ -49,7 +49,7 @@
 
         <!-- No JS version -->
         <ul
-            class="dropdown-menu overflow-auto"
+            class="dropdown-menu dropdown-menu--fallback overflow-auto"
             role="menu"
         >
             <li role="menuitem">
@@ -308,7 +308,7 @@ export default {
 }
 
 @include no-js {
-    .vs-mega-nav-dropdown{
+    .vs-mega-nav-dropdown {
         .btn.dropdown-toggle {
             padding: $spacer-3 $spacer-2;
             height: auto;
@@ -327,7 +327,7 @@ export default {
             &:focus {
                 box-shadow: $vs-box-shadow-focus inset;
 
-                &::after{
+                &::after {
                     display: none;
                 }
             }
@@ -355,11 +355,15 @@ export default {
             }
         }
 
-        &__close-btn{
+        &__close-btn {
             display: none!important;
         }
 
-        .dropdown-menu{
+        .dropdown-menu {
+            display: none;
+        }
+
+        .dropdown-menu--fallback {
             display: block !important;
             max-height: none;
             position: relative !important;
