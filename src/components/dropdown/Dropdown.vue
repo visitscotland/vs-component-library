@@ -97,7 +97,7 @@ export default {
                 border-bottom: 0;
             }
 
-            .dropdown-ite {
+            .dropdown-item {
                 &.active, &:active {
                     color: $vs-color-text-primary;
                     background-color: $vs-color-background-active;
