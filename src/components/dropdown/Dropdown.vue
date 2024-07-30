@@ -3,7 +3,6 @@
         v-bind="$attrs"
         variant="primary"
         class="vs-dropdown"
-        v-if="jsEnabled"
     >
         <template
             v-for="(_, name) in nonButtonContentSlots"
@@ -23,7 +22,7 @@
 
     <!-- No JS version -->
     <div
-        v-else
+        v-bind="$attrs"
         class="dropdown vs-dropdown"
     >
         <ul
@@ -57,22 +56,12 @@ export default {
             default: '',
         },
     },
-    data() {
-        return {
-            jsEnabled: false,
-        };
-    },
     computed: {
         nonButtonContentSlots() {
             return reject(this.$slots, {
                 name: 'button-content',
             });
         },
-    },
-    mounted() {
-        if (!document.querySelector('.no-js')) {
-            this.jsEnabled = true;
-        }
     },
 };
 </script>
