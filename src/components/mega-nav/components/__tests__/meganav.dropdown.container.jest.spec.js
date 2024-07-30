@@ -103,7 +103,7 @@ describe('VsMegaNavDropdownContainer', () => {
         });
 
         it('renders content inserted in a dropdown-content slot', () => {
-            expect(wrapper.findAll('.dropdown-list-item').length).toBe(1);
+            expect(wrapper.findAll('.dropdown-list-item').length).toBe(2);
         });
 
         it('renders content inserted in a nav-featured-item slot', () => {
