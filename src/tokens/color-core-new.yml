@@ -1,0 +1,219 @@
+aliases:
+  vs-thistle-05:
+    value: "#F5EFFB"
+  vs-thistle-10:
+    value: "#ECDFF6"
+  vs-thistle-20:
+    value: "#DBC3EF"
+  vs-thistle-30:
+    value: "#C69EE5"
+  vs-thistle-40:
+    value: "#AE76DA"
+  vs-thistle-50:
+    value: "#9B56D2"
+  vs-thistle-60:
+    value: "#8535C5"
+  vs-thistle-70:
+    value: "#5B2487"
+  vs-thistle-80:
+    value: "#441B65"
+  vs-thistle-90:
+    value: "#2E1244"
+
+  vs-bramble-05:
+    value: "#FDECF9"
+  vs-bramble-10:
+    value: "#FBDAF3"
+  vs-bramble-20:
+    value: "#F4AEE4"
+  vs-bramble-30:
+    value: "#EB84D3"
+  vs-bramble-40:
+    value: "#E05CC1"
+  vs-bramble-50:
+    value: "#CC33A8"
+  vs-bramble-60:
+    value: "#A8308C"
+  vs-bramble-70:
+    value: "#7B2366"
+  vs-bramble-80:
+    value: "#5F1B4F"
+  vs-bramble-90:
+    value: "#38102E"
+
+  vs-cuillin-05:
+    value: "#FFF0F0"
+  vs-cuillin-10: 
+    value: "#FFDBDB"
+  vs-cuillin-20:
+    value: "#FFB8B8"
+  vs-cuillin-30:
+    value: "#FF7A85"
+  vs-cuillin-40:
+    value: "#FF4258"
+  vs-cuillin-50:
+    value: "#E71845"
+  vs-cuillin-60:
+    value: "#C2143A"
+  vs-cuillin-70:
+    value: "#940F2C"
+  vs-cuillin-80:
+    value: "#6F0C21"
+  vs-cuillin-90:
+    value: "#410713"
+
+  vs-whisky-05:
+    value: "#FFF2E5"
+  vs-whisky-10: 
+    value: "#FFDBB8"
+  vs-whisky-20:
+    value: "#FFAD66"
+  vs-whisky-30:
+    value: "#FE8E01"
+  vs-whisky-40:
+    value: "#EA7501"
+  vs-whisky-50:
+    value: "#BC5801"
+  vs-whisky-60:
+    value: "#A34400"
+  vs-whisky-70:
+    value: "#7A3100"
+  vs-whisky-80:
+    value: "#5C1C00"
+  vs-whisky-90:
+    value: "#330F00"
+
+  vs-gorse-05:
+    value: "#FFFA99"
+  vs-gorse-10: 
+    value: "#FDEC53"
+  vs-gorse-20:
+    value: "#F9CE10"
+  vs-gorse-30:
+    value: "#E5AC00"
+  vs-gorse-40:
+    value: "#BF8C0D"
+  vs-gorse-50:
+    value: "#A16A12"
+  vs-gorse-60:
+    value: "#895710"
+  vs-gorse-70:
+    value: "#6C4013"
+  vs-gorse-80:
+    value: "#542D12"
+  vs-gorse-90:
+    value: "#2D1D16" 
+
+  vs-glencoe-05:
+    value: "#D2FEE2"
+  vs-glencoe-10: 
+    value: "#9FF9C0"
+  vs-glencoe-20:
+    value: "#3EE57B"
+  vs-glencoe-30:
+    value: "#04C852"
+  vs-glencoe-40:
+    value: "#03AA46"
+  vs-glencoe-50:
+    value: "#038737"
+  vs-glencoe-60:
+    value: "#026E2D"
+  vs-glencoe-70:
+    value: "#025523"
+  vs-glencoe-80:
+    value: "#013C19"
+  vs-glencoe-90:
+    value: "#01230E" 
+
+  vs-tolsta-05:
+    value: "#E3FCFC"
+  vs-tolsta-10: 
+    value: "#B4F3F2"
+  vs-tolsta-20:
+    value: "#6CE0DD"
+  vs-tolsta-30:
+    value: "#19C7C4"
+  vs-tolsta-40:
+    value: "#14A19E"
+  vs-tolsta-50:
+    value: "#10817F"
+  vs-tolsta-60:
+    value: "#0D6866"
+  vs-tolsta-70:
+    value: "#0A4F4D"
+  vs-tolsta-80:
+    value: "#073837"
+  vs-tolsta-90:
+    value: "#041E1D" 
+
+  vs-saltire-05:
+    value: "#F0F5FF"
+  vs-saltire-10: 
+    value: "#D6E5FF"
+  vs-saltire-20:
+    value: "#ADCBFF"
+  vs-saltire-30:
+    value: "#85ADFF"
+  vs-saltire-40:
+    value: "#5C8DFF"
+  vs-saltire-50:
+    value: "#3369FF"
+  vs-saltire-60:
+    value: "#1F49D6"
+  vs-saltire-70:
+    value: "#17359C"
+  vs-saltire-80:
+    value: "#112876"
+  vs-saltire-90:
+    value: "#0C1C50"    
+
+  vs-heather-05:
+    value: "#F2F2F8"
+  vs-heather-10: 
+    value: "#E5E5F0"
+  vs-heather-20:
+    value: "#CACAE2"
+  vs-heather-30:
+    value: "#A3A3CC"
+  vs-heather-40:
+    value: "#8382BA"
+  vs-heather-50:
+    value: "#6F6FAF"
+  vs-heather-60:
+    value: "#535396"
+  vs-heather-70:
+    value: "#413A78"
+  vs-heather-80:
+    value: "#33225D"
+  vs-heather-90:
+    value: "#23014A"    
+
+  vs-cloud-05:
+    value: "#F6F6F6"
+  vs-cloud-10: 
+    value: "#E9E9E9"
+  vs-cloud-20:
+    value: "#D3D3D3"
+  vs-cloud-30:
+    value: "#B1B1B1"
+  vs-cloud-40:
+    value: "#909090"
+  vs-cloud-50:
+    value: "#757575"
+  vs-cloud-60:
+    value: "#606060"
+  vs-cloud-70:
+    value: "#484848"
+  vs-cloud-80:
+    value: "#333333"
+  vs-cloud-90:
+    value: "#111111"  
+
+  vs-snow:
+    value: "#ffffff"
+  vs-basalt-70:
+    value: "#4D3F58"
+  vs-basalt-90:
+    value: "#200F2E"
+  vs-basalt-95:
+    value: "#0D0613"  
