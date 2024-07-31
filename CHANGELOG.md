@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.15](https://github.com/visitscotland/vs-component-library/compare/v3.0.14...v3.0.15) (2024-07-31)
+
+
+### ✅ Tests
+
+* **dropdown:** update unit test ([82962cd](https://github.com/visitscotland/vs-component-library/commit/82962cd1da60e2422511a6e165992b6bbd9f8756))
+* **meganav dropdown:** update unit tests ([ca03458](https://github.com/visitscotland/vs-component-library/commit/ca0345867c9e84ce724c4b62bafaa790544fae95))
+
+
+### 🐛 Bug Fixes
+
+* **dropdown:** add css for fallback ([1b35d8c](https://github.com/visitscotland/vs-component-library/commit/1b35d8c7c0ef261cd93ee26870971621157c5076))
+* **dropdown:** add no-js fallback ([34c14e4](https://github.com/visitscotland/vs-component-library/commit/34c14e45cf780d314bbd20bdcb33ea99861fb906))
+* **dropdown:** remove v-if ([3e7c06a](https://github.com/visitscotland/vs-component-library/commit/3e7c06a74ccd576e3127a45654c4e65c88c40893))
+* **dropdown:** typo ([17f4e66](https://github.com/visitscotland/vs-component-library/commit/17f4e669af151684a2f9a43d75257e10e5cea711))
+* **global menu dropdown:** add CSS for fallback ([38f7bd6](https://github.com/visitscotland/vs-component-library/commit/38f7bd67e8385b3c075c8da03f8621077e1df9d6))
+* **mega nav dropdown:** remove v-if ([481838a](https://github.com/visitscotland/vs-component-library/commit/481838a3bfb3c76cb4377b50a754b00f75dc7110))
+* **meganav dropdown:** add CSS for fallback ([c6ce0ea](https://github.com/visitscotland/vs-component-library/commit/c6ce0eac7aac14120bea97bc7c390036e513a06a))
+* **meganav dropdown:** add no-js fallback ([95ad337](https://github.com/visitscotland/vs-component-library/commit/95ad33717aec7a6258111388ea330dd3935c0a01))
+
 ### [3.0.14](https://github.com/visitscotland/vs-component-library/compare/v3.0.13...v3.0.14) (2024-07-26)
 
 
