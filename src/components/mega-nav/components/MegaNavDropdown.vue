@@ -46,6 +46,45 @@
                 </VsContainer>
             </li>
         </BDropdown>
+
+        <!-- No JS version -->
+        <ul
+            class="dropdown-menu dropdown-menu--fallback overflow-auto"
+            role="menu"
+        >
+            <li role="menuitem">
+                <VsContainer
+                    fluid="lg"
+                    class="px-0 px-lg-3"
+                >
+                    <VsRow class="g-0">
+                        <VsCol cols="12" class="position-relative">
+                            <!-- @slot Used to display the top menu link
+                            at the top of the dropdown menu  -->
+                            <slot name="cta-link" />
+
+                            <!-- @slot The rest of the mega nav links put
+                            here in the dropdown menu  -->
+                            <slot name="dropdown-content" />
+
+                            <VsButton
+                                class="vs-mega-nav-dropdown__close-btn
+                                d-none d-lg-block position-absolute"
+                                icon="close"
+                                icon-only
+                                size="sm"
+                                variant="transparent"
+                                @click="closeMenu"
+                            >
+                                <span class="visually-hidden">
+                                    {{ menuToggleAltText }}
+                                </span>
+                            </VsButton>
+                        </VsCol>
+                    </VsRow>
+                </VsContainer>
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -269,7 +308,7 @@ export default {
 }
 
 @include no-js {
-    .vs-mega-nav-dropdown{
+    .vs-mega-nav-dropdown {
         .btn.dropdown-toggle {
             padding: $spacer-3 $spacer-2;
             height: auto;
@@ -288,7 +327,7 @@ export default {
             &:focus {
                 box-shadow: $vs-box-shadow-focus inset;
 
-                &::after{
+                &::after {
                     display: none;
                 }
             }
@@ -316,11 +355,15 @@ export default {
             }
         }
 
-        &__close-btn{
+        &__close-btn {
             display: none!important;
         }
 
-        .dropdown-menu{
+        .dropdown-menu {
+            display: none;
+        }
+
+        .dropdown-menu--fallback {
             display: block !important;
             max-height: none;
             position: relative !important;
