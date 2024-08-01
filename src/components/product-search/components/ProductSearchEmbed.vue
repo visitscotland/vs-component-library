@@ -66,7 +66,7 @@
                                 v-if="selectedProd !== 'tour'"
                                 type="hidden"
                                 name="locprox"
-                                value="0"
+                                :value="chosenLocation?.type === 'DISTRICT' ? 1 : 0"
                             >
                             <input
                                 v-if="selectedProd !== 'tour' && chosenLocation?.type === 'DISTRICT'"
