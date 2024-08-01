@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.16](https://github.com/visitscotland/vs-component-library/compare/v3.0.15...v3.0.16) (2024-08-01)
+
+
+### ⏪ Revertions
+
+* **product search embed:** revert previous change ([399aeef](https://github.com/visitscotland/vs-component-library/commit/399aeef97b2dbff45dbd1f3cf8c7a5ce5dba71c6))
+
 ### [3.0.15](https://github.com/visitscotland/vs-component-library/compare/v3.0.14...v3.0.15) (2024-07-31)
 
 
