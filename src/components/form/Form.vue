@@ -644,7 +644,9 @@ export default {
                 this.formIsInvalid = false;
             } else {
                 fieldIsRequired.forEach((field) => {
-                    if (this.form[field.name] === '') {
+                    // Check if the string contains any non-whitespace, reject both empty strings
+                    // and strings made up entirely of whitespace characters
+                    if (!(/\S/.test(this.form[field.name]))) {
                         this.formIsInvalid = true;
                     }
                 });
