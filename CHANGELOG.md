@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.17](https://github.com/visitscotland/vs-component-library/compare/v3.0.16...v3.0.17) (2024-08-06)
+
+
+### ✨ Features
+
+* **forms:** make all whitespace entries fail required validation ([c3572da](https://github.com/visitscotland/vs-component-library/commit/c3572da87095b65c82f3a1466185a8f38bf3c9a0))
+
+
+### 🐛 Bug Fixes
+
+* **forms:** account for boolean fields ([0c4af92](https://github.com/visitscotland/vs-component-library/commit/0c4af9231a79505c522d1235c8ba310bb6b4aa00))
+
 ### [3.0.16](https://github.com/visitscotland/vs-component-library/compare/v3.0.15...v3.0.16) (2024-08-01)
 
 
