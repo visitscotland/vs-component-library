@@ -122,9 +122,19 @@ const validateFormElementMixin = {
             this.isInvalid = false;
 
             if ('required' in this.rules.inputVal) {
-                // Check if the string contains any non-whitespace, reject both empty strings
-                // and strings made up entirely of whitespace characters
-                if (!(/\S/.test(this.inputVal))) {
+                let failed = false;
+                if (typeof this.inputVal === 'string') {
+                    // Check if the string contains any non-whitespace, reject both empty strings
+                    // and strings made up entirely of whitespace characters
+                    if (!(/\S/.test(this.inputVal))) {
+                        failed = true;
+                    }
+                    // Otherwise, check if boolean field is truthy
+                } else if (!this.inputVal) {
+                    failed = true;
+                }
+
+                if (failed) {
                     if (this.errorsList.indexOf('required') === -1) {
                         this.errorsList.push('required');
                     }
