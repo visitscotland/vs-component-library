@@ -121,9 +121,13 @@ const validateFormElementMixin = {
         manualValidate() {
             this.isInvalid = false;
 
-            if ('required' in this.rules.inputVal && !this.inputVal) {
-                if (this.errorsList.indexOf('required') === -1) {
-                    this.errorsList.push('required');
+            if ('required' in this.rules.inputVal) {
+                // Check if the string contains any non-whitespace, reject both empty strings
+                // and strings made up entirely of whitespace characters
+                if (!(/\S/.test(this.inputVal))) {
+                    if (this.errorsList.indexOf('required') === -1) {
+                        this.errorsList.push('required');
+                    }
                 }
             } else {
                 this.errorsList.forEach((error, index) => {

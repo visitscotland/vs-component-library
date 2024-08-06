@@ -172,6 +172,24 @@ describe('VsInput', () => {
                 expect(wrapper.html()).toContain('This is required');
             }, 50);
         });
+
+        it('should fail validation if a required field contains only whitespace', async() => {
+            wrapper.setProps({
+                value: '      ',
+                validationRules: {
+                    required: true,
+                },
+                validationMessages: {
+                    required: 'This is required',
+                },
+            });
+
+            wrapper.vm.emitStatus();
+
+            setTimeout(() => {
+                expect(wrapper.html()).toContain('This is required');
+            }, 50);
+        });
     });
 
     describe(':methods', () => {
