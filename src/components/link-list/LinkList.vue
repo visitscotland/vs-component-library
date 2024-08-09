@@ -1,5 +1,8 @@
 <template>
-    <div :class="classes">
+    <div
+        :class="classes"
+        :data-test="dataTest"
+    >
         <VsHeading
             v-if="hasHeadingSlot"
             level="2"
@@ -44,6 +47,9 @@ export default {
                 'link-list': true,
                 'link-list--toc': this.toc,
             };
+        },
+        dataTest() {
+            return this.toc ? 'link-list--toc' : 'link-list';
         },
         hasHeadingSlot() {
             return !!this.$slots.heading;
