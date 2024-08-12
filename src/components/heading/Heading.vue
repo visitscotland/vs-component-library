@@ -40,13 +40,6 @@ export default {
             validator: (value) => (isNumber(value) ? value > 0 && value < 7 : value.match(/(1|2|3|4|5|6)/)),
         },
         /**
-         * Alternative font
-         */
-        alternative: {
-            type: Boolean,
-            default: false,
-        },
-        /**
          * Heading override style
          * `1|2|3|4|5|6`
          */
@@ -63,10 +56,6 @@ export default {
         headingClasses() {
             return [
                 this.overrideStyleLevel ? `vs-heading--style-level-${this.overrideStyleLevel}` : '',
-                {
-                    'vs-heading--thin': this.thin,
-                    'vs-heading--alternative': this.alternative,
-                },
             ];
         },
         type() {
