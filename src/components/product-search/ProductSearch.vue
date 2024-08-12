@@ -11,7 +11,6 @@
                 >
                     <VsHeading
                         level="2"
-                        alternative
                         class="vs-product-search__heading mt-0"
                     >
                         <!-- @slot Text for the module heading -->

@@ -128,10 +128,6 @@ $sub-font-sizes: (
         font-weight: $font-weight-bold;
     }
 
-    &.vs-heading--thin {
-        font-family: $headings-font-family-thin;
-    }
-
     .vs-heading__sub-heading {
         font-family: $headings-font-family-thin;
         display: block;
@@ -143,11 +139,5 @@ $sub-font-sizes: (
                 margin-top: $size * 0.5;
             }
         }
-    }
-
-    &.vs-heading--alternative {
-        font-family: $font_family_sans_serif;
-        font-weight: $font-weight-light;
-        letter-spacing: normal;
     }
 }

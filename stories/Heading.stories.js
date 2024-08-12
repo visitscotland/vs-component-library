@@ -59,8 +59,6 @@ const base = {
     default: 'VisitScotland',
     'sub-heading': '',
     level: 1,
-    alternative: false,
-    thin: false,
 };
 
 export const Default = Template.bind(
@@ -87,23 +85,4 @@ WithSubheading.args = {
     ...base,
     default: 'Heart of Neolithic Orkney',
     'sub-heading': 'Mainland, Orkney',
-};
-
-export const Thin = Template.bind({
-});
-
-Thin.args = {
-    ...base,
-    default: 'Find out more',
-    thin: true,
-};
-
-export const Alternative = Template.bind({
-});
-
-Alternative.args = {
-    ...base,
-    default: 'Find experiences',
-    level: '2',
-    alternative: true,
 };

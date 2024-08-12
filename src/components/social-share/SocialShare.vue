@@ -30,7 +30,6 @@
             v-if="!noJs && renderPopover"
         >
             <VsHeading
-                thin
                 level="3"
                 tabindex="0"
                 ref="shareHeader"
@@ -69,7 +68,6 @@
                 <VsRow>
                     <VsCol cols="12">
                         <VsHeading
-                            thin
                             level="2"
                             override-style-level="3"
                             class="mb-9 mt-0"
