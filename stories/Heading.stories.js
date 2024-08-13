@@ -59,30 +59,29 @@ const base = {
     default: 'VisitScotland',
     'sub-heading': '',
     level: 1,
+    headingStyle: 'heading-l',
 };
 
-export const Default = Template.bind(
-    {
-    },
-);
+export const Default = Template.bind({
+});
 
 Default.args = {
     ...base,
 };
 
-export const OverrideStyleLevel = Template.bind({
-});
+// export const OverrideStyleLevel = Template.bind({
+// });
 
-OverrideStyleLevel.args = {
-    ...base,
-    overrideStyleLevel: 3,
-};
+// OverrideStyleLevel.args = {
+//     ...base,
+//     overrideStyleLevel: 3,
+// };
 
-export const WithSubheading = Template.bind({
-});
+// export const WithSubheading = Template.bind({
+// });
 
-WithSubheading.args = {
-    ...base,
-    default: 'Heart of Neolithic Orkney',
-    'sub-heading': 'Mainland, Orkney',
-};
+// WithSubheading.args = {
+//     ...base,
+//     default: 'Heart of Neolithic Orkney',
+//     'sub-heading': 'Mainland, Orkney',
+// };

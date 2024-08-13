@@ -794,7 +794,7 @@ export default {
 <style lang='scss'>
     .vs-form {
         &__main-heading {
-            @extend %heading-default-styles;
+            // @extend %heading-default-styles;
         }
 
         &__content {

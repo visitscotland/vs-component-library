@@ -40,13 +40,16 @@ export default {
             validator: (value) => (isNumber(value) ? value > 0 && value < 7 : value.match(/(1|2|3|4|5|6)/)),
         },
         /**
-         * Heading override style
-         * `1|2|3|4|5|6`
+         * The heading style used for the heading.
+         * `display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|
+         * heading-l|heading-m|heading-s|heading-xs|heading-xxs`
          */
-        overrideStyleLevel: {
+        headingStyle: {
             type: [String, Number],
-            default: null,
-            validator: (value) => (isNumber(value) ? value > 0 && value < 7 : value.match(/(1|2|3|4|5|6)/)),
+            required: true,
+            validator: (value) => value.match(
+                /(display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs)/,
+            ),
         },
     },
     computed: {
@@ -55,7 +58,7 @@ export default {
         },
         headingClasses() {
             return [
-                this.overrideStyleLevel ? `vs-heading--style-level-${this.overrideStyleLevel}` : '',
+                this.headingStyle ? `vs-heading--${this.headingStyle}` : '',
             ];
         },
         type() {
@@ -67,7 +70,53 @@ export default {
 
 <style lang="scss">
 .vs-heading {
-    @extend %heading-default-styles;
+    &--display-l, &--display-m, &--display-s, &--display-xs {
+        font-family: $headings-font-family;
+    }
+
+    &--display-l {
+
+    }
+
+    &--display-m {
+
+    }
+
+    &--display-s {
+
+    }
+
+    &--display-xs {
+
+    }
+
+    &--heading-xxl {
+
+    }
+
+    &--heading-xl {
+
+    }
+
+    &--heading-l {
+
+    }
+
+    &--heading-m {
+
+    }
+
+    &--heading-s {
+
+    }
+
+    &--heading-xs {
+
+    }
+
+    &--heading-xxs {
+
+    }
 }
 
 </style>
