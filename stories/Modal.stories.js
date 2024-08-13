@@ -42,7 +42,7 @@ const Template = (args) => ({
 
         <VsModal v-bind="args" :class="args.jsDisabled ? 'no-js' : ''">
             <VsRow>
-                <VsCol cols="12">
+                <VsCol cols="12" v-if="args.isVideoModal">
                     <VsVideo
                         :video-id="args.modalId"
                         video-title="Test Video"
@@ -52,6 +52,30 @@ const Template = (args) => ({
                         no-js-message="You need JavaScript enabled to see this video"
                         no-cookies-message="You need cookies enabled to see this video"
                     />
+                </VsCol>
+
+                <VsCol 
+                    cols="10"
+                    offset="1" 
+                    v-else
+                >
+                    <VsRichTextWrapper>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam venenatis ultrices ex a volutpat. 
+                            Donec consectetur porta ex vitae tincidunt. 
+                        </p>
+                        <p>
+                            Suspendisse nec sapien quis ante venenatis dictum. Quisque convallis enim luctus tempor porta. 
+                            Nunc imperdiet, felis quis commodo dignissim, est erat varius dui, 
+                            in venenatis tellus ex eu nisi. Fusce fringilla arcu tellus, 
+                            eu tristique lacus bibendum at. Nullam blandit luctus consequat.
+                        </p>
+                        <p>
+                            Aliquam suscipit turpis sapien, sit amet dictum dui sodales sed. Proin tincidunt mollis 
+                            mauris, eget aliquam felis vestibulum vitae. Nullam sagittis metus non gravida aliquet. 
+                            Quisque ut tempor ex, non iaculis arcu.
+                        </p>
+                    </VsRichTextWrapper>
                 </VsCol>
                 
                 <VsCol
@@ -75,7 +99,6 @@ const Template = (args) => ({
 const base = {
     modalId: 'c05sg3G4oA4',
     closeBtnText: 'Close',
-    isVideoModal: true,
     jsDisabled: false,
 };
 
@@ -83,6 +106,14 @@ export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const VideoModal = Template.bind({
+});
+
+VideoModal.args = {
+    ...base,
+    isVideoModal: true,
+};
 
 export const ModalOpen = Template.bind({
 });
