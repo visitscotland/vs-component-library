@@ -337,6 +337,8 @@ export default {
                             this.conditionalFields[field.name] = false;
                         }
                     });
+
+                    this.checkConditionalFields();
                 })
                 .catch(() => {});
         },
