@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.18](https://github.com/visitscotland/vs-component-library/compare/v3.0.17...v3.0.18) (2024-08-14)
+
+
+### ✨ Features
+
+* **modal:** add missing modal video story ([f60d9ff](https://github.com/visitscotland/vs-component-library/commit/f60d9fff47449769548749dfe14da2bd3e528e6d))
+
+
+### 🐛 Bug Fixes
+
+* **forms:** check conditionals on config load ([4b94d47](https://github.com/visitscotland/vs-component-library/commit/4b94d47c55421db3e9efa8b9a33c2bfd6b9a0db2))
+
 ### [3.0.17](https://github.com/visitscotland/vs-component-library/compare/v3.0.16...v3.0.17) (2024-08-06)
 
 
