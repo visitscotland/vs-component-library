@@ -3,13 +3,14 @@
         :class="classes"
         :data-test="dataTest"
     >
-        <VsHeading
-            v-if="hasHeadingSlot"
-            level="2"
-        >
-            <slot name="heading" />
-        </VsHeading>
         <nav>
+            <VsHeading
+                v-if="hasHeadingSlot"
+                level="2"
+            >
+                <slot name="heading" />
+            </VsHeading>
+
             <ul class="link-list__list">
                 <!-- @slot Slot for link list items -->
                 <slot />
