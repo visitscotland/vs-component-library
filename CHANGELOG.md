@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.1](https://github.com/visitscotland/vs-component-library/compare/v3.1.0...v3.1.1) (2024-08-16)
+
+
+### ✨ Features
+
+* **form:** ensure errors on conditional fields clear when they're hidden ([c2a99f2](https://github.com/visitscotland/vs-component-library/commit/c2a99f25802897395bbd2b259a36d28478e52b36))
+
 ## [3.1.0](https://github.com/visitscotland/vs-component-library/compare/v3.0.18...v3.1.0) (2024-08-16)
 
 
