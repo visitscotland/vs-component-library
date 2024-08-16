@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/visitscotland/vs-component-library/compare/v3.0.18...v3.1.0) (2024-08-16)
+
+
+### ✅ Tests
+
+* **link list:** add tests for table of contents ([f153982](https://github.com/visitscotland/vs-component-library/commit/f153982320318e0d27a846dba19b5258b664dad5))
+
+
+### ✨ Features
+
+* **linklist.stories.js:** add table of contents variant ([7bbb861](https://github.com/visitscotland/vs-component-library/commit/7bbb861b51a758c2c6edd8dcfd62a6aea0dae51d))
+* **linklist:** add table of contents variant ([7477e3a](https://github.com/visitscotland/vs-component-library/commit/7477e3acecdd275575d6ba5086c79b9c833f8e6b))
+* **linklist:** adjust HTML for accessibility ([98364ea](https://github.com/visitscotland/vs-component-library/commit/98364ea0bac4d27518305742d36a1c8597c906a8))
+* **linklist:** update table of contents styles ([0900f9d](https://github.com/visitscotland/vs-component-library/commit/0900f9d95a9abf778ede7542af0c6431fc55f24a))
+
 ### [3.0.18](https://github.com/visitscotland/vs-component-library/compare/v3.0.17...v3.0.18) (2024-08-14)
 
 
