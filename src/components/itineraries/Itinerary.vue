@@ -178,15 +178,6 @@ background-color: $vs-color-background-inverse;
             max-width: calc(100% - 6.25rem);
         }
     }
-
-    .vs-itinerary__map-toggle-button {
-        padding-left: $spacer-4;
-        padding-right: $spacer-4;
-
-        svg {
-            margin-right: $spacer-3;
-        }
-    }
 }
 
 @include no-js {
