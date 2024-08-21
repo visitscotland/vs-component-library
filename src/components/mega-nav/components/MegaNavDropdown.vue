@@ -293,7 +293,7 @@ export default {
 
         .vs-mega-nav-accordion-item--level-1:first-child{
             > .vs-accordion-item__card-header{
-                > .vs-accordion-toggle.btn-primary{
+                > .vs-accordion-toggle.btn {
                     box-shadow: inset 0px 10px 6px -8px rgba(0, 0, 0, 0.16);
 
                     &:focus{
