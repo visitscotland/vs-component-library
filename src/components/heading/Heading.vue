@@ -69,53 +69,71 @@ export default {
 </script>
 
 <style lang="scss">
+[class*="vs-heading--display-"] {
+    font-family: $headings-font-family;
+}
+
+[class*="vs-heading--heading-"] {
+    font-family: $font-family-sans-serif;
+    font-weight: $font-weight-semi-bold;
+}
+
 .vs-heading {
-    &--display-l, &--display-m, &--display-s, &--display-xs {
-        font-family: $headings-font-family;
-    }
+    line-height: $line-height-standard;
 
     &--display-l {
-
+        font-size: 2.875rem;
+        letter-spacing: 0.92px;
     }
 
     &--display-m {
-
+        font-size: 2.563rem;
+        letter-spacing: 0.82px;
     }
 
     &--display-s {
-
+        font-size: 2rem;
+        letter-spacing: 0.64px;
     }
 
     &--display-xs {
-
+        font-size: 1.438rem;
+        letter-spacing: 0.46px;
     }
 
     &--heading-xxl {
-
+        font-size: 2.563rem;
+        letter-spacing: -0.41px;
     }
 
     &--heading-xl {
-
+        font-size: 2.25rem;
+        letter-spacing: -0.36px;
     }
 
     &--heading-l {
-
+        font-size: 2rem;
+        letter-spacing: -0.32px;
     }
 
     &--heading-m {
-
+        font-size: 1.813rem;
+        letter-spacing: -0.29px;
     }
 
     &--heading-s {
-
+        font-size: 1.625rem;
+        letter-spacing: -0.26px;
     }
 
     &--heading-xs {
-
+        font-size: 1.438rem;
+        letter-spacing: -0.23px;
     }
 
     &--heading-xxs {
-
+        font-size: 1.25rem;
+        letter-spacing: -0.2px;
     }
 }
 

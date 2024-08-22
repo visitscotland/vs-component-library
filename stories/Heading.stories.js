@@ -19,20 +19,6 @@ export default {
                 },
             },
         },
-        overrideStyleLevel: {
-            options: [1, 2, 3, 4, 5, 6],
-            control: {
-                type: 'inline-radio',
-                labels: {
-                    1: 'h1',
-                    2: 'h2',
-                    3: 'h3',
-                    4: 'h4',
-                    5: 'h5',
-                    6: 'h6',
-                },
-            },
-        },
     },
 };
 
@@ -59,23 +45,23 @@ const base = {
     default: 'VisitScotland',
     'sub-heading': '',
     level: 1,
-    headingStyle: 'heading-l',
 };
 
 export const Default = Template.bind({
 });
 
 Default.args = {
+    headingStyle: 'heading-l',
     ...base,
 };
 
-// export const OverrideStyleLevel = Template.bind({
-// });
+export const Display = Template.bind({
+});
 
-// OverrideStyleLevel.args = {
-//     ...base,
-//     overrideStyleLevel: 3,
-// };
+Display.args = {
+    headingStyle: 'display-l',
+    ...base,
+};
 
 // export const WithSubheading = Template.bind({
 // });
