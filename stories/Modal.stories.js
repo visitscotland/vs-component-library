@@ -98,7 +98,6 @@ const Template = (args) => ({
 
 const base = {
     modalId: 'c05sg3G4oA4',
-    closeBtnText: 'Close',
     jsDisabled: false,
 };
 
