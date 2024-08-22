@@ -95,13 +95,6 @@ export default {
             default: true,
         },
         /**
-         * Set this for a button on a dark background for better colour contrast
-         */
-        onDark: {
-            type: Boolean,
-            default: false,
-        },
-        /**
          * Pass the name of the icon to add it to the button.
          */
         icon: {
@@ -152,7 +145,6 @@ export default {
                 {
                     'vs-button--animated': this.animate && !this.iconOnly && !this.iconWithText,
                     'vs-button--is-animating': this.isAnimating,
-                    'vs-button--on-dark': this.onDark,
                     'vs-button--icon-only': this.iconOnly,
                     'vs-button--icon-with-text': this.iconWithText,
                     'button-flex': this.icon && !this.iconOnly && !this.iconWithText,
@@ -236,12 +228,6 @@ export default {
             @extend %primary-button-focus;
         }
 
-        &.vs-button--on-dark {
-            &:focus {
-                box-shadow: $vs-box-shadow-focus-on-dark;
-            }
-        }
-
         &.disabled {
             pointer-events: none;
         }
@@ -287,23 +273,6 @@ export default {
 
                 &:focus {
                     box-shadow: $vs-box-shadow-focus inset;
-                }
-
-                &.vs-button--on-dark {
-                    @include vs-button-variant(
-                        $vs-color-text-inverse, transparent, transparent,
-                        $vs-color-text-inverse, transparent, transparent,
-                        $vs-color-text-inverse, transparent, transparent,
-                        $vs-color-text-inverse, transparent, transparent,
-                    );
-
-                    &:hover .vs-button__text {
-                        text-decoration: none;
-                    }
-
-                    &:focus {
-                        box-shadow: $vs-box-shadow-focus-on-dark inset;
-                    }
                 }
             }
         }
