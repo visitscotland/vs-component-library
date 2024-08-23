@@ -28,6 +28,7 @@ imports:
   - ./grid-layout.yml
   - ./utility.yml
   - ./themes.yml
+  - ./tracking.yml
 global:
   type: global
   category: all
