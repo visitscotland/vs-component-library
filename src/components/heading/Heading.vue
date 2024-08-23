@@ -9,6 +9,7 @@
 
         <span
             class="vs-heading__sub-heading"
+            :class="subHeadingClass"
             v-if="!!$slots['sub-heading']"
         >
             <!-- @slot Slot for sub-heading content -->
@@ -61,6 +62,33 @@ export default {
                 this.headingStyle ? `vs-heading--${this.headingStyle}` : '',
             ];
         },
+        subHeadingClass() {
+            let subHeadingStyle = '';
+
+            switch (this.headingStyle) {
+            case 'display-l':
+            case 'display-m':
+            case 'display-s':
+            case 'heading-xxl':
+            case 'heading-xl':
+                subHeadingStyle = 'l';
+                break;
+            case 'display-xs':
+            case 'heading-l':
+            case 'heading-m':
+                subHeadingStyle = 'm';
+                break;
+            case 'heading-s':
+            case 'heading-xs':
+            case 'heading-xxs':
+                subHeadingStyle = 's';
+                break;
+            default:
+                subHeadingStyle = '';
+            }
+
+            return `vs-heading__sub-heading--${subHeadingStyle}`;
+        },
         type() {
             return `h${this.level}`;
         },
@@ -71,6 +99,10 @@ export default {
 <style lang="scss">
 [class*="vs-heading--display-"] {
     font-family: $headings-font-family;
+
+    .vs-heading__sub-heading {
+        font-weight: $font-weight-semi-bold;
+    }
 }
 
 [class*="vs-heading--heading-"] {
@@ -79,61 +111,71 @@ export default {
 }
 
 .vs-heading {
-    line-height: $line-height-standard;
+    letter-spacing: $tracking-heading;
+    line-height: $line-height-heading;
 
     &--display-l {
         font-size: 2.875rem;
-        letter-spacing: 0.92px;
     }
 
     &--display-m {
         font-size: 2.563rem;
-        letter-spacing: 0.82px;
     }
 
     &--display-s {
         font-size: 2rem;
-        letter-spacing: 0.64px;
     }
 
     &--display-xs {
         font-size: 1.438rem;
-        letter-spacing: 0.46px;
     }
 
     &--heading-xxl {
         font-size: 2.563rem;
-        letter-spacing: -0.41px;
     }
 
     &--heading-xl {
         font-size: 2.25rem;
-        letter-spacing: -0.36px;
     }
 
     &--heading-l {
         font-size: 2rem;
-        letter-spacing: -0.32px;
     }
 
     &--heading-m {
         font-size: 1.813rem;
-        letter-spacing: -0.29px;
     }
 
     &--heading-s {
         font-size: 1.625rem;
-        letter-spacing: -0.26px;
     }
 
     &--heading-xs {
         font-size: 1.438rem;
-        letter-spacing: -0.23px;
     }
 
     &--heading-xxs {
         font-size: 1.25rem;
-        letter-spacing: -0.2px;
+    }
+
+    &__sub-heading {
+        display: block;
+        font-family: $font-family-sans-serif;
+        font-weight: $font-weight-normal;
+        line-height: $line-height-sub-heading;
+        letter-spacing: $tracking-sub-heading;
+    }
+
+    .vs-heading__sub-heading--l {
+        font-size: 1.438rem;
+    }
+
+    .vs-heading__sub-heading--m {
+        font-size: 1.25rem;
+    }
+
+    .vs-heading__sub-heading--s {
+        font-size: 1.125rem;
     }
 }
 

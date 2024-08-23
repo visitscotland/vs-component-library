@@ -5,6 +5,12 @@ export default {
     title: 'Heading',
     tags: ['autodocs'],
     argTypes: {
+        headingStyle: {
+            options: ['display-l', 'display-m', 'display-s', 'display-xs', 'heading-xxl', 'heading-xl', 'heading-l', 'heading-m', 'heading-s', 'heading-xs', 'heading-xxs'],
+            control: {
+                type: 'select',
+            },
+        },
         level: {
             options: [1, 2, 3, 4, 5, 6],
             control: {
@@ -42,7 +48,7 @@ const Template = (args) => ({
 });
 
 const base = {
-    default: 'VisitScotland',
+    default: 'Welcome to Scotland',
     'sub-heading': '',
     level: 1,
 };
@@ -63,11 +69,22 @@ Display.args = {
     ...base,
 };
 
-// export const WithSubheading = Template.bind({
-// });
+export const WithSubheading = Template.bind({
+});
 
-// WithSubheading.args = {
-//     ...base,
-//     default: 'Heart of Neolithic Orkney',
-//     'sub-heading': 'Mainland, Orkney',
-// };
+WithSubheading.args = {
+    headingStyle: 'heading-l',
+    ...base,
+    default: 'Heart of Neolithic Orkney',
+    'sub-heading': 'Mainland, Orkney',
+};
+
+export const WithSubheadingDisplay = Template.bind({
+});
+
+WithSubheadingDisplay.args = {
+    headingStyle: 'display-xl',
+    ...base,
+    default: 'Welcome to VisitScotland',
+    'sub-heading': 'What VisitScotland can do for you',
+};
