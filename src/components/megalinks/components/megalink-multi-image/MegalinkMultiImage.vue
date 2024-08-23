@@ -272,11 +272,6 @@ export default {
             width: 100%;
             transform: rotate(0deg);
 
-            .vs-megalink-multi-image-card__title {
-                font-size: $font-size-5;
-                letter-spacing: $letter-spacing-xxl;
-            }
-
             .vs-link__icon {
                 font-size: 16px;
             }

@@ -86,7 +86,7 @@
 
             <VsHeading
                 :level="headingLevel"
-                override-style-level="4"
+                :headingStyle="currentStage === 0 ? 'heading-m' : 'heading-xs'"
                 class="vs-map-with-sidebar-panel__heading text-center mt-8 mt-lg-0"
                 :class="currentStage === 2 ? 'd-none d-lg-block' : ''"
                 v-if="currentHeading !== ''"

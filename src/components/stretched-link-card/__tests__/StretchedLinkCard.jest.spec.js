@@ -66,6 +66,20 @@ describe('VsStretchedLinkCard', () => {
             await expect(wrapper.find('[data-test="vs-stretched-link__img"]').exists()).toBe(false);
         });
 
+        it('should render the correct headingStyle', async() => {
+            const wrapper = factoryMount();
+
+            wrapper.setProps({
+                headingStyle: 'heading-xxs',
+            });
+
+            await wrapper.vm.$nextTick();
+
+            const heading = wrapper.find('[data-test="vs-stretched-link-card__title"]');
+
+            expect(heading.classes()).toContain('vs-heading--heading-xxs');
+        });
+
         it('should render a video play button if a videoId is set', async() => {
             const wrapper = factoryMount();
 

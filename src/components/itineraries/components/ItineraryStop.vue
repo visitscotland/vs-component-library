@@ -22,6 +22,7 @@
                 </div>
                 <VsHeading
                     level="3"
+                    headingStyle="heading-s"
                     class="vs-itinerary-stop__title ms-4 mt-0"
                 >
                     {{ stopLabel }}

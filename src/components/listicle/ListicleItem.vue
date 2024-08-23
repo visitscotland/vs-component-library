@@ -17,6 +17,7 @@
             </div>
             <VsHeading
                 level="2"
+                headingStyle="heading-s"
             >
                 {{ title }}
 

@@ -12,7 +12,7 @@
         <VsHeading
             v-if="showTitle"
             :level="headingLevel"
-            override-style-level="4"
+            headingStyle="heading-xxs"
             class="vs-map-with-sidebar-detail__heading mt-0"
             data-test="vs-map-with-sidebar-detail__heading"
         >
@@ -117,6 +117,7 @@ export default {
         &__heading.vs-heading--style-level-4.vs-heading,
         &__address {
             margin-bottom: 0;
+            color: $vs-color-text-subtle;
         }
 
         &__description {

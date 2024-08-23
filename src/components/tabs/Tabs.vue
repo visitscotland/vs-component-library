@@ -112,10 +112,7 @@ export default {
                 margin: 0;
                 background-color: $vs-color-background-inverse;
                 padding: $spacer-7 $spacer-5;
-                font-family: $font-family-sans-serif;
                 color: $vs-color-text;
-                font-size: $font-size-7;
-                font-weight: $font-weight-bold;
                 text-align: center;
                 letter-spacing: normal;
             }

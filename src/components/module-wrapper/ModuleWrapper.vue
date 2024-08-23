@@ -19,6 +19,7 @@
                 >
                     <VsHeading
                         level="2"
+                        headingStyle="heading-xl"
                         class="vs-module-wrapper__heading"
                         data-test="vs-module-wrapper__heading"
                     >

@@ -232,6 +232,7 @@
                 >
                     <VsHeading
                         level="2"
+                        headingStyle="heading-m"
                         data-test="vs-ski__snow-conditions-label"
                     >
                         {{ snowConditionsLabel }}
@@ -241,7 +242,7 @@
                     />
                     <VsHeading
                         level="3"
-                        override-style-level="5"
+                        headingStyle="heading-m"
                         data-test="vs-ski__current-weather-label"
                         v-if="currentWeather.length"
                     >
@@ -253,7 +254,7 @@
                     />
                     <VsHeading
                         level="3"
-                        override-style-level="5"
+                        headingStyle="heading-m"
                         data-test="vs-ski__weather-forecast-label"
                         v-if="weatherForecast.length"
                     >
@@ -265,7 +266,7 @@
                     />
                     <VsHeading
                         level="3"
-                        override-style-level="5"
+                        headingStyle="heading-m"
                         data-test="vs-ski__roads-label"
                         v-if="roadStatus.length"
                     >
@@ -277,7 +278,7 @@
                     />
                     <VsHeading
                         level="3"
-                        override-style-level="5"
+                        headingStyle="heading-m"
                         data-test="vs-ski__news-label"
                         v-if="news.length"
                     >

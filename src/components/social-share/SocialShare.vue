@@ -32,6 +32,7 @@
             <VsHeading
                 level="3"
                 tabindex="0"
+                headingStyle="heading-m"
                 ref="shareHeader"
                 class="vs-social-share__header"
                 @keydown.tab="tabBackFromHidden($event)"
@@ -69,7 +70,7 @@
                     <VsCol cols="12">
                         <VsHeading
                             level="2"
-                            override-style-level="3"
+                            headingStyle="heading-l"
                             class="mb-9 mt-0"
                         >
                             {{ sharePopoverTitle }}

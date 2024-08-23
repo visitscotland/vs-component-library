@@ -118,6 +118,7 @@
             <VsHeading
                 v-if="$slots['stretched-card-header'] && $slots['stretched-card-header']()"
                 :level="headingLevel"
+                :headingStyle="headingStyle"
                 class="card-title vs-stretched-link-card__title"
                 data-test="vs-stretched-link-card__title"
             >
@@ -230,6 +231,18 @@ export default {
             type: [String, Number],
             default: '3',
             validator: (value) => value.match(/(1|2|3|4|5|6)/),
+        },
+        /**
+         * The heading style used for the heading.
+         * `display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|
+         * heading-l|heading-m|heading-s|heading-xs|heading-xxs`
+         */
+        headingStyle: {
+            type: [String, Number],
+            default: 'heading-xs',
+            validator: (value) => value.match(
+                /(display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs)/,
+            ),
         },
         /**
         * The type of link. This will set the icon.
@@ -498,9 +511,6 @@ export default {
         }
 
         .vs-stretched-link-card__title {
-            font-size: $font-size-3;
-            line-height: $line-height-s;
-            letter-spacing: $letter-spacing-l;
             color: $vs-color-text;
             display: flex;
 
@@ -529,11 +539,6 @@ export default {
                 .vs-icon {
                     color: $vs-color-icon-tertiary;
                 }
-            }
-
-            @include media-breakpoint-up(xl) {
-                font-size: $font-size-3;
-                line-height: $line-height-s;
             }
         }
 

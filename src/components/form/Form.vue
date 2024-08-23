@@ -12,7 +12,7 @@
             >
                 <fieldset>
                     <legend
-                        class="vs-form__main-heading vs-heading--style-level-2 float-none"
+                        class="vs-form__main-heading vs-heading vs-heading--heading-l float-none"
                         data-test="vs-form__main-heading"
                     >
                         {{ getTranslatedContent('heading') }}
@@ -132,6 +132,7 @@
                 <VsHeading
                     v-if="getTranslatedContent('successHeading')"
                     level="2"
+                    headingStyle="heading-l"
                 >
                     {{ getTranslatedContent('successHeading') }}
                 </VsHeading>
