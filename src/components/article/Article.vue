@@ -23,6 +23,7 @@
                                 <div class="vs-article__header mx-6 mx-md-0 mt-9 mt-lg-11">
                                     <VsHeading
                                         level="2"
+                                        headingStyle="heading-xl"
                                         class="text-center mb-8 mb-lg-9"
                                     >
                                         <span :id="anchorLink ? anchorLink : ''">

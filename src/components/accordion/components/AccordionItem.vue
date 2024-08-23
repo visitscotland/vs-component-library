@@ -48,6 +48,17 @@
                     </slot>
                 </template>
             </VsAccordionToggle>
+
+            <VsHeading
+                level="2"
+                headingStyle="heading-xxs"
+                class="d-none vs-accordion-item__title"
+                :class="toggleResponsiveItem"
+                data-test="vs-accordion__item-title"
+            >
+                <!-- @slot Put the title here  -->
+                <slot name="title" />
+            </VsHeading>
         </BCardHeader>
 
         <BCardBody
@@ -66,6 +77,7 @@
 <script>
 import VsAccordionToggle from '@/components/accordion/components/AccordionToggle.vue';
 import VsIcon from '@/components/icon/Icon.vue';
+import VsHeading from '@/components/heading/Heading.vue';
 import { inject } from 'vue';
 
 import {
@@ -88,6 +100,7 @@ export default {
         VsIcon,
         BCardHeader,
         BCardBody,
+        VsHeading,
     },
     /**
      * Injects breakPoint prop provided by Accordion
@@ -137,7 +150,7 @@ export default {
          */
         variant: {
             type: String,
-            default: 'primary',
+            default: 'transparent',
         },
     },
     data() {
@@ -197,6 +210,11 @@ export default {
         &:focus {
             box-shadow: $vs-box-shadow-focus inset;
         }
+    }
+
+    .vs-accordion-item__title {
+        padding: $spacer-3;
+        margin-bottom: 0;
     }
 
     .vs-accordion-item__card-colour-badge {

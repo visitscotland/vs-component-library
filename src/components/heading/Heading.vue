@@ -116,46 +116,58 @@ export default {
 
     &--display-l {
         font-size: 2.875rem;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
     }
 
     &--display-m {
         font-size: 2.563rem;
+        margin: 1rem 0 0.75rem;
     }
 
     &--display-s {
         font-size: 2rem;
+        margin: 1rem 0 0.75rem;
     }
 
     &--display-xs {
         font-size: 1.438rem;
+        margin: 1rem 0 0.75rem;
     }
 
     &--heading-xxl {
         font-size: 2.563rem;
+        margin: 1rem 0 0.75rem;
     }
 
     &--heading-xl {
         font-size: 2.25rem;
+        margin: 1rem 0 0.75rem;
     }
 
     &--heading-l {
         font-size: 2rem;
+        margin: 1rem 0 0.75rem;
     }
 
     &--heading-m {
         font-size: 1.813rem;
+        margin: 0.75rem 0 0.5rem;
     }
 
     &--heading-s {
         font-size: 1.625rem;
+        margin: 0.75rem 0 0.5rem;
     }
 
     &--heading-xs {
         font-size: 1.438rem;
+        margin: 0.75rem 0 0.5rem;
     }
 
     &--heading-xxs {
         font-size: 1.25rem;
+        margin: 0.75rem 0 0.5rem;
     }
 
     &__sub-heading {

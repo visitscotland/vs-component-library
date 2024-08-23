@@ -32,7 +32,7 @@
                             >
                                 <VsHeading
                                     level="2"
-                                    overrideStyleLevel="3"
+                                    headingStyle="heading-m"
                                     class="vs-carbon-calculator__category-heading"
                                     v-if="currentCategory"
                                 >
