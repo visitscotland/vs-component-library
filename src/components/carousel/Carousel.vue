@@ -16,7 +16,7 @@
                     <div class="slider">
                         <VsButton
                             v-if="!prevDisabled"
-                            class="vs-carousel__control vs-carousel__control--prev icon-down"
+                            class="vs-carousel__control vs-carousel__control--prev"
                             @click="sliderNavigate($event, 'prev')"
                             @keypress="sliderNavigate($event, 'prev', true)"
                             icon="internal-link-back"
