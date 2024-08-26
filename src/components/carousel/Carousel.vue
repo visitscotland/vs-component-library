@@ -19,7 +19,7 @@
                             class="vs-carousel__control vs-carousel__control--prev icon-down"
                             @click="sliderNavigate($event, 'prev')"
                             @keypress="sliderNavigate($event, 'prev', true)"
-                            icon="internal-link"
+                            icon="internal-link-back"
                             ref="prevButton"
                         >
                             <div class="vs-carousel__control-label-container">

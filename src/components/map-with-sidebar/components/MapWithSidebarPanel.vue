@@ -32,7 +32,7 @@
                 >
                     <VsButton
                         icon-only
-                        icon="internal-link"
+                        icon="internal-link-back"
                         size="md"
                         variant="secondary"
                         @click="stageBack"
@@ -69,7 +69,7 @@
             >
                 <VsButton
                     icon-only
-                    icon="internal-link"
+                    icon="internal-link-back"
                     size="md"
                     variant="secondary"
                     @click="stageBack"
