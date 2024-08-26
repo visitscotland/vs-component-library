@@ -27,17 +27,6 @@ export default {
                 type: 'radio',
             },
         },
-        iconOrientation: {
-            options: [
-                'up',
-                'down',
-                'left',
-                'right',
-            ],
-            control: {
-                type: 'radio',
-            },
-        },
         iconPosition: {
             options: [
                 'left',
@@ -80,7 +69,6 @@ const base = {
     animate: true,
     href: '',
     icon: '',
-    iconOrientation: 'up',
     iconOnly: false,
     iconWithText: false,
     iconPosition: 'left',

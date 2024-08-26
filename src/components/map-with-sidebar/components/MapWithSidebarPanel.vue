@@ -33,7 +33,6 @@
                     <VsButton
                         icon-only
                         icon="internal-link"
-                        icon-orientation="down"
                         size="md"
                         variant="secondary"
                         @click="stageBack"
@@ -71,7 +70,6 @@
                 <VsButton
                     icon-only
                     icon="internal-link"
-                    icon-orientation="down"
                     size="md"
                     variant="secondary"
                     @click="stageBack"

@@ -19,7 +19,6 @@
             :class="iconClasses"
             :size="calcIconSize"
             :padding="0"
-            :orientation="iconOrientation"
         />
         <!-- @slot The button content goes here -->
         <span class="vs-button__text">
@@ -107,15 +106,6 @@ export default {
         icon: {
             type: String,
             default: '',
-        },
-        /**
-         * The icon orientation
-         * `up|down|left|right`.
-         */
-        iconOrientation: {
-            type: String,
-            default: null,
-            validator: (value) => value.match(/(up|down|left|right)/),
         },
         /**
          * If the button contains an icon only with no text.

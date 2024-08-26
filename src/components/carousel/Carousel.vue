@@ -16,11 +16,10 @@
                     <div class="slider">
                         <VsButton
                             v-if="!prevDisabled"
-                            class="vs-carousel__control vs-carousel__control--prev"
+                            class="vs-carousel__control vs-carousel__control--prev icon-down"
                             @click="sliderNavigate($event, 'prev')"
                             @keypress="sliderNavigate($event, 'prev', true)"
                             icon="internal-link"
-                            icon-orientation="down"
                             ref="prevButton"
                         >
                             <div class="vs-carousel__control-label-container">
