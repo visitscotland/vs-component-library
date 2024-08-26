@@ -22,7 +22,10 @@
             :orientation="iconOrientation"
         />
         <!-- @slot The button content goes here -->
-        <span class="vs-button__text">
+        <span
+            class="vs-button__text"
+            :class="{ 'visually-hidden': iconOnly }"
+        >
             <slot />
         </span>
     </BButton>
