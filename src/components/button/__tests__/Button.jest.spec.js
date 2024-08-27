@@ -17,17 +17,11 @@ function mountOptions(propsData) {
             'test-attribute': 'test-value',
         },
     };
-};
+}
 
-const factoryShallowMount = (propsData) => shallowMount(
-    VsButton,
-    mountOptions(propsData),
-);
+const factoryShallowMount = (propsData) => shallowMount(VsButton, mountOptions(propsData));
 
-const factoryMount = (propsData) => mount(
-    VsButton,
-    mountOptions(propsData),
-);
+const factoryMount = (propsData) => mount(VsButton, mountOptions(propsData));
 
 describe('VsButton', () => {
     it('should render a bbutton-stub', () => {
@@ -76,6 +70,13 @@ describe('VsButton', () => {
                 onDark: true,
             });
             expect(wrapper.classes('vs-button--on-dark')).toBe(true);
+        });
+
+        it(':rounded - should render the button with an `vs-button--rounded` class', () => {
+            const wrapper = factoryMount({
+                rounded: true,
+            });
+            expect(wrapper.classes('vs-button--rounded')).toBe(true);
         });
 
         it(':iconWithText - should render the button with an `vs-button--icon-with-text` class', () => {
