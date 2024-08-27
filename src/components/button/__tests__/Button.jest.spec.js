@@ -19,9 +19,15 @@ function mountOptions(propsData) {
     };
 }
 
-const factoryShallowMount = (propsData) => shallowMount(VsButton, mountOptions(propsData));
+const factoryShallowMount = (propsData) => shallowMount(
+    VsButton,
+    mountOptions(propsData),
+);
 
-const factoryMount = (propsData) => mount(VsButton, mountOptions(propsData));
+const factoryMount = (propsData) => mount(
+    VsButton,
+    mountOptions(propsData),
+);
 
 describe('VsButton', () => {
     it('should render a bbutton-stub', () => {

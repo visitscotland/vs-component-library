@@ -229,50 +229,51 @@ export default {
         @extend %button-default-styles;
 
         .vs-icon {
-        margin-top: -0.05rem;
+            margin-top: -0.05rem;
 
-        &--right {
-            margin-left: $spacer-2;
-        }
+            &--right {
+                margin-left: $spacer-2;
+            }
 
-        &--left {
-            margin-right: $spacer-2;
-        }
-        }
+            &--left {
+                margin-right: $spacer-2;
+            }
+            }
 
-        &:focus {
-            @extend %primary-button-focus;
-        }
-
-        &.vs-button--on-dark {
             &:focus {
-                box-shadow: $vs-box-shadow-focus-on-dark;
+                @extend %primary-button-focus;
             }
-        }
 
-        &.vs-button--rounded {
-            border-radius: 100px;
-        }
+            &.vs-button--on-dark {
+                &:focus {
+                    box-shadow: $vs-box-shadow-focus-on-dark;
+                }
+            }
 
-        &.disabled {
-            pointer-events: none;
-        }
+            &.vs-button--rounded {
+                border-radius: 100px;
+            }
 
-        &:not(:disabled):not(.disabled):active:focus {
-            box-shadow: none;
-        }
-
-        &.btn-primary,
-        &.btn-secondary {
             &.disabled {
-                @extend %button-disabled;
+                pointer-events: none;
             }
+
+            &:not(:disabled):not(.disabled):active:focus {
+                box-shadow: none;
+            }
+
+            &.btn-primary,
+            &.btn-secondary {
+                &.disabled {
+                    @extend %button-disabled;
+                }
         }
 
         /* Button Variants
-            ------------------------------------------ */
+        ------------------------------------------ */
         &.btn-primary {
-            @include vs-button-variant($vs-color-text-inverse,
+            @include vs-button-variant(
+                $vs-color-text-inverse,
                 $vs-color-background-primary,
                 $vs-color-border-primary,
                 $vs-color-text-inverse,
@@ -287,7 +288,8 @@ export default {
         }
 
         &.btn-secondary {
-            @include vs-button-variant($vs-color-text-primary,
+            @include vs-button-variant(
+                $vs-color-text-primary,
                 $vs-color-background-inverse,
                 $vs-color-border-primary,
                 $vs-color-text-inverse,
@@ -303,36 +305,22 @@ export default {
 
         &.btn-transparent {
             &:not(.vs-main-map-category__button) {
-                @include vs-button-variant($vs-color-text,
-                    transparent,
-                    transparent,
-                    $vs-color-text-primary,
-                    transparent,
-                    transparent,
-                    $vs-color-text-primary,
-                    transparent,
-                    transparent,
-                    $vs-color-text-primary,
-                    transparent,
-                    transparent);
+                @include vs-button-variant(
+                    $vs-color-text, transparent, transparent,
+                    $vs-color-text-primary, transparent, transparent,
+                    $vs-color-text-primary, transparent, transparent,
+                    $vs-color-text-primary, transparent, transparent);
 
                 &:focus {
                     box-shadow: $vs-box-shadow-focus inset;
                 }
 
                 &.vs-button--on-dark {
-                    @include vs-button-variant($vs-color-text-inverse,
-                        transparent,
-                        transparent,
-                        $vs-color-text-inverse,
-                        transparent,
-                        transparent,
-                        $vs-color-text-inverse,
-                        transparent,
-                        transparent,
-                        $vs-color-text-inverse,
-                        transparent,
-                        transparent);
+                    @include vs-button-variant(
+                        $vs-color-text-inverse, transparent, transparent,
+                        $vs-color-text-inverse, transparent, transparent,
+                        $vs-color-text-inverse, transparent, transparent,
+                        $vs-color-text-inverse, transparent, transparent);
 
                     &:hover .vs-button__text {
                         text-decoration: none;
@@ -351,9 +339,7 @@ export default {
             font-size: $font-size-3;
             transition: none;
 
-            &.btn-sm,
-            &.btn-md,
-            &.btn-lg {
+            &.btn-sm, &.btn-md, &.btn-lg {
                 padding: $spacer-1;
             }
 
@@ -394,7 +380,7 @@ export default {
         }
 
         /* Button Sizes
-            ------------------------------------------ */
+        ------------------------------------------ */
         &.btn-sm {
             padding: $spacer-1 $spacer-4;
         }
@@ -413,7 +399,7 @@ export default {
         }
 
         /* Button Animation
-            ------------------------------------------ */
+        ------------------------------------------ */
         &.vs-button--animated {
             @keyframes bubble {
                 0% {
