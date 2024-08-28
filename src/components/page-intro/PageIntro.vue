@@ -4,6 +4,41 @@
         :class="introClasses"
         data-test="vs-page-intro"
     >
+        <div
+            class="vs-page-intro__heading-wrapper"
+            v-if="fullscreenMobile"
+        >
+            <VsContainer>
+                <VsRow>
+                    <div
+                        class="vs-page-intro__share"
+                    >
+                        <!-- @slot Slot to display SocialShare button  -->
+                        <slot name="vs-share-button" />
+                    </div>
+
+                    <VsCol
+                        cols="11"
+                        :md="heroIntro ? '11' : '10'"
+                        :lg="heroIntro ? '7' : '10'"
+                        :xl="heroIntro ? '8' : '10'"
+                        :offset-lg="heroIntro ? '1' : '0'"
+                        class="mt-1 mt-sm-0"
+                    >
+                        <VsHeading
+                            level="1"
+                            id="main-heading"
+                        >
+                            <!-- @slot Intro section heading -->
+                            <slot name="vs-intro-heading" />
+                        </VsHeading>
+                        <!-- @slot Section for blog data -->
+                        <slot name="vs-blog-data" />
+                    </VsCol>
+                </VsRow>
+            </VsContainer>
+        </div>
+
         <!-- @slot Slot for hero ImageWithCaption component  -->
         <slot name="vs-intro-hero" />
 
@@ -25,12 +60,17 @@
                     </VsCol>
                 </VsRow>
 
-                <div class="vs-page-intro__share">
+                <div
+                    v-if="!fullscreenMobile"
+                    class="vs-page-intro__share"
+                >
                     <!-- @slot Slot to display SocialShare button  -->
                     <slot name="vs-share-button" />
                 </div>
 
-                <VsRow>
+                <VsRow
+                    v-if="!fullscreenMobile"
+                >
                     <VsCol
                         cols="11"
                         :md="heroIntro ? '11' : '10'"
@@ -136,12 +176,29 @@ export default {
             type: Boolean,
             default: false,
         },
+        /**
+         * Option for an inspiration mode page intro on mobile. Presents the hero image in full
+         * screen with attached heading
+         */
+        fullscreenMobile: {
+            type: Boolean,
+            default: false,
+        },
+        /**
+         * Test prop, remove
+         */
+        smallerImage: {
+            type: Boolean,
+            default: false,
+        },
     },
     computed: {
         introClasses() {
             return [
                 `vs-page-intro--${this.background}`,
                 this.heroIntro ? 'vs-page-intro--hero' : '',
+                this.fullscreenMobile ? 'vs-page-intro__fullscreen-mobile-header' : '',
+                this.smallerImage ? 'vs-page-intro__smaller-image' : '',
             ];
         },
         contentColProps() {
@@ -197,6 +254,52 @@ export default {
             @include media-breakpoint-up(lg) {
                 padding-bottom: $spacer-9;
             }
+        }
+    }
+
+    &__fullscreen-mobile-header {
+        .vs-page-intro__heading-wrapper {
+            position: relative;
+        }
+
+        .vs-page-intro__share {
+            width: auto;
+            top: $spacer-0;
+            right: $spacer-0;
+        }
+
+        .vs-image-with-caption--hero {
+            height: calc(100vh - $spacer-10);
+            width: calc(100% + $spacer-8);
+            margin-left: -#{$spacer-4};
+
+            .vs-image-with-caption__image-wrapper {
+                height: 100%;
+            }
+        }
+
+        .vs-page-intro__wrapper {
+            background-color: $vs-color-background-information;
+
+            width: calc(100% + $spacer-8);
+            margin-left: -#{$spacer-4};
+            padding: $spacer-0 $spacer-4;
+
+            @include media-breakpoint-up(lg) {
+                width: initial;
+                margin-left: auto;
+                padding: $spacer-0 $spacer-0;
+            }
+
+            > .container {
+                background-color: $vs-color-background-information;
+            }
+        }
+    }
+
+    &__smaller-image {
+        .vs-image-with-caption--hero {
+            height: auto;
         }
     }
 
