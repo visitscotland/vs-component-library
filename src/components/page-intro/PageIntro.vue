@@ -9,42 +9,9 @@
             v-if="fullscreenMobile"
         >
             <VsContainer>
-                <VsRow>
-                    <div
-                        class="vs-page-intro__share"
-                    >
-                        <!-- @slot Slot to display SocialShare button  -->
-                        <slot name="vs-share-button" />
-                    </div>
-
-                    <VsCol
-                        cols="11"
-                        :md="heroIntro ? '11' : '10'"
-                        :lg="heroIntro ? '7' : '10'"
-                        :xl="heroIntro ? '8' : '10'"
-                        :offset-lg="heroIntro ? '1' : '0'"
-                        class="mt-1 mt-sm-0"
-                    >
-                        <VsHeading
-                            level="1"
-                            id="main-heading"
-                        >
-                            <!-- @slot Intro section heading -->
-                            <slot name="vs-intro-heading" />
-                        </VsHeading>
-                        <!-- @slot Section for blog data -->
-                        <slot name="vs-blog-data" />
-                    </VsCol>
-                </VsRow>
-            </VsContainer>
-        </div>
-
-        <!-- @slot Slot for hero ImageWithCaption component  -->
-        <slot name="vs-intro-hero" />
-
-        <div class="vs-page-intro__wrapper">
-            <VsContainer>
-                <VsRow>
+                <VsRow
+                    :class="fullscreenMobile ? 'd-none-md' : ''"
+                >
                     <VsCol
                         cols="10"
                         :lg="heroIntro ? '8' : ''"
@@ -62,15 +29,47 @@
 
                 <div
                     class="vs-page-intro__share"
-                    :class="fullscreenMobile ? 'd-none-md' : ''"
+                >
+                    <!-- @slot Slot to display SocialShare button  -->
+                    <slot name="vs-share-button" />
+                </div>
+            </VsContainer>
+        </div>
+
+        <!-- @slot Slot for hero ImageWithCaption component  -->
+        <slot name="vs-intro-hero" />
+
+        <div
+            class="vs-page-intro__wrapper"
+        >
+            <VsContainer>
+                <VsRow
+                    :class="fullscreenMobile ? 'd-none d-lg-block' : ''"
+                >
+                    <VsCol
+                        cols="10"
+                        :lg="heroIntro ? '8' : ''"
+                        :offset-lg="heroIntro ? '1' : ''"
+                    >
+                        <div
+                            class="vs-page-intro__breadcrumb"
+                            :class="heroIntro ? 'mt-lg-4' : 'mt-lg-8'"
+                        >
+                            <!-- @slot Slot to display breadcrumb items  -->
+                            <slot name="vs-intro-breadcrumb" />
+                        </div>
+                    </VsCol>
+                </VsRow>
+
+                <div
+                    class="vs-page-intro__share"
+                    :class="fullscreenMobile ? 'd-none d-lg-block' : ''"
                 >
                     <!-- @slot Slot to display SocialShare button  -->
                     <slot name="vs-share-button" />
                 </div>
 
-                <VsRow
-                    :class="fullscreenMobile ? 'd-none-md' : ''"
-                >
+                <VsRow>
                     <VsCol
                         cols="11"
                         :md="heroIntro ? '11' : '10'"
@@ -252,20 +251,24 @@ export default {
     &__fullscreen-mobile-header {
         .vs-page-intro__fs-mobile-heading-wrapper {
             position: relative;
+            height: $spacer-10;
 
-            @include media-breakpoint-up(md) {
+            @include media-breakpoint-up(lg) {
                 display: none;
+            }
+
+            .breadcrumb {
+                margin-bottom: $spacer-0;
             }
         }
 
         .vs-page-intro__share {
             width: auto;
-            top: $spacer-0;
-            right: $spacer-0;
+            top: $spacer-2;
         }
 
         .vs-image-with-caption--hero {
-            height: calc(100vh - $spacer-10);
+            height: calc(100vh - $spacer-10 - $spacer-12);
             width: calc(100% + $spacer-8);
             margin-left: -#{$spacer-4};
 
@@ -275,20 +278,26 @@ export default {
         }
 
         .vs-page-intro__wrapper {
-            background-color: $vs-color-background-information;
+            background: rgba(0, 0, 0, 0.4);
+            position: absolute;
+            top: $spacer-10;
+            left: 0;
+            height: calc(100vh - $spacer-12 - $spacer-10);
+            padding: $spacer-4 $spacer-2;
+            color: $vs-color-text-inverse;
 
-            width: calc(100% + $spacer-8);
-            margin-left: -#{$spacer-4};
-            padding: $spacer-0 $spacer-4;
-
-            @include media-breakpoint-up(lg) {
-                width: initial;
-                margin-left: auto;
-                padding: $spacer-0 $spacer-0;
+            .container {
+                background: rgba(0, 0, 0, 0);
             }
 
-            > .container {
-                background-color: $vs-color-background-information;
+            @include media-breakpoint-up(lg) {
+                padding: $spacer-0;
+                position: relative;
+                color: $vs-color-text;
+
+                .container {
+                    background: $vs-color-background-inverse;
+                }
             }
         }
     }

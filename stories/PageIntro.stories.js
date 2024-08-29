@@ -358,7 +358,7 @@ FullscreenMobile.args = {
         ...socialShareDefault.args,
     },
     'vs-intro-heading': 'Northern Lights',
-    'vs-intro-content': 'The Northern Lights - also called the Aurora Borealis - are nature’s very own theatrical performance. It may be a surprise to you, but northern Scotland actually lies at the same latitude as Stavanger in Norway and Nunivak Island in Alaska, which means that you’re in with a good chance of spotting the ‘Mirrie Dancers’. In 2024, Expedia experts highlighted the UK as a hotspot destination for spotting the Northern Lights, specificially on the Isle of Skye between October and March!',
+    'vs-intro-content': 'The Northern Lights - also called the Aurora Borealis - are nature’s very own theatrical performance. In 2024, Expedia experts highlighted the UK as a hotspot destination for spotting the Northern Lights, specificially on the Isle of Skye between October and March!',
     'vs-intro-hero': {
         ...imageWithCaptionDefault.args,
         altText: 'Northern Lights over Cullen Bay',
@@ -369,4 +369,8 @@ FullscreenMobile.args = {
         imageSrc: 'fixtures/itineraries/images/northern-lights-over-cullen-bay.jpg',
         isHeroImage: true,
     },
+};
+
+FullscreenMobile.parameters = {
+    layout: 'fullscreen',
 };
