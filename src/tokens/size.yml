@@ -1,0 +1,36 @@
+#
+# SIZE TOKENS (PRIMITIVE)
+# Range of values that can be aliased to eg the spacer range
+#
+
+aliases:
+  vs-size-0:
+    value: "0"
+  vs-size-0125:
+    value: "0.125rem" 
+  vs-size-025:
+    value: "0.25rem" 
+  vs-size-050:
+    value: "0.50rem"
+  vs-size-075:
+    value: "0.75rem"
+  vs-size-100:
+    value: "1rem"
+  vs-size-125:
+    value: "1.25rem"
+  vs-size-150:
+    value: "1.5rem"
+  vs-size-175:
+    value: "1.75rem"
+  vs-size-200:
+    value: "2rem"
+  vs-size-250:
+    value: "2.5rem"
+  vs-size-300:
+    value: "3rem"
+  vs-size-400:
+    value: "4rem"
+  vs-size-500:
+    value: "5rem"
+  vs-size-600:
+    value: "6rem"

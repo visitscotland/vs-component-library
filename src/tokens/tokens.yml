@@ -17,6 +17,7 @@ imports:
   - ./font.yml
   - ./icons.yml
   - ./opacity.yml
+  - ./size.yml
   - ./timing.yml
   - ./breakpoints.yml
   - ./box-shadow.yml
