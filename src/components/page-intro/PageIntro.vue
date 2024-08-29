@@ -5,7 +5,7 @@
         data-test="vs-page-intro"
     >
         <div
-            class="vs-page-intro__heading-wrapper"
+            class="vs-page-intro__fs-mobile-heading-wrapper"
             v-if="fullscreenMobile"
         >
             <VsContainer>
@@ -61,15 +61,15 @@
                 </VsRow>
 
                 <div
-                    v-if="!fullscreenMobile"
                     class="vs-page-intro__share"
+                    :class="fullscreenMobile ? 'd-none-md' : ''"
                 >
                     <!-- @slot Slot to display SocialShare button  -->
                     <slot name="vs-share-button" />
                 </div>
 
                 <VsRow
-                    v-if="!fullscreenMobile"
+                    :class="fullscreenMobile ? 'd-none-md' : ''"
                 >
                     <VsCol
                         cols="11"
@@ -184,13 +184,6 @@ export default {
             type: Boolean,
             default: false,
         },
-        /**
-         * Test prop, remove
-         */
-        smallerImage: {
-            type: Boolean,
-            default: false,
-        },
     },
     computed: {
         introClasses() {
@@ -198,7 +191,6 @@ export default {
                 `vs-page-intro--${this.background}`,
                 this.heroIntro ? 'vs-page-intro--hero' : '',
                 this.fullscreenMobile ? 'vs-page-intro__fullscreen-mobile-header' : '',
-                this.smallerImage ? 'vs-page-intro__smaller-image' : '',
             ];
         },
         contentColProps() {
@@ -258,8 +250,12 @@ export default {
     }
 
     &__fullscreen-mobile-header {
-        .vs-page-intro__heading-wrapper {
+        .vs-page-intro__fs-mobile-heading-wrapper {
             position: relative;
+
+            @include media-breakpoint-up(md) {
+                display: none;
+            }
         }
 
         .vs-page-intro__share {
@@ -294,12 +290,6 @@ export default {
             > .container {
                 background-color: $vs-color-background-information;
             }
-        }
-    }
-
-    &__smaller-image {
-        .vs-image-with-caption--hero {
-            height: auto;
         }
     }
 

@@ -353,7 +353,6 @@ export const FullscreenMobile = Template.bind();
 FullscreenMobile.args = {
     ...base,
     fullscreenMobile: true,
-    smallerImage: true,
     heroIntro: true,
     'vs-share-button': {
         ...socialShareDefault.args,
