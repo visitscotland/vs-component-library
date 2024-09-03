@@ -249,6 +249,8 @@ export default {
     }
 
     &__fullscreen-mobile-header {
+        position: relative;
+
         .vs-page-intro__fs-mobile-heading-wrapper {
             position: relative;
             height: $spacer-10;
@@ -269,7 +271,7 @@ export default {
 
         .vs-image-with-caption--hero {
             height: calc(100vh - $spacer-10 - $spacer-12);
-            width: calc(100% + $spacer-8);
+            width: calc(100% + $spacer-4);
             margin-left: -#{$spacer-4};
 
             .vs-image-with-caption__image-wrapper {
@@ -282,6 +284,8 @@ export default {
             position: absolute;
             top: $spacer-10;
             left: 0;
+            right: 0;
+            bottom: 0;
             height: calc(100vh - $spacer-12 - $spacer-10);
             padding: $spacer-4 $spacer-2;
             color: $vs-color-text-inverse;
@@ -292,6 +296,8 @@ export default {
 
             @include media-breakpoint-up(lg) {
                 padding: $spacer-0;
+                top: $spacer-0;
+                height: auto;
                 position: relative;
                 color: $vs-color-text;
 
@@ -299,6 +305,10 @@ export default {
                     background: $vs-color-background-inverse;
                 }
             }
+        }
+
+        .vs-image-with-caption__captions {
+            padding: $spacer-0 $spacer-4;
         }
     }
 
