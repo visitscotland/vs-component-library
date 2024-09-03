@@ -4855,7 +4855,6 @@ __metadata:
     vite-plugin-turbosnap: "npm:^1.0.2"
     vue: "npm:^3.4.19"
     vue-combo-blocks: "npm:^2.1.1"
-    vue-insta-stories: "npm:^0.9.8"
     vue-jest: "npm:^5.0.0-alpha.10"
     vue-loader: "npm:^17.1.0"
     vue-recaptcha: "npm:^2.0.1"
@@ -19676,22 +19675,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-demi@npm:^0.7.4":
-  version: 0.7.5
-  resolution: "vue-demi@npm:0.7.5"
-  peerDependencies:
-    "@vue/composition-api": ^1.0.0-beta.1
-    vue: ^2.6.0 || >=3.0.0-rc.1
-  peerDependenciesMeta:
-    "@vue/composition-api":
-      optional: true
-  bin:
-    vue-demi-fix: bin/vue-demi-fix.js
-    vue-demi-switch: bin/vue-demi-switch.js
-  checksum: 10c0/7c127fde28ec92ef30f56560872236f22460f91ec113cfea542ef7e3ace4dfc8b23d6828ae14c470c5db525be267d729155e2c2459ee51d878e773f42f9f19bb
-  languageName: node
-  linkType: hard
-
 "vue-docgen-api@npm:^4.75.1":
   version: 4.78.0
   resolution: "vue-docgen-api@npm:4.78.0"
@@ -19737,21 +19720,6 @@ __metadata:
   peerDependencies:
     vue: ">=2"
   checksum: 10c0/ff2630639fb4e3a9974927845bb32a6c69a8be82fc224e2a623939a59af5537f1859c8eb13a1e3bfd0811c13409de5501deaf7c719a980f51d7f97bef140cdb5
-  languageName: node
-  linkType: hard
-
-"vue-insta-stories@npm:^0.9.8":
-  version: 0.9.8
-  resolution: "vue-insta-stories@npm:0.9.8"
-  dependencies:
-    vue-demi: "npm:^0.7.4"
-  peerDependencies:
-    "@vue/composition-api": ^1.0.0-beta.1
-    vue: ^2.0.0 || >=3.0.0-rc.0
-  peerDependenciesMeta:
-    "@vue/composition-api":
-      optional: true
-  checksum: 10c0/c58e184933523efb1c766568779bdf9f6c08099551124e0283bba5d1b901f46d4463ecf0f532d826acf3815e03a4f80ef8c991cd2462bad745f2b42dff03d047
   languageName: node
   linkType: hard
 
