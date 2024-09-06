@@ -6,6 +6,7 @@
     >
         <div
             class="vs-page-intro__fs-mobile-heading-wrapper"
+            data-test="vs-page-intro__mobile-breadcrumb"
             v-if="fullscreenMobile"
         >
             <VsContainer>
@@ -270,7 +271,9 @@ export default {
         }
 
         .vs-image-with-caption--hero {
-            height: calc(100vh - $spacer-10 - $spacer-12);
+            // 100vh - the height of the nav - the height of the breadcrumb - a little to partially
+            // reveal the header
+            height: calc(100vh - $spacer-10 - $spacer-12 - $spacer-2);
             width: calc(100% + $spacer-4);
             margin-left: -#{$spacer-4};
 
@@ -280,31 +283,7 @@ export default {
         }
 
         .vs-page-intro__wrapper {
-            background: rgba(0, 0, 0, 0.4);
-            position: absolute;
-            top: $spacer-10;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: calc(100vh - $spacer-12 - $spacer-10);
-            padding: $spacer-4 $spacer-2;
-            color: $vs-color-text-inverse;
-
-            .container {
-                background: rgba(0, 0, 0, 0);
-            }
-
-            @include media-breakpoint-up(lg) {
-                padding: $spacer-0;
-                top: $spacer-0;
-                height: auto;
-                position: relative;
-                color: $vs-color-text;
-
-                .container {
-                    background: $vs-color-background-inverse;
-                }
-            }
+            margin-top: $spacer-2;
         }
 
         .vs-image-with-caption__captions {
