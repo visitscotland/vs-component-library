@@ -78,6 +78,14 @@ describe('VsButton', () => {
             expect(wrapper.classes('vs-button--icon-with-text')).toBe(true);
         });
 
+        it(':iconOnly - should render the button text span with `visually-hidden` class', () => {
+            const wrapper = factoryMount({
+                iconOnly: true,
+            });
+            const textSlotSpan = wrapper.get('span.vs-button__text');
+            expect(textSlotSpan.classes('visually-hidden')).toBe(true);
+        });
+
         describe(':icon', () => {
             it('should *NOT* render an icon if `icon` property is not passed', () => {
                 const wrapper = factoryMount();
