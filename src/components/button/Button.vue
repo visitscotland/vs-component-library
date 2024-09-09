@@ -251,7 +251,7 @@ export default {
             }
 
             &.vs-button--rounded {
-                border-radius: 100px;
+                border-radius: $border-radius-pill;
             }
 
             &.disabled {
