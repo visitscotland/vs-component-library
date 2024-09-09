@@ -55,9 +55,7 @@
                 @click="onClose"
                 @keydown.tab="tabFromClose($event)"
             >
-                <span class="visually-hidden">
-                    {{ closeAltText }}
-                </span>
+                {{ closeAltText }}
             </VsButton>
         </BPopover>
 

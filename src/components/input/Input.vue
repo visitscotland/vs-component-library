@@ -60,9 +60,7 @@
             icon-only
             @click.prevent="clearInputAndFocus()"
         >
-            <span class="visually-hidden">
-                {{ clearButtonText }}
-            </span>
+            {{ clearButtonText }}
         </VsButton>
     </div>
 </template>
