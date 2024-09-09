@@ -10,7 +10,10 @@
                     cols="12"
                     class="col-xxl-10 offset-xxl-1"
                 >
-                    <div class="vs-article__wrapper mb-9 mb-md-11">
+                    <div
+                        class="vs-article__wrapper mb-9 mb-md-11"
+                        :class="{ 'vs-article__wrapper--no-border': removeBorder }"
+                    >
                         <!-- @slot Slot to contain the cover image for this article -->
                         <slot name="vs-article-img" />
 
@@ -93,17 +96,28 @@ export default {
             type: String,
             default: '',
         },
+        /**
+         * Option to remove the border surrounding the article.
+         */
+        removeBorder: {
+            type: Boolean,
+            default: false,
+        },
     },
 };
 </script>
 
 <style lang="scss">
 .vs-article {
-    &__wrapper{
+    &__wrapper {
         border: 1px solid $vs-color-border;
 
-        figure{
+        figure {
             margin-bottom: 0;
+        }
+
+        &--no-border {
+            border: 0;
         }
     }
 

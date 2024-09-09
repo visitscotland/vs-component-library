@@ -258,6 +258,12 @@ SidebarVideo.args = {
     },
 };
 
+export const NoBorder = Template.bind();
+NoBorder.args = {
+    ...base,
+    removeBorder: true,
+};
+
 export const NoCookies = Template.bind();
 NoCookies.args = {
     ...base,

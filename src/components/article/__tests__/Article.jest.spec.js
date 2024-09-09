@@ -33,10 +33,19 @@ describe('VsArticle', () => {
         it('renders `title` passed to the article', () => {
             expect(wrapper.text()).toContain('Route to the summit');
         });
+
         it('renders `anchorLink` passed to the article', () => {
             const header = wrapper.find('article[data-test=vs-article]').find('.vs-article__header');
             const anchor = header.find('#Routes');
             expect(anchor.exists()).toBe(true);
+        });
+
+        it(':removeBorder - render with class `vs-article__wrapper--no-border` when true', () => {
+            const removeBorderWrapper = factoryMount({
+                removeBorder: true,
+            });
+
+            expect(removeBorderWrapper.find('.vs-article__wrapper--no-border').exists()).toBe(true);
         });
     });
 
