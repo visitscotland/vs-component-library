@@ -15,7 +15,10 @@
                         :class="{ 'vs-article__wrapper--no-border': removeBorder }"
                     >
                         <!-- @slot Slot to contain the cover image for this article -->
-                        <slot name="vs-article-img" />
+                        <slot
+                            name="vs-article-img"
+                            v-if="coverPosition === 'standard'"
+                        />
 
                         <VsRow>
                             <VsCol
@@ -41,6 +44,13 @@
                                         for this article -->
                                         <slot name="vs-article-intro" />
                                     </VsRichTextWrapper>
+
+                                    <div
+                                        v-if="coverPosition === 'alternative'"
+                                        class="mb-9"
+                                    >
+                                        <slot name="vs-article-img" />
+                                    </div>
                                 </div>
 
                                 <div class="vs-article__content">
@@ -110,6 +120,14 @@ export default {
             type: String,
             default: 'centre',
             validator: (value) => value.match(/(left|centre|right)/),
+        },
+        /**
+         * Option to remove the set the title and intro text alignment.
+         */
+        coverPosition: {
+            type: String,
+            default: 'standard',
+            validator: (value) => value.match(/(standard|alternative)/),
         },
     },
     computed: {

@@ -40,6 +40,15 @@ export default {
                 type: 'radio',
             },
         },
+        coverPosition: {
+            options: [
+                'standard',
+                'alternative',
+            ],
+            control: {
+                type: 'radio',
+            },
+        },
     },
 };
 
@@ -218,6 +227,7 @@ const base = {
     `,
     jsDisabled: false,
     headingAlign: 'centre',
+    coverPosition: 'standard',
 };
 
 export const Default = Template.bind();
@@ -242,6 +252,12 @@ CoverVideo.args = {
         videoId: 'c05sg3G4oA4',
         videoTitle: 'Only in Scotland',
     },
+};
+
+export const CoverAlternativePosition = Template.bind();
+CoverAlternativePosition.args = {
+    ...CoverImage.args,
+    coverPosition: 'alternative',
 };
 
 export const SidebarRightAligned = Template.bind();

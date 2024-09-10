@@ -73,6 +73,22 @@ describe('VsArticle', () => {
 
             expect(header.exists()).toBe(true);
         });
+
+        it(':coverPosition - render cover media above title when `standard`', () => {
+            const header = wrapper.find('article[data-test=vs-article]').find('.vs-article__header');
+
+            expect(header.text()).not.toContain(imgSlotText);
+        });
+
+        it(':coverPosition - render cover media above title when `alternative`', () => {
+            const coverPositionWrapper = factoryMount({
+                coverPosition: 'alternative',
+            });
+
+            const header = coverPositionWrapper.find('article[data-test=vs-article]').find('.vs-article__header');
+
+            expect(header.text()).toContain(imgSlotText);
+        });
     });
 
     describe(':slots', () => {
