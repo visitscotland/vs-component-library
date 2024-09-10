@@ -4,12 +4,15 @@
         :class="introClasses"
         data-test="vs-page-intro"
     >
-        <!-- @slot Slot for hero ImageWithCaption component  -->
-        <slot name="vs-intro-hero" />
-
-        <div class="vs-page-intro__wrapper">
+        <div
+            class="vs-page-intro__fs-mobile-heading-wrapper"
+            data-test="vs-page-intro__mobile-breadcrumb"
+            v-if="fullscreenMobile"
+        >
             <VsContainer>
-                <VsRow>
+                <VsRow
+                    :class="fullscreenMobile ? 'd-none-md' : ''"
+                >
                     <VsCol
                         cols="10"
                         :lg="heroIntro ? '8' : ''"
@@ -25,7 +28,44 @@
                     </VsCol>
                 </VsRow>
 
-                <div class="vs-page-intro__share">
+                <div
+                    class="vs-page-intro__share"
+                >
+                    <!-- @slot Slot to display SocialShare button  -->
+                    <slot name="vs-share-button" />
+                </div>
+            </VsContainer>
+        </div>
+
+        <!-- @slot Slot for hero ImageWithCaption component  -->
+        <slot name="vs-intro-hero" />
+
+        <div
+            class="vs-page-intro__wrapper"
+        >
+            <VsContainer>
+                <VsRow
+                    :class="fullscreenMobile ? 'd-none d-lg-block' : ''"
+                >
+                    <VsCol
+                        cols="10"
+                        :lg="heroIntro ? '8' : ''"
+                        :offset-lg="heroIntro ? '1' : ''"
+                    >
+                        <div
+                            class="vs-page-intro__breadcrumb"
+                            :class="heroIntro ? 'mt-lg-4' : 'mt-lg-8'"
+                        >
+                            <!-- @slot Slot to display breadcrumb items  -->
+                            <slot name="vs-intro-breadcrumb" />
+                        </div>
+                    </VsCol>
+                </VsRow>
+
+                <div
+                    class="vs-page-intro__share"
+                    :class="fullscreenMobile ? 'd-none d-lg-block' : ''"
+                >
                     <!-- @slot Slot to display SocialShare button  -->
                     <slot name="vs-share-button" />
                 </div>
@@ -136,12 +176,21 @@ export default {
             type: Boolean,
             default: false,
         },
+        /**
+         * Option for an inspiration mode page intro on mobile. Presents the hero image in full
+         * screen with attached heading
+         */
+        fullscreenMobile: {
+            type: Boolean,
+            default: false,
+        },
     },
     computed: {
         introClasses() {
             return [
                 `vs-page-intro--${this.background}`,
                 this.heroIntro ? 'vs-page-intro--hero' : '',
+                this.fullscreenMobile ? 'vs-page-intro__fullscreen-mobile-header' : '',
             ];
         },
         contentColProps() {
@@ -197,6 +246,48 @@ export default {
             @include media-breakpoint-up(lg) {
                 padding-bottom: $spacer-9;
             }
+        }
+    }
+
+    &__fullscreen-mobile-header {
+        position: relative;
+
+        .vs-page-intro__fs-mobile-heading-wrapper {
+            position: relative;
+            height: $spacer-10;
+
+            @include media-breakpoint-up(lg) {
+                display: none;
+            }
+
+            .breadcrumb {
+                margin-bottom: $spacer-0;
+            }
+        }
+
+        .vs-page-intro__share {
+            width: auto;
+            top: $spacer-2;
+        }
+
+        .vs-image-with-caption--hero {
+            // 100vh - the height of the nav - the height of the breadcrumb - a little to partially
+            // reveal the header
+            height: calc(100vh - $spacer-10 - $spacer-12 - $spacer-2);
+            width: calc(100% + $spacer-4);
+            margin-left: -#{$spacer-4};
+
+            .vs-image-with-caption__image-wrapper {
+                height: 100%;
+            }
+        }
+
+        .vs-page-intro__wrapper {
+            margin-top: $spacer-2;
+        }
+
+        .vs-image-with-caption__captions {
+            padding: $spacer-0 $spacer-4;
         }
     }
 
