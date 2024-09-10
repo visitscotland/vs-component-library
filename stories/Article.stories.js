@@ -30,6 +30,16 @@ export default {
                 type: 'radio',
             },
         },
+        headingAlign: {
+            options: [
+                'left',
+                'centre',
+                'right',
+            ],
+            control: {
+                type: 'radio',
+            },
+        },
     },
 };
 
@@ -207,6 +217,7 @@ const base = {
         <p>Remember it's never 'easy' to bag a Scottish Munro or Corbett. You'll need a good amount of hillwalking experience, fitness, hill craft and navigation skills using a map and compass, before attempting any Scottish mountains, even more so in winter.</p>
     `,
     jsDisabled: false,
+    headingAlign: 'centre',
 };
 
 export const Default = Template.bind();
@@ -262,6 +273,12 @@ export const NoBorder = Template.bind();
 NoBorder.args = {
     ...base,
     removeBorder: true,
+};
+
+export const HeaderLeftAligned = Template.bind();
+HeaderLeftAligned.args = {
+    ...base,
+    headingAlign: 'left',
 };
 
 export const NoCookies = Template.bind();

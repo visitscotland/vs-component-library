@@ -26,7 +26,7 @@
                                 <div class="vs-article__header mx-6 mx-md-0 mt-9 mt-lg-11">
                                     <VsHeading
                                         level="2"
-                                        class="text-center mb-8 mb-lg-9"
+                                        :class="[headerAlignClass, 'mb-8 mb-lg-9']"
                                     >
                                         <span :id="anchorLink ? anchorLink : ''">
                                             {{ title }}
@@ -35,7 +35,7 @@
 
                                     <VsRichTextWrapper
                                         variant="lead"
-                                        class="text-center mb-9 mb-lg-10"
+                                        :class="[headerAlignClass, 'mb-9 mb-lg-10']"
                                     >
                                         <!-- @slot Slot to contain the introduction
                                         for this article -->
@@ -102,6 +102,27 @@ export default {
         removeBorder: {
             type: Boolean,
             default: false,
+        },
+        /**
+         * Option to remove the set the title and intro text alignment.
+         */
+        headingAlign: {
+            type: String,
+            default: 'centre',
+            validator: (value) => value.match(/(left|centre|right)/),
+        },
+    },
+    computed: {
+        headerAlignClass() {
+            if (this.headingAlign === 'left') {
+                return 'text-start';
+            }
+
+            if (this.headingAlign === 'right') {
+                return 'text-end';
+            }
+
+            return 'text-center';
         },
     },
 };

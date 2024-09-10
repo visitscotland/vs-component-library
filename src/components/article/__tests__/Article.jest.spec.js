@@ -47,6 +47,32 @@ describe('VsArticle', () => {
 
             expect(removeBorderWrapper.find('.vs-article__wrapper--no-border').exists()).toBe(true);
         });
+
+        it(':headingAlign - render heading with class `text-start` when `left`', () => {
+            const headingAlignWrapper = factoryMount({
+                headingAlign: 'left',
+            });
+
+            const header = headingAlignWrapper.find('article[data-test=vs-article]').find('.vs-article__header .text-start');
+
+            expect(header.exists()).toBe(true);
+        });
+
+        it(':headingAlign - render heading with class `text-center` when `centre`', () => {
+            const header = wrapper.find('article[data-test=vs-article]').find('.vs-article__header .text-center');
+
+            expect(header.exists()).toBe(true);
+        });
+
+        it(':headingAlign - render heading with class `text-end` when `right`', () => {
+            const headingAlignWrapper = factoryMount({
+                headingAlign: 'right',
+            });
+
+            const header = headingAlignWrapper.find('article[data-test=vs-article]').find('.vs-article__header .text-end');
+
+            expect(header.exists()).toBe(true);
+        });
     });
 
     describe(':slots', () => {
