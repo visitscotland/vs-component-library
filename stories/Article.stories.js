@@ -30,25 +30,6 @@ export default {
                 type: 'radio',
             },
         },
-        headingAlign: {
-            options: [
-                'left',
-                'centre',
-                'right',
-            ],
-            control: {
-                type: 'radio',
-            },
-        },
-        coverPosition: {
-            options: [
-                'standard',
-                'alternative',
-            ],
-            control: {
-                type: 'radio',
-            },
-        },
     },
 };
 
@@ -226,8 +207,6 @@ const base = {
         <p>Remember it's never 'easy' to bag a Scottish Munro or Corbett. You'll need a good amount of hillwalking experience, fitness, hill craft and navigation skills using a map and compass, before attempting any Scottish mountains, even more so in winter.</p>
     `,
     jsDisabled: false,
-    headingAlign: 'centre',
-    coverPosition: 'standard',
 };
 
 export const Default = Template.bind();
@@ -252,12 +231,6 @@ CoverVideo.args = {
         videoId: 'c05sg3G4oA4',
         videoTitle: 'Only in Scotland',
     },
-};
-
-export const CoverAlternativePosition = Template.bind();
-CoverAlternativePosition.args = {
-    ...CoverImage.args,
-    coverPosition: 'alternative',
 };
 
 export const SidebarRightAligned = Template.bind();
@@ -285,16 +258,11 @@ SidebarVideo.args = {
     },
 };
 
-export const NoBorder = Template.bind();
-NoBorder.args = {
+export const BusinessSupportHub = Template.bind();
+BusinessSupportHub.args = {
     ...base,
-    removeBorder: true,
-};
-
-export const HeaderLeftAligned = Template.bind();
-HeaderLeftAligned.args = {
-    ...base,
-    headingAlign: 'left',
+    sidebarAlign: 'right',
+    businessSupport: true,
 };
 
 export const NoCookies = Template.bind();

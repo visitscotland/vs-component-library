@@ -8,28 +8,27 @@
             <VsRow>
                 <VsCol
                     cols="12"
-                    class="col-xxl-10 offset-xxl-1"
+                    class="col-xxl-10"
+                    :class="!businessSupport && 'offset-xxl-1'"
                 >
                     <div
                         class="vs-article__wrapper mb-9 mb-md-11"
-                        :class="{ 'vs-article__wrapper--no-border': removeBorder }"
+                        :class="businessSupport && 'vs-article__wrapper--no-border'"
                     >
                         <!-- @slot Slot to contain the cover image for this article -->
-                        <slot
-                            name="vs-article-img"
-                            v-if="coverPosition === 'standard'"
-                        />
+                        <slot name="vs-article-img" />
 
                         <VsRow>
                             <VsCol
                                 cols="12"
                                 md="10"
-                                offset-md="1"
+                                :offset-md="businessSupport ? null : '1'"
                             >
                                 <div class="vs-article__header mx-6 mx-md-0 mt-9 mt-lg-11">
                                     <VsHeading
                                         level="2"
-                                        :class="[headerAlignClass, 'mb-8 mb-lg-9']"
+                                        class="mb-8 mb-lg-9"
+                                        :class="!businessSupport && 'text-center'"
                                     >
                                         <span :id="anchorLink ? anchorLink : ''">
                                             {{ title }}
@@ -38,19 +37,13 @@
 
                                     <VsRichTextWrapper
                                         variant="lead"
-                                        :class="[headerAlignClass, 'mb-9 mb-lg-10']"
+                                        class="mb-9 mb-lg-10"
+                                        :class="!businessSupport && 'text-center'"
                                     >
                                         <!-- @slot Slot to contain the introduction
                                         for this article -->
                                         <slot name="vs-article-intro" />
                                     </VsRichTextWrapper>
-
-                                    <div
-                                        v-if="coverPosition === 'alternative'"
-                                        class="mb-9"
-                                    >
-                                        <slot name="vs-article-img" />
-                                    </div>
                                 </div>
 
                                 <div class="vs-article__content">
@@ -107,40 +100,12 @@ export default {
             default: '',
         },
         /**
-         * Option to remove the border surrounding the article.
+         * Flag that this component is being used on the Business Support Hub
+         * which requires specific changes to be applied.
          */
-        removeBorder: {
+        businessSupport: {
             type: Boolean,
             default: false,
-        },
-        /**
-         * Option to remove the set the title and intro text alignment.
-         */
-        headingAlign: {
-            type: String,
-            default: 'centre',
-            validator: (value) => value.match(/(left|centre|right)/),
-        },
-        /**
-         * Option to remove the set the title and intro text alignment.
-         */
-        coverPosition: {
-            type: String,
-            default: 'standard',
-            validator: (value) => value.match(/(standard|alternative)/),
-        },
-    },
-    computed: {
-        headerAlignClass() {
-            if (this.headingAlign === 'left') {
-                return 'text-start';
-            }
-
-            if (this.headingAlign === 'right') {
-                return 'text-end';
-            }
-
-            return 'text-center';
         },
     },
 };
@@ -148,10 +113,10 @@ export default {
 
 <style lang="scss">
 .vs-article {
-    &__wrapper {
+    &__wrapper{
         border: 1px solid $vs-color-border;
 
-        figure {
+        figure{
             margin-bottom: 0;
         }
 

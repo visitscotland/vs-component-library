@@ -40,54 +40,30 @@ describe('VsArticle', () => {
             expect(anchor.exists()).toBe(true);
         });
 
-        it(':removeBorder - render with class `vs-article__wrapper--no-border` when true', () => {
-            const removeBorderWrapper = factoryMount({
-                removeBorder: true,
+        it(':businessSupport - render `VsCol` without offsets when true', () => {
+            const businessSupportWrapper = factoryMount({
+                businessSupport: true,
             });
 
-            expect(removeBorderWrapper.find('.vs-article__wrapper--no-border').exists()).toBe(true);
+            expect(businessSupportWrapper.find('.offset-xxl-1').exists()).toBe(false);
+            expect(businessSupportWrapper.find('.offset-md-1').exists()).toBe(false);
         });
 
-        it(':headingAlign - render heading with class `text-start` when `left`', () => {
-            const headingAlignWrapper = factoryMount({
-                headingAlign: 'left',
+        it(':businessSupport - render with class `vs-article__wrapper--no-border` when true', () => {
+            const businessSupportWrapper = factoryMount({
+                businessSupport: true,
             });
 
-            const header = headingAlignWrapper.find('article[data-test=vs-article]').find('.vs-article__header .text-start');
-
-            expect(header.exists()).toBe(true);
+            expect(businessSupportWrapper.find('.vs-article__wrapper--no-border').exists()).toBe(true);
         });
 
-        it(':headingAlign - render heading with class `text-center` when `centre`', () => {
-            const header = wrapper.find('article[data-test=vs-article]').find('.vs-article__header .text-center');
-
-            expect(header.exists()).toBe(true);
-        });
-
-        it(':headingAlign - render heading with class `text-end` when `right`', () => {
-            const headingAlignWrapper = factoryMount({
-                headingAlign: 'right',
+        it(':businessSupport - render heading and intro without class `text-center` when true', () => {
+            const businessSupportWrapper = factoryMount({
+                businessSupport: true,
             });
+            const header = businessSupportWrapper.find('article[data-test=vs-article]').find('.vs-article__header .text-center');
 
-            const header = headingAlignWrapper.find('article[data-test=vs-article]').find('.vs-article__header .text-end');
-
-            expect(header.exists()).toBe(true);
-        });
-
-        it(':coverPosition - render cover media above title when `standard`', () => {
-            const header = wrapper.find('article[data-test=vs-article]').find('.vs-article__header');
-
-            expect(header.text()).not.toContain(imgSlotText);
-        });
-
-        it(':coverPosition - render cover media above title when `alternative`', () => {
-            const coverPositionWrapper = factoryMount({
-                coverPosition: 'alternative',
-            });
-
-            const header = coverPositionWrapper.find('article[data-test=vs-article]').find('.vs-article__header');
-
-            expect(header.text()).toContain(imgSlotText);
+            expect(header.exists()).toBe(false);
         });
     });
 
