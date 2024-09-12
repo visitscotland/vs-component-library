@@ -6,6 +6,7 @@
     >
         <VsRow>
             <VsCol
+                v-if="hasSidebarSlot"
                 cols="12"
                 md="5"
                 xl="4"
@@ -20,7 +21,7 @@
             </VsCol>
             <VsCol
                 cols="12"
-                md="7"
+                :md="hasSidebarSlot ? '7' : '9'"
                 data-test="vs-article-section__content"
                 :offset-xl="sidebarAlign === 'left' ? '1' : ''"
             >
@@ -69,6 +70,9 @@ export default {
             return this.sidebarAlign === 'right'
                 ? 'vs-article-section--sidebar-right'
                 : 'vs-article-section--sidebar-left';
+        },
+        hasSidebarSlot() {
+            return !!this.$slots['article-sidebar'];
         },
     },
 };
