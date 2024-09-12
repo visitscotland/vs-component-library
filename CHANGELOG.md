@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.4](https://github.com/visitscotland/vs-component-library/compare/v3.1.3...v3.1.4) (2024-09-12)
+
+
+### 🐛 Bug Fixes
+
+* **img:** correct tests for srcset ([ee039ae](https://github.com/visitscotland/vs-component-library/commit/ee039ae08b777c407249b75474dc1ecf3b756adf))
+* **page intro:** fix caption display on tablet for full scren ([1efd203](https://github.com/visitscotland/vs-component-library/commit/1efd2034465834dfcba25445d3e2fa3bd98aea7c))
+* **page intro:** fix social share on desktop on full screen mode ([735e1ba](https://github.com/visitscotland/vs-component-library/commit/735e1ba7daca56c8b01af08bfc05e30f44cc798b))
+* **social share:** fix share width on mobile ([980ecf8](https://github.com/visitscotland/vs-component-library/commit/980ecf8eddf1eb1638388ce72f47050ae87e4094))
+
 ### [3.1.3](https://github.com/visitscotland/vs-component-library/compare/v3.1.2...v3.1.3) (2024-09-12)
 
 
