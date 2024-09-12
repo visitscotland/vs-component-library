@@ -271,14 +271,12 @@ export default {
         }
 
         .vs-image-with-caption--hero {
-            // 100vh - the height of the nav - the height of the breadcrumb - a little to partially
-            // reveal the header
-            height: calc(100vh - $spacer-10 - $spacer-12 - $spacer-2);
-            width: calc(100% + $spacer-4);
-            margin-left: -#{$spacer-4};
-
             .vs-image-with-caption__image-wrapper {
-                height: 100%;
+                // 100vh - the height of the nav - the height of the breadcrumb - a little to partially
+                // reveal the header
+                height: calc(100vh - $spacer-10 - $spacer-12 - $spacer-2);
+                width: calc(100% + $spacer-4);
+                margin-left: -#{$spacer-4};
             }
 
             .vs-image-with-caption__captions {
