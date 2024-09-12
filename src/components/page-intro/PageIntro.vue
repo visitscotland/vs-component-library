@@ -27,13 +27,6 @@
                         </div>
                     </VsCol>
                 </VsRow>
-
-                <div
-                    class="vs-page-intro__share"
-                >
-                    <!-- @slot Slot to display SocialShare button  -->
-                    <slot name="vs-share-button" />
-                </div>
             </VsContainer>
         </div>
 
@@ -62,10 +55,7 @@
                     </VsCol>
                 </VsRow>
 
-                <div
-                    class="vs-page-intro__share"
-                    :class="fullscreenMobile ? 'd-none d-lg-block' : ''"
-                >
+                <div class="vs-page-intro__share">
                     <!-- @slot Slot to display SocialShare button  -->
                     <slot name="vs-share-button" />
                 </div>
@@ -267,7 +257,8 @@ export default {
 
         .vs-page-intro__share {
             width: auto;
-            top: $spacer-2;
+            // Moves the share above the hero image on mobile screens
+            top: calc(-100vh + $spacer-12 + $spacer-2);
         }
 
         .vs-image-with-caption--hero {
