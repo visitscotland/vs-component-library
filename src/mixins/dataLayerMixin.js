@@ -2,7 +2,6 @@ import { mapState } from 'pinia';
 import useDataLayerStore from '../stores/dataLayer.store';
 
 import checkVendorLibrary from '../utils/check-vendor-library';
-import dmoAnalyticsLogic from '../utils/dmo-analytics-logic';
 
 import {
     pageViewTemplate,
@@ -173,7 +172,6 @@ const dataLayerMixin = {
             case 'externalLinkDataEvent':
                 eventName = 'external_link';
                 tagName = 'VS - GA - External Link';
-                dmoAnalyticsLogic(event);
 
                 templateValues = {
                     event: eventName,
@@ -189,7 +187,6 @@ const dataLayerMixin = {
             case 'internalLinkDataEvent':
                 eventName = 'internal_link';
                 tagName = 'VS - GA - Internal Link';
-                dmoAnalyticsLogic(event, window.location.href);
 
                 templateValues = {
                     event: eventName,
