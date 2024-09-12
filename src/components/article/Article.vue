@@ -8,8 +8,7 @@
             <VsRow>
                 <VsCol
                     cols="12"
-                    class="col-xxl-10"
-                    :class="!businessSupport && 'offset-xxl-1'"
+                    :class="!businessSupport && 'col-xxl-10 offset-xxl-1'"
                 >
                     <div
                         class="vs-article__wrapper mb-9 mb-md-11"
