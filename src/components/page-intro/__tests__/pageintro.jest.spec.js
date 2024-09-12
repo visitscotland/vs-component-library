@@ -7,6 +7,7 @@ const factoryShallowMount = (slotData) => shallowMount(VsPageIntro, {
     propsData: {
         background: 'grey',
         simpleIntro: false,
+        fullscreenMobile: false,
     },
     ...slotData,
 });
@@ -23,6 +24,18 @@ describe('VsPageIntro', () => {
                 heroIntro: true,
             });
             expect(wrapper.find('[data-test="vs-page-intro"]').classes()).toContain('vs-page-intro--hero');
+        });
+
+        it('should not render the mobile breadcrumb container if `fullscreenMobile` is false', async() => {
+            expect(wrapper.find('[data-test="vs-page-intro__mobile-breadcrumb"]').exists()).toBe(false);
+        });
+
+        it('should render the mobile breadcrumb container if `fullscreenMobile` is true', async() => {
+            await wrapper.setProps({
+                fullscreenMobile: true,
+            });
+
+            expect(wrapper.find('[data-test="vs-page-intro__mobile-breadcrumb"]').exists()).toBe(true);
         });
     });
 
