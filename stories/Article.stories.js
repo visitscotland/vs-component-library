@@ -104,9 +104,15 @@ const Template = (args) => ({
                 </template>
 
                 <VsArticleSection :sidebar-align="args.sidebarAlign">
-                    <template v-slot:article-sidebar>
+                    <template
+                        v-if="args.sidebarImg || args.sidebarQuote"
+                        v-slot:article-sidebar
+                    >
                         <VsArticleSidebar :sidebar-align="args.sidebarAlign">
-                            <template v-slot:vs-article-sidebar-img>
+                            <template
+                                v-if="args.sidebarImg"
+                                v-slot:vs-article-sidebar-img
+                            >
                                 <VsImageWithCaption
                                     v-if="!args['sidebarImg'].isVideo"
                                     :alt-text="args['sidebarImg'].alt"
@@ -143,11 +149,13 @@ const Template = (args) => ({
                                 </VsImageWithCaption>
                             </template>
 
-                            <template v-slot:vs-article-sidebar-quote>
-                                <VsQuote>
+                            <template
+                                v-if="args.sidebarQuote"
+                                v-slot:vs-article-sidebar-quote
+                            >
+                                <VsQuote :with-border="args.businessSupport">
                                     <template v-slot:quote-content>
-                                        <p>Scotland’s largest mountain was once a massive active volcano which exploded 
-                                        and collapsed inwards on itself millions of years ago.</p>
+                                        <p>{{ args.sidebarQuote }}</p>
                                     </template>
                                     <template v-slot:quote-author-name>
                                         Penny
@@ -263,6 +271,13 @@ BusinessSupportHub.args = {
     ...base,
     sidebarAlign: 'right',
     businessSupport: true,
+};
+
+export const BusinessSupportHubNoSidebar = Template.bind();
+BusinessSupportHubNoSidebar.args = {
+    ...BusinessSupportHub.args,
+    sidebarImg: '',
+    sidebarQuote: '',
 };
 
 export const NoCookies = Template.bind();
