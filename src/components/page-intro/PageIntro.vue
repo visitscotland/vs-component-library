@@ -45,7 +45,7 @@
         >
             <VsContainer>
                 <VsRow
-                    :class="fullscreenMobile ? 'd-none d-lg-block' : ''"
+                    :class="fullscreenMobile ? 'd-none d-lg-flex' : ''"
                 >
                     <VsCol
                         cols="10"
@@ -279,6 +279,10 @@ export default {
 
             .vs-image-with-caption__image-wrapper {
                 height: 100%;
+            }
+
+            .vs-image-with-caption__captions {
+                width: calc(100% + $spacer-4);
             }
         }
 
