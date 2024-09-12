@@ -150,7 +150,7 @@ const Template = (args) => ({
                             </template>
 
                             <template v-slot:vs-article-sidebar-quote>
-                                <VsQuote>
+                                <VsQuote :with-border="args.businessSupport">
                                     <template v-slot:quote-content>
                                         <p>{{ args['sidebarQuote'] }}</p>
                                     </template>
