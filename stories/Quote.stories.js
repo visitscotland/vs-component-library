@@ -100,3 +100,9 @@ WithLink.args = {
         linkText: 'Explore Ben Nevis',
     },
 };
+
+export const WithBorder = Template.bind();
+WithBorder.args = {
+    ...base,
+    withBorder: true,
+};
