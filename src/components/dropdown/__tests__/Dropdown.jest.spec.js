@@ -21,6 +21,8 @@ beforeEach(() => {
 
 describe('VSDropdown', () => {
     it('should render a bdropdown-stub', () => {
-        expect(wrapper.element.tagName).toBe('B-DROPDOWN-STUB');
+        const dropdown = wrapper.find('b-dropdown-stub');
+
+        expect(dropdown.exists()).toBe(true);
     });
 });

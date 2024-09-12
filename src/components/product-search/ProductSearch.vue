@@ -136,7 +136,7 @@ export default {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            background: $vs-color-background-accent-oatcake;
+            background: $vs-color-background-accent-bluebell;
             padding: $spacer-6 $spacer-4;
         }
 

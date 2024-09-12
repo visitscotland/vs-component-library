@@ -4,7 +4,6 @@
         class="vs-map-marker"
         :class="isActive ? 'vs-map-marker--active' : ''"
         data-test="vs-map-marker"
-        variant="transparent"
         @click="markerClick"
         @keydown.enter="markerClick"
         @mouseover="handleHover(feature)"

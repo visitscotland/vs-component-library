@@ -11,7 +11,7 @@
                 class="h-100"
             >
                 <VsRow
-                    class="align-items-center h-100"
+                    class="align-items-center h-100 vs-mega-nav__main-row"
                 >
                     <!-- Logo Link -->
                     <VsCol
@@ -280,6 +280,10 @@ export default {
         height: 55px;
     }
 
+    &__main-row {
+        flex-wrap: nowrap;
+    }
+
     &__logo {
         display: inline-block;
         height: calc(#{$spacer-8} + #{$spacer-1});
@@ -337,6 +341,10 @@ export default {
         max-width: 100%;
         flex: 0 0 100%;
         position: relative;
+    }
+
+    .vs-mega-nav__main-row {
+        flex-wrap: wrap;
     }
 }
 </style>

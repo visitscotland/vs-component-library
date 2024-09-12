@@ -32,12 +32,12 @@ describe('VsMegaNavDropdown', () => {
     describe(':slots', () => {
         it('renders content inserted in a cta-link slot', () => {
             const wrapper = factoryShallowMount();
-            expect(wrapper.findAll('.cta-link').length).toBe(1);
+            expect(wrapper.findAll('.cta-link').length).toBe(2);
         });
 
         it('renders content inserted in a dropdown-content slot', () => {
             const wrapper = factoryShallowMount();
-            expect(wrapper.findAll('.dropdown-content').length).toBe(1);
+            expect(wrapper.findAll('.dropdown-content').length).toBe(2);
         });
     });
 

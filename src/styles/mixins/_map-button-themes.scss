@@ -24,7 +24,7 @@
     );
 
     @each $name, $color in $themes {
-        .vs-main-map-category__button--#{$name}.vs-button.btn-transparent {
+        .vs-main-map-category__button--#{$name} {
             &:hover{
                 background: $color;
                 color: $vs-color-text-inverse;
@@ -53,7 +53,7 @@
         };
 
         .vs-icon.vs-map-marker-icon__marker--#{$name},
-        .vs-button.btn-transparent .vs-icon .vs-map-marker-icon__marker--#{$name} {
+        .vs-icon .vs-map-marker-icon__marker--#{$name} {
             color: $color;            
         }
     };
