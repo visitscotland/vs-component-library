@@ -149,13 +149,10 @@ const Template = (args) => ({
                                 </VsImageWithCaption>
                             </template>
 
-                            <template
-                                v-if="args.sidebarQuote"
-                                v-slot:vs-article-sidebar-quote
-                            >
-                                <VsQuote :with-border="args.businessSupport">
+                            <template v-slot:vs-article-sidebar-quote>
+                                <VsQuote>
                                     <template v-slot:quote-content>
-                                        <p>{{ args.sidebarQuote }}</p>
+                                        <p>{{ args['sidebarQuote'] }}</p>
                                     </template>
                                     <template v-slot:quote-author-name>
                                         Penny
