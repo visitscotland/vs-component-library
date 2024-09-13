@@ -170,7 +170,7 @@ const Template = (args) => ({
 
                     ${args.defaultContent}
 
-                </VsArticleSection:sidebar-align=>
+                </VsArticleSection>
             </VsArticle>
 
             <VsModal
