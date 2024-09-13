@@ -103,7 +103,10 @@ const Template = (args) => ({
                     {{ args['vs-article-intro'] }}
                 </template>
 
-                <VsArticleSection :sidebar-align="args.sidebarAlign">
+                <VsArticleSection
+                    :sidebar-align="args.sidebarAlign"
+                    :businessSupport="args.businessSupport"
+                >
                     <template
                         v-if="args.sidebarImg || args.sidebarQuote"
                         v-slot:article-sidebar
@@ -167,7 +170,7 @@ const Template = (args) => ({
 
                     ${args.defaultContent}
 
-                </VsArticleSection>
+                </VsArticleSection:sidebar-align=>
             </VsArticle>
 
             <VsModal

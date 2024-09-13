@@ -15,6 +15,7 @@
                 :class="sidebarAlign === 'right' ? 'pe-md-0' : 'ps-md-0'"
                 :offset-xl="sidebarAlign === 'right' ? '1' : null"
                 :order-md="sidebarAlign === 'right' ? '2' : null"
+                :order="businessSupport ? '2' : null"
             >
                 <!-- @slot Slot to contain the article sidebar -->
                 <slot name="article-sidebar" />
@@ -25,7 +26,10 @@
                 data-test="vs-article-section__content"
                 :offset-xl="sidebarAlign === 'left' ? '1' : ''"
             >
-                <div class="mx-6 mx-md-0">
+                <div
+                    class="mx-md-0"
+                    :class="!businessSupport && 'mx-6'"
+                >
                     <VsRichTextWrapper>
                         <!-- @slot Default slot to contain the copy for this article -->
                         <slot />
@@ -63,6 +67,10 @@ export default {
             type: String,
             default: 'left',
             validator: (value) => value.match(/(left|right)/),
+        },
+        businessSupport: {
+            type: Boolean,
+            default: false,
         },
     },
     computed: {

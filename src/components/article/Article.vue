@@ -23,7 +23,10 @@
                                 md="10"
                                 :offset-md="businessSupport ? null : '1'"
                             >
-                                <div class="vs-article__header mx-6 mx-md-0 mt-9 mt-lg-11">
+                                <div
+                                    class="vs-article__header mx-md-0 mt-9 mt-lg-11"
+                                    :class="!businessSupport && 'mx-6'"
+                                >
                                     <VsHeading
                                         level="2"
                                         class="mb-8 mb-lg-9"
