@@ -56,7 +56,24 @@ $container-max-widths: (
 
 /* Spacing */
 $spacers: (
-    0: $spacer-0,
+    // Utility classes are generated with the corresponding suffixes eg mt-075 = 0.75rem, (replacing mt-3)
+    "0": $spacer-0,
+    "0125": $spacer-0125,
+    "050": $spacer-050,
+    "075": $spacer-075,
+    "100": $spacer-100,
+    "125": $spacer-125,
+    "150": $spacer-150,
+    "175": $spacer-175,
+    "200": $spacer-200,
+    "250": $spacer-250,
+    "300": $spacer-300,
+    "400": $spacer-400,
+    "500": $spacer-500,
+    "600": $spacer-600,
+    "700": $spacer-700,
+    // spacer-1 - spacer-12 to be deprecated
+    // retained until v4 (?) for backwards compatibility
     1: $spacer-1,
     2: $spacer-2,
     3: $spacer-3,
