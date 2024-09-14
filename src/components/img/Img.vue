@@ -11,7 +11,7 @@
         :class="useGenericLqip ? 'generic-lqip' : ''"
         :srcset="$attrs.srcset ? $attrs.srcset : fullSrcSet"
         :low-res-image="specificImgSize('xxs')"
-        sizes="(min-width: 768px) 50vw, 100vw"
+        sizes="(min-width: 768px) 75vw, 100vw"
     >
         <VsIcon name="user" size="lg" />
 
@@ -103,19 +103,13 @@ export default {
     },
     computed: {
         imgStyle() {
-            if (this.lowResImage) {
-                if (!this.useGenericLqip) {
-                    return {
-                        backgroundImage: `url(${this.lowResImage})`,
-                    };
-                }
-
-                return null;
+            if (!this.useGenericLqip) {
+                return {
+                    backgroundImage: `url(${this.specificImgSize('xxs')})`,
+                };
             }
 
-            return {
-                backgroundImage: 'none',
-            };
+            return null;
         },
     },
 };

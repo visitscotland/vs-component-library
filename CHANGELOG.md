@@ -2,6 +2,51 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.4](https://github.com/visitscotland/vs-component-library/compare/v3.1.3...v3.1.4) (2024-09-12)
+
+
+### 🐛 Bug Fixes
+
+* **img:** correct tests for srcset ([ee039ae](https://github.com/visitscotland/vs-component-library/commit/ee039ae08b777c407249b75474dc1ecf3b756adf))
+* **page intro:** fix caption display on tablet for full scren ([1efd203](https://github.com/visitscotland/vs-component-library/commit/1efd2034465834dfcba25445d3e2fa3bd98aea7c))
+* **page intro:** fix social share on desktop on full screen mode ([735e1ba](https://github.com/visitscotland/vs-component-library/commit/735e1ba7daca56c8b01af08bfc05e30f44cc798b))
+* **social share:** fix share width on mobile ([980ecf8](https://github.com/visitscotland/vs-component-library/commit/980ecf8eddf1eb1638388ce72f47050ae87e4094))
+
+### [3.1.3](https://github.com/visitscotland/vs-component-library/compare/v3.1.2...v3.1.3) (2024-09-12)
+
+
+### 🐛 Bug Fixes
+
+* **page intro:** visual bug fixes for fullscreen version ([5909060](https://github.com/visitscotland/vs-component-library/commit/59090603559480c301bf6ec6a585fa81471a4667))
+
+### [3.1.2](https://github.com/visitscotland/vs-component-library/compare/v3.1.1...v3.1.2) (2024-09-10)
+
+
+### ♻️ Code Refactoring
+
+* **buttons:** tidy code for consistent buttons ([732263f](https://github.com/visitscotland/vs-component-library/commit/732263fb680f69652963e431904da818af8b9ab2))
+* **map:** refactor map category button to be button not VsButton component ([b9cab28](https://github.com/visitscotland/vs-component-library/commit/b9cab28abe98013f73e9a07c62dae0049c5d8a6c))
+* **nav:** fix button specificity ([4495840](https://github.com/visitscotland/vs-component-library/commit/449584035531a528601c915bf2fe3daed8e29249))
+
+
+### ✨ Features
+
+* **intro:** implement rough fullscreen page intro image ([6c58518](https://github.com/visitscotland/vs-component-library/commit/6c5851842e4278e01e2c0e48832c1e85734d6498))
+* **page intro:** ensure fullscreen mobile view has default behaviour on desktop ([8c5fde7](https://github.com/visitscotland/vs-component-library/commit/8c5fde74982537e611f39f8fad2e714f1a3125df))
+* **page intro:** move hero text back under image ([ca6c444](https://github.com/visitscotland/vs-component-library/commit/ca6c444e8f5b5e8b6a8ebc47a62470ad5d59f48a))
+* **page intro:** switch to tint layout ([de5812f](https://github.com/visitscotland/vs-component-library/commit/de5812f2426120e03a95985d732b48b6a0b55b51))
+* **video stories:** basic implementation ([6d0a82b](https://github.com/visitscotland/vs-component-library/commit/6d0a82b2739cdcac56c3770bda2af0afc2a7057e))
+* **videostories:** remove stories component ([9647347](https://github.com/visitscotland/vs-component-library/commit/9647347665270b215d0480d9e728690358c248ba))
+
+
+### 🐛 Bug Fixes
+
+* **img:** adjust responsive image sizes in line with .com ([ee8bd07](https://github.com/visitscotland/vs-component-library/commit/ee8bd07e90309dd847baca384f47a731dd1796fb))
+* **page intro:** add unit tests for fsMobile positioning ([5d9deb2](https://github.com/visitscotland/vs-component-library/commit/5d9deb26b032009393a9670803d583cff4b9bb56))
+* **page intro:** correct visual bugs with full screen version ([441f576](https://github.com/visitscotland/vs-component-library/commit/441f5769f1bcbababfdec6cd09f7cc8c3848d160))
+* **page intro:** remove video asset ([23f141f](https://github.com/visitscotland/vs-component-library/commit/23f141f112b875ab2e0ae953d24b8a0d493392ac))
+* **video stories:** remove library ([2b41190](https://github.com/visitscotland/vs-component-library/commit/2b411903efb2dd3b80b2298d8c5acdbd27c7da61))
+
 ### [3.1.1](https://github.com/visitscotland/vs-component-library/compare/v3.1.0...v3.1.1) (2024-08-16)
 
 
