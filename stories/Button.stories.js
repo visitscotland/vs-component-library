@@ -117,13 +117,13 @@ Large.args = {
 export const WithIcon = Template.bind();
 WithIcon.args = {
     ...base,
-    icon: 'user',
+    icon: 'landscape',
 };
 
 export const WithIconOnRight = Template.bind();
 WithIconOnRight.args = {
     ...base,
-    icon: 'user',
+    icon: 'landscape',
     iconPosition: 'right',
 };
 

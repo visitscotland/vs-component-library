@@ -360,7 +360,7 @@ export default {
         /* Button Sizes
         ------------------------------------------ */
         &.btn-sm {
-            padding: $spacer-0125 $spacer-5;
+            padding: $spacer-1 $spacer-5;
             font-size: $btn-font-size;
         }
 
