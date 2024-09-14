@@ -5,6 +5,8 @@
 props:
   - name: spacer-0
     value: "{!vs-size-0}"
+  - name: spacer-0125
+    value: "{!vs-size-0125}"
   - name: spacer-1
     value: "{!vs-size-025}"
   - name: spacer-2

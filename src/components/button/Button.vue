@@ -175,7 +175,7 @@ export default {
             case 'md':
                 return 'sm';
             case 'lg':
-                return 'md';
+                return 'sm';
             default:
                 return 'md';
             }
@@ -220,15 +220,19 @@ export default {
     .vs-button {
         @extend %button-default-styles;
 
+        &__text {
+            line-height: 24px;
+        }
+
         .vs-icon {
             margin-top: -.05rem;
 
             &--right {
-                margin-left: $spacer-2;
+                margin-left: $spacer-1;
             }
 
             &--left {
-                margin-right: $spacer-2;
+                margin-right: $spacer-1;
             }
         }
 
@@ -309,7 +313,6 @@ export default {
         }
 
         &.vs-button--icon-with-text {
-            letter-spacing: initial;
             font-weight: $font-weight-normal;
             font-size: $font-size-3;
             transition: none;
@@ -329,7 +332,7 @@ export default {
         }
 
         &.vs-button--icon-only {
-            line-height: 1;
+            // line-height: 1;
 
             &.btn-sm{
                 padding: $spacer-1 $spacer-1;
@@ -357,15 +360,18 @@ export default {
         /* Button Sizes
         ------------------------------------------ */
         &.btn-sm {
-            padding: $spacer-1 $spacer-4;
+            padding: $spacer-0125 $spacer-5;
+            font-size: $btn-font-size;
         }
 
         &.btn-md {
-            padding: $spacer-3 $spacer-8;
+            padding: $spacer-2 $spacer-6;
+            font-size: $btn-font-size;
         }
 
         &.btn-lg {
-            padding: $spacer-4 $spacer-9;
+            padding: $spacer-3 $spacer-7;
+            font-size: $btn-font-size;
         }
 
         &.vs-button--flex-reverse {

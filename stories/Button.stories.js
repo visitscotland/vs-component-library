@@ -73,7 +73,7 @@ const Template = (args) => ({
 });
 
 const base = {
-    default: 'Nearby places to eat',
+    default: 'Button',
     variant: 'primary',
     onDark: false,
     size: 'md',
