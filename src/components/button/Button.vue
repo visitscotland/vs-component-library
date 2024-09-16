@@ -21,7 +21,10 @@
             :padding="0"
         />
         <!-- @slot The button content goes here -->
-        <span class="vs-button__text">
+        <span
+            class="vs-button__text"
+            :class="{ 'visually-hidden': iconOnly }"
+        >
             <slot />
         </span>
     </BButton>
@@ -94,14 +97,7 @@ export default {
             default: true,
         },
         /**
-         * Set this for a button on a dark background for better colour contrast
-         */
-        onDark: {
-            type: Boolean,
-            default: false,
-        },
-        /**
-         * Border radius 0 or 100px
+         * Pass the name of the icon to add it to the button.
          */
         rounded: {
             type: Boolean,
@@ -149,7 +145,6 @@ export default {
                 {
                     'vs-button--animated': this.animate && !this.iconOnly && !this.iconWithText,
                     'vs-button--is-animating': this.isAnimating,
-                    'vs-button--on-dark': this.onDark,
                     'vs-button--rounded': this.rounded,
                     'vs-button--icon-only': this.iconOnly,
                     'vs-button--icon-with-text': this.iconWithText,
@@ -228,35 +223,25 @@ export default {
             &--left {
                 margin-right: $spacer-2;
             }
-            }
+        }
 
-            &:focus {
-                @extend %primary-button-focus;
-            }
+        &.vs-button--rounded {
+            border-radius: $border-radius-pill;
+        }
 
-            &.vs-button--on-dark {
-                &:focus {
-                    box-shadow: $vs-box-shadow-focus-on-dark;
-                }
-            }
+        &.disabled {
+            pointer-events: none;
+        }
 
-            &.vs-button--rounded {
-                border-radius: $border-radius-pill;
-            }
+        &:not(:disabled):not(.disabled):active:focus {
+            box-shadow: none;
+        }
 
+        &.btn-primary,
+        &.btn-secondary {
             &.disabled {
-                pointer-events: none;
+                @extend %button-disabled;
             }
-
-            &:not(:disabled):not(.disabled):active:focus {
-                box-shadow: none;
-            }
-
-            &.btn-primary,
-            &.btn-secondary {
-                &.disabled {
-                    @extend %button-disabled;
-                }
         }
 
         /* Button Variants
@@ -303,22 +288,6 @@ export default {
 
                 &:focus {
                     box-shadow: $vs-box-shadow-focus inset;
-                }
-
-                &.vs-button--on-dark {
-                    @include vs-button-variant(
-                        $vs-color-text-inverse, transparent, transparent,
-                        $vs-color-text-inverse, transparent, transparent,
-                        $vs-color-text-inverse, transparent, transparent,
-                        $vs-color-text-inverse, transparent, transparent);
-
-                    &:hover .vs-button__text {
-                        text-decoration: none;
-                    }
-
-                    &:focus {
-                        box-shadow: $vs-box-shadow-focus-on-dark inset;
-                    }
                 }
             }
         }

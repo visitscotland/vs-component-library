@@ -10,8 +10,6 @@ export default {
                 'primary',
                 'secondary',
                 'transparent',
-                'dark',
-                'light',
             ],
             control: {
                 type: 'radio',
@@ -64,8 +62,6 @@ const Template = (args) => ({
 const base = {
     default: 'Nearby places to eat',
     variant: 'primary',
-    onDark: false,
-    rounded: false,
     size: 'md',
     animate: true,
     href: '',
@@ -173,20 +169,4 @@ IconWithText.args = {
     icon: 'share',
     iconWithText: true,
     default: 'Share',
-};
-
-export const IconWithTextOnDark = Template.bind();
-IconWithTextOnDark.args = {
-    ...base,
-    variant: 'transparent',
-    icon: 'close-circle',
-    iconWithText: true,
-    default: 'Close',
-    onDark: true,
-};
-
-IconWithTextOnDark.parameters = {
-    backgrounds: {
-        default: 'Dark',
-    },
 };
