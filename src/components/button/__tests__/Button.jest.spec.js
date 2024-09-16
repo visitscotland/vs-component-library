@@ -17,7 +17,7 @@ function mountOptions(propsData) {
             'test-attribute': 'test-value',
         },
     };
-};
+}
 
 const factoryShallowMount = (propsData) => shallowMount(
     VsButton,
@@ -85,6 +85,12 @@ describe('VsButton', () => {
             const textSlotSpan = wrapper.get('span.vs-button__text');
             expect(textSlotSpan.classes('visually-hidden')).toBe(true);
         });
+        it(':rounded - should render the button with an `vs-button--rounded` class', () => {
+            const wrapper = factoryMount({
+                rounded: true,
+            });
+            expect(wrapper.classes('vs-button--rounded')).toBe(true);
+        });
 
         describe(':icon', () => {
             it('should *NOT* render an icon if `icon` property is not passed', () => {
@@ -131,16 +137,6 @@ describe('VsButton', () => {
                 const icon = wrapper.find('.vs-icon');
 
                 expect(icon.classes('vs-icon--size-md')).toBe(true);
-            });
-
-            it('orientation should be `down` if `iconOrientation` is set to `down`', () => {
-                const wrapper = factoryMount({
-                    icon: testIcon,
-                    iconOrientation: 'down',
-                });
-                const icon = wrapper.find('.vs-icon');
-
-                expect(icon.classes('icon--down')).toBe(true);
             });
         });
 

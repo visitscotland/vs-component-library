@@ -25,17 +25,6 @@ export default {
                 type: 'radio',
             },
         },
-        iconOrientation: {
-            options: [
-                'up',
-                'down',
-                'left',
-                'right',
-            ],
-            control: {
-                type: 'radio',
-            },
-        },
         iconPosition: {
             options: [
                 'left',
@@ -77,7 +66,6 @@ const base = {
     animate: true,
     href: '',
     icon: '',
-    iconOrientation: 'up',
     iconOnly: false,
     iconWithText: false,
     iconPosition: 'left',
@@ -130,6 +118,12 @@ IconOnly.args = {
     icon: 'search',
     iconOnly: true,
     default: '',
+};
+
+export const Rounded = Template.bind();
+Rounded.args = {
+    ...base,
+    rounded: true,
 };
 
 export const IconOnlySecondary = Template.bind();
