@@ -102,6 +102,13 @@ export default {
             default: false,
         },
         /**
+         * Border radius 0 or 100px
+         */
+        rounded: {
+            type: Boolean,
+            default: false,
+        },
+        /**
          * Pass the name of the icon to add it to the button.
          */
         icon: {
@@ -153,6 +160,7 @@ export default {
                     'vs-button--animated': this.animate && !this.iconOnly && !this.iconWithText,
                     'vs-button--is-animating': this.isAnimating,
                     'vs-button--on-dark': this.onDark,
+                    'vs-button--rounded': this.rounded,
                     'vs-button--icon-only': this.iconOnly,
                     'vs-button--icon-with-text': this.iconWithText,
                     'button-flex': this.icon && !this.iconOnly && !this.iconWithText,
@@ -221,7 +229,7 @@ export default {
         @extend %button-default-styles;
 
         .vs-icon {
-            margin-top: -.05rem;
+            margin-top: -0.05rem;
 
             &--right {
                 margin-left: $spacer-2;
@@ -230,50 +238,69 @@ export default {
             &--left {
                 margin-right: $spacer-2;
             }
-        }
+            }
 
-        &:focus {
-            @extend %primary-button-focus;
-        }
-
-        &.vs-button--on-dark {
             &:focus {
-                box-shadow: $vs-box-shadow-focus-on-dark;
+                @extend %primary-button-focus;
             }
-        }
 
-        &.disabled {
-            pointer-events: none;
-        }
+            &.vs-button--on-dark {
+                &:focus {
+                    box-shadow: $vs-box-shadow-focus-on-dark;
+                }
+            }
 
-        &:not(:disabled):not(.disabled):active:focus {
-            box-shadow: none;
-        }
+            &.vs-button--rounded {
+                border-radius: $border-radius-pill;
+            }
 
-        &.btn-primary, &.btn-secondary {
             &.disabled {
-                @extend %button-disabled;
+                pointer-events: none;
             }
+
+            &:not(:disabled):not(.disabled):active:focus {
+                box-shadow: none;
+            }
+
+            &.btn-primary,
+            &.btn-secondary {
+                &.disabled {
+                    @extend %button-disabled;
+                }
         }
 
         /* Button Variants
         ------------------------------------------ */
         &.btn-primary {
             @include vs-button-variant(
-                $vs-color-text-inverse, $vs-color-background-primary, $vs-color-border-primary,
-                $vs-color-text-inverse, $vs-color-background-hover, $vs-color-background-hover,
-                $vs-color-text-primary, $vs-color-background-active, $vs-color-background-active,
-                $vs-color-text-primary, $vs-color-background-inverse, $vs-color-border-primary,
-            );
+                $vs-color-text-inverse,
+                $vs-color-background-primary,
+                $vs-color-border-primary,
+                $vs-color-text-inverse,
+                $vs-color-background-hover,
+                $vs-color-background-hover,
+                $vs-color-text-primary,
+                $vs-color-background-active,
+                $vs-color-background-active,
+                $vs-color-text-primary,
+                $vs-color-background-inverse,
+                $vs-color-border-primary );
         }
 
         &.btn-secondary {
             @include vs-button-variant(
-                $vs-color-text-primary, $vs-color-background-inverse, $vs-color-border-primary,
-                $vs-color-text-inverse, $vs-color-background-hover, $vs-color-background-hover,
-                $vs-color-text-primary, $vs-color-background-active, $vs-color-background-active,
-                $vs-color-text-inverse, $vs-color-background-primary, $vs-color-border-focus,
-            );
+                $vs-color-text-primary,
+                $vs-color-background-inverse,
+                $vs-color-border-primary,
+                $vs-color-text-inverse,
+                $vs-color-background-hover,
+                $vs-color-background-hover,
+                $vs-color-text-primary,
+                $vs-color-background-active,
+                $vs-color-background-active,
+                $vs-color-text-inverse,
+                $vs-color-background-primary,
+                $vs-color-border-focus );
         }
 
         &.btn-transparent {
@@ -282,8 +309,7 @@ export default {
                     $vs-color-text, transparent, transparent,
                     $vs-color-text-primary, transparent, transparent,
                     $vs-color-text-primary, transparent, transparent,
-                    $vs-color-text-primary, transparent, transparent,
-                );
+                    $vs-color-text-primary, transparent, transparent);
 
                 &:focus {
                     box-shadow: $vs-box-shadow-focus inset;
@@ -294,8 +320,7 @@ export default {
                         $vs-color-text-inverse, transparent, transparent,
                         $vs-color-text-inverse, transparent, transparent,
                         $vs-color-text-inverse, transparent, transparent,
-                        $vs-color-text-inverse, transparent, transparent,
-                    );
+                        $vs-color-text-inverse, transparent, transparent);
 
                     &:hover .vs-button__text {
                         text-decoration: none;
@@ -331,13 +356,13 @@ export default {
         &.vs-button--icon-only {
             line-height: 1;
 
-            &.btn-sm{
+            &.btn-sm {
                 padding: $spacer-1 $spacer-1;
                 width: 32px;
                 height: 32px;
             }
 
-            &.btn-md{
+            &.btn-md {
                 padding: $spacer-2 $spacer-1;
                 width: 40px;
                 height: 40px;
@@ -381,6 +406,7 @@ export default {
                     transform: scale(0, 0);
                     opacity: $opacity-100;
                 }
+
                 100% {
                     opacity: $opacity-0;
                     transform: scale(100, 100);
@@ -391,7 +417,7 @@ export default {
                 background: rgba(255, 255, 255, 0.1);
                 border-radius: 50%;
                 bottom: 0;
-                content: "";
+                content: '';
                 height: 5px;
                 opacity: $opacity-0;
                 position: absolute;

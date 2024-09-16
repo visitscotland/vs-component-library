@@ -76,6 +76,7 @@ const base = {
     default: 'Nearby places to eat',
     variant: 'primary',
     onDark: false,
+    rounded: false,
     size: 'md',
     animate: true,
     href: '',
@@ -133,6 +134,12 @@ IconOnly.args = {
     icon: 'search',
     iconOnly: true,
     default: '',
+};
+
+export const Rounded = Template.bind();
+Rounded.args = {
+    ...base,
+    rounded: true,
 };
 
 export const IconOnlySecondary = Template.bind();
