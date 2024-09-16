@@ -139,7 +139,7 @@ export default {
                     }
                 }
 
-                &.btn-primary{
+                &.btn {
                     background-color: $vs-color-background-inverse;
                     color: $vs-color-text;
                     letter-spacing: normal;
@@ -162,7 +162,7 @@ export default {
 
     &--level-1{
         > .vs-accordion-item__card-header{
-            .vs-accordion-toggle.btn-primary{
+            .vs-accordion-toggle.btn {
                 font-size: $font-size-6;
                 padding-left: $spacer-5;
                 padding-right: $spacer-5;
@@ -174,7 +174,7 @@ export default {
         }
 
         &:first-of-type > .vs-accordion-item__card-header {
-            .vs-accordion-toggle.btn-primary{
+            .vs-accordion-toggle.btn {
                 border-top: 1px solid $vs-color-border;
             }
         }
@@ -182,7 +182,7 @@ export default {
 
     &--level-2{
         > .vs-accordion-item__card-header{
-            .vs-accordion-toggle.btn-primary{
+            .vs-accordion-toggle.btn {
                 font-size: $font-size-5;
                 line-height: $line-height-s;
                 padding-left: $spacer-8;
