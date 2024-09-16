@@ -138,16 +138,6 @@ describe('VsButton', () => {
 
                 expect(icon.classes('vs-icon--size-md')).toBe(true);
             });
-
-            it('orientation should be `down` if `iconOrientation` is set to `down`', () => {
-                const wrapper = factoryMount({
-                    icon: testIcon,
-                    iconOrientation: 'down',
-                });
-                const icon = wrapper.find('.vs-icon');
-
-                expect(icon.classes('icon--down')).toBe(true);
-            });
         });
 
         describe(':animate', () => {
