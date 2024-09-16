@@ -12,6 +12,7 @@
                     :video-id="videoId"
                     :vars="playerVars"
                     ref="youtube"
+                    :nocookie="true"
                     @playing="youtubePlaying"
                     @paused="youtubePaused"
                     @ended="youtubeEnded"
