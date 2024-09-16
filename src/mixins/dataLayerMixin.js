@@ -2,6 +2,7 @@ import { mapState } from 'pinia';
 import useDataLayerStore from '../stores/dataLayer.store';
 
 import checkVendorLibrary from '../utils/check-vendor-library';
+
 import {
     pageViewTemplate,
     externalLinkTemplate,
