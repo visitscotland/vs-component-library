@@ -88,6 +88,8 @@ $spacers: (
     12: $spacer-12,
 );
 
+@warn "`$spacer-1` to `$spacer-12` and derivative utility classes (`mt-3`, `pb-4` etc) are deprecated in the VS design system. Replace the `$spacer-` suffix that represents the correct rem size. https://visitscotland.atlassian.net/wiki/spaces/DE/pages/edit-v2/211943505?draftShareId=ffaf70b8-e842-4db9-b780-25443f12d430#%5BmediaInline%5D--Deprecated-spacer-tokens";
+
 
 /* Borders */
 $border-color: $vs-color-border;
