@@ -182,12 +182,12 @@ export default {
     }
 
     &--with-border {
-        border-left: $spacer-1 solid $vs-color-border-primary;
+        border-left: $spacer-1 solid $vs-color-border-accent-lavender;
         padding-left: $spacer-6;
 
         .vs-quote__author-name,
         .vs-quote__author-title {
-            color: $vs-color-text-primary;
+            color: $vs-color-text-accent-lavender;
         }
     }
 }
