@@ -1,11 +1,11 @@
 import { mount } from '@vue/test-utils';
 import axe from '@/../test/unit/helpers/axe-helper';
-import VsStyledNumberedList from '../StyledNumberedList.vue';
+import VsStyledList from '../StyledList.vue';
 
-const titleSlotText = 'Styled numbered list title';
-const introSlotText = 'Styled numbered list intro';
+const titleSlotText = 'Styled list title';
+const introSlotText = 'Styled list intro';
 
-const factoryMount = () => mount(VsStyledNumberedList, {
+const factoryMount = () => mount(VsStyledList, {
     slots: {
         title: titleSlotText,
         intro: introSlotText,
@@ -17,9 +17,9 @@ beforeEach(() => {
     wrapper = factoryMount();
 });
 
-describe('VsStyledNumberedList', () => {
-    it('should render a component with the data-test attribute `vs-styled-numbered-list`', () => {
-        expect(wrapper.attributes('data-test')).toBe('vs-styled-numbered-list');
+describe('VsStyledList', () => {
+    it('should render a component with the data-test attribute `vs-styled-list`', () => {
+        expect(wrapper.attributes('data-test')).toBe('vs-styled-list');
     });
 
     describe(':slots', () => {

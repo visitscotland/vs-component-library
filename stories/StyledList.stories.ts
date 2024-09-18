@@ -1,18 +1,27 @@
-import VsStyledNumberedList from '@/components/styled-numbered-list/StyledNumberedList.vue';
-import VsStyledNumberedListItem from '@/components/styled-numbered-list/components/StyledNumberedListItem.vue';
+import VsStyledList from '@/components/styled-list/StyledList.vue';
+import VsStyledListItem from '@/components/styled-list/components/StyledListItem.vue';
 
 export default {
-    component: VsStyledNumberedList,
-    title: 'StyledNumberedList',
+    component: VsStyledList,
+    title: 'StyledList',
     tags: ['autodocs'],
     argTypes: {
+        variant: {
+            options: [
+                'icon',
+                'numbered',
+            ],
+            control: {
+                type: 'radio',
+            },
+        },
     },
 };
 
 const Template = (args) => ({
     components: {
-        VsStyledNumberedList,
-        VsStyledNumberedListItem,
+        VsStyledList,
+        VsStyledListItem,
     },
     setup() {
         return {
@@ -20,7 +29,7 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsStyledNumberedList v-bind="args">
+        <VsStyledList v-bind="args">
             <template v-slot:title>
                 {{ args.title }}
             </template>
@@ -29,7 +38,7 @@ const Template = (args) => ({
                 {{ args.intro }}
             </template>
 
-            <VsStyledNumberedListItem
+            <VsStyledListItem
                 v-for="(item, index) in args.listItems"
                 :key="index"
             >
@@ -38,12 +47,47 @@ const Template = (args) => ({
                 </template>
 
                 <div v-html="item.content" />
-            </VsStyledNumberedListItem>
-        </VsStyledNumberedList>
+            </VsStyledListItem>
+        </VsStyledList>
     `,
 });
 
 const base = {
+    variant: 'icon',
+    title: 'Key Benefits',
+    listItems: [
+        {
+            heading: 'Showcase your excellence',
+            content: `
+                <p>Being a Taste Our Best business means that you can be easily identified as a provider of high quality, locally sourced food and drink. This is something that we'll help support throughout our marketing.</p>
+            `,
+        },
+        {
+            heading: 'Important to visitors',
+            content: `
+                <p>Food tourism is a key part of the visitor experience, with 66% of our visitors telling us that food is important when choosing a holiday destination.</p>
+                <p><a href="#">Read our food and drink insights to find out more</a>.</p>
+            `,
+        },
+        {
+            heading: 'Supporting seasonality',
+            content: `
+                <p>Promoting Scottish produce in season not only meets our visitor preferences. Local food can provide freshness, reduce food miles, and offer benefits to local farmers and communities. That's not all - seasonal food can be tastier for diners and be more affordable to serve for businesses.</p>
+            `,
+        },
+    ],
+};
+
+export const Default = Template.bind({
+});
+
+Default.args = base;
+
+export const Numbered = Template.bind({
+});
+
+Numbered.args = {
+    variant: 'numbered',
     title: 'How does it work?',
     intro: 'To apply for a Taste Our Best accreditation, follow these simple steps',
     listItems: [
@@ -88,8 +132,3 @@ const base = {
         },
     ],
 };
-
-export const Default = Template.bind({
-});
-
-Default.args = base;

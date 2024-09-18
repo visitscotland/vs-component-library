@@ -1,7 +1,7 @@
 <template>
     <li
-        class="vs-styled-numbered-list__item"
-        data-test="vs-styled-numbered-list__item"
+        class="vs-styled-list__item"
+        data-test="vs-styled-list__item"
     >
         <VsHeading level="3">
             <slot name="item-heading" />
@@ -19,7 +19,7 @@ import VsRichTextWrapper from '../../rich-text-wrapper/RichTextWrapper.vue';
 </script>
 
 <style lang="scss">
-.vs-styled-numbered-list__item {
+.vs-styled-list--numbered .vs-styled-list__item {
     counter-increment: section;
     padding: 0 0 $spacer-150 $spacer-150;
     position: relative;
@@ -55,6 +55,21 @@ import VsRichTextWrapper from '../../rich-text-wrapper/RichTextWrapper.vue';
 
     h3 {
         margin-top: 0;
+    }
+}
+
+.vs-styled-list--icon .vs-styled-list__item {
+    padding: 0 0 $spacer-150 $spacer-300;
+    position: relative;
+
+    &::before {
+        content: '\e085';
+        color: $vs-color-text-accent-glencoe;
+        font-family: 'Font Awesome Kit';
+        font-size: $font-size-8;
+        position: absolute;
+        top: -$spacer-1;
+        left: 0;
     }
 }
 </style>
