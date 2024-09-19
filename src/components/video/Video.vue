@@ -5,36 +5,18 @@
         v-if="!reRendering"
     >
         <div class="vs-video__iframe-wrapper">
-            <div v-if="requiredCookiesExist">
-                <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
-                <VueYoutube
-                    :autoplay="0"
-                    :video-id="videoId"
-                    :vars="playerVars"
-                    ref="youtube"
-                    @playing="youtubePlaying"
-                    @paused="youtubePaused"
-                    @ended="youtubeEnded"
-                    @ready="playerReady"
-                />
-            </div>
-
-            <VsWarning
-                v-if="showError"
-                :type="cookiesInitStatus === true ? 'cookie' : 'normal'"
-                data-test="vs-video__warning"
-                class="vs-video__warning"
-            >
-                {{ warningText }}
-
-                <template
-                    v-if="!requiredCookiesExist
-                        && cookiesInitStatus === true"
-                    v-slot:button-text
-                >
-                    {{ cookieBtnText }}
-                </template>
-            </VsWarning>
+            <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
+            <VueYoutube
+                :autoplay="0"
+                :video-id="videoId"
+                :vars="playerVars"
+                ref="youtube"
+                :nocookie="true"
+                @playing="youtubePlaying"
+                @paused="youtubePaused"
+                @ended="youtubeEnded"
+                @ready="playerReady"
+            />
 
             <VsWarning
                 data-test="vs-video__warning--no-js"
@@ -54,12 +36,9 @@ import VsWarning from '@/components/warning/Warning.vue';
 import useVideoStore from '@/stores/video.store';
 import jsIsDisabled from '@/utils/js-is-disabled';
 
-import verifyCookiesMixin from '../../mixins/verifyCookiesMixin';
-import requiredCookiesData from '../../utils/required-cookies-data';
 import dataLayerMixin from '../../mixins/dataLayerMixin';
 
 let videoStore = null;
-const cookieValues = requiredCookiesData.youtube;
 
 /**
  * Videos allow a user to engage with our
@@ -77,7 +56,6 @@ export default {
         VueYoutube,
     },
     mixins: [
-        verifyCookiesMixin,
         dataLayerMixin,
     ],
     props: {
@@ -125,21 +103,6 @@ export default {
             default: '%s minute video',
         },
         /**
-        * A message explaining why the component has been disabled with disabled cookies, is
-        * provided for descendent components to inject
-        */
-        noCookiesMessage: {
-            type: String,
-            required: true,
-        },
-        /**
-        * Text used for the link which opens the cookie preference centre.
-        */
-        cookieBtnText: {
-            type: String,
-            required: true,
-        },
-        /**
         * A message explaining why the component has been disabled when js is disabled,
         * is provided for descendent components to inject
         */
@@ -165,37 +128,17 @@ export default {
             playerVars: {
                 hl: this.language,
             },
-            requiredCookies: cookieValues,
             reRendering: false,
             shouldAutoPlay: false,
             jsDisabled: true,
         };
     },
     computed: {
-        showError() {
-            if ((!this.requiredCookiesExist
-                && this.cookiesInitStatus === true)
-                || this.cookiesInitStatus === 'error'
-                || this.cookiesInitStatus === false) {
-                return true;
-            }
-
-            return false;
-        },
         warningText() {
             let text = '';
 
             if (this.videoId && this.jsDisabled) {
                 text = this.noJsMessage;
-            }
-
-            if (this.cookiesInitStatus === 'error') {
-                text = this.errorMessage;
-            }
-
-            if (!this.requiredCookiesExist
-                && this.cookiesInitStatus === true) {
-                text = this.noCookiesMessage;
             }
 
             return text;
