@@ -275,6 +275,7 @@ BusinessSupportHub.args = {
 
 export const BusinessSupportHubNoSidebar = Template.bind();
 BusinessSupportHubNoSidebar.args = {
+    ...CoverImage.args,
     ...BusinessSupportHub.args,
     sidebarImg: '',
     sidebarQuote: '',

@@ -15,7 +15,10 @@
                         :class="businessSupport && 'vs-article__wrapper--no-border'"
                     >
                         <!-- @slot Slot to contain the cover image for this article -->
-                        <slot name="vs-article-img" />
+                        <slot
+                            v-if="!businessSupport"
+                            name="vs-article-img"
+                        />
 
                         <VsRow>
                             <VsCol
@@ -47,6 +50,14 @@
                                         <slot name="vs-article-intro" />
                                     </VsRichTextWrapper>
                                 </div>
+
+                                <VsCol
+                                    v-if="businessSupport"
+                                    class="mb-9"
+                                    cols="7"
+                                >
+                                    <slot name="vs-article-img" />
+                                </VsCol>
 
                                 <div class="vs-article__content">
                                     <!-- @slot Default slot to contain ArticleSections
