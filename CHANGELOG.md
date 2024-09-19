@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.5](https://github.com/visitscotland/vs-component-library/compare/v3.1.4...v3.1.5) (2024-09-19)
+
+
+### ✨ Features
+
+* **bootstrap-overrides:** add deprecation warning for spacer-1 to 12 ([7223eb4](https://github.com/visitscotland/vs-component-library/commit/7223eb4427a0568a4b5a0094faba7e8eb096dbdb))
+* **spacing.yml tokens and utils:** add spacing tokens in new format ([dd9613d](https://github.com/visitscotland/vs-component-library/commit/dd9613db03d1e08e91c310958ba8f747a3854e4d))
+* **video:** remove cookie warnings from video ([0db76d8](https://github.com/visitscotland/vs-component-library/commit/0db76d8af1bd94a983445a5c9f20447ac9689dd2))
+* **video:** remove redundant no-cookie stories for other videos ([6301bd4](https://github.com/visitscotland/vs-component-library/commit/6301bd46adad74feebfe892ad0fa8216ab48a4e2))
+* **video:** switch to nocookies youtube embed url ([4901029](https://github.com/visitscotland/vs-component-library/commit/49010295cbf70d112122f314b6c3448cd66fd751))
+
 ### [3.1.4](https://github.com/visitscotland/vs-component-library/compare/v3.1.3...v3.1.4) (2024-09-12)
 
 
