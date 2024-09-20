@@ -86,18 +86,18 @@ export default {
         margin-bottom: $spacer-0;
 
         @include media-breakpoint-up(md) {
-            margin-bottom: $spacer-1;
+            margin-bottom: $spacer-025;
             font-size: $font-size-5;
         }
     }
 
     &__author-title {
-        line-height: $spacer-5;
+        line-height: $spacer-125;
 
         @include media-breakpoint-up(md) {
             line-height: $line-height-s;
             font-size: $font-size-5;
-            margin-bottom: $spacer-7;
+            margin-bottom: $spacer-175;
         }
     }
 
@@ -115,8 +115,8 @@ export default {
 
     &__speech-container {
         display: block;
-        margin-bottom: $spacer-4;
-        margin-right: $spacer-5;
+        margin-bottom: $spacer-100;
+        margin-right: $spacer-125;
         width: 3.5rem;
         height: 2.5rem;
         position: relative;
@@ -131,14 +131,14 @@ export default {
         display: block;
         width: 50%;
         max-width: 8rem;
-        margin-bottom: $spacer-4;
+        margin-bottom: $spacer-100;
 
         img {
             width: 100%;
         }
 
         @include media-breakpoint-up(lg) {
-            margin-right: $spacer-5;
+            margin-right: $spacer-125;
         }
     }
 
@@ -151,7 +151,7 @@ export default {
             @include media-breakpoint-up(sm) {
                 display: inline-block;
                 vertical-align: top;
-                margin-bottom: $spacer-5;
+                margin-bottom: $spacer-125;
             }
         }
 

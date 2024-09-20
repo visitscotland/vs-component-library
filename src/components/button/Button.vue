@@ -217,11 +217,11 @@ export default {
             margin-top: -0.05rem;
 
             &--right {
-                margin-left: $spacer-2;
+                margin-left: $spacer-050;
             }
 
             &--left {
-                margin-right: $spacer-2;
+                margin-right: $spacer-050;
             }
         }
 
@@ -299,7 +299,7 @@ export default {
             transition: none;
 
             &.btn-sm, &.btn-md, &.btn-lg {
-                padding: $spacer-1;
+                padding: $spacer-025;
             }
 
             .vs-button__text {
@@ -308,7 +308,7 @@ export default {
 
             .vs-icon {
                 display: block;
-                margin: 0 auto $spacer-1;
+                margin: 0 auto $spacer-025;
             }
         }
 
@@ -316,19 +316,19 @@ export default {
             line-height: 1;
 
             &.btn-sm {
-                padding: $spacer-1 $spacer-1;
+                padding: $spacer-025 $spacer-025;
                 width: 32px;
                 height: 32px;
             }
 
             &.btn-md {
-                padding: $spacer-2 $spacer-1;
+                padding: $spacer-050 $spacer-025;
                 width: 40px;
                 height: 40px;
             }
 
             &.btn-lg {
-                padding: $spacer-2 $spacer-1;
+                padding: $spacer-050 $spacer-025;
                 width: 48px;
                 height: 48px;
             }
@@ -341,15 +341,15 @@ export default {
         /* Button Sizes
         ------------------------------------------ */
         &.btn-sm {
-            padding: $spacer-1 $spacer-4;
+            padding: $spacer-025 $spacer-100;
         }
 
         &.btn-md {
-            padding: $spacer-3 $spacer-8;
+            padding: $spacer-075 $spacer-200;
         }
 
         &.btn-lg {
-            padding: $spacer-4 $spacer-9;
+            padding: $spacer-100 $spacer-300;
         }
 
         &.vs-button--flex-reverse {

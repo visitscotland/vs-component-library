@@ -73,7 +73,7 @@ export default {
 
     .table-sm th, .table-sm td {
         font-size: $font-size-4;
-        padding: $spacer-1;
+        padding: $spacer-025;
     }
 
     &.table.b-table {

@@ -230,8 +230,8 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
             content: "\e012";
             display: inline-block;
             position: absolute;
-            top: $spacer-9;
-            right: $spacer-4;
+            top: $spacer-300;
+            right: $spacer-100;
             pointer-events: none;
             font-size: $font-size-5;
             color: $vs-color-icon-primary;
@@ -244,7 +244,7 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
         &__modal {
             width: 100%;
             display: none;
-            padding: $spacer-4;
+            padding: $spacer-100;
             box-shadow: $vs-elevation-shadow-raised;
         }
 

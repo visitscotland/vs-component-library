@@ -143,9 +143,9 @@ export default {
         position: absolute;
         transform: translateY(-100%);
         top: 0;
-        height: $spacer-9;
+        height: $spacer-300;
         align-items: center;
-        padding: 0 $spacer-2;
+        padding: 0 $spacer-050;
 
         &__label {
             margin: 0;
@@ -157,11 +157,11 @@ export default {
         }
 
         .vs-link {
-            margin-left: $spacer-2;
+            margin-left: $spacer-050;
         }
 
         @include media-breakpoint-up(lg) {
-            height: $spacer-10;
+            height: $spacer-400;
         }
     }
 

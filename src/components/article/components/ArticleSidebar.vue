@@ -60,11 +60,11 @@ export default {
     &__quote-wrapper {
         background: $vs-color-background-inverse;
         margin-left: -1px;
-        padding: $spacer-8 $spacer-6;
+        padding: $spacer-200 $spacer-150;
 
         @include media-breakpoint-up(md) {
             margin-left: 0;
-            padding: $spacer-8 $spacer-0 $spacer-1;
+            padding: $spacer-200 $spacer-0 $spacer-025;
         }
     }
 
@@ -72,13 +72,13 @@ export default {
         &--right{
             .vs-article-sidebar__quote-wrapper {
                 padding-left: $spacer-0;
-                padding-right: $spacer-5;
+                padding-right: $spacer-125;
             }
         }
 
         &--left{
             .vs-article-sidebar__quote-wrapper {
-                padding-left: $spacer-5;
+                padding-left: $spacer-125;
                 padding-right: $spacer-0;
             }
         }

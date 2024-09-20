@@ -108,7 +108,7 @@ export default {
 
         &__icon {
             vertical-align: middle;
-            margin-right: $spacer-2;
+            margin-right: $spacer-050;
         }
 
         @include map-button-themes;
@@ -123,7 +123,7 @@ export default {
             transform: none;
             width: 100%;
             text-align: left;
-            padding: $spacer-4 $spacer-4;
+            padding: $spacer-100 $spacer-100;
             border: none;
             justify-content: space-between;
             line-height: $line-height-standard;
@@ -148,12 +148,12 @@ export default {
             @include media-breakpoint-up(lg) {
                 font-size: $font-size-6;
                 font-weight: $font-weight-normal;
-                padding: $spacer-2 $spacer-4;
+                padding: $spacer-050 $spacer-100;
             }
         }
 
         @include media-breakpoint-up(lg) {
-            padding: $spacer-2 0;
+            padding: $spacer-050 0;
         }
     }
 </style>

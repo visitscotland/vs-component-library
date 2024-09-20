@@ -32,7 +32,7 @@ export default {
             td{
                 font-size: $font-size-3;
                 font-weight: $font-weight-light;
-                padding: $spacer-2 $spacer-1;
+                padding: $spacer-050 $spacer-025;
             }
         }
     }

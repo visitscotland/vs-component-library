@@ -129,7 +129,7 @@ onMounted(() => {
     .vs-guest-selector-number-group {
         display: flex;
         justify-content: space-between;
-        margin-bottom: $spacer-3;
+        margin-bottom: $spacer-075;
 
         &__input {
             width: 30px;

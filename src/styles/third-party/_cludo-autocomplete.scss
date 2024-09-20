@@ -7,16 +7,16 @@
         list-style: none;
         background: $vs-elevation-surface-overlay;
         box-shadow: $vs-elevation-shadow-overlay;
-        padding: $spacer-2 0;
+        padding: $spacer-050 0;
         left: 0;
         right: 0;
         margin-left: auto;
         margin-right: auto;
-        margin-top: $spacer-3;
+        margin-top: $spacer-075;
 
         @include media-breakpoint-up(lg) {
-            margin-top: $spacer-5;
-            padding: $spacer-3 0;
+            margin-top: $spacer-125;
+            padding: $spacer-075 0;
         }
 
         li{
@@ -24,11 +24,11 @@
             font-size: $font-size-4;
             line-height: $line-height-standard;
             transition: all .1s;
-            padding: $spacer-2 $spacer-4;
+            padding: $spacer-050 $spacer-100;
 
             @include media-breakpoint-up(lg) {
                 font-size: $font-size-6;
-                padding: $spacer-2 $spacer-8;
+                padding: $spacer-050 $spacer-200;
             }
 
             &:hover, &.active{

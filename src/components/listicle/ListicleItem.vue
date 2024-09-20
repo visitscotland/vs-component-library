@@ -103,10 +103,10 @@ export default {
 
 <style lang="scss">
 .vs-listicle-item {
-    margin-bottom: $spacer-9;
+    margin-bottom: $spacer-300;
 
     @include media-breakpoint-up(sm) {
-        margin-bottom: $spacer-11;
+        margin-bottom: $spacer-500;
     }
 
     .count {
@@ -122,11 +122,11 @@ export default {
             content: "";
             border-bottom: 1px solid $vs-color-text-inverse;
             display: block;
-            margin: $spacer-1 $spacer-4 0;
-            margin-top: $spacer-1;
+            margin: $spacer-025 $spacer-100 0;
+            margin-top: $spacer-025;
 
             @include media-breakpoint-up(md) {
-                margin: $spacer-1 $spacer-6 0;
+                margin: $spacer-025 $spacer-150 0;
             }
         }
 
@@ -140,8 +140,8 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: $spacer-9;
-        height: $spacer-9;
+        width: $spacer-300;
+        height: $spacer-300;
 
         @include media-breakpoint-up(md) {
             height: 67px;
@@ -150,22 +150,22 @@ export default {
     }
 
     &.border {
-        padding: $spacer-4;
+        padding: $spacer-100;
 
         @include media-breakpoint-up(md) {
-            padding: $spacer-8;
+            padding: $spacer-200;
         }
 
         @include media-breakpoint-up(lg) {
-            padding: $spacer-8;
+            padding: $spacer-200;
         }
 
         @include media-breakpoint-up(xl) {
-            padding: $spacer-11;
+            padding: $spacer-500;
         }
 
         @include media-breakpoint-up(xxl) {
-            padding: $spacer-12;
+            padding: $spacer-600;
         }
     }
 
@@ -173,7 +173,7 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin: 0 0 $spacer-5 $spacer-3;
+        margin: 0 0 $spacer-125 $spacer-075;
 
         .vs-heading__sub-heading {
             margin-top: $spacer-0;
@@ -185,13 +185,13 @@ export default {
     }
 
     .vs-caption-image-map {
-        height: $spacer-11;
+        height: $spacer-500;
     }
 
     .key-facilities-list {
         &.has-facilities {
             border-top: 1px solid $vs-color-border;
-            padding-top: $spacer-4;
+            padding-top: $spacer-100;
 
             @include media-breakpoint-up(sm) {
                 border-top: 0;
@@ -209,7 +209,7 @@ export default {
 
                 @include media-breakpoint-up(sm) {
                     border-top: 1px solid $vs-color-border;
-                    padding-top: $spacer-4;
+                    padding-top: $spacer-100;
 
                     .vs-icon-list__item {
                         width: 90px;
@@ -218,18 +218,18 @@ export default {
 
                 @include media-breakpoint-up(lg) {
                     border-top: 0;
-                    padding: 0 $spacer-2;
+                    padding: 0 $spacer-050;
 
                     .vs-icon-list__item {
                         width: 80px;
                     }
                 }
                 @include media-breakpoint-up(xl) {
-                    padding: 0 $spacer-4;
+                    padding: 0 $spacer-100;
                 }
 
                 @include media-breakpoint-up(xxl) {
-                    padding: 0 $spacer-9;
+                    padding: 0 $spacer-300;
                 }
             }
         }
