@@ -47,7 +47,7 @@ props:
     - name: heading-xl
       value: "{!font-size-800}"
     - name: heading-l
-      value: "{!font-size-300}"
+      value: "{!font-size-700}"
     - name: heading-m
       value: "{!font-size-600}"
     - name: heading-s
