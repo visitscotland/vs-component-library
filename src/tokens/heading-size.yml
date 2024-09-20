@@ -33,6 +33,14 @@ props:
       value: "1.25rem"
 
 # New heading sizes to replace old ones above
+    - name: display-l
+      value: "{!font-size-1000}"
+    - name: display-m
+      value: "{!font-size-900}"
+    - name: display-s
+      value: "{!font-size-700}"
+    - name: display-xs
+      value: "{!font-size-400}"
     - name: heading-xxl
       value: "{!font-size-900}"
     - name: heading-xl
