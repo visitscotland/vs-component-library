@@ -258,25 +258,6 @@ SidebarVideo.args = {
     },
 };
 
-export const NoCookies = Template.bind();
-NoCookies.args = {
-    ...base,
-    ...CoverVideo.args,
-    ...SidebarVideo.args,
-};
-
-NoCookies.decorators = [
-    () => {
-        window.bypassCookieChecks = false;
-
-        return {
-            template: `
-                <story/>
-            `,
-        };
-    },
-];
-
 export const NoJavascript = Template.bind();
 NoJavascript.args = {
     ...base,

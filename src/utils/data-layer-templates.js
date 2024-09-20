@@ -314,6 +314,25 @@ const carbonCompleteTemplate = [
     'food_percent',
 ];
 
+const cmsReferralTemplate = [
+    'event',
+    'site_language',
+    'page_category_1',
+    'page_category_2',
+    'page_category_3',
+    'page_category_4',
+    'page_category_5',
+    'page_category_6',
+    'user_country_setting',
+    'hit_timestamp',
+    'tag_name',
+    'tag_name',
+    'meta_data',
+    'referral_location',
+    'attraction_name',
+    'dmo_referral',
+];
+
 export {
     pageViewTemplate,
     menuNavigationTemplate,
@@ -332,4 +351,5 @@ export {
     carbonQuestionTemplate,
     carbonCompleteTemplate,
     productSearchTemplate,
+    cmsReferralTemplate,
 };
