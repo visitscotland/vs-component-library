@@ -62,9 +62,7 @@
             icon-only
             @click="closeSearchForm"
         >
-            <span class="visually-hidden">
-                {{ closeButtonText }}
-            </span>
+            {{ closeButtonText }}
         </VsButton>
     </div>
 </template>
