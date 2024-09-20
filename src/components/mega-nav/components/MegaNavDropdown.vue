@@ -36,6 +36,7 @@
                                 size="sm"
                                 variant="transparent"
                                 @click="closeMenu"
+                                @keydown.tab="closeMenu"
                             >
                                 <span class="visually-hidden">
                                     {{ menuToggleAltText }}
