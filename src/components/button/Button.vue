@@ -19,12 +19,10 @@
             :class="iconClasses"
             :size="calcIconSize"
             :padding="0"
+            :orientation="iconOrientation"
         />
         <!-- @slot The button content goes here -->
-        <span
-            class="vs-button__text"
-            :class="{ 'visually-hidden': iconOnly }"
-        >
+        <span class="vs-button__text">
             <slot />
         </span>
     </BButton>
@@ -97,9 +95,9 @@ export default {
             default: true,
         },
         /**
-         * Pass the name of the icon to add it to the button.
+         * Set this for a button on a dark background for better colour contrast
          */
-        rounded: {
+        onDark: {
             type: Boolean,
             default: false,
         },
@@ -109,6 +107,15 @@ export default {
         icon: {
             type: String,
             default: '',
+        },
+        /**
+         * The icon orientation
+         * `up|down|left|right`.
+         */
+        iconOrientation: {
+            type: String,
+            default: null,
+            validator: (value) => value.match(/(up|down|left|right)/),
         },
         /**
          * If the button contains an icon only with no text.
@@ -145,7 +152,7 @@ export default {
                 {
                     'vs-button--animated': this.animate && !this.iconOnly && !this.iconWithText,
                     'vs-button--is-animating': this.isAnimating,
-                    'vs-button--rounded': this.rounded,
+                    'vs-button--on-dark': this.onDark,
                     'vs-button--icon-only': this.iconOnly,
                     'vs-button--icon-with-text': this.iconWithText,
                     'button-flex': this.icon && !this.iconOnly && !this.iconWithText,
@@ -218,7 +225,7 @@ export default {
         }
 
         .vs-icon {
-            margin-top: -0.05rem;
+            margin-top: -.05rem;
 
             &--right {
                 margin-left: $spacer-1;
@@ -229,8 +236,14 @@ export default {
             }
         }
 
-        &.vs-button--rounded {
-            border-radius: $border-radius-pill;
+        &:focus {
+            @extend %primary-button-focus;
+        }
+
+        &.vs-button--on-dark {
+            &:focus {
+                box-shadow: $vs-box-shadow-focus-on-dark;
+            }
         }
 
         &.disabled {
@@ -241,8 +254,7 @@ export default {
             box-shadow: none;
         }
 
-        &.btn-primary,
-        &.btn-secondary {
+        &.btn-primary, &.btn-secondary {
             &.disabled {
                 @extend %button-disabled;
             }
@@ -252,34 +264,20 @@ export default {
         ------------------------------------------ */
         &.btn-primary {
             @include vs-button-variant(
-                $vs-color-text-inverse,
-                $vs-color-background-primary,
-                $vs-color-border-primary,
-                $vs-color-text-inverse,
-                $vs-color-background-hover,
-                $vs-color-background-hover,
-                $vs-color-text-primary,
-                $vs-color-background-active,
-                $vs-color-background-active,
-                $vs-color-text-primary,
-                $vs-color-background-inverse,
-                $vs-color-border-primary );
+                $vs-color-text-inverse, $vs-color-background-primary, $vs-color-border-primary,
+                $vs-color-text-inverse, $vs-color-background-hover, $vs-color-background-hover,
+                $vs-color-text-primary, $vs-color-background-active, $vs-color-background-active,
+                $vs-color-text-primary, $vs-color-background-inverse, $vs-color-border-primary,
+            );
         }
 
         &.btn-secondary {
             @include vs-button-variant(
-                $vs-color-text-primary,
-                $vs-color-background-inverse,
-                $vs-color-border-primary,
-                $vs-color-text-inverse,
-                $vs-color-background-hover,
-                $vs-color-background-hover,
-                $vs-color-text-primary,
-                $vs-color-background-active,
-                $vs-color-background-active,
-                $vs-color-text-inverse,
-                $vs-color-background-primary,
-                $vs-color-border-focus );
+                $vs-color-text-primary, $vs-color-background-inverse, $vs-color-border-primary,
+                $vs-color-text-inverse, $vs-color-background-hover, $vs-color-background-hover,
+                $vs-color-text-primary, $vs-color-background-active, $vs-color-background-active,
+                $vs-color-text-inverse, $vs-color-background-primary, $vs-color-border-focus,
+            );
         }
 
         &.btn-transparent {
@@ -288,10 +286,28 @@ export default {
                     $vs-color-text, transparent, transparent,
                     $vs-color-text-primary, transparent, transparent,
                     $vs-color-text-primary, transparent, transparent,
-                    $vs-color-text-primary, transparent, transparent);
+                    $vs-color-text-primary, transparent, transparent,
+                );
 
                 &:focus {
                     box-shadow: $vs-box-shadow-focus inset;
+                }
+
+                &.vs-button--on-dark {
+                    @include vs-button-variant(
+                        $vs-color-text-inverse, transparent, transparent,
+                        $vs-color-text-inverse, transparent, transparent,
+                        $vs-color-text-inverse, transparent, transparent,
+                        $vs-color-text-inverse, transparent, transparent,
+                    );
+
+                    &:hover .vs-button__text {
+                        text-decoration: none;
+                    }
+
+                    &:focus {
+                        box-shadow: $vs-box-shadow-focus-on-dark inset;
+                    }
                 }
             }
         }
@@ -318,13 +334,13 @@ export default {
         &.vs-button--icon-only {
             // line-height: 1;
 
-            &.btn-sm {
+            &.btn-sm{
                 padding: $spacer-1 $spacer-1;
                 width: 32px;
                 height: 32px;
             }
 
-            &.btn-md {
+            &.btn-md{
                 padding: $spacer-2 $spacer-1;
                 width: 40px;
                 height: 40px;
@@ -344,7 +360,7 @@ export default {
         /* Button Sizes
         ------------------------------------------ */
         &.btn-sm {
-            padding: $spacer-1 $spacer-5;
+            padding: $spacer-0125 $spacer-5;
             font-size: $btn-font-size;
         }
 
@@ -354,7 +370,7 @@ export default {
         }
 
         &.btn-lg {
-            padding: $spacer-3 $spacer-7;
+            padding: $spacer-075 $spacer-7;
             font-size: $btn-font-size;
         }
 
@@ -371,7 +387,6 @@ export default {
                     transform: scale(0, 0);
                     opacity: $opacity-100;
                 }
-
                 100% {
                     opacity: $opacity-0;
                     transform: scale(100, 100);
@@ -382,7 +397,7 @@ export default {
                 background: rgba(255, 255, 255, 0.1);
                 border-radius: 50%;
                 bottom: 0;
-                content: '';
+                content: "";
                 height: 5px;
                 opacity: $opacity-0;
                 position: absolute;
