@@ -273,7 +273,7 @@ export default {
 
         &__popover {
             max-width: 600px;
-            width: 96% !important;
+            width: 86vw !important;
             font-size: inherit;
             text-align: center;
             border: 0;

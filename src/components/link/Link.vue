@@ -27,6 +27,7 @@
 <script>
 import VsIcon from '@/components/icon/Icon.vue';
 import dataLayerMixin from '../../mixins/dataLayerMixin';
+import dmoAnalyticsLogic from '../../utils/dmo-analytics-logic';
 
 /**
  * Links allow a user to navigate through
@@ -111,6 +112,15 @@ export default {
             } else {
                 this.createDataLayerObject('internalLinkDataEvent', event, this.href);
             }
+
+            // capture DMO link referral
+            if (dmoAnalyticsLogic(event).type === 'CMS referral') {
+                this.createDataLayerObject('cmsReferral', {
+                    referral_location: event.target.href,
+                    dmo_referral: dmoAnalyticsLogic(event).dmo_referral,
+                });
+            }
+
             // don't navigate if it's an empty or anchor link
             if (this.href !== '#' && this.href !== null) {
                 window.location.href = this.href;
