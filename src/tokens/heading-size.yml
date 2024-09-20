@@ -41,6 +41,7 @@ props:
       value: "{!font-size-700}"
     - name: display-xs
       value: "{!font-size-400}"
+  
     - name: heading-xxl
       value: "{!font-size-900}"
     - name: heading-xl
@@ -55,6 +56,13 @@ props:
       value: "{!font-size-400}"
     - name: heading-xxs
       value: "{!font-size-300}"
+
+    - name: sub-heading-l
+      value: "{!font-size-400}"
+    - name: sub-heading-m
+      value: "{!font-size-300}"
+    - name: sub-heading-s
+      value: "{!font-size-200}"
 imports:
   - ./primitives/font-size-primitives.yml
 global:
