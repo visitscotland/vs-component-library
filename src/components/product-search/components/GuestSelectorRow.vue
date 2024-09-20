@@ -74,9 +74,7 @@ const handleRemove = () => {
             size="sm"
             v-if="name !== 'r1'"
         >
-            <span class="visually-hidden">
-                {{ removeText }}
-            </span>
+            {{ removeText }}
         </VsButton>
 
         <div v-if="unitOptions" class="c-search__rooms-guests-picker__row">

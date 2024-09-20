@@ -10,8 +10,6 @@ export default {
                 'primary',
                 'secondary',
                 'transparent',
-                'dark',
-                'light',
             ],
             control: {
                 type: 'radio',
@@ -22,17 +20,6 @@ export default {
                 'sm',
                 'md',
                 'lg',
-            ],
-            control: {
-                type: 'radio',
-            },
-        },
-        iconOrientation: {
-            options: [
-                'up',
-                'down',
-                'left',
-                'right',
             ],
             control: {
                 type: 'radio',
@@ -75,12 +62,10 @@ const Template = (args) => ({
 const base = {
     default: 'Button',
     variant: 'primary',
-    onDark: false,
     size: 'md',
     animate: true,
     href: '',
     icon: '',
-    iconOrientation: 'up',
     iconOnly: false,
     iconWithText: false,
     iconPosition: 'left',
@@ -135,6 +120,12 @@ IconOnly.args = {
     default: '',
 };
 
+export const Rounded = Template.bind();
+Rounded.args = {
+    ...base,
+    rounded: true,
+};
+
 export const IconOnlySecondary = Template.bind();
 IconOnlySecondary.args = {
     ...base,
@@ -178,20 +169,4 @@ IconWithText.args = {
     icon: 'share',
     iconWithText: true,
     default: 'Share',
-};
-
-export const IconWithTextOnDark = Template.bind();
-IconWithTextOnDark.args = {
-    ...base,
-    variant: 'transparent',
-    icon: 'close-circle',
-    iconWithText: true,
-    default: 'Close',
-    onDark: true,
-};
-
-IconWithTextOnDark.parameters = {
-    backgrounds: {
-        default: 'Dark',
-    },
 };
