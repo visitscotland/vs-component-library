@@ -32,17 +32,14 @@
                 >
                     <VsButton
                         icon-only
-                        icon="internal-link"
-                        icon-orientation="down"
+                        icon="internal-link-back"
                         size="md"
                         variant="secondary"
                         @click="stageBack"
                         data-test="vs-map-with-sidebar-panel--btn-back"
                     >
-                        <span class="visually-hidden">
-                            <!-- @slot Text for panel back button  -->
-                            <slot name="back-btn-text" />
-                        </span>
+                        <!-- @slot Text for panel back button  -->
+                        <slot name="back-btn-text" />
                     </VsButton>
                 </div>
                 <div
@@ -56,10 +53,8 @@
                         @click="closePanel"
                         data-test="vs-map-with-sidebar-panel--btn-close"
                     >
-                        <span class="visually-hidden">
-                            <!-- @slot Text for panel close button  -->
-                            <slot name="close-side-panel-text" />
-                        </span>
+                        <!-- @slot Text for panel close button  -->
+                        <slot name="close-side-panel-text" />
                     </VsButton>
                 </div>
             </div>
@@ -70,17 +65,14 @@
             >
                 <VsButton
                     icon-only
-                    icon="internal-link"
-                    icon-orientation="down"
+                    icon="internal-link-back"
                     size="md"
                     variant="secondary"
                     @click="stageBack"
                     data-test="vs-map-with-sidebar-panel--btn-back"
                 >
-                    <span class="visually-hidden">
-                        <!-- @slot Text for panel back button  -->
-                        <slot name="back-btn-text" />
-                    </span>
+                    <!-- @slot Text for panel back button  -->
+                    <slot name="back-btn-text" />
                 </VsButton>
             </div>
 
@@ -107,10 +99,8 @@
                     @click="resetPanel"
                     data-test="vs-map-with-sidebar-panel--btn-reset"
                 >
-                    <span class="visually-hidden">
-                        <!-- @slot Text for panel reset button  -->
-                        <slot name="reset-side-panel-text" />
-                    </span>
+                    <!-- @slot Text for panel reset button  -->
+                    <slot name="reset-side-panel-text" />
                 </VsButton>
             </div>
         </div>

@@ -10,9 +10,7 @@
         @click="toggleAction"
     >
         <!-- @slot Default slot for screenreader text -->
-        <span class="visually-hidden">
-            <slot />
-        </span>
+        <slot />
 
         <VsIcon
             v-if="show"

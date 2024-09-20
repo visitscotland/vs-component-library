@@ -35,9 +35,7 @@
             :disabled="(inputVal <= minimumNumber) ? true : null"
             @click="decrementValue"
         >
-            <span class="visually-hidden">
-                Add 1
-            </span>
+            Remove 1
         </VsButton>
 
         <BFormInput
@@ -69,9 +67,7 @@
             :disabled="(inputVal >= maximumNumber) ? true : null"
             @click="incrementValue"
         >
-            <span class="visually-hidden">
-                Remove 1
-            </span>
+            Add 1
         </VsButton>
 
         <VsButton

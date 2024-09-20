@@ -19,12 +19,11 @@
                     class="d-flex justify-content-end align-items-start order-lg-1"
                 >
                     <VsButton
-                        icon-with-text
-                        on-dark
                         class="vs-modal__close-btn mb-5 mb-lg-0"
                         data-test="vs-modal__close-btn"
-                        variant="transparent"
-                        icon="close-circle"
+                        variant="secondary"
+                        icon-only
+                        icon="close"
                         @click="hideModal"
                     >
                         {{ closeBtnText }}
@@ -178,14 +177,6 @@ export default {
     @include media-breakpoint-up(xl) {
         .modal-xl {
             max-width: 1140px;
-        }
-    }
-
-    .modal-content {
-        background-color: $vs-color-background-bold;
-
-        .vs-rich-text-wrapper p {
-            color: $vs-color-text-inverse;
         }
     }
 
