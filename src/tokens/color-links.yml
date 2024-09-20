@@ -6,7 +6,7 @@ props:
     - name: vs-color-text-visited
       value: "{!vs-bramble}"
 imports:
-  - ./color-core.yml
+  - ./primitives/color-core.yml
 global:
     type: color
     category: color-links
