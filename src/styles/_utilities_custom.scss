@@ -4,29 +4,33 @@
 @import "bootstrap/scss/mixins";
 @import "bootstrap/scss/utilities";
 
-$utilities: map-merge(
-  $utilities,
-  (
-    "basis": (
-        property: flex-basis,
+$utilities: map-merge($utilities,
+    ("basis": (property: flex-basis,
         class: "basis",
         responsive: true,
-        values: (
-        0: 0,
-        30: 30%,
-        50: 50%,
-        75: 75%,
-        100: 100%,
-        )
-    ),
-    "text": (
-      property: color,
-      class: "text",
-      values: (
-        'brand': #5B2487,
-      )
-    )
-  )
-);
+        values: (0: 0,
+          30: 30%,
+          50: 50%,
+          75: 75%,
+          100: 100%,
+        )),
+      "text": (property: color,
+        class: "text",
+        values: ('brand': #5B2487,
+        )),
+      "max-width": (property: max-width,
+        class: mw,
+        values: (100: 100%,
+          40: 40%,
+        ),
+        "gap": (property: gap,
+          class: "gap",
+          values: $spacers,
+          responsive: true,
+        ),
+
+      ),
+
+    ));
 
 @import "bootstrap/scss/utilities/api";

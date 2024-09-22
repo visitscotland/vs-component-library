@@ -9,14 +9,8 @@ export default {
     title: 'Hero',
     tags: ['autodocs'],
     argTypes: {
-        variant: {
-            options: [
-                'fullwidth',
-                'large',
-            ],
-            control: {
-                type: 'inline-radio',
-            },
+        inset: {
+            options: [true, false],
         },
     },
 };
@@ -33,61 +27,30 @@ const Template = (args) => ({
     },
     template: `
         <VsHeroSection v-bind="args">
-     
-        </VsHeroSection>
+        </VsHeroSection> 
     `,
 });
 
 const base = {
-    headingText: 'scotland, the biggest wee country in the world',
-    sectionText: `
-        <p>Oh, we do like to be beside the seaside! St Andrews is one of Scotland's favourite coastal destinations, with its two brilliant award-winning beaches, <a href="https://www.visitscotland.com/info/towns-villages/st-andrews-east-sands-p315871">East Sands</a> and <a href="http://www.visitscotland.com/info/towns-villages/st-andrews-west-sands-p315881">West Sands</a>. In the summertime</p>
-    `,
+    headingText: 'Scotland, the biggest wee country in the world',
     src: 'https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2023/01/20/paddleboarding---basking-shark-scotland.jpg?size=lg',
     alt: '',
+    inset: false,
 };
 
-export const Default = Template.bind(
-    {
-    },
-);
+export const Default = Template.bind({
+});
 
 Default.args = {
     ...base,
 };
 
-export const Minimal = Template.bind({
+export const Inset = Template.bind({
+    ...base,
+    inset: true,
 });
 
-Minimal.args = {
+export const WithLede = Template.bind({
     ...base,
-    overrideStyleLevel: 3,
-};
-
-// export const WithSubheading = Template.bind({
-// });
-
-// WithSubheading.args = {
-//     ...base,
-//     default: 'Heart of Neolithic Orkney',
-//     'sub-heading': 'Mainland, Orkney',
-// };
-
-// export const Thin = Template.bind({
-// });
-
-// Thin.args = {
-//     ...base,
-//     default: 'Find out more',
-//     thin: true,
-// };
-
-// export const Alternative = Template.bind({
-// });
-
-// Alternative.args = {
-//     ...base,
-//     default: 'Find experiences',
-//     level: '2',
-//     alternative: true,
-// };
+    lede: 'Welcome to Scotland, where history meets breathtaking beauty, and every visit feels like home.',
+});
