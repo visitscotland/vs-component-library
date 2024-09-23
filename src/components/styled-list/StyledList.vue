@@ -16,7 +16,7 @@
             </VsRow>
             <VsRow>
                 <VsCol
-                    :cols="props.variant === 'icon' ? '8' : null"
+                    :md="props.variant === 'icon' ? '8' : null"
                 >
                     <ul class="vs-styled-list__list mt-8">
                         <slot />

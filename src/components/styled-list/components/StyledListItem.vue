@@ -6,13 +6,16 @@
         <VsRow>
             <VsCol
                 v-if="props.imageSrc"
-                cols="2"
+                cols="12"
+                md="2"
             >
                 <VsImg
                     :src="props.imageSrc"
                 />
             </VsCol>
-            <VsCol :cols="props.imageSrc ? '10' : '12'">
+            <VsCol
+                :md="props.imageSrc ? '10' : '12'"
+            >
                 <VsHeading level="3">
                     <slot name="item-heading" />
                 </VsHeading>
