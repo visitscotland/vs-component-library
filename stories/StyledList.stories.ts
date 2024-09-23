@@ -41,6 +41,7 @@ const Template = (args) => ({
             <VsStyledListItem
                 v-for="(item, index) in args.listItems"
                 :key="index"
+                :imageSrc="item.imgSrc ? item.imgSrc : null"
             >
                 <template v-slot:item-heading>
                     {{ item.heading }}
@@ -128,6 +129,47 @@ Numbered.args = {
                 <p>Following your Taste Our Best assessment visit you will receive confirmation of your award by email, along with a detailed report containing tailored advice and guidance.</p>
                 <p>You will also be provided with an award certificate and electronic logos so that you can shout about your new Taste Our Best Award.</p>
                 <p><a href="#">Read more about how to make the most of your award</a>.</p>
+            `,
+        },
+    ],
+};
+
+export const WithImage = Template.bind({
+});
+
+WithImage.args = {
+    variant: 'image',
+    title: 'Critical factors for younger people\'s travel journeys are',
+    listItems: [
+        {
+            heading: 'New',
+            imgSrc: 'fixtures/styled-list/swot-opportunities.svg',
+            content: `
+                <p>Originality for young travellers means providing new opportunities or reviving and refreshing existing traditions and brands so that young travellers feel they are discovering them for the first time.</p>
+            `,
+        },
+        {
+            heading: 'Value for money',
+            imgSrc: 'fixtures/styled-list/investment.svg',
+            content: `
+                <p>Affordability is key, particularly when income may not match the desire for new experiences. Young travellers are adept at seeking out deals and signing up to offers that keep them "in the know".</p>
+                <p>Those without children can be agile and spontaneous. They're able to take advantage of last-minute opportunities.</p>
+            `,
+        },
+        {
+            heading: 'Braggable',
+            imgSrc: 'fixtures/styled-list/messages-of-support.svg',
+            content: `
+                <p>Being seen as "ahead of the curve" is important to young travellers, allowing them to feel like a leader rather than a follower.</p>
+                <p>Reframing an experience (staying in a log cabin rather than a hotel for example) means "bragging rights" are rooted in a genuinely differentiated experience rather than simply ticking off a destination.</p>
+            `,
+        },
+        {
+            heading: 'Unique',
+            imgSrc: 'fixtures/styled-list/innovation.svg',
+            content: `
+                <p>Younger people want a deeper level of involvement when they travel.</p>
+                <p>They often seek out experiences that are unique to the destination. These may not be particularly unusual, but are different to normal behaviour and different from previous (and future) holidays.</p>
             `,
         },
     ],

@@ -3,19 +3,41 @@
         class="vs-styled-list__item"
         data-test="vs-styled-list__item"
     >
-        <VsHeading level="3">
-            <slot name="item-heading" />
-        </VsHeading>
+        <VsRow>
+            <VsCol
+                v-if="props.imageSrc"
+                cols="2"
+            >
+                <VsImg
+                    :src="props.imageSrc"
+                />
+            </VsCol>
+            <VsCol :cols="props.imageSrc ? '10' : '12'">
+                <VsHeading level="3">
+                    <slot name="item-heading" />
+                </VsHeading>
 
-        <VsRichTextWrapper>
-            <slot />
-        </VsRichTextWrapper>
+                <VsRichTextWrapper>
+                    <slot />
+                </VsRichTextWrapper>
+            </VsCol>
+        </VsRow>
     </li>
 </template>
 
 <script setup lang="ts">
+import type { StyledListItemProps } from '@/types/component-props';
 import VsHeading from '../../heading/Heading.vue';
+import VsImg from '../../img/Img.vue';
 import VsRichTextWrapper from '../../rich-text-wrapper/RichTextWrapper.vue';
+import {
+    VsRow,
+    VsCol,
+} from '../../grid';
+
+const props = withDefaults(defineProps<StyledListItemProps>(), {
+    imageSrc: null,
+});
 </script>
 
 <style lang="scss">
@@ -68,8 +90,16 @@ import VsRichTextWrapper from '../../rich-text-wrapper/RichTextWrapper.vue';
         font-family: 'Font Awesome Kit';
         font-size: $font-size-8;
         position: absolute;
-        top: -$spacer-1;
+        top: $spacer-2;
         left: 0;
+    }
+}
+
+.vs-styled-list--image {
+    margin-bottom: $spacer-250;
+
+    img {
+        max-width: 100%;
     }
 }
 </style>

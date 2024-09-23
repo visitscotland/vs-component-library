@@ -1,3 +1,7 @@
 export type StyledListProps = {
-    variant?: 'icon' | 'numbered';
+    variant?: 'icon' | 'image' | 'numbered';
+};
+
+export type StyledListItemProps = {
+    imageSrc?: string;
 };
