@@ -8,11 +8,11 @@
             <VsRow>
                 <VsCol
                     cols="12"
-                    :class="!businessSupport && 'col-xxl-10 offset-xxl-1'"
+                    :class="businessSupport ? null : 'col-xxl-10 offset-xxl-1'"
                 >
                     <div
                         class="vs-article__wrapper mb-9 mb-md-11"
-                        :class="businessSupport && 'vs-article__wrapper--no-border'"
+                        :class="businessSupport ? 'vs-article__wrapper--no-border' : null"
                     >
                         <!-- @slot Slot to contain the cover image for this article -->
                         <slot
@@ -28,12 +28,12 @@
                             >
                                 <div
                                     class="vs-article__header mx-md-0 mt-9 mt-lg-11"
-                                    :class="!businessSupport && 'mx-6'"
+                                    :class="businessSupport ? null : 'mx-6'"
                                 >
                                     <VsHeading
                                         level="2"
                                         class="mb-8 mb-lg-9"
-                                        :class="!businessSupport && 'text-center'"
+                                        :class="businessSupport ? null : 'text-center'"
                                     >
                                         <span :id="anchorLink ? anchorLink : ''">
                                             {{ title }}
@@ -43,7 +43,7 @@
                                     <VsRichTextWrapper
                                         variant="lead"
                                         class="mb-9 mb-lg-10"
-                                        :class="!businessSupport && 'text-center'"
+                                        :class="businessSupport ? null : 'text-center'"
                                     >
                                         <!-- @slot Slot to contain the introduction
                                         for this article -->
