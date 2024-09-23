@@ -61,6 +61,7 @@
             size="md"
             icon-only
             @click="closeSearchForm"
+            @keydown.tab="closeSearchForm"
         >
             <span class="visually-hidden">
                 {{ closeButtonText }}
