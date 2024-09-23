@@ -203,18 +203,6 @@ NoCookies.args = {
     ...WithVideo.args,
 };
 
-NoCookies.decorators = [
-    () => {
-        window.bypassCookieChecks = false;
-
-        return {
-            template: `
-                <story/>
-            `,
-        };
-    },
-];
-
 export const NoJavascript = Template.bind({
 });
 

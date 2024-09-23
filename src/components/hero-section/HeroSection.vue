@@ -7,7 +7,7 @@
                 bg-white
                 p-125 p-lg-400
                 d-flex flex-column
-                flex-md-row
+                flex-md-row justify-content-between
                 gap-md-125
                 gap-lg-400
             "
@@ -16,7 +16,7 @@
             <VsHeading class="text-brand m-0">
                 {{ heading }}
             </VsHeading>
-            <p v-if="lede" class="m-0">
+            <p v-if="lede" class="mt-100 mt-md-0">
                 {{ lede }}
             </p>
         </div>
@@ -26,12 +26,12 @@
                 :class="{ 'rounded-3 overflow-hidden': inset }"
             >
                 <div
+                    role="img"
                     class="
                         vs-hero-section__bg
                         w-100 min-vh-100
-                    "
-                    style="background-image: url('https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2023/01/20/paddleboarding---basking-shark-scotland.jpg?size=lg')"
-                    role="img"
+                        "
+                    :style="style"
                     :aria-label="alt"
                 />
             </div>
@@ -65,23 +65,28 @@ export default {
         },
         heading: {
             type: String,
-            default: 'Scotland, the biggest wee country in the world',
+            default: 'Level 1 heading',
             required: true,
         },
         lede: {
             type: String,
-            default: '',
+            default: 'Optional lede. A <p> tag containing a short, meaningful description summary of the page content or, potentially, a well-designed caption for the hero image.',
             required: false,
         },
         src: {
             type: String,
-            default: 'https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2023/01/20/paddleboarding---basking-shark-scotland.jpg?size=lg',
+            default: 'images/placeholders/placeholder-img.jpg',
             required: true,
         },
         alt: {
             type: String,
             default: '',
             required: false,
+        },
+    },
+    computed: {
+        style() {
+            return `background-image: url('${this.src}')`;
         },
     },
 };
@@ -91,6 +96,5 @@ export default {
 .vs-hero-section__bg {
     background-repeat: no-repeat;
     background-size: cover;
-    background-origin: 50%;
 }
 </style>
