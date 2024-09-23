@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.0](https://github.com/visitscotland/vs-component-library/compare/v3.1.9...v3.2.0) (2024-09-23)
+
+
+### ✨ Features
+
+* **article.stories.js:** add condition to show/hide sidebar content ([3b85a50](https://github.com/visitscotland/vs-component-library/commit/3b85a50e3796fe5d02c67979aa2885317bc15d62))
+* **article.stories.js:** add quote with border to BSH story ([1a2f5e5](https://github.com/visitscotland/vs-component-library/commit/1a2f5e526fd43a7265f4dad418b90f479b8798ce))
+* **article:** add businessSupport option to set specific styles ([1479e0a](https://github.com/visitscotland/vs-component-library/commit/1479e0ae7f3ae50f7d01adfb84357f22d379745a))
+* **article:** add cover image below intro ([f35979c](https://github.com/visitscotland/vs-component-library/commit/f35979c2333da4fbe772a7588ed6368b393dc5f8))
+* **article:** add option to display the cover media below the intro ([06f4bda](https://github.com/visitscotland/vs-component-library/commit/06f4bda753932157fcb3a468478a71553d0076b2))
+* **article:** add option to remove border ([865acad](https://github.com/visitscotland/vs-component-library/commit/865acadda9c776ba7b461ad8f378832055d1d153))
+* **article:** add option to set heading/intro alignment ([efd804f](https://github.com/visitscotland/vs-component-library/commit/efd804fcf3c1e0b3d639447b266ea416b9084142))
+* **article:** remove column with when businessSupport ([07ceb44](https://github.com/visitscotland/vs-component-library/commit/07ceb44ee88e3ca904a0578172f67ad77f742720))
+* **articlesection:** set content width depending on sidebar having content ([216cbea](https://github.com/visitscotland/vs-component-library/commit/216cbea67b9e648047eaf876f2208e4ff2d4fbeb))
+* **article:** set sidebar order on mobile ([ae60da3](https://github.com/visitscotland/vs-component-library/commit/ae60da3764b2d9f9509ceefe0b39506a333af7de))
+* **quote:** add with border variation ([5a551c5](https://github.com/visitscotland/vs-component-library/commit/5a551c56ec89f987e498d4e0a562a6cb0116e8bf))
+
+
+### 🐛 Bug Fixes
+
+* **article.stories.js:** fix quote paragraph ([90b019e](https://github.com/visitscotland/vs-component-library/commit/90b019edc63f1c53487ed3d848989ff90034c2bd))
+* **article.stories.js:** typo ([4f1793f](https://github.com/visitscotland/vs-component-library/commit/4f1793f5c77ba601ac495ba19a74a2a545d7119d))
+* **article:** replace logical AND with tenarys for clarity ([426088a](https://github.com/visitscotland/vs-component-library/commit/426088ad1b6bcd9993904e1ea8dd66790e4d1ca0))
+* **quote:** update border and author text colour ([6258262](https://github.com/visitscotland/vs-component-library/commit/625826226f99ac68c81df8477b126612999f1167))
+
+
+### ✅ Tests
+
+* **article seciton:** add unit test ([8a9b68b](https://github.com/visitscotland/vs-component-library/commit/8a9b68b4b1d2c52731edd18cd1446a136b6833ed))
+
 ### [3.1.9](https://github.com/visitscotland/vs-component-library/compare/v3.1.8...v3.1.9) (2024-09-23)
 
 
