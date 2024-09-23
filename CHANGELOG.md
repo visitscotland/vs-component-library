@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.9](https://github.com/visitscotland/vs-component-library/compare/v3.1.8...v3.1.9) (2024-09-23)
+
+
+### ✨ Features
+
+* **video:** remove cookie checks from page hero as well ([88f7242](https://github.com/visitscotland/vs-component-library/commit/88f72424fc677a8014994f94054b06f1fb8cdb77))
+
 ### [3.1.8](https://github.com/visitscotland/vs-component-library/compare/v3.1.7...v3.1.8) (2024-09-20)
 
 ### [3.1.7](https://github.com/visitscotland/vs-component-library/compare/v3.1.6...v3.1.7) (2024-09-20)
