@@ -20,7 +20,7 @@ props:
     - name: vs-color-information
       value: "{!vs-ptarmigan}"
 imports:
-  - ./color-core.yml
+  - ./primitives/color-core.yml
 global:
     type: color
     category: color-roles

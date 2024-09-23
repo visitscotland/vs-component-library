@@ -73,7 +73,7 @@ props:
 
       
 imports:
-  - ./color-core.yml
+  - ./primitives/color-core.yml
 global:
     type: color
     category: color-border

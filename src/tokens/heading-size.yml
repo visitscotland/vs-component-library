@@ -2,6 +2,8 @@
 # HEADING-SIZE TOKENS
 # Use these tokens to set a heading-size.
 #
+
+# To be deprecated
 props:
     - name: font-size-h1
       value: "1.5rem"
@@ -29,6 +31,40 @@ props:
       value: "1rem"
     - name: font-size-h2-sub
       value: "1.25rem"
+
+# New heading sizes to replace old ones above
+    - name: display-l
+      value: "{!font-size-1000}"
+    - name: display-m
+      value: "{!font-size-900}"
+    - name: display-s
+      value: "{!font-size-700}"
+    - name: display-xs
+      value: "{!font-size-400}"
+  
+    - name: heading-xxl
+      value: "{!font-size-900}"
+    - name: heading-xl
+      value: "{!font-size-800}"
+    - name: heading-l
+      value: "{!font-size-700}"
+    - name: heading-m
+      value: "{!font-size-600}"
+    - name: heading-s
+      value: "{!font-size-500}"
+    - name: heading-xs
+      value: "{!font-size-400}"
+    - name: heading-xxs
+      value: "{!font-size-300}"
+
+    - name: sub-heading-l
+      value: "{!font-size-400}"
+    - name: sub-heading-m
+      value: "{!font-size-300}"
+    - name: sub-heading-s
+      value: "{!font-size-200}"
+imports:
+  - ./primitives/font-size-primitives.yml
 global:
     type: number
     category: heading-size
