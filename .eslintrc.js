@@ -10,7 +10,7 @@ module.exports = {
         jest: true,
     },
     parserOptions: {
-        parser: '@typescript-eslint/parser',
+        parser: '@babel/eslint-parser',
         // specifying a module sourcetype prevent eslint from marking import statements as errors
         sourceType: 'module',
     },

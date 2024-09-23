@@ -27,8 +27,7 @@
     </div>
 </template>
 
-<script setup lang="ts">
-import type { StyledListProps } from '@/types/component-props';
+<script setup>
 import VsHeading from '@/components/heading/Heading.vue';
 import {
     VsContainer,
@@ -36,8 +35,12 @@ import {
     VsCol,
 } from '@/components/grid';
 
-const props = withDefaults(defineProps<StyledListProps>(), {
-    variant: 'icon',
+const props = defineProps({
+    variant: {
+        type: String,
+        default: 'icon',
+        validator: (value) => ['icon', 'image', 'numbered'].includes(value),
+    },
 });
 </script>
 

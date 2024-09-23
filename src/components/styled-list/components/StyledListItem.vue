@@ -28,8 +28,7 @@
     </li>
 </template>
 
-<script setup lang="ts">
-import type { StyledListItemProps } from '@/types/component-props';
+<script setup>
 import VsHeading from '../../heading/Heading.vue';
 import VsImg from '../../img/Img.vue';
 import VsRichTextWrapper from '../../rich-text-wrapper/RichTextWrapper.vue';
@@ -38,8 +37,11 @@ import {
     VsCol,
 } from '../../grid';
 
-const props = withDefaults(defineProps<StyledListItemProps>(), {
-    imageSrc: null,
+const props = defineProps({
+    imageSrc: {
+        type: String,
+        default: null,
+    },
 });
 </script>
 
