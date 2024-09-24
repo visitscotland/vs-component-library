@@ -95,10 +95,8 @@ const Template = (args) => ({
                         video-id="c05sg3G4oA4"
                         video-title="Test Video"
                         class="mb-8"
-                        cookie-btn-text="Manage cookies"
                         error-message="Sorry, something's gone wrong. Please try again later"
                         no-js-message="You need JavaScript enabled to see this video"
-                        no-cookies-message="You need cookies enabled to see this video"
                     />
                 </VsCol>
             </VsRow>
@@ -123,9 +121,7 @@ const base = {
     playButtonText: 'Play',
     smallPlayButton: true,
     errorMessage: 'Sorry, something has gone wrong, Please try again later',
-    cookieLinkText: 'Manage cookies',
     noJsMessage: 'You need JavaScript enabled to see this video',
-    noCookiesMessage: 'You need cookies enabled to see this video',
     jsDisabled: false,
 };
 
@@ -173,26 +169,6 @@ WithVideo.args = {
     videoTitle: 'Only in Scotland',
     showToggle: false,
 };
-
-export const NoCookies = Template.bind({
-});
-
-NoCookies.args = {
-    ...base,
-    ...WithVideo.args,
-};
-
-NoCookies.decorators = [
-    () => {
-        window.bypassCookieChecks = false;
-
-        return {
-            template: `
-                <story/>
-            `,
-        };
-    },
-];
 
 export const NoJavascript = Template.bind({
 });

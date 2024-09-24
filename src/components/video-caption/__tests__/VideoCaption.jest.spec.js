@@ -37,10 +37,6 @@ describe('VsVideoCaption', () => {
         it('should render the video title slot content', async() => {
             const wrapper = factoryShallowMount();
 
-            wrapper.setData({
-                requiredCookies: [],
-            });
-
             await wrapper.vm.$nextTick();
 
             expect(wrapper.html()).toContain(videoTitleSlot);
@@ -56,9 +52,7 @@ describe('VsVideoCaption', () => {
 
         it('renders the video duration', async() => {
             const wrapper = factoryShallowMount();
-            wrapper.setData({
-                requiredCookies: [],
-            });
+
             await wrapper.vm.$nextTick();
 
             const durationText = wrapper.find('.vs-video-caption__duration');
@@ -68,27 +62,17 @@ describe('VsVideoCaption', () => {
 
         it('should show the content if a video has been loaded', async() => {
             const wrapper = factoryShallowMount();
-            wrapper.setData({
-                requiredCookies: [],
-            });
+
             await wrapper.vm.$nextTick();
 
             expect(wrapper.find('.vs-video-caption').exists()).toBe(true);
-        });
-
-        it('should not show the content if a video has not been loaded', async() => {
-            const wrapper = factoryShallowMount();
-
-            expect(wrapper.find('.vs-video-caption__title').exists()).toBe(false);
         });
     });
 
     describe(':props', () => {
         it('should populate button text with the `videoBtnText` prop', async() => {
             const wrapper = factoryShallowMount();
-            wrapper.setData({
-                requiredCookies: [],
-            });
+
             await wrapper.vm.$nextTick();
 
             const playButton = wrapper.find('.vs-video-caption__button');
@@ -98,9 +82,7 @@ describe('VsVideoCaption', () => {
 
         it('should include a toggle button if `withToggleBtn` prop is true', async() => {
             const wrapper = factoryShallowMount();
-            wrapper.setData({
-                requiredCookies: [],
-            });
+
             await wrapper.vm.$nextTick();
 
             expect(wrapper.find('vs-toggle-button-stub').exists()).toBe(true);
@@ -111,9 +93,6 @@ describe('VsVideoCaption', () => {
             wrapper.setProps({
                 withToggleBtn: false,
             });
-            wrapper.setData({
-                requiredCookies: [],
-            });
             await wrapper.vm.$nextTick();
 
             expect(wrapper.find('vs-toggle-button-stub').exists()).toBe(false);
@@ -123,9 +102,6 @@ describe('VsVideoCaption', () => {
             const wrapper = factoryShallowMount();
             wrapper.setProps({
                 variant: 'narrow',
-            });
-            wrapper.setData({
-                requiredCookies: [],
             });
             await wrapper.vm.$nextTick();
 
