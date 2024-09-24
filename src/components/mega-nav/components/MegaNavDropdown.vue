@@ -219,8 +219,11 @@ export default {
         font-size: 0;
         padding: .125rem;
 
+        &:focus-visible {
+            @extend %primary-button-focus;
+        }
+
         &:focus, &:active, &:active:focus {
-            box-shadow: $vs-box-shadow-focus;
             z-index: 1001;
         }
 

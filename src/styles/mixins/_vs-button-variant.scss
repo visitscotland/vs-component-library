@@ -28,24 +28,7 @@
         }
     }
 
-    &:active, &:active:focus{
-        color: $active-color;
-        background-color: $active-background;
-        border-color: $active-border;
-
-        .vs-icon {
-            color: $active-color;
-        }
-    }
-
     &:focus{
-        color: $focus-color;
-        background-color: $focus-background;
-        border-color: $focus-border;
-
-        .vs-icon {
-            color: $focus-color;
-        }
+         @extend %primary-button-focus
     }
-
 }
