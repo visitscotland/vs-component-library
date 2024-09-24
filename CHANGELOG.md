@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.2](https://github.com/visitscotland/vs-component-library/compare/v3.2.1...v3.2.2) (2024-09-24)
+
+
+### ✨ Features
+
+* **menu:** handle back tabbing better ([339bb66](https://github.com/visitscotland/vs-component-library/commit/339bb6638e425a225d2693ae035d6117c51c7697))
+
 ### [3.2.1](https://github.com/visitscotland/vs-component-library/compare/v3.2.0...v3.2.1) (2024-09-24)
 
 
