@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.1](https://github.com/visitscotland/vs-component-library/compare/v3.2.0...v3.2.1) (2024-09-24)
+
+
+### ✨ Features
+
+* **meganav:** close dropdown when tabbing out of it ([be7306a](https://github.com/visitscotland/vs-component-library/commit/be7306aba7b927373ebcaa4004dbf12bb8218633))
+* **site search:** apply same fix to search form ([14e24cd](https://github.com/visitscotland/vs-component-library/commit/14e24cda2daefe1ccd84d485ab9ace6beef0f16b))
+* **video:** remove redundant cookie checks in caption and card ([09e8483](https://github.com/visitscotland/vs-component-library/commit/09e84839be3881ef2d9c44adf145f1ef90e3bb09))
+
 ## [3.2.0](https://github.com/visitscotland/vs-component-library/compare/v3.1.9...v3.2.0) (2024-09-23)
 
 
