@@ -9,18 +9,11 @@
         <VsWarning
             v-if="showWarning === 'full'"
             :size="warningSize"
-            :type="showCookieWarning ? 'cookie' : 'normal'"
+            type="normal"
             data-test="vs-stretched-link-card__full-warning"
             class="vs-stretched-link-card__full-warning"
         >
             {{ warningMessage }}
-
-            <template
-                v-slot:button-text
-                v-if="cookieLinkText !== '' && showCookieWarning"
-            >
-                {{ cookieLinkText }}
-            </template>
         </VsWarning>
 
         <VsWarning
@@ -51,18 +44,11 @@
             <VsWarning
                 v-if="showWarning === 'image'"
                 :size="warningSize"
-                :type="showCookieWarning ? 'cookie' : 'normal'"
+                type="normal"
                 data-test="vs-stretched-link-card__image-warning"
                 class="vs-stretched-link-card__image-warning"
             >
                 {{ warningMessage }}
-
-                <template
-                    v-slot:button-text
-                    v-if="cookieLinkText !== '' && showCookieWarning"
-                >
-                    {{ cookieLinkText }}
-                </template>
             </VsWarning>
 
             <VsWarning
@@ -96,7 +82,7 @@
                 size="md"
                 ref="videoShow"
                 @click="emitShowModal"
-                v-if="videoId && videoLoaded && requiredCookiesExist"
+                v-if="videoId && videoLoaded"
             >
                 <span
                     class="vs-stretched-link-card__video-btn-text"
@@ -173,10 +159,6 @@ import VsButton from '@/components/button/Button.vue';
 import VsWarning from '@/components/warning/Warning.vue';
 import jsIsDisabled from '@/utils/js-is-disabled';
 import useVideoStore from '@/stores/video.store';
-import verifyCookiesMixin from '../../mixins/verifyCookiesMixin';
-import requiredCookiesData from '../../utils/required-cookies-data';
-
-const cookieValues = requiredCookiesData.youtube;
 
 /**
  * The Stretched Link Card is a block that stretches its nested link across its whole area
@@ -195,17 +177,8 @@ export default {
         VsButton,
         VsWarning,
     },
-    mixins: [
-        verifyCookiesMixin,
-    ],
     inject: {
         noJsMessage: {
-            default: null,
-        },
-        noCookiesMessage: {
-            default: null,
-        },
-        cookieLinkText: {
             default: null,
         },
         theme: {
@@ -309,7 +282,6 @@ export default {
     data() {
         return {
             jsDisabled: true,
-            requiredCookies: cookieValues,
         };
     },
     computed: {
@@ -356,40 +328,17 @@ export default {
         warningClass() {
             let className = '';
 
-            if (this.videoId && (this.jsDisabled || !this.requiredCookiesExist)) {
+            if (this.videoId && this.jsDisabled) {
                 className = 'vs-stretched-link-card__img-container--warning ';
 
-                if (this.errorType === 'full' && (this.cookiesInitStatus !== null
-                    || this.jsDisabled)) {
+                if (this.errorType === 'full') {
                     className += 'vs-stretched-link-card__img-container--warning-full';
                 }
             }
 
             return className;
         },
-        showCookieWarning() {
-            if (this.videoId && !this.jsDisabled
-                && !this.requiredCookiesExist
-                && this.cookiesInitStatus === true) {
-                return true;
-            }
-
-            return false;
-        },
-        showError() {
-            if (this.videoId
-                && this.errorMessage !== ''
-                && this.cookiesInitStatus === 'error') {
-                return true;
-            }
-
-            return false;
-        },
         showWarning() {
-            if (this.showError || this.showCookieWarning) {
-                return this.errorType;
-            }
-
             if (this.jsDisabled) {
                 return true;
             }
@@ -397,22 +346,12 @@ export default {
             return false;
         },
         warningMessage() {
-            let message = '';
-
-            if (this.showCookieWarning) {
-                message = this.noCookiesMessage;
-            } else {
-                message = this.errorMessage;
-            }
-
-            return message;
+            return this.errorMessage;
         },
         warningAttrs() {
             const attrsObj = {
             };
-            if (this.type === 'cookie') {
-                attrsObj.class = 'ot-sdk-show-settings vs-warning__cookie-trigger';
-            }
+
             if (this.size === 'small') {
                 attrsObj.size = 'sm';
             }
@@ -426,7 +365,7 @@ export default {
     },
     methods: {
         emitShowModal() {
-            if (!this.videoId || !this.requiredCookiesExist) {
+            if (!this.videoId) {
                 return;
             }
 
