@@ -36,7 +36,7 @@
                                 size="sm"
                                 variant="transparent"
                                 @click="closeMenu"
-                                @keydown.tab="closeMenu"
+                                @keydown.tab="tabFromClose"
                             >
                                 <span class="visually-hidden">
                                     {{ menuToggleAltText }}
@@ -158,6 +158,15 @@ export default {
          */
         closeMenu() {
             this.$refs.dropdown.hide();
+        },
+        /**
+         * If tab pressed on close, check if user moving forwards
+         * before closing menu
+         */
+        tabFromClose($event) {
+            if (!$event.shiftKey) {
+                this.closeMenu();
+            }
         },
         /**
          * Submit event to dataLayer for tracking
