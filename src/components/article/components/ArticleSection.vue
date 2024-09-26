@@ -6,6 +6,7 @@
     >
         <VsRow>
             <VsCol
+                v-if="hasSidebarSlot"
                 cols="12"
                 md="5"
                 xl="4"
@@ -14,17 +15,21 @@
                 :class="sidebarAlign === 'right' ? 'pe-md-0' : 'ps-md-0'"
                 :offset-xl="sidebarAlign === 'right' ? '1' : null"
                 :order-md="sidebarAlign === 'right' ? '2' : null"
+                :order="businessSupport ? '2' : null"
             >
                 <!-- @slot Slot to contain the article sidebar -->
                 <slot name="article-sidebar" />
             </VsCol>
             <VsCol
                 cols="12"
-                md="7"
+                :md="hasSidebarSlot ? '7' : '9'"
                 data-test="vs-article-section__content"
                 :offset-xl="sidebarAlign === 'left' ? '1' : ''"
             >
-                <div class="mx-6 mx-md-0">
+                <div
+                    class="mx-md-0"
+                    :class="!businessSupport && 'mx-6'"
+                >
                     <VsRichTextWrapper>
                         <!-- @slot Default slot to contain the copy for this article -->
                         <slot />
@@ -63,12 +68,19 @@ export default {
             default: 'left',
             validator: (value) => value.match(/(left|right)/),
         },
+        businessSupport: {
+            type: Boolean,
+            default: false,
+        },
     },
     computed: {
         sidebarAlignClass() {
             return this.sidebarAlign === 'right'
                 ? 'vs-article-section--sidebar-right'
                 : 'vs-article-section--sidebar-left';
+        },
+        hasSidebarSlot() {
+            return !!this.$slots['article-sidebar'];
         },
     },
 };
