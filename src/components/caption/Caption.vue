@@ -4,51 +4,57 @@
         class="vs-caption"
         :class="captionClasses"
     >
-        <VsRow class="justify-content-center justify-content-sm-start">
-            <VsCol
-                class="order-2 order-sm-1"
-                :class="[!showMap ? 'align-self-center' : '']"
-            >
-                <div class="vs-caption__caption-info">
-                    <p
-                        class="vs-caption__image-caption"
-                        v-if="!!$slots.caption"
-                    >
-                        <!-- @slot Slot to display caption  -->
-                        <slot name="caption" />
-                    </p>
+        <VsContainer>
+            <VsRow class="justify-content-center justify-content-sm-start">
+                <VsCol
+                    class="order-2 order-sm-1"
+                    :class="[!showMap ? 'align-self-center' : '']"
+                >
+                    <div class="vs-caption__caption-info">
+                        <p
+                            class="vs-caption__image-caption"
+                            v-if="!!$slots.caption"
+                        >
+                            <!-- @slot Slot to display caption  -->
+                            <slot name="caption" />
+                        </p>
 
-                    <p
-                        class="vs-caption__image-credit"
-                        v-if="!!$slots.credit"
-                    >
-                        <!-- @slot Slot to display credit  -->
-                        <slot name="credit" />
-                    </p>
-                </div>
-            </VsCol>
-            <VsCol
-                class="col-12 col-sm-auto order-1
-                order-sm-2 ps-sm-0 align-self-end
-                align-self-sm-start"
-                v-if="showMap && isLargeCaption"
-            >
-                <div class="vs-caption__map-wrapper pt-3 pt-sm-2 pb-sm-2 pe-sm-4 mx-auto">
-                    <VsCaptionImageMap
-                        :latitude="latitude"
-                        :longitude="longitude"
-                        :map-outline-color="tokens['vs-color-icon-inverse']"
-                        :map-marker-color="tokens['vs-color-icon-accent-tolsta']"
-                    />
-                </div>
-            </VsCol>
-        </VsRow>
+                        <p
+                            class="vs-caption__image-credit"
+                            v-if="!!$slots.credit"
+                        >
+                            <!-- @slot Slot to display credit  -->
+                            <slot name="credit" />
+                        </p>
+                    </div>
+                </VsCol>
+                <VsCol
+                    class="col-12 col-sm-auto order-1
+                    order-sm-2 ps-sm-0 align-self-end
+                    align-self-sm-start"
+                    v-if="showMap && isLargeCaption"
+                >
+                    <div class="vs-caption__map-wrapper pt-3 pt-sm-2 pb-sm-2 pe-sm-4 mx-auto">
+                        <VsCaptionImageMap
+                            :latitude="latitude"
+                            :longitude="longitude"
+                            :map-outline-color="tokens['vs-color-icon-inverse']"
+                            :map-marker-color="tokens['vs-color-icon-accent-tolsta']"
+                        />
+                    </div>
+                </VsCol>
+            </VsRow>
+        </VsContainer>
     </div>
 </template>
 
 <script>
+import {
+    VsRow,
+    VsCol,
+    VsContainer,
+} from '@/components/grid';
 import designTokens from '@/assets/tokens/tokens.json';
-import { VsRow, VsCol } from '@/components/grid';
 import VsCaptionImageMap from './components/CaptionImageMap.vue';
 
 /**
@@ -63,6 +69,7 @@ export default {
     components: {
         VsRow,
         VsCol,
+        VsContainer,
         VsCaptionImageMap,
     },
     props: {

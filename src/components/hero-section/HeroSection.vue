@@ -37,20 +37,15 @@
                 class="vs-hero-section__img"
                 :style="setHeroImage"
             />
-            <div class="bg-brand">
-                <VsContainer>
-                    <VsRow>
-                        <VsCaption class="bg-brand p-0">
-                            <template v-slot:caption>
-                                {{ imgCaption }}
-                            </template>
-                            <template v-slot:credit>
-                                {{ imgCredit }}
-                            </template>
-                        </VsCaption>
-                    </VsRow>
-                </VsContainer>
-            </div>
+
+            <VsCaption class="p-0">
+                <template v-slot:caption>
+                    {{ imgCaption }}
+                </template>
+                <template v-slot:credit>
+                    {{ imgCredit }}
+                </template>
+            </VsCaption>
         </div>
     </div>
 </template>
