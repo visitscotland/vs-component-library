@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.3](https://github.com/visitscotland/vs-component-library/compare/v3.2.2...v3.2.3) (2024-09-26)
+
+
+### ✨ Features
+
+* **embed wrapper:** allow embed wrapper to access extra content in warning ([545fdc2](https://github.com/visitscotland/vs-component-library/commit/545fdc226031618ca0289c0a8cf4fd903600fa28))
+
 ### [3.2.2](https://github.com/visitscotland/vs-component-library/compare/v3.2.1...v3.2.2) (2024-09-24)
 
 
