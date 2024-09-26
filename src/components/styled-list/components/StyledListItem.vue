@@ -67,7 +67,7 @@ const props = defineProps({
 
     &::before {
         background-color: $vs-color-background-accent-heather;
-        color: white;
+        color: $vs-color-text-inverse;
         content: counter(section);
         font-size: $font-size-4;
         padding: $spacer-025 $spacer-075;
