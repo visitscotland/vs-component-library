@@ -1,0 +1,17 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+$utilities: map-merge($utilities,
+    (
+      "background": (property: background-color,
+        class: "bg",
+        values: (
+            'brand': #5B2487,
+        )),
+    ));
+
+
+@import "bootstrap/scss/utilities/api";

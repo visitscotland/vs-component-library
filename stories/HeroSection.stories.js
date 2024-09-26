@@ -1,5 +1,6 @@
 import VsHeroSection from '@/components/hero-section/HeroSection.vue';
 import VsHeading from '@/components/heading/Heading.vue';
+import { VsContainer } from '@/components';
 
 export default {
     component: VsHeroSection,
@@ -25,6 +26,7 @@ export default {
 };
 
 const belowFoldContent = `
+        <VsContainer class="mt-300">
             <VsHeading level="2">Holding out for a hero</VsHeading>
             <p>
                 Where have all the good men gone<br>
@@ -117,12 +119,14 @@ const belowFoldContent = `
                 I need a hero<br>
                 I'm holding out for a hero 'til the end of the night<br>
             </p>
+        </VsContainer>
 `;
 
 const Template = (args) => ({
     components: {
         VsHeroSection,
         VsHeading,
+        VsContainer,
     },
     setup() {
         return {
@@ -131,29 +135,23 @@ const Template = (args) => ({
     },
     template: `
         <VsHeroSection v-bind="args" />
-        <div class="p-125 p-lg-400">
-            ${ belowFoldContent }
-        </div>
+        ${ belowFoldContent }
     `,
 });
 
 const base = {
     heading: 'Scotland, the biggest wee country in the world',
     src: 'https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2023/01/20/paddleboarding---basking-shark-scotland.jpg?size=lg',
-    alt: 'Birdseye view of a bay with several small islands, a group of canoes in the foreground and a ferry passing in the distance. The sun is shining and the sky is blue.',
     inset: false,
     lede: '',
+    imgCaption: 'Paddleboarding around Scotland',
+    imgCredit: 'VisitScotland',
 };
 
 export const Default = Template.bind({
 });
 
-export const WithProps = Template.bind({
-});
-
-WithProps.args = {
-    ...base,
-};
+Default.args = base;
 
 export const WithLede = Template.bind({
 });

@@ -1,39 +1,55 @@
 <template>
     <div
-        class="w-100 min-vh-100"
+        class="vs-hero-section"
+        data-test="vs-hero-section"
     >
         <div
-            class="
-                bg-white
-                p-125 p-lg-400
-                d-flex flex-column
-                flex-md-row justify-content-between
-                gap-md-125
-                gap-lg-400
-            "
-            :class="{ 'sticky-top': !inset }"
+            class="vs-hero-section__text-wrapper"
         >
-            <VsHeading class="text-brand m-0">
-                {{ heading }}
-            </VsHeading>
-            <p v-if="lede" class="mt-100 mt-md-0">
-                {{ lede }}
-            </p>
+            <VsContainer>
+                <VsRow>
+                    <VsCol
+                        cols="12"
+                        lg="8"
+                    >
+                        <VsHeading class="vs-hero-section__heading m-lg-0">
+                            {{ heading }}
+                        </VsHeading>
+                    </VsCol>
+
+                    <VsCol
+                        cols="8"
+                        lg="4"
+                    >
+                        <p
+                            v-if="lede"
+                            class="mb-0"
+                        >
+                            {{ lede }}
+                        </p>
+                    </VsCol>
+                </VsRow>
+            </VsContainer>
         </div>
-        <div :class="{ 'px-125 px-lg-400': inset }">
+
+        <div :class="{ container: inset }">
             <div
-                class="hero-image__wrapper"
-                :class="{ 'rounded-3 overflow-hidden': inset }"
-            >
-                <div
-                    role="img"
-                    class="
-                        vs-hero-section__bg
-                        w-100 min-vh-100
-                        "
-                    :style="style"
-                    :aria-label="alt"
-                />
+                class="vs-hero-section__img"
+                :style="setHeroImage"
+            />
+            <div class="bg-brand">
+                <VsContainer>
+                    <VsRow>
+                        <VsCaption class="bg-brand p-0">
+                            <template v-slot:caption>
+                                {{ imgCaption }}
+                            </template>
+                            <template v-slot:credit>
+                                {{ imgCredit }}
+                            </template>
+                        </VsCaption>
+                    </VsRow>
+                </VsContainer>
             </div>
         </div>
     </div>
@@ -41,6 +57,12 @@
 
 <script>
 import VsHeading from '@/components/heading/Heading.vue';
+import {
+    VsContainer,
+    VsRow,
+    VsCol,
+} from '@/components/grid';
+import VsCaption from '@/components/caption/Caption.vue';
 
 /**
 * Component for the page hero and introduction.
@@ -56,6 +78,10 @@ export default {
     release: '0.0.1',
     components: {
         VsHeading,
+        VsContainer,
+        VsCol,
+        VsRow,
+        VsCaption,
     },
     props: {
         inset: {
@@ -71,23 +97,23 @@ export default {
         lede: {
             type: String,
             default: 'Optional lede. A <p> tag containing a short, meaningful description summary of the page content or, potentially, a well-designed caption for the hero image.',
-            required: false,
         },
         src: {
             type: String,
             default: 'images/placeholders/placeholder-img.jpg',
             required: true,
         },
-        alt: {
+        imgCaption: {
             type: String,
-            // Unlike an empty alt attribute, aria-label
-            // requires a value to pass aXe accessibility tests
-            default: 'Aria-label is missing — sorry.',
-            required: true,
+            default: '',
+        },
+        imgCredit: {
+            type: String,
+            default: '',
         },
     },
     computed: {
-        style() {
+        setHeroImage() {
             return `background-image: url('${this.src}')`;
         },
     },
@@ -95,8 +121,21 @@ export default {
 </script>
 
 <style lang="scss">
-.vs-hero-section__bg {
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+    .vs-hero-section {
+
+        &__text-wrapper {
+            background-color: $vs-color-background-inverse;
+            padding: $spacer-300 0;
+        }
+
+        &__heading{
+            color: $vs-color-background-brand;
+        }
+
+        &__img {
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+        }
+    }
 </style>
