@@ -1,0 +1,22 @@
+/* 
+ * Sets correct styles for each sub-heading style 
+ */
+
+@mixin sub-heading-style($style) {
+    // Extract properties from the map
+    $size: map-get(
+      map-get($sub-heading-styles, $style), size
+    );
+  
+    // Apply the sub-heading styles
+    font-size: $size;
+  
+    // Include the shared sub-heading styles
+    @extend %sub-heading-default;
+}
+
+$sub-heading-styles: (
+  sub-heading-l: (size: $sub-heading-l),
+  sub-heading-m: (size: $sub-heading-m),
+  sub-heading-s: (size: $sub-heading-s),
+);

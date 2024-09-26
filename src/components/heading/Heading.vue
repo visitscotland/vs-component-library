@@ -111,83 +111,60 @@ export default {
 }
 
 .vs-heading {
-    letter-spacing: $tracking-heading;
-    line-height: $line-height-heading;
-
     &--display-l {
-        font-size: 2.875rem;
-        margin-bottom: 1rem;
-        margin-top: 1rem;
+        @include heading-style(display-l);
     }
 
     &--display-m {
-        font-size: 2.563rem;
-        margin: 1rem 0 0.75rem;
+        @include heading-style(display-m);
     }
 
     &--display-s {
-        font-size: 2rem;
-        margin: 1rem 0 0.75rem;
+        @include heading-style(display-s);
     }
 
     &--display-xs {
-        font-size: 1.438rem;
-        margin: 1rem 0 0.75rem;
+        @include heading-style(display-xs);
     }
 
     &--heading-xxl {
-        font-size: 2.563rem;
-        margin: 1rem 0 0.75rem;
+        @include heading-style(heading-xxl);
     }
 
     &--heading-xl {
-        font-size: 2.25rem;
-        margin: 1rem 0 0.75rem;
+        @include heading-style(heading-xl);
     }
 
     &--heading-l {
-        font-size: 2rem;
-        margin: 1rem 0 0.75rem;
+        @include heading-style(heading-l);
     }
 
     &--heading-m {
-        font-size: 1.813rem;
-        margin: 0.75rem 0 0.5rem;
+        @include heading-style(heading-m);
     }
 
     &--heading-s {
-        font-size: 1.625rem;
-        margin: 0.75rem 0 0.5rem;
+        @include heading-style(heading-s);
     }
 
     &--heading-xs {
-        font-size: 1.438rem;
-        margin: 0.75rem 0 0.5rem;
+        @include heading-style(heading-xs);
     }
 
     &--heading-xxs {
-        font-size: 1.25rem;
-        margin: 0.75rem 0 0.5rem;
-    }
-
-    &__sub-heading {
-        display: block;
-        font-family: $font-family-sans-serif;
-        font-weight: $font-weight-normal;
-        line-height: $line-height-sub-heading;
-        letter-spacing: $tracking-sub-heading;
+        @include heading-style(heading-xxs);
     }
 
     .vs-heading__sub-heading--l {
-        font-size: 1.438rem;
+        @include sub-heading-style(sub-heading-l);
     }
 
     .vs-heading__sub-heading--m {
-        font-size: 1.25rem;
+        @include sub-heading-style(sub-heading-m);
     }
 
     .vs-heading__sub-heading--s {
-        font-size: 1.125rem;
+        @include sub-heading-style(sub-heading-s);
     }
 }
 

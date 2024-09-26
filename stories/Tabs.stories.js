@@ -57,7 +57,7 @@ const Template = (args) => ({
                     </p>
                     </div>
                 </VsTabItem>
-                <VsTabItem
+                <VsTabItem 
                     title="Where to Stay"
                     :disabled="args.disabled ? true : false"
                     :aria-disabled="args.disabled ? true : false"

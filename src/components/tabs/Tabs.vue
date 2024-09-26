@@ -34,52 +34,6 @@ export default {
             align-self: flex-end;
         }
 
-        .nav-link {
-            width: 100%;
-            background-color: $vs-color-background-neutral;
-            color: $vs-color-text;
-            font-weight: $font-weight-bold;
-            border-width: 1px;
-            border-color: $vs-color-background-neutral;
-            padding: $spacer-3;
-            font-size: $font-size-6;
-            transition: $duration-base all;
-            transition: all 200ms ease;
-            transition-property: background-color, color;
-
-            &:hover:not(.active) {
-                border-color: $vs-color-background-neutral;
-                background-color: $vs-color-background-hover;
-                color: $vs-color-text-inverse;
-            }
-
-            &.disabled {
-                color: $vs-color-text-disabled;
-                background-color: $vs-color-background-disabled;
-                border-color: $vs-color-background-disabled;
-            }
-
-            @include media-breakpoint-up(sm) {
-                padding: $spacer-5;
-                font-size: $font-size-7;
-            }
-
-            &:focus-visible{
-                box-shadow: $vs-box-shadow-focus;
-                outline: none;
-            }
-
-            &.active{
-                position: relative;
-                background-color: $vs-color-background-inverse;
-                padding: $spacer-5 $spacer-3;
-
-                @include media-breakpoint-up(sm) {
-                    padding: $spacer-7 $spacer-5;
-                }
-            }
-        }
-
         .tab-pane {
             background-color: $vs-color-background-inverse;
             color: $vs-color-text;
@@ -104,18 +58,6 @@ export default {
 
         .nav-tabs {
             display: none;
-        }
-
-        .tab-pane {
-            .vs-heading {
-                display: block;
-                margin: 0;
-                background-color: $vs-color-background-inverse;
-                padding: $spacer-7 $spacer-5;
-                color: $vs-color-text;
-                text-align: center;
-                letter-spacing: normal;
-            }
         }
     }
 }

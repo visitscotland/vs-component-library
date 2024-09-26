@@ -83,7 +83,7 @@ export const WithSubheadingDisplay = Template.bind({
 });
 
 WithSubheadingDisplay.args = {
-    headingStyle: 'display-xl',
+    headingStyle: 'display-l',
     ...base,
     default: 'Welcome to VisitScotland',
     'sub-heading': 'What VisitScotland can do for you',
