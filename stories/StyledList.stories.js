@@ -30,32 +30,33 @@ const Template = (args) => ({
     },
     template: `
         <VsStyledList v-bind="args">
-            <template v-slot:title>
-                {{ args.title }}
-            </template>
-
-            <template v-slot:intro>
+            <template
+                #intro
+                v-if="args.intro"
+            >
                 {{ args.intro }}
             </template>
 
             <VsStyledListItem
                 v-for="(item, index) in args.listItems"
                 :key="index"
-                :imageSrc="item.imgSrc ? item.imgSrc : null"
+                :heading="item.heading"
+                :imageSrc="item.imageSrc ? item.imageSrc : null"
+                :variant="args.variant"
             >
-                <template v-slot:item-heading>
-                    {{ item.heading }}
-                </template>
-
                 <div v-html="item.content" />
             </VsStyledListItem>
         </VsStyledList>
     `,
 });
 
-const base = {
+export const Default = Template.bind({
+});
+
+Default.args = {
     variant: 'icon',
     title: 'Key Benefits',
+    anchorLink: 'key-benefits',
     listItems: [
         {
             heading: 'Showcase your excellence',
@@ -79,17 +80,13 @@ const base = {
     ],
 };
 
-export const Default = Template.bind({
-});
-
-Default.args = base;
-
 export const Numbered = Template.bind({
 });
 
 Numbered.args = {
     variant: 'numbered',
     title: 'How does it work?',
+    anchorLink: 'step-by-step',
     intro: 'To apply for a Taste Our Best accreditation, follow these simple steps',
     listItems: [
         {
@@ -140,17 +137,18 @@ export const WithImage = Template.bind({
 WithImage.args = {
     variant: 'image',
     title: 'Critical factors for younger people\'s travel journeys are',
+    anchorLink: 'content-list',
     listItems: [
         {
             heading: 'New',
-            imgSrc: 'fixtures/styled-list/swot-opportunities.svg',
+            imageSrc: 'fixtures/styled-list/swot-opportunities.svg',
             content: `
                 <p>Originality for young travellers means providing new opportunities or reviving and refreshing existing traditions and brands so that young travellers feel they are discovering them for the first time.</p>
             `,
         },
         {
             heading: 'Value for money',
-            imgSrc: 'fixtures/styled-list/investment.svg',
+            imageSrc: 'fixtures/styled-list/investment.svg',
             content: `
                 <p>Affordability is key, particularly when income may not match the desire for new experiences. Young travellers are adept at seeking out deals and signing up to offers that keep them "in the know".</p>
                 <p>Those without children can be agile and spontaneous. They're able to take advantage of last-minute opportunities.</p>
@@ -158,7 +156,7 @@ WithImage.args = {
         },
         {
             heading: 'Braggable',
-            imgSrc: 'fixtures/styled-list/messages-of-support.svg',
+            imageSrc: 'fixtures/styled-list/messages-of-support.svg',
             content: `
                 <p>Being seen as "ahead of the curve" is important to young travellers, allowing them to feel like a leader rather than a follower.</p>
                 <p>Reframing an experience (staying in a log cabin rather than a hotel for example) means "bragging rights" are rooted in a genuinely differentiated experience rather than simply ticking off a destination.</p>
@@ -166,11 +164,43 @@ WithImage.args = {
         },
         {
             heading: 'Unique',
-            imgSrc: 'fixtures/styled-list/innovation.svg',
+            imageSrc: 'fixtures/styled-list/innovation.svg',
             content: `
                 <p>Younger people want a deeper level of involvement when they travel.</p>
                 <p>They often seek out experiences that are unique to the destination. These may not be particularly unusual, but are different to normal behaviour and different from previous (and future) holidays.</p>
             `,
         },
     ],
+};
+
+export const WithImageHorizontal = Template.bind({
+});
+
+WithImageHorizontal.args = {
+    variant: 'image-horizontal',
+    title: 'Top reasons for choosing Scotland',
+    anchorLink: 'key-stats',
+    listItems: [
+        {
+            imageSrc: 'fixtures/styled-list/outdoor-access.svg',
+            heading: '70%',
+            content: '<p>of visitors stated scenery and landscape.</p>',
+        },
+        {
+            imageSrc: 'fixtures/styled-list/calton-hill.svg',
+            heading: '48%',
+            content: '<p>of visitors mentioned Scotland\'s history and culture.</p>',
+        },
+        {
+            imageSrc: 'fixtures/styled-list/cycling.svg',
+            heading: '27%',
+            content: '<p>of visitors mentioned outdoor activities.</p>',
+        },
+        {
+            imageSrc: 'fixtures/styled-list/staff-training.svg',
+            heading: '22%',
+            content: '<p>of visitors highlighted visiting friends and family.</p>',
+        },
+    ],
+    source: 'Source: Scotland Visitor Survey, 2023',
 };

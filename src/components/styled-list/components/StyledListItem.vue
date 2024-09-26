@@ -5,19 +5,20 @@
     >
         <VsRow>
             <VsCol
-                v-if="props.imageSrc"
+                v-if="props.variant === 'image'"
                 cols="12"
                 md="2"
             >
+                <VsImg :src="props.imageSrc" />
+            </VsCol>
+            <VsCol :md="props.variant === 'image' ? '10' : '12'">
                 <VsImg
+                    v-if="props.variant === 'image-horizontal'"
                     :src="props.imageSrc"
                 />
-            </VsCol>
-            <VsCol
-                :md="props.imageSrc ? '10' : '12'"
-            >
+
                 <VsHeading level="3">
-                    <slot name="item-heading" />
+                    {{ heading }}
                 </VsHeading>
 
                 <VsRichTextWrapper>
@@ -38,9 +39,18 @@ import {
 } from '../../grid';
 
 const props = defineProps({
+    heading: {
+        type: String,
+        required: true,
+    },
     imageSrc: {
         type: String,
         default: null,
+    },
+    variant: {
+        type: String,
+        default: 'icon',
+        validator: (value) => ['icon', 'image', 'image-horizontal', 'numbered'].includes(value),
     },
 });
 </script>
@@ -105,6 +115,15 @@ const props = defineProps({
 
     img {
         max-width: 100%;
+    }
+}
+
+.vs-styled-list--image-horizontal .vs-styled-list__item {
+    padding: 0 $spacer-150;
+
+    img {
+        margin: auto;
+        width: 80%
     }
 }
 </style>
