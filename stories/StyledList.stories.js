@@ -173,10 +173,10 @@ WithImage.args = {
     ],
 };
 
-export const WithImageHorizontal = Template.bind({
+export const HorizontalWithImage = Template.bind({
 });
 
-WithImageHorizontal.args = {
+HorizontalWithImage.args = {
     variant: 'image-horizontal',
     title: 'Top reasons for choosing Scotland',
     anchorLink: 'key-stats',
