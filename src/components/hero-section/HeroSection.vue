@@ -8,27 +8,34 @@
                 <VsRow>
                     <VsCol
                         cols="12"
-                        lg="8"
+                        sm="10"
+                        md="9"
+                        lg="7"
                     >
                         <VsHeading
                             class="vs-hero-section__heading m-lg-0"
                             data-test="vs-hero-section__heading"
+                            level="1"
                         >
                             {{ heading }}
                         </VsHeading>
                     </VsCol>
 
                     <VsCol
-                        cols="8"
+                        cols="12"
+                        sm="8"
+                        offset-lg="1"
                         lg="4"
                     >
-                        <p
+                        <VsRichTextWrapper
                             v-if="lede"
-                            class="mb-0"
                             data-test="vs-hero-section__lede"
+                            variant="lead"
                         >
-                            {{ lede }}
-                        </p>
+                            <p class="mb-0">
+                                {{ lede }}
+                            </p>
+                        </VsRichTextWrapper>
                     </VsCol>
                 </VsRow>
             </VsContainer>
@@ -66,6 +73,7 @@
 
 <script>
 import VsHeading from '@/components/heading/Heading.vue';
+import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
 import {
     VsContainer,
     VsRow,
@@ -91,6 +99,7 @@ export default {
         VsCol,
         VsRow,
         VsCaption,
+        VsRichTextWrapper,
     },
     props: {
         inset: {
@@ -139,7 +148,7 @@ export default {
         }
 
         &__heading{
-            color: $vs-color-background-brand;
+            color: $vs-color-new-text-brand;
         }
 
         &__img {
