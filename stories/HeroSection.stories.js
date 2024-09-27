@@ -154,9 +154,9 @@ export const FullBleed = Template.bind({
 
 FullBleed.args = {
     ...base,
-    src: 'https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2023/01/20/paddleboarding---basking-shark-scotland.jpg?size=lg',
-    imgCaption: 'Paddleboarding around Scotland',
-    imgCredit: 'VisitScotland',
+    src: 'fixtures/hero/images/visitscotland_38462263949.jpg',
+    imgCaption: 'Sunset at Lochan na h-Achlaise on Rannoch Moor',
+    imgCredit: 'VisitScotland / Kenny Lam',
 };
 
 export const Inset = Template.bind({
@@ -164,8 +164,8 @@ export const Inset = Template.bind({
 
 Inset.args = {
     ...base,
-    src: 'https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2023/01/20/paddleboarding---basking-shark-scotland.jpg?size=lg',
-    imgCaption: 'Paddleboarding around Scotland',
-    imgCredit: 'VisitScotland',
+    src: 'fixtures/hero/images/visitscotland_38462263949.jpg',
+    imgCaption: 'Sunset at Lochan na h-Achlaise on Rannoch Moor',
+    imgCredit: 'VisitScotland / Kenny Lam',
     inset: true,
 };

@@ -10,7 +10,10 @@
                         cols="12"
                         lg="8"
                     >
-                        <VsHeading class="vs-hero-section__heading m-lg-0">
+                        <VsHeading
+                            class="vs-hero-section__heading m-lg-0"
+                            data-test="vs-hero-section__heading"
+                        >
                             {{ heading }}
                         </VsHeading>
                     </VsCol>
@@ -22,6 +25,7 @@
                         <p
                             v-if="lede"
                             class="mb-0"
+                            data-test="vs-hero-section__lede"
                         >
                             {{ lede }}
                         </p>
@@ -30,7 +34,10 @@
             </VsContainer>
         </div>
 
-        <div :class="setInset">
+        <div
+            :class="setInset"
+            data-test="vs-hero-section__image-wrapper"
+        >
             <span v-if="src">
                 <div
                     class="vs-hero-section__img"
@@ -38,8 +45,10 @@
                 />
 
                 <VsCaption
+                    v-if="imgCaption || imgCredit"
                     class="p-0"
                     theme="subtle"
+                    data-test="vs-hero-section__caption"
                 >
                     <template v-slot:caption>
                         {{ imgCaption }}
