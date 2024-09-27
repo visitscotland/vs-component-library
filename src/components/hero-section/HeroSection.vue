@@ -3,9 +3,7 @@
         class="vs-hero-section"
         data-test="vs-hero-section"
     >
-        <div
-            class="vs-hero-section__text-wrapper"
-        >
+        <div class="vs-hero-section__text-wrapper">
             <VsContainer>
                 <VsRow>
                     <VsCol
@@ -32,20 +30,27 @@
             </VsContainer>
         </div>
 
-        <div :class="{ container: inset }">
-            <div
-                class="vs-hero-section__img"
-                :style="setHeroImage"
-            />
+        <div :class="setInset">
+            <span v-if="src">
+                <div
+                    class="vs-hero-section__img"
+                    :style="setHeroImage"
+                />
 
-            <VsCaption class="p-0" theme="subtle">
-                <template v-slot:caption>
-                    {{ imgCaption }}
-                </template>
-                <template v-slot:credit>
-                    {{ imgCredit }}
-                </template>
-            </VsCaption>
+                <VsCaption
+                    class="p-0"
+                    theme="subtle"
+                >
+                    <template v-slot:caption>
+                        {{ imgCaption }}
+                    </template>
+                    <template v-slot:credit>
+                        {{ imgCredit }}
+                    </template>
+                </VsCaption>
+            </span>
+
+            <hr v-else class="vs-hero-section__divider">
         </div>
     </div>
 </template>
@@ -82,21 +87,20 @@ export default {
         inset: {
             type: Boolean,
             default: false,
-            required: false,
         },
         heading: {
             type: String,
-            default: 'Level 1 heading',
+            default: '',
             required: true,
         },
         lede: {
             type: String,
-            default: 'Optional lede. A <p> tag containing a short, meaningful description summary of the page content or, potentially, a well-designed caption for the hero image.',
+            default: '',
+            required: true,
         },
         src: {
             type: String,
-            default: 'images/placeholders/placeholder-img.jpg',
-            required: true,
+            default: '',
         },
         imgCaption: {
             type: String,
@@ -111,13 +115,15 @@ export default {
         setHeroImage() {
             return `background-image: url('${this.src}')`;
         },
+        setInset() {
+            return this.inset || !this.src ? 'container' : '';
+        },
     },
 };
 </script>
 
 <style lang="scss">
     .vs-hero-section {
-
         &__text-wrapper {
             background-color: $vs-color-background-inverse;
             padding: $spacer-300 0;
@@ -131,6 +137,11 @@ export default {
             background-repeat: no-repeat;
             background-size: cover;
             height: 100vh;
+        }
+
+        &__divider {
+            height: 2px;
+            color: $vs-color-background-neutral;
         }
     }
 </style>

@@ -141,24 +141,22 @@ const Template = (args) => ({
 
 const base = {
     heading: 'Scotland, the biggest wee country in the world',
-    src: 'https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2023/01/20/paddleboarding---basking-shark-scotland.jpg?size=lg',
-    inset: false,
-    lede: '',
-    imgCaption: 'Paddleboarding around Scotland',
-    imgCredit: 'VisitScotland',
+    lede: 'Welcome to Scotland, where history meets breathtaking beauty, and every visit feels like home.',
 };
 
-export const Default = Template.bind({
+export const NoImage = Template.bind({
 });
 
-Default.args = base;
+NoImage.args = base;
 
-export const WithLede = Template.bind({
+export const FullBleed = Template.bind({
 });
 
-WithLede.args = {
+FullBleed.args = {
     ...base,
-    lede: 'Welcome to Scotland, where history meets breathtaking beauty, and every visit feels like home.',
+    src: 'https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2023/01/20/paddleboarding---basking-shark-scotland.jpg?size=lg',
+    imgCaption: 'Paddleboarding around Scotland',
+    imgCredit: 'VisitScotland',
 };
 
 export const Inset = Template.bind({
@@ -166,5 +164,8 @@ export const Inset = Template.bind({
 
 Inset.args = {
     ...base,
+    src: 'https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2023/01/20/paddleboarding---basking-shark-scotland.jpg?size=lg',
+    imgCaption: 'Paddleboarding around Scotland',
+    imgCredit: 'VisitScotland',
     inset: true,
 };
