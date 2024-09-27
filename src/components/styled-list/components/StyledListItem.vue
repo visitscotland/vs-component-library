@@ -22,6 +22,7 @@
                 </VsHeading>
 
                 <VsRichTextWrapper>
+                    <!-- @slot default slot to contain the content of this list item  -->
                     <slot />
                 </VsRichTextWrapper>
             </VsCol>
@@ -39,14 +40,24 @@ import {
 } from '../../grid';
 
 const props = defineProps({
+    /**
+     * Heading of the list item.
+     */
     heading: {
         type: String,
         required: true,
     },
+    /**
+     * Image source of the list item.
+     */
     imageSrc: {
         type: String,
         default: null,
     },
+    /**
+     * Determines column layout and image position.
+     * @values icon, image, image-horizontal, numbered
+     */
     variant: {
         type: String,
         default: 'icon',

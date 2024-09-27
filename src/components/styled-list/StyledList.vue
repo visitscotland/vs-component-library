@@ -14,12 +14,15 @@
                         {{ props.title }}
                     </VsHeading>
 
+                    <!-- @slot to contain the introduction
+                     for this module -->
                     <slot name="intro" />
                 </VsCol>
             </VsRow>
             <VsRow>
                 <VsCol :md="props.variant === 'icon' ? '8' : null">
                     <ul class="vs-styled-list__list">
+                        <!-- @slot default to contain a set of <StyledListItem> elements  -->
                         <slot />
                     </ul>
                 </VsCol>
@@ -42,18 +45,31 @@ import {
 } from '@/components/grid';
 
 const props = defineProps({
+    /**
+     * ID of the anchor link if needed
+     */
     anchorLink: {
         type: String,
         default: null,
     },
+    /**
+     * Text listing any sources for information displayed in the lists.
+     */
     source: {
         type: String,
         default: null,
     },
+    /**
+     * Title of the module.
+     */
     title: {
         type: String,
         required: true,
     },
+    /**
+     * Determines the list style.
+     * @values icon, image, image-horizontal, numbered
+     */
     variant: {
         type: String,
         default: 'icon',
