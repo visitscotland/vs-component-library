@@ -4,7 +4,7 @@
         class="vs-caption"
         :class="captionClasses"
     >
-        <VsContainer>
+        <VsContainer class="d-flex">
             <VsRow class="justify-content-center justify-content-sm-start">
                 <VsCol
                     class="order-2 order-sm-1"
@@ -83,6 +83,15 @@ export default {
             validator: (value) => value.match(/(fullwidth|large)/),
         },
         /**
+         * Colour theme of the caption
+         * `bold, subtle`
+         */
+        theme: {
+            type: String,
+            default: 'bold',
+            validator: (value) => value.match(/(bold|subtle)/),
+        },
+        /**
          * The image latitude
          */
         latitude: {
@@ -127,6 +136,7 @@ export default {
                     'vs-caption--fullwidth': !this.isLargeCaption,
                 },
                 `vs-caption--${this.textAlign}`,
+                `vs-caption--${this.theme}`,
             ];
         },
     },
@@ -135,8 +145,16 @@ export default {
 
 <style lang="scss">
 .vs-caption {
-    background-color: $vs-color-background-bold;
-    color: $vs-color-text-inverse;
+
+    &--bold {
+        background-color: $vs-color-background-bold;
+        color: $vs-color-text-inverse;
+    }
+
+    &--subtle {
+        background-color: $vs-color-new-background-secondary;
+        color: $vs-color-new-text-tertiary;
+    }
 
     &--large,
     &--fullwidth {

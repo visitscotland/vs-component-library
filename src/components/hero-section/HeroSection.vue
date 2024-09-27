@@ -38,7 +38,7 @@
                 :style="setHeroImage"
             />
 
-            <VsCaption class="p-0">
+            <VsCaption class="p-0" theme="subtle">
                 <template v-slot:caption>
                     {{ imgCaption }}
                 </template>
