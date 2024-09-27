@@ -49,6 +49,13 @@
                             {{ warningText }}
 
                             <template
+                                v-slot:extra-content
+                                v-if="extraContent"
+                            >
+                                <div v-html="extraContent" />
+                            </template>
+
+                            <template
                                 v-if="!requiredCookiesExist
                                     && cookiesInitStatus === true"
                                 v-slot:button-text
@@ -130,6 +137,14 @@ export default {
         noJsText: {
             type: String,
             required: true,
+        },
+        /**
+         * Extra content to display, rendered as html so it can include
+         * explanatory links
+         */
+        extraContent: {
+            type: String,
+            default: '',
         },
     },
     data() {
