@@ -74,9 +74,7 @@
                                 ref="toggleButton"
                                 aria-haspopup="true"
                             >
-                                <span class="visually-hidden">
-                                    {{ menuToggleAltText }}
-                                </span>
+                                {{ menuToggleAltText }}
                             </VsButton>
 
                             <VsMegaNavMobileMenu

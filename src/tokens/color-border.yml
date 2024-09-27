@@ -11,7 +11,7 @@ props:
     - name: vs-color-border-bold
       value: "{!vs-black-02}"
     - name: vs-color-border-focus
-      value: "{!vs-saltire}"
+      value: "{!vs-saltire-50}"
     - name: vs-color-border-disabled
       value: "{!vs-grey-04}"
     - name: vs-color-border-tertiary
@@ -73,7 +73,7 @@ props:
 
       
 imports:
-  - ./color-core.yml
+  - ./primitives/color-core.yml
 global:
     type: color
     category: color-border

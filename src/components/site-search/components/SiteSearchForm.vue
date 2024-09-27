@@ -63,9 +63,7 @@
             @click="closeSearchForm"
             @keydown.tab="tabFromClose"
         >
-            <span class="visually-hidden">
-                {{ closeButtonText }}
-            </span>
+            {{ closeButtonText }}
         </VsButton>
     </div>
 </template>

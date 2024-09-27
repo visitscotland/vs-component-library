@@ -57,7 +57,7 @@ props:
     - name: vs-color-text-accent-limestone
       value: "{!vs-limestone}" 
 imports:
-  - ./color-core.yml
+  - ./primitives/color-core.yml
 global:
     type: color
     category: color-text

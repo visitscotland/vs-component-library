@@ -161,9 +161,7 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
                 icon-only
                 @click.prevent="hidePicker"
             >
-                <span class="visually-hidden">
-                    {{ getLabelText('close', 'Close', 'guests_rooms') }}
-                </span>
+                {{ getLabelText('close', 'Close', 'guests_rooms') }}
             </VsButton>
 
             <div class="vs-guest-selector__button-row mb-3">

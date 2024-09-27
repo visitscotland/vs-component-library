@@ -38,9 +38,7 @@
                                 @click="closeMenu"
                                 @keydown.tab="tabFromClose"
                             >
-                                <span class="visually-hidden">
-                                    {{ menuToggleAltText }}
-                                </span>
+                                {{ menuToggleAltText }}
                             </VsButton>
                         </VsCol>
                     </VsRow>
@@ -77,9 +75,7 @@
                                 variant="transparent"
                                 @click="closeMenu"
                             >
-                                <span class="visually-hidden">
-                                    {{ menuToggleAltText }}
-                                </span>
+                                {{ menuToggleAltText }}
                             </VsButton>
                         </VsCol>
                     </VsRow>

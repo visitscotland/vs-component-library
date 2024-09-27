@@ -43,7 +43,7 @@ aliases:
 
   vs-cuillin-05:
     value: "#FFF0F0"
-  vs-cuillin-10: 
+  vs-cuillin-10:
     value: "#FFDBDB"
   vs-cuillin-20:
     value: "#FFB8B8"
@@ -64,7 +64,7 @@ aliases:
 
   vs-whisky-05:
     value: "#FFF2E5"
-  vs-whisky-10: 
+  vs-whisky-10:
     value: "#FFDBB8"
   vs-whisky-20:
     value: "#FFAD66"
@@ -85,7 +85,7 @@ aliases:
 
   vs-gorse-05:
     value: "#FFFA99"
-  vs-gorse-10: 
+  vs-gorse-10:
     value: "#FDEC53"
   vs-gorse-20:
     value: "#F9CE10"
@@ -106,7 +106,7 @@ aliases:
 
   vs-glencoe-05:
     value: "#D2FEE2"
-  vs-glencoe-10: 
+  vs-glencoe-10:
     value: "#9FF9C0"
   vs-glencoe-20:
     value: "#3EE57B"
@@ -127,7 +127,7 @@ aliases:
 
   vs-tolsta-05:
     value: "#E3FCFC"
-  vs-tolsta-10: 
+  vs-tolsta-10:
     value: "#B4F3F2"
   vs-tolsta-20:
     value: "#6CE0DD"
@@ -148,7 +148,7 @@ aliases:
 
   vs-saltire-05:
     value: "#F0F5FF"
-  vs-saltire-10: 
+  vs-saltire-10:
     value: "#D6E5FF"
   vs-saltire-20:
     value: "#ADCBFF"
@@ -169,7 +169,7 @@ aliases:
 
   vs-heather-05:
     value: "#F2F2F8"
-  vs-heather-10: 
+  vs-heather-10:
     value: "#E5E5F0"
   vs-heather-20:
     value: "#CACAE2"
@@ -190,7 +190,7 @@ aliases:
 
   vs-cloud-05:
     value: "#F6F6F6"
-  vs-cloud-10: 
+  vs-cloud-10:
     value: "#E9E9E9"
   vs-cloud-20:
     value: "#D3D3D3"
