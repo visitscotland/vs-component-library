@@ -105,32 +105,53 @@ export default {
         VsImg,
     },
     props: {
+        /**
+        * Whether the image should sit in a container or not
+        */
         inset: {
             type: Boolean,
             default: false,
         },
+        /**
+        * The text for the heading
+        */
         heading: {
             type: String,
             default: '',
             required: true,
         },
+        /**
+        * The text for the summary
+        */
         lede: {
             type: String,
             default: '',
             required: true,
         },
+        /**
+        * The image src url to display
+        */
         src: {
             type: String,
             default: '',
         },
+        /**
+        * The alt text for the image if applicable
+        */
         imgAlt: {
             type: String,
             default: '',
         },
+        /**
+        * The caption text for the image
+        */
         imgCaption: {
             type: String,
             default: '',
         },
+        /**
+        * The author credit for the image
+        */
         imgCredit: {
             type: String,
             default: '',
