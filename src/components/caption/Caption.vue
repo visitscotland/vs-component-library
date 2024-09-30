@@ -152,7 +152,7 @@ export default {
     }
 
     &--subtle {
-        background-color: $vs-color-new-background-secondary;
+        background-color: transparent;
         color: $vs-color-new-text-tertiary;
     }
 

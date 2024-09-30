@@ -142,6 +142,8 @@ export default {
 
 <style lang="scss">
     .vs-hero-section {
+        padding-bottom: $spacer-300;
+
         &__text-wrapper {
             background-color: $vs-color-background-inverse;
             padding: $spacer-400 0 $spacer-300 0;

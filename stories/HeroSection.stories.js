@@ -26,7 +26,7 @@ export default {
 };
 
 const belowFoldContent = `
-        <VsContainer class="mt-300">
+        <VsContainer>
             <VsHeading level="2">Holding out for a hero</VsHeading>
             <p>
                 Where have all the good men gone<br>
