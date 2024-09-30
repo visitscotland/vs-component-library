@@ -2,6 +2,263 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.3](https://github.com/visitscotland/vs-component-library/compare/v3.2.2...v3.2.3) (2024-09-26)
+
+
+### ✨ Features
+
+* **embed wrapper:** allow embed wrapper to access extra content in warning ([545fdc2](https://github.com/visitscotland/vs-component-library/commit/545fdc226031618ca0289c0a8cf4fd903600fa28))
+
+### [3.2.2](https://github.com/visitscotland/vs-component-library/compare/v3.2.1...v3.2.2) (2024-09-24)
+
+
+### ✨ Features
+
+* **menu:** handle back tabbing better ([339bb66](https://github.com/visitscotland/vs-component-library/commit/339bb6638e425a225d2693ae035d6117c51c7697))
+
+### [3.2.1](https://github.com/visitscotland/vs-component-library/compare/v3.2.0...v3.2.1) (2024-09-24)
+
+
+### ✨ Features
+
+* **meganav:** close dropdown when tabbing out of it ([be7306a](https://github.com/visitscotland/vs-component-library/commit/be7306aba7b927373ebcaa4004dbf12bb8218633))
+* **site search:** apply same fix to search form ([14e24cd](https://github.com/visitscotland/vs-component-library/commit/14e24cda2daefe1ccd84d485ab9ace6beef0f16b))
+* **video:** remove redundant cookie checks in caption and card ([09e8483](https://github.com/visitscotland/vs-component-library/commit/09e84839be3881ef2d9c44adf145f1ef90e3bb09))
+
+## [3.2.0](https://github.com/visitscotland/vs-component-library/compare/v3.1.9...v3.2.0) (2024-09-23)
+
+
+### ✨ Features
+
+* **article.stories.js:** add condition to show/hide sidebar content ([3b85a50](https://github.com/visitscotland/vs-component-library/commit/3b85a50e3796fe5d02c67979aa2885317bc15d62))
+* **article.stories.js:** add quote with border to BSH story ([1a2f5e5](https://github.com/visitscotland/vs-component-library/commit/1a2f5e526fd43a7265f4dad418b90f479b8798ce))
+* **article:** add businessSupport option to set specific styles ([1479e0a](https://github.com/visitscotland/vs-component-library/commit/1479e0ae7f3ae50f7d01adfb84357f22d379745a))
+* **article:** add cover image below intro ([f35979c](https://github.com/visitscotland/vs-component-library/commit/f35979c2333da4fbe772a7588ed6368b393dc5f8))
+* **article:** add option to display the cover media below the intro ([06f4bda](https://github.com/visitscotland/vs-component-library/commit/06f4bda753932157fcb3a468478a71553d0076b2))
+* **article:** add option to remove border ([865acad](https://github.com/visitscotland/vs-component-library/commit/865acadda9c776ba7b461ad8f378832055d1d153))
+* **article:** add option to set heading/intro alignment ([efd804f](https://github.com/visitscotland/vs-component-library/commit/efd804fcf3c1e0b3d639447b266ea416b9084142))
+* **article:** remove column with when businessSupport ([07ceb44](https://github.com/visitscotland/vs-component-library/commit/07ceb44ee88e3ca904a0578172f67ad77f742720))
+* **articlesection:** set content width depending on sidebar having content ([216cbea](https://github.com/visitscotland/vs-component-library/commit/216cbea67b9e648047eaf876f2208e4ff2d4fbeb))
+* **article:** set sidebar order on mobile ([ae60da3](https://github.com/visitscotland/vs-component-library/commit/ae60da3764b2d9f9509ceefe0b39506a333af7de))
+* **quote:** add with border variation ([5a551c5](https://github.com/visitscotland/vs-component-library/commit/5a551c56ec89f987e498d4e0a562a6cb0116e8bf))
+
+
+### 🐛 Bug Fixes
+
+* **article.stories.js:** fix quote paragraph ([90b019e](https://github.com/visitscotland/vs-component-library/commit/90b019edc63f1c53487ed3d848989ff90034c2bd))
+* **article.stories.js:** typo ([4f1793f](https://github.com/visitscotland/vs-component-library/commit/4f1793f5c77ba601ac495ba19a74a2a545d7119d))
+* **article:** replace logical AND with tenarys for clarity ([426088a](https://github.com/visitscotland/vs-component-library/commit/426088ad1b6bcd9993904e1ea8dd66790e4d1ca0))
+* **quote:** update border and author text colour ([6258262](https://github.com/visitscotland/vs-component-library/commit/625826226f99ac68c81df8477b126612999f1167))
+
+
+### ✅ Tests
+
+* **article seciton:** add unit test ([8a9b68b](https://github.com/visitscotland/vs-component-library/commit/8a9b68b4b1d2c52731edd18cd1446a136b6833ed))
+
+### [3.1.9](https://github.com/visitscotland/vs-component-library/compare/v3.1.8...v3.1.9) (2024-09-23)
+
+
+### ✨ Features
+
+* **video:** remove cookie checks from page hero as well ([88f7242](https://github.com/visitscotland/vs-component-library/commit/88f72424fc677a8014994f94054b06f1fb8cdb77))
+
+### [3.1.8](https://github.com/visitscotland/vs-component-library/compare/v3.1.7...v3.1.8) (2024-09-20)
+
+### [3.1.7](https://github.com/visitscotland/vs-component-library/compare/v3.1.6...v3.1.7) (2024-09-20)
+
+
+### 🐛 Bug Fixes
+
+* **analytics:** check for window definition before accessing ([d389bd7](https://github.com/visitscotland/vs-component-library/commit/d389bd769cef1459dc189b548f0e62809277a218))
+
+### [3.1.6](https://github.com/visitscotland/vs-component-library/compare/v3.1.5...v3.1.6) (2024-09-19)
+
+### [3.1.5](https://github.com/visitscotland/vs-component-library/compare/v3.1.4...v3.1.5) (2024-09-19)
+
+
+### ✨ Features
+
+* **bootstrap-overrides:** add deprecation warning for spacer-1 to 12 ([7223eb4](https://github.com/visitscotland/vs-component-library/commit/7223eb4427a0568a4b5a0094faba7e8eb096dbdb))
+* **spacing.yml tokens and utils:** add spacing tokens in new format ([dd9613d](https://github.com/visitscotland/vs-component-library/commit/dd9613db03d1e08e91c310958ba8f747a3854e4d))
+* **video:** remove cookie warnings from video ([0db76d8](https://github.com/visitscotland/vs-component-library/commit/0db76d8af1bd94a983445a5c9f20447ac9689dd2))
+* **video:** remove redundant no-cookie stories for other videos ([6301bd4](https://github.com/visitscotland/vs-component-library/commit/6301bd46adad74feebfe892ad0fa8216ab48a4e2))
+* **video:** switch to nocookies youtube embed url ([4901029](https://github.com/visitscotland/vs-component-library/commit/49010295cbf70d112122f314b6c3448cd66fd751))
+
+### [3.1.4](https://github.com/visitscotland/vs-component-library/compare/v3.1.3...v3.1.4) (2024-09-12)
+
+
+### 🐛 Bug Fixes
+
+* **img:** correct tests for srcset ([ee039ae](https://github.com/visitscotland/vs-component-library/commit/ee039ae08b777c407249b75474dc1ecf3b756adf))
+* **page intro:** fix caption display on tablet for full scren ([1efd203](https://github.com/visitscotland/vs-component-library/commit/1efd2034465834dfcba25445d3e2fa3bd98aea7c))
+* **page intro:** fix social share on desktop on full screen mode ([735e1ba](https://github.com/visitscotland/vs-component-library/commit/735e1ba7daca56c8b01af08bfc05e30f44cc798b))
+* **social share:** fix share width on mobile ([980ecf8](https://github.com/visitscotland/vs-component-library/commit/980ecf8eddf1eb1638388ce72f47050ae87e4094))
+
+### [3.1.3](https://github.com/visitscotland/vs-component-library/compare/v3.1.2...v3.1.3) (2024-09-12)
+
+
+### 🐛 Bug Fixes
+
+* **page intro:** visual bug fixes for fullscreen version ([5909060](https://github.com/visitscotland/vs-component-library/commit/59090603559480c301bf6ec6a585fa81471a4667))
+
+### [3.1.2](https://github.com/visitscotland/vs-component-library/compare/v3.1.1...v3.1.2) (2024-09-10)
+
+
+### ♻️ Code Refactoring
+
+* **buttons:** tidy code for consistent buttons ([732263f](https://github.com/visitscotland/vs-component-library/commit/732263fb680f69652963e431904da818af8b9ab2))
+* **map:** refactor map category button to be button not VsButton component ([b9cab28](https://github.com/visitscotland/vs-component-library/commit/b9cab28abe98013f73e9a07c62dae0049c5d8a6c))
+* **nav:** fix button specificity ([4495840](https://github.com/visitscotland/vs-component-library/commit/449584035531a528601c915bf2fe3daed8e29249))
+
+
+### ✨ Features
+
+* **intro:** implement rough fullscreen page intro image ([6c58518](https://github.com/visitscotland/vs-component-library/commit/6c5851842e4278e01e2c0e48832c1e85734d6498))
+* **page intro:** ensure fullscreen mobile view has default behaviour on desktop ([8c5fde7](https://github.com/visitscotland/vs-component-library/commit/8c5fde74982537e611f39f8fad2e714f1a3125df))
+* **page intro:** move hero text back under image ([ca6c444](https://github.com/visitscotland/vs-component-library/commit/ca6c444e8f5b5e8b6a8ebc47a62470ad5d59f48a))
+* **page intro:** switch to tint layout ([de5812f](https://github.com/visitscotland/vs-component-library/commit/de5812f2426120e03a95985d732b48b6a0b55b51))
+* **video stories:** basic implementation ([6d0a82b](https://github.com/visitscotland/vs-component-library/commit/6d0a82b2739cdcac56c3770bda2af0afc2a7057e))
+* **videostories:** remove stories component ([9647347](https://github.com/visitscotland/vs-component-library/commit/9647347665270b215d0480d9e728690358c248ba))
+
+
+### 🐛 Bug Fixes
+
+* **img:** adjust responsive image sizes in line with .com ([ee8bd07](https://github.com/visitscotland/vs-component-library/commit/ee8bd07e90309dd847baca384f47a731dd1796fb))
+* **page intro:** add unit tests for fsMobile positioning ([5d9deb2](https://github.com/visitscotland/vs-component-library/commit/5d9deb26b032009393a9670803d583cff4b9bb56))
+* **page intro:** correct visual bugs with full screen version ([441f576](https://github.com/visitscotland/vs-component-library/commit/441f5769f1bcbababfdec6cd09f7cc8c3848d160))
+* **page intro:** remove video asset ([23f141f](https://github.com/visitscotland/vs-component-library/commit/23f141f112b875ab2e0ae953d24b8a0d493392ac))
+* **video stories:** remove library ([2b41190](https://github.com/visitscotland/vs-component-library/commit/2b411903efb2dd3b80b2298d8c5acdbd27c7da61))
+
+### [3.1.1](https://github.com/visitscotland/vs-component-library/compare/v3.1.0...v3.1.1) (2024-08-16)
+
+
+### ✨ Features
+
+* **form:** ensure errors on conditional fields clear when they're hidden ([c2a99f2](https://github.com/visitscotland/vs-component-library/commit/c2a99f25802897395bbd2b259a36d28478e52b36))
+
+## [3.1.0](https://github.com/visitscotland/vs-component-library/compare/v3.0.18...v3.1.0) (2024-08-16)
+
+
+### ✅ Tests
+
+* **link list:** add tests for table of contents ([f153982](https://github.com/visitscotland/vs-component-library/commit/f153982320318e0d27a846dba19b5258b664dad5))
+
+
+### ✨ Features
+
+* **linklist.stories.js:** add table of contents variant ([7bbb861](https://github.com/visitscotland/vs-component-library/commit/7bbb861b51a758c2c6edd8dcfd62a6aea0dae51d))
+* **linklist:** add table of contents variant ([7477e3a](https://github.com/visitscotland/vs-component-library/commit/7477e3acecdd275575d6ba5086c79b9c833f8e6b))
+* **linklist:** adjust HTML for accessibility ([98364ea](https://github.com/visitscotland/vs-component-library/commit/98364ea0bac4d27518305742d36a1c8597c906a8))
+* **linklist:** update table of contents styles ([0900f9d](https://github.com/visitscotland/vs-component-library/commit/0900f9d95a9abf778ede7542af0c6431fc55f24a))
+
+### [3.0.18](https://github.com/visitscotland/vs-component-library/compare/v3.0.17...v3.0.18) (2024-08-14)
+
+
+### ✨ Features
+
+* **modal:** add missing modal video story ([f60d9ff](https://github.com/visitscotland/vs-component-library/commit/f60d9fff47449769548749dfe14da2bd3e528e6d))
+
+
+### 🐛 Bug Fixes
+
+* **forms:** check conditionals on config load ([4b94d47](https://github.com/visitscotland/vs-component-library/commit/4b94d47c55421db3e9efa8b9a33c2bfd6b9a0db2))
+
+### [3.0.17](https://github.com/visitscotland/vs-component-library/compare/v3.0.16...v3.0.17) (2024-08-06)
+
+
+### ✨ Features
+
+* **forms:** make all whitespace entries fail required validation ([c3572da](https://github.com/visitscotland/vs-component-library/commit/c3572da87095b65c82f3a1466185a8f38bf3c9a0))
+
+
+### 🐛 Bug Fixes
+
+* **forms:** account for boolean fields ([0c4af92](https://github.com/visitscotland/vs-component-library/commit/0c4af9231a79505c522d1235c8ba310bb6b4aa00))
+
+### [3.0.16](https://github.com/visitscotland/vs-component-library/compare/v3.0.15...v3.0.16) (2024-08-01)
+
+
+### ⏪ Revertions
+
+* **product search embed:** revert previous change ([399aeef](https://github.com/visitscotland/vs-component-library/commit/399aeef97b2dbff45dbd1f3cf8c7a5ce5dba71c6))
+
+### [3.0.15](https://github.com/visitscotland/vs-component-library/compare/v3.0.14...v3.0.15) (2024-07-31)
+
+
+### ✅ Tests
+
+* **dropdown:** update unit test ([82962cd](https://github.com/visitscotland/vs-component-library/commit/82962cd1da60e2422511a6e165992b6bbd9f8756))
+* **meganav dropdown:** update unit tests ([ca03458](https://github.com/visitscotland/vs-component-library/commit/ca0345867c9e84ce724c4b62bafaa790544fae95))
+
+
+### 🐛 Bug Fixes
+
+* **dropdown:** add css for fallback ([1b35d8c](https://github.com/visitscotland/vs-component-library/commit/1b35d8c7c0ef261cd93ee26870971621157c5076))
+* **dropdown:** add no-js fallback ([34c14e4](https://github.com/visitscotland/vs-component-library/commit/34c14e45cf780d314bbd20bdcb33ea99861fb906))
+* **dropdown:** remove v-if ([3e7c06a](https://github.com/visitscotland/vs-component-library/commit/3e7c06a74ccd576e3127a45654c4e65c88c40893))
+* **dropdown:** typo ([17f4e66](https://github.com/visitscotland/vs-component-library/commit/17f4e669af151684a2f9a43d75257e10e5cea711))
+* **global menu dropdown:** add CSS for fallback ([38f7bd6](https://github.com/visitscotland/vs-component-library/commit/38f7bd67e8385b3c075c8da03f8621077e1df9d6))
+* **mega nav dropdown:** remove v-if ([481838a](https://github.com/visitscotland/vs-component-library/commit/481838a3bfb3c76cb4377b50a754b00f75dc7110))
+* **meganav dropdown:** add CSS for fallback ([c6ce0ea](https://github.com/visitscotland/vs-component-library/commit/c6ce0eac7aac14120bea97bc7c390036e513a06a))
+* **meganav dropdown:** add no-js fallback ([95ad337](https://github.com/visitscotland/vs-component-library/commit/95ad33717aec7a6258111388ea330dd3935c0a01))
+
+### [3.0.14](https://github.com/visitscotland/vs-component-library/compare/v3.0.13...v3.0.14) (2024-07-26)
+
+
+### 🐛 Bug Fixes
+
+* **meganav:** correct for no-js ([f18467e](https://github.com/visitscotland/vs-component-library/commit/f18467e91c4afc0e2f98b454b92c0822d2561a0e))
+* **meganav:** ensure that nav sits on baseline if final segment is empty ([c80992e](https://github.com/visitscotland/vs-component-library/commit/c80992e4600ac9ce093b58153b00a989b0338b41))
+
+### [3.0.13](https://github.com/visitscotland/vs-component-library/compare/v3.0.12...v3.0.13) (2024-07-24)
+
+
+### ✨ Features
+
+* **yarn:** update to 4.3 ([e17f1d4](https://github.com/visitscotland/vs-component-library/commit/e17f1d431b74266f466aecf304887fa99609f7ea))
+
+### [3.0.12](https://github.com/visitscotland/vs-component-library/compare/v3.0.11...v3.0.12) (2024-07-23)
+
+
+### 🏗 Build System
+
+* **package.json:** change prePublish to prepack ([dcdd497](https://github.com/visitscotland/vs-component-library/commit/dcdd497cb9432a5bb9dcdc69d9dd680a0de585b8))
+
+### [3.0.11](https://github.com/visitscotland/vs-component-library/compare/v3.0.10...v3.0.11) (2024-07-23)
+
+
+### ✨ Features
+
+* **design tokens:** add new colour palette tokens ([93638e6](https://github.com/visitscotland/vs-component-library/commit/93638e612566b93fbd80d335ff09938329f53f7d))
+
+
+### 🎨 Styling
+
+* **cokens:** change ptarmigan to cloud ([0c4739d](https://github.com/visitscotland/vs-component-library/commit/0c4739d9d78fd9ca9b1a628acb990b1e8f059bfb))
+* **product search:** change oatcake to bluebell ([fe2c67d](https://github.com/visitscotland/vs-component-library/commit/fe2c67d74d53995711078cdfe152a5bf15be9f86))
+
+### [3.0.10](https://github.com/visitscotland/vs-component-library/compare/v3.0.9...v3.0.10) (2024-07-17)
+
+
+### ⏪ Revertions
+
+* **button.vue:** revert changes to main branch ([4ab9e52](https://github.com/visitscotland/vs-component-library/commit/4ab9e52ae04c801316c98ef209c763731fd10a57))
+
+
+### 🐛 Bug Fixes
+
+* **button.vue:** dynamically remove unused attributes ([3590b34](https://github.com/visitscotland/vs-component-library/commit/3590b347a19ded833e5ccf7c1e50bcfabc371958))
+* **button:** dynamically remove unused attributes ([944c654](https://github.com/visitscotland/vs-component-library/commit/944c654cf2ccd55d6c49d339eda67f0f82e57ce6))
+* **heading stories:** replace range input for heading levels with radio buttons ([54c0c11](https://github.com/visitscotland/vs-component-library/commit/54c0c11752f9793c45e9ac3cada2179da1eb3a49))
+* **vsform:** make marketo props optional ([136e386](https://github.com/visitscotland/vs-component-library/commit/136e38654773b0e1572be181460bee1d3fd9d8f4))
+
+
+### ✨ Features
+
+* **storybook:** correct install and build commands ([a588d10](https://github.com/visitscotland/vs-component-library/commit/a588d1074835ae7cd175e88bb470b382e95c4214))
+* **storybook:** deploy static storybook on push to main ([551bdee](https://github.com/visitscotland/vs-component-library/commit/551bdee433bc8ee783a688219d18c82490370384))
+* **storybook:** switch build path ([b0397a1](https://github.com/visitscotland/vs-component-library/commit/b0397a140fc8fe45212bcf677bc983367cd3d226))
+
 ### [3.0.9](https://github.com/visitscotland/vs-component-library/compare/v3.0.8...v3.0.9) (2024-06-14)
 
 

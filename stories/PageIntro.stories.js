@@ -214,10 +214,8 @@ const Template = (args) => ({
                         video-id="c05sg3G4oA4"
                         video-title="Test Video"
                         class="mb-8"
-                        cookie-btn-text="Manage cookies"
                         error-message="Sorry, something's gone wrong. Please try again later"
                         no-js-message="You need JavaScript enabled to see this video"
-                        no-cookies-message="You need cookies enabled to see this video"
                     />
                 </VsCol>
             </VsRow>
@@ -293,26 +291,6 @@ WithHeroVideo.args = {
     },
 };
 
-export const NoCookies = Template.bind({
-});
-
-NoCookies.args = {
-    ...base,
-    ...WithHeroVideo.args,
-};
-
-NoCookies.decorators = [
-    () => {
-        window.bypassCookieChecks = false;
-
-        return {
-            template: `
-                <story/>
-            `,
-        };
-    },
-];
-
 export const NoJavascript = Template.bind();
 NoJavascript.args = {
     ...base,
@@ -347,4 +325,30 @@ Itinerary.args = {
             'East',
         ],
     ],
+};
+
+export const FullscreenMobile = Template.bind();
+FullscreenMobile.args = {
+    ...base,
+    fullscreenMobile: true,
+    heroIntro: true,
+    'vs-share-button': {
+        ...socialShareDefault.args,
+    },
+    'vs-intro-heading': 'Northern Lights',
+    'vs-intro-content': 'The Northern Lights - also called the Aurora Borealis - are nature’s very own theatrical performance. In 2024, Expedia experts highlighted the UK as a hotspot destination for spotting the Northern Lights, specificially on the Isle of Skye between October and March!',
+    'vs-intro-hero': {
+        ...imageWithCaptionDefault.args,
+        altText: 'Northern Lights over Cullen Bay',
+        'img-caption': {
+            caption: 'Northern Lights over Cullen Bay',
+            credit: 'VisitScotland / Discover Fraserburgh / Fiona McRae',
+        },
+        imageSrc: 'fixtures/itineraries/images/northern-lights-over-cullen-bay.jpg',
+        isHeroImage: true,
+    },
+};
+
+FullscreenMobile.parameters = {
+    layout: 'fullscreen',
 };

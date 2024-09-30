@@ -13,9 +13,7 @@ const pluralMinuteDescriptor = '%s minutos';
 const language = 'de';
 
 const noJsContent = 'Js is off';
-const noCookiesContent = 'Cookies are off';
 const errorContent = 'Error content';
-const cookieBtnText = 'Cookie link text';
 
 function mountOptions() {
     return {
@@ -24,8 +22,6 @@ function mountOptions() {
             singleMinuteDescriptor,
             pluralMinuteDescriptor,
             language,
-            cookieBtnText,
-            noCookiesMessage: noCookiesContent,
             errorMessage: errorContent,
             noJsMessage: noJsContent,
             player: null,
@@ -65,10 +61,6 @@ describe('VsVideo', () => {
         it('should pass a videoId prop to the youtube component', async() => {
             const wrapper = factoryShallowMount();
 
-            wrapper.setData({
-                requiredCookies: [],
-            });
-
             await wrapper.vm.$nextTick();
 
             expect(wrapper.find('vue-youtube-stub').attributes('video-id')).toBe(videoId);
@@ -87,10 +79,6 @@ describe('VsVideo', () => {
 
             // a 25 second video, which should round to 1 minute
             wrapper.vm.formatTime(25);
-
-            wrapper.setData({
-                requiredCookies: [],
-            });
 
             await wrapper.vm.$nextTick();
 
@@ -137,58 +125,6 @@ describe('VsVideo', () => {
             const wrapper = factoryShallowMount();
             expect(wrapper.text()).toContain(noJsContent);
         });
-
-        it(
-            'should render the `noCookiesMessage` prop content if cookies are not enabled',
-            async() => {
-                const wrapper = factoryShallowMount({
-                    requiredCookiesExist: {
-                        get() {
-                            return false;
-                        },
-                    },
-                    showError: {
-                        get() {
-                            return true;
-                        },
-                    },
-                });
-
-                wrapper.setData({
-                    cookiesInitStatus: true,
-                });
-
-                await wrapper.vm.$nextTick();
-
-                expect(wrapper.text()).toContain(noCookiesContent);
-            },
-        );
-
-        it(
-            'should render the `cookieBtnText` prop content if cookies are not enabled',
-            async() => {
-                const wrapper = factoryMount({
-                    requiredCookiesExist: {
-                        get() {
-                            return false;
-                        },
-                    },
-                    showError: {
-                        get() {
-                            return true;
-                        },
-                    },
-                });
-
-                wrapper.setData({
-                    cookiesInitStatus: true,
-                });
-
-                await wrapper.vm.$nextTick();
-
-                expect(wrapper.text()).toContain(cookieBtnText);
-            },
-        );
     });
 
     describe(':methods', () => {

@@ -3,14 +3,11 @@
         class="vs-main-map-category"
         data-test="vs-main-map-category"
     >
-        <VsButton
+        <button
+            type="button"
             class="vs-main-map-category__button"
             :class="`vs-main-map-category__button--${type}`"
             data-test="vs-main-map-category__button"
-            variant="transparent"
-            icon="internal-link"
-            icon-position="right"
-            size="sm"
             @click="selectCategory(type)"
             @mouseover="isHovered = true"
             @mouseout="isHovered = false"
@@ -25,21 +22,28 @@
                 />
                 {{ categoryName }}
             </div>
-        </VsButton>
+
+            <VsIcon
+                name="internal-link"
+                variant="tertiary"
+                size="xs"
+                class="vs-main-map-category__icon align-self-center me-0"
+            />
+        </button>
     </div>
 </template>
 
 <script>
-import VsButton from '@/components/button/Button.vue';
 import VsMapMarkerIcon from '@/components/map-marker-icon/MapMarkerIcon.vue';
+import VsIcon from '@/components/icon/Icon.vue';
 
 export default {
     name: 'VsMapWithSidebarCategories',
     status: 'prototype',
     release: '0.0.1',
     components: {
-        VsButton,
         VsMapMarkerIcon,
+        VsIcon,
     },
     props: {
         /**
@@ -109,21 +113,20 @@ export default {
 
         @include map-button-themes;
 
-        &__button.vs-button.btn-transparent {
+        &__button {
+            background: transparent;
             display: flex !important;
             letter-spacing: normal;
             font-size: $font-size-5;
             font-weight: $font-weight-bold;
             text-transform: none;
+            transform: none;
             width: 100%;
             text-align: left;
             padding: $spacer-4 $spacer-4;
             border: none;
             justify-content: space-between;
-
-            .vs-icon--internal-link {
-                color: $vs-color-icon-tertiary;
-            }
+            line-height: $line-height-standard;
 
             &::after {
                 display: none;

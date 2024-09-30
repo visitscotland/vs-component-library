@@ -132,9 +132,4 @@ export default {
         margin: 0;
     }
 }
-
-// override transparent button styles
-.vs-button.btn-transparent .vs-map-marker-icon__icon {
-    color: $vs-color-icon-inverse;
-}
 </style>

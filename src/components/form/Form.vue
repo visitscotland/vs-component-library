@@ -337,6 +337,8 @@ export default {
                             this.conditionalFields[field.name] = false;
                         }
                     });
+
+                    this.checkConditionalFields();
                 })
                 .catch(() => {});
         },
@@ -644,8 +646,18 @@ export default {
                 this.formIsInvalid = false;
             } else {
                 fieldIsRequired.forEach((field) => {
-                    if (this.form[field.name] === '') {
-                        this.formIsInvalid = true;
+                    // Check if the string contains any non-whitespace, reject both empty strings
+                    // and strings made up entirely of whitespace characters
+                    if (!(/\S/.test(this.form[field.name]))) {
+                        let isInvalid = true;
+
+                        // If a conditional field is hidden, override its required status
+                        if (field.name in this.conditionalFields
+                            && !this.conditionalFields[field.name]) {
+                            isInvalid = false;
+                        }
+
+                        this.formIsInvalid = isInvalid;
                     }
                 });
             }
@@ -770,8 +782,17 @@ export default {
                     }
 
                     if (showField) {
-                        this.conditionalFields[field] = true;
+                        if (!this.conditionalFields[field]) {
+                            this.conditionalFields[field] = true;
+
+                            if (this.$refs[field]) {
+                                this.$refs[field][0].manualValidate();
+                            }
+                        }
                     } else {
+                        // If a field is hidden by its conditional status, clear any existing
+                        // errors as they are no longer relevant
+                        this.manageErrorStatus(field, []);
                         this.conditionalFields[field] = false;
                     }
                 });
