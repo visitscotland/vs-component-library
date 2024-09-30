@@ -144,7 +144,11 @@ export default {
     .vs-hero-section {
         &__text-wrapper {
             background-color: $vs-color-background-inverse;
-            padding: $spacer-300 0;
+            padding: $spacer-400 0 $spacer-300 0;
+
+            @include media-breakpoint-up(sm) {
+                padding: $spacer-500 0 $spacer-300 0;
+            }
         }
 
         &__heading{
@@ -154,7 +158,16 @@ export default {
         &__img {
             background-repeat: no-repeat;
             background-size: cover;
-            height: 100vh;
+            height: 386px;
+
+            @include media-breakpoint-up(sm) {
+                height: 514px;
+            }
+
+            @include media-breakpoint-up(lg) {
+                height: 648px;
+            }
+
         }
 
         &__divider {
