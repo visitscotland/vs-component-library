@@ -63,7 +63,18 @@ describe('VsHeroSection', () => {
             const heroImage = wrapper.find('[data-test=vs-hero-section__image-wrapper]').find('.vs-hero-section__img');
 
             expect(heroImage.exists()).toBe(true);
-            expect(heroImage.attributes('style')).toContain(heroImgSrc);
+            expect(heroImage.attributes('src')).toContain(heroImgSrc);
+        });
+
+        it('render alt text for an image when `imgAlt` is passed', async() => {
+            const wrapper = factoryShallowMount();
+            await wrapper.setProps({
+                src: heroImgSrc,
+                imgAlt: heroCaption,
+            });
+            const heroImage = wrapper.find('[data-test=vs-hero-section__image-wrapper]').find('.vs-hero-section__img');
+
+            expect(heroImage.attributes('alt')).toContain(heroCaption);
         });
 
         it('should not render an image in an inset container when an img `src` is passed', async() => {

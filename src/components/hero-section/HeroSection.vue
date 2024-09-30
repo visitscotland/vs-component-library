@@ -46,9 +46,10 @@
             data-test="vs-hero-section__image-wrapper"
         >
             <span v-if="src">
-                <div
+                <VsImg
                     class="vs-hero-section__img"
-                    :style="setHeroImage"
+                    :src="src"
+                    :alt="imgAlt"
                 />
 
                 <VsCaption
@@ -80,6 +81,7 @@ import {
     VsCol,
 } from '@/components/grid';
 import VsCaption from '@/components/caption/Caption.vue';
+import VsImg from '@/components/img/Img.vue';
 
 /**
 * Component for the page hero and introduction.
@@ -100,6 +102,7 @@ export default {
         VsRow,
         VsCaption,
         VsRichTextWrapper,
+        VsImg,
     },
     props: {
         inset: {
@@ -120,6 +123,10 @@ export default {
             type: String,
             default: '',
         },
+        imgAlt: {
+            type: String,
+            default: '',
+        },
         imgCaption: {
             type: String,
             default: '',
@@ -130,9 +137,6 @@ export default {
         },
     },
     computed: {
-        setHeroImage() {
-            return `background-image: url('${this.src}')`;
-        },
         setInset() {
             return this.inset || !this.src ? 'container' : '';
         },
@@ -157,10 +161,10 @@ export default {
             color: $vs-color-new-text-brand;
         }
 
-        &__img {
-            background-repeat: no-repeat;
-            background-size: cover;
+        &__img{
+            width: 100%;
             height: 386px;
+            object-fit: cover;
 
             @include media-breakpoint-up(sm) {
                 height: 514px;
@@ -169,11 +173,11 @@ export default {
             @include media-breakpoint-up(lg) {
                 height: 648px;
             }
-
         }
 
         &__divider {
             height: 2px;
+            margin: 0;
             color: $vs-color-background-neutral;
         }
     }
