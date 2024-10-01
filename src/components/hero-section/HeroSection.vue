@@ -84,7 +84,7 @@ import VsCaption from '@/components/caption/Caption.vue';
 import VsImg from '@/components/img/Img.vue';
 
 /**
-* Component for the page hero and introduction.
+* Component for the hero section at the top of a page.
 * Should be standardised to present a cohesive brand identity
 * across any sites that use it.
 *
@@ -92,7 +92,7 @@ import VsImg from '@/components/img/Img.vue';
 */
 
 export default {
-    name: 'VsPageIntro',
+    name: 'VsHeroSection',
     status: 'prototype',
     release: '0.0.1',
     components: {
