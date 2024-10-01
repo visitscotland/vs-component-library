@@ -33,10 +33,37 @@ describe('VsArticle', () => {
         it('renders `title` passed to the article', () => {
             expect(wrapper.text()).toContain('Route to the summit');
         });
+
         it('renders `anchorLink` passed to the article', () => {
             const header = wrapper.find('article[data-test=vs-article]').find('.vs-article__header');
             const anchor = header.find('#Routes');
             expect(anchor.exists()).toBe(true);
+        });
+
+        it(':businessSupport - render `VsCol` without offsets when true', () => {
+            const businessSupportWrapper = factoryMount({
+                businessSupport: true,
+            });
+
+            expect(businessSupportWrapper.find('.offset-xxl-1').exists()).toBe(false);
+            expect(businessSupportWrapper.find('.offset-md-1').exists()).toBe(false);
+        });
+
+        it(':businessSupport - render with class `vs-article__wrapper--no-border` when true', () => {
+            const businessSupportWrapper = factoryMount({
+                businessSupport: true,
+            });
+
+            expect(businessSupportWrapper.find('.vs-article__wrapper--no-border').exists()).toBe(true);
+        });
+
+        it(':businessSupport - render heading and intro without class `text-center` when true', () => {
+            const businessSupportWrapper = factoryMount({
+                businessSupport: true,
+            });
+            const header = businessSupportWrapper.find('article[data-test=vs-article]').find('.vs-article__header .text-center');
+
+            expect(header.exists()).toBe(false);
         });
     });
 
