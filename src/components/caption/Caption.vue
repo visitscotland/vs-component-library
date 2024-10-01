@@ -4,7 +4,7 @@
         class="vs-caption"
         :class="captionClasses"
     >
-        <VsContainer class="d-flex">
+        <VsContainer>
             <VsRow class="justify-content-center justify-content-sm-start">
                 <VsCol
                     class="order-2 order-sm-1"
@@ -34,7 +34,7 @@
                     align-self-sm-start"
                     v-if="showMap && isLargeCaption"
                 >
-                    <div class="vs-caption__map-wrapper pt-3 pt-sm-2 pb-sm-2 pe-sm-4 mx-auto">
+                    <div class="vs-caption__map-wrapper pt-3 pt-sm-2 pb-sm-2 mx-auto">
                         <VsCaptionImageMap
                             :latitude="latitude"
                             :longitude="longitude"
@@ -209,13 +209,13 @@ export default {
                 }
 
                 &__map-wrapper {
-                    max-width: 74px;
+                    max-width: 60px;
                 }
             }
         }
 
         .vs-caption__caption-info{
-            padding: $spacer-4;
+            padding: $spacer-4 0;
         }
     }
 
