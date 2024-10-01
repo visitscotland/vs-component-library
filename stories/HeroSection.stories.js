@@ -7,7 +7,7 @@ export default {
     parameters: {
         layout: 'fullscreen',
     },
-    title: 'Hero',
+    title: 'HeroSection',
     tags: ['autodocs'],
     argTypes: {
         inset: {
