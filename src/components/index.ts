@@ -94,6 +94,8 @@ export { default as VsSocialShare } from './social-share/SocialShare.vue';
 export { default as VsSocialShareItem } from './social-share/components/SocialShareItem.vue';
 export { default as VsStretchedLinkCard } from './stretched-link-card/StretchedLinkCard.vue';
 export { default as VsStretchedLinkPanel } from './stretched-link-card/components/StretchedLinkPanels.vue';
+export { default as VsStyledList } from './styled-list/StyledList.vue';
+export { default as VsStyledListItem } from './styled-list/components/StyledListItem.vue';
 export { default as VsSummaryBoxList } from './summary-box/SummaryBoxList.vue';
 export { default as VsSummaryBoxListItem } from './summary-box/components/SummaryBoxListItem.vue';
 export { default as VsSummaryBoxDistanceListItem } from './summary-box/components/SummaryBoxDistanceListItem.vue';

@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.3.0](https://github.com/visitscotland/vs-component-library/compare/v3.2.3...v3.3.0) (2024-09-30)
+
+
+### 🐛 Bug Fixes
+
+* **styled list:** remove TypeScipt as it was breaking everything ([083988d](https://github.com/visitscotland/vs-component-library/commit/083988d8ef82731e82737880699dd9410fb63eb8))
+
+
+### ✅ Tests
+
+* **styled list:** add tests for image variant ([06f6e20](https://github.com/visitscotland/vs-component-library/commit/06f6e20a794117a456f8078caf2ce6b36304ab39))
+* **styled list:** add tests for image-horizontal variant ([5061389](https://github.com/visitscotland/vs-component-library/commit/5061389efd7699895dac798f2f9c40229257b3df))
+* **stylednumberedlist:** add tests for new components ([0748fbb](https://github.com/visitscotland/vs-component-library/commit/0748fbbb5976673bc5860311bd240ae7faaa60d5))
+
+
+### ✨ Features
+
+* **styled list story:** change story name ([b40a384](https://github.com/visitscotland/vs-component-library/commit/b40a384778c058c932509bcb179b98491d560e5b))
+* **styled list:** add image-horizontal variant ([3eb3385](https://github.com/visitscotland/vs-component-library/commit/3eb33854819158508cd895e1a01232fe5111c99e))
+* **styled list:** add variant "with image" ([a8b789b](https://github.com/visitscotland/vs-component-library/commit/a8b789b34b8c9b1639b8d85b63456bfa4f5a0888))
+* **styled list:** mobile layout changes ([70f804a](https://github.com/visitscotland/vs-component-library/commit/70f804a05f3a7dbc3bc1c1d7fb513055fa469e3c))
+* **styledlist:** add new variation for icon list ([930dd2e](https://github.com/visitscotland/vs-component-library/commit/930dd2e59426fd84a151ee1b802de0043450b558))
+* **stylednumberedlist:** add a new component ([aa5b62a](https://github.com/visitscotland/vs-component-library/commit/aa5b62a1eba19483465ac782d6658ba128435dfd))
+* **stylednumberedlist:** add a story for the new component ([ec8f26d](https://github.com/visitscotland/vs-component-library/commit/ec8f26daef8005bc03962a3b135d3ed5ff75f1b8))
+
+
+### 🔖 Others
+
+* **deps:** bump the npm_and_yarn group with 10 updates ([3b2297c](https://github.com/visitscotland/vs-component-library/commit/3b2297c21de1fd27cf256cd7a10bd51a59fac31a))
+
+
+### 🎨 Styling
+
+* **styled list item:** replace hard-coded colour value with variable ([9fd9c78](https://github.com/visitscotland/vs-component-library/commit/9fd9c7843cc1dda28c41778ca079e9eca6df6456))
+
+
+### 📝 Docs
+
+* **style list:** add comments to slots and props ([439426e](https://github.com/visitscotland/vs-component-library/commit/439426e5d9c9a3c1966238f0865b1af34dc729dd))
+
 ### [3.2.3](https://github.com/visitscotland/vs-component-library/compare/v3.2.2...v3.2.3) (2024-09-26)
 
 
