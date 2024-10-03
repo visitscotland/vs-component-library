@@ -260,7 +260,7 @@ export default {
         ------------------------------------------ */
         &.btn-primary {
             @include vs-button-variant(
-                $vs-color-text-inverse, $vs-color-background-accent-glencoe, $vs-color-border-primary,
+                $vs-color-text-inverse, $vs-color-background-primary, $vs-color-border-primary,
                 $vs-color-text-inverse, $vs-color-background-hover, $vs-color-background-hover,
                 $vs-color-text-primary, $vs-color-background-active, $vs-color-background-active,
                 $vs-color-text-primary, $vs-color-background-inverse, $vs-color-border-primary,
