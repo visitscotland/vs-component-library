@@ -41,7 +41,7 @@ export { default as VsContainer } from './grid/Container.vue';
 export { default as VsRow } from './grid/Row.vue';
 export { default as VsHeading } from './heading/Heading.vue';
 export { default as VsHtmlError } from './html-error/HtmlError.vue';
-export { default as VsIcentre } from './icentre/Icentre.vue';
+export { default as VsTourismInfo } from './tourism-info/TourismInfo.vue';
 export { default as VsIcon } from './icon/Icon.vue';
 export { default as VsIconList } from './icon-list/IconList.vue';
 export { default as VsIconListItem } from './icon-list/components/IconListItem.vue';
