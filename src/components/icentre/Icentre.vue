@@ -14,11 +14,6 @@
                     offset-lg="3"
                     class="vs-icentre__intro-content"
                 >
-                    <VsSvg
-                        class="vs-icentre__logo"
-                        path="iCentre"
-                    />
-
                     <div
                         class="vs-icentre__links"
                         data-test="vs-icentre__standalone-links"
@@ -69,7 +64,6 @@
 </template>
 
 <script>
-import VsSvg from '@/components/svg/Svg.vue';
 import {
     VsContainer, VsRow, VsCol,
 } from '@/components/grid';
@@ -85,7 +79,6 @@ export default {
     status: 'prototype',
     release: '0.0.1',
     components: {
-        VsSvg,
         VsContainer,
         VsRow,
         VsCol,
