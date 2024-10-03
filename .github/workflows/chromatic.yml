@@ -9,7 +9,6 @@ on:
     types:
       - opened
       - reopened
-      - synchronize
     branches:
       - 'main'
       - 'cl-release/**'
