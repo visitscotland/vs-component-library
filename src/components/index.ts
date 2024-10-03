@@ -23,6 +23,7 @@ export { default as VsCheckbox } from './checkbox/Checkbox.vue';
 export { default as VsCookieChecker } from './cookie-checker/CookieChecker.vue';
 export { default as VsDescriptionList } from './description-list/DescriptionList.vue';
 export { default as VsDescriptionListItem } from './description-list/components/DescriptionListItem.vue';
+export { default as VsDownload } from './download/Download.vue';
 export { default as VsDropdown } from './dropdown/Dropdown.vue';
 export { default as VsDropdownItem } from './dropdown/components/DropdownItem.vue';
 export { default as VsEmbedWrapper } from './embed-wrapper/EmbedWrapper.vue';
