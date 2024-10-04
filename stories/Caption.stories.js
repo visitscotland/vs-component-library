@@ -14,6 +14,15 @@ export default {
                 type: 'inline-radio',
             },
         },
+        theme: {
+            options: [
+                'bold',
+                'subtle',
+            ],
+            control: {
+                type: 'inline-radio',
+            },
+        },
         textAlign: {
             options: [
                 'left',
@@ -65,4 +74,12 @@ WithMap.args = {
     variant: 'large',
     latitude: '55.9485947',
     longitude: '-3.2021022',
+};
+
+export const SubtleTheme = Template.bind({
+});
+
+SubtleTheme.args = {
+    ...base,
+    theme: 'subtle',
 };
