@@ -1,20 +1,20 @@
-import VsIcentre from '@/components/icentre/Icentre.vue';
 import VsImageWithCaption from '@/components/image-with-caption/ImageWithCaption.vue';
 import VsQuote from '@/components/quote/Quote.vue';
 import VsCaption from '@/components/caption/Caption.vue';
 import VsButton from '@/components/button/Button.vue';
 import VsImg from '@/components/img/Img.vue';
 import VsLink from '@/components/link/Link.vue';
+import VsTourismInfo from '@/components/tourism-info/TourismInfo.vue';
 
 export default {
-    component: VsIcentre,
-    title: 'Icentre',
+    component: VsTourismInfo,
+    title: 'Tourism Info',
     tags: ['autodocs'],
 };
 
 const Template = (args) => ({
     components: {
-        VsIcentre,
+        VsTourismInfo,
         VsImageWithCaption,
         VsQuote,
         VsCaption,
@@ -28,8 +28,8 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsIcentre>
-            <template v-slot:icentre-image-with-caption>
+        <VsTourismInfo>
+            <template v-slot:tourism-info-image-with-caption>
                 <VsImageWithCaption
                     :imageSrc="args.imageSrc"
                     :altText="args.imageAltText"
@@ -51,7 +51,7 @@ const Template = (args) => ({
 
             <template
                 v-if="args.quoteContent"
-                v-slot:icentre-quote
+                v-slot:tourism-info-quote
             >
                 <VsQuote variant="wide">
                     <template v-slot:quote-image>
@@ -80,20 +80,20 @@ const Template = (args) => ({
                 </VsQuote>
             </template>
 
-            <template v-slot:icentre-links>
+            <template v-slot:tourism-info-links>
                 <p>
-                    <VsLink :href="args['icentre-links'].linkHref">
-                        {{ args['icentre-links'].linkText }}
+                    <VsLink :href="args['tourism-info-links'].linkHref">
+                        {{ args['tourism-info-links'].linkText }}
                     </VsLink>
                 </p>
             </template>
-        </VsIcentre>
+        </VsTourismInfo>
     `,
 });
 
 const base = {
     imageSrc: '/fixtures/icentre/icentre.jpg',
-    imageAltText: 'Aberdeen iCentre',
+    imageAltText: 'Tourism Info',
     imageToggleText: 'Toggle caption',
     imageCaption: 'VisitScotland Information Centre',
     imageCredit: '&copy; VisitScotland',
@@ -104,7 +104,7 @@ const base = {
     quoteAuthorTitle: 'Visitor Services Advisor at Aberdeen iCentre',
     buttonHref: '#',
     buttonText: 'See more',
-    'icentre-links': {
+    'tourism-info-links': {
         linkText: 'See all Aberdeen attractions',
         linkHref: '#',
     },
