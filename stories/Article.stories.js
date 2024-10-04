@@ -103,10 +103,19 @@ const Template = (args) => ({
                     {{ args['vs-article-intro'] }}
                 </template>
 
-                <VsArticleSection :sidebar-align="args.sidebarAlign">
-                    <template v-slot:article-sidebar>
+                <VsArticleSection
+                    :sidebar-align="args.sidebarAlign"
+                    :businessSupport="args.businessSupport"
+                >
+                    <template
+                        v-if="args.sidebarImg || args.sidebarQuote"
+                        v-slot:article-sidebar
+                    >
                         <VsArticleSidebar :sidebar-align="args.sidebarAlign">
-                            <template v-slot:vs-article-sidebar-img>
+                            <template
+                                v-if="args.sidebarImg"
+                                v-slot:vs-article-sidebar-img
+                            >
                                 <VsImageWithCaption
                                     v-if="!args['sidebarImg'].isVideo"
                                     :alt-text="args['sidebarImg'].alt"
@@ -144,10 +153,9 @@ const Template = (args) => ({
                             </template>
 
                             <template v-slot:vs-article-sidebar-quote>
-                                <VsQuote>
+                                <VsQuote :with-border="args.businessSupport">
                                     <template v-slot:quote-content>
-                                        <p>Scotland’s largest mountain was once a massive active volcano which exploded 
-                                        and collapsed inwards on itself millions of years ago.</p>
+                                        <p>{{ args['sidebarQuote'] }}</p>
                                     </template>
                                     <template v-slot:quote-author-name>
                                         Penny
@@ -257,6 +265,40 @@ SidebarVideo.args = {
         imageSrc: 'fixtures/article/images/corpach-sea-lock-and-lighthouse.jpg',
     },
 };
+
+export const BusinessSupportHub = Template.bind();
+BusinessSupportHub.args = {
+    ...base,
+    sidebarAlign: 'right',
+    businessSupport: true,
+};
+
+export const BusinessSupportHubNoSidebar = Template.bind();
+BusinessSupportHubNoSidebar.args = {
+    ...CoverImage.args,
+    ...BusinessSupportHub.args,
+    sidebarImg: '',
+    sidebarQuote: '',
+};
+
+export const NoCookies = Template.bind();
+NoCookies.args = {
+    ...base,
+    ...CoverVideo.args,
+    ...SidebarVideo.args,
+};
+
+NoCookies.decorators = [
+    () => {
+        window.bypassCookieChecks = false;
+
+        return {
+            template: `
+                <story/>
+            `,
+        };
+    },
+];
 
 export const NoJavascript = Template.bind();
 NoJavascript.args = {

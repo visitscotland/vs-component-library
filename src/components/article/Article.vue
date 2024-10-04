@@ -8,23 +8,33 @@
             <VsRow>
                 <VsCol
                     cols="12"
-                    class="col-xxl-10 offset-xxl-1"
+                    :class="businessSupport ? null : 'col-xxl-10 offset-xxl-1'"
                 >
-                    <div class="vs-article__wrapper mb-9 mb-md-11">
+                    <div
+                        class="vs-article__wrapper mb-9 mb-md-11"
+                        :class="businessSupport ? 'vs-article__wrapper--no-border' : null"
+                    >
                         <!-- @slot Slot to contain the cover image for this article -->
-                        <slot name="vs-article-img" />
+                        <slot
+                            v-if="!businessSupport"
+                            name="vs-article-img"
+                        />
 
                         <VsRow>
                             <VsCol
                                 cols="12"
                                 md="10"
-                                offset-md="1"
+                                :offset-md="businessSupport ? null : '1'"
                             >
-                                <div class="vs-article__header mx-6 mx-md-0 mt-9 mt-lg-11">
+                                <div
+                                    class="vs-article__header mx-md-0 mt-9 mt-lg-11"
+                                    :class="businessSupport ? null : 'mx-6'"
+                                >
                                     <VsHeading
                                         level="2"
                                         headingStyle="heading-xl"
-                                        class="text-center mb-8 mb-lg-9"
+                                        class="mb-8 mb-lg-9"
+                                        :class="businessSupport ? null : 'text-center'"
                                     >
                                         <span :id="anchorLink ? anchorLink : ''">
                                             {{ title }}
@@ -33,13 +43,22 @@
 
                                     <VsRichTextWrapper
                                         variant="lead"
-                                        class="text-center mb-9 mb-lg-10"
+                                        class="mb-9 mb-lg-10"
+                                        :class="businessSupport ? null : 'text-center'"
                                     >
                                         <!-- @slot Slot to contain the introduction
                                         for this article -->
                                         <slot name="vs-article-intro" />
                                     </VsRichTextWrapper>
                                 </div>
+
+                                <VsCol
+                                    v-if="businessSupport"
+                                    class="mb-9"
+                                    cols="7"
+                                >
+                                    <slot name="vs-article-img" />
+                                </VsCol>
 
                                 <div class="vs-article__content">
                                     <!-- @slot Default slot to contain ArticleSections
@@ -94,6 +113,14 @@ export default {
             type: String,
             default: '',
         },
+        /**
+         * Flag that this component is being used on the Business Support Hub
+         * which requires specific changes to be applied.
+         */
+        businessSupport: {
+            type: Boolean,
+            default: false,
+        },
     },
 };
 </script>
@@ -105,6 +132,10 @@ export default {
 
         figure{
             margin-bottom: 0;
+        }
+
+        &--no-border {
+            border: 0;
         }
     }
 

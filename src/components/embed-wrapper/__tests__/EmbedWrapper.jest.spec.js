@@ -13,6 +13,7 @@ const noJsContent = 'Js is off';
 const noCookiesContent = 'Cookies are off';
 const widgetcontent = 'A script tag';
 const errorContent = 'Error content';
+const extraContent = 'Extra content';
 
 const factoryShallowMount = () => shallowMount(VsEmbedWrapper, {
     slots: {
@@ -23,6 +24,7 @@ const factoryShallowMount = () => shallowMount(VsEmbedWrapper, {
         noCookieText: noCookiesContent,
         errorText: errorContent,
         noJsText: noJsContent,
+        extraContent,
     },
 });
 
@@ -35,6 +37,7 @@ const factoryMount = () => mount(VsEmbedWrapper, {
         noCookieText: noCookiesContent,
         errorText: errorContent,
         noJsText: noJsContent,
+        extraContent,
     },
 });
 
@@ -130,6 +133,16 @@ describe('VsEmbedWrapper', () => {
 
             const warning = wrapper.find('[data-test="vs-embed-wrapper__error"]');
             expect(warning.exists()).toBe(true);
+        });
+
+        it('should pass content inserted into the `extraContent` prop to the warning', async() => {
+            const wrapper = factoryMount();
+            await wrapper.setData({
+                mockCookiesExist: false,
+            });
+            await wrapper.vm.$nextTick();
+
+            expect(wrapper.text()).toContain(extraContent);
         });
 
         it('should display a warning div if cookies have not been initialised', async() => {
