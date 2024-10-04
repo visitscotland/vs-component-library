@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.1](https://github.com/visitscotland/vs-component-library/compare/v3.3.0...v3.3.1) (2024-10-04)
+
+
+### ✨ Features
+
+* **icentre:** remove icentre logo ([545024c](https://github.com/visitscotland/vs-component-library/commit/545024c69ec34330b1c7547a3379a39f17685d6b))
+* **icentre:** rename to tourism info ([537724d](https://github.com/visitscotland/vs-component-library/commit/537724d01ff009b297b8ea48a3bf31f9f8cd78d5))
+
 ## [3.3.0](https://github.com/visitscotland/vs-component-library/compare/v3.2.3...v3.3.0) (2024-09-30)
 
 
