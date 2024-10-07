@@ -34,12 +34,12 @@ const dmoAnalyticsLogic = (triggerEvent) => {
         dmoUrls.forEach((data) => {
             if (triggerEvent.target.href === data) {
                 linkedToDMO = true;
-                trackingData = createTracking(true);
+                trackingData = createTracking('True');
             }
         });
 
         if (!linkedToDMO) {
-            trackingData = createTracking(false);
+            trackingData = createTracking('False');
         }
 
         return trackingData;
