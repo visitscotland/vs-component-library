@@ -45,6 +45,7 @@ const base = {
     noCookieText: 'You need cookies enabled to view this content',
     noJsText: 'You need Javascript enabled to see this content',
     'embed-widget': 'Widget Goes Here',
+    extraContent: '',
 };
 
 export const Default = Template.bind({
@@ -61,6 +62,27 @@ NoCookies.args = {
 };
 
 NoCookies.decorators = [
+    () => {
+        window.bypassCookieChecks = false;
+
+        return {
+            template: `
+                <story/>
+            `,
+        };
+    },
+];
+
+export const ExtraContent = Template.bind({
+});
+
+ExtraContent.args = {
+    ...base,
+    noCookiesRequired: false,
+    extraContent: 'You can also see photos of this location on our <a href="#">Instagram page</a>.',
+};
+
+ExtraContent.decorators = [
     () => {
         window.bypassCookieChecks = false;
 

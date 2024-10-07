@@ -4,7 +4,11 @@ import VsQuote from '../Quote.vue';
 
 config.global.renderStubDefaultSlot = true;
 
-const factoryShallowMount = (slotsData) => shallowMount(VsQuote, {
+// eslint-disable-next-line object-curly-newline
+const factoryShallowMount = (slotsData, propsData) => shallowMount(VsQuote, {
+    props: {
+        ...propsData,
+    },
     slots: {
         ...slotsData,
     },
@@ -15,6 +19,32 @@ describe('VsQuote', () => {
         const wrapper = factoryShallowMount();
 
         expect(wrapper.attributes('data-test')).toContain('vs-quote');
+    });
+
+    describe(':props', () => {
+        it(':withBorder - render with `vs-quote--with-border` when true', () => {
+            const wrapper = factoryShallowMount(
+                {
+                },
+                {
+                    withBorder: true,
+                },
+            );
+
+            expect(wrapper.find('.vs-quote--with-border').exists()).toBe(true);
+        });
+
+        it(':withBorder - render without `vs-quote__speech-container` when true', () => {
+            const wrapper = factoryShallowMount(
+                {
+                },
+                {
+                    withBorder: true,
+                },
+            );
+
+            expect(wrapper.find('.vs-quote__speech-container').exists()).toBe(false);
+        });
     });
 
     describe(':slots', () => {

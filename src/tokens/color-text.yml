@@ -1,5 +1,5 @@
 props:
-    ## Color roles
+    ## Color roles (To be deprecated)
     - name: vs-color-text
       value: "{!vs-black-01}"
     - name: vs-color-text-primary
@@ -56,8 +56,27 @@ props:
       value: "{!vs-gorse}" 
     - name: vs-color-text-accent-limestone
       value: "{!vs-limestone}" 
+  
+    ## Color roles (NEW)
+    - name: vs-color-new-text-primary
+      value: "{!vs-basalt-90}"
+    - name: vs-color-new-text-secondary
+      value: "{!vs-cloud-60}"
+    - name: vs-color-new-text-inverse
+      value: "{!vs-snow-00}"
+    - name: vs-color-new-text-tertiary
+      value: "{!vs-heather-60}"
+    - name: vs-color-new-text-danger
+      value: "{!vs-cuillin-70}"
+    - name: vs-color-new-text-disabled
+      value: "{!vs-cloud-40}"
+    - name: vs-color-new-text-cta-on-light
+      value: "{!vs-saltire-60}"
+    - name: vs-color-new-text-brand
+      value: "{!vs-thistle-70}"
 imports:
   - ./primitives/color-core.yml
+  - ./primitives/color-primitives.yml
 global:
     type: color
     category: color-text
