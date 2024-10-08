@@ -9,10 +9,11 @@ on:
     types:
       - opened
       - reopened
-      - synchronize
     branches:
       - 'main'
       - 'cl-release/**'
+    schedule:
+      - cron: '0 8 * * 1'
 
   # Allows you to run this workflow manually from the Actions tab in the GitHub dashboard
   workflow_dispatch: {}
