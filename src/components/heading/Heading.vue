@@ -157,17 +157,20 @@ export default {
         @include heading-style(heading-xxs);
     }
 
-    .vs-heading__sub-heading--l {
-        @include sub-heading-style(sub-heading-l);
-    }
+    .vs-heading__sub-heading {
+        @extend %sub-heading-default;
 
-    .vs-heading__sub-heading--m {
-        @include sub-heading-style(sub-heading-m);
-    }
+        &--l {
+            @include sub-heading-style(sub-heading-l);
+        }
 
-    .vs-heading__sub-heading--s {
-        @include sub-heading-style(sub-heading-s);
+        &--m {
+            @include sub-heading-style(sub-heading-m);
+        }
+
+        &--s {
+            @include sub-heading-style(sub-heading-s);
+        }
     }
 }
-
 </style>

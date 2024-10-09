@@ -7,16 +7,27 @@
     $size: map-get(
       map-get($sub-heading-styles, $style), size
     );
+
+    $margin-top: map-get(
+        map-get($sub-heading-styles, $style), margin-top
+    );
   
     // Apply the sub-heading styles
     font-size: $size;
-  
-    // Include the shared sub-heading styles
-    @extend %sub-heading-default;
+    margin-top: $margin-top;
 }
 
 $sub-heading-styles: (
-  sub-heading-l: (size: $sub-heading-l),
-  sub-heading-m: (size: $sub-heading-m),
-  sub-heading-s: (size: $sub-heading-s),
+  sub-heading-l: (
+    size: $sub-heading-l,
+    margin-top: $spacer-2,
+  ),
+  sub-heading-m: (
+    size: $sub-heading-m,
+    margin-top: $spacer-1,
+  ),
+  sub-heading-s: (
+    size: $sub-heading-s,
+    margin-top: $spacer-1,
+  ),
 );
