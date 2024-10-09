@@ -108,7 +108,7 @@ export default {
     .vs-product-search {
         width: 100%;
         background: $vs-color-background-accent-heather;
-        padding: $spacer-8 $spacer-1;
+        padding: $spacer-200 $spacer-025;
         font-family: $font-family-sans-serif;
 
         &__no-js {
@@ -129,7 +129,7 @@ export default {
         &__col--left {
             background: $vs-color-background-accent-heather;
             font-family: $font-family-sans-serif;
-            margin-bottom: $spacer-9;
+            margin-bottom: $spacer-300;
         }
 
         &__col--right {
@@ -137,12 +137,12 @@ export default {
             flex-direction: column;
             justify-content: center;
             background: $vs-color-background-accent-bluebell;
-            padding: $spacer-6 $spacer-4;
+            padding: $spacer-150 $spacer-100;
         }
 
         @include media-breakpoint-up(sm) {
-            padding-left: $spacer-3;
-            padding-right: $spacer-3;
+            padding-left: $spacer-075;
+            padding-right: $spacer-075;
         }
 
         @include media-breakpoint-up(xl) {
@@ -152,7 +152,7 @@ export default {
             &__heading,
             &__intro {
                 color: $vs-color-text-inverse;
-                margin-left: $spacer-10;
+                margin-left: $spacer-400;
                 max-width: 70%;
             }
 
@@ -165,12 +165,12 @@ export default {
             }
 
             &__col--left {
-                padding: $spacer-12;
+                padding: $spacer-600;
                 margin-bottom: 0;
             }
 
             &__col--right.col-lg-4 {
-                padding: $spacer-8;
+                padding: $spacer-200;
             }
         }
     }

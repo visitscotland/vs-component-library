@@ -30,7 +30,7 @@ export default {
 <style lang="scss">
 .vs-itinerary-tips {
     box-shadow: $vs-elevation-shadow-raised;
-    padding: $spacer-4 $spacer-4 $spacer-4 $spacer-9;
+    padding: $spacer-100 $spacer-100 $spacer-100 $spacer-300;
 }
 .vs-itinerary-tips__text {
     p:last-of-type {

@@ -107,8 +107,8 @@ export default {
             min-height: 75px;
             border-top: $vs-color-border solid 1px;
             background: $vs-color-background-inverse;
-            width: calc(100% + #{$spacer-8});
+            width: calc(100% + #{$spacer-200});
             margin-top: auto;
-            margin-left: -#{$spacer-4};
+            margin-left: -#{$spacer-100};
         }
 </style>

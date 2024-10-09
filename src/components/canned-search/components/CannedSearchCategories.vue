@@ -55,6 +55,6 @@ export default {
         font-size: $font-size-4;
         line-height: $line-height-s;
         font-weight: $font-weight-semi-bold;
-        margin-bottom: $spacer-1;
+        margin-bottom: $spacer-025;
     }
 </style>

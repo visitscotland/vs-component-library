@@ -1099,25 +1099,25 @@ export default {
 
         &__full-report {
             h2 {
-                margin-bottom: $spacer-4;
+                margin-bottom: $spacer-100;
 
                 @include media-breakpoint-up(md) {
-                    margin-bottom: $spacer-7;
+                    margin-bottom: $spacer-175;
                 }
             }
 
             h3 {
-                margin-bottom: $spacer-2 !important;
-                margin-top: $spacer-6 !important;
+                margin-bottom: $spacer-050 !important;
+                margin-top: $spacer-150 !important;
             }
         }
 
         &__centre-info {
             font-size: $font-size-4;
-            margin-top: $spacer-8;
+            margin-top: $spacer-200;
 
             @include media-breakpoint-up(md) {
-                margin-bottom: $spacer-7;
+                margin-bottom: $spacer-175;
                 margin-top: $spacer-0;
             }
 
@@ -1129,14 +1129,14 @@ export default {
 
                 > a {
                     display: inline-block;
-                    width: calc(100% - #{$spacer-7});
+                    width: calc(100% - #{$spacer-175});
                     vertical-align: top;
                     word-break: break-word;
                 }
 
                 > span {
                     display: inline-block;
-                    width: calc(100% - #{$spacer-8});
+                    width: calc(100% - #{$spacer-200});
                     vertical-align: top;
                 }
             }
@@ -1148,10 +1148,10 @@ export default {
 
         .row {
             &:not(:first-child) {
-                margin-top: $spacer-8 + $spacer-2;
+                margin-top: $spacer-200 + $spacer-050;
 
                 @include media-breakpoint-up(md) {
-                    margin-top: $spacer-10;
+                    margin-top: $spacer-400;
                 }
             }
         }
@@ -1161,7 +1161,7 @@ export default {
         }
 
         .vs-table .vs-icon {
-            width: $spacer-5;
+            width: $spacer-125;
         }
 
         &__run-status-table {

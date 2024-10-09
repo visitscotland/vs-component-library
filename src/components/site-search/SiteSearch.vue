@@ -78,7 +78,7 @@ export default {
     }
 
     &.vs-button.btn-md{
-        padding: $spacer-2;
+        padding: $spacer-050;
     }
 
     &.vs-site-search--active, &:active, &:active:focus{
@@ -120,7 +120,7 @@ export default {
         }
 
         &.vs-button.btn-md{
-            padding: $spacer-3;
+            padding: $spacer-075;
         }
 
         span.visually-hidden-xxl-down {
@@ -130,7 +130,7 @@ export default {
 
     @include media-breakpoint-up(xxl) {
         .vs-icon {
-            margin-right: $spacer-2;
+            margin-right: $spacer-050;
         }
     }
 }

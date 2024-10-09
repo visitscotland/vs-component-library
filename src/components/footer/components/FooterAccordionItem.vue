@@ -104,7 +104,7 @@ export default {
     }
 
     .vs-accordion-item__title.vs-heading {
-        margin: $spacer-3 0;
+        margin: $spacer-075 0;
         background-color: $vs-color-background-bold;
         color: $vs-color-text-inverse;
         padding: 0;
@@ -119,7 +119,7 @@ export default {
     .vs-accordion-toggle {
         text-transform: none !important;
         letter-spacing: initial;
-        padding: $spacer-3;
+        padding: $spacer-075;
         font-size: $font-size-4;
         line-height: $line-height-xs;
         font-weight: $font-weight-semi-bold;
@@ -141,24 +141,24 @@ export default {
         }
 
          .icon.icon-xs {
-            right: $spacer-3;
+            right: $spacer-075;
         }
     }
 
     @include media-breakpoint-up(sm) {
         .btn.vs-accordion-toggle {
-            padding: $spacer-3 $spacer-6;
+            padding: $spacer-075 $spacer-150;
         }
     }
 
     @include media-breakpoint-up(md) {
         border: 0;
         border-left: 1px solid $vs-color-border-inverse;
-        padding: 0 $spacer-3;
+        padding: 0 $spacer-075;
         background-color: $vs-color-background-bold;
 
         .vs-accordion-item__title {
-            margin-top: $spacer-1;
+            margin-top: $spacer-025;
         }
 
         .vs-accordion-item__panel.card-body {

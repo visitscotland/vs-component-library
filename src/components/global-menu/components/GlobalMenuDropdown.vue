@@ -80,7 +80,7 @@ export default {
     border: none;
 
     .btn-primary.dropdown-toggle {
-        padding: 0.3rem $spacer-3;
+        padding: 0.3rem $spacer-075;
         font-size: $font-size-2;
         align-items: center;
 
@@ -122,7 +122,7 @@ export default {
 
             .dropdown-item {
                 font-size: $font-size-2;
-                padding: $spacer-3;
+                padding: $spacer-075;
                 color: $vs-color-background-inverse;
                 text-decoration: none;
                 line-height: $line-height-xs;

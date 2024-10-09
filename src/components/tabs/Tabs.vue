@@ -41,7 +41,7 @@ export default {
             font-weight: $font-weight-bold;
             border-width: 1px;
             border-color: $vs-color-background-neutral;
-            padding: $spacer-3;
+            padding: $spacer-075;
             font-size: $font-size-6;
             transition: $duration-base all;
             transition: all 200ms ease;
@@ -60,7 +60,7 @@ export default {
             }
 
             @include media-breakpoint-up(sm) {
-                padding: $spacer-5;
+                padding: $spacer-125;
                 font-size: $font-size-7;
             }
 
@@ -72,10 +72,10 @@ export default {
             &.active{
                 position: relative;
                 background-color: $vs-color-background-inverse;
-                padding: $spacer-5 $spacer-3;
+                padding: $spacer-125 $spacer-075;
 
                 @include media-breakpoint-up(sm) {
-                    padding: $spacer-7 $spacer-5;
+                    padding: $spacer-175 $spacer-125;
                 }
             }
         }
@@ -98,7 +98,7 @@ export default {
         .tab-content > .tab-pane{
             position: relative;
             display: block!important;
-            margin-bottom: $spacer-9;
+            margin-bottom: $spacer-300;
             border: 0;
         }
 
@@ -111,7 +111,7 @@ export default {
                 display: block;
                 margin: 0;
                 background-color: $vs-color-background-inverse;
-                padding: $spacer-7 $spacer-5;
+                padding: $spacer-175 $spacer-125;
                 font-family: $font-family-sans-serif;
                 color: $vs-color-text;
                 font-size: $font-size-7;

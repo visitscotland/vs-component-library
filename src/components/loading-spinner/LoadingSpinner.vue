@@ -57,8 +57,8 @@ export default {
     }
 
     .vs-loading-spinner {
-        width: $spacer-5;
-        height: $spacer-5;
+        width: $spacer-125;
+        height: $spacer-125;
         position: relative;
         animation-name: spin;
         animation-duration: 3000ms;
@@ -85,8 +85,8 @@ export default {
                 top: 0;
                 left: 50%;
                 transform: translateX(-50%);
-                width: $spacer-1;
-                height: $spacer-1;
+                width: $spacer-025;
+                height: $spacer-025;
                 border-radius: 50%;
                 background-color: $vs-color-background-tertiary;
             }

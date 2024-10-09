@@ -679,10 +679,10 @@ export default {
 
         &__map-toggle.vs-button {
             position: absolute;
-            top: $spacer-2;
-            left: $spacer-2;
+            top: $spacer-050;
+            left: $spacer-050;
             max-width: calc(100% - 60px);
-            padding: $spacer-1 $spacer-3;
+            padding: $spacer-025 $spacer-075;
             // ensure button can always be clicked
             // to avoid user getting trapped by overlay
             z-index: 100;
@@ -711,7 +711,7 @@ export default {
 
     .os-api-branding.logo,
     .os-api-branding.copyright {
-        margin-bottom: $spacer-8 !important; //important needed for overriding OS styles
+        margin-bottom: $spacer-200 !important; //important needed for overriding OS styles
     }
 
     @include no-js {

@@ -58,7 +58,7 @@ export default {
         color: $vs-color-text-subtle;
         letter-spacing: normal;
         margin: $spacer-0;
-        margin-bottom: $spacer-3;
+        margin-bottom: $spacer-075;
 
         &--lines-1 {
             @include truncate-text(1);

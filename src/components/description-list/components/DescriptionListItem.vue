@@ -79,7 +79,7 @@ export default {
 
         @include media-breakpoint-down(md) {
             border-bottom: 1px solid $vs-color-border;
-            margin-bottom: $spacer-2;
+            margin-bottom: $spacer-050;
             @include make-col(12);
         }
     }

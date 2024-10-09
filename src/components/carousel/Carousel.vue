@@ -440,14 +440,14 @@ export default {
         &__track {
             flex-wrap: nowrap;
             transition: transform $duration-slowly ease-out;
-            margin-bottom: $spacer-9;
+            margin-bottom: $spacer-300;
         }
 
         .vs-button.vs-carousel__control {
-            padding: $spacer-2;
+            padding: $spacer-050;
 
             @include media-breakpoint-up(sm) {
-                padding: $spacer-3;
+                padding: $spacer-075;
             }
         }
 
@@ -469,7 +469,7 @@ export default {
                 right: 0;
 
                 &:focus {
-                    right: $spacer-2;
+                    right: $spacer-050;
                 }
             }
 
@@ -477,7 +477,7 @@ export default {
                 left: 0;
 
                 &:focus {
-                    left: $spacer-2;
+                    left: $spacer-050;
                 }
             }
 
@@ -486,11 +486,11 @@ export default {
                 font-weight: $font-weight-semi-bold;
 
                 &--next {
-                    padding-right: $spacer-2;
+                    padding-right: $spacer-050;
                 }
 
                 &--prev {
-                    padding-left: $spacer-2;
+                    padding-left: $spacer-050;
                 }
             }
 
@@ -532,8 +532,8 @@ export default {
 
             li {
                 display: flex;
-                margin-left: $spacer-1;
-                margin-right: $spacer-1;
+                margin-left: $spacer-025;
+                margin-right: $spacer-025;
             }
         }
 
@@ -588,7 +588,7 @@ export default {
         &__mobile-pagination-wrapper {
             display: flex;
             justify-content: center;
-            margin-top: $spacer-8;
+            margin-top: $spacer-200;
 
             @include media-breakpoint-up(sm) {
                 display: none;
@@ -598,7 +598,7 @@ export default {
         &__mobile-pagination {
             background: $vs-color-background-information;
             color: $vs-color-text;
-            padding: $spacer-1 $spacer-2;
+            padding: $spacer-025 $spacer-050;
             font-size: $font-size-2;
             font-weight: bold;
             margin: 0;
@@ -623,7 +623,7 @@ export default {
                     width: 100%;
                     max-width: 100%;
                     flex: 0 0 100%;
-                    margin-bottom: $spacer-8;
+                    margin-bottom: $spacer-200;
 
                     @include media-breakpoint-up(md) {
                         width: 50%;

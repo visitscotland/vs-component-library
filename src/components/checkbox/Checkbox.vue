@@ -211,7 +211,7 @@ export default {
         @include form-checkbox(38px, $font-size-6, $line-height-xl);
 
         input[type="checkbox"] {
-            margin: $spacer-2 $spacer-4 0 0;
+            margin: $spacer-050 $spacer-100 0 0;
         }
 
         .form-check {

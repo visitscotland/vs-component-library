@@ -410,7 +410,7 @@ export default {
         }
 
         @include media-breakpoint-up(md) {
-             margin-top: $spacer-6;
+             margin-top: $spacer-150;
         }
     }
 </style>

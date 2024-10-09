@@ -191,7 +191,7 @@ export default {
 <style lang="scss">
 
 .vs-mega-nav-dropdown {
-    padding: $spacer-2 0 0 $spacer-2;
+    padding: $spacer-050 0 0 $spacer-050;
 
     @include media-breakpoint-up(lg) {
         padding: 0;
@@ -202,7 +202,7 @@ export default {
         height: 26px;
         width: 26px;
         font-size: 0;
-        right: $spacer-3;
+        right: $spacer-075;
         top: -36px;
 
         &:hover {
@@ -212,7 +212,7 @@ export default {
         }
 
         @include media-breakpoint-up(lg) {
-            right: $spacer-1;
+            right: $spacer-025;
             top: -4px;
         }
     }
@@ -224,8 +224,8 @@ export default {
         line-height: $line-height-standard;
         border-radius: 0;
         border: 0;
-        height: $spacer-7;
-        width: $spacer-7;
+        height: $spacer-175;
+        width: $spacer-175;
         font-size: 0;
         padding: .125rem;
 
@@ -245,7 +245,7 @@ export default {
         }
 
         @include media-breakpoint-up(lg) {
-            padding: $spacer-3 $spacer-2;
+            padding: $spacer-075 $spacer-050;
             height: auto;
             width: auto;
             font-size: $font-size-4;
@@ -274,7 +274,7 @@ export default {
         }
 
         @include media-breakpoint-up(xl) {
-            margin: 0 $spacer-3;
+            margin: 0 $spacer-075;
         }
     }
 
@@ -292,7 +292,7 @@ export default {
         transform: translate3d(0px, 45px, 0px) !important;
 
         @include media-breakpoint-up(lg) {
-            padding: $spacer-5 0 $spacer-8;
+            padding: $spacer-125 0 $spacer-200;
             max-height: 595px;
             transform: translate3d(0px, 55px, 0px) !important;
         }
@@ -316,11 +316,11 @@ export default {
 @include no-js {
     .vs-mega-nav-dropdown {
         .btn.dropdown-toggle {
-            padding: $spacer-3 $spacer-2;
+            padding: $spacer-075 $spacer-050;
             height: auto;
             width: auto;
             font-size: $font-size-4;
-            margin-bottom: $spacer-2;
+            margin-bottom: $spacer-050;
 
             @include media-breakpoint-up(lg) {
                 margin-bottom: 0;

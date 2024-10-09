@@ -52,15 +52,15 @@ export default {
     &__title.vs-heading{
         background: $vs-color-background-bold;
         color: $vs-color-text-inverse;
-        margin: 0 $spacer-3;
+        margin: 0 $spacer-075;
 
         @include media-breakpoint-up(sm) {
-            margin: 0 $spacer-6;
+            margin: 0 $spacer-150;
         }
 
         @include media-breakpoint-up(md) {
             margin: 0;
-            padding-top: $spacer-3;
+            padding-top: $spacer-075;
         }
     }
 
