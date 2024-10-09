@@ -111,6 +111,8 @@ export default {
 }
 
 .vs-heading {
+    @extend %heading-default;
+
     &--display-l {
         @include heading-style(display-l);
     }

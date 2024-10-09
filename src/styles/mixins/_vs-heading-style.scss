@@ -15,9 +15,6 @@
     // Apply the heading styles
     font-size: $size;
     margin: $margin;
-  
-    // Include the shared heading styles
-    @extend %heading-default;
 }
 
 $heading-styles: (

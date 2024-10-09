@@ -7,7 +7,7 @@
         <template #title>
             <VsHeading
                 level="3"
-                headingStyle="heading-s"
+                headingStyle="heading-xxs"
                 class="vs-tab__item__heading"
             >
                 {{ title }}
@@ -63,6 +63,11 @@ export default {
 
         .vs-heading {
             margin: 0;
+
+            @include media-breakpoint-up(sm) {
+                @include heading-style(heading-s);
+                margin: 0;
+            }
         }
 
         &:hover:not(.active) {
@@ -77,12 +82,17 @@ export default {
             padding: $spacer-5 $spacer-3;
 
             .vs-heading {
-                @include heading-style(heading-m);
+                @include heading-style(heading-xs);
                 margin: 0;
             }
 
             @include media-breakpoint-up(sm) {
                 padding: $spacer-7 $spacer-5;
+
+                .vs-heading {
+                    @include heading-style(heading-m);
+                    margin: 0;
+                }
             }
         }
 
