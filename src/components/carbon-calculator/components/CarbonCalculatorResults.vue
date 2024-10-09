@@ -21,7 +21,7 @@
                     <div
                         class="vs-carbon-calculator-results__headline"
                     >
-                        <p class="mb-2">
+                        <p class="mb-050">
                             {{ labelsMap.resultsIntro }}
                         </p>
                         <p>

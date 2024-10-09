@@ -103,7 +103,7 @@
                     :invalid="!recaptchaVerified && showErrorMessage"
                     :language="language"
                     :error-msg="getMessagingData('recaptchaError', language)"
-                    class="mt-9"
+                    class="mt-300"
                     :textarea-label="recaptchaTextareaLabel"
                     :re-alert-errors="reAlertErrors"
                 />
@@ -111,7 +111,7 @@
                 <VsButton
                     variant="primary"
                     type="submit"
-                    class="vs-form__submit mt-9"
+                    class="vs-form__submitmt-300"
                     @click="preSubmit"
                 >
                     {{ getTranslatedContent('submit') }}

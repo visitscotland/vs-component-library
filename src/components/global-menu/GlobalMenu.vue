@@ -3,7 +3,7 @@
         <LazyHydrationWrapper :on-interaction="['focus', 'click']">
             <VsContainer
                 fluid="lg"
-                class="px-1 px-sm-3"
+                class="px-025 px-sm-075"
             >
                 <VsRow>
                     <VsCol

@@ -3,7 +3,7 @@
         <VsStretchedLinkCard
             :link="linkUrl"
             :type="linkType"
-            class="vs-megalink-multi-image-card p-2"
+            class="vs-megalink-multi-image-card p-050"
             :class="multiImageClasses"
             :img-src="imgSrc"
             :img-alt="imgAlt"

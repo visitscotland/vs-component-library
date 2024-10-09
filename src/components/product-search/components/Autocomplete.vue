@@ -85,7 +85,7 @@ onMounted(() => {
 <template>
     <div 
         data-test="vs-autocomplete"
-        class="vs-autocomplete mb-4"
+        class="vs-autocomplete mb-100"
     >
         <label :for="id">{{ label }}</label>
         <VueComboBlocks

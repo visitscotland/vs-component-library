@@ -16,7 +16,7 @@
                         data-test="psw-form"
                         v-if="locationDataLoaded"
                     >   
-                        <div class="form-group product-search__type mb-4">
+                        <div class="form-group product-search__type mb-100">
                             <label for="prodtypes">
                                 {{ getLabelText('search_for', 'I\'m looking for') }}
                             </label>
@@ -27,7 +27,7 @@
                                     @updated="onChange($event)"
                                     field-name="prodtypes"
                                 />
-                                <div class="product-search__in d-none d-md-block mt-4">
+                                <div class="product-search__in d-none d-md-blockmt-100">
                                     {{ getLabelText('in', 'in') }}
                                 </div>
                             </div>
@@ -145,7 +145,7 @@
                         </div>
 
                         <VsButton
-                            class="mt-6"
+                            class="mt-150"
                             data-test="psw-submit"
                             type="submit"
                             @click="trackSubmit(selectedProd, typeof chosenLocation === 'undefined' ? '' : chosenLocation)"

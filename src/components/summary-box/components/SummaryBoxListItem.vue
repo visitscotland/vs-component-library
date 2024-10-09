@@ -31,7 +31,7 @@
                     size="xl"
                 />
             </div>
-            <div class="text-wrapper d-block w-auto pt-4">
+            <div class="text-wrapper d-block w-auto pt-100">
                 <span>{{ iconLabel }}</span>
             </div>
         </div>

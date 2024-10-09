@@ -20,7 +20,7 @@
                     >
                         <div
                             class="vs-page-intro__breadcrumb"
-                            :class="heroIntro ? 'mt-lg-4' : 'mt-lg-8'"
+                            :class="heroIntro ? 'mt-lg-100' : 'mt-lg-200'"
                         >
                             <!-- @slot Slot to display breadcrumb items  -->
                             <slot name="vs-intro-breadcrumb" />
@@ -47,7 +47,7 @@
                     >
                         <div
                             class="vs-page-intro__breadcrumb"
-                            :class="heroIntro ? 'mt-lg-4' : 'mt-lg-8'"
+                            :class="heroIntro ? 'mt-lg-100' : 'mt-lg-200'"
                         >
                             <!-- @slot Slot to display breadcrumb items  -->
                             <slot name="vs-intro-breadcrumb" />
@@ -67,7 +67,7 @@
                         :lg="heroIntro ? '7' : '10'"
                         :xl="heroIntro ? '8' : '10'"
                         :offset-lg="heroIntro ? '1' : '0'"
-                        class="mt-1 mt-sm-0"
+                        class="mt-025 mt-sm-0"
                     >
                         <VsHeading
                             level="1"
