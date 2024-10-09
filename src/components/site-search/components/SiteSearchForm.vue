@@ -61,6 +61,7 @@
             size="md"
             icon-only
             @click="closeSearchForm"
+            @keydown.tab="tabFromClose"
         >
             {{ closeButtonText }}
         </VsButton>
@@ -151,6 +152,15 @@ export default {
          */
         focusOnInput() {
             this.$nextTick(() => this.$refs.searchInput.$refs.input.focus());
+        },
+        /**
+         * If tab pressed on close, check if user moving forwards
+         * before closing form
+         */
+        tabFromClose($event) {
+            if (!$event.shiftKey) {
+                this.closeSearchForm();
+            }
         },
         /**
          * Update searchTerm value with returned data

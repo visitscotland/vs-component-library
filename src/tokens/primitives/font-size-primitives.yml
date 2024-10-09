@@ -1,0 +1,27 @@
+aliases:
+  font-size-1100:
+    value: "3.25rem"
+  font-size-1000:
+    value: "2.875rem"
+  font-size-900:
+    value: "2.5625rem"
+  font-size-800:
+    value: "2.25rem"
+  font-size-700:
+    value: "2rem"
+  font-size-600:
+    value: "1.8125rem"
+  font-size-500:
+    value: "1.625rem"
+  font-size-400:
+    value: "1.4375rem"
+  font-size-300:
+    value: "1.25rem"
+  font-size-200:
+    value: "1.125rem"
+  font-size-100:
+    value: "1rem"
+  font-size-75:
+    value: "0.875rem"
+  font-size-50:
+    value: "0.8125rem"

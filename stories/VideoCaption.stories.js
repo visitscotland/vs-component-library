@@ -60,8 +60,6 @@ const base = {
     videoBtnText: 'Play Video',
     'video-title': 'Only in Scotland: Why Scotland Needs You',
     noJsMessage: 'JavaScript needs to be enabled to watch videos',
-    noCookiesMessage: 'Please accept cookies to watch videos',
-    cookieBtnText: 'Accept cookies here',
     errorMessage: 'Something went wrong, please try again later',
     closeBtnText: 'Close',
 };

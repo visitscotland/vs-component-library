@@ -4,7 +4,10 @@
         :class="variantClass"
         data-test="vs-quote"
     >
-        <div class="vs-quote__speech-container">
+        <div
+            v-if="!withBorder"
+            class="vs-quote__speech-container"
+        >
             <span class="vs-quote__speech-mark">“</span>
         </div>
         <div
@@ -55,6 +58,10 @@ export default {
             default: 'narrow',
             validator: (value) => value.match(/(narrow|wide)/),
         },
+        withBorder: {
+            type: Boolean,
+            default: false,
+        },
     },
     computed: {
         hasAuthorName() {
@@ -67,7 +74,13 @@ export default {
             return !!this.$slots['quote-image'];
         },
         variantClass() {
-            return this.variant ? `vs-quote--${this.variant}` : '';
+            return [
+                {
+                    'vs-quote--narrow': this.variant === 'narrow',
+                    'vs-quote--wide': this.variant === 'wide',
+                    'vs-quote--with-border': this.withBorder,
+                },
+            ];
         },
     },
 };
@@ -146,7 +159,7 @@ export default {
         display: block;
     }
 
-    &--wide{
+    &--wide {
         .vs-quote__author-container {
             @include media-breakpoint-up(sm) {
                 display: inline-block;
@@ -165,6 +178,16 @@ export default {
                 width: calc(100% - 15rem);
                 margin-top: -7px;
             }
+        }
+    }
+
+    &--with-border {
+        border-left: $spacer-1 solid $vs-color-border-accent-lavender;
+        padding-left: $spacer-6;
+
+        .vs-quote__author-name,
+        .vs-quote__author-title {
+            color: $vs-color-text-accent-lavender;
         }
     }
 }

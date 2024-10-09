@@ -45,7 +45,6 @@
                     :with-toggle-btn="showToggle"
                     @toggleAction="toggleCaption"
                     :video-id="videoId"
-                    :cookie-link-text="cookieLinkText"
                     :error-message="errorMessage"
                     :variant="smallPlayButton ? 'narrow' : 'wide'"
                 >
@@ -73,10 +72,6 @@
 import VsImg from '@/components/img/Img.vue';
 import VsToggleButton from '@/components/toggle-button/ToggleButton.vue';
 import VsVideoCaption from '@/components/video-caption/VideoCaption.vue';
-import verifyCookiesMixin from '../../mixins/verifyCookiesMixin';
-import requiredCookiesData from '../../utils/required-cookies-data';
-
-const cookieValues = requiredCookiesData.youtube;
 
 /**
  * Image with toggle to open a caption and image location map
@@ -92,14 +87,9 @@ export default {
         VsToggleButton,
         VsVideoCaption,
     },
-    mixins: [
-        verifyCookiesMixin,
-    ],
     provide() {
         return {
             noJsMessage: this.noJsMessage,
-            noCookiesMessage: this.noCookiesMessage,
-            cookieLinkText: this.cookieLinkText,
             errorMessage: this.errorMessage,
         };
     },
@@ -184,22 +174,6 @@ export default {
             default: false,
         },
         /**
-        * A message explaining why the component has been disabled with disabled cookies, is
-        * provided for descendent components to inject
-        */
-        noCookiesMessage: {
-            type: String,
-            default: '',
-        },
-        /**
-        * Text used for the link which opens the cookie preference centre, is
-        * provided for descendent components to inject
-        */
-        cookieLinkText: {
-            type: String,
-            default: '',
-        },
-        /**
         * A message explaining why the component has been disabled when js is disabled,
         * is provided for descendent components to inject
         */
@@ -232,7 +206,6 @@ export default {
     data() {
         return {
             showCaption: false,
-            requiredCookies: cookieValues,
             uniqueCaptionId: '',
         };
     },
@@ -241,7 +214,6 @@ export default {
             return {
                 'vs-image-with-caption--closed-default': this.closedDefaultCaption,
                 'vs-image-with-caption--hero': this.isHeroImage,
-                'vs-image-with-caption--show-caption': !this.requiredCookiesExist && this.cookiesInitStatus === true,
                 'vs-image-with-caption--video': this.isVideo,
             };
         },
@@ -417,13 +389,6 @@ export default {
                         position: relative;
                         bottom: auto;
                         right: auto;
-                    }
-                }
-
-                &.vs-image-with-caption--show-caption {
-                    .vs-image-with-caption__caption-wrapper {
-                        display: flex;
-                        margin-top: $spacer-050;
                     }
                 }
             }
