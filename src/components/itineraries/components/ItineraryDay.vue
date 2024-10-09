@@ -14,19 +14,12 @@
                     >
                         <template #title>
                             <!-- @slot Put the title here  -->
-                            <span
-                                class="vs-itinerary-day__header"
-                            >
-                                <span
-                                    class="vs-itinerary-day__title
-                                    vs-heading vs-heading--style-level-2 d-inline-block"
-                                >
+                            <span class="vs-itinerary-day__header">
+                                <span class="vs-itinerary-day__title">
                                     {{ dayLabel }} {{ dayNumber }}
                                 </span>
 
-                                <span
-                                    class="vs-itinerary-day__sub-heading"
-                                >
+                                <span class="vs-itinerary-day__sub-heading">
                                     {{ dayTitle }}
                                 </span>
                             </span>
@@ -188,16 +181,18 @@ export default {
         text-align: left;
         margin: $spacer-6 0;
 
-        .vs-itinerary-day__title  {
+        .vs-itinerary-day__title {
             color: $vs-color-text-tertiary;
+            display: inline-block;
+            @include heading-style(heading-s);
+            margin: 0;
+            font-weight: 600;
         }
 
         .vs-itinerary-day__sub-heading{
-            letter-spacing: .15rem;
-            font-size: $font-size-8;
-            font-family: $headings-font-family-thin;
-            font-weight: $font-weight-normal;
             display: block;
+            @include heading-style(heading-l);
+            font-weight: 600;
         }
 
         @include media-breakpoint-up(lg) {

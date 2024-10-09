@@ -126,6 +126,12 @@ export default {
         }
     }
 
+    &__title {
+        @include media-breakpoint-up(sm) {
+            @include heading-style(heading-m);
+        }
+    }
+
     .border {
         position: relative;
         background-color: $vs-color-background-inverse;
