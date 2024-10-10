@@ -107,11 +107,11 @@ export default {
 
 [class*="vs-heading--heading-"] {
     font-family: $font-family-sans-serif;
-    font-weight: $font-weight-semi-bold;
 }
 
 .vs-heading {
     @extend %heading-default;
+    font-weight: $font-weight-semi-bold;
 
     &--display-l {
         @include heading-style(display-l);

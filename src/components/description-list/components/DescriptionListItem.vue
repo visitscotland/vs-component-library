@@ -70,8 +70,7 @@ export default {
 .vs-description-list__term {
     // Responsive columns to achieve default 2 column list layout
     &.vs-description-list__term--styled {
-        @include heading-style(heading-s);
-        margin: 0;
+        @include heading-style(heading-s, false);
         @include make-col(4);
 
         @include media-breakpoint-down(lg) {

@@ -2,7 +2,7 @@
     <BTab
         class="vs-tab__item"
         data-test="vs-tab__item"
-        title-link-class="vs-tab-link"
+        title-link-class="vs-tab-link vs-heading"
         :title="title"
     >
         <VsHeading
@@ -47,30 +47,54 @@ export default {
 };
 </script>
 <style lang="scss">
-
-    .tab-pane {
-        background-color: $vs-color-background-inverse;
+    .vs-tab-link{
+        width: 100%;
+        background-color: $vs-color-background-neutral;
         color: $vs-color-text;
-        text-align: left;
-        border: 1px solid $vs-color-border;
-        border-top: 0;
+        border-width: 1px;
+        border-color: $vs-color-background-neutral;
+        padding: $spacer-100 $spacer-075;
+        transition: $duration-base all;
+        transition: all 200ms ease;
+        transition-property: background-color, color;
+        @include heading-style(heading-xxs, false);
 
-        .vs-heading{
-            display: none;
+        @include media-breakpoint-up(sm) {
+            @include heading-style(heading-s, false);
+        }
+
+        &:hover:not(.active) {
+            border-color: $vs-color-background-neutral;
+            background-color: $vs-color-background-hover;
+            color: $vs-color-text-inverse;
+        }
+
+        &.active {
+            position: relative;
+            background-color: $vs-color-background-inverse;
+            padding: $spacer-125 $spacer-075;
+            @include heading-style(heading-xs, false);
+
+            @include media-breakpoint-up(sm) {
+                padding: $spacer-175 $spacer-125;
+                @include heading-style(heading-m, false);
+            }
+        }
+
+        &.disabled {
+            color: $vs-color-text-disabled;
+            background-color: $vs-color-background-disabled;
+            border-color: $vs-color-background-disabled;
+        }
+
+        @include media-breakpoint-up(sm) {
+            padding: $spacer-125 $spacer-100;
+            font-size: $font-size-7;
+        }
+
+        &:focus-visible{
+            box-shadow: $vs-box-shadow-focus;
+            outline: none;
         }
     }
-
-@include no-js {
-    .tab-pane {
-        position: relative;
-        display: block!important;
-        margin-bottom: $spacer-300;
-        border: 0;
-
-        .vs-heading {
-            display: block;
-            text-align: center;
-        }
-    }
-}
 </style>

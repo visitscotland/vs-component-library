@@ -2,19 +2,24 @@
  * Sets correct styles for each heading style 
  */
 
-@mixin heading-style($style) {
+@mixin heading-style($style, $with-margins: true) {
     // Extract properties from the map
     $size: map-get(
         map-get($heading-styles, $style), size
     );
 
-    $margin: map-get(
-        map-get($heading-styles, $style), margin
-    );
-  
-    // Apply the heading styles
+    // set the heading font size
     font-size: $size;
-    margin: $margin;
+
+    @if $with-margins  == true { 
+        // Extract properties from the map
+        $margin: map-get(
+            map-get($heading-styles, $style), margin
+        );
+
+        // set the heading margins
+        margin: $margin;
+    }    
 }
 
 $heading-styles: (
