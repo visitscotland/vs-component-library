@@ -74,6 +74,7 @@ export default {
         text-align: center;
         background: none;
         border-bottom-width: 0;
+        padding: 0;
     }
 }
 </style>

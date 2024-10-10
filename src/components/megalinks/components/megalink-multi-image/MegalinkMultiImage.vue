@@ -5,6 +5,7 @@
             :type="linkType"
             class="vs-megalink-multi-image-card p-2"
             :class="multiImageClasses"
+            :headingStyle="featured ? 'heading-m' : 'heading-xs'"
             :img-src="imgSrc"
             :img-alt="imgAlt"
             :data-test="featured ? 'megalink-multi-image-featured' : 'megalink-multi-image-card'"

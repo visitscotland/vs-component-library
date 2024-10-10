@@ -20,7 +20,7 @@ const Template = (args) => ({
     template: `
         <VsPanel v-bind="args">
             <template v-if="${'vs-panel-title' in args}" v-slot:vs-panel-title>
-                <VsHeading level="3">
+                <VsHeading level="3" heading-style="heading-m">
                     ${args['vs-panel-title']}
                 </VsHeading>
             </template>

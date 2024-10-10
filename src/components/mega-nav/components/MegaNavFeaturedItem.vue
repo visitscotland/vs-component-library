@@ -7,6 +7,7 @@
         class="vs-mega-nav-featured-item"
         data-test="vs-mega-nav-featured-item"
         heading-level="2"
+        heading-style="heading-xxs"
     >
         <template v-slot:stretched-card-header>
             <!-- @slot Featured Item header text  -->
@@ -88,11 +89,11 @@ export default {
             bottom: 0;
             left: 0;
             padding: $spacer-5 $spacer-3;
+            background: $vs-color-new-background-primary;
         }
 
         .card-title {
             margin-top: $spacer-0;
-            font-size: $font-size-2;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
@@ -107,8 +108,6 @@ export default {
         }
 
         .vs-stretched-link-card__link {
-            font-size: $font-size-3;
-
             &:hover {
                 text-decoration: none;
             }
@@ -117,10 +116,6 @@ export default {
         @include media-breakpoint-up(sm) {
             display: flex;
             flex-direction: row-reverse;
-
-            .card-title {
-                font-size: $font-size-4;
-            }
 
             .card-body {
                 position: initial;
@@ -157,15 +152,10 @@ export default {
                 width: 100%;
             }
 
-            .card-title {
-                font-size: $font-size-2;
-            }
-
             .vs-stretched-link-card__content {
                 display: -webkit-box;
                 margin: $spacer-0;
                 color: $vs-color-text;
-                font-size: $font-size-3;
             }
 
             .vs-stretched-link-card__link {
@@ -192,7 +182,6 @@ export default {
                 }
 
                 .card-title {
-                    font-size: $font-size-2;
                     margin-bottom: 0;
                 }
             }

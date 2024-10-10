@@ -51,7 +51,7 @@
                 >
                     <VsHeading
                         level="3"
-                        override-style-level="5"
+                        heading-style="heading-xs"
                         data-test="vs-ski__runs-lifts-status-label"
                         class="d-none d-md-block"
                     >
@@ -231,8 +231,8 @@
                     class="vs-ski-scotland-status__full-report"
                 >
                     <VsHeading
-                        level="2"
-                        headingStyle="heading-m"
+                        level="3"
+                        heading-style="heading-l"
                         data-test="vs-ski__snow-conditions-label"
                     >
                         {{ snowConditionsLabel }}
@@ -241,8 +241,8 @@
                         v-html="report"
                     />
                     <VsHeading
-                        level="3"
-                        headingStyle="heading-m"
+                        level="4"
+                        heading-style="heading-xs"
                         data-test="vs-ski__current-weather-label"
                         v-if="currentWeather.length"
                     >
@@ -253,8 +253,8 @@
                         v-html="currentWeather"
                     />
                     <VsHeading
-                        level="3"
-                        headingStyle="heading-m"
+                        level="4"
+                        heading-style="heading-xs"
                         data-test="vs-ski__weather-forecast-label"
                         v-if="weatherForecast.length"
                     >
@@ -265,8 +265,8 @@
                         v-html="weatherForecast"
                     />
                     <VsHeading
-                        level="3"
-                        headingStyle="heading-m"
+                        level="4"
+                        heading-style="heading-xs"
                         data-test="vs-ski__roads-label"
                         v-if="roadStatus.length"
                     >
@@ -277,8 +277,8 @@
                         v-html="roadStatus"
                     />
                     <VsHeading
-                        level="3"
-                        headingStyle="heading-m"
+                        level="4"
+                        heading-style="heading-xs"
                         data-test="vs-ski__news-label"
                         v-if="news.length"
                     >
@@ -299,6 +299,7 @@
                 >
                     <VsHeading
                         level="3"
+                        heading-style="heading-l"
                         data-test="vs-ski__lift-status-label"
                         :id="`vs-ski-scotland-status__detailed-status-${id}`"
                     >
@@ -378,6 +379,7 @@
                 >
                     <VsHeading
                         level="3"
+                        heading-style="heading-l"
                         data-test="vs-ski__run-status-label"
                     >
                         {{ runStatusLabel }}
@@ -1099,17 +1101,8 @@ export default {
         text-align: left;
 
         &__full-report {
-            h2 {
-                margin-bottom: $spacer-4;
-
-                @include media-breakpoint-up(md) {
-                    margin-bottom: $spacer-7;
-                }
-            }
-
-            h3 {
-                margin-bottom: $spacer-2 !important;
-                margin-top: $spacer-6 !important;
+            .vs-heading {
+                margin-top: $spacer-150;
             }
         }
 
@@ -1143,17 +1136,9 @@ export default {
             }
         }
 
-        &__detailed-status-link {
-            font-size: $font-size-4;
-        }
-
         .row {
             &:not(:first-child) {
-                margin-top: $spacer-8 + $spacer-2;
-
-                @include media-breakpoint-up(md) {
-                    margin-top: $spacer-10;
-                }
+                margin-top: $spacer-200;
             }
         }
 
@@ -1166,6 +1151,12 @@ export default {
         }
 
         &__run-status-table {
+            margin-bottom: 0;
+
+            p {
+                margin-bottom: 0;
+            }
+
             thead th {
                 width: 50%;
             }
