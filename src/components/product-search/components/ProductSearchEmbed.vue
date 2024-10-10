@@ -27,7 +27,7 @@
                                     @updated="onChange($event)"
                                     field-name="prodtypes"
                                 />
-                                <div class="product-search__in d-none d-md-blockmt-100">
+                                <div class="product-search__in d-none d-md-block mt-100">
                                     {{ getLabelText('in', 'in') }}
                                 </div>
                             </div>

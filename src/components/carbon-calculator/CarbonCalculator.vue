@@ -101,7 +101,7 @@
                     <VsButton
                         variant="primary"
                         type="submit"
-                        class="vs-form__submitmt-300"
+                        class="vs-form__submit mt-300"
                         @click="forwardPage()"
                     >
                         {{ labelsMap['begin'] }}
@@ -114,7 +114,7 @@
                     <VsButton
                         :variant="activeStage <= formData.fields.length ? 'primary' : 'secondary'"
                         type="submit"
-                        class="vs-form__submitmt-300 float-start"
+                        class="vs-form__submit mt-300 float-start"
                         ref="backPage"
                         v-if="activeStage > 1"
                         @click="backwardPage()"
@@ -125,7 +125,7 @@
                     <VsButton
                         variant="primary"
                         type="submit"
-                        class="vs-form__submitmt-300 float-end"
+                        class="vs-form__submit mt-300 float-end"
                         ref="forwardPage"
                         v-if="activeStage < formData.stages"
                         :disabled="activeStage > 0 && !answerSet"
@@ -137,7 +137,7 @@
                     <VsButton
                         variant="primary"
                         type="submit"
-                        class="vs-form__submitmt-300 float-end"
+                        class="vs-form__submit mt-300 float-end"
                         v-if="activeStage === formData.stages"
                         :disabled="!answerSet"
                         @click="forwardPage()"
@@ -148,7 +148,7 @@
                     <VsButton
                         variant="primary"
                         type="submit"
-                        class="vs-form__submitmt-300 float-end"
+                        class="vs-form__submit mt-300 float-end"
                         v-if="activeStage > formData.stages"
                         @click="restart()"
                     >

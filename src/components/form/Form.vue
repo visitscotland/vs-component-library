@@ -111,7 +111,7 @@
                 <VsButton
                     variant="primary"
                     type="submit"
-                    class="vs-form__submitmt-300"
+                    class="vs-form__submit mt-300"
                     @click="preSubmit"
                 >
                     {{ getTranslatedContent('submit') }}
