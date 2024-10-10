@@ -122,9 +122,9 @@ export default {
             }
 
             // don't navigate if it's an empty or anchor link
-            // if (this.href !== '#' && this.href !== null) {
-            //     window.location.href = this.href;
-            // }
+            if (this.href !== '#' && this.href !== null) {
+                window.location.href = this.href;
+            }
         },
         /**
          * Fires on keypress events on the link, and passes 'space' and 'enter' events
