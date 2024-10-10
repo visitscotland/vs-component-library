@@ -104,7 +104,7 @@ export default {
     }
 
     &--ordered {
-        margin: 0 0 $spacer-5 $spacer-150;
+        margin: 0 0 $spacer-125 $spacer-150;
         counter-reset: list-counter;
 
         li {

@@ -11,7 +11,7 @@
                     class="text-center"
                 >
                     <VsSvgLink
-                        class="vs-footer-copyright__logo mb-4"
+                        class="vs-footer-copyright__logo mb-100"
                         data-test="vs-footer-copyright-logo"
                         :link-alt-text="linkAltText"
                         :href="href"

@@ -94,7 +94,7 @@ const Template = (args) => ({
                     <VsVideo
                         video-id="c05sg3G4oA4"
                         video-title="Test Video"
-                        class="mb-8"
+                        class="mb-200"
                         error-message="Sorry, something's gone wrong. Please try again later"
                         no-js-message="You need JavaScript enabled to see this video"
                     />

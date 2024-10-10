@@ -111,7 +111,7 @@ const Template = (args) => ({
                 <VsCol cols="12">
                     <VsVideo
                         videoId="g-Fhvj7vW-E"
-                        class="mb-8"
+                        class="mb-200"
                         cookie-btn-text="Manage cookies"
                         no-js-message="You need Javascript enabled to see this video"
                         no-cookies-message="You need cookies enabled to see this video"

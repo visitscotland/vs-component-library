@@ -34,7 +34,7 @@ export default {
     margin-left: 2.5rem;
 
     @include media-breakpoint-up(sm) {
-        margin-left: $spacer-12;
+        margin-left: $spacer-600;
     }
 
     .btn {

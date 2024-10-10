@@ -78,7 +78,7 @@ const Template = (args) => ({
                         <template
                             v-slot:day-introduction
                         >
-                            <div class="mb-5" v-html="day.introduction"></div>
+                            <div class="mb-125" v-html="day.introduction"></div>
                         </template>
 
                         <template
@@ -86,7 +86,7 @@ const Template = (args) => ({
                         >
                             <VsDescriptionList
                                 v-if="day.transport.length"
-                                class="text-center justify-content-center align-items-center mb-3"
+                                class="text-center justify-content-center align-items-center mb-075"
                                 inline
                             >
                                 <VsDescriptionListItem
@@ -162,8 +162,8 @@ const Template = (args) => ({
                             <template
                                 v-if="stop.timeToExplore"
                             >
-                                <VsDescriptionList class="my-4 justify-content-start" inline>
-                                    <VsDescriptionListItem title class="mb-0 me-0 pe-1 col-auto">
+                                <VsDescriptionList class="my-100 justify-content-start" inline>
+                                    <VsDescriptionListItem title class="mb-0 me-0 pe-025 col-auto">
                                         Time to explore
                                     </VsDescriptionListItem>
                                     <VsDescriptionListItem class="mb-0 col-auto px-0">

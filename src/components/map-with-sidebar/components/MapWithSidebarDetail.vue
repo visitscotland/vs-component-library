@@ -6,7 +6,7 @@
         <VsImg
             v-if="typeof contentData.properties.image !== 'undefined'"
             :src="contentData.properties.image"
-            class="vs-map-with-sidebar-detail__image mb-5 mb-lg-3"
+            class="vs-map-with-sidebar-detail__image mb-125 mb-lg-075"
         />
 
         <VsHeading
@@ -35,14 +35,14 @@
 
         <p
             v-if="contentData.properties.subtitle"
-            class="mt-4"
+            class="mt-100"
         >
             {{ contentData.properties.subtitle }}
         </p>
 
         <div
             data-test="vs-map-with-sidebar-detail__description"
-            class="vs-map-with-sidebar-detail__description mb-6"
+            class="vs-map-with-sidebar-detail__description mb-150"
             v-html="contentData.properties.description"
         />
     </div>

@@ -34,7 +34,7 @@
             <VsCol
                 cols="12"
                 lg="8"
-                class="mt-2 mt-sm-9 mb-4 mt-lg-2 pe-lg-9"
+                class="mt-050 mt-sm-300 mb-100 mt-lg-050 pe-lg-300"
             >
                 <!-- @slot Contains the description to be shown.  -->
                 <slot name="description-slot" />
@@ -42,7 +42,7 @@
             <VsCol
                 cols="12"
                 lg="4"
-                class="key-facilities-list mt-lg-10"
+                class="key-facilities-list mt-lg-400"
                 :class="[hasKeyFacilitiesSlot ? 'has-facilities' : '']"
             >
                 <!-- @slot Contains the facilities list to be shown.  -->

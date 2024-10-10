@@ -5,7 +5,7 @@
     >
         <VsIcon
             name="map-marker"
-            class="vs-address__map-marker me-2"
+            class="vs-address__map-marker me-050"
         />
         <address class="vs-address__address-box">
             <!-- @slot Default slot for address items -->

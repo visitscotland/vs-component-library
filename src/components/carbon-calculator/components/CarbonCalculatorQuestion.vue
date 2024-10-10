@@ -9,7 +9,7 @@
         >
             <!-- eslint-disable -->
             <label
-                class="vs-carbon-calculator-question__label mb-8"
+                class="vs-carbon-calculator-question__label mb-200"
                 :for="fieldName"
             >
                 {{ label }}

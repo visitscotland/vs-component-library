@@ -1,5 +1,5 @@
 <template>
-    <div class="vs-itinerary-tips position-relative my-7">
+    <div class="vs-itinerary-tips position-relative my-175">
         <div class="vs-itinerary-tips__text">
             <slot name="text" />
         </div>

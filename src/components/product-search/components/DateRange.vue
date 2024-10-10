@@ -159,7 +159,7 @@ const endDateName = computed(() => {
                         startDate = selectedDate;
                         dateUpdated();
                     }"
-                    class="mb-4"
+                    class="mb-100"
                 />
             </div>
             <div class="col-12 col-sm-5 order-2">
@@ -173,7 +173,7 @@ const endDateName = computed(() => {
                         endDate = selectedDate;
                         dateUpdated();
                     }"
-                    class="mb-4"
+                    class="mb-100"
                 />
             </div>
             <div class="col-12 col-sm-2 order-first order-sm-3 text-sm-right">

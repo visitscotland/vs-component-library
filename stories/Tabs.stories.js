@@ -35,7 +35,7 @@ const Template = (args) => ({
         >
             <VsTabs v-bind="args">
                 <VsTabItem title="Getting Here">
-                    <div class="px-5 py-4">
+                    <div class="px-125 py-4">
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                             Integer aliquet, nisi in volutpat tristique,
@@ -47,7 +47,7 @@ const Template = (args) => ({
                     </div>
                 </VsTabItem>
                 <VsTabItem title="Getting Around">
-                    <div class="px-5 py-4">
+                    <div class="px-125 py-4">
                     <p>
                         Duis feugiat, turpis vitae congue lacinia, purus orci
                         vulputate erat, vel fringilla quam eros sed tellus.
@@ -62,7 +62,7 @@ const Template = (args) => ({
                     :disabled="args.disabled ? true : false"
                     :aria-disabled="args.disabled ? true : false"
                 >
-                    <div class="px-5 py-4">
+                    <div class="px-125 py-4">
                     <p>
                         Vivamus blandit nec mi ut feugiat. Proin sit
                         amet elit volutpat, pharetra justo at, eleifend dui.
