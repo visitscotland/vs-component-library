@@ -474,7 +474,15 @@ export default {
          */
         closePanel() {
             this.$emit('close-panel');
-            if (this.currentStage === 2) {
+
+            // On desktop the close button on the side panel is understood to mean resetting the
+            // filter as the map is always visible. On mobile it is understood to mean closing
+            // the overlay, and opening the panel from the region filter then closing it and having
+            // it reset the map to places is very disjointed.
+            if (
+                window.innerWidth >= 1292
+                && this.currentStage === 2
+            ) {
                 this.$emit('set-subcategory', null);
             }
         },
