@@ -248,7 +248,7 @@ export default {
 
     @include media-breakpoint-up(xl) {
         .vs-megalinks--multi-image .vs-megalinks__links-wrapper{
-            width: calc(100% + #{$spacer-10} + #{$spacer-075});
+            width: calc(100% + #{$spacer-400} + #{$spacer-075});
             margin-left: -#{$spacer-200};
 
             .vs-megalink-multi-image {

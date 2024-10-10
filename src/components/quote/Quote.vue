@@ -182,8 +182,8 @@ export default {
     }
 
     &--with-border {
-        border-left: $spacer-1 solid $vs-color-border-accent-lavender;
-        padding-left: $spacer-6;
+        border-left: $spacer-025 solid $vs-color-border-accent-lavender;
+        padding-left: $spacer-150;
 
         .vs-quote__author-name,
         .vs-quote__author-title {

@@ -116,7 +116,7 @@ const props = defineProps({
         font-family: 'Font Awesome Kit';
         font-size: $font-size-8;
         position: absolute;
-        top: $spacer-2;
+        top: $spacer-050;
         left: 0;
     }
 }

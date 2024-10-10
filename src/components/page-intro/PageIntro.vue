@@ -265,7 +265,7 @@ export default {
             .vs-image-with-caption__image-wrapper {
                 // 100vh - the height of the nav - the height of the breadcrumb - a little to partially
                 // reveal the header
-                height: calc(100vh - $spacer-10 - $spacer-600 - $spacer-050);
+                height: calc(100vh - $spacer-400 - $spacer-600 - $spacer-050);
                 width: calc(100% + $spacer-100);
                 margin-left: -#{$spacer-100};
             }

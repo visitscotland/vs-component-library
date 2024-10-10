@@ -215,7 +215,7 @@ export default {
         }
 
         .vs-caption__caption-info{
-            padding: $spacer-100;
+            padding: $spacer-100 0;
         }
     }
 
