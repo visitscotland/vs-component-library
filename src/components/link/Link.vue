@@ -114,7 +114,7 @@ export default {
             }
 
             // capture DMO link referral
-            if (dmoAnalyticsLogic(event).type === 'CMS referral') {
+            if (dmoAnalyticsLogic(event).type === 'CMS referral' && dmoAnalyticsLogic(event).dmo_referral === 'True') {
                 this.createDataLayerObject('cmsReferral', {
                     referral_location: event.target.href,
                     dmo_referral: dmoAnalyticsLogic(event).dmo_referral,
@@ -122,9 +122,9 @@ export default {
             }
 
             // don't navigate if it's an empty or anchor link
-            if (this.href !== '#' && this.href !== null) {
-                window.location.href = this.href;
-            }
+            // if (this.href !== '#' && this.href !== null) {
+            //     window.location.href = this.href;
+            // }
         },
         /**
          * Fires on keypress events on the link, and passes 'space' and 'enter' events
