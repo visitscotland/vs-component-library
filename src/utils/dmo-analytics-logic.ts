@@ -32,7 +32,17 @@ const dmoAnalyticsLogic = (triggerEvent) => {
         };
 
         dmoUrls.forEach((data) => {
-            if (triggerEvent.target.href === data) {
+            // remove trailing '/' from link if it exists
+            const removeTrailingSlash = (url) => {
+                const finalChar = url.slice(-1);
+                if (finalChar === '/') {
+                    return url.substring(0, url.length - 1);
+                }
+
+                return url;
+            };
+
+            if (removeTrailingSlash(triggerEvent.target.href) === removeTrailingSlash(data)) {
                 linkedToDMO = true;
                 trackingData = createTracking('True');
             }
