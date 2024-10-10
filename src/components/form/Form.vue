@@ -813,10 +813,6 @@ export default {
 
 <style lang='scss'>
     .vs-form {
-        &__main-heading {
-            // @extend %heading-default-styles;
-        }
-
         &__content {
             font-size: $font-size-6;
         }
