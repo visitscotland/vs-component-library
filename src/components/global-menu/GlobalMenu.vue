@@ -147,7 +147,7 @@ export default {
 @include no-js {
     .vs-global-menu {
         height: auto;
-        margin-bottom: $spacer-4;
+        margin-bottom: $spacer-100;
 
         .dropdown-toggle{
             display: none

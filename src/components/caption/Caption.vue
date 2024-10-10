@@ -169,7 +169,7 @@ export default {
         }
         .vs-caption{
             &__image-caption {
-                margin-bottom: $spacer-2;
+                margin-bottom: $spacer-050;
             }
 
             &__map-wrapper {
@@ -186,7 +186,7 @@ export default {
             text-align: left;
         }
         .vs-caption__caption-info{
-            padding: $spacer-3 0;
+            padding: $spacer-075 0;
         }
     }
 
@@ -205,7 +205,7 @@ export default {
 
             .vs-caption{
                 &__image-caption {
-                   margin-bottom: $spacer-8;
+                   margin-bottom: $spacer-200;
                 }
 
                 &__map-wrapper {
@@ -215,7 +215,7 @@ export default {
         }
 
         .vs-caption__caption-info{
-            padding: $spacer-4 0;
+            padding: $spacer-100;
         }
     }
 
@@ -274,11 +274,11 @@ export default {
                         }
 
                         &__image-caption {
-                            margin-bottom: $spacer-5;
+                            margin-bottom: $spacer-125;
                         }
 
                         &__caption-info{
-                            padding: $spacer-3 $spacer-2;
+                            padding: $spacer-075 $spacer-050;
                         }
                     }
                 }

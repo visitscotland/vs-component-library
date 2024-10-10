@@ -126,7 +126,7 @@ const handleRemove = () => {
     .vs-guest-selector-row {
         position: relative;
         border-bottom: 1px solid $vs-color-border;
-        margin-bottom: $spacer-4;
+        margin-bottom: $spacer-100;
 
         &:last-of-type{
             border-bottom: 0;
@@ -134,7 +134,7 @@ const handleRemove = () => {
 
         &__title {
             font-weight: $font-weight-bold;
-            margin-bottom: $spacer-3;
+            margin-bottom: $spacer-075;
         }
 
         &__remove {
@@ -150,7 +150,7 @@ const handleRemove = () => {
         }
 
         .c-search__rooms-guests-picker__row{
-            margin-bottom: $spacer-4;
+            margin-bottom: $spacer-100;
         }
     }
 </style>

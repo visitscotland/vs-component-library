@@ -101,7 +101,7 @@ export default {
 
         @include media-breakpoint-up(lg) {
             font-size: $font-size-4;
-            margin: 0 $spacer-2;
+            margin: 0 $spacer-050;
         }
 
         &__image {

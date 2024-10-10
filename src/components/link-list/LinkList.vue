@@ -64,12 +64,12 @@ export default {
         &__list {
             list-style: none;
             padding: 0;
-            margin-bottom: $spacer-7;
+            margin-bottom: $spacer-175;
         }
 
         &--toc {
             background: $vs-color-background-information;
-            padding: $spacer-8 $spacer-9;
+            padding: $spacer-200 $spacer-300;
             width: 100%;
 
             @include media-breakpoint-up(md) {

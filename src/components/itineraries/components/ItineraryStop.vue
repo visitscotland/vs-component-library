@@ -122,7 +122,7 @@ export default {
         margin-bottom: 0;
 
         .border {
-            padding-bottom: $spacer-8;
+            padding-bottom: $spacer-200;
         }
     }
 
@@ -136,7 +136,7 @@ export default {
         position: relative;
         background-color: $vs-color-background-inverse;
         border: 1px solid $vs-color-border;
-        padding: $spacer-4;
+        padding: $spacer-100;
     }
 
     @include media-breakpoint-up(sm) {
@@ -159,18 +159,18 @@ export default {
 
     .vs-icon-list {
         border-top: 1px solid $vs-color-border;
-        margin-top: $spacer-4;
+        margin-top: $spacer-100;
 
         .vs-icon-list__title {
-            margin-top: $spacer-4;
+            margin-top: $spacer-100;
         }
     }
 
     &__address {
         @include media-breakpoint-up(md) {
-            margin-bottom: -#{$spacer-4};
-            padding: $spacer-4 $spacer-0;
-            margin-right: $spacer-6;
+            margin-bottom: -#{$spacer-100};
+            padding: $spacer-100 $spacer-0;
+            margin-right: $spacer-150;
         }
     }
 
@@ -189,7 +189,7 @@ export default {
 
     &__info {
         @include media-breakpoint-up(md) {
-            padding: $spacer-6 0;
+            padding: $spacer-150 0;
         }
     }
 }

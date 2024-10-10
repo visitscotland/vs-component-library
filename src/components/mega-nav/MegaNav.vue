@@ -284,17 +284,17 @@ export default {
 
     &__logo {
         display: inline-block;
-        height: calc(#{$spacer-8} + #{$spacer-1});
+        height: calc(#{$spacer-200} + #{$spacer-025});
 
         @include media-breakpoint-up(lg) {
-            height: calc(#{$spacer-8} + #{$spacer-2});
+            height: calc(#{$spacer-200} + #{$spacer-050});
         }
     }
 
     &__logo svg {
         width: 184px;
         vertical-align: top;
-        margin-top: $spacer-1;
+        margin-top: $spacer-025;
     }
 
     .vs-mega-nav__menu {
@@ -312,8 +312,8 @@ export default {
         line-height: $line-height-standard;
         border-radius: 0;
         border: 0;
-        height: $spacer-7;
-        width: $spacer-7;
+        height: $spacer-175;
+        width: $spacer-175;
         font-size: 0;
         padding: 0;
     }

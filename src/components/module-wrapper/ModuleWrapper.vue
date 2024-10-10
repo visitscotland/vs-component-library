@@ -90,17 +90,17 @@ export default {
 
 <style lang="scss">
     .vs-module-wrapper {
-        padding-top: $spacer-9;
-        padding-bottom: $spacer-9;
+        padding-top: $spacer-300;
+        padding-bottom: $spacer-300;
         text-align: center;
 
         &__heading.vs-heading {
-            margin-bottom: $spacer-8;
+            margin-bottom: $spacer-200;
         }
 
         &__intro {
             display: block;
-            margin-bottom: $spacer-9;
+            margin-bottom: $spacer-300;
 
             p:last-of-type {
                 margin-bottom: 0;
@@ -108,8 +108,8 @@ export default {
         }
 
         @include media-breakpoint-up(sm) {
-            padding-top: $spacer-10 + $spacer-2;
-            padding-bottom: $spacer-12;
+            padding-top: $spacer-400 + $spacer-050;
+            padding-bottom: $spacer-600;
         }
 
         &--grey {
@@ -123,10 +123,10 @@ export default {
 
     .vs-module-wrapper__outer--light + .vs-module-wrapper__outer--light {
         .vs-module-wrapper {
-            padding-top: $spacer-4;
+            padding-top: $spacer-100;
 
             @include media-breakpoint-up(sm) {
-                padding-top: $spacer-2;
+                padding-top: $spacer-050;
             }
         }
     }
@@ -139,10 +139,10 @@ export default {
         .vs-module-wrapper--light,
     .vs-module-wrapper__outer--light + .vs-module-wrapper--light,
     .vs-module-wrapper--light + .vs-module-wrapper--light {
-        padding-top: $spacer-4;
+        padding-top: $spacer-100;
 
         @include media-breakpoint-up(sm) {
-            padding-top: $spacer-2;
+            padding-top: $spacer-050;
         }
     }
 </style>

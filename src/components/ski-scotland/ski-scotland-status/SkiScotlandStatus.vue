@@ -1108,10 +1108,10 @@ export default {
 
         &__centre-info {
             font-size: $font-size-4;
-            margin-top: $spacer-8;
+            margin-top: $spacer-200;
 
             @include media-breakpoint-up(md) {
-                margin-bottom: $spacer-7;
+                margin-bottom: $spacer-175;
                 margin-top: $spacer-0;
             }
 
@@ -1123,14 +1123,14 @@ export default {
 
                 > a {
                     display: inline-block;
-                    width: calc(100% - #{$spacer-7});
+                    width: calc(100% - #{$spacer-175});
                     vertical-align: top;
                     word-break: break-word;
                 }
 
                 > span {
                     display: inline-block;
-                    width: calc(100% - #{$spacer-8});
+                    width: calc(100% - #{$spacer-200});
                     vertical-align: top;
                 }
             }
@@ -1147,14 +1147,14 @@ export default {
         }
 
         .vs-table .vs-icon {
-            width: $spacer-5;
+            width: $spacer-125;
         }
 
         &__run-status-table {
-            margin-bottom: 0;
+            margin-bottom: $spacer-0;
 
             p {
-                margin-bottom: 0;
+                margin-bottom: $spacer-0;
             }
 
             thead th {

@@ -112,17 +112,17 @@ export default {
         justify-content: flex-end;
         flex-direction: column;
         text-align: left;
-        padding: $spacer-5;
+        padding: $spacer-125;
         background: $vs-color-background-neutral;
         height: 100%;
         line-height: 1.1;
 
         @include media-breakpoint-up(lg) {
-            padding: $spacer-9;
+            padding: $spacer-300;
         }
 
         &--small {
-            padding: $spacer-5;
+            padding: $spacer-125;
 
             .vs-warning__content {
                 max-width: 100%;
@@ -135,20 +135,20 @@ export default {
             }
 
             .vs-warning__button {
-                margin-top: $spacer-3;
+                margin-top: $spacer-075;
             }
         }
 
         &__icon {
-            margin-right: $spacer-3;
+            margin-right: $spacer-075;
             line-height: $line-height-standard;
         }
 
         &__button {
-            margin-top: $spacer-6;
+            margin-top: $spacer-150;
 
             @include media-breakpoint-up(lg) {
-                margin-top: $spacer-9;
+                margin-top: $spacer-300;
             }
         }
 
@@ -176,7 +176,7 @@ export default {
                 .vs-warning__icon {
                     width: 2rem !important;
                     height: 2rem !important;
-                    margin-bottom: $spacer-4;
+                    margin-bottom: $spacer-100;
                 }
             }
         }

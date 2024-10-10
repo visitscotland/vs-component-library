@@ -142,7 +142,7 @@ export default {
 
 <style lang='scss'>
     .vs-carbon-calculator-question {
-        margin-bottom: $spacer-8;
+        margin-bottom: $spacer-200;
     }
 
     .vs-carbon-calculator-question__label {

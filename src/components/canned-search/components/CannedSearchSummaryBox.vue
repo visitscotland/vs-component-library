@@ -134,12 +134,12 @@ export default {
 
 <style lang="scss">
     .vs-canned-search-summary-box {
-        padding: $spacer-2;
+        padding: $spacer-050;
         background-color: $vs-color-background-information;
         min-height: 4.5rem;
 
         .row {
-            min-height: $spacer-9;
+            min-height: $spacer-300;
 
             &--tall {
                 min-height: 4.75rem;

@@ -593,8 +593,8 @@ export default {
         border: none;
         border-radius: $border_radius_xl;
         overflow: hidden;
-        margin-bottom: $spacer-9;
-        height: calc(100% - #{$spacer-9});
+        margin-bottom: $spacer-300;
+        height: calc(100% - #{$spacer-300});
 
         &::nth-last-child(-n + 3) {
             margin-bottom: $spacer-0;
@@ -621,10 +621,10 @@ export default {
 
         .card-body {
             position: relative;
-            padding: $spacer-4 $spacer-4 $spacer-12;
+            padding: $spacer-100 $spacer-100 $spacer-600;
 
             @include media-breakpoint-up(lg) {
-                padding-bottom: $spacer-10;
+                padding-bottom: $spacer-400;
             }
         }
 
@@ -633,29 +633,29 @@ export default {
         }
 
         .vs-ski-scotland-card__button-holder {
-            width: calc(100% - #{$spacer-8});
+            width: calc(100% - #{$spacer-200});
             display: inline-block;
-            padding: $spacer-1 $spacer-2;
+            padding: $spacer-025 $spacer-050;
             position: absolute;
-            bottom: $spacer-4;
+            bottom: $spacer-100;
 
             &--left {
-                left: $spacer-4;
-                right: $spacer-4;
-                bottom: $spacer-10;
+                left: $spacer-100;
+                right: $spacer-100;
+                bottom: $spacer-400;
             }
 
             &--right {
-                right: $spacer-4;
-                left: $spacer-4;
+                right: $spacer-100;
+                left: $spacer-100;
             }
 
             @include media-breakpoint-up(lg) {
-                width: calc(50% - #{$spacer-4});
+                width: calc(50% - #{$spacer-100});
 
                 &--left {
                     right: auto;
-                    bottom: $spacer-4;
+                    bottom: $spacer-100;
                 }
 
                 &--right {
@@ -666,7 +666,7 @@ export default {
 
         .vs-button {
             width: 100%;
-            padding: $spacer-2 $spacer-2;
+            padding: $spacer-050 $spacer-050;
 
             &.disabled {
                 margin-bottom: 2px;

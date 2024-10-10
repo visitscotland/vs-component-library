@@ -131,25 +131,25 @@ export default {
 <style lang="scss">
 .vs-itinerary-day{
     border-top: 1px solid $vs-color-border-bold;
-    margin-top: $spacer-9;
+    margin-top: $spacer-300;
 
     @include media-breakpoint-down(sm) {
         max-width: initial;
-        width: calc(100% + #{$spacer-4});
-        margin-left: -#{$spacer-2};
-        padding: $spacer-0 $spacer-2;
+        width: calc(100% + #{$spacer-100});
+        margin-left: -#{$spacer-050};
+        padding: $spacer-0 $spacer-050;
     }
 
     &__list-item.card.vs-accordion-item {
-        width: calc(100% + #{$spacer-4});
-        margin-left: -#{$spacer-2};
-        padding: 0 $spacer-3 0;
+        width: calc(100% + #{$spacer-100});
+        margin-left: -#{$spacer-050};
+        padding: 0 $spacer-075 0;
         border-top: 0;
 
         @include media-breakpoint-up(md) {
-            width: calc(100% + #{$spacer-6});
-            margin-left: -#{$spacer-3};
-            padding: $spacer-4 $spacer-4 0;
+            width: calc(100% + #{$spacer-150});
+            margin-left: -#{$spacer-075};
+            padding: $spacer-100 $spacer-100 0;
         }
 
         .vs-accordion-toggle {
@@ -162,7 +162,7 @@ export default {
 
             .vs-accordion-toggle__icon {
                 align-self: auto;
-                margin-top: $spacer-6;
+                margin-top: $spacer-150;
 
                 .vs-icon {
                     color: $vs-color-icon;
@@ -179,7 +179,7 @@ export default {
     &__header{
         display: block;
         text-align: left;
-        margin: $spacer-6 0;
+        margin: $spacer-150 0;
 
         .vs-itinerary-day__title {
             color: $vs-color-text-tertiary;
@@ -197,17 +197,17 @@ export default {
 
         @include media-breakpoint-up(lg) {
             text-align: center;
-            margin: 0 0 $spacer-6;
+            margin: 0 0 $spacer-150;
         }
     }
 
     &__intro-content {
-        margin-bottom: $spacer-8;
+        margin-bottom: $spacer-200;
     }
 
     &__panel .list-inline-item:not(:last-child) {
         @include media-breakpoint-down(sm) {
-            margin-right: $spacer-1;
+            margin-right: $spacer-025;
         }
     }
 }

@@ -232,10 +232,10 @@ export default {
 
         > .container {
             background: $vs-color-background-inverse;
-            padding-bottom: $spacer-8;
+            padding-bottom: $spacer-200;
 
             @include media-breakpoint-up(lg) {
-                padding-bottom: $spacer-9;
+                padding-bottom: $spacer-300;
             }
         }
     }
@@ -245,7 +245,7 @@ export default {
 
         .vs-page-intro__fs-mobile-heading-wrapper {
             position: relative;
-            height: $spacer-10;
+            height: $spacer-400;
 
             @include media-breakpoint-up(lg) {
                 display: none;
@@ -259,40 +259,40 @@ export default {
         .vs-page-intro__share {
             width: auto;
             // Moves the share above the hero image on mobile screens
-            top: calc(-100vh + $spacer-12 + $spacer-2);
+            top: calc(-100vh + $spacer-600 + $spacer-050);
         }
 
         .vs-image-with-caption--hero {
             .vs-image-with-caption__image-wrapper {
                 // 100vh - the height of the nav - the height of the breadcrumb - a little to partially
                 // reveal the header
-                height: calc(100vh - $spacer-10 - $spacer-12 - $spacer-2);
-                width: calc(100% + $spacer-4);
-                margin-left: -#{$spacer-4};
+                height: calc(100vh - $spacer-10 - $spacer-600 - $spacer-050);
+                width: calc(100% + $spacer-100);
+                margin-left: -#{$spacer-100};
             }
 
             .vs-image-with-caption__captions {
-                width: calc(100% + $spacer-4);
+                width: calc(100% + $spacer-100);
             }
         }
 
         .vs-page-intro__wrapper {
-            margin-top: $spacer-2;
+            margin-top: $spacer-050;
         }
 
         .vs-image-with-caption__captions {
-            padding: $spacer-0 $spacer-4;
+            padding: $spacer-0 $spacer-100;
         }
     }
 
     &__share {
         position: absolute;
-        top: $spacer-3;
-        right: $spacer-1;
+        top: $spacer-075;
+        right: $spacer-025;
 
         @include media-breakpoint-up(sm) {
-            top: $spacer-4;
-            right: $spacer-4;
+            top: $spacer-100;
+            right: $spacer-100;
         }
 
         @include media-breakpoint-up(lg) {
@@ -304,7 +304,7 @@ export default {
         .vs-page-intro {
             &__share {
                 @include media-breakpoint-up(lg) {
-                    top: $spacer-10;
+                    top: $spacer-400;
                 }
             }
 
@@ -344,7 +344,7 @@ export default {
     }
 
      &__breadcrumb {
-        margin-top: $spacer-3;
+        margin-top: $spacer-075;
     }
 
     &__lower,

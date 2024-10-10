@@ -88,8 +88,8 @@ export default {
             width: 80%;
             bottom: 0;
             left: 0;
-            padding: $spacer-5 $spacer-3;
             background: $vs-color-new-background-primary;
+            padding: $spacer-125 $spacer-075;
         }
 
         .card-title {
@@ -121,7 +121,7 @@ export default {
                 position: initial;
                 width: auto;
                 max-width: 100%;
-                padding: $spacer-8;
+                padding: $spacer-200;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -140,12 +140,12 @@ export default {
         }
 
         @include media-breakpoint-up(lg) {
-            padding: $spacer-3;
+            padding: $spacer-075;
             flex-direction: column;
             border-top: none;
 
             .card-body {
-                padding: $spacer-5 $spacer-3;
+                padding: $spacer-125 $spacer-075;
             }
 
             .vs-stretched-link-card__img-container {
@@ -160,7 +160,7 @@ export default {
 
             .vs-stretched-link-card__link {
                 align-self: flex-end;
-                padding: $spacer-2;
+                padding: $spacer-050;
             }
         }
     }
@@ -178,7 +178,7 @@ export default {
                     bottom: 0;
                     left: 0;
                     background: #fff;
-                    padding: $spacer-5 $spacer-3;
+                    padding: $spacer-125 $spacer-075;
                 }
 
                 .card-title {

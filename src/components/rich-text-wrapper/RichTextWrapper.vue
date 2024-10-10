@@ -56,15 +56,15 @@ export default {
     }
 
     h3.vs-heading {
-        margin-top: $spacer-4;
-        margin-bottom: $spacer-4;
+        margin-top: $spacer-100;
+        margin-bottom: $spacer-100;
     }
     .vs-heading--style-level-6 {
-        margin-top: $spacer-4;
-        margin-bottom: $spacer-8;
+        margin-top: $spacer-100;
+        margin-bottom: $spacer-200;
     }
     *:not(.vs-heading) + .vs-heading--style-level-6 {
-        margin-top: $spacer-10;
+        margin-top: $spacer-400;
     }
 }
 

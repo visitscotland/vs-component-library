@@ -827,7 +827,7 @@ export default {
 
         fieldset {
             > div {
-                margin-bottom: $spacer-6;
+                margin-bottom: $spacer-150;
             }
         }
 

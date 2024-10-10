@@ -54,13 +54,13 @@ export default {
     display: inline-table;
     text-align: center;
     width: 90px;
-    margin-bottom: $spacer-4;
-    padding: 0 $spacer-1;
+    margin-bottom: $spacer-100;
+    padding: 0 $spacer-025;
     font-size: $font-size-3;
     line-height: $line-height-standard;
 
     .vs-icon {
-        margin-bottom: $spacer-3;
+        margin-bottom: $spacer-075;
     }
 }
 </style>

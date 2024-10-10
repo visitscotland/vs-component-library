@@ -132,7 +132,7 @@ export default {
     .vs-mega-nav-dropdown-container {
         &__featured {
             @include media-breakpoint-up(lg) {
-                margin: $spacer-2 $spacer-0 $spacer-5 $spacer-6;
+                margin: $spacer-050 $spacer-0 $spacer-125 $spacer-150;
                 position: absolute;
                 right: 0;
                 top: 0;
@@ -197,7 +197,7 @@ export default {
 
         &__cta-link{
             text-decoration: none;
-            padding: 0.12rem $spacer-5;
+            padding: 0.12rem $spacer-125;
             transition: $duration-base color;
 
             &:hover{
@@ -206,7 +206,7 @@ export default {
         }
 
         &__divider{
-            margin: $spacer-3 0 $spacer-4;
+            margin: $spacer-075 0 $spacer-100;
             border-color: $vs-color-border;
         }
 
@@ -226,15 +226,15 @@ export default {
     .vs-list.vs-list--unstyled {
         .vs-mega-nav-dropdown-container{
             &__divider {
-                margin-bottom: $spacer-4;
+                margin-bottom: $spacer-100;
             }
             &__columns-wrapper{
                 display: block;
                 height: auto;
-                padding-left: $spacer-8;
+                padding-left: $spacer-200;
 
                 @include media-breakpoint-up(lg) {
-                    padding-left: $spacer-10;
+                    padding-left: $spacer-400;
                 }
             }
 
@@ -242,7 +242,7 @@ export default {
                 position: relative;
                 right: auto;
                 width: 100vw;
-                margin: 0 $spacer-6 $spacer-4 (-$spacer-8);
+                margin: 0 $spacer-150 $spacer-100 (-$spacer-200);
 
                 @include media-breakpoint-up(sm) {
                     width: 50%;

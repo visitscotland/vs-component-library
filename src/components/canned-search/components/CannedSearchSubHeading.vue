@@ -56,7 +56,7 @@ export default {
     h4.vs-canned-search-sub-heading {
         color: $vs-color-text-subtle;
         margin: $spacer-0;
-        margin-bottom: $spacer-3;
+        margin-bottom: $spacer-075;
 
         &--lines-1 {
             @include truncate-text(1);

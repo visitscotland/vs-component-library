@@ -32,7 +32,7 @@ export default {
     @include media-breakpoint-up(lg) {
         position: absolute;
         top: 0;
-        width: calc(100% - #{$spacer-8});
+        width: calc(100% - #{$spacer-200});
         z-index: 1000;
     }
 }
