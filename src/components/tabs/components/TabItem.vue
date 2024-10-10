@@ -55,18 +55,18 @@ export default {
         font-weight: $font-weight-bold;
         border-width: 1px;
         border-color: $vs-color-background-neutral;
-        padding: $spacer-4 $spacer-3;
+        padding: $spacer-100 $spacer-075;
         font-size: $font-size-6;
         transition: $duration-base all;
         transition: all 200ms ease;
         transition-property: background-color, color;
 
         .vs-heading {
-            margin: 0;
+            margin: $spacer-0;
 
             @include media-breakpoint-up(sm) {
                 @include heading-style(heading-s);
-                margin: 0;
+                margin: $spacer-0;
             }
         }
 
@@ -79,19 +79,19 @@ export default {
         &.active {
             position: relative;
             background-color: $vs-color-background-inverse;
-            padding: $spacer-5 $spacer-3;
+            padding: $spacer-125 $spacer-075;
 
             .vs-heading {
                 @include heading-style(heading-xs);
-                margin: 0;
+                margin: $spacer-0;
             }
 
             @include media-breakpoint-up(sm) {
-                padding: $spacer-7 $spacer-5;
+                padding: $spacer-175 $spacer-125;
 
                 .vs-heading {
                     @include heading-style(heading-m);
-                    margin: 0;
+                    margin: $spacer-0;
                 }
             }
         }
@@ -103,7 +103,7 @@ export default {
         }
 
         @include media-breakpoint-up(sm) {
-            padding: $spacer-5 $spacer-4;
+            padding: $spacer-125 $spacer-100;
             font-size: $font-size-7;
         }
 
