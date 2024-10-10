@@ -114,7 +114,7 @@ export default {
             }
 
             // capture DMO link referral
-            if (dmoAnalyticsLogic(event).type === 'CMS referral') {
+            if (dmoAnalyticsLogic(event).type === 'CMS referral' && dmoAnalyticsLogic(event).dmo_referral === 'True') {
                 this.createDataLayerObject('cmsReferral', {
                     referral_location: event.target.href,
                     dmo_referral: dmoAnalyticsLogic(event).dmo_referral,
