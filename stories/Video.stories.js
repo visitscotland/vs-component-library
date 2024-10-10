@@ -55,23 +55,6 @@ WithCaption.args = {
     'video-title': 'Only in Scotland: Why Scotland Needs You',
 };
 
-export const NoCookies = Template.bind();
-NoCookies.args = {
-    ...base,
-};
-
-NoCookies.decorators = [
-    () => {
-        window.bypassCookieChecks = false;
-
-        return {
-            template: `
-                <story/>
-            `,
-        };
-    },
-];
-
 export const NoJavascript = Template.bind();
 NoJavascript.args = {
     ...base,

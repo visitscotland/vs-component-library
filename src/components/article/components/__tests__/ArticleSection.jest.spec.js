@@ -53,6 +53,15 @@ describe('VsArticleSection', () => {
             expect(sidebar.classes()).toContain('order-md-2');
             expect(sidebar.classes()).toContain('offset-xl-1');
         });
+
+        it(':businessSupport - should render sidebar column with `order-2` class', () => {
+            wrapper = factoryMount({
+                businessSupport: true,
+            });
+            const sidebar = wrapper.find('[data-test="vs-article-section__sidebar"');
+
+            expect(sidebar.classes()).toContain('order-2');
+        });
     });
 
     describe(':slots', () => {
