@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.2](https://github.com/visitscotland/vs-component-library/compare/v3.3.1...v3.3.2) (2024-10-10)
+
+
+### 🔖 Others
+
+* **do not push:** introduce error to test chromatic ([4aa0c8f](https://github.com/visitscotland/vs-component-library/commit/4aa0c8fa7f3db18d1be53a7f56ce54685d97ad16))
+
+
+### ✨ Features
+
+* **bloomreach engagement:** call exponea identiy with submitted email address when form submitted ([ca0aae3](https://github.com/visitscotland/vs-component-library/commit/ca0aae39ec169217d7a5f527c7ad04b444a4a994))
+* **chromatic:** add weekly scheduled job ([13d3293](https://github.com/visitscotland/vs-component-library/commit/13d3293a6eb525853db006149106526699323670))
+* **chromatic:** remove re-run on synch ([6128cf6](https://github.com/visitscotland/vs-component-library/commit/6128cf6a68e39a94ef906af0dd088d9a1f12c1d8))
+* **push:** remove intentional regression ([2119282](https://github.com/visitscotland/vs-component-library/commit/21192822f83dbaecbb2ff47f060fa80ed86a545f))
+
 ### [3.3.1](https://github.com/visitscotland/vs-component-library/compare/v3.3.0...v3.3.1) (2024-10-04)
 
 
