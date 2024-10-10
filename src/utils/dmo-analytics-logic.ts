@@ -1,6 +1,10 @@
 import { dmoUrls } from '../constants';
 
-const currentURL = window.location.href;
+let currentURL = '';
+
+if (typeof window !== 'undefined') {
+    currentURL = window.location.href;
+}
 
 const dmoAnalyticsLogic = (triggerEvent) => {
     let linkedToDMO = false;

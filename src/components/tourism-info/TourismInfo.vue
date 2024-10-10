@@ -1,7 +1,7 @@
 <template>
     <div
-        class="vs-icentre"
-        data-test="vs-icentre"
+        class="vs-tourism-info"
+        data-test="vs-tourism-info"
     >
         <VsContainer>
             <VsRow>
@@ -12,20 +12,15 @@
                     offset-md="2"
                     lg="6"
                     offset-lg="3"
-                    class="vs-icentre__intro-content"
+                    class="vs-tourism-info__intro-content"
                 >
-                    <VsSvg
-                        class="vs-icentre__logo"
-                        path="iCentre"
-                    />
-
                     <div
-                        class="vs-icentre__links"
-                        data-test="vs-icentre__standalone-links"
-                        v-if="($slots['icentre-links'] && $slots['icentre-links']()) && !($slots['icentre-quote'] && $slots['icentre-quote']())"
+                        class="vs-tourism-info__links"
+                        data-test="vs-tourism-info__standalone-links"
+                        v-if="($slots['tourism-info-links'] && $slots['tourism-info-links']()) && !($slots['tourism-info-quote'] && $slots['tourism-info-quote']())"
                     >
                         <!-- @slot Holds the links (html expected) -->
-                        <slot name="icentre-links" />
+                        <slot name="tourism-info-links" />
                     </div>
                 </VsCol>
 
@@ -33,11 +28,11 @@
                     cols="12"
                     md="10"
                     offset-md="1"
-                    :class="{ 'vs-icentre__image-offset': ($slots['icentre-quote'] && $slots['icentre-quote']()) }"
+                    :class="{ 'vs-tourism-info__image-offset': ($slots['tourism-info-quote'] && $slots['tourism-info-quote']()) }"
                 >
-                    <!-- @slot Holds the main icentre image (vs-image-with-caption expected) -->
+                    <!-- @slot Holds the main tourism-info image -->
                     <slot
-                        name="icentre-image-with-caption"
+                        name="tourism-info-image-with-caption"
                     />
                 </VsCol>
 
@@ -47,19 +42,19 @@
                     offset-md="1"
                     lg="7"
                     offset-lg="5"
-                    class="vs-icentre__quote-block-container"
-                    v-if="($slots['icentre-quote'] && $slots['icentre-quote']())"
+                    class="vs-tourism-info__quote-block-container"
+                    v-if="($slots['tourism-info-quote'] && $slots['tourism-info-quote']())"
                 >
-                    <div class="vs-icentre__quote-block">
+                    <div class="vs-tourism-info__quote-block">
                         <!-- @slot Optional slot, holds the links (vs-quote expected) -->
-                        <slot name="icentre-quote" />
+                        <slot name="tourism-info-quote" />
 
                         <div
-                            class="vs-icentre__links-contained"
-                            data-test="vs-icentre__embedded-links"
+                            class="vs-tourism-info__links-contained"
+                            data-test="vs-tourism-info__embedded-links"
                         >
                             <!-- @slot Holds the links (html expected) -->
-                            <slot name="icentre-links" />
+                            <slot name="tourism-info-links" />
                         </div>
                     </div>
                 </VsCol>
@@ -69,23 +64,21 @@
 </template>
 
 <script>
-import VsSvg from '@/components/svg/Svg.vue';
 import {
     VsContainer, VsRow, VsCol,
 } from '@/components/grid';
 
 /**
- * A summary block for an icentre with a name, cover image and an optional slot for an
+ * A tourism information block with a name, cover image and an optional slot for an
  * embedded quote (either just text or a vs-quote element)
  *
- * @displayName iCentre
+ * @displayName Tourism Info
  */
 export default {
-    name: 'VsIcentre',
+    name: 'VsTourismInfo',
     status: 'prototype',
     release: '0.0.1',
     components: {
-        VsSvg,
         VsContainer,
         VsRow,
         VsCol,
@@ -94,7 +87,7 @@ export default {
 </script>
 
 <style lang="scss">
-.vs-icentre {
+.vs-tourism-info {
     &__heading {
         margin-bottom: $spacer-9;
 
