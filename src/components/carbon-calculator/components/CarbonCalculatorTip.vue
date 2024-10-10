@@ -18,7 +18,7 @@
         >
             <VsHeading
                 level="3"
-                overrideStyleLevel="6"
+                headingStyle="heading-xs"
             >
                 {{ labelsMap.topTip }}
             </VsHeading>

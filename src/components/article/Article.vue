@@ -32,23 +32,18 @@
                                 >
                                     <VsHeading
                                         level="2"
+                                        headingStyle="heading-xl"
                                         class="mb-8 mb-lg-9"
                                         :class="businessSupport ? null : 'text-center'"
                                     >
                                         <span :id="anchorLink ? anchorLink : ''">
                                             {{ title }}
                                         </span>
-                                    </VsHeading>
 
-                                    <VsRichTextWrapper
-                                        variant="lead"
-                                        class="mb-9 mb-lg-10"
-                                        :class="businessSupport ? null : 'text-center'"
-                                    >
-                                        <!-- @slot Slot to contain the introduction
-                                        for this article -->
-                                        <slot name="vs-article-intro" />
-                                    </VsRichTextWrapper>
+                                        <template v-slot:sub-heading>
+                                            <slot name="vs-article-intro" />
+                                        </template>
+                                    </VsHeading>
                                 </div>
 
                                 <VsCol
@@ -77,7 +72,6 @@
 import {
     VsCol, VsRow, VsContainer,
 } from '@/components/grid';
-import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 
 /**
@@ -94,7 +88,6 @@ export default {
         VsCol,
         VsRow,
         VsContainer,
-        VsRichTextWrapper,
         VsHeading,
     },
     props: {

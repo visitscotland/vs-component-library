@@ -1,0 +1,15 @@
+#
+# TRACKING TOKENS
+# Use these tokens to set a letter-spacing. 
+# Tokens are calculated as percentage of the font-size.
+#
+props:
+    - name: tracking-heading
+      value: "-0.01em"
+    - name: tracking-sub-heading
+      value: "0em" 
+    - name: tracking-body
+      value: "0.01em"
+global:
+    type: number
+    category: tracking

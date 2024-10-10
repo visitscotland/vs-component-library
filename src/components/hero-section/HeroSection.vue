@@ -16,6 +16,7 @@
                             class="vs-hero-section__heading m-lg-0"
                             data-test="vs-hero-section__heading"
                             level="1"
+                            headingStyle="display-xs"
                         >
                             {{ heading }}
                         </VsHeading>
@@ -180,6 +181,14 @@ export default {
 
         &__heading{
             color: $vs-color-new-text-brand;
+
+            @include media-breakpoint-up(lg) {
+                @include heading-style(display-s);
+            }
+
+            @include media-breakpoint-up(xl) {
+                @include heading-style(display-m);
+            }
         }
 
         &__img{

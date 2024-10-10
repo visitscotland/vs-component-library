@@ -17,6 +17,8 @@
             </div>
             <VsHeading
                 level="2"
+                headingStyle="heading-s"
+                class="vs-listicle-item__heading"
             >
                 {{ title }}
 
@@ -107,6 +109,12 @@ export default {
 
     @include media-breakpoint-up(sm) {
         margin-bottom: $spacer-500;
+    }
+
+    &__heading{
+        @include media-breakpoint-up(sm) {
+            @include heading-style(heading-m);
+        }
     }
 
     .count {

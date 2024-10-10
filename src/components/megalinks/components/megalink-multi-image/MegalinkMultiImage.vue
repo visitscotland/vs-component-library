@@ -5,6 +5,7 @@
             :type="linkType"
             class="vs-megalink-multi-image-card p-2"
             :class="multiImageClasses"
+            :headingStyle="featured ? 'heading-m' : 'heading-xs'"
             :img-src="imgSrc"
             :img-alt="imgAlt"
             :data-test="featured ? 'megalink-multi-image-featured' : 'megalink-multi-image-card'"
@@ -271,11 +272,6 @@ export default {
             justify-content: flex-start;
             width: 100%;
             transform: rotate(0deg);
-
-            .vs-megalink-multi-image-card__title {
-                font-size: $font-size-5;
-                letter-spacing: $letter-spacing-xxl;
-            }
 
             .vs-link__icon {
                 font-size: 16px;

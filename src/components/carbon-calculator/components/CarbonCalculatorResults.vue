@@ -6,6 +6,7 @@
         <VsCol cols="12">
             <VsHeading
                 level="2"
+                headingStyle="heading-m"
             >
                 {{ labelsMap.results }}
             </VsHeading>
@@ -67,7 +68,7 @@
             >
                 <VsHeading
                     level="3"
-                    overrideStyleLevel="6"
+                    headingStyle="heading-xs"
                 >
                     {{ labelsMap.perDayCongratulations }}
                 </VsHeading>
@@ -80,7 +81,7 @@
         <VsCol>
             <VsHeading
                 level="3"
-                class="mt-0"
+                headingStyle="heading-xs"
             >
                 {{ labelsMap.chartTitle }}
             </VsHeading>
