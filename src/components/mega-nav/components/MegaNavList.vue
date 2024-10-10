@@ -9,6 +9,7 @@
             class="vs-mega-nav-list__heading"
             :id="listHeadingId"
             level="2"
+            headingStyle="heading-xxs"
         >
             {{ listHeading }}
         </VsHeading>
@@ -101,10 +102,6 @@ export default {
         padding: $spacer-025 $spacer-100;
         margin: 0 0 $spacer-025;
         border-bottom: 1px solid $vs-color-border;
-        font-size: $font-size-6;
-        font-family: $font-family-sans-serif;
-        line-height: $line-height-standard;
-        letter-spacing: normal;
 
         @include media-breakpoint-up(lg) {
             display: flex;

@@ -10,6 +10,7 @@
                     <VsHeading
                         :id="props.anchorLink ? props.anchorLink : null"
                         level="2"
+                        headingStyle="heading-xl"
                     >
                         {{ props.title }}
                     </VsHeading>

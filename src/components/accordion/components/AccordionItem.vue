@@ -51,7 +51,7 @@
 
             <VsHeading
                 level="2"
-                override-style-level="6"
+                headingStyle="heading-xxs"
                 class="d-none vs-accordion-item__title"
                 :class="toggleResponsiveItem"
                 data-test="vs-accordion__item-title"

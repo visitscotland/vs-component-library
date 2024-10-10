@@ -2,6 +2,7 @@
     <VsHeading
         v-if="subHeading"
         level="4"
+        headingStyle="heading-xxs"
         class="vs-canned-search-sub-heading"
         :class="lineLimit ? 'vs-canned-search-sub-heading--lines-' + lineLimit : ''"
         data-test="vs-canned-search-sub-heading"
@@ -53,10 +54,7 @@ export default {
 
 <style lang="scss">
     h4.vs-canned-search-sub-heading {
-        font-family: $font-family-base;
-        font-size: $font-size-4;
         color: $vs-color-text-subtle;
-        letter-spacing: normal;
         margin: $spacer-0;
         margin-bottom: $spacer-075;
 

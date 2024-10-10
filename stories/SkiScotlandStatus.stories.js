@@ -30,7 +30,7 @@ const Template = (args) => ({
             <template v-if="args['centre-information']" v-slot:centre-information>
                 <VsHeading
                     level="3"
-                    override-style-level="6"
+                    heading-style="heading-xs"
                 >
                     Centre Information                    
                 </VsHeading>

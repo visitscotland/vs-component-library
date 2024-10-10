@@ -32,6 +32,7 @@
                                 >
                                     <VsHeading
                                         level="2"
+                                        headingStyle="heading-xl"
                                         class="mb-8 mb-lg-9"
                                         :class="businessSupport ? null : 'text-center'"
                                     >
@@ -77,8 +78,8 @@
 import {
     VsCol, VsRow, VsContainer,
 } from '@/components/grid';
-import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
 import VsHeading from '@/components/heading/Heading.vue';
+import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
 
 /**
  * The article component is used for in-depth editorial style
@@ -94,8 +95,8 @@ export default {
         VsCol,
         VsRow,
         VsContainer,
-        VsRichTextWrapper,
         VsHeading,
+        VsRichTextWrapper,
     },
     props: {
         /**

@@ -11,7 +11,7 @@
                 >
                     <VsHeading
                         level="2"
-                        alternative
+                        headingStyle="heading-l"
                         class="vs-product-search__heading mt-0"
                     >
                         <!-- @slot Text for the module heading -->
@@ -120,10 +120,10 @@ export default {
             color: $vs-color-text-inverse;
         }
 
-        &__heading.vs-heading {
-            font-size: $font-size-9;
-            font-weight: $font-weight-light;
-            letter-spacing: normal;
+        &__heading {
+            @include media-breakpoint-up(sm) {
+                @include heading-style(heading-xl);
+            }
         }
 
         &__col--left {
@@ -154,10 +154,6 @@ export default {
                 color: $vs-color-text-inverse;
                 margin-left: $spacer-400;
                 max-width: 70%;
-            }
-
-            &__heading.vs-heading {
-                font-size: $font-size-10;
             }
 
             &__col {

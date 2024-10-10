@@ -5,21 +5,13 @@ export default {
     title: 'Heading',
     tags: ['autodocs'],
     argTypes: {
-        level: {
-            options: [1, 2, 3, 4, 5, 6],
+        headingStyle: {
+            options: ['display-l', 'display-m', 'display-s', 'display-xs', 'heading-xxl', 'heading-xl', 'heading-l', 'heading-m', 'heading-s', 'heading-xs', 'heading-xxs'],
             control: {
-                type: 'inline-radio',
-                labels: {
-                    1: 'h1',
-                    2: 'h2',
-                    3: 'h3',
-                    4: 'h4',
-                    5: 'h5',
-                    6: 'h6',
-                },
+                type: 'select',
             },
         },
-        overrideStyleLevel: {
+        level: {
             options: [1, 2, 3, 4, 5, 6],
             control: {
                 type: 'inline-radio',
@@ -56,54 +48,43 @@ const Template = (args) => ({
 });
 
 const base = {
-    default: 'VisitScotland',
+    default: 'Welcome to Scotland',
     'sub-heading': '',
     level: 1,
-    alternative: false,
-    thin: false,
 };
 
-export const Default = Template.bind(
-    {
-    },
-);
-
-Default.args = {
-    ...base,
-};
-
-export const OverrideStyleLevel = Template.bind({
+export const Default = Template.bind({
 });
 
-OverrideStyleLevel.args = {
+Default.args = {
+    headingStyle: 'heading-l',
     ...base,
-    overrideStyleLevel: 3,
+};
+
+export const Display = Template.bind({
+});
+
+Display.args = {
+    headingStyle: 'display-l',
+    ...base,
 };
 
 export const WithSubheading = Template.bind({
 });
 
 WithSubheading.args = {
+    headingStyle: 'heading-l',
     ...base,
     default: 'Heart of Neolithic Orkney',
     'sub-heading': 'Mainland, Orkney',
 };
 
-export const Thin = Template.bind({
+export const WithSubheadingDisplay = Template.bind({
 });
 
-Thin.args = {
+WithSubheadingDisplay.args = {
+    headingStyle: 'display-l',
     ...base,
-    default: 'Find out more',
-    thin: true,
-};
-
-export const Alternative = Template.bind({
-});
-
-Alternative.args = {
-    ...base,
-    default: 'Find experiences',
-    level: '2',
-    alternative: true,
+    default: 'Welcome to VisitScotland',
+    'sub-heading': 'What VisitScotland can do for you',
 };
