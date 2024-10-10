@@ -60,6 +60,7 @@ export default {
         @include heading-style(heading-xxs, false);
 
         @include media-breakpoint-up(sm) {
+            padding: $spacer-125 $spacer-100;
             @include heading-style(heading-s, false);
         }
 
@@ -85,11 +86,6 @@ export default {
             color: $vs-color-text-disabled;
             background-color: $vs-color-background-disabled;
             border-color: $vs-color-background-disabled;
-        }
-
-        @include media-breakpoint-up(sm) {
-            padding: $spacer-125 $spacer-100;
-            font-size: $font-size-7;
         }
 
         &:focus-visible{
