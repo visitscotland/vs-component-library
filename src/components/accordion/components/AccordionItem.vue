@@ -150,7 +150,7 @@ export default {
          */
         variant: {
             type: String,
-            default: 'primary',
+            default: 'transparent',
         },
     },
     data() {

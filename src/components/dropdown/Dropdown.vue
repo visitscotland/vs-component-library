@@ -19,6 +19,19 @@
         </template>
         <slot />
     </BDropdown>
+
+    <!-- No JS version -->
+    <div
+        :class="$attrs.class"
+        class="dropdown vs-dropdown vs-dropdown--fallback"
+    >
+        <ul
+            class="dropdown-menu overflow-auto"
+            role="menu"
+        >
+            <slot />
+        </ul>
+    </div>
 </template>
 
 <script>
@@ -80,11 +93,11 @@ export default {
         li {
             border-bottom: 1px solid $vs-color-border;
 
-            &:last-of-type{
+            &:last-of-type {
                 border-bottom: 0;
             }
 
-            .dropdown-item{
+            .dropdown-item {
                 &.active, &:active {
                     color: $vs-color-text-primary;
                     background-color: $vs-color-background-active;
@@ -106,6 +119,10 @@ export default {
 
     .btn-content {
         display: inline-block;
+    }
+
+    &--fallback {
+        display: none;
     }
 }
 </style>
