@@ -34,7 +34,7 @@
                     align-self-sm-start"
                     v-if="showMap && isLargeCaption"
                 >
-                    <div class="vs-caption__map-wrapper pt-3 pt-sm-2 pb-sm-2 mx-auto">
+                    <div class="vs-caption__map-wrapper pt-075 pt-sm-050 pb-sm-050 mx-auto">
                         <VsCaptionImageMap
                             :latitude="latitude"
                             :longitude="longitude"
@@ -215,7 +215,7 @@ export default {
         }
 
         .vs-caption__caption-info{
-            padding: $spacer-100;
+            padding: $spacer-100 0;
         }
     }
 

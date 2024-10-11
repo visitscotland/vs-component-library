@@ -22,7 +22,7 @@
                     <div
                         class="vs-carbon-calculator-results__headline"
                     >
-                        <p class="mb-2">
+                        <p class="mb-050">
                             {{ labelsMap.resultsIntro }}
                         </p>
                         <p>
@@ -376,7 +376,7 @@ export default {
                 position: absolute;
                 top: 50%;
                 text-align: center;
-                left: -#{$spacer-9};
+                left: -#{$spacer-300};
                 transform: translateY(-50%) rotate(-90deg);
 
                 @include media-breakpoint-up(md) {
@@ -400,7 +400,7 @@ export default {
         margin-bottom: $spacer-150;
 
         @include media-breakpoint-up(md) {
-            margin-bottom: $spacer-10;
+            margin-bottom: $spacer-400;
         }
     }
 

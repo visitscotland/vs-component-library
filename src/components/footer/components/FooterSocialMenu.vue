@@ -1,6 +1,6 @@
 <template>
     <div
-        class="vs-footer-social-menu px-0 py-6 py-md-8 py-lg-0 px-lg-3"
+        class="vs-footer-social-menu px-0 py-6 py-md-200 py-lg-0 px-lg-075"
         data-test="vs-footer-social-menu"
     >
         <VsHeading
@@ -14,7 +14,7 @@
 
         <VsList
             unstyled
-            class="mt-5 mt-md-0 mt-lg-5 pe-lg-10 pe-xl-9"
+            class="mt-125 mt-md-0 mt-lg-125 pe-lg-400 pe-xl-300"
         >
             <!-- @slot The default slot is the content for the menu social items -->
             <slot />

@@ -20,7 +20,7 @@
                     >
                         <div
                             class="vs-page-intro__breadcrumb"
-                            :class="heroIntro ? 'mt-lg-4' : 'mt-lg-8'"
+                            :class="heroIntro ? 'mt-lg-100' : 'mt-lg-200'"
                         >
                             <!-- @slot Slot to display breadcrumb items  -->
                             <slot name="vs-intro-breadcrumb" />
@@ -47,7 +47,7 @@
                     >
                         <div
                             class="vs-page-intro__breadcrumb"
-                            :class="heroIntro ? 'mt-lg-4' : 'mt-lg-8'"
+                            :class="heroIntro ? 'mt-lg-100' : 'mt-lg-200'"
                         >
                             <!-- @slot Slot to display breadcrumb items  -->
                             <slot name="vs-intro-breadcrumb" />
@@ -67,7 +67,7 @@
                         :lg="heroIntro ? '7' : '10'"
                         :xl="heroIntro ? '8' : '10'"
                         :offset-lg="heroIntro ? '1' : '0'"
-                        class="mt-1 mt-sm-0"
+                        class="mt-025 mt-sm-0"
                     >
                         <VsHeading
                             level="1"
@@ -266,7 +266,7 @@ export default {
             .vs-image-with-caption__image-wrapper {
                 // 100vh - the height of the nav - the height of the breadcrumb - a little to partially
                 // reveal the header
-                height: calc(100vh - $spacer-10 - $spacer-600 - $spacer-050);
+                height: calc(100vh - $spacer-400 - $spacer-600 - $spacer-050);
                 width: calc(100% + $spacer-100);
                 margin-left: -#{$spacer-100};
             }
