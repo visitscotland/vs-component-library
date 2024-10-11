@@ -3,8 +3,7 @@
         class="vs-toggle-btn"
         data-test="vs-toggle-btn"
         variant="transparent"
-        icon-only
-        size="lg"
+        size="sm"
         :aria-controls="toggleId"
         :aria-expanded="show ? 'true' : 'false'"
         @click="toggleAction"

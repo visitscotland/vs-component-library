@@ -11,7 +11,7 @@
                     class="text-center"
                 >
                     <VsSvgLink
-                        class="vs-footer-copyright__logo mb-4"
+                        class="vs-footer-copyright__logo mb-100"
                         data-test="vs-footer-copyright-logo"
                         :link-alt-text="linkAltText"
                         :href="href"
@@ -87,7 +87,7 @@ export default {
 <style lang="scss">
 .vs-footer-copyright {
     border-top: 1px solid $vs-color-border-inverse;
-    padding: $spacer-6 0;
+    padding: $spacer-150 0;
 
     .vs-footer-copyright__logo {
         display: inline-block;

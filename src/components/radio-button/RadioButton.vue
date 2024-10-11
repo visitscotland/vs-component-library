@@ -287,7 +287,7 @@ export default {
 
     .vs-radio-button {
         width: 100%;
-        margin: -#{$spacer-3} $spacer-0;
+        margin: -#{$spacer-075} $spacer-0;
 
         .vs-radio-button__option {
             display: inline-block;
@@ -295,12 +295,12 @@ export default {
             cursor: pointer;
             box-sizing: border-box;
             background-color: $vs-color-background-inverse;
-            padding: $spacer-3 $spacer-0;
+            padding: $spacer-075 $spacer-0;
             width: 100%;
             font-size: $font-size-4;
 
             @include media-breakpoint-up(md) {
-                padding: $spacer-3;
+                padding: $spacer-075;
                 width: 50%;
 
                 &:nth-of-type(odd) {
@@ -358,25 +358,25 @@ export default {
                 label {
                     width: 100%;
                     transform: translateY(-2px);
-                    padding: $spacer-2 $spacer-4;
+                    padding: $spacer-050 $spacer-100;
                     font-weight: normal;
 
                     span {
                         display: inline-block;
-                        width: calc(100% - #{$spacer-9});
+                        width: calc(100% - #{$spacer-300});
                     }
 
                     &::before {
                         content: "";
                         display: inline-block;
                         vertical-align: middle;
-                        width: $spacer-6;
-                        height: $spacer-6;
+                        width: $spacer-150;
+                        height: $spacer-150;
                         outline: 2px solid $vs-color-border-primary;
                         border-radius: 50%;
                         vertical-align: baseline;
                         transform: translateY(6px);
-                        margin-right: $spacer-4;
+                        margin-right: $spacer-100;
                         background-color: $vs-color-background-inverse;
                     }
                 }
@@ -419,7 +419,7 @@ export default {
 
                     label {
                         &::before {
-                            border: $spacer-1 solid $vs-color-background-active;
+                            border: $spacer-025 solid $vs-color-background-active;
                             background-color: $vs-color-background-primary;
                         }
                     }
@@ -434,7 +434,7 @@ export default {
         }
 
         .hint-text {
-            margin-top: $spacer-2;
+            margin-top: $spacer-050;
         }
     }
 </style>

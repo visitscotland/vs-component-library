@@ -12,7 +12,7 @@
             >
                 <fieldset>
                     <legend
-                        class="vs-form__main-heading vs-heading--style-level-2 float-none"
+                        class="vs-form__main-heading vs-heading vs-heading--heading-l float-none"
                         data-test="vs-form__main-heading"
                     >
                         {{ getTranslatedContent('heading') }}
@@ -103,7 +103,7 @@
                     :invalid="!recaptchaVerified && showErrorMessage"
                     :language="language"
                     :error-msg="getMessagingData('recaptchaError', language)"
-                    class="mt-9"
+                    class="mt-300"
                     :textarea-label="recaptchaTextareaLabel"
                     :re-alert-errors="reAlertErrors"
                 />
@@ -111,7 +111,7 @@
                 <VsButton
                     variant="primary"
                     type="submit"
-                    class="vs-form__submit mt-9"
+                    class="vs-form__submit mt-300"
                     @click="preSubmit"
                 >
                     {{ getTranslatedContent('submit') }}
@@ -132,6 +132,7 @@
                 <VsHeading
                     v-if="getTranslatedContent('successHeading')"
                     level="2"
+                    headingStyle="heading-l"
                 >
                     {{ getTranslatedContent('successHeading') }}
                 </VsHeading>
@@ -294,6 +295,7 @@ export default {
             },
             inputVal: '',
             reAlertErrors: false,
+            emailFieldName: '',
         };
     },
     computed: {
@@ -709,6 +711,7 @@ export default {
             myForm.onSuccess(() => {
                 this.submitting = false;
                 this.submitted = true;
+                this.attachEmail();
                 return false;
             });
 
@@ -743,8 +746,27 @@ export default {
             ).then(() => {
                 this.submitting = false;
                 this.submitted = true;
+                this.attachEmail();
                 return false;
             }).catch(() => {});
+        },
+        /**
+         * If exponea is present in the window (via gtm with accepted cookies), attach the
+         * current user to the record associated with their email address
+         */
+        attachEmail() {
+            this.formData.fields.forEach((field) => {
+                if (field.type === 'email' && !this.emailFieldName) {
+                    this.emailFieldName = field.name;
+                }
+            });
+
+            if (this.emailFieldName && typeof exponea !== 'undefined') {
+                // eslint-disable-next-line no-undef
+                exponea.identify({
+                    email_id: this.form[this.emailFieldName],
+                });
+            }
         },
         /**
          * Checks recaptcha response from the server
@@ -812,10 +834,6 @@ export default {
 
 <style lang='scss'>
     .vs-form {
-        &__main-heading {
-            @extend %heading-default-styles;
-        }
-
         &__content {
             font-size: $font-size-6;
         }
@@ -826,7 +844,7 @@ export default {
 
         fieldset {
             > div {
-                margin-bottom: $spacer-6;
+                margin-bottom: $spacer-150;
             }
         }
 

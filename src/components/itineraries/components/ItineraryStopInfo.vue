@@ -5,7 +5,7 @@
     >
         <VsIcon
             name="information"
-            class="vs-address__map-marker me-2"
+            class="vs-address__map-marker me-050"
         />
         <div>
             <template v-if="isCurrentTimeframe">
@@ -410,7 +410,7 @@ export default {
         }
 
         @include media-breakpoint-up(md) {
-             margin-top: $spacer-6;
+             margin-top: $spacer-150;
         }
     }
 </style>

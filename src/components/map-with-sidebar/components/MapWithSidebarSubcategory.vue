@@ -131,14 +131,14 @@ export default {
 
         &__icon {
             vertical-align: middle;
-            margin-right: $spacer-2;
+            margin-right: $spacer-050;
         }
 
         .form-check {
             display: flex;
             flex-direction: row-reverse;
             justify-content: space-between;
-            padding: $spacer-3 0;
+            padding: $spacer-075 0;
             border-top: 1px solid $vs-color-border;
 
             &::last-of-type {
@@ -148,7 +148,7 @@ export default {
             @include form-checkbox(20px, $font-size-2, $line-height-l);
 
             input[type="checkbox"] {
-                margin-top: $spacer-3;
+                margin-top: $spacer-075;
             }
         }
 
@@ -156,7 +156,7 @@ export default {
             font-weight: $font-weight-bold;
             display: flex;
             align-items: center;
-            margin-right: $spacer-2;
+            margin-right: $spacer-050;
         }
     }
 </style>

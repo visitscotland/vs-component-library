@@ -85,7 +85,7 @@ onMounted(() => {
 <template>
     <div 
         data-test="vs-autocomplete"
-        class="vs-autocomplete mb-4"
+        class="vs-autocomplete mb-100"
     >
         <label :for="id">{{ label }}</label>
         <VueComboBlocks
@@ -175,7 +175,7 @@ onMounted(() => {
             cursor: pointer;
             font-size: $font-size-4;
             list-style: none;
-            padding: $spacer-2 $spacer-4;
+            padding: $spacer-050 $spacer-100;
 
             &:hover,
             &--hover {
@@ -187,8 +187,8 @@ onMounted(() => {
 
     .vs-icon {
         position: absolute;
-        top: calc(50% - $spacer-2);
-        right: $spacer-4;
+        top: calc(50% - $spacer-050);
+        right: $spacer-100;
     }
 }
 </style>

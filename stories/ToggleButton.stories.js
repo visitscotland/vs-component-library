@@ -17,7 +17,11 @@ const Template = (args) => ({
     },
     template: `
         <VsToggleButton v-bind="args">
-            <template v-if="${'default' in args}" v-slot>${args.default}</template>
+            <template v-if="${'default' in args}" v-slot>
+                <span class="visually-hidden">
+                    ${args.default}
+                </span>
+            </template>
         </VsToggleButton>
     `,
 });

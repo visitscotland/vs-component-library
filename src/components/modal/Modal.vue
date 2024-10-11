@@ -19,7 +19,7 @@
                     class="d-flex justify-content-end align-items-start order-lg-1"
                 >
                     <VsButton
-                        class="vs-modal__close-btn mb-5 mb-lg-0"
+                        class="vs-modal__close-btn mb-125 mb-lg-0"
                         data-test="vs-modal__close-btn"
                         variant="secondary"
                         icon-only
@@ -147,7 +147,7 @@ export default {
     display: block;
 
     .modal-dialog {
-        margin: $spacer-8 auto;
+        margin: $spacer-200 auto;
         z-index: 1100;
 
         @include media-breakpoint-up(sm) {
@@ -157,10 +157,10 @@ export default {
     }
 
     .modal-body {
-        padding: $spacer-5 $spacer-0;
+        padding: $spacer-125 $spacer-0;
 
         @include media-breakpoint-up(sm) {
-            padding: $spacer-5 $spacer-2;
+            padding: $spacer-125 $spacer-050;
         }
 
         .vs-video {

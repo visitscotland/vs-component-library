@@ -104,6 +104,7 @@
             <VsHeading
                 v-if="$slots['stretched-card-header'] && $slots['stretched-card-header']()"
                 :level="headingLevel"
+                :headingStyle="headingStyle"
                 class="card-title vs-stretched-link-card__title"
                 data-test="vs-stretched-link-card__title"
             >
@@ -203,6 +204,18 @@ export default {
             type: [String, Number],
             default: '3',
             validator: (value) => value.match(/(1|2|3|4|5|6)/),
+        },
+        /**
+         * The heading style used for the heading.
+         * `display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|
+         * heading-l|heading-m|heading-s|heading-xs|heading-xxs`
+         */
+        headingStyle: {
+            type: [String, Number],
+            default: 'heading-xs',
+            validator: (value) => value.match(
+                /(display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs)/,
+            ),
         },
         /**
         * The type of link. This will set the icon.
@@ -432,14 +445,11 @@ export default {
         }
 
         .card-body{
-            padding: $spacer-4 0 $spacer-2;
+            padding: $spacer-100 0 $spacer-050;
             width: 100%;
         }
 
         .vs-stretched-link-card__title {
-            font-size: $font-size-3;
-            line-height: $line-height-s;
-            letter-spacing: $letter-spacing-l;
             color: $vs-color-text;
             display: flex;
 
@@ -469,11 +479,6 @@ export default {
                     color: $vs-color-icon-tertiary;
                 }
             }
-
-            @include media-breakpoint-up(xl) {
-                font-size: $font-size-3;
-                line-height: $line-height-s;
-            }
         }
 
         .vs-stretched-link-card__category {
@@ -482,11 +487,11 @@ export default {
             line-height: $line-height-xs;
             color: $vs-color-text-subtle;
             letter-spacing: normal;
-            margin-bottom: $spacer-4;
+            margin-bottom: $spacer-100;
         }
 
         .vs-stretched-link-card__content {
-            margin-top: $spacer-2;
+            margin-top: $spacer-050;
             line-height: $line-height-s;
             font-size: $font-size-teaser;
 
@@ -497,19 +502,19 @@ export default {
 
         .vs-stretched-link-card__panels {
             position: absolute;
-            top: $spacer-1;
-            right: $spacer-1;
+            top: $spacer-025;
+            right: $spacer-025;
             display: flex;
             flex-direction: row;
 
             @include media-breakpoint-up(sm) {
-                top: $spacer-2;
-                right: $spacer-2;
+                top: $spacer-050;
+                right: $spacer-050;
             }
         }
 
         .vs-stretched-link-card__link {
-            margin: $spacer-4 $spacer-0 $spacer-0;
+            margin: $spacer-100 $spacer-0 $spacer-0;
             color: $vs-color-link;
             text-decoration: underline;
         }
@@ -521,7 +526,7 @@ export default {
         }
 
         .vs-stretched-link-card__video-btn-text {
-            padding-right: $spacer-1;
+            padding-right: $spacer-025;
         }
 
         .vs-stretched-link-card__full-warning {

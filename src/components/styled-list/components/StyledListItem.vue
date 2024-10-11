@@ -17,7 +17,10 @@
                     :src="props.imageSrc"
                 />
 
-                <VsHeading level="3">
+                <VsHeading
+                    level="3"
+                    headingStyle="heading-l"
+                >
                     {{ heading }}
                 </VsHeading>
 
@@ -69,11 +72,11 @@ const props = defineProps({
 <style lang="scss">
 .vs-styled-list--numbered .vs-styled-list__item {
     counter-increment: section;
-    padding: 0 0 $spacer-150 $spacer-150;
+    padding: $spacer-0 $spacer-0 $spacer-150 $spacer-150;
     position: relative;
 
     @include media-breakpoint-up(md) {
-        padding: 0 0 $spacer-200 $spacer-200;
+        padding: $spacer-0 $spacer-0 $spacer-200 $spacer-200;
     }
 
     &::before {
@@ -102,12 +105,12 @@ const props = defineProps({
     }
 
     h3 {
-        margin-top: 0;
+        margin-top: $spacer-0;
     }
 }
 
 .vs-styled-list--icon .vs-styled-list__item {
-    padding: 0 0 $spacer-150 $spacer-300;
+    padding: $spacer-0 $spacer-0 $spacer-150 $spacer-300;
     position: relative;
 
     &::before {
@@ -116,7 +119,7 @@ const props = defineProps({
         font-family: 'Font Awesome Kit';
         font-size: $font-size-8;
         position: absolute;
-        top: $spacer-2;
+        top: $spacer-100;
         left: 0;
     }
 }
@@ -130,7 +133,7 @@ const props = defineProps({
 }
 
 .vs-styled-list--image-horizontal .vs-styled-list__item {
-    padding: 0 $spacer-150;
+    padding: $spacer-0 $spacer-150;
 
     img {
         margin: auto;

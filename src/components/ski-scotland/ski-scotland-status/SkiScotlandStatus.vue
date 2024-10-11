@@ -51,7 +51,7 @@
                 >
                     <VsHeading
                         level="3"
-                        override-style-level="5"
+                        heading-style="heading-xs"
                         data-test="vs-ski__runs-lifts-status-label"
                         class="d-none d-md-block"
                     >
@@ -231,7 +231,8 @@
                     class="vs-ski-scotland-status__full-report"
                 >
                     <VsHeading
-                        level="2"
+                        level="3"
+                        heading-style="heading-l"
                         data-test="vs-ski__snow-conditions-label"
                     >
                         {{ snowConditionsLabel }}
@@ -240,8 +241,8 @@
                         v-html="report"
                     />
                     <VsHeading
-                        level="3"
-                        override-style-level="5"
+                        level="4"
+                        heading-style="heading-xs"
                         data-test="vs-ski__current-weather-label"
                         v-if="currentWeather.length"
                     >
@@ -252,8 +253,8 @@
                         v-html="currentWeather"
                     />
                     <VsHeading
-                        level="3"
-                        override-style-level="5"
+                        level="4"
+                        heading-style="heading-xs"
                         data-test="vs-ski__weather-forecast-label"
                         v-if="weatherForecast.length"
                     >
@@ -264,8 +265,8 @@
                         v-html="weatherForecast"
                     />
                     <VsHeading
-                        level="3"
-                        override-style-level="5"
+                        level="4"
+                        heading-style="heading-xs"
                         data-test="vs-ski__roads-label"
                         v-if="roadStatus.length"
                     >
@@ -276,8 +277,8 @@
                         v-html="roadStatus"
                     />
                     <VsHeading
-                        level="3"
-                        override-style-level="5"
+                        level="4"
+                        heading-style="heading-xs"
                         data-test="vs-ski__news-label"
                         v-if="news.length"
                     >
@@ -298,6 +299,7 @@
                 >
                     <VsHeading
                         level="3"
+                        heading-style="heading-l"
                         data-test="vs-ski__lift-status-label"
                         :id="`vs-ski-scotland-status__detailed-status-${id}`"
                     >
@@ -377,6 +379,7 @@
                 >
                     <VsHeading
                         level="3"
+                        heading-style="heading-l"
                         data-test="vs-ski__run-status-label"
                     >
                         {{ runStatusLabel }}
@@ -1098,26 +1101,17 @@ export default {
         text-align: left;
 
         &__full-report {
-            h2 {
-                margin-bottom: $spacer-4;
-
-                @include media-breakpoint-up(md) {
-                    margin-bottom: $spacer-7;
-                }
-            }
-
-            h3 {
-                margin-bottom: $spacer-2 !important;
-                margin-top: $spacer-6 !important;
+            .vs-heading {
+                margin-top: $spacer-150;
             }
         }
 
         &__centre-info {
             font-size: $font-size-4;
-            margin-top: $spacer-8;
+            margin-top: $spacer-200;
 
             @include media-breakpoint-up(md) {
-                margin-bottom: $spacer-7;
+                margin-bottom: $spacer-175;
                 margin-top: $spacer-0;
             }
 
@@ -1129,30 +1123,22 @@ export default {
 
                 > a {
                     display: inline-block;
-                    width: calc(100% - #{$spacer-7});
+                    width: calc(100% - #{$spacer-175});
                     vertical-align: top;
                     word-break: break-word;
                 }
 
                 > span {
                     display: inline-block;
-                    width: calc(100% - #{$spacer-8});
+                    width: calc(100% - #{$spacer-200});
                     vertical-align: top;
                 }
             }
         }
 
-        &__detailed-status-link {
-            font-size: $font-size-4;
-        }
-
         .row {
             &:not(:first-child) {
-                margin-top: $spacer-8 + $spacer-2;
-
-                @include media-breakpoint-up(md) {
-                    margin-top: $spacer-10;
-                }
+                margin-top: $spacer-200;
             }
         }
 
@@ -1161,10 +1147,16 @@ export default {
         }
 
         .vs-table .vs-icon {
-            width: $spacer-5;
+            width: $spacer-125;
         }
 
         &__run-status-table {
+            margin-bottom: $spacer-0;
+
+            p {
+                margin-bottom: $spacer-0;
+            }
+
             thead th {
                 width: 50%;
             }

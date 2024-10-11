@@ -30,9 +30,9 @@
             v-if="!noJs && renderPopover"
         >
             <VsHeading
-                thin
                 level="3"
                 tabindex="0"
+                headingStyle="heading-m"
                 ref="shareHeader"
                 class="vs-social-share__header"
                 @keydown.tab="tabBackFromHidden($event)"
@@ -67,10 +67,9 @@
                 <VsRow>
                     <VsCol cols="12">
                         <VsHeading
-                            thin
                             level="2"
-                            override-style-level="3"
-                            class="mb-9 mt-0"
+                            headingStyle="heading-l"
+                            class="mb-300 mt-0"
                         >
                             {{ sharePopoverTitle }}
                         </VsHeading>
@@ -328,10 +327,10 @@ export default {
             }
 
             .popover-body {
-                padding: $spacer-8 $spacer-2;
+                padding: $spacer-200 $spacer-050;
 
                 @include media-breakpoint-only(sm) {
-                    padding: $spacer-4 $spacer-7 $spacer-8;
+                    padding: $spacer-100 $spacer-175 $spacer-200;
 
                     .row {
                         margin-right: -4px;
@@ -345,15 +344,15 @@ export default {
                 }
 
                 @include media-breakpoint-up(md) {
-                    padding: $spacer-9;
+                    padding: $spacer-300;
                 }
 
                 @include media-breakpoint-up(xl) {
-                    padding: $spacer-9 $spacer-12;
+                    padding: $spacer-300 $spacer-600;
                 }
 
                 h3.vs-heading {
-                    margin-bottom: $spacer-9;
+                    margin-bottom: $spacer-300;
                 }
             }
         }
@@ -366,8 +365,8 @@ export default {
 
         &__close-btn {
             position: absolute;
-            right: $spacer-4;
-            top: $spacer-4;
+            right: $spacer-100;
+            top: $spacer-100;
         }
     }
 

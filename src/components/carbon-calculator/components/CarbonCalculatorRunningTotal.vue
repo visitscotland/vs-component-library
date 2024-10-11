@@ -62,9 +62,9 @@ export default {
 
 <style lang='scss'>
     .vs-carbon-calculator-running-total {
-        margin-top: $spacer-8;
+        margin-top: $spacer-200;
         border: 1px solid $vs-color-border-tertiary;
-        padding: $spacer-4;
+        padding: $spacer-100;
 
         @include media-breakpoint-up(md) {
             text-align: center;
@@ -75,16 +75,16 @@ export default {
         display: inline-flex;
         align-items: center;
         vertical-align: top;
-        width: $spacer-10;
+        width: $spacer-400;
     }
 
     .vs-carbon-calculator-running-total__content {
         display: inline-block;
-        max-width: calc(100% - $spacer-10);
+        max-width: calc(100% - $spacer-400);
 
         p {
             display: inline-block;
-            margin-right: $spacer-2;
+            margin-right: $spacer-050;
             margin-bottom: 0;
             vertical-align: middle;
         }
