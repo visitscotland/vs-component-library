@@ -1,6 +1,12 @@
 props:
     - name: vs-color-interaction-disabled
       value: "{!vs-cloud-10}"
+    - name: vs-color-interaction-cta-hover
+      value: "{!vs-saltire-70}"
+    - name: vs-color-interaction-cta-subtle-hover
+      value: "{!vs-saltire-10}"
+    - name: vs-color-interaction-cta-active
+      value: "{!vs-saltire-80}"
 imports:
   - ./primitives/color-primitives.yml
 global:

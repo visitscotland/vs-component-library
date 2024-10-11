@@ -74,6 +74,7 @@ props:
       value: "{!vs-saltire-60}"
     - name: vs-color-new-text-brand
       value: "{!vs-thistle-70}"
+      
 imports:
   - ./primitives/color-core.yml
   - ./primitives/color-primitives.yml
