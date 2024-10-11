@@ -24,7 +24,7 @@
             </p>
         </div>
 
-        <div class="vs-select__container  mt-2">
+        <div class="vs-select__container  mt-050">
             <BFormSelect
                 v-model="inputVal"
                 v-bind="$attrs"

@@ -16,7 +16,7 @@
             <li role="menuitem">
                 <VsContainer
                     fluid="lg"
-                    class="px-0 px-lg-3"
+                    class="px-0 px-lg-075"
                 >
                     <VsRow class="g-0">
                         <VsCol cols="12" class="position-relative">

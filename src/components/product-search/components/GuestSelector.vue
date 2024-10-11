@@ -164,7 +164,7 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
                 {{ getLabelText('close', 'Close', 'guests_rooms') }}
             </VsButton>
 
-            <div class="vs-guest-selector__button-row mb-3">
+            <div class="vs-guest-selector__button-row mb-075">
                 <GuestSelectorRow
                     v-for="(unit, index) in units"
                     :key="unit.id"
@@ -182,7 +182,7 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
                 <VsButton
                     v-if="units.length < unitLimit"
                     variant="secondary"
-                    class="c-search__popup__btn-link me-2 align-self-start"
+                    class="c-search__popup__btn-link me-050 align-self-start"
                     @click.prevent="addUnit"
                 >
                     {{ addUnitLabel }}

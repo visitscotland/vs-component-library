@@ -27,11 +27,11 @@
                 <slot name="centre-name" />
             </VsHeading>
             <div
-                class="text-center pb-8 position-relative"
+                class="text-center pb-200 position-relative"
                 v-if="jsDisabled || isLoading || displayError"
             >
                 <template v-if="!jsDisabled && isLoading">
-                    <VsLoadingSpinner class="mb-4 d-block" />
+                    <VsLoadingSpinner class="mb-100 d-block" />
                     <!--
                         @slot Slot for data loading message
                         Expects text

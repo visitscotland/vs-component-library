@@ -69,7 +69,7 @@
                         <VsHeading
                             level="2"
                             headingStyle="heading-l"
-                            class="mb-9 mt-0"
+                            class="mb-300 mt-0"
                         >
                             {{ sharePopoverTitle }}
                         </VsHeading>

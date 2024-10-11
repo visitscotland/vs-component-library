@@ -5,7 +5,7 @@
     >
         <VsIcon
             name="information"
-            class="vs-address__map-marker me-2"
+            class="vs-address__map-marker me-050"
         />
         <div>
             <template v-if="isCurrentTimeframe">

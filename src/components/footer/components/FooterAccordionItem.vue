@@ -1,6 +1,6 @@
 <template>
     <VsAccordionItem
-        class="vs-footer-accordion-item mb-md-6"
+        class="vs-footer-accordion-item mb-md-150"
         data-test="vs-footer-accordion-item"
         :data-unique-id="getUniqueId"
         :control-id="controlId"

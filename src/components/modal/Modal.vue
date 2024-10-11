@@ -19,7 +19,7 @@
                     class="d-flex justify-content-end align-items-start order-lg-1"
                 >
                     <VsButton
-                        class="vs-modal__close-btn mb-5 mb-lg-0"
+                        class="vs-modal__close-btn mb-125 mb-lg-0"
                         data-test="vs-modal__close-btn"
                         variant="secondary"
                         icon-only

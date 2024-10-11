@@ -62,7 +62,7 @@ const Template = (args) => ({
                         {{ accordionItem.title }}
                     </template>
 
-                    <div class="p-3" v-html="accordionItem.content" />
+                    <div class="p-075" v-html="accordionItem.content" />
                 </VsAccordionItem>
             </VsAccordion>
         </div>
