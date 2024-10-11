@@ -276,6 +276,7 @@ WithHeroVideo.args = {
     heroIntro: true,
     'vs-intro-hero': {
         ...imageWithCaptionDefault.args,
+        showToggle: false,
         altText: 'Young girl cartwheeling on Elie Beach',
         'img-caption': {
             caption: 'Elie Beach',

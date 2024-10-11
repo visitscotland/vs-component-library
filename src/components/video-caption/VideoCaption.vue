@@ -32,7 +32,9 @@
                     v-if="withToggleBtn"
                     @toggleAction="emitToggle"
                 >
-                    <span class="visually-hidden">Toggle caption</span>
+                    <span class="visually-hidden">
+                        Toggle caption
+                    </span>
                 </VsToggleButton>
             </div>
 
