@@ -17,6 +17,7 @@ import {
     carbonQuestionTemplate,
     carbonCompleteTemplate,
     productSearchTemplate,
+    cmsReferralTemplate,
 } from '../utils/data-layer-templates';
 
 /**
@@ -297,6 +298,22 @@ const dataLayerMixin = {
 
                 fullTemplate = this.compileFullTemplate(templateValues);
                 dataLayerData = this.templateFiller(carbonCompleteTemplate, fullTemplate);
+
+                break;
+
+            case 'cmsReferral':
+                eventName = 'cms_referral';
+                tagName = 'VS - GA4 - Event - CMS Link Click Referral';
+
+                templateValues = {
+                    event: eventName,
+                    tag_name: tagName,
+                    referral_location: event.referral_location,
+                    dmo_referral: event.dmo_referral,
+                };
+
+                fullTemplate = this.compileFullTemplate(templateValues);
+                dataLayerData = this.templateFiller(cmsReferralTemplate, fullTemplate);
 
                 break;
 
