@@ -371,6 +371,16 @@ describe('VsForm', () => {
 
             moxios.uninstall();
         });
+
+        it('should properly define the `emailField` value when attachEmail is called', async() => {
+            const wrapper = factoryMount();
+
+            wrapper.vm.attachEmail();
+
+            await wrapper.vm.$nextTick();
+
+            expect(wrapper.vm.emailFieldName).toBe('Email');
+        });
     });
 
     describe(':accessibility', () => {
