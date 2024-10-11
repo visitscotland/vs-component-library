@@ -24,8 +24,9 @@
                 @toggleAction="toggleCaption"
                 v-if="showToggle"
             >
-                {{ toggleButtonText }}
-
+                <span class="visually-hidden">
+                    {{ toggleButtonText }}
+                </span>
                 <template v-slot:toggle-icon>
                     <!-- @slot Slot for custom image to be used for toggle icon
                         eg. social media images -->
