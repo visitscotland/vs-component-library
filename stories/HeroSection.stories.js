@@ -1,6 +1,4 @@
 import VsHeroSection from '@/components/hero-section/HeroSection.vue';
-import VsHeading from '@/components/heading/Heading.vue';
-import { VsContainer } from '@/components';
 
 export default {
     component: VsHeroSection,
@@ -28,8 +26,6 @@ export default {
 const Template = (args) => ({
     components: {
         VsHeroSection,
-        VsHeading,
-        VsContainer,
     },
     setup() {
         return {

@@ -30,9 +30,9 @@
             v-if="!noJs && renderPopover"
         >
             <VsHeading
-                thin
                 level="3"
                 tabindex="0"
+                headingStyle="heading-m"
                 ref="shareHeader"
                 class="vs-social-share__header"
                 @keydown.tab="tabBackFromHidden($event)"
@@ -67,9 +67,8 @@
                 <VsRow>
                     <VsCol cols="12">
                         <VsHeading
-                            thin
                             level="2"
-                            override-style-level="3"
+                            headingStyle="heading-l"
                             class="mb-300 mt-0"
                         >
                             {{ sharePopoverTitle }}

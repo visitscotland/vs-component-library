@@ -43,6 +43,7 @@
                 >
                     <VsHeading
                         level="3"
+                        headingStyle="heading-xs"
                         class="card-title vs-product-card__title"
                         data-test="vs-product-card__title"
                     >
@@ -285,7 +286,6 @@ export default {
         .stretched-link {
             color: $vs-color-text;
             text-decoration: none;
-            letter-spacing: 0;
             display: block;
 
             &:focus {
@@ -322,18 +322,10 @@ export default {
         }
 
         .vs-product-card__title {
-            font-size: $font-size-4;
-            line-height: $line-height-s;
-            letter-spacing: $letter-spacing-l;
-            color: $vs-color-text;
             display: flex;
             margin: $spacer-075 $spacer-0 $spacer-050;
 
             @include truncate-text(2);
-
-            a {
-                letter-spacing: inherit;
-            }
         }
 
         .vs-product-card__description {

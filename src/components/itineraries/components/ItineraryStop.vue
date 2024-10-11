@@ -22,6 +22,7 @@
                 </div>
                 <VsHeading
                     level="3"
+                    headingStyle="heading-s"
                     class="vs-itinerary-stop__title ms-100 mt-0"
                 >
                     {{ stopLabel }}
@@ -122,6 +123,12 @@ export default {
 
         .border {
             padding-bottom: $spacer-200;
+        }
+    }
+
+    &__title {
+        @include media-breakpoint-up(sm) {
+            @include heading-style(heading-m);
         }
     }
 

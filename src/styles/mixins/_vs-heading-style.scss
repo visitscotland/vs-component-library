@@ -1,0 +1,70 @@
+/* 
+ * Sets correct styles for each heading style 
+ */
+
+@mixin heading-style($style, $with-margins: true) {
+    // Extract properties from the map
+    $size: map-get(
+        map-get($heading-styles, $style), size
+    );
+
+    // set the heading font size
+    font-size: $size;
+
+    @if $with-margins  == true { 
+        // Extract properties from the map
+        $margin: map-get(
+            map-get($heading-styles, $style), margin
+        );
+
+        // set the heading margins
+        margin: $margin;
+    }    
+}
+
+$heading-styles: (
+    display-l: (
+        size: $display-l, 
+        margin: $spacer-4 0 $spacer-3,
+    ),
+    display-m: (
+        size: $display-m, 
+        margin: $spacer-4 0 $spacer-3,
+    ),
+    display-s: (
+        size: $display-s, 
+        margin: $spacer-4 0 $spacer-3,
+    ),
+    display-xs: (
+        size: $display-xs, 
+        margin: $spacer-4 0 $spacer-3,
+    ),
+    heading-xxl: (
+        size: $heading-xxl,
+        margin: $spacer-4 0 $spacer-3,
+    ),
+    heading-xl: (
+        size: $heading-xl, 
+        margin: $spacer-4 0 $spacer-3,
+    ),
+    heading-l: (
+        size: $heading-l, 
+        margin: $spacer-4 0 $spacer-3,
+    ),
+    heading-m: (
+        size: $heading-m, 
+        margin: $spacer-3 0 $spacer-2,
+    ),
+    heading-s: (
+        size: $heading-s, 
+        margin: $spacer-3 0 $spacer-2,
+    ),
+    heading-xs: (
+        size: $heading-xs, 
+        margin: $spacer-3 0 $spacer-2,
+    ),
+    heading-xxs: (
+        size: $heading-xxs, 
+        margin: $spacer-3 0 $spacer-2,
+    ),
+);

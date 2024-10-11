@@ -3,9 +3,7 @@
         class="card vs-ski-scotland-card"
         data-test="vs-ski-scotland-card"
     >
-        <div
-            class="vs-ski-scotland-card__img-container"
-        >
+        <div class="vs-ski-scotland-card__img-container">
             <template
                 v-if="imgSrc"
             >
@@ -20,6 +18,7 @@
         <div class="card-body">
             <VsHeading
                 level="3"
+                headingStyle="heading-m"
             >
                 <!--
                     @slot Slot for ski centre name
