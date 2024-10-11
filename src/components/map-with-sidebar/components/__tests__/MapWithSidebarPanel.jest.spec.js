@@ -71,15 +71,32 @@ describe('VsMapWithSidebarPanel', () => {
             expect(wrapper.emitted('close-panel')).toBeTruthy();
         });
 
-        it('should emit `set-subcategory` when the close button is clicked and the currentStage is 2', async() => {
+        it('should emit `set-subcategory` when the close button is clicked and the currentStage is 2 on desktop', async() => {
             const wrapper = factoryShallowMount({
                 currentStage: 2,
             });
             const closeBtn = wrapper.find('[data-test="vs-map-with-sidebar-panel--btn-close"]');
 
+            window.innerWidth = 1292;
+            window.dispatchEvent(new Event('resize'));
+
             await closeBtn.trigger('click');
 
             expect(wrapper.emitted('set-subcategory')).toBeTruthy();
+        });
+
+        it('should not emit `set-subcategory` when the close button is clicked and the currentStage is 2 on mobile', async() => {
+            const wrapper = factoryShallowMount({
+                currentStage: 2,
+            });
+            const closeBtn = wrapper.find('[data-test="vs-map-with-sidebar-panel--btn-close"]');
+
+            window.innerWidth = 1291;
+            window.dispatchEvent(new Event('resize'));
+
+            await closeBtn.trigger('click');
+
+            expect(wrapper.emitted('set-subcategory')).toBeFalsy();
         });
 
         it('should emit `set-stage` with a value of currentStage - 1 when the back button is clicked', async() => {
