@@ -129,13 +129,9 @@ export default {
 }
 
 .vs-summary-box-item__display {
-    font-family: $headings-font-family;
+    font-family: $display-font-family;
     font-size: $font-size-9;
     bottom: 35%;
-
-    .divider {
-        font-family: $headings-font-family-thin;
-    }
 
     @include media-breakpoint-up(lg) {
         font-size: $font-size-10;

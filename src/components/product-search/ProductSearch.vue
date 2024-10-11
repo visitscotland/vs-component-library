@@ -109,7 +109,6 @@ export default {
         width: 100%;
         background: $vs-color-background-accent-heather;
         padding: $spacer-200 $spacer-025;
-        font-family: $font-family-sans-serif;
 
         &__no-js {
             display: none;
@@ -128,7 +127,6 @@ export default {
 
         &__col--left {
             background: $vs-color-background-accent-heather;
-            font-family: $font-family-sans-serif;
             margin-bottom: $spacer-300;
         }
 

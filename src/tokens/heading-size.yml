@@ -2,6 +2,8 @@
 # HEADING-SIZE TOKENS
 # Use these tokens to set a heading-size.
 #
+
+props:
     - name: display-l
       value: "{!font-size-1000}"
     - name: display-m

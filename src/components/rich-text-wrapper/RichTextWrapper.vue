@@ -38,7 +38,6 @@ export default {
 <style lang="scss">
 .vs-rich-text-wrapper {
     &--normal{
-        font-family: $font-family-base;
         font-size: $font-size-body;
 
         @include media-breakpoint-up(md) {
