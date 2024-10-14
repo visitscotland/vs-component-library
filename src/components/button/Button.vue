@@ -17,7 +17,7 @@
             class="align-self-center"
             :name="icon"
             :class="iconClasses"
-            :size="calcIconSize"
+            size="xs"
             :padding="0"
         />
         <!-- @slot The button content goes here -->
@@ -160,18 +160,6 @@ export default {
                     'vs-icon--left': this.iconPosition === 'left',
                 },
             ];
-        },
-        calcIconSize() {
-            switch (this.size) {
-            case 'sm':
-                return 'xs';
-            case 'md':
-                return 'sm';
-            case 'lg':
-                return 'sm';
-            default:
-                return 'md';
-            }
         },
     },
     methods: {
