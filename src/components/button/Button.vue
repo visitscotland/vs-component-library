@@ -274,6 +274,10 @@ export default {
                     $vs-color-text-inverse, $vs-color-interaction-cta-subtle-active, $vs-color-interaction-cta-subtle-active,
                 );
             }
+
+            &:focus {
+                box-shadow: 0 0 0 2px $vs-color-border-focus;
+            }
         }
 
         &.vs-button--icon-with-text {

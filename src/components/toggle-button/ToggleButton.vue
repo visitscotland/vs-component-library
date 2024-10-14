@@ -3,7 +3,6 @@
         class="vs-toggle-btn"
         data-test="vs-toggle-btn"
         variant="transparent"
-        size="sm"
         :aria-controls="toggleId"
         :aria-expanded="show ? 'true' : 'false'"
         @click="toggleAction"
@@ -81,7 +80,25 @@ export default {
 };
 </script>
 <style lang="scss">
-    .vs-toggle-btn{
+    .vs-toggle-btn.vs-button.btn-transparent{
+        line-height: 1;
+
+        @include vs-button-variant(
+            $vs-color-new-text-cta-on-light, transparent, transparent,
+            $vs-color-text-primary, transparent, transparent,
+            $vs-color-text-inverse, transparent, transparent,
+        );
+
+        &.btn-md {
+            padding: $spacer-050 $spacer-025;
+            width: 44px;
+            height: 44px;
+        }
+
+        .vs-icon {
+            margin: 0;
+        }
+
         .fa-icon-colours,
         .fa-icon-colours--white {
             --fa-primary-color: #{$vs-color-icon-inverse};
