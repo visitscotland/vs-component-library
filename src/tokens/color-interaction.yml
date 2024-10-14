@@ -7,6 +7,8 @@ props:
       value: "{!vs-saltire-10}"
     - name: vs-color-interaction-cta-active
       value: "{!vs-saltire-80}"
+    - name: vs-color-interaction-cta-subtle-active
+      value: "{!vs-saltire-50}"
 imports:
   - ./primitives/color-primitives.yml
 global:

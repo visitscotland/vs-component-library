@@ -252,34 +252,18 @@ export default {
         ------------------------------------------ */
         &.btn-primary {
             @include vs-button-variant(
-                $vs-color-text-inverse,
-                $vs-color-interaction-cta-primary,
-                $vs-color-border-primary,
-                $vs-color-text-inverse,
-                $vs-color-interaction-cta-hover,
-                $vs-color-background-hover,
-                $vs-color-text-primary,
-                $vs-color-interaction-cta-active,
-                $vs-color-interaction-cta-active,
-                $vs-color-text-primary,
-                $vs-color-background-inverse,
-                $vs-color-border-primary );
+                $vs-color-text-inverse, $vs-color-interaction-cta-primary, $vs-color-border-primary,
+                $vs-color-text-inverse, $vs-color-interaction-cta-hover, $vs-color-background-hover,
+                $vs-color-text-inverse, $vs-color-interaction-cta-active, $vs-color-interaction-cta-active,
+            );
         }
 
         &.btn-secondary {
             @include vs-button-variant(
-                $vs-color-text-primary,
-                $vs-color-background-inverse,
-                $vs-color-border-primary,
-                $vs-color-text-inverse,
-                $vs-color-background-hover,
-                $vs-color-background-hover,
-                $vs-color-text-primary,
-                $vs-color-background-active,
-                $vs-color-background-active,
-                $vs-color-text-inverse,
-                $vs-color-background-primary,
-                $vs-color-border-focus );
+                $vs-color-text-primary, $vs-color-background-inverse, $vs-color-border-primary,
+                $vs-color-text-inverse, $vs-color-interaction-cta-hover, $vs-color-background-hover,
+                $vs-color-text-inverse, $vs-color-interaction-cta-active, $vs-color-interaction-cta-active,
+            );
         }
 
         &.btn-transparent {
@@ -287,8 +271,8 @@ export default {
                 @include vs-button-variant(
                     $vs-color-new-text-cta-on-light, transparent, transparent,
                     $vs-color-text-primary, $vs-color-interaction-cta-subtle-hover, $vs-color-interaction-cta-subtle-hover,
-                    $vs-color-text-primary, transparent, transparent,
-                    $vs-color-text-primary, transparent, transparent);
+                    $vs-color-text-inverse, $vs-color-interaction-cta-subtle-active, $vs-color-interaction-cta-subtle-active,
+                );
             }
         }
 

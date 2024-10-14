@@ -81,6 +81,12 @@ Secondary.args = {
     variant: 'secondary',
 };
 
+export const Transparent = Template.bind();
+Transparent.args = {
+    ...base,
+    variant: 'transparent',
+};
+
 export const Disabled = Template.bind();
 Disabled.args = {
     ...base,

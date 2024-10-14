@@ -51,7 +51,6 @@ export default {
             $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
             $vs-color-text-inverse, $vs-color-background-hover, $vs-color-background-hover,
             $vs-color-text-inverse, $vs-color-background-tertiary, $vs-color-background-tertiary,
-            $vs-color-text-inverse, $vs-color-background-tertiary, $vs-color-border-tertiary,
         );
 
         &:focus {

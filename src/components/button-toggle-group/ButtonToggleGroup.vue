@@ -240,12 +240,10 @@ export default {
                         $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
                         $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
                         $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
-                        $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
                     );
 
                     @include media-breakpoint-up(lg) {
                         @include vs-button-variant(
-                            $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
                             $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
                             $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
                             $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,

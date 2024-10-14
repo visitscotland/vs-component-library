@@ -6,8 +6,7 @@
 @mixin vs-button-variant(
     $color, $background, $border, 
     $hover-color, $hover-background, $hover-border,
-    $active-color, $active-background, $active-border,
-    $focus-color, $focus-background, $focus-border, ) 
+    $active-color, $active-background, $active-border,)
 {
 
     color: $color;
@@ -28,7 +27,13 @@
         }
     }
 
-    &:focus{
-         @extend %primary-button-focus
+    &:active, &:active:focus{
+        color: $active-color;
+        background-color: $active-background;
+        border-color: $active-border;
+
+        .vs-icon {
+            color: $active-color;
+        }
     }
 }
