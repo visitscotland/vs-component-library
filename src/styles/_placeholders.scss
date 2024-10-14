@@ -25,7 +25,6 @@ BUTTON STYLES
 ***************/
 
 %button-default-styles {
-    font-family: $font-family-base;
     font-weight: $font-weight-semi-bold;
     transition: $transition-base;
     text-decoration: none;
@@ -79,7 +78,6 @@ HEADING STYLES
 
 %sub-heading-default {
     display: block;
-    font-family: $font-family-sans-serif;
     font-weight: $font-weight-normal;
     line-height: $line-height-sub-heading;
     letter-spacing: $tracking-sub-heading;

@@ -119,7 +119,7 @@ export default {
 
     .count {
         color: $vs-color-text-inverse;
-        font-family: $headings-font-family;
+        font-family: $display-font-family;
         font-size: $font-size-8;
         line-height: $line-height-xs;
         display: block;

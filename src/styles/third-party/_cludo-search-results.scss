@@ -195,14 +195,9 @@
                         }
 
                         h2{
-                            font-size: $font-size-h2;
-                            letter-spacing: .15rem;
+                            @include heading-style(heading-m);
                             margin-top: 0;
                             margin-bottom: $spacer-075;
-
-                            @include media-breakpoint-up(md) {
-                                font-size: $font-size-h2-md;
-                            }
 
                             @include media-breakpoint-up(xl) {
                                 margin-top: $spacer-100;
