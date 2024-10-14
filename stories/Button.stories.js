@@ -60,7 +60,7 @@ const Template = (args) => ({
 });
 
 const base = {
-    default: 'Nearby places to eat',
+    default: 'Button',
     variant: 'primary',
     size: 'md',
     animate: true,
@@ -79,6 +79,12 @@ export const Secondary = Template.bind();
 Secondary.args = {
     ...base,
     variant: 'secondary',
+};
+
+export const Transparent = Template.bind();
+Transparent.args = {
+    ...base,
+    variant: 'transparent',
 };
 
 export const Disabled = Template.bind();
@@ -102,13 +108,13 @@ Large.args = {
 export const WithIcon = Template.bind();
 WithIcon.args = {
     ...base,
-    icon: 'user',
+    icon: 'landscape',
 };
 
 export const WithIconOnRight = Template.bind();
 WithIconOnRight.args = {
     ...base,
-    icon: 'user',
+    icon: 'landscape',
     iconPosition: 'right',
 };
 

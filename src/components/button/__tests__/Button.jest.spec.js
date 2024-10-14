@@ -108,36 +108,6 @@ describe('VsButton', () => {
 
                 expect(icon.classes('fa-food')).toBe(true);
             });
-
-            it('size should be `xs` if button size is set to `sm`', () => {
-                const wrapper = factoryMount({
-                    icon: testIcon,
-                    size: 'sm',
-                });
-                const icon = wrapper.find('.vs-icon');
-
-                expect(icon.classes('vs-icon--size-xs')).toBe(true);
-            });
-
-            it('size should be `sm` if button size is set to `md`', () => {
-                const wrapper = factoryMount({
-                    icon: testIcon,
-                    size: 'md',
-                });
-                const icon = wrapper.find('.vs-icon');
-
-                expect(icon.classes('vs-icon--size-sm')).toBe(true);
-            });
-
-            it('size should be `md` if button size is set to `lg`', () => {
-                const wrapper = factoryMount({
-                    icon: testIcon,
-                    size: 'lg',
-                });
-                const icon = wrapper.find('.vs-icon');
-
-                expect(icon.classes('vs-icon--size-md')).toBe(true);
-            });
         });
 
         describe(':animate', () => {

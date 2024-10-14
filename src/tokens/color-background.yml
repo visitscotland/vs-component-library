@@ -90,6 +90,11 @@ props:
       value: "{!vs-basalt-90}"
     - name: vs-color-new-background-brand
       value: "{!vs-thistle-70}"
+
+    - name: vs-color-interaction-cta-subtle-hover
+      value: "{!vs-saltire-10}"
+    - name: vs-color-interaction-cta-primary
+      value: "{!vs-saltire-60}"
 imports:
   - ./primitives/color-core.yml
   - ./primitives/color-primitives.yml
