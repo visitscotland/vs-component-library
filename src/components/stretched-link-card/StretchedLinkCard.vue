@@ -482,7 +482,6 @@ export default {
         }
 
         .vs-stretched-link-card__category {
-            font-family: $font-family-base;
             font-size: $font-size-3;
             line-height: $line-height-xs;
             color: $vs-color-text-subtle;

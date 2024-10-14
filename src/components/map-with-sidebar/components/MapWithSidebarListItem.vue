@@ -181,7 +181,7 @@ export default {
         outline: none;
         background: none;
         border: none;
-        font-size: $font-size-h4;
+        font-size: $font-size-4;
         text-transform: none;
         font-family: $font-family-base;
         font-weight: $font-weight-bold;

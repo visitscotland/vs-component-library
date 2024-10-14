@@ -98,15 +98,11 @@ export default {
 
 <style lang="scss">
 [class*="vs-heading--display-"] {
-    font-family: $headings-font-family;
+    font-family: $display-font-family;
 
     .vs-heading__sub-heading {
         font-weight: $font-weight-semi-bold;
     }
-}
-
-[class*="vs-heading--heading-"] {
-    font-family: $font-family-sans-serif;
 }
 
 .vs-heading {
