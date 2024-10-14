@@ -6,6 +6,7 @@ imports:
   - ./color-background.yml
   - ./color-border.yml
   - ./color-icons.yml
+  - ./color-interaction.yml
   - ./color-links.yml
   - ./color-roles.yml
   - ./color-text.yml

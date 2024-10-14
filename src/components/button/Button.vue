@@ -17,7 +17,7 @@
             class="align-self-center"
             :name="icon"
             :class="iconClasses"
-            :size="calcIconSize"
+            size="xs"
             :padding="0"
         />
         <!-- @slot The button content goes here -->
@@ -161,18 +161,6 @@ export default {
                 },
             ];
         },
-        calcIconSize() {
-            switch (this.size) {
-            case 'sm':
-                return 'xs';
-            case 'md':
-                return 'sm';
-            case 'lg':
-                return 'md';
-            default:
-                return 'md';
-            }
-        },
     },
     methods: {
         animateHandler(event) {
@@ -213,15 +201,19 @@ export default {
     .vs-button {
         @extend %button-default-styles;
 
+        &:focus {
+            @extend %primary-button-focus;
+        }
+
         .vs-icon {
             margin-top: -0.05rem;
 
             &--right {
-                margin-left: $spacer-050;
+                margin-left: $spacer-025;
             }
 
             &--left {
-                margin-right: $spacer-050;
+                margin-right: $spacer-025;
             }
         }
 
@@ -248,47 +240,31 @@ export default {
         ------------------------------------------ */
         &.btn-primary {
             @include vs-button-variant(
-                $vs-color-text-inverse,
-                $vs-color-background-primary,
-                $vs-color-border-primary,
-                $vs-color-text-inverse,
-                $vs-color-background-hover,
-                $vs-color-background-hover,
-                $vs-color-text-primary,
-                $vs-color-background-active,
-                $vs-color-background-active,
-                $vs-color-text-primary,
-                $vs-color-background-inverse,
-                $vs-color-border-primary );
+                $vs-color-text-inverse, $vs-color-interaction-cta-primary, $vs-color-border-primary,
+                $vs-color-text-inverse, $vs-color-interaction-cta-hover, $vs-color-background-hover,
+                $vs-color-text-inverse, $vs-color-interaction-cta-active, $vs-color-interaction-cta-active,
+            );
         }
 
         &.btn-secondary {
             @include vs-button-variant(
-                $vs-color-text-primary,
-                $vs-color-background-inverse,
-                $vs-color-border-primary,
-                $vs-color-text-inverse,
-                $vs-color-background-hover,
-                $vs-color-background-hover,
-                $vs-color-text-primary,
-                $vs-color-background-active,
-                $vs-color-background-active,
-                $vs-color-text-inverse,
-                $vs-color-background-primary,
-                $vs-color-border-focus );
+                $vs-color-text-primary, $vs-color-background-inverse, $vs-color-border-primary,
+                $vs-color-text-inverse, $vs-color-interaction-cta-hover, $vs-color-background-hover,
+                $vs-color-text-inverse, $vs-color-interaction-cta-active, $vs-color-interaction-cta-active,
+            );
         }
 
         &.btn-transparent {
             &:not(.vs-main-map-category__button) {
                 @include vs-button-variant(
-                    $vs-color-text, transparent, transparent,
-                    $vs-color-text-primary, transparent, transparent,
-                    $vs-color-text-primary, transparent, transparent,
-                    $vs-color-text-primary, transparent, transparent);
+                    $vs-color-new-text-cta-on-light, transparent, transparent,
+                    $vs-color-text-primary, $vs-color-interaction-cta-subtle-hover, $vs-color-interaction-cta-subtle-hover,
+                    $vs-color-text-inverse, $vs-color-interaction-cta-subtle-active, $vs-color-interaction-cta-subtle-active,
+                );
+            }
 
-                &:focus {
-                    box-shadow: $vs-box-shadow-focus inset;
-                }
+            &:focus {
+                box-shadow: 0 0 0 2px $vs-color-border-focus;
             }
         }
 
@@ -297,10 +273,6 @@ export default {
             font-weight: $font-weight-normal;
             font-size: $font-size-3;
             transition: none;
-
-            &.btn-sm, &.btn-md, &.btn-lg {
-                padding: $spacer-025;
-            }
 
             .vs-button__text {
                 text-decoration: underline;
@@ -323,14 +295,14 @@ export default {
 
             &.btn-md {
                 padding: $spacer-050 $spacer-025;
-                width: 40px;
-                height: 40px;
+                width: 44px;
+                height: 44px;
             }
 
             &.btn-lg {
                 padding: $spacer-050 $spacer-025;
-                width: 48px;
-                height: 48px;
+                width: 52px;
+                height: 52px;
             }
 
             .vs-icon {
@@ -341,15 +313,16 @@ export default {
         /* Button Sizes
         ------------------------------------------ */
         &.btn-sm {
-            padding: $spacer-025 $spacer-100;
+            padding: $spacer-0125 $spacer-125;
         }
 
         &.btn-md {
-            padding: $spacer-075 $spacer-200;
+            padding: $spacer-050 $spacer-150;
         }
 
         &.btn-lg {
-            padding: $spacer-100 $spacer-300;
+            padding: $spacer-075 $spacer-175;
+            font-size: unset;
         }
 
         &.vs-button--flex-reverse {

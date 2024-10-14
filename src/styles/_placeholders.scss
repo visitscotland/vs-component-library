@@ -28,11 +28,10 @@ BUTTON STYLES
     font-weight: $font-weight-semi-bold;
     transition: $transition-base;
     text-decoration: none;
-    letter-spacing: $letter-spacing-m;
     position: relative;
     overflow: hidden;
     border-width: 2px;
-    line-height: $line-height-standard;
+    line-height: $line-height-base;
 }
 
 %primary-button-focus {
@@ -42,15 +41,10 @@ BUTTON STYLES
 }
 
 %button-disabled { 
-    background-color: $vs-color-background-disabled;
-    border-color: $vs-color-background-disabled;
-    color: $vs-color-text-inverse;
+    background-color: $vs-color-interaction-disabled;
+    border-color: $vs-color-interaction-disabled;
+    color: $vs-color-new-text-disabled;
     opacity: $opacity-100;
-
-    &:hover {
-        background-color: $vs-color-background-disabled;
-        border-color: $vs-color-background-disabled;
-    }
 }
 
 

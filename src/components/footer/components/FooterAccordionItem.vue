@@ -129,7 +129,6 @@ export default {
             $vs-color-text-inverse, $vs-color-background-bold, $vs-color-background-bold,
             $vs-color-text-inverse, $vs-color-background-bold, $vs-color-background-bold,
             $vs-color-text-inverse, $vs-color-background-bold, $vs-color-background-bold,
-            $vs-color-text-inverse, $vs-color-background-bold, $vs-color-background-bold,
         );
 
         &:hover{
