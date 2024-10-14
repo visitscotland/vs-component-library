@@ -294,6 +294,7 @@ export default {
             },
             inputVal: '',
             reAlertErrors: false,
+            emailFieldName: '',
         };
     },
     computed: {
@@ -709,6 +710,7 @@ export default {
             myForm.onSuccess(() => {
                 this.submitting = false;
                 this.submitted = true;
+                this.attachEmail();
                 return false;
             });
 
@@ -743,8 +745,27 @@ export default {
             ).then(() => {
                 this.submitting = false;
                 this.submitted = true;
+                this.attachEmail();
                 return false;
             }).catch(() => {});
+        },
+        /**
+         * If exponea is present in the window (via gtm with accepted cookies), attach the
+         * current user to the record associated with their email address
+         */
+        attachEmail() {
+            this.formData.fields.forEach((field) => {
+                if (field.type === 'email' && !this.emailFieldName) {
+                    this.emailFieldName = field.name;
+                }
+            });
+
+            if (this.emailFieldName && typeof exponea !== 'undefined') {
+                // eslint-disable-next-line no-undef
+                exponea.identify({
+                    email_id: this.form[this.emailFieldName],
+                });
+            }
         },
         /**
          * Checks recaptcha response from the server
