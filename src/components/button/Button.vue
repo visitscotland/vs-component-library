@@ -101,7 +101,7 @@ export default {
          */
         rounded: {
             type: Boolean,
-            default: false,
+            default: true,
         },
         /**
          * Pass the name of the icon to add it to the button.

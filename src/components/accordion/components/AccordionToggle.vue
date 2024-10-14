@@ -7,6 +7,7 @@
         class="vs-accordion-toggle clearfix"
         :class="visible ? 'vs-accordion-toggle--open' : ''"
         :variant="variant"
+        :rounded="false"
     >
         <!-- @slot Default slot contains text for the button -->
         <span class="vs-accordion-toggle__text">
@@ -72,6 +73,7 @@ export default {
 .btn.vs-button.vs-accordion-toggle {
     display: flex;
     width: 100%;
+    color: $vs-color-new-text-primary;
 
     .btn-content {
         width: 100%;

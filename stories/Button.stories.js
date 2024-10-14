@@ -81,6 +81,12 @@ Secondary.args = {
     variant: 'secondary',
 };
 
+export const Transparent = Template.bind();
+Transparent.args = {
+    ...base,
+    variant: 'transparent',
+};
+
 export const Disabled = Template.bind();
 Disabled.args = {
     ...base,
@@ -120,10 +126,10 @@ IconOnly.args = {
     default: '',
 };
 
-export const Rounded = Template.bind();
-Rounded.args = {
+export const SquareCorners = Template.bind();
+SquareCorners.args = {
     ...base,
-    rounded: true,
+    rounded: false,
 };
 
 export const IconOnlySecondary = Template.bind();
