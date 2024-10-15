@@ -6,7 +6,6 @@
         ref="socialShareContainer"
     >
         <VsButton
-            icon-with-text
             class="vs-social-share__share-btn"
             variant="transparent"
             icon="share"

@@ -67,7 +67,6 @@ const base = {
     href: '',
     icon: '',
     iconOnly: false,
-    iconWithText: false,
     iconPosition: 'left',
     tabindex: '',
 };
@@ -166,13 +165,4 @@ IconOnlyLarge.args = {
     iconOnly: true,
     size: 'lg',
     default: '',
-};
-
-export const IconWithText = Template.bind();
-IconWithText.args = {
-    ...base,
-    variant: 'transparent',
-    icon: 'share',
-    iconWithText: true,
-    default: 'Share',
 };

@@ -118,13 +118,6 @@ export default {
             default: false,
         },
         /**
-         * If the button contains an icon with accessible text.
-         */
-        iconWithText: {
-            type: Boolean,
-            default: false,
-        },
-        /**
          * The position of the icon
          * `left|right`
          */
@@ -143,12 +136,11 @@ export default {
         buttonClasses() {
             return [
                 {
-                    'vs-button--animated': this.animate && !this.iconOnly && !this.iconWithText,
+                    'vs-button--animated': this.animate && !this.iconOnly,
                     'vs-button--is-animating': this.isAnimating,
                     'vs-button--rounded': this.rounded,
                     'vs-button--icon-only': this.iconOnly,
-                    'vs-button--icon-with-text': this.iconWithText,
-                    'button-flex': this.icon && !this.iconOnly && !this.iconWithText,
+                    'button-flex': this.icon && !this.iconOnly,
                     'vs-button--flex-reverse': this.iconPosition === 'right',
                 },
             ];
@@ -265,22 +257,6 @@ export default {
 
             &:focus {
                 box-shadow: 0 0 0 2px $vs-color-border-focus;
-            }
-        }
-
-        &.vs-button--icon-with-text {
-            letter-spacing: initial;
-            font-weight: $font-weight-normal;
-            font-size: $font-size-3;
-            transition: none;
-
-            .vs-button__text {
-                text-decoration: underline;
-            }
-
-            .vs-icon {
-                display: block;
-                margin: 0 auto $spacer-025;
             }
         }
 
