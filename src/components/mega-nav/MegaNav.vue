@@ -72,6 +72,7 @@
                                 variant="transparent"
                                 @click="menuToggle()"
                                 ref="toggleButton"
+                                :rounded="false"
                                 aria-haspopup="true"
                             >
                                 {{ menuToggleAltText }}
@@ -275,7 +276,7 @@ export default {
     box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.15);
 
     @include media-breakpoint-up(lg) {
-        height: 55px;
+        height: 48px;
     }
 
     &__main-row {
@@ -307,15 +308,6 @@ export default {
 
     &__mobile-menu-toggle {
         position: relative;
-        letter-spacing: 0;
-        font-weight: $font-weight-normal;
-        line-height: $line-height-standard;
-        border-radius: 0;
-        border: 0;
-        height: $spacer-175;
-        width: $spacer-175;
-        font-size: 0;
-        padding: 0;
     }
 
     &__mobile-menu {

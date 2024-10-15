@@ -86,7 +86,7 @@ const Template = (args) => ({
                         >
                             <VsDescriptionList
                                 v-if="day.transport.length"
-                                class="text-center justify-content-center align-items-center mb-075"
+                                class="text-center justify-content-center mb-075"
                                 inline
                             >
                                 <VsDescriptionListItem
@@ -104,13 +104,11 @@ const Template = (args) => ({
                                         :title="transportType.value"
                                         href="#"
                                         :icon="transportType.key"
-                                        size="lg"
+                                        size="sm"
                                         icon-only
                                         variant="transparent"
                                     >
-                                        <span class="visually-hidden">
-                                            {{transportType.value}}
-                                        </span>
+                                        {{transportType.value}}
                                     </VsTooltip>
                                 </VsDescriptionListItem>
                             </VsDescriptionList>

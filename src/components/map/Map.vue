@@ -1066,9 +1066,9 @@ export default {
         & > button {
             width: 32px;
             height: 32px;
-            border-radius: 0 !important;
             font-size: $font-size-4;
             transition: $duration-base all;
+            border-radius: $border-radius-pill;
 
             &:focus {
                 @extend %primary-button-focus;
@@ -1076,22 +1076,17 @@ export default {
 
             &:active, &:active:focus {
                 box-shadow: none;
-                border: $vs-color-background-active;
+                border: $vs-color-interaction-cta-active;
             }
 
             @include vs-button-variant(
                 $vs-color-text-primary, $vs-color-background-inverse, $vs-color-border-primary,
-                $vs-color-text-inverse, $vs-color-background-hover, $vs-color-background-hover,
-                $vs-color-text-primary, $vs-color-background-active, $vs-color-background-active,
+                $vs-color-text-inverse, $vs-color-interaction-cta-hover, $vs-color-background-hover,
+                $vs-color-text-inverse, $vs-color-interaction-cta-active, $vs-color-interaction-cta-active,
             );
 
             &.mapboxgl-ctrl-zoom-in {
                 margin-bottom: $spacer-050;
-            }
-
-            @include media-breakpoint-up(lg) {
-                width: 36px;
-                height: 36px;
             }
         }
     }

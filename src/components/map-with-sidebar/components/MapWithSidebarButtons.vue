@@ -29,9 +29,9 @@
 
         <template v-else>
             <VsButton
-                block
                 :href="contentData.properties.link.link"
                 data-test="vs-map-with-sidebar-buttons__discover"
+                class="mb-050"
             >
                 {{ contentData.properties.link.label }}
             </VsButton>
@@ -39,10 +39,10 @@
             <VsButton
                 v-if="websiteDataExists"
                 :href="contentData.properties.website.link"
-                block
                 target="_blank"
                 rel="noopener noreferrer"
                 data-test="vs-map-with-sidebar-buttons__website"
+                variant="secondary"
             >
                 {{ contentData.properties.website.label }}
             </VsButton>
@@ -116,6 +116,11 @@ export default {
         background: $vs-color-background-inverse;
         text-align: center;
         box-shadow: 0px -5px 10px 0px $vs-color-background-inverse;
+
+        .vs-button{
+            display: block;
+            width: 100%;
+        }
 
         @include media-breakpoint-up(lg) {
             padding: $spacer-100;
