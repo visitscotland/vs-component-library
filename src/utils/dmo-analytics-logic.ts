@@ -36,19 +36,22 @@ const dmoAnalyticsLogic = (triggerEvent) => {
         };
 
         dmoUrls.forEach((data) => {
-            // remove trailing '/' from link if it exists
-            const removeTrailingSlash = (url) => {
-                const finalChar = url.slice(-1);
-                if (finalChar === '/') {
-                    return url.substring(0, url.length - 1);
+            // only run function if the target is an anchor element
+            if (triggerEvent.srcElement === 'a') {
+                // remove trailing '/' from link if it exists
+                const removeTrailingSlash = (url) => {
+                    const finalChar = url.slice(-1);
+                    if (finalChar === '/') {
+                        return url.substring(0, url.length - 1);
+                    }
+
+                    return url;
+                };
+
+                if (removeTrailingSlash(triggerEvent.target.href) === removeTrailingSlash(data)) {
+                    linkedToDMO = true;
+                    trackingData = createTracking('True');
                 }
-
-                return url;
-            };
-
-            if (removeTrailingSlash(triggerEvent.target.href) === removeTrailingSlash(data)) {
-                linkedToDMO = true;
-                trackingData = createTracking('True');
             }
         });
 
