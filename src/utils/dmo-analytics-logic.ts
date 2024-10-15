@@ -37,7 +37,7 @@ const dmoAnalyticsLogic = (triggerEvent) => {
 
         dmoUrls.forEach((data) => {
             // don't run function if the target is an SVG path
-            if (triggerEvent.target !== 'path') {
+            if (triggerEvent.srcElement === 'a') {
                 // remove trailing '/' from link if it exists
                 const removeTrailingSlash = (url) => {
                     const finalChar = url.slice(-1);
