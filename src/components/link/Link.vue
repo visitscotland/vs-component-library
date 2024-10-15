@@ -121,6 +121,12 @@ export default {
                 });
             }
 
+            // short delay to ensure that analytics get added to datalayer
+            setTimeout(() => {
+                this.navigateToUrl();
+            }, 500);
+        },
+        navigateToUrl() {
             // don't navigate if it's an empty or anchor link
             if (this.href !== '#' && this.href !== null) {
                 window.location.href = this.href;
