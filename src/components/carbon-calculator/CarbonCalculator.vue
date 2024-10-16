@@ -112,7 +112,7 @@
                     v-if="activeStage > 0"
                 >
                     <VsButton
-                        :variant="activeStage <= formData.fields.length ? 'primary' : 'secondary'"
+                        variant="secondary"
                         type="submit"
                         class="vs-form__submit mt-300 float-start"
                         ref="backPage"

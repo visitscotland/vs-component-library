@@ -50,7 +50,7 @@
                         class="vs-banner__close-btn"
                         data-test="vs-banner__close-btn"
                         variant="transparent"
-                        icon="close-circle"
+                        icon="close"
                         size="md"
                         icon-only
                         @click="hideBanner"

@@ -67,7 +67,6 @@ const base = {
     href: '',
     icon: '',
     iconOnly: false,
-    iconWithText: false,
     iconPosition: 'left',
     tabindex: '',
 };
@@ -126,10 +125,10 @@ IconOnly.args = {
     default: '',
 };
 
-export const Rounded = Template.bind();
-Rounded.args = {
+export const SquareCorners = Template.bind();
+SquareCorners.args = {
     ...base,
-    rounded: true,
+    rounded: false,
 };
 
 export const IconOnlySecondary = Template.bind();
@@ -166,13 +165,4 @@ IconOnlyLarge.args = {
     iconOnly: true,
     size: 'lg',
     default: '',
-};
-
-export const IconWithText = Template.bind();
-IconWithText.args = {
-    ...base,
-    variant: 'transparent',
-    icon: 'share',
-    iconWithText: true,
-    default: 'Share',
 };

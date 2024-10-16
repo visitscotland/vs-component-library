@@ -6,7 +6,6 @@
         ref="socialShareContainer"
     >
         <VsButton
-            icon-with-text
             class="vs-social-share__share-btn"
             variant="transparent"
             icon="share"
@@ -49,7 +48,6 @@
                 icon-only
                 class="vs-social-share__close-btn"
                 icon="close"
-                size="lg"
                 variant="transparent"
                 ref="closeButton"
                 @click="onClose"
@@ -276,7 +274,7 @@ export default {
             font-size: inherit;
             text-align: center;
             border: 0;
-            top: 40px !important;
+            top: 0 !important;
             left: 20px !important;
             right: 10px;
 
@@ -313,7 +311,7 @@ export default {
             @include media-breakpoint-up(md) {
                 max-width: 600px;
                 width: 600px !important;
-                top: 40px !important;
+                top: 0 !important;
             }
 
             @include media-breakpoint-up(lg) {

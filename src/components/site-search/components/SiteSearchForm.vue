@@ -45,6 +45,7 @@
                             cludo-input-form__search-button"
                             variant="primary"
                             size="lg"
+                            :rounded="false"
                             @click="closeSearchForm"
                         >
                             {{ submitButtonText }}
@@ -57,7 +58,7 @@
         <VsButton
             class="vs-site-search-form__close-button d-none d-lg-block"
             variant="transparent"
-            icon="close-circle"
+            icon="close"
             size="md"
             icon-only
             @click="closeSearchForm"

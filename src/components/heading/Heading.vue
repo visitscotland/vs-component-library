@@ -101,6 +101,7 @@ export default {
     font-family: $display-font-family;
 
     .vs-heading__sub-heading {
+        font-family: $font-family-base;
         font-weight: $font-weight-semi-bold;
     }
 }

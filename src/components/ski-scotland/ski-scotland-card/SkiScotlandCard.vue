@@ -204,30 +204,19 @@
                     </VsTableRow>
                 </VsTableFooter>
             </VsTable>
-            <div
-                class="vs-ski-scotland-card__button-holder
-                vs-ski-scotland-card__button-holder--left"
+
+            <VsButton
+                variant="secondary"
+                :href="pisteMapLink"
+                class="mb-050"
+                :disabled="!pisteMapLink ? true : false"
             >
-                <VsButton
-                    variant="secondary"
-                    :href="pisteMapLink"
-                    size="sm"
-                    :disabled="!pisteMapLink ? true : false"
-                >
-                    {{ pisteMapLabel }}
-                </VsButton>
-            </div><!--
-            --><div
-                class="vs-ski-scotland-card__button-holder
-                vs-ski-scotland-card__button-holder--right"
-            >
-                <VsButton
-                    :href="moreDetailsLink"
-                    size="sm"
-                >
-                    {{ moreDetailsLabel }}
-                </VsButton>
-            </div>
+                {{ pisteMapLabel }}
+            </VsButton>
+
+            <VsButton :href="moreDetailsLink">
+                {{ moreDetailsLabel }}
+            </VsButton>
         </div>
     </div>
 </template>
@@ -632,45 +621,9 @@ export default {
             margin-top: $spacer-0;
         }
 
-        .vs-ski-scotland-card__button-holder {
-            width: calc(100% - #{$spacer-200});
-            display: inline-block;
-            padding: $spacer-025 $spacer-050;
-            position: absolute;
-            bottom: $spacer-100;
-
-            &--left {
-                left: $spacer-100;
-                right: $spacer-100;
-                bottom: $spacer-400;
-            }
-
-            &--right {
-                right: $spacer-100;
-                left: $spacer-100;
-            }
-
-            @include media-breakpoint-up(lg) {
-                width: calc(50% - #{$spacer-100});
-
-                &--left {
-                    right: auto;
-                    bottom: $spacer-100;
-                }
-
-                &--right {
-                    left: auto;
-                }
-            }
-        }
-
         .vs-button {
+            display: block;
             width: 100%;
-            padding: $spacer-050 $spacer-050;
-
-            &.disabled {
-                margin-bottom: 2px;
-            }
         }
     }
 

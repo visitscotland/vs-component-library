@@ -22,6 +22,7 @@
                         icon-position="left"
                         size="md"
                         ref="videoShow"
+                        :rounded="false"
                         @click="emitShowModal"
                     >
                         {{ videoBtnText }}

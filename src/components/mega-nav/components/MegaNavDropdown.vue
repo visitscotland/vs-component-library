@@ -297,7 +297,7 @@ export default {
         @include media-breakpoint-up(lg) {
             padding: $spacer-125 0 $spacer-200;
             max-height: 595px;
-            transform: translate3d(0px, 55px, 0px) !important;
+            transform: translate3d(0px, 48px, 0px) !important;
         }
 
         .vs-mega-nav-accordion-item--level-1:first-child{
