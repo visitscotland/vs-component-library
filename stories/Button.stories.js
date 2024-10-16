@@ -60,7 +60,7 @@ const Template = (args) => ({
 });
 
 const base = {
-    default: 'Button',
+    default: 'Submit',
     variant: 'primary',
     size: 'md',
     animate: true,
@@ -107,13 +107,15 @@ Large.args = {
 export const WithIcon = Template.bind();
 WithIcon.args = {
     ...base,
-    icon: 'landscape',
+    default: 'Search',
+    icon: 'search',
 };
 
 export const WithIconOnRight = Template.bind();
 WithIconOnRight.args = {
     ...base,
-    icon: 'landscape',
+    default: 'Search',
+    icon: 'search',
     iconPosition: 'right',
 };
 
@@ -122,19 +124,13 @@ IconOnly.args = {
     ...base,
     icon: 'search',
     iconOnly: true,
-    default: '',
-};
-
-export const SquareCorners = Template.bind();
-SquareCorners.args = {
-    ...base,
-    rounded: false,
+    default: 'Search',
 };
 
 export const IconOnlySecondary = Template.bind();
 IconOnlySecondary.args = {
     ...base,
-    icon: 'search',
+    icon: 'close',
     variant: 'secondary',
     iconOnly: true,
     default: '',
@@ -152,7 +148,7 @@ IconOnlyTransparent.args = {
 export const IconOnlySmall = Template.bind();
 IconOnlySmall.args = {
     ...base,
-    icon: 'search',
+    icon: 'close',
     iconOnly: true,
     size: 'sm',
     default: '',
@@ -161,8 +157,15 @@ IconOnlySmall.args = {
 export const IconOnlyLarge = Template.bind();
 IconOnlyLarge.args = {
     ...base,
-    icon: 'search',
+    icon: 'close',
     iconOnly: true,
     size: 'lg',
     default: '',
+};
+
+export const SquareCorners = Template.bind();
+SquareCorners.args = {
+    ...base,
+    rounded: false,
+    default: 'Play',
 };
