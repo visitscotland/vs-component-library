@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.6](https://github.com/visitscotland/vs-component-library/compare/v3.3.5...v3.3.6) (2024-10-15)
+
+### [3.3.5](https://github.com/visitscotland/vs-component-library/compare/v3.3.4...v3.3.5) (2024-10-15)
+
+### [3.3.4](https://github.com/visitscotland/vs-component-library/compare/v3.3.3...v3.3.4) (2024-10-11)
+
+
+### 🐛 Bug Fixes
+
+* **button toggle group:** bVN changed emitted event payload ([8902c6e](https://github.com/visitscotland/vs-component-library/commit/8902c6ee42694ce5b8f1ffa62c8ad4b1b78a6c89))
+
+
+### ✨ Features
+
+* **map with sidebar:** only reset map on sidebar close on desktop ([88afaac](https://github.com/visitscotland/vs-component-library/commit/88afaac4db6cc71e9e17dd3269b8a17a601626ae))
+
 ### [3.3.3](https://github.com/visitscotland/vs-component-library/compare/v3.3.2...v3.3.3) (2024-10-10)
 
 ### [3.3.2](https://github.com/visitscotland/vs-component-library/compare/v3.3.1...v3.3.2) (2024-10-10)
