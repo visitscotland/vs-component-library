@@ -19,7 +19,7 @@
             :name="`${type}-link`"
             variant="primary"
             :size="iconSize"
-            class="ms-1 vs-link__icon"
+            class="ms-025 vs-link__icon"
         />
     </a>
 </template>

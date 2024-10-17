@@ -90,7 +90,7 @@
                             <VsIcon
                                 name="tick"
                                 size="xs"
-                                class="me-2"
+                                class="me-050"
                             />
                             <span data-test="vs-ski__open-label">
                                 {{ summaryOpenLabel }}
@@ -113,7 +113,7 @@
                             <VsIcon
                                 name="ski-boot"
                                 size="xs"
-                                class="me-2"
+                                class="me-050"
                             />
                             <span data-test="vs-ski__limited-patrol-label">
                                 {{ summaryLimitedPatrolLabel }}
@@ -133,7 +133,7 @@
                             <VsIcon
                                 name="expected-open"
                                 size="xs"
-                                class="me-2"
+                                class="me-050"
                             />
                             <span data-test="vs-ski__opening-label">
                                 {{ summaryOpeningLabel }}
@@ -153,7 +153,7 @@
                             <VsIcon
                                 name="status-closed"
                                 size="xs"
-                                class="me-2"
+                                class="me-050"
                             />
                             <span data-test="vs-ski__closed-label">
                                 {{ summaryClosedLabel }}
@@ -175,7 +175,7 @@
                             <VsIcon
                                 name="hourglass"
                                 size="xs"
-                                class="me-2"
+                                class="me-050"
                             />
                             <span data-test="vs-ski__on-hold-label">
                                 {{ summaryOnHoldLabel }}

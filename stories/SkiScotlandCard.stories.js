@@ -27,7 +27,7 @@ const Template = (args) => ({
     template: `
     <VsContainer>
         <VsRow
-            class="mx-n4 mx-lg-n200"
+            class="mx-n100 mx-lg-n200"
         >
             <VsCol
                 cols="12"

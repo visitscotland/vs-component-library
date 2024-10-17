@@ -57,7 +57,7 @@ describe('VsArticleSidebar', () => {
             });
 
             const imgWrapper = modifiedWrapper.find('[data-test="vs-article-sidebar"]').find('.vs-article-sidebar__img-wrapper');
-            expect(imgWrapper.classes()).toContain('pb-8');
+            expect(imgWrapper.classes()).toContain('pb-200');
         });
 
         it(':sidebarArticleClasses - Quote wrapper should have correct padding when no img visible', () => {

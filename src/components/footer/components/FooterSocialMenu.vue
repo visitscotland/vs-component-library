@@ -1,6 +1,6 @@
 <template>
     <div
-        class="vs-footer-social-menu px-0 py-6 py-md-200 py-lg-0 px-lg-075"
+        class="vs-footer-social-menu px-0 py-150 py-md-200 py-lg-0 px-lg-075"
         data-test="vs-footer-social-menu"
     >
         <VsHeading

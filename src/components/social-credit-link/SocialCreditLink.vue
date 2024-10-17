@@ -8,7 +8,7 @@
             :name="source"
             variant="inverse"
             size="xs"
-            class="me-1"
+            class="me-025"
             data-test="vs-social-credit-link__icon"
         />
         <VsLink

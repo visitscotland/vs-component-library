@@ -75,7 +75,7 @@ export default {
         background: $vs-color-background-information;
 
         .vs-heading {
-            margin-top: 0;
+            margin-top: $spacer-0;
         }
     }
 
@@ -95,7 +95,7 @@ export default {
 
     .vs-carbon-calculator-tip__content {
         display: inline-block;
-        width: calc(100% - $spacer-10);
+        width: calc(100% - $spacer-400);
         vertical-align: top;
     }
 </style>

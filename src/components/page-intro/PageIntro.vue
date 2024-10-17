@@ -105,7 +105,7 @@
                 </VsRow>
             </VsContainer>
             <div
-                class="vs-page-intro__lower py-9"
+                class="vs-page-intro__lower py-300"
                 v-if="$slots['vs-intro-lower'] && $slots['vs-intro-lower']()"
                 data-test="vs-page-intro__lower"
             >

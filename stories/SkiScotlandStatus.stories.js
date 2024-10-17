@@ -40,7 +40,7 @@ const Template = (args) => ({
                         <VsIcon
                             name="phone"
                             size="xs"
-                            class="me-2"
+                            class="me-050"
                         ></VsIcon>
                         <span>
                             {{ args['centre-information'].phone }}
@@ -50,7 +50,7 @@ const Template = (args) => ({
                         <VsIcon
                             name="globe"
                             size="xs"
-                            class="me-2"
+                            class="me-050"
                         ></VsIcon>
                         <VsLink
                             type="external"
@@ -63,7 +63,7 @@ const Template = (args) => ({
                         <VsIcon
                             name="map-marker"
                             size="xs"
-                            class="me-2"
+                            class="me-050"
                         ></VsIcon>
                         <span>
                             {{ args['centre-information'].address }}
@@ -73,7 +73,7 @@ const Template = (args) => ({
                         <VsIcon
                             name="landscape"
                             size="xs"
-                            class="me-2"
+                            class="me-050"
                         ></VsIcon>
                         <VsLink
                             type="download"
@@ -86,7 +86,7 @@ const Template = (args) => ({
                         <VsIcon
                             name="clock"
                             size="xs"
-                            class="me-2"
+                            class="me-050"
                         ></VsIcon>
                         <VsLink
                             href="args['centre-information'].openingLink"
@@ -98,7 +98,7 @@ const Template = (args) => ({
                         <VsIcon
                             name="webcam"
                             size="xs"
-                            class="me-2"
+                            class="me-050"
                         ></VsIcon>
                         <span> Webcam </span>
                     </li>
