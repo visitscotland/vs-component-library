@@ -5,7 +5,7 @@
         data-test="vs-article-sidebar"
     >
         <div
-            :class="$slots['vs-article-sidebar-quote'] && $slots['vs-article-sidebar-quote']() ? 'pb-8' : ''"
+            :class="$slots['vs-article-sidebar-quote'] && $slots['vs-article-sidebar-quote']() ? 'pb-200' : ''"
             class="vs-article-sidebar__img-wrapper"
         >
             <!-- @slot Slot to contain an image for this article section -->

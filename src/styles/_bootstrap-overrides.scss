@@ -72,24 +72,7 @@ $spacers: (
     "500": $spacer-500,
     "600": $spacer-600,
     "700": $spacer-700,
-    // spacer-1 - spacer-12 to be deprecated
-    // retained until v4 (?) for backwards compatibility
-    1: $spacer-1,
-    2: $spacer-2,
-    3: $spacer-3,
-    4: $spacer-4,
-    5: $spacer-5,
-    6: $spacer-6,
-    7: $spacer-7,
-    8: $spacer-8,
-    9: $spacer-9,
-    10: $spacer-10,
-    11: $spacer-11,
-    12: $spacer-12,
 );
-
-@warn "`$spacer-1` to `$spacer-12` and derivative utility classes (`mt-3`, `pb-4` etc) are deprecated in the VS design system. Replace the `$spacer-` suffix that represents the correct rem size. https://visitscotland.atlassian.net/wiki/spaces/DE/pages/edit-v2/211943505?draftShareId=ffaf70b8-e842-4db9-b780-25443f12d430#%5BmediaInline%5D--Deprecated-spacer-tokens";
-
 
 /* Borders */
 $border-color: $vs-color-border;
@@ -102,27 +85,25 @@ $rounded-pill: $border-radius-pill;
 $input-btn-padding-y-sm: 0.1875rem;
 $btn-padding-x-sm: 1.375rem;
 
-$input-btn-padding-y: 0.75rem;
+$input-btn-padding-y: $spacer-075;
 $btn-padding-x: 2.5rem;
 
-$input-btn-padding-y-lg: 1rem;
+$input-btn-padding-y-lg: $spacer-100;
 $btn-padding-x-lg: 3.5rem;
 
 
 /* Breadcrumbs */
-$breadcrumb-padding-y: 0;
-$breadcrumb-padding-x: 0;
-
+$breadcrumb-padding-y: $spacer-0;
+$breadcrumb-padding-x: $spacer-0;
 $breadcrumb-bg: transparent;
 $breadcrumb-divider-color: $vs-color-text;
 $breadcrumb-active-color: $vs-color-text;
 $breadcrumb-divider: quote("|");
-
 $breadcrumb-border-radius: 0;
 
 
 /* Dropdowns */
-$dropdown-padding-y: 0;
+$dropdown-padding-y: $spacer-0;
 $dropdown-border-color: $vs-color-border;
 $dropdown-box-shadow: none;
 $dropdown-item-padding-x: $spacer-050;
@@ -131,12 +112,12 @@ $dropdown-item-padding-y: $spacer-050;
 
 /* Links */
 $link-decoration: underline;
-$standard-line-height: 1.2;
+$standard-line-height: $line-height-standard;
 
 /* BS5 custom property overrides */
-$card-cap-padding-y: 0.75rem;
-$card-cap-padding-x: 1.25rem;
-$gutter-y: 1rem;
+$card-cap-padding-y: $spacer-075;
+$card-cap-padding-x: $spacer-125;
+$gutter-y: $spacer-100;
 $card-spacer-x: $spacer-125;
 $card-spacer-y: $spacer-125;
 $enable-smooth-scroll: false;
