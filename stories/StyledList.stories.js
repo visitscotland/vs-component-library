@@ -43,6 +43,7 @@ const Template = (args) => ({
                 :heading="item.heading"
                 :imageSrc="item.imageSrc ? item.imageSrc : null"
                 :variant="args.variant"
+                :heading-level="args.headingLevel"
             >
                 <div v-html="item.content" />
             </VsStyledListItem>
@@ -78,6 +79,7 @@ Default.args = {
             `,
         },
     ],
+    headingLevel: 3,
 };
 
 export const Numbered = Template.bind({

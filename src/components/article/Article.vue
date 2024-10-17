@@ -31,7 +31,7 @@
                                     :class="businessSupport ? null : 'mx-6'"
                                 >
                                     <VsHeading
-                                        level="2"
+                                        :level="headingLevel"
                                         class="mb-8 mb-lg-9"
                                         :class="businessSupport ? null : 'text-center'"
                                     >
@@ -119,6 +119,13 @@ export default {
         businessSupport: {
             type: Boolean,
             default: false,
+        },
+        /**
+         * The heading level will be used to set the heading level
+         */
+        headingLevel: {
+            type: Number,
+            default: 2,
         },
     },
 };

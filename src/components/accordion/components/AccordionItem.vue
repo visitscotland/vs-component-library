@@ -50,7 +50,7 @@
             </VsAccordionToggle>
 
             <VsHeading
-                level="2"
+                :level="headingLevel"
                 override-style-level="6"
                 class="d-none vs-accordion-item__title"
                 :class="toggleResponsiveItem"
@@ -126,6 +126,13 @@ export default {
         controlId: {
             type: String,
             required: true,
+        },
+        /**
+         * The heading level will be used to set the heading level
+         */
+         headingLevel: {
+            type: Number,
+            default: 2,
         },
         /**
          * If this is provided, the accordion expands above

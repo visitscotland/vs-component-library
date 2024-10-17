@@ -51,6 +51,7 @@ const Template = (args) => ({
                     :variant="accordionItem.variant"
                     :control-id="accordionItem.controlId"
                     :colour-badge="accordionItem.colourBadge"
+                    :heading-level="args.headingLevel"
                 >
                     <template v-slot:title>
                         <VsIcon
@@ -146,6 +147,17 @@ ColourBadge.args = {
         },
     ],
 };
+
+export const HeadingLevel3 = Template.bind({
+
+});
+
+HeadingLevel3.args = {
+    ...base,
+    headingLevel: 3,
+};
+
+
 
 export const NoJavascript = Template.bind({
 });
