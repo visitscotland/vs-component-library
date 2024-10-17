@@ -1,7 +1,7 @@
 <template>
     <nav
         aria-label="breadcrumbs"
-        class="vs-breadcrumb py-025"
+        class="vs-breadcrumb py-050"
     >
         <BBreadcrumb
             class="flex-nowrap p-0 mb-0"
