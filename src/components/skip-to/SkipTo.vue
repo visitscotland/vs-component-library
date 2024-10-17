@@ -23,6 +23,7 @@
             href="#site-search-btn"
             data-test="vs-skip-to-search"
             class="vs-skip-to__search"
+            v-if="hasSearchLink"
         >
             <!-- @slot text for 'Search' -->
             <slot name="search-text" />
@@ -69,6 +70,13 @@ export default {
         skipToText: {
             type: String,
             required: true,
+        },
+        /**
+         * Controls whether a link to a search component appears in the skip to
+         */
+        hasSearchLink: {
+            type: Boolean,
+            default: true,
         },
     },
     methods: {
