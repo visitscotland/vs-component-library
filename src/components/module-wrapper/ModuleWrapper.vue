@@ -1,8 +1,7 @@
 <template>
     <section
-        class="vs-module-wrapper"
+        :class="sectionClasses"
         data-test="vs-module-wrapper"
-        :class="`vs-module-wrapper--${theme}`, businessSupport ? 'vs-module-wrapper--left-align' : null"
         v-bind="$attrs"
     >
         <VsContainer
@@ -11,10 +10,7 @@
         >
             <VsRow>
                 <VsCol
-                    :cols="businessSupport ? 12 : 10"
-                    :offset="businessSupport ? 0 : 1"
-                    :md="businessSupport ? 12 : 8"
-                    :offset-md="businessSupport ? 0 : 2"
+                    v-bind="headingColumnSizes"
                     v-if="$slots['vs-module-wrapper-heading'] && $slots['vs-module-wrapper-heading']"
                 >
                     <VsHeading
@@ -28,11 +24,7 @@
                     </VsHeading>
                 </VsCol>
                 <VsCol
-                    cols="12"
-                    :sm="businessSupport ? 12 : 10"
-                    :offset-sm="businessSupport ? 0 : 1"
-                    :md="businessSupport ? 12 : 8"
-                    :offset-md="businessSupport ? 0 : 2"
+                    v-bind="IntroColumnSizes"
                     v-if="$slots['vs-module-wrapper-intro'] && $slots['vs-module-wrapper-intro']"
                 >
                     <VsRichTextWrapper
@@ -77,24 +69,26 @@ export default {
     },
     props: {
         /**
-         * AnchorID will be used to set an id on the heading, 
-         * allowing for anchor links (ToC) 
+         * AnchorID will be used to set an id on the heading,
+         * allowing for anchor links (ToC)
          */
-         anchorID: {
+        anchorID: {
             type: String,
             default: null,
         },
         /**
-         * BusinessSupport prop to set whether it is on the business 
-         * support site  
+         * Set column size and left-align the heading and intro content
+         * for the Business Support Hub site.
          */
         businessSupport: {
             type: Boolean,
             default: false,
         },
         /**
-         * The heading level will be used to set the heading level
-         */
+        * The correct heading level for page hierarchy, the
+        * heading will be styled the same regardless of level provided
+        * `1|2|3|4|5|6`
+        */
         headingLevel: {
             type: Number,
             default: 2,
@@ -106,6 +100,32 @@ export default {
             type: String,
             default: 'light',
             validator: (value) => value.match(/(light|grey|neutral)/),
+        },
+    },
+    computed: {
+        sectionClasses() {
+            return [
+                'vs-module-wrapper',
+                `vs-module-wrapper--${this.theme}`,
+                this.businessSupport ? 'vs-module-wrapper--left-align' : null,
+            ];
+        },
+        headingColumnSizes() {
+            return {
+                cols: this.businessSupport ? 12 : 10,
+                offset: this.businessSupport ? 0 : 1,
+                md: this.businessSupport ? 12 : 8,
+                'offset-md': this.businessSupport ? 0 : 2,
+            };
+        },
+        IntroColumnSizes() {
+            return {
+                cols: 12,
+                sm: this.businessSupport ? 12 : 10,
+                'offset-sm': this.businessSupport ? 0 : 1,
+                md: this.businessSupport ? 12 : 8,
+                'offset-md': this.businessSupport ? 0 : 2,
+            };
         },
     },
 };
