@@ -2,7 +2,7 @@
     <section
         class="vs-module-wrapper"
         data-test="vs-module-wrapper"
-        :class="`vs-module-wrapper--${theme}`"
+        :class="`vs-module-wrapper--${theme}`, businessSupport ? 'vs-module-wrapper--left-align' : null"
         v-bind="$attrs"
     >
         <VsContainer
@@ -11,16 +11,17 @@
         >
             <VsRow>
                 <VsCol
-                    cols="10"
-                    offset="1"
-                    md="8"
-                    offset-md="2"
+                    :cols="businessSupport ? 12 : 10"
+                    :offset="businessSupport ? 0 : 1"
+                    :md="businessSupport ? 12 : 8"
+                    :offset-md="businessSupport ? 0 : 2"
                     v-if="$slots['vs-module-wrapper-heading'] && $slots['vs-module-wrapper-heading']"
                 >
                     <VsHeading
-                        level="2"
+                        :level="headingLevel"
                         class="vs-module-wrapper__heading"
                         data-test="vs-module-wrapper__heading"
+                        :id="anchorID"
                     >
                         <!-- @slot Slot to contain heading -->
                         <slot name="vs-module-wrapper-heading" />
@@ -28,10 +29,10 @@
                 </VsCol>
                 <VsCol
                     cols="12"
-                    sm="10"
-                    offset-sm="1"
-                    md="8"
-                    offset-md="2"
+                    :sm="businessSupport ? 12 : 10"
+                    :offset-sm="businessSupport ? 0 : 1"
+                    :md="businessSupport ? 12 : 8"
+                    :offset-md="businessSupport ? 0 : 2"
                     v-if="$slots['vs-module-wrapper-intro'] && $slots['vs-module-wrapper-intro']"
                 >
                     <VsRichTextWrapper
@@ -76,6 +77,29 @@ export default {
     },
     props: {
         /**
+         * AnchorID will be used to set an id on the heading, 
+         * allowing for anchor links (ToC) 
+         */
+         anchorID: {
+            type: String,
+            default: null,
+        },
+        /**
+         * BusinessSupport prop to set whether it is on the business 
+         * support site  
+         */
+        businessSupport: {
+            type: Boolean,
+            default: false,
+        },
+        /**
+         * The heading level will be used to set the heading level
+         */
+        headingLevel: {
+            type: Number,
+            default: 2,
+        },
+        /**
         * Theme of module wrapper to use
         */
         theme: {
@@ -117,6 +141,10 @@ export default {
 
         &--neutral {
             background-color: $vs-color-background-neutral;
+        }
+
+        &--left-align {
+            text-align: left;
         }
     }
 
