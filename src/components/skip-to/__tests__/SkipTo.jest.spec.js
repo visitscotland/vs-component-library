@@ -50,6 +50,20 @@ describe('VsSiteSearch', () => {
             expect(wrapper.attributes('aria-label')).toBe('Skip to');
             expect(wrapper.find('[data-test="vs-skip-to"]').find('.vs-skip-to__label').text()).toContain('Skip to');
         });
+
+        it('should render the `search` link if `hasSearchLink` === true', () => {
+            expect(wrapper.find('[data-test="vs-skip-to-search"]').exists()).toBe(true);
+        });
+
+        it('should skip the `search` link if `hasSearchLink` === false', async() => {
+            wrapper.setProps({
+                hasSearchLink: false,
+            });
+
+            await wrapper.vm.$nextTick();
+
+            expect(wrapper.find('[data-test="vs-skip-to-search"]').exists()).toBe(false);
+        });
     });
     describe(':slots', () => {
         it('should render the content of the `mainMenuText` slot', () => {
