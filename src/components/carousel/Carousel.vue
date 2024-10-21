@@ -15,6 +15,7 @@
                 >
                     <div class="slider">
                         <VsButton
+                            icon-only
                             v-if="!prevDisabled"
                             class="vs-carousel__control vs-carousel__control--prev"
                             @click="sliderNavigate($event, 'prev')"
@@ -22,15 +23,9 @@
                             icon="internal-link-back"
                             ref="prevButton"
                         >
-                            <div class="vs-carousel__control-label-container">
-                                <span
-                                    class="vs-carousel__control-label
-                                           vs-carousel__control-label--prev"
-                                >
-                                    {{ prevText }}
-                                </span>
-                            </div>
+                            {{ prevText }}
                         </VsButton>
+
                         <VsRow
                             class="vs-carousel__track"
                             :style="{ transform: `translateX(${trackOffset})` }"
@@ -38,23 +33,16 @@
                             <!-- @slot default slot to contain slides -->
                             <slot />
                         </VsRow>
+
                         <VsButton
-                            v-if="!nextDisabled"
+                            icon-only
                             class="vs-carousel__control vs-carousel__control--next"
                             @keypress="sliderNavigate($event, 'next', true)"
                             @click="sliderNavigate($event, 'next')"
                             icon="internal-link"
-                            icon-position="right"
                             ref="nextButton"
                         >
-                            <span class="vs-carousel__control-label-container">
-                                <span
-                                    class="vs-carousel__control-label
-                                           vs-carousel__control-label--next"
-                                >
-                                    {{ nextText }}
-                                </span>
-                            </span>
+                            {{ nextText }}
                         </VsButton>
 
                         <ul
@@ -443,81 +431,17 @@ export default {
             margin-bottom: $spacer-300;
         }
 
-        .vs-button.vs-carousel__control {
-            padding: $spacer-050;
-
-            @include media-breakpoint-up(sm) {
-                padding: $spacer-075;
-            }
-        }
-
         &__control {
             position: absolute !important;
             top: 25%;
             z-index: 20;
-            min-width: 35px;
-            height: 40px;
-            border-radius: 0;
-            align-items: center;
-            justify-content: center;
-
-            @include media-breakpoint-up(sm) {
-                height: 48px;
-            }
 
             &--next {
                 right: 0;
-
-                &:focus {
-                    right: $spacer-050;
-                }
             }
 
             &--prev {
                 left: 0;
-
-                &:focus {
-                    left: $spacer-050;
-                }
-            }
-
-            &-label {
-                white-space: nowrap;
-                font-weight: $font-weight-semi-bold;
-
-                &--next {
-                    padding-right: $spacer-050;
-                }
-
-                &--prev {
-                    padding-left: $spacer-050;
-                }
-            }
-
-            .vs-icon {
-                margin-left: $spacer-0 !important;
-                margin-right: $spacer-0 !important;
-                margin-top: 0;
-            }
-
-            .vs-carousel__control-label-container {
-                transition: max-width $duration-slowly ease;
-                max-width: 0;
-                overflow: hidden;
-                display: inline-block;
-                margin-top: 2px;
-            }
-
-            @media (hover: hover) {
-                &:hover, &:focus {
-                    outline: none;
-                    background-color: $vs-color-background-primary;
-                    border-color: $vs-color-border-primary;
-
-                    .vs-carousel__control-label-container {
-                        max-width: 15rem;
-                    }
-                }
             }
         }
 
