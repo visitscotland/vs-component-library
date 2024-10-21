@@ -36,6 +36,7 @@
 
                         <VsButton
                             icon-only
+                            v-if="!nextDisabled"
                             class="vs-carousel__control vs-carousel__control--next"
                             @keypress="sliderNavigate($event, 'next', true)"
                             @click="sliderNavigate($event, 'next')"
