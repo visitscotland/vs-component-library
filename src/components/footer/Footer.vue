@@ -1,6 +1,6 @@
 <template>
     <footer
-        class="vs-footer pt-6 pt-md-300"
+        class="vs-footer pt-150 pt-md-300"
         data-unique-id="vs-footer"
         id="site-footer"
     >

@@ -5,7 +5,7 @@
     >
         <VsContainer v-if="!jsDisabled && isLoading">
             <VsRow>
-                <VsCol class="text-center py-4">
+                <VsCol class="text-center py-100">
                     <VsLoadingSpinner />
                     <!--
                         @slot Slot for data loading message
@@ -17,7 +17,7 @@
         </VsContainer>
         <VsContainer v-if="!jsDisabled && displayError">
             <VsRow>
-                <VsCol class="text-center py-4">
+                <VsCol class="text-center py-100">
                     <VsWarning>
                         <!--
                             @slot Slot for data unavailable message
@@ -86,7 +86,7 @@
                                     <VsIcon
                                         name="tick"
                                         size="xs"
-                                        class="me-2"
+                                        class="me-050"
                                     />
                                     <span data-test="vs-ski__open-label">
                                         {{ summaryOpenLabel }}
@@ -109,7 +109,7 @@
                                     <VsIcon
                                         name="ski-boot"
                                         size="xs"
-                                        class="me-2"
+                                        class="me-050"
                                     />
                                     <span data-test="vs-ski__open-label">
                                         {{ summaryLimitedPatrolLabel }}
@@ -129,7 +129,7 @@
                                     <VsIcon
                                         name="expected-open"
                                         size="xs"
-                                        class="me-2"
+                                        class="me-050"
                                     />
                                     <span data-test="vs-ski__opening-label">
                                         {{ summaryOpeningLabel }}
@@ -149,7 +149,7 @@
                                     <VsIcon
                                         name="status-closed"
                                         size="xs"
-                                        class="me-2"
+                                        class="me-050"
                                     />
                                     <span data-test="vs-ski__closed-label">
                                         {{ summaryClosedLabel }}
@@ -171,7 +171,7 @@
                                     <VsIcon
                                         name="hourglass"
                                         size="xs"
-                                        class="me-2"
+                                        class="me-050"
                                     />
                                     <span data-test="vs-ski__open-label">
                                         {{ summaryOnHoldLabel }}
@@ -323,35 +323,35 @@
                                     <VsIcon
                                         name="status-closed"
                                         size="xs"
-                                        class="me-2"
+                                        class="me-050"
                                     /> {{ statusClosedLabel }}
                                 </VsTableDataCell>
                                 <VsTableDataCell v-if="lift.status === '1' || lift.status === 1">
                                     <VsIcon
                                         name="tick"
                                         size="xs"
-                                        class="me-2"
+                                        class="me-050"
                                     /> {{ statusOpenLabel }}
                                 </VsTableDataCell>
                                 <VsTableDataCell v-if="lift.status === '2' || lift.status === 2">
                                     <VsIcon
                                         name="expected-open"
                                         size="xs"
-                                        class="me-2"
+                                        class="me-050"
                                     /> {{ statusOpeningLabel }}
                                 </VsTableDataCell>
                                 <VsTableDataCell v-if="lift.status === '3' || lift.status === 3">
                                     <VsIcon
                                         name="ski-boot"
                                         size="xs"
-                                        class="me-2"
+                                        class="me-050"
                                     /> {{ statusLimitedPatrolLabel }}
                                 </VsTableDataCell>
                                 <VsTableDataCell v-if="lift.status === '4' || lift.status === 4">
                                     <VsIcon
                                         name="hourglass"
                                         size="xs"
-                                        class="me-2"
+                                        class="me-050"
                                     /> {{ statusOnHoldLabel }}
                                 </VsTableDataCell>
                                 <VsTableDataCell>{{ lift.name }}</VsTableDataCell>
@@ -425,7 +425,7 @@
                                                 <VsIcon
                                                     name="status-closed"
                                                     size="xs"
-                                                    class="me-2"
+                                                    class="me-050"
                                                 /> {{ statusClosedLabel }}
                                             </VsTableDataCell>
                                             <VsTableDataCell
@@ -434,7 +434,7 @@
                                                 <VsIcon
                                                     name="tick"
                                                     size="xs"
-                                                    class="me-2"
+                                                    class="me-050"
                                                 /> {{ statusOpenLabel }}
                                             </VsTableDataCell>
                                             <VsTableDataCell
@@ -443,7 +443,7 @@
                                                 <VsIcon
                                                     name="expected-open"
                                                     size="xs"
-                                                    class="me-2"
+                                                    class="me-050"
                                                 /> {{ statusOpeningLabel }}
                                             </VsTableDataCell>
                                             <VsTableDataCell
@@ -452,7 +452,7 @@
                                                 <VsIcon
                                                     name="ski-boot"
                                                     size="xs"
-                                                    class="me-2"
+                                                    class="me-050"
                                                 /> {{ statusLimitedPatrolLabel }}
                                             </VsTableDataCell>
                                             <VsTableDataCell
@@ -461,7 +461,7 @@
                                                 <VsIcon
                                                     name="hourglass"
                                                     size="xs"
-                                                    class="me-2"
+                                                    class="me-050"
                                                 /> {{ statusOnHoldLabel }}
                                             </VsTableDataCell>
                                             <VsTableDataCell>{{ run.name }}</VsTableDataCell>
