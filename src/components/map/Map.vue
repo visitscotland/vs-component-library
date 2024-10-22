@@ -986,7 +986,7 @@ export default {
 @import "../../styles/_os-branding.scss";
 
 .os-api-branding.logo {
-    margin: $spacer-2;
+    margin: $spacer-050;
 }
 
 .vs-map {
@@ -1026,11 +1026,11 @@ export default {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: $spacer-6;
+        padding: $spacer-150;
     }
 
     &__loading {
-        margin-bottom: $spacer-4;
+        margin-bottom: $spacer-100;
     }
 
     &__message-text {
@@ -1044,7 +1044,7 @@ export default {
     }
 
     .mapboxgl-ctrl-top-right .mapboxgl-ctrl {
-        margin: $spacer-2;
+        margin: $spacer-050;
 
         & > button {
             border: 2px solid $vs-color-border-primary;
@@ -1066,9 +1066,9 @@ export default {
         & > button {
             width: 32px;
             height: 32px;
-            border-radius: 0 !important;
             font-size: $font-size-4;
             transition: $duration-base all;
+            border-radius: $border-radius-pill;
 
             &:focus {
                 @extend %primary-button-focus;
@@ -1076,23 +1076,17 @@ export default {
 
             &:active, &:active:focus {
                 box-shadow: none;
-                border: $vs-color-background-active;
+                border: $vs-color-interaction-cta-active;
             }
 
             @include vs-button-variant(
                 $vs-color-text-primary, $vs-color-background-inverse, $vs-color-border-primary,
-                $vs-color-text-inverse, $vs-color-background-hover, $vs-color-background-hover,
-                $vs-color-text-primary, $vs-color-background-active, $vs-color-background-active,
-                $vs-color-text-inverse, $vs-color-background-primary, $vs-color-border-focus,
+                $vs-color-text-inverse, $vs-color-interaction-cta-hover, $vs-color-background-hover,
+                $vs-color-text-inverse, $vs-color-interaction-cta-active, $vs-color-interaction-cta-active,
             );
 
             &.mapboxgl-ctrl-zoom-in {
-                margin-bottom: $spacer-2;
-            }
-
-            @include media-breakpoint-up(lg) {
-                width: 36px;
-                height: 36px;
+                margin-bottom: $spacer-050;
             }
         }
     }
@@ -1162,7 +1156,7 @@ export default {
 
         &-content {
             display: flex;
-            padding: $spacer-2;
+            padding: $spacer-050;
         }
     }
 
@@ -1170,7 +1164,7 @@ export default {
         font-family: $font-family-base;
         font-size: $font-size-4;
         font-weight: $font-weight-bold;
-        margin-bottom: $spacer-1;
+        margin-bottom: $spacer-025;
     }
 
     &__popup-title {
@@ -1182,7 +1176,7 @@ export default {
 
     &__popup-image {
         width: 105px;
-        margin-right: $spacer-2;
+        margin-right: $spacer-050;
     }
 }
 

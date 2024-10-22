@@ -139,7 +139,7 @@ export default {
             &--error {
                 & > div {
                     outline: 2px solid $vs-color-border-danger;
-                    margin-top: $spacer-2;
+                    margin-top: $spacer-050;
                 }
             }
         }

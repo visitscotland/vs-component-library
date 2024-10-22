@@ -186,7 +186,7 @@ const Template = (args) => ({
                             <VsDescriptionList
                                 v-for="(list, index) in args['vs-intro-lower']"
                                 :key="index"
-                                class="mb-6"
+                                class="mb-150"
                             >
                                 <VsDescriptionListItem
                                     v-for="(item, index) in list"
@@ -213,7 +213,7 @@ const Template = (args) => ({
                     <VsVideo
                         video-id="c05sg3G4oA4"
                         video-title="Test Video"
-                        class="mb-8"
+                        class="mb-200"
                         error-message="Sorry, something's gone wrong. Please try again later"
                         no-js-message="You need JavaScript enabled to see this video"
                     />

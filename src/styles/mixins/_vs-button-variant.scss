@@ -6,8 +6,7 @@
 @mixin vs-button-variant(
     $color, $background, $border, 
     $hover-color, $hover-background, $hover-border,
-    $active-color, $active-background, $active-border,
-    $focus-color, $focus-background, $focus-border, ) 
+    $active-color, $active-background, $active-border,)
 {
 
     color: $color;
@@ -37,15 +36,4 @@
             color: $active-color;
         }
     }
-
-    &:focus{
-        color: $focus-color;
-        background-color: $focus-background;
-        border-color: $focus-border;
-
-        .vs-icon {
-            color: $focus-color;
-        }
-    }
-
 }

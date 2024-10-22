@@ -65,7 +65,7 @@ export default {
     list-style: none;
     font-size: $font-size-3;
     line-height: $line-height-s;
-    padding: $spacer-3 $spacer-8;
+    padding: $spacer-075 $spacer-200;
 
     .vs-link {
         &--variant-on-dark {
@@ -87,10 +87,10 @@ export default {
     }
 
     @include media-breakpoint-up(md) {
-        padding: $spacer-2 0;
+        padding: $spacer-050 0;
 
         &:last-child {
-            padding-bottom: $spacer-1;
+            padding-bottom: $spacer-025;
         }
     }
 }

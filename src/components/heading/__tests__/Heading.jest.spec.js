@@ -7,6 +7,7 @@ const subHeadingSlot = 'Sub Heading Slot';
 
 const factoryShallowMount = (propsData) => shallowMount(VsHeading, {
     propsData: {
+        headingStyle: 'heading-l',
         ...propsData,
     },
     slots: {
@@ -31,28 +32,23 @@ describe('VsHeading', () => {
             expect(wrapper.element.tagName).toBe('H2');
         });
 
-        it(':thin - should accept and render a `thin` prop', () => {
-            const wrapper = factoryShallowMount({
-                thin: true,
-            });
+        it(':headingStyle - should accept and render the correct `headingStyle` class', () => {
+            const wrapper = factoryShallowMount();
 
-            expect(wrapper.classes('vs-heading--thin')).toBe(true);
+            expect(wrapper.classes('vs-heading--heading-l')).toBe(true);
         });
 
-        it(':thin - should *NOT* render a `vs-heading--thin` class if `thin` is set to false', () => {
-            const wrapper = factoryShallowMount({
-                thin: false,
+        it(':headingStyle - should render the correct sub-heading class based on the headingStyle', () => {
+            const wrapper = shallowMount(VsHeading, {
+                propsData: {
+                    headingStyle: 'heading-l',
+                },
+                slots: {
+                    'sub-heading': subHeadingSlot,
+                },
             });
 
-            expect(wrapper.classes('vs-heading--thin')).toBe(false);
-        });
-
-        it(':overrideStyleLevel - should render correct override class', () => {
-            const wrapper = factoryShallowMount({
-                overrideStyleLevel: 2,
-            });
-
-            expect(wrapper.classes('vs-heading--style-level-2')).toBe(true);
+            expect(wrapper.find('.vs-heading__sub-heading').classes('vs-heading__sub-heading--m')).toBe(true);
         });
     });
 
@@ -65,6 +61,9 @@ describe('VsHeading', () => {
 
         it('should render content inserted into `sub-heading` slot', () => {
             const wrapper = shallowMount(VsHeading, {
+                propsData: {
+                    headingStyle: 'heading-l',
+                },
                 slots: {
                     'sub-heading': subHeadingSlot,
                 },

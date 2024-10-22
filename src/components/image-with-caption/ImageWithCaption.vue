@@ -24,8 +24,9 @@
                 @toggleAction="toggleCaption"
                 v-if="showToggle"
             >
-                {{ toggleButtonText }}
-
+                <span class="visually-hidden">
+                    {{ toggleButtonText }}
+                </span>
                 <template v-slot:toggle-icon>
                     <!-- @slot Slot for custom image to be used for toggle icon
                         eg. social media images -->
@@ -259,8 +260,8 @@ export default {
 
             .vs-toggle-btn {
                 position: absolute;
-                bottom: $spacer-2;
-                right: $spacer-2;
+                bottom: $spacer-050;
+                right: $spacer-050;
 
                 @include media-breakpoint-down(sm) {
                     .fa-icon-colours--white {
@@ -369,7 +370,7 @@ export default {
 
             .vs-caption {
                 &__image-caption {
-                    margin-bottom: $spacer-2;
+                    margin-bottom: $spacer-050;
                 }
 
                 .row {
@@ -454,8 +455,8 @@ export default {
 
         &--overlapped {
             .vs-toggle-btn {
-                bottom: $spacer-9;
-                right: $spacer-4;
+                bottom: $spacer-300;
+                right: $spacer-100;
             }
         }
 
@@ -521,11 +522,11 @@ export default {
                                 }
 
                                 &__image-caption {
-                                    margin-bottom: $spacer-5;
+                                    margin-bottom: $spacer-125;
                                 }
 
                                 &__caption-info {
-                                    padding: $spacer-3 $spacer-2;
+                                    padding: $spacer-075 $spacer-050;
                                 }
                             }
                         }

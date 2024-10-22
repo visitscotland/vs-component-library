@@ -1,5 +1,5 @@
 <template>
-    <div class="vs-itinerary-tips position-relative my-7">
+    <div class="vs-itinerary-tips position-relative my-175">
         <div class="vs-itinerary-tips__text">
             <slot name="text" />
         </div>
@@ -30,7 +30,7 @@ export default {
 <style lang="scss">
 .vs-itinerary-tips {
     box-shadow: $vs-elevation-shadow-raised;
-    padding: $spacer-4 $spacer-4 $spacer-4 $spacer-9;
+    padding: $spacer-100 $spacer-100 $spacer-100 $spacer-300;
 }
 .vs-itinerary-tips__text {
     p:last-of-type {

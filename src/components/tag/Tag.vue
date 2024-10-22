@@ -1,6 +1,6 @@
 <template>
     <VsLink
-        class="vs-tag me-2 mb-4"
+        class="vs-tag me-050 mb-100"
         data-test="vs-tag"
         :href="href"
     >
@@ -44,14 +44,13 @@ export default {
         border-radius: $border-radius-pill;
         transition: background $duration-base;
         text-decoration: none;
-        padding: $spacer-1 $spacer-3;
+        padding: $spacer-025 $spacer-075;
         font-size: $font-size-4;
 
         @include vs-button-variant(
             $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
             $vs-color-text-inverse, $vs-color-background-hover, $vs-color-background-hover,
             $vs-color-text-inverse, $vs-color-background-tertiary, $vs-color-background-tertiary,
-            $vs-color-text-inverse, $vs-color-background-tertiary, $vs-color-border-tertiary,
         );
 
         &:focus {

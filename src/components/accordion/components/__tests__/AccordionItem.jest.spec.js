@@ -83,17 +83,17 @@ describe('VsAccordionItem', () => {
             expect(badge.exists()).toBe(true);
         });
 
-        it(':headingLevel - changes the heading to the corresponsing level', async() => {
+        it(':headingLevel - changes the heading to the corresponding level', async() => {
             const wrapper = factoryMount({
                 slots: {
                     'vs-module-wrapper-heading': 'Module wrapper heading',
                 },
             });
- 
+
             await wrapper.setProps({
                 headingLevel: 3,
             });
- 
+
             expect(wrapper.find('h3').exists()).toBe(true);
         });
 

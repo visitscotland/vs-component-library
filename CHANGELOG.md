@@ -2,6 +2,147 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/visitscotland/vs-component-library/compare/v3.3.8...v4.0.0) (2024-10-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* **spacers:** All old spacer tokens have now been removed and should be replaced with the new
+tokens and utility classes going forward.
+* **button:** The IconWithText prop has now been removed from the vs-button component and should
+be replaced with another button variant.
+* **button props:** Button icons previously configured via iconOrientation will now need to use an
+appropriately oriented custom font icon instead
+* **heading:** The 'thin' and 'alternative' props will no longer be accepted by the heading
+component
+
+### ✨ Features
+
+* **button.vue:** rounded prop ([ed77a82](https://github.com/visitscotland/vs-component-library/commit/ed77a8207a3f16038718d3a0ab51ab508cf8cb27))
+* **caption:** add new subtle variant for caption ([821b5fe](https://github.com/visitscotland/vs-component-library/commit/821b5fe12692a3c301076ebdc580716ffa474c88))
+* **hero-section:** first implementation of new component ([7467fd3](https://github.com/visitscotland/vs-component-library/commit/7467fd3014cf070b77eb91b70aa453608f415109))
+* **hero:** add new no-image variant into hero component ([eff5371](https://github.com/visitscotland/vs-component-library/commit/eff53715cc854266762a7e9a6965b274fa31ffac))
+* **herosection:** iniitial draft of hero section ([4a7b805](https://github.com/visitscotland/vs-component-library/commit/4a7b8058085e9a2f3829bae111ad48fe1399b84c))
+* **spacer tokens:** add new spacers from design ([18b7973](https://github.com/visitscotland/vs-component-library/commit/18b7973b924bdefc5007f2d3fb8faa1d881df119))
+* **spacing.yml tokens and util update:** include additional spacing- namespaces ([3322dcb](https://github.com/visitscotland/vs-component-library/commit/3322dcb7125fd1b2a969250642466cb6c203a913))
+* **tokens:** add display tokens for heading-size into the library ([94829d3](https://github.com/visitscotland/vs-component-library/commit/94829d3a2c93f629c89e87e990e5d08df5453535))
+* **tokens:** add new font-size-primitives and heading-size tokens to the library ([65c3ce0](https://github.com/visitscotland/vs-component-library/commit/65c3ce07b5fd68c75fc971d89a945d8fd5d6f822))
+* **tokens:** add new sub-heading tokens to the library ([1bfe41a](https://github.com/visitscotland/vs-component-library/commit/1bfe41adaa0dcae03aec3fc92327bad9ce646aac))
+* **tokens:** add new tracking and line-height tokens for headings ([87230e5](https://github.com/visitscotland/vs-component-library/commit/87230e5ea8b2e05292130ea23937a3fd0a4525dc))
+
+
+### ✅ Tests
+
+* **heading:** update unit tests for new heading props ([be6ad49](https://github.com/visitscotland/vs-component-library/commit/be6ad49a56e73cff551e10c717bcc92978d610ac))
+* **hero:** add unit tests for hero component ([c589daa](https://github.com/visitscotland/vs-component-library/commit/c589daa850d0a48755da790fa56ada20f990386e))
+
+
+### 🎨 Styling
+
+* **button.vue and tests:** line wrapping and indents ([8f79d5d](https://github.com/visitscotland/vs-component-library/commit/8f79d5d2386602ef1c1386c5f51809e56b838cdb))
+* **button.vue:** indenting etc ([19caab8](https://github.com/visitscotland/vs-component-library/commit/19caab8b142236822e3425931e0041d5cda70b99))
+* **button:** remove focus colours from button variant mixin as its now more consistent ([ce312a8](https://github.com/visitscotland/vs-component-library/commit/ce312a89903ecb1c54621a3a76c92961a05ed1a2))
+* **buttons:** update accordion button line-height ([14b8041](https://github.com/visitscotland/vs-component-library/commit/14b8041740cab08fb147d1e89683c3a5484b0975))
+* **button:** update button icon size to match designs ([de2e0de](https://github.com/visitscotland/vs-component-library/commit/de2e0debec3e7319f5a1d87ef815796c72bb7a1c))
+* **heading:** add new heading styles in to heading component ([69d31ce](https://github.com/visitscotland/vs-component-library/commit/69d31ce212dd0362a2df6e79d736ddaeacd04f4b))
+* **hero:** update caption subtle background and add padding to hero ([3e73bda](https://github.com/visitscotland/vs-component-library/commit/3e73bda4169eb20392f87d87a066d53b9dd9ed2a))
+* **hero:** update padding and image size for hero section ([ebdf0e1](https://github.com/visitscotland/vs-component-library/commit/ebdf0e11e533ceed3a6a721b647e675e2f97a2cf))
+* **tabs:** update tab item to new spacers ([bf92686](https://github.com/visitscotland/vs-component-library/commit/bf92686ea3c4c25d98d369c013a28892da2258b1))
+* **togglebutton:** fix toggle button styles after button refactor ([7d32aea](https://github.com/visitscotland/vs-component-library/commit/7d32aeaa3a4d0e46e7a5d6512db8e12d83af73f5))
+
+
+### 📝 Docs
+
+* **button:** update button stories for better examples ([c1f5e96](https://github.com/visitscotland/vs-component-library/commit/c1f5e96379f04dc3e55191e2f3a0bdab098d3d8d))
+* **hero:** add comments to props and tidy hero story ([db8d40c](https://github.com/visitscotland/vs-component-library/commit/db8d40c1707e9cbed0aba69fc3440b50ca7d7756))
+* **hero:** update hero component name in storybook ([87bf5f9](https://github.com/visitscotland/vs-component-library/commit/87bf5f9277a874b5d1ae407520768d27d0cb803b))
+
+
+### ♻️ Code Refactoring
+
+* **$spacer- variables:** replace  1-12 with 0125-600 ([b900414](https://github.com/visitscotland/vs-component-library/commit/b90041434e4353509f720331c43f214d6d2aad5a))
+* **accordion:** remove unused heading in accordion component ([b515e54](https://github.com/visitscotland/vs-component-library/commit/b515e54c72c2e56027050dc1ceab65f84111d2a8))
+* **add new spacers & update button:** include new spacer values per main branch ([dc809b2](https://github.com/visitscotland/vs-component-library/commit/dc809b272ff9a8c7e01413e4336601d02c3278c2))
+* **article:** swap sub heading back to rich text wrapper ([c288061](https://github.com/visitscotland/vs-component-library/commit/c288061152ad055bb40940b1bfd2758741afc072))
+* **article:** update article to use sub-heading instead of lead text ([b67863c](https://github.com/visitscotland/vs-component-library/commit/b67863ccd6150676ae8dbc235d0e0aefc529a2f4))
+* **button props:** remove iconOrientation from Button ([01233d1](https://github.com/visitscotland/vs-component-library/commit/01233d10eb194f3725f321047f45e2fc63b584d6))
+* **button.vue:** replace value with token variable ([3817f03](https://github.com/visitscotland/vs-component-library/commit/3817f033f96d7eb52f31974a82078ae0ee74963e))
+* **button:** make button rounded the default button ([484f81a](https://github.com/visitscotland/vs-component-library/commit/484f81a8f9325ad4be85ed4723f58310e87824fc))
+* **button:** remove iconWithText button type from vs-button component ([715fd37](https://github.com/visitscotland/vs-component-library/commit/715fd374faef68723e07333362b0c0fc6e025760))
+* **buttons:** update all buttons to be consistent with new button designs ([c71e33f](https://github.com/visitscotland/vs-component-library/commit/c71e33f57ac81b00bf5d7e9fa0d1f940b8bf6dcb))
+* **button:** update styles per design ([d8c3775](https://github.com/visitscotland/vs-component-library/commit/d8c37757e86d47f28f62e99acbbee3ba2b36328b))
+* **button:** update styles to match designs ([3712265](https://github.com/visitscotland/vs-component-library/commit/3712265c122bd6adbe92bbf32cbf828da7d7455f))
+* **button:** update styles to match new designs ([d280824](https://github.com/visitscotland/vs-component-library/commit/d280824f0cfcd3d26b90e7068ce67b7dd047c5b7))
+* **carousel:** refactor carousel buttons to use consistent vs-button ([5dff032](https://github.com/visitscotland/vs-component-library/commit/5dff03212d05faacd1ecfc17d3f8974a9a352812))
+* **components using button icon-only propp:** remove visually-hidden span wrappers ([0c235a5](https://github.com/visitscotland/vs-component-library/commit/0c235a5308ef649104d1b0f59a33b763b0cd0150))
+* **custom fa icons,carousel,mapwithsidebar:** add left-arrow icon to replace iconOrientation ([f99de29](https://github.com/visitscotland/vs-component-library/commit/f99de29b5ac13646cebd01ca3428358cb69b470a))
+* **form:** remove commented out code from form component ([2d4fc1c](https://github.com/visitscotland/vs-component-library/commit/2d4fc1c0a6ae764576f9db04acc0857caec6d167))
+* **heading:** add heading margins as optional in the mixin ([c31aaf4](https://github.com/visitscotland/vs-component-library/commit/c31aaf4345326a5e1ee0831fae851694288df891))
+* **heading:** first components refactored to use new heading ([82151a6](https://github.com/visitscotland/vs-component-library/commit/82151a66891e62d29d7a4e25a8f7622e9a43b6c2))
+* **heading:** refactor heading styles and tidy tab headings ([cd2bd9b](https://github.com/visitscotland/vs-component-library/commit/cd2bd9bfb2f346fa2def56ba6107e78a12df8030))
+* **heading:** refactoring headings to use new headingStyle components to fix breaking change ([0ad6b69](https://github.com/visitscotland/vs-component-library/commit/0ad6b69021b676c078a19742da9bee2030fe39fe))
+* **heading:** remove alternative prop from heading component ([a10e04a](https://github.com/visitscotland/vs-component-library/commit/a10e04a6cb2137ec86f131371b8c61ef8fdc703d))
+* **heading:** remove thin and alternative heading styles and props ([5da6587](https://github.com/visitscotland/vs-component-library/commit/5da658763d35747012ce8b273e3402127a5f664d))
+* **headings:** refactor font-family tokens and where theyre applied ([1b1fd00](https://github.com/visitscotland/vs-component-library/commit/1b1fd0066c85c5c976943d45f3b4c68c92a6f604))
+* **headings:** refactor subheading styles ([f67d57e](https://github.com/visitscotland/vs-component-library/commit/f67d57e55c6e238dc04172c09b8b8177527d094d))
+* **headings:** remove old heading-size tokens ([151a876](https://github.com/visitscotland/vs-component-library/commit/151a876267caf2cf0af693d86bb2d952c7cc19d6))
+* **heading:** update headings to use new headingStyle prop ([8543320](https://github.com/visitscotland/vs-component-library/commit/8543320fefda9b8ce56e1c0b4b6210d09228d94e))
+* **heading:** updating headings to use headingStyle prop ([4e75d6e](https://github.com/visitscotland/vs-component-library/commit/4e75d6e60658009e7142b5af5c4cf1ed4cfc89fd))
+* **heading:** work in progress - refactor heading component to include new design styles ([ca73c6d](https://github.com/visitscotland/vs-component-library/commit/ca73c6d8106ad9042ccb91c267a4c2a73bc266ad))
+* **hero:** add export and update component name to VsHeroSection ([cec0168](https://github.com/visitscotland/vs-component-library/commit/cec0168680ef4a893f905783467f09eb5b856559))
+* **hero:** fix caption in hero section ([1528624](https://github.com/visitscotland/vs-component-library/commit/15286244f7cb39486104318542f8327130052fb7))
+* **hero:** fix correct columns as per design ([f61c8e4](https://github.com/visitscotland/vs-component-library/commit/f61c8e45502656ea6b261ce0cb8eb4a9f3b0babd))
+* **hero:** use VsImg instead of background image for hero ([f20bbbf](https://github.com/visitscotland/vs-component-library/commit/f20bbbf5b1f634384ddab04ebcc3e609bd59d4ea))
+* **itineraries:** refactor itinerary headings to use new style ([5dba12c](https://github.com/visitscotland/vs-component-library/commit/5dba12c6311da501d5a9e4a0d05aef33d4977cdc))
+* **modal and  irts stories:** remove dark modal background and apply secondary toggle ([b734d16](https://github.com/visitscotland/vs-component-library/commit/b734d1617d600261af20057d1190f3467552fe98))
+* **move focus ring outside button, change color:** update to the focus-ring per button design ([255168f](https://github.com/visitscotland/vs-component-library/commit/255168f46528259bbd31cbae0ca783f80721303b))
+* **numberinput, button.vue, button tests:** visually hidden slot span in iconOnly button ([e89ec85](https://github.com/visitscotland/vs-component-library/commit/e89ec8536c4d5fbf6d84ebf17af2d25b97f6ab9f))
+* **padding and margin utiliies:** replace suffixes to use new spacer- schema ([dcb7d4e](https://github.com/visitscotland/vs-component-library/commit/dcb7d4e2924f89b0f42c358790ceda082b737217))
+* **remove ondark prop from  button api:** remove all references to onDark and on-dark ([fe5c3f9](https://github.com/visitscotland/vs-component-library/commit/fe5c3f92c461c16922834ea30fcfac3d3f84f687))
+* **remove rendundant class:** q ([de1d26f](https://github.com/visitscotland/vs-component-library/commit/de1d26f0d30a6f747143739f38ef6c0123f4c298))
+* **spacer values:** update missed spacer- values ([bdfe5f5](https://github.com/visitscotland/vs-component-library/commit/bdfe5f507286b0a7d11dbbd5cf776d4f2814d6c2))
+* **spacers:** remove old spacer tokens from the codebase ([60dfdc8](https://github.com/visitscotland/vs-component-library/commit/60dfdc8ee7576c66711b0719eddffa197edd8e73))
+* **tabs:** refactor tabs to use new heading styles ([c32e5bf](https://github.com/visitscotland/vs-component-library/commit/c32e5bf0728b7f6aa258e115b111797b34a91557))
+* **tab:** update tab item font size ([685f772](https://github.com/visitscotland/vs-component-library/commit/685f7721ec911b9e35be77cd1dedf59ad0a371e9))
+* **utilities:** remove utilities_custom file ([fccf1a8](https://github.com/visitscotland/vs-component-library/commit/fccf1a830b1c930c646813f5380bb7e90be2589e))
+* **utilties:** remove import of utilties_custom ([06d8866](https://github.com/visitscotland/vs-component-library/commit/06d886665530eb175fa0668c16b4f10507ffe185))
+* visually-hidden iconOnly button text ([4baae02](https://github.com/visitscotland/vs-component-library/commit/4baae02568fe75770ca207409aa101186c13a513))
+
+
+### 🐛 Bug Fixes
+
+* **button styles focus:** button height and focus styles updated to reinstate changes ([8d91bec](https://github.com/visitscotland/vs-component-library/commit/8d91bec2f61957998e85e0cb3f9633c3876352e0))
+* **caption:** fix padding for caption with map ([532b7f4](https://github.com/visitscotland/vs-component-library/commit/532b7f4ad94a3bd8ccaa69fade0df3c388946613))
+* **carousel:** add back missing if condition on next button ([de5a596](https://github.com/visitscotland/vs-component-library/commit/de5a596a5ea37bb8fb31b4078c3d01317f32b52c))
+* **form and productsearch:** add spaces separating utils from functional classes ([a784eaa](https://github.com/visitscotland/vs-component-library/commit/a784eaa318a2c9ec3082891cdb8d5ace85a52b0f))
+* **skiscotlandcard:** fix typo in skiscotlandcard ([806394c](https://github.com/visitscotland/vs-component-library/commit/806394cf7cd34a04beb22c80db45ff018ee0842a))
+* **spacing:** add missing $spacer-025 to the bootstrap overrides ([8ddbd2a](https://github.com/visitscotland/vs-component-library/commit/8ddbd2a2e3da5e6f4e4f0c87e39dfa7fff03c1b2))
+* **spacing:** update headings to the right spacing value ([f9c4129](https://github.com/visitscotland/vs-component-library/commit/f9c4129e68f86da8a2530572bd0881f906b77618))
+* **tab:** fix tab headings to show in no-js ([f162ae9](https://github.com/visitscotland/vs-component-library/commit/f162ae9a5bf8f45bd53277f724597e8a367f37de))
+* **togglebutton:** reinstate visually hidden for this component's text ([fbcc24b](https://github.com/visitscotland/vs-component-library/commit/fbcc24b02e980bfca0b48d4e8963189420a4cf26))
+* **tokens:** fix heading-l token value ([568c5b4](https://github.com/visitscotland/vs-component-library/commit/568c5b44e33debc50f3a4dede2738d699c78885f))
+* **videocaption, pageintrostories, togglebuttonstories:** show/hide toggle as appropriate ([8db4809](https://github.com/visitscotland/vs-component-library/commit/8db480954464c038a38063f7f75532a3d5a0e297))
+* **videocaption, togglebutton:** add visually-hidden wrapper in component ([c41e9b2](https://github.com/visitscotland/vs-component-library/commit/c41e9b2fa6666c60fa6639a206d5659d341753b8))
+
+### [3.3.8](https://github.com/visitscotland/vs-component-library/compare/v3.3.7...v3.3.8) (2024-10-21)
+
+
+### 🐛 Bug Fixes
+
+* improve logic determining that link click is from an anchor element ([ca942b7](https://github.com/visitscotland/vs-component-library/commit/ca942b75905038dfee12f05655cc1d4951cb947b))
+
+
+### 🔖 Others
+
+* merge from main ([102e316](https://github.com/visitscotland/vs-component-library/commit/102e316741da089cd6bfea9e12f4781c6a301d74))
+
+### [3.3.7](https://github.com/visitscotland/vs-component-library/compare/v3.3.6...v3.3.7) (2024-10-18)
+
+
+### ✨ Features
+
+* **skip to:** add ability to remove search from skip to ([2f871c3](https://github.com/visitscotland/vs-component-library/commit/2f871c37ec57472223afe3c8694aff1c50034a48))
+
 ### [3.3.6](https://github.com/visitscotland/vs-component-library/compare/v3.3.5...v3.3.6) (2024-10-15)
 
 ### [3.3.5](https://github.com/visitscotland/vs-component-library/compare/v3.3.4...v3.3.5) (2024-10-15)

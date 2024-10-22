@@ -11,7 +11,7 @@
                     :class="businessSupport ? null : 'col-xxl-10 offset-xxl-1'"
                 >
                     <div
-                        class="vs-article__wrapper mb-9 mb-md-11"
+                        class="vs-article__wrapper mb-300 mb-md-500"
                         :class="businessSupport ? 'vs-article__wrapper--no-border' : null"
                     >
                         <!-- @slot Slot to contain the cover image for this article -->
@@ -27,12 +27,13 @@
                                 :offset-md="businessSupport ? null : '1'"
                             >
                                 <div
-                                    class="vs-article__header mx-md-0 mt-9 mt-lg-11"
-                                    :class="businessSupport ? null : 'mx-6'"
+                                    class="vs-article__header mx-md-0 mt-300 mt-lg-500"
+                                    :class="businessSupport ? null : 'mx-150'"
                                 >
                                     <VsHeading
                                         :level="headingLevel"
-                                        class="mb-8 mb-lg-9"
+                                        headingStyle="heading-xl"
+                                        class="mb-200 mb-lg-300"
                                         :class="businessSupport ? null : 'text-center'"
                                     >
                                         <span :id="anchorLink ? anchorLink : ''">
@@ -42,7 +43,7 @@
 
                                     <VsRichTextWrapper
                                         variant="lead"
-                                        class="mb-9 mb-lg-10"
+                                        class="mb-300 mb-lg-400"
                                         :class="businessSupport ? null : 'text-center'"
                                     >
                                         <!-- @slot Slot to contain the introduction
@@ -53,7 +54,7 @@
 
                                 <VsCol
                                     v-if="businessSupport"
-                                    class="mb-9"
+                                    class="mb-300"
                                     cols="7"
                                 >
                                     <slot name="vs-article-img" />
@@ -77,9 +78,9 @@
 import {
     VsCol, VsRow, VsContainer,
 } from '@/components/grid';
-import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import { isNumber } from 'lodash';
+import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
 
 /**
  * The article component is used for in-depth editorial style
@@ -95,8 +96,8 @@ export default {
         VsCol,
         VsRow,
         VsContainer,
-        VsRichTextWrapper,
         VsHeading,
+        VsRichTextWrapper,
     },
     props: {
         /**

@@ -1,0 +1,33 @@
+/* 
+ * Sets correct styles for each sub-heading style 
+ */
+
+@mixin sub-heading-style($style) {
+    // Extract properties from the map
+    $size: map-get(
+      map-get($sub-heading-styles, $style), size
+    );
+
+    $margin-top: map-get(
+        map-get($sub-heading-styles, $style), margin-top
+    );
+  
+    // Apply the sub-heading styles
+    font-size: $size;
+    margin-top: $margin-top;
+}
+
+$sub-heading-styles: (
+  sub-heading-l: (
+    size: $sub-heading-l,
+    margin-top: $spacer-050,
+  ),
+  sub-heading-m: (
+    size: $sub-heading-m,
+    margin-top: $spacer-025,
+  ),
+  sub-heading-s: (
+    size: $sub-heading-s,
+    margin-top: $spacer-025,
+  ),
+);

@@ -59,7 +59,7 @@ const Template = (args) => ({
 
 const base = {
     icon: 'bus',
-    size: 'md',
+    size: 'sm',
     position: 'top',
     title: 'Travel by bus',
     href: '#',

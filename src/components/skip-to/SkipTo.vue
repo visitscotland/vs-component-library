@@ -23,6 +23,7 @@
             href="#site-search-btn"
             data-test="vs-skip-to-search"
             class="vs-skip-to__search"
+            v-if="hasSearchLink"
         >
             <!-- @slot text for 'Search' -->
             <slot name="search-text" />
@@ -69,6 +70,13 @@ export default {
         skipToText: {
             type: String,
             required: true,
+        },
+        /**
+         * Controls whether a link to a search component appears in the skip to
+         */
+        hasSearchLink: {
+            type: Boolean,
+            default: true,
         },
     },
     methods: {
@@ -143,9 +151,9 @@ export default {
         position: absolute;
         transform: translateY(-100%);
         top: 0;
-        height: $spacer-9;
+        height: $spacer-300;
         align-items: center;
-        padding: 0 $spacer-2;
+        padding: 0 $spacer-050;
 
         &__label {
             margin: 0;
@@ -157,11 +165,11 @@ export default {
         }
 
         .vs-link {
-            margin-left: $spacer-2;
+            margin-left: $spacer-050;
         }
 
         @include media-breakpoint-up(lg) {
-            height: $spacer-10;
+            height: $spacer-400;
         }
     }
 

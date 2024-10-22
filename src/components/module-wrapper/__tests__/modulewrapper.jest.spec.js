@@ -1,4 +1,8 @@
-import { config, shallowMount, mount } from '@vue/test-utils';
+import {
+    config,
+    shallowMount,
+    mount,
+} from '@vue/test-utils';
 import VsModuleWrapper from '../ModuleWrapper.vue';
 
 config.global.renderStubDefaultSlot = true;
@@ -10,7 +14,6 @@ const factoryShallowMount = (slotData) => shallowMount(VsModuleWrapper, {
 const factoryMount = (slotData) => mount(VsModuleWrapper, {
     ...slotData,
 });
-
 
 describe('VsModuleWrapper', () => {
     it('should render a component with the data-test attribute `vs-module-wrapper`', () => {
@@ -65,11 +68,11 @@ describe('VsModuleWrapper', () => {
                     'vs-module-wrapper-heading': 'Module wrapper heading',
                 },
             });
- 
+
             await wrapper.setProps({
                 headingLevel: 3,
             });
- 
+
             expect(wrapper.find('h3').exists()).toBe(true);
         });
 

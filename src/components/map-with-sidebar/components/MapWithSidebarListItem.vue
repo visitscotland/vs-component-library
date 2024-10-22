@@ -181,11 +181,11 @@ export default {
         outline: none;
         background: none;
         border: none;
-        font-size: $font-size-h4;
+        font-size: $font-size-4;
         text-transform: none;
         font-family: $font-family-base;
         font-weight: $font-weight-bold;
-        padding: $spacer-1;
+        padding: $spacer-025;
         min-height: 88px;
         border-bottom: 1px solid $vs-color-border;
         text-align: left;
@@ -220,12 +220,12 @@ export default {
 
         &__icon,
         &__text {
-            margin-left: $spacer-2;
+            margin-left: $spacer-050;
         }
 
         @include media-breakpoint-up(lg) {
             &__img {
-                margin-right: $spacer-5;
+                margin-right: $spacer-125;
             }
         }
     }

@@ -7,7 +7,7 @@
             class="fixed-bottom"
             v-show="!isDesktop && withinItineraryMain"
         >
-            <div class="d-flex justify-content-center pb-2">
+            <div class="d-flex justify-content-center pb-050">
                 <VsButton
                     class="vs-itinerary__map-toggle-button"
                     @click="toggleShowMap()"

@@ -94,13 +94,13 @@ export default {
 <style lang="scss" scoped>
 .vs-summary-box-distance {
     flex-grow: 1;
-    flex-basis: calc(50% - #{$spacer-4});
-    margin: $spacer-2;
+    flex-basis: calc(50% - #{$spacer-100});
+    margin: $spacer-050;
 
     @include media-breakpoint-up(md) {
         flex-grow: 1;
-        flex-basis: calc(50% - #{$spacer-6});
-        margin: $spacer-3;
+        flex-basis: calc(50% - #{$spacer-150});
+        margin: $spacer-075;
     }
 
     &::after {
@@ -132,7 +132,7 @@ export default {
         width: 60%;
         text-align: left;
         vertical-align: middle;
-        font-family: $headings-font-family;
+        font-family: $display-font-family;
         font-weight: $font-weight-bold;
     }
 
@@ -149,21 +149,21 @@ export default {
 .vs-summary-box-distance__divider {
     width: 85%;
     border-top: 1px solid rgba(0, 0, 0, 0.2);
-    margin: $spacer-1 auto;
+    margin: $spacer-025 auto;
 
     @include media-breakpoint-up(lg) {
-        margin-top: $spacer-2;
-        margin-bottom: $spacer-2;
+        margin-top: $spacer-050;
+        margin-bottom: $spacer-050;
     }
 }
 
 .vs-summary-box-distance__label {
-    top: $spacer-3;
+    top: $spacer-075;
     left: 0;
     line-height: $line_height_xs;
 
     @include media-breakpoint-up(lg) {
-        top: $spacer-2;
+        top: $spacer-050;
     }
 
     .vs-summary-box-distance__label-inner {

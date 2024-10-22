@@ -71,7 +71,7 @@ export default {
             color: $vs-color-text-inverse;;
             text-decoration: none;
             transition: $duration-base all;
-            padding: 0 $spacer-5;
+            padding: 0 $spacer-125;
             line-height: 35px;
             height: 35px;
             display: inline-block;
@@ -126,7 +126,7 @@ export default {
             @include media-breakpoint-up(md) {
                 flex-basis: auto;
                 border: none;
-                margin: 0 $spacer-2;
+                margin: 0 $spacer-050;
             }
 
             &:first-of-type{
@@ -143,7 +143,7 @@ export default {
                 display: block;
                 text-align: center;
                 font-size: $font-size-4;
-                padding: $spacer-3 $spacer-5;
+                padding: $spacer-075 $spacer-125;
                 line-height: $line-height-standard;
             }
         }

@@ -41,7 +41,7 @@
 
             <VsHeading
                 :level="headingLevel"
-                override-style-level="6"
+                headingStyle="heading-xxs"
                 class="d-none vs-accordion-item__title"
                 :class="toggleResponsiveItem"
                 data-test="vs-accordion__item-title"
@@ -70,8 +70,11 @@ import VsIcon from '@/components/icon/Icon.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import { inject } from 'vue';
 import { isNumber } from 'lodash';
-
-import { BCard, BCardHeader, BCardBody } from 'bootstrap-vue-next';
+import {
+    BCard,
+    BCardHeader,
+    BCardBody,
+} from 'bootstrap-vue-next';
 
 /**
  * Accordion item for use within the Accordion component.
@@ -200,7 +203,7 @@ export default {
         font-weight: $font-weight-bold;
         font-size: $font-size-6;
         letter-spacing: normal;
-        padding: $spacer-3;
+        padding: $spacer-075;
         border: 0;
         margin-bottom: 1px;
         box-shadow: 0px -1px 0px 0px $vs-color-border;
@@ -211,20 +214,20 @@ export default {
     }
 
     .vs-accordion-item__title {
-        padding: $spacer-3;
+        padding: $spacer-075;
         margin-bottom: 0;
     }
 
     .vs-accordion-item__card-colour-badge {
-        width: $spacer-3;
-        height: $spacer-3;
-        border-radius: $spacer-1;
+        width: $spacer-075;
+        height: $spacer-075;
+        border-radius: $spacer-025;
         display: inline-block;
-        margin-right: $spacer-4;
+        margin-right: $spacer-100;
     }
 
     .vs-accordion-item__panel.card-body {
-        padding: 0 0 $spacer-2;
+        padding: 0 0 $spacer-050;
     }
 }
 

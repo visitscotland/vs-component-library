@@ -12,7 +12,7 @@
             >
                 <fieldset>
                     <legend
-                        class="vs-form__main-heading vs-heading--style-level-2 float-none"
+                        class="vs-form__main-heading vs-heading vs-heading--heading-l float-none"
                         data-test="vs-form__main-heading"
                     >
                         {{ getTranslatedContent('heading') }}
@@ -103,7 +103,7 @@
                     :invalid="!recaptchaVerified && showErrorMessage"
                     :language="language"
                     :error-msg="getMessagingData('recaptchaError', language)"
-                    class="mt-9"
+                    class="mt-300"
                     :textarea-label="recaptchaTextareaLabel"
                     :re-alert-errors="reAlertErrors"
                 />
@@ -111,7 +111,7 @@
                 <VsButton
                     variant="primary"
                     type="submit"
-                    class="vs-form__submit mt-9"
+                    class="vs-form__submit mt-300"
                     @click="preSubmit"
                 >
                     {{ getTranslatedContent('submit') }}
@@ -132,6 +132,7 @@
                 <VsHeading
                     v-if="getTranslatedContent('successHeading')"
                     level="2"
+                    headingStyle="heading-l"
                 >
                     {{ getTranslatedContent('successHeading') }}
                 </VsHeading>
@@ -833,10 +834,6 @@ export default {
 
 <style lang='scss'>
     .vs-form {
-        &__main-heading {
-            @extend %heading-default-styles;
-        }
-
         &__content {
             font-size: $font-size-6;
         }
@@ -847,7 +844,7 @@ export default {
 
         fieldset {
             > div {
-                margin-bottom: $spacer-6;
+                margin-bottom: $spacer-150;
             }
         }
 

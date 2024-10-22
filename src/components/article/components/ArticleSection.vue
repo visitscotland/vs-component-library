@@ -1,6 +1,6 @@
 <template>
     <div
-        class="vs-article-section mb-8 mb-md-10"
+        class="vs-article-section mb-200 mb-md-400"
         :class="sidebarAlignClass"
         data-test="vs-article-section"
     >
@@ -28,7 +28,7 @@
             >
                 <div
                     class="mx-md-0"
-                    :class="!businessSupport && 'mx-6'"
+                    :class="!businessSupport && 'mx-150'"
                 >
                     <VsRichTextWrapper>
                         <!-- @slot Default slot to contain the copy for this article -->
