@@ -131,7 +131,7 @@ const Template = (args) => ({
                 </VsLink>
                 <VsLink
                     href="#"
-                    class="d-inline-blockmt-100"
+                    class="d-inline-block mt-100"
                 >
                     <div class="d-inline-block me-100">
                         <span class="visually-hidden">Instagram</span>
