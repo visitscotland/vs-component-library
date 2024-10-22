@@ -25,6 +25,7 @@ import VsHeading from '../../heading/Heading.vue';
 import VsImg from '../../img/Img.vue';
 import VsRichTextWrapper from '../../rich-text-wrapper/RichTextWrapper.vue';
 import { VsRow, VsCol } from '../../grid';
+import { isNumber } from 'lodash';
 
 const props = defineProps({
     /**
@@ -35,11 +36,14 @@ const props = defineProps({
         required: true,
     },
     /**
-     * The heading level will be used to set the heading level
+     * The correct heading level for page hierarchy, the
+     * heading will be styled the same regardless of level provided
+     * `1|2|3|4|5|6`
      */
     headingLevel: {
         type: Number,
         default: 3,
+        validator: (value) => (isNumber(value) ? value > 0 && value < 7 : value.match(/(1|2|3|4|5|6)/)),
     },
     /**
      * Image source of the list item.

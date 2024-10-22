@@ -17,7 +17,7 @@
                         :level="headingLevel"
                         class="vs-module-wrapper__heading"
                         data-test="vs-module-wrapper__heading"
-                        :id="anchorID"
+                        :id="anchorId"
                     >
                         <!-- @slot Slot to contain heading -->
                         <slot name="vs-module-wrapper-heading" />
@@ -47,6 +47,7 @@
 <script>
 import VsHeading from '@/components/heading/Heading.vue';
 import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import { isNumber } from 'lodash';
 import {
     VsContainer, VsRow, VsCol,
 } from '@/components/grid';
@@ -69,10 +70,10 @@ export default {
     },
     props: {
         /**
-         * AnchorID will be used to set an id on the heading,
+         * AnchorId will be used to set an id on the heading,
          * allowing for anchor links (ToC)
          */
-        anchorID: {
+        anchorId: {
             type: String,
             default: null,
         },
@@ -92,6 +93,7 @@ export default {
         headingLevel: {
             type: Number,
             default: 2,
+            validator: (value) => (isNumber(value) ? value > 0 && value < 7 : value.match(/(1|2|3|4|5|6)/)),
         },
         /**
         * Theme of module wrapper to use

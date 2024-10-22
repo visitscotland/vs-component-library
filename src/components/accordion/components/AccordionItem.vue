@@ -5,10 +5,7 @@
         :class="breakPoint ? 'vs-accordion-item__responsive' : ''"
         data-test="vs-accordion__item"
     >
-        <BCardHeader
-            class="vs-accordion-item__card-header"
-            data-test="vs-accordion__item-header"
-        >
+        <BCardHeader class="vs-accordion-item__card-header" data-test="vs-accordion__item-header">
             <!-- @slot Slot to contain Header for accordion item.
             Defaults to Accordion Toggle button. If component is responsive
             and has a breakPoint it will show title instead of button on larger screens. -->
@@ -31,20 +28,13 @@
                 <template #icon-open>
                     <!-- @slot Slot for the icon to show when accordion item is open  -->
                     <slot name="icon-open">
-                        <VsIcon
-                            name="chevron"
-                            size="sm"
-                        />
+                        <VsIcon name="chevron" size="sm" />
                     </slot>
                 </template>
                 <template #icon-closed>
                     <!-- @slot Slot for the icon to show when accordion item is closed  -->
                     <slot name="icon-closed">
-                        <VsIcon
-                            name="chevron"
-                            orientation="down"
-                            size="sm"
-                        />
+                        <VsIcon name="chevron" orientation="down" size="sm" />
                     </slot>
                 </template>
             </VsAccordionToggle>
@@ -79,10 +69,9 @@ import VsAccordionToggle from '@/components/accordion/components/AccordionToggle
 import VsIcon from '@/components/icon/Icon.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import { inject } from 'vue';
+import { isNumber } from 'lodash';
 
-import {
-    BCard, BCardHeader, BCardBody,
-} from 'bootstrap-vue-next';
+import { BCard, BCardHeader, BCardBody } from 'bootstrap-vue-next';
 
 /**
  * Accordion item for use within the Accordion component.
@@ -128,11 +117,14 @@ export default {
             required: true,
         },
         /**
-         * The heading level will be used to set the heading level
+         * The correct heading level for page hierarchy, the
+         * heading will be styled the same regardless of level provided
+         * `1|2|3|4|5|6`
          */
         headingLevel: {
             type: Number,
             default: 2,
+            validator: (value) => (isNumber(value) ? value > 0 && value < 7 : value.match(/(1|2|3|4|5|6)/)),
         },
         /**
          * If this is provided, the accordion expands above
@@ -190,11 +182,10 @@ export default {
 </script>
 
 <style lang="scss">
-
 .vs-accordion-item.card {
     border: 0;
 
-    &.vs-accordion-item__responsive{
+    &.vs-accordion-item__responsive {
         border-top: 1px solid $vs-color-border;
     }
 
@@ -239,7 +230,7 @@ export default {
 
 @include no-js {
     .vs-accordion-item .vs-accordion-item__panel {
-        display: block!important;
+        display: block !important;
     }
 }
 </style>
