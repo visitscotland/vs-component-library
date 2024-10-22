@@ -77,7 +77,7 @@ describe('VsStyledListItem', () => {
             expect(column.find('img').exists()).toBe(true);
         });
 
-        it(':headingLevel - changes the heading to the corresponsing level', () => {
+        it(':headingLevel - changes the heading to the corresponding level', () => {
             wrapper = factoryMount({
                 headingLevel: 4,
             });
