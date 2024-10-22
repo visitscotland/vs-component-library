@@ -68,7 +68,7 @@ describe('VsArticle', () => {
 
         it(':headingLevel - changes the heading to the corresponsing level', () => {
             wrapper = factoryMount({
-                headingLevel: 3
+                headingLevel: 3,
             });
 
             const h3 = wrapper.find('h3');
@@ -76,7 +76,7 @@ describe('VsArticle', () => {
             expect(h3.exists()).toBe(true);
         });
 
-        it(':headingLevel - changes the heading to the corresponsing level', () => {
+        it(':headingLevel - checks the default headingLevel renders by default', () => {
             wrapper = factoryMount();
 
             const h2 = wrapper.find('h2');

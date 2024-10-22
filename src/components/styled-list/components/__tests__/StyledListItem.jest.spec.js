@@ -79,7 +79,7 @@ describe('VsStyledListItem', () => {
 
         it(':headingLevel - changes the heading to the corresponsing level', () => {
             wrapper = factoryMount({
-                headingLevel: 4
+                headingLevel: 4,
             });
 
             const h4 = wrapper.find('h4');
@@ -87,14 +87,13 @@ describe('VsStyledListItem', () => {
             expect(h4.exists()).toBe(true);
         });
 
-        it(':headingLevel - changes the heading to the corresponsing level', () => {
+        it(':headingLevel - checks the default headingLevel renders by default', () => {
             wrapper = factoryMount();
 
             const h3 = wrapper.find('h3');
 
             expect(h3.exists()).toBe(true);
         });
-        
     });
 
     describe(':slots', () => {
