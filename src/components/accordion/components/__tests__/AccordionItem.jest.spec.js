@@ -82,6 +82,30 @@ describe('VsAccordionItem', () => {
 
             expect(badge.exists()).toBe(true);
         });
+
+        it(':headingLevel - changes the heading to the corresponsing level', async() => {
+            const wrapper = factoryMount({
+                slots: {
+                    'vs-module-wrapper-heading': 'Module wrapper heading',
+                },
+            });
+ 
+            await wrapper.setProps({
+                headingLevel: 3,
+            });
+ 
+            expect(wrapper.find('h3').exists()).toBe(true);
+        });
+
+        it(':headingLevel - checks the default headingLevel renders by default', () => {
+            const wrapper = factoryMount({
+                slots: {
+                    'vs-module-wrapper-heading': 'Module wrapper heading',
+                },
+            });
+
+            expect(wrapper.find('h2').exists()).toBe(true);
+        });
     });
 
     describe(':methods', () => {
