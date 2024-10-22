@@ -89,11 +89,11 @@ describe('VsAccordionItem', () => {
                     'vs-module-wrapper-heading': 'Module wrapper heading',
                 },
             });
- 
+
             await wrapper.setProps({
                 headingLevel: 3,
             });
- 
+
             expect(wrapper.find('h3').exists()).toBe(true);
         });
 

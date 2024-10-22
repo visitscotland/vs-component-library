@@ -11,7 +11,6 @@ const factoryMount = (slotData) => mount(VsModuleWrapper, {
     ...slotData,
 });
 
-
 describe('VsModuleWrapper', () => {
     it('should render a component with the data-test attribute `vs-module-wrapper`', () => {
         const wrapper = factoryShallowMount();
@@ -65,11 +64,11 @@ describe('VsModuleWrapper', () => {
                     'vs-module-wrapper-heading': 'Module wrapper heading',
                 },
             });
- 
+
             await wrapper.setProps({
                 headingLevel: 3,
             });
- 
+
             expect(wrapper.find('h3').exists()).toBe(true);
         });
 
