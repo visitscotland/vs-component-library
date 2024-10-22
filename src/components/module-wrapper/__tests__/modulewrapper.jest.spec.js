@@ -1,9 +1,17 @@
-import { config, shallowMount } from '@vue/test-utils';
+import {
+    config,
+    shallowMount,
+    mount,
+} from '@vue/test-utils';
 import VsModuleWrapper from '../ModuleWrapper.vue';
 
 config.global.renderStubDefaultSlot = true;
 
 const factoryShallowMount = (slotData) => shallowMount(VsModuleWrapper, {
+    ...slotData,
+});
+
+const factoryMount = (slotData) => mount(VsModuleWrapper, {
     ...slotData,
 });
 
@@ -42,6 +50,40 @@ describe('VsModuleWrapper', () => {
             });
 
             expect(wrapper.find('[data-test="vs-module-wrapper"]').classes()).toContain('vs-module-wrapper--light');
+        });
+
+        it('businessSupport - render with class `vs-module-wrapper--left-align` when true', async() => {
+            const wrapper = factoryShallowMount();
+
+            await wrapper.setProps({
+                businessSupport: true,
+            });
+
+            expect(wrapper.find('[data-test="vs-module-wrapper"]').classes()).toContain('vs-module-wrapper--left-align');
+        });
+
+        it(':headingLevel - changes the heading to the corresponding level', async() => {
+            const wrapper = factoryMount({
+                slots: {
+                    'vs-module-wrapper-heading': 'Module wrapper heading',
+                },
+            });
+
+            await wrapper.setProps({
+                headingLevel: 3,
+            });
+
+            expect(wrapper.find('h3').exists()).toBe(true);
+        });
+
+        it(':headingLevel - checks the default headingLevel renders by default', () => {
+            const wrapper = factoryMount({
+                slots: {
+                    'vs-module-wrapper-heading': 'Module wrapper heading',
+                },
+            });
+
+            expect(wrapper.find('h2').exists()).toBe(true);
         });
     });
 

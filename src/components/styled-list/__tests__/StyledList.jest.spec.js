@@ -26,15 +26,6 @@ describe('VsStyledList', () => {
     });
 
     describe(':props', () => {
-        it(':anchorLink - renders h2 heading with id that has anchorLink value ', () => {
-            const anchorLinkProp = 'anchor-link';
-            wrapper = factoryMount({
-                anchorLink: anchorLinkProp,
-            });
-
-            expect(wrapper.find(`h2#${anchorLinkProp}`).exists()).toBe(true);
-        });
-
         it(':source - renders paragraph containing source value', () => {
             const sourceProp = 'Source: Scotland Visitor Survey, 2023';
             wrapper = factoryMount({
@@ -44,10 +35,6 @@ describe('VsStyledList', () => {
             const styleList = wrapper.find('.vs-styled-list__source');
 
             expect(styleList.text()).toContain(sourceProp);
-        });
-
-        it(':title - should render with H2 element containing the title value', () => {
-            expect(wrapper.text()).toContain(titleProp);
         });
 
         it(':variant - should render with class `vs-styled-list--icon` when prop not set', () => {
@@ -76,12 +63,6 @@ describe('VsStyledList', () => {
             });
 
             expect(wrapper.find('.vs-styled-list--numbered').exists()).toBe(true);
-        });
-    });
-
-    describe(':slots', () => {
-        it('renders content inserted in a intro slot', () => {
-            expect(wrapper.text()).toContain(introSlotText);
         });
     });
 

@@ -30,19 +30,13 @@ const Template = (args) => ({
     },
     template: `
         <VsStyledList v-bind="args">
-            <template
-                #intro
-                v-if="args.intro"
-            >
-                {{ args.intro }}
-            </template>
-
-            <VsStyledListItem
+                <VsStyledListItem
                 v-for="(item, index) in args.listItems"
                 :key="index"
                 :heading="item.heading"
                 :imageSrc="item.imageSrc ? item.imageSrc : null"
                 :variant="args.variant"
+                :heading-level="args.headingLevel"
             >
                 <div v-html="item.content" />
             </VsStyledListItem>
@@ -55,8 +49,6 @@ export const Default = Template.bind({
 
 Default.args = {
     variant: 'icon',
-    title: 'Key Benefits',
-    anchorLink: 'key-benefits',
     listItems: [
         {
             heading: 'Showcase your excellence',
@@ -78,6 +70,7 @@ Default.args = {
             `,
         },
     ],
+    headingLevel: 3,
 };
 
 export const Numbered = Template.bind({
@@ -85,9 +78,6 @@ export const Numbered = Template.bind({
 
 Numbered.args = {
     variant: 'numbered',
-    title: 'How does it work?',
-    anchorLink: 'step-by-step',
-    intro: 'To apply for a Taste Our Best accreditation, follow these simple steps',
     listItems: [
         {
             heading: 'Review the guidance',
@@ -136,8 +126,6 @@ export const WithImage = Template.bind({
 
 WithImage.args = {
     variant: 'image',
-    title: 'Critical factors for younger people\'s travel journeys are',
-    anchorLink: 'content-list',
     listItems: [
         {
             heading: 'New',
@@ -178,8 +166,6 @@ export const HorizontalWithImage = Template.bind({
 
 HorizontalWithImage.args = {
     variant: 'image-horizontal',
-    title: 'Top reasons for choosing Scotland',
-    anchorLink: 'key-stats',
     listItems: [
         {
             imageSrc: 'fixtures/styled-list/outdoor-access.svg',

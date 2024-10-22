@@ -65,6 +65,24 @@ describe('VsArticle', () => {
 
             expect(header.exists()).toBe(false);
         });
+
+        it(':headingLevel - changes the heading to the corresponding level', () => {
+            wrapper = factoryMount({
+                headingLevel: 3,
+            });
+
+            const h3 = wrapper.find('h3');
+
+            expect(h3.exists()).toBe(true);
+        });
+
+        it(':headingLevel - checks the default headingLevel renders by default', () => {
+            wrapper = factoryMount();
+
+            const h2 = wrapper.find('h2');
+
+            expect(h2.exists()).toBe(true);
+        });
     });
 
     describe(':slots', () => {

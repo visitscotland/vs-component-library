@@ -62,3 +62,11 @@ Neutral.args = {
     ...base,
     theme: 'neutral',
 };
+
+export const BusinessSupportHub = Template.bind({
+});
+
+BusinessSupportHub.args = {
+    ...base,
+    businessSupport: true,
+};

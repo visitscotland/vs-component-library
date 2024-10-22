@@ -1,24 +1,14 @@
 <template>
-    <li
-        class="vs-styled-list__item"
-        data-test="vs-styled-list__item"
-    >
+    <li class="vs-styled-list__item" data-test="vs-styled-list__item">
         <VsRow>
-            <VsCol
-                v-if="props.variant === 'image'"
-                cols="12"
-                md="2"
-            >
+            <VsCol v-if="props.variant === 'image'" cols="12" md="2">
                 <VsImg :src="props.imageSrc" />
             </VsCol>
             <VsCol :md="props.variant === 'image' ? '10' : '12'">
-                <VsImg
-                    v-if="props.variant === 'image-horizontal'"
-                    :src="props.imageSrc"
-                />
+                <VsImg v-if="props.variant === 'image-horizontal'" :src="props.imageSrc" />
 
                 <VsHeading
-                    level="3"
+                    :level="props.headingLevel"
                     headingStyle="heading-l"
                 >
                     {{ heading }}
@@ -34,13 +24,11 @@
 </template>
 
 <script setup>
+import { isNumber } from 'lodash';
 import VsHeading from '../../heading/Heading.vue';
 import VsImg from '../../img/Img.vue';
 import VsRichTextWrapper from '../../rich-text-wrapper/RichTextWrapper.vue';
-import {
-    VsRow,
-    VsCol,
-} from '../../grid';
+import { VsRow, VsCol } from '../../grid';
 
 const props = defineProps({
     /**
@@ -49,6 +37,16 @@ const props = defineProps({
     heading: {
         type: String,
         required: true,
+    },
+    /**
+     * The correct heading level for page hierarchy, the
+     * heading will be styled the same regardless of level provided
+     * `1|2|3|4|5|6`
+     */
+    headingLevel: {
+        type: Number,
+        default: 3,
+        validator: (value) => (isNumber(value) ? value > 0 && value < 7 : value.match(/(1|2|3|4|5|6)/)),
     },
     /**
      * Image source of the list item.
@@ -137,7 +135,7 @@ const props = defineProps({
 
     img {
         margin: auto;
-        width: 80%
+        width: 80%;
     }
 }
 </style>

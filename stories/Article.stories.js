@@ -215,6 +215,7 @@ const base = {
         <p>Remember it's never 'easy' to bag a Scottish Munro or Corbett. You'll need a good amount of hillwalking experience, fitness, hill craft and navigation skills using a map and compass, before attempting any Scottish mountains, even more so in winter.</p>
     `,
     jsDisabled: false,
+    headingLevel: 2,
 };
 
 export const Default = Template.bind();
