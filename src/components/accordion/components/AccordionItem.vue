@@ -130,7 +130,7 @@ export default {
         /**
          * The heading level will be used to set the heading level
          */
-         headingLevel: {
+        headingLevel: {
             type: Number,
             default: 2,
         },

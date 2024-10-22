@@ -148,16 +148,14 @@ ColourBadge.args = {
     ],
 };
 
-export const HeadingLevel3 = Template.bind({
+export const OverrideHeadingLevel = Template.bind({
 
 });
 
-HeadingLevel3.args = {
+OverrideHeadingLevel.args = {
     ...base,
     headingLevel: 3,
 };
-
-
 
 export const NoJavascript = Template.bind({
 });
