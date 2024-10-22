@@ -66,12 +66,12 @@ export default {
 
     &__read-time {
         display: block;
-        margin-bottom: $spacer-6;
+        margin-bottom: $spacer-150;
         color: $vs-color-text-subtle;
     }
 
     &__divider {
-        padding: 0 $spacer-2;
+        padding: 0 $spacer-050;
     }
 }
 </style>

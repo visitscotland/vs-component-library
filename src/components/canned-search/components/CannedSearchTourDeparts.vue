@@ -60,7 +60,7 @@ export default {
     .vs-canned-search-tour-departs {
         font-size: $font-size-4;
         line-height: $line-height-s;
-        margin-bottom: $spacer-1;
+        margin-bottom: $spacer-025;
 
         @include truncate-text(2);
 

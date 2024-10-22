@@ -24,7 +24,7 @@
             </p>
         </div>
 
-        <div class="vs-select__container  mt-2">
+        <div class="vs-select__container  mt-050">
             <BFormSelect
                 v-model="inputVal"
                 v-bind="$attrs"
@@ -268,8 +268,8 @@ export default {
                 content: "\e012";
                 display: inline-block;
                 position: absolute;
-                top: calc(50% - #{$spacer-3});
-                right: $spacer-4;
+                top: calc(50% - #{$spacer-075});
+                right: $spacer-100;
                 pointer-events: none;
                 color: $vs-color-icon-primary;
             }
@@ -281,7 +281,7 @@ export default {
             background-color: $vs-color-background-input;
             background-image: none;
             border: none;
-            padding: 0 $spacer-4 0;
+            padding: 0 $spacer-100 0;
             margin: 0;
             width: 100%;
             font-family: inherit;

@@ -1,11 +1,11 @@
 <template>
     <div
-        class="vs-footer-social-menu px-0 py-6 py-md-8 py-lg-0 px-lg-3"
+        class="vs-footer-social-menu px-0 py-150 py-md-200 py-lg-0 px-lg-075"
         data-test="vs-footer-social-menu"
     >
         <VsHeading
             level="2"
-            override-style-level="6"
+            headingStyle="heading-xxs"
             class="vs-footer-social-menu__title"
         >
             <!-- @slot Put the menu title here  -->
@@ -14,7 +14,7 @@
 
         <VsList
             unstyled
-            class="mt-5 mt-md-0 mt-lg-5 pe-lg-10 pe-xl-9"
+            class="mt-125 mt-md-0 mt-lg-125 pe-lg-400 pe-xl-300"
         >
             <!-- @slot The default slot is the content for the menu social items -->
             <slot />
@@ -52,15 +52,15 @@ export default {
     &__title.vs-heading{
         background: $vs-color-background-bold;
         color: $vs-color-text-inverse;
-        margin: 0 $spacer-3;
+        margin: 0 $spacer-075;
 
         @include media-breakpoint-up(sm) {
-            margin: 0 $spacer-6;
+            margin: 0 $spacer-150;
         }
 
         @include media-breakpoint-up(md) {
             margin: 0;
-            padding-top: $spacer-3;
+            padding-top: $spacer-075;
         }
     }
 

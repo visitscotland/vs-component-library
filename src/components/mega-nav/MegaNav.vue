@@ -72,11 +72,10 @@
                                 variant="transparent"
                                 @click="menuToggle()"
                                 ref="toggleButton"
+                                :rounded="false"
                                 aria-haspopup="true"
                             >
-                                <span class="visually-hidden">
-                                    {{ menuToggleAltText }}
-                                </span>
+                                {{ menuToggleAltText }}
                             </VsButton>
 
                             <VsMegaNavMobileMenu
@@ -277,7 +276,7 @@ export default {
     box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.15);
 
     @include media-breakpoint-up(lg) {
-        height: 55px;
+        height: 48px;
     }
 
     &__main-row {
@@ -286,17 +285,17 @@ export default {
 
     &__logo {
         display: inline-block;
-        height: calc(#{$spacer-8} + #{$spacer-1});
+        height: calc(#{$spacer-200} + #{$spacer-025});
 
         @include media-breakpoint-up(lg) {
-            height: calc(#{$spacer-8} + #{$spacer-2});
+            height: calc(#{$spacer-200} + #{$spacer-050});
         }
     }
 
     &__logo svg {
         width: 184px;
         vertical-align: top;
-        margin-top: $spacer-1;
+        margin-top: $spacer-025;
     }
 
     .vs-mega-nav__menu {
@@ -309,15 +308,6 @@ export default {
 
     &__mobile-menu-toggle {
         position: relative;
-        letter-spacing: 0;
-        font-weight: $font-weight-normal;
-        line-height: $line-height-standard;
-        border-radius: 0;
-        border: 0;
-        height: $spacer-7;
-        width: $spacer-7;
-        font-size: 0;
-        padding: 0;
     }
 
     &__mobile-menu {

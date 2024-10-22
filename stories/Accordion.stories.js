@@ -57,12 +57,12 @@ const Template = (args) => ({
                             v-if="accordionItem.icon"
                             :name="accordionItem.icon"
                             size="sm"
-                            class="me-1"
+                            class="me-025"
                         />
                         {{ accordionItem.title }}
                     </template>
 
-                    <div class="p-3" v-html="accordionItem.content" />
+                    <div class="p-075" v-html="accordionItem.content" />
                 </VsAccordionItem>
             </VsAccordion>
         </div>
@@ -80,12 +80,12 @@ const base = {
         {
             controlId: 'accordion_item_2',
             title: 'Driving',
-            content: '<p>The M90 from Edinburgh and the M80, M9 and A9 from Glasgow and Stirling offer the quickest routes into the Perthshire region.</p> <p><a href="https://www.perthcity.co.uk/section/explore-perthshire/travel-to-and-in-perthshire" target="_blank" rel="noopener noreferrer" class="vs-link vs-link--variant-primary">Travel to Perth<i data-test="vs-icon" class="ms-1 vs-link__icon fak fa-external-link vs-icon vs-icon--size-xxs vs-icon--external-link vs-icon--variant-primary"></i></a></p>',
+            content: '<p>The M90 from Edinburgh and the M80, M9 and A9 from Glasgow and Stirling offer the quickest routes into the Perthshire region.</p> <p><a href="https://www.perthcity.co.uk/section/explore-perthshire/travel-to-and-in-perthshire" target="_blank" rel="noopener noreferrer" class="vs-link vs-link--variant-primary">Travel to Perth<i data-test="vs-icon" class="ms-025 vs-link__icon fak fa-external-link vs-icon vs-icon--size-xxs vs-icon--external-link vs-icon--variant-primary"></i></a></p>',
         },
         {
             controlId: 'accordion_item_3',
             title: 'Flying',
-            content: '<p>Perth\'s central location makes reaching it from the rest of the UK and beyond pretty simple. <a href="https://www.visitscotland.com/info/transport/glasgow-airport-gla-p267891" target="_self" class="vs-link vs-link--variant-primary">Glasgow Airport<i data-test="vs-icon" class="ms-1 vs-link__icon fak fa-external-link vs-icon vs-icon--size-xxs vs-icon--external-link vs-icon--variant-primary"></i></a> is located under an hour and a half\'s drive from Perthshire while <a href="https://www.visitscotland.com/info/transport/edinburgh-airport-p2534181" target="_self" class="vs-link vs-link--variant-primary">Edinburgh <i data-test="vs-icon" class="ms-1 vs-link__icon fak fa-external-link vs-icon vs-icon--size-xxs vs-icon--external-link vs-icon--variant-primary"></i></a>is just an hour and <a href="https://www.hial.co.uk/dundee-airport" target="_blank" rel="noopener noreferrer" class="vs-link vs-link--variant-primary">Dundee Airport<i data-test="vs-icon" class="ms-1 vs-link__icon fak fa-external-link vs-icon vs-icon--size-xxs vs-icon--external-link vs-icon--variant-primary"></i></a> is 30 minutes away. Travel time to Perthshire from <a href="https://www.aberdeenairport.com/" target="_blank" rel="noopener noreferrer" class="vs-link vs-link--variant-primary">Aberdeen Airport<i data-test="vs-icon" class="ms-1 vs-link__icon fak fa-external-link vs-icon vs-icon--size-xxs vs-icon--external-link vs-icon--variant-primary"></i></a> is around two hours.</p>',
+            content: '<p>Perth\'s central location makes reaching it from the rest of the UK and beyond pretty simple. <a href="https://www.visitscotland.com/info/transport/glasgow-airport-gla-p267891" target="_self" class="vs-link vs-link--variant-primary">Glasgow Airport<i data-test="vs-icon" class="ms-025 vs-link__icon fak fa-external-link vs-icon vs-icon--size-xxs vs-icon--external-link vs-icon--variant-primary"></i></a> is located under an hour and a half\'s drive from Perthshire while <a href="https://www.visitscotland.com/info/transport/edinburgh-airport-p2534181" target="_self" class="vs-link vs-link--variant-primary">Edinburgh <i data-test="vs-icon" class="ms-025 vs-link__icon fak fa-external-link vs-icon vs-icon--size-xxs vs-icon--external-link vs-icon--variant-primary"></i></a>is just an hour and <a href="https://www.hial.co.uk/dundee-airport" target="_blank" rel="noopener noreferrer" class="vs-link vs-link--variant-primary">Dundee Airport<i data-test="vs-icon" class="ms-025 vs-link__icon fak fa-external-link vs-icon vs-icon--size-xxs vs-icon--external-link vs-icon--variant-primary"></i></a> is 30 minutes away. Travel time to Perthshire from <a href="https://www.aberdeenairport.com/" target="_blank" rel="noopener noreferrer" class="vs-link vs-link--variant-primary">Aberdeen Airport<i data-test="vs-icon" class="ms-025 vs-link__icon fak fa-external-link vs-icon vs-icon--size-xxs vs-icon--external-link vs-icon--variant-primary"></i></a> is around two hours.</p>',
         },
     ],
     jsDisabled: false,

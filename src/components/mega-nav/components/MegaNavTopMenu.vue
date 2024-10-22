@@ -35,7 +35,7 @@ export default {
     &.vs-list--unstyled{
         width: 100%;
         display: flex;
-        margin-top: $spacer-3;
+        margin-top: $spacer-025;
     }
 }
 

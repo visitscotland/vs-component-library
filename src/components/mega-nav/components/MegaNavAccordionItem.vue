@@ -104,7 +104,7 @@ export default {
         font-size: $font-size-5;
         line-height: $line-height-s;
         display: block;
-        padding: $spacer-3 $spacer-8;
+        padding: $spacer-075 $spacer-200;
 
         &:hover{
             color: $vs-color-text;
@@ -164,8 +164,8 @@ export default {
         > .vs-accordion-item__card-header{
             .vs-accordion-toggle.btn {
                 font-size: $font-size-6;
-                padding-left: $spacer-5;
-                padding-right: $spacer-5;
+                padding-left: $spacer-125;
+                padding-right: $spacer-125;
 
                 &:active, &:active:focus, &.vs-accordion-toggle--open {
                     background-color: $vs-color-background-active;
@@ -185,8 +185,8 @@ export default {
             .vs-accordion-toggle.btn {
                 font-size: $font-size-5;
                 line-height: $line-height-s;
-                padding-left: $spacer-8;
-                padding-right: $spacer-5;
+                padding-left: $spacer-200;
+                padding-right: $spacer-125;
             }
         }
     }

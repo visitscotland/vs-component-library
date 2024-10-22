@@ -15,23 +15,17 @@
                 >
                     <div class="slider">
                         <VsButton
+                            icon-only
                             v-if="!prevDisabled"
                             class="vs-carousel__control vs-carousel__control--prev"
                             @click="sliderNavigate($event, 'prev')"
                             @keypress="sliderNavigate($event, 'prev', true)"
-                            icon="internal-link"
-                            icon-orientation="down"
+                            icon="internal-link-back"
                             ref="prevButton"
                         >
-                            <div class="vs-carousel__control-label-container">
-                                <span
-                                    class="vs-carousel__control-label
-                                           vs-carousel__control-label--prev"
-                                >
-                                    {{ prevText }}
-                                </span>
-                            </div>
+                            {{ prevText }}
                         </VsButton>
+
                         <VsRow
                             class="vs-carousel__track"
                             :style="{ transform: `translateX(${trackOffset})` }"
@@ -39,23 +33,17 @@
                             <!-- @slot default slot to contain slides -->
                             <slot />
                         </VsRow>
+
                         <VsButton
+                            icon-only
                             v-if="!nextDisabled"
                             class="vs-carousel__control vs-carousel__control--next"
                             @keypress="sliderNavigate($event, 'next', true)"
                             @click="sliderNavigate($event, 'next')"
                             icon="internal-link"
-                            icon-position="right"
                             ref="nextButton"
                         >
-                            <span class="vs-carousel__control-label-container">
-                                <span
-                                    class="vs-carousel__control-label
-                                           vs-carousel__control-label--next"
-                                >
-                                    {{ nextText }}
-                                </span>
-                            </span>
+                            {{ nextText }}
                         </VsButton>
 
                         <ul
@@ -441,84 +429,20 @@ export default {
         &__track {
             flex-wrap: nowrap;
             transition: transform $duration-slowly ease-out;
-            margin-bottom: $spacer-9;
-        }
-
-        .vs-button.vs-carousel__control {
-            padding: $spacer-2;
-
-            @include media-breakpoint-up(sm) {
-                padding: $spacer-3;
-            }
+            margin-bottom: $spacer-300;
         }
 
         &__control {
             position: absolute !important;
             top: 25%;
             z-index: 20;
-            min-width: 35px;
-            height: 40px;
-            border-radius: 0;
-            align-items: center;
-            justify-content: center;
-
-            @include media-breakpoint-up(sm) {
-                height: 48px;
-            }
 
             &--next {
                 right: 0;
-
-                &:focus {
-                    right: $spacer-2;
-                }
             }
 
             &--prev {
                 left: 0;
-
-                &:focus {
-                    left: $spacer-2;
-                }
-            }
-
-            &-label {
-                white-space: nowrap;
-                font-weight: $font-weight-semi-bold;
-
-                &--next {
-                    padding-right: $spacer-2;
-                }
-
-                &--prev {
-                    padding-left: $spacer-2;
-                }
-            }
-
-            .vs-icon {
-                margin-left: $spacer-0 !important;
-                margin-right: $spacer-0 !important;
-                margin-top: 0;
-            }
-
-            .vs-carousel__control-label-container {
-                transition: max-width $duration-slowly ease;
-                max-width: 0;
-                overflow: hidden;
-                display: inline-block;
-                margin-top: 2px;
-            }
-
-            @media (hover: hover) {
-                &:hover, &:focus {
-                    outline: none;
-                    background-color: $vs-color-background-primary;
-                    border-color: $vs-color-border-primary;
-
-                    .vs-carousel__control-label-container {
-                        max-width: 15rem;
-                    }
-                }
             }
         }
 
@@ -533,8 +457,8 @@ export default {
 
             li {
                 display: flex;
-                margin-left: $spacer-1;
-                margin-right: $spacer-1;
+                margin-left: $spacer-025;
+                margin-right: $spacer-025;
             }
         }
 
@@ -589,7 +513,7 @@ export default {
         &__mobile-pagination-wrapper {
             display: flex;
             justify-content: center;
-            margin-top: $spacer-8;
+            margin-top: $spacer-200;
 
             @include media-breakpoint-up(sm) {
                 display: none;
@@ -599,7 +523,7 @@ export default {
         &__mobile-pagination {
             background: $vs-color-background-information;
             color: $vs-color-text;
-            padding: $spacer-1 $spacer-2;
+            padding: $spacer-025 $spacer-050;
             font-size: $font-size-2;
             font-weight: bold;
             margin: 0;
@@ -624,7 +548,7 @@ export default {
                     width: 100%;
                     max-width: 100%;
                     flex: 0 0 100%;
-                    margin-bottom: $spacer-8;
+                    margin-bottom: $spacer-200;
 
                     @include media-breakpoint-up(md) {
                         width: 50%;

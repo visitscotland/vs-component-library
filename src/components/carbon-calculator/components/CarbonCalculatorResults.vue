@@ -6,6 +6,7 @@
         <VsCol cols="12">
             <VsHeading
                 level="2"
+                headingStyle="heading-m"
             >
                 {{ labelsMap.results }}
             </VsHeading>
@@ -21,7 +22,7 @@
                     <div
                         class="vs-carbon-calculator-results__headline"
                     >
-                        <p class="mb-2">
+                        <p class="mb-050">
                             {{ labelsMap.resultsIntro }}
                         </p>
                         <p>
@@ -67,7 +68,7 @@
             >
                 <VsHeading
                     level="3"
-                    overrideStyleLevel="6"
+                    headingStyle="heading-xs"
                 >
                     {{ labelsMap.perDayCongratulations }}
                 </VsHeading>
@@ -80,7 +81,7 @@
         <VsCol>
             <VsHeading
                 level="3"
-                class="mt-0"
+                headingStyle="heading-xs"
             >
                 {{ labelsMap.chartTitle }}
             </VsHeading>
@@ -328,13 +329,13 @@ export default {
 
 <style lang='scss'>
     .vs-carbon-calculator-results__summary {
-        margin-bottom: $spacer-8;
+        margin-bottom: $spacer-200;
     }
 
     .vs-carbon-calculator-results__total {
         font-size: $font-size-10;
         font-weight: $font-weight-bold;
-        margin-right: $spacer-2;
+        margin-right: $spacer-050;
     }
 
     .vs-carbon-calculator-results__comp-img {
@@ -349,10 +350,10 @@ export default {
     .vs-carbon-calculator-results__chart-wrapper {
         display: flex;
         justify-content: center;
-        margin-top: $spacer-6;
+        margin-top: $spacer-150;
 
         @include media-breakpoint-up(md) {
-            margin-top: $spacer-7;
+            margin-top: $spacer-175;
         }
 
         > div {
@@ -375,12 +376,12 @@ export default {
                 position: absolute;
                 top: 50%;
                 text-align: center;
-                left: -#{$spacer-9};
+                left: -#{$spacer-300};
                 transform: translateY(-50%) rotate(-90deg);
 
                 @include media-breakpoint-up(md) {
                     max-width: 7rem;
-                    left: -#{$spacer-12};
+                    left: -#{$spacer-600};
                     transform: translateY(-100%);
                 }
             }
@@ -396,18 +397,18 @@ export default {
     }
 
     .vs-carbon-calculator-results__chart {
-        margin-bottom: $spacer-6;
+        margin-bottom: $spacer-150;
 
         @include media-breakpoint-up(md) {
-            margin-bottom: $spacer-10;
+            margin-bottom: $spacer-400;
         }
     }
 
     .vs-carbon-calculator-results__unicorn {
         box-shadow: $vs-elevation-shadow-raised;
-        padding: $spacer-4;
+        padding: $spacer-100;
         background-color: $vs-color-background-accent-limestone;
-        margin-bottom: $spacer-8;
+        margin-bottom: $spacer-200;
 
         .vs-heading {
             margin-top: 0;
@@ -424,12 +425,12 @@ export default {
         .vs-carbon-calculator-results__unicorn-icon-container {
             display: inline-flex;
             vertical-align: top;
-            width: $spacer-9;
+            width: $spacer-300;
         }
 
         .vs-carbon-calculator-results__unicorn-content {
             display: inline-block;
-            width: calc(100% - $spacer-10);
+            width: calc(100% - $spacer-400);
             vertical-align: top;
         }
     }

@@ -41,7 +41,7 @@ const Template = (args) => ({
     template: `
         <VsHeading
             level="3"
-            overrideStyleLevel="5"
+            headingStyle="heading-m"
         >
             Glencoe Run/Lift Status
         </VsHeading>

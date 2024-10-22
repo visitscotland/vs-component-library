@@ -38,7 +38,6 @@ export default {
 <style lang="scss">
 .vs-rich-text-wrapper {
     &--normal{
-        font-family: $font-family-base;
         font-size: $font-size-body;
 
         @include media-breakpoint-up(md) {
@@ -56,15 +55,15 @@ export default {
     }
 
     h3.vs-heading {
-        margin-top: $spacer-4;
-        margin-bottom: $spacer-4;
+        margin-top: $spacer-100;
+        margin-bottom: $spacer-100;
     }
     .vs-heading--style-level-6 {
-        margin-top: $spacer-4;
-        margin-bottom: $spacer-8;
+        margin-top: $spacer-100;
+        margin-bottom: $spacer-200;
     }
     *:not(.vs-heading) + .vs-heading--style-level-6 {
-        margin-top: $spacer-10;
+        margin-top: $spacer-400;
     }
 }
 

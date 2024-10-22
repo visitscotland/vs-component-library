@@ -17,7 +17,7 @@ function mountOptions(propsData) {
             'test-attribute': 'test-value',
         },
     };
-};
+}
 
 const factoryShallowMount = (propsData) => shallowMount(
     VsButton,
@@ -71,18 +71,18 @@ describe('VsButton', () => {
             expect(wrapper.attributes('size')).toBe(testSize);
         });
 
-        it(':onDark - should render the button with an `vs-button--on-dark` class', () => {
+        it(':iconOnly - should render the button text span with `visually-hidden` class', () => {
             const wrapper = factoryMount({
-                onDark: true,
+                iconOnly: true,
             });
-            expect(wrapper.classes('vs-button--on-dark')).toBe(true);
+            const textSlotSpan = wrapper.get('span.vs-button__text');
+            expect(textSlotSpan.classes('visually-hidden')).toBe(true);
         });
-
-        it(':iconWithText - should render the button with an `vs-button--icon-with-text` class', () => {
+        it(':rounded - should render the button with an `vs-button--rounded` class', () => {
             const wrapper = factoryMount({
-                iconWithText: true,
+                rounded: true,
             });
-            expect(wrapper.classes('vs-button--icon-with-text')).toBe(true);
+            expect(wrapper.classes('vs-button--rounded')).toBe(true);
         });
 
         describe(':icon', () => {
@@ -100,46 +100,6 @@ describe('VsButton', () => {
                 const icon = wrapper.find('.vs-icon');
 
                 expect(icon.classes('fa-food')).toBe(true);
-            });
-
-            it('size should be `xs` if button size is set to `sm`', () => {
-                const wrapper = factoryMount({
-                    icon: testIcon,
-                    size: 'sm',
-                });
-                const icon = wrapper.find('.vs-icon');
-
-                expect(icon.classes('vs-icon--size-xs')).toBe(true);
-            });
-
-            it('size should be `sm` if button size is set to `md`', () => {
-                const wrapper = factoryMount({
-                    icon: testIcon,
-                    size: 'md',
-                });
-                const icon = wrapper.find('.vs-icon');
-
-                expect(icon.classes('vs-icon--size-sm')).toBe(true);
-            });
-
-            it('size should be `md` if button size is set to `lg`', () => {
-                const wrapper = factoryMount({
-                    icon: testIcon,
-                    size: 'lg',
-                });
-                const icon = wrapper.find('.vs-icon');
-
-                expect(icon.classes('vs-icon--size-md')).toBe(true);
-            });
-
-            it('orientation should be `down` if `iconOrientation` is set to `down`', () => {
-                const wrapper = factoryMount({
-                    icon: testIcon,
-                    iconOrientation: 'down',
-                });
-                const icon = wrapper.find('.vs-icon');
-
-                expect(icon.classes('icon--down')).toBe(true);
             });
         });
 

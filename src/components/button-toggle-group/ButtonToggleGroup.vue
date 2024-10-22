@@ -34,7 +34,7 @@
                         <VsIcon
                             v-if="option.icon"
                             :name="option.icon"
-                            class="me-1"
+                            class="me-025"
                         />
                         {{ option.text }}
                     </span>
@@ -170,9 +170,9 @@ export default {
                 @extend %button-default-styles;
                 color: $vs-color-text-inverse;
                 transition: none;
-                padding-top: $spacer-2;
+                padding-top: $spacer-050;
                 margin-bottom: $spacer-0;
-                padding-bottom: $spacer-2;
+                padding-bottom: $spacer-050;
                 display: flex;
                 align-items: center;
 
@@ -185,7 +185,7 @@ export default {
                     display: flex;
                     height: 32px;
                     align-items: center;
-                    padding: 0 $spacer-2;
+                    padding: 0 $spacer-050;
                 }
 
                 &.focus {
@@ -216,7 +216,7 @@ export default {
             display: flex;
 
             &:first-child {
-                margin-right: -(#{$spacer-4});
+                margin-right: -(#{$spacer-100});
                 border-top-left-radius: $border-radius-pill;
                 border-bottom-left-radius: $border-radius-pill;
             }
@@ -227,7 +227,7 @@ export default {
             }
 
             .btn {
-                padding: 0 $spacer-6;
+                padding: 0 $spacer-150;
             }
 
             &:not(:disabled):not(.disabled).active {
@@ -240,12 +240,10 @@ export default {
                         $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
                         $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
                         $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
-                        $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
                     );
 
                     @include media-breakpoint-up(lg) {
                         @include vs-button-variant(
-                            $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
                             $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
                             $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
                             $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
