@@ -66,7 +66,7 @@ describe('VsArticle', () => {
             expect(header.exists()).toBe(false);
         });
 
-        it(':headingLevel - changes the heading to the corresponsing level', () => {
+        it(':headingLevel - changes the heading to the corresponding level', () => {
             wrapper = factoryMount({
                 headingLevel: 3,
             });

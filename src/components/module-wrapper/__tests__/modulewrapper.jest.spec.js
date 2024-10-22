@@ -58,7 +58,7 @@ describe('VsModuleWrapper', () => {
             expect(wrapper.find('[data-test="vs-module-wrapper"]').classes()).toContain('vs-module-wrapper--left-align');
         });
 
-        it(':headingLevel - changes the heading to the corresponsing level', async() => {
+        it(':headingLevel - changes the heading to the corresponding level', async() => {
             const wrapper = factoryMount({
                 slots: {
                     'vs-module-wrapper-heading': 'Module wrapper heading',
