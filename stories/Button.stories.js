@@ -133,7 +133,7 @@ IconOnlySecondary.args = {
     icon: 'close',
     variant: 'secondary',
     iconOnly: true,
-    default: '',
+    default: 'close',
 };
 
 export const IconOnlyTransparent = Template.bind();
@@ -141,7 +141,7 @@ IconOnlyTransparent.args = {
     ...base,
     icon: 'close',
     iconOnly: true,
-    default: '',
+    default: 'close',
     variant: 'transparent',
 };
 
@@ -151,7 +151,7 @@ IconOnlySmall.args = {
     icon: 'close',
     iconOnly: true,
     size: 'sm',
-    default: '',
+    default: 'close',
 };
 
 export const IconOnlyLarge = Template.bind();
@@ -160,7 +160,7 @@ IconOnlyLarge.args = {
     icon: 'close',
     iconOnly: true,
     size: 'lg',
-    default: '',
+    default: 'close',
 };
 
 export const SquareCorners = Template.bind();

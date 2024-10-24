@@ -8,7 +8,6 @@
         :size="size"
         v-bind="$attrs"
         :aria-disabled="$attrs.disabled ? true : false"
-        :aria-label="iconOnly ? icon : undefined"
         @click="animateHandler($event)"
         @keyup.tab="tabbedIn"
     >
