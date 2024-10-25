@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.1](https://github.com/visitscotland/vs-component-library/compare/v4.0.0...v4.0.1) (2024-10-25)
+
+
+### 🐛 Bug Fixes
+
+* **button:** fixed the icon only bug where aria-label was overwriting the screen reader text ([602a175](https://github.com/visitscotland/vs-component-library/commit/602a1751d054cf6fa5e44b72511730b63f62d665))
+
+
+### ✨ Features
+
+* **engagement:** adjust exponea.identify syntax to fire event immediately ([806dfea](https://github.com/visitscotland/vs-component-library/commit/806dfea1ac09c26c35675d58d9f80ad76fa100f1))
+
 ## [4.0.0](https://github.com/visitscotland/vs-component-library/compare/v3.3.8...v4.0.0) (2024-10-22)
 
 
