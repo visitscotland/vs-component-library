@@ -763,9 +763,15 @@ export default {
 
             if (this.emailFieldName && typeof exponea !== 'undefined') {
                 // eslint-disable-next-line no-undef
-                exponea.identify({
-                    email_id: this.form[this.emailFieldName],
-                });
+                exponea.identify(
+                    {
+                        email_id: this.form[this.emailFieldName],
+                    },
+                    null,
+                    null,
+                    null,
+                    true,
+                );
             }
         },
         /**
