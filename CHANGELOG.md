@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.2](https://github.com/visitscotland/vs-component-library/compare/v4.0.1...v4.0.2) (2024-10-25)
+
+
+### 🎨 Styling
+
+* **heading:** update letter-spacing for display heading-style to match designs ([a08adf3](https://github.com/visitscotland/vs-component-library/commit/a08adf315368413b51edba59ba4a8b28a56df6f3))
+
 ### [4.0.1](https://github.com/visitscotland/vs-component-library/compare/v4.0.0...v4.0.1) (2024-10-25)
 
 
