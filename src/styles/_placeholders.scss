@@ -59,20 +59,3 @@ LINK STYLES
 %outline-link-focus-dark {
     outline: 2px solid $vs-color-border-accent-gorse;
 }
-
-
-/**************
-HEADING STYLES
-***************/
-
-%heading-default {
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-}
-
-%sub-heading-default {
-    display: block;
-    font-weight: $font-weight-normal;
-    line-height: $line-height-sub-heading;
-    letter-spacing: $tracking-sub-heading;
-}
