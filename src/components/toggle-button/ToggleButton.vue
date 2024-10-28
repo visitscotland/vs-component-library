@@ -66,6 +66,7 @@ export default {
             default: '',
         },
     },
+    emits: ['toggleAction'],
     data() {
         return {
             show: false,

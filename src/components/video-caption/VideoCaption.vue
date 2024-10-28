@@ -31,7 +31,7 @@
 
                 <VsToggleButton
                     v-if="withToggleBtn"
-                    @toggleAction="emitToggle"
+                    @toggle-action="emitToggle"
                 >
                     <span class="visually-hidden">
                         Toggle caption
@@ -130,6 +130,7 @@ export default {
             ),
         },
     },
+    emits: ['toggleAction'],
     setup() {
         const videoStore = useVideoStore();
         return {

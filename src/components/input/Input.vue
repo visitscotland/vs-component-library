@@ -212,6 +212,7 @@ export default {
             default: false,
         },
     },
+    emits: ['updated'],
     setup: () => ({
         v$: useVuelidate(),
     }),

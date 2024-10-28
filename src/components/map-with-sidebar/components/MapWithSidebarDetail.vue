@@ -12,7 +12,7 @@
         <VsHeading
             v-if="showTitle"
             :level="headingLevel"
-            headingStyle="heading-xxs"
+            heading-style="heading-xxs"
             class="vs-map-with-sidebar-detail__heading mt-0"
             data-test="vs-map-with-sidebar-detail__heading"
         >

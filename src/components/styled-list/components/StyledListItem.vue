@@ -1,15 +1,25 @@
 <template>
-    <li class="vs-styled-list__item" data-test="vs-styled-list__item">
+    <li
+        class="vs-styled-list__item"
+        data-test="vs-styled-list__item"
+    >
         <VsRow>
-            <VsCol v-if="props.variant === 'image'" cols="12" md="2">
+            <VsCol
+                v-if="props.variant === 'image'"
+                cols="12"
+                md="2"
+            >
                 <VsImg :src="props.imageSrc" />
             </VsCol>
             <VsCol :md="props.variant === 'image' ? '10' : '12'">
-                <VsImg v-if="props.variant === 'image-horizontal'" :src="props.imageSrc" />
+                <VsImg
+                    v-if="props.variant === 'image-horizontal'"
+                    :src="props.imageSrc"
+                />
 
                 <VsHeading
                     :level="props.headingLevel"
-                    headingStyle="heading-l"
+                    heading-style="heading-l"
                 >
                     {{ heading }}
                 </VsHeading>

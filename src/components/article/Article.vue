@@ -32,7 +32,7 @@
                                 >
                                     <VsHeading
                                         :level="headingLevel"
-                                        headingStyle="heading-xl"
+                                        heading-style="heading-xl"
                                         class="mb-200 mb-lg-300"
                                         :class="businessSupport ? null : 'text-center'"
                                     >

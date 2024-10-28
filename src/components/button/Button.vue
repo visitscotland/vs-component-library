@@ -127,6 +127,7 @@ export default {
             validator: (value) => value.match(/(left|right)/),
         },
     },
+    emits: ['btnFocus'],
     data() {
         return {
             isAnimating: false,

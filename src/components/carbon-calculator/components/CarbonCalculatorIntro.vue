@@ -5,7 +5,7 @@
     >
         <VsHeading
             level="2"
-            headingStyle="heading-l"
+            heading-style="heading-l"
         >
             {{ labelsMap.introHeading }}
         </VsHeading>

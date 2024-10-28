@@ -186,6 +186,10 @@ export default {
             default: '',
         },
     },
+    emits: [
+        'updated',
+        'updateFieldData',
+    ],
     setup: () => ({
         v$: useVuelidate(),
     }),

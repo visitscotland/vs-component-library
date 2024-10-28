@@ -92,6 +92,7 @@ export default {
             required: true,
         },
     },
+    emits: ['toggleChanged'],
     data() {
         return {
             selected: this.initialSelected,

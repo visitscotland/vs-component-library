@@ -78,7 +78,7 @@
 
             <VsHeading
                 :level="headingLevel"
-                :headingStyle="currentStage === 0 ? 'heading-m' : 'heading-xs'"
+                :heading-style="currentStage === 0 ? 'heading-m' : 'heading-xs'"
                 class="vs-map-with-sidebar-panel__heading text-center mt-200 mt-lg-0"
                 :class="currentStage === 2 ? 'd-none d-lg-block' : ''"
                 v-if="currentHeading !== ''"
@@ -109,7 +109,7 @@
             <template v-if="selectedSubcategory !== null">
                 <VsMapWithSidebarSubcategory
                     :data="selectedSubcategoryData[0].subCategory"
-                    :selectedSubCategory="selectedSubcategory"
+                    :selected-sub-category="selectedSubcategory"
                 />
                 <VsMapWithSidebarControls />
             </template>
@@ -339,6 +339,12 @@ export default {
             default: 0,
         },
     },
+    emits: [
+        'close-panel',
+        'load-more-places',
+        'set-stage',
+        'set-subcategory',
+    ],
     data() {
         return {
             placesLoaded: 1,

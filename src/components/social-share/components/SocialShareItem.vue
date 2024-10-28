@@ -92,6 +92,7 @@ export default {
             default: '',
         },
     },
+    emits: ['copyLinkClicked'],
     data() {
         return {
             show: false,

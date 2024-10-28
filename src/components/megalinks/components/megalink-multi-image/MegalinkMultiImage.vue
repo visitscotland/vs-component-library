@@ -5,7 +5,7 @@
             :type="linkType"
             class="vs-megalink-multi-image-card p-050"
             :class="multiImageClasses"
-            :headingStyle="featured ? 'heading-m' : 'heading-xs'"
+            :heading-style="featured ? 'heading-m' : 'heading-xs'"
             :img-src="imgSrc"
             :img-alt="imgAlt"
             :data-test="featured ? 'megalink-multi-image-featured' : 'megalink-multi-image-card'"
@@ -16,7 +16,7 @@
             :warning-size="featured ? 'normal' : 'small'"
         >
             <template
-                v-slot:stretched-card-panels
+                #stretched-card-panels
                 v-if="days && transport"
             >
                 <VsStretchedLinkPanels
@@ -28,18 +28,14 @@
                 />
             </template>
 
-            <template
-                v-slot:stretched-card-header
-            >
+            <template #stretched-card-header>
                 <span
                     class="vs-megalink-multi-image-card__title"
                     data-test="megalink-multi-image-card__title"
                 ><!-- @slot Slot to contain heading --><slot name="vs-multi-image-heading" /></span>
             </template>
 
-            <template
-                v-slot:stretched-card-content
-            >
+            <template #stretched-card-content>
                 <VsRichTextWrapper
                     class="vs-megalink-multi-image-card__content"
                     data-test="megalink-multi-image-card__content"

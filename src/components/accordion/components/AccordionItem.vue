@@ -5,7 +5,11 @@
         :class="breakPoint ? 'vs-accordion-item__responsive' : ''"
         data-test="vs-accordion__item"
     >
-        <BCardHeader class="vs-accordion-item__card-header" data-test="vs-accordion__item-header">
+        <BCardHeader
+            class="vs-accordion-item__card-header"
+            data-test="vs-accordion__item-header"
+            data-bob="test"
+        >
             <!-- @slot Slot to contain Header for accordion item.
             Defaults to Accordion Toggle button. If component is responsive
             and has a breakPoint it will show title instead of button on larger screens. -->
@@ -28,20 +32,27 @@
                 <template #icon-open>
                     <!-- @slot Slot for the icon to show when accordion item is open  -->
                     <slot name="icon-open">
-                        <VsIcon name="chevron" size="sm" />
+                        <VsIcon
+                            name="chevron"
+                            size="sm"
+                        />
                     </slot>
                 </template>
                 <template #icon-closed>
                     <!-- @slot Slot for the icon to show when accordion item is closed  -->
                     <slot name="icon-closed">
-                        <VsIcon name="chevron" orientation="down" size="sm" />
+                        <VsIcon
+                            name="chevron"
+                            orientation="down"
+                            size="sm"
+                        />
                     </slot>
                 </template>
             </VsAccordionToggle>
 
             <VsHeading
                 :level="headingLevel"
-                headingStyle="heading-xxs"
+                heading-style="heading-xxs"
                 class="d-none vs-accordion-item__title"
                 :class="toggleResponsiveItem"
                 data-test="vs-accordion__item-title"

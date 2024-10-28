@@ -15,7 +15,7 @@
                 >
                     <VsHeading
                         :level="headingLevel"
-                        headingStyle="heading-xl"
+                        heading-style="heading-xl"
                         class="vs-module-wrapper__heading"
                         data-test="vs-module-wrapper__heading"
                         :id="anchorId"

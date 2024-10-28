@@ -9,7 +9,7 @@
         data-test="vs-mega-nav-featured-event"
         data-chromatic="ignore"
     >
-        <template v-slot:stretched-card-content>
+        <template #stretched-card-content>
             <p
                 v-if="featuredEvent && featuredEvent.opening"
                 class="vs-mega-nav-featured-event__date-range"
@@ -30,7 +30,7 @@
             </p>
         </template>
 
-        <template v-slot:stretched-card-link>
+        <template #stretched-card-link>
             {{ featuredEvent.productLink.label }}
         </template>
     </VsStretchedLinkCard>

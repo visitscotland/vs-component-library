@@ -19,7 +19,10 @@
                     class="px-0 px-lg-075"
                 >
                     <VsRow class="g-0">
-                        <VsCol cols="12" class="position-relative">
+                        <VsCol
+                            cols="12"
+                            class="position-relative"
+                        >
                             <!-- @slot Used to display the top menu link
                             at the top of the dropdown menu  -->
                             <slot name="cta-link" />
@@ -57,7 +60,10 @@
                     class="px-0 px-lg-075"
                 >
                     <VsRow class="g-0">
-                        <VsCol cols="12" class="position-relative">
+                        <VsCol
+                            cols="12"
+                            class="position-relative"
+                        >
                             <!-- @slot Used to display the top menu link
                             at the top of the dropdown menu  -->
                             <slot name="cta-link" />
@@ -124,6 +130,7 @@ export default {
             required: true,
         },
     },
+    emits: ['menuToggled'],
     mounted() {
         // Listen for dropdown opening and closing and emit event
         if (this.emitter) {

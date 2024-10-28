@@ -131,6 +131,7 @@ export default {
             default: '',
         },
     },
+    emits: ['toggleAction'],
     data() {
         return {
             searchTerm: '',
