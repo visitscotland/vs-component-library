@@ -7,12 +7,17 @@ import VsModuleWrapper from '../ModuleWrapper.vue';
 
 config.global.renderStubDefaultSlot = true;
 
+const headingSlot = 'Module wrapper heading';
+
 const factoryShallowMount = (slotData) => shallowMount(VsModuleWrapper, {
     ...slotData,
 });
 
 const factoryMount = (slotData) => mount(VsModuleWrapper, {
-    ...slotData,
+    slots: {
+        'vs-module-wrapper-heading': headingSlot,
+        ...slotData,
+    },
 });
 
 describe('VsModuleWrapper', () => {
@@ -63,11 +68,7 @@ describe('VsModuleWrapper', () => {
         });
 
         it(':headingLevel - changes the heading to the corresponding level', async() => {
-            const wrapper = factoryMount({
-                slots: {
-                    'vs-module-wrapper-heading': 'Module wrapper heading',
-                },
-            });
+            const wrapper = factoryMount();
 
             await wrapper.setProps({
                 headingLevel: 3,
@@ -77,13 +78,20 @@ describe('VsModuleWrapper', () => {
         });
 
         it(':headingLevel - checks the default headingLevel renders by default', () => {
-            const wrapper = factoryMount({
-                slots: {
-                    'vs-module-wrapper-heading': 'Module wrapper heading',
-                },
-            });
+            const wrapper = factoryMount();
 
             expect(wrapper.find('h2').exists()).toBe(true);
+        });
+
+        it(':anchorId - sets the id on the heading element', async() => {
+            const wrapper = factoryMount();
+            const anchorId = 'anchor-test';
+
+            await wrapper.setProps({
+                anchorId,
+            });
+
+            expect(wrapper.find(`#${anchorId}`).exists()).toBe(true);
         });
     });
 
