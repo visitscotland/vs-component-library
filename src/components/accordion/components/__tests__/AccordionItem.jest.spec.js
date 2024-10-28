@@ -3,6 +3,7 @@ import axe from '@/../test/unit/helpers/axe-helper';
 import VsAccordionItem from '../AccordionItem.vue';
 
 const titleSlot = 'Item Title';
+const headingSlot = 'Module wrapper heading';
 
 const factoryMount = (propsData) => mount(VsAccordionItem, {
     propsData: {
@@ -11,6 +12,7 @@ const factoryMount = (propsData) => mount(VsAccordionItem, {
     },
     slots: {
         title: titleSlot,
+        'vs-module-wrapper-heading': headingSlot,
     },
 });
 
@@ -84,11 +86,7 @@ describe('VsAccordionItem', () => {
         });
 
         it(':headingLevel - changes the heading to the corresponding level', async() => {
-            const wrapper = factoryMount({
-                slots: {
-                    'vs-module-wrapper-heading': 'Module wrapper heading',
-                },
-            });
+            const wrapper = factoryMount();
 
             await wrapper.setProps({
                 headingLevel: 3,
@@ -98,11 +96,7 @@ describe('VsAccordionItem', () => {
         });
 
         it(':headingLevel - checks the default headingLevel renders by default', () => {
-            const wrapper = factoryMount({
-                slots: {
-                    'vs-module-wrapper-heading': 'Module wrapper heading',
-                },
-            });
+            const wrapper = factoryMount();
 
             expect(wrapper.find('h2').exists()).toBe(true);
         });
