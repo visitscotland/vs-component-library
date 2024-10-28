@@ -1,7 +1,5 @@
 <template>
-    <div
-        data-test="vs-textarea"
-    >
+    <div data-test="vs-textarea">
         <p
             class="hint-text"
             :id="`hint-${fieldName}`"
@@ -182,7 +180,7 @@ export default {
         },
         /** The number of visible lines of text */
         rows: {
-            type: Number,
+            type: Number || String,
             default: 2,
         },
     },
