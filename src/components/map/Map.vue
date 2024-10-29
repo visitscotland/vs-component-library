@@ -34,7 +34,10 @@
                 </p>
             </div>
         </div>
-        <div ref="mapboxOuter" class="vs-map__map-outer">
+        <div
+            ref="mapboxOuter"
+            class="vs-map__map-outer"
+        >
             <div
                 :id="mapId"
                 class="vs-map__map"
@@ -178,6 +181,12 @@ export default {
             default: true,
         },
     },
+    emits: [
+        'map-ready',
+        'setCategory',
+        'showDetail',
+        'zoom-reset',
+    ],
     setup() {
         mapStore = useMapStore();
     },

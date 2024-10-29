@@ -3,6 +3,7 @@ import axe from '@/../test/unit/helpers/axe-helper';
 import VsAccordionItem from '../AccordionItem.vue';
 
 const titleSlot = 'Item Title';
+const headingSlot = 'Module wrapper heading';
 
 const factoryMount = (propsData) => mount(VsAccordionItem, {
     propsData: {
@@ -11,6 +12,7 @@ const factoryMount = (propsData) => mount(VsAccordionItem, {
     },
     slots: {
         title: titleSlot,
+        'vs-module-wrapper-heading': headingSlot,
     },
 });
 
@@ -81,6 +83,22 @@ describe('VsAccordionItem', () => {
             const badge = wrapper.find('[data-test=vs-accordion-item__card-colour-badge]');
 
             expect(badge.exists()).toBe(true);
+        });
+
+        it(':headingLevel - changes the heading to the corresponding level', async() => {
+            const wrapper = factoryMount();
+
+            await wrapper.setProps({
+                headingLevel: 3,
+            });
+
+            expect(wrapper.find('h3').exists()).toBe(true);
+        });
+
+        it(':headingLevel - checks the default headingLevel renders by default', () => {
+            const wrapper = factoryMount();
+
+            expect(wrapper.find('h2').exists()).toBe(true);
         });
     });
 

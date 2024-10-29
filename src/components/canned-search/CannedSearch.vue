@@ -3,13 +3,13 @@
         v-show="products.length"
     >
         <template
-            v-slot:vs-module-wrapper-heading
+            #vs-module-wrapper-heading
             v-if="heading"
         >
             {{ heading }}
         </template>
         <template
-            v-slot:vs-module-wrapper-intro
+            #vs-module-wrapper-intro
             v-if="!!$slots['vs-canned-search-intro']"
         >
             <!--
@@ -63,7 +63,7 @@
                 >
                     <template
                         v-if="searchType === 'tour'"
-                        v-slot:vs-canned-search-tour-info
+                        #vs-canned-search-tour-info
                     >
                         <div>
                             <VsCannedSearchTourRuns
@@ -81,7 +81,7 @@
                         </div>
                     </template>
                     <template
-                        v-slot:vs-canned-search-sub-heading
+                        #vs-canned-search-sub-heading
                     >
                         <VsCannedSearchSubHeading
                             :sub-heading="fetchSubHeading(prod)"
@@ -90,7 +90,7 @@
                     </template>
                     <template
                         v-if="prod.grading"
-                        v-slot:vs-canned-search-star-rating
+                        #vs-canned-search-star-rating
                     >
                         <VsCannedSearchStars
                             :min="prod.grading.minStars"
@@ -99,7 +99,7 @@
                     </template>
                     <template
                         v-if="prod.locations"
-                        v-slot:vs-canned-search-categories
+                        #vs-canned-search-categories
                     >
                         <VsCannedSearchCategories
                             :categories="prod.locations"
@@ -107,7 +107,7 @@
                     </template>
                     <template
                         v-if="showLogos"
-                        v-slot:vs-canned-search-logos
+                        #vs-canned-search-logos
                     >
                         <VsCannedSearchLogos
                             :good-to-go-logo="prod.covidInformation
@@ -122,7 +122,7 @@
                         />
                     </template>
                     <template
-                        v-slot:vs-canned-search-badges
+                        #vs-canned-search-badges
                     >
                         <VsCannedSearchBadges
                             :badge-one="fetchBadgeOne(prod)"
@@ -132,7 +132,7 @@
                         />
                     </template>
                     <template
-                        v-slot:vs-canned-search-summary
+                        #vs-canned-search-summary
                     >
                         <VsCannedSearchSummaryBox
                             :link-href="prod.website.link"
@@ -142,7 +142,7 @@
                         >
                             <template
                                 v-if="prod.opening && searchType !== 'tour'"
-                                v-slot:vs-canned-search-summary-top
+                                #vs-canned-search-summary-top
                             >
                                 <VsCannedSearchDates
                                     :period="prod.opening.period"
@@ -151,7 +151,7 @@
                             </template>
 
                             <template
-                                v-slot:vs-canned-search-summary-left
+                                #vs-canned-search-summary-left
                             >
                                 <VsCannedSearchDuration
                                     v-if="searchType === 'tour' && prod.tourLength"
@@ -173,7 +173,7 @@
                             </template>
                             <template
                                 v-if="prod.price && searchType === 'tour'"
-                                v-slot:vs-canned-search-summary-centre
+                                #vs-canned-search-summary-centre
                             >
                                 <VsCannedSearchPrice
                                     :price-intro="prod.price.priceLabel"
@@ -184,7 +184,7 @@
                         </VsCannedSearchSummaryBox>
                     </template>
                 </VsCannedSearchProductCard>
-                <template v-slot:vs-carousel-of>
+                <template #vs-carousel-of>
                     <!--
                         @slot Holds the translation for `of` in the carousel pagination
                     -->

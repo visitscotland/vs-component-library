@@ -31,8 +31,8 @@
                                     :class="businessSupport ? null : 'mx-150'"
                                 >
                                     <VsHeading
-                                        level="2"
-                                        headingStyle="heading-xl"
+                                        :level="headingLevel"
+                                        heading-style="heading-xl"
                                         class="mb-200 mb-lg-300"
                                         :class="businessSupport ? null : 'text-center'"
                                     >
@@ -79,6 +79,7 @@ import {
     VsCol, VsRow, VsContainer,
 } from '@/components/grid';
 import VsHeading from '@/components/heading/Heading.vue';
+import { isNumber } from 'lodash';
 import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
 
 /**
@@ -120,6 +121,16 @@ export default {
         businessSupport: {
             type: Boolean,
             default: false,
+        },
+        /**
+         * The correct heading level for page hierarchy, the
+         * heading will be styled the same regardless of level provided
+         * `1|2|3|4|5|6`
+         */
+        headingLevel: {
+            type: Number,
+            default: 2,
+            validator: (value) => (isNumber(value) ? value > 0 && value < 7 : value.match(/(1|2|3|4|5|6)/)),
         },
     },
 };

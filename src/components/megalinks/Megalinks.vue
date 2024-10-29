@@ -18,7 +18,7 @@
                     >
                         <VsHeading
                             level="2"
-                            headingStyle="heading-xl"
+                            heading-style="heading-xl"
                             class="vs-megalinks__heading"
                             data-test="vs-megalinks__heading"
                         >

@@ -22,12 +22,12 @@
                 </div>
                 <VsHeading
                     level="3"
-                    headingStyle="heading-s"
+                    heading-style="heading-s"
                     class="vs-itinerary-stop__title ms-100 mt-0"
                 >
                     {{ stopLabel }}
 
-                    <template v-slot:sub-heading>
+                    <template #sub-heading>
                         {{ stopTitle }}
                     </template>
                 </VsHeading>

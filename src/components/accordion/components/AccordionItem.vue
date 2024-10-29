@@ -50,8 +50,8 @@
             </VsAccordionToggle>
 
             <VsHeading
-                level="2"
-                headingStyle="heading-xxs"
+                :level="headingLevel"
+                heading-style="heading-xxs"
                 class="d-none vs-accordion-item__title"
                 :class="toggleResponsiveItem"
                 data-test="vs-accordion__item-title"
@@ -79,9 +79,11 @@ import VsAccordionToggle from '@/components/accordion/components/AccordionToggle
 import VsIcon from '@/components/icon/Icon.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import { inject } from 'vue';
-
+import { isNumber } from 'lodash';
 import {
-    BCard, BCardHeader, BCardBody,
+    BCard,
+    BCardHeader,
+    BCardBody,
 } from 'bootstrap-vue-next';
 
 /**
@@ -126,6 +128,16 @@ export default {
         controlId: {
             type: String,
             required: true,
+        },
+        /**
+         * The correct heading level for page hierarchy, the
+         * heading will be styled the same regardless of level provided
+         * `1|2|3|4|5|6`
+         */
+        headingLevel: {
+            type: Number,
+            default: 2,
+            validator: (value) => (isNumber(value) ? value > 0 && value < 7 : value.match(/(1|2|3|4|5|6)/)),
         },
         /**
          * If this is provided, the accordion expands above
@@ -183,11 +195,10 @@ export default {
 </script>
 
 <style lang="scss">
-
 .vs-accordion-item.card {
     border: 0;
 
-    &.vs-accordion-item__responsive{
+    &.vs-accordion-item__responsive {
         border-top: 1px solid $vs-color-border;
     }
 
@@ -232,7 +243,7 @@ export default {
 
 @include no-js {
     .vs-accordion-item .vs-accordion-item__panel {
-        display: block!important;
+        display: block !important;
     }
 }
 </style>

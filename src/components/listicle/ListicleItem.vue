@@ -17,12 +17,12 @@
             </div>
             <VsHeading
                 level="2"
-                headingStyle="heading-s"
+                heading-style="heading-s"
                 class="vs-listicle-item__heading"
             >
                 {{ title }}
 
-                <template v-slot:sub-heading>
+                <template #sub-heading>
                     {{ subTitle }}
                 </template>
             </VsHeading>

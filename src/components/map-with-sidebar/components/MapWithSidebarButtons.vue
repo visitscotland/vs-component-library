@@ -85,6 +85,7 @@ export default {
             default: null,
         },
     },
+    emits: ['clear-filters'],
     computed: {
         websiteDataExists() {
             if (typeof this.contentData.properties.website !== 'undefined'

@@ -7,7 +7,7 @@
     >
         <VsHeading
             level="3"
-            headingStyle="heading-xxs"
+            heading-style="heading-xxs"
             class="vs-tab__item__heading"
         >
             {{ title }}

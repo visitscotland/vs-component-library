@@ -44,6 +44,7 @@ export default {
             default: false,
         },
     },
+    emits: ['toggleAction'],
     data() {
         return {
             showSearchForm: true,

@@ -89,6 +89,7 @@ export default {
             default: false,
         },
     },
+    emits: ['verified'],
     data() {
         return {
             response: null,

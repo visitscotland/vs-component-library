@@ -19,11 +19,11 @@
                         <fieldset>
                             <VsProgressBar
                                 :max="formData.stages"
-                                :currentStep="activeStage <= formData.stages
+                                :current-step="activeStage <= formData.stages
                                     ? activeStage : formData.stages"
-                                :isStepped="true"
-                                :isFull="activeStage > formData.stages"
-                                :progressLabel="labelsMap.progress"
+                                :is-stepped="true"
+                                :is-full="activeStage > formData.stages"
+                                :progress-label="labelsMap.progress"
                                 ref="progress"
                             />
 
@@ -32,7 +32,7 @@
                             >
                                 <VsHeading
                                     level="2"
-                                    headingStyle="heading-m"
+                                    heading-style="heading-m"
                                     class="vs-carbon-calculator__category-heading"
                                     v-if="currentCategory"
                                 >
@@ -48,15 +48,14 @@
                                     :label="getQuestionLabel(field, index)"
                                     :label-for="field.name"
                                     :hint="getQuestionHint(field, index)"
-                                    :fieldClass="conditionalElementClass(field.name)"
-                                    :fieldType="field.element"
-                                    :fieldName="field.name"
+                                    :field-class="conditionalElementClass(field.name)"
+                                    :field-type="field.element"
+                                    :field-name="field.name"
                                     :options="getQuestionOptions(field, index)"
                                     :minimum="field.element === 'number' ? field.validation.min : 0"
                                     :maximum="field.element === 'number' ? field.validation.max : 0"
-                                    @updateFieldData="updateFieldData"
+                                    @update-field-data="updateFieldData"
                                 />
-
                             </div>
                         </fieldset>
                     </form>
@@ -89,7 +88,7 @@
                         :food-kilos="foodKilos"
                         :accommodation-kilos="accommodationKilos"
                         :stay-duration="stayDuration"
-                        :comparisonReplacements="formData.comparisonReplacements"
+                        :comparison-replacements="formData.comparisonReplacements"
                         :language="language"
                     />
                 </VsCol>

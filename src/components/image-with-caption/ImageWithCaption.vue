@@ -21,13 +21,13 @@
             <VsToggleButton
                 :img-src="imageSrc"
                 :toggle-id="uniqueCaptionId"
-                @toggleAction="toggleCaption"
+                @toggle-action="toggleCaption"
                 v-if="showToggle"
             >
                 <span class="visually-hidden">
                     {{ toggleButtonText }}
                 </span>
-                <template v-slot:toggle-icon>
+                <template #toggle-icon>
                     <!-- @slot Slot for custom image to be used for toggle icon
                         eg. social media images -->
                     <slot name="toggle-icon" />
@@ -44,13 +44,13 @@
                 <VsVideoCaption
                     :video-btn-text="playButtonText"
                     :with-toggle-btn="showToggle"
-                    @toggleAction="toggleCaption"
+                    @toggle-action="toggleCaption"
                     :video-id="videoId"
                     :error-message="errorMessage"
                     :variant="smallPlayButton ? 'narrow' : 'wide'"
                 >
                     <!-- @slot Slot for the video title text -->
-                    <template v-slot:video-title>
+                    <template #video-title>
                         <slot name="video-title" />
                     </template>
                 </VsVideoCaption>

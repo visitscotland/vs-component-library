@@ -7,7 +7,7 @@
             <VsHeading
                 v-if="hasHeadingSlot"
                 level="2"
-                headingStyle="heading-l"
+                heading-style="heading-l"
             >
                 <slot name="heading" />
             </VsHeading>

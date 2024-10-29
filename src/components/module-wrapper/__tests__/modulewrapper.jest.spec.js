@@ -1,10 +1,23 @@
-import { config, shallowMount } from '@vue/test-utils';
+import {
+    config,
+    shallowMount,
+    mount,
+} from '@vue/test-utils';
 import VsModuleWrapper from '../ModuleWrapper.vue';
 
 config.global.renderStubDefaultSlot = true;
 
+const headingSlot = 'Module wrapper heading';
+
 const factoryShallowMount = (slotData) => shallowMount(VsModuleWrapper, {
     ...slotData,
+});
+
+const factoryMount = (slotData) => mount(VsModuleWrapper, {
+    slots: {
+        'vs-module-wrapper-heading': headingSlot,
+        ...slotData,
+    },
 });
 
 describe('VsModuleWrapper', () => {
@@ -42,6 +55,43 @@ describe('VsModuleWrapper', () => {
             });
 
             expect(wrapper.find('[data-test="vs-module-wrapper"]').classes()).toContain('vs-module-wrapper--light');
+        });
+
+        it('businessSupport - render with class `vs-module-wrapper--left-align` when true', async() => {
+            const wrapper = factoryShallowMount();
+
+            await wrapper.setProps({
+                businessSupport: true,
+            });
+
+            expect(wrapper.find('[data-test="vs-module-wrapper"]').classes()).toContain('vs-module-wrapper--left-align');
+        });
+
+        it(':headingLevel - changes the heading to the corresponding level', async() => {
+            const wrapper = factoryMount();
+
+            await wrapper.setProps({
+                headingLevel: 3,
+            });
+
+            expect(wrapper.find('h3').exists()).toBe(true);
+        });
+
+        it(':headingLevel - checks the default headingLevel renders by default', () => {
+            const wrapper = factoryMount();
+
+            expect(wrapper.find('h2').exists()).toBe(true);
+        });
+
+        it(':anchorId - sets the id on the heading element', async() => {
+            const wrapper = factoryMount();
+            const anchorId = 'anchor-test';
+
+            await wrapper.setProps({
+                anchorId,
+            });
+
+            expect(wrapper.find(`#${anchorId}`).exists()).toBe(true);
         });
     });
 

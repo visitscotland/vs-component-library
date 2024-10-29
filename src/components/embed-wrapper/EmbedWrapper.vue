@@ -49,7 +49,7 @@
                             {{ warningText }}
 
                             <template
-                                v-slot:extra-content
+                                #extra-content
                                 v-if="extraContent"
                             >
                                 <div v-html="extraContent" />
@@ -58,7 +58,7 @@
                             <template
                                 v-if="!requiredCookiesExist
                                     && cookiesInitStatus === true"
-                                v-slot:button-text
+                                #button-text
                             >
                                 <slot name="embed-button-text" />
                             </template>
