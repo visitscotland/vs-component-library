@@ -99,6 +99,7 @@ export default {
 <style lang="scss">
 [class*="vs-heading--display-"] {
     font-family: $display-font-family;
+    letter-spacing: 0.02em;
 
     .vs-heading__sub-heading {
         font-family: $font-family-base;
@@ -106,8 +107,12 @@ export default {
     }
 }
 
+[class*="vs-heading--heading-"] {
+    letter-spacing: -0.01em;
+}
+
 .vs-heading {
-    @extend %heading-default;
+    line-height: 1.2;
     font-weight: $font-weight-semi-bold;
 
     &--display-l {
@@ -155,7 +160,10 @@ export default {
     }
 
     .vs-heading__sub-heading {
-        @extend %sub-heading-default;
+        display: block;
+        font-weight: $font-weight-normal;
+        line-height: $line-height-sub-heading;
+        letter-spacing: $tracking-sub-heading;
 
         &--l {
             @include sub-heading-style(sub-heading-l);

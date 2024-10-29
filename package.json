@@ -1,6 +1,6 @@
 {
   "name": "@visitscotland/component-library",
-  "version": "4.0.0",
+  "version": "4.0.2",
   "description": "VisitScotland Component Library",
   "author": "VisitScotland",
   "homepage": "https://github.com/visitscotland/vs-component-library#readme",
@@ -121,7 +121,6 @@
     "mini-css-extract-plugin": "^2.7.5",
     "moxios": "^0.4.0",
     "node-polyfill-webpack-plugin": "^2.0.1",
-    "node-sass": "^8.0.0",
     "npm-run-all": "^4.1.5",
     "optimist": "^0.6.1",
     "path": "^0.12.7",
