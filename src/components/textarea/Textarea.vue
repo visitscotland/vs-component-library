@@ -54,13 +54,13 @@ import validateFormElementMixin from '../../mixins/validateFormElementMixin';
 import ariaDescriptionMixin from '../../mixins/ariaDescriptionMixin';
 
 /**
- * An input allows a user to enter a short amount of text.
+ * A textarea allows a user to enter a larger amount of text.
  *
- * @displayName Input
+ * @displayName Textarea
  */
 
 export default {
-    name: 'VsInput',
+    name: 'VsTextarea',
     status: 'prototype',
     release: '0.0.1',
     components: {
