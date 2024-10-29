@@ -2,6 +2,60 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.3](https://github.com/visitscotland/vs-component-library/compare/v4.0.2...v4.0.3) (2024-10-29)
+
+
+### ✨ Features
+
+* **accordionitem:** added headingLevel to AccordionItem, Article and StyledListItem ([1c30980](https://github.com/visitscotland/vs-component-library/commit/1c309806f2b42b00b865a6c05307e3ea99bdf983))
+* **all:** merge in main branch ([8ce3754](https://github.com/visitscotland/vs-component-library/commit/8ce37544ddb59d121be5bab4faf89d3e534ea34c))
+* **modulewrapper:** added business support boolean and updated styles accordingly ([8298aa6](https://github.com/visitscotland/vs-component-library/commit/8298aa6103fe213616f846c96da8d0b895c57881))
+* **tests:** merge tests ([cb9cd83](https://github.com/visitscotland/vs-component-library/commit/cb9cd83224a344638b7d974a48277881ff48ebdc))
+
+
+### 🏗 Build System
+
+* **package.json:** remove node-sass from the package to fix the build ([aa14f14](https://github.com/visitscotland/vs-component-library/commit/aa14f14148c7c7176004361b79799485cb4f98dc))
+
+
+### 🎨 Styling
+
+* **eslint:** add stronger linting and max-attributes-per-line rule ([7e33578](https://github.com/visitscotland/vs-component-library/commit/7e33578e2445c65c121e33a36510f8026c2f8887))
+
+
+### ♻️ Code Refactoring
+
+* **accordion story:** change variant name ([2546a57](https://github.com/visitscotland/vs-component-library/commit/2546a57ded11b2d3f684004e07ebad36a61771e2))
+* **accordionitems.jest.spec.js:** set slot content within factoryMount ([a7d6ef5](https://github.com/visitscotland/vs-component-library/commit/a7d6ef5a6bf85a44888d5cdc26e58894e93749fa))
+* **accordion:** updated Accordion, Article, StyledList & Module Wrapper w/ heading validator ([4b4c437](https://github.com/visitscotland/vs-component-library/commit/4b4c4377f14a9892137b5df08aed34a3d543e783))
+* **module wrapper:** use computed functions for clarity ([9000ec2](https://github.com/visitscotland/vs-component-library/commit/9000ec245d97422a5a04b3c22e6004090b137193))
+* **styledlist:** removed the heading and intro sections from the styled list component ([790f760](https://github.com/visitscotland/vs-component-library/commit/790f760aa3d236da47e7ae640879b93bc78263be))
+
+
+### ✅ Tests
+
+* **module wrapper:** add test for anchorId ([301a519](https://github.com/visitscotland/vs-component-library/commit/301a51916ea5557cf8b95c383f3c6217cc8dc4b6))
+* **modulewrapper:** added tests  to ModuleWrapper, AccordionListItem, Article & StyledList ([99e2db4](https://github.com/visitscotland/vs-component-library/commit/99e2db40f604ecd9c51ebfba2023fcbb46e6c5b8))
+* **modulewrapper:** fixed typos ([662a202](https://github.com/visitscotland/vs-component-library/commit/662a202bf1471a42e8a195fd464a891abe9dcb86))
+* **modulewrapper:** fixed typos ([5944b22](https://github.com/visitscotland/vs-component-library/commit/5944b22d0f72a5b46c25a1ccee8295c8ab31bc20))
+* **styledlistitem:** fixed typo ([bfc0e69](https://github.com/visitscotland/vs-component-library/commit/bfc0e695f778fec47bb3cfa1df15bc4428ad827e))
+* **styledlistitem:** tests new headingLevel prop added ([8244747](https://github.com/visitscotland/vs-component-library/commit/82447470fa623c9a2128593e71ec369ca83b73fa))
+
+
+### 📝 Docs
+
+* **grid:** update grid stories to add specific component story ([ba4456c](https://github.com/visitscotland/vs-component-library/commit/ba4456ccd9750f33383e80b22572e5178ae19d36))
+
+
+### 🐛 Bug Fixes
+
+* **accordion item:** remove test code ([70890c6](https://github.com/visitscotland/vs-component-library/commit/70890c642ccf379201f18dda38ef108a92a9c278))
+
+
+### 🔖 Others
+
+* **all:** merge in main branch ([622e92d](https://github.com/visitscotland/vs-component-library/commit/622e92da4ccc3536f520caf13943052ddec70a45))
+
 ### [4.0.2](https://github.com/visitscotland/vs-component-library/compare/v4.0.1...v4.0.2) (2024-10-25)
 
 
