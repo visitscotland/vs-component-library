@@ -8,7 +8,6 @@
         <BCardHeader
             class="vs-accordion-item__card-header"
             data-test="vs-accordion__item-header"
-            data-bob="test"
         >
             <!-- @slot Slot to contain Header for accordion item.
             Defaults to Accordion Toggle button. If component is responsive
