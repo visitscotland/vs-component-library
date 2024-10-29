@@ -1,3 +1,6 @@
+import {
+    within, waitFor, userEvent,
+} from '@storybook/test';
 import VsTextarea from '@/components/textarea/Textarea.vue';
 
 export default {
@@ -63,7 +66,29 @@ export const Invalid = Template.bind();
 
 Invalid.args = {
     ...base,
-    invalid: true,
+    validationRules: {
+        required: true,
+    },
+    genericValidation: {
+        required: 'This field is required',
+    },
+};
+
+Invalid.play = async({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByLabelText(base.label);
+
+    await waitFor(async() => {
+        await input.focus();
+    });
+
+    await waitFor(async() => {
+        await userEvent.type(input, ' ');
+    });
+
+    await waitFor(async() => {
+        await input.blur();
+    });
 };
 
 export const Disabled = Template.bind();
