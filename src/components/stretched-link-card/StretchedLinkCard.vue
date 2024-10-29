@@ -105,7 +105,7 @@
             <VsHeading
                 v-if="$slots['stretched-card-header'] && $slots['stretched-card-header']()"
                 :level="headingLevel"
-                :headingStyle="headingStyle"
+                :heading-style="headingStyle"
                 class="card-title vs-stretched-link-card__title"
                 data-test="vs-stretched-link-card__title"
             >

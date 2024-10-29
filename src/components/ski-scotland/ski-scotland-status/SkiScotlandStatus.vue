@@ -394,9 +394,7 @@
                                 :control-id="'accordion_item_' + level.name"
                                 :colour-badge="level.colourToken"
                             >
-                                <template
-                                    v-slot:title
-                                >
+                                <template #title>
                                     <div
                                         :data-test="`vs-ski__${level.name}-label`"
                                         class="d-inline-block"

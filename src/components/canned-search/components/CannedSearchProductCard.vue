@@ -43,7 +43,7 @@
                 >
                     <VsHeading
                         level="3"
-                        headingStyle="heading-xs"
+                        heading-style="heading-xs"
                         class="card-title vs-product-card__title"
                         data-test="vs-product-card__title"
                     >

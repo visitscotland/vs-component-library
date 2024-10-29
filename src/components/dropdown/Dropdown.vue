@@ -6,7 +6,7 @@
     >
         <template
             v-for="(_, name) in nonButtonContentSlots"
-            v-slot:[name]
+            #[name]
         >
             <slot
                 :name="name"

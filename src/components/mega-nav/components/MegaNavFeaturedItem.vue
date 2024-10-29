@@ -9,17 +9,17 @@
         heading-level="2"
         heading-style="heading-xxs"
     >
-        <template v-slot:stretched-card-header>
+        <template #stretched-card-header>
             <!-- @slot Featured Item header text  -->
             <slot name="vs-featured-item-header" />
         </template>
 
-        <template v-slot:stretched-card-content>
+        <template #stretched-card-content>
             <!-- @slot Featured Item body content  -->
             <slot name="vs-featured-item-content" />
         </template>
 
-        <template v-slot:stretched-card-link>
+        <template #stretched-card-link>
             <!-- @slot Featured Item link text  -->
             <slot name="vs-featured-item-link" />
         </template>

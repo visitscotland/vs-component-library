@@ -53,7 +53,7 @@
                         class="justify-content-end align-items-center position-static d-flex h-100"
                     >
                         <VsSiteSearch
-                            @toggleAction="toggleSearch"
+                            @toggle-action="toggleSearch"
                             :is-showing="showSearch"
                             v-if="!noSearch"
                         >
@@ -92,7 +92,7 @@
 
         <VsSiteSearchForm
             v-show="showSearch"
-            @toggleAction="toggleSearch"
+            @toggle-action="toggleSearch"
             :is-showing="showSearch"
             :label-text="searchLabelText"
             :submit-button-text="searchButtonText"

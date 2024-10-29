@@ -16,7 +16,7 @@
                             class="vs-hero-section__heading m-lg-0"
                             data-test="vs-hero-section__heading"
                             level="1"
-                            headingStyle="display-xs"
+                            heading-style="display-xs"
                         >
                             {{ heading }}
                         </VsHeading>
@@ -59,16 +59,19 @@
                     theme="subtle"
                     data-test="vs-hero-section__caption"
                 >
-                    <template v-slot:caption>
+                    <template #caption>
                         {{ imgCaption }}
                     </template>
-                    <template v-slot:credit>
+                    <template #credit>
                         {{ imgCredit }}
                     </template>
                 </VsCaption>
             </span>
 
-            <hr v-else class="vs-hero-section__divider">
+            <hr
+                v-else
+                class="vs-hero-section__divider"
+            >
         </div>
     </div>
 </template>

@@ -5,7 +5,7 @@
     >
         <VsHeading
             level="2"
-            headingStyle="heading-xxs"
+            heading-style="heading-xxs"
             class="vs-footer-social-menu__title"
         >
             <!-- @slot Put the menu title here  -->

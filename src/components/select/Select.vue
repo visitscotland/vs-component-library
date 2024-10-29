@@ -171,6 +171,10 @@ export default {
             default: false,
         },
     },
+    emits: [
+        'toggleAction',
+        'updated',
+    ],
     setup: () => ({
         v$: useVuelidate(),
     }),

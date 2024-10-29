@@ -2,7 +2,7 @@
     <VsHeading
         v-if="subHeading"
         level="4"
-        headingStyle="heading-xxs"
+        heading-style="heading-xxs"
         class="vs-canned-search-sub-heading"
         :class="lineLimit ? 'vs-canned-search-sub-heading--lines-' + lineLimit : ''"
         data-test="vs-canned-search-sub-heading"

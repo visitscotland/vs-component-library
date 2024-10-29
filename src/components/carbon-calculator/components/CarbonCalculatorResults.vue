@@ -6,7 +6,7 @@
         <VsCol cols="12">
             <VsHeading
                 level="2"
-                headingStyle="heading-m"
+                heading-style="heading-m"
             >
                 {{ labelsMap.results }}
             </VsHeading>
@@ -68,7 +68,7 @@
             >
                 <VsHeading
                     level="3"
-                    headingStyle="heading-xs"
+                    heading-style="heading-xs"
                 >
                     {{ labelsMap.perDayCongratulations }}
                 </VsHeading>
@@ -81,7 +81,7 @@
         <VsCol>
             <VsHeading
                 level="3"
-                headingStyle="heading-xs"
+                heading-style="heading-xs"
             >
                 {{ labelsMap.chartTitle }}
             </VsHeading>
@@ -98,13 +98,13 @@
                         :data="chartData"
                         :margin="responsiveMargin(width)"
                         :direction="chartDirection"
-                        :axis="chartAxis">
-
+                        :axis="chartAxis"
+                    >
                         <template #layers>
-                            <Grid strokeDasharray="2,2" />
+                            <Grid stroke-dasharray="2,2" />
                             <Bar
-                                :dataKeys="['name', 'emissions']"
-                                :barStyle="{ fill: tokens['vs-color-background-tertiary'] }"
+                                :data-keys="['name', 'emissions']"
+                                :bar-style="{ fill: tokens['vs-color-background-tertiary'] }"
                                 :gap="20"
                             />
                         </template>

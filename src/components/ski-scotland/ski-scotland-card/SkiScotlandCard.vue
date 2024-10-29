@@ -18,7 +18,7 @@
         <div class="card-body">
             <VsHeading
                 level="3"
-                headingStyle="heading-m"
+                heading-style="heading-m"
             >
                 <!--
                     @slot Slot for ski centre name
@@ -41,7 +41,8 @@
                 <VsWarning
                     size="small"
                     data-test="vs-ski-scotland-card__error"
-                    v-if="!jsDisabled && displayError">
+                    v-if="!jsDisabled && displayError"
+                >
                     <!--
                         @slot Slot for data unavailable message
                         Expects text

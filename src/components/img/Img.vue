@@ -13,7 +13,10 @@
         :low-res-image="specificImgSize('xxs')"
         sizes="(min-width: 768px) 75vw, 100vw"
     >
-        <VsIcon name="user" size="lg" />
+        <VsIcon
+            name="user"
+            size="lg"
+        />
 
         <!-- @slot Default slot for image content -->
         <slot />

@@ -28,7 +28,7 @@
                 >
                     <VsHeading
                         level="3"
-                        headingStyle="heading-m"
+                        heading-style="heading-m"
                         v-if="title"
                         class="vs-megalink-single-image__title"
                         data-test="megalink-single-image__title"

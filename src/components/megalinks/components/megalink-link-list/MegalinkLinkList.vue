@@ -17,7 +17,7 @@
         >
             <template
                 v-if="days && transport"
-                v-slot:stretched-card-panels
+                #stretched-card-panels
             >
                 <VsStretchedLinkPanels
                     :days="days"
@@ -28,9 +28,7 @@
                 />
             </template>
 
-            <template
-                v-slot:stretched-card-header
-            >
+            <template #stretched-card-header>
                 <span
                     class="vs-megalink-link-list__title"
                     data-test="megalink-link-list__title"
@@ -40,9 +38,7 @@
                 </span>
             </template>
 
-            <template
-                v-slot:stretched-card-content
-            >
+            <template #stretched-card-content>
                 <VsRichTextWrapper
                     class="vs-megalink-link-list__content"
                     data-test="megalink-link-list__content"

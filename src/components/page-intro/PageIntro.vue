@@ -71,7 +71,7 @@
                     >
                         <VsHeading
                             level="1"
-                            headingStyle="display-s"
+                            heading-style="display-s"
                             id="main-heading"
                         >
                             <!-- @slot Intro section heading -->

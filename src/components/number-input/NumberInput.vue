@@ -29,7 +29,7 @@
 
         <VsButton
             class="vs-number-input__increment"
-            :iconOnly="true"
+            :icon-only="true"
             size="sm"
             icon="minus"
             :disabled="(inputVal <= minimumNumber) ? true : null"
@@ -61,7 +61,7 @@
 
         <VsButton
             class="vs-number-input__increment"
-            :iconOnly="true"
+            :icon-only="true"
             size="sm"
             icon="plus"
             :disabled="(inputVal >= maximumNumber) ? true : null"
@@ -222,6 +222,7 @@ export default {
             default: false,
         },
     },
+    emits: ['updated'],
     setup: () => ({
         v$: useVuelidate(),
     }),
