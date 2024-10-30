@@ -251,8 +251,6 @@ export default {
 
             const roundedMinutes = this.getRoundedMinutes(minutes, seconds);
 
-            console.log(this.player.getDuration());
-
             this.duration.roundedMinutes = this.formatSingularOrPlural(roundedMinutes);
         },
         /**
@@ -311,9 +309,6 @@ export default {
                         if (args.action === 'modal-opened') {
                             this.playVideo();
                         }
-                        if (args.action === 'modal-closed') {
-                            //this.reRenderVideo();
-                        }
 
                         if (args.action === 'play') {
                             this.playVideo();
@@ -323,19 +318,6 @@ export default {
                     }
                 });
             }
-        },
-        /**
-         * Upon opening a vs-modal with a video, the video must be briefly removed and re-rendered
-         * to ensure that all event triggers in the video fire properly.
-         */
-        reRenderVideo() {
-            this.reRendering = true;
-            this.$nextTick(() => {
-                this.reRendering = false;
-                this.$nextTick(() => {
-                    this.shouldAutoPlay = true;
-                });
-            });
         },
     },
 };
