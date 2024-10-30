@@ -244,12 +244,14 @@ export default {
          */
         formatTime(timeInSeconds) {
             const minutes = Math.floor(timeInSeconds / 60);
-            const seconds = timeInSeconds - (minutes * 60);
+            const seconds = Math.round(timeInSeconds - (minutes * 60));
 
             this.duration.minutes = minutes;
             this.duration.seconds = seconds;
 
             const roundedMinutes = this.getRoundedMinutes(minutes, seconds);
+
+            console.log(this.player.getDuration());
 
             this.duration.roundedMinutes = this.formatSingularOrPlural(roundedMinutes);
         },
@@ -310,7 +312,7 @@ export default {
                             this.playVideo();
                         }
                         if (args.action === 'modal-closed') {
-                            this.reRenderVideo();
+                            //this.reRenderVideo();
                         }
 
                         if (args.action === 'play') {
