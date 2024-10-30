@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/visitscotland/vs-component-library/compare/v4.0.3...v4.1.0) (2024-10-30)
+
+
+### ✅ Tests
+
+* **textarea:** add tests ([492d9da](https://github.com/visitscotland/vs-component-library/commit/492d9da3a11cd6452fa777f5af7cdf04a54d8110))
+
+
+### ✨ Features
+
+* **form:** add textarea field to form ([58e536d](https://github.com/visitscotland/vs-component-library/commit/58e536ded7daa5a8d5c8f09794020fce61bd6f68))
+* **textarea:** add new component ([91c5b7c](https://github.com/visitscotland/vs-component-library/commit/91c5b7ceaf6c5c6bf42c9ee0354ef0fe856d9c72))
+
+
+### 🎨 Styling
+
+* **styled list:** adjust styles due to heading level changes ([0e4954d](https://github.com/visitscotland/vs-component-library/commit/0e4954da142102c44b951f3d206c04fdf54e7bc3))
+
+
+### 🐛 Bug Fixes
+
+* **styled list item:** heading style ([1a032f7](https://github.com/visitscotland/vs-component-library/commit/1a032f70aaab34b3a6075fc5fec6e44c1f4a0085))
+* **textarea.jest.spec.js:** correct typo in filename ([e346c35](https://github.com/visitscotland/vs-component-library/commit/e346c353962763cf05cfc25f87bcd307542a3dd4))
+* **textarea.stories.js:** update invalid story variant ([64ebee4](https://github.com/visitscotland/vs-component-library/commit/64ebee4b86f64ef8af5d19b289b32968d57aa196))
+
 ### [4.0.3](https://github.com/visitscotland/vs-component-library/compare/v4.0.2...v4.0.3) (2024-10-29)
 
 
