@@ -19,7 +19,7 @@
 
                 <VsHeading
                     :level="props.headingLevel"
-                    heading-style="heading-l"
+                    heading-style="heading-3"
                 >
                     {{ heading }}
                 </VsHeading>
@@ -95,7 +95,7 @@ const props = defineProps({
         padding: $spacer-025 $spacer-075;
         position: absolute;
         right: 100%;
-        top: 0;
+        top: $spacer-0125;
 
         @include media-breakpoint-up(md) {
             padding: $spacer-025 $spacer-175;
@@ -109,10 +109,10 @@ const props = defineProps({
         height: 100%;
         background-color: $vs-color-border-accent-heather;
         right: 100%;
-        top: 0;
+        top: $spacer-0125;
     }
 
-    h3 {
+    .vs-heading {
         margin-top: $spacer-0;
     }
 }
@@ -127,7 +127,7 @@ const props = defineProps({
         font-family: 'Font Awesome Kit';
         font-size: $font-size-8;
         position: absolute;
-        top: $spacer-100;
+        top: 0;
         left: 0;
     }
 }
