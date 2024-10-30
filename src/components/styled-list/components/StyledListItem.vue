@@ -19,7 +19,7 @@
 
                 <VsHeading
                     :level="props.headingLevel"
-                    heading-style="heading-3"
+                    heading-style="heading-xxs"
                 >
                     {{ heading }}
                 </VsHeading>
@@ -127,7 +127,7 @@ const props = defineProps({
         font-family: 'Font Awesome Kit';
         font-size: $font-size-8;
         position: absolute;
-        top: 0;
+        top: $spacer-100;
         left: 0;
     }
 }
