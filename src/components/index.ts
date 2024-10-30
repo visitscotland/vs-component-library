@@ -113,6 +113,7 @@ export { default as VsTabs } from './tabs/Tabs.vue';
 export { default as VsTabItem } from './tabs/components/TabItem.vue';
 export { default as VsTag } from './tag/Tag.vue';
 export { default as VsTagManagerWrapper } from './tag-manager-wrapper/TagManagerWrapper.vue';
+export { default as VsTextarea } from './textarea/Textarea.vue';
 export { default as VsToggleButton } from './toggle-button/ToggleButton.vue';
 export { default as VsTooltip } from './tooltip/Tooltip.vue';
 export { default as VsVideo } from './video/Video.vue';
