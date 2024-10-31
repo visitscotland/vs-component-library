@@ -183,6 +183,14 @@ export default {
             }
         },
         /**
+         * Stops the video, which resets to beginning
+         */
+        async stopVideo(){
+            if (this.player) {
+                await this.player.stopVideo();
+            }
+        },
+        /**
          * Triggered by video status events from the vue-youtube component. When any of these
          * occur an appropriate analytics event is dispatched to the datalayer.
          */
@@ -244,7 +252,7 @@ export default {
          */
         formatTime(timeInSeconds) {
             const minutes = Math.floor(timeInSeconds / 60);
-            const seconds = timeInSeconds - (minutes * 60);
+            const seconds = Math.round(timeInSeconds - (minutes * 60));
 
             this.duration.minutes = minutes;
             this.duration.seconds = seconds;
@@ -299,8 +307,7 @@ export default {
         },
         /**
          * Attaches event listeners upon mounting video. These include play and pause functions,
-         * for external play buttons and re-render + autoplay functionality for a video inside
-         * a modal.
+         * for external play buttons and autoplay functionality for a video inside a modal.
          */
         setEventListeners() {
             if (this.emitter) {
@@ -309,8 +316,8 @@ export default {
                         if (args.action === 'modal-opened') {
                             this.playVideo();
                         }
-                        if (args.action === 'modal-closed') {
-                            this.reRenderVideo();
+                        if(args.action === 'modal-closed'){
+                            this.stopVideo();
                         }
 
                         if (args.action === 'play') {
@@ -321,19 +328,6 @@ export default {
                     }
                 });
             }
-        },
-        /**
-         * Upon opening a vs-modal with a video, the video must be briefly removed and re-rendered
-         * to ensure that all event triggers in the video fire properly.
-         */
-        reRenderVideo() {
-            this.reRendering = true;
-            this.$nextTick(() => {
-                this.reRendering = false;
-                this.$nextTick(() => {
-                    this.shouldAutoPlay = true;
-                });
-            });
         },
     },
 };
