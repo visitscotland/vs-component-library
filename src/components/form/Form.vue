@@ -91,6 +91,24 @@
                                     :re-alert-errors="reAlertErrors"
                                 />
                             </template>
+
+                            <template v-if="field.element === 'textarea'">
+                                <VsTextarea
+                                    :ref="field.name"
+                                    @status-update="updateFieldData"
+                                    :field-name="field.name"
+                                    :validation-rules="field.validation || {}"
+                                    :validation-messages="getTranslatedValidation(field.name, index)
+                                        || {}"
+                                    :generic-validation="getMessagingData('validation', language)"
+                                    :invalid="errorFields.indexOf(field.name) > -1 ? true : false"
+                                    :trigger-validate="triggerValidate"
+                                    :hint-text="getTranslatedHint(field.name, index)"
+                                    :placeholder="field.placeholder || ''"
+                                    :re-alert-errors="reAlertErrors"
+                                    :rows="field.rows || null"
+                                />
+                            </template>
                         </div>
                     </BFormGroup>
                 </fieldset>
@@ -161,6 +179,7 @@ import VsRecaptcha from '@/components/recaptcha/Recaptcha.vue';
 import VsButton from '@/components/button/Button.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsWarning from '@/components/warning/Warning.vue';
+import VsTextarea from '@/components/textarea/Textarea.vue';
 import dataLayerMixin from '../../mixins/dataLayerMixin';
 
 /**
@@ -182,6 +201,7 @@ export default {
         VsButton,
         VsHeading,
         VsWarning,
+        VsTextarea,
     },
     mixins: [dataLayerMixin],
     props: {
