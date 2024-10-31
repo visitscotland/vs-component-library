@@ -183,6 +183,14 @@ export default {
             }
         },
         /**
+         * Stops the video, which resets to beginning
+         */
+        async stopVideo(){
+            if (this.player) {
+                await this.player.stopVideo();
+            }
+        },
+        /**
          * Triggered by video status events from the vue-youtube component. When any of these
          * occur an appropriate analytics event is dispatched to the datalayer.
          */
@@ -309,7 +317,7 @@ export default {
                             this.playVideo();
                         }
                         if(args.action === 'modal-closed'){
-                            this.pauseVideo();
+                            this.stopVideo();
                         }
 
                         if (args.action === 'play') {
