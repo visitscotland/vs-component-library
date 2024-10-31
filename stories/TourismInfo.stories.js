@@ -54,7 +54,10 @@ const Template = (args) => ({
                 v-slot:tourism-info-quote
             >
                 <VsQuote variant="wide">
-                    <template v-slot:quote-image>
+                    <template 
+                        v-slot:quote-image
+                        v-if="args.quoteImageSrc"
+                    >
                         <VsImg
                             :src="args.quoteImageSrc"
                             :alt="args.quoteImageAltText"
@@ -72,6 +75,7 @@ const Template = (args) => ({
                     </template>
                     <template v-slot:quote-link>
                         <VsButton
+                            v-if="args.buttonText"
                             :args="args.buttonHref"
                         >
                             {{ args.buttonText }}
@@ -134,3 +138,18 @@ NoQuote.args = {
 };
 
 NoQuote.parameters = Default.parameters;
+
+export const QuoteNoLinks = Template.bind({
+});
+
+QuoteNoLinks.args = {
+    imageSrc: '/fixtures/icentre/icentre.jpg',
+    imageAltText: 'Tourism Info',
+    imageToggleText: 'Toggle caption',
+    imageCaption: 'VisitScotland Information Centre',
+    imageCredit: '&copy; VisitScotland',
+    quoteContent: 'Take a walk along St Andrews Pier & the East Sands. There is an amazing skyline as you look back on the town, with the cathedral and the castle. On a clear day you can see right along the coast. ',
+    quoteAuthor: 'Lorna',
+    quoteAuthorTitle: 'Assistant iCentre Manager at St Andrews iCentre',
+    'tourism-info-links': '',
+}
