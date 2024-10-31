@@ -299,8 +299,7 @@ export default {
         },
         /**
          * Attaches event listeners upon mounting video. These include play and pause functions,
-         * for external play buttons and re-render + autoplay functionality for a video inside
-         * a modal.
+         * for external play buttons and autoplay functionality for a video inside a modal.
          */
         setEventListeners() {
             if (this.emitter) {
@@ -308,6 +307,9 @@ export default {
                     if (args.id === this.videoId) {
                         if (args.action === 'modal-opened') {
                             this.playVideo();
+                        }
+                        if(args.action === 'modal-closed'){
+                            this.pauseVideo();
                         }
 
                         if (args.action === 'play') {
