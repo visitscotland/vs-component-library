@@ -73,14 +73,17 @@ const Template = (args) => ({
                     <template v-slot:quote-author-title>
                         {{ args.quoteAuthorTitle }}
                     </template>
-                    <template v-slot:quote-link>
+                    <template 
+                        v-if="args['buttonText']" 
+                        v-slot:quote-link
+                    >
                         <VsButton
                             v-if="args.buttonText"
                             :args="args.buttonHref"
                         >
                             {{ args.buttonText }}
                         </VsButton>
-                </template>
+                    </template>
                 </VsQuote>
             </template>
 
@@ -103,8 +106,6 @@ const base = {
     imageToggleText: 'Toggle caption',
     imageCaption: 'VisitScotland Information Centre',
     imageCredit: '&copy; VisitScotland',
-    quoteImageSrc: '/fixtures/icentre/icentre.jpg',
-    quoteImageAltText: 'Penny, icentre staff',
     quoteContent: 'Look out for the incredible architecture, parks and gardens as you browse independent shops, galleries and eateries.',
     quoteAuthor: 'Penny',
     quoteAuthorTitle: 'Visitor Services Advisor at Aberdeen iCentre',
@@ -154,6 +155,15 @@ WithButtonAndLink.args = {
     },
 };
 
+export const WithQuoteImage = Template.bind({
+});
+
+WithQuoteImage.args = {
+    ...base,
+    quoteImageSrc: '/fixtures/icentre/icentre.jpg',
+    quoteImageAltText: 'Penny, icentre staff',
+};
+
 export const NoQuote = Template.bind({
 });
 
@@ -164,6 +174,10 @@ NoQuote.args = {
     quoteAuthorTitle: '',
     quoteImageAltText: '',
     quoteImageSrc: '',
+    'tourism-info-links': {
+        linkText: 'See all Aberdeen attractions',
+        linkHref: '#',
+    },
 };
 
 NoQuote.parameters = Default.parameters;

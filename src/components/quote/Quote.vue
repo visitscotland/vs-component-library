@@ -37,7 +37,15 @@
                 <slot name="quote-author-title" />
             </p>
             <!-- @slot Optional slot that holds a cta for the block (vs-button expected) -->
-            <slot name="quote-link" />
+            <div
+                class="vs-quote__quote-link"
+                v-if="$slots['quote-link']"
+            >
+                <slot
+                    name="quote-link"
+                    if="$slots['quote-link']"
+                />
+            </div>
         </div>
     </div>
 </template>
@@ -106,11 +114,17 @@ export default {
 
     &__author-title {
         line-height: $spacer-125;
+        margin-bottom: $spacer-0;
 
         @include media-breakpoint-up(md) {
             line-height: $line-height-s;
             font-size: $font-size-5;
-            margin-bottom: $spacer-175;
+        }
+    }
+
+    &__quote-link {
+        @include media-breakpoint-up(md){
+            margin-top: $spacer-175;
         }
     }
 
