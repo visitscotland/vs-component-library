@@ -84,7 +84,9 @@ const Template = (args) => ({
                 </VsQuote>
             </template>
 
-            <template v-slot:tourism-info-links>
+            <template 
+                v-if="args['tourism-info-links']"
+                v-slot:tourism-info-links>
                 <p>
                     <VsLink :href="args['tourism-info-links'].linkHref">
                         {{ args['tourism-info-links'].linkText }}
@@ -106,12 +108,6 @@ const base = {
     quoteContent: 'Look out for the incredible architecture, parks and gardens as you browse independent shops, galleries and eateries.',
     quoteAuthor: 'Penny',
     quoteAuthorTitle: 'Visitor Services Advisor at Aberdeen iCentre',
-    buttonHref: '#',
-    buttonText: 'See more',
-    'tourism-info-links': {
-        linkText: 'See all Aberdeen attractions',
-        linkHref: '#',
-    },
 };
 
 export const Default = Template.bind({
@@ -122,6 +118,39 @@ Default.args = base;
 Default.parameters = {
     backgrounds: {
         default: 'Grey',
+    },
+};
+
+export const WithLinks = Template.bind({
+});
+
+WithLinks.args = {
+    ...base,
+    'tourism-info-links': {
+        linkText: 'See all Aberdeen attractions',
+        linkHref: '#',
+    },
+};
+
+export const WithButton = Template.bind({
+});
+
+WithButton.args = {
+    ...base,
+    buttonHref: '#',
+    buttonText: 'See more',
+};
+
+export const WithButtonAndLink = Template.bind({
+});
+
+WithButtonAndLink.args = {
+    ...base,
+    buttonHref: '#',
+    buttonText: 'See more',
+    'tourism-info-links': {
+        linkText: 'See all Aberdeen attractions',
+        linkHref: '#',
     },
 };
 
@@ -138,18 +167,3 @@ NoQuote.args = {
 };
 
 NoQuote.parameters = Default.parameters;
-
-export const QuoteNoLinks = Template.bind({
-});
-
-QuoteNoLinks.args = {
-    imageSrc: '/fixtures/icentre/icentre.jpg',
-    imageAltText: 'Tourism Info',
-    imageToggleText: 'Toggle caption',
-    imageCaption: 'VisitScotland Information Centre',
-    imageCredit: '&copy; VisitScotland',
-    quoteContent: 'Take a walk along St Andrews Pier & the East Sands. There is an amazing skyline as you look back on the town, with the cathedral and the castle. On a clear day you can see right along the coast. ',
-    quoteAuthor: 'Lorna',
-    quoteAuthorTitle: 'Assistant iCentre Manager at St Andrews iCentre',
-    'tourism-info-links': '',
-}
