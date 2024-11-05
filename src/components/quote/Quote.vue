@@ -123,7 +123,7 @@ export default {
         }
 
         &--narrow-margin {
-            margin-bottom: $spacer-150;
+            margin-bottom: $spacer-175;
         }
     }
 
