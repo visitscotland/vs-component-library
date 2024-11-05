@@ -31,6 +31,7 @@
             </p>
             <p
                 class="vs-quote__author-title"
+                :class="(variant === 'narrow') ? 'vs-quote__author-title--wide-margin' : null "
                 v-if="hasAuthorTitle"
             >
                 <!-- @slot Holds the job title of the author (text expected) -->
@@ -119,6 +120,10 @@ export default {
         @include media-breakpoint-up(md) {
             line-height: $line-height-s;
             font-size: $font-size-5;
+        }
+
+        &--wide-margin {
+            margin-bottom: $spacer-125;
         }
     }
 
