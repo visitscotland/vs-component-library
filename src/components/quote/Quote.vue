@@ -31,7 +31,7 @@
             </p>
             <p
                 class="vs-quote__author-title"
-                :class="(variant === 'narrow') ? 'vs-quote__author-title--wide-margin' : null "
+                :class="(variant === 'narrow') ? 'vs-quote__author-title--narrow-margin' : null "
                 v-if="hasAuthorTitle"
             >
                 <!-- @slot Holds the job title of the author (text expected) -->
@@ -122,7 +122,7 @@ export default {
             font-size: $font-size-5;
         }
 
-        &--wide-margin {
+        &--narrow-margin {
             margin-bottom: $spacer-125;
         }
     }
