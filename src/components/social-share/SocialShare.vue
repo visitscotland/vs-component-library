@@ -22,6 +22,7 @@
             :click="true"
             container="body"
             placement="left-end"
+            offset="-100"
             @shown="onShown"
             @hidden="onHidden"
             @hide="onHide"
