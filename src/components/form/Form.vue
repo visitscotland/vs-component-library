@@ -745,6 +745,7 @@ export default {
          * Submits the form using Axios, submitting a json object to the submitUrl
          */
         axiosSubmit() {
+            this.createDataLayerObject('formsDataEvent');
             this.submitting = true;
 
             let gRecaptchaResponse = '';
