@@ -172,7 +172,10 @@ const Template = (args) => ({
                                 </VsQuote>
                             </template>
 
-                            <template v-slot:vs-article-sidebar-toc>
+                            <template
+                                v-if="args.tableOfContents"
+                                v-slot:vs-article-sidebar-toc
+                            >
                                 <VsLinkList toc>
                                     <template v-slot:heading>
                                         {{ args.tableOfContents.heading }}
