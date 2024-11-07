@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.1.1](https://github.com/visitscotland/vs-component-library/compare/v4.1.0...v4.1.1) (2024-11-07)
+
+
+### ♻️ Code Refactoring
+
+* **tourisminfo:** add new variants to storybook for tourism info component ([92b1e2d](https://github.com/visitscotland/vs-component-library/commit/92b1e2d10f2ed87fc852e01bb78162a79babbbd2))
+
+
+### 🐛 Bug Fixes
+
+* **modal:** modal will now pause video when closed/hidden as per expected behaviour ([ba5c505](https://github.com/visitscotland/vs-component-library/commit/ba5c505876709bb0cb49b7c061f7fce4e745c2d2))
+* **quote:** changed css class name for clarity ([aec62a6](https://github.com/visitscotland/vs-component-library/commit/aec62a65dc209e66515f6cc195f8c78697f3dd1b))
+* **quote:** fixed quote margin issue when narrow in sidebar ([96bed05](https://github.com/visitscotland/vs-component-library/commit/96bed05fae0025784884e2fb2e4677cd29c7505c))
+* **quote:** updated spacing ([ad822b5](https://github.com/visitscotland/vs-component-library/commit/ad822b579ba4a035f9202981f74cb1dadcf50e45))
+* **quote:** updated spacing ([5b7fa4f](https://github.com/visitscotland/vs-component-library/commit/5b7fa4fdf905400eb04fbea88153b5cb7fb2b6db))
+* **socialshare:** social share popover is now fully on screen when on mobile layouts ([0b418dc](https://github.com/visitscotland/vs-component-library/commit/0b418dce44726fa317f6f2443f0b5bbec2fc607c))
+* **tourisminfo:** added a new story to TourismInfo for a quote with no links or buttons ([ef2462c](https://github.com/visitscotland/vs-component-library/commit/ef2462c47de22506d4e96b7da5b25a0005485715))
+* **tourisminfo:** removal of white space from the local expert module on destination pages ([57c3a99](https://github.com/visitscotland/vs-component-library/commit/57c3a99a91fb097d05b6319cd4b7767284b577fe))
+* **video:** fixed play button displaying video duration incorrectly after closing modal ([11a1d74](https://github.com/visitscotland/vs-component-library/commit/11a1d74b8a4be72f0dc6fd08e797d4980a4b34b0))
+* **video:** removed console.log from code where left in by accident ([b72b202](https://github.com/visitscotland/vs-component-library/commit/b72b202194a1e79077a0fffb14c826aa3d2e5a58))
+* **video:** video will now start at the beginning when modal is re-opened as expected behaviour ([beb67ea](https://github.com/visitscotland/vs-component-library/commit/beb67ea802628793649c6e3b1d2f45c98c3a797f))
+
 ## [4.1.0](https://github.com/visitscotland/vs-component-library/compare/v4.0.3...v4.1.0) (2024-10-30)
 
 
