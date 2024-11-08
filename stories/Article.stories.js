@@ -9,6 +9,8 @@ import VsQuote from '@/components/quote/Quote.vue';
 import VsModal from '@/components/modal/Modal.vue';
 import VsVideo from '@/components/video/Video.vue';
 import VsVideoCaption from '@/components/video-caption/VideoCaption.vue';
+import VsLinkList from '@/components/link-list/LinkList.vue';
+import VsLinkListItem from '@/components/link-list/components/LinkListItem.vue';
 import { VsCol, VsRow } from '@/components/grid';
 
 export default {
@@ -48,6 +50,8 @@ const Template = (args) => ({
         VsVideoCaption,
         VsCol,
         VsRow,
+        VsLinkList,
+        VsLinkListItem,
     },
     setup() {
         return {
@@ -108,7 +112,7 @@ const Template = (args) => ({
                     :businessSupport="args.businessSupport"
                 >
                     <template
-                        v-if="args.sidebarImg || args.sidebarQuote"
+                        v-if="args.sidebarImg || args.sidebarQuote || args.tableOfContents"
                         v-slot:article-sidebar
                     >
                         <VsArticleSidebar :sidebar-align="args.sidebarAlign">
@@ -152,18 +156,38 @@ const Template = (args) => ({
                                 </VsImageWithCaption>
                             </template>
 
-                            <template v-slot:vs-article-sidebar-quote>
+                            <template
+                                v-if="args.sidebarQuote"
+                                v-slot:vs-article-sidebar-quote>
                                 <VsQuote :with-border="args.businessSupport">
                                     <template v-slot:quote-content>
-                                        <p>{{ args['sidebarQuote'] }}</p>
+                                        <p>{{ args.sidebarQuote.quote }}</p>
                                     </template>
                                     <template v-slot:quote-author-name>
-                                        Penny
+                                        {{ args.sidebarQuote.authorName }}
                                     </template>
                                     <template v-slot:quote-author-title>
-                                        Visitor Services Advisor at Fort William iCentre
+                                        {{ args.sidebarQuote.authorTitle }}
                                     </template>
                                 </VsQuote>
+                            </template>
+
+                            <template
+                                v-if="args.tableOfContents"
+                                v-slot:vs-article-sidebar-toc
+                            >
+                                <VsLinkList toc>
+                                    <template v-slot:heading>
+                                        {{ args.tableOfContents.heading }}
+                                    </template>
+
+                                    <VsLinkListItem
+                                        v-for="link in args.tableOfContents.linkList"
+                                        :href="link.href"
+                                    >
+                                        {{ link.title }}
+                                    </VsLinkListItem>
+                                </VsLinkList>
                             </template>
                         </VsArticleSidebar>
                     </template>
@@ -207,7 +231,11 @@ const base = {
         caption: 'Mountain stream',
         credit: '© CutMedia / Chris Rowland',
     },
-    sidebarQuote: 'Scotland\'s largest mountain was once a massive active volcano which exploded and collapsed inwards on itself millions of years ago.',
+    sidebarQuote: {
+        authorName: 'Penny',
+        authorTitle: 'Visitor Services Advisor at Fort William iCentre',
+        quote: 'Scotland\'s largest mountain was once a massive active volcano which exploded and collapsed inwards on itself millions of years ago.',
+    },
     defaultContent: `
         <p>Ben Nevis is the king of them all. In the north west <a href='#'>Highlands</a>, near the town of <a href='#'>Fort William</a> and part of the <a href='#'>Grampian Mountain</a> range, the famous peak attracts 125k walkers a year. Whether you're an avid ambler or you just love beautiful landscapes, bagging 'the Ben' is likely to feature near the top of your Scottish bucket list.</p>
         <p>An ancient giant of the land, Ben Nevis was once a massive active volcano which exploded and collapsed inwards on itself millions of years ago. At the summit, there is evidence of an explosion in the form of light-coloured granite. The name itself has two translations from the ancient Gaelic language, meaning 'mountain with its head in the clouds', thanks to its iconic mist-shrouded peak, or it can also mean 'venomous mountain' - you can decide which translation you prefer after the climb!</p>
@@ -272,6 +300,38 @@ BusinessSupportHub.args = {
     ...base,
     sidebarAlign: 'right',
     businessSupport: true,
+};
+
+export const BusinessSupportHubTableOfContents = Template.bind();
+BusinessSupportHubTableOfContents.args = {
+    ...BusinessSupportHub.args,
+    sidebarImg: null,
+    sidebarQuote: null,
+    tableOfContents: {
+        heading: 'In this article:',
+        linkList: [
+            {
+                title: 'Who needs a short-term lets licence?',
+                href: '#section1',
+            },
+            {
+                title: 'When do I need to have a licence?',
+                href: '#section2',
+            },
+            {
+                title: 'How to apply for a licence',
+                href: '#section3',
+            },
+            {
+                title: 'Frequently Asked Questions (FAQ)',
+                href: '#section4',
+            },
+            {
+                title: 'Industry Advisory Group (IAG)',
+                href: '#section5',
+            },
+        ],
+    },
 };
 
 export const BusinessSupportHubNoSidebar = Template.bind();

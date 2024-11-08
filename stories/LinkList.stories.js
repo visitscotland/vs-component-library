@@ -17,8 +17,9 @@ export default {
     },
     title: 'LinkList',
     tags: ['autodocs'],
-    argTypes: {
-    },
+    decorators: [() => ({
+        template: '<div style="max-width: 500px;"><story /></div>',
+    })],
 };
 
 const Template = (args) => ({
