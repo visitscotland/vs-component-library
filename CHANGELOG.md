@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.1.2](https://github.com/visitscotland/vs-component-library/compare/v4.1.1...v4.1.2) (2024-11-08)
+
+
+### 🐛 Bug Fixes
+
+* **forms:** fire datalayer event on bloomreach form submit ([22de4be](https://github.com/visitscotland/vs-component-library/commit/22de4bed71aa71738508161ea9f18e1761525f39))
+* **video:** linting error fix ([e642eb4](https://github.com/visitscotland/vs-component-library/commit/e642eb4f36aadace5e10645552d0431d6fcc0031))
+
 ### [4.1.1](https://github.com/visitscotland/vs-component-library/compare/v4.1.0...v4.1.1) (2024-11-07)
 
 
