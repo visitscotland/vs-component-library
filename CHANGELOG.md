@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.1.3](https://github.com/visitscotland/vs-component-library/compare/v4.1.2...v4.1.3) (2024-11-08)
+
+
+### ✨ Features
+
+* **article:** add table of contents to sidebar ([da49c7a](https://github.com/visitscotland/vs-component-library/commit/da49c7aba55588542d788229c52c2b8c050408d5))
+
+
+### ✅ Tests
+
+* **article sidebar:** add test for new toc slot ([679ae8b](https://github.com/visitscotland/vs-component-library/commit/679ae8b6b2b75a5e9e7554583d31d4dab630d7d6))
+
+
+### 🐛 Bug Fixes
+
+* **article.stories.js:** add conditional to VsLinkList component in template ([fb5071f](https://github.com/visitscotland/vs-component-library/commit/fb5071ffa6a73b4356429e8a008bce9f16ce1bea))
+
 ### [4.1.2](https://github.com/visitscotland/vs-component-library/compare/v4.1.1...v4.1.2) (2024-11-08)
 
 
