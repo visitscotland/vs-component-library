@@ -71,9 +71,27 @@ props:
     - name: vs-color-border-accent-grey-05
       value: "{!vs-grey-05}" 
 
-      
+  ## Color roles (NEW)
+    - name: vs-color-new-border-primary
+      value: "{!vs-cloud-10}"
+    - name: vs-color-new-border-secondary
+      value: "{!vs-heather-30}"
+    - name: vs-color-new-border-inverse
+      value: "{!vs-snow-00}"
+    - name: vs-color-new-border-input
+      value: "{!vs-heather-60}"
+    - name: vs-color-new-border-highlight
+      value: "{!vs-bramble-60}"
+    - name: vs-color-new-border-success
+      value: "{!vs-color-support-success}"
+    - name: vs-color-new-border-warning
+      value: "{!vs-color-support-warning}"
+    - name: vs-color-new-border-error
+      value: "{!vs-color-support-error}"
 imports:
   - ./primitives/color-core.yml
+  - ./primitives/color-primitives.yml
+  - ./primitives/color-support-primitives.yml
 global:
     type: color
     category: color-border
