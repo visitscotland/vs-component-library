@@ -1026,7 +1026,7 @@ export default {
     }
 
     &__message-box {
-        border: 1px solid $vs-color-border-tertiary;
+        border: 1px solid $vs-color-new-border-highlight;
         border-radius: $border-radius-default;
         height: 142px;
         width: 200px;

@@ -232,31 +232,31 @@ export default {
         ------------------------------------------ */
         &.btn-primary {
             @include vs-button-variant(
-                $vs-color-text-inverse, $vs-color-interaction-cta-primary, $vs-color-border-primary,
-                $vs-color-text-inverse, $vs-color-interaction-cta-hover, $vs-color-background-hover,
-                $vs-color-text-inverse, $vs-color-interaction-cta-active, $vs-color-interaction-cta-active,
+                $vs-color-text-inverse, $vs-color-new-interaction-cta-primary, $vs-color-new-interaction-cta-primary,
+                $vs-color-text-inverse, $vs-color-new-interaction-cta-hover, $vs-color-new-interaction-cta-hover,
+                $vs-color-text-inverse, $vs-color-new-interaction-cta-pressed, $vs-color-new-interaction-cta-pressed,
             );
         }
 
         &.btn-secondary {
             @include vs-button-variant(
-                $vs-color-text-primary, $vs-color-background-inverse, $vs-color-border-primary,
-                $vs-color-text-inverse, $vs-color-interaction-cta-hover, $vs-color-background-hover,
-                $vs-color-text-inverse, $vs-color-interaction-cta-active, $vs-color-interaction-cta-active,
+                $vs-color-new-text-cta-on-light, $vs-color-new-interaction-cta-secondary, $vs-color-new-interaction-cta-primary,
+                $vs-color-text-inverse, $vs-color-new-interaction-cta-hover, $vs-color-new-interaction-cta-hover,
+                $vs-color-text-inverse, $vs-color-new-interaction-cta-pressed, $vs-color-new-interaction-cta-pressed,
             );
         }
 
         &.btn-transparent {
             &:not(.vs-main-map-category__button) {
                 @include vs-button-variant(
-                    $vs-color-new-text-cta-on-light, transparent, transparent,
-                    $vs-color-text-primary, $vs-color-interaction-cta-subtle-hover, $vs-color-interaction-cta-subtle-hover,
-                    $vs-color-text-inverse, $vs-color-interaction-cta-subtle-active, $vs-color-interaction-cta-subtle-active,
+                    $vs-color-new-text-cta-on-light, $vs-color-interaction-cta-subtle, $vs-color-interaction-cta-subtle,
+                    $vs-color-new-text-cta-on-light, $vs-color-new-interaction-cta-subtle-hover, $vs-color-new-interaction-cta-subtle-hover,
+                    $vs-color-text-inverse, $vs-color-new-interaction-cta-subtle-pressed, $vs-color-new-interaction-cta-subtle-pressed,
                 );
             }
 
             &:focus {
-                box-shadow: 0 0 0 2px $vs-color-border-focus;
+                box-shadow: 0 0 0 2px $vs-color-new-interaction-focus;
             }
         }
 

@@ -284,7 +284,7 @@ export default {
         }
 
         .stretched-link {
-            color: $vs-color-text;
+            color: $vs-color-new-text-primary;
             text-decoration: none;
             display: block;
 

@@ -93,7 +93,7 @@ export default {
         align-self: center;
 
         .vs-icon {
-            color: $vs-color-icon-primary;
+            color: $vs-color-new-icon-cta-on-light;
         }
     }
 }

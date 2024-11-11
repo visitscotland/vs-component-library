@@ -263,7 +263,7 @@ $variants: (
     primary: $vs-color-icon-primary,
     inverse: $vs-color-icon-inverse,
     disabled: $vs-color-icon-disabled,
-    tertiary: $vs-color-icon-tertiary,
+    tertiary: $vs-color-new-icon-highlight,
     danger: $vs-color-icon-danger,
     warning: $vs-color-icon-warning,
 );

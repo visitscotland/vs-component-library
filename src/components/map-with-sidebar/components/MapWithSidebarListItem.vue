@@ -172,7 +172,7 @@ export default {
 
 <style lang="scss">
     .vs-map-with-sidebar-list-item {
-        color: $vs-color-text;
+        color: $vs-color-new-text-primary;
         display: flex;
         position: relative;
         width: 100%;

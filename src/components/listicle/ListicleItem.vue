@@ -144,7 +144,7 @@ export default {
     }
 
     .count__bg {
-        background: $vs-color-background-tertiary;
+        background: $vs-color-new-background-highlight;
         display: flex;
         align-items: center;
         justify-content: center;

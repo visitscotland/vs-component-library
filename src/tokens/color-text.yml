@@ -4,8 +4,6 @@ props:
       value: "{!vs-black-01}"
     - name: vs-color-text-primary
       value: "{!vs-saltire}"
-    - name: vs-color-text-inverse
-      value: "{!vs-snow}"
     - name: vs-color-text-tertiary
       value: "{!vs-bramble}"
     - name: vs-color-text-danger
@@ -64,7 +62,7 @@ props:
       value: "{!vs-cloud-60}"
     - name: vs-color-new-text-tertiary
       value: "{!vs-heather-60}"
-    - name: vs-color-new-text-inverse
+    - name: vs-color-text-inverse
       value: "{!vs-snow-00}"
     - name: vs-color-new-text-cta-on-light
       value: "{!vs-saltire-60}"

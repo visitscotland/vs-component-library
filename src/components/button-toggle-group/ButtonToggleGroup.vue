@@ -156,7 +156,7 @@ export default {
         }
 
         &--radios {
-            background-color: $vs-color-background-tertiary;
+            background-color: $vs-color-new-background-highlight;
             display: flex;
             border-radius: $border-radius-pill;
             overflow: hidden;
@@ -208,7 +208,7 @@ export default {
         &--tabbed-focus {
             input:focus {
                 + label span {
-                    border: 2px solid $vs-color-border-focus;
+                    border: 2px solid $vs-color-new-interaction-focus;
                 }
             }
         }
@@ -238,16 +238,16 @@ export default {
                     cursor: default;
 
                     @include vs-button-variant(
-                        $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
-                        $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
-                        $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
+                        $vs-color-new-text-highlight, $vs-color-background-inverse, $vs-color-new-border-highlight,
+                        $vs-color-new-text-highlight, $vs-color-background-inverse, $vs-color-new-border-highlight,
+                        $vs-color-new-text-highlight, $vs-color-background-inverse, $vs-color-new-border-highlight,
                     );
 
                     @include media-breakpoint-up(lg) {
                         @include vs-button-variant(
-                            $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
-                            $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
-                            $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
+                            $vs-color-new-text-highlight, $vs-color-background-inverse, $vs-color-new-border-highlight,
+                            $vs-color-new-text-highlight, $vs-color-background-inverse, $vs-color-new-border-highlight,
+                            $vs-color-new-text-highlight, $vs-color-background-inverse, $vs-color-new-border-highlight,
                         );
                     }
                 }

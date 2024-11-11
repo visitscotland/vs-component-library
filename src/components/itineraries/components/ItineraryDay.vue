@@ -182,7 +182,7 @@ export default {
         margin: $spacer-150 0;
 
         .vs-itinerary-day__title {
-            color: $vs-color-text-tertiary;
+            color: $vs-color-new-text-highlight;
             display: inline-block;
             @include heading-style(heading-s, false);
             font-weight: 600;

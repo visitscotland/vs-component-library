@@ -104,7 +104,7 @@ export default {
 
     &__link{
         .vs-link--variant-primary{
-            color: $vs-color-text;
+            color: $vs-color-new-text-primary;
             transition: $duration-base color;
 
             @include media-breakpoint-up(lg) {
@@ -113,7 +113,7 @@ export default {
 
             &:hover{
                 background-color: $vs-color-background-information;
-                color: $vs-color-link;
+                color: $vs-color-new-interaction-link-primary;
 
                 @include media-breakpoint-up(lg) {
                     background-color: transparent;
@@ -149,7 +149,7 @@ export default {
 
     &__subheading-link{
         .vs-link--variant-primary{
-            color: $vs-color-link;
+            color: $vs-color-new-interaction-link-primary;
         }
     }
 }

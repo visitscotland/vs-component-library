@@ -150,7 +150,7 @@ export default {
 <style lang="scss">
 .vs-link {
     &.vs-link--variant-primary {
-        color: $vs-color-link;
+        color: $vs-color-new-interaction-link-primary;
 
         &:focus {
             @extend %outline-link-focus;

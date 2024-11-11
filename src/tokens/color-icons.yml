@@ -4,8 +4,6 @@ props:
       value: "{!vs-black-01}"
     - name: vs-color-icon-primary
       value: "{!vs-saltire}"
-    - name: vs-color-icon-inverse
-      value: "{!vs-snow}"
     - name: vs-color-icon-disabled
       value: "{!vs-grey-03}"
     - name: vs-color-icon-tertiary
@@ -76,7 +74,7 @@ props:
       value: "{!vs-basalt-90}"
     - name: vs-color-new-icon-secondary
       value: "{!vs-cloud-60}"
-    - name: vs-color-new-icon-inverse
+    - name: vs-color-icon-inverse
       value: "{!vs-snow-00}"
     - name: vs-color-new-icon-cta-on-light
       value: "{!vs-saltire-60}"

@@ -124,7 +124,7 @@ export default {
 
             &--category {
                 color: $vs-color-text-inverse;
-                background-color: $vs-color-background-tertiary;
+                background-color: $vs-color-new-background-highlight;
             }
 
             &--offer {
@@ -133,7 +133,7 @@ export default {
             }
 
             &--open {
-                color: $vs-color-text-tertiary;
+                color: $vs-color-new-text-highlight;
                 background-color: $vs-color-background-information;
                 font-weight: $font-weight-bold;
             }

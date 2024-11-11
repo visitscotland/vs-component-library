@@ -488,12 +488,12 @@ export default {
                 width: 14px;
                 height: 14px;
                 border-radius: 7px;
-                background: $vs-color-background-tertiary;
+                background: $vs-color-new-background-highlight;
                 transform: none;
                 cursor: default;
 
                 &:hover {
-                    background: $vs-color-background-tertiary;
+                    background: $vs-color-new-background-highlight;
                 }
             }
 
@@ -504,7 +504,7 @@ export default {
 
                 &--active {
                     &:hover {
-                        background: $vs-color-background-tertiary;
+                        background: $vs-color-new-background-highlight;
                     }
                 }
             }
@@ -522,7 +522,7 @@ export default {
 
         &__mobile-pagination {
             background: $vs-color-background-information;
-            color: $vs-color-text;
+            color: $vs-color-new-text-primary;
             padding: $spacer-025 $spacer-050;
             font-size: $font-size-2;
             font-weight: bold;

@@ -11,7 +11,7 @@
 
     .error {
         font-size: $font-size-body;
-        color: $vs-color-text-danger;
+        color: $vs-color-new-text-error;
         display: block;
     }
 
@@ -32,8 +32,8 @@
 }
 
 @mixin form-focus-state {
-    border-color: $vs-color-border-focus;
-    box-shadow: 0 0 0 2px $vs-color-border-focus inset;
+    border-color: $vs-color-new-interaction-focus;
+    box-shadow: 0 0 0 2px $vs-color-new-interaction-focus inset;
     outline: none;
 }
 

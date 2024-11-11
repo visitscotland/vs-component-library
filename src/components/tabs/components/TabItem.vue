@@ -50,7 +50,7 @@ export default {
     .vs-tab-link{
         width: 100%;
         background-color: $vs-color-background-neutral;
-        color: $vs-color-text;
+        color: $vs-color-new-text-primary;
         border-width: 1px;
         border-color: $vs-color-background-neutral;
         padding: $spacer-100 $spacer-075;

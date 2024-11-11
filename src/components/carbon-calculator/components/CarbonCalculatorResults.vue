@@ -104,7 +104,7 @@
                             <Grid stroke-dasharray="2,2" />
                             <Bar
                                 :data-keys="['name', 'emissions']"
-                                :bar-style="{ fill: tokens['vs-color-background-tertiary'] }"
+                                :bar-style="{ fill: tokens['vs-color-new-background-highlight'] }"
                                 :gap="20"
                             />
                         </template>

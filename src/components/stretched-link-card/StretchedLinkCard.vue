@@ -451,11 +451,11 @@ export default {
         }
 
         .vs-stretched-link-card__title {
-            color: $vs-color-text;
+            color: $vs-color-new-text-primary;
             display: flex;
 
             .stretched-link {
-                color: $vs-color-text;
+                color: $vs-color-new-text-primary;
                 text-decoration: none;
                 letter-spacing: inherit;
                 display: block;
@@ -477,7 +477,7 @@ export default {
                 }
 
                 .vs-icon {
-                    color: $vs-color-icon-tertiary;
+                    color: $vs-color-new-icon-highlight;
                 }
             }
         }
@@ -485,7 +485,7 @@ export default {
         .vs-stretched-link-card__category {
             font-size: $font-size-3;
             line-height: $line-height-xs;
-            color: $vs-color-text-subtle;
+            color: $vs-color-new-text-tertiary;
             letter-spacing: normal;
             margin-bottom: $spacer-100;
         }
@@ -515,7 +515,7 @@ export default {
 
         .vs-stretched-link-card__link {
             margin: $spacer-100 $spacer-0 $spacer-0;
-            color: $vs-color-link;
+            color: $vs-color-new-interaction-link-primary;
             text-decoration: underline;
         }
 

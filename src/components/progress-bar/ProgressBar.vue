@@ -153,7 +153,7 @@ export default {
     .vs-progress-bar {
         .progress-bar {
             height: $spacer-100;
-            background-color: $vs-color-background-tertiary;
+            background-color: $vs-color-new-background-highlight;
             transition: width ease-out .5s;
         }
 

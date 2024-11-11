@@ -10,7 +10,7 @@
         }
 
         b{
-            color: $vs-color-text-tertiary;
+            color: $vs-color-new-text-highlight;
         }
     }
 
@@ -83,7 +83,7 @@
                 display: block;
                 font-size: $font-size-4;
                 text-decoration: none;
-                color: $vs-color-text;
+                color: $vs-color-new-text-primary;
                 transition: all .2s;      
                 line-height: $line-height-m;
                 padding: $spacer-050 $spacer-075;
@@ -94,7 +94,7 @@
                 }
 
                 @include media-breakpoint-up(sm) {
-                    border: 2px solid $vs-color-border-tertiary;
+                    border: 2px solid $vs-color-new-border-highlight;
                     border-radius: $border-radius-pill;
                     min-width: 80px;
                     text-align: center;
@@ -102,14 +102,14 @@
                     padding: $spacer-025 $spacer-075;
 
                     @include vs-button-variant(
-                        $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
+                        $vs-color-new-text-highlight, $vs-color-background-inverse, $vs-color-new-border-highlight,
                         $vs-color-text-inverse, $vs-color-background-hover, $vs-color-background-hover,
-                        $vs-color-text-inverse, $vs-color-background-tertiary, $vs-color-background-tertiary,
+                        $vs-color-text-inverse, $vs-color-new-background-highlight, $vs-color-new-background-highlight,
                     );
 
                     &:focus {
                         outline: 0px;
-                        box-shadow: $vs-color-background-inverse 0px 0px 0px 2px inset, $vs-color-background-tertiary 0px 0px 0px 3px inset;
+                        box-shadow: $vs-color-background-inverse 0px 0px 0px 2px inset, $vs-color-new-background-highlight 0px 0px 0px 3px inset;
                     }
                 }
             }
@@ -121,8 +121,8 @@
                     color: $vs-color-text-primary;
 
                     @include media-breakpoint-up(sm) {
-                        background: $vs-color-background-tertiary;
-                        border-color: $vs-color-background-tertiary;
+                        background: $vs-color-new-background-highlight;
+                        border-color: $vs-color-new-background-highlight;
                         color: $vs-color-text-inverse;
                     }
                 }
@@ -205,7 +205,7 @@
                             &:after {
                                 font-family: "Font Awesome Kit";
                                 content: "\e049";
-                                color: $vs-color-icon-tertiary;
+                                color: $vs-color-new-icon-highlight;
                                 font-size: $font-size-4;
                                 top: -4px;
                                 position: relative;
@@ -222,7 +222,7 @@
     
                         a{
                             text-decoration: none;
-                            color: $vs-color-text;
+                            color: $vs-color-new-text-primary;
 
                             &:hover{
                                 text-decoration: underline;
@@ -287,7 +287,7 @@
                     }
 
                     a{
-                        color: $vs-color-text;
+                        color: $vs-color-new-text-primary;
                         text-decoration: none;
                         display: block;
                         padding: $spacer-025 $spacer-075;
@@ -335,7 +335,7 @@
                         display: inline-block;
 
                         a {
-                            color: $vs-color-link;
+                            color: $vs-color-new-interaction-link-primary;
                         }
 
                         @include media-breakpoint-up(sm) {
@@ -349,8 +349,8 @@
         .cludo-loader{
             width: 3rem;
             height: 3rem;
-            border-top-color: $vs-color-border-tertiary;
-            border-left-color: $vs-color-border-tertiary;
+            border-top-color: $vs-color-new-border-highlight;
+            border-left-color: $vs-color-new-border-highlight;
             border-bottom-color: transparent;
             border-right-color: transparent;
             border-style: solid;

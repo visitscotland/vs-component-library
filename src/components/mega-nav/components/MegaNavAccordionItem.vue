@@ -107,7 +107,7 @@ export default {
         padding: $spacer-075 $spacer-200;
 
         &:hover{
-            color: $vs-color-text;
+            color: $vs-color-new-text-primary;
         }
 
         &:focus{
@@ -141,7 +141,7 @@ export default {
 
                 &.btn {
                     background-color: $vs-color-background-inverse;
-                    color: $vs-color-text;
+                    color: $vs-color-new-text-primary;
                     letter-spacing: normal;
                     text-align: left;
                     font-weight: $font-weight-normal;
