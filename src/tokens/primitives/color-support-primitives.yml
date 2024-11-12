@@ -1,0 +1,13 @@
+aliases:
+  vs-color-support-error:
+    value: "{!vs-cuillin-70}"
+  vs-color-support-warning:
+    value: "{!vs-gorse-10}"
+  vs-color-support-success:
+    value: "{!vs-glencoe-40}"
+  vs-color-support-disabled:
+    value: "{!vs-cloud-10}"
+  vs-color-support-information:
+    value: "{!vs-heather-10}"
+imports:
+  - ./color-primitives.yml

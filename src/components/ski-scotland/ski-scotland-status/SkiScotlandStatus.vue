@@ -1087,7 +1087,7 @@ export default {
         setColourToken() {
             return this.runLevels.map(({ ...level }) => ({
                 ...level,
-                colourToken: this.tokens[`vs-color-icon-ski-grade-${level.id}`],
+                colourToken: this.tokens[`vs-color-icon-ski-${level.id}`],
             }));
         },
     },

@@ -250,8 +250,8 @@ export default {
             &:not(.vs-main-map-category__button) {
                 @include vs-button-variant(
                     $vs-color-new-text-cta-on-light, transparent, transparent,
-                    $vs-color-text-primary, $vs-color-interaction-cta-subtle-hover, $vs-color-interaction-cta-subtle-hover,
-                    $vs-color-text-inverse, $vs-color-interaction-cta-subtle-active, $vs-color-interaction-cta-subtle-active,
+                    $vs-color-text-primary, $vs-color-new-interaction-cta-subtle-hover, $vs-color-new-interaction-cta-subtle-hover,
+                    $vs-color-text-inverse, $vs-color-new-interaction-cta-subtle-pressed, $vs-color-new-interaction-cta-subtle-pressed,
                 );
             }
 
