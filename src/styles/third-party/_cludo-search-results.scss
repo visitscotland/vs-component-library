@@ -157,7 +157,7 @@
 
                     &:after{
                         content: "";
-                        border-bottom: 1px solid $vs-color-border;
+                        border-bottom: 1px solid $vs-color-new-border-primary;
                         position: absolute;
                         width: 100%;
                         bottom: 0;
@@ -194,6 +194,8 @@
 
                         h2{
                             @include heading-style(heading-m);
+                            line-height: 1.2;
+                            font-weight: $font-weight-semi-bold;
                             margin-top: 0;
                             margin-bottom: $spacer-075;
 

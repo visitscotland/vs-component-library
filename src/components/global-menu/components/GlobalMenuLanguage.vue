@@ -133,7 +133,7 @@ export default {
         }
 
         &:hover {
-            background: $vs-color-background-accent-heather;
+            background: $vs-color-new-background-accent-heather-80;
         }
     }
 

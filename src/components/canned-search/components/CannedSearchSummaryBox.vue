@@ -159,7 +159,7 @@ export default {
         text-align: center;
 
         &:not(:last-child) {
-            border-right: 1px solid $vs-color-border-accent-grey-02;
+            border-right: 1px solid $vs-color-new-border-secondary;
         }
     }
 </style>

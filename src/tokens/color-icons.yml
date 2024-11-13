@@ -1,5 +1,39 @@
 props:
-    ## Color roles
+    ## Color roles (NEW)
+    - name: vs-color-new-icon-primary
+      value: "{!vs-basalt-90}"
+    - name: vs-color-new-icon-secondary
+      value: "{!vs-cloud-60}"
+    - name: vs-color-icon-inverse
+      value: "{!vs-snow-00}"
+    - name: vs-color-new-icon-cta-on-light
+      value: "{!vs-saltire-60}"
+    - name: vs-color-new-icon-highlight
+      value: "{!vs-bramble-60}"
+    - name: vs-color-new-icon-success
+      value: "{!vs-color-support-success}"
+    - name: vs-color-new-icon-warning
+      value: "{!vs-color-support-warning}"
+    - name: vs-color-new-icon-error
+      value: "{!vs-color-support-error}"
+    - name: vs-color-new-icon-accent-saltire-30
+      value: "{!vs-saltire-30}"
+
+    ## SkiScotland colours
+    - name: vs-color-icon-ski-easy
+      value: "{!vs-glencoe-50}"
+    - name: vs-color-icon-ski-intermediate
+      value: "{!vs-saltire-70}"
+    - name: vs-color-icon-ski-difficult
+      value: "{!vs-cuillin-60}"
+    - name: vs-color-icon-ski-very-difficult
+      value: "{!vs-cloud-80}" 
+    - name: vs-color-icon-ski-itineraries
+      value: "{!vs-whisky-20}" 
+    - name: vs-color-icon-ski-other
+      value: "{!vs-heather-30}" 
+
+    ## Color roles (Deprecated - Do not use)
     - name: vs-color-icon
       value: "{!vs-black-01}"
     - name: vs-color-icon-primary
@@ -13,7 +47,7 @@ props:
     - name: vs-color-icon-warning
       value: "{!vs-buachaille}"      
       
-    ## Accent colours
+    ## Accent colours (Deprecated - Do not use)
     - name: vs-color-icon-accent-lavender
       value: "{!vs-lavender}"    
     - name: vs-color-icon-accent-etive
@@ -68,39 +102,6 @@ props:
       value: "{!vs-grey-04}" 
     - name: vs-color-icon-accent-grey-05
       value: "{!vs-grey-05}" 
-
-  ## Color roles (NEW)
-    - name: vs-color-new-icon-primary
-      value: "{!vs-basalt-90}"
-    - name: vs-color-new-icon-secondary
-      value: "{!vs-cloud-60}"
-    - name: vs-color-icon-inverse
-      value: "{!vs-snow-00}"
-    - name: vs-color-new-icon-cta-on-light
-      value: "{!vs-saltire-60}"
-    - name: vs-color-new-icon-highlight
-      value: "{!vs-bramble-60}"
-    - name: vs-color-new-icon-success
-      value: "{!vs-color-support-success}"
-    - name: vs-color-new-icon-warning
-      value: "{!vs-color-support-warning}"
-    - name: vs-color-new-icon-error
-      value: "{!vs-color-support-error}"
-
-    ## SkiScotland colours
-    - name: vs-color-icon-ski-easy
-      value: "{!vs-glencoe-50}"
-    - name: vs-color-icon-ski-intermediate
-      value: "{!vs-saltire-70}"
-    - name: vs-color-icon-ski-difficult
-      value: "{!vs-cuillin-60}"
-    - name: vs-color-icon-ski-very-difficult
-      value: "{!vs-cloud-80}" 
-    - name: vs-color-icon-ski-itineraries
-      value: "{!vs-irn-bru}" 
-    - name: vs-color-icon-ski-other
-      value: "{!vs-grey-04}" 
-
 imports:
   - ./primitives/color-core.yml
   - ./primitives/color-primitives.yml

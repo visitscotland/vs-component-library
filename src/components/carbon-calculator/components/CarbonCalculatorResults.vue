@@ -369,8 +369,6 @@ export default {
         }
 
         .chart {
-            color: $vs-color-text-subtle;
-
             &::before {
                 content: var(--chart-label);
                 position: absolute;

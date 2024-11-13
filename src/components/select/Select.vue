@@ -275,14 +275,14 @@ export default {
                 top: calc(50% - #{$spacer-075});
                 right: $spacer-100;
                 pointer-events: none;
-                color: $vs-color-icon-primary;
+                color: $vs-color-new-icon-cta-on-light;
             }
         }
 
         &__element {
             // A reset of styles, including removing the default dropdown arrow
             appearance: none;
-            background-color: $vs-color-background-input;
+            background-color: $vs-color-background-inverse;
             background-image: none;
             border: none;
             padding: 0 $spacer-100 0;

@@ -155,6 +155,14 @@ export default {
         &:focus {
             @extend %outline-link-focus;
         }
+
+        &:active {
+            color: $vs-color-new-interaction-link-active;
+        }
+
+        &:visited {
+            color: $vs-color-new-interaction-link-visited;
+        }
     }
 
     &.vs-link--variant-on-dark {
@@ -162,6 +170,10 @@ export default {
 
         &:focus {
             @extend %outline-link-focus-dark;
+        }
+
+        &:visited {
+            color: $vs-color-new-interaction-link-visited-on-bold;
         }
     }
 

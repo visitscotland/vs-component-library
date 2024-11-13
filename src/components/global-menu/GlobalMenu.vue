@@ -115,7 +115,7 @@ export default {
 
 <style lang="scss">
 .vs-global-menu {
-    background: $vs-color-background-brand;
+    background: $vs-color-new-background-brand;
     color: $vs-color-text-inverse;
     position: relative;
     font-size: $font-size-2;

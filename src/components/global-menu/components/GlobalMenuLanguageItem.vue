@@ -78,7 +78,7 @@ export default {
             line-height: $line-height-xs;
 
             &:hover {
-                background: $vs-color-background-accent-heather;
+                background: $vs-color-new-background-accent-heather-80;
             }
 
             &:focus {

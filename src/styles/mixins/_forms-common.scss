@@ -17,18 +17,18 @@
 
     .hint-text {
         font-size: $font-size-body;
-        color: $vs-color-text-subtle;
+        color: $vs-color-new-text-tertiary;
         margin-bottom: 0;
     }
 }
 
 @mixin form-element-styles {
-    border: $vs-color-border-input 1px solid;
+    border: $vs-color-new-border-input 1px solid;
 }
 
 @mixin form-error-state {
-    border-color: $vs-color-border-danger;
-    box-shadow: 0 0 0 2px $vs-color-border-danger inset;
+    border-color: $vs-color-new-border-error;
+    box-shadow: 0 0 0 2px $vs-color-new-border-error inset;
 }
 
 @mixin form-focus-state {
@@ -39,8 +39,8 @@
 
 @mixin form-disabled-state {
     background-color: $vs-color-background-inverse;
-    border-color: $vs-color-border-disabled;
-    opacity: 0.5;
+    border-color: $vs-color-new-border-disabled;
+    color: $vs-color-new-text-disabled;
 }
 
 @mixin form-checkbox($size, $font-size, $line-height) {

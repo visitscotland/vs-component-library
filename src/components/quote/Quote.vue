@@ -135,7 +135,7 @@ export default {
 
     &__speech-mark {
         font-weight: $font-weight-bold;
-        color: $vs-color-text-accent-lavender;
+        color: $vs-color-new-text-tertiary;
         font-size: 7rem;
         height: 5rem;
         line-height: $line-height-xs;
@@ -201,13 +201,8 @@ export default {
     }
 
     &--with-border {
-        border-left: $spacer-025 solid $vs-color-border-accent-lavender;
+        border-left: $spacer-025 solid $vs-color-new-text-tertiary;
         padding-left: $spacer-150;
-
-        .vs-quote__author-name,
-        .vs-quote__author-title {
-            color: $vs-color-text-accent-lavender;
-        }
     }
 }
 </style>

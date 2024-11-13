@@ -49,10 +49,10 @@ export default {
 <style lang="scss">
     .vs-tab-link{
         width: 100%;
-        background-color: $vs-color-background-neutral;
+        background-color: $vs-color-new-interaction-cta-subtle-hover;
         color: $vs-color-new-text-primary;
         border-width: 1px;
-        border-color: $vs-color-background-neutral;
+        border-color: $vs-color-new-border-primary;
         padding: $spacer-100 $spacer-075;
         transition: $duration-base all;
         transition: all 200ms ease;
@@ -65,8 +65,8 @@ export default {
         }
 
         &:hover:not(.active) {
-            border-color: $vs-color-background-neutral;
-            background-color: $vs-color-background-hover;
+            border-color: $vs-color-new-interaction-cta-hover;
+            background-color: $vs-color-new-interaction-cta-hover;
             color: $vs-color-text-inverse;
         }
 
@@ -83,9 +83,9 @@ export default {
         }
 
         &.disabled {
-            color: $vs-color-text-disabled;
-            background-color: $vs-color-background-disabled;
-            border-color: $vs-color-background-disabled;
+            color: $vs-color-new-text-disabled;
+            background-color: $vs-color-new-interaction-cta-disabled;
+            border-color: $vs-color-new-interaction-cta-disabled;
         }
 
         &:focus-visible{

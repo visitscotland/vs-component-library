@@ -113,7 +113,7 @@ export default {
         flex-direction: column;
         text-align: left;
         padding: $spacer-125;
-        background: $vs-color-background-neutral;
+        background: $vs-color-background-information;
         height: 100%;
         line-height: 1.1;
 

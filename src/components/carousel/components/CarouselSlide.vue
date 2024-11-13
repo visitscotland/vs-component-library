@@ -212,7 +212,7 @@ export default {
                 bottom: $spacer-025;
                 height: 1px;
                 width: calc(100% - 24px);
-                background: $vs-color-border;
+                background: $vs-color-new-border-primary;
 
                 @include media-breakpoint-up(sm) {
                     width: calc(100% - 40px);

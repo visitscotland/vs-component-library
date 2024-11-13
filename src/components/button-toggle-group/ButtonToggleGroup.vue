@@ -156,7 +156,7 @@ export default {
         }
 
         &--radios {
-            background-color: $vs-color-new-background-highlight;
+            background-color: $vs-color-new-interaction-cta-subtle-hover;
             display: flex;
             border-radius: $border-radius-pill;
             overflow: hidden;
@@ -169,7 +169,7 @@ export default {
 
             label.btn-secondary {
                 @extend %button-default-styles;
-                color: $vs-color-text-inverse;
+                color: $vs-color-new-text-cta-on-light;
                 transition: none;
                 padding-top: $spacer-050;
                 margin-bottom: $spacer-0;
@@ -179,7 +179,7 @@ export default {
 
                 .vs-icon{
                     transition: none;
-                    color: $vs-color-text-inverse;
+                    color: $vs-color-new-text-cta-on-light;
                 }
 
                 & > span {
@@ -194,12 +194,12 @@ export default {
                 }
 
                 &:hover {
-                    background-color: $vs-color-background-hover;
-                    border-color: $vs-color-background-hover;
+                    background-color: $vs-color-new-interaction-cta-hover;
+                    border-color: $vs-color-new-interaction-cta-hover;
                     color: $vs-color-text-inverse;
 
                     .vs-icon {
-                        color: $vs-color-text-inverse;
+                        color: $vs-color-icon-inverse;
                     }
                 }
             }
@@ -238,16 +238,16 @@ export default {
                     cursor: default;
 
                     @include vs-button-variant(
-                        $vs-color-new-text-highlight, $vs-color-background-inverse, $vs-color-new-border-highlight,
-                        $vs-color-new-text-highlight, $vs-color-background-inverse, $vs-color-new-border-highlight,
-                        $vs-color-new-text-highlight, $vs-color-background-inverse, $vs-color-new-border-highlight,
+                        $vs-color-new-interaction-cta-primary, $vs-color-new-interaction-cta-secondary, $vs-color-new-interaction-cta-primary,
+                        $vs-color-new-interaction-cta-primary, $vs-color-new-interaction-cta-secondary, $vs-color-new-interaction-cta-primary,
+                        $vs-color-new-interaction-cta-primary, $vs-color-new-interaction-cta-secondary, $vs-color-new-interaction-cta-primary,
                     );
 
                     @include media-breakpoint-up(lg) {
                         @include vs-button-variant(
-                            $vs-color-new-text-highlight, $vs-color-background-inverse, $vs-color-new-border-highlight,
-                            $vs-color-new-text-highlight, $vs-color-background-inverse, $vs-color-new-border-highlight,
-                            $vs-color-new-text-highlight, $vs-color-background-inverse, $vs-color-new-border-highlight,
+                            $vs-color-new-interaction-cta-primary, $vs-color-new-interaction-cta-secondary, $vs-color-new-interaction-cta-primary,
+                            $vs-color-new-interaction-cta-primary, $vs-color-new-interaction-cta-secondary, $vs-color-new-interaction-cta-primary,
+                            $vs-color-new-interaction-cta-primary, $vs-color-new-interaction-cta-secondary, $vs-color-new-interaction-cta-primary,
                         );
                     }
                 }

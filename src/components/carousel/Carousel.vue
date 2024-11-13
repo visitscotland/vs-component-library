@@ -467,7 +467,7 @@ export default {
             width: 10px;
             height: 10px;
             border-radius: 5px;
-            background: $vs-color-background-accent-grey-04;
+            background: $vs-color-new-background-accent-heather-30;
             transform: translateY(2px);
             margin: 0 2px;
             border: none;
@@ -476,7 +476,7 @@ export default {
             padding: 0;
 
             &:hover {
-                background: $vs-color-background-hover;
+                background: $vs-color-new-interaction-cta-hover;
             }
 
             &:focus {
@@ -488,23 +488,23 @@ export default {
                 width: 14px;
                 height: 14px;
                 border-radius: 7px;
-                background: $vs-color-new-background-highlight;
+                background: $vs-color-new-interaction-cta-primary;
                 transform: none;
                 cursor: default;
 
                 &:hover {
-                    background: $vs-color-new-background-highlight;
+                    background: $vs-color-new-interaction-cta-primary;
                 }
             }
 
             @media (hover: none) {
                 &:hover {
-                    background: $vs-color-background-hover;
+                    background: $vs-color-new-interaction-cta-hover;
                 }
 
                 &--active {
                     &:hover {
-                        background: $vs-color-new-background-highlight;
+                        background: $vs-color-new-interaction-cta-primary;
                     }
                 }
             }

@@ -1,5 +1,39 @@
 props:
-    ## Color roles
+
+    ## Color roles (NEW)
+    - name: vs-color-new-background-primary
+      value: "{!vs-snow-00}"
+    - name: vs-color-new-background-secondary
+      value: "{!vs-heather-05}"
+    - name: vs-color-background-bold
+      value: "{!vs-basalt-90}"
+    - name: vs-color-interaction-cta-subtle
+      value: "transparent"     
+    - name: vs-color-new-background-brand
+      value: "{!vs-thistle-70}"
+    - name: vs-color-background-inverse
+      value: "{!vs-snow}"
+    - name: vs-color-new-background-highlight
+      value: "{!vs-bramble-60}"  
+    - name: vs-color-background-information
+      value: "{!vs-color-support-information}"
+    - name: vs-color-new-background-success
+      value: "{!vs-color-support-success}"
+    - name: vs-color-new-background-warning
+      value: "{!vs-color-support-warning}"
+    - name: vs-color-new-background-error
+      value: "{!vs-color-support-error}"
+
+    - name: vs-color-new-background-accent-heather-80
+      value: "{!vs-heather-80}"
+    - name: vs-color-new-background-accent-heather-30
+      value: "{!vs-heather-30}"
+    - name: vs-color-new-background-accent-tolsta-40
+      value: "{!vs-tolsta-40}"
+    - name: vs-color-new-background-accent-gorse-05
+      value: "{!vs-gorse-05}"
+
+    ## Color roles (Deprecated - Do not use)
     - name: vs-color-background-brand
       value: "{!vs-thistle}"
     - name: vs-color-background-primary
@@ -8,8 +42,6 @@ props:
       value: "{!vs-loch-ness}"
     - name: vs-color-background-active
       value: "{!vs-harr}"
-    - name: vs-color-background-inverse
-      value: "{!vs-snow}"
     - name: vs-color-background-tertiary
       value: "{!vs-bramble}"
     - name: vs-color-background-input
@@ -23,7 +55,7 @@ props:
     - name: vs-color-background-neutral
       value: "{!vs-grey-05}"
 
-    ## Accent colours
+    ## Accent colours (Deprecated - Do not use)
     - name: vs-color-background-accent-lavender
       value: "{!vs-lavender}"  
     - name: vs-color-background-accent-etive
@@ -75,38 +107,7 @@ props:
     - name: vs-color-background-accent-grey-04
       value: "{!vs-grey-04}" 
     - name: vs-color-background-accent-grey-05
-      value: "{!vs-grey-05}" 
-
-  ## Color roles (NEW)
-    - name: vs-color-new-background-primary
-      value: "{!vs-snow-00}"
-    - name: vs-color-new-background-secondary
-      value: "{!vs-heather-05}"
-    - name: vs-color-background-bold
-      value: "{!vs-basalt-90}"
-    - name: vs-color-interaction-cta-subtle
-      value: "transparent"     
-    - name: vs-color-new-background-brand
-      value: "{!vs-thistle-70}"
-    - name: vs-color-new-background-highlight
-      value: "{!vs-bramble-60}"  
-    - name: vs-color-background-information
-      value: "{!vs-color-support-information}"
-    - name: vs-color-new-background-success
-      value: "{!vs-color-support-success}"
-    - name: vs-color-new-background-warning
-      value: "{!vs-color-support-warning}"
-    - name: vs-color-new-background-error
-      value: "{!vs-color-support-error}"
-
-    - name: vs-color-new-background-accent-heather-80
-      value: "{!vs-heather-80}"
-    - name: vs-color-new-background-accent-heather-30
-      value: "{!vs-heather-30}"
-    - name: vs-color-new-background-accent-tolsta-40
-      value: "{!vs-tolsta-40}"
-    - name: vs-color-new-background-accent-gorse-05
-      value: "{!vs-gorse-05}"
+      value: "{!vs-grey-05}"
 imports:
   - ./primitives/color-core.yml
   - ./primitives/color-primitives.yml
