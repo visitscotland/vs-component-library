@@ -11,11 +11,11 @@ $enable-negative-margins: true;
 $enable-responsive-font-sizes: true;
 
 $theme-colors: (
-    primary: $vs-color-primary,
-    success: $vs-color-success,
-    info: $vs-color-information,
-    warning: $vs-color-warning,
-    danger: $vs-color-danger,
+    primary: $vs-color-new-interaction-cta-primary,
+    success: $vs-color-new-background-success,
+    info: $vs-color-background-information,
+    warning: $vs-color-new-background-warning,
+    danger: $vs-color-new-background-error,
 );
 
 $body-color: $vs-color-new-text-primary;

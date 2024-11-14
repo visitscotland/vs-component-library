@@ -137,7 +137,7 @@ export default {
 
 <style lang="scss">
 .vs-itinerary {
-background-color: $vs-color-background-inverse;
+    background-color: $vs-color-background-inverse;
 
     .vs-itinerary__outer-container {
         @include media-breakpoint-down(md) {

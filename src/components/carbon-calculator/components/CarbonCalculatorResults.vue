@@ -405,7 +405,7 @@ export default {
     .vs-carbon-calculator-results__unicorn {
         box-shadow: $vs-elevation-shadow-raised;
         padding: $spacer-100;
-        background-color: $vs-color-background-accent-limestone;
+        background-color: $vs-color-new-background-accent-gorse-05;
         margin-bottom: $spacer-200;
 
         .vs-heading {

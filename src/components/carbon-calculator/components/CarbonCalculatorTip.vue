@@ -10,6 +10,7 @@
                 name="coo"
                 size="lg"
                 class="vs-carbon-calculator-tip__icon"
+                :custom-colour="tokens['vs-color-icon-accent-whisky']"
             />
         </div>
 
@@ -43,6 +44,7 @@
 <script>
 import VsHeading from '@/components/heading/Heading.vue';
 import VsIcon from '@/components/icon/Icon.vue';
+import designTokens from '@/assets/tokens/tokens.json';
 
 /**
  * @displayName Carbon Form Tip
@@ -66,6 +68,11 @@ export default {
             default: false,
         },
     },
+    data() {
+        return {
+            tokens: designTokens,
+        };
+    },
 };
 </script>
 
@@ -87,10 +94,6 @@ export default {
         display: inline-flex;
         vertical-align: top;
         width: $spacer-300;
-
-        .vs-icon {
-            color: $vs-color-icon-accent-whisky;
-        }
     }
 
     .vs-carbon-calculator-tip__content {
