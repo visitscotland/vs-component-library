@@ -249,7 +249,7 @@ export default {
         .form-check-input[disabled] ~ .form-check-label,
         .form-check-input:disabled ~ .form-check-label,
         .form-check-input[disabled] {
-            opacity: 1;
+            opacity: $opacity-100;
             color: $vs-color-new-text-disabled;
         }
 

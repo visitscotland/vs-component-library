@@ -213,7 +213,7 @@ export default {
             border-radius: $border-radius-pill;
         }
 
-        &.disabled {
+        &.disabled, &:disabled {
             pointer-events: none;
         }
 
@@ -222,8 +222,9 @@ export default {
         }
 
         &.btn-primary,
-        &.btn-secondary {
-            &.disabled {
+        &.btn-secondary,
+        &.btn-transparent:not(.vs-main-map-category__button) {
+            &.disabled, &:disabled {
                 @extend %button-disabled;
             }
         }

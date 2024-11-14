@@ -416,7 +416,7 @@ export default {
 
                 .form-check-input[disabled] ~ .form-check-label,
                 .form-check-input:disabled ~ .form-check-label {
-                    opacity: 1;
+                    opacity: $opacity-100;
                 }
 
                 * {
@@ -427,7 +427,7 @@ export default {
 
         .form-check-input,
         .form-check-input:disabled{
-            opacity: 0;
+            opacity: $opacity-0;
             width: 0;
         }
 

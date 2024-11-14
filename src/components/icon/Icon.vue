@@ -262,7 +262,7 @@ $variants: (
     default: $vs-color-new-icon-primary,
     primary: $vs-color-new-icon-cta-on-light,
     inverse: $vs-color-icon-inverse,
-    disabled: $vs-color-new-interaction-link-disabled,
+    disabled: $vs-color-new-icon-disabled,
     tertiary: $vs-color-new-icon-highlight,
     danger: $vs-color-new-icon-error,
     warning: $vs-color-new-icon-warning,

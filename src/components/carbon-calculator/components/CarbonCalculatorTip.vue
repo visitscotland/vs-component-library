@@ -9,8 +9,8 @@
             <VsIcon
                 name="coo"
                 size="lg"
+                variant="tertiary"
                 class="vs-carbon-calculator-tip__icon"
-                :custom-colour="tokens['vs-color-icon-accent-whisky']"
             />
         </div>
 
@@ -44,7 +44,6 @@
 <script>
 import VsHeading from '@/components/heading/Heading.vue';
 import VsIcon from '@/components/icon/Icon.vue';
-import designTokens from '@/assets/tokens/tokens.json';
 
 /**
  * @displayName Carbon Form Tip
@@ -67,11 +66,6 @@ export default {
             type: Boolean,
             default: false,
         },
-    },
-    data() {
-        return {
-            tokens: designTokens,
-        };
     },
 };
 </script>

@@ -234,7 +234,7 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
             right: $spacer-100;
             pointer-events: none;
             font-size: $font-size-5;
-            color: $vs-color-icon-primary;
+            color: $vs-color-new-icon-cta-on-light;
         }
     }
 

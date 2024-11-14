@@ -26,12 +26,12 @@
             @extend %button-default-styles;
             width: 100%;
             padding: $spacer-075 $spacer-200;
-            border: 2px solid $vs-color-border-primary;
+            border: 2px solid $vs-color-new-interaction-cta-primary;
 
             @include vs-button-variant(
-                $vs-color-text-inverse, $vs-color-background-primary, $vs-color-border-primary,
-                $vs-color-text-inverse, $vs-color-background-hover, $vs-color-background-hover,
-                $vs-color-text-inverse, $vs-color-background-hover, $vs-color-background-hover,
+                $vs-color-text-inverse, $vs-color-new-interaction-cta-primary, $vs-color-new-interaction-cta-primary,
+                $vs-color-text-inverse, $vs-color-new-interaction-cta-hover, $vs-color-new-interaction-cta-hover,
+                $vs-color-text-inverse, $vs-color-new-interaction-cta-pressed, $vs-color-new-interaction-cta-pressed,
             );
 
             &::after {
@@ -103,29 +103,31 @@
 
                     @include vs-button-variant(
                         $vs-color-new-text-highlight, $vs-color-background-inverse, $vs-color-new-border-highlight,
-                        $vs-color-text-inverse, $vs-color-background-hover, $vs-color-background-hover,
-                        $vs-color-text-inverse, $vs-color-new-background-highlight, $vs-color-new-background-highlight,
+                        $vs-color-text-inverse, $vs-color-new-background-accent-heather-80, $vs-color-new-background-accent-heather-80,
+                        $vs-color-text-inverse, $vs-color-new-background-highlight, $vs-color-new-border-highlight,
                     );
 
                     &:focus {
                         outline: 0px;
-                        box-shadow: $vs-color-background-inverse 0px 0px 0px 2px inset, $vs-color-new-background-highlight 0px 0px 0px 3px inset;
+                        background-color: $vs-color-new-background-highlight;
+                        color: $vs-color-text-inverse;
+                        border-color: $vs-color-new-border-highlight;
+                        box-shadow: $vs-color-background-inverse 0px 0px 0px 2px, $vs-color-new-background-highlight 0px 0px 0px 4px;
                     }
                 }
             }
 
             &.active{
                 a{
-                    background: $vs-color-background-active;
-                    border-color: $vs-color-background-active;
-                    color: $vs-color-text-primary;
+                    color: $vs-color-new-text-cta-on-light;
+                    background-color: $vs-color-new-interaction-cta-subtle-hover;
 
                     @include media-breakpoint-up(sm) {
                         background: $vs-color-new-background-highlight;
                         border-color: $vs-color-new-background-highlight;
                         color: $vs-color-text-inverse;
                     }
-                }
+                },
             }
         }
     }
@@ -281,7 +283,7 @@
                     }
 
                     &.active{
-                        background-color: $vs-color-background-primary;
+                        background-color: $vs-color-new-interaction-cta-primary;
                         color: $vs-color-text-inverse;
                         border-radius: $border-radius-pill;
                         line-height: 1;
@@ -307,7 +309,7 @@
                     &.previous a:before{
                         font-family: "Font Awesome Kit";
                         content: "\e049";
-                        color: $vs-color-icon-primary;
+                        color: $vs-color-new-icon-cta-on-light;
                         font-weight: $font-weight-normal;
                         font-size: $font-size-3;
                         display: inline-block;

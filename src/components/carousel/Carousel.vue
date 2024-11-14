@@ -521,7 +521,7 @@ export default {
         }
 
         &__mobile-pagination {
-            background: $vs-color-background-information;
+            background: $vs-color-background-secondary;
             color: $vs-color-new-text-primary;
             padding: $spacer-025 $spacer-050;
             font-size: $font-size-2;
