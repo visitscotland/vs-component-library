@@ -62,22 +62,24 @@ props:
       value: "{!vs-basalt-90}"
     - name: vs-color-new-text-secondary
       value: "{!vs-cloud-60}"
-    - name: vs-color-new-text-inverse
-      value: "{!vs-snow-00}"
     - name: vs-color-new-text-tertiary
       value: "{!vs-heather-60}"
-    - name: vs-color-new-text-danger
-      value: "{!vs-cuillin-70}"
-    - name: vs-color-new-text-disabled
-      value: "{!vs-cloud-40}"
+    - name: vs-color-new-text-inverse
+      value: "{!vs-snow-00}"
     - name: vs-color-new-text-cta-on-light
       value: "{!vs-saltire-60}"
+    - name: vs-color-new-text-highlight
+      value: "{!vs-bramble-60}"
     - name: vs-color-new-text-brand
       value: "{!vs-thistle-70}"
-      
+    - name: vs-color-new-text-error
+      value: "{!vs-color-support-error}"
+    - name: vs-color-new-text-success
+      value: "{!vs-color-support-success}"
 imports:
   - ./primitives/color-core.yml
   - ./primitives/color-primitives.yml
+  - ./primitives/color-support-primitives.yml
 global:
     type: color
     category: color-text

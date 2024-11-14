@@ -73,7 +73,7 @@ export default {
             width: 100%;
 
             @include media-breakpoint-up(md) {
-                width: 580px;
+                max-width: 580px;
             }
 
             .link-list__list {

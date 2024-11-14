@@ -5,6 +5,13 @@
         data-test="vs-article-sidebar"
     >
         <div
+            v-if="$slots['vs-article-sidebar-toc'] && $slots['vs-article-sidebar-toc']()"
+            class="vs-article-sidebar__toc"
+        >
+            <slot name="vs-article-sidebar-toc" />
+        </div>
+        <div
+            v-if="$slots['vs-article-sidebar-img'] && $slots['vs-article-sidebar-img']()"
             :class="$slots['vs-article-sidebar-quote'] && $slots['vs-article-sidebar-quote']() ? 'pb-200' : ''"
             class="vs-article-sidebar__img-wrapper"
         >
