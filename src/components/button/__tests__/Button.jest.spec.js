@@ -152,6 +152,23 @@ describe('VsButton', () => {
                 expect(wrapper.classes('vs-button--is-animating')).toBe(false);
             });
         });
+
+        describe(':block', () => {
+            it('should *NOT* render as a block element if `block` property is not passed', () => {
+                const wrapper = factoryMount();
+                const block = wrapper.find('.button-block');
+
+                expect(block.exists()).toBe(false);
+            });
+
+            it('should accept and render an `icon` property', () => {
+                const wrapper = factoryMount({
+                    block: true,
+                });
+
+                expect(wrapper.classes('button-block')).toBe(true);
+            });
+        });
     });
 
     describe(':methods', () => {
