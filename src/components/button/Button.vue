@@ -125,6 +125,10 @@ export default {
             default: 'left',
             validator: (value) => value.match(/(left|right)/),
         },
+        block: {
+            type: Boolean,
+            default: false,
+        },
     },
     emits: ['btnFocus'],
     data() {
@@ -142,6 +146,7 @@ export default {
                     'vs-button--icon-only': this.iconOnly,
                     'button-flex': this.icon && !this.iconOnly,
                     'vs-button--flex-reverse': this.iconPosition === 'right',
+                    'button-block': this.block === true,
                 },
             ];
         },
@@ -343,6 +348,12 @@ export default {
         &.button-flex,
         &.button-flex {
             display: flex;
+        }
+
+        &.button-block,
+        &.button-block {
+            display: block;
+            width: 100%;
         }
     }
 </style>

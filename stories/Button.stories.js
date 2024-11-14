@@ -37,6 +37,15 @@ export default {
         onClick: {
             action: 'animateHandler',
         },
+        block: {
+            options: [
+                true,
+                false,
+            ],
+            control: {
+                type: 'boolean',
+            },
+        },
     },
 };
 
@@ -69,6 +78,7 @@ const base = {
     iconOnly: false,
     iconPosition: 'left',
     tabindex: '',
+    block: false,
 };
 
 export const Primary = Template.bind();
@@ -168,4 +178,10 @@ SquareCorners.args = {
     ...base,
     rounded: false,
     default: 'Play',
+};
+
+export const Block = Template.bind();
+Block.args = {
+    ...base,
+    block: true,
 };
