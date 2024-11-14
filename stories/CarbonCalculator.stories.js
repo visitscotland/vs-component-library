@@ -36,7 +36,7 @@ const base = {
     language: 'en-gb',
     labelsMap: {
         noJsMessage: 'You need Javascript enabled to use this calculator',
-        formUrl: '/fixtures/carbon-calculator/example-form.json',
+        formUrl: './fixtures/carbon-calculator/example-form.json',
         next: 'Next',
         previous: 'Previous',
         results: 'Results',
