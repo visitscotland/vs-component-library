@@ -11,21 +11,26 @@
         @click="animateHandler($event)"
         @keyup.tab="tabbedIn"
     >
-        <VsIcon
-            v-if="icon"
-            class="align-self-center"
-            :name="icon"
-            :class="iconClasses"
-            size="xs"
-            :padding="0"
-        />
-        <!-- @slot The button content goes here -->
-        <span
-            class="vs-button__text"
-            :class="{ 'visually-hidden': iconOnly }"
+        <div
+            class="vs-button__content"
+            :class="buttonContentClasses"
         >
-            <slot />
-        </span>
+            <VsIcon
+                v-if="icon"
+                class="align-self-center"
+                :name="icon"
+                :class="iconClasses"
+                size="xs"
+                :padding="0"
+            />
+            <!-- @slot The button content goes here -->
+            <span
+                class="vs-button__text"
+                :class="{ 'visually-hidden': iconOnly }"
+            >
+                <slot />
+            </span>
+        </div>
     </BButton>
 </template>
 <script>
@@ -155,6 +160,14 @@ export default {
                 {
                     'vs-icon--right': this.iconPosition === 'right',
                     'vs-icon--left': this.iconPosition === 'left',
+                },
+            ];
+        },
+        buttonContentClasses() {
+            return [
+                {
+                    'button-flex': this.icon && !this.iconOnly,
+                    'vs-button--flex-reverse': this.iconPosition === 'right',
                 },
             ];
         },
@@ -354,6 +367,16 @@ export default {
         &.button-block {
             display: block;
             width: 100%;
+        }
+
+        >.vs-button__content,
+        &.vs-button__content{
+
+            &.vs-button--flex-reverse{
+                display: flex;
+                flex-direction: row-reverse!important;
+                justify-content: center;
+            }
         }
     }
 </style>
