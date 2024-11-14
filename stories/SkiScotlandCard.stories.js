@@ -50,9 +50,9 @@ const Template = (args) => ({
 });
 
 const base = {
-    centreInfoUrl: '/fixtures/ski-scotland/sample-ski-data.json',
+    centreInfoUrl: './fixtures/ski-scotland/sample-ski-data.json',
     locale: 'en-gb',
-    imgSrc: '/fixtures/ski-scotland/ski-image.jpg',
+    imgSrc: './fixtures/ski-scotland/ski-image.jpg',
     imgAlt: 'Glencoe ski centre',
     moreDetailsLink: '#',
     pisteMapLink: '#',
