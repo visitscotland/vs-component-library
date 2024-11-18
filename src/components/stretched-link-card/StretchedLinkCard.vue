@@ -139,13 +139,13 @@
                 <slot name="stretched-card-content" />
             </div>
 
-            <div class="vs-stretched-link-card__badges">
-                <VsBadge
-                    v-for="badge in badges"
-                    :key="badge"
-                >
-                    {{ badge }}
-                </VsBadge>
+            <div
+                v-if="$slots['stretched-card-badges'] && $slots['stretched-card-badges']()"
+                class="vs-stretched-link-card__badges"
+                data-test="vs-stretched-link-card__badges"
+            >
+                <!-- @slot to add badges to the card  -->
+                <slot name="stretched-card-badges" />
             </div>
 
             <VsLink
@@ -162,7 +162,6 @@
 </template>
 
 <script>
-import VsBadge from '@/components/badge/VsBadge.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsLink from '@/components/link/Link.vue';
 import VsImg from '@/components/img/Img.vue';
@@ -182,7 +181,6 @@ export default {
     status: 'prototype',
     release: '0.0.1',
     components: {
-        VsBadge,
         VsHeading,
         VsLink,
         VsImg,
@@ -295,13 +293,6 @@ export default {
             type: String,
             default: 'small',
             validator: (value) => value.match(/(normal|small)/),
-        },
-        /**
-         * Add badges to the card.
-         */
-        badges: {
-            type: Array,
-            default: undefined,
         },
     },
     setup() {

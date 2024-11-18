@@ -1,5 +1,6 @@
 import VsStretchedLinkCard from '@/components/stretched-link-card/StretchedLinkCard.vue';
 import VsStretchedLinkPanels from '@/components/stretched-link-card/components/StretchedLinkPanels.vue';
+import VsBadge from '@/components/badge/VsBadge.vue';
 
 export default {
     component: VsStretchedLinkCard,
@@ -47,6 +48,7 @@ export default {
 
 const Template = (args) => ({
     components: {
+        VsBadge,
         VsStretchedLinkCard,
         VsStretchedLinkPanels,
     },
@@ -60,12 +62,59 @@ const Template = (args) => ({
             :class="args.jsDisabled ? 'no-js' : ''"
         >
             <VsStretchedLinkCard v-bind="args">
-                <template v-if="${'default' in args}" v-slot>${args.default}</template>
-                <template v-if="args['stretched-card-category']" v-slot:stretched-card-category>${args['stretched-card-category']}</template>
-                <template v-if="args['stretched-card-header']" v-slot:stretched-card-header>${args['stretched-card-header']}</template>
-                <template v-if="args['stretched-card-content']" v-slot:stretched-card-content>${args['stretched-card-content']}</template>
-                <template v-if="args['stretched-card-panels']" v-slot:stretched-card-panels>${args['stretched-card-panels']}</template>
-                <template v-if="args['stretched-card-link']" v-slot:stretched-card-link>${args['stretched-card-link']}</template>
+                <template
+                    v-if="${'default' in args}"
+                    v-slot
+                >
+                    ${args.default}
+                </template>
+
+                <template
+                    v-if="args['stretched-card-category']"
+                    v-slot:stretched-card-category
+                >
+                    ${args['stretched-card-category']}
+                </template>
+
+                <template
+                    v-if="args['stretched-card-header']"
+                    v-slot:stretched-card-header
+                >
+                    ${args['stretched-card-header']}
+                </template>
+
+                <template
+                    v-if="args['stretched-card-content']"
+                    v-slot:stretched-card-content
+                >
+                    ${args['stretched-card-content']}
+                </template>
+
+                <template
+                    v-if="args['stretched-card-panels']"
+                    v-slot:stretched-card-panels
+                >
+                    ${args['stretched-card-panels']}
+                </template>
+
+                <template
+                    v-if="args['stretched-card-badges']"
+                    v-slot:stretched-card-badges
+                >
+                    <VsBadge
+                        v-for="badge in args['stretched-card-badges']"
+                        :key="badge"
+                    >
+                        {{ badge }}
+                    </VsBadge>
+                </template>
+
+                <template
+                    v-if="args['stretched-card-link']"
+                    v-slot:stretched-card-link
+                >
+                    ${args['stretched-card-link']}
+                </template>
             </VsStretchedLinkCard>
         </div>
     `,
@@ -124,7 +173,7 @@ export const WithBadges = Template.bind();
 
 WithBadges.args = {
     ...base,
-    badges: [
+    'stretched-card-badges': [
         'Read time',
         'Content type',
     ],
