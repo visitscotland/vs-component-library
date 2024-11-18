@@ -43,10 +43,6 @@
                         <slot name="vs-carousel-slide-heading" />
                     </span>
                 </template>
-
-                <template #stretched-card-content>
-                    <slot name="vs-carousel-slide-content" />
-                </template>
             </VsStretchedLinkCard>
         </div>
     </VsCol>
@@ -79,8 +75,8 @@ export default {
         * The image to use in the component
         */
         imgSrc: {
+            required: true,
             type: String,
-            default: undefined,
         },
         /**
         * The image alt text to use in the component
