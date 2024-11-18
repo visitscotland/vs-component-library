@@ -117,6 +117,16 @@ describe('VsStretchedLinkCard', () => {
 
             expect(wrapper.find('[data-test="vs-stretched-link-card__full-warning"]').exists()).toBe(true);
         });
+
+        it('should render badge(s) when `badges` is set', async() => {
+            const wrapper = factoryMount();
+
+            await wrapper.setProps({
+                badges: ['Read time'],
+            });
+
+            expect(wrapper.find('[data-test="vs-badge"]').exists()).toBe(true);
+        });
     });
 
     describe(':slots', () => {
