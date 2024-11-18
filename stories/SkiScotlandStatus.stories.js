@@ -151,7 +151,7 @@ const Template = (args) => ({
 });
 
 const base = {
-    skiStatusUrl: '/fixtures/ski-scotland/sample-ski-data.json',
+    skiStatusUrl: './fixtures/ski-scotland/sample-ski-data.json',
     locale: 'en-gb',
     timeoutDuration: 30000,
     lastUpdatedLabel: 'Last Updated',
