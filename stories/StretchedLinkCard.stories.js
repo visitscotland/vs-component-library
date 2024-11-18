@@ -119,3 +119,14 @@ NoImage.args = {
     imgSrc: null,
     'stretched-card-category': null,
 };
+
+export const WithBadges = Template.bind();
+
+WithBadges.args = {
+    ...base,
+    badges: [
+        'Read time',
+        'Content type',
+    ],
+    'stretched-card-category': null,
+};
