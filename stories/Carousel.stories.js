@@ -33,12 +33,23 @@ const Template = (args) => ({
                 :slidesLg="args.slidesLg"
             >
                 <VsCarouselSlide
-                    v-for="n in ['0','1','2','3','4','5','6','7','8','9','10','11']"
+                    v-for="n in ['0','1','2','3']"
                     :key="n"
                     v-bind="args"
                     :slide-index="n"
                 >
-                    <template v-if="${'vs-carousel-slide-heading' in args}" v-slot:vs-carousel-slide-heading>${args['vs-carousel-slide-heading']}</template>
+                    <template
+                        v-if="${'vs-carousel-slide-heading' in args}" v-slot:vs-carousel-slide-heading
+                    >
+                        ${args['vs-carousel-slide-heading']}
+                    </template>
+
+                    <template
+                        v-if="args['vs-carousel-slide-content']"
+                        #vs-carousel-slide-content
+                    >
+                        ${args['vs-carousel-slide-content']}
+                    </template>
                 </VsCarouselSlide>
 
                 <template v-slot:vs-carousel-of>
@@ -104,4 +115,14 @@ NoJavascript.args = {
     transport: 'bus',
     transportName: 'Bus',
     jsDisabled: true,
+};
+
+export const NoImage = Template.bind();
+
+NoImage.args = {
+    ...base,
+    imgSrc: null,
+    category: null,
+    'vs-carousel-slide-heading': 'Wellness retreats in Scotland',
+    'vs-carousel-slide-content': '<p>Everything you need to know about driving, or hiring, an electric vehicle in Scotland</p>',
 };
