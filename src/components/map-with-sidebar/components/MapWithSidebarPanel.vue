@@ -583,7 +583,7 @@ export default {
 <style lang="scss">
     .vs-map-with-sidebar-panel {
         padding: $spacer-125 $spacer-075 $spacer-0;
-        border: 1px solid $vs-color-border;
+        border: 1px solid $vs-color-new-border-primary;
         height: 100%;
         overflow-y: auto;
         overflow-x: hidden;

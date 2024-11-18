@@ -1085,13 +1085,13 @@ export default {
 
             &:active, &:active:focus {
                 box-shadow: none;
-                border: $vs-color-interaction-cta-active;
+                border: $vs-color-new-interaction-cta-pressed;
             }
 
             @include vs-button-variant(
-                $vs-color-text-primary, $vs-color-background-inverse, $vs-color-border-primary,
-                $vs-color-text-inverse, $vs-color-interaction-cta-hover, $vs-color-background-hover,
-                $vs-color-text-inverse, $vs-color-interaction-cta-active, $vs-color-interaction-cta-active,
+                $vs-color-new-text-cta-on-light, $vs-color-new-interaction-cta-secondary, $vs-color-new-interaction-cta-primary,
+                $vs-color-text-inverse, $vs-color-new-interaction-cta-hover, $vs-color-new-interaction-cta-hover,
+                $vs-color-text-inverse, $vs-color-new-interaction-cta-pressed, $vs-color-new-interaction-cta-pressed,
             );
 
             &.mapboxgl-ctrl-zoom-in {
