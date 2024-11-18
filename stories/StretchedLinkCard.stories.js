@@ -111,3 +111,11 @@ WithPanels.args = {
         />
     `,
 };
+
+export const NoImage = Template.bind();
+
+NoImage.args = {
+    ...base,
+    imgSrc: null,
+    'stretched-card-category': null,
+};

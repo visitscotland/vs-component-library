@@ -26,12 +26,11 @@
             {{ noJsMessage }}
         </VsWarning>
         <div
+            v-if="imgSrc"
             class="vs-stretched-link-card__img-container"
             :class="warningClass"
         >
-            <template
-                v-if="imgSrc"
-            >
+            <template v-if="imgSrc">
                 <VsImg
                     :src="imgSrc"
                     :alt="imgAlt"
@@ -231,8 +230,8 @@ export default {
         * The image to use in the component
         */
         imgSrc: {
-            required: true,
             type: String,
+            default: undefined,
         },
         /**
         * The image alt text to use in the component
