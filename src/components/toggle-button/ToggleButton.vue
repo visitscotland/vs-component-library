@@ -85,8 +85,8 @@ export default {
         line-height: 1;
 
         @include vs-button-variant(
-            $vs-color-new-text-cta-on-light, transparent, transparent,
-            $vs-color-new-text-cta-on-light, transparent, transparent,
+            $vs-color-text-cta-on-light, transparent, transparent,
+            $vs-color-text-cta-on-light, transparent, transparent,
             $vs-color-text-inverse, transparent, transparent,
         );
 
@@ -103,13 +103,13 @@ export default {
         .fa-icon-colours,
         .fa-icon-colours--white {
             --fa-primary-color: #{$vs-color-icon-inverse};
-            --fa-secondary-color: #{$vs-color-new-icon-primary};
+            --fa-secondary-color: #{$vs-color-icon-primary};
             --fa-secondary-opacity: 1.0;
         }
 
         &:hover .fa-icon-colours,
         &:hover .fa-icon-colours--white{
-            --fa-secondary-color: #{$vs-color-new-icon-cta-on-light};
+            --fa-secondary-color: #{$vs-color-icon-cta-on-light};
         }
     }
 

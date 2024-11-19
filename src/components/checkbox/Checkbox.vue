@@ -250,11 +250,11 @@ export default {
         .form-check-input:disabled ~ .form-check-label,
         .form-check-input[disabled] {
             opacity: $opacity-100;
-            color: $vs-color-new-text-disabled;
+            color: $vs-color-text-disabled;
         }
 
         input[type=checkbox].form-check-input[disabled] {
-            outline: $vs-color-new-border-disabled 1px solid;
+            outline: $vs-color-border-disabled 1px solid;
         }
     }
 </style>

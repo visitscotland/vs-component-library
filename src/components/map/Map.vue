@@ -1026,7 +1026,7 @@ export default {
     }
 
     &__message-box {
-        border: 1px solid $vs-color-new-border-highlight;
+        border: 1px solid $vs-color-border-highlight;
         border-radius: $border-radius-default;
         height: 142px;
         width: 200px;
@@ -1056,7 +1056,7 @@ export default {
         margin: $spacer-050;
 
         & > button {
-            border: 2px solid $vs-color-new-interaction-cta-primary;
+            border: 2px solid $vs-color-interaction-cta-primary;
             background-position: center center;
             background-repeat: no-repeat;
             background-size: 1rem 1rem;
@@ -1085,13 +1085,13 @@ export default {
 
             &:active, &:active:focus {
                 box-shadow: none;
-                border: $vs-color-new-interaction-cta-pressed;
+                border: $vs-color-interaction-cta-pressed;
             }
 
             @include vs-button-variant(
-                $vs-color-new-text-cta-on-light, $vs-color-new-interaction-cta-secondary, $vs-color-new-interaction-cta-primary,
-                $vs-color-text-inverse, $vs-color-new-interaction-cta-hover, $vs-color-new-interaction-cta-hover,
-                $vs-color-text-inverse, $vs-color-new-interaction-cta-pressed, $vs-color-new-interaction-cta-pressed,
+                $vs-color-text-cta-on-light, $vs-color-interaction-cta-secondary, $vs-color-interaction-cta-primary,
+                $vs-color-text-inverse, $vs-color-interaction-cta-hover, $vs-color-interaction-cta-hover,
+                $vs-color-text-inverse, $vs-color-interaction-cta-pressed, $vs-color-interaction-cta-pressed,
             );
 
             &.mapboxgl-ctrl-zoom-in {

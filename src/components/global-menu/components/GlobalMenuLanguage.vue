@@ -92,7 +92,7 @@ export default {
 
     .dropdown-menu {
         width: 100%;
-        background: $vs-color-new-background-brand;
+        background: $vs-color-background-brand;
         font-size: $font-size-2;
         margin: 0;
         padding: 0;
@@ -110,7 +110,7 @@ export default {
     .btn-primary.dropdown-toggle {
         padding: 0.3rem $spacer-100;
         font-size: $font-size-2;
-        background: $vs-color-new-background-brand;
+        background: $vs-color-background-brand;
         border: none;
 
         @include media-breakpoint-up(lg) {
@@ -119,21 +119,21 @@ export default {
 
         &:not(:disabled):not(.disabled):active {
             background: $vs-color-background-inverse;
-            color: $vs-color-new-text-primary;
+            color: $vs-color-text-primary;
 
             &:after, .vs-icon{
-                color: $vs-color-new-text-primary;
+                color: $vs-color-text-primary;
                 transition: $duration-base color;
             }
         }
 
         &:focus {
             box-shadow: $vs-box-shadow-focus-on-dark inset;
-            background: $vs-color-new-background-brand;
+            background: $vs-color-background-brand;
         }
 
         &:hover {
-            background: $vs-color-new-background-accent-heather-80;
+            background: $vs-color-background-accent-heather-80;
         }
     }
 

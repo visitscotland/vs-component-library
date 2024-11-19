@@ -179,8 +179,8 @@ onMounted(() => {
 
             &:hover,
             &--hover {
-                background-color: $vs-color-new-interaction-cta-subtle-hover;
-                color: $vs-color-new-text-cta-on-light;
+                background-color: $vs-color-interaction-cta-subtle-hover;
+                color: $vs-color-text-cta-on-light;
             }
         }
     }

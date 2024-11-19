@@ -86,10 +86,10 @@ export default {
 
         &:not(:disabled):not(.disabled):active {
             background: $vs-color-background-inverse;
-            color: $vs-color-new-text-primary;
+            color: $vs-color-text-primary;
 
             &:after, .vs-icon{
-                color: $vs-color-new-text-primary;
+                color: $vs-color-text-primary;
                 transition: $duration-base color;
             }
         }
@@ -99,14 +99,14 @@ export default {
         }
 
         &:hover {
-            background: $vs-color-new-background-accent-heather-80;
+            background: $vs-color-background-accent-heather-80;
         }
     }
 
     ~ .vs-global-menu__languages .dropdown-menu {
         min-width: auto;
         margin: 0;
-        background: $vs-color-new-background-brand;
+        background: $vs-color-background-brand;
         max-height: 0;
         overflow: hidden;
         opacity: $opacity-0;
@@ -128,11 +128,11 @@ export default {
                 line-height: $line-height-xs;
 
                 &:hover {
-                    background: $vs-color-new-background-accent-heather-80;
+                    background: $vs-color-background-accent-heather-80;
                 }
 
                 &:focus {
-                    background: $vs-color-new-background-brand;
+                    background: $vs-color-background-brand;
                     box-shadow: $vs-box-shadow-focus-on-dark inset;
                 }
             }

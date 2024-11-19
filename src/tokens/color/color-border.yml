@@ -1,22 +1,22 @@
 props:
     ## Color roles
-    - name: vs-color-new-border-primary
+    - name: vs-color-border-primary
       value: "{!vs-cloud-10}"
-    - name: vs-color-new-border-secondary
+    - name: vs-color-border-secondary
       value: "{!vs-heather-30}"
     - name: vs-color-border-inverse
       value: "{!vs-snow-00}"
-    - name: vs-color-new-border-input
+    - name: vs-color-border-input
       value: "{!vs-heather-60}"
-    - name: vs-color-new-border-highlight
+    - name: vs-color-border-highlight
       value: "{!vs-bramble-60}"
-    - name: vs-color-new-border-success
+    - name: vs-color-border-success
       value: "{!vs-color-support-success}"
-    - name: vs-color-new-border-warning
+    - name: vs-color-border-warning
       value: "{!vs-color-support-warning}"
-    - name: vs-color-new-border-error
+    - name: vs-color-border-error
       value: "{!vs-color-support-error}"
-    - name: vs-color-new-border-disabled
+    - name: vs-color-border-disabled
       value: "{!vs-cloud-40}"
 imports:
   - ../primitives/color-primitives.yml

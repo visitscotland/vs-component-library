@@ -199,7 +199,7 @@ export default {
     border: 0;
 
     &.vs-accordion-item__responsive {
-        border-top: 1px solid $vs-color-new-border-primary;
+        border-top: 1px solid $vs-color-border-primary;
     }
 
     .vs-accordion-item__card-header {
@@ -216,7 +216,7 @@ export default {
         padding: $spacer-075;
         border: 0;
         margin-bottom: 1px;
-        box-shadow: 0px -1px 0px 0px $vs-color-new-border-primary;
+        box-shadow: 0px -1px 0px 0px $vs-color-border-primary;
 
         &:focus {
             box-shadow: $vs-box-shadow-focus inset;

@@ -78,11 +78,11 @@ export default {
             line-height: $line-height-xs;
 
             &:hover {
-                background: $vs-color-new-background-accent-heather-80;
+                background: $vs-color-background-accent-heather-80;
             }
 
             &:focus {
-                background: $vs-color-new-background-brand;
+                background: $vs-color-background-brand;
                 box-shadow: $vs-box-shadow-focus-on-dark inset;
             }
         }

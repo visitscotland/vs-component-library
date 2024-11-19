@@ -150,18 +150,18 @@ export default {
 <style lang="scss">
 .vs-link {
     &.vs-link--variant-primary {
-        color: $vs-color-new-interaction-link-primary;
+        color: $vs-color-interaction-link-primary;
 
         &:focus {
             @extend %outline-link-focus;
         }
 
         &:active {
-            color: $vs-color-new-interaction-link-active;
+            color: $vs-color-interaction-link-active;
         }
 
         &:visited {
-            color: $vs-color-new-interaction-link-visited;
+            color: $vs-color-interaction-link-visited;
         }
     }
 
@@ -173,7 +173,7 @@ export default {
         }
 
         &:visited {
-            color: $vs-color-new-interaction-link-visited-on-bold;
+            color: $vs-color-interaction-link-visited-on-bold;
         }
     }
 

@@ -349,11 +349,11 @@ export default {
 
     &__lower,
     &__lower .row {
-        background-color: $vs-color-new-background-secondary;
+        background-color: $vs-color-background-secondary;
     }
 
     &--grey {
-        background: $vs-color-new-background-secondary;
+        background: $vs-color-background-secondary;
     }
 }
 </style>

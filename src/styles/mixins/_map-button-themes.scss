@@ -20,7 +20,7 @@
         "outlander-landscape-park": $vs-color-icon-accent-grey-02,
         "outlander-palace-house": $vs-color-icon-accent-bramble,
         "distilleries": $vs-color-icon-accent-cranachan,
-        "itinerary-stop": $vs-color-new-icon-highlight,
+        "itinerary-stop": $vs-color-icon-highlight,
     );
 
     @each $name, $color in $themes {
@@ -35,18 +35,18 @@
 
                 @if $color == $vs-color-icon-accent-buachaille 
                 or $color == $vs-color-icon-accent-whisky {
-                    color: $vs-color-new-text-primary!important;
+                    color: $vs-color-text-primary!important;
 
                     .vs-icon--internal-link {
-                        color: $vs-color-new-icon-primary;
+                        color: $vs-color-icon-primary;
                     }
 
                     .vs-icon.vs-map-marker-icon__marker--#{$name}{
-                        -webkit-text-stroke-color: $vs-color-new-icon-primary;
+                        -webkit-text-stroke-color: $vs-color-icon-primary;
                     }
 
                     .vs-map-marker-icon__icon{
-                        color: $vs-color-new-icon-primary;
+                        color: $vs-color-icon-primary;
                     }
                 }
             }
