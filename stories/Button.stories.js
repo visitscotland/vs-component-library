@@ -69,7 +69,6 @@ const base = {
     iconOnly: false,
     iconPosition: 'left',
     tabindex: '',
-    block: false,
 };
 
 export const Primary = Template.bind();
