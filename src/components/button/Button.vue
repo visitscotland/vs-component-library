@@ -3,7 +3,7 @@
         :variant="variant"
         :href="href || undefined"
         :tabindex="tabindex || undefined"
-        class="vs-button"
+        class="vs-button justify-content-center"
         :class="buttonClasses"
         :size="size"
         v-bind="$attrs"
