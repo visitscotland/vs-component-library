@@ -1,88 +1,18 @@
 ## Deprecated (Do not use)
 aliases:
-  vs-thistle:
-    value: "#5B2487"
-
   vs-loch-ness:
     value: "#122B80"
   vs-saltire:
     value: "#1F49D6"
-  vs-saltire-50:
-    value: "#3369FF"
-  vs-etive:
-    value: "#72A7FE"
-
-  vs-tolsta:
-    value: "#19C8C5"
-  vs-dunnock:
-    value: "#37E6E3"
-  vs-harr:
-    value: "#A4F4F2"
-
-  vs-glencoe:
-    value: "#04C852"
-  vs-bog-myrtle:
-    value: "#4EE48A"
-  vs-kelp:
-    value: "#73FCAA"
-
-  vs-bramble:
-    value: "#A8308C"
-  vs-unicorn:
-    value: "#F551BC"
-  vs-foxglove:
-    value: "#FBB1EA"
-
-  vs-cuillin:
-    value: "#E71845"
-  vs-cranachan:
-    value: "#FF476F"
-  vs-salmon:
-    value: "#F9B3C2"
-
-  vs-whisky:
-    value: "#F18701"
-  vs-irn-bru:
-    value: "#FEAF48"
-  vs-oatcake:
-    value: "#FECA85"
-
-  vs-buachaille:
-    value: "#FFD400"
-  vs-gorse:
-    value: "#FFE45C"
-  vs-limestone:
-    value: "#FFF1AD"
-
-  vs-heather:
-    value: "#23014A"
-  vs-lavender:
-    value: "#535396"
-  vs-bluebell:
-    value: "#AFAFD5"
-
-  vs-black-01:
-    value: "#200F2E"
-  vs-black-02:
-    value: "#271438"
-  vs-black-03:
-    value: "#484063"
-
-  vs-grey-01:
-    value: "#5D5478"
   vs-grey-02:
     value: "#756D94"
-  vs-grey-03:
-    value: "#9F9AB8"
-
-  vs-grey-04:
-    value: "#C3BFD6"
-  vs-grey-05:
-    value: "#DEDBE6"
-  vs-ptarmigan:
-    value: "#F0EFF4"
-
-
-  vs-snow:
-    value: "#ffffff"
-    
+  vs-bramble:
+    value: "#A8308C"
+  vs-heather:
+    value: "#23014A"
+  vs-whisky:
+    value: "#F18701"
+  vs-cranachan:
+    value: "#FF476F"
+  vs-buachaille:
+    value: "#FFD400"
