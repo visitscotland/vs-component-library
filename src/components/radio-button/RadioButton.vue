@@ -298,7 +298,7 @@ export default {
             vertical-align: top;
             cursor: pointer;
             box-sizing: border-box;
-            background-color: $vs-color-background-inverse;
+            background-color: $vs-color-new-interaction-cta-secondary;
             padding: $spacer-075 $spacer-0;
             width: 100%;
             font-size: $font-size-4;
@@ -322,42 +322,13 @@ export default {
 
             .form-check {
                 width: 100%;
-                border: 1px solid $vs-color-border-primary;
+                border: 1px solid $vs-color-new-interaction-cta-primary;
                 height: 3rem;
                 box-sizing: border-box;
                 margin-bottom: 0;
                 display: inline-flex;
                 align-items: center;
                 transition: $duration-quickly background;
-
-                &:hover:not(:focus):not(:focus-within):not(:active) {
-                    background-color: $vs-color-background-hover;
-                    border-color: $vs-color-background-hover;
-                    color: $vs-color-text-inverse;
-
-                    label {
-                        &::before {
-                            outline: 2px solid $vs-color-background-hover;
-                        }
-                    }
-                }
-
-                &:focus-within, &:focus {
-                    background-color: $vs-color-background-primary;
-                    border-color: $vs-color-border-inverse;
-                    border-width: 2px;
-                    outline: 2px solid $vs-color-border-primary;
-                    color: $vs-color-text-inverse;
-                    width: calc(100% - 4px);
-                    height: calc(3rem - 4px);
-                    transform: translate(2px, 2px);
-                }
-
-                &:active {
-                    background-color: $vs-color-background-active;
-                    border-color: $vs-color-background-active;
-                    color: $vs-color-text-primary;
-                }
 
                 label {
                     width: 100%;
@@ -384,6 +355,45 @@ export default {
                         background-color: $vs-color-background-inverse;
                     }
                 }
+
+                &:hover:not(:focus):not(:focus-within):not(:active) {
+                    background-color: $vs-color-new-interaction-cta-subtle-hover;
+                    border-color: $vs-color-new-interaction-cta-subtle-hover;
+                    color: $vs-color-new-text-cta-on-light;
+
+                    label {
+                        &::before {
+                            outline: 2px solid $vs-color-new-interaction-cta-primary;
+                        }
+                    }
+                }
+
+                &:focus-within, &:focus {
+                    @extend %primary-button-focus;
+                }
+
+                &:active {
+                    background-color: $vs-color-new-interaction-cta-subtle-pressed;
+                    border-color: $vs-color-new-interaction-cta-subtle-pressed;
+                    color: $vs-color-text-inverse;
+                }
+            }
+
+            &--checked {
+                .form-check, .form-check:hover:not(:focus):not(:focus-within):not(:active) {
+                    background-color: $vs-color-new-interaction-cta-subtle-pressed;
+                    border-color: $vs-color-new-interaction-cta-subtle-pressed;
+                    color: $vs-color-text-inverse;
+                    border-width: 2px;
+
+                    label {
+                        &::before {
+                            border: $spacer-025 solid $vs-color-new-interaction-cta-subtle-pressed;
+                            background-color: $vs-color-new-interaction-cta-secondary;
+                            outline: 2px solid $vs-color-new-interaction-cta-secondary;
+                        }
+                    }
+                }
             }
 
             &--disabled {
@@ -393,47 +403,31 @@ export default {
                 .form-check:hover:not(:focus):not(:focus-within):not(:active),
                 .form-check:focus,
                 .form-check:active {
-                    background-color: $vs-color-background-disabled;
-                    border-color: $vs-color-background-disabled;
-                    color: $vs-color-text-inverse;
+                    background-color: $vs-color-new-interaction-cta-disabled;
+                    border-color: $vs-color-new-interaction-cta-disabled;
+                    color: $vs-color-new-interaction-link-disabled;
 
                     label {
                         &::before {
-                            outline: 2px solid $vs-color-background-disabled;
+                            outline: 2px solid $vs-color-new-interaction-cta-disabled;
                         }
                     }
                 }
 
                 .form-check-input[disabled] ~ .form-check-label,
                 .form-check-input:disabled ~ .form-check-label {
-                    opacity: 1;
+                    opacity: $opacity-100;
                 }
 
                 * {
                     cursor: default;
                 }
             }
-
-            &--checked {
-                .form-check {
-                    background-color: $vs-color-background-active;
-                    border-color: $vs-color-background-active;
-                    color: $vs-color-text-primary;
-                    border-width: 2px;
-
-                    label {
-                        &::before {
-                            border: $spacer-025 solid $vs-color-background-active;
-                            background-color: $vs-color-background-primary;
-                        }
-                    }
-                }
-            }
         }
 
         .form-check-input,
         .form-check-input:disabled{
-            opacity: 0;
+            opacity: $opacity-0;
             width: 0;
         }
 

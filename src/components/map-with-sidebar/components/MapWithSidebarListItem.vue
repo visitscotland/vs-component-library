@@ -172,7 +172,7 @@ export default {
 
 <style lang="scss">
     .vs-map-with-sidebar-list-item {
-        color: $vs-color-text;
+        color: $vs-color-new-text-primary;
         display: flex;
         position: relative;
         width: 100%;
@@ -187,7 +187,7 @@ export default {
         font-weight: $font-weight-bold;
         padding: $spacer-025;
         min-height: 88px;
-        border-bottom: 1px solid $vs-color-border;
+        border-bottom: 1px solid $vs-color-new-border-primary;
         text-align: left;
 
         &:hover,

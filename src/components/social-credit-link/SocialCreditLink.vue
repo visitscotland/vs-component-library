@@ -80,7 +80,6 @@ export default {
         font-size: $font-size-3;
 
         .vs-icon {
-            color: $vs-color-icon-inverse;
             vertical-align: middle;
         }
     }

@@ -44,10 +44,10 @@ const Template = (args) => ({
     `,
 });
 
-export const Default = Template.bind({
+export const WithIcon = Template.bind({
 });
 
-Default.args = {
+WithIcon.args = {
     variant: 'icon',
     listItems: [
         {
@@ -161,10 +161,10 @@ WithImage.args = {
     ],
 };
 
-export const HorizontalWithImage = Template.bind({
+export const WithImageHorizontal = Template.bind({
 });
 
-HorizontalWithImage.args = {
+WithImageHorizontal.args = {
     variant: 'image-horizontal',
     listItems: [
         {

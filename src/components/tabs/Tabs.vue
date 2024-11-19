@@ -38,7 +38,7 @@ export default {
 
         .tab-pane {
             background-color: $vs-color-background-inverse;
-            color: $vs-color-text;
+            color: $vs-color-new-text-primary;
             text-align: left;
             border: 1px solid $vs-color-border;
             border-top: 0;

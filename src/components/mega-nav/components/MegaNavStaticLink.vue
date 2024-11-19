@@ -83,7 +83,7 @@ export default {
             list-style: none;
             margin: 0;
             padding: $spacer-075 $spacer-125;
-            border-top: 1px solid $vs-color-border;
+            border-top: 1px solid $vs-color-new-border-primary;
             font-size: $font-size-5;
             line-height: $line-height-s;
         }
@@ -91,7 +91,7 @@ export default {
         .vs-mega-nav-static-link__inner {
             position: relative;
             text-decoration: none;
-            color: $vs-color-text;
+            color: $vs-color-new-text-primary;
             padding: $spacer-075 $spacer-050;
             margin: $spacer-0 $spacer-0;
 
@@ -107,14 +107,14 @@ export default {
                 left: $spacer-025;
                 width: 0;
                 height: 4px;
-                background: $vs-color-link;
+                background: $vs-color-new-interaction-link-primary;
                 transition: width $duration-base linear;
                 border: 0;
                 margin: 0;
             }
 
             &:hover {
-                color: $vs-color-link;
+                color: $vs-color-new-interaction-link-primary;
 
                 &::after {
                     width: calc(100% - #{$spacer-050});

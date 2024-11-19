@@ -88,13 +88,13 @@ export default {
                 width: $spacer-025;
                 height: $spacer-025;
                 border-radius: 50%;
-                background-color: $vs-color-background-tertiary;
+                background-color: $vs-color-new-background-highlight;
             }
         }
 
         &--light{
             .vs-loading-spinner__dot::after{
-                background-color: $vs-color-background-tertiary;
+                background-color: $vs-color-new-background-highlight;
             }
         }
 

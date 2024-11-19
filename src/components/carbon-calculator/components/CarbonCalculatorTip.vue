@@ -9,6 +9,7 @@
             <VsIcon
                 name="coo"
                 size="lg"
+                variant="tertiary"
                 class="vs-carbon-calculator-tip__icon"
             />
         </div>
@@ -87,10 +88,6 @@ export default {
         display: inline-flex;
         vertical-align: top;
         width: $spacer-300;
-
-        .vs-icon {
-            color: $vs-color-icon-accent-whisky;
-        }
     }
 
     .vs-carbon-calculator-tip__content {

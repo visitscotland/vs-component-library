@@ -155,7 +155,7 @@ export default {
             .vs-stretched-link-card__content {
                 display: -webkit-box;
                 margin: $spacer-0;
-                color: $vs-color-text;
+                color: $vs-color-new-text-primary;
             }
 
             .vs-stretched-link-card__link {

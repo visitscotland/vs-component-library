@@ -17,7 +17,7 @@
         <slot /><VsIcon
             v-if="type !== 'default'"
             :name="`${type}-link`"
-            variant="primary"
+            :variant="variant == 'primary' ? 'primary' : 'inverse'"
             :size="iconSize"
             class="ms-025 vs-link__icon"
         />
@@ -150,10 +150,18 @@ export default {
 <style lang="scss">
 .vs-link {
     &.vs-link--variant-primary {
-        color: $vs-color-link;
+        color: $vs-color-new-interaction-link-primary;
 
         &:focus {
             @extend %outline-link-focus;
+        }
+
+        &:active {
+            color: $vs-color-new-interaction-link-active;
+        }
+
+        &:visited {
+            color: $vs-color-new-interaction-link-visited;
         }
     }
 
@@ -162,6 +170,10 @@ export default {
 
         &:focus {
             @extend %outline-link-focus-dark;
+        }
+
+        &:visited {
+            color: $vs-color-new-interaction-link-visited-on-bold;
         }
     }
 

@@ -65,8 +65,8 @@ export default {
 .vs-list li.vs-mega-nav-list-item{
     position: relative;
     list-style-type: none;
-    background-color: $vs-color-background-information;
-    border-top: 1px solid $vs-color-border;
+    background-color: $vs-color-new-background-secondary;
+    border-top: 1px solid $vs-color-new-border-primary;
     margin-bottom: 0;
 
     @include media-breakpoint-up(lg) {
@@ -78,12 +78,12 @@ export default {
         text-decoration: none;
         display: block;
         padding: $spacer-075 $spacer-300;
-        border: 2px solid $vs-color-background-information;
+        border: 2px solid $vs-color-new-background-secondary;
         line-height: 1.4;
         font-size: $font-size-4;
 
         &:hover{
-            border: 2px solid $vs-color-background-information;
+            border: 2px solid $vs-color-new-background-secondary;
         }
 
         @include media-breakpoint-up(lg) {
@@ -104,16 +104,16 @@ export default {
 
     &__link{
         .vs-link--variant-primary{
-            color: $vs-color-text;
+            color: $vs-color-new-text-primary;
             transition: $duration-base color;
 
             @include media-breakpoint-up(lg) {
-                color: $vs-color-text-less-subtle;
+                color: $vs-color-new-text-secondary;
             }
 
             &:hover{
-                background-color: $vs-color-background-information;
-                color: $vs-color-link;
+                background-color: $vs-color-new-background-secondary;
+                color: $vs-color-new-interaction-link-primary;
 
                 @include media-breakpoint-up(lg) {
                     background-color: transparent;
@@ -132,7 +132,7 @@ export default {
                 left: 0;
                 width: 12px;
                 height: 100%;
-                background: $vs-color-border-accent-bluebell;
+                background: $vs-color-new-border-secondary;
             }
 
             @include media-breakpoint-up(lg) {
@@ -140,7 +140,7 @@ export default {
                     width: 6px;
                     height: 100%;
                     opacity: $opacity-0;
-                    background: $vs-color-background-primary;
+                    background: $vs-color-new-interaction-cta-primary;
                     transition: opacity 0.16s ease-in-out;
                 }
             }
@@ -149,7 +149,7 @@ export default {
 
     &__subheading-link{
         .vs-link--variant-primary{
-            color: $vs-color-link;
+            color: $vs-color-new-interaction-link-primary;
         }
     }
 }
@@ -179,7 +179,7 @@ export default {
                     width: 6px;
                     height: 100%;
                     opacity: $opacity-0;
-                    background: $vs-color-background-primary;
+                    background: $vs-color-new-interaction-cta-primary;
                     transition: opacity 0.16s ease-in-out;
                 }
             }

@@ -117,7 +117,7 @@ export default {
         &__heading.vs-heading--style-level-4.vs-heading,
         &__address {
             margin-bottom: 0;
-            color: $vs-color-text-subtle;
+            color: $vs-color-new-text-secondary;
         }
 
         &__description {

@@ -119,10 +119,10 @@ export default {
 
         &:not(:disabled):not(.disabled):active {
             background: $vs-color-background-inverse;
-            color: $vs-color-text;
+            color: $vs-color-new-text-primary;
 
             &:after, .vs-icon{
-                color: $vs-color-text;
+                color: $vs-color-new-text-primary;
                 transition: $duration-base color;
             }
         }
@@ -133,7 +133,7 @@ export default {
         }
 
         &:hover {
-            background: $vs-color-background-accent-heather;
+            background: $vs-color-new-background-accent-heather-80;
         }
     }
 
