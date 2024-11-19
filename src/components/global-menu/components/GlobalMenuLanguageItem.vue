@@ -82,7 +82,7 @@ export default {
             }
 
             &:focus {
-                background: $vs-color-background-brand;
+                background: $vs-color-new-background-brand;
                 box-shadow: $vs-box-shadow-focus-on-dark inset;
             }
         }

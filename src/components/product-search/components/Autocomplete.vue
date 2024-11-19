@@ -159,7 +159,7 @@ onMounted(() => {
     position: relative;
     
     &__list {
-        background-color: $vs-color-background-input;
+        background-color: $vs-color-background-inverse;
         max-height: 250px;
         overflow-y: scroll;
         padding-left: 0;
@@ -179,8 +179,8 @@ onMounted(() => {
 
             &:hover,
             &--hover {
-                background-color: $vs-color-background-primary;
-                color: $vs-color-text-inverse;
+                background-color: $vs-color-new-interaction-cta-subtle-hover;
+                color: $vs-color-new-text-cta-on-light;
             }
         }
     }

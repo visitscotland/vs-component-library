@@ -409,16 +409,15 @@ export default {
 
         &:hover {
             .vs-stretched-link-card__video-button {
-                background-color: $vs-color-background-hover;
-                border-color: $vs-color-background-hover;
+                background-color: $vs-color-new-interaction-cta-hover;
+                border-color: $vs-color-new-interaction-cta-hover;
             }
         }
 
         &:active {
             .vs-stretched-link-card__video-button {
-                background-color: $vs-color-background-active;
-                border-color: $vs-color-background-active;
-                color: $vs-color-text-primary;
+                background-color: $vs-color-new-interaction-cta-pressed;
+                border-color: $vs-color-new-interaction-cta-pressed;
             }
         }
 

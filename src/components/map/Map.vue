@@ -1056,7 +1056,7 @@ export default {
         margin: $spacer-050;
 
         & > button {
-            border: 2px solid $vs-color-border-primary;
+            border: 2px solid $vs-color-new-interaction-cta-primary;
             background-position: center center;
             background-repeat: no-repeat;
             background-size: 1rem 1rem;

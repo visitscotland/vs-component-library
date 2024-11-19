@@ -82,7 +82,7 @@ export default {
             }
 
             &:hover {
-                background: $vs-color-background-accent-heather;
+                background: $vs-color-new-interaction-cta-subtle-hover;
             }
 
             &:active {

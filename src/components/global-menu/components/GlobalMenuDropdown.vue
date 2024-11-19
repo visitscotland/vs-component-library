@@ -106,7 +106,7 @@ export default {
     ~ .vs-global-menu__languages .dropdown-menu {
         min-width: auto;
         margin: 0;
-        background: $vs-color-background-brand;
+        background: $vs-color-new-background-brand;
         max-height: 0;
         overflow: hidden;
         opacity: $opacity-0;
@@ -132,7 +132,7 @@ export default {
                 }
 
                 &:focus {
-                    background: $vs-color-background-brand;
+                    background: $vs-color-new-background-brand;
                     box-shadow: $vs-box-shadow-focus-on-dark inset;
                 }
             }

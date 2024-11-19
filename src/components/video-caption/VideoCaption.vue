@@ -390,7 +390,7 @@ export default {
                 &__details {
                     max-width: 84%;
                     margin: 0 auto;
-                    border-bottom: $vs-color-border 1px solid;
+                    border-bottom: $vs-color-new-border-primary 1px solid;
                 }
             }
 

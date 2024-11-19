@@ -45,7 +45,7 @@
 
 @mixin form-checkbox($size, $font-size, $line-height) {
     input[type="checkbox"] {
-        outline: $vs-color-border-input 1px solid;
+        outline: $vs-color-new-border-input 1px solid;
         border: none;
         width: $size;
         height: $size;
@@ -80,7 +80,7 @@
         &:checked {
             &:before {
                 font-family: "Font Awesome Kit";
-                background-color: $vs-color-background-primary;
+                background-color: $vs-color-new-interaction-cta-primary;
                 content: "\e085";
                 color: $vs-color-icon-inverse;
                 text-align: center;

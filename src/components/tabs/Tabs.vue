@@ -40,7 +40,7 @@ export default {
             background-color: $vs-color-background-inverse;
             color: $vs-color-new-text-primary;
             text-align: left;
-            border: 1px solid $vs-color-border;
+            border: 1px solid $vs-color-new-border-primary;
             border-top: 0;
 
             .vs-heading{

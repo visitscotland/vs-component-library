@@ -347,7 +347,7 @@ export default {
                         vertical-align: middle;
                         width: $spacer-150;
                         height: $spacer-150;
-                        outline: 2px solid $vs-color-border-primary;
+                        outline: 2px solid $vs-color-new-interaction-cta-primary;
                         border-radius: 50%;
                         vertical-align: baseline;
                         transform: translateY(6px);

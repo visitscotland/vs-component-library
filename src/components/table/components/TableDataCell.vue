@@ -38,7 +38,7 @@ export default {
 
 <style lang="scss">
     .table td {
-        border-top: 1px solid $vs-color-border;
+        border-top: 1px solid $vs-color-new-border-primary;
         border-bottom: none;
     }
 </style>

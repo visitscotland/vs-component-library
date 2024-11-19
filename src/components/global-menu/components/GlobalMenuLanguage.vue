@@ -92,7 +92,7 @@ export default {
 
     .dropdown-menu {
         width: 100%;
-        background: $vs-color-background-brand;
+        background: $vs-color-new-background-brand;
         font-size: $font-size-2;
         margin: 0;
         padding: 0;
@@ -110,7 +110,7 @@ export default {
     .btn-primary.dropdown-toggle {
         padding: 0.3rem $spacer-100;
         font-size: $font-size-2;
-        background: $vs-color-background-brand;
+        background: $vs-color-new-background-brand;
         border: none;
 
         @include media-breakpoint-up(lg) {
@@ -129,7 +129,7 @@ export default {
 
         &:focus {
             box-shadow: $vs-box-shadow-focus-on-dark inset;
-            background: $vs-color-background-brand;
+            background: $vs-color-new-background-brand;
         }
 
         &:hover {
