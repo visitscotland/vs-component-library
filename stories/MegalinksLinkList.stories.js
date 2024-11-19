@@ -106,7 +106,7 @@ const base = {
     megalinksIntro,
     links: [
         {
-            imgSrc: '/fixtures/megalinks/glentress-forest.jpg',
+            imgSrc: './fixtures/megalinks/glentress-forest.jpg',
             imgAlt: 'Clycling in glentress forest',
             linkType: 'internal',
             linkUrl: '#',
@@ -114,7 +114,7 @@ const base = {
             content: 'We\'ve pulled together a handy guide on dates and times, travel info, accommodation and things to see near host venues.',
         },
         {
-            imgSrc: '/fixtures/megalinks/wellness.jpg',
+            imgSrc: './fixtures/megalinks/wellness.jpg',
             imgAlt: 'Wellness breaks in Scotland',
             linkType: 'internal',
             linkUrl: '#',
@@ -122,7 +122,7 @@ const base = {
             content: 'Slow down and refresh your mind, body and spirit in Scotland.',
         },
         {
-            imgSrc: '/fixtures/megalinks/grand-hotel.jpg',
+            imgSrc: './fixtures/megalinks/grand-hotel.jpg',
             imgAlt: 'Luxury holidays and breaks in Scotland',
             linkType: 'internal',
             linkUrl: '#',
@@ -130,7 +130,7 @@ const base = {
             content: 'Plan your luxury getaway in SCotland, from 5-star accommodation to Michelin-star dining.',
         },
         {
-            imgSrc: '/fixtures/megalinks/ashton-lane.jpg',
+            imgSrc: './fixtures/megalinks/ashton-lane.jpg',
             imgAlt: 'City breaks',
             linkType: 'internal',
             linkUrl: '#',
@@ -158,7 +158,7 @@ WithVideo.args = {
     ...base,
     links: [
         {
-            imgSrc: '/fixtures/megalinks/glentress-forest.jpg',
+            imgSrc: './fixtures/megalinks/glentress-forest.jpg',
             imgAlt: 'Clycling in glentress forest',
             linkType: 'internal',
             linkUrl: '#',
@@ -166,7 +166,7 @@ WithVideo.args = {
             content: 'We\'ve pulled together a handy guide on dates and times, travel info, accommodation and things to see near host venues.',
         },
         {
-            imgSrc: '/fixtures/megalinks/grand-hotel.jpg',
+            imgSrc: './fixtures/megalinks/grand-hotel.jpg',
             imgAlt: 'Luxury holidays and breaks in Scotland',
             linkType: 'internal',
             linkUrl: '#',
@@ -174,7 +174,7 @@ WithVideo.args = {
             content: 'Plan your luxury getaway in SCotland, from 5-star accommodation to Michelin-star dining.',
         },
         {
-            imgSrc: '/fixtures/megalinks/grand-hotel.jpg',
+            imgSrc: './fixtures/megalinks/grand-hotel.jpg',
             imgAlt: 'Luxury holidays and breaks in Scotland',
             linkType: 'internal',
             linkUrl: '#',
@@ -182,7 +182,7 @@ WithVideo.args = {
             content: 'Plan your luxury getaway in SCotland, from 5-star accommodation to Michelin-star dining.',
         },
         {
-            imgSrc: '/fixtures/megalinks/wellness.jpg',
+            imgSrc: './fixtures/megalinks/wellness.jpg',
             imgAlt: 'Wellness breaks in Scotland',
             linkType: 'video',
             linkUrl: '#',

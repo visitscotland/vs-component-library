@@ -28,7 +28,7 @@ const Template = (args) => ({
 });
 
 const base = {
-    apiUrl: '/fixtures/canned-search/sample-accom.json',
+    apiUrl: './fixtures/canned-search/sample-accom.json',
     heading: 'Accommodation in Glasgow',
     searchType: 'acco',
     carouselNextText: 'Next Slide',
@@ -53,7 +53,7 @@ export const FoodAndDrink = Template.bind();
 
 FoodAndDrink.args = {
     ...base,
-    apiUrl: '/fixtures/canned-search/sample-food.json',
+    apiUrl: './fixtures/canned-search/sample-food.json',
     searchType: 'cate',
     heading: 'Food & Drink',
     'vs-canned-search-buttons': `
@@ -67,7 +67,7 @@ export const ThingsToDo = Template.bind();
 
 ThingsToDo.args = {
     ...base,
-    apiUrl: '/fixtures/canned-search/sample-event.json',
+    apiUrl: './fixtures/canned-search/sample-event.json',
     searchType: 'acti',
     heading: 'Things to Do',
     'vs-canned-search-buttons': `
@@ -81,7 +81,7 @@ export const Tours = Template.bind();
 
 Tours.args = {
     ...base,
-    apiUrl: '/fixtures/canned-search/sample-tour.json',
+    apiUrl: './fixtures/canned-search/sample-tour.json',
     searchType: 'tour',
     heading: 'Tours in Aberdeen',
     'vs-canned-search-buttons': `
