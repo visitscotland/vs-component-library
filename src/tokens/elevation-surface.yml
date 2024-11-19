@@ -1,14 +1,14 @@
 props:
     - name: vs-elevation-surface
-      value: "{!vs-snow}"
+      value: "{!vs-snow-00}"
     - name: vs-elevation-surface-section
-      value: "{!vs-ptarmigan}"
+      value: "{!vs-color-background-secondary}"
     - name: vs-elevation-surface-raised
-      value: "{!vs-snow}"
+      value: "{!vs-snow-00}"
     - name: vs-elevation-surface-overlay
-      value: "{!vs-snow}"
+      value: "{!vs-snow-00}"
 imports:
-  - ./primitives/color-core.yml
+  - ./primitives/color-primitives.yml
 global:
     type: elevation
     category: elevation-surface
