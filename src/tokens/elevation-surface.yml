@@ -2,7 +2,7 @@ props:
     - name: vs-elevation-surface
       value: "{!vs-snow-00}"
     - name: vs-elevation-surface-section
-      value: "{!vs-color-background-secondary}"
+      value: "{!vs-heather-05}"
     - name: vs-elevation-surface-raised
       value: "{!vs-snow-00}"
     - name: vs-elevation-surface-overlay
