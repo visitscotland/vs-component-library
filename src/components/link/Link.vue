@@ -108,17 +108,13 @@ export default {
             if (this.dataLayerValue) {
                 this.createDataLayerObject(this.dataLayerValue, event, this.href);
             } else if (this.type === 'external') {
-                this.createDataLayerObject('externalLinkDataEvent', event, this.href);
-            } else {
-                this.createDataLayerObject('internalLinkDataEvent', event, this.href);
-            }
-
-            // capture DMO link referral
-            if (dmoAnalyticsLogic(event).type === 'CMS referral' && dmoAnalyticsLogic(event).dmo_referral === 'True') {
                 this.createDataLayerObject('cmsReferral', {
                     referral_location: event.target.href,
                     dmo_referral: dmoAnalyticsLogic(event).dmo_referral,
                 });
+                this.createDataLayerObject('externalLinkDataEvent', event, this.href);
+            } else {
+                this.createDataLayerObject('internalLinkDataEvent', event, this.href);
             }
 
             // short delay to ensure that analytics get added to datalayer
