@@ -91,10 +91,6 @@ export default {
 
     .vs-accordion-toggle__icon {
         align-self: center;
-
-        .vs-icon {
-            color: $vs-color-icon-primary;
-        }
     }
 }
 

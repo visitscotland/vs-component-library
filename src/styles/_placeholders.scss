@@ -36,15 +36,18 @@ BUTTON STYLES
 
 %primary-button-focus {
     box-shadow: 
-        0 0 0 2px $vs-color-background-inverse, 
-        0 0 0 4px $vs-color-border-focus;
+        0 0 0 2px $vs-color-border-inverse, 
+        0 0 0 4px $vs-color-new-interaction-focus;
 }
 
 %button-disabled { 
-    background-color: $vs-color-interaction-disabled;
-    border-color: $vs-color-interaction-disabled;
+    background-color: $vs-color-new-interaction-cta-disabled;
+    border-color: $vs-color-new-interaction-cta-disabled;
     color: $vs-color-new-interaction-link-disabled;
-    opacity: $opacity-100;
+
+    .vs-icon:not(.vs-map-marker-icon__marker, .vs-map-marker-icon__icon) {
+        color: $vs-color-new-icon-disabled;
+    }
 }
 
 
@@ -53,9 +56,9 @@ LINK STYLES
 ***************/
 
 %outline-link-focus {
-    outline: 2px solid $vs-color-border-focus;
+    outline: 2px solid $vs-color-new-interaction-focus;
 }
 
 %outline-link-focus-dark {
-    outline: 2px solid $vs-color-border-accent-gorse;
+    outline: 2px solid $vs-color-new-interaction-focus-on-bold;
 }

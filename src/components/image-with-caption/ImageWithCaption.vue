@@ -265,7 +265,7 @@ export default {
 
                 @include media-breakpoint-down(sm) {
                     .fa-icon-colours--white {
-                        --fa-primary-color: #{$vs-color-icon};
+                        --fa-primary-color: #{$vs-color-new-icon-primary};
                         --fa-secondary-color: #{$vs-color-icon-inverse};
                     }
                 }
@@ -275,7 +275,7 @@ export default {
                         display: block;
 
                         .fa-icon-colours--white {
-                            --fa-primary-color: #{$vs-color-icon};
+                            --fa-primary-color: #{$vs-color-new-icon-primary};
                             --fa-secondary-color: #{$vs-color-icon-inverse};
                         }
                     }

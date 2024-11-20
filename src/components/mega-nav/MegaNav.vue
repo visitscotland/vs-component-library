@@ -25,7 +25,7 @@
                                 data-test="vs-mega-nav__logo"
                                 :link-alt-text="logoAltText"
                                 :href="href"
-                                :svg-fill="tokens['vs-color-brand']"
+                                :svg-fill="tokens['vs-color-new-background-brand']"
                                 svg-path="visitscotland-logo"
                                 data-layer-value="homePageLogoClickDataEvent"
                             />

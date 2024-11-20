@@ -20,7 +20,7 @@
         "outlander-landscape-park": $vs-color-icon-accent-grey-02,
         "outlander-palace-house": $vs-color-icon-accent-bramble,
         "distilleries": $vs-color-icon-accent-cranachan,
-        "itinerary-stop": $vs-color-icon-tertiary,
+        "itinerary-stop": $vs-color-new-icon-highlight,
     );
 
     @each $name, $color in $themes {

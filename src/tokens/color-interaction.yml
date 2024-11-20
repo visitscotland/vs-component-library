@@ -1,20 +1,5 @@
 props:
-    - name: vs-color-interaction-disabled
-      value: "{!vs-cloud-10}"
-    - name: vs-color-interaction-cta-hover
-      value: "{!vs-saltire-70}"
-    - name: vs-color-interaction-cta-subtle-hover
-      value: "{!vs-saltire-10}"
-    - name: vs-color-interaction-cta-active
-      value: "{!vs-saltire-80}"
-    - name: vs-color-interaction-cta-subtle-active
-      value: "{!vs-saltire-50}"
-    - name: vs-color-interaction-cta-subtle-hover
-      value: "{!vs-saltire-10}"
-    - name: vs-color-interaction-cta-primary
-      value: "{!vs-saltire-60}"
-
-  ## Color roles (NEW)
+    ## Color roles (NEW)
     - name: vs-color-new-interaction-focus
       value: "{!vs-saltire-50}"
     - name: vs-color-new-interaction-focus-on-bold
@@ -44,7 +29,24 @@ props:
       value: "{!vs-bramble-60}"
     - name: vs-color-new-interaction-link-disabled
       value: "{!vs-cloud-40}"
-
+    - name: vs-color-new-interaction-link-visited-on-bold
+      value: "{!vs-saltire-10}"
+  
+    ## Colors (Deprecated - Do not use)
+    - name: vs-color-interaction-disabled
+      value: "{!vs-cloud-10}"
+    - name: vs-color-interaction-cta-hover
+      value: "{!vs-saltire-70}"
+    - name: vs-color-interaction-cta-subtle-hover
+      value: "{!vs-saltire-10}"
+    - name: vs-color-interaction-cta-active
+      value: "{!vs-saltire-80}"
+    - name: vs-color-interaction-cta-subtle-active
+      value: "{!vs-saltire-50}"
+    - name: vs-color-interaction-cta-subtle-hover
+      value: "{!vs-saltire-10}"
+    - name: vs-color-interaction-cta-primary
+      value: "{!vs-saltire-60}"
 imports:
   - ./primitives/color-core.yml
   - ./primitives/color-primitives.yml

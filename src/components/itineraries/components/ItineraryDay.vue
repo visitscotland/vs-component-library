@@ -130,7 +130,7 @@ export default {
 
 <style lang="scss">
 .vs-itinerary-day{
-    border-top: 1px solid $vs-color-border-bold;
+    border-top: 1px solid $vs-color-new-border-secondary;
     margin-top: $spacer-300;
 
     @include media-breakpoint-down(sm) {
@@ -165,7 +165,7 @@ export default {
                 margin-top: $spacer-150;
 
                 .vs-icon {
-                    color: $vs-color-icon;
+                    color: $vs-color-new-icon-primary;
                 }
 
                 @include media-breakpoint-up(lg) {
@@ -182,7 +182,7 @@ export default {
         margin: $spacer-150 0;
 
         .vs-itinerary-day__title {
-            color: $vs-color-text-tertiary;
+            color: $vs-color-new-text-highlight;
             display: inline-block;
             @include heading-style(heading-s, false);
             font-weight: 600;

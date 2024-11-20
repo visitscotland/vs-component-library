@@ -158,6 +158,7 @@ const Template = (args) => ({
                             </template>
             
                             <template
+                                v-slot:stop-time-to-explore
                                 v-if="stop.timeToExplore"
                             >
                                 <VsDescriptionList class="my-100 justify-content-start" inline>

@@ -175,7 +175,7 @@ export default {
                         bottom: 12px;
                         right: 0;
                         width: 1px;
-                        background: $vs-color-border;
+                        background: $vs-color-new-border-primary;
                     }
                 }
             }
@@ -207,7 +207,7 @@ export default {
 
         &__divider{
             margin: $spacer-075 0 $spacer-100;
-            border-color: $vs-color-border;
+            border-color: $vs-color-new-border-primary;
         }
 
         &__columns-wrapper{

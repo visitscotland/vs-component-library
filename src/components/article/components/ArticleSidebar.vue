@@ -62,10 +62,10 @@ export default {
 
 <style lang="scss">
 .vs-article-sidebar {
-    background: $vs-color-background-inverse;
+    background: $vs-color-new-background-primary;
 
     &__quote-wrapper {
-        background: $vs-color-background-inverse;
+        background: $vs-color-new-background-primary;
         margin-left: -1px;
         padding: $spacer-200 $spacer-150;
 

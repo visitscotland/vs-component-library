@@ -87,7 +87,7 @@ export default {
 
             &:active {
                 background: $vs-color-background-inverse;
-                color: $vs-color-text;
+                color: $vs-color-new-text-primary;
                 outline: none;
             }
         }
@@ -95,14 +95,14 @@ export default {
         &--active {
             a {
                 background: $vs-color-background-inverse;
-                color: $vs-color-text;
+                color: $vs-color-new-text-primary;
 
                 &:hover {
                     background: $vs-color-background-inverse;
                 }
                 &:active {
                     background: $vs-color-background-inverse;
-                    color: $vs-color-text;
+                    color: $vs-color-new-text-primary;
                 }
             }
         }

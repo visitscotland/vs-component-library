@@ -174,7 +174,7 @@ export default {
         padding-bottom: $spacer-300;
 
         &__text-wrapper {
-            background-color: $vs-color-background-inverse;
+            background-color: $vs-color-new-background-primary;
             padding: $spacer-400 0 $spacer-300 0;
 
             @include media-breakpoint-up(sm) {
@@ -211,7 +211,7 @@ export default {
         &__divider {
             height: 2px;
             margin: 0;
-            color: $vs-color-background-neutral;
+            color: $vs-color-new-border-primary;
         }
     }
 </style>

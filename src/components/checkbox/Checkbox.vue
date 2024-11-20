@@ -226,6 +226,12 @@ export default {
             margin-bottom: 0;
         }
 
+        &__label {
+            display: inline-block;
+            font-size: $font-size-body;
+            font-weight: $font-weight-normal;
+        }
+
         &--error {
             input[type="checkbox"] {
                 outline: none;
@@ -240,10 +246,15 @@ export default {
             }
         }
 
-        &__label {
-            display: inline-block;
-            font-size: $font-size-body;
-            font-weight: $font-weight-normal;
+        .form-check-input[disabled] ~ .form-check-label,
+        .form-check-input:disabled ~ .form-check-label,
+        .form-check-input[disabled] {
+            opacity: $opacity-100;
+            color: $vs-color-new-text-disabled;
+        }
+
+        input[type=checkbox].form-check-input[disabled] {
+            outline: $vs-color-new-border-disabled 1px solid;
         }
     }
 </style>

@@ -11,20 +11,20 @@ $enable-negative-margins: true;
 $enable-responsive-font-sizes: true;
 
 $theme-colors: (
-    primary: $vs-color-primary,
-    success: $vs-color-success,
-    info: $vs-color-information,
-    warning: $vs-color-warning,
-    danger: $vs-color-danger,
+    primary: $vs-color-new-interaction-cta-primary,
+    success: $vs-color-new-background-success,
+    info: $vs-color-background-information,
+    warning: $vs-color-new-background-warning,
+    danger: $vs-color-new-background-error,
 );
 
-$body-color: $vs-color-text;
-$body-emphasis-color: $vs-color-text;
+$body-color: $vs-color-new-text-primary;
+$body-emphasis-color: $vs-color-new-text-primary;
 
 /* Links */
-$link-color: $vs-color-link;
+$link-color: $vs-color-new-interaction-link-primary;
 $link-decoration: none;
-$link-hover-color: $vs-color-link;
+$link-hover-color: $vs-color-new-interaction-link-primary;
 $link-hover-decoration: none;
 
 
@@ -76,7 +76,7 @@ $spacers: (
 );
 
 /* Borders */
-$border-color: $vs-color-border;
+$border-color: $vs-color-new-border-primary;
 
 $border-radius: $border-radius-default;
 $border-radius-lg: $border-radius-lg;
@@ -97,15 +97,15 @@ $btn-padding-x-lg: 3.5rem;
 $breadcrumb-padding-y: $spacer-0;
 $breadcrumb-padding-x: $spacer-0;
 $breadcrumb-bg: transparent;
-$breadcrumb-divider-color: $vs-color-text;
-$breadcrumb-active-color: $vs-color-text;
+$breadcrumb-divider-color: $vs-color-new-text-secondary;
+$breadcrumb-active-color: $vs-color-new-text-secondary;
 $breadcrumb-divider: quote("|");
 $breadcrumb-border-radius: 0;
 
 
 /* Dropdowns */
 $dropdown-padding-y: $spacer-0;
-$dropdown-border-color: $vs-color-border;
+$dropdown-border-color: $vs-color-new-border-primary;
 $dropdown-box-shadow: none;
 $dropdown-item-padding-x: $spacer-050;
 $dropdown-item-padding-y: $spacer-050;
@@ -125,7 +125,7 @@ $enable-smooth-scroll: false;
 
 
 /* Forms */
-$input-placeholder-color: $vs-color-text-subtle;
+$input-placeholder-color: $vs-color-new-text-tertiary;
 
 /* Tooltips */
 $tooltip-bg: $vs-color-background-bold;
@@ -133,3 +133,4 @@ $tooltip-bg: $vs-color-background-bold;
 /* Buttons */
 $btn-line-height: 1.5rem;
 $btn-font-size-sm: 1rem;
+$btn-disabled-opacity: 1;
