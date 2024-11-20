@@ -3,19 +3,19 @@
 .cludo-search-results {
     &__search-result-count{
         font-size: $font-size-5;
-        margin-bottom: $spacer-2;
+        margin-bottom: $spacer-050;
 
         @include media-breakpoint-up(md) {
             font-size: $font-size-7;
         }
 
         b{
-            color: $vs-color-text-tertiary;
+            color: $vs-color-new-text-highlight;
         }
     }
 
     &__facets{
-        padding: $spacer-5 0 0;
+        padding: $spacer-125 0 0;
 
         ul.search-filter-container{
             padding: 0;
@@ -25,14 +25,13 @@
         .cludo-facet__header-mobile{
             @extend %button-default-styles;
             width: 100%;
-            padding: $spacer-3 $spacer-8;
-            border: 2px solid $vs-color-border-primary;
+            padding: $spacer-075 $spacer-200;
+            border: 2px solid $vs-color-new-interaction-cta-primary;
 
             @include vs-button-variant(
-                $vs-color-text-inverse, $vs-color-background-primary, $vs-color-border-primary,
-                $vs-color-text-inverse, $vs-color-background-hover, $vs-color-background-hover,
-                $vs-color-text-inverse, $vs-color-background-hover, $vs-color-background-hover,
-                $vs-color-text-inverse, $vs-color-background-primary, $vs-color-border-primary,
+                $vs-color-text-inverse, $vs-color-new-interaction-cta-primary, $vs-color-new-interaction-cta-primary,
+                $vs-color-text-inverse, $vs-color-new-interaction-cta-hover, $vs-color-new-interaction-cta-hover,
+                $vs-color-text-inverse, $vs-color-new-interaction-cta-pressed, $vs-color-new-interaction-cta-pressed,
             );
 
             &::after {
@@ -42,7 +41,7 @@
                 color: $vs-color-icon-inverse;
                 border: 0;
                 vertical-align: bottom;
-                margin-left: $spacer-1;
+                margin-left: $spacer-025;
             }
 
             &:focus {
@@ -58,7 +57,7 @@
     }
 
     ul.search-filter-container{
-        padding: $spacer-2 0;
+        padding: $spacer-050 0;
         margin: 0.125rem 0 0;
         list-style: none;
         background-color: $vs-color-background-inverse;
@@ -76,7 +75,7 @@
         .facet-list-item{
             @include media-breakpoint-up(sm) {
                 display: inline-block;
-                margin: 0 $spacer-3 $spacer-4 0;
+                margin: 0 $spacer-075 $spacer-100 0;
             }
 
             a{
@@ -84,10 +83,10 @@
                 display: block;
                 font-size: $font-size-4;
                 text-decoration: none;
-                color: $vs-color-text;
+                color: $vs-color-new-text-primary;
                 transition: all .2s;      
                 line-height: $line-height-m;
-                padding: $spacer-2 $spacer-3;
+                padding: $spacer-050 $spacer-075;
 
                 &:focus {
                     outline: 0px;
@@ -95,59 +94,60 @@
                 }
 
                 @include media-breakpoint-up(sm) {
-                    border: 2px solid $vs-color-border-tertiary;
+                    border: 2px solid $vs-color-new-border-highlight;
                     border-radius: $border-radius-pill;
                     min-width: 80px;
                     text-align: center;
                     font-weight: 600;
-                    padding: $spacer-1 $spacer-3;
+                    padding: $spacer-025 $spacer-075;
 
                     @include vs-button-variant(
-                        $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
-                        $vs-color-text-inverse, $vs-color-background-hover, $vs-color-background-hover,
-                        $vs-color-text-inverse, $vs-color-background-tertiary, $vs-color-background-tertiary,
-                        $vs-color-text-inverse, $vs-color-background-tertiary, $vs-color-border-tertiary,
+                        $vs-color-new-text-highlight, $vs-color-background-inverse, $vs-color-new-border-highlight,
+                        $vs-color-text-inverse, $vs-color-new-background-accent-heather-80, $vs-color-new-background-accent-heather-80,
+                        $vs-color-text-inverse, $vs-color-new-background-highlight, $vs-color-new-border-highlight,
                     );
 
                     &:focus {
                         outline: 0px;
-                        box-shadow: $vs-color-background-inverse 0px 0px 0px 2px inset, $vs-color-background-tertiary 0px 0px 0px 3px inset;
+                        background-color: $vs-color-new-background-highlight;
+                        color: $vs-color-text-inverse;
+                        border-color: $vs-color-new-border-highlight;
+                        box-shadow: $vs-color-background-inverse 0px 0px 0px 2px, $vs-color-new-background-highlight 0px 0px 0px 4px;
                     }
                 }
             }
 
             &.active{
                 a{
-                    background: $vs-color-background-active;
-                    border-color: $vs-color-background-active;
-                    color: $vs-color-text-primary;
+                    color: $vs-color-new-text-cta-on-light;
+                    background-color: $vs-color-new-interaction-cta-subtle-hover;
 
                     @include media-breakpoint-up(sm) {
-                        background: $vs-color-background-tertiary;
-                        border-color: $vs-color-background-tertiary;
+                        background: $vs-color-new-background-highlight;
+                        border-color: $vs-color-new-background-highlight;
                         color: $vs-color-text-inverse;
                     }
-                }
+                },
             }
         }
     }
 
     &__results{
         ul{ 
-            margin: 0 0 $spacer-8;
+            margin: 0 0 $spacer-200;
             padding: 0;
             list-style: none;
 
             @include media-breakpoint-up(md) {
-                margin-bottom: $spacer-9;
+                margin-bottom: $spacer-300;
             }
 
             .search-results-item{
                 position: relative;
-                padding: $spacer-3 0;
+                padding: $spacer-075 0;
 
                 @include media-breakpoint-up(sm) {
-                    padding: $spacer-6 0;
+                    padding: $spacer-150 0;
                 }
 
                 .search-result-card{
@@ -155,11 +155,11 @@
                     flex-direction: row;
                     height: 100%;
                     background: transparent;
-                    padding: $spacer-2;
+                    padding: $spacer-050;
 
                     &:after{
                         content: "";
-                        border-bottom: 1px solid $vs-color-border;
+                        border-bottom: 1px solid $vs-color-new-border-primary;
                         position: absolute;
                         width: 100%;
                         bottom: 0;
@@ -169,14 +169,14 @@
                         width: 30%;
                         max-width: 30%;
                         align-self: flex-start;
-                        margin-right: $spacer-8;
+                        margin-right: $spacer-200;
 
                         @include media-breakpoint-up(md) {
                             display: block;
                         }
 
                         @include media-breakpoint-up(lg) {
-                            margin-right: $spacer-9;
+                            margin-right: $spacer-300;
                         }
     
                         img{
@@ -195,24 +195,21 @@
                         }
 
                         h2{
-                            font-size: $font-size-h2;
-                            letter-spacing: .15rem;
+                            @include heading-style(heading-m);
+                            line-height: 1.2;
+                            font-weight: $font-weight-semi-bold;
                             margin-top: 0;
-                            margin-bottom: $spacer-3;
-
-                            @include media-breakpoint-up(md) {
-                                font-size: $font-size-h2-md;
-                            }
+                            margin-bottom: $spacer-075;
 
                             @include media-breakpoint-up(xl) {
-                                margin-top: $spacer-4;
-                                margin-bottom: $spacer-6;
+                                margin-top: $spacer-100;
+                                margin-bottom: $spacer-150;
                             }
 
                             &:after {
                                 font-family: "Font Awesome Kit";
                                 content: "\e049";
-                                color: $vs-color-icon-tertiary;
+                                color: $vs-color-new-icon-highlight;
                                 font-size: $font-size-4;
                                 top: -4px;
                                 position: relative;
@@ -223,13 +220,13 @@
                             margin-bottom: 0;
 
                             @include media-breakpoint-up(xl) {
-                                margin-bottom: $spacer-4;
+                                margin-bottom: $spacer-100;
                             }
                         }
     
                         a{
                             text-decoration: none;
-                            color: $vs-color-text;
+                            color: $vs-color-new-text-primary;
 
                             &:hover{
                                 text-decoration: underline;
@@ -260,13 +257,13 @@
         nav{
             text-align: center;
             font-size: $font-size-4;
-            padding-top: $spacer-4;
+            padding-top: $spacer-100;
 
             .Page-counter{
-                margin-bottom: $spacer-2;
+                margin-bottom: $spacer-050;
 
                 span{
-                    margin-right: $spacer-2;
+                    margin-right: $spacer-050;
                 }
 
                 @include media-breakpoint-up(sm) {
@@ -282,11 +279,11 @@
 
                     @include media-breakpoint-up(sm) {
                         display: inline-block;
-                        margin-right: $spacer-2;
+                        margin-right: $spacer-050;
                     }
 
                     &.active{
-                        background-color: $vs-color-background-primary;
+                        background-color: $vs-color-new-interaction-cta-primary;
                         color: $vs-color-text-inverse;
                         border-radius: $border-radius-pill;
                         line-height: 1;
@@ -294,10 +291,10 @@
                     }
 
                     a{
-                        color: $vs-color-text;
+                        color: $vs-color-new-text-primary;
                         text-decoration: none;
                         display: block;
-                        padding: $spacer-1 $spacer-3;
+                        padding: $spacer-025 $spacer-075;
 
                         &:hover{
                             text-decoration: underline;
@@ -312,7 +309,7 @@
                     &.previous a:before{
                         font-family: "Font Awesome Kit";
                         content: "\e049";
-                        color: $vs-color-icon-primary;
+                        color: $vs-color-new-icon-cta-on-light;
                         font-weight: $font-weight-normal;
                         font-size: $font-size-3;
                         display: inline-block;
@@ -322,7 +319,7 @@
                         float: right;
 
                         a:after{
-                            margin-left: $spacer-2;
+                            margin-left: $spacer-050;
                         }
                     }
 
@@ -330,7 +327,7 @@
                         float: left;
 
                         a:before{
-                            margin-right: $spacer-2;
+                            margin-right: $spacer-050;
                             transform: rotate(180deg);
                         }
                     }
@@ -342,7 +339,7 @@
                         display: inline-block;
 
                         a {
-                            color: $vs-color-link;
+                            color: $vs-color-new-interaction-link-primary;
                         }
 
                         @include media-breakpoint-up(sm) {
@@ -356,8 +353,8 @@
         .cludo-loader{
             width: 3rem;
             height: 3rem;
-            border-top-color: $vs-color-border-tertiary;
-            border-left-color: $vs-color-border-tertiary;
+            border-top-color: $vs-color-new-border-highlight;
+            border-left-color: $vs-color-new-border-highlight;
             border-bottom-color: transparent;
             border-right-color: transparent;
             border-style: solid;
@@ -365,7 +362,7 @@
             border-radius: 50%;  
             box-sizing: border-box;
             display: block;
-            margin: $spacer-4 auto;
+            margin: $spacer-100 auto;
             animation: spinner 1s linear infinite;
                 
         }

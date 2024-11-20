@@ -22,6 +22,7 @@
                         icon-position="left"
                         size="md"
                         ref="videoShow"
+                        :rounded="false"
                         @click="emitShowModal"
                     >
                         {{ videoBtnText }}
@@ -30,9 +31,11 @@
 
                 <VsToggleButton
                     v-if="withToggleBtn"
-                    @toggleAction="emitToggle"
+                    @toggle-action="emitToggle"
                 >
-                    Toggle caption
+                    <span class="visually-hidden">
+                        Toggle caption
+                    </span>
                 </VsToggleButton>
             </div>
 
@@ -127,6 +130,7 @@ export default {
             ),
         },
     },
+    emits: ['toggleAction'],
     setup() {
         const videoStore = useVideoStore();
         return {
@@ -175,7 +179,7 @@ export default {
         &__details {
             background-color: $vs-color-background-bold;
             color: $vs-color-text-inverse;
-            padding: $spacer-3;
+            padding: $spacer-075;
         }
 
         &__buttons-container {
@@ -191,8 +195,8 @@ export default {
                 .vs-toggle-btn {
                     display: block;
                     position: absolute;
-                    right: $spacer-2;
-                    top: calc(-24px - #{$spacer-3});
+                    right: $spacer-050;
+                    top: calc(-24px - #{$spacer-075});
                 }
             }
         }
@@ -200,7 +204,7 @@ export default {
         &__title {
             font-size: $font-size-4;
             font-weight: $font-weight-bold;
-            margin-bottom: $spacer-2;
+            margin-bottom: $spacer-050;
         }
 
         &__duration {
@@ -214,7 +218,7 @@ export default {
             justify-content: flex-start;
 
             .vs-icon {
-                margin-right: $spacer-7;
+                margin-right: $spacer-175;
             }
 
             p {
@@ -234,19 +238,19 @@ export default {
             min-height: 50px;
             display: flex;
             align-items: center;
-            padding-top: $spacer-1;
-            padding-bottom: $spacer-1;
+            padding-top: $spacer-025;
+            padding-bottom: $spacer-025;
             min-height: 53px;
             text-align: left;
             line-height: 1.1;
 
             .vs-icon {
-                margin-right: $spacer-5;
+                margin-right: $spacer-125;
             }
         }
 
         .vs-caption--large .vs-caption__image-caption {
-            margin-bottom: $spacer-2;
+            margin-bottom: $spacer-050;
         }
 
         @include media-breakpoint-up(sm) {
@@ -264,12 +268,12 @@ export default {
     .vs-video-caption--wide {
         @include media-breakpoint-up(sm) {
             .vs-video-caption__details {
-                padding: $spacer-4 $spacer-3 $spacer-5;
+                padding: $spacer-100 $spacer-075 $spacer-125;
             }
 
             .vs-video-caption__title {
                 font-size: $font-size-lead;
-                margin-right: $spacer-4;
+                margin-right: $spacer-100;
                 margin-bottom: 0;
             }
 
@@ -283,11 +287,11 @@ export default {
         @include media-breakpoint-up(lg) {
             .vs-video-caption__details {
                 display: block;
-                padding: $spacer-4 $spacer-6 $spacer-5;
+                padding: $spacer-100 $spacer-150 $spacer-125;
             }
 
             .vs-video-caption__title {
-                margin-bottom: $spacer-1;
+                margin-bottom: $spacer-025;
             }
 
             .vs-video-caption__button {
@@ -299,8 +303,8 @@ export default {
     @mixin small-play-button {
         .vs-video-caption__buttons-container {
             .vs-video-caption__button {
-                width: $spacer-10;
-                height: $spacer-10;
+                width: $spacer-400;
+                height: $spacer-400;
                 position: relative;
                 padding: $spacer-0;
                 font-size: 0;
@@ -320,7 +324,7 @@ export default {
             .vs-video-caption__button {
                 width: auto;
                 height: auto;
-                padding: $spacer-3 $spacer-4;
+                padding: $spacer-075 $spacer-100;
                 font-size: $font-size-4;
 
                 .vs-icon {
@@ -328,8 +332,8 @@ export default {
                     top: auto;
                     left: auto;
                     transform: none;
-                    height: $spacer-5;
-                    width: $spacer-5;
+                    height: $spacer-125;
+                    width: $spacer-125;
                 }
             }
         }

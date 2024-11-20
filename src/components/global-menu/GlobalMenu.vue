@@ -3,7 +3,7 @@
         <LazyHydrationWrapper :on-interaction="['focus', 'click']">
             <VsContainer
                 fluid="lg"
-                class="px-1 px-sm-3"
+                class="px-025 px-sm-075"
             >
                 <VsRow>
                     <VsCol
@@ -115,7 +115,7 @@ export default {
 
 <style lang="scss">
 .vs-global-menu {
-    background: $vs-color-background-brand;
+    background: $vs-color-new-background-brand;
     color: $vs-color-text-inverse;
     position: relative;
     font-size: $font-size-2;
@@ -147,7 +147,7 @@ export default {
 @include no-js {
     .vs-global-menu {
         height: auto;
-        margin-bottom: $spacer-4;
+        margin-bottom: $spacer-100;
 
         .dropdown-toggle{
             display: none

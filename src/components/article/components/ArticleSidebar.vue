@@ -5,7 +5,14 @@
         data-test="vs-article-sidebar"
     >
         <div
-            :class="$slots['vs-article-sidebar-quote'] && $slots['vs-article-sidebar-quote']() ? 'pb-8' : ''"
+            v-if="$slots['vs-article-sidebar-toc'] && $slots['vs-article-sidebar-toc']()"
+            class="vs-article-sidebar__toc"
+        >
+            <slot name="vs-article-sidebar-toc" />
+        </div>
+        <div
+            v-if="$slots['vs-article-sidebar-img'] && $slots['vs-article-sidebar-img']()"
+            :class="$slots['vs-article-sidebar-quote'] && $slots['vs-article-sidebar-quote']() ? 'pb-200' : ''"
             class="vs-article-sidebar__img-wrapper"
         >
             <!-- @slot Slot to contain an image for this article section -->
@@ -55,16 +62,16 @@ export default {
 
 <style lang="scss">
 .vs-article-sidebar {
-    background: $vs-color-background-inverse;
+    background: $vs-color-new-background-primary;
 
     &__quote-wrapper {
-        background: $vs-color-background-inverse;
+        background: $vs-color-new-background-primary;
         margin-left: -1px;
-        padding: $spacer-8 $spacer-6;
+        padding: $spacer-200 $spacer-150;
 
         @include media-breakpoint-up(md) {
             margin-left: 0;
-            padding: $spacer-8 $spacer-0 $spacer-1;
+            padding: $spacer-200 $spacer-0 $spacer-025;
         }
     }
 
@@ -72,13 +79,13 @@ export default {
         &--right{
             .vs-article-sidebar__quote-wrapper {
                 padding-left: $spacer-0;
-                padding-right: $spacer-5;
+                padding-right: $spacer-125;
             }
         }
 
         &--left{
             .vs-article-sidebar__quote-wrapper {
-                padding-left: $spacer-5;
+                padding-left: $spacer-125;
                 padding-right: $spacer-0;
             }
         }

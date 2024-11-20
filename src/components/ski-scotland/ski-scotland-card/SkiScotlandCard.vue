@@ -3,9 +3,7 @@
         class="card vs-ski-scotland-card"
         data-test="vs-ski-scotland-card"
     >
-        <div
-            class="vs-ski-scotland-card__img-container"
-        >
+        <div class="vs-ski-scotland-card__img-container">
             <template
                 v-if="imgSrc"
             >
@@ -20,6 +18,7 @@
         <div class="card-body">
             <VsHeading
                 level="3"
+                heading-style="heading-m"
             >
                 <!--
                     @slot Slot for ski centre name
@@ -28,11 +27,11 @@
                 <slot name="centre-name" />
             </VsHeading>
             <div
-                class="text-center pb-8 position-relative"
+                class="text-center pb-200 position-relative"
                 v-if="jsDisabled || isLoading || displayError"
             >
                 <template v-if="!jsDisabled && isLoading">
-                    <VsLoadingSpinner class="mb-4 d-block" />
+                    <VsLoadingSpinner class="mb-100 d-block" />
                     <!--
                         @slot Slot for data loading message
                         Expects text
@@ -42,7 +41,8 @@
                 <VsWarning
                     size="small"
                     data-test="vs-ski-scotland-card__error"
-                    v-if="!jsDisabled && displayError">
+                    v-if="!jsDisabled && displayError"
+                >
                     <!--
                         @slot Slot for data unavailable message
                         Expects text
@@ -91,7 +91,7 @@
                             <VsIcon
                                 name="tick"
                                 size="xs"
-                                class="me-2"
+                                class="me-050"
                             />
                             <span data-test="vs-ski__open-label">
                                 {{ summaryOpenLabel }}
@@ -114,7 +114,7 @@
                             <VsIcon
                                 name="ski-boot"
                                 size="xs"
-                                class="me-2"
+                                class="me-050"
                             />
                             <span data-test="vs-ski__limited-patrol-label">
                                 {{ summaryLimitedPatrolLabel }}
@@ -134,7 +134,7 @@
                             <VsIcon
                                 name="expected-open"
                                 size="xs"
-                                class="me-2"
+                                class="me-050"
                             />
                             <span data-test="vs-ski__opening-label">
                                 {{ summaryOpeningLabel }}
@@ -154,7 +154,7 @@
                             <VsIcon
                                 name="status-closed"
                                 size="xs"
-                                class="me-2"
+                                class="me-050"
                             />
                             <span data-test="vs-ski__closed-label">
                                 {{ summaryClosedLabel }}
@@ -176,7 +176,7 @@
                             <VsIcon
                                 name="hourglass"
                                 size="xs"
-                                class="me-2"
+                                class="me-050"
                             />
                             <span data-test="vs-ski__on-hold-label">
                                 {{ summaryOnHoldLabel }}
@@ -205,30 +205,19 @@
                     </VsTableRow>
                 </VsTableFooter>
             </VsTable>
-            <div
-                class="vs-ski-scotland-card__button-holder
-                vs-ski-scotland-card__button-holder--left"
+
+            <VsButton
+                variant="secondary"
+                :href="pisteMapLink"
+                class="mb-050"
+                :disabled="!pisteMapLink ? true : false"
             >
-                <VsButton
-                    variant="secondary"
-                    :href="pisteMapLink"
-                    size="sm"
-                    :disabled="!pisteMapLink ? true : false"
-                >
-                    {{ pisteMapLabel }}
-                </VsButton>
-            </div><!--
-            --><div
-                class="vs-ski-scotland-card__button-holder
-                vs-ski-scotland-card__button-holder--right"
-            >
-                <VsButton
-                    :href="moreDetailsLink"
-                    size="sm"
-                >
-                    {{ moreDetailsLabel }}
-                </VsButton>
-            </div>
+                {{ pisteMapLabel }}
+            </VsButton>
+
+            <VsButton :href="moreDetailsLink">
+                {{ moreDetailsLabel }}
+            </VsButton>
         </div>
     </div>
 </template>
@@ -594,8 +583,8 @@ export default {
         border: none;
         border-radius: $border_radius_xl;
         overflow: hidden;
-        margin-bottom: $spacer-9;
-        height: calc(100% - #{$spacer-9});
+        margin-bottom: $spacer-300;
+        height: calc(100% - #{$spacer-300});
 
         &::nth-last-child(-n + 3) {
             margin-bottom: $spacer-0;
@@ -622,10 +611,10 @@ export default {
 
         .card-body {
             position: relative;
-            padding: $spacer-4 $spacer-4 $spacer-12;
+            padding: $spacer-100 $spacer-100 $spacer-600;
 
             @include media-breakpoint-up(lg) {
-                padding-bottom: $spacer-10;
+                padding-bottom: $spacer-400;
             }
         }
 
@@ -633,45 +622,9 @@ export default {
             margin-top: $spacer-0;
         }
 
-        .vs-ski-scotland-card__button-holder {
-            width: calc(100% - #{$spacer-8});
-            display: inline-block;
-            padding: $spacer-1 $spacer-2;
-            position: absolute;
-            bottom: $spacer-4;
-
-            &--left {
-                left: $spacer-4;
-                right: $spacer-4;
-                bottom: $spacer-10;
-            }
-
-            &--right {
-                right: $spacer-4;
-                left: $spacer-4;
-            }
-
-            @include media-breakpoint-up(lg) {
-                width: calc(50% - #{$spacer-4});
-
-                &--left {
-                    right: auto;
-                    bottom: $spacer-4;
-                }
-
-                &--right {
-                    left: auto;
-                }
-            }
-        }
-
         .vs-button {
+            display: block;
             width: 100%;
-            padding: $spacer-2 $spacer-2;
-
-            &.disabled {
-                margin-bottom: 2px;
-            }
         }
     }
 

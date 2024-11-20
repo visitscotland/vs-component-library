@@ -46,6 +46,14 @@ describe('VsCaption', () => {
             expect(caption.classes('vs-caption--large')).toBe(true);
         });
 
+        it('should set correct class if `theme` is `subtle`', () => {
+            const wrapper = factoryShallowMount({
+                theme: 'subtle',
+            });
+            const caption = wrapper.find('[data-test="vs-caption"]');
+            expect(caption.classes('vs-caption--subtle')).toBe(true);
+        });
+
         it('should set correct class if `textAlign` is `right`', () => {
             const wrapper = factoryShallowMount({
                 textAlign: 'right',

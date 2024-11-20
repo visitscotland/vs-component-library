@@ -27,13 +27,13 @@ const Template = (args) => ({
     template: `
     <VsContainer>
         <VsRow
-            class="mx-n4 mx-lg-n8"
+            class="mx-n100 mx-lg-n200"
         >
             <VsCol
                 cols="12"
                 sm="6"
                 lg="4"
-                class="px-4 px-lg-8"
+                class="px-100 px-lg-200"
             >
                 <VsSkiScotlandCard
                     v-bind="args"
@@ -50,9 +50,9 @@ const Template = (args) => ({
 });
 
 const base = {
-    centreInfoUrl: '/fixtures/ski-scotland/sample-ski-data.json',
+    centreInfoUrl: './fixtures/ski-scotland/sample-ski-data.json',
     locale: 'en-gb',
-    imgSrc: '/fixtures/ski-scotland/ski-image.jpg',
+    imgSrc: './fixtures/ski-scotland/ski-image.jpg',
     imgAlt: 'Glencoe ski centre',
     moreDetailsLink: '#',
     pisteMapLink: '#',

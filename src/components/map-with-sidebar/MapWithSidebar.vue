@@ -35,23 +35,23 @@
                             @filter-places="filterPlaces"
                             @load-more-places="loadMorePlaces"
                         >
-                            <template v-slot:closePanelText>
+                            <template #closePanelText>
                                 <slot name="close-side-panel-text" />
                             </template>
 
-                            <template v-slot:reset-side-panel-text>
+                            <template #reset-side-panel-text>
                                 <slot name="reset-side-panel-text" />
                             </template>
 
-                            <template v-slot:menu-btn-text>
+                            <template #menu-btn-text>
                                 <slot name="menu-btn-text" />
                             </template>
 
-                            <template v-slot:panel-loading-message>
+                            <template #panel-loading-message>
                                 <slot name="panel-loading-message" />
                             </template>
 
-                            <template v-slot:load-more-text>
+                            <template #load-more-text>
                                 <slot name="load-more-text" />
                             </template>
                         </VsMapWithSidebarPanel>
@@ -89,22 +89,22 @@
                             :reset-zoom="resetZoom"
                             :show-marker-popups="false"
                         >
-                            <template v-slot:map-loading-text>
+                            <template #map-loading-text>
                                 <!-- @slot Message to show when map is loading  -->
                                 <slot name="map-loading-text" />
                             </template>
-                            <template v-slot:info-message>
+                            <template #info-message>
                                 {{ infoMessage }}
                             </template>
-                            <template v-slot:zoom-too-close>
+                            <template #zoom-too-close>
                                 <!-- @slot Message to show when map zoom is too close -->
                                 <slot name="zoom-too-close" />
                             </template>
-                            <template v-slot:zoom-too-far>
+                            <template #zoom-too-far>
                                 <!-- @slot Message to show when map zoom is too far -->
                                 <slot name="zoom-too-far" />
                             </template>
-                            <template v-slot:no-js>
+                            <template #no-js>
                                 <!-- @slot Message to show when JS is disabled  -->
                                 <slot name="no-js" />
                             </template>
@@ -115,7 +115,7 @@
                             :initial-selected="selectedToggle"
                             :options="toggleData"
                             :buttons-label="buttonsLabel"
-                            @toggleChanged="onToggleChanged"
+                            @toggle-changed="onToggleChanged"
                         />
                     </div>
                 </div>
@@ -679,10 +679,10 @@ export default {
 
         &__map-toggle.vs-button {
             position: absolute;
-            top: $spacer-2;
-            left: $spacer-2;
+            top: $spacer-050;
+            left: $spacer-050;
             max-width: calc(100% - 60px);
-            padding: $spacer-1 $spacer-3;
+            padding: $spacer-025 $spacer-075;
             // ensure button can always be clicked
             // to avoid user getting trapped by overlay
             z-index: 100;
@@ -711,7 +711,7 @@ export default {
 
     .os-api-branding.logo,
     .os-api-branding.copyright {
-        margin-bottom: $spacer-8 !important; //important needed for overriding OS styles
+        margin-bottom: $spacer-200 !important; //important needed for overriding OS styles
     }
 
     @include no-js {

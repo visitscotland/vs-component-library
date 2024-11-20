@@ -35,7 +35,7 @@
         <BFormCheckbox
             v-if="fieldName"
             v-model="inputVal"
-            class="me-4"
+            class="me-100"
             :name="fieldName"
             :id="fieldName"
             :value="value"
@@ -211,7 +211,7 @@ export default {
         @include form-checkbox(38px, $font-size-6, $line-height-xl);
 
         input[type="checkbox"] {
-            margin: $spacer-2 $spacer-4 0 0;
+            margin: $spacer-050 $spacer-100 0 0;
         }
 
         .form-check {
@@ -224,6 +224,12 @@ export default {
         label {
             flex: 1;
             margin-bottom: 0;
+        }
+
+        &__label {
+            display: inline-block;
+            font-size: $font-size-body;
+            font-weight: $font-weight-normal;
         }
 
         &--error {
@@ -240,10 +246,15 @@ export default {
             }
         }
 
-        &__label {
-            display: inline-block;
-            font-size: $font-size-body;
-            font-weight: $font-weight-normal;
+        .form-check-input[disabled] ~ .form-check-label,
+        .form-check-input:disabled ~ .form-check-label,
+        .form-check-input[disabled] {
+            opacity: $opacity-100;
+            color: $vs-color-new-text-disabled;
+        }
+
+        input[type=checkbox].form-check-input[disabled] {
+            outline: $vs-color-new-border-disabled 1px solid;
         }
     }
 </style>

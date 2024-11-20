@@ -17,7 +17,7 @@
         >
             <template
                 v-if="days && transport"
-                v-slot:stretched-card-panels
+                #stretched-card-panels
             >
                 <VsStretchedLinkPanels
                     :days="days"
@@ -28,9 +28,7 @@
                 />
             </template>
 
-            <template
-                v-slot:stretched-card-header
-            >
+            <template #stretched-card-header>
                 <span
                     class="vs-megalink-link-list__title"
                     data-test="megalink-link-list__title"
@@ -40,9 +38,7 @@
                 </span>
             </template>
 
-            <template
-                v-slot:stretched-card-content
-            >
+            <template #stretched-card-content>
                 <VsRichTextWrapper
                     class="vs-megalink-link-list__content"
                     data-test="megalink-link-list__content"
@@ -174,14 +170,14 @@ export default {
 <style lang="scss">
     .vs-megalink-link-list {
         border: none;
-        padding: $spacer-2 0 $spacer-3;
+        padding: $spacer-050 0 $spacer-075;
         position: relative;
         height: 100%;
         width: 100%;
 
         &:after {
             content: '';
-            border-bottom: 1px solid $vs-color-border;
+            border-bottom: 1px solid $vs-color-new-border-primary;
             position: absolute;
             width: calc(100% - 16px);
             left: 8px;
@@ -191,7 +187,7 @@ export default {
         .vs-megalink-link-list__wrapper.card {
             display: flex;
             flex-direction: row;
-            padding: $spacer-2;
+            padding: $spacer-050;
             border: none;
             height: 100%;
             background: transparent;
@@ -209,8 +205,8 @@ export default {
             }
 
             .vs-stretched-link-card__video-button {
-                bottom: $spacer-2;
-                left: $spacer-2;
+                bottom: $spacer-050;
+                left: $spacer-050;
                 z-index: 2;
             }
 
@@ -224,7 +220,7 @@ export default {
                 position: initial !important;
 
                 @include media-breakpoint-up(xl) {
-                    padding-bottom: $spacer-5;
+                    padding-bottom: $spacer-125;
                 }
 
                 @include media-breakpoint-up(sm) {
@@ -236,7 +232,7 @@ export default {
                 width: 50%;
                 max-width: 50%;
                 align-self: flex-start;
-                margin-right: $spacer-4;
+                margin-right: $spacer-100;
 
                 @include media-breakpoint-up(sm) {
                     width: 33%;
@@ -287,7 +283,7 @@ export default {
             .vs-megalink-link-list__wrapper.card {
 
                 .vs-megalink-link-list__content {
-                    margin: $spacer-2 0 0;
+                    margin: $spacer-050 0 0;
                     line-height: $line-height-s;
                     display: block;
 
@@ -312,9 +308,9 @@ export default {
         }
 
         .vs-stretched-link-panels {
-            width: calc(33% - #{$spacer-2});
+            width: calc(33% - #{$spacer-050});
             right: auto;
-            left: $spacer-2;
+            left: $spacer-050;
             justify-content: flex-end;
 
             &__panel {
@@ -324,7 +320,7 @@ export default {
 
                 &--days {
                     display: flex;
-                    margin-right: $spacer-2;
+                    margin-right: $spacer-050;
                 }
             }
 
@@ -341,7 +337,7 @@ export default {
 
                 &__days {
                     font-size: $font-size-6;
-                    margin-bottom: $spacer-1;
+                    margin-bottom: $spacer-025;
                 }
             }
         }

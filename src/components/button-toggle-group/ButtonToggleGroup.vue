@@ -34,7 +34,7 @@
                         <VsIcon
                             v-if="option.icon"
                             :name="option.icon"
-                            class="me-1"
+                            class="me-025"
                         />
                         {{ option.text }}
                     </span>
@@ -92,6 +92,7 @@ export default {
             required: true,
         },
     },
+    emits: ['toggleChanged'],
     data() {
         return {
             selected: this.initialSelected,
@@ -155,7 +156,7 @@ export default {
         }
 
         &--radios {
-            background-color: $vs-color-background-tertiary;
+            background-color: $vs-color-new-interaction-cta-subtle-hover;
             display: flex;
             border-radius: $border-radius-pill;
             overflow: hidden;
@@ -168,24 +169,24 @@ export default {
 
             label.btn-secondary {
                 @extend %button-default-styles;
-                color: $vs-color-text-inverse;
+                color: $vs-color-new-text-cta-on-light;
                 transition: none;
-                padding-top: $spacer-2;
+                padding-top: $spacer-050;
                 margin-bottom: $spacer-0;
-                padding-bottom: $spacer-2;
+                padding-bottom: $spacer-050;
                 display: flex;
                 align-items: center;
 
                 .vs-icon{
                     transition: none;
-                    color: $vs-color-text-inverse;
+                    color: $vs-color-new-text-cta-on-light;
                 }
 
                 & > span {
                     display: flex;
                     height: 32px;
                     align-items: center;
-                    padding: 0 $spacer-2;
+                    padding: 0 $spacer-050;
                 }
 
                 &.focus {
@@ -193,12 +194,12 @@ export default {
                 }
 
                 &:hover {
-                    background-color: $vs-color-background-hover;
-                    border-color: $vs-color-background-hover;
+                    background-color: $vs-color-new-interaction-cta-hover;
+                    border-color: $vs-color-new-interaction-cta-hover;
                     color: $vs-color-text-inverse;
 
                     .vs-icon {
-                        color: $vs-color-text-inverse;
+                        color: $vs-color-icon-inverse;
                     }
                 }
             }
@@ -207,7 +208,7 @@ export default {
         &--tabbed-focus {
             input:focus {
                 + label span {
-                    border: 2px solid $vs-color-border-focus;
+                    border: 2px solid $vs-color-new-interaction-focus;
                 }
             }
         }
@@ -216,7 +217,7 @@ export default {
             display: flex;
 
             &:first-child {
-                margin-right: -(#{$spacer-4});
+                margin-right: -(#{$spacer-100});
                 border-top-left-radius: $border-radius-pill;
                 border-bottom-left-radius: $border-radius-pill;
             }
@@ -227,7 +228,7 @@ export default {
             }
 
             .btn {
-                padding: 0 $spacer-6;
+                padding: 0 $spacer-150;
             }
 
             &:not(:disabled):not(.disabled).active {
@@ -237,18 +238,16 @@ export default {
                     cursor: default;
 
                     @include vs-button-variant(
-                        $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
-                        $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
-                        $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
-                        $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
+                        $vs-color-new-interaction-cta-primary, $vs-color-new-interaction-cta-secondary, $vs-color-new-interaction-cta-primary,
+                        $vs-color-new-interaction-cta-primary, $vs-color-new-interaction-cta-secondary, $vs-color-new-interaction-cta-primary,
+                        $vs-color-new-interaction-cta-primary, $vs-color-new-interaction-cta-secondary, $vs-color-new-interaction-cta-primary,
                     );
 
                     @include media-breakpoint-up(lg) {
                         @include vs-button-variant(
-                            $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
-                            $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
-                            $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
-                            $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
+                            $vs-color-new-interaction-cta-primary, $vs-color-new-interaction-cta-secondary, $vs-color-new-interaction-cta-primary,
+                            $vs-color-new-interaction-cta-primary, $vs-color-new-interaction-cta-secondary, $vs-color-new-interaction-cta-primary,
+                            $vs-color-new-interaction-cta-primary, $vs-color-new-interaction-cta-secondary, $vs-color-new-interaction-cta-primary,
                         );
                     }
                 }

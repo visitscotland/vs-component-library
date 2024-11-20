@@ -156,17 +156,15 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
                 class="align-self-end"
                 data-test="vs-guest-selector__close-btn"
                 variant="transparent"
-                icon="close-circle"
+                icon="close"
                 size="md"
                 icon-only
                 @click.prevent="hidePicker"
             >
-                <span class="visually-hidden">
-                    {{ getLabelText('close', 'Close', 'guests_rooms') }}
-                </span>
+                {{ getLabelText('close', 'Close', 'guests_rooms') }}
             </VsButton>
 
-            <div class="vs-guest-selector__button-row mb-3">
+            <div class="vs-guest-selector__button-row mb-075">
                 <GuestSelectorRow
                     v-for="(unit, index) in units"
                     :key="unit.id"
@@ -184,7 +182,7 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
                 <VsButton
                     v-if="units.length < unitLimit"
                     variant="secondary"
-                    class="c-search__popup__btn-link me-2 align-self-start"
+                    class="c-search__popup__btn-link me-050 align-self-start"
                     @click.prevent="addUnit"
                 >
                     {{ addUnitLabel }}
@@ -232,11 +230,11 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
             content: "\e012";
             display: inline-block;
             position: absolute;
-            top: $spacer-9;
-            right: $spacer-4;
+            top: $spacer-300;
+            right: $spacer-100;
             pointer-events: none;
             font-size: $font-size-5;
-            color: $vs-color-icon-primary;
+            color: $vs-color-new-icon-cta-on-light;
         }
     }
 
@@ -246,7 +244,7 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
         &__modal {
             width: 100%;
             display: none;
-            padding: $spacer-4;
+            padding: $spacer-100;
             box-shadow: $vs-elevation-shadow-raised;
         }
 

@@ -6,7 +6,7 @@
     >
         <template
             v-for="(_, name) in nonButtonContentSlots"
-            v-slot:[name]
+            #[name]
         >
             <slot
                 :name="name"
@@ -70,9 +70,14 @@ export default {
 .vs-dropdown {
     .dropdown-toggle {
         @extend %button-default-styles;
+        padding: $spacer-050 $spacer-150;
 
         &:hover {
-            background-color: $vs-color-background-hover;
+            background-color: $vs-color-new-interaction-cta-hover;
+        }
+
+        &:active {
+            background-color: $vs-color-new-interaction-cta-pressed;
         }
 
         &:focus {
@@ -85,32 +90,29 @@ export default {
             content: "\e012";
             color: $vs-color-icon-inverse;
             border: 0;
+            font-weight: 400;
             vertical-align: bottom;
         }
     }
 
     .dropdown-menu {
         li {
-            border-bottom: 1px solid $vs-color-border;
+            border-bottom: 1px solid $vs-color-new-border-primary;
 
             &:last-of-type {
                 border-bottom: 0;
             }
 
             .dropdown-item {
-                &.active, &:active {
-                    color: $vs-color-text-primary;
-                    background-color: $vs-color-background-active;
-                }
-
-                &:hover {
-                    color: $vs-color-text-inverse;
-                    background-color: $vs-color-background-hover;
+                &:hover, &.active, &:active {
+                    color: $vs-color-new-text-cta-on-light;
+                    background-color: $vs-color-new-interaction-cta-subtle-hover;
                     outline: 0;
                 }
 
                 &:focus {
                     outline: 0;
+                    color: $vs-color-new-text-cta-on-light;
                     box-shadow: $vs-box-shadow-focus inset;
                 }
             }

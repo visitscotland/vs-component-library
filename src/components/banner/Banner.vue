@@ -50,14 +50,12 @@
                         class="vs-banner__close-btn"
                         data-test="vs-banner__close-btn"
                         variant="transparent"
-                        icon="close-circle"
+                        icon="close"
                         size="md"
                         icon-only
                         @click="hideBanner"
                     >
-                        <span class="visually-hidden">
-                            {{ closeBtnText }}
-                        </span>
+                        {{ closeBtnText }}
                     </VsButton>
                 </VsCol>
             </VsRow>
@@ -147,7 +145,7 @@ export default {
 <style lang="scss">
 .vs-banner {
     background: $vs-color-background-information;
-    padding: $spacer-3 0;
+    padding: $spacer-075 0;
 
     &__icon-wrapper{
         @include media-breakpoint-up(md) {
@@ -177,7 +175,7 @@ export default {
         display: inline-block;
 
         @include media-breakpoint-up(sm) {
-            margin-right: $spacer-3;
+            margin-right: $spacer-075;
 
             &.vs-icon.vs-icon--size-sm {
                 font-size: 24px;
@@ -186,17 +184,17 @@ export default {
     }
 
     &__title.vs-heading {
-        margin-bottom: $spacer-2;
+        margin-bottom: $spacer-050;
 
         .vs-icon {
             vertical-align: bottom;
-            margin-right: $spacer-1;
+            margin-right: $spacer-025;
         }
     }
 
     &__text.vs-rich-text-wrapper--normal {
         display: inline-block;
-        padding-left: $spacer-1;
+        padding-left: $spacer-025;
 
         @include media-breakpoint-up(sm) {
             padding-left: 0;
@@ -206,7 +204,7 @@ export default {
             display: inline;
 
             &:last-of-type{
-                margin-bottom: $spacer-2;
+                margin-bottom: $spacer-050;
             }
         }
     }

@@ -12,7 +12,7 @@
             >
                 <fieldset>
                     <legend
-                        class="vs-form__main-heading vs-heading--style-level-2 float-none"
+                        class="vs-form__main-heading vs-heading vs-heading--heading-l float-none"
                         data-test="vs-form__main-heading"
                     >
                         {{ getTranslatedContent('heading') }}
@@ -91,6 +91,24 @@
                                     :re-alert-errors="reAlertErrors"
                                 />
                             </template>
+
+                            <template v-if="field.element === 'textarea'">
+                                <VsTextarea
+                                    :ref="field.name"
+                                    @status-update="updateFieldData"
+                                    :field-name="field.name"
+                                    :validation-rules="field.validation || {}"
+                                    :validation-messages="getTranslatedValidation(field.name, index)
+                                        || {}"
+                                    :generic-validation="getMessagingData('validation', language)"
+                                    :invalid="errorFields.indexOf(field.name) > -1 ? true : false"
+                                    :trigger-validate="triggerValidate"
+                                    :hint-text="getTranslatedHint(field.name, index)"
+                                    :placeholder="field.placeholder || ''"
+                                    :re-alert-errors="reAlertErrors"
+                                    :rows="field.rows || null"
+                                />
+                            </template>
                         </div>
                     </BFormGroup>
                 </fieldset>
@@ -103,7 +121,7 @@
                     :invalid="!recaptchaVerified && showErrorMessage"
                     :language="language"
                     :error-msg="getMessagingData('recaptchaError', language)"
-                    class="mt-9"
+                    class="mt-300"
                     :textarea-label="recaptchaTextareaLabel"
                     :re-alert-errors="reAlertErrors"
                 />
@@ -111,7 +129,7 @@
                 <VsButton
                     variant="primary"
                     type="submit"
-                    class="vs-form__submit mt-9"
+                    class="vs-form__submit mt-300"
                     @click="preSubmit"
                 >
                     {{ getTranslatedContent('submit') }}
@@ -132,6 +150,7 @@
                 <VsHeading
                     v-if="getTranslatedContent('successHeading')"
                     level="2"
+                    heading-style="heading-l"
                 >
                     {{ getTranslatedContent('successHeading') }}
                 </VsHeading>
@@ -160,6 +179,7 @@ import VsRecaptcha from '@/components/recaptcha/Recaptcha.vue';
 import VsButton from '@/components/button/Button.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsWarning from '@/components/warning/Warning.vue';
+import VsTextarea from '@/components/textarea/Textarea.vue';
 import dataLayerMixin from '../../mixins/dataLayerMixin';
 
 /**
@@ -181,6 +201,7 @@ export default {
         VsButton,
         VsHeading,
         VsWarning,
+        VsTextarea,
     },
     mixins: [dataLayerMixin],
     props: {
@@ -724,6 +745,7 @@ export default {
          * Submits the form using Axios, submitting a json object to the submitUrl
          */
         axiosSubmit() {
+            this.createDataLayerObject('formsDataEvent');
             this.submitting = true;
 
             let gRecaptchaResponse = '';
@@ -762,9 +784,15 @@ export default {
 
             if (this.emailFieldName && typeof exponea !== 'undefined') {
                 // eslint-disable-next-line no-undef
-                exponea.identify({
-                    email_id: this.form[this.emailFieldName],
-                });
+                exponea.identify(
+                    {
+                        email_id: this.form[this.emailFieldName],
+                    },
+                    null,
+                    null,
+                    null,
+                    true,
+                );
             }
         },
         /**
@@ -833,10 +861,6 @@ export default {
 
 <style lang='scss'>
     .vs-form {
-        &__main-heading {
-            @extend %heading-default-styles;
-        }
-
         &__content {
             font-size: $font-size-6;
         }
@@ -847,7 +871,7 @@ export default {
 
         fieldset {
             > div {
-                margin-bottom: $spacer-6;
+                margin-bottom: $spacer-150;
             }
         }
 

@@ -10,8 +10,6 @@ export default {
                 'primary',
                 'secondary',
                 'transparent',
-                'dark',
-                'light',
             ],
             control: {
                 type: 'radio',
@@ -22,17 +20,6 @@ export default {
                 'sm',
                 'md',
                 'lg',
-            ],
-            control: {
-                type: 'radio',
-            },
-        },
-        iconOrientation: {
-            options: [
-                'up',
-                'down',
-                'left',
-                'right',
             ],
             control: {
                 type: 'radio',
@@ -73,16 +60,13 @@ const Template = (args) => ({
 });
 
 const base = {
-    default: 'Nearby places to eat',
+    default: 'Submit',
     variant: 'primary',
-    onDark: false,
     size: 'md',
     animate: true,
     href: '',
     icon: '',
-    iconOrientation: 'up',
     iconOnly: false,
-    iconWithText: false,
     iconPosition: 'left',
     tabindex: '',
 };
@@ -94,6 +78,12 @@ export const Secondary = Template.bind();
 Secondary.args = {
     ...base,
     variant: 'secondary',
+};
+
+export const Transparent = Template.bind();
+Transparent.args = {
+    ...base,
+    variant: 'transparent',
 };
 
 export const Disabled = Template.bind();
@@ -117,13 +107,15 @@ Large.args = {
 export const WithIcon = Template.bind();
 WithIcon.args = {
     ...base,
-    icon: 'user',
+    default: 'Search',
+    icon: 'search',
 };
 
 export const WithIconOnRight = Template.bind();
 WithIconOnRight.args = {
     ...base,
-    icon: 'user',
+    default: 'Search',
+    icon: 'search',
     iconPosition: 'right',
 };
 
@@ -132,16 +124,16 @@ IconOnly.args = {
     ...base,
     icon: 'search',
     iconOnly: true,
-    default: '',
+    default: 'Search',
 };
 
 export const IconOnlySecondary = Template.bind();
 IconOnlySecondary.args = {
     ...base,
-    icon: 'search',
+    icon: 'close',
     variant: 'secondary',
     iconOnly: true,
-    default: '',
+    default: 'close',
 };
 
 export const IconOnlyTransparent = Template.bind();
@@ -149,49 +141,31 @@ IconOnlyTransparent.args = {
     ...base,
     icon: 'close',
     iconOnly: true,
-    default: '',
+    default: 'close',
     variant: 'transparent',
 };
 
 export const IconOnlySmall = Template.bind();
 IconOnlySmall.args = {
     ...base,
-    icon: 'search',
+    icon: 'close',
     iconOnly: true,
     size: 'sm',
-    default: '',
+    default: 'close',
 };
 
 export const IconOnlyLarge = Template.bind();
 IconOnlyLarge.args = {
     ...base,
-    icon: 'search',
+    icon: 'close',
     iconOnly: true,
     size: 'lg',
-    default: '',
+    default: 'close',
 };
 
-export const IconWithText = Template.bind();
-IconWithText.args = {
+export const SquareCorners = Template.bind();
+SquareCorners.args = {
     ...base,
-    variant: 'transparent',
-    icon: 'share',
-    iconWithText: true,
-    default: 'Share',
-};
-
-export const IconWithTextOnDark = Template.bind();
-IconWithTextOnDark.args = {
-    ...base,
-    variant: 'transparent',
-    icon: 'close-circle',
-    iconWithText: true,
-    default: 'Close',
-    onDark: true,
-};
-
-IconWithTextOnDark.parameters = {
-    backgrounds: {
-        default: 'Dark',
-    },
+    rounded: false,
+    default: 'Play',
 };

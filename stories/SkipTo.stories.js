@@ -47,6 +47,7 @@ const Template = (args) => ({
         <div class="border" style="overflow: hidden; position: relative;">
             <VsSkipTo
                 skip-to-text="${args.skipToText}"
+                v-bind="args"
             >   
                 <template v-slot:main-menu-text>
                     ${args.mainMenuText}
@@ -77,3 +78,11 @@ export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const NoSearch = Template.bind({
+});
+
+NoSearch.args = {
+    ...base,
+    hasSearchLink: false,
+};

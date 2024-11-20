@@ -45,15 +45,15 @@ export default {
     }
 
     .vs-alert__icon-holder {
-        background-color: $vs-color-text-tertiary;
+        background-color: $vs-color-new-text-highlight;
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        padding: $spacer-4 $spacer-3;
+        padding: $spacer-100 $spacer-075;
         min-height: 2.5rem;
 
         @include media-breakpoint-up(lg) {
-            min-height: $spacer-9;
+            min-height: $spacer-300;
         }
     }
 
@@ -66,9 +66,9 @@ export default {
     .vs-alert__content {
         display: flex;
         align-items: center;
-        padding: $spacer-3;
+        padding: $spacer-075;
         background-color: $vs-color-background-information;
-        border: 1px solid $vs-color-border-tertiary;
+        border: 1px solid $vs-color-new-border-highlight;
         min-height: 100%;
     }
 </style>

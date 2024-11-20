@@ -19,6 +19,7 @@ module.exports = {
         'plugin:vue/vue3-essential',
         '@vue/eslint-config-airbnb',
         'plugin:storybook/recommended',
+        'plugin:vue/vue3-strongly-recommended',
     ],
     rules: {
         indent: [
@@ -130,6 +131,14 @@ module.exports = {
             object: false,
         }, {
             enforceForRenamedProperties: false,
+        }],
+        'vue/max-attributes-per-line': ['error', {
+            singleline: {
+                max: 1,
+            },
+            multiline: {
+                max: 1,
+            },
         }],
     },
     settings: {

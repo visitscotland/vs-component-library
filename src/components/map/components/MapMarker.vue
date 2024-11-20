@@ -225,7 +225,7 @@ export default {
     &--active {
         .vs-map-marker-icon {
             &__marker{
-                color: $vs-color-icon;
+                color: $vs-color-new-icon-primary;
             }
         }
     }

@@ -7,18 +7,19 @@
         class="vs-mega-nav-featured-item"
         data-test="vs-mega-nav-featured-item"
         heading-level="2"
+        heading-style="heading-xxs"
     >
-        <template v-slot:stretched-card-header>
+        <template #stretched-card-header>
             <!-- @slot Featured Item header text  -->
             <slot name="vs-featured-item-header" />
         </template>
 
-        <template v-slot:stretched-card-content>
+        <template #stretched-card-content>
             <!-- @slot Featured Item body content  -->
             <slot name="vs-featured-item-content" />
         </template>
 
-        <template v-slot:stretched-card-link>
+        <template #stretched-card-link>
             <!-- @slot Featured Item link text  -->
             <slot name="vs-featured-item-link" />
         </template>
@@ -87,12 +88,12 @@ export default {
             width: 80%;
             bottom: 0;
             left: 0;
-            padding: $spacer-5 $spacer-3;
+            background: $vs-color-new-background-primary;
+            padding: $spacer-125 $spacer-075;
         }
 
         .card-title {
             margin-top: $spacer-0;
-            font-size: $font-size-2;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
@@ -107,8 +108,6 @@ export default {
         }
 
         .vs-stretched-link-card__link {
-            font-size: $font-size-3;
-
             &:hover {
                 text-decoration: none;
             }
@@ -118,15 +117,11 @@ export default {
             display: flex;
             flex-direction: row-reverse;
 
-            .card-title {
-                font-size: $font-size-4;
-            }
-
             .card-body {
                 position: initial;
                 width: auto;
                 max-width: 100%;
-                padding: $spacer-8;
+                padding: $spacer-200;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -145,32 +140,27 @@ export default {
         }
 
         @include media-breakpoint-up(lg) {
-            padding: $spacer-3;
+            padding: $spacer-075;
             flex-direction: column;
             border-top: none;
 
             .card-body {
-                padding: $spacer-5 $spacer-3;
+                padding: $spacer-125 $spacer-075;
             }
 
             .vs-stretched-link-card__img-container {
                 width: 100%;
             }
 
-            .card-title {
-                font-size: $font-size-2;
-            }
-
             .vs-stretched-link-card__content {
                 display: -webkit-box;
                 margin: $spacer-0;
-                color: $vs-color-text;
-                font-size: $font-size-3;
+                color: $vs-color-new-text-primary;
             }
 
             .vs-stretched-link-card__link {
                 align-self: flex-end;
-                padding: $spacer-2;
+                padding: $spacer-050;
             }
         }
     }
@@ -188,11 +178,10 @@ export default {
                     bottom: 0;
                     left: 0;
                     background: #fff;
-                    padding: $spacer-5 $spacer-3;
+                    padding: $spacer-125 $spacer-075;
                 }
 
                 .card-title {
-                    font-size: $font-size-2;
                     margin-bottom: 0;
                 }
             }

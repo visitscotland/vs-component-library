@@ -22,11 +22,12 @@
                 </div>
                 <VsHeading
                     level="3"
-                    class="vs-itinerary-stop__title ms-4 mt-0"
+                    heading-style="heading-s"
+                    class="vs-itinerary-stop__title ms-100 mt-0"
                 >
                     {{ stopLabel }}
 
-                    <template v-slot:sub-heading>
+                    <template #sub-heading>
                         {{ stopTitle }}
                     </template>
                 </VsHeading>
@@ -37,6 +38,10 @@
 
             <!-- @slot The description content for the stop -->
             <slot name="stop-description" />
+
+            <!-- @slot Indicator of length of time to explore stop -->
+
+            <slot name="stop-time-to-explore" />
 
             <!-- @slot The tips content for the stop -->
             <slot name="stop-tips" />
@@ -121,15 +126,21 @@ export default {
         margin-bottom: 0;
 
         .border {
-            padding-bottom: $spacer-8;
+            padding-bottom: $spacer-200;
+        }
+    }
+
+    &__title {
+        @include media-breakpoint-up(sm) {
+            @include heading-style(heading-m);
         }
     }
 
     .border {
         position: relative;
         background-color: $vs-color-background-inverse;
-        border: 1px solid $vs-color-border;
-        padding: $spacer-4;
+        border: 1px solid $vs-color-new-border-primary;
+        padding: $spacer-100;
     }
 
     @include media-breakpoint-up(sm) {
@@ -140,7 +151,7 @@ export default {
     }
     .map-marker__count {
         color: $vs-color-text-inverse;
-        font-family: $headings-font-family;
+        font-family: $display-font-family;
         font-size: $font-size-4;
         display: block;
         position: absolute;
@@ -151,19 +162,19 @@ export default {
     }
 
     .vs-icon-list {
-        border-top: 1px solid $vs-color-border;
-        margin-top: $spacer-4;
+        border-top: 1px solid $vs-color-new-border-primary;
+        margin-top: $spacer-100;
 
         .vs-icon-list__title {
-            margin-top: $spacer-4;
+            margin-top: $spacer-100;
         }
     }
 
     &__address {
         @include media-breakpoint-up(md) {
-            margin-bottom: -#{$spacer-4};
-            padding: $spacer-4 $spacer-0;
-            margin-right: $spacer-6;
+            margin-bottom: -#{$spacer-100};
+            padding: $spacer-100 $spacer-0;
+            margin-right: $spacer-150;
         }
     }
 
@@ -182,7 +193,7 @@ export default {
 
     &__info {
         @include media-breakpoint-up(md) {
-            padding: $spacer-6 0;
+            padding: $spacer-150 0;
         }
     }
 }

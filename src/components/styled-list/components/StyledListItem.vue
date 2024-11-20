@@ -17,7 +17,10 @@
                     :src="props.imageSrc"
                 />
 
-                <VsHeading level="3">
+                <VsHeading
+                    :level="props.headingLevel"
+                    heading-style="heading-xxs"
+                >
                     {{ heading }}
                 </VsHeading>
 
@@ -31,13 +34,11 @@
 </template>
 
 <script setup>
+import { isNumber } from 'lodash';
 import VsHeading from '../../heading/Heading.vue';
 import VsImg from '../../img/Img.vue';
 import VsRichTextWrapper from '../../rich-text-wrapper/RichTextWrapper.vue';
-import {
-    VsRow,
-    VsCol,
-} from '../../grid';
+import { VsRow, VsCol } from '../../grid';
 
 const props = defineProps({
     /**
@@ -46,6 +47,16 @@ const props = defineProps({
     heading: {
         type: String,
         required: true,
+    },
+    /**
+     * The correct heading level for page hierarchy, the
+     * heading will be styled the same regardless of level provided
+     * `1|2|3|4|5|6`
+     */
+    headingLevel: {
+        type: Number,
+        default: 3,
+        validator: (value) => (isNumber(value) ? value > 0 && value < 7 : value.match(/(1|2|3|4|5|6)/)),
     },
     /**
      * Image source of the list item.
@@ -67,74 +78,77 @@ const props = defineProps({
 </script>
 
 <style lang="scss">
-.vs-styled-list--numbered .vs-styled-list__item {
-    counter-increment: section;
-    padding: 0 0 $spacer-150 $spacer-150;
-    position: relative;
+    .vs-styled-list--icon
+    .vs-styled-list__item {
+        padding: $spacer-0 $spacer-0 $spacer-150 $spacer-300;
+        position: relative;
 
-    @include media-breakpoint-up(md) {
-        padding: 0 0 $spacer-200 $spacer-200;
-    }
-
-    &::before {
-        background-color: $vs-color-background-accent-heather;
-        color: $vs-color-text-inverse;
-        content: counter(section);
-        font-size: $font-size-4;
-        padding: $spacer-025 $spacer-075;
-        position: absolute;
-        right: 100%;
-        top: 0;
-
-        @include media-breakpoint-up(md) {
-            padding: $spacer-025 $spacer-175;
+        &::before {
+            content: '\e085';
+            color: $vs-color-new-icon-accent-saltire-30;
+            font-family: 'Font Awesome Kit';
+            font-size: $font-size-8;
+            position: absolute;
+            top: $spacer-075;
+            left: 0;
         }
     }
 
-    &:not(:last-child)::after {
-        position: absolute;
-        content: '';
-        width: $spacer-025;
-        height: 100%;
-        background-color: $vs-color-border-accent-heather;
-        right: 100%;
-        top: 0;
+    .vs-styled-list--numbered
+    .vs-styled-list__item {
+        counter-increment: section;
+        padding: $spacer-0 $spacer-0 $spacer-150 $spacer-150;
+        position: relative;
+
+        @include media-breakpoint-up(md) {
+            padding: $spacer-0 $spacer-0 $spacer-200 $spacer-200;
+        }
+
+        &::before {
+            background-color: $vs-color-new-background-accent-heather-80;
+            color: $vs-color-text-inverse;
+            content: counter(section);
+            font-size: $font-size-4;
+            padding: $spacer-025 $spacer-075;
+            position: absolute;
+            right: 100%;
+            top: $spacer-0125;
+
+            @include media-breakpoint-up(md) {
+                padding: $spacer-025 $spacer-175;
+            }
+        }
+
+        &:not(:last-child)::after {
+            position: absolute;
+            content: '';
+            width: $spacer-025;
+            height: 100%;
+            background-color: $vs-color-new-background-accent-heather-80;
+            right: 100%;
+            top: $spacer-0125;
+        }
+
+        .vs-heading {
+            margin-top: $spacer-0;
+        }
     }
 
-    h3 {
-        margin-top: 0;
+    .vs-styled-list--image {
+        margin-bottom: $spacer-250;
+
+        img {
+            max-width: 100%;
+        }
     }
-}
 
-.vs-styled-list--icon .vs-styled-list__item {
-    padding: 0 0 $spacer-150 $spacer-300;
-    position: relative;
+    .vs-styled-list--image-horizontal
+    .vs-styled-list__item {
+        padding: $spacer-0 $spacer-150;
 
-    &::before {
-        content: '\e085';
-        color: $vs-color-text-accent-glencoe;
-        font-family: 'Font Awesome Kit';
-        font-size: $font-size-8;
-        position: absolute;
-        top: $spacer-2;
-        left: 0;
+        img {
+            margin: auto;
+            width: 80%;
+        }
     }
-}
-
-.vs-styled-list--image {
-    margin-bottom: $spacer-250;
-
-    img {
-        max-width: 100%;
-    }
-}
-
-.vs-styled-list--image-horizontal .vs-styled-list__item {
-    padding: 0 $spacer-150;
-
-    img {
-        margin: auto;
-        width: 80%
-    }
-}
 </style>

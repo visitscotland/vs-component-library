@@ -111,65 +111,65 @@ export default {
 
         &__badge {
             position: absolute;
-            padding: $spacer-0 $spacer-2;
+            padding: $spacer-0 $spacer-050;
             text-transform: uppercase;
             letter-spacing: $letter-spacing-l;
             max-height: 1.5em;
             text-align: right;
             text-overflow: ellipsis;
-            max-width: calc(100% - #{$spacer-4});
+            max-width: calc(100% - #{$spacer-100});
             overflow: hidden;
             white-space: nowrap;
             font-size: $font-size-3;
 
             &--category {
                 color: $vs-color-text-inverse;
-                background-color: $vs-color-background-tertiary;
+                background-color: $vs-color-new-background-accent-heather-80;
             }
 
             &--offer {
                 color: $vs-color-text-inverse;
-                background-color: $vs-color-background-accent-cuillin;
+                background-color: $vs-color-new-background-accent-tolsta-40;
             }
 
             &--open {
-                color: $vs-color-text-tertiary;
+                color: $vs-color-new-text-highlight;
                 background-color: $vs-color-background-information;
                 font-weight: $font-weight-bold;
             }
 
             &--tr {
-                top: $spacer-2;
-                right: $spacer-2;
+                top: $spacer-050;
+                right: $spacer-050;
             }
 
             &--tr2 {
                 top: 2.5em;
-                right: $spacer-2;
+                right: $spacer-050;
             }
 
             &--br {
-                bottom: $spacer-2;
-                right: $spacer-2;
-                padding: $spacer-0 $spacer-4;
+                bottom: $spacer-050;
+                right: $spacer-050;
+                padding: $spacer-0 $spacer-100;
             }
         }
 
         &__multi-badge-holder {
             position: absolute;
             text-align: right;
-            max-width: calc(100% - #{$spacer-4});
+            max-width: calc(100% - #{$spacer-100});
             width: 100%;
             max-height: 1.5em;
             overflow: hidden;
-            top: $spacer-2;
-            right: $spacer-2;
+            top: $spacer-050;
+            right: $spacer-050;
         }
 
         &__multi-badge {
             position: relative;
             display: inline-block;
-            margin-left: $spacer-2;
+            margin-left: $spacer-050;
         }
     }
 

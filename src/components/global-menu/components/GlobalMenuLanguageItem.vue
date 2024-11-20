@@ -72,13 +72,13 @@ export default {
         }
 
         .dropdown-item {
-            padding: $spacer-3;
+            padding: $spacer-075;
             color: $vs-color-background-inverse;
             text-decoration: none;
             line-height: $line-height-xs;
 
             &:hover {
-                background: $vs-color-background-accent-heather;
+                background: $vs-color-new-background-accent-heather-80;
             }
 
             &:focus {
@@ -96,7 +96,7 @@ export default {
 
         @include media-breakpoint-up(md) {
             width: auto;
-            padding: $spacer-3;
+            padding: $spacer-075;
         }
 
         .dropdown-item {
@@ -110,11 +110,11 @@ export default {
             }
 
             @include media-breakpoint-up(md) {
-                padding: $spacer-1 $spacer-2;
+                padding: $spacer-025 $spacer-050;
             }
 
             @include media-breakpoint-up(lg) {
-                padding: $spacer-1 $spacer-4;
+                padding: $spacer-025 $spacer-100;
             }
         }
     }

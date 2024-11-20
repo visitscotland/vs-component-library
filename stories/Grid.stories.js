@@ -42,49 +42,67 @@ const Template = (args) => ({
         };
     },
     template: `
-        <vs-container>
+        <vs-container :fluid="args.fluid">
             <vs-row>
-                <VsCol v-bind="args" v-for="n in [1,2,3]" :key="n" style="padding: .25rem;">
+                <vs-col v-bind="args" v-for="n in args.NumOfCols" :key="n" style="padding: .25rem;">
                     <div
                         v-if="${'default' in args}"
                         style="background-color: #e7f5f6; padding: .25rem 1rem;"
                     >
                         ${args.default}
                     </div>
-                </VsCol>
+                </vs-col>
             </vs-row>
         </vs-container>
     `,
 });
 
-const defaultSlot = 'cols="12"';
-
 const base = {
-    default: defaultSlot,
+    default: 'cols="12"',
     cols: 12,
+    NumOfCols: 1,
+    fluid: false,
 };
 
-export const Default = Template.bind({
+export const Container = Template.bind({
 });
 
-Default.args = base;
-
-export const SetWidth = Template.bind({
-});
-
-SetWidth.args = {
+Container.args = {
     ...base,
-    default: 'cols="6"',
-    cols: 6,
+    default: 'This is a fixed-width container',
+    cols: 12,
+    NumOfCols: 1,
 };
 
-export const Responsive = Template.bind({
+export const ContainerFluid = Template.bind({
 });
 
-Responsive.args = {
+ContainerFluid.args = {
     ...base,
-    default: 'sm="12" md="6" lg="4"',
-    sm: 12,
-    md: 6,
-    lg: 4,
+    default: 'This is a fluid container',
+    cols: 12,
+    NumOfCols: 1,
+    fluid: true,
+};
+
+export const Row = Template.bind({
+});
+
+Row.args = {
+    ...base,
+    default: 'This is a row with three columns',
+    cols: 4,
+    NumOfCols: 3,
+};
+
+export const Col = Template.bind({
+});
+
+Col.args = {
+    ...base,
+    default: 'cols="12" md="4" lg="3"',
+    cols: 12,
+    md: 4,
+    xl: 3,
+    NumOfCols: 6,
 };

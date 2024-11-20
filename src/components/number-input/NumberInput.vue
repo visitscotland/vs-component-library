@@ -29,15 +29,13 @@
 
         <VsButton
             class="vs-number-input__increment"
-            :iconOnly="true"
+            :icon-only="true"
             size="sm"
             icon="minus"
             :disabled="(inputVal <= minimumNumber) ? true : null"
             @click="decrementValue"
         >
-            <span class="visually-hidden">
-                Add 1
-            </span>
+            Remove 1
         </VsButton>
 
         <BFormInput
@@ -63,15 +61,13 @@
 
         <VsButton
             class="vs-number-input__increment"
-            :iconOnly="true"
+            :icon-only="true"
             size="sm"
             icon="plus"
             :disabled="(inputVal >= maximumNumber) ? true : null"
             @click="incrementValue"
         >
-            <span class="visually-hidden">
-                Remove 1
-            </span>
+            Add 1
         </VsButton>
 
         <VsButton
@@ -226,6 +222,7 @@ export default {
             default: false,
         },
     },
+    emits: ['updated'],
     setup: () => ({
         v$: useVuelidate(),
     }),
@@ -366,13 +363,13 @@ export default {
 .vs-number-input {
     @include form-element-styles;
     display: inline-block;
-    width: $spacer-10;
+    width: $spacer-400;
     text-align: center;
-    margin-top: $spacer-2;
-    margin-left: $spacer-4;
-    margin-right: $spacer-4;
+    margin-top: $spacer-050;
+    margin-left: $spacer-100;
+    margin-right: $spacer-100;
     font-size: $font-size-lead-md;
-    padding: $spacer-2 $spacer-3;
+    padding: $spacer-050 $spacer-075;
 
     &.form-control-md {
         height: 50px;
@@ -388,7 +385,7 @@ export default {
 
     &__clear-button {
         position: absolute;
-        right: $spacer-5;
+        right: $spacer-125;
         top: 50%;
         transform: translate(0, -50%);
     }
@@ -399,8 +396,8 @@ export default {
     }
 
     &__increment {
-        width: $spacer-7;
-        height: $spacer-7;
+        width: $spacer-175;
+        height: $spacer-175;
     }
 }
 </style>

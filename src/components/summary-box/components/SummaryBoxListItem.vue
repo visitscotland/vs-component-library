@@ -31,7 +31,7 @@
                     size="xl"
                 />
             </div>
-            <div class="text-wrapper d-block w-auto pt-4">
+            <div class="text-wrapper d-block w-auto pt-100">
                 <span>{{ iconLabel }}</span>
             </div>
         </div>
@@ -90,17 +90,17 @@ export default {
 <style lang="scss" scoped>
 .vs-summary-box-item {
     flex-grow: 1;
-    flex-basis: calc(50% - #{$spacer-4});
-    margin: $spacer-2;
+    flex-basis: calc(50% - #{$spacer-100});
+    margin: $spacer-050;
 
     @include media-breakpoint-up(md) {
         flex-grow: 1;
-        flex-basis: calc(50% - #{$spacer-6});
-        margin: $spacer-3;
+        flex-basis: calc(50% - #{$spacer-150});
+        margin: $spacer-075;
     }
 
     &::after {
-        border: 1px solid $vs-color-border-bold;
+        border: 1px solid $vs-color-new-border-secondary;
         content: "";
         display: block;
         padding-bottom: 100%;
@@ -108,12 +108,12 @@ export default {
 }
 
 .vs-summary-box-item__label {
-    top: $spacer-3;
+    top: $spacer-075;
     left: 0;
     line-height: $line_height_xs;
 
     @include media-breakpoint-up(lg) {
-        top: $spacer-2;
+        top: $spacer-050;
     }
 
     .vs-summary-box-item__label-inner {
@@ -129,13 +129,9 @@ export default {
 }
 
 .vs-summary-box-item__display {
-    font-family: $headings-font-family;
+    font-family: $display-font-family;
     font-size: $font-size-9;
     bottom: 35%;
-
-    .divider {
-        font-family: $headings-font-family-thin;
-    }
 
     @include media-breakpoint-up(lg) {
         font-size: $font-size-10;
@@ -160,7 +156,7 @@ export default {
         flex-basis: 0;
 
         @include media-breakpoint-up(lg) {
-            font-size: $spacer-4;
+            font-size: $spacer-100;
             line-height: $line_height_standard;
         }
     }

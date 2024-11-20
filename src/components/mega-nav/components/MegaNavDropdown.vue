@@ -16,10 +16,13 @@
             <li role="menuitem">
                 <VsContainer
                     fluid="lg"
-                    class="px-0 px-lg-3"
+                    class="px-0 px-lg-075"
                 >
                     <VsRow class="g-0">
-                        <VsCol cols="12" class="position-relative">
+                        <VsCol
+                            cols="12"
+                            class="position-relative"
+                        >
                             <!-- @slot Used to display the top menu link
                             at the top of the dropdown menu  -->
                             <slot name="cta-link" />
@@ -38,9 +41,7 @@
                                 @click="closeMenu"
                                 @keydown.tab="tabFromClose"
                             >
-                                <span class="visually-hidden">
-                                    {{ menuToggleAltText }}
-                                </span>
+                                {{ menuToggleAltText }}
                             </VsButton>
                         </VsCol>
                     </VsRow>
@@ -56,10 +57,13 @@
             <li role="menuitem">
                 <VsContainer
                     fluid="lg"
-                    class="px-0 px-lg-3"
+                    class="px-0 px-lg-075"
                 >
                     <VsRow class="g-0">
-                        <VsCol cols="12" class="position-relative">
+                        <VsCol
+                            cols="12"
+                            class="position-relative"
+                        >
                             <!-- @slot Used to display the top menu link
                             at the top of the dropdown menu  -->
                             <slot name="cta-link" />
@@ -77,9 +81,7 @@
                                 variant="transparent"
                                 @click="closeMenu"
                             >
-                                <span class="visually-hidden">
-                                    {{ menuToggleAltText }}
-                                </span>
+                                {{ menuToggleAltText }}
                             </VsButton>
                         </VsCol>
                     </VsRow>
@@ -128,6 +130,7 @@ export default {
             required: true,
         },
     },
+    emits: ['menuToggled'],
     mounted() {
         // Listen for dropdown opening and closing and emit event
         if (this.emitter) {
@@ -195,7 +198,7 @@ export default {
 <style lang="scss">
 
 .vs-mega-nav-dropdown {
-    padding: $spacer-2 0 0 $spacer-2;
+    padding: $spacer-050 0 0 $spacer-050;
 
     @include media-breakpoint-up(lg) {
         padding: 0;
@@ -206,17 +209,17 @@ export default {
         height: 26px;
         width: 26px;
         font-size: 0;
-        right: $spacer-3;
+        right: $spacer-075;
         top: -36px;
 
         &:hover {
             .vs-icon{
-                color: $vs-color-icon-primary;
+                color: $vs-color-new-icon-cta-on-light;
             }
         }
 
         @include media-breakpoint-up(lg) {
-            right: $spacer-1;
+            right: $spacer-025;
             top: -4px;
         }
     }
@@ -228,13 +231,16 @@ export default {
         line-height: $line-height-standard;
         border-radius: 0;
         border: 0;
-        height: $spacer-7;
-        width: $spacer-7;
+        height: $spacer-175;
+        width: $spacer-175;
         font-size: 0;
         padding: .125rem;
 
+        &:focus-visible {
+            @extend %primary-button-focus;
+        }
+
         &:focus, &:active, &:active:focus {
-            box-shadow: $vs-box-shadow-focus;
             z-index: 1001;
         }
 
@@ -249,7 +255,7 @@ export default {
         }
 
         @include media-breakpoint-up(lg) {
-            padding: $spacer-3 $spacer-2;
+            padding: $spacer-075 $spacer-050;
             height: auto;
             width: auto;
             font-size: $font-size-4;
@@ -262,14 +268,14 @@ export default {
                 left: 0;
                 width: 0;
                 height: 4px;
-                background: $vs-color-background-primary;
+                background: $vs-color-new-interaction-cta-primary;
                 transition: width $duration-base linear;
                 border: 0;
                 margin: 0;
             }
 
             &:hover {
-                color: $vs-color-text-primary;
+                color: $vs-color-new-text-cta-on-light;
 
                 &::after {
                     width: 100%;
@@ -278,7 +284,7 @@ export default {
         }
 
         @include media-breakpoint-up(xl) {
-            margin: 0 $spacer-3;
+            margin: 0 $spacer-075;
         }
     }
 
@@ -296,9 +302,9 @@ export default {
         transform: translate3d(0px, 45px, 0px) !important;
 
         @include media-breakpoint-up(lg) {
-            padding: $spacer-5 0 $spacer-8;
+            padding: $spacer-125 0 $spacer-200;
             max-height: 595px;
-            transform: translate3d(0px, 55px, 0px) !important;
+            transform: translate3d(0px, 48px, 0px) !important;
         }
 
         .vs-mega-nav-accordion-item--level-1:first-child{
@@ -320,11 +326,11 @@ export default {
 @include no-js {
     .vs-mega-nav-dropdown {
         .btn.dropdown-toggle {
-            padding: $spacer-3 $spacer-2;
+            padding: $spacer-075 $spacer-050;
             height: auto;
             width: auto;
             font-size: $font-size-4;
-            margin-bottom: $spacer-2;
+            margin-bottom: $spacer-050;
 
             @include media-breakpoint-up(lg) {
                 margin-bottom: 0;
@@ -356,11 +362,11 @@ export default {
             }
 
             &:hover {
-                color: $vs-color-text-primary;
+                color: $vs-color-new-text-cta-on-light;
 
                 &::after {
                     width: 100%;
-                    background: $vs-color-background-primary;
+                    background: $vs-color-new-interaction-cta-primary;
                 }
             }
         }

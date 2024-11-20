@@ -3,7 +3,7 @@
         class="vs-summary-box"
         data-test="vs-summary-box-list"
     >
-        <ul class="vs-summary-box__list list-unstyled d-flex flex-wrap p-2 p-sm-3">
+        <ul class="vs-summary-box__list list-unstyled d-flex flex-wrap p-050 p-sm-075">
             <!-- Default slot, should load in a set of 4 SummaryBoxListItem and
             SummaryBoxDistanceListItem elements -->
             <slot />
@@ -32,13 +32,13 @@ export default {
     @include media-breakpoint-up(lg) {
         position: absolute;
         top: 0;
-        width: calc(100% - #{$spacer-8});
+        width: calc(100% - #{$spacer-200});
         z-index: 1000;
     }
 }
 
 .vs-summary-box__list {
-    background-color: $vs-color-background-accent-gorse;
+    background-color: $vs-color-new-background-accent-gorse-05;
     width: 350px;
 
     @include media-breakpoint-up(lg) {

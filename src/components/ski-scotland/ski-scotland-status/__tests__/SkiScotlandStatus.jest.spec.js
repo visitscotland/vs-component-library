@@ -247,7 +247,7 @@ describe('VsSkiScotlandStatus', () => {
 
         it('should set correct colour token status', () => {
             const colourBadge = wrapper.find('[data-test="vs-accordion-item__card-colour-badge"]');
-            expect(colourBadge.attributes().style).toBe('background-color: rgb(4, 200, 82);');
+            expect(colourBadge.attributes().style).toBe('background-color: rgb(3, 135, 55);');
         });
     });
 

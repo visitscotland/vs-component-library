@@ -50,8 +50,8 @@
             </VsAccordionToggle>
 
             <VsHeading
-                level="2"
-                override-style-level="6"
+                :level="headingLevel"
+                heading-style="heading-xxs"
                 class="d-none vs-accordion-item__title"
                 :class="toggleResponsiveItem"
                 data-test="vs-accordion__item-title"
@@ -79,9 +79,11 @@ import VsAccordionToggle from '@/components/accordion/components/AccordionToggle
 import VsIcon from '@/components/icon/Icon.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import { inject } from 'vue';
-
+import { isNumber } from 'lodash';
 import {
-    BCard, BCardHeader, BCardBody,
+    BCard,
+    BCardHeader,
+    BCardBody,
 } from 'bootstrap-vue-next';
 
 /**
@@ -126,6 +128,16 @@ export default {
         controlId: {
             type: String,
             required: true,
+        },
+        /**
+         * The correct heading level for page hierarchy, the
+         * heading will be styled the same regardless of level provided
+         * `1|2|3|4|5|6`
+         */
+        headingLevel: {
+            type: Number,
+            default: 2,
+            validator: (value) => (isNumber(value) ? value > 0 && value < 7 : value.match(/(1|2|3|4|5|6)/)),
         },
         /**
          * If this is provided, the accordion expands above
@@ -183,12 +195,11 @@ export default {
 </script>
 
 <style lang="scss">
-
 .vs-accordion-item.card {
     border: 0;
 
-    &.vs-accordion-item__responsive{
-        border-top: 1px solid $vs-color-border;
+    &.vs-accordion-item__responsive {
+        border-top: 1px solid $vs-color-new-border-primary;
     }
 
     .vs-accordion-item__card-header {
@@ -202,10 +213,10 @@ export default {
         font-weight: $font-weight-bold;
         font-size: $font-size-6;
         letter-spacing: normal;
-        padding: $spacer-3;
+        padding: $spacer-075;
         border: 0;
         margin-bottom: 1px;
-        box-shadow: 0px -1px 0px 0px $vs-color-border;
+        box-shadow: 0px -1px 0px 0px $vs-color-new-border-primary;
 
         &:focus {
             box-shadow: $vs-box-shadow-focus inset;
@@ -213,26 +224,26 @@ export default {
     }
 
     .vs-accordion-item__title {
-        padding: $spacer-3;
+        padding: $spacer-075;
         margin-bottom: 0;
     }
 
     .vs-accordion-item__card-colour-badge {
-        width: $spacer-3;
-        height: $spacer-3;
-        border-radius: $spacer-1;
+        width: $spacer-075;
+        height: $spacer-075;
+        border-radius: $spacer-025;
         display: inline-block;
-        margin-right: $spacer-4;
+        margin-right: $spacer-100;
     }
 
     .vs-accordion-item__panel.card-body {
-        padding: 0 0 $spacer-2;
+        padding: 0 0 $spacer-050;
     }
 }
 
 @include no-js {
     .vs-accordion-item .vs-accordion-item__panel {
-        display: block!important;
+        display: block !important;
     }
 }
 </style>

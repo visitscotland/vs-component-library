@@ -9,7 +9,7 @@
         >
             <!-- eslint-disable -->
             <label
-                class="vs-carbon-calculator-question__label mb-8"
+                class="vs-carbon-calculator-question__label mb-200"
                 :for="fieldName"
             >
                 {{ label }}
@@ -18,21 +18,21 @@
 
             <VsRadioButton
                 v-if="fieldType === 'radio'"
-                :fieldName="fieldName"
+                :field-name="fieldName"
                 :options="options"
                 :required="true"
-                :hintText="hint"
-                @updateFieldData="valueChanged"
+                :hint-text="hint"
+                @update-field-data="valueChanged"
             />
 
             <VsNumberInput
                 v-if="fieldType === 'number'"
-                :fieldName="fieldName"
-                :incrementControls="true"
+                :field-name="fieldName"
+                :increment-controls="true"
                 :value="0"
-                :minimumNumber="minimum"
-                :maximumNumber="maximum"
-                :hintText="hint"
+                :minimum-number="minimum"
+                :maximum-number="maximum"
+                :hint-text="hint"
                 @updated="valueChanged"
             />
         </div>
@@ -128,6 +128,7 @@ export default {
             default: 0,
         },
     },
+    emits: ['updateFieldData'],
     methods: {
         /**
          * Fired when the value of the nested input changes, emits the new value up to the
@@ -142,7 +143,7 @@ export default {
 
 <style lang='scss'>
     .vs-carbon-calculator-question {
-        margin-bottom: $spacer-8;
+        margin-bottom: $spacer-200;
     }
 
     .vs-carbon-calculator-question__label {

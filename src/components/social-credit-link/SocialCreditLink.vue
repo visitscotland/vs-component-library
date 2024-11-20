@@ -8,7 +8,7 @@
             :name="source"
             variant="inverse"
             size="xs"
-            class="me-1"
+            class="me-025"
             data-test="vs-social-credit-link__icon"
         />
         <VsLink
@@ -80,7 +80,6 @@ export default {
         font-size: $font-size-3;
 
         .vs-icon {
-            color: $vs-color-icon-inverse;
             vertical-align: middle;
         }
     }

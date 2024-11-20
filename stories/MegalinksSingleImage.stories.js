@@ -111,7 +111,7 @@ const Template = (args) => ({
                 <VsCol cols="12">
                     <VsVideo
                         videoId="g-Fhvj7vW-E"
-                        class="mb-8"
+                        class="mb-200"
                         cookie-btn-text="Manage cookies"
                         no-js-message="You need Javascript enabled to see this video"
                         no-cookies-message="You need cookies enabled to see this video"
@@ -137,7 +137,7 @@ const base = {
     buttonLink: '#',
     buttonText: 'View our map of Scotland',
     subTitle: 'Where will you explore?',
-    imageSrc: '/fixtures/megalinks/illustrated-map-of-scotland.jpg',
+    imageSrc: './fixtures/megalinks/illustrated-map-of-scotland.jpg',
     altText: 'A map of Scotland',
     videoErrorMessage: 'Something went wrong',
     imageCaption: 'Map of SCotland',

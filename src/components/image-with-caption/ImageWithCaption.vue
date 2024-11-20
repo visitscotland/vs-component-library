@@ -21,12 +21,13 @@
             <VsToggleButton
                 :img-src="imageSrc"
                 :toggle-id="uniqueCaptionId"
-                @toggleAction="toggleCaption"
+                @toggle-action="toggleCaption"
                 v-if="showToggle"
             >
-                {{ toggleButtonText }}
-
-                <template v-slot:toggle-icon>
+                <span class="visually-hidden">
+                    {{ toggleButtonText }}
+                </span>
+                <template #toggle-icon>
                     <!-- @slot Slot for custom image to be used for toggle icon
                         eg. social media images -->
                     <slot name="toggle-icon" />
@@ -43,13 +44,13 @@
                 <VsVideoCaption
                     :video-btn-text="playButtonText"
                     :with-toggle-btn="showToggle"
-                    @toggleAction="toggleCaption"
+                    @toggle-action="toggleCaption"
                     :video-id="videoId"
                     :error-message="errorMessage"
                     :variant="smallPlayButton ? 'narrow' : 'wide'"
                 >
                     <!-- @slot Slot for the video title text -->
-                    <template v-slot:video-title>
+                    <template #video-title>
                         <slot name="video-title" />
                     </template>
                 </VsVideoCaption>
@@ -259,12 +260,12 @@ export default {
 
             .vs-toggle-btn {
                 position: absolute;
-                bottom: $spacer-2;
-                right: $spacer-2;
+                bottom: $spacer-050;
+                right: $spacer-050;
 
                 @include media-breakpoint-down(sm) {
                     .fa-icon-colours--white {
-                        --fa-primary-color: #{$vs-color-icon};
+                        --fa-primary-color: #{$vs-color-new-icon-primary};
                         --fa-secondary-color: #{$vs-color-icon-inverse};
                     }
                 }
@@ -274,7 +275,7 @@ export default {
                         display: block;
 
                         .fa-icon-colours--white {
-                            --fa-primary-color: #{$vs-color-icon};
+                            --fa-primary-color: #{$vs-color-new-icon-primary};
                             --fa-secondary-color: #{$vs-color-icon-inverse};
                         }
                     }
@@ -369,7 +370,7 @@ export default {
 
             .vs-caption {
                 &__image-caption {
-                    margin-bottom: $spacer-2;
+                    margin-bottom: $spacer-050;
                 }
 
                 .row {
@@ -454,8 +455,8 @@ export default {
 
         &--overlapped {
             .vs-toggle-btn {
-                bottom: $spacer-9;
-                right: $spacer-4;
+                bottom: $spacer-300;
+                right: $spacer-100;
             }
         }
 
@@ -521,11 +522,11 @@ export default {
                                 }
 
                                 &__image-caption {
-                                    margin-bottom: $spacer-5;
+                                    margin-bottom: $spacer-125;
                                 }
 
                                 &__caption-info {
-                                    padding: $spacer-3 $spacer-2;
+                                    padding: $spacer-075 $spacer-050;
                                 }
                             }
                         }

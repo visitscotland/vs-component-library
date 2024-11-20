@@ -9,6 +9,7 @@
             <VsIcon
                 name="coo"
                 size="lg"
+                variant="tertiary"
                 class="vs-carbon-calculator-tip__icon"
             />
         </div>
@@ -18,7 +19,7 @@
         >
             <VsHeading
                 level="3"
-                overrideStyleLevel="6"
+                heading-style="heading-xs"
             >
                 {{ labelsMap.topTip }}
             </VsHeading>
@@ -71,11 +72,11 @@ export default {
 
 <style lang='scss'>
     .vs-carbon-calculator-tip {
-        padding: $spacer-4;
+        padding: $spacer-100;
         background: $vs-color-background-information;
 
         .vs-heading {
-            margin-top: 0;
+            margin-top: $spacer-0;
         }
     }
 
@@ -86,16 +87,12 @@ export default {
     .vs-carbon-calculator-tip__icon-container {
         display: inline-flex;
         vertical-align: top;
-        width: $spacer-9;
-
-        .vs-icon {
-            color: $vs-color-icon-accent-whisky;
-        }
+        width: $spacer-300;
     }
 
     .vs-carbon-calculator-tip__content {
         display: inline-block;
-        width: calc(100% - $spacer-10);
+        width: calc(100% - $spacer-400);
         vertical-align: top;
     }
 </style>

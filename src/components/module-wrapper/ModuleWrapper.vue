@@ -1,8 +1,7 @@
 <template>
     <section
-        class="vs-module-wrapper"
+        :class="sectionClasses"
         data-test="vs-module-wrapper"
-        :class="`vs-module-wrapper--${theme}`"
         v-bind="$attrs"
     >
         <VsContainer
@@ -11,27 +10,22 @@
         >
             <VsRow>
                 <VsCol
-                    cols="10"
-                    offset="1"
-                    md="8"
-                    offset-md="2"
+                    v-bind="headingColumnSizes"
                     v-if="$slots['vs-module-wrapper-heading'] && $slots['vs-module-wrapper-heading']"
                 >
                     <VsHeading
-                        level="2"
+                        :level="headingLevel"
+                        heading-style="heading-xl"
                         class="vs-module-wrapper__heading"
                         data-test="vs-module-wrapper__heading"
+                        :id="anchorId"
                     >
                         <!-- @slot Slot to contain heading -->
                         <slot name="vs-module-wrapper-heading" />
                     </VsHeading>
                 </VsCol>
                 <VsCol
-                    cols="12"
-                    sm="10"
-                    offset-sm="1"
-                    md="8"
-                    offset-md="2"
+                    v-bind="IntroColumnSizes"
                     v-if="$slots['vs-module-wrapper-intro'] && $slots['vs-module-wrapper-intro']"
                 >
                     <VsRichTextWrapper
@@ -54,6 +48,7 @@
 <script>
 import VsHeading from '@/components/heading/Heading.vue';
 import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import { isNumber } from 'lodash';
 import {
     VsContainer, VsRow, VsCol,
 } from '@/components/grid';
@@ -76,6 +71,32 @@ export default {
     },
     props: {
         /**
+         * AnchorId will be used to set an id on the heading,
+         * allowing for anchor links (ToC)
+         */
+        anchorId: {
+            type: String,
+            default: null,
+        },
+        /**
+         * Set column size and left-align the heading and intro content
+         * for the Business Support Hub site.
+         */
+        businessSupport: {
+            type: Boolean,
+            default: false,
+        },
+        /**
+        * The correct heading level for page hierarchy, the
+        * heading will be styled the same regardless of level provided
+        * `1|2|3|4|5|6`
+        */
+        headingLevel: {
+            type: Number,
+            default: 2,
+            validator: (value) => (isNumber(value) ? value > 0 && value < 7 : value.match(/(1|2|3|4|5|6)/)),
+        },
+        /**
         * Theme of module wrapper to use
         */
         theme: {
@@ -84,22 +105,48 @@ export default {
             validator: (value) => value.match(/(light|grey|neutral)/),
         },
     },
+    computed: {
+        sectionClasses() {
+            return [
+                'vs-module-wrapper',
+                `vs-module-wrapper--${this.theme}`,
+                this.businessSupport ? 'vs-module-wrapper--left-align' : null,
+            ];
+        },
+        headingColumnSizes() {
+            return {
+                cols: this.businessSupport ? 12 : 10,
+                offset: this.businessSupport ? 0 : 1,
+                md: this.businessSupport ? 12 : 8,
+                'offset-md': this.businessSupport ? 0 : 2,
+            };
+        },
+        IntroColumnSizes() {
+            return {
+                cols: 12,
+                sm: this.businessSupport ? 12 : 10,
+                'offset-sm': this.businessSupport ? 0 : 1,
+                md: this.businessSupport ? 12 : 8,
+                'offset-md': this.businessSupport ? 0 : 2,
+            };
+        },
+    },
 };
 </script>
 
 <style lang="scss">
     .vs-module-wrapper {
-        padding-top: $spacer-9;
-        padding-bottom: $spacer-9;
+        padding-top: $spacer-300;
+        padding-bottom: $spacer-300;
         text-align: center;
 
         &__heading.vs-heading {
-            margin-bottom: $spacer-8;
+            margin-bottom: $spacer-200;
         }
 
         &__intro {
             display: block;
-            margin-bottom: $spacer-9;
+            margin-bottom: $spacer-300;
 
             p:last-of-type {
                 margin-bottom: 0;
@@ -107,25 +154,29 @@ export default {
         }
 
         @include media-breakpoint-up(sm) {
-            padding-top: $spacer-10 + $spacer-2;
-            padding-bottom: $spacer-12;
+            padding-top: $spacer-400 + $spacer-050;
+            padding-bottom: $spacer-600;
         }
 
         &--grey {
-            background-color: $vs-color-background-information;
+            background-color: $vs-color-new-background-secondary;
         }
 
         &--neutral {
-            background-color: $vs-color-background-neutral;
+            background-color: $vs-color-background-information;
+        }
+
+        &--left-align {
+            text-align: left;
         }
     }
 
     .vs-module-wrapper__outer--light + .vs-module-wrapper__outer--light {
         .vs-module-wrapper {
-            padding-top: $spacer-4;
+            padding-top: $spacer-100;
 
             @include media-breakpoint-up(sm) {
-                padding-top: $spacer-2;
+                padding-top: $spacer-050;
             }
         }
     }
@@ -138,10 +189,10 @@ export default {
         .vs-module-wrapper--light,
     .vs-module-wrapper__outer--light + .vs-module-wrapper--light,
     .vs-module-wrapper--light + .vs-module-wrapper--light {
-        padding-top: $spacer-4;
+        padding-top: $spacer-100;
 
         @include media-breakpoint-up(sm) {
-            padding-top: $spacer-2;
+            padding-top: $spacer-050;
         }
     }
 </style>

@@ -31,13 +31,22 @@
             </p>
             <p
                 class="vs-quote__author-title"
+                :class="(variant === 'narrow') ? 'vs-quote__author-title--narrow-margin' : null "
                 v-if="hasAuthorTitle"
             >
                 <!-- @slot Holds the job title of the author (text expected) -->
                 <slot name="quote-author-title" />
             </p>
             <!-- @slot Optional slot that holds a cta for the block (vs-button expected) -->
-            <slot name="quote-link" />
+            <div
+                class="vs-quote__quote-link"
+                v-if="$slots['quote-link']"
+            >
+                <slot
+                    name="quote-link"
+                    if="$slots['quote-link']"
+                />
+            </div>
         </div>
     </div>
 </template>
@@ -99,24 +108,34 @@ export default {
         margin-bottom: $spacer-0;
 
         @include media-breakpoint-up(md) {
-            margin-bottom: $spacer-1;
+            margin-bottom: $spacer-025;
             font-size: $font-size-5;
         }
     }
 
     &__author-title {
-        line-height: $spacer-5;
+        line-height: $spacer-125;
+        margin-bottom: $spacer-0;
 
         @include media-breakpoint-up(md) {
             line-height: $line-height-s;
             font-size: $font-size-5;
-            margin-bottom: $spacer-7;
+        }
+
+        &--narrow-margin {
+            margin-bottom: $spacer-175;
+        }
+    }
+
+    &__quote-link {
+        @include media-breakpoint-up(md){
+            margin-top: $spacer-175;
         }
     }
 
     &__speech-mark {
         font-weight: $font-weight-bold;
-        color: $vs-color-text-accent-lavender;
+        color: $vs-color-new-text-tertiary;
         font-size: 7rem;
         height: 5rem;
         line-height: $line-height-xs;
@@ -128,8 +147,8 @@ export default {
 
     &__speech-container {
         display: block;
-        margin-bottom: $spacer-4;
-        margin-right: $spacer-5;
+        margin-bottom: $spacer-100;
+        margin-right: $spacer-125;
         width: 3.5rem;
         height: 2.5rem;
         position: relative;
@@ -144,14 +163,14 @@ export default {
         display: block;
         width: 50%;
         max-width: 8rem;
-        margin-bottom: $spacer-4;
+        margin-bottom: $spacer-100;
 
         img {
             width: 100%;
         }
 
         @include media-breakpoint-up(lg) {
-            margin-right: $spacer-5;
+            margin-right: $spacer-125;
         }
     }
 
@@ -164,7 +183,7 @@ export default {
             @include media-breakpoint-up(sm) {
                 display: inline-block;
                 vertical-align: top;
-                margin-bottom: $spacer-5;
+                margin-bottom: $spacer-125;
             }
         }
 
@@ -182,13 +201,8 @@ export default {
     }
 
     &--with-border {
-        border-left: $spacer-1 solid $vs-color-border-accent-lavender;
-        padding-left: $spacer-6;
-
-        .vs-quote__author-name,
-        .vs-quote__author-title {
-            color: $vs-color-text-accent-lavender;
-        }
+        border-left: $spacer-025 solid $vs-color-new-text-tertiary;
+        padding-left: $spacer-150;
     }
 }
 </style>

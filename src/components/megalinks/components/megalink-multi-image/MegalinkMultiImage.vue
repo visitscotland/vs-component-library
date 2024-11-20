@@ -3,8 +3,9 @@
         <VsStretchedLinkCard
             :link="linkUrl"
             :type="linkType"
-            class="vs-megalink-multi-image-card p-2"
+            class="vs-megalink-multi-image-card p-050"
             :class="multiImageClasses"
+            :heading-style="featured ? 'heading-m' : 'heading-xs'"
             :img-src="imgSrc"
             :img-alt="imgAlt"
             :data-test="featured ? 'megalink-multi-image-featured' : 'megalink-multi-image-card'"
@@ -15,7 +16,7 @@
             :warning-size="featured ? 'normal' : 'small'"
         >
             <template
-                v-slot:stretched-card-panels
+                #stretched-card-panels
                 v-if="days && transport"
             >
                 <VsStretchedLinkPanels
@@ -27,18 +28,14 @@
                 />
             </template>
 
-            <template
-                v-slot:stretched-card-header
-            >
+            <template #stretched-card-header>
                 <span
                     class="vs-megalink-multi-image-card__title"
                     data-test="megalink-multi-image-card__title"
                 ><!-- @slot Slot to contain heading --><slot name="vs-multi-image-heading" /></span>
             </template>
 
-            <template
-                v-slot:stretched-card-content
-            >
+            <template #stretched-card-content>
                 <VsRichTextWrapper
                     class="vs-megalink-multi-image-card__content"
                     data-test="megalink-multi-image-card__content"
@@ -199,7 +196,7 @@ export default {
         border: none;
         background: transparent;
         position: relative;
-        margin-bottom: $spacer-8;
+        margin-bottom: $spacer-200;
 
         &:hover {
             .vs-megalink-multi-image-card__title {
@@ -238,8 +235,8 @@ export default {
         @include media-breakpoint-up(xl) {
             &.vs-megalink-multi-image-card--featured {
                 .vs-stretched-link-card__video-button {
-                    bottom: $spacer-2;
-                    left: $spacer-2;
+                    bottom: $spacer-050;
+                    left: $spacer-050;
                     z-index: 2;
                 }
             }
@@ -248,20 +245,20 @@ export default {
 
     @include media-breakpoint-up(xl) {
         .vs-megalinks--multi-image .vs-megalinks__links-wrapper{
-            width: calc(100% + #{$spacer-10} + #{$spacer-3});
-            margin-left: -#{$spacer-8};
+            width: calc(100% + #{$spacer-400} + #{$spacer-075});
+            margin-left: -#{$spacer-200};
 
             .vs-megalink-multi-image {
-                padding-left: $spacer-5;
-                padding-right: $spacer-5;
+                padding-left: $spacer-125;
+                padding-right: $spacer-125;
             }
         }
 
         .vs-megalink-multi-image-card.card {
-            margin-bottom: $spacer-11;
+            margin-bottom: $spacer-500;
 
             .card-body {
-                padding-bottom: $spacer-5;
+                padding-bottom: $spacer-125;
             }
         }
 
@@ -271,11 +268,6 @@ export default {
             justify-content: flex-start;
             width: 100%;
             transform: rotate(0deg);
-
-            .vs-megalink-multi-image-card__title {
-                font-size: $font-size-5;
-                letter-spacing: $letter-spacing-xxl;
-            }
 
             .vs-link__icon {
                 font-size: 16px;
@@ -287,7 +279,7 @@ export default {
 
             .megalink-multi-image__content {
                 font-size: $font-size-5;
-                margin-top: $spacer-8;
+                margin-top: $spacer-200;
                 line-height: $line-height-m;
             }
 
@@ -296,8 +288,8 @@ export default {
                 background-color: $vs-elevation-surface-raised;
                 width: 40%;
                 right: 0;
-                top: $spacer-10;
-                padding: $spacer-8;
+                top: $spacer-400;
+                padding: $spacer-200;
                 z-index: 10;
                 box-shadow: $vs-elevation-shadow-raised;
             }
@@ -315,8 +307,8 @@ export default {
             }
 
             .vs-stretched-link-panels {
-                left: $spacer-5;
-                top: $spacer-5;
+                left: $spacer-125;
+                top: $spacer-125;
             }
 
             .vs-stretched-link-panels__panel:first-of-type {
@@ -328,7 +320,7 @@ export default {
 
                 .vs-stretched-link-panels {
                     left: auto;
-                    right: $spacer-5;
+                    right: $spacer-125;
                 }
 
                 .card-body {
@@ -338,7 +330,7 @@ export default {
 
                 .vs-stretched-link-card__video-button {
                     left: auto;
-                    right: $spacer-2;
+                    right: $spacer-050;
                 }
             }
         }

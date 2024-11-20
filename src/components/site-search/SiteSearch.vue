@@ -8,6 +8,7 @@
         :animate="false"
         @click="toggleAction"
         id="site-search-btn"
+        :rounded="false"
     >
         <!-- Default slot for Search button text -->
         <span
@@ -43,6 +44,7 @@ export default {
             default: false,
         },
     },
+    emits: ['toggleAction'],
     data() {
         return {
             showSearchForm: true,
@@ -78,24 +80,7 @@ export default {
     }
 
     &.vs-button.btn-md{
-        padding: $spacer-2;
-    }
-
-    &.vs-site-search--active, &:active, &:active:focus{
-        background-color: $vs-color-background-active;
-        border-color: $vs-color-background-active;
-        color: $vs-color-text-primary;
-
-        .vs-icon {
-            color: $vs-color-text-primary;
-        }
-
-        &:focus {
-            @extend %primary-button-focus;
-            background-color: $vs-color-background-inverse;
-            border-color: $vs-color-border-primary;
-            color: $vs-color-text-primary;
-        }
+        padding: $spacer-050;
     }
 
     @include media-breakpoint-down(xxl) {
@@ -113,14 +98,14 @@ export default {
     }
 
     @include media-breakpoint-up(lg) {
-        height: 55px;
+        height: 48px;
 
         .vs-icon{
             margin-right: $spacer-0;
         }
 
         &.vs-button.btn-md{
-            padding: $spacer-3;
+            padding: $spacer-075;
         }
 
         span.visually-hidden-xxl-down {
@@ -130,7 +115,7 @@ export default {
 
     @include media-breakpoint-up(xxl) {
         .vs-icon {
-            margin-right: $spacer-2;
+            margin-right: $spacer-050;
         }
     }
 }

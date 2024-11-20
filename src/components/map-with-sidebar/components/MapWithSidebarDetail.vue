@@ -6,13 +6,13 @@
         <VsImg
             v-if="typeof contentData.properties.image !== 'undefined'"
             :src="contentData.properties.image"
-            class="vs-map-with-sidebar-detail__image mb-5 mb-lg-3"
+            class="vs-map-with-sidebar-detail__image mb-125 mb-lg-075"
         />
 
         <VsHeading
             v-if="showTitle"
             :level="headingLevel"
-            override-style-level="4"
+            heading-style="heading-xxs"
             class="vs-map-with-sidebar-detail__heading mt-0"
             data-test="vs-map-with-sidebar-detail__heading"
         >
@@ -35,14 +35,14 @@
 
         <p
             v-if="contentData.properties.subtitle"
-            class="mt-4"
+            class="mt-100"
         >
             {{ contentData.properties.subtitle }}
         </p>
 
         <div
             data-test="vs-map-with-sidebar-detail__description"
-            class="vs-map-with-sidebar-detail__description mb-6"
+            class="vs-map-with-sidebar-detail__description mb-150"
             v-html="contentData.properties.description"
         />
     </div>
@@ -101,7 +101,7 @@ export default {
 
         @include media-breakpoint-up(lg) {
             font-size: $font-size-4;
-            margin: 0 $spacer-2;
+            margin: 0 $spacer-050;
         }
 
         &__image {
@@ -117,6 +117,7 @@ export default {
         &__heading.vs-heading--style-level-4.vs-heading,
         &__address {
             margin-bottom: 0;
+            color: $vs-color-new-text-secondary;
         }
 
         &__description {

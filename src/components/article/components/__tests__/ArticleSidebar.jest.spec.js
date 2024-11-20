@@ -6,6 +6,7 @@ config.global.renderStubDefaultSlot = true;
 
 const quoteSlotText = 'Article sidebar quote';
 const imgSlotText = 'Article sidebar img';
+const tocSlotText = 'Article sidebar table of contents';
 
 const factoryShallowMount = (propsData) => shallowMount(VsArticleSidebar, {
     propsData: {
@@ -14,6 +15,7 @@ const factoryShallowMount = (propsData) => shallowMount(VsArticleSidebar, {
     slots: {
         'vs-article-sidebar-quote': quoteSlotText,
         'vs-article-sidebar-img': imgSlotText,
+        'vs-article-sidebar-toc': tocSlotText,
     },
 });
 
@@ -57,7 +59,7 @@ describe('VsArticleSidebar', () => {
             });
 
             const imgWrapper = modifiedWrapper.find('[data-test="vs-article-sidebar"]').find('.vs-article-sidebar__img-wrapper');
-            expect(imgWrapper.classes()).toContain('pb-8');
+            expect(imgWrapper.classes()).toContain('pb-200');
         });
 
         it(':sidebarArticleClasses - Quote wrapper should have correct padding when no img visible', () => {
@@ -81,6 +83,10 @@ describe('VsArticleSidebar', () => {
 
         it('renders content inserted in a `imgSlotText` slot', () => {
             expect(wrapper.text()).toContain(imgSlotText);
+        });
+
+        it('renders content inserted in a `vs-article-sidebar-toc` slot', () => {
+            expect(wrapper.text()).toContain(tocSlotText);
         });
     });
 

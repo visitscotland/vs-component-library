@@ -4,51 +4,57 @@
         class="vs-caption"
         :class="captionClasses"
     >
-        <VsRow class="justify-content-center justify-content-sm-start">
-            <VsCol
-                class="order-2 order-sm-1"
-                :class="[!showMap ? 'align-self-center' : '']"
-            >
-                <div class="vs-caption__caption-info">
-                    <p
-                        class="vs-caption__image-caption"
-                        v-if="!!$slots.caption"
-                    >
-                        <!-- @slot Slot to display caption  -->
-                        <slot name="caption" />
-                    </p>
+        <VsContainer>
+            <VsRow class="justify-content-center justify-content-sm-start">
+                <VsCol
+                    class="order-2 order-sm-1"
+                    :class="[!showMap ? 'align-self-center' : '']"
+                >
+                    <div class="vs-caption__caption-info">
+                        <p
+                            class="vs-caption__image-caption"
+                            v-if="!!$slots.caption"
+                        >
+                            <!-- @slot Slot to display caption  -->
+                            <slot name="caption" />
+                        </p>
 
-                    <p
-                        class="vs-caption__image-credit"
-                        v-if="!!$slots.credit"
-                    >
-                        <!-- @slot Slot to display credit  -->
-                        <slot name="credit" />
-                    </p>
-                </div>
-            </VsCol>
-            <VsCol
-                class="col-12 col-sm-auto order-1
-                order-sm-2 ps-sm-0 align-self-end
-                align-self-sm-start"
-                v-if="showMap && isLargeCaption"
-            >
-                <div class="vs-caption__map-wrapper pt-3 pt-sm-2 pb-sm-2 pe-sm-4 mx-auto">
-                    <VsCaptionImageMap
-                        :latitude="latitude"
-                        :longitude="longitude"
-                        :map-outline-color="tokens['vs-color-icon-inverse']"
-                        :map-marker-color="tokens['vs-color-icon-accent-tolsta']"
-                    />
-                </div>
-            </VsCol>
-        </VsRow>
+                        <p
+                            class="vs-caption__image-credit"
+                            v-if="!!$slots.credit"
+                        >
+                            <!-- @slot Slot to display credit  -->
+                            <slot name="credit" />
+                        </p>
+                    </div>
+                </VsCol>
+                <VsCol
+                    class="col-12 col-sm-auto order-1
+                    order-sm-2 ps-sm-0 align-self-end
+                    align-self-sm-start"
+                    v-if="showMap && isLargeCaption"
+                >
+                    <div class="vs-caption__map-wrapper pt-075 pt-sm-050 pb-sm-050 mx-auto">
+                        <VsCaptionImageMap
+                            :latitude="latitude"
+                            :longitude="longitude"
+                            :map-outline-color="tokens['vs-color-icon-inverse']"
+                            :map-marker-color="tokens['vs-color-new-background-accent-tolsta-40']"
+                        />
+                    </div>
+                </VsCol>
+            </VsRow>
+        </VsContainer>
     </div>
 </template>
 
 <script>
+import {
+    VsRow,
+    VsCol,
+    VsContainer,
+} from '@/components/grid';
 import designTokens from '@/assets/tokens/tokens.json';
-import { VsRow, VsCol } from '@/components/grid';
 import VsCaptionImageMap from './components/CaptionImageMap.vue';
 
 /**
@@ -63,6 +69,7 @@ export default {
     components: {
         VsRow,
         VsCol,
+        VsContainer,
         VsCaptionImageMap,
     },
     props: {
@@ -74,6 +81,15 @@ export default {
             type: String,
             default: 'fullwidth',
             validator: (value) => value.match(/(fullwidth|large)/),
+        },
+        /**
+         * Colour theme of the caption
+         * `bold, subtle`
+         */
+        theme: {
+            type: String,
+            default: 'bold',
+            validator: (value) => value.match(/(bold|subtle)/),
         },
         /**
          * The image latitude
@@ -120,6 +136,7 @@ export default {
                     'vs-caption--fullwidth': !this.isLargeCaption,
                 },
                 `vs-caption--${this.textAlign}`,
+                `vs-caption--${this.theme}`,
             ];
         },
     },
@@ -128,8 +145,16 @@ export default {
 
 <style lang="scss">
 .vs-caption {
-    background-color: $vs-color-background-bold;
-    color: $vs-color-text-inverse;
+
+    &--bold {
+        background-color: $vs-color-background-bold;
+        color: $vs-color-text-inverse;
+    }
+
+    &--subtle {
+        background-color: transparent;
+        color: $vs-color-new-text-tertiary;
+    }
 
     &--large,
     &--fullwidth {
@@ -144,7 +169,7 @@ export default {
         }
         .vs-caption{
             &__image-caption {
-                margin-bottom: $spacer-2;
+                margin-bottom: $spacer-050;
             }
 
             &__map-wrapper {
@@ -161,7 +186,7 @@ export default {
             text-align: left;
         }
         .vs-caption__caption-info{
-            padding: $spacer-3 0;
+            padding: $spacer-075 0;
         }
     }
 
@@ -180,17 +205,17 @@ export default {
 
             .vs-caption{
                 &__image-caption {
-                   margin-bottom: $spacer-8;
+                   margin-bottom: $spacer-200;
                 }
 
                 &__map-wrapper {
-                    max-width: 74px;
+                    max-width: 60px;
                 }
             }
         }
 
         .vs-caption__caption-info{
-            padding: $spacer-4;
+            padding: $spacer-100 0;
         }
     }
 
@@ -249,11 +274,11 @@ export default {
                         }
 
                         &__image-caption {
-                            margin-bottom: $spacer-5;
+                            margin-bottom: $spacer-125;
                         }
 
                         &__caption-info{
-                            padding: $spacer-3 $spacer-2;
+                            padding: $spacer-075 $spacer-050;
                         }
                     }
                 }

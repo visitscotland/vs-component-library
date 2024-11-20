@@ -19,11 +19,11 @@
                         <fieldset>
                             <VsProgressBar
                                 :max="formData.stages"
-                                :currentStep="activeStage <= formData.stages
+                                :current-step="activeStage <= formData.stages
                                     ? activeStage : formData.stages"
-                                :isStepped="true"
-                                :isFull="activeStage > formData.stages"
-                                :progressLabel="labelsMap.progress"
+                                :is-stepped="true"
+                                :is-full="activeStage > formData.stages"
+                                :progress-label="labelsMap.progress"
                                 ref="progress"
                             />
 
@@ -32,7 +32,7 @@
                             >
                                 <VsHeading
                                     level="2"
-                                    overrideStyleLevel="3"
+                                    heading-style="heading-m"
                                     class="vs-carbon-calculator__category-heading"
                                     v-if="currentCategory"
                                 >
@@ -48,21 +48,20 @@
                                     :label="getQuestionLabel(field, index)"
                                     :label-for="field.name"
                                     :hint="getQuestionHint(field, index)"
-                                    :fieldClass="conditionalElementClass(field.name)"
-                                    :fieldType="field.element"
-                                    :fieldName="field.name"
+                                    :field-class="conditionalElementClass(field.name)"
+                                    :field-type="field.element"
+                                    :field-name="field.name"
                                     :options="getQuestionOptions(field, index)"
                                     :minimum="field.element === 'number' ? field.validation.min : 0"
                                     :maximum="field.element === 'number' ? field.validation.max : 0"
-                                    @updateFieldData="updateFieldData"
+                                    @update-field-data="updateFieldData"
                                 />
-
                             </div>
                         </fieldset>
                     </form>
                     <VsButton
                         v-if="isRepeatable(activeStage)"
-                        class="my-4"
+                        class="my-100"
                         variant="secondary"
                         icon="plus"
                         @click="duplicateCurrentStage()"
@@ -89,7 +88,7 @@
                         :food-kilos="foodKilos"
                         :accommodation-kilos="accommodationKilos"
                         :stay-duration="stayDuration"
-                        :comparisonReplacements="formData.comparisonReplacements"
+                        :comparison-replacements="formData.comparisonReplacements"
                         :language="language"
                     />
                 </VsCol>
@@ -101,7 +100,7 @@
                     <VsButton
                         variant="primary"
                         type="submit"
-                        class="vs-form__submit mt-9"
+                        class="vs-form__submit mt-300"
                         @click="forwardPage()"
                     >
                         {{ labelsMap['begin'] }}
@@ -112,9 +111,9 @@
                     v-if="activeStage > 0"
                 >
                     <VsButton
-                        :variant="activeStage <= formData.fields.length ? 'primary' : 'secondary'"
+                        variant="secondary"
                         type="submit"
-                        class="vs-form__submit mt-9 float-start"
+                        class="vs-form__submit mt-300 float-start"
                         ref="backPage"
                         v-if="activeStage > 1"
                         @click="backwardPage()"
@@ -125,7 +124,7 @@
                     <VsButton
                         variant="primary"
                         type="submit"
-                        class="vs-form__submit mt-9 float-end"
+                        class="vs-form__submit mt-300 float-end"
                         ref="forwardPage"
                         v-if="activeStage < formData.stages"
                         :disabled="activeStage > 0 && !answerSet"
@@ -137,7 +136,7 @@
                     <VsButton
                         variant="primary"
                         type="submit"
-                        class="vs-form__submit mt-9 float-end"
+                        class="vs-form__submit mt-300 float-end"
                         v-if="activeStage === formData.stages"
                         :disabled="!answerSet"
                         @click="forwardPage()"
@@ -148,7 +147,7 @@
                     <VsButton
                         variant="primary"
                         type="submit"
-                        class="vs-form__submit mt-9 float-end"
+                        class="vs-form__submit mt-300 float-end"
                         v-if="activeStage > formData.stages"
                         @click="restart()"
                     >
@@ -827,12 +826,12 @@ export default {
         display: block;
 
         .vs-progress-bar {
-            margin-bottom: $spacer-8;
+            margin-bottom: $spacer-200;
         }
 
         .vs-carbon-calculator__category-heading {
             margin-top: 0;
-            margin-bottom: $spacer-6;
+            margin-bottom: $spacer-150;
         }
     }
 

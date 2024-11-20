@@ -1,5 +1,25 @@
 props:
-    ## Color roles
+    ## Color roles (NEW)
+    - name: vs-color-new-border-primary
+      value: "{!vs-cloud-10}"
+    - name: vs-color-new-border-secondary
+      value: "{!vs-heather-30}"
+    - name: vs-color-border-inverse
+      value: "{!vs-snow-00}"
+    - name: vs-color-new-border-input
+      value: "{!vs-heather-60}"
+    - name: vs-color-new-border-highlight
+      value: "{!vs-bramble-60}"
+    - name: vs-color-new-border-success
+      value: "{!vs-color-support-success}"
+    - name: vs-color-new-border-warning
+      value: "{!vs-color-support-warning}"
+    - name: vs-color-new-border-error
+      value: "{!vs-color-support-error}"
+    - name: vs-color-new-border-disabled
+      value: "{!vs-cloud-40}"
+  
+    ## Color roles (Deprecated - Do not use)
     - name: vs-color-border
       value: "{!vs-grey-05}"
     - name: vs-color-border-primary
@@ -11,17 +31,15 @@ props:
     - name: vs-color-border-bold
       value: "{!vs-black-02}"
     - name: vs-color-border-focus
-      value: "{!vs-saltire}"
+      value: "{!vs-saltire-50}"
     - name: vs-color-border-disabled
       value: "{!vs-grey-04}"
     - name: vs-color-border-tertiary
       value: "{!vs-bramble}"
     - name: vs-color-border-danger
       value: "{!vs-cuillin}"
-    - name: vs-color-border-inverse
-      value: "{!vs-snow}"
 
-    ## Accent colours
+    ## Accent colours (Deprecated - Do not use)
     - name: vs-color-border-accent-lavender
       value: "{!vs-lavender}"  
     - name: vs-color-border-accent-etive
@@ -70,10 +88,10 @@ props:
       value: "{!vs-grey-04}" 
     - name: vs-color-border-accent-grey-05
       value: "{!vs-grey-05}" 
-
-      
 imports:
-  - ./color-core.yml
+  - ./primitives/color-core.yml
+  - ./primitives/color-primitives.yml
+  - ./primitives/color-support-primitives.yml
 global:
     type: color
     category: color-border

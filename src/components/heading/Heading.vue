@@ -9,6 +9,7 @@
 
         <span
             class="vs-heading__sub-heading"
+            :class="subHeadingClass"
             v-if="!!$slots['sub-heading']"
         >
             <!-- @slot Slot for sub-heading content -->
@@ -39,28 +40,17 @@ export default {
             default: '1',
             validator: (value) => (isNumber(value) ? value > 0 && value < 7 : value.match(/(1|2|3|4|5|6)/)),
         },
-
         /**
-         * Use the thin font
+         * The heading style used for the heading.
+         * `display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|
+         * heading-l|heading-m|heading-s|heading-xs|heading-xxs`
          */
-        thin: {
-            type: Boolean,
-        },
-        /**
-         * Alternative font
-         */
-        alternative: {
-            type: Boolean,
-            default: false,
-        },
-        /**
-         * Heading override style
-         * `1|2|3|4|5|6`
-         */
-        overrideStyleLevel: {
+        headingStyle: {
             type: [String, Number],
-            default: null,
-            validator: (value) => (isNumber(value) ? value > 0 && value < 7 : value.match(/(1|2|3|4|5|6)/)),
+            required: true,
+            validator: (value) => value.match(
+                /(display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs)/,
+            ),
         },
     },
     computed: {
@@ -69,12 +59,35 @@ export default {
         },
         headingClasses() {
             return [
-                this.overrideStyleLevel ? `vs-heading--style-level-${this.overrideStyleLevel}` : '',
-                {
-                    'vs-heading--thin': this.thin,
-                    'vs-heading--alternative': this.alternative,
-                },
+                this.headingStyle ? `vs-heading--${this.headingStyle}` : '',
             ];
+        },
+        subHeadingClass() {
+            let subHeadingStyle = '';
+
+            switch (this.headingStyle) {
+            case 'display-l':
+            case 'display-m':
+            case 'display-s':
+            case 'heading-xxl':
+            case 'heading-xl':
+                subHeadingStyle = 'l';
+                break;
+            case 'display-xs':
+            case 'heading-l':
+            case 'heading-m':
+                subHeadingStyle = 'm';
+                break;
+            case 'heading-s':
+            case 'heading-xs':
+            case 'heading-xxs':
+                subHeadingStyle = 's';
+                break;
+            default:
+                subHeadingStyle = '';
+            }
+
+            return `vs-heading__sub-heading--${subHeadingStyle}`;
         },
         type() {
             return `h${this.level}`;
@@ -84,8 +97,85 @@ export default {
 </script>
 
 <style lang="scss">
-.vs-heading {
-    @extend %heading-default-styles;
+[class*="vs-heading--display-"] {
+    font-family: $display-font-family;
+    letter-spacing: 0.02em;
+
+    .vs-heading__sub-heading {
+        font-family: $font-family-base;
+        font-weight: $font-weight-semi-bold;
+    }
 }
 
+[class*="vs-heading--heading-"] {
+    letter-spacing: -0.01em;
+}
+
+.vs-heading {
+    line-height: 1.2;
+    font-weight: $font-weight-semi-bold;
+
+    &--display-l {
+        @include heading-style(display-l);
+    }
+
+    &--display-m {
+        @include heading-style(display-m);
+    }
+
+    &--display-s {
+        @include heading-style(display-s);
+    }
+
+    &--display-xs {
+        @include heading-style(display-xs);
+    }
+
+    &--heading-xxl {
+        @include heading-style(heading-xxl);
+    }
+
+    &--heading-xl {
+        @include heading-style(heading-xl);
+    }
+
+    &--heading-l {
+        @include heading-style(heading-l);
+    }
+
+    &--heading-m {
+        @include heading-style(heading-m);
+    }
+
+    &--heading-s {
+        @include heading-style(heading-s);
+    }
+
+    &--heading-xs {
+        @include heading-style(heading-xs);
+    }
+
+    &--heading-xxs {
+        @include heading-style(heading-xxs);
+    }
+
+    .vs-heading__sub-heading {
+        display: block;
+        font-weight: $font-weight-normal;
+        line-height: $line-height-sub-heading;
+        letter-spacing: $tracking-sub-heading;
+
+        &--l {
+            @include sub-heading-style(sub-heading-l);
+        }
+
+        &--m {
+            @include sub-heading-style(sub-heading-m);
+        }
+
+        &--s {
+            @include sub-heading-style(sub-heading-s);
+        }
+    }
+}
 </style>

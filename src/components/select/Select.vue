@@ -24,7 +24,7 @@
             </p>
         </div>
 
-        <div class="vs-select__container  mt-2">
+        <div class="vs-select__container  mt-050">
             <BFormSelect
                 v-model="inputVal"
                 v-bind="$attrs"
@@ -171,6 +171,10 @@ export default {
             default: false,
         },
     },
+    emits: [
+        'toggleAction',
+        'updated',
+    ],
     setup: () => ({
         v$: useVuelidate(),
     }),
@@ -268,20 +272,20 @@ export default {
                 content: "\e012";
                 display: inline-block;
                 position: absolute;
-                top: calc(50% - #{$spacer-3});
-                right: $spacer-4;
+                top: calc(50% - #{$spacer-075});
+                right: $spacer-100;
                 pointer-events: none;
-                color: $vs-color-icon-primary;
+                color: $vs-color-new-icon-cta-on-light;
             }
         }
 
         &__element {
             // A reset of styles, including removing the default dropdown arrow
             appearance: none;
-            background-color: $vs-color-background-input;
+            background-color: $vs-color-background-inverse;
             background-image: none;
             border: none;
-            padding: 0 $spacer-4 0;
+            padding: 0 $spacer-100 0;
             margin: 0;
             width: 100%;
             font-family: inherit;

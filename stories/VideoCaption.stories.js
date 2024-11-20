@@ -45,7 +45,7 @@ const Template = (args) => ({
                 <VsCol cols="12">
                     <VsVideo
                         v-bind="args"
-                        class="mb-8"
+                        class="mb-200"
                     >
                     </VsVideo>
                 </VsCol>

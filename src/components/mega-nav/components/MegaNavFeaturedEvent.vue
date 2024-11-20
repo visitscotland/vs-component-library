@@ -9,7 +9,7 @@
         data-test="vs-mega-nav-featured-event"
         data-chromatic="ignore"
     >
-        <template v-slot:stretched-card-content>
+        <template #stretched-card-content>
             <p
                 v-if="featuredEvent && featuredEvent.opening"
                 class="vs-mega-nav-featured-event__date-range"
@@ -30,7 +30,7 @@
             </p>
         </template>
 
-        <template v-slot:stretched-card-link>
+        <template #stretched-card-link>
             {{ featuredEvent.productLink.label }}
         </template>
     </VsStretchedLinkCard>
@@ -95,8 +95,8 @@ export default {
 
 <style lang="scss">
     .card.vs-mega-nav-featured-event {
-        border-top: 1px solid $vs-color-border;
-        margin-bottom: -#{$spacer-2};
+        border-top: 1px solid $vs-color-new-border-primary;
+        margin-bottom: -#{$spacer-050};
 
         @include media-breakpoint-up(lg) {
             margin-bottom: $spacer-0;
@@ -119,8 +119,8 @@ export default {
             bottom: 0;
             left: 0;
             background: $vs-elevation-surface-raised;
-            padding: $spacer-0 $spacer-0 $spacer-4;
-            border-left: $spacer-1 solid $vs-color-border-tertiary;
+            padding: $spacer-0 $spacer-0 $spacer-100;
+            border-left: $spacer-025 solid $vs-color-new-border-highlight;
 
             @include media-breakpoint-up(md) {
                 padding: $spacer-0;
@@ -136,16 +136,16 @@ export default {
         }
 
         .vs-stretched-link-card__content {
-            padding: $spacer-0 $spacer-5;
+            padding: $spacer-0 $spacer-125;
 
             @include media-breakpoint-up(lg) {
-                border-left: $spacer-1 solid $vs-color-border-tertiary;
+                border-left: $spacer-025 solid $vs-color-new-border-highlight;
             }
         }
 
         .vs-stretched-link-card__link {
             font-size: $small-font-size;
-            margin-left: $spacer-5;
+            margin-left: $spacer-125;
 
             @include media-breakpoint-up(lg) {
                 margin-left: $spacer-0;
@@ -157,8 +157,8 @@ export default {
         }
 
         .vs-mega-nav-featured-event__date-range {
-            color: $vs-color-text-tertiary;
-            margin-bottom: $spacer-2;
+            color: $vs-color-new-text-highlight;
+            margin-bottom: $spacer-050;
             font-size: $small-font-size;
         }
 
@@ -210,7 +210,7 @@ export default {
         }
 
         @include media-breakpoint-up(lg) {
-            padding: $spacer-3;
+            padding: $spacer-075;
             flex-direction: column;
             border-top: none;
 
@@ -220,7 +220,7 @@ export default {
 
             .vs-stretched-link-card__link {
                 align-self: flex-end;
-                padding: $spacer-2;
+                padding: $spacer-050;
             }
         }
     }

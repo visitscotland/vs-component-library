@@ -6,7 +6,6 @@
         ref="socialShareContainer"
     >
         <VsButton
-            icon-with-text
             class="vs-social-share__share-btn"
             variant="transparent"
             icon="share"
@@ -23,6 +22,7 @@
             :click="true"
             container="body"
             placement="left-end"
+            offset="-100"
             @shown="onShown"
             @hidden="onHidden"
             @hide="onHide"
@@ -30,9 +30,9 @@
             v-if="!noJs && renderPopover"
         >
             <VsHeading
-                thin
                 level="3"
                 tabindex="0"
+                heading-style="heading-m"
                 ref="shareHeader"
                 class="vs-social-share__header"
                 @keydown.tab="tabBackFromHidden($event)"
@@ -49,15 +49,12 @@
                 icon-only
                 class="vs-social-share__close-btn"
                 icon="close"
-                size="lg"
                 variant="transparent"
                 ref="closeButton"
                 @click="onClose"
                 @keydown.tab="tabFromClose($event)"
             >
-                <span class="visually-hidden">
-                    {{ closeAltText }}
-                </span>
+                {{ closeAltText }}
             </VsButton>
         </BPopover>
 
@@ -69,10 +66,9 @@
                 <VsRow>
                     <VsCol cols="12">
                         <VsHeading
-                            thin
                             level="2"
-                            override-style-level="3"
-                            class="mb-9 mt-0"
+                            heading-style="heading-l"
+                            class="mb-300 mt-0"
                         >
                             {{ sharePopoverTitle }}
                         </VsHeading>
@@ -279,7 +275,7 @@ export default {
             font-size: inherit;
             text-align: center;
             border: 0;
-            top: 40px !important;
+            top: 0 !important;
             left: 20px !important;
             right: 10px;
 
@@ -316,7 +312,7 @@ export default {
             @include media-breakpoint-up(md) {
                 max-width: 600px;
                 width: 600px !important;
-                top: 40px !important;
+                top: 0 !important;
             }
 
             @include media-breakpoint-up(lg) {
@@ -330,10 +326,10 @@ export default {
             }
 
             .popover-body {
-                padding: $spacer-8 $spacer-2;
+                padding: $spacer-200 $spacer-050;
 
                 @include media-breakpoint-only(sm) {
-                    padding: $spacer-4 $spacer-7 $spacer-8;
+                    padding: $spacer-100 $spacer-175 $spacer-200;
 
                     .row {
                         margin-right: -4px;
@@ -347,15 +343,15 @@ export default {
                 }
 
                 @include media-breakpoint-up(md) {
-                    padding: $spacer-9;
+                    padding: $spacer-300;
                 }
 
                 @include media-breakpoint-up(xl) {
-                    padding: $spacer-9 $spacer-12;
+                    padding: $spacer-300 $spacer-600;
                 }
 
                 h3.vs-heading {
-                    margin-bottom: $spacer-9;
+                    margin-bottom: $spacer-300;
                 }
             }
         }
@@ -368,8 +364,8 @@ export default {
 
         &__close-btn {
             position: absolute;
-            right: $spacer-4;
-            top: $spacer-4;
+            right: $spacer-100;
+            top: $spacer-100;
         }
     }
 

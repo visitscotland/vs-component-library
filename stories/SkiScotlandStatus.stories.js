@@ -30,27 +30,27 @@ const Template = (args) => ({
             <template v-if="args['centre-information']" v-slot:centre-information>
                 <VsHeading
                     level="3"
-                    override-style-level="6"
+                    heading-style="heading-xs"
                 >
                     Centre Information                    
                 </VsHeading>
 
                 <VsList unstyled>
-                    <li v-if="args['centre-information'].phone" class="mb-2">
+                    <li v-if="args['centre-information'].phone" class="mb-050">
                         <VsIcon
                             name="phone"
                             size="xs"
-                            class="me-2"
+                            class="me-050"
                         ></VsIcon>
                         <span>
                             {{ args['centre-information'].phone }}
                         </span>
                     </li>
-                    <li v-if="args['centre-information'].website" class="mb-2">
+                    <li v-if="args['centre-information'].website" class="mb-050">
                         <VsIcon
                             name="globe"
                             size="xs"
-                            class="me-2"
+                            class="me-050"
                         ></VsIcon>
                         <VsLink
                             type="external"
@@ -59,21 +59,21 @@ const Template = (args) => ({
                             {{ args['centre-information'].website }}
                         </VsLink>
                     </li>
-                    <li v-if="args['centre-information'].address" class="mb-2">
+                    <li v-if="args['centre-information'].address" class="mb-050">
                         <VsIcon
                             name="map-marker"
                             size="xs"
-                            class="me-2"
+                            class="me-050"
                         ></VsIcon>
                         <span>
                             {{ args['centre-information'].address }}
                         </span>
                     </li>
-                    <li v-if="args['centre-information'].pisteMap" class="mb-2">
+                    <li v-if="args['centre-information'].pisteMap" class="mb-050">
                         <VsIcon
                             name="landscape"
                             size="xs"
-                            class="me-2"
+                            class="me-050"
                         ></VsIcon>
                         <VsLink
                             type="download"
@@ -82,11 +82,11 @@ const Template = (args) => ({
                             View piste map
                         </VsLink>
                     </li>
-                    <li v-if="args['centre-information'].openingLink" class="mb-2">
+                    <li v-if="args['centre-information'].openingLink" class="mb-050">
                         <VsIcon
                             name="clock"
                             size="xs"
-                            class="me-2"
+                            class="me-050"
                         ></VsIcon>
                         <VsLink
                             href="args['centre-information'].openingLink"
@@ -94,20 +94,20 @@ const Template = (args) => ({
                             View opening times
                         </VsLink>
                     </li>
-                    <li v-if="args['centre-information'].webcam" class="mb-2">
+                    <li v-if="args['centre-information'].webcam" class="mb-050">
                         <VsIcon
                             name="webcam"
                             size="xs"
-                            class="me-2"
+                            class="me-050"
                         ></VsIcon>
                         <span> Webcam </span>
                     </li>
                 </VsList>        
                 <VsLink
                     href="#"
-                    class="d-inline-block mt-4"
+                    class="d-inline-block mt-100"
                 >
-                    <div class="d-inline-block me-4">
+                    <div class="d-inline-block me-100">
                         <span class="visually-hidden">Twitter</span>
                         <VsIcon
                             size="sm"
@@ -118,9 +118,9 @@ const Template = (args) => ({
                 </VsLink>
                 <VsLink
                     href="#"
-                    class="d-inline-block mt-4"
+                    class="d-inline-block mt-100"
                 >
-                    <div class="d-inline-block me-4">
+                    <div class="d-inline-block me-100">
                         <span class="visually-hidden">Facebook</span>
                         <VsIcon
                             size="sm"
@@ -131,9 +131,9 @@ const Template = (args) => ({
                 </VsLink>
                 <VsLink
                     href="#"
-                    class="d-inline-block mt-4"
+                    class="d-inline-block mt-100"
                 >
-                    <div class="d-inline-block me-4">
+                    <div class="d-inline-block me-100">
                         <span class="visually-hidden">Instagram</span>
                         <VsIcon
                             size="sm"
@@ -151,7 +151,7 @@ const Template = (args) => ({
 });
 
 const base = {
-    skiStatusUrl: '/fixtures/ski-scotland/sample-ski-data.json',
+    skiStatusUrl: './fixtures/ski-scotland/sample-ski-data.json',
     locale: 'en-gb',
     timeoutDuration: 30000,
     lastUpdatedLabel: 'Last Updated',

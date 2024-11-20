@@ -65,23 +65,23 @@ export default {
         justify-content: space-between;
         display: flex;
         flex-wrap: wrap;
-        padding: $spacer-3;
+        padding: $spacer-075;
 
         @include media-breakpoint-up(sm) {
-            padding: $spacer-3 $spacer-6;
+            padding: $spacer-075 $spacer-150;
         }
 
         @include media-breakpoint-up(md) {
-            padding: $spacer-3 0;
+            padding: $spacer-075 0;
         }
 
         @include media-breakpoint-up(lg) {
             justify-content: center;
-            padding: $spacer-8 0;
+            padding: $spacer-200 0;
         }
 
         @include media-breakpoint-up(xl) {
-            padding: $spacer-9 0;
+            padding: $spacer-300 0;
         }
 
         @include media-breakpoint-up(xxl) {
@@ -92,13 +92,13 @@ export default {
                 // it falls back to center rather than to space-between and looks very incorrect.
                 justify-content: space-evenly;
             }
-            padding: $spacer-9 0;
+            padding: $spacer-300 0;
         }
 
         .vs-footer-nav-list-item {
             display: inline-block;
             font-size: $font-size-2;
-            padding: $spacer-3;
+            padding: $spacer-075;
             flex: 1 0 50%;
 
             @include media-breakpoint-down(md) {

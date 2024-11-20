@@ -33,7 +33,7 @@ const Template = (args) => ({
     >
         <VsButton
             id="toggle-btn"
-            class="mb-4"
+            class="mb-100"
             ref="btnShow"
             @click="this.emitter.emit('showModal', 'c05sg3G4oA4')"
         >
@@ -46,7 +46,7 @@ const Template = (args) => ({
                     <VsVideo
                         :video-id="args.modalId"
                         video-title="Test Video"
-                        class="mb-8"
+                        class="mb-200"
                         cookie-btn-text="Manage cookies"
                         error-message="Sorry, something's gone wrong. Please try again later"
                         no-js-message="You need JavaScript enabled to see this video"

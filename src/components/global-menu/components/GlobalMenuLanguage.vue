@@ -108,21 +108,21 @@ export default {
     }
 
     .btn-primary.dropdown-toggle {
-        padding: 0.3rem $spacer-4;
+        padding: 0.3rem $spacer-100;
         font-size: $font-size-2;
         background: $vs-color-background-brand;
         border: none;
 
         @include media-breakpoint-up(lg) {
-            padding: $spacer-2 $spacer-4 $spacer-2 $spacer-3;
+            padding: $spacer-050 $spacer-100 $spacer-050 $spacer-075;
         }
 
         &:not(:disabled):not(.disabled):active {
             background: $vs-color-background-inverse;
-            color: $vs-color-text;
+            color: $vs-color-new-text-primary;
 
             &:after, .vs-icon{
-                color: $vs-color-text;
+                color: $vs-color-new-text-primary;
                 transition: $duration-base color;
             }
         }
@@ -133,7 +133,7 @@ export default {
         }
 
         &:hover {
-            background: $vs-color-background-accent-heather;
+            background: $vs-color-new-background-accent-heather-80;
         }
     }
 
@@ -150,12 +150,12 @@ export default {
     }
 
     &__text {
-        padding-left: $spacer-1;
+        padding-left: $spacer-025;
     }
 
     &__selected {
         @include media-breakpoint-up(lg) {
-            padding-left: $spacer-1;
+            padding-left: $spacer-025;
         }
     }
 
@@ -182,7 +182,7 @@ export default {
             text-align: center;
             max-height: none;
             border-top: 1px solid $vs-color-border-inverse;
-            padding: $spacer-3 0;
+            padding: $spacer-075 0;
 
             @include media-breakpoint-up(md) {
                 display: inline-flex;
@@ -194,18 +194,18 @@ export default {
         &__label {
             display: inline;
             color: $vs-color-text-inverse;
-            padding: $spacer-3;
+            padding: $spacer-075;
             line-height: $line-height-s;
             font-size: $font-size-4;
             margin: 0 auto;
 
             @include media-breakpoint-up(md) {
-                padding: $spacer-4 $spacer-3;
+                padding: $spacer-100 $spacer-075;
                 margin: 0;
             }
 
             @include media-breakpoint-up(lg) {
-                padding: $spacer-4 $spacer-3 $spacer-4 0;
+                padding: $spacer-100 $spacer-075 $spacer-100 0;
             }
         }
     }

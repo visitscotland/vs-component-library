@@ -20,7 +20,7 @@
             >
                 <template
                     v-if="days && transport"
-                    v-slot:stretched-card-panels
+                    #stretched-card-panels
                 >
                     <VsStretchedLinkPanels
                         :days="days"
@@ -30,13 +30,11 @@
                     />
                 </template>
 
-                <template v-slot:stretched-card-category>
+                <template #stretched-card-category>
                     <span class="visually-hidden">{{ categoryLabel }}: </span>{{ category }}
                 </template>
 
-                <template
-                    v-slot:stretched-card-header
-                >
+                <template #stretched-card-header>
                     <span
                         class="vs-carousel-slide__title"
                         data-test="vs-carousel-slide__title"
@@ -178,7 +176,7 @@ export default {
             flex-shrink: 0;
             opacity: $opacity-50;
             transition: $duration-slowly;
-            padding: $spacer-2;
+            padding: $spacer-050;
             max-width: 100%;
 
             &--active {
@@ -205,20 +203,20 @@ export default {
 
     @include no-js {
         .vs-carousel-slide {
-            margin-bottom: $spacer-2;
+            margin-bottom: $spacer-050;
 
             &::after {
                 content: '';
                 position: absolute;
-                left: $spacer-3;
-                bottom: $spacer-1;
+                left: $spacer-075;
+                bottom: $spacer-025;
                 height: 1px;
                 width: calc(100% - 24px);
-                background: $vs-color-border;
+                background: $vs-color-new-border-primary;
 
                 @include media-breakpoint-up(sm) {
                     width: calc(100% - 40px);
-                    left: $spacer-5;
+                    left: $spacer-125;
                 }
             }
 
@@ -226,7 +224,7 @@ export default {
                 opacity: $opacity-100;
                 display: flex;
                 flex-direction: row;
-                padding: $spacer-2;
+                padding: $spacer-050;
                 border: none;
                 height: 100%;
                 cursor: pointer;
@@ -253,19 +251,19 @@ export default {
                 &__img-container {
                     width: 33%;
                     align-self: flex-start;
-                    margin-right: $spacer-4;
+                    margin-right: $spacer-100;
                 }
 
                 &__title {
                     font-size: $font-size-2;
                     letter-spacing: $letter-spacing-l;
                     line-height: $line-height-m;
-                    color: $vs-color-text;
+                    color: $vs-color-new-text-primary;
                     text-decoration: none;
                 }
 
                 &__category {
-                    margin-bottom: $spacer-2;
+                    margin-bottom: $spacer-050;
                 }
 
                 .card-title {
@@ -287,7 +285,7 @@ export default {
                 .vs-stretched-link-panels {
                     right: auto;
                     left: calc(33% - 4px);
-                    top: $spacer-4;
+                    top: $spacer-100;
                     transform: translateX(-100%);
 
                     &__panel {
@@ -324,7 +322,7 @@ export default {
                     }
 
                     &__content {
-                        margin: $spacer-2 0 0;
+                        margin: $spacer-050 0 0;
                         line-height: $line-height-s;
                     }
                 }

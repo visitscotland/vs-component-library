@@ -7,7 +7,7 @@
             class="fixed-bottom"
             v-show="!isDesktop && withinItineraryMain"
         >
-            <div class="d-flex justify-content-center pb-2">
+            <div class="d-flex justify-content-center pb-050">
                 <VsButton
                     class="vs-itinerary__map-toggle-button"
                     @click="toggleShowMap()"
@@ -137,7 +137,7 @@ export default {
 
 <style lang="scss">
 .vs-itinerary {
-background-color: $vs-color-background-inverse;
+    background-color: $vs-color-background-inverse;
 
     .vs-itinerary__outer-container {
         @include media-breakpoint-down(md) {

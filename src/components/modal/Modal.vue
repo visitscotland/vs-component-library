@@ -10,6 +10,7 @@
         :static="isVideoModal"
         v-model="show"
         v-if="mounted"
+        @hidden="hideModal"
     >
         <VsContainer>
             <VsRow>
@@ -19,12 +20,11 @@
                     class="d-flex justify-content-end align-items-start order-lg-1"
                 >
                     <VsButton
-                        icon-with-text
-                        on-dark
-                        class="vs-modal__close-btn mb-5 mb-lg-0"
+                        class="vs-modal__close-btn mb-125 mb-lg-0"
                         data-test="vs-modal__close-btn"
                         variant="transparent"
-                        icon="close-circle"
+                        icon-only
+                        icon="close"
                         @click="hideModal"
                     >
                         {{ closeBtnText }}
@@ -148,7 +148,7 @@ export default {
     display: block;
 
     .modal-dialog {
-        margin: $spacer-8 auto;
+        margin: $spacer-200 auto;
         z-index: 1100;
 
         @include media-breakpoint-up(sm) {
@@ -158,10 +158,10 @@ export default {
     }
 
     .modal-body {
-        padding: $spacer-5 $spacer-0;
+        padding: $spacer-125 $spacer-0;
 
         @include media-breakpoint-up(sm) {
-            padding: $spacer-5 $spacer-2;
+            padding: $spacer-125 $spacer-050;
         }
 
         .vs-video {
@@ -178,14 +178,6 @@ export default {
     @include media-breakpoint-up(xl) {
         .modal-xl {
             max-width: 1140px;
-        }
-    }
-
-    .modal-content {
-        background-color: $vs-color-background-bold;
-
-        .vs-rich-text-wrapper p {
-            color: $vs-color-text-inverse;
         }
     }
 
