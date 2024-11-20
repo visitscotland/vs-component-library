@@ -105,24 +105,6 @@ export default {
         clickHandler(event) {
             event.preventDefault();
 
-            // capture DMO link referral
-            // if (dmoAnalyticsLogic(event).type === 'CMS referral'
-            // && dmoAnalyticsLogic(event).dmo_referral === 'True') {
-            //     this.createDataLayerObject('cmsReferral', {
-            //         referral_location: event.target.href,
-            //         dmo_referral: dmoAnalyticsLogic(event).dmo_referral,
-            //     });
-            // } else {
-            //     this.createDataLayerObject('cmsReferral', {
-            //         referral_location: event.target.href,
-            //         dmo_referral: dmoAnalyticsLogic(event).dmo_referral,
-            // }
-
-            this.createDataLayerObject('cmsReferral', {
-                referral_location: event.target.href,
-                dmo_referral: dmoAnalyticsLogic(event).dmo_referral,
-            });
-
             if (this.dataLayerValue) {
                 this.createDataLayerObject(this.dataLayerValue, event, this.href);
             } else if (this.type === 'external') {
