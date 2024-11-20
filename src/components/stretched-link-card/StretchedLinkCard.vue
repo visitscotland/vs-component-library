@@ -502,6 +502,7 @@ export default {
             margin-top: $spacer-050;
             line-height: $line-height-s;
             font-size: $font-size-teaser;
+            text-align: left;
 
             p:last-of-type {
                 margin-bottom: 0;
