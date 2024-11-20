@@ -26,12 +26,11 @@
             {{ noJsMessage }}
         </VsWarning>
         <div
+            v-if="imgSrc"
             class="vs-stretched-link-card__img-container"
             :class="warningClass"
         >
-            <template
-                v-if="imgSrc"
-            >
+            <template v-if="imgSrc">
                 <VsImg
                     :src="imgSrc"
                     :alt="imgAlt"
@@ -140,6 +139,15 @@
                 <slot name="stretched-card-content" />
             </div>
 
+            <div
+                v-if="$slots['stretched-card-badges'] && $slots['stretched-card-badges']()"
+                class="vs-stretched-link-card__badges"
+                data-test="vs-stretched-link-card__badges"
+            >
+                <!-- @slot to add badges to the card  -->
+                <slot name="stretched-card-badges" />
+            </div>
+
             <VsLink
                 :href="link"
                 class="vs-stretched-link-card__link stretched-link"
@@ -231,8 +239,8 @@ export default {
         * The image to use in the component
         */
         imgSrc: {
-            required: true,
             type: String,
+            default: undefined,
         },
         /**
         * The image alt text to use in the component
@@ -494,6 +502,7 @@ export default {
             margin-top: $spacer-050;
             line-height: $line-height-s;
             font-size: $font-size-teaser;
+            text-align: left;
 
             p:last-of-type {
                 margin-bottom: 0;
@@ -547,6 +556,10 @@ export default {
         .vs-stretched-link-card__full-warning--no-js,
         .vs-stretched-link-card__image-warning--no-js {
             display: none;
+        }
+
+        .vs-stretched-link-card__badges {
+            margin-top: $spacer-050;
         }
     }
 
