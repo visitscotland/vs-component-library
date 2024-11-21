@@ -275,7 +275,7 @@ export default {
                 top: calc(50% - #{$spacer-075});
                 right: $spacer-100;
                 pointer-events: none;
-                color: $vs-color-new-icon-cta-on-light;
+                color: $vs-color-icon-cta-on-light;
             }
         }
 

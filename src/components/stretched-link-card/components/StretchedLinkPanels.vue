@@ -85,7 +85,7 @@ export default {
         &__panel {
             width: 55px;
             height: 55px;
-            background: $vs-color-new-background-accent-heather-80;
+            background: $vs-color-background-accent-heather-80;
             margin-left: $spacer-050;
             color: $vs-color-text-inverse;
             display: flex;
@@ -94,7 +94,7 @@ export default {
             justify-content: center;
 
             &--days {
-                background: $vs-color-new-background-highlight;
+                background: $vs-color-background-highlight;
             }
 
             p {

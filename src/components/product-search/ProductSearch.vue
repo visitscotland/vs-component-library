@@ -107,7 +107,7 @@ export default {
 <style lang="scss">
     .vs-product-search {
         width: 100%;
-        background: $vs-color-new-background-accent-heather-80;
+        background: $vs-color-background-accent-heather-80;
         padding: $spacer-200 $spacer-025;
 
         &__no-js {
@@ -126,7 +126,7 @@ export default {
         }
 
         &__col--left {
-            background: $vs-color-new-background-accent-heather-80;
+            background: $vs-color-background-accent-heather-80;
             margin-bottom: $spacer-300;
         }
 
@@ -134,7 +134,7 @@ export default {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            background: $vs-color-new-background-accent-heather-30;
+            background: $vs-color-background-accent-heather-30;
             padding: $spacer-150 $spacer-100;
         }
 

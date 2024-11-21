@@ -417,16 +417,15 @@ export default {
 
         &:hover {
             .vs-stretched-link-card__video-button {
-                background-color: $vs-color-background-hover;
-                border-color: $vs-color-background-hover;
+                background-color: $vs-color-interaction-cta-hover;
+                border-color: $vs-color-interaction-cta-hover;
             }
         }
 
         &:active {
             .vs-stretched-link-card__video-button {
-                background-color: $vs-color-background-active;
-                border-color: $vs-color-background-active;
-                color: $vs-color-text-primary;
+                background-color: $vs-color-interaction-cta-pressed;
+                border-color: $vs-color-interaction-cta-pressed;
             }
         }
 
@@ -459,11 +458,11 @@ export default {
         }
 
         .vs-stretched-link-card__title {
-            color: $vs-color-new-text-primary;
+            color: $vs-color-text-primary;
             display: flex;
 
             .stretched-link {
-                color: $vs-color-new-text-primary;
+                color: $vs-color-text-primary;
                 text-decoration: none;
                 letter-spacing: inherit;
                 display: block;
@@ -485,7 +484,7 @@ export default {
                 }
 
                 .vs-icon {
-                    color: $vs-color-new-icon-highlight;
+                    color: $vs-color-icon-highlight;
                 }
             }
         }
@@ -493,7 +492,7 @@ export default {
         .vs-stretched-link-card__category {
             font-size: $font-size-3;
             line-height: $line-height-xs;
-            color: $vs-color-new-text-tertiary;
+            color: $vs-color-text-tertiary;
             letter-spacing: normal;
             margin-bottom: $spacer-100;
         }
@@ -524,7 +523,7 @@ export default {
 
         .vs-stretched-link-card__link {
             margin: $spacer-100 $spacer-0 $spacer-0;
-            color: $vs-color-new-interaction-link-primary;
+            color: $vs-color-interaction-link-primary;
             text-decoration: underline;
         }
 

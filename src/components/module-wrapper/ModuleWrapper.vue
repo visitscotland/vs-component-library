@@ -159,7 +159,7 @@ export default {
         }
 
         &--grey {
-            background-color: $vs-color-new-background-secondary;
+            background-color: $vs-color-background-secondary;
         }
 
         &--neutral {

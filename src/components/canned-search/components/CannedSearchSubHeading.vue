@@ -54,7 +54,7 @@ export default {
 
 <style lang="scss">
     h4.vs-canned-search-sub-heading {
-        color: $vs-color-new-text-tertiary;
+        color: $vs-color-text-tertiary;
         margin: $spacer-0;
         margin-bottom: $spacer-075;
 

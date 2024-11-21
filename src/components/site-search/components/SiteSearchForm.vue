@@ -191,7 +191,7 @@ export default {
 <style lang="scss">
 
 .vs-site-search-form {
-    background-color: rgba($vs-color-new-background-secondary, 0.75);
+    background-color: rgba($vs-color-background-secondary, 0.75);
     backdrop-filter: blur(30px);
     padding: $spacer-125 0;
     position: absolute;

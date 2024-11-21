@@ -85,7 +85,7 @@ const props = defineProps({
 
         &::before {
             content: '\e085';
-            color: $vs-color-new-icon-accent-saltire-30;
+            color: $vs-color-icon-accent-saltire-30;
             font-family: 'Font Awesome Kit';
             font-size: $font-size-8;
             position: absolute;
@@ -105,7 +105,7 @@ const props = defineProps({
         }
 
         &::before {
-            background-color: $vs-color-new-background-accent-heather-80;
+            background-color: $vs-color-background-accent-heather-80;
             color: $vs-color-text-inverse;
             content: counter(section);
             font-size: $font-size-4;
@@ -124,7 +124,7 @@ const props = defineProps({
             content: '';
             width: $spacer-025;
             height: 100%;
-            background-color: $vs-color-new-background-accent-heather-80;
+            background-color: $vs-color-background-accent-heather-80;
             right: 100%;
             top: $spacer-0125;
         }

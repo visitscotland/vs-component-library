@@ -248,7 +248,7 @@ export default {
         }
 
         &--grey {
-            background: $vs-color-new-background-secondary;
+            background: $vs-color-background-secondary;
 
             & + .vs-megalinks--grey {
                 padding-top: 0;
