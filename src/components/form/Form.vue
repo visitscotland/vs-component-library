@@ -567,14 +567,22 @@ export default {
         },
         getHiddenFields() {
             const hiddenInputFields = this.$el.querySelectorAll('input[type=hidden]');
-            const fieldData = {
+
+            return [...hiddenInputFields].map(this.getFieldValueWithParsedBooleans);
+        },
+        getFieldValueWithParsedBooleans(inputField) {
+            let value = inputField.value;
+
+            if (value === 'true') {
+                value = true;
+            } else if (value === 'false') {
+                value = false;
+            }
+
+            return {
+                name: inputField.name,
+                value,
             };
-
-            hiddenInputFields.forEach((field) => {
-                fieldData[field.name] = field.value;
-            });
-
-            return fieldData;
         },
         /**
          * Returns true if a given value is undefined
