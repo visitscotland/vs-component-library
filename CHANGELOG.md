@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.2.1](https://github.com/visitscotland/vs-component-library/compare/v4.2.0...v4.2.1) (2024-11-21)
+
+
+### 🐛 Bug Fixes
+
+* **_cludo-search-results.scss:** extra comma was breaking the webpack build process ([12edfcf](https://github.com/visitscotland/vs-component-library/commit/12edfcf2090caef259f0e3f4ec0e54a6ee539a5a))
+
 ## [4.2.0](https://github.com/visitscotland/vs-component-library/compare/v4.1.4...v4.2.0) (2024-11-20)
 
 
