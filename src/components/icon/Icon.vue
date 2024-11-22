@@ -261,11 +261,13 @@ $sizes: (
 $variants: (
     default: $vs-color-icon-primary,
     primary: $vs-color-icon-cta-on-light,
-    inverse: $vs-color-icon-inverse,
-    disabled: $vs-color-icon-disabled,
+    secondary: $vs-color-icon-secondary,
     tertiary: $vs-color-icon-highlight,
+    inverse: $vs-color-icon-inverse,
+    success: $vs-color-icon-success,
     danger: $vs-color-icon-error,
     warning: $vs-color-icon-warning,
+    disabled: $vs-color-icon-disabled,
 );
 
 .vs-icon {
