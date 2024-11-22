@@ -74,7 +74,7 @@ export default {
     display: flex;
     width: 100%;
     line-height: $line-height-standard;
-    color: $vs-color-new-text-primary;
+    color: $vs-color-text-primary;
 
     .btn-content {
         width: 100%;

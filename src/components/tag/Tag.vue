@@ -40,7 +40,7 @@ export default {
 <style lang="scss">
     .vs-tag.vs-link {
         display: inline-block;
-        border: 2px solid $vs-color-new-border-highlight;
+        border: 2px solid $vs-color-border-highlight;
         border-radius: $border-radius-pill;
         transition: background $duration-base;
         text-decoration: none;
@@ -48,17 +48,17 @@ export default {
         font-size: $font-size-4;
 
         @include vs-button-variant(
-            $vs-color-new-text-highlight, $vs-color-background-inverse, $vs-color-new-border-highlight,
-            $vs-color-text-inverse, $vs-color-new-background-accent-heather-80, $vs-color-new-background-accent-heather-80,
-            $vs-color-text-inverse, $vs-color-new-background-highlight, $vs-color-new-border-highlight,
+            $vs-color-text-highlight, $vs-color-background-inverse, $vs-color-border-highlight,
+            $vs-color-text-inverse, $vs-color-background-accent-heather-80, $vs-color-background-accent-heather-80,
+            $vs-color-text-inverse, $vs-color-background-highlight, $vs-color-border-highlight,
         );
 
         &:focus {
             outline: 0px;
-            background-color: $vs-color-new-background-highlight;
+            background-color: $vs-color-background-highlight;
             color: $vs-color-text-inverse;
-            border-color: $vs-color-new-border-highlight;
-            box-shadow: $vs-color-background-inverse 0px 0px 0px 2px, $vs-color-new-background-highlight 0px 0px 0px 4px;
+            border-color: $vs-color-border-highlight;
+            box-shadow: $vs-color-background-inverse 0px 0px 0px 2px, $vs-color-background-highlight 0px 0px 0px 4px;
         }
     }
 </style>

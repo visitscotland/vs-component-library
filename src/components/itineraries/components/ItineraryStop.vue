@@ -139,7 +139,7 @@ export default {
     .border {
         position: relative;
         background-color: $vs-color-background-inverse;
-        border: 1px solid $vs-color-new-border-primary;
+        border: 1px solid $vs-color-border-primary;
         padding: $spacer-100;
     }
 
@@ -162,7 +162,7 @@ export default {
     }
 
     .vs-icon-list {
-        border-top: 1px solid $vs-color-new-border-primary;
+        border-top: 1px solid $vs-color-border-primary;
         margin-top: $spacer-100;
 
         .vs-icon-list__title {

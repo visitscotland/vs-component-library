@@ -3,13 +3,11 @@
 #
 
 imports:
-  - ./color-background.yml
-  - ./color-border.yml
-  - ./color-icons.yml
-  - ./color-interaction.yml
-  - ./color-links.yml
-  - ./color-roles.yml
-  - ./color-text.yml
+  - ./color/color-background.yml
+  - ./color/color-border.yml
+  - ./color/color-icons.yml
+  - ./color/color-interaction.yml
+  - ./color/color-text.yml
   - ./elevation-shadow.yml
   - ./elevation-surface.yml
   - ./font-size.yml

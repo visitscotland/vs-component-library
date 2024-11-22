@@ -284,7 +284,7 @@ export default {
         }
 
         .stretched-link {
-            color: $vs-color-new-text-primary;
+            color: $vs-color-text-primary;
             text-decoration: none;
             display: block;
 
@@ -295,7 +295,7 @@ export default {
 
         .vs-product-card__link {
             &:focus {
-                border: 2px solid $vs-color-new-interaction-focus;
+                border: 2px solid $vs-color-interaction-focus;
             }
         }
 

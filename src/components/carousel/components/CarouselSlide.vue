@@ -212,7 +212,7 @@ export default {
                 bottom: $spacer-025;
                 height: 1px;
                 width: calc(100% - 24px);
-                background: $vs-color-new-border-primary;
+                background: $vs-color-border-primary;
 
                 @include media-breakpoint-up(sm) {
                     width: calc(100% - 40px);
@@ -258,7 +258,7 @@ export default {
                     font-size: $font-size-2;
                     letter-spacing: $letter-spacing-l;
                     line-height: $line-height-m;
-                    color: $vs-color-new-text-primary;
+                    color: $vs-color-text-primary;
                     text-decoration: none;
                 }
 

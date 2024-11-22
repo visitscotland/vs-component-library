@@ -104,7 +104,7 @@ export default {
     }
 
     &::after {
-        border: 1px solid $vs-color-new-border-secondary;
+        border: 1px solid $vs-color-border-secondary;
         content: "";
         display: block;
         padding-bottom: 100%;
@@ -148,7 +148,7 @@ export default {
 
 .vs-summary-box-distance__divider {
     width: 85%;
-    border-top: 1px solid $vs-color-new-border-secondary;
+    border-top: 1px solid $vs-color-border-secondary;
     margin: $spacer-025 auto;
 
     @include media-breakpoint-up(lg) {
