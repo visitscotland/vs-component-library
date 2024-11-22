@@ -43,28 +43,30 @@ const Template = (args) => ({
     },
     template: `
         <VsIcon 
+            v-if="args.icons"
             class="me-125"
             v-for="icon in args.icons"
             :name="icon.name"
             :variant="icon.variant"
             :size="icon.size"
             :customColour="icon.customColour"
-            :duotone="icon.duotone"
-            :style="icon.style"
+        ></VsIcon>
+
+        <VsIcon 
+            v-else
+            v-bind="args"
         ></VsIcon>
     `,
 });
 
+const base = {
+    name: 'user',
+};
+
 export const Default = Template.bind({
 });
 
-Default.args = {
-    icons: [
-        {
-            name: 'user',
-        },
-    ],
-};
+Default.args = base;
 
 export const Size = Template.bind({
 });
@@ -113,6 +115,10 @@ Colour.args = {
         },
         {
             name: 'user',
+            variant: 'secondary',
+        },
+        {
+            name: 'user',
             variant: 'inverse',
         },
         {
@@ -121,11 +127,15 @@ Colour.args = {
         },
         {
             name: 'user',
-            variant: 'danger',
+            variant: 'success',
         },
         {
             name: 'user',
             variant: 'warning',
+        },
+        {
+            name: 'user',
+            variant: 'danger',
         },
         {
             name: 'user',
@@ -144,23 +154,29 @@ export const CustomColour = Template.bind({
 });
 
 CustomColour.args = {
-    icons: [
-        {
-            name: 'user',
-            customColour: '#55ACEE',
-        },
-    ],
+    ...base,
+    customColour: '#55ACEE',
 };
 
 export const Duotone = Template.bind({
 });
 
 Duotone.args = {
-    icons: [
-        {
-            name: 'crow',
-            duotone: true,
-            style: '--fa-secondary-opacity: 1.0; --fa-primary-color: blue; --fa-secondary-color: gold;',
-        },
-    ],
+    name: 'crow',
+    duotone: true,
+    style: '--fa-secondary-opacity: 1.0; --fa-primary-color: blue; --fa-secondary-color: gold;',
+};
+
+export const SmallSize = Template.bind({
+});
+
+SmallSize.args = {
+    ...base,
+    smallSize: 'xs',
+};
+
+SmallSize.parameters = {
+    viewport: {
+        defaultViewport: 'mobile2',
+    },
 };
