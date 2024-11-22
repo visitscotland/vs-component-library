@@ -135,7 +135,7 @@ export default {
 
     &__speech-mark {
         font-weight: $font-weight-bold;
-        color: $vs-color-new-text-tertiary;
+        color: $vs-color-text-tertiary;
         font-size: 7rem;
         height: 5rem;
         line-height: $line-height-xs;
@@ -201,7 +201,7 @@ export default {
     }
 
     &--with-border {
-        border-left: $spacer-025 solid $vs-color-new-text-tertiary;
+        border-left: $spacer-025 solid $vs-color-text-tertiary;
         padding-left: $spacer-150;
     }
 }

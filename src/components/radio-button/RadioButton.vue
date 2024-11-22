@@ -298,7 +298,7 @@ export default {
             vertical-align: top;
             cursor: pointer;
             box-sizing: border-box;
-            background-color: $vs-color-new-interaction-cta-secondary;
+            background-color: $vs-color-interaction-cta-secondary;
             padding: $spacer-075 $spacer-0;
             width: 100%;
             font-size: $font-size-4;
@@ -322,7 +322,7 @@ export default {
 
             .form-check {
                 width: 100%;
-                border: 1px solid $vs-color-new-interaction-cta-primary;
+                border: 1px solid $vs-color-interaction-cta-primary;
                 height: 3rem;
                 box-sizing: border-box;
                 margin-bottom: 0;
@@ -347,7 +347,7 @@ export default {
                         vertical-align: middle;
                         width: $spacer-150;
                         height: $spacer-150;
-                        outline: 2px solid $vs-color-border-primary;
+                        outline: 2px solid $vs-color-interaction-cta-primary;
                         border-radius: 50%;
                         vertical-align: baseline;
                         transform: translateY(6px);
@@ -357,13 +357,13 @@ export default {
                 }
 
                 &:hover:not(:focus):not(:focus-within):not(:active) {
-                    background-color: $vs-color-new-interaction-cta-subtle-hover;
-                    border-color: $vs-color-new-interaction-cta-subtle-hover;
-                    color: $vs-color-new-text-cta-on-light;
+                    background-color: $vs-color-interaction-cta-subtle-hover;
+                    border-color: $vs-color-interaction-cta-subtle-hover;
+                    color: $vs-color-text-cta-on-light;
 
                     label {
                         &::before {
-                            outline: 2px solid $vs-color-new-interaction-cta-primary;
+                            outline: 2px solid $vs-color-interaction-cta-primary;
                         }
                     }
                 }
@@ -373,24 +373,24 @@ export default {
                 }
 
                 &:active {
-                    background-color: $vs-color-new-interaction-cta-subtle-pressed;
-                    border-color: $vs-color-new-interaction-cta-subtle-pressed;
+                    background-color: $vs-color-interaction-cta-subtle-pressed;
+                    border-color: $vs-color-interaction-cta-subtle-pressed;
                     color: $vs-color-text-inverse;
                 }
             }
 
             &--checked {
                 .form-check, .form-check:hover:not(:focus):not(:focus-within):not(:active) {
-                    background-color: $vs-color-new-interaction-cta-subtle-pressed;
-                    border-color: $vs-color-new-interaction-cta-subtle-pressed;
+                    background-color: $vs-color-interaction-cta-subtle-pressed;
+                    border-color: $vs-color-interaction-cta-subtle-pressed;
                     color: $vs-color-text-inverse;
                     border-width: 2px;
 
                     label {
                         &::before {
-                            border: $spacer-025 solid $vs-color-new-interaction-cta-subtle-pressed;
-                            background-color: $vs-color-new-interaction-cta-secondary;
-                            outline: 2px solid $vs-color-new-interaction-cta-secondary;
+                            border: $spacer-025 solid $vs-color-interaction-cta-subtle-pressed;
+                            background-color: $vs-color-interaction-cta-secondary;
+                            outline: 2px solid $vs-color-interaction-cta-secondary;
                         }
                     }
                 }
@@ -403,13 +403,13 @@ export default {
                 .form-check:hover:not(:focus):not(:focus-within):not(:active),
                 .form-check:focus,
                 .form-check:active {
-                    background-color: $vs-color-new-interaction-cta-disabled;
-                    border-color: $vs-color-new-interaction-cta-disabled;
-                    color: $vs-color-new-interaction-link-disabled;
+                    background-color: $vs-color-interaction-cta-disabled;
+                    border-color: $vs-color-interaction-cta-disabled;
+                    color: $vs-color-interaction-link-disabled;
 
                     label {
                         &::before {
-                            outline: 2px solid $vs-color-new-interaction-cta-disabled;
+                            outline: 2px solid $vs-color-interaction-cta-disabled;
                         }
                     }
                 }

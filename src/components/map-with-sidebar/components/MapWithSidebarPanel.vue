@@ -583,7 +583,7 @@ export default {
 <style lang="scss">
     .vs-map-with-sidebar-panel {
         padding: $spacer-125 $spacer-075 $spacer-0;
-        border: 1px solid $vs-color-new-border-primary;
+        border: 1px solid $vs-color-border-primary;
         height: 100%;
         overflow-y: auto;
         overflow-x: hidden;
@@ -659,7 +659,7 @@ export default {
         }
 
         &__overlay-box {
-            border: 1px solid $vs-color-new-border-highlight;
+            border: 1px solid $vs-color-border-highlight;
             border-radius: $border-radius-default;
             height: 142px;
             width: 200px;

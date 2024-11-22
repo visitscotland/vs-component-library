@@ -135,7 +135,7 @@ export default {
 <style lang="scss">
     .vs-canned-search-summary-box {
         padding: $spacer-050;
-        background-color: $vs-color-new-background-secondary;
+        background-color: $vs-color-background-secondary;
         min-height: 4.5rem;
 
         .row {
@@ -159,7 +159,7 @@ export default {
         text-align: center;
 
         &:not(:last-child) {
-            border-right: 1px solid $vs-color-new-border-secondary;
+            border-right: 1px solid $vs-color-border-secondary;
         }
     }
 </style>

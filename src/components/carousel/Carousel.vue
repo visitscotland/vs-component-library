@@ -467,7 +467,7 @@ export default {
             width: 10px;
             height: 10px;
             border-radius: 5px;
-            background: $vs-color-new-background-accent-heather-30;
+            background: $vs-color-background-accent-heather-30;
             transform: translateY(2px);
             margin: 0 2px;
             border: none;
@@ -476,7 +476,7 @@ export default {
             padding: 0;
 
             &:hover {
-                background: $vs-color-new-interaction-cta-hover;
+                background: $vs-color-interaction-cta-hover;
             }
 
             &:focus {
@@ -488,23 +488,23 @@ export default {
                 width: 14px;
                 height: 14px;
                 border-radius: 7px;
-                background: $vs-color-new-interaction-cta-primary;
+                background: $vs-color-interaction-cta-primary;
                 transform: none;
                 cursor: default;
 
                 &:hover {
-                    background: $vs-color-new-interaction-cta-primary;
+                    background: $vs-color-interaction-cta-primary;
                 }
             }
 
             @media (hover: none) {
                 &:hover {
-                    background: $vs-color-new-interaction-cta-hover;
+                    background: $vs-color-interaction-cta-hover;
                 }
 
                 &--active {
                     &:hover {
-                        background: $vs-color-new-interaction-cta-primary;
+                        background: $vs-color-interaction-cta-primary;
                     }
                 }
             }
@@ -521,8 +521,8 @@ export default {
         }
 
         &__mobile-pagination {
-            background: $vs-color-new-background-secondary;
-            color: $vs-color-new-text-primary;
+            background: $vs-color-background-secondary;
+            color: $vs-color-text-primary;
             padding: $spacer-025 $spacer-050;
             font-size: $font-size-2;
             font-weight: bold;

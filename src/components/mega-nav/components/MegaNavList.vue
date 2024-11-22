@@ -101,7 +101,7 @@ export default {
         display: none;
         padding: $spacer-025 $spacer-100;
         margin: 0 0 $spacer-025;
-        border-bottom: 1px solid $vs-color-new-border-primary;
+        border-bottom: 1px solid $vs-color-border-primary;
 
         @include media-breakpoint-up(lg) {
             display: flex;

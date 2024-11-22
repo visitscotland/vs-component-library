@@ -174,7 +174,7 @@ export default {
         padding-bottom: $spacer-300;
 
         &__text-wrapper {
-            background-color: $vs-color-new-background-primary;
+            background-color: $vs-color-background-primary;
             padding: $spacer-400 0 $spacer-300 0;
 
             @include media-breakpoint-up(sm) {
@@ -183,7 +183,7 @@ export default {
         }
 
         &__heading{
-            color: $vs-color-new-text-brand;
+            color: $vs-color-text-brand;
 
             @include media-breakpoint-up(lg) {
                 @include heading-style(display-s);
@@ -211,7 +211,7 @@ export default {
         &__divider {
             height: 2px;
             margin: 0;
-            color: $vs-color-new-border-primary;
+            color: $vs-color-border-primary;
         }
     }
 </style>

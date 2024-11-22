@@ -68,7 +68,7 @@ export default {
         }
 
         &--toc {
-            background: $vs-color-new-background-secondary;
+            background: $vs-color-background-secondary;
             padding: $spacer-200 $spacer-300;
             width: 100%;
 

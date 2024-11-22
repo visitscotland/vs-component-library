@@ -214,7 +214,7 @@ export default {
 
         &:hover {
             .vs-icon{
-                color: $vs-color-new-icon-cta-on-light;
+                color: $vs-color-icon-cta-on-light;
             }
         }
 
@@ -268,14 +268,14 @@ export default {
                 left: 0;
                 width: 0;
                 height: 4px;
-                background: $vs-color-new-interaction-cta-primary;
+                background: $vs-color-interaction-cta-primary;
                 transition: width $duration-base linear;
                 border: 0;
                 margin: 0;
             }
 
             &:hover {
-                color: $vs-color-new-text-cta-on-light;
+                color: $vs-color-text-cta-on-light;
 
                 &::after {
                     width: 100%;
@@ -362,11 +362,11 @@ export default {
             }
 
             &:hover {
-                color: $vs-color-new-text-cta-on-light;
+                color: $vs-color-text-cta-on-light;
 
                 &::after {
                     width: 100%;
-                    background: $vs-color-new-interaction-cta-primary;
+                    background: $vs-color-interaction-cta-primary;
                 }
             }
         }

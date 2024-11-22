@@ -104,7 +104,7 @@
                             <Grid stroke-dasharray="2,2" />
                             <Bar
                                 :data-keys="['name', 'emissions']"
-                                :bar-style="{ fill: tokens['vs-color-new-background-highlight'] }"
+                                :bar-style="{ fill: tokens['vs-color-background-highlight'] }"
                                 :gap="20"
                             />
                         </template>
@@ -405,7 +405,7 @@ export default {
     .vs-carbon-calculator-results__unicorn {
         box-shadow: $vs-elevation-shadow-raised;
         padding: $spacer-100;
-        background-color: $vs-color-new-background-accent-gorse-05;
+        background-color: $vs-color-background-accent-gorse-05;
         margin-bottom: $spacer-200;
 
         .vs-heading {

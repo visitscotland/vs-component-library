@@ -9,18 +9,18 @@
         "attr": $vs-color-icon-accent-grey-02,
         "acti": $vs-color-icon-accent-heather,
         "even": $vs-color-icon-accent-saltire,
-        "cate": $vs-color-background-accent-whisky,
+        "cate": $vs-color-icon-accent-whisky,
         "reta": $vs-color-icon-accent-loch-ness,
         "twnv": $vs-color-icon-accent-loch-ness,
         "vics": $vs-color-icon-accent-bramble,
         "outlander-castle": $vs-color-icon-accent-heather,
         "outlander-church-abbey": $vs-color-icon-accent-cranachan,
         "outlander-city-town-village": $vs-color-icon-accent-loch-ness,
-        "outlander-heritage": $vs-color-background-accent-whisky,
+        "outlander-heritage": $vs-color-icon-accent-whisky,
         "outlander-landscape-park": $vs-color-icon-accent-grey-02,
         "outlander-palace-house": $vs-color-icon-accent-bramble,
         "distilleries": $vs-color-icon-accent-cranachan,
-        "itinerary-stop": $vs-color-new-icon-highlight,
+        "itinerary-stop": $vs-color-icon-highlight,
     );
 
     @each $name, $color in $themes {
@@ -35,18 +35,18 @@
 
                 @if $color == $vs-color-icon-accent-buachaille 
                 or $color == $vs-color-icon-accent-whisky {
-                    color: $vs-color-text!important;
+                    color: $vs-color-text-primary!important;
 
                     .vs-icon--internal-link {
-                        color: $vs-color-icon;
+                        color: $vs-color-icon-primary;
                     }
 
                     .vs-icon.vs-map-marker-icon__marker--#{$name}{
-                        -webkit-text-stroke-color: $vs-color-border-bold;
+                        -webkit-text-stroke-color: $vs-color-icon-primary;
                     }
 
                     .vs-map-marker-icon__icon{
-                        color: $vs-color-icon;
+                        color: $vs-color-icon-primary;
                     }
                 }
             }

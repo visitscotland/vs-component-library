@@ -20,7 +20,7 @@
         }
 
         li{
-            color: $vs-color-new-text-secondary;
+            color: $vs-color-text-secondary;
             font-size: $font-size-4;
             line-height: $line-height-standard;
             transition: all .1s;
@@ -34,7 +34,7 @@
             &:hover, &.active{
                 cursor: pointer;
                 background: $vs-color-interaction-cta-subtle-hover;
-                color: $vs-color-new-text-cta-on-light;
+                color: $vs-color-text-cta-on-light;
             }
         }
     }

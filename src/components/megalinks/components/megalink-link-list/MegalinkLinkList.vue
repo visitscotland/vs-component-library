@@ -177,7 +177,7 @@ export default {
 
         &:after {
             content: '';
-            border-bottom: 1px solid $vs-color-new-border-primary;
+            border-bottom: 1px solid $vs-color-border-primary;
             position: absolute;
             width: calc(100% - 16px);
             left: 8px;
