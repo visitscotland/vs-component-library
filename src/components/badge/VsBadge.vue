@@ -16,9 +16,9 @@ import { BBadge } from 'bootstrap-vue-next';
 
 <style lang="scss">
 .vs-badge {
-    border: 1px solid $vs-color-new-border-secondary;
+    border: 1px solid $vs-color-border-secondary;
     border-radius: $border_radius_default;
-    color: $vs-color-new-text-secondary;
+    color: $vs-color-text-secondary;
     display: inline-block;
     font-size: $font-size-3;
     margin-right: $spacer-050;
