@@ -1,0 +1,41 @@
+props:
+
+    ## Color roles
+    - name: vs-color-background-primary
+      value: "{!vs-snow-00}"
+    - name: vs-color-background-secondary
+      value: "{!vs-heather-05}"
+    - name: vs-color-background-bold
+      value: "{!vs-basalt-90}"
+    - name: vs-color-interaction-cta-subtle
+      value: "transparent"     
+    - name: vs-color-background-brand
+      value: "{!vs-thistle-70}"
+    - name: vs-color-background-inverse
+      value: "{!vs-snow-00}"
+    - name: vs-color-background-highlight
+      value: "{!vs-bramble-60}"  
+    - name: vs-color-background-information
+      value: "{!vs-color-support-information}"
+    - name: vs-color-background-success
+      value: "{!vs-color-support-success}"
+    - name: vs-color-background-warning
+      value: "{!vs-color-support-warning}"
+    - name: vs-color-background-error
+      value: "{!vs-color-support-error}"
+
+    ## Accents
+    - name: vs-color-background-accent-heather-80
+      value: "{!vs-heather-80}"
+    - name: vs-color-background-accent-heather-30
+      value: "{!vs-heather-30}"
+    - name: vs-color-background-accent-tolsta-40
+      value: "{!vs-tolsta-40}"
+    - name: vs-color-background-accent-gorse-05
+      value: "{!vs-gorse-05}"
+imports:
+  - ../primitives/color-primitives.yml
+  - ../primitives/color-support-primitives.yml
+global:
+    type: color
+    category: color-background

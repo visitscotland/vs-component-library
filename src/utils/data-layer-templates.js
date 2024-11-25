@@ -172,6 +172,7 @@ const externalLinkTemplate = [
     'meta_data',
     'click_text',
     'click_URL',
+    'dmo_referral',
 ];
 
 const internalLinkTemplate = [

@@ -39,7 +39,7 @@
                             :latitude="latitude"
                             :longitude="longitude"
                             :map-outline-color="tokens['vs-color-icon-inverse']"
-                            :map-marker-color="tokens['vs-color-new-background-accent-tolsta-40']"
+                            :map-marker-color="tokens['vs-color-background-accent-tolsta-40']"
                         />
                     </div>
                 </VsCol>
@@ -153,7 +153,7 @@ export default {
 
     &--subtle {
         background-color: transparent;
-        color: $vs-color-new-text-tertiary;
+        color: $vs-color-text-tertiary;
     }
 
     &--large,

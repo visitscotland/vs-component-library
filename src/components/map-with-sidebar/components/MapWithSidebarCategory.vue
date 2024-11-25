@@ -102,7 +102,7 @@ export default {
             bottom: 0;
             left: 0;
             width: 100%;
-            background: $vs-color-new-border-primary;
+            background: $vs-color-border-primary;
             height: 1px;
         }
 

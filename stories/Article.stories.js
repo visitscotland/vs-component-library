@@ -9,8 +9,6 @@ import VsQuote from '@/components/quote/Quote.vue';
 import VsModal from '@/components/modal/Modal.vue';
 import VsVideo from '@/components/video/Video.vue';
 import VsVideoCaption from '@/components/video-caption/VideoCaption.vue';
-import VsLinkList from '@/components/link-list/LinkList.vue';
-import VsLinkListItem from '@/components/link-list/components/LinkListItem.vue';
 import { VsCol, VsRow } from '@/components/grid';
 
 export default {
@@ -50,8 +48,6 @@ const Template = (args) => ({
         VsVideoCaption,
         VsCol,
         VsRow,
-        VsLinkList,
-        VsLinkListItem,
     },
     setup() {
         return {
@@ -171,24 +167,6 @@ const Template = (args) => ({
                                     </template>
                                 </VsQuote>
                             </template>
-
-                            <template
-                                v-if="args.tableOfContents"
-                                v-slot:vs-article-sidebar-toc
-                            >
-                                <VsLinkList toc>
-                                    <template v-slot:heading>
-                                        {{ args.tableOfContents.heading }}
-                                    </template>
-
-                                    <VsLinkListItem
-                                        v-for="link in args.tableOfContents.linkList"
-                                        :href="link.href"
-                                    >
-                                        {{ link.title }}
-                                    </VsLinkListItem>
-                                </VsLinkList>
-                            </template>
                         </VsArticleSidebar>
                     </template>
 
@@ -300,38 +278,6 @@ BusinessSupportHub.args = {
     ...base,
     sidebarAlign: 'right',
     businessSupport: true,
-};
-
-export const BusinessSupportHubTableOfContents = Template.bind();
-BusinessSupportHubTableOfContents.args = {
-    ...BusinessSupportHub.args,
-    sidebarImg: null,
-    sidebarQuote: null,
-    tableOfContents: {
-        heading: 'In this article:',
-        linkList: [
-            {
-                title: 'Who needs a short-term lets licence?',
-                href: '#section1',
-            },
-            {
-                title: 'When do I need to have a licence?',
-                href: '#section2',
-            },
-            {
-                title: 'How to apply for a licence',
-                href: '#section3',
-            },
-            {
-                title: 'Frequently Asked Questions (FAQ)',
-                href: '#section4',
-            },
-            {
-                title: 'Industry Advisory Group (IAG)',
-                href: '#section5',
-            },
-        ],
-    },
 };
 
 export const BusinessSupportHubNoSidebar = Template.bind();

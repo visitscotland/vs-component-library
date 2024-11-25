@@ -82,12 +82,12 @@ export default {
             }
 
             &:hover {
-                background: $vs-color-background-accent-heather;
+                background: $vs-color-interaction-cta-subtle-hover;
             }
 
             &:active {
                 background: $vs-color-background-inverse;
-                color: $vs-color-new-text-primary;
+                color: $vs-color-text-primary;
                 outline: none;
             }
         }
@@ -95,14 +95,14 @@ export default {
         &--active {
             a {
                 background: $vs-color-background-inverse;
-                color: $vs-color-new-text-primary;
+                color: $vs-color-text-primary;
 
                 &:hover {
                     background: $vs-color-background-inverse;
                 }
                 &:active {
                     background: $vs-color-background-inverse;
-                    color: $vs-color-new-text-primary;
+                    color: $vs-color-text-primary;
                 }
             }
         }

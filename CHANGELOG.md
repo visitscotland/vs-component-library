@@ -2,6 +2,78 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.2.2](https://github.com/visitscotland/vs-component-library/compare/v4.2.1...v4.2.2) (2024-11-25)
+
+
+### 🎨 Styling
+
+* **tokens:** remove old deprecated tokens and tidy color token files ([e51d15f](https://github.com/visitscotland/vs-component-library/commit/e51d15fbc0c414946b9ba67169740096729d18c6))
+* **tokens:** update elevation tokens to use new color tokens ([cf9f7b3](https://github.com/visitscotland/vs-component-library/commit/cf9f7b32d888932b0aab0fa4cc83b428112495e8))
+* **tokens:** update elevation tokens to use new primitive ([5f316f6](https://github.com/visitscotland/vs-component-library/commit/5f316f6ff62091d0b85fed3b7f7b7b8d37c62ebc))
+
+
+### ⏪ Revertions
+
+* **article:** remove table of contents from sidebar ([30f0462](https://github.com/visitscotland/vs-component-library/commit/30f046230f02caec6a3467ba6692168fa3673c6d))
+
+
+### ♻️ Code Refactoring
+
+* **icon:** add missing icon variants to match colour tokens ([76ba6f6](https://github.com/visitscotland/vs-component-library/commit/76ba6f6e6517e8b2ad222d238201b51a83fd4282))
+* **tokens:** remove -new- from new color token names ([1fca82e](https://github.com/visitscotland/vs-component-library/commit/1fca82e4c368d4b96759cc63a0e03ec8f3d71e24))
+* **tokens:** remove unused old core tokens ([37157d7](https://github.com/visitscotland/vs-component-library/commit/37157d7fd25d8f71ddaca55a25506092896d65eb))
+
+
+### 🐛 Bug Fixes
+
+* **badge:** fix token name in badge component ([9fb5d36](https://github.com/visitscotland/vs-component-library/commit/9fb5d36b30dcf1b4d666f6446d313a877b2e659b))
+* **vsbadge:** remove `new-` namespace per DS-685 ([5e45180](https://github.com/visitscotland/vs-component-library/commit/5e4518055786b5d037a4c24b2dae1a45f0f0bc20))
+
+
+### ✨ Features
+
+* **page intro:** add table of contents ([2560d28](https://github.com/visitscotland/vs-component-library/commit/2560d2839cf63c9f93d98546105b01c9f73d19d2))
+
+
+### ✅ Tests
+
+* **page intro:** add new tests for table of contents ([116653b](https://github.com/visitscotland/vs-component-library/commit/116653b3d8efa508c93f8bf4c3e0e10b21ad3ec1))
+
+### [4.2.1](https://github.com/visitscotland/vs-component-library/compare/v4.2.0...v4.2.1) (2024-11-21)
+
+
+### 🐛 Bug Fixes
+
+* **_cludo-search-results.scss:** extra comma was breaking the webpack build process ([12edfcf](https://github.com/visitscotland/vs-component-library/commit/12edfcf2090caef259f0e3f4ec0e54a6ee539a5a))
+
+## [4.2.0](https://github.com/visitscotland/vs-component-library/compare/v4.1.4...v4.2.0) (2024-11-20)
+
+
+### ⏪ Revertions
+
+* **carousel:** remove no image variant ([5e9d99d](https://github.com/visitscotland/vs-component-library/commit/5e9d99dd67d28524bf6e2b5cf1c2eb6c4aa06ea0))
+
+
+### ✅ Tests
+
+* **stretched link card:** add test for badges prop ([7aba7ba](https://github.com/visitscotland/vs-component-library/commit/7aba7bab1c858f524fa0297df2b50ac8edb81327))
+* **vs badge:** add unit tests ([28d5715](https://github.com/visitscotland/vs-component-library/commit/28d571585e552ab576c4748e9a66cc7df376e933))
+
+
+### 🐛 Bug Fixes
+
+* **stretched link card:** left align card content it centre aligns when used within modulewrapper ([dcb8516](https://github.com/visitscotland/vs-component-library/commit/dcb8516b0ff9ab9c3faf2e266f152ea525f2743c))
+
+
+### ✨ Features
+
+* **badge:** update colour tokens ([e970535](https://github.com/visitscotland/vs-component-library/commit/e97053551fff1f6365b41d9bf31481e87967c71a))
+* **carousel slide:** add no image variant ([c8dd6ba](https://github.com/visitscotland/vs-component-library/commit/c8dd6baf695673c6d8f570798eaaf6a07dd2a14f))
+* **stretched link card:** add no image variant ([fccbf35](https://github.com/visitscotland/vs-component-library/commit/fccbf35905494dae89a64676d81679015221be87))
+* **stretched link card:** add variant with badges ([68efc38](https://github.com/visitscotland/vs-component-library/commit/68efc3856821220fb54e9a610ea7f575be8bc38e))
+* **stretched link card:** replace prop with slot ([1d88e11](https://github.com/visitscotland/vs-component-library/commit/1d88e116476238b1f0b029cac4c7cec2f5f62b10))
+* **vs badge:** add new badge component ([2c20fc0](https://github.com/visitscotland/vs-component-library/commit/2c20fc073cd00f63e7653f1885bf343bb7a5efe3))
+
 ### [4.1.3](https://github.com/visitscotland/vs-component-library/compare/v4.1.2...v4.1.3) (2024-11-08)
 
 

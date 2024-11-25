@@ -83,6 +83,7 @@
                 </VsRow>
                 <VsRow>
                     <VsCol
+                        data-test="vs-page-intro__content"
                         cols="12"
                         v-bind="contentColProps"
                     >
@@ -98,6 +99,14 @@
                             (used for itineraries) -->
                             <slot name="vs-intro-start-finish" />
                         </dl>
+                    </VsCol>
+                    <VsCol
+                        v-if="$slots['vs-intro-table-of-contents'] && $slots['vs-intro-table-of-contents']()"
+                        cols="12"
+                        md="5"
+                    >
+                        <!-- @slot used to add a table of contents  -->
+                        <slot name="vs-intro-table-of-contents" />
                     </VsCol>
 
                     <!-- @slot Intro section summary box (used for itineraries) -->
@@ -175,6 +184,13 @@ export default {
             type: Boolean,
             default: false,
         },
+        /**
+         *  Option to add a table of contents to the page intro.
+        */
+        hasToc: {
+            type: Boolean,
+            default: false,
+        },
     },
     computed: {
         introClasses() {
@@ -198,6 +214,8 @@ export default {
                 props.lg = '7';
                 props.xl = '8';
                 props['offset-lg'] = '1';
+            } else if (this.hasToc) {
+                props.md = '7';
             } else {
                 props.md = '8';
             }
@@ -349,11 +367,11 @@ export default {
 
     &__lower,
     &__lower .row {
-        background-color: $vs-color-new-background-secondary;
+        background-color: $vs-color-background-secondary;
     }
 
     &--grey {
-        background: $vs-color-new-background-secondary;
+        background: $vs-color-background-secondary;
     }
 }
 </style>
