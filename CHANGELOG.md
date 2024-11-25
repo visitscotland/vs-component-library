@@ -1,3 +1,10 @@
+## [4.3.2](https://github.com/visitscotland/vs-component-library/compare/v4.3.1...v4.3.2) (2024-11-25)
+
+
+### Bug Fixes
+
+* **semantic release:** enforce install before publish ([e1833de](https://github.com/visitscotland/vs-component-library/commit/e1833dee8dcc38bfb6d36e5124a5480a20f13510))
+
 ## [4.3.1](https://github.com/visitscotland/vs-component-library/compare/v4.3.0...v4.3.1) (2024-11-25)
 
 
