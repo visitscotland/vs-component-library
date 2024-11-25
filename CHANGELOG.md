@@ -1,3 +1,13 @@
+## [4.3.3](https://github.com/visitscotland/vs-component-library/compare/v4.3.2...v4.3.3) (2024-11-25)
+
+
+### Bug Fixes
+
+* **semantic release:** add missing pipe to yml file ([8945aff](https://github.com/visitscotland/vs-component-library/commit/8945affd6390b2e8b9ee441b14b40cab474d5ce8))
+* **semantic release:** add ms-teams to with array ([24ba993](https://github.com/visitscotland/vs-component-library/commit/24ba9931069579b93270bff0f0c1573a7cea2dda))
+* **semantic release:** automatically alert teams about new releases ([48defc0](https://github.com/visitscotland/vs-component-library/commit/48defc0e29724c2d6efb40437e0eeafeb69a9bf9))
+* **semantic release:** move teams to dev dep ([5bde3cc](https://github.com/visitscotland/vs-component-library/commit/5bde3cc9b0e34621364794eddef2066e584c3d04))
+
 ## [4.3.2](https://github.com/visitscotland/vs-component-library/compare/v4.3.1...v4.3.2) (2024-11-25)
 
 
