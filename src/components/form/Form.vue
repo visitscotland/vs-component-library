@@ -568,9 +568,9 @@ export default {
         getHiddenFields() {
             const hiddenInputFields = this.$el.querySelectorAll('input[type=hidden]');
 
-            return [...hiddenInputFields].map(this.getFieldValueWithParsedBooleans);
+            return [...hiddenInputFields].map(this.parseBooleanStringsFromInputField);
         },
-        getFieldValueWithParsedBooleans(inputField) {
+        parseBooleanStringsFromInputField(inputField) {
             let value = inputField.value;
 
             if (value === 'true') {
