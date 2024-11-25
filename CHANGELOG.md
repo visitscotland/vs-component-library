@@ -1,3 +1,15 @@
+# [4.3.0](https://github.com/visitscotland/vs-component-library/compare/v4.2.2...v4.3.0) (2024-11-25)
+
+
+### Bug Fixes
+
+* **semantic release:** fix syntax in releaserc ([93bd151](https://github.com/visitscotland/vs-component-library/commit/93bd1519c36f73bccdd0ea1ca81d3ddc2cdf3d4c))
+
+
+### Features
+
+* **release:** experimentally set up semantic release ([d3c5b63](https://github.com/visitscotland/vs-component-library/commit/d3c5b63540475b8bf191507db6b882d4ce75abb6))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
