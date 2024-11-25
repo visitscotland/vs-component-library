@@ -39,7 +39,7 @@ export default {
         },
         /**
          * The color of the icon.
-         * `default|primary|inverse|disabled|tertiary|danger`
+         * `default|primary|inverse|disabled|tertiary|danger|warning`
          */
         variant: {
             type: String,
@@ -61,6 +61,7 @@ export default {
         /**
         * The orientation of the icon
         * `up|down|left|right`
+        * @deprecated use the correct icon from FA instead
         */
         orientation: {
             type: String,
