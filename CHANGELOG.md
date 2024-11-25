@@ -1,3 +1,11 @@
+## [4.3.1](https://github.com/visitscotland/vs-component-library/compare/v4.3.0...v4.3.1) (2024-11-25)
+
+
+### Bug Fixes
+
+* **semantic release:** add npm publish option ([2dc7336](https://github.com/visitscotland/vs-component-library/commit/2dc7336648820423c626fb016baf1bcb739b8cdc))
+* **semantic release:** make npm token secret available to release ([bf200b3](https://github.com/visitscotland/vs-component-library/commit/bf200b3e8d68252e59e0cbc24b6b31eb118f7bd6))
+
 # [4.3.0](https://github.com/visitscotland/vs-component-library/compare/v4.2.2...v4.3.0) (2024-11-25)
 
 
