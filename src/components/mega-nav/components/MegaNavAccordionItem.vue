@@ -107,7 +107,7 @@ export default {
         padding: $spacer-075 $spacer-200;
 
         &:hover{
-            color: $vs-color-text;
+            color: $vs-color-text-primary;
         }
 
         &:focus{
@@ -135,13 +135,13 @@ export default {
                         left: 0;
                         width: 12px;
                         height: 100%;
-                        background: $vs-color-background-primary;
+                        background: $vs-color-interaction-cta-primary;
                     }
                 }
 
                 &.btn {
                     background-color: $vs-color-background-inverse;
-                    color: $vs-color-text;
+                    color: $vs-color-text-primary;
                     letter-spacing: normal;
                     text-align: left;
                     font-weight: $font-weight-normal;
@@ -149,11 +149,20 @@ export default {
                     border: 0;
 
                     &:hover {
-                        color: $vs-color-text-primary;
+                        color: $vs-color-icon-cta-on-light;
                     }
 
                     .vs-icon{
-                        color: $vs-color-icon;
+                        color: $vs-color-icon-primary;
+                    }
+
+                    &:active, &:active:focus {
+                        background-color: $vs-color-interaction-cta-subtle-hover;
+                        color: $vs-color-text-primary;
+
+                        .vs-icon{
+                            color: $vs-color-icon-primary;
+                        }
                     }
                 }
             }
@@ -168,14 +177,14 @@ export default {
                 padding-right: $spacer-125;
 
                 &:active, &:active:focus, &.vs-accordion-toggle--open {
-                    background-color: $vs-color-background-active;
+                    background-color: $vs-color-interaction-cta-subtle-hover;
                 }
             }
         }
 
         &:first-of-type > .vs-accordion-item__card-header {
             .vs-accordion-toggle.btn {
-                border-top: 1px solid $vs-color-border;
+                border-top: 1px solid $vs-color-border-primary;
             }
         }
     }

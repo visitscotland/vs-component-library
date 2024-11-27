@@ -80,10 +80,6 @@ export default {
         &:focus {
             @extend %outline-link-focus-dark;
         }
-
-        .vs-icon {
-            color: $vs-color-icon-inverse;
-        }
     }
 
     @include media-breakpoint-up(md) {

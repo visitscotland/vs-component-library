@@ -37,6 +37,15 @@ describe('VsPageIntro', () => {
 
             expect(wrapper.find('[data-test="vs-page-intro__mobile-breadcrumb"]').exists()).toBe(true);
         });
+
+        it('should render the content column with a width of 7', async() => {
+            await wrapper.setProps({
+                heroIntro: false,
+                hasToc: true,
+            });
+
+            expect(wrapper.find('[data-test="vs-page-intro__content"]').attributes('md')).toBe('7');
+        });
     });
 
     describe(':slots', () => {
@@ -107,6 +116,16 @@ describe('VsPageIntro', () => {
                 },
             });
             expect(wrapper.find('[data-test="vs-page-intro__lower"]').html()).toContain('<div>This is the lower slot content</div>');
+        });
+
+        it('should render table of content slot content', () => {
+            const tableOfContentsSlot = 'Table of contents content';
+            const wrapper = factoryShallowMount({
+                slots: {
+                    'vs-intro-table-of-contents': tableOfContentsSlot,
+                },
+            });
+            expect(wrapper.text()).toContain(tableOfContentsSlot);
         });
     });
 });

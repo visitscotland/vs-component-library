@@ -86,10 +86,10 @@ export default {
 
         &:not(:disabled):not(.disabled):active {
             background: $vs-color-background-inverse;
-            color: $vs-color-text;
+            color: $vs-color-text-primary;
 
             &:after, .vs-icon{
-                color: $vs-color-text;
+                color: $vs-color-text-primary;
                 transition: $duration-base color;
             }
         }
@@ -99,7 +99,7 @@ export default {
         }
 
         &:hover {
-            background: $vs-color-background-accent-heather;
+            background: $vs-color-background-accent-heather-80;
         }
     }
 
@@ -128,7 +128,7 @@ export default {
                 line-height: $line-height-xs;
 
                 &:hover {
-                    background: $vs-color-background-accent-heather;
+                    background: $vs-color-background-accent-heather-80;
                 }
 
                 &:focus {

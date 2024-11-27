@@ -63,7 +63,7 @@ export default {
 <style lang='scss'>
     .vs-carbon-calculator-running-total {
         margin-top: $spacer-200;
-        border: 1px solid $vs-color-border-tertiary;
+        border: 1px solid $vs-color-border-highlight;
         padding: $spacer-100;
 
         @include media-breakpoint-up(md) {

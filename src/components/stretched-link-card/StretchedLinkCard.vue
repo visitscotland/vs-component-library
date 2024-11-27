@@ -26,12 +26,11 @@
             {{ noJsMessage }}
         </VsWarning>
         <div
+            v-if="imgSrc"
             class="vs-stretched-link-card__img-container"
             :class="warningClass"
         >
-            <template
-                v-if="imgSrc"
-            >
+            <template v-if="imgSrc">
                 <VsImg
                     :src="imgSrc"
                     :alt="imgAlt"
@@ -140,6 +139,15 @@
                 <slot name="stretched-card-content" />
             </div>
 
+            <div
+                v-if="$slots['stretched-card-badges'] && $slots['stretched-card-badges']()"
+                class="vs-stretched-link-card__badges"
+                data-test="vs-stretched-link-card__badges"
+            >
+                <!-- @slot to add badges to the card  -->
+                <slot name="stretched-card-badges" />
+            </div>
+
             <VsLink
                 :href="link"
                 class="vs-stretched-link-card__link stretched-link"
@@ -231,8 +239,8 @@ export default {
         * The image to use in the component
         */
         imgSrc: {
-            required: true,
             type: String,
+            default: undefined,
         },
         /**
         * The image alt text to use in the component
@@ -409,16 +417,15 @@ export default {
 
         &:hover {
             .vs-stretched-link-card__video-button {
-                background-color: $vs-color-background-hover;
-                border-color: $vs-color-background-hover;
+                background-color: $vs-color-interaction-cta-hover;
+                border-color: $vs-color-interaction-cta-hover;
             }
         }
 
         &:active {
             .vs-stretched-link-card__video-button {
-                background-color: $vs-color-background-active;
-                border-color: $vs-color-background-active;
-                color: $vs-color-text-primary;
+                background-color: $vs-color-interaction-cta-pressed;
+                border-color: $vs-color-interaction-cta-pressed;
             }
         }
 
@@ -451,11 +458,11 @@ export default {
         }
 
         .vs-stretched-link-card__title {
-            color: $vs-color-text;
+            color: $vs-color-text-primary;
             display: flex;
 
             .stretched-link {
-                color: $vs-color-text;
+                color: $vs-color-text-primary;
                 text-decoration: none;
                 letter-spacing: inherit;
                 display: block;
@@ -477,7 +484,7 @@ export default {
                 }
 
                 .vs-icon {
-                    color: $vs-color-icon-tertiary;
+                    color: $vs-color-icon-highlight;
                 }
             }
         }
@@ -485,7 +492,7 @@ export default {
         .vs-stretched-link-card__category {
             font-size: $font-size-3;
             line-height: $line-height-xs;
-            color: $vs-color-text-subtle;
+            color: $vs-color-text-tertiary;
             letter-spacing: normal;
             margin-bottom: $spacer-100;
         }
@@ -494,6 +501,7 @@ export default {
             margin-top: $spacer-050;
             line-height: $line-height-s;
             font-size: $font-size-teaser;
+            text-align: left;
 
             p:last-of-type {
                 margin-bottom: 0;
@@ -515,7 +523,7 @@ export default {
 
         .vs-stretched-link-card__link {
             margin: $spacer-100 $spacer-0 $spacer-0;
-            color: $vs-color-link;
+            color: $vs-color-interaction-link-primary;
             text-decoration: underline;
         }
 
@@ -547,6 +555,10 @@ export default {
         .vs-stretched-link-card__full-warning--no-js,
         .vs-stretched-link-card__image-warning--no-js {
             display: none;
+        }
+
+        .vs-stretched-link-card__badges {
+            margin-top: $spacer-050;
         }
     }
 

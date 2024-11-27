@@ -73,7 +73,11 @@ export default {
         padding: $spacer-050 $spacer-150;
 
         &:hover {
-            background-color: $vs-color-background-hover;
+            background-color: $vs-color-interaction-cta-hover;
+        }
+
+        &:active {
+            background-color: $vs-color-interaction-cta-pressed;
         }
 
         &:focus {
@@ -93,26 +97,22 @@ export default {
 
     .dropdown-menu {
         li {
-            border-bottom: 1px solid $vs-color-border;
+            border-bottom: 1px solid $vs-color-border-primary;
 
             &:last-of-type {
                 border-bottom: 0;
             }
 
             .dropdown-item {
-                &.active, &:active {
-                    color: $vs-color-text-primary;
-                    background-color: $vs-color-background-active;
-                }
-
-                &:hover {
-                    color: $vs-color-text-inverse;
-                    background-color: $vs-color-background-hover;
+                &:hover, &.active, &:active {
+                    color: $vs-color-text-cta-on-light;
+                    background-color: $vs-color-interaction-cta-subtle-hover;
                     outline: 0;
                 }
 
                 &:focus {
                     outline: 0;
+                    color: $vs-color-text-cta-on-light;
                     box-shadow: $vs-box-shadow-focus inset;
                 }
             }

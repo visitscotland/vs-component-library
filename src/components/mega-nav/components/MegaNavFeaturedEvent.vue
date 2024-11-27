@@ -95,7 +95,7 @@ export default {
 
 <style lang="scss">
     .card.vs-mega-nav-featured-event {
-        border-top: 1px solid $vs-color-border;
+        border-top: 1px solid $vs-color-border-primary;
         margin-bottom: -#{$spacer-050};
 
         @include media-breakpoint-up(lg) {
@@ -120,7 +120,7 @@ export default {
             left: 0;
             background: $vs-elevation-surface-raised;
             padding: $spacer-0 $spacer-0 $spacer-100;
-            border-left: $spacer-025 solid $vs-color-border-tertiary;
+            border-left: $spacer-025 solid $vs-color-border-highlight;
 
             @include media-breakpoint-up(md) {
                 padding: $spacer-0;
@@ -139,7 +139,7 @@ export default {
             padding: $spacer-0 $spacer-125;
 
             @include media-breakpoint-up(lg) {
-                border-left: $spacer-025 solid $vs-color-border-tertiary;
+                border-left: $spacer-025 solid $vs-color-border-highlight;
             }
         }
 
@@ -157,7 +157,7 @@ export default {
         }
 
         .vs-mega-nav-featured-event__date-range {
-            color: $vs-color-text-tertiary;
+            color: $vs-color-text-highlight;
             margin-bottom: $spacer-050;
             font-size: $small-font-size;
         }

@@ -1,6 +1,6 @@
 {
   "name": "@visitscotland/component-library",
-  "version": "4.1.3",
+  "version": "4.2.2",
   "description": "VisitScotland Component Library",
   "author": "VisitScotland",
   "homepage": "https://github.com/visitscotland/vs-component-library#readme",
@@ -48,7 +48,7 @@
     "third-party": "webpack --config ./build/third-party.webpack.conf.js",
     "commit": "cz",
     "prepare": "husky install",
-    "prepack": "yarn build",
+    "prepack": "yarn && yarn build",
     "release:patch": "standard-version --release-as patch",
     "release:minor": "standard-version --release-as minor",
     "release:major": "standard-version --release-as major"
@@ -158,6 +158,7 @@
   "dependencies": {
     "@mapbox/geojson-extent": "^1.0.1",
     "@pinia/testing": "^0.1.3",
+    "@semantic-release/npm": "^12.0.1",
     "@storybook/addon-a11y": "^7.5.3",
     "@storybook/test": "^8.0.10",
     "@vuelidate/core": "^2.0.2",
@@ -169,6 +170,7 @@
     "mapbox-gl": "^1.11.1",
     "mitt": "^3.0.0",
     "pinia": "^2.1.3",
+    "semantic-release": "^24.2.0",
     "vite": "^5.1.3",
     "vue": "^3.3.4",
     "vue-combo-blocks": "^2.1.1",

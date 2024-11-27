@@ -10,6 +10,8 @@ import {
 import VsDescriptionList from '@/components/description-list/DescriptionList.vue';
 import VsDescriptionListItem from '@/components/description-list/components/DescriptionListItem.vue';
 import VsImageWithCaption from '@/components/image-with-caption/ImageWithCaption.vue';
+import VsLinkList from '@/components/link-list/LinkList.vue';
+import VsLinkListItem from '@/components/link-list/components/LinkListItem.vue';
 import VsPageIntro from '@/components/page-intro/PageIntro.vue';
 import VsSocialShare from '@/components/social-share/SocialShare.vue';
 import VsSocialShareItem from '@/components/social-share/components/SocialShareItem.vue';
@@ -52,6 +54,8 @@ const Template = (args) => ({
         VsDescriptionList,
         VsDescriptionListItem,
         VsImageWithCaption,
+        VsLinkList,
+        VsLinkListItem,
         VsPageIntro,
         VsRow,
         VsSocialShare,
@@ -174,6 +178,28 @@ const Template = (args) => ({
                         />
                     </VsSummaryBoxList>         
                 </VsCol>
+            </template>
+
+            <template
+                v-slot:vs-intro-table-of-contents
+                v-if="args.linkList"
+            >
+                <VsLinkList toc>
+                    <template
+                        v-if="args.linkListHeading"
+                        v-slot:heading
+                    >
+                        {{ args.linkListHeading }}
+                    </template>
+
+                    <VsLinkListItem
+                        v-for="link in args.linkList"
+                        :type="link.type"
+                        :href="link.href"
+                    >
+                        {{ link.title }}
+                    </VsLinkListItem>
+                </VsLinkList>
             </template>
 
             <template
@@ -351,4 +377,34 @@ FullscreenMobile.args = {
 
 FullscreenMobile.parameters = {
     layout: 'fullscreen',
+};
+
+export const WithTableOfContents = Template.bind();
+
+WithTableOfContents.args = {
+    ...base,
+    hasToc: true,
+    linkListHeading: 'In this article:',
+    linkList: [
+        {
+            title: 'Who needs a short-term lets licence?',
+            href: '#section1',
+        },
+        {
+            title: 'When do I need to have a licence?',
+            href: '#section2',
+        },
+        {
+            title: 'How to apply for a licence',
+            href: '#section3',
+        },
+        {
+            title: 'Frequently Asked Questions (FAQ)',
+            href: '#section4',
+        },
+        {
+            title: 'Industry Advisory Group (IAG)',
+            href: '#section5',
+        },
+    ],
 };
