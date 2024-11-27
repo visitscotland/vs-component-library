@@ -565,6 +565,18 @@ export default {
 
             return '';
         },
+        /**
+         * Collects all hidden input fields within the current element, parses their values, and
+         * returns an array of parsed objects.
+         * The values of the hidden inputs are checked for 'true' or 'false' strings and converted
+         * to boolean values accordingly.
+         *
+         * @returns {Array<{name: string, value: boolean|string}>} - An array of objects, each
+         * containing:
+         *   - `name`: The name of the hidden input field.
+         *   - `value`: The parsed value of the input field, where 'true' becomes `true`,
+         *     'false' becomes `false`, and other values remain as strings.
+         */
         getHiddenFields() {
             const hiddenInputFields = this.$el.querySelectorAll('input[type=hidden]');
 
