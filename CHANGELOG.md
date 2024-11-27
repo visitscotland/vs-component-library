@@ -1,3 +1,26 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [4.3.4](https://github.com/visitscotland/vs-component-library/compare/v4.3.3...v4.3.4) (2024-11-27)
+
+
+### ✅ Tests
+
+* **button:** added new tests for block level button fix ([ff1b988](https://github.com/visitscotland/vs-component-library/commit/ff1b988ed3c36c3b5935e6d3104009c0d2835d4f))
+
+
+### 🐛 Bug Fixes
+
+* **button:** added justify-content-center to button so block level buttons display content correctly ([5f8b03a](https://github.com/visitscotland/vs-component-library/commit/5f8b03aae99c804cebdf1580a171df9651c9c50a))
+* **button:** fixed bug where adding 'block' to a button did not cause it to be a block element ([27dc6ec](https://github.com/visitscotland/vs-component-library/commit/27dc6ecc8f6114ebe816e8808180be18ffb96957))
+* **button:** fixed some odities with how icons displayed as a block level button ([6d342d5](https://github.com/visitscotland/vs-component-library/commit/6d342d5b5425b7748779adcbdb23c09c0bfcbeb9))
+
+
+### ♻️ Code Refactoring
+
+* **button:** cleanup storybook ([8f5f127](https://github.com/visitscotland/vs-component-library/commit/8f5f127eedcc7be16fc693511c7f21fd02665804))
+
 ## [4.3.3](https://github.com/visitscotland/vs-component-library/compare/v4.3.2...v4.3.3) (2024-11-25)
 
 
