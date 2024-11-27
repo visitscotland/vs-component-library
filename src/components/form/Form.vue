@@ -570,6 +570,17 @@ export default {
 
             return [...hiddenInputFields].map(this.parseBooleanStringsFromInputField);
         },
+        /**
+         * Parses the value of an input field, converting 'true' and 'false' string values to their
+         * boolean primitive equivalents.
+         *
+         * @param {HTMLInputElement} inputField - The input field element to process. It must have a
+         * `value` and `name` property.
+         * @returns {{name: string, value: boolean|string}} - An object containing:
+         *   - `name`: The name of the input field.
+         *   - `value`: The parsed value of the input field. Returns `true` if the value is 'true',
+         *     `false` if the value is 'false', and the original value otherwise.
+         */
         parseBooleanStringsFromInputField(inputField) {
             let value = inputField.value;
 
