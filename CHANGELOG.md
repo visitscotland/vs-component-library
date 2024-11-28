@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.3.6](https://github.com/visitscotland/vs-component-library/compare/v4.3.5...v4.3.6) (2024-11-28)
+
+
+### 🐛 Bug Fixes
+
+* **check-vender-library.js:** run the function instantly the first time it's called ([2ca07fe](https://github.com/visitscotland/vs-component-library/commit/2ca07fe22e9f0abda28d17f2bb720b0cc6dff101))
+
 ### [4.3.5](https://github.com/visitscotland/vs-component-library/compare/v4.3.4...v4.3.5) (2024-11-28)
 
 
