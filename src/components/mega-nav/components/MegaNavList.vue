@@ -18,11 +18,11 @@
             class="vs-mega-nav-list__list"
             role="menu"
         >
-            <!-- @slot Slot for nav list items  -->
-            <slot name="nav-list-items" />
-
             <!-- @slot Slot for nav list heading cta link at bottom of the menu group  -->
             <slot name="nav-heading-cta-link" />
+
+            <!-- @slot Slot for nav list items  -->
+            <slot name="nav-list-items" />
         </VsList>
     </nav>
 </template>

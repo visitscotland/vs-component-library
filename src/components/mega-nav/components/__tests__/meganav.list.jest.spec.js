@@ -59,5 +59,14 @@ describe('VsMegaNavList', () => {
             const wrapper = factoryShallowMount();
             expect(wrapper.find('[data-test="vs-mega-nav-list"]').find('.top-menu-item-cta').text()).toBe('CTA Link');
         });
+
+        it('renders slots in order nav-heading-cta-link, then nav-list-items', () => {
+            const wrapper = factoryShallowMount();
+
+            const slotContent = wrapper.find('[data-test="vs-mega-nav-list"]').findAll('li');
+
+            expect(slotContent.at(0).classes()).toContain('top-menu-item-cta');
+            expect(slotContent.at(1).classes()).toContain('top-menu-item-list');
+        });
     });
 });
