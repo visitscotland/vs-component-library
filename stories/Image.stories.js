@@ -36,3 +36,11 @@ export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const WebpWithResizer = Template.bind({
+});
+
+WebpWithResizer.args = {
+    ...base,
+    src: 'https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2024/10/04/lady-marys-walk',
+};
