@@ -235,7 +235,7 @@ const Template = (args) => ({
                                             :href="subHeading.href"
                                             subheading-link
                                         >
-                                            {{ subHeading.cta }} - one
+                                            {{ subHeading.cta }}
                                         </VsMegaNavListItem>
                                     </template>
                                 </VsMegaNavList>
