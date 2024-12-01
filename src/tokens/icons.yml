@@ -4,6 +4,14 @@
 #
 
 props:
+  vs-icon-x-twitter:
+    value: "fa-x-twitter fa-brands"
+  vs-icon-season-autumn:
+    value: "fa-leaf-oak fa-regular"
+  vs-icon-whatsapp:
+    value: "fa-whatsapp fa-brands"
+  vs-icon-crow:
+    value: "fa-duotone fa-crow"
   icon_size_xxs:
     value: "12px"
   icon_size_xs:

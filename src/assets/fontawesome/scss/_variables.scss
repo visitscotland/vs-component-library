@@ -1,227 +1,488 @@
 // variables
 // --------------------------
 
-$fa-css-prefix          : fa !default;
-$fa-style               : 900 !default;
-$fa-style-family        : "Font Awesome 6 Pro" !default;
+$fa-css-prefix            : fa !default;
+$fa-style                 : 900 !default;
+$fa-style-family          : "Font Awesome 6 Pro" !default;
 
-$fa-display             : inline-block !default;
+$fa-icon-property         : --fa;
+$fa-duotone-icon-property : --fa--fa;
 
-$fa-fw-width            : fa-divide(20em, 16) !default;
-$fa-inverse             : #fff !default;
+$fa-display               : inline-block !default;
 
-$fa-border-color        : #eee !default;
-$fa-border-padding      : .2em .25em .15em !default;
-$fa-border-radius       : .1em !default;
-$fa-border-style        : solid !default;
-$fa-border-width        : .08em !default;
+$fa-fw-width              : fa-divide(20em, 16) !default;
+$fa-inverse               : #fff !default;
 
-$fa-size-scale-2xs      : 10 !default;
-$fa-size-scale-xs       : 12 !default;
-$fa-size-scale-sm       : 14 !default;
-$fa-size-scale-base     : 16 !default;
-$fa-size-scale-lg       : 20 !default;
-$fa-size-scale-xl       : 24 !default;
-$fa-size-scale-2xl      : 32 !default;
+$fa-border-color          : #eee !default;
+$fa-border-padding        : .2em .25em .15em !default;
+$fa-border-radius         : .1em !default;
+$fa-border-style          : solid !default;
+$fa-border-width          : .08em !default;
+
+$fa-size-scale-2xs        : 10 !default;
+$fa-size-scale-xs         : 12 !default;
+$fa-size-scale-sm         : 14 !default;
+$fa-size-scale-base       : 16 !default;
+$fa-size-scale-lg         : 20 !default;
+$fa-size-scale-xl         : 24 !default;
+$fa-size-scale-2xl        : 32 !default;
 
 $fa-sizes: (
-  "2xs"                 : $fa-size-scale-2xs,
-  "xs"                  : $fa-size-scale-xs,
-  "sm"                  : $fa-size-scale-sm,
-  "lg"                  : $fa-size-scale-lg,
-  "xl"                  : $fa-size-scale-xl,
-  "2xl"                 : $fa-size-scale-2xl
+  "2xs"                   : $fa-size-scale-2xs,
+  "xs"                    : $fa-size-scale-xs,
+  "sm"                    : $fa-size-scale-sm,
+  "lg"                    : $fa-size-scale-lg,
+  "xl"                    : $fa-size-scale-xl,
+  "2xl"                   : $fa-size-scale-2xl
 ) !default;
 
-$fa-li-width            : 2em !default;
-$fa-li-margin           : $fa-li-width * fa-divide(5, 4) !default;
+$fa-li-width              : 2em !default;
+$fa-li-margin             : $fa-li-width * fa-divide(5, 4) !default;
 
-$fa-pull-margin         : .3em !default;
+$fa-pull-margin           : .3em !default;
 
-$fa-primary-opacity     : 1 !default;
-$fa-secondary-opacity   : .4 !default;
+$fa-primary-opacity       : 1 !default;
+$fa-secondary-opacity     : .4 !default;
 
-$fa-stack-vertical-align: middle !default;
-$fa-stack-width         : ($fa-fw-width * 2) !default;
-$fa-stack-z-index       : auto !default;
+$fa-stack-vertical-align  : middle !default;
+$fa-stack-width           : ($fa-fw-width * 2) !default;
+$fa-stack-z-index         : auto !default;
 
-$fa-font-display        : block !default;
-$fa-font-path           : "/src/assets/fontawesome/webfonts";
+$fa-font-display          : block !default;
+$fa-font-path             : "/src/assets/fontawesome/webfonts/";
 
+$fa-var-arrow-down-to-line: \f33d;
+$fa-var-arrow-to-bottom: \f33d;
+$fa-var-arrow-left: \f060;
+$fa-var-arrow-right: \f061;
+$fa-var-arrows-maximize: \f31d;
+$fa-var-expand-arrows: \f31d;
+$fa-var-arrows-minimize: \e0a5;
+$fa-var-compress-arrows: \e0a5;
+$fa-var-arrows-rotate: \f021;
+$fa-var-refresh: \f021;
+$fa-var-sync: \f021;
+$fa-var-atom-simple: \f5d3;
+$fa-var-atom-alt: \f5d3;
+$fa-var-bag-shopping: \f290;
+$fa-var-shopping-bag: \f290;
+$fa-var-bars: \f0c9;
+$fa-var-navicon: \f0c9;
+$fa-var-bed: \f236;
+$fa-var-bell-concierge: \f562;
+$fa-var-concierge-bell: \f562;
+$fa-var-binoculars: \f1e5;
+$fa-var-bus: \f207;
+$fa-var-calendar: \f133;
+$fa-var-calendar-check: \f274;
+$fa-var-calendar-range: \e0d6;
+$fa-var-camera: \f030;
+$fa-var-camera-alt: \f030;
+$fa-var-camera-movie: \f8a9;
+$fa-var-camera-web: \f832;
+$fa-var-webcam: \f832;
+$fa-var-car-side: \f5e4;
+$fa-var-caravan-simple: \e000;
+$fa-var-caravan-alt: \e000;
+$fa-var-castle: \e0de;
+$fa-var-check: \f00c;
+$fa-var-chevron-down: \f078;
+$fa-var-chevron-left: \f053;
+$fa-var-chevron-right: \f054;
+$fa-var-chevron-up: \f077;
+$fa-var-church: \f51d;
+$fa-var-circle: \f111;
+$fa-var-circle-check: \f058;
+$fa-var-check-circle: \f058;
+$fa-var-circle-chevron-down: \f13a;
+$fa-var-chevron-circle-down: \f13a;
+$fa-var-circle-chevron-right: \f138;
+$fa-var-chevron-circle-right: \f138;
 $fa-var-circle-info: \f05a;
 $fa-var-info-circle: \f05a;
+$fa-var-circle-question: \f059;
+$fa-var-question-circle: \f059;
 $fa-var-circle-xmark: \f057;
 $fa-var-times-circle: \f057;
 $fa-var-xmark-circle: \f057;
+$fa-var-city: \f64f;
+$fa-var-clock: \f017;
+$fa-var-clock-four: \f017;
+$fa-var-cloud: \f0c2;
+$fa-var-cloud-bolt: \f76c;
+$fa-var-thunderstorm: \f76c;
+$fa-var-cloud-fog: \f74e;
+$fa-var-fog: \f74e;
+$fa-var-cloud-showers: \f73f;
+$fa-var-cloud-showers-heavy: \f740;
+$fa-var-cloud-sleet: \f741;
+$fa-var-cloud-snow: \f742;
+$fa-var-cloud-sun: \f6c4;
 $fa-var-crow: \f520;
+$fa-var-crown: \f521;
+$fa-var-dash: \e404;
+$fa-var-minus-large: \e404;
+$fa-var-dog-leashed: \f6d4;
+$fa-var-egg-fried: \f7fc;
+$fa-var-envelope: \f0e0;
+$fa-var-eye: \f06e;
+$fa-var-face-smile: \f118;
+$fa-var-smile: \f118;
+$fa-var-family: \e300;
+$fa-var-family-pants: \e302;
+$fa-var-ferry: \e4ea;
+$fa-var-file-pdf: \f1c1;
+$fa-var-flower-tulip: \f801;
+$fa-var-gift: \f06b;
+$fa-var-glasses: \f530;
+$fa-var-globe: \f0ac;
+$fa-var-heart: \f004;
+$fa-var-hot-tub-person: \f593;
+$fa-var-hot-tub: \f593;
+$fa-var-hotel: \f594;
+$fa-var-hourglass: \f254;
+$fa-var-hourglass-empty: \f254;
+$fa-var-house: \f015;
+$fa-var-home: \f015;
+$fa-var-home-alt: \f015;
+$fa-var-home-lg-alt: \f015;
+$fa-var-house-building: \e1b1;
+$fa-var-house-chimney-window: \e00d;
+$fa-var-house-tree: \e1b3;
+$fa-var-images: \f302;
+$fa-var-info: \f129;
+$fa-var-island-tropical: \f811;
+$fa-var-island-tree-palm: \f811;
+$fa-var-landmark: \f66f;
+$fa-var-language: \f1ab;
+$fa-var-leaf: \f06c;
+$fa-var-leaf-oak: \f6f7;
+$fa-var-link: \f0c1;
+$fa-var-chain: \f0c1;
+$fa-var-list: \f03a;
+$fa-var-list-squares: \f03a;
+$fa-var-location-pin: \f041;
+$fa-var-map-marker: \f041;
+$fa-var-magnifying-glass: \f002;
+$fa-var-search: \f002;
+$fa-var-map: \f279;
+$fa-var-masks-theater: \f630;
+$fa-var-theater-masks: \f630;
+$fa-var-minus: \f068;
+$fa-var-subtract: \f068;
+$fa-var-mountain: \f6fc;
+$fa-var-mug-saucer: \f0f4;
+$fa-var-coffee: \f0f4;
+$fa-var-mug-tea: \f875;
+$fa-var-notebook: \e201;
+$fa-var-pen-to-square: \f044;
+$fa-var-edit: \f044;
+$fa-var-person-biking: \f84a;
+$fa-var-biking: \f84a;
+$fa-var-person-hiking: \f6ec;
+$fa-var-hiking: \f6ec;
+$fa-var-person-ski-lift: \f7c8;
+$fa-var-ski-lift: \f7c8;
+$fa-var-person-walking: \f554;
+$fa-var-walking: \f554;
+$fa-var-phone: \f095;
+$fa-var-plane: \f072;
+$fa-var-play: \f04b;
+$fa-var-plus: \2b;
+$fa-var-add: \2b;
+$fa-var-print: \f02f;
+$fa-var-question: \3f;
+$fa-var-restroom-simple: \e23a;
+$fa-var-route: \f4d7;
+$fa-var-share-nodes: \f1e0;
+$fa-var-share-alt: \f1e0;
+$fa-var-ship: \f21a;
+$fa-var-ski-boot-ski: \e3cd;
+$fa-var-sliders: \f1de;
+$fa-var-sliders-h: \f1de;
+$fa-var-snow-blowing: \f761;
+$fa-var-snowflakes: \f7cf;
+$fa-var-snowman: \f7d0;
+$fa-var-spa: \f5bb;
+$fa-var-square-arrow-up-right: \f14c;
+$fa-var-external-link-square: \f14c;
+$fa-var-square-parking: \f540;
+$fa-var-parking: \f540;
+$fa-var-squirrel: \f71a;
+$fa-var-star: \f005;
+$fa-var-sun: \f185;
+$fa-var-sun-bright: \e28f;
+$fa-var-sun-alt: \e28f;
+$fa-var-sun-haze: \f765;
+$fa-var-taxi: \f1ba;
+$fa-var-cab: \f1ba;
+$fa-var-taxi-bus: \e298;
+$fa-var-ticket: \f145;
+$fa-var-ticket-perforated: \e63e;
+$fa-var-train: \f238;
+$fa-var-train-subway-tunnel: \e2a3;
+$fa-var-subway-tunnel: \e2a3;
+$fa-var-train-tram: \e5b4;
+$fa-var-triangle-exclamation: \f071;
+$fa-var-exclamation-triangle: \f071;
+$fa-var-warning: \f071;
+$fa-var-umbrella-beach: \f5ca;
+$fa-var-universal-access: \f29a;
+$fa-var-user: \f007;
+$fa-var-user-chef: \e3d2;
+$fa-var-utensils: \f2e7;
+$fa-var-cutlery: \f2e7;
+$fa-var-wheat: \f72d;
+$fa-var-wheelchair: \f193;
+$fa-var-whiskey-glass-ice: \f7a1;
+$fa-var-glass-whiskey-rocks: \f7a1;
+$fa-var-wifi: \f1eb;
+$fa-var-wifi-3: \f1eb;
+$fa-var-wifi-strong: \f1eb;
+$fa-var-wind: \f72e;
+$fa-var-wrench: \f0ad;
+$fa-var-xmark-large: \e59b;
 
-$fa-var-linkedin-in: \f0e1;
+$fa-var-facebook: \f09a;
+$fa-var-linkedin: \f08c;
+$fa-var-pinterest: \f0d2;
+$fa-var-square-instagram: \e055;
+$fa-var-instagram-square: \e055;
+$fa-var-whatsapp: \f232;
 $fa-var-x-twitter: \e61b;
+$fa-var-youtube: \f167;
 
 $fa-icons: (
+  "arrow-down-to-line": $fa-var-arrow-down-to-line,
+  "arrow-to-bottom": $fa-var-arrow-to-bottom,
+  "arrow-left": $fa-var-arrow-left,
+  "arrow-right": $fa-var-arrow-right,
+  "arrows-maximize": $fa-var-arrows-maximize,
+  "expand-arrows": $fa-var-expand-arrows,
+  "arrows-minimize": $fa-var-arrows-minimize,
+  "compress-arrows": $fa-var-compress-arrows,
+  "arrows-rotate": $fa-var-arrows-rotate,
+  "refresh": $fa-var-refresh,
+  "sync": $fa-var-sync,
+  "atom-simple": $fa-var-atom-simple,
+  "atom-alt": $fa-var-atom-alt,
+  "bag-shopping": $fa-var-bag-shopping,
+  "shopping-bag": $fa-var-shopping-bag,
+  "bars": $fa-var-bars,
+  "navicon": $fa-var-navicon,
+  "bed": $fa-var-bed,
+  "bell-concierge": $fa-var-bell-concierge,
+  "concierge-bell": $fa-var-concierge-bell,
+  "binoculars": $fa-var-binoculars,
+  "bus": $fa-var-bus,
+  "calendar": $fa-var-calendar,
+  "calendar-check": $fa-var-calendar-check,
+  "calendar-range": $fa-var-calendar-range,
+  "camera": $fa-var-camera,
+  "camera-alt": $fa-var-camera-alt,
+  "camera-movie": $fa-var-camera-movie,
+  "camera-web": $fa-var-camera-web,
+  "webcam": $fa-var-webcam,
+  "car-side": $fa-var-car-side,
+  "caravan-simple": $fa-var-caravan-simple,
+  "caravan-alt": $fa-var-caravan-alt,
+  "castle": $fa-var-castle,
+  "check": $fa-var-check,
+  "chevron-down": $fa-var-chevron-down,
+  "chevron-left": $fa-var-chevron-left,
+  "chevron-right": $fa-var-chevron-right,
+  "chevron-up": $fa-var-chevron-up,
+  "church": $fa-var-church,
+  "circle": $fa-var-circle,
+  "circle-check": $fa-var-circle-check,
+  "check-circle": $fa-var-check-circle,
+  "circle-chevron-down": $fa-var-circle-chevron-down,
+  "chevron-circle-down": $fa-var-chevron-circle-down,
+  "circle-chevron-right": $fa-var-circle-chevron-right,
+  "chevron-circle-right": $fa-var-chevron-circle-right,
   "circle-info": $fa-var-circle-info,
   "info-circle": $fa-var-info-circle,
+  "circle-question": $fa-var-circle-question,
+  "question-circle": $fa-var-question-circle,
   "circle-xmark": $fa-var-circle-xmark,
   "times-circle": $fa-var-times-circle,
   "xmark-circle": $fa-var-xmark-circle,
+  "city": $fa-var-city,
+  "clock": $fa-var-clock,
+  "clock-four": $fa-var-clock-four,
+  "cloud": $fa-var-cloud,
+  "cloud-bolt": $fa-var-cloud-bolt,
+  "thunderstorm": $fa-var-thunderstorm,
+  "cloud-fog": $fa-var-cloud-fog,
+  "fog": $fa-var-fog,
+  "cloud-showers": $fa-var-cloud-showers,
+  "cloud-showers-heavy": $fa-var-cloud-showers-heavy,
+  "cloud-sleet": $fa-var-cloud-sleet,
+  "cloud-snow": $fa-var-cloud-snow,
+  "cloud-sun": $fa-var-cloud-sun,
   "crow": $fa-var-crow,
+  "crown": $fa-var-crown,
+  "dash": $fa-var-dash,
+  "minus-large": $fa-var-minus-large,
+  "dog-leashed": $fa-var-dog-leashed,
+  "egg-fried": $fa-var-egg-fried,
+  "envelope": $fa-var-envelope,
+  "eye": $fa-var-eye,
+  "face-smile": $fa-var-face-smile,
+  "smile": $fa-var-smile,
+  "family": $fa-var-family,
+  "family-pants": $fa-var-family-pants,
+  "ferry": $fa-var-ferry,
+  "file-pdf": $fa-var-file-pdf,
+  "flower-tulip": $fa-var-flower-tulip,
+  "gift": $fa-var-gift,
+  "glasses": $fa-var-glasses,
+  "globe": $fa-var-globe,
+  "heart": $fa-var-heart,
+  "hot-tub-person": $fa-var-hot-tub-person,
+  "hot-tub": $fa-var-hot-tub,
+  "hotel": $fa-var-hotel,
+  "hourglass": $fa-var-hourglass,
+  "hourglass-empty": $fa-var-hourglass-empty,
+  "house": $fa-var-house,
+  "home": $fa-var-home,
+  "home-alt": $fa-var-home-alt,
+  "home-lg-alt": $fa-var-home-lg-alt,
+  "house-building": $fa-var-house-building,
+  "house-chimney-window": $fa-var-house-chimney-window,
+  "house-tree": $fa-var-house-tree,
+  "images": $fa-var-images,
+  "info": $fa-var-info,
+  "island-tropical": $fa-var-island-tropical,
+  "island-tree-palm": $fa-var-island-tree-palm,
+  "landmark": $fa-var-landmark,
+  "language": $fa-var-language,
+  "leaf": $fa-var-leaf,
+  "leaf-oak": $fa-var-leaf-oak,
+  "link": $fa-var-link,
+  "chain": $fa-var-chain,
+  "list": $fa-var-list,
+  "list-squares": $fa-var-list-squares,
+  "location-pin": $fa-var-location-pin,
+  "map-marker": $fa-var-map-marker,
+  "magnifying-glass": $fa-var-magnifying-glass,
+  "search": $fa-var-search,
+  "map": $fa-var-map,
+  "masks-theater": $fa-var-masks-theater,
+  "theater-masks": $fa-var-theater-masks,
+  "minus": $fa-var-minus,
+  "subtract": $fa-var-subtract,
+  "mountain": $fa-var-mountain,
+  "mug-saucer": $fa-var-mug-saucer,
+  "coffee": $fa-var-coffee,
+  "mug-tea": $fa-var-mug-tea,
+  "notebook": $fa-var-notebook,
+  "pen-to-square": $fa-var-pen-to-square,
+  "edit": $fa-var-edit,
+  "person-biking": $fa-var-person-biking,
+  "biking": $fa-var-biking,
+  "person-hiking": $fa-var-person-hiking,
+  "hiking": $fa-var-hiking,
+  "person-ski-lift": $fa-var-person-ski-lift,
+  "ski-lift": $fa-var-ski-lift,
+  "person-walking": $fa-var-person-walking,
+  "walking": $fa-var-walking,
+  "phone": $fa-var-phone,
+  "plane": $fa-var-plane,
+  "play": $fa-var-play,
+  "plus": $fa-var-plus,
+  "add": $fa-var-add,
+  "print": $fa-var-print,
+  "question": $fa-var-question,
+  "restroom-simple": $fa-var-restroom-simple,
+  "route": $fa-var-route,
+  "share-nodes": $fa-var-share-nodes,
+  "share-alt": $fa-var-share-alt,
+  "ship": $fa-var-ship,
+  "ski-boot-ski": $fa-var-ski-boot-ski,
+  "sliders": $fa-var-sliders,
+  "sliders-h": $fa-var-sliders-h,
+  "snow-blowing": $fa-var-snow-blowing,
+  "snowflakes": $fa-var-snowflakes,
+  "snowman": $fa-var-snowman,
+  "spa": $fa-var-spa,
+  "square-arrow-up-right": $fa-var-square-arrow-up-right,
+  "external-link-square": $fa-var-external-link-square,
+  "square-parking": $fa-var-square-parking,
+  "parking": $fa-var-parking,
+  "squirrel": $fa-var-squirrel,
+  "star": $fa-var-star,
+  "sun": $fa-var-sun,
+  "sun-bright": $fa-var-sun-bright,
+  "sun-alt": $fa-var-sun-alt,
+  "sun-haze": $fa-var-sun-haze,
+  "taxi": $fa-var-taxi,
+  "cab": $fa-var-cab,
+  "taxi-bus": $fa-var-taxi-bus,
+  "ticket": $fa-var-ticket,
+  "ticket-perforated": $fa-var-ticket-perforated,
+  "train": $fa-var-train,
+  "train-subway-tunnel": $fa-var-train-subway-tunnel,
+  "subway-tunnel": $fa-var-subway-tunnel,
+  "train-tram": $fa-var-train-tram,
+  "triangle-exclamation": $fa-var-triangle-exclamation,
+  "exclamation-triangle": $fa-var-exclamation-triangle,
+  "warning": $fa-var-warning,
+  "umbrella-beach": $fa-var-umbrella-beach,
+  "universal-access": $fa-var-universal-access,
+  "user": $fa-var-user,
+  "user-chef": $fa-var-user-chef,
+  "utensils": $fa-var-utensils,
+  "cutlery": $fa-var-cutlery,
+  "wheat": $fa-var-wheat,
+  "wheelchair": $fa-var-wheelchair,
+  "whiskey-glass-ice": $fa-var-whiskey-glass-ice,
+  "glass-whiskey-rocks": $fa-var-glass-whiskey-rocks,
+  "wifi": $fa-var-wifi,
+  "wifi-3": $fa-var-wifi-3,
+  "wifi-strong": $fa-var-wifi-strong,
+  "wind": $fa-var-wind,
+  "wrench": $fa-var-wrench,
+  "xmark-large": $fa-var-xmark-large,
 );
 
 $fa-brand-icons: (
-  "linkedin-in": $fa-var-linkedin-in,
+  "facebook": $fa-var-facebook,
+  "linkedin": $fa-var-linkedin,
+  "pinterest": $fa-var-pinterest,
+  "square-instagram": $fa-var-square-instagram,
+  "instagram-square": $fa-var-instagram-square,
+  "whatsapp": $fa-var-whatsapp,
   "x-twitter": $fa-var-x-twitter,
+  "youtube": $fa-var-youtube,
 );
 
 $fa-custom-icons: (
-  accessible-toilet: "\e000",
-  accommodation-map-pin: "\e001",
-  activities-map-pin: "\e002",
-  attractions-map-pin: "\e003",
-  attractions-map-pin-1: "\e004",
-  bars-mobile-menu: "\e005",
-  bed: "\e006",
-  boat: "\e007",
-  boat-tour: "\e008",
-  breakfast-available: "\e009",
-  bus: "\e00a",
-  cafe: "\e00b",
-  calendar-check: "\e00c",
-  camera: "\e00d",
-  campervans-motorhomes: "\e00e",
-  car: "\e00f",
-  castle: "\e010",
-  chevron: "\e011",
-  chevron-down: "\e012",
-  chevron-left: "\e013",
-  chevron-right: "\e014",
-  child: "\e015",
-  church: "\e016",
-  cities-map-pin: "\e017",
-  city: "\e018",
-  clock: "\e01a",
-  close: "\e019",
-  close-circle: "\e01b",
-  close-circle-filled: "\e01c",
-  cluster-map-pin: "\e01d",
-  compress: "\e01e",
-  coo: "\e01f",
-  cycle: "\e020",
-  distillery: "\e021",
-  down-arrow: "\e022",
-  download-link: "\e023",
-  edit: "\e024",
-  email: "\e027",
-  events: "\e025",
-  events-map-pin: "\e026",
-  expand-arrows: "\e028",
-  expected-open: "\e029",
-  external-link: "\e02a",
-  facebook: "\e02b",
-  facility-accessparkdrop: "\e02c",
-  facility-audioloop: "\e02d",
-  facility-dsblaccess: "\e02e",
-  facility-parking: "\e02f",
-  facility-petswelcom: "\e030",
-  facility-wifi: "\e031",
-  family: "\e032",
-  favourite: "\e033",
-  favourite-filled: "\e034",
-  featured-places-map-pin: "\e035",
-  ferry: "\e036",
-  filled-round-checkmark: "\e037",
-  film-tv: "\e038",
-  filters: "\e03b",
-  food: "\e039",
-  food-drink-map-pin: "\e03a",
-  giftshop: "\e03c",
-  globe: "\e03d",
-  hiking: "\e03f",
-  history: "\e03e",
-  home: "\e040",
-  hot-tub: "\e041",
-  hourglass: "\e042",
-  icentre-information: "\e043",
-  icentres-map-pin: "\e044",
-  information: "\e045",
-  information-filled: "\e046",
-  instagram: "\e047",
-  instagram-filled: "\e048",
-  internal-link: "\e049",
-  internal-link-back: "\e096",
-  islands: "\e04a",
-  islands-map-pin: "\e04b",
-  landscape: "\e04c",
-  languages: "\e04d",
-  leaf: "\e04e",
-  level-access-dining-room: "\e051",
-  level-entry-shower: "\e04f",
-  link: "\e050",
-  list: "\e052",
-  map: "\e053",
-  map-marker: "\e055",
-  map-marker-filled: "\e054",
-  minus: "\e057",
-  notes: "\e059",
-  palace: "\e056",
-  pdf-link: "\e058",
-  phone: "\e05a",
-  picture: "\e05b",
-  pinterest: "\e05c",
-  places-map-pin: "\e05d",
-  plane: "\e05f",
-  play: "\e060",
-  play-filled: "\e05e",
-  plus: "\e062",
-  print: "\e061",
-  product-accommodation: "\e063",
-  product-attractions: "\e064",
-  product-events: "\e065",
-  product-food-and-drink: "\e066",
-  product-shopping: "\e067",
-  prototype: "\e068",
-  public-transport: "\e06a",
-  publictlt: "\e069",
-  question: "\e06b",
-  ready: "\e06c",
-  refresh: "\e06d",
-  regions: "\e06e",
-  regions-map-pin: "\e06f",
-  reverse-arrow: "\e070",
-  reverse-arrow-filled: "\e071",
-  review: "\e072",
-  route: "\e073",
-  search: "\e074",
-  season-autumn: "\e075",
-  season-spring: "\e076",
-  season-summer: "\e077",
-  season-winter: "\e078",
-  share: "\e079",
-  shopping-bag: "\e07a",
-  shopping-map-pin: "\e07b",
-  sightseeing: "\e07c",
-  ski-boot: "\e07d",
-  ski-lift: "\e07e",
-  smile: "\e07f",
-  star: "\e080",
-  status-closed: "\e081",
-  subway: "\e082",
-  sun-cloud: "\e083",
-  taxi: "\e084",
-  tick: "\e085",
-  ticket: "\e086",
-  towns-map-pin: "\e087",
-  train: "\e088",
-  tram: "\e089",
-  transport: "\e08a",
-  twitter: "\e08b",
-  unicorn: "\e08c",
-  universal-access: "\e08d",
-  user: "\e08e",
-  vegan-vegetarian: "\e08f",
-  walk: "\e090",
-  webcam: "\e091",
-  wellness: "\e092",
-  whatsapp: "\e093",
-  whisky: "\e094",
-  youtube: "\e095",
+  accessible-dining: "\e00e",
+  accessible-parking: "\e024",
+  accessible-shower: "\e00f",
+  accessible-toilet: "\e010",
+  accommodation-camping: "\e025",
+  accomodation-unusual: "\e026",
+  acitivties-product: "\e011",
+  activities-outdoor: "\e012",
+  audio-loop: "\e013",
+  bed-bunk: "\e014",
+  bus-train: "\e015",
+  calendar-days: "\e016",
+  coo: "\e027",
+  coo-solid: "\e017",
+  food-drink: "\e018",
+  info-solid: "\e019",
+  kilt: "\e01a",
+  location-pin: "\e01b",
+  map-scotland: "\e01c",
+  mountain-range: "\e01d",
+  mountain-signpost: "\e01e",
+  mountain-water: "\e01f",
+  still: "\e020",
+  still-solid: "\e021",
+  unicorn: "\e00c",
+  vegan-vegetarian: "\e022",
+  yacht-water: "\e023",
 );

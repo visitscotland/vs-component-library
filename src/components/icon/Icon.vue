@@ -2,7 +2,7 @@
     <i
         :class="{
             fak: true,
-            [`fa-${icon}`]: true,
+            [`${iconClasses}`]: true,
             'vs-icon': true,
             [`vs-icon--size-${size}`]: true,
             [`vs-icon--sm-size-${smallSize}`]: smallSize,
@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import designTokens from '@/assets/tokens/tokens.json';
 /**
  * Icons are used to visually communicate available actions
  * or ideas and can help users navigate the product.
@@ -29,6 +30,16 @@ export default {
     status: 'prototype',
     release: '0.1.0',
     props: {
+        /**
+         * A string that specifies the Font Awesome icon to render,
+         * either as a semantic design token or as a set
+         * of `fa-` classes.
+         */
+        icon: {
+            type: String,
+            required: true,
+            default: 'search', // placeholder / "error" icon needed?
+        },
         /**
          * The name of the icon to display, which will be the name of the icon file
          */
@@ -88,16 +99,10 @@ export default {
             default: null,
             validator: (value) => value.match(/(xxs|xs|sm|md|lg|xl)/),
         },
-        /**
-        * Uses FontAwesome Duotone
-        */
-        duotone: {
-            type: Boolean,
-            default: false,
-        },
     },
     data() {
         return {
+            tokens: designTokens,
             /*
                 *  Some DMS feed categories are different
                     from the name of the icon file.  This lookup marries up discrepencies
@@ -231,18 +236,8 @@ export default {
         };
     },
     computed: {
-        icon() {
-            return this.formattedName;
-        },
-        formattedName() {
-            /*
-             * To facilitate more readable icon names and
-             * organise / group icons within the design system
-             * there is a lookup for how keys may be passed from the backend
-             */
-            const formattedNameLookup = this.iconLookup.find(({ key }) => key === this.name);
-
-            return formattedNameLookup !== undefined ? formattedNameLookup.value : this.name;
+        iconClasses() {
+            return this.tokens[this.icon] || this.icon;
         },
     },
 };

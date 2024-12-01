@@ -46,7 +46,7 @@ const Template = (args) => ({
             v-if="args.icons"
             class="me-125"
             v-for="icon in args.icons"
-            :name="icon.name"
+            :icon="icon.classes"
             :variant="icon.variant"
             :size="icon.size"
             :customColour="icon.customColour"
@@ -60,7 +60,7 @@ const Template = (args) => ({
 });
 
 const base = {
-    name: 'user',
+    icon: 'user',
 };
 
 export const Default = Template.bind({
@@ -74,27 +74,27 @@ export const Size = Template.bind({
 Size.args = {
     icons: [
         {
-            name: 'user',
+            classes: 'user',
             size: 'xxs',
         },
         {
-            name: 'user',
+            classes: 'user',
             size: 'xs',
         },
         {
-            name: 'user',
+            classes: 'user',
             size: 'sm',
         },
         {
-            name: 'user',
+            classes: 'user',
             size: 'md',
         },
         {
-            name: 'user',
+            classes: 'user',
             size: 'lg',
         },
         {
-            name: 'user',
+            classes: 'user',
             size: 'xl',
         },
     ],
@@ -106,39 +106,39 @@ export const Colour = Template.bind({
 Colour.args = {
     icons: [
         {
-            name: 'user',
+            classes: 'user',
             variant: 'default',
         },
         {
-            name: 'user',
+            classes: 'user',
             variant: 'primary',
         },
         {
-            name: 'user',
+            classes: 'user',
             variant: 'secondary',
         },
         {
-            name: 'user',
+            classes: 'user',
             variant: 'inverse',
         },
         {
-            name: 'user',
+            classes: 'user',
             variant: 'tertiary',
         },
         {
-            name: 'user',
+            classes: 'user',
             variant: 'success',
         },
         {
-            name: 'user',
+            classes: 'user',
             variant: 'warning',
         },
         {
-            name: 'user',
+            classes: 'user',
             variant: 'danger',
         },
         {
-            name: 'user',
+            classes: 'user',
             variant: 'disabled',
         },
     ],
@@ -162,7 +162,7 @@ export const Duotone = Template.bind({
 });
 
 Duotone.args = {
-    name: 'crow',
+    classes: 'fa-crow',
     duotone: true,
     style: '--fa-secondary-opacity: 1.0; --fa-primary-color: blue; --fa-secondary-color: gold;',
 };
