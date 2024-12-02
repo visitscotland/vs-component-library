@@ -231,7 +231,7 @@ const Template = (args) => ({
                                         v-slot:nav-heading-cta-link
                                     >
                                         <VsMegaNavListItem
-                                            v-if="subHeading.href"
+                                            v-if="subHeading.cta"
                                             :href="subHeading.href"
                                             subheading-link
                                         >
