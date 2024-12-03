@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.3.7](https://github.com/visitscotland/vs-component-library/compare/v4.3.6...v4.3.7) (2024-12-03)
+
+
+### 📝 Docs
+
+* **mega nav:** story template wasn't using correct slot for nav-heading-cta-link ([1f83b93](https://github.com/visitscotland/vs-component-library/commit/1f83b9357c00bd928fb0b8ea01589396cb1c027e))
+
 ### [4.3.6](https://github.com/visitscotland/vs-component-library/compare/v4.3.5...v4.3.6) (2024-11-28)
 
 
