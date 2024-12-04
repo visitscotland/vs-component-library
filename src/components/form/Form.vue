@@ -565,16 +565,47 @@ export default {
 
             return '';
         },
+        /**
+         * Collects all hidden input fields within the current element, parses their values, and
+         * returns an array of parsed objects.
+         * The values of the hidden inputs are checked for 'true' or 'false' strings and converted
+         * to boolean values accordingly.
+         *
+         * @returns {Array<{name: string, value: boolean|string}>} - An array of objects, each
+         * containing:
+         *   - `name`: The name of the hidden input field.
+         *   - `value`: The parsed value of the input field, where 'true' becomes `true`,
+         *     'false' becomes `false`, and other values remain as strings.
+         */
         getHiddenFields() {
             const hiddenInputFields = this.$el.querySelectorAll('input[type=hidden]');
-            const fieldData = {
+
+            return [...hiddenInputFields].map(this.parseBooleanStringsFromInputField);
+        },
+        /**
+         * Parses the value of an input field, converting 'true' and 'false' string values to their
+         * boolean primitive equivalents.
+         *
+         * @param {HTMLInputElement} inputField - The input field element to process. It must have a
+         * `value` and `name` property.
+         * @returns {{name: string, value: boolean|string}} - An object containing:
+         *   - `name`: The name of the input field.
+         *   - `value`: The parsed value of the input field. Returns `true` if the value is 'true',
+         *     `false` if the value is 'false', and the original value otherwise.
+         */
+        parseBooleanStringsFromInputField(inputField) {
+            let value = inputField.value;
+
+            if (value === 'true') {
+                value = true;
+            } else if (value === 'false') {
+                value = false;
+            }
+
+            return {
+                name: inputField.name,
+                value,
             };
-
-            hiddenInputFields.forEach((field) => {
-                fieldData[field.name] = field.value;
-            });
-
-            return fieldData;
         },
         /**
          * Returns true if a given value is undefined
