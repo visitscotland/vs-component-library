@@ -5,7 +5,6 @@ import VsHeading from '@/components/heading/Heading.vue';
 export default {
     component: VsRichTextWrapper,
     title: 'RichTextWrapper',
-    tags: ['autodocs'],
     argTypes: {
         variant: {
             options: [

@@ -6,7 +6,6 @@ import VsGlobalMenuLanguageItem from '@/components/global-menu/components/Global
 export default {
     component: VsGlobalMenu,
     title: 'GlobalMenu',
-    tags: ['autodocs'],
 };
 
 const Template = (args) => ({

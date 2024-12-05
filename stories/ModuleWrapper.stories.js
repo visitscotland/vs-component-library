@@ -3,7 +3,6 @@ import VsModuleWrapper from '@/components/module-wrapper/ModuleWrapper.vue';
 export default {
     component: VsModuleWrapper,
     title: 'ModuleWrapper',
-    tags: ['autodocs'],
     argTypes: {
         theme: {
             options: [

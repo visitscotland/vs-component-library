@@ -4,7 +4,6 @@ import VsVideoCaption from '@/components/video-caption/VideoCaption.vue';
 export default {
     component: VsVideo,
     title: 'Video',
-    tags: ['autodocs'],
     decorators: [() => ({
         template: '<div style="max-width: 520px;"><story /></div>',
     })],

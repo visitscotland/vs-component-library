@@ -9,7 +9,6 @@ import VsLink from '@/components/link/Link.vue';
 export default {
     component: VsListicleItem,
     title: 'ListicleItem',
-    tags: ['autodocs'],
     decorators: [() => ({
         template: '<div style="max-width: 1150px;"><story /></div>',
     })],

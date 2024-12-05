@@ -16,7 +16,6 @@ export default {
         VsRow,
     },
     title: 'LinkList',
-    tags: ['autodocs'],
     decorators: [() => ({
         template: '<div style="max-width: 500px;"><story /></div>',
     })],

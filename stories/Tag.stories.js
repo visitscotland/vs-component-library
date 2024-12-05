@@ -3,7 +3,6 @@ import VsTag from '@/components/tag/Tag.vue';
 export default {
     component: VsTag,
     title: 'Tag',
-    tags: ['autodocs'],
 };
 
 const Template = (args) => ({

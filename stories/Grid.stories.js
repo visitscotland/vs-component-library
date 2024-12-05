@@ -5,7 +5,6 @@ import VsCol from '@/components/grid/Col.vue';
 export default {
     component: VsCol,
     title: 'Grid',
-    tags: ['autodocs'],
     argTypes: {
         cols: {
             control: {

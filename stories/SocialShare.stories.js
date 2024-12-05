@@ -6,7 +6,6 @@ import { userEvent, within } from '@storybook/test';
 export default {
     component: VsSocialShare,
     title: 'SocialShareButton',
-    tags: ['autodocs'],
     decorators: [() => ({
         template: '<story />',
     })],
