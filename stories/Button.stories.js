@@ -3,7 +3,6 @@ import VsButton from '@/components/button/Button.vue';
 export default {
     component: VsButton,
     title: 'Button',
-    tags: ['autodocs'],
     argTypes: {
         variant: {
             options: [

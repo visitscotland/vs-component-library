@@ -13,7 +13,6 @@ import {
 export default {
     component: VsMegalinks,
     title: 'MegalinksSingleImage',
-    tags: ['autodocs'],
 };
 
 const Template = (args) => ({

@@ -20,7 +20,6 @@ import sampleItinerary from '@/assets/fixtures/itineraries/sample-itinerary.json
 export default {
     component: VsItinerary,
     title: 'Itinerary',
-    tags: ['autodocs'],
 };
 
 const Template = (args) => ({
