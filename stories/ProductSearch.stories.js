@@ -6,7 +6,6 @@ import frLocations from '@/assets/fixtures/product-search/frLocations.json';
 export default {
     component: VsProductSearch,
     title: 'ProductSearch',
-    tags: ['autodocs'],
     argTypes: {
         noJsMessage: {
             control: {

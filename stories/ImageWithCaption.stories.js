@@ -9,7 +9,6 @@ import { VsCol, VsRow } from '@/components/grid';
 export default {
     component: VsImageWithCaption,
     title: 'ImageWithCaption',
-    tags: ['autodocs'],
     decorators: [() => ({
         template: '<div style="max-width: 500px;"><story /></div>',
     })],

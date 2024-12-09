@@ -3,7 +3,6 @@ import VsTooltip from '@/components/tooltip/Tooltip.vue';
 export default {
     component: VsTooltip,
     title: 'Tooltip',
-    tags: ['autodocs'],
     argTypes: {
         variant: {
             options: [

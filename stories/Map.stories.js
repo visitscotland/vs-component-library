@@ -4,7 +4,6 @@ import placesData from '@/assets/fixtures/maps/places-data.json';
 export default {
     component: VsMap,
     title: 'Map',
-    tags: ['autodocs'],
 };
 
 const Template = (args) => ({

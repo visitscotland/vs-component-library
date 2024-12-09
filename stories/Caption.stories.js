@@ -3,7 +3,6 @@ import VsCaption from '@/components/caption/Caption.vue';
 export default {
     component: VsCaption,
     title: 'Caption',
-    tags: ['autodocs'],
     argTypes: {
         variant: {
             options: [

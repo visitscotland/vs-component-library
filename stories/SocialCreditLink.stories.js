@@ -3,7 +3,6 @@ import VsSocialCreditLink from '@/components/social-credit-link/SocialCreditLink
 export default {
     component: VsSocialCreditLink,
     title: 'SocialCreditLink',
-    tags: ['autodocs'],
 };
 
 const Template = (args) => ({

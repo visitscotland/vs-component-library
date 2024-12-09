@@ -3,7 +3,6 @@ import VsBadge from '@/components/badge/VsBadge.vue';
 export default {
     component: VsBadge,
     title: 'Badge',
-    tags: ['autodocs'],
 };
 const Template = (args) => ({
     components: {
