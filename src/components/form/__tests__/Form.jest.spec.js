@@ -381,6 +381,51 @@ describe('VsForm', () => {
 
             expect(wrapper.vm.emailFieldName).toBe('Email');
         });
+
+        it('should return an object with the name and a boolean true value for "true"', () => {
+            const wrapper = factoryMount();
+            const inputField = {
+                name: 'testField',
+                value: 'true',
+            };
+
+            const result = wrapper.vm.parseBooleanStringsFromInputField(inputField);
+
+            expect(result).toEqual({
+                name: 'testField',
+                value: true,
+            });
+        });
+
+        it('should return an object with the name and a boolean false value for "false"', () => {
+            const wrapper = factoryMount();
+            const inputField = {
+                name: 'testField',
+                value: 'false',
+            };
+
+            const result = wrapper.vm.parseBooleanStringsFromInputField(inputField);
+
+            expect(result).toEqual({
+                name: 'testField',
+                value: false,
+            });
+        });
+
+        it('should return an object with the name and the original string value for other inputs', () => {
+            const wrapper = factoryMount();
+            const inputField = {
+                name: 'testField',
+                value: 'someString',
+            };
+
+            const result = wrapper.vm.parseBooleanStringsFromInputField(inputField);
+
+            expect(result).toEqual({
+                name: 'testField',
+                value: 'someString',
+            });
+        });
     });
 
     describe(':accessibility', () => {
