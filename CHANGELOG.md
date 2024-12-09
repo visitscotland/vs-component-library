@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.3.8](https://github.com/visitscotland/vs-component-library/compare/v4.3.7...v4.3.8) (2024-12-09)
+
+
+### 🐛 Bug Fixes
+
+* **form.vue:** add logic in Form.vue to parse hidden inputs and convert 'true/false' to booleans ([49651da](https://github.com/visitscotland/vs-component-library/commit/49651da225dbc6dd08103d36efa1aafef766c704))
+
 ### [4.3.7](https://github.com/visitscotland/vs-component-library/compare/v4.3.6...v4.3.7) (2024-12-03)
 
 
