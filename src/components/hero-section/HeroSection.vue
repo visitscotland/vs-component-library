@@ -3,7 +3,10 @@
         class="vs-hero-section"
         data-test="vs-hero-section"
     >
-        <div class="vs-hero-section__text-wrapper">
+        <div
+            v-if="!videoSrc"
+            class="vs-hero-section__text-wrapper"
+        >
             <VsContainer>
                 <VsRow>
                     <VsCol
@@ -25,7 +28,6 @@
                     <VsCol
                         cols="12"
                         sm="8"
-                        offset-lg="1"
                         lg="4"
                     >
                         <VsRichTextWrapper
@@ -44,9 +46,10 @@
 
         <div
             :class="setInset"
+            v-if="!videoSrc"
             data-test="vs-hero-section__image-wrapper"
         >
-            <span v-if="src">
+            <span v-if="src && !videoSrc">
                 <VsImg
                     class="vs-hero-section__img"
                     :src="src"
@@ -73,12 +76,75 @@
                 class="vs-hero-section__divider"
             >
         </div>
+
+        <div
+            v-if="videoSrc"
+            class="vs-hero-section__video-wrapper"
+        >
+            <video
+                loop
+                muted
+                autoplay
+                :poster="src"
+                class="vs-hero-section__video"
+                ref="heroVideo"
+            >
+                <source
+                    :src="videoSrc"
+                    type="video/mp4"
+                >
+            </video>
+
+            <div class="vs-hero-section__video-overlay" />
+
+            <VsButton
+                icon-only
+                class="vs-hero-section__pause-btn"
+                :icon=" isPlaying ? 'play-filled' : 'play'"
+                variant="transparent"
+                @click="toggleVideo"
+            >
+                Pause
+            </VsButton>
+
+            <VsContainer>
+                <div class="vs-hero-section__video-text">
+                    <VsRow>
+                        <VsCol
+                            cols="12"
+                            sm="10"
+                            md="9"
+                        >
+                            <VsHeading
+                                class="vs-hero-section__heading"
+                                data-test="vs-hero-section__heading"
+                                level="1"
+                                heading-style="display-xs"
+                            >
+                                {{ heading }}
+                            </VsHeading>
+
+                            <VsRichTextWrapper
+                                v-if="lede"
+                                variant="lead"
+                                data-test="vs-hero-section__lede"
+                            >
+                                <p class="mb-0">
+                                    {{ lede }}
+                                </p>
+                            </VsRichTextWrapper>
+                        </VsCol>
+                    </VsRow>
+                </div>
+            </VsContainer>
+        </div>
     </div>
 </template>
 
 <script>
 import VsHeading from '@/components/heading/Heading.vue';
 import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsButton from '@/components/button/Button.vue';
 import {
     VsContainer,
     VsRow,
@@ -107,6 +173,7 @@ export default {
         VsCaption,
         VsRichTextWrapper,
         VsImg,
+        VsButton,
     },
     props: {
         /**
@@ -140,6 +207,13 @@ export default {
             default: '',
         },
         /**
+        * The image src url to display
+        */
+        videoSrc: {
+            type: String,
+            default: '',
+        },
+        /**
         * The alt text for the image if applicable
         */
         imgAlt: {
@@ -161,9 +235,28 @@ export default {
             default: '',
         },
     },
+    data() {
+        return {
+            isPlaying: true,
+        };
+    },
     computed: {
         setInset() {
             return this.inset || !this.src ? 'container' : '';
+        },
+    },
+    methods: {
+        /**
+         * Play/pause the video
+         */
+        toggleVideo() {
+            if (this.isPlaying) {
+                this.$refs.heroVideo.pause();
+                this.isPlaying = false;
+            } else {
+                this.$refs.heroVideo.play();
+                this.isPlaying = true;
+            }
         },
     },
 };
@@ -180,17 +273,35 @@ export default {
             @include media-breakpoint-up(sm) {
                 padding: $spacer-500 0 $spacer-300 0;
             }
+
+            .vs-hero-section__heading {
+                color: $vs-color-text-brand;
+            }
         }
 
         &__heading{
-            color: $vs-color-text-brand;
-
             @include media-breakpoint-up(lg) {
                 @include heading-style(display-s);
             }
 
             @include media-breakpoint-up(xl) {
                 @include heading-style(display-m);
+            }
+        }
+
+        &__pause-btn.btn.vs-button {
+            position: absolute;
+            bottom: $spacer-125;
+            right: $spacer-125;
+
+            .vs-icon {
+                color: $vs-color-text-inverse!important;
+            }
+
+            &:hover {
+                .vs-icon {
+                    color: $vs-color-icon-accent-saltire-30!important;
+                }
             }
         }
 
@@ -205,6 +316,41 @@ export default {
 
             @include media-breakpoint-up(lg) {
                 height: 648px;
+            }
+        }
+
+        &__video-wrapper {
+            position: relative;
+            line-height: 0;
+
+            .vs-hero-section__video-text {
+                position: absolute;
+                bottom: $spacer-500;
+                color: $vs-color-text-inverse;
+            }
+
+            .vs-hero-section__video-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                transition: opacity 1s;
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 40%, rgba(0, 0, 0, 0.40) 100%);
+            }
+
+            .vs-hero-section__video{
+                width: 100%;
+                height: 560px;
+                object-fit: cover;
+
+                @include media-breakpoint-up(sm) {
+                    height: 648px;
+                }
+
+                @include media-breakpoint-up(lg) {
+                    height: 812px;
+                }
             }
         }
 

@@ -68,3 +68,13 @@ Inset.args = {
     imgCredit: 'VisitScotland / Kenny Lam',
     inset: true,
 };
+
+export const WithVideo = Template.bind({
+});
+
+WithVideo.args = {
+    heading: 'Scotland, it\'s good for the soul',
+    lede: 'Where history meets breathtaking beauty, and every visit feels like home.',
+    src: 'fixtures/hero/images/winter-web-test.jpg',
+    videoSrc: 'fixtures/hero/video/winter-web-test.mp4',
+};
