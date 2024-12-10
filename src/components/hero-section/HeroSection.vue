@@ -108,33 +108,30 @@
             </VsButton>
 
             <VsContainer>
-                <div class="vs-hero-section__video-text">
-                    <VsRow>
-                        <VsCol
-                            cols="12"
-                            sm="10"
-                            md="9"
-                        >
-                            <VsHeading
-                                class="vs-hero-section__heading"
-                                data-test="vs-hero-section__heading"
-                                level="1"
-                                heading-style="display-xs"
-                            >
-                                {{ heading }}
-                            </VsHeading>
+                <div class="vs-hero-section__video-text-wrapper">
+                    <VsHeading
+                        class="vs-hero-section__heading"
+                        data-test="vs-hero-section__heading"
+                        level="1"
+                        heading-style="display-xs"
+                    >
+                        <template v-if="$slots.videoHeading">
+                            <slot name="videoHeading" />
+                        </template>
+                        <template v-else>
+                            {{ heading }}
+                        </template>
+                    </VsHeading>
 
-                            <VsRichTextWrapper
-                                v-if="lede"
-                                variant="lead"
-                                data-test="vs-hero-section__lede"
-                            >
-                                <p class="mb-0">
-                                    {{ lede }}
-                                </p>
-                            </VsRichTextWrapper>
-                        </VsCol>
-                    </VsRow>
+                    <VsRichTextWrapper
+                        v-if="lede"
+                        variant="lead"
+                        data-test="vs-hero-section__lede"
+                    >
+                        <p class="mb-0">
+                            {{ lede }}
+                        </p>
+                    </VsRichTextWrapper>
                 </div>
             </VsContainer>
         </div>
@@ -189,7 +186,6 @@ export default {
         heading: {
             type: String,
             default: '',
-            required: true,
         },
         /**
         * The text for the summary
@@ -197,7 +193,6 @@ export default {
         lede: {
             type: String,
             default: '',
-            required: true,
         },
         /**
         * The image src url to display
@@ -289,22 +284,6 @@ export default {
             }
         }
 
-        &__pause-btn.btn.vs-button {
-            position: absolute;
-            bottom: $spacer-125;
-            right: $spacer-125;
-
-            .vs-icon {
-                color: $vs-color-text-inverse!important;
-            }
-
-            &:hover {
-                .vs-icon {
-                    color: $vs-color-icon-accent-saltire-30!important;
-                }
-            }
-        }
-
         &__img{
             width: 100%;
             height: 386px;
@@ -319,14 +298,26 @@ export default {
             }
         }
 
+        &__divider {
+            height: 2px;
+            margin: 0;
+            color: $vs-color-border-primary;
+        }
+
         &__video-wrapper {
             position: relative;
             line-height: 0;
 
-            .vs-hero-section__video-text {
+            .vs-hero-section__video-text-wrapper {
                 position: absolute;
                 bottom: $spacer-500;
                 color: $vs-color-text-inverse;
+                text-wrap: balance;
+                width: 70%;
+
+                @include media-breakpoint-up(md) {
+                    width: 50%;
+                }
             }
 
             .vs-hero-section__video-overlay {
@@ -352,12 +343,22 @@ export default {
                     height: 812px;
                 }
             }
-        }
 
-        &__divider {
-            height: 2px;
-            margin: 0;
-            color: $vs-color-border-primary;
+            .vs-hero-section__pause-btn.btn.vs-button {
+                position: absolute;
+                bottom: $spacer-125;
+                right: $spacer-125;
+
+                .vs-icon {
+                    color: $vs-color-text-inverse!important;
+                }
+
+                &:hover {
+                    .vs-icon {
+                        color: $vs-color-icon-accent-saltire-30!important;
+                    }
+                }
+            }
         }
     }
 </style>
