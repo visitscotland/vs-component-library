@@ -30,7 +30,7 @@ const Template = (args) => ({
     },
     template: `
         <VsStyledList v-bind="args">
-                <VsStyledListItem
+            <VsStyledListItem
                 v-for="(item, index) in args.listItems"
                 :key="index"
                 :heading="item.heading"
@@ -40,6 +40,13 @@ const Template = (args) => ({
             >
                 <div v-html="item.content" />
             </VsStyledListItem>
+
+            <template
+                v-if="args.source"
+                #list-source
+            >
+                <div v-html="args.source" />
+            </template>
         </VsStyledList>
     `,
 });
@@ -188,5 +195,5 @@ WithImageHorizontal.args = {
             content: '<p>of visitors highlighted visiting friends and family.</p>',
         },
     ],
-    source: 'Source: Scotland Visitor Survey, 2023',
+    source: '<p>Source: Scotland Visitor Survey, 2023</p>',
 };
