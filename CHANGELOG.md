@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.3.9](https://github.com/visitscotland/vs-component-library/compare/v4.3.8...v4.3.9) (2024-12-12)
+
+
+### 🐛 Bug Fixes
+
+* **styled list:** change source prop to a slot ([11766a8](https://github.com/visitscotland/vs-component-library/commit/11766a815bb01d5725b795cbf1228a71f923eb12))
+
 ### [4.3.8](https://github.com/visitscotland/vs-component-library/compare/v4.3.7...v4.3.8) (2024-12-09)
 
 
