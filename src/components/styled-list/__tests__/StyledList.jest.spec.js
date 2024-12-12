@@ -2,16 +2,16 @@ import { mount } from '@vue/test-utils';
 import axe from '@/../test/unit/helpers/axe-helper';
 import VsStyledList from '../StyledList.vue';
 
-const introSlotText = 'Styled list intro';
-const titleProp = 'Styled list title';
+const defaultSlotText = 'Styled list default';
+const sourceSlotText = 'Styled list source';
 
 const factoryMount = (propsData) => mount(VsStyledList, {
     props: {
         ...propsData,
-        title: titleProp,
     },
     slots: {
-        intro: introSlotText,
+        default: `<li>${defaultSlotText}</li>`,
+        'list-source': sourceSlotText,
     },
 });
 
@@ -26,17 +26,6 @@ describe('VsStyledList', () => {
     });
 
     describe(':props', () => {
-        it(':source - renders paragraph containing source value', () => {
-            const sourceProp = 'Source: Scotland Visitor Survey, 2023';
-            wrapper = factoryMount({
-                source: sourceProp,
-            });
-
-            const styleList = wrapper.find('.vs-styled-list__source');
-
-            expect(styleList.text()).toContain(sourceProp);
-        });
-
         it(':variant - should render with class `vs-styled-list--icon` when prop not set', () => {
             expect(wrapper.find('.vs-styled-list--icon').exists()).toBe(true);
         });
@@ -63,6 +52,16 @@ describe('VsStyledList', () => {
             });
 
             expect(wrapper.find('.vs-styled-list--numbered').exists()).toBe(true);
+        });
+    });
+
+    describe(':slots', () => {
+        it('renders content inserted in a default slot', () => {
+            expect(wrapper.text()).toContain(defaultSlotText);
+        });
+
+        it('renders content inserted in a list-source slot', async() => {
+            expect(wrapper.text()).toContain(sourceSlotText);
         });
     });
 
