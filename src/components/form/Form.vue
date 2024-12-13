@@ -568,8 +568,8 @@ export default {
         /**
          * Collects all hidden input fields within the current element, parses their values,
          * and returns an object where each hidden input's name serves as a key and its parsed value
-         * as the corresponding value. The function converts 'true' and 'false' strings to boolean values,
-         * and retains other values as strings.
+         * as the corresponding value. The function converts 'true' and 'false' strings to boolean
+         * values, and retains other values as strings.
          *
          * @returns {Object<string, boolean|string>} - An object where:
          *   - `key`: The name of the hidden input field.
