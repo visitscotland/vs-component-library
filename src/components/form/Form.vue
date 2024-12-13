@@ -822,9 +822,10 @@ export default {
                     {
                         email_id: this.form[this.emailFieldName],
                     },
-                    null,
-                    null,
-                    null,
+                    {
+                    },
+                    () => {},
+                    () => {},
                     true,
                 );
             }
