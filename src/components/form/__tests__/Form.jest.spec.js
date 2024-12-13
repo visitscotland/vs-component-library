@@ -145,7 +145,7 @@ function mountOptions(propsData) {
             };
         },
     };
-};
+}
 
 const factoryShallowMount = (propsData) => shallowMount(
     VsForm,
@@ -425,6 +425,28 @@ describe('VsForm', () => {
                 name: 'testField',
                 value: 'someString',
             });
+        });
+
+        it('should return parsed hidden fields as a JSON object', () => {
+            const wrapper = factoryMount();
+
+            wrapper.element.innerHTML = `
+                <input type="hidden" name="hidden_field_one" value="true" />
+                <input type="hidden" name="hidden_field_two" value="false" />
+                <input type="hidden" name="hidden_field_three" value="hello-world" />
+                <input type="hidden" name="hidden_field_four" value="" />
+            `;
+
+            const expected = {
+                hidden_field_one: true,
+                hidden_field_two: false,
+                hidden_field_three: 'hello-world',
+                hidden_field_four: '',
+            };
+
+            const result = wrapper.vm.getHiddenFields();
+
+            expect(result).toEqual(expected);
         });
     });
 

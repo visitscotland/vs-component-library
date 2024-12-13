@@ -578,9 +578,13 @@ export default {
          *     'false' becomes `false`, and other values remain as strings.
          */
         getHiddenFields() {
-            const hiddenInputFields = this.$el.querySelectorAll('input[type=hidden]');
-
-            return [...hiddenInputFields].map(this.parseBooleanStringsFromInputField);
+            return [...this.$el.querySelectorAll('input[type=hidden]')]
+                .map(this.parseBooleanStringsFromInputField)
+                .reduce((accumulator, field) => {
+                    accumulator[field.name] = field.value;
+                    return accumulator;
+                }, {
+                });
         },
         /**
          * Parses the value of an input field, converting 'true' and 'false' string values to their
