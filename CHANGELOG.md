@@ -1,3 +1,10 @@
+## [4.3.11](https://github.com/visitscotland/vs-component-library/compare/v4.3.10...v4.3.11) (2024-12-13)
+
+
+### Bug Fixes
+
+* **semantic release:** update package.json on release ([15833fc](https://github.com/visitscotland/vs-component-library/commit/15833fca5e03f81bc9bd590d104872dd2e4037ac))
+
 ## [4.3.10](https://github.com/visitscotland/vs-component-library/compare/v4.3.9...v4.3.10) (2024-12-13)
 
 
