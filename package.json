@@ -185,6 +185,11 @@
     "webpack-merge": "^5.1.4",
     "webpack-node-externals": "^3.0.0"
   },
+  "overrides": {
+    "semantic-release-ms-teams": {
+      "semantic-release": "$semantic-release"
+    }
+  },
   "peerDependencies": {
     "@popperjs/core": "*",
     "postcss": "*"
