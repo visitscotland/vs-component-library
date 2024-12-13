@@ -120,14 +120,14 @@ const globalMessaging = {
     },
 };
 
-function mountOptions(propsData) {
+function mountOptions(propsData, slotData) {
     return {
         slots: {
             'submit-error': 'error text',
             invalid: 'invalid text',
             submitting: 'submitting text',
             submitted: successContent,
-            'hidden-fields': '<input type="hidden" name="hidden" value="hidden" />',
+            ...slotData,
         },
         propsData: {
             dataUrl: 'testUrl',
@@ -147,14 +147,14 @@ function mountOptions(propsData) {
     };
 }
 
-const factoryShallowMount = (propsData) => shallowMount(
+const factoryShallowMount = (propsData, slotData) => shallowMount(
     VsForm,
-    mountOptions(propsData),
+    mountOptions(propsData, slotData),
 );
 
-const factoryMount = (propsData) => mount(
+const factoryMount = (propsData, slotData) => mount(
     VsForm,
-    mountOptions(propsData),
+    mountOptions(propsData, slotData),
 );
 
 beforeEach(() => {
@@ -231,7 +231,10 @@ describe('VsForm', () => {
         });
 
         it('should render the `hidden-fields` slot', async() => {
-            const wrapper = factoryShallowMount();
+            const wrapper = factoryShallowMount({
+            }, {
+                'hidden-fields': '<input type="hidden" name="hidden" value="hidden" />',
+            });
             const hiddenField = wrapper.find('input[type=hidden][name=hidden]');
 
             expect(hiddenField.exists()).toBe(true);
@@ -427,21 +430,37 @@ describe('VsForm', () => {
             });
         });
 
-        it('should return parsed hidden fields as a JSON object', () => {
-            const wrapper = factoryMount();
-
-            wrapper.element.innerHTML = `
-                <input type="hidden" name="hidden_field_one" value="true" />
-                <input type="hidden" name="hidden_field_two" value="false" />
-                <input type="hidden" name="hidden_field_three" value="hello-world" />
-                <input type="hidden" name="hidden_field_four" value="" />
-            `;
+        it('should return parsed hidden fields as a JSON object when hidden fields are present', () => {
+            const wrapper = factoryMount({
+            }, {
+                'hidden-fields': `
+                    <input type="hidden" name="hidden_field_one" value="true" />
+                    <input type="hidden" name="hidden_field_two" value="false" />
+                    <input type="hidden" name="hidden_field_three" value="hello-world" />
+                    <input type="hidden" name="hidden_field_four" value="" />
+                    <input type="hidden" name="hidden_field_five" value="hello world!" />
+                `,
+            });
 
             const expected = {
                 hidden_field_one: true,
                 hidden_field_two: false,
                 hidden_field_three: 'hello-world',
                 hidden_field_four: '',
+                hidden_field_five: 'hello world!',
+            };
+
+            const result = wrapper.vm.getHiddenFields();
+
+            expect(result).toEqual(expected);
+        });
+
+        it('should return an empty object when hidden fields are not present', () => {
+            const wrapper = factoryMount({
+            }, {
+                'hidden-fields': '',
+            });
+            const expected = {
             };
 
             const result = wrapper.vm.getHiddenFields();
