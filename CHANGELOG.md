@@ -1,3 +1,11 @@
+## [4.3.10](https://github.com/visitscotland/vs-component-library/compare/v4.3.9...v4.3.10) (2024-12-13)
+
+
+### Bug Fixes
+
+* **form.vue:** fix known bug when making call to `exponea.identify` ([4768f6c](https://github.com/visitscotland/vs-component-library/commit/4768f6ce320e03bbc010bd85e999c8f26782d002))
+* **form.vue:** modify form logic to handle and correct malformed JSON payload ([1432945](https://github.com/visitscotland/vs-component-library/commit/1432945dd46bdafdedbb0afd24f61850f9732c6c))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
