@@ -2,6 +2,54 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.3.12](https://github.com/visitscotland/vs-component-library/compare/v4.3.11...v4.3.12) (2024-12-16)
+
+
+### ✨ Features
+
+* **semantic release:** restore ms teams integration ([e63825c](https://github.com/visitscotland/vs-component-library/commit/e63825c7292bcc34a02a1c14abb89d10646945a5))
+
+
+### 🐛 Bug Fixes
+
+* **semantic release:** add verbose logs to install ([d11958b](https://github.com/visitscotland/vs-component-library/commit/d11958bf19ef1925817635ad928016a84320c241))
+* **semantic release:** correct config syntax ([93f722c](https://github.com/visitscotland/vs-component-library/commit/93f722c8b701e053bc095e6e83ef53f8d9f03d51))
+* **semantic release:** eNsure dePENdencies are installed ([7a96a08](https://github.com/visitscotland/vs-component-library/commit/7a96a08fab7bf3011c501a987556a13b9a621c17))
+* **semantic release:** override broken peer dependency ([6757454](https://github.com/visitscotland/vs-component-library/commit/6757454c974373ffd4abccf7a0562d73a390bd01))
+
+## [4.3.11](https://github.com/visitscotland/vs-component-library/compare/v4.3.10...v4.3.11) (2024-12-13)
+
+
+### Bug Fixes
+
+* **semantic release:** update package.json on release ([15833fc](https://github.com/visitscotland/vs-component-library/commit/15833fca5e03f81bc9bd590d104872dd2e4037ac))
+
+## [4.3.10](https://github.com/visitscotland/vs-component-library/compare/v4.3.9...v4.3.10) (2024-12-13)
+
+
+### Bug Fixes
+
+* **form.vue:** fix known bug when making call to `exponea.identify` ([4768f6c](https://github.com/visitscotland/vs-component-library/commit/4768f6ce320e03bbc010bd85e999c8f26782d002))
+* **form.vue:** modify form logic to handle and correct malformed JSON payload ([1432945](https://github.com/visitscotland/vs-component-library/commit/1432945dd46bdafdedbb0afd24f61850f9732c6c))
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [4.3.9](https://github.com/visitscotland/vs-component-library/compare/v4.3.8...v4.3.9) (2024-12-12)
+
+
+### 🐛 Bug Fixes
+
+* **styled list:** change source prop to a slot ([11766a8](https://github.com/visitscotland/vs-component-library/commit/11766a815bb01d5725b795cbf1228a71f923eb12))
+
+### [4.3.8](https://github.com/visitscotland/vs-component-library/compare/v4.3.7...v4.3.8) (2024-12-09)
+
+
+### 🐛 Bug Fixes
+
+* **form.vue:** add logic in Form.vue to parse hidden inputs and convert 'true/false' to booleans ([49651da](https://github.com/visitscotland/vs-component-library/commit/49651da225dbc6dd08103d36efa1aafef766c704))
+
 ### [4.3.7](https://github.com/visitscotland/vs-component-library/compare/v4.3.6...v4.3.7) (2024-12-03)
 
 

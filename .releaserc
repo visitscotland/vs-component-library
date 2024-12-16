@@ -16,10 +16,18 @@
             "@semantic-release/git",
             {
                 "assets": [
-                    "CHANGELOG.md"
+                    "CHANGELOG.md",
+                    "package.json"
                 ]
             }
         ],
-        "@semantic-release/github"
+        "@semantic-release/github",
+        [
+            "semantic-release-ms-teams",
+            {
+                "title": "A new Component Library version has been released",
+                "showContributors": true
+            }
+        ]
     ]
 }

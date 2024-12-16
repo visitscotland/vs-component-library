@@ -13,10 +13,11 @@
                     </ul>
                 </VsCol>
             </VsRow>
-            <VsRow v-if="props.source">
-                <p class="vs-styled-list__source">
-                    {{ props.source }}
-                </p>
+            <VsRow v-if="$slots['list-source'] && $slots['list-source']()">
+                <div class="vs-styled-list__source">
+                    <!-- @slot list-source to add source of list data  -->
+                    <slot name="list-source" />
+                </div>
             </VsRow>
         </VsContainer>
     </div>
