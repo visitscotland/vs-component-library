@@ -30,7 +30,6 @@ import { Default as summaryBoxDefault } from './SummaryBox.stories';
 export default {
     component: VsPageIntro,
     title: 'PageIntro',
-    tags: ['autodocs'],
     argTypes: {
         background: {
             options: [

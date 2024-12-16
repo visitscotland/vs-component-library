@@ -6,7 +6,6 @@ export default {
         layout: 'fullscreen',
     },
     title: 'HeroSection',
-    tags: ['autodocs'],
     argTypes: {
         inset: {
             options: [true, false],

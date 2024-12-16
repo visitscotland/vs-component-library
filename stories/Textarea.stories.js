@@ -6,7 +6,6 @@ import VsTextarea from '@/components/textarea/Textarea.vue';
 export default {
     component: VsTextarea,
     title: 'Textarea',
-    tags: ['autodocs'],
 };
 
 const Template = (args) => ({

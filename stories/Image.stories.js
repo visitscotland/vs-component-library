@@ -3,7 +3,6 @@ import VsImg from '@/components/img/Img.vue';
 export default {
     component: VsImg,
     title: 'Img',
-    tags: ['autodocs'],
 };
 
 const Template = (args) => ({

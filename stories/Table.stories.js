@@ -10,7 +10,6 @@ import VsHeading from '@/components/heading/Heading.vue';
 export default {
     component: VsTable,
     title: 'Table',
-    tags: ['autodocs'],
     argTypes: {
         tableType: {
             options: [

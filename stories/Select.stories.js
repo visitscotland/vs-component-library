@@ -7,7 +7,6 @@ import VsSelect from '@/components/select/Select.vue';
 export default {
     component: VsSelect,
     title: 'Select',
-    tags: ['autodocs'],
 };
 
 const Template = (args) => ({

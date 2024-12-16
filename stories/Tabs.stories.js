@@ -5,7 +5,6 @@ import VsTabItem from '@/components/tabs/components/TabItem.vue';
 export default {
     component: VsTabs,
     title: 'Tabs',
-    tags: ['autodocs'],
     decorators: [() => ({
         template: `
             <div class="container">

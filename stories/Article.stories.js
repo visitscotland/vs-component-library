@@ -14,7 +14,6 @@ import { VsCol, VsRow } from '@/components/grid';
 export default {
     component: VsArticle,
     title: 'Article',
-    tags: ['autodocs'],
     argTypes: {
         vsArticleIntro: {
             control: {

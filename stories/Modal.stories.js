@@ -8,7 +8,6 @@ import { VsCol, VsRow } from '@/components/grid';
 export default {
     component: VsModal,
     title: 'Modal',
-    tags: ['autodocs'],
     argTypes: {
     },
 };

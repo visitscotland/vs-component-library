@@ -3,7 +3,6 @@ import VsRadioButton from '@/components/radio-button/RadioButton.vue';
 export default {
     component: VsRadioButton,
     title: 'RadioButton',
-    tags: ['autodocs'],
     argTypes: {
 
     },
