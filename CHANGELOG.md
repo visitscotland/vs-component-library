@@ -1,3 +1,13 @@
+## [4.3.13](https://github.com/visitscotland/vs-component-library/compare/v4.3.12...v4.3.13) (2024-12-16)
+
+
+### Bug Fixes
+
+* **semantic release:** correct override version ([0d1595f](https://github.com/visitscotland/vs-component-library/commit/0d1595f2d7d4dec3d9b61dbc175d374e04ed912f))
+* **semantic release:** remove duplicate ms-teams install ([937ac50](https://github.com/visitscotland/vs-component-library/commit/937ac5003751f56057df7717842b753c32c63f13))
+* **semantic release:** remove ms-teams again ([8fcd5d8](https://github.com/visitscotland/vs-component-library/commit/8fcd5d834171f4b1a3c18b55a7ea38a3162c84dc))
+* **semantic release:** remove unnecessary yarn-jest package causing conflict ([e6a7eb7](https://github.com/visitscotland/vs-component-library/commit/e6a7eb78119090d8cb5d9416f8c6bdec795e65a9))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
