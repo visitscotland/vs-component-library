@@ -1,3 +1,22 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [4.3.12](https://github.com/visitscotland/vs-component-library/compare/v4.3.11...v4.3.12) (2024-12-16)
+
+
+### ✨ Features
+
+* **semantic release:** restore ms teams integration ([e63825c](https://github.com/visitscotland/vs-component-library/commit/e63825c7292bcc34a02a1c14abb89d10646945a5))
+
+
+### 🐛 Bug Fixes
+
+* **semantic release:** add verbose logs to install ([d11958b](https://github.com/visitscotland/vs-component-library/commit/d11958bf19ef1925817635ad928016a84320c241))
+* **semantic release:** correct config syntax ([93f722c](https://github.com/visitscotland/vs-component-library/commit/93f722c8b701e053bc095e6e83ef53f8d9f03d51))
+* **semantic release:** eNsure dePENdencies are installed ([7a96a08](https://github.com/visitscotland/vs-component-library/commit/7a96a08fab7bf3011c501a987556a13b9a621c17))
+* **semantic release:** override broken peer dependency ([6757454](https://github.com/visitscotland/vs-component-library/commit/6757454c974373ffd4abccf7a0562d73a390bd01))
+
 ## [4.3.11](https://github.com/visitscotland/vs-component-library/compare/v4.3.10...v4.3.11) (2024-12-13)
 
 
