@@ -1,3 +1,10 @@
+# [4.4.0](https://github.com/visitscotland/vs-component-library/compare/v4.3.13...v4.4.0) (2024-12-16)
+
+
+### Features
+
+* **semantic release:** add MS Teams Notification ([16fdbf0](https://github.com/visitscotland/vs-component-library/commit/16fdbf0689f988b3e8bfb03a37ed9a0a34c83fa5))
+
 ## [4.3.13](https://github.com/visitscotland/vs-component-library/compare/v4.3.12...v4.3.13) (2024-12-16)
 
 
