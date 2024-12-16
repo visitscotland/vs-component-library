@@ -186,7 +186,7 @@
   },
   "overrides": {
     "semantic-release-ms-teams": {
-      "semantic-release": "$semantic-release"
+      "semantic-release": "^24.2.0"
     }
   },
   "peerDependencies": {
