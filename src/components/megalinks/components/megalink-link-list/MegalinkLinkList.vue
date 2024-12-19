@@ -48,13 +48,13 @@
                 </VsRichTextWrapper>
             </template>
             <template #stretched-card-badges>
-                <!-- @slot Slot to contain badges -->
                 <VsBadge
                     class="vs-megalink-link-list__badge"
-                    data-test="metalink-link-list__badge"
+                    data-test="megalink-link-list__badge"
                     v-for="item in badges"
                     :key="item"
                 >
+                    <!-- @slot Slot to contain badges -->
                     <slot>{{ item }}</slot>
                 </VsBadge>
             </template>

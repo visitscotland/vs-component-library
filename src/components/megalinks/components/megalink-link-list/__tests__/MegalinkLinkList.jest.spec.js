@@ -22,6 +22,7 @@ const factoryMount = () => mount(VsMegalinkLinkList, {
         transportName: 'Bus',
         videoId,
         videoBtnText,
+        badges: ['How to'],
     },
     slots: {
         'vs-link-list-heading': slotHeading,
@@ -71,6 +72,11 @@ describe('VsMegalinkLinkList', () => {
             const wrapper = factoryMount();
 
             expect(wrapper.find('[data-test="vs-itinerary-panels"]').exists()).toBe(true);
+        });
+        it('renders content inseted into a badge slot', () => {
+            const wrapper = factoryMount();
+
+            expect(wrapper.find('[data-test="megalink-link-list__badge"]').exists()).toBe(true);
         });
     });
 
