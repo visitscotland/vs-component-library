@@ -294,6 +294,24 @@ export default {
             default: 'small',
             validator: (value) => value.match(/(normal|small)/),
         },
+        businessSupport: {
+            type: Boolean,
+            default: false,
+        },
+        /**
+         * Flag for homepage styling which differs on BSH
+         */
+        isHomePage: {
+            type: Boolean,
+            default: false,
+        },
+        /**
+         * Badges to display type of content on megalink card
+         */
+        badges: {
+            type: Array,
+            default: () => [],
+        },
     },
     setup() {
         const videoStore = useVideoStore();
@@ -379,6 +397,9 @@ export default {
             }
 
             return attrsObj;
+        },
+        businessSupportLayout() {
+            return 'msg';
         },
     },
     mounted() {

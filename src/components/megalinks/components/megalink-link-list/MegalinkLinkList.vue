@@ -7,13 +7,15 @@
             :link="linkUrl"
             :type="linkType"
             class="vs-megalink-link-list__wrapper"
-            :img-src="imgSrc"
+            :img-src="bshDisplay ? '' : imgSrc"
             :img-alt="imgAlt"
             :theme="theme"
             :video-id="videoId"
             :video-btn-text="videoBtnText"
             :error-message="errorMessage"
             error-type="full"
+            :business-support="businessSupport"
+            :is-home-page="isHomePage"
         >
             <template
                 v-if="days && transport"
@@ -47,6 +49,20 @@
                     <slot name="vs-link-list-content" />
                 </VsRichTextWrapper>
             </template>
+            <template
+                #stretched-card-badges
+                v-if="badges.length > 0 && !isHomePage"
+            >
+                <VsBadge
+                    class="vs-megalink-link-list__badge"
+                    data-test="megalink-link-list__badge"
+                    v-for="item in badges"
+                    :key="item"
+                >
+                    <!-- @slot Slot to contain badges -->
+                    <slot>{{ item }}</slot>
+                </VsBadge>
+            </template>
         </VsStretchedLinkCard>
     </div>
 </template>
@@ -55,6 +71,7 @@
 import VsStretchedLinkCard from '@/components/stretched-link-card/StretchedLinkCard.vue';
 import VsStretchedLinkPanels from '@/components/stretched-link-card/components/StretchedLinkPanels.vue';
 import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsBadge from '@/components/badge/VsBadge.vue';
 
 /**
 * Megalink link list cards to be used in the megalinks component
@@ -71,6 +88,7 @@ export default {
         VsStretchedLinkCard,
         VsRichTextWrapper,
         VsStretchedLinkPanels,
+        VsBadge,
     },
     props: {
         /**
@@ -162,6 +180,36 @@ export default {
         errorMessage: {
             type: String,
             default: '',
+        },
+        /**
+         * Flag for Business Support Hub (BSH) visual differences
+         */
+        businessSupport: {
+            type: Boolean,
+            default: false,
+        },
+        /**
+         * Flag for homepage styling which differs on BSH
+         */
+        isHomePage: {
+            type: Boolean,
+            default: false,
+        },
+        /**
+         * Badges to display type of content on megalink card
+         */
+        badges: {
+            type: Array,
+            default: () => [],
+        },
+    },
+    computed: {
+        bshDisplay() {
+            let toReturn = '';
+            // if (this.businessSupport && !this.isHomePage) {
+            //     toReturn += 'BSH !HP';
+            // }
+            return toReturn;
         },
     },
 };
@@ -301,7 +349,7 @@ export default {
             @include media-breakpoint-up(lg) {
                 .vs-megalink-link-list__wrapper.card {
                     .vs-megalink-link-list__content p {
-                         font-size: $font-size-4;
+                        font-size: $font-size-4;
                     }
                 }
             }
