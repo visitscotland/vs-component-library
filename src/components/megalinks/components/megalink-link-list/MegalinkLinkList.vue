@@ -47,6 +47,17 @@
                     <slot name="vs-link-list-content" />
                 </VsRichTextWrapper>
             </template>
+            <template #stretched-card-badges>
+                <!-- @slot Slot to contain badges -->
+                <VsBadge
+                    class="vs-megalink-link-list__badge"
+                    data-test="metalink-link-list__badge"
+                    v-for="item in badges"
+                    :key="item"
+                >
+                    <slot>{{ item }}</slot>
+                </VsBadge>
+            </template>
         </VsStretchedLinkCard>
     </div>
 </template>
@@ -55,6 +66,7 @@
 import VsStretchedLinkCard from '@/components/stretched-link-card/StretchedLinkCard.vue';
 import VsStretchedLinkPanels from '@/components/stretched-link-card/components/StretchedLinkPanels.vue';
 import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsBadge from '@/components/badge/VsBadge.vue';
 
 /**
 * Megalink link list cards to be used in the megalinks component
@@ -71,6 +83,7 @@ export default {
         VsStretchedLinkCard,
         VsRichTextWrapper,
         VsStretchedLinkPanels,
+        VsBadge,
     },
     props: {
         /**
@@ -162,6 +175,13 @@ export default {
         errorMessage: {
             type: String,
             default: '',
+        },
+        /**
+         * Badges to display type of content on megalink card
+         */
+        badges: {
+            type: Array,
+            default: () => [],
         },
     },
 };
@@ -301,7 +321,7 @@ export default {
             @include media-breakpoint-up(lg) {
                 .vs-megalink-link-list__wrapper.card {
                     .vs-megalink-link-list__content p {
-                         font-size: $font-size-4;
+                        font-size: $font-size-4;
                     }
                 }
             }

@@ -70,6 +70,10 @@ const Template = (args) => ({
                     <template v-slot:vs-link-list-content>
                         <p>{{ link.content }}</p>
                     </template>
+                    <template v-slot:vs-link-list-badge>
+                        {{ link.badges }}
+                    </template>
+
                 </vs-megalink-link-list>
             </VsCol>
         </VsMegalinks>
@@ -260,4 +264,51 @@ GreyThemeNoJavascript.args = {
     ...base,
     ...GreyTheme.args,
     jsDisabled: true,
+};
+
+export const BSHBadges = Template.bind({
+});
+
+BSHBadges.args = {
+    ...base,
+    links: [
+        {
+            imgSrc: './fixtures/megalinks/glentress-forest.jpg',
+            imgAlt: 'Clycling in glentress forest',
+            linkType: 'internal',
+            linkUrl: '#',
+            heading: '2023 UCI Cycling World Championships',
+            content: 'We\'ve pulled together a handy guide on dates and times, travel info, accommodation and things to see near host venues.',
+            badges: ['How to', 'External Website'],
+        },
+        {
+            imgSrc: './fixtures/megalinks/grand-hotel.jpg',
+            imgAlt: 'Luxury holidays and breaks in Scotland',
+            linkType: 'internal',
+            linkUrl: '#',
+            heading: 'Luxury holidays and breaks in Scotland',
+            content: 'Plan your luxury getaway in SCotland, from 5-star accommodation to Michelin-star dining.',
+            badges: ['Guide'],
+        },
+        {
+            imgSrc: './fixtures/megalinks/grand-hotel.jpg',
+            imgAlt: 'Luxury holidays and breaks in Scotland',
+            linkType: 'internal',
+            linkUrl: '#',
+            heading: 'Luxury holidays and breaks in Scotland',
+            content: 'Plan your luxury getaway in SCotland, from 5-star accommodation to Michelin-star dining.',
+            badges: ['Article', 'External Website'],
+        },
+        {
+            imgSrc: './fixtures/megalinks/wellness.jpg',
+            imgAlt: 'Wellness breaks in Scotland',
+            linkType: 'video',
+            linkUrl: '#',
+            videoId: 'tfk7J6XZju4',
+            videoBtnText: 'Play Video',
+            errorMessage: 'We\'re sorry, there\'s been an error',
+            heading: 'Wellness breaks in Scotland',
+            content: 'Slow down and refresh your mind, body and spirit in Scotland.',
+        },
+    ],
 };
