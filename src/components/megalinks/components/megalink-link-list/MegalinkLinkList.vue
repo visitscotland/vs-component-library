@@ -47,7 +47,10 @@
                     <slot name="vs-link-list-content" />
                 </VsRichTextWrapper>
             </template>
-            <template #stretched-card-badges>
+            <template
+                #stretched-card-badges
+                v-if="badges.length > 0"
+            >
                 <VsBadge
                     class="vs-megalink-link-list__badge"
                     data-test="megalink-link-list__badge"
