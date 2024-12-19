@@ -7,13 +7,15 @@
             :link="linkUrl"
             :type="linkType"
             class="vs-megalink-link-list__wrapper"
-            :img-src="imgSrc"
+            :img-src="bshDisplay ? '' : imgSrc"
             :img-alt="imgAlt"
             :theme="theme"
             :video-id="videoId"
             :video-btn-text="videoBtnText"
             :error-message="errorMessage"
             error-type="full"
+            :business-support="businessSupport"
+            :is-home-page="isHomePage"
         >
             <template
                 v-if="days && transport"
@@ -49,7 +51,7 @@
             </template>
             <template
                 #stretched-card-badges
-                v-if="badges.length > 0"
+                v-if="badges.length > 0 && !isHomePage"
             >
                 <VsBadge
                     class="vs-megalink-link-list__badge"
@@ -180,11 +182,34 @@ export default {
             default: '',
         },
         /**
+         * Flag for Business Support Hub (BSH) visual differences
+         */
+        businessSupport: {
+            type: Boolean,
+            default: false,
+        },
+        /**
+         * Flag for homepage styling which differs on BSH
+         */
+        isHomePage: {
+            type: Boolean,
+            default: false,
+        },
+        /**
          * Badges to display type of content on megalink card
          */
         badges: {
             type: Array,
             default: () => [],
+        },
+    },
+    computed: {
+        bshDisplay() {
+            let toReturn = '';
+            // if (this.businessSupport && !this.isHomePage) {
+            //     toReturn += 'BSH !HP';
+            // }
+            return toReturn;
         },
     },
 };

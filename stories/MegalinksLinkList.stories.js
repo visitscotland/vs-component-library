@@ -63,6 +63,8 @@ const Template = (args) => ({
                 <vs-megalink-link-list
                     v-bind="link"
                     :theme="args.theme"
+                    :businessSupport="args.businessSupportHub"
+                    :isHomePage="args.isHomePage"
                 >
                     <template v-slot:vs-link-list-heading>
                         {{ link.heading }}
@@ -266,11 +268,9 @@ GreyThemeNoJavascript.args = {
     jsDisabled: true,
 };
 
-export const BSHBadges = Template.bind({
-});
-
-BSHBadges.args = {
+const businessSupportBase = {
     ...base,
+    businessSupportHub: true,
     links: [
         {
             imgSrc: './fixtures/megalinks/glentress-forest.jpg',
@@ -308,7 +308,30 @@ BSHBadges.args = {
             videoBtnText: 'Play Video',
             errorMessage: 'We\'re sorry, there\'s been an error',
             heading: 'Wellness breaks in Scotland',
-            content: 'Slow down and refresh your mind, body and spirit in Scotland.',
+            content: 'Slow down and refresh your mind, body and spirit in Scotland. We\'ve pulled together a handy guide on dates and times, travel info, accommodation and things to see near host venues.',
         },
     ],
+};
+
+export const BusinessSupportHubWithBadges = Template.bind({
+});
+
+BusinessSupportHubWithBadges.args = {
+    ...businessSupportBase,
+};
+
+export const BusinessSupportHubWithBadgesNoImages = Template.bind({
+});
+
+BusinessSupportHubWithBadgesNoImages.args = {
+    ...businessSupportBase,
+    isHomePage: false,
+};
+
+export const BusinessSupportHubHomepage = Template.bind({
+});
+
+BusinessSupportHubHomepage.args = {
+    ...businessSupportBase,
+    isHomePage: true,
 };
