@@ -78,8 +78,7 @@ const props = defineProps({
 </script>
 
 <style lang="scss">
-    .vs-styled-list--icon
-    .vs-styled-list__item {
+    .vs-styled-list--icon .vs-styled-list__item {
         padding: $spacer-0 $spacer-0 $spacer-150 $spacer-300;
         position: relative;
 
@@ -94,14 +93,17 @@ const props = defineProps({
         }
     }
 
-    .vs-styled-list--numbered
-    .vs-styled-list__item {
+    .vs-styled-list--numbered .vs-styled-list__item {
         counter-increment: section;
         padding: $spacer-0 $spacer-0 $spacer-150 $spacer-150;
         position: relative;
 
         @include media-breakpoint-up(md) {
             padding: $spacer-0 $spacer-0 $spacer-200 $spacer-200;
+        }
+
+        &:last-child {
+            padding-bottom: $spacer-0;
         }
 
         &::before {
@@ -119,7 +121,7 @@ const props = defineProps({
             }
         }
 
-        &:not(:last-child)::after {
+        &::after {
             position: absolute;
             content: '';
             width: $spacer-025;
@@ -142,8 +144,7 @@ const props = defineProps({
         }
     }
 
-    .vs-styled-list--image-horizontal
-    .vs-styled-list__item {
+    .vs-styled-list--image-horizontal .vs-styled-list__item {
         padding: $spacer-0 $spacer-150;
 
         img {
