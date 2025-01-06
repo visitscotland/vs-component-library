@@ -3,7 +3,6 @@ import VsNumberInput from '@/components/number-input/NumberInput.vue';
 export default {
     component: VsNumberInput,
     title: 'NumberInput',
-    tags: ['autodocs'],
 };
 
 const Template = (args, required) => ({

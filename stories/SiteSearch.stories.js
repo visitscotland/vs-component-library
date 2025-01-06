@@ -4,7 +4,6 @@ import VsSiteSearchForm from '@/components/site-search/components/SiteSearchForm
 export default {
     component: VsSiteSearch,
     title: 'SiteSearch',
-    tags: ['autodocs'],
 };
 
 const Template = (args) => ({

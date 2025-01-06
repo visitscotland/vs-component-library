@@ -4,7 +4,6 @@ import VsLink from '@/components/link/Link.vue';
 export default {
     component: VsWarning,
     title: 'Warning',
-    tags: ['autodocs'],
     argTypes: {
         type: {
             options: [

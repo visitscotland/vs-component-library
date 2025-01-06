@@ -5,7 +5,6 @@ import VsCheckbox from '@/components/checkbox/Checkbox.vue';
 export default {
     component: VsCheckbox,
     title: 'Checkbox',
-    tags: ['autodocs'],
     argTypes: {
 
     },
