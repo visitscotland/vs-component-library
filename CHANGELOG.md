@@ -1,3 +1,10 @@
+## [4.4.2](https://github.com/visitscotland/vs-component-library/compare/v4.4.1...v4.4.2) (2025-01-07)
+
+
+### Bug Fixes
+
+* **semantic release:** mOve install after npm set up / test release ([adc9f5c](https://github.com/visitscotland/vs-component-library/commit/adc9f5cb28fc54e2d4acf94a01b7895e54193cf8))
+
 ## [4.4.1](https://github.com/visitscotland/vs-component-library/compare/v4.4.0...v4.4.1) (2025-01-07)
 
 
