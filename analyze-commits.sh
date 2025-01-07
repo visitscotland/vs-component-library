@@ -1,8 +1,6 @@
 #!/bin/bash
 
-for i in $@;do
-    echo $i 1>&2
-done;
+echo $1 1>&2
 
 if [ -n "$1" ] && [ "$1" == "releases" ]; then
     echo "$1" 1>&2
