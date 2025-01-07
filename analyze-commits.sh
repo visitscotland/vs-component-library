@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -n "$1" ] && [ "$1" == "nextRelease" ]; then
+if [ -n "$1" ] && [ "$1" == "releases" ]; then
     echo "$1"
     exit 0
 else
