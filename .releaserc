@@ -21,6 +21,12 @@
                 ]
             }
         ],
-        "@semantic-release/github"
+        "@semantic-release/github",
+        [
+            "@semantic-release/exec",
+            {
+                "verifyReleaseCmd": "verify-release.sh"
+            }
+        ]
     ]
 }
