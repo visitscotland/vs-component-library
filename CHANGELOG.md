@@ -1,3 +1,10 @@
+## [4.4.1](https://github.com/visitscotland/vs-component-library/compare/v4.4.0...v4.4.1) (2025-01-07)
+
+
+### Bug Fixes
+
+* **styled list item:** adjusted CSS to extend line between numbered list ([1634244](https://github.com/visitscotland/vs-component-library/commit/163424437c36f0e64a2e1b0c0a2aa463e2fb36a1))
+
 # [4.4.0](https://github.com/visitscotland/vs-component-library/compare/v4.3.13...v4.4.0) (2024-12-16)
 
 
