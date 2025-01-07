@@ -11,7 +11,6 @@ import {
 export default {
     component: VsVideoCaption,
     title: 'VideoCaption',
-    tags: ['autodocs'],
     decorators: [() => ({
         template: '<div style="max-width: 500px; margin-top: 4rem;"><story /></div>',
     })],

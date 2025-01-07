@@ -13,7 +13,6 @@ import VsFooterCopyright from '@/components/footer/components/FooterCopyright.vu
 export default {
     component: VsFooter,
     title: 'Footer',
-    tags: ['autodocs'],
 };
 
 const Template = (args) => ({

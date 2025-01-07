@@ -9,7 +9,6 @@ import {
 export default {
     component: VsSkiScotlandCard,
     title: 'SkiScotlandCard',
-    tags: ['autodocs'],
 };
 
 const Template = (args) => ({

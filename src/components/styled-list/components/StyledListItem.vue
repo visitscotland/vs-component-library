@@ -104,6 +104,10 @@ const props = defineProps({
             padding: $spacer-0 $spacer-0 $spacer-200 $spacer-200;
         }
 
+        &:last-child {
+            padding-bottom: $spacer-0;
+        }
+
         &::before {
             background-color: $vs-color-background-accent-heather-80;
             color: $vs-color-text-inverse;
@@ -119,7 +123,7 @@ const props = defineProps({
             }
         }
 
-        &:not(:last-child)::after {
+        &::after {
             position: absolute;
             content: '';
             width: $spacer-025;

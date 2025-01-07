@@ -9,7 +9,6 @@ import VsTourismInfo from '@/components/tourism-info/TourismInfo.vue';
 export default {
     component: VsTourismInfo,
     title: 'Tourism Info',
-    tags: ['autodocs'],
 };
 
 const Template = (args) => ({

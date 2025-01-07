@@ -7,7 +7,6 @@ import VsIcon from '@/components/icon/Icon.vue';
 export default {
     component: VsSkiScotlandStatus,
     title: 'SkiScotlandStatus',
-    tags: ['autodocs'],
 };
 
 const Template = (args) => ({

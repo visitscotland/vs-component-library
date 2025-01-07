@@ -3,7 +3,6 @@ import VsLoadingSpinner from '@/components/loading-spinner/LoadingSpinner.vue';
 export default {
     component: VsLoadingSpinner,
     title: 'LoadingSpinner',
-    tags: ['autodocs'],
     argTypes: {
         variant: {
             options: ['light', 'dark'],

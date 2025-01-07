@@ -4,7 +4,6 @@ import VsButton from '@/components/button/Button.vue';
 export default {
     component: VsCannedSearch,
     title: 'CannedSearch',
-    tags: ['autodocs'],
 };
 
 const Template = (args) => ({
