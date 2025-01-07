@@ -25,7 +25,7 @@
         [
             "@semantic-release/exec",
             {
-                "analyzeCommitsCmd": "analyze-commits.sh"
+                "analyzeCommitsCmd": "./analyze-commits.sh"
             }
         ]
     ]
