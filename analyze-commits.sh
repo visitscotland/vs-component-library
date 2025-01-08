@@ -2,13 +2,13 @@
 
 echo "commits" 1>&2
 
-for i in "${1[@]}"; do
+for i in $1; do
     echo "$i" 1>&2
 done
 
 echo "releases" 1>&2
 
-for i in "${2[@]}"; do
+for i in $2; do
     echo "$i" 1>&2
 done
 
