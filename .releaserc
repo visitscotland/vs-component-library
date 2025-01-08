@@ -25,7 +25,8 @@
         [
             "@semantic-release/exec",
             {
-                "analyzeCommitsCmd": "./analyze-commits.sh ${commits} ${releases} ${lastRelease}"
+                "analyzeCommitsCmd": "echo 'NEW_VERSION=false' > VERSION.env",
+                "verifyReleaseCmd": "echo 'NEW_VERSION=true' > VERSION.env"
             }
         ]
     ]

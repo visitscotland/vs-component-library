@@ -32,7 +32,7 @@ jobs:
 
       - name: MS Teams Notification
         uses: skitionek/notify-microsoft-teams@master
-        if: success()
+        if: env.NEW_VERSION == 'true'
         with:
           webhook_url: ${{ secrets.TEAMS_WEBHOOK_URL }}
           needs: ${{ toJson(needs) }}
