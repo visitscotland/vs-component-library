@@ -1,3 +1,10 @@
+## [4.4.5](https://github.com/visitscotland/vs-component-library/compare/v4.4.4...v4.4.5) (2025-01-08)
+
+
+### Bug Fixes
+
+* **semantic release:** adjust env name ([4dc4105](https://github.com/visitscotland/vs-component-library/commit/4dc41054bc71a2a36599246d2cd2937d5e869cbf))
+
 ## [4.4.4](https://github.com/visitscotland/vs-component-library/compare/v4.4.3...v4.4.4) (2025-01-08)
 
 
