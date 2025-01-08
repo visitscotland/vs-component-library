@@ -1,3 +1,10 @@
+## [4.4.3](https://github.com/visitscotland/vs-component-library/compare/v4.4.2...v4.4.3) (2025-01-08)
+
+
+### Bug Fixes
+
+* **semantic release:** test release - remove debug logging ([eb5656b](https://github.com/visitscotland/vs-component-library/commit/eb5656b15cb689ae687812fea3c94156d6deb3f9))
+
 ## [4.4.2](https://github.com/visitscotland/vs-component-library/compare/v4.4.1...v4.4.2) (2025-01-07)
 
 
