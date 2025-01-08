@@ -7,7 +7,7 @@
             :link="linkUrl"
             :type="linkType"
             class="vs-megalink-link-list__wrapper"
-            :img-src="bshDisplay ? '' : imgSrc"
+            :img-src="((businessSupport && !isHomePage) || (businessSupport && isHomePage && smBreakpoint)) ? '' : imgSrc"
             :img-alt="imgAlt"
             :theme="theme"
             :video-id="videoId"
@@ -42,7 +42,7 @@
 
             <template #stretched-card-content>
                 <VsRichTextWrapper
-                    class="vs-megalink-link-list__content"
+                    :class="businessSupport ? 'vs-megalink-link-list__content--bsh' : 'vs-megalink-link-list__content'"
                     data-test="megalink-link-list__content"
                 >
                     <!-- @slot Slot to contain content -->
@@ -51,7 +51,7 @@
             </template>
             <template
                 #stretched-card-badges
-                v-if="badges.length > 0 && !isHomePage"
+                v-if="((businessSupport && badges.length > 0 && !isHomePage))"
             >
                 <VsBadge
                     class="vs-megalink-link-list__badge"
@@ -203,13 +203,25 @@ export default {
             default: () => [],
         },
     },
+    data() {
+        return {
+            windowWidth: window.innerWidth,
+        };
+    },
     computed: {
-        bshDisplay() {
-            let toReturn = '';
-            // if (this.businessSupport && !this.isHomePage) {
-            //     toReturn += 'BSH !HP';
-            // }
-            return toReturn;
+        smBreakpoint() {
+            return this.windowWidth <= 576;
+        },
+    },
+    created() {
+        window.addEventListener('resize', this.onResize);
+    },
+    unmounted() {
+        window.removeEventListener('resize', this.onResize);
+    },
+    methods: {
+        onResize() {
+            this.windowWidth = window.innerWidth;
         },
     },
 };

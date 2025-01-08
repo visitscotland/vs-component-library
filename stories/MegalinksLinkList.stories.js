@@ -14,6 +14,11 @@ export default {
     component: VsMegalinks,
     title: 'MegalinksLinkList',
     tags: ['autodocs'],
+    parameters: {
+        viewport: {
+            defaultViewport: 'default',
+        },
+    },
 };
 
 const Template = (args) => ({
@@ -268,9 +273,14 @@ GreyThemeNoJavascript.args = {
     jsDisabled: true,
 };
 
+/**
+ * Base for BSH styles -- added information like the badges and BSH/Homepage flags
+ */
+
 const businessSupportBase = {
     ...base,
     businessSupportHub: true,
+    isHomePage: false,
     links: [
         {
             imgSrc: './fixtures/megalinks/glentress-forest.jpg',
@@ -287,8 +297,8 @@ const businessSupportBase = {
             linkType: 'internal',
             linkUrl: '#',
             heading: 'Luxury holidays and breaks in Scotland',
-            content: 'Plan your luxury getaway in SCotland, from 5-star accommodation to Michelin-star dining.',
-            badges: ['Guide'],
+            content: 'Plan your luxury getaway in Scotland, from 5-star accommodation to Michelin-star dining.',
+            badges: ['Guide', '6 minute read'],
         },
         {
             imgSrc: './fixtures/megalinks/grand-hotel.jpg',
@@ -296,7 +306,7 @@ const businessSupportBase = {
             linkType: 'internal',
             linkUrl: '#',
             heading: 'Luxury holidays and breaks in Scotland',
-            content: 'Plan your luxury getaway in SCotland, from 5-star accommodation to Michelin-star dining.',
+            content: 'Plan your luxury getaway in Scotland, from 5-star accommodation to Michelin-star dining.',
             badges: ['Article', 'External Website'],
         },
         {
@@ -308,24 +318,10 @@ const businessSupportBase = {
             videoBtnText: 'Play Video',
             errorMessage: 'We\'re sorry, there\'s been an error',
             heading: 'Wellness breaks in Scotland',
-            content: 'Slow down and refresh your mind, body and spirit in Scotland. We\'ve pulled together a handy guide on dates and times, travel info, accommodation and things to see near host venues.',
+            content: 'Slow down and refresh your mind, body and spirit in Scotland.',
+            badges: ['How To'],
         },
     ],
-};
-
-export const BusinessSupportHubWithBadges = Template.bind({
-});
-
-BusinessSupportHubWithBadges.args = {
-    ...businessSupportBase,
-};
-
-export const BusinessSupportHubWithBadgesNoImages = Template.bind({
-});
-
-BusinessSupportHubWithBadgesNoImages.args = {
-    ...businessSupportBase,
-    isHomePage: false,
 };
 
 export const BusinessSupportHubHomepage = Template.bind({
@@ -334,4 +330,25 @@ export const BusinessSupportHubHomepage = Template.bind({
 BusinessSupportHubHomepage.args = {
     ...businessSupportBase,
     isHomePage: true,
+};
+
+export const BusinessSupportHubHomepageMobile = Template.bind({
+});
+
+BusinessSupportHubHomepageMobile.args = {
+    ...businessSupportBase,
+    isHomePage: true,
+};
+
+BusinessSupportHubHomepageMobile.parameters = {
+    viewport: {
+        defaultViewport: 'mobile2',
+    },
+};
+
+export const BusinessSupportHubInternalPage = Template.bind({
+});
+
+BusinessSupportHubInternalPage.args = {
+    ...businessSupportBase,
 };

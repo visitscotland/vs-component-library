@@ -82,7 +82,8 @@
                 ref="videoShow"
                 :rounded="false"
                 @click="emitShowModal"
-                v-if="videoId && videoLoaded"
+                v-if="videoId && videoLoaded
+                    && ((!businessSupport) || (businessSupport && !imagelessLayout))"
             >
                 <span
                     class="vs-stretched-link-card__video-btn-text"
@@ -109,8 +110,23 @@
                 data-test="vs-stretched-link-card__title"
             >
                 <template v-if="$slots['stretched-card-link'] && $slots['stretched-card-link']()">
-                    <slot name="stretched-card-header" />
+                    <slot
+                        name="stretched-card-header"
+                    />
                 </template>
+
+                <VsLink
+                    v-else-if="(businessSupport && imagelessLayout && type === 'video')"
+                    :href="link"
+                    class="stretched-link"
+                >
+                    <slot name="stretched-card-header" />
+                    <template
+                        v-if="type == 'video' && videoLoaded"
+                    >
+                        | Video {{ formattedVideoDuration }}
+                    </template>
+                </VsLink>
 
                 <template v-else-if="type === 'video'">
                     <slot name="stretched-card-header" />
@@ -125,6 +141,7 @@
                     :variant="theme === 'dark' ? 'on-dark' : 'primary'"
                     data-test="vs-stretched-link"
                     :disabled="disabled"
+                    :display-icon="businessSupport && isHomePage ? false : true"
                     :tabindex="(videoId || disabled) ? '-1' : '0'"
                 >
                     <!-- @slot Contains header content for the card  -->
@@ -140,7 +157,7 @@
             </div>
 
             <div
-                v-if="$slots['stretched-card-badges'] && $slots['stretched-card-badges']()"
+                v-if="$slots['stretched-card-badges'] && $slots['stretched-card-badges']() && businessSupport"
                 class="vs-stretched-link-card__badges"
                 data-test="vs-stretched-link-card__badges"
             >
@@ -294,6 +311,10 @@ export default {
             default: 'small',
             validator: (value) => value.match(/(normal|small)/),
         },
+        /**
+         * Flag for Business Support Hub (BSH) which has different
+         * styling to consumer site component.
+         */
         businessSupport: {
             type: Boolean,
             default: false,
@@ -322,6 +343,7 @@ export default {
     data() {
         return {
             jsDisabled: true,
+            windowWidth: window.innerWidth,
         };
     },
     computed: {
@@ -364,6 +386,21 @@ export default {
 
             return false;
         },
+        businessSupportHomepage() {
+            return (this.businessSupport && this.isHomePage);
+        },
+        businessSupportInternalPage() {
+            return (this.businessSupport && !this.isHomePage);
+        },
+        mobileHomepage() {
+            return (this.isHomePage && this.smBreakpoint);
+        },
+        /**
+         * Returns true if the layout should be imageless *USED WITH EXCLUSIVELY WITH BSH FLAG*
+         */
+        imagelessLayout() {
+            return (this.isHomePage && this.smBreakpoint) || !this.isHomePage;
+        },
         // Calculates if warning is showing and gives class for appropriate styles
         warningClass() {
             let className = '';
@@ -398,13 +435,19 @@ export default {
 
             return attrsObj;
         },
-        businessSupportLayout() {
-            return 'msg';
+        smBreakpoint() {
+            return this.windowWidth <= 576;
         },
+    },
+    created() {
+        window.addEventListener('resize', this.onResize);
     },
     mounted() {
         // Checks whether js is disabled, to display an appropriate warning to the user
         this.jsDisabled = jsIsDisabled();
+    },
+    unmounted() {
+        window.removeEventListener('resize', this.onResize);
     },
     methods: {
         emitShowModal() {
@@ -425,6 +468,9 @@ export default {
             if (this.emitter) {
                 this.emitter.emit('showModal', this.videoId, '#videoShow');
             }
+        },
+        onResize() {
+            this.windowWidth = window.innerWidth;
         },
     },
 };
