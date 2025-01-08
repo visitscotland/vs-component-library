@@ -1,3 +1,10 @@
+## [4.4.4](https://github.com/visitscotland/vs-component-library/compare/v4.4.3...v4.4.4) (2025-01-08)
+
+
+### Bug Fixes
+
+* **yarn:** rebuild lock file ([860bc19](https://github.com/visitscotland/vs-component-library/commit/860bc199efd53335df6c41faba29912112702120))
+
 ## [4.4.3](https://github.com/visitscotland/vs-component-library/compare/v4.4.2...v4.4.3) (2025-01-08)
 
 
