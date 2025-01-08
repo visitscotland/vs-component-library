@@ -25,8 +25,8 @@
         [
             "@semantic-release/exec",
             {
-                "analyzeCommitsCmd": "echo 'NEW_VERSION=false' > VERSION.env",
-                "verifyReleaseCmd": "echo 'NEW_VERSION=true' > VERSION.env"
+                "analyzeCommitsCmd": "echo 'NEW_VERSION=false' >> $GITHUB_ENV",
+                "verifyReleaseCmd": "echo 'NEW_VERSION=true' >> $GITHUB_ENV"
             }
         ]
     ]
