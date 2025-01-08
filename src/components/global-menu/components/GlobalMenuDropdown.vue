@@ -75,12 +75,10 @@ export default {
 .vs-global-menu__dropdown {
     position: initial;
     flex: auto;
-    padding: 0;
     background: transparent;
     border: none;
 
     .btn-primary.dropdown-toggle {
-        padding: 0.3rem $spacer-075;
         font-size: $font-size-2;
         align-items: center;
 

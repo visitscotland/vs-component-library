@@ -70,6 +70,7 @@ export default {
 .vs-dropdown {
     .dropdown-toggle {
         @extend %button-default-styles;
+        line-height: $line-height-xs;
         padding: $spacer-050 $spacer-150;
 
         &:hover {
