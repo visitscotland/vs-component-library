@@ -119,13 +119,8 @@ export default {
     color: $vs-color-text-inverse;
     position: relative;
     font-size: $font-size-2;
-    height: 28px;
     display: flex;
     align-items: center;
-
-    @include media-breakpoint-up(lg) {
-        height: 35px;
-    }
 
     &__wrapper {
         position: initial;

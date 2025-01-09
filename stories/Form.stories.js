@@ -7,7 +7,6 @@ import VsForm from '@/components/form/Form.vue';
 export default {
     component: VsForm,
     title: 'Form',
-    tags: ['autodocs'],
 };
 
 const Template = (args) => ({

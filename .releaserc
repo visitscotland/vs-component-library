@@ -21,6 +21,13 @@
                 ]
             }
         ],
-        "@semantic-release/github"
+        "@semantic-release/github",
+        [
+            "@semantic-release/exec",
+            {
+                "analyzeCommitsCmd": "echo 'NEW_VERSION=false' >> $GITHUB_ENV",
+                "verifyReleaseCmd": "echo 'NEW_VERSION=true' >> $GITHUB_ENV"
+            }
+        ]
     ]
 }

@@ -3,7 +3,6 @@ import VsAlert from '@/components/alert/Alert.vue';
 export default {
     component: VsAlert,
     title: 'Alert',
-    tags: ['autodocs'],
     argTypes: {
 
     },

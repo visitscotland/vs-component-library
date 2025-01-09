@@ -4,7 +4,6 @@ import VsStyledListItem from '@/components/styled-list/components/StyledListItem
 export default {
     component: VsStyledList,
     title: 'StyledList',
-    tags: ['autodocs'],
     argTypes: {
         variant: {
             options: [

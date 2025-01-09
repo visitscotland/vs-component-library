@@ -6,7 +6,6 @@ import VsIcon from '@/components/icon/Icon.vue';
 export default {
     component: VsDropdown,
     title: 'Dropdown',
-    tags: ['autodocs'],
 };
 
 const Template = (args) => ({

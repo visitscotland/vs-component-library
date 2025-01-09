@@ -1,3 +1,38 @@
+## [4.4.5](https://github.com/visitscotland/vs-component-library/compare/v4.4.4...v4.4.5) (2025-01-08)
+
+
+### Bug Fixes
+
+* **semantic release:** adjust env name ([4dc4105](https://github.com/visitscotland/vs-component-library/commit/4dc41054bc71a2a36599246d2cd2937d5e869cbf))
+
+## [4.4.4](https://github.com/visitscotland/vs-component-library/compare/v4.4.3...v4.4.4) (2025-01-08)
+
+
+### Bug Fixes
+
+* **yarn:** rebuild lock file ([860bc19](https://github.com/visitscotland/vs-component-library/commit/860bc199efd53335df6c41faba29912112702120))
+
+## [4.4.3](https://github.com/visitscotland/vs-component-library/compare/v4.4.2...v4.4.3) (2025-01-08)
+
+
+### Bug Fixes
+
+* **semantic release:** test release - remove debug logging ([eb5656b](https://github.com/visitscotland/vs-component-library/commit/eb5656b15cb689ae687812fea3c94156d6deb3f9))
+
+## [4.4.2](https://github.com/visitscotland/vs-component-library/compare/v4.4.1...v4.4.2) (2025-01-07)
+
+
+### Bug Fixes
+
+* **semantic release:** mOve install after npm set up / test release ([adc9f5c](https://github.com/visitscotland/vs-component-library/commit/adc9f5cb28fc54e2d4acf94a01b7895e54193cf8))
+
+## [4.4.1](https://github.com/visitscotland/vs-component-library/compare/v4.4.0...v4.4.1) (2025-01-07)
+
+
+### Bug Fixes
+
+* **styled list item:** adjusted CSS to extend line between numbered list ([1634244](https://github.com/visitscotland/vs-component-library/commit/163424437c36f0e64a2e1b0c0a2aa463e2fb36a1))
+
 # [4.4.0](https://github.com/visitscotland/vs-component-library/compare/v4.3.13...v4.4.0) (2024-12-16)
 
 
