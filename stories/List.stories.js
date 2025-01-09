@@ -3,7 +3,6 @@ import VsList from '@/components/list/List.vue';
 export default {
     component: VsList,
     title: 'List',
-    tags: ['autodocs'],
 };
 
 const Template = (args) => ({

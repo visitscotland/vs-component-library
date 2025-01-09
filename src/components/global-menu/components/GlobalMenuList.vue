@@ -71,9 +71,8 @@ export default {
             color: $vs-color-text-inverse;;
             text-decoration: none;
             transition: $duration-base all;
-            padding: 0 $spacer-125;
-            line-height: 35px;
-            height: 35px;
+            padding: $spacer-075 $spacer-125;
+            line-height: $line-height-xs;
             display: inline-block;
 
             &:focus {

@@ -108,13 +108,12 @@ export default {
     }
 
     .btn-primary.dropdown-toggle {
-        padding: 0.3rem $spacer-100;
         font-size: $font-size-2;
         background: $vs-color-background-brand;
         border: none;
 
         @include media-breakpoint-up(lg) {
-            padding: $spacer-050 $spacer-100 $spacer-050 $spacer-075;
+            padding: $spacer-075 $spacer-100 $spacer-075 $spacer-075;
         }
 
         &:not(:disabled):not(.disabled):active {

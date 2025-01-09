@@ -20,9 +20,6 @@ const config: StorybookConfig = {
     name: '@storybook/vue3-vite',
     options: {}
   },
-  docs: {
-    autodocs: 'tag'
-  },
   staticDirs: ['../src/assets'],
   viteFinal: (viteConfig) =>
     mergeConfig(viteConfig, {

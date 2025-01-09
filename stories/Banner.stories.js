@@ -4,7 +4,6 @@ import VsLink from '@/components/link/Link.vue';
 export default {
     component: VsBanner,
     title: 'Banner',
-    tags: ['autodocs'],
     argTypes: {
         onClick: {
             action: 'hideBanner',
