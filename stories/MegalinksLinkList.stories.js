@@ -13,7 +13,6 @@ import {
 export default {
     component: VsMegalinks,
     title: 'MegalinksLinkList',
-    tags: ['autodocs'],
     parameters: {
         viewport: {
             defaultViewport: 'default',
