@@ -386,17 +386,9 @@ export default {
 
             return false;
         },
-        businessSupportHomepage() {
-            return (this.businessSupport && this.isHomePage);
-        },
-        businessSupportInternalPage() {
-            return (this.businessSupport && !this.isHomePage);
-        },
-        mobileHomepage() {
-            return (this.isHomePage && this.smBreakpoint);
-        },
         /**
-         * Returns true if the layout should be imageless *USED WITH EXCLUSIVELY WITH BSH FLAG*
+         * Returns true if the layout should be imageless for BSH design
+         * *Only to be used with the `businessSupport` Flag*
          */
         imagelessLayout() {
             return (this.isHomePage && this.smBreakpoint) || !this.isHomePage;
@@ -435,10 +427,16 @@ export default {
 
             return attrsObj;
         },
+        /**
+         * Tracks width of window so imagelessLayout can trigger on homepage for BSH
+         */
         smBreakpoint() {
             return this.windowWidth <= 576;
         },
     },
+    /**
+     * Event listener for the smBreakpoint function
+     */
     created() {
         window.addEventListener('resize', this.onResize);
     },
@@ -446,6 +444,9 @@ export default {
         // Checks whether js is disabled, to display an appropriate warning to the user
         this.jsDisabled = jsIsDisabled();
     },
+    /**
+     * Destroys windowWidth event listener when component unmounted
+     */
     unmounted() {
         window.removeEventListener('resize', this.onResize);
     },
@@ -469,6 +470,9 @@ export default {
                 this.emitter.emit('showModal', this.videoId, '#videoShow');
             }
         },
+        /**
+         * Sends window width to smBreakpoint function
+         */
         onResize() {
             this.windowWidth = window.innerWidth;
         },

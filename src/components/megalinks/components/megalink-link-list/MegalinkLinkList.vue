@@ -7,7 +7,7 @@
             :link="linkUrl"
             :type="linkType"
             class="vs-megalink-link-list__wrapper"
-            :img-src="((businessSupport && !isHomePage) || (businessSupport && isHomePage && smBreakpoint)) ? '' : imgSrc"
+            :img-src="(businessSupport && imagelessLayout) ? '' : imgSrc"
             :img-alt="imgAlt"
             :theme="theme"
             :video-id="videoId"
@@ -51,7 +51,7 @@
             </template>
             <template
                 #stretched-card-badges
-                v-if="((businessSupport && badges.length > 0 && !isHomePage))"
+                v-if="(badges.length > 0 && businessSupport && !isHomePage)"
             >
                 <VsBadge
                     class="vs-megalink-link-list__badge"
@@ -209,17 +209,36 @@ export default {
         };
     },
     computed: {
+        /**
+         * Tracks width of window so imagelessLayout can trigger on homepage for BSH
+         */
         smBreakpoint() {
             return this.windowWidth <= 576;
         },
+        /**
+         * Returns true if the layout should be imageless for BSH design
+         * *Only to be used with the `businessSupport` Flag*
+         */
+        imagelessLayout() {
+            return (this.isHomePage && this.smBreakpoint) || !this.isHomePage;
+        },
     },
+    /**
+     * Event listener for the smBreakpoint function
+     */
     created() {
         window.addEventListener('resize', this.onResize);
     },
+    /**
+     * Destroys windowWidth event listener when component unmounted
+     */
     unmounted() {
         window.removeEventListener('resize', this.onResize);
     },
     methods: {
+        /**
+         * Sends window width to smBreakpoint function
+         */
         onResize() {
             this.windowWidth = window.innerWidth;
         },

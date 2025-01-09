@@ -96,6 +96,9 @@ export default {
             type: String,
             default: null,
         },
+        /**
+         * Override to turn off icons based on stylistic preferences of site.
+         */
         displayIcon: {
             type: Boolean,
             default: true,

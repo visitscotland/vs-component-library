@@ -289,7 +289,7 @@ const businessSupportBase = {
             linkUrl: '#',
             heading: '2023 UCI Cycling World Championships',
             content: 'We\'ve pulled together a handy guide on dates and times, travel info, accommodation and things to see near host venues.',
-            badges: ['How to', 'External Website'],
+            badges: ['How to', '10 minute read'],
         },
         {
             imgSrc: './fixtures/megalinks/grand-hotel.jpg',
@@ -303,7 +303,7 @@ const businessSupportBase = {
         {
             imgSrc: './fixtures/megalinks/grand-hotel.jpg',
             imgAlt: 'Luxury holidays and breaks in Scotland',
-            linkType: 'internal',
+            linkType: 'external',
             linkUrl: '#',
             heading: 'Luxury holidays and breaks in Scotland',
             content: 'Plan your luxury getaway in Scotland, from 5-star accommodation to Michelin-star dining.',
