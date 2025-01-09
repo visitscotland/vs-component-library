@@ -157,7 +157,7 @@
             </div>
 
             <div
-                v-if="$slots['stretched-card-badges'] && $slots['stretched-card-badges']() && businessSupport"
+                v-if="$slots['stretched-card-badges'] && $slots['stretched-card-badges']()"
                 class="vs-stretched-link-card__badges"
                 data-test="vs-stretched-link-card__badges"
             >
