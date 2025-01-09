@@ -243,6 +243,8 @@ export default {
         position: relative;
 
         &__image-wrapper {
+            display: flex;
+            justify-content: center;
             position: relative;
             aspect-ratio: 3/2;
 
@@ -251,7 +253,7 @@ export default {
             }
 
             img {
-                width: 100%;
+                width: auto;
                 height: 100%;
                 object-fit: cover;
                 align-self: flex-start;
