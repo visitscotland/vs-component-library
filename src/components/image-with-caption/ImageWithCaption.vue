@@ -211,11 +211,16 @@ export default {
         };
     },
     computed: {
+        // Check if the image is an SVG.
+        isSvg() {
+            return this.imageSrc.endsWith('.svg');
+        },
         imageWithCaptionClasses() {
             return {
                 'vs-image-with-caption--closed-default': this.closedDefaultCaption,
                 'vs-image-with-caption--hero': this.isHeroImage,
                 'vs-image-with-caption--video': this.isVideo,
+                'vs-image-with-caption--svg': this.isSvg,
             };
         },
         captionWrapperClasses() {
@@ -243,8 +248,6 @@ export default {
         position: relative;
 
         &__image-wrapper {
-            display: flex;
-            justify-content: center;
             position: relative;
             aspect-ratio: 3/2;
 
@@ -253,7 +256,7 @@ export default {
             }
 
             img {
-                width: auto;
+                width: 100%;
                 height: 100%;
                 object-fit: cover;
                 align-self: flex-start;
@@ -462,7 +465,7 @@ export default {
             }
         }
 
-        &--hero{
+        &--hero {
             margin-bottom: 0;
             background: $vs-color-background-bold;
 
@@ -545,6 +548,17 @@ export default {
                             position: absolute;
                         }
                     }
+                }
+            }
+        }
+
+        &--svg {
+            .vs-image-with-caption__image-wrapper {
+                display: flex;
+                justify-content: center;
+
+                img {
+                    width: auto;
                 }
             }
         }
