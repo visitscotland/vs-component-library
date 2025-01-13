@@ -31,6 +31,7 @@
 
                 <VsToggleButton
                     v-if="withToggleBtn"
+                    class="vs-video-caption__toggle-button"
                     @toggle-action="emitToggle"
                 >
                     <span class="visually-hidden">

@@ -256,8 +256,10 @@ export default {
                 );
             }
 
-            &:focus {
-                box-shadow: 0 0 0 2px $vs-color-interaction-focus;
+            &:not(.vs-video-caption__toggle-button) {
+                &:focus {
+                    box-shadow: 0 0 0 2px $vs-color-interaction-focus;
+                }
             }
         }
 
