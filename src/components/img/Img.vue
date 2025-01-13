@@ -1,7 +1,7 @@
 <template>
     <BImg
         v-bind="$attrs"
-        :src="src"
+        :src="computedSrc"
         :alt="alt"
         :fluid="fluid"
         :fluid-grow="fluidGrow"
@@ -113,6 +113,16 @@ export default {
             }
 
             return null;
+        },
+        computedSrc() {
+            if (this.src.indexOf('https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/') === 0) {
+                return this.src.replace(
+                    'https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/',
+                    'https://d2mq8p11a67q50.cloudfront.net/',
+                );
+            }
+
+            return this.src;
         },
     },
 };
