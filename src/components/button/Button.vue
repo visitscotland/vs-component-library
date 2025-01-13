@@ -255,12 +255,6 @@ export default {
                     $vs-color-text-inverse, $vs-color-interaction-cta-subtle-pressed, $vs-color-interaction-cta-subtle-pressed,
                 );
             }
-
-            &:not(.vs-video-caption__toggle-button) {
-                &:focus {
-                    box-shadow: 0 0 0 2px $vs-color-interaction-focus;
-                }
-            }
         }
 
         &.vs-button--icon-only {
