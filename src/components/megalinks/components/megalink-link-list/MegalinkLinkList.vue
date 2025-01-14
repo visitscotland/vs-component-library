@@ -50,7 +50,10 @@
                 </VsRichTextWrapper>
             </template>
 
-            <template #stretched-card-badges>
+            <template
+                #stretched-card-badges
+                v-if="businessSupport && !isHomePage"
+            >
                 <slot name="vs-link-list-badges" />
             </template>
         </VsStretchedLinkCard>
