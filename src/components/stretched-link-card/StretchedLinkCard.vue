@@ -135,13 +135,12 @@
                 <VsLink
                     v-else
                     :href="link"
-                    :type="type"
+                    :type="(businessSupport && isHomePage) ? 'default' : type"
                     class="stretched-link"
                     :class="disabled ? 'stretched-link--disabled' : ''"
                     :variant="theme === 'dark' ? 'on-dark' : 'primary'"
                     data-test="vs-stretched-link"
                     :disabled="disabled"
-                    :display-icon="businessSupport && isHomePage ? false : true"
                     :tabindex="(videoId || disabled) ? '-1' : '0'"
                 >
                     <!-- @slot Contains header content for the card  -->

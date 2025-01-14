@@ -9,14 +9,13 @@
         :download="type === 'download' ? 'true' : null"
         :disabled="disabled"
         :tabindex="disabled ? '-1' : '0'"
-        :display-icon="displayIcon"
         v-bind="$attrs"
         @click="clickHandler($event)"
         @keydown="keyHandler($event)"
     >
         <!-- @slot Default slot for link content -->
         <slot /><VsIcon
-            v-if="type !== 'default' && displayIcon"
+            v-if="type !== 'default'"
             :name="`${type}-link`"
             :variant="variant == 'primary' ? 'primary' : 'inverse'"
             :size="iconSize"
@@ -95,13 +94,6 @@ export default {
         dataLayerValue: {
             type: String,
             default: null,
-        },
-        /**
-         * Override to turn off icons based on stylistic preferences of site.
-         */
-        displayIcon: {
-            type: Boolean,
-            default: true,
         },
     },
     computed: {
