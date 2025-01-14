@@ -42,7 +42,7 @@
 
             <template #stretched-card-content>
                 <VsRichTextWrapper
-                    :class="businessSupport ? 'vs-megalink-link-list__content--bsh' : 'vs-megalink-link-list__content'"
+                    :class="businessSupport ? 'vs-megalink-link-list__content--showText' : 'vs-megalink-link-list__content'"
                     data-test="megalink-link-list__content"
                 >
                     <!-- @slot Slot to contain content -->
@@ -329,7 +329,7 @@ export default {
                     overflow: hidden;
                 }
 
-                &--bsh{
+                &--showText{
                     display: block;
                 }
             }
