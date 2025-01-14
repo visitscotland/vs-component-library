@@ -1,13 +1,13 @@
 <template>
     <div
         class="vs-megalink-link-list"
-        :class="`vs-megalink-link-list--${theme}`"
+        :class="megalinkClass"
     >
         <VsStretchedLinkCard
             :link="linkUrl"
             :type="linkType"
             class="vs-megalink-link-list__wrapper"
-            :img-src="(businessSupport && imagelessLayout) ? '' : imgSrc"
+            :img-src="imgSrc"
             :img-alt="imgAlt"
             :theme="theme"
             :video-id="videoId"
@@ -171,6 +171,7 @@ export default {
         },
         /**
          * Flag for Business Support Hub (BSH) visual differences
+         * On mobile and internal pages there should be no images.
          */
         businessSupport: {
             type: Boolean,
@@ -184,44 +185,23 @@ export default {
             default: false,
         },
     },
-    data() {
-        return {
-            windowWidth: window.innerWidth,
-        };
-    },
     computed: {
-        /**
-         * Tracks width of window so imagelessLayout can trigger on homepage for BSH
-         */
-        smBreakpoint() {
-            return this.windowWidth <= 576;
-        },
-        /**
-         * Returns true if the layout should be imageless for BSH design
-         * *Only to be used with the `businessSupport` Flag*
-         */
-        imagelessLayout() {
-            return (this.isHomePage && this.smBreakpoint) || !this.isHomePage;
-        },
-    },
-    /**
-     * Event listener for the smBreakpoint function
-     */
-    created() {
-        window.addEventListener('resize', this.onResize);
-    },
-    /**
-     * Destroys windowWidth event listener when component unmounted
-     */
-    unmounted() {
-        window.removeEventListener('resize', this.onResize);
-    },
-    methods: {
-        /**
-         * Sends window width to smBreakpoint function
-         */
-        onResize() {
-            this.windowWidth = window.innerWidth;
+        megalinkClass() {
+            let returnClass = '';
+
+            if (this.theme) {
+                returnClass += `vs-megalink-link-list--${this.theme} `;
+            }
+
+            if (!this.isHomePage) {
+                returnClass += 'vs-megalink-link-list--internal-page ';
+            }
+
+            if (this.businessSupport) {
+                returnClass += 'vs-megalink-link-list--business-support ';
+            }
+
+            return returnClass;
         },
     },
 };
@@ -405,6 +385,30 @@ export default {
                 }
             }
         }
+
+        &--business-support{
+
+            &.vs-megalink-link-list--internal-page{
+
+                .vs-stretched-link-card__img-container{
+                    display: none;
+                }
+
+                .vs-stretched-link-card__video-button{
+                    display: none;
+                }
+            }
+
+            @include media-breakpoint-down(md){
+                .vs-stretched-link-card__img-container{
+                    display: none;
+                }
+
+                .vs-stretched-link-card__video-button{
+                    display: none;
+                }
+            }
+        }
     }
 
     @include no-js {
@@ -427,5 +431,6 @@ export default {
                 }
             }
         }
+
     }
 </style>

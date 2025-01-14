@@ -128,7 +128,8 @@
                     </template>
                 </VsLink>
 
-                <template v-else-if="type === 'video'">
+                <!-- On BSH video link is tabbable still in absence of video button -->
+                <template v-else-if="!businessSupport && type === 'video'">
                     <slot name="stretched-card-header" />
                 </template>
 
@@ -141,7 +142,7 @@
                     :variant="theme === 'dark' ? 'on-dark' : 'primary'"
                     data-test="vs-stretched-link"
                     :disabled="disabled"
-                    :tabindex="(videoId || disabled) ? '-1' : '0'"
+                    :tabindex="(videoId || disabled) && !businessSupport ? '-1' : '0'"
                 >
                     <!-- @slot Contains header content for the card  -->
                     <slot name="stretched-card-header" />
@@ -377,13 +378,6 @@ export default {
             }
 
             return false;
-        },
-        /**
-         * Returns true if the layout should be imageless for BSH design
-         * *Only to be used with the `businessSupport` Flag*
-         */
-        imagelessLayout() {
-            return (this.isHomePage && this.smBreakpoint) || !this.isHomePage;
         },
         // Calculates if warning is showing and gives class for appropriate styles
         warningClass() {
