@@ -1,42 +1,61 @@
 <template>
-    <div
-        :class="classes"
-        data-test="vs-back-to-top"
+    <VsButton
+        v-if="visible"
+        class="vs-back-to-top"
+        icon="internal-link"
+        icon-only
+        :rounded="false"
+        variant="secondary"
+        @click="scrollTop"
     >
-        <VsButton
-            icon="internal-link"
-            iconOnly
-            :rounded="false"
-            variant="secondary"
-            @click="scrollToTop"
-        />
-    </div>
+        {{ props.buttonText }}
+    </VsButton>
 </template>
 
-<script setup lang="ts">
-import { computed, ref } from 'vue';
+<script setup>
+import { ref } from 'vue';
 import VsButton from '@/components/button/Button.vue';
 
-/** TODO
-* Animate button in/out.
-* Set button to be visible/not visible instead of moving back down the page.
-* Add comments.
-* Check that it works on different screen sizes,
-* Adjust values when screen resizes?
-*/
+const props = defineProps({
+    /**
+     * Visually hidden button text for screen readers.
+     */
+    buttonText: {
+        type: String,
+        required: true,
+    },
+    /**
+     * Number of pixels required to be vertically scrolled to toggle
+     * the visibility of the button.
+     */
+    offset: {
+        type: Number,
+        default: 100,
+    },
+});
 
-const buttonFixed = ref(false);
-const upperThreshold = 100;
-const lowerThreshold = window.innerHeight + 100;
+const visible = ref(false);
 
-const classes = computed(() => (
-    {
-        'vs-back-to-top': true,
-        'vs-back-to-top--fixed': buttonFixed.value,
+/**
+ * Show the button once the user has scrolled passed the offset.
+ */
+const setVisibility = () => {
+    const doc = document.documentElement;
+    const scrollY = (window.scrollY || doc.scrollTop) - (doc.clientTop || 0);
+
+    if (scrollY > props.offset) {
+        visible.value = true;
+    } else {
+        visible.value = false;
     }
-));
+};
 
-const scrollToTop = (event) => {
+/**
+ * Scrolls to the top of the page and remove focus from the button.
+ *
+ * @param {Event} event - The event object.
+ */
+const scrollTop = (event) => {
     window.scroll({
         top: 0,
         behavior: 'smooth',
@@ -46,31 +65,15 @@ const scrollToTop = (event) => {
     event.target.blur();
 };
 
-const handleScroll = () => {
-    const doc = document.documentElement;
-    const scrollY = (window.scrollY || doc.scrollTop) - (doc.clientTop || 0);
-
-    if (scrollY > upperThreshold && scrollY < lowerThreshold) {
-        buttonFixed.value = true;
-    } else {
-        buttonFixed.value = false;
-    }
-};
-
-window.addEventListener('scroll', handleScroll);
+window.addEventListener('scroll', setVisibility);
 </script>
 
 <style lang="scss">
-.vs-back-to-top {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-
-    &--fixed {
-        position: fixed;
-        right: $spacer-100;
-        bottom: $spacer-100;
-    }
+.vs-back-to-top.btn {
+    display: flex;
+    margin: -$spacer-200 $spacer-0 $spacer-100 auto;
+    inset-block-end: $spacer-100;
+    position: sticky;
 }
 
 @include no-js {
