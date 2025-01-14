@@ -49,19 +49,9 @@
                     <slot name="vs-link-list-content" />
                 </VsRichTextWrapper>
             </template>
-            <template
-                #stretched-card-badges
-                v-if="(badges.length > 0 && businessSupport && !isHomePage)"
-            >
-                <VsBadge
-                    class="vs-megalink-link-list__badge"
-                    data-test="megalink-link-list__badge"
-                    v-for="item in badges"
-                    :key="item"
-                >
-                    <!-- @slot Slot to contain badges -->
-                    <slot>{{ item }}</slot>
-                </VsBadge>
+
+            <template #stretched-card-badges>
+                <slot name="vs-link-list-badges" />
             </template>
         </VsStretchedLinkCard>
     </div>
@@ -71,7 +61,6 @@
 import VsStretchedLinkCard from '@/components/stretched-link-card/StretchedLinkCard.vue';
 import VsStretchedLinkPanels from '@/components/stretched-link-card/components/StretchedLinkPanels.vue';
 import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
-import VsBadge from '@/components/badge/VsBadge.vue';
 
 /**
 * Megalink link list cards to be used in the megalinks component
@@ -88,7 +77,6 @@ export default {
         VsStretchedLinkCard,
         VsRichTextWrapper,
         VsStretchedLinkPanels,
-        VsBadge,
     },
     props: {
         /**
@@ -194,13 +182,6 @@ export default {
         isHomePage: {
             type: Boolean,
             default: false,
-        },
-        /**
-         * Badges to display type of content on megalink card
-         */
-        badges: {
-            type: Array,
-            default: () => [],
         },
     },
     data() {
@@ -346,6 +327,10 @@ export default {
                     -webkit-line-clamp: 3;
                     -webkit-box-orient: vertical;
                     overflow: hidden;
+                }
+
+                &--bsh{
+                    display: block;
                 }
             }
         }

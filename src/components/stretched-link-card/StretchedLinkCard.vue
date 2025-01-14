@@ -325,13 +325,6 @@ export default {
             type: Boolean,
             default: false,
         },
-        /**
-         * Badges to display type of content on megalink card
-         */
-        badges: {
-            type: Array,
-            default: () => [],
-        },
     },
     setup() {
         const videoStore = useVideoStore();

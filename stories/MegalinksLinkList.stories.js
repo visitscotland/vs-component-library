@@ -5,6 +5,7 @@ import VsCaption from '@/components/caption/Caption.vue';
 import VsLink from '@/components/link/Link.vue';
 import VsModal from '@/components/modal/Modal.vue';
 import VsVideo from '@/components/video/Video.vue';
+import VsBadge from '@/components/badge/VsBadge.vue';
 import {
     VsRow,
     VsCol,
@@ -31,6 +32,7 @@ const Template = (args) => ({
         VsModal,
         VsVideo,
         VsRow,
+        VsBadge,
     },
     setup() {
         return {
@@ -76,8 +78,16 @@ const Template = (args) => ({
                     <template v-slot:vs-link-list-content>
                         <p>{{ link.content }}</p>
                     </template>
-                    <template v-slot:vs-link-list-badge>
-                        {{ link.badges }}
+                    <template 
+                        v-if="link.badges" 
+                        v-slot:vs-link-list-badges
+                    >
+                        <VsBadge
+                            v-for="badge in link.badges"
+                            :key="badge"
+                        >
+                            {{ badge }}
+                        </VsBadge>
                     </template>
 
                 </vs-megalink-link-list>
@@ -318,7 +328,7 @@ const businessSupportBase = {
             errorMessage: 'We\'re sorry, there\'s been an error',
             heading: 'Wellness breaks in Scotland',
             content: 'Slow down and refresh your mind, body and spirit in Scotland.',
-            badges: ['How To'],
+            'stretched-card-badges': ['How To'],
         },
     ],
 };
