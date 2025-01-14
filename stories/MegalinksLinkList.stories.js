@@ -328,7 +328,7 @@ const businessSupportBase = {
             errorMessage: 'We\'re sorry, there\'s been an error',
             heading: 'Wellness breaks in Scotland',
             content: 'Slow down and refresh your mind, body and spirit in Scotland.',
-            'stretched-card-badges': ['How To'],
+            badges: ['How To'],
         },
     ],
 };
