@@ -4,7 +4,7 @@
         data-test="vs-back-to-top"
     >
         <VsButton
-            v-if="visible || props.overrideVisibility"
+            v-if="visible"
             icon="arrow-up"
             icon-only
             variant="secondary"
