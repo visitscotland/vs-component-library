@@ -82,8 +82,7 @@
                 ref="videoShow"
                 :rounded="false"
                 @click="emitShowModal"
-                v-if="videoId && videoLoaded
-                    && ((!businessSupport) || (businessSupport && !imagelessLayout))"
+                v-if="videoId && videoLoaded"
             >
                 <span
                     class="vs-stretched-link-card__video-btn-text"
@@ -114,19 +113,6 @@
                         name="stretched-card-header"
                     />
                 </template>
-
-                <VsLink
-                    v-else-if="(businessSupport && imagelessLayout && type === 'video')"
-                    :href="link"
-                    class="stretched-link"
-                >
-                    <slot name="stretched-card-header" />
-                    <template
-                        v-if="type == 'video' && videoLoaded"
-                    >
-                        | Video {{ formattedVideoDuration }}
-                    </template>
-                </VsLink>
 
                 <!-- On BSH video link is tabbable still in absence of video button -->
                 <template v-else-if="!businessSupport && type === 'video'">
@@ -336,7 +322,6 @@ export default {
     data() {
         return {
             jsDisabled: true,
-            windowWidth: window.innerWidth,
         };
     },
     computed: {
@@ -413,28 +398,10 @@ export default {
 
             return attrsObj;
         },
-        /**
-         * Tracks width of window so imagelessLayout can trigger on homepage for BSH
-         */
-        smBreakpoint() {
-            return this.windowWidth <= 576;
-        },
-    },
-    /**
-     * Event listener for the smBreakpoint function
-     */
-    created() {
-        window.addEventListener('resize', this.onResize);
     },
     mounted() {
         // Checks whether js is disabled, to display an appropriate warning to the user
         this.jsDisabled = jsIsDisabled();
-    },
-    /**
-     * Destroys windowWidth event listener when component unmounted
-     */
-    unmounted() {
-        window.removeEventListener('resize', this.onResize);
     },
     methods: {
         emitShowModal() {
@@ -455,12 +422,6 @@ export default {
             if (this.emitter) {
                 this.emitter.emit('showModal', this.videoId, '#videoShow');
             }
-        },
-        /**
-         * Sends window width to smBreakpoint function
-         */
-        onResize() {
-            this.windowWidth = window.innerWidth;
         },
     },
 };
