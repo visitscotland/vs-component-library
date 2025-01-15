@@ -1,15 +1,18 @@
 <template>
-    <VsButton
-        v-if="visible"
+    <div
         class="vs-back-to-top"
-        icon="internal-link"
-        icon-only
-        :rounded="false"
-        variant="secondary"
-        @click="scrollTop"
+        data-test="vs-back-to-top"
     >
-        {{ props.buttonText }}
-    </VsButton>
+        <VsButton
+            v-if="visible || props.overrideVisibility"
+            icon="internal-link"
+            icon-only
+            variant="secondary"
+            @click="scrollTop"
+        >
+            {{ props.buttonText }}
+        </VsButton>
+    </div>
 </template>
 
 <script setup>
@@ -69,11 +72,15 @@ window.addEventListener('scroll', setVisibility);
 </script>
 
 <style lang="scss">
-.vs-back-to-top.btn {
+.vs-back-to-top {
     display: flex;
     margin: -$spacer-200 $spacer-0 $spacer-100 auto;
     inset-block-end: $spacer-100;
     position: sticky;
+
+    .vs-button {
+        margin: -$spacer-200 $spacer-0 $spacer-100 auto;
+    }
 }
 
 @include no-js {
