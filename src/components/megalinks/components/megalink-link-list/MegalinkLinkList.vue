@@ -42,7 +42,7 @@
 
             <template #stretched-card-content>
                 <VsRichTextWrapper
-                    :class="businessSupport ? 'vs-megalink-link-list__content--showText' : 'vs-megalink-link-list__content'"
+                    :class="businessSupport ? 'd-block' : 'vs-megalink-link-list__content'"
                     data-test="megalink-link-list__content"
                 >
                     <!-- @slot Slot to contain content -->
@@ -311,10 +311,6 @@ export default {
                     -webkit-box-orient: vertical;
                     overflow: hidden;
                 }
-
-                &--showText{
-                    display: block;
-                }
             }
         }
 
@@ -390,24 +386,14 @@ export default {
         }
 
         &--business-support{
-
             &.vs-megalink-link-list--internal-page{
-
-                .vs-stretched-link-card__img-container{
-                    display: none;
-                }
-
-                .vs-stretched-link-card__video-button{
+                .vs-stretched-link-card__img-container, .vs-stretched-link-card__video-button{
                     display: none;
                 }
             }
 
             @include media-breakpoint-down(md){
-                .vs-stretched-link-card__img-container{
-                    display: none;
-                }
-
-                .vs-stretched-link-card__video-button{
+                .vs-stretched-link-card__img-container, .vs-stretched-link-card__video-button{
                     display: none;
                 }
             }
