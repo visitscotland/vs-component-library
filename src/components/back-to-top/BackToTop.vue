@@ -5,7 +5,7 @@
     >
         <VsButton
             v-if="visible || props.overrideVisibility"
-            icon="internal-link"
+            icon="arrow-up"
             icon-only
             variant="secondary"
             @click="scrollTop"
