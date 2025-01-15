@@ -30,6 +30,7 @@ const mountOptions = {
     slots: {
         'vs-multi-image-heading': 'Multi-image heading',
         'vs-multi-image-content': '<p>Multi-image content</p>',
+        'vs-multi-image-badges': '<span>Some badges</span>',
     },
 };
 
@@ -91,6 +92,10 @@ describe('VsMegalinkMultiImage', () => {
 
         it('renders content inserted in a vs-multi-image-content slot', () => {
             expect(wrapper.find('[data-test="megalink-multi-image-card__content"]').html()).toContain('<p>Multi-image content</p>');
+        });
+
+        it('renders content inserted in a vs-multi-image-badges slot', () => {
+            expect(wrapper.html()).toContain('<span>Some badges</span>');
         });
     });
 
