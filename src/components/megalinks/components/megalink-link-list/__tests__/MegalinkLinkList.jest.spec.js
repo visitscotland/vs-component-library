@@ -45,8 +45,8 @@ const bshMount = () => mount(VsMegalinkLinkList, {
         transportName: 'Bus',
         videoId,
         videoBtnText,
-        badges: ['How to'],
         businessSupport: true,
+        isHomePage: false,
     },
     slots: {
         'vs-link-list-heading': slotHeading,
@@ -155,6 +155,35 @@ describe('VsMegalinkLinkList', () => {
             });
 
             expect(card.find('[data-test="vs-stretched-link-card__img"]').exists()).toBe(false);
+        });
+
+        it('should set megalink class to bsh variant when bsh prop is true', () => {
+            const wrapper = bshMount();
+
+            const megalinkList = wrapper.find('div[data-test="vs-megalink-link-list"]');
+
+            expect(megalinkList.classes()).toContain('vs-megalink-link-list--business-support');
+        });
+
+        it('should set megalink to bsh internal page variant when bsh prop is true and homepage prop is false', () => {
+            const wrapper = bshMount();
+
+            const megalinkList = wrapper.find('div[data-test="vs-megalink-link-list"]');
+
+            expect(megalinkList.classes()).toContain('vs-megalink-link-list--internal-page');
+        });
+
+        it('shouldnt set megalink to bsh internal page variant when bsh and homepage props are true', async() => {
+            const wrapper = bshMount();
+
+            await wrapper.setProps({
+                isHomePage: true,
+            });
+
+            const megalinkList = wrapper.find('div[data-test="vs-megalink-link-list"]');
+
+            expect(megalinkList.classes()).toContain('vs-megalink-link-list--business-support');
+            expect(megalinkList.classes()).not.toContain('vs-megalink-link-list--internal-page');
         });
     });
 

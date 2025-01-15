@@ -2,6 +2,7 @@
     <div
         class="vs-megalink-link-list"
         :class="megalinkClass"
+        data-test="vs-megalink-link-list"
     >
         <VsStretchedLinkCard
             :link="linkUrl"
