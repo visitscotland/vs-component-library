@@ -177,3 +177,13 @@ NoJavascript.args = {
     ...WithVideo.args,
     jsDisabled: true,
 };
+
+export const SvgImage = Template.bind();
+
+SvgImage.args = {
+    ...base,
+    imageSrc: 'fixtures/image-with-caption/images/thistle.svg',
+    'img-caption': {
+        caption: 'VisitScotland logo',
+    },
+};
