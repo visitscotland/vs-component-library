@@ -236,7 +236,7 @@ export default {
                 }
             }
 
-             &--single-image {
+            &--single-image {
                 padding-bottom: 0;
             }
         }
