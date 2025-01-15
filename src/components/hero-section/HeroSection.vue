@@ -3,15 +3,111 @@
         class="vs-hero-section"
         data-test="vs-hero-section"
     >
-        <div class="vs-hero-section__text-wrapper">
-            <VsContainer>
-                <VsRow>
-                    <VsCol
-                        cols="12"
-                        sm="10"
-                        md="9"
-                        lg="7"
+        <template v-if="!split">
+            <div class="vs-hero-section__text-wrapper">
+                <VsContainer>
+                    <VsRow>
+                        <VsCol
+                            cols="12"
+                            sm="10"
+                            md="9"
+                            lg="7"
+                        >
+                            <VsHeading
+                                class="vs-hero-section__heading m-lg-0"
+                                data-test="vs-hero-section__heading"
+                                level="1"
+                                heading-style="display-xs"
+                            >
+                                {{ heading }}
+                            </VsHeading>
+                        </VsCol>
+
+                        <VsCol
+                            cols="12"
+                            sm="8"
+                            offset-lg="1"
+                            lg="4"
+                        >
+                            <VsRichTextWrapper
+                                v-if="lede"
+                                data-test="vs-hero-section__lede"
+                                variant="lead"
+                            >
+                                <p class="mb-0">
+                                    {{ lede }}
+                                </p>
+                            </VsRichTextWrapper>
+                        </VsCol>
+                    </VsRow>
+                </VsContainer>
+            </div>
+
+            <div
+                :class="setInset"
+                data-test="vs-hero-section__image-wrapper"
+            >
+                <span v-if="src">
+                    <VsImg
+                        class="vs-hero-section__img"
+                        :src="src"
+                        :alt="imgAlt"
+                    />
+
+                    <VsCaption
+                        v-if="imgCaption || imgCredit"
+                        class="p-0"
+                        theme="subtle"
+                        data-test="vs-hero-section__caption"
                     >
+                        <template #caption>
+                            {{ imgCaption }}
+                        </template>
+                        <template #credit>
+                            {{ imgCredit }}
+                        </template>
+                    </VsCaption>
+                </span>
+
+                <hr
+                    v-else
+                    class="vs-hero-section__divider"
+                >
+            </div>
+        </template>
+
+        <div
+            v-else
+            class="vs-hero-section__split"
+        >
+            <div class="vs-hero-section__split__grid">
+                <div
+                    v-if="src"
+                    class="vs-hero-section__split__image"
+                >
+                    <VsImg
+                        class="vs-hero-section__img"
+                        :src="src"
+                        :alt="imgAlt"
+                    />
+
+                    <VsCaption
+                        v-if="imgCaption || imgCredit"
+                        class="p-0"
+                        theme="subtle"
+                        data-test="vs-hero-section__caption"
+                    >
+                        <template #caption>
+                            {{ imgCaption }}
+                        </template>
+                        <template #credit>
+                            {{ imgCredit }}
+                        </template>
+                    </VsCaption>
+                </div>
+
+                <div class="vs-hero-section__split__text-container">
+                    <div class="vs-hero-section__split__text">
                         <VsHeading
                             class="vs-hero-section__heading m-lg-0"
                             data-test="vs-hero-section__heading"
@@ -20,14 +116,7 @@
                         >
                             {{ heading }}
                         </VsHeading>
-                    </VsCol>
 
-                    <VsCol
-                        cols="12"
-                        sm="8"
-                        offset-lg="1"
-                        lg="4"
-                    >
                         <VsRichTextWrapper
                             v-if="lede"
                             data-test="vs-hero-section__lede"
@@ -37,41 +126,9 @@
                                 {{ lede }}
                             </p>
                         </VsRichTextWrapper>
-                    </VsCol>
-                </VsRow>
-            </VsContainer>
-        </div>
-
-        <div
-            :class="setInset"
-            data-test="vs-hero-section__image-wrapper"
-        >
-            <span v-if="src">
-                <VsImg
-                    class="vs-hero-section__img"
-                    :src="src"
-                    :alt="imgAlt"
-                />
-
-                <VsCaption
-                    v-if="imgCaption || imgCredit"
-                    class="p-0"
-                    theme="subtle"
-                    data-test="vs-hero-section__caption"
-                >
-                    <template #caption>
-                        {{ imgCaption }}
-                    </template>
-                    <template #credit>
-                        {{ imgCredit }}
-                    </template>
-                </VsCaption>
-            </span>
-
-            <hr
-                v-else
-                class="vs-hero-section__divider"
-            >
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -109,13 +166,6 @@ export default {
         VsImg,
     },
     props: {
-        /**
-        * Whether the image should sit in a container or not
-        */
-        inset: {
-            type: Boolean,
-            default: false,
-        },
         /**
         * The text for the heading
         */
@@ -160,8 +210,23 @@ export default {
             type: String,
             default: '',
         },
+        /**
+        * Whether the image should sit in a container or not
+        */
+        inset: {
+            type: Boolean,
+            default: false,
+        },
+        /**
+        * Changes layout to split text/image variant
+        */
+        split: {
+            type: Boolean,
+            default: false,
+        },
     },
     computed: {
+        // Set container class for inset variant
         setInset() {
             return this.inset || !this.src ? 'container' : '';
         },
@@ -212,6 +277,88 @@ export default {
             height: 2px;
             margin: 0;
             color: $vs-color-border-primary;
+        }
+    }
+
+    .vs-hero-section__split {
+        background: $vs-color-background-primary;
+
+        --grid-columns: 12px 1fr 1fr 12px;
+        --content_maxwidth: 100%;
+        --container-col: 2 / span 2;
+        --container-row: 2;
+        --gradient-row: 2;
+        --gradient-col: 1 / -1;
+        --image-col: 1 / -1;
+
+        &__grid {
+            display: grid;
+            grid-template-columns: var(--grid-columns);
+            width: 100%;
+        }
+
+        &__image {
+            grid-row: var(--image-row);
+            grid-column: var(--image-col);
+            position: relative;
+            overflow: hidden;
+            z-index: 0;
+            min-height: 14rem;
+            max-width: 1000px
+        }
+
+        &__text-container {
+            grid-row: var(--container-row);
+            grid-column: var(--container-col);
+            width: var(--content_maxwidth);
+        }
+
+        &__text {
+            height: 100%;
+            width: 100%;
+        }
+
+        @include media-breakpoint-up(sm) {
+            --content_maxwidth: #{$max-container-width-sm};
+            --grid-columns: 1fr min-content min-content 1fr;
+
+            &__text-container {
+                padding: 2em 0 2em;
+            }
+        }
+
+        @include media-breakpoint-up(md) {
+            --content_maxwidth: #{$max-container-width-md};
+        }
+
+        @include media-breakpoint-up(lg) {
+            --content_maxwidth: #{$max-container-width-lg};
+            --container-row: 1;
+            --container-col: 2 / span 2;
+            --gradient-row: 1;
+            --gradient-col: 1 / span 2;
+            --image-row: 1;
+            --image-col: 3 / span 2;
+
+            &__image {
+                width: 100%;
+                grid-row: 1;
+                grid-column: 3 / span 2;
+            }
+
+            &__text {
+                width: 50%;
+                padding-right: 7rem;
+                align-items: center;
+            }
+        }
+
+        @include media-breakpoint-up(xl) {
+            --content_maxwidth: #{$max-container-width-xl};
+        }
+
+        @include media-breakpoint-up(xxl) {
+            --content_maxwidth: #{$max-container-width-xxl};
         }
     }
 </style>
