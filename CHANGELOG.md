@@ -1,3 +1,11 @@
+## [4.4.7](https://github.com/visitscotland/vs-component-library/compare/v4.4.6...v4.4.7) (2025-01-16)
+
+
+### Bug Fixes
+
+* **image with caption:** modify SCSS for SVG images ([a13211a](https://github.com/visitscotland/vs-component-library/commit/a13211aff652ad628ed3340e15160360ed956ca0))
+* **image with caption:** modify SCSS for SVG images ([f481e20](https://github.com/visitscotland/vs-component-library/commit/f481e2014dd7819a794b9983cc4d2693272e5b81))
+
 ## [4.4.6](https://github.com/visitscotland/vs-component-library/compare/v4.4.5...v4.4.6) (2025-01-15)
 
 
