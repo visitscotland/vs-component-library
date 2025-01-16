@@ -388,13 +388,13 @@ export default {
 
         &--business-support {
             &.vs-megalink-link-list--internal-page {
-                .vs-stretched-link-card__img-container, .vs-stretched-link-card__video-button{
+                .vs-stretched-link-card__img-container, .vs-stretched-link-card__video-button {
                     display: none;
                 }
             }
 
             @include media-breakpoint-down(md) {
-                .vs-stretched-link-card__img-container, .vs-stretched-link-card__video-button{
+                .vs-stretched-link-card__img-container, .vs-stretched-link-card__video-button {
                     display: none;
                 }
             }
