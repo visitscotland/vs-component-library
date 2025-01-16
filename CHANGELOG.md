@@ -1,3 +1,21 @@
+# [4.5.0](https://github.com/visitscotland/vs-component-library/compare/v4.4.7...v4.5.0) (2025-01-16)
+
+
+### Bug Fixes
+
+* **megalinklinklist:** added conditional to badges so empty div doesn't show if no badges ([21915bf](https://github.com/visitscotland/vs-component-library/commit/21915bf3f322af122302659df8e842bc4a3c7b9c))
+* **megalinklinklist:** fixed badges showing on homepage view ([e48a3ae](https://github.com/visitscotland/vs-component-library/commit/e48a3ae006ca4e983e0a72f3dba64ae7b5e10aa8))
+* **megalinklinklist:** fixed merge-conflict wrongly resolved that caused storybook to crash ([62e7130](https://github.com/visitscotland/vs-component-library/commit/62e713001e5cbfe4a7377033d65087cf3418cb5f))
+* **preview.js:** added back autodocs tag to storybook ([9686725](https://github.com/visitscotland/vs-component-library/commit/9686725c0449112934e1ab893bbd4fde117c9b00))
+* **stretchedlinkcard:** fixed badges no longer showing on SLC due to changes to MegaLinkLinkList ([20c0c98](https://github.com/visitscotland/vs-component-library/commit/20c0c9804022c736c7e2b3b54fe9362efe5ba00a))
+
+
+### Features
+
+* **megalinklinklist:** added badges to the MegalinkLinkList ([b4bcf71](https://github.com/visitscotland/vs-component-library/commit/b4bcf7195c7c2d056fa3b41e196081d8cb9d461f))
+* **megalinklinklist:** end of day commit :- started to add support for stylistic changes for BSH ([d347ce9](https://github.com/visitscotland/vs-component-library/commit/d347ce92a060ed1375fcb5c026a9480a82977528))
+* **megalinklinklist:** implemented BSH styling ([bf774dc](https://github.com/visitscotland/vs-component-library/commit/bf774dcd215a56ec79ed1703d5ec52ceed97e68e))
+
 ## [4.4.7](https://github.com/visitscotland/vs-component-library/compare/v4.4.6...v4.4.7) (2025-01-16)
 
 
