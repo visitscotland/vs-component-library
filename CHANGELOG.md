@@ -1,3 +1,10 @@
+## [4.4.6](https://github.com/visitscotland/vs-component-library/compare/v4.4.5...v4.4.6) (2025-01-15)
+
+
+### Bug Fixes
+
+* **nuxt:** add missing itinerary component to export for nuxt sites ([c490479](https://github.com/visitscotland/vs-component-library/commit/c49047906ee82385f844017c64ebd6cdab893321))
+
 ## [4.4.5](https://github.com/visitscotland/vs-component-library/compare/v4.4.4...v4.4.5) (2025-01-08)
 
 

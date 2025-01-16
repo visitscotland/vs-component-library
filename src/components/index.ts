@@ -55,6 +55,7 @@ export { default as VsItineraryDay } from './itineraries/components/ItineraryDay
 export { default as VsItineraryStop } from './itineraries/components/ItineraryStop.vue';
 export { default as VsItineraryStopInfo } from './itineraries/components/ItineraryStopInfo.vue';
 export { default as VsItineraryTips } from './itineraries/components/ItineraryTips.vue';
+export { default as VsItineraryBorderOverlapWrapper } from './itineraries/components/ItineraryBorderOverlapWrapper.vue';
 export { default as VsLink } from './link/Link.vue';
 export { default as VsList } from './list/List.vue';
 export { default as VsLinkList } from './link-list/LinkList.vue';
