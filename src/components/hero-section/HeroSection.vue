@@ -47,27 +47,13 @@
                 :class="setInset"
                 data-test="vs-hero-section__image-wrapper"
             >
-                <span v-if="src">
-                    <VsImg
-                        class="vs-hero-section__img"
-                        :src="src"
-                        :alt="imgAlt"
-                    />
-
-                    <VsCaption
-                        v-if="imgCaption || imgCredit"
-                        class="p-0"
-                        theme="subtle"
-                        data-test="vs-hero-section__caption"
-                    >
-                        <template #caption>
-                            {{ imgCaption }}
-                        </template>
-                        <template #credit>
-                            {{ imgCredit }}
-                        </template>
-                    </VsCaption>
-                </span>
+                <VsHeroSectionImage
+                    v-if="src"
+                    :img-alt="imgAlt"
+                    :src="src"
+                    :img-caption="imgCaption"
+                    :img-credit="imgCredit"
+                />
 
                 <hr
                     v-else
@@ -83,33 +69,21 @@
             <div class="vs-hero-section__split__grid">
                 <div
                     v-if="src"
-                    class="vs-hero-section__split__image"
+                    class="vs-hero-section__split__image mb-100"
                 >
-                    <VsImg
-                        class="vs-hero-section__img"
+                    <VsHeroSectionImage
+                        :img-alt="imgAlt"
                         :src="src"
-                        :alt="imgAlt"
+                        :img-caption="imgCaption"
+                        :img-credit="imgCredit"
+                        :split="split"
                     />
-
-                    <VsCaption
-                        v-if="imgCaption || imgCredit"
-                        class="p-0"
-                        theme="subtle"
-                        data-test="vs-hero-section__caption"
-                    >
-                        <template #caption>
-                            {{ imgCaption }}
-                        </template>
-                        <template #credit>
-                            {{ imgCredit }}
-                        </template>
-                    </VsCaption>
                 </div>
 
                 <div class="vs-hero-section__split__text-container">
                     <div class="vs-hero-section__split__text">
                         <VsHeading
-                            class="vs-hero-section__heading m-lg-0"
+                            class="vs-hero-section__heading mb-lg-150"
                             data-test="vs-hero-section__heading"
                             level="1"
                             heading-style="display-xs"
@@ -141,8 +115,7 @@ import {
     VsRow,
     VsCol,
 } from '@/components/grid';
-import VsCaption from '@/components/caption/Caption.vue';
-import VsImg from '@/components/img/Img.vue';
+import VsHeroSectionImage from '@/components/hero-section/components/HeroSectionImage.vue';
 
 /**
 * Component for the hero section at the top of a page.
@@ -161,9 +134,8 @@ export default {
         VsContainer,
         VsCol,
         VsRow,
-        VsCaption,
         VsRichTextWrapper,
-        VsImg,
+        VsHeroSectionImage,
     },
     props: {
         /**
@@ -259,20 +231,6 @@ export default {
             }
         }
 
-        &__img{
-            width: 100%;
-            height: 386px;
-            object-fit: cover;
-
-            @include media-breakpoint-up(sm) {
-                height: 514px;
-            }
-
-            @include media-breakpoint-up(lg) {
-                height: 648px;
-            }
-        }
-
         &__divider {
             height: 2px;
             margin: 0;
@@ -287,8 +245,6 @@ export default {
         --content_maxwidth: 100%;
         --container-col: 2 / span 2;
         --container-row: 2;
-        --gradient-row: 2;
-        --gradient-col: 1 / -1;
         --image-col: 1 / -1;
 
         &__grid {
@@ -316,6 +272,9 @@ export default {
         &__text {
             height: 100%;
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         @include media-breakpoint-up(sm) {
@@ -335,8 +294,6 @@ export default {
             --content_maxwidth: #{$max-container-width-lg};
             --container-row: 1;
             --container-col: 2 / span 2;
-            --gradient-row: 1;
-            --gradient-col: 1 / span 2;
             --image-row: 1;
             --image-col: 3 / span 2;
 
