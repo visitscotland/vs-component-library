@@ -86,6 +86,7 @@ const Template = (args) => ({
                                     <VsBadge
                                         v-for="(badge, badgeIndex) in link.badges"
                                         :key="badgeIndex"
+                                        class="mb-050"
                                     >
                                         {{ badge}}
                                     </VsBadge>

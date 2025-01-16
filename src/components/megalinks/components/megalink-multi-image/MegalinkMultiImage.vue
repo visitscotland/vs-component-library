@@ -227,10 +227,6 @@ export default {
             left: 0;
         }
 
-        .vs-badge {
-            margin-bottom: $spacer-050;
-        }
-
         @include square-video-button();
 
         @include media-breakpoint-up(xl) {
