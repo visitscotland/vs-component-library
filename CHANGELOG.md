@@ -1,3 +1,15 @@
+# [4.6.0](https://github.com/visitscotland/vs-component-library/compare/v4.5.0...v4.6.0) (2025-01-16)
+
+
+### Bug Fixes
+
+* **megalinks:** move badge spacing to util class ([5623c6f](https://github.com/visitscotland/vs-component-library/commit/5623c6f5d7745c10901b10aedc2818c6efdf824c))
+
+
+### Features
+
+* **megalinks:** add optional badges to multi image variant ([3947d27](https://github.com/visitscotland/vs-component-library/commit/3947d275cfcafaa30f14b41ecf2bed19511c7e51))
+
 # [4.5.0](https://github.com/visitscotland/vs-component-library/compare/v4.4.7...v4.5.0) (2025-01-16)
 
 
