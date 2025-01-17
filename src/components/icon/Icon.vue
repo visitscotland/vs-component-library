@@ -220,10 +220,6 @@ export default {
                     value: 'level-entry-shower',
                 },
                 {
-                    key: 'x-twitter',
-                    value: 'x-twitter fa-brands',
-                },
-                {
                     key: 'linkedin',
                     value: 'linkedin-in fa-brands',
                 },
