@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.7.1](https://github.com/visitscotland/vs-component-library/compare/v4.7.0...v4.7.1) (2025-01-17)
+
+
+### 🐛 Bug Fixes
+
+* **back to top:** add component to export list ([575015f](https://github.com/visitscotland/vs-component-library/commit/575015f2d4760d013caae881b59447af4a7cbabc))
+
 ## [4.7.0](https://github.com/visitscotland/vs-component-library/compare/v4.6.0...v4.7.0) (2025-01-17)
 
 
