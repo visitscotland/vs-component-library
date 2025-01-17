@@ -26,11 +26,11 @@ describe('VsWarning', () => {
     });
 
     describe(':props', () => {
-        it(':icon - should render an `review` icon by default', () => {
+        it(':icon - should render an warning` icon by default', () => {
             const wrapper = factoryMount();
             const icon = wrapper.find('.vs-icon');
 
-            expect(icon.classes()).toContain('vs-icon--review');
+            expect(icon.classes()).toContain('vs-icon--warning');
         });
 
         it(':icon - should render an icon with the same name as the `icon` prop', () => {
