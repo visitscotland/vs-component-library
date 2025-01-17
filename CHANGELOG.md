@@ -1,3 +1,22 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [4.7.0](https://github.com/visitscotland/vs-component-library/compare/v4.6.0...v4.7.0) (2025-01-17)
+
+
+### ✅ Tests
+
+* **back to top:** add tests for new component ([6714d07](https://github.com/visitscotland/vs-component-library/commit/6714d073f34653c7820119b498fe257a995e1f5b))
+
+
+### ✨ Features
+
+* **back to top:** add new arrow-up icon ([d959e02](https://github.com/visitscotland/vs-component-library/commit/d959e0276bca6da384d87345adc56d312ac60c65))
+* **back to top:** add new component ([c15d538](https://github.com/visitscotland/vs-component-library/commit/c15d53801fc79eccb974436f1d0300a2af5868c8))
+* **back to top:** add new component ([a490592](https://github.com/visitscotland/vs-component-library/commit/a490592c91bc2c99de3cd6cd5428c86043d33667))
+* **back to top:** remove unused variable ([21d80df](https://github.com/visitscotland/vs-component-library/commit/21d80df8702bef67bb38f82e4479eafd5d5f1180))
+
 # [4.6.0](https://github.com/visitscotland/vs-component-library/compare/v4.5.0...v4.6.0) (2025-01-16)
 
 
