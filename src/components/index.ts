@@ -8,6 +8,7 @@ export { default as VsAlert } from './alert/Alert.vue';
 export { default as VsArticle } from './article/Article.vue';
 export { default as VsArticleSection } from './article/components/ArticleSection.vue';
 export { default as VsArticleSidebar } from './article/components/ArticleSidebar.vue';
+export { default as VsBackToTop } from './back-to-top/BackToTop.vue';
 export { default as VsBadge } from './badge/VsBadge.vue';
 export { default as VsBanner } from './banner/Banner.vue';
 export { default as VsBlogDetails } from './blog-details/BlogDetails.vue';
