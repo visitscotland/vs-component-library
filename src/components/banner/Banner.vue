@@ -18,7 +18,7 @@
                         >
                             <VsIcon
                                 size="sm"
-                                name="review"
+                                name="warning"
                                 class="vs-banner__icon"
                             />
                         </VsCol>

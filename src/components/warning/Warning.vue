@@ -59,7 +59,7 @@ export default {
         */
         icon: {
             type: String,
-            default: 'review',
+            default: 'warning',
         },
         /**
         * Type of warning
