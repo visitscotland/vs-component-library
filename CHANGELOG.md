@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.7.3](https://github.com/visitscotland/vs-component-library/compare/v4.7.2...v4.7.3) (2025-01-20)
+
+
+### 🐛 Bug Fixes
+
+* **back to top:** add/remove event listener when component mounted/unmounted ([f8f3440](https://github.com/visitscotland/vs-component-library/commit/f8f34405e60a615f11564a8de5af550eb0aeb491))
+
 ### [4.7.2](https://github.com/visitscotland/vs-component-library/compare/v4.7.1...v4.7.2) (2025-01-20)
 
 
