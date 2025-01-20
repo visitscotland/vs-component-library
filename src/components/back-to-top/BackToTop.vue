@@ -16,7 +16,11 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import {
+    onMounted,
+    onUnmounted,
+    ref,
+} from 'vue';
 import VsButton from '@/components/button/Button.vue';
 
 const props = defineProps({
@@ -68,7 +72,13 @@ const scrollTop = (event) => {
     event.target.blur();
 };
 
-window.addEventListener('scroll', setVisibility);
+onMounted(() => {
+    window.addEventListener('scroll', setVisibility);
+});
+
+onUnmounted(() => {
+    window.removeEventListener('scroll', setVisibility);
+});
 </script>
 
 <style lang="scss">
