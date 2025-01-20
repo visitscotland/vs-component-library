@@ -5,6 +5,7 @@ import VsCaption from '@/components/caption/Caption.vue';
 import VsLink from '@/components/link/Link.vue';
 import VsModal from '@/components/modal/Modal.vue';
 import VsVideo from '@/components/video/Video.vue';
+import VsBadge from '@/components/badge/VsBadge.vue';
 import {
     VsRow,
     VsCol,
@@ -13,6 +14,11 @@ import {
 export default {
     component: VsMegalinks,
     title: 'MegalinksLinkList',
+    parameters: {
+        viewport: {
+            defaultViewport: 'default',
+        },
+    },
 };
 
 const Template = (args) => ({
@@ -26,6 +32,7 @@ const Template = (args) => ({
         VsModal,
         VsVideo,
         VsRow,
+        VsBadge,
     },
     setup() {
         return {
@@ -62,6 +69,8 @@ const Template = (args) => ({
                 <vs-megalink-link-list
                     v-bind="link"
                     :theme="args.theme"
+                    :businessSupport="args.businessSupportHub"
+                    :isHomePage="args.isHomePage"
                 >
                     <template v-slot:vs-link-list-heading>
                         {{ link.heading }}
@@ -69,6 +78,18 @@ const Template = (args) => ({
                     <template v-slot:vs-link-list-content>
                         <p>{{ link.content }}</p>
                     </template>
+                    <template 
+                        v-if="link.badges" 
+                        v-slot:vs-link-list-badges
+                    >
+                        <VsBadge
+                            v-for="badge in link.badges"
+                            :key="badge"
+                        >
+                            {{ badge }}
+                        </VsBadge>
+                    </template>
+
                 </vs-megalink-link-list>
             </VsCol>
         </VsMegalinks>
@@ -259,4 +280,84 @@ GreyThemeNoJavascript.args = {
     ...base,
     ...GreyTheme.args,
     jsDisabled: true,
+};
+
+/**
+ * Base for BSH styles -- added information like the badges and BSH/Homepage flags
+ */
+
+const businessSupportBase = {
+    ...base,
+    businessSupportHub: true,
+    isHomePage: false,
+    links: [
+        {
+            imgSrc: './fixtures/megalinks/glentress-forest.jpg',
+            imgAlt: 'Clycling in glentress forest',
+            linkType: 'internal',
+            linkUrl: '#',
+            heading: '2023 UCI Cycling World Championships',
+            content: 'We\'ve pulled together a handy guide on dates and times, travel info, accommodation and things to see near host venues.',
+            badges: ['How to', '10 minute read'],
+        },
+        {
+            imgSrc: './fixtures/megalinks/grand-hotel.jpg',
+            imgAlt: 'Luxury holidays and breaks in Scotland',
+            linkType: 'internal',
+            linkUrl: '#',
+            heading: 'Luxury holidays and breaks in Scotland',
+            content: 'Plan your luxury getaway in Scotland, from 5-star accommodation to Michelin-star dining.',
+            badges: ['Guide', '6 minute read'],
+        },
+        {
+            imgSrc: './fixtures/megalinks/grand-hotel.jpg',
+            imgAlt: 'Luxury holidays and breaks in Scotland',
+            linkType: 'external',
+            linkUrl: '#',
+            heading: 'Luxury holidays and breaks in Scotland',
+            content: 'Plan your luxury getaway in Scotland, from 5-star accommodation to Michelin-star dining.',
+            badges: ['Article', 'External Website'],
+        },
+        {
+            imgSrc: './fixtures/megalinks/wellness.jpg',
+            imgAlt: 'Wellness breaks in Scotland',
+            linkType: 'video',
+            linkUrl: '#',
+            videoId: 'tfk7J6XZju4',
+            videoBtnText: 'Play Video',
+            errorMessage: 'We\'re sorry, there\'s been an error',
+            heading: 'Wellness breaks in Scotland',
+            content: 'Slow down and refresh your mind, body and spirit in Scotland.',
+            badges: ['How To', '1 minute video'],
+        },
+    ],
+};
+
+export const BusinessSupportHubHomepage = Template.bind({
+});
+
+BusinessSupportHubHomepage.args = {
+    ...businessSupportBase,
+    isHomePage: true,
+};
+
+export const BusinessSupportHubHomepageMobile = Template.bind({
+});
+
+BusinessSupportHubHomepageMobile.args = {
+    ...businessSupportBase,
+    isHomePage: true,
+};
+
+BusinessSupportHubHomepageMobile.parameters = {
+    viewport: {
+        defaultViewport: 'mobile2',
+    },
+};
+
+export const BusinessSupportHubInternalPage = Template.bind({
+});
+
+BusinessSupportHubInternalPage.args = {
+    ...businessSupportBase,
 };

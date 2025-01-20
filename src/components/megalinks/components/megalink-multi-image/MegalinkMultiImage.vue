@@ -44,6 +44,14 @@
                     <slot name="vs-multi-image-content" />
                 </VsRichTextWrapper>
             </template>
+
+            <template
+                #stretched-card-badges
+                v-if="$slots['vs-multi-image-badges'] && $slots['vs-multi-image-badges']()"
+            >
+                <!-- @slot Contains optional content for badges on each link  -->
+                <slot name="vs-multi-image-badges" />
+            </template>
         </VsStretchedLinkCard>
     </div>
 </template>

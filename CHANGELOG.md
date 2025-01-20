@@ -1,3 +1,80 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [4.7.2](https://github.com/visitscotland/vs-component-library/compare/v4.7.1...v4.7.2) (2025-01-20)
+
+
+### ✅ Tests
+
+* **warning:** update test ([4939b77](https://github.com/visitscotland/vs-component-library/commit/4939b77753f4a8c67847f67a7bceca06128d5be3))
+
+
+### 🐛 Bug Fixes
+
+* **banner:** icon name changed ([222167d](https://github.com/visitscotland/vs-component-library/commit/222167d45cb480277192d17ebbb9718d861b9c84))
+* **icons:** some icon names have changed ([a42aba2](https://github.com/visitscotland/vs-component-library/commit/a42aba2df4d12795ce9555cea610c168639ce7fb))
+
+### [4.7.1](https://github.com/visitscotland/vs-component-library/compare/v4.7.0...v4.7.1) (2025-01-17)
+
+
+### 🐛 Bug Fixes
+
+* **back to top:** add component to export list ([575015f](https://github.com/visitscotland/vs-component-library/commit/575015f2d4760d013caae881b59447af4a7cbabc))
+
+## [4.7.0](https://github.com/visitscotland/vs-component-library/compare/v4.6.0...v4.7.0) (2025-01-17)
+
+
+### ✅ Tests
+
+* **back to top:** add tests for new component ([6714d07](https://github.com/visitscotland/vs-component-library/commit/6714d073f34653c7820119b498fe257a995e1f5b))
+
+
+### ✨ Features
+
+* **back to top:** add new arrow-up icon ([d959e02](https://github.com/visitscotland/vs-component-library/commit/d959e0276bca6da384d87345adc56d312ac60c65))
+* **back to top:** add new component ([c15d538](https://github.com/visitscotland/vs-component-library/commit/c15d53801fc79eccb974436f1d0300a2af5868c8))
+* **back to top:** add new component ([a490592](https://github.com/visitscotland/vs-component-library/commit/a490592c91bc2c99de3cd6cd5428c86043d33667))
+* **back to top:** remove unused variable ([21d80df](https://github.com/visitscotland/vs-component-library/commit/21d80df8702bef67bb38f82e4479eafd5d5f1180))
+
+# [4.6.0](https://github.com/visitscotland/vs-component-library/compare/v4.5.0...v4.6.0) (2025-01-16)
+
+
+### Bug Fixes
+
+* **megalinks:** move badge spacing to util class ([5623c6f](https://github.com/visitscotland/vs-component-library/commit/5623c6f5d7745c10901b10aedc2818c6efdf824c))
+
+
+### Features
+
+* **megalinks:** add optional badges to multi image variant ([3947d27](https://github.com/visitscotland/vs-component-library/commit/3947d275cfcafaa30f14b41ecf2bed19511c7e51))
+
+# [4.5.0](https://github.com/visitscotland/vs-component-library/compare/v4.4.7...v4.5.0) (2025-01-16)
+
+
+### Bug Fixes
+
+* **megalinklinklist:** added conditional to badges so empty div doesn't show if no badges ([21915bf](https://github.com/visitscotland/vs-component-library/commit/21915bf3f322af122302659df8e842bc4a3c7b9c))
+* **megalinklinklist:** fixed badges showing on homepage view ([e48a3ae](https://github.com/visitscotland/vs-component-library/commit/e48a3ae006ca4e983e0a72f3dba64ae7b5e10aa8))
+* **megalinklinklist:** fixed merge-conflict wrongly resolved that caused storybook to crash ([62e7130](https://github.com/visitscotland/vs-component-library/commit/62e713001e5cbfe4a7377033d65087cf3418cb5f))
+* **preview.js:** added back autodocs tag to storybook ([9686725](https://github.com/visitscotland/vs-component-library/commit/9686725c0449112934e1ab893bbd4fde117c9b00))
+* **stretchedlinkcard:** fixed badges no longer showing on SLC due to changes to MegaLinkLinkList ([20c0c98](https://github.com/visitscotland/vs-component-library/commit/20c0c9804022c736c7e2b3b54fe9362efe5ba00a))
+
+
+### Features
+
+* **megalinklinklist:** added badges to the MegalinkLinkList ([b4bcf71](https://github.com/visitscotland/vs-component-library/commit/b4bcf7195c7c2d056fa3b41e196081d8cb9d461f))
+* **megalinklinklist:** end of day commit :- started to add support for stylistic changes for BSH ([d347ce9](https://github.com/visitscotland/vs-component-library/commit/d347ce92a060ed1375fcb5c026a9480a82977528))
+* **megalinklinklist:** implemented BSH styling ([bf774dc](https://github.com/visitscotland/vs-component-library/commit/bf774dcd215a56ec79ed1703d5ec52ceed97e68e))
+
+## [4.4.7](https://github.com/visitscotland/vs-component-library/compare/v4.4.6...v4.4.7) (2025-01-16)
+
+
+### Bug Fixes
+
+* **image with caption:** modify SCSS for SVG images ([a13211a](https://github.com/visitscotland/vs-component-library/commit/a13211aff652ad628ed3340e15160360ed956ca0))
+* **image with caption:** modify SCSS for SVG images ([f481e20](https://github.com/visitscotland/vs-component-library/commit/f481e2014dd7819a794b9983cc4d2693272e5b81))
+
 ## [4.4.6](https://github.com/visitscotland/vs-component-library/compare/v4.4.5...v4.4.6) (2025-01-15)
 
 

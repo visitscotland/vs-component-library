@@ -109,23 +109,26 @@
                 data-test="vs-stretched-link-card__title"
             >
                 <template v-if="$slots['stretched-card-link'] && $slots['stretched-card-link']()">
-                    <slot name="stretched-card-header" />
+                    <slot
+                        name="stretched-card-header"
+                    />
                 </template>
 
-                <template v-else-if="type === 'video'">
+                <!-- On BSH video link is tabbable still in absence of video button -->
+                <template v-else-if="!businessSupport && type === 'video'">
                     <slot name="stretched-card-header" />
                 </template>
 
                 <VsLink
                     v-else
                     :href="link"
-                    :type="type"
+                    :type="(businessSupport && isHomePage) ? 'default' : type"
                     class="stretched-link"
                     :class="disabled ? 'stretched-link--disabled' : ''"
                     :variant="theme === 'dark' ? 'on-dark' : 'primary'"
                     data-test="vs-stretched-link"
                     :disabled="disabled"
-                    :tabindex="(videoId || disabled) ? '-1' : '0'"
+                    :tabindex="(videoId || disabled) && !businessSupport ? '-1' : '0'"
                 >
                     <!-- @slot Contains header content for the card  -->
                     <slot name="stretched-card-header" />
@@ -293,6 +296,21 @@ export default {
             type: String,
             default: 'small',
             validator: (value) => value.match(/(normal|small)/),
+        },
+        /**
+         * Flag for Business Support Hub (BSH) which has different
+         * styling to consumer site component.
+         */
+        businessSupport: {
+            type: Boolean,
+            default: false,
+        },
+        /**
+         * Flag for homepage styling which differs on BSH
+         */
+        isHomePage: {
+            type: Boolean,
+            default: false,
         },
     },
     setup() {
