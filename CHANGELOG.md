@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.7.2](https://github.com/visitscotland/vs-component-library/compare/v4.7.1...v4.7.2) (2025-01-20)
+
+
+### ✅ Tests
+
+* **warning:** update test ([4939b77](https://github.com/visitscotland/vs-component-library/commit/4939b77753f4a8c67847f67a7bceca06128d5be3))
+
+
+### 🐛 Bug Fixes
+
+* **banner:** icon name changed ([222167d](https://github.com/visitscotland/vs-component-library/commit/222167d45cb480277192d17ebbb9718d861b9c84))
+* **icons:** some icon names have changed ([a42aba2](https://github.com/visitscotland/vs-component-library/commit/a42aba2df4d12795ce9555cea610c168639ce7fb))
+
 ### [4.7.1](https://github.com/visitscotland/vs-component-library/compare/v4.7.0...v4.7.1) (2025-01-17)
 
 
