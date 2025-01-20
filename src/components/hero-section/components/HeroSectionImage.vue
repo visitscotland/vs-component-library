@@ -16,7 +16,10 @@
             theme="subtle"
             data-test="vs-hero-section-image__caption"
         >
-            <template #caption>
+            <template
+                v-if="!split"
+                #caption
+            >
                 {{ imgCaption }}
             </template>
             <template #credit>
@@ -109,7 +112,7 @@ export default {
         &--split {
             .vs-hero-section-image__img {
                 height: 255px;
-                border-radius: 0 0 0 20px;
+                border-radius: 0 0 40px 0;
 
                 @include media-breakpoint-up(sm) {
                     height: 340px;
@@ -117,6 +120,18 @@ export default {
 
                 @include media-breakpoint-up(md) {
                     height: 540px;
+                }
+
+                @include media-breakpoint-up(lg) {
+                    border-radius: 0 0 0 64px;
+                }
+            }
+
+            .vs-caption {
+                text-align: left;
+
+                @include media-breakpoint-up(lg) {
+                    text-align: right;
                 }
             }
         }
