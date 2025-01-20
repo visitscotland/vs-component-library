@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.7.4](https://github.com/visitscotland/vs-component-library/compare/v4.7.3...v4.7.4) (2025-01-20)
+
+
+### 🐛 Bug Fixes
+
+* **back to top:** button positioning ([a39d48a](https://github.com/visitscotland/vs-component-library/commit/a39d48af067d74f87a786b08ebef012985ca9581))
+
 ### [4.7.3](https://github.com/visitscotland/vs-component-library/compare/v4.7.2...v4.7.3) (2025-01-20)
 
 
