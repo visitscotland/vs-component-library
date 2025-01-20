@@ -145,7 +145,6 @@ export default {
 
 <style lang="scss">
     .vs-hero-section {
-        padding-bottom: $spacer-300;
         background: $vs-color-background-primary;
 
         --grid-columns: 12px 1fr 12px;
@@ -160,7 +159,6 @@ export default {
 
         @include media-breakpoint-up(sm) {
             --content_maxwidth: #{$max-container-width-sm};
-            --grid-columns: 1fr min-content min-content 1fr;
         }
 
         @include media-breakpoint-up(md) {
@@ -169,6 +167,7 @@ export default {
 
         @include media-breakpoint-up(lg) {
             --content_maxwidth: #{$max-container-width-lg};
+            --grid-columns: 1fr min-content min-content 1fr;
         }
 
         @include media-breakpoint-up(xl) {
@@ -191,6 +190,11 @@ export default {
 
             &--inset {
                 grid-column: var(--inset-image-col);
+                padding: 0;
+
+                @include media-breakpoint-up(lg) {
+                    padding: 0 $spacer-075;
+                }
             }
         }
 
@@ -198,30 +202,33 @@ export default {
             grid-row: var(--container-row);
             grid-column: var(--container-col);
             width: var(--content_maxwidth);
-            padding: $spacer-200 0 $spacer-250 0;
+            padding: $spacer-175 0 $spacer-250 0;
 
-            @include media-breakpoint-up(sm) {
-                padding: $spacer-300 0;
+            @include media-breakpoint-up(lg) {
+                padding: $spacer-300 $spacer-075;
             }
         }
 
         &__text {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding-right: 10%;
+            width: 100%;
 
             @include media-breakpoint-up(sm) {
-                padding-right: 20%;
+                width: 80%;
             }
 
             @include media-breakpoint-up(md) {
-                padding-right: 40%;
+                width: 70%;
             }
 
             @include media-breakpoint-up(lg) {
-                flex-direction: row;
-                padding-right: 0;
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1.5fr 1fr;
+                gap: 6rem;
+            }
+
+            @include media-breakpoint-up(xl) {
+                grid-template-columns: 1.5fr 0.75fr;
             }
 
             .vs-hero-section__heading.vs-heading {
@@ -229,20 +236,12 @@ export default {
 
                 @include media-breakpoint-up(lg) {
                     @include heading-style(display-s);
-                    margin-top: 0;
+                    margin: 0;
                 }
 
                 @include media-breakpoint-up(xl) {
                     @include heading-style(display-m);
-                    margin-top: 0;
-                }
-            }
-
-            .vs-hero-section__lede{
-                margin-left: 0;
-
-                @include media-breakpoint-up(lg) {
-                    margin-left: 14%;
+                    margin: 0;
                 }
             }
         }
@@ -253,7 +252,6 @@ export default {
             color: $vs-color-border-primary;
             grid-row: var(--divider-row);
             grid-column: var(--divider-col);
-
         }
 
         &--split {
@@ -262,11 +260,12 @@ export default {
             --split-container-row: 2;
             --split-container-col: 2 / -2;
 
-            @include media-breakpoint-up(lg) {
+            @include media-breakpoint-up(md) {
                 --split-container-row: 1;
                 --split-container-col: 2 / span 2;
                 --split-image-row: 1;
                 --split-image-col: 3 / span 2;
+                --grid-columns: 1fr min-content min-content 1fr;
             }
 
             .vs-hero-section__image {
@@ -278,7 +277,7 @@ export default {
                 min-height: 14rem;
                 max-width: 1000px;
 
-                @include media-breakpoint-up(lg) {
+                @include media-breakpoint-up(md) {
                     grid-row: var(--split-image-row);
                     grid-column: var(--split-image-col);
                 }
@@ -287,26 +286,39 @@ export default {
             .vs-hero-section__text-container {
                 grid-row: var(--split-container-row);
                 grid-column: var(--split-container-col);
-                padding: 0;
+
+                @include media-breakpoint-up(md) {
+                    padding: 0;
+                }
             }
 
             .vs-hero-section__text {
+                height: 100%;
                 width: 100%;
-                flex-direction: column;
                 padding: 0;
-
-                .vs-hero-section__lede {
-                    margin-left: 0;
-                }
 
                 @include media-breakpoint-up(sm) {
                     width: 75%;
                 }
 
+                @include media-breakpoint-up(md) {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 0;
+                    place-content: center;
+                    width: 40%;
+                }
+
                 @include media-breakpoint-up(lg) {
-                    width: 50%;
-                    padding-right: 7rem;
-                    align-items: center;
+                    width: 42%;
+                }
+
+                @include media-breakpoint-up(xxl) {
+                    width: 40%;
+                }
+
+                .vs-hero-section__heading.vs-heading {
+                    margin: 0 0 $spacer-150 0;
                 }
             }
         }

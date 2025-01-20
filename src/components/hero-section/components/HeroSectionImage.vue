@@ -119,18 +119,19 @@ export default {
                 }
 
                 @include media-breakpoint-up(md) {
-                    height: 540px;
+                    height: 414px;
+                    border-radius: 0 0 0 64px;
                 }
 
                 @include media-breakpoint-up(lg) {
-                    border-radius: 0 0 0 64px;
+                    height: 540px;
                 }
             }
 
             .vs-caption {
                 text-align: left;
 
-                @include media-breakpoint-up(lg) {
+                @include media-breakpoint-up(md) {
                     text-align: right;
                 }
             }
