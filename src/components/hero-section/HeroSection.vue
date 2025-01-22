@@ -202,7 +202,7 @@ export default {
             grid-row: var(--container-row);
             grid-column: var(--container-col);
             width: var(--content_maxwidth);
-            padding: $spacer-175 0 $spacer-250 0;
+            padding: $spacer-150 0 $spacer-250 0;
 
             @include media-breakpoint-up(lg) {
                 padding: $spacer-300 $spacer-075;
@@ -238,8 +238,11 @@ export default {
             .vs-hero-section__heading.vs-heading {
                 color: $vs-color-text-brand;
 
-                @include media-breakpoint-up(lg) {
+                @include media-breakpoint-up(md) {
                     @include heading-style(display-s);
+                }
+
+                @include media-breakpoint-up(lg) {
                     margin: 0;
                 }
 
@@ -264,7 +267,7 @@ export default {
             --split-container-row: 2;
             --split-container-col: 2 / -2;
 
-            @include media-breakpoint-up(md) {
+            @include media-breakpoint-up(lg) {
                 --split-container-row: 1;
                 --split-container-col: 2 / span 2;
                 --split-image-row: 1;
@@ -281,7 +284,7 @@ export default {
                 min-height: 14rem;
                 max-width: 1000px;
 
-                @include media-breakpoint-up(md) {
+                @include media-breakpoint-up(lg) {
                     grid-row: var(--split-image-row);
                     grid-column: var(--split-image-col);
                 }
@@ -290,10 +293,7 @@ export default {
             .vs-hero-section__text-container {
                 grid-row: var(--split-container-row);
                 grid-column: var(--split-container-col);
-
-                @include media-breakpoint-up(md) {
-                    padding: 0;
-                }
+                padding-top: 0;
             }
 
             .vs-hero-section__text {
@@ -305,15 +305,11 @@ export default {
                     width: 75%;
                 }
 
-                @include media-breakpoint-up(md) {
+                @include media-breakpoint-up(lg) {
                     display: grid;
                     grid-template-columns: 1fr;
                     gap: 0;
                     place-content: center;
-                    width: 40%;
-                }
-
-                @include media-breakpoint-up(lg) {
                     width: 42%;
                 }
 
@@ -322,7 +318,9 @@ export default {
                 }
 
                 .vs-hero-section__heading.vs-heading {
-                    margin: 0 0 $spacer-150 0;
+                    @include media-breakpoint-up(lg) {
+                        margin: 0 0 $spacer-150 0;
+                    }
                 }
             }
         }
