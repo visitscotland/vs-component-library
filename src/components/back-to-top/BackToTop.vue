@@ -16,7 +16,11 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import {
+    onMounted,
+    onUnmounted,
+    ref,
+} from 'vue';
 import VsButton from '@/components/button/Button.vue';
 
 const props = defineProps({
@@ -68,18 +72,23 @@ const scrollTop = (event) => {
     event.target.blur();
 };
 
-window.addEventListener('scroll', setVisibility);
+onMounted(() => {
+    window.addEventListener('scroll', setVisibility);
+});
+
+onUnmounted(() => {
+    window.removeEventListener('scroll', setVisibility);
+});
 </script>
 
 <style lang="scss">
 .vs-back-to-top {
     display: flex;
-    margin: -$spacer-200 $spacer-0 $spacer-100 auto;
     inset-block-end: $spacer-100;
     position: sticky;
 
     .vs-button {
-        margin: -$spacer-200 $spacer-0 $spacer-100 auto;
+        margin: -$spacer-400 $spacer-100 $spacer-0 auto;
     }
 }
 
