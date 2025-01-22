@@ -53,7 +53,7 @@ export default {
         */
         src: {
             type: String,
-            default: '',
+            required: true,
         },
         /**
         * The alt text for the image if applicable

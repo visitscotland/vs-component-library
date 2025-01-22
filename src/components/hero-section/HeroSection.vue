@@ -191,10 +191,6 @@ export default {
             &--inset {
                 grid-column: var(--inset-image-col);
                 padding: 0;
-
-                @include media-breakpoint-up(lg) {
-                    padding: 0 $spacer-075;
-                }
             }
         }
 
