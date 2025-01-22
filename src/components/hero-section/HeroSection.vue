@@ -147,35 +147,35 @@ export default {
     .vs-hero-section {
         background: $vs-color-background-primary;
 
-        --grid-columns: 12px 1fr 12px;
+        --grid-columns: 12px 1fr 1fr 12px;
         --content_maxwidth: 100%;
-        --container-col: 2 / -2;
+        --container-col: 2 / span 2;
         --container-row: 1;
         --image-col: 1 / -1;
         --image-row: 2;
-        --inset-image-col: 2 / -2;
-        --divider-col: 2 / -2;
+        --inset-image-col: 2 / span 2;
+        --divider-col: 2 / span 2;
         --divider-row: 2;
 
         @include media-breakpoint-up(sm) {
-            --content_maxwidth: #{$max-container-width-sm};
-        }
-
-        @include media-breakpoint-up(md) {
-            --content_maxwidth: #{$max-container-width-md};
-        }
-
-        @include media-breakpoint-up(lg) {
-            --content_maxwidth: #{$max-container-width-lg};
+            --content_maxwidth: #{$grid-container-width-sm};
             --grid-columns: 1fr min-content min-content 1fr;
         }
 
+        @include media-breakpoint-up(md) {
+            --content_maxwidth: #{$grid-container-width-md};
+        }
+
+        @include media-breakpoint-up(lg) {
+            --content_maxwidth: #{$grid-container-width-lg};
+        }
+
         @include media-breakpoint-up(xl) {
-            --content_maxwidth: #{$max-container-width-xl};
+            --content_maxwidth: #{$grid-container-width-xl};
         }
 
         @include media-breakpoint-up(xxl) {
-            --content_maxwidth: #{$max-container-width-xxl};
+            --content_maxwidth: #{$grid-container-width-xxl};
         }
 
         &__grid {
@@ -205,7 +205,7 @@ export default {
             padding: $spacer-150 0 $spacer-250 0;
 
             @include media-breakpoint-up(lg) {
-                padding: $spacer-300 $spacer-075;
+                padding: $spacer-300 0;
             }
         }
 
@@ -272,7 +272,6 @@ export default {
                 --split-container-col: 2 / span 2;
                 --split-image-row: 1;
                 --split-image-col: 3 / span 2;
-                --grid-columns: 1fr min-content min-content 1fr;
             }
 
             .vs-hero-section__image {

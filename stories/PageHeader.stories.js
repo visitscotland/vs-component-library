@@ -5,6 +5,9 @@ export default {
     title: 'Templates/PageHeader',
     argTypes: {
     },
+    parameters: {
+        layout: 'fullscreen',
+    },
 };
 
 const Template = (args) => ({
