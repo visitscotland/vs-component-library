@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.7.7](https://github.com/visitscotland/vs-component-library/compare/v4.7.5...v4.7.7) (2025-01-28)
+
+
+### 🔖 Others
+
+* **update version manually:** bump patch version so BSH picks up changes ([b486221](https://github.com/visitscotland/vs-component-library/commit/b486221d887d9a8fc064887ade5d030b8e36ef85))
+
 ### [4.7.5](https://github.com/visitscotland/vs-component-library/compare/v4.7.4...v4.7.5) (2025-01-28)
 
 
