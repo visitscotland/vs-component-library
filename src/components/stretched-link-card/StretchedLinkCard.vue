@@ -122,7 +122,7 @@
                 <VsLink
                     v-else
                     :href="link"
-                    :type="(businessSupport && isHomePage) ? 'default' : type"
+                    :type="type"
                     class="stretched-link"
                     :class="disabled ? 'stretched-link--disabled' : ''"
                     :variant="theme === 'dark' ? 'on-dark' : 'primary'"
