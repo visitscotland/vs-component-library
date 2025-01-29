@@ -2,6 +2,7 @@
     <div
         class="vs-blog-details"
         data-test="vs-blog-details"
+        v-if="blogAuthor || blogReadTime || blogPublishDate"
     >
         <div
             v-if="blogAuthor"
@@ -68,7 +69,7 @@ export default {
          */
         blogReadTime: {
             type: String,
-            required: true,
+            default: null,
         },
     },
     computed: {
