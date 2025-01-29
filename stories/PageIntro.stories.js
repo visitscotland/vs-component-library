@@ -21,7 +21,7 @@ import VsSummaryBoxDistanceListItem from '@/components/summary-box/components/Su
 import VsModal from '@/components/modal/Modal.vue';
 import VsVideo from '@/components/video/Video.vue';
 
-import { Default as blogDetailsDefault } from './BlogDetails.stories';
+import { WithAuthor as blogDetailsWithAuthor } from './BlogDetails.stories';
 import { Default as breadcrumbDefault } from './Breadcrumb.stories';
 import { Default as imageWithCaptionDefault } from './ImageWithCaption.stories';
 import { Default as socialShareDefault } from './SocialShare.stories';
@@ -268,7 +268,7 @@ export const WithBlogData = Template.bind();
 WithBlogData.args = {
     ...base,
     'vs-blog-data': {
-        ...blogDetailsDefault.args,
+        ...blogDetailsWithAuthor.args,
     },
 };
 
