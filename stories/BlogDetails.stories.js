@@ -26,12 +26,41 @@ const Template = (args) => ({
 });
 
 const base = {
-    blogAuthor: 'Maria Garcia Tena',
-    blogPublishDate: 'May 10, 2023',
-    blogReadTime: 'Reading time: 2 minutes',
+    blogReadTime: '2 minute read',
+};
+
+const dateAuthor = {
+    blogPublishDate: 'Last updated: 24 January 2025',
+    blogAuthor: 'Sarah Henderson',
 };
 
 export const Default = Template.bind({
 });
-
 Default.args = base;
+
+export const WithDate = Template.bind({
+});
+WithDate.args = {
+    ...base,
+    blogPublishDate: 'Last updated: 24 January 2025',
+};
+
+export const WithAuthor = Template.bind({
+});
+WithAuthor.args = {
+    ...base,
+    ...dateAuthor,
+};
+
+export const StackMobile = Template.bind({
+});
+StackMobile.args = {
+    ...base,
+    ...dateAuthor,
+};
+
+StackMobile.parameters = {
+    viewport: {
+        defaultViewport: 'mobile2',
+    },
+};
