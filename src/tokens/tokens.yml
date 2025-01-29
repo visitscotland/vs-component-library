@@ -8,6 +8,9 @@ imports:
   - ./color/color-icons.yml
   - ./color/color-interaction.yml
   - ./color/color-text.yml
+  - ./layout/breakpoints.yml
+  - ./layout/grid-layout.yml
+  - ./layout/spacing.yml
   - ./elevation-shadow.yml
   - ./elevation-surface.yml
   - ./font-size.yml
@@ -16,14 +19,11 @@ imports:
   - ./icons.yml
   - ./opacity.yml
   - ./timing.yml
-  - ./breakpoints.yml
   - ./box-shadow.yml
   - ./heading-size.yml
   - ./letter-spacing.yml
   - ./border-radius.yml
-  - ./spacing.yml
   - ./line-height.yml
-  - ./grid-layout.yml
   - ./utility.yml
   - ./themes.yml
   - ./tracking.yml
