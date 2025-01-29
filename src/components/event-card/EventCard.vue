@@ -8,6 +8,7 @@
         >
             <div
                 class="vs-event-card__header"
+                data-test="vs-event-card__header"
             >
                 <VsHeading
                     heading-style="heading-xs"
@@ -20,22 +21,31 @@
                 <!-- @slot for the date of event -->
                 <span class="vs-event-card__header-date"><slot name="event-card-header-date" /></span>
             </div>
-            <div
-                class="vs-event-card__content"
-            >
+            <div class="vs-event-card__content">
                 <!--@slot for event description-->
-                <slot name="event-card-content-description" />
                 <div
-                    class="vs-event-card-details"
+                    v-if="$slots['event-card-content-description']"
+                    class="vs-event-card__content-description"
+                    data-test="vs-event-card__content-description"
                 >
-                    <div class="vs-event-card-details__event-details">
+                    <slot name="event-card-content-description" />
+                </div>
+                <div
+                    class="vs-event-card__content-details"
+                >
+                    <div
+                        v-if="$slots['event-card-content-details']"
+                        class="vs-event-card__content-details-event-details"
+                        data-test="vs-event-card__content-details-event-details"
+                    >
                         <VsList unstyled>
                             <!--@slot for event details-->
                             <slot name="event-card-content-details" />
                         </VsList>
                     </div>
                     <div
-                        class="vs-event-card-details__travel-trade-details"
+                        class="vs-event-card__content-details-travel-trade-details"
+                        data-test="vs-event-card__content-details-travel-trade-details"
                         v-if="$slots['event-card-content-ttdetails']"
                     >
                         <VsList unstyled>
@@ -44,12 +54,14 @@
                         </VsList>
                     </div>
                     <div
-                        class="vs-event-card-details__event-cta"
+                        class="vs-event-card__content-details-event-cta"
                     >
                         <VsButton
+                            v-if="ctaLink"
                             :href="ctaLink"
                             icon="external-link"
                             icon-position="right"
+                            data-test="vs-event-card__content-details-event-cta"
                         >
                             Find Out More
                         </VsButton>
@@ -149,7 +161,7 @@ export default {
             }
         }
 
-        .vs-event-card-details {
+        .vs-event-card__content-details {
             display: flex;
             flex-direction: column;
             flex-wrap: nowrap;
@@ -158,22 +170,22 @@ export default {
             @include media-breakpoint-up (sm) {
                 flex-direction: row;
 
-                .vs-event-card-details__event-details {
+                .vs-event-card__content-details-event-details {
                     flex-basis: 35%;
                     flex-grow: 1;
                 }
 
-                .vs-event-card-details__travel-trade-details {
+                .vs-event-card__content-details-travel-trade-details {
                     flex-basis: 45%;
                 }
 
-                .vs-event-card-details__event-cta {
+                .vs-event-card__content-details-event-cta {
                     flex-basis: 20%;
                     align-self: flex-end;
                 }
             }
 
-            .vs-event-card-details__event-cta {
+            .vs-event-card__content-details-event-cta {
                     margin-top: $spacer-075;
                 }
 
