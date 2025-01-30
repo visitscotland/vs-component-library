@@ -269,6 +269,7 @@ export default {
 
 <style lang="scss">
 .vs-mega-nav {
+    z-index: 2;
     position: relative;
     display: flex;
     align-items: center;

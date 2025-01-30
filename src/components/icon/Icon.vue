@@ -39,13 +39,13 @@ export default {
         },
         /**
          * The color of the icon.
-         * `default|primary|inverse|disabled|tertiary|danger|warning`
+         * `default|primary|secondary|inverse|disabled|tertiary|danger|warning`
          */
         variant: {
             type: String,
             default: 'default',
             validator: (value) => value.match(
-                /(default|primary|inverse|disabled|tertiary|danger|warning)/,
+                /(default|primary|secondary|inverse|disabled|tertiary|danger|warning)/,
             ),
         },
         /**

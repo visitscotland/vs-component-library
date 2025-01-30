@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.8.0](https://github.com/visitscotland/vs-component-library/compare/v4.7.7...v4.8.0) (2025-01-30)
+
+
+### ✅ Tests
+
+* **hero:** refactor tests for heroSection and add HeroSectionImage tests ([2dd0a56](https://github.com/visitscotland/vs-component-library/commit/2dd0a565ee6f0cfdf26486b2486bd4b3762436e4))
+
+
+### 📝 Docs
+
+* **pageintro:** update page intro story to include correct blog details story ([3d48400](https://github.com/visitscotland/vs-component-library/commit/3d484003e4c2a54c834adba8a3bc30e7f8ce57a1))
+
+
+### ✨ Features
+
+* **blogdetails:** making read time optional ([a368e77](https://github.com/visitscotland/vs-component-library/commit/a368e7731aa66740f962ac81132a84d9980f6362))
+* **blogdetails:** update blog details to allow optional author and date ([4bb56ee](https://github.com/visitscotland/vs-component-library/commit/4bb56eef2a1dd6a1e5e1dd3f4bff17d04f9d4457))
+* **hero:** add heroSectionImage child component ([cecf29c](https://github.com/visitscotland/vs-component-library/commit/cecf29c838ed92ccd04b54ee9c6015474ac3112b))
+* **hero:** add new split hero variant ([68d2f4b](https://github.com/visitscotland/vs-component-library/commit/68d2f4b79af69881037ff5b678b17547e96a25c0))
+* **hero:** layout updates to hero component ([5bb4108](https://github.com/visitscotland/vs-component-library/commit/5bb4108eb5be45a701df70b149805fe668c682c7))
+* **hero:** refactor hero to use grid for all variants ([818e4e7](https://github.com/visitscotland/vs-component-library/commit/818e4e7de7c837db1b628cc89ce5e1921a00ded7))
+* **hero:** tweak padding for inset hero ([550b4db](https://github.com/visitscotland/vs-component-library/commit/550b4dbcc94a87959b150cd304be2b0afe32e75d))
+* **hero:** update hero text layout for xxl ([3a67da7](https://github.com/visitscotland/vs-component-library/commit/3a67da780e7419aa1fd8198200bc3c9a5c2e333f))
+* **hero:** update layout for mobile screens ([b52c318](https://github.com/visitscotland/vs-component-library/commit/b52c3182061f0f01d3cb072048be664cbbc9d7c0))
+* **hero:** update layout for mobile screens ([f04c53c](https://github.com/visitscotland/vs-component-library/commit/f04c53c58534d5953f5efaf6a67257c8f0e4bf28))
+* **nav:** update z-index in nav ([3272d11](https://github.com/visitscotland/vs-component-library/commit/3272d11cedece578cd0b4ca8bfeb3174fa253522))
+* **pageheader:** add new pageheader template examples ([7d3e616](https://github.com/visitscotland/vs-component-library/commit/7d3e616787145da408dacd6bcfcb24efe86ff86e))
+
+### [4.7.7](https://github.com/visitscotland/vs-component-library/compare/v4.7.5...v4.7.7) (2025-01-28)
+
+
+### 🔖 Others
+
+* **update version manually:** bump patch version so BSH picks up changes ([b486221](https://github.com/visitscotland/vs-component-library/commit/b486221d887d9a8fc064887ade5d030b8e36ef85))
+
+### [4.7.5](https://github.com/visitscotland/vs-component-library/compare/v4.7.4...v4.7.5) (2025-01-28)
+
+
+### 🐛 Bug Fixes
+
+* **stretchedlinkcard.vue:** remove BSH-specific prop resolution ([243241f](https://github.com/visitscotland/vs-component-library/commit/243241f8e52a4fc4676af27cf7f5e1889af58181))
+
 ### [4.7.4](https://github.com/visitscotland/vs-component-library/compare/v4.7.3...v4.7.4) (2025-01-20)
 
 
