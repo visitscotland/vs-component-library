@@ -42,6 +42,7 @@
                                     </VsHeading>
 
                                     <VsRichTextWrapper
+                                        v-if="$slots['vs-article-intro']"
                                         variant="lead"
                                         class="mb-300 mb-lg-400"
                                         :class="businessSupport ? null : 'text-center'"

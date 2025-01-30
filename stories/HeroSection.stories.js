@@ -67,3 +67,16 @@ Inset.args = {
     imgCredit: 'VisitScotland / Kenny Lam',
     inset: true,
 };
+
+export const Split = Template.bind({
+});
+
+Split.args = {
+    heading: 'Join the journey to change',
+    lede: 'Scotland views business events as catalysts for social and economic  transformation, addressing climate change, and advocating human rights.',
+    src: 'fixtures/hero/images/visitscotland_38462263949.jpg',
+    alt: 'Sunset at Lochan na h-Achlaise on Rannoch Moor',
+    imgCaption: 'Sunset at Lochan na h-Achlaise on Rannoch Moor',
+    imgCredit: 'VisitScotland / Kenny Lam',
+    split: true,
+};

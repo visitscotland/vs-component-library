@@ -16,6 +16,8 @@ props:
     value: "1200px"
   breakpoint_xxl:
     value: "1400px"
+
+  # sets max container width in Bootstrap flexbox grid
   max_container_width_sm:
     value: "540px"
   max_container_width_md:
@@ -26,6 +28,18 @@ props:
     value: "1140px"
   max_container_width_xxl:
     value: "1340px"
+
+  # use with CSS grids
+  grid_container_width_sm:
+    value: "516px"
+  grid_container_width_md:
+    value: "696px"
+  grid_container_width_lg:
+    value: "936px"
+  grid_container_width_xl:
+    value: "1116px"
+  grid_container_width_xxl:
+    value: "1316px"
 global:
   type: number
   category: breakpoints
