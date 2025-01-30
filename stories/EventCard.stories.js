@@ -58,7 +58,7 @@ const base = {
     endTime: '17:00 BST',
     venue: ' P&J Live, Aberdeen',
     organiser: ' VisitScotland',
-    details: '<li><label for="time">Time:</label><p class="vs-event-card__content-details-data" id="time"> {{ args.startTime }}</p></li><li><label for="price">Price:</label><p class="vs-event-card__content-details-data" id="price"> {{ args.price }} {{ args.currency }} + VAT</p></li><li><label for="venue">Location:</label><span id="venue"> {{ args.venue }}</span></li><li><label for="organiser">Organiser: </label><p class="vs-event-card__content-details-data" id="organiser">{{ args.organiser }}</p></li>',
+    details: '<li><label for="time">Time:</label><p class="vs-event-card__content-details-data" id="time">{{ args.startTime }}</p></li><li><label for="price">Price:</label><p class="vs-event-card__content-details-data" id="price"> {{ args.price }} {{ args.currency }} + VAT</p></li><li><label for="venue">Location:</label><p class="vs-event-card__content-details-data" id="venue"> {{ args.venue }}</p></li><li><label for="organiser">Organiser:</label><p class="vs-event-card__content-details-data" id="organiser">{{ args.organiser }}</p></li>',
     ctaLink: 'https://visitscotland.eventsair.com/visitscotlandconnect/',
 };
 
@@ -72,8 +72,8 @@ export const TravelTradeEvent = Template.bind({
 
 TravelTradeEvent.args = {
     ...base,
-    details: '<li><label for="time">Time:</label><p class="vs-event-card__content-details-data" id="time"> {{ args.startTime }}</p></li><li><label for="price">Price:</label><p class="vs-event-card__content-details-data" id="price"> {{ args.price }} {{ args.currency }} + VAT</p></li><li><label for="venue">Location:</label><span id="venue"> {{ args.venue }}</span></li>',
+    details: '<li><label for="time">Time:</label><p class="vs-event-card__content-details-data" id="time"> {{ args.startTime }}</p></li><li><label for="price">Price:</label><p class="vs-event-card__content-details-data" id="price"> {{ args.price }} {{ args.currency }} + VAT</p></li><li><label for="venue">Location:</label><p class="vs-event-card__content-details-data" id="venue"> {{ args.venue }}</p></li>',
     contact: 'connect@visitscotland.com',
     registrationDeadline: '31/03/2025',
-    ttdetails: '<li><label for="regDeadline">Registration Deadline: </label><p class="vs-event-card__content-details-data" id="regDeadline" /> {{ args.registrationDeadline }}</p></li><li><label for="organiser">Organiser: </label><p class="vs-event-card__content-details-data" id="organiser">{{ args.organiser }}</p></li><li><label for="contact">Contact: </label><p class="vs-event-card__content-details-data" id="contact" /> {{ args.contact }}</p></li>',
+    ttdetails: '<li><label for="regDeadline">Registration Deadline: </label><p class="vs-event-card__content-details-data" id="regDeadline"> {{ args.registrationDeadline }}</p></li><li><label for="organiser">Organiser: </label><p class="vs-event-card__content-details-data" id="organiser">{{ args.organiser }}</p></li><li><label for="contact">Contact: </label><p class="vs-event-card__content-details-data" id="contact"> {{ args.contact }}</p></li>',
 };
