@@ -196,7 +196,7 @@ export default {
     padding: $spacer-125 0;
     position: absolute;
     width: 100%;
-    z-index: 1030;
+    z-index: 1;
 
     @include media-breakpoint-up(lg) {
         padding: $spacer-200 0;
