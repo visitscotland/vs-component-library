@@ -6,14 +6,12 @@ config.global.renderStubDefaultSlot = true;
 
 function mountOptions(slotsData) {
     return {
-        propsData: {
-            ctaLink: 'https://www.google.com/',
-        },
         slots: {
             'event-card-header': 'Event card header',
             'event-card-date': 'EC Date',
             'event-card-content-description': 'Event card description',
             'event-card-content-details': '<li>Event card details</li>',
+            'event-card-cta': '<button>Button</button>',
         },
         ...slotsData,
     };
@@ -21,8 +19,12 @@ function mountOptions(slotsData) {
 
 function ttMountOptions(slotsData) {
     return {
-        propsData: {
-            ctaLink: 'https://www.google.com/',
+        propData: {
+            price: '1950 GBP + VAT',
+            location: ' P&J Live, Aberdeen',
+            organizer: ' VisitScotland',
+            contact: 'connect@visitscotland.com',
+            registrationDeadline: '31/03/2025',
         },
         slots: {
             'event-card-header': 'Event card header',
@@ -30,6 +32,11 @@ function ttMountOptions(slotsData) {
             'event-card-content-description': 'Event card description',
             'event-card-content-details': '<li>Event card details</li>',
             'event-card-content-ttdetails': '<li>Event card details</li>',
+            'event-card-cta': {
+                label: 'Find out more',
+                link: 'https://www.google.com',
+                type: 'EXTERNAL',
+            },
         },
         ...slotsData,
     };

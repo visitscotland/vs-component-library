@@ -50,20 +50,17 @@
                         v-if="$slots['event-card-content-ttdetails']"
                     >
                         <VsList unstyled>
-                            <!--@slot optional for second column details for travel trade events-->
+                            <!-- @slot optional for second column details for travel trade events-->
                             <slot name="event-card-content-ttdetails" />
                         </VsList>
                     </div>
-                    <div class="vs-event-card__content-details-event-cta">
-                        <VsButton
-                            v-if="ctaLink"
-                            :href="ctaLink"
-                            icon="external-link"
-                            icon-position="right"
-                            data-test="vs-event-card__content-details-event-cta"
-                        >
-                            Find Out More
-                        </VsButton>
+                    <div
+                        class="vs-event-card__content-details-event-cta"
+                        data-test="vs-event-card__content-details-event-cta"
+                        v-if="$slots['event-card-cta']"
+                    >
+                        <!-- @slot for the cta button -->
+                        <slot name="event-card-cta" />
                     </div>
                 </div>
             </div>
@@ -72,7 +69,6 @@
 </template>
 
 <script>
-import VsButton from '@/components/button/Button.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsList from '@/components/list/List.vue';
 
@@ -87,7 +83,6 @@ export default {
     status: 'prototype',
     release: '0.0.1',
     components: {
-        VsButton,
         VsHeading,
         VsList,
     },
@@ -142,13 +137,13 @@ export default {
         }
 
         @include media-breakpoint-up(sm) {
-                .vs-event-card__header {
-                    flex-direction: row;
-                    justify-content: space-between;
-                    align-items: center;
-                    margin: 0 0 $spacer-025 0;
-                }
+            .vs-event-card__header {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                margin: 0 0 $spacer-025 0;
             }
+        }
 
         .vs-event-card__header-date {
             font-size: $font-size-6;
