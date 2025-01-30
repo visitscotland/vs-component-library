@@ -7,7 +7,7 @@
             <VsHeading
                 v-if="hasHeadingSlot"
                 level="2"
-                heading-style="heading-l"
+                heading-style="heading-m"
             >
                 <slot name="heading" />
             </VsHeading>
@@ -69,7 +69,7 @@ export default {
 
         &--toc {
             background: $vs-color-background-secondary;
-            padding: $spacer-200 $spacer-300;
+            padding: $spacer-100 $spacer-200 $spacer-200;
             width: 100%;
 
             @include media-breakpoint-up(md) {

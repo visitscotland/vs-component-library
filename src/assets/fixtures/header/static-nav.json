@@ -1,49 +1,49 @@
 [
     {
         "title": "Venues",
-        "href": "https://businessevents.visitscotland.com/venues/",
+        "href": "#",
         "isExternal": false,
         "isActive": true,
         "trackingId": "nav.link.test-tracking-id"
     },
     {
         "title": "Services",
-        "href": "https://businessevents.visitscotland.com/services/",
+        "href": "#",
         "isExternal": false,
         "isActive": false,
         "trackingId": "nav.link.test-tracking-id"
     },
     {
         "title": "Why Scotland",
-        "href": "https://businessevents.visitscotland.com/why-scotland/",
+        "href": "#",
         "isExternal": false,
         "isActive": false,
         "trackingId": "nav.link.test-tracking-id"
     },
     {
         "title": "Key Sectors",
-        "href": "https://businessevents.visitscotland.com/key-sectors/",
+        "href": "#",
         "isExternal": false,
         "isActive": false,
         "trackingId": "nav.link.test-tracking-id"
     },
     {
         "title": "Events And Tradeshows",
-        "href": "https://businessevents.visitscotland.com/events-trade-shows/",
+        "href": "#",
         "isExternal": false,
         "isActive": false,
         "trackingId": "nav.link.test-tracking-id"
     },
     {
         "title": "News",
-        "href": "https://businessevents.visitscotland.com/news/",
+        "href": "#",
         "isExternal": false,
         "isActive": false,
         "trackingId": "nav.link.test-tracking-id"
     },
     {
         "title": "About Us",
-        "href": "https://businessevents.visitscotland.com/about-us/",
+        "href": "#",
         "isExternal": false,
         "isActive": false,
         "trackingId": "nav.link.test-tracking-id"

@@ -8,6 +8,7 @@ export default {
     parameters: {
         layout: 'fullscreen',
     },
+    tags: ['!autodocs'],
 };
 
 const Template = (args) => ({
@@ -20,9 +21,21 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsPageHeader />
+        <VsPageHeader v-bind="args" />
     `,
 });
 
-export const Default = Template.bind({
+export const SplitHeroHome = Template.bind({
 });
+
+export const Article = Template.bind({
+});
+Article.args = {
+    variant: 'article',
+};
+
+export const General = Template.bind({
+});
+General.args = {
+    variant: 'general',
+};
