@@ -3,14 +3,13 @@
         class="card vs-event-card"
         data-test="vs-event-card"
     >
-        <div
-            class="card-body"
-        >
+        <div class="card-body">
             <div
                 class="vs-event-card__header"
                 data-test="vs-event-card__header"
             >
                 <VsHeading
+                    class="vs-event-card__header-heading"
                     heading-style="heading-xs"
                     level="3"
                 >
@@ -19,7 +18,9 @@
                 </VsHeading>
 
                 <!-- @slot for the date of event -->
-                <span class="vs-event-card__header-date"><slot name="event-card-header-date" /></span>
+                <p class="vs-event-card__header-date">
+                    <slot name="event-card-header-date" />
+                </p>
             </div>
             <div class="vs-event-card__content">
                 <!--@slot for event description-->
@@ -28,11 +29,11 @@
                     class="vs-event-card__content-description"
                     data-test="vs-event-card__content-description"
                 >
-                    <slot name="event-card-content-description" />
+                    <p>
+                        <slot name="event-card-content-description" />
+                    </p>
                 </div>
-                <div
-                    class="vs-event-card__content-details"
-                >
+                <div class="vs-event-card__content-details">
                     <div
                         v-if="$slots['event-card-content-details']"
                         class="vs-event-card__content-details-event-details"
@@ -53,9 +54,7 @@
                             <slot name="event-card-content-ttdetails" />
                         </VsList>
                     </div>
-                    <div
-                        class="vs-event-card__content-details-event-cta"
-                    >
+                    <div class="vs-event-card__content-details-event-cta">
                         <VsButton
                             v-if="ctaLink"
                             :href="ctaLink"
@@ -126,6 +125,14 @@ export default {
             flex-direction: column;
             margin: 0 0 $spacer-075 0;
             font-weight: $font-weight-semi-bold;
+
+            &.-heading {
+                font-size: $font-size-8;
+            }
+
+            p {
+                margin: 0;
+            }
         }
 
         @include media-breakpoint-down(sm) {
@@ -159,6 +166,10 @@ export default {
             .vs-event-card__content-description {
                 line-height: $line-height-s;
             }
+
+            p {
+                margin: 0;
+            }
         }
 
         .vs-event-card__content-details {
@@ -166,6 +177,14 @@ export default {
             flex-direction: column;
             flex-wrap: nowrap;
             margin: $spacer-075 0 0 0;
+
+            .vs-event-card__content-details-data {
+                display: inline;
+            }
+
+            .vs-event-card__content-details-data::before {
+                content: " ";
+            }
 
             @include media-breakpoint-up (sm) {
                 flex-direction: row;
