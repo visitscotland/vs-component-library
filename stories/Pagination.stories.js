@@ -20,11 +20,20 @@ const Template = (args) => ({
 });
 
 const base = {
-    itemsPerPage: 8,
+    numberOfPages: 27,
     nextButtonLabel: 'Next',
-    numberOfItems: 250,
     previousButtonLabel: 'Previous',
+    pageLabel: 'Page',
+    ofLabel: 'of',
 };
 
 export const Default = Template.bind();
 Default.args = base;
+
+export const Mobile = Template.bind();
+Mobile.args = base;
+Mobile.parameters = {
+    viewport: {
+        defaultViewport: 'mobile2',
+    },
+};
