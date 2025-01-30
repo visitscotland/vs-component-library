@@ -1,8 +1,8 @@
 <template>
     <nav
+        aria-label="Pagination"
         class="vs-pagination"
         data-test="vs-pagination"
-        aria-label="Pagination"
     >
         <div class="vs-pagination__count">
             <p>{{ resultsText }}</p>
@@ -120,7 +120,7 @@ const resultsText = computed(() => `${props.pageLabel} ${currentPage.value} ${pr
 
 // Create list of page buttons.
 const pages = computed(() => {
-    // If there are fewer pr equal pages than the limit, show all pages.
+    // If there are fewer or equal pages than the limit, show all pages.
     if (props.numberOfPages <= limit) {
         // Create an array of numbers from 1 to the number of pages.
         return Array.from({
@@ -260,60 +260,4 @@ watch(() => props.numberOfPages, () => {
         }
     }
 }
-// .vs-pagination {
-//     &__controls {
-//         .page-item {
-//             &:not(.disabled) {
-//                 .page-link {
-//                     @include vs-button-variant(
-//                         $vs-color-text-primary, $vs-color-background-inverse, $vs-color-border-inverse,
-//                         $vs-color-text-primary, $vs-color-background-inverse, $vs-color-border-inverse,
-//                         $vs-color-text-inverse, $vs-color-interaction-cta-primary, $vs-color-border-inverse,
-//                     );
-
-//                     &:hover {
-//                         text-decoration: underline;
-//                     }
-//                 }
-
-//                 &:first-child,
-//                 &:last-child {
-//                     .page-link,
-//                     .page-link .vs-icon  {
-//                         color: $vs-color-interaction-link-primary;
-//                     }
-//                 }
-
-//                 &.active .page-link {
-//                     background-color: $vs-color-interaction-cta-primary;
-//                     color: $vs-color-text-inverse;
-//                 }
-//             }
-
-//             &.disabled .page-link,
-//             &.disabled .vs-icon {
-//                 background-color: $vs-color-background-inverse;
-//                 border-color: $vs-color-border-inverse;
-//                 color: $vs-color-text-disabled;
-//             }
-//         }
-
-//         @include media-breakpoint-down(md) {
-//             justify-content: space-between !important;
-
-//             .page-item:not(:first-child, :last-child) {
-//                 display: none;
-//             }
-//         }
-//     }
-
-//     &__count {
-//         text-align: center;
-//         width: 100%;
-
-//         @include media-breakpoint-up(md) {
-//             display: none;
-//         }
-//     }
-// }
 </style>
