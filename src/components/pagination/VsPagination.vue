@@ -23,11 +23,7 @@
             <ul class="vs-pagination__list">
                 <li
                     v-for="(page, index) in pages"
-                    class="vs-pagination__item"
-                    :class="{
-                        'vs-pagination__item--active': currentPage === page,
-                        'vs-pagination__item--ellipses': page === 'ellipses',
-                    }"
+                    :class="buttonClasses(page)"
                     :key="index"
                 >
                     <span v-if="page === 'ellipses'">&ctdot;</span>
@@ -122,6 +118,12 @@ const limit = 7;
 
 // Format text shown above controls on mobile.
 const resultsText = computed(() => `${props.pageLabel} ${currentPage.value} ${props.ofLabel} ${props.numberOfPages}`);
+
+const buttonClasses = (page) => ({
+    'vs-pagination__item': true,
+    'vs-pagination__item--active': currentPage.value === page,
+    'vs-pagination__item--ellipses': page === 'ellipses',
+});
 
 // Create list of page buttons.
 const pages = computed(() => {
