@@ -10,17 +10,17 @@ const srcSetMixin = {
     },
     methods: {
         specificImgSize(size) {
-            if (!this.src) {
+            if (!this.computedSrc) {
                 return '';
             }
 
             let connector = '?';
 
-            if (this.src.includes('?')) {
+            if (this.computedSrc.includes('?')) {
                 connector = '&';
             }
 
-            return `${this.src}${connector}size=${size}`;
+            return `${this.computedSrc}${connector}size=${size}`;
         },
     },
 };
