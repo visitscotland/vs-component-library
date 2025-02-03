@@ -21,6 +21,36 @@ describe('VsPagination.vue', () => {
         expect(wrapper.attributes('data-test')).toBe('vs-pagination');
     });
 
+    it('the "previous" button should be disabled when the current page is the first page', () => {
+        const previousButton = wrapper.find('.vs-pagination__prev .vs-button');
+
+        expect(previousButton.attributes('disabled')).toBeDefined();
+    });
+
+    it('the "previous" button should not be disabled when the current page is not the first page', async() => {
+        const previousButton = wrapper.find('.vs-pagination__prev .vs-button');
+        const pageItems = wrapper.findAll('.vs-pagination__item .vs-button');
+
+        await pageItems.at(0).trigger('click');
+
+        expect(previousButton.attributes().disabled).toBeUndefined();
+    });
+
+    it('the "next" button should not be disabled when the current page is not the last page', () => {
+        const nextButton = wrapper.find('.vs-pagination__next .vs-button');
+
+        expect(nextButton.attributes('disabled')).toBeUndefined();
+    });
+
+    it('the "next" button should be disabled when the current page is the last page', async() => {
+        const nextButton = wrapper.find('.vs-pagination__next .vs-button');
+        const pageItems = wrapper.findAll('.vs-pagination__item .vs-button');
+
+        await pageItems.at(pageItems.length - 1).trigger('click');
+
+        expect(nextButton.attributes().disabled).toBeDefined();
+    });
+
     describe(':props', () => {
         it(':nextButtonLabel - should render the next button with the label passed', async() => {
             expect(wrapper.find('.vs-pagination__next').text()).toContain('Next');
@@ -47,10 +77,10 @@ describe('VsPagination.vue', () => {
         it(':page-click - should be emitted when a page button is clicked', async() => {
             const pageItems = wrapper.findAll('.vs-pagination__item .vs-button');
 
-            await pageItems.at(3).trigger('click');
+            await pageItems.at(0).trigger('click');
 
             expect(wrapper.emitted('page-click')).toBeTruthy();
-            expect(wrapper.emitted('page-click')[0]).toEqual([4]);
+            expect(wrapper.emitted('page-click')[0]).toEqual([2]);
         });
     });
 
