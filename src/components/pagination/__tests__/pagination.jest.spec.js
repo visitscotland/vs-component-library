@@ -51,6 +51,60 @@ describe('VsPagination.vue', () => {
         expect(nextButton.attributes().disabled).toBeDefined();
     });
 
+    it('should display a list of pages without any ellipses when there fewer than 7 pages', async() => {
+        await wrapper.setProps({
+            numberOfPages: 6,
+        });
+
+        const ellipses = wrapper.find('.vs-pagination__item--ellipses');
+
+        expect(ellipses.exists()).toBe(false);
+    });
+
+    it('should display a list of pages without any ellipses when there 7 pages', async() => {
+        await wrapper.setProps({
+            numberOfPages: 7,
+        });
+
+        const ellipses = wrapper.find('.vs-pagination__item--ellipses');
+
+        expect(ellipses.exists()).toBe(false);
+    });
+
+    it('should display a list of pages with an ellipses before the last page when there are more than 7 pages', async() => {
+        await wrapper.setProps({
+            numberOfPages: 27,
+        });
+        const pageItems = wrapper.findAll('.vs-pagination__item');
+
+        const ellipses = wrapper.find('.vs-pagination__item--ellipses');
+        expect(ellipses.exists()).toBe(true);
+        expect(pageItems.at(pageItems.length - 2).attributes('class')).toContain('vs-pagination__item--ellipses');
+    });
+
+    it('should display a list of pages with an ellipses after the first page when there are more than 7 pages and the last page is selected', async() => {
+        const pageItems = wrapper.findAll('.vs-pagination__item');
+
+        await pageItems.at(pageItems.length - 1).find('.vs-button').trigger('click');
+
+        const ellipses = wrapper.find('.vs-pagination__item--ellipses');
+
+        expect(ellipses.exists()).toBe(true);
+        expect(pageItems.at(1).attributes('class')).toContain('vs-pagination__item--ellipses');
+    });
+
+    it('should display a list of pages with an ellipses after the first page and before the last page when there are more than 7 pages and the last a middle page is selected', async() => {
+        const pageItems = wrapper.findAll('.vs-pagination__item');
+
+        await pageItems.at(4).find('.vs-button').trigger('click');
+
+        const ellipses = wrapper.find('.vs-pagination__item--ellipses');
+
+        expect(ellipses.exists()).toBe(true);
+        expect(pageItems.at(1).attributes('class')).toContain('vs-pagination__item--ellipses');
+        expect(pageItems.at(pageItems.length - 2).attributes('class')).toContain('vs-pagination__item--ellipses');
+    });
+
     describe(':props', () => {
         it(':nextButtonLabel - should render the next button with the label passed', async() => {
             expect(wrapper.find('.vs-pagination__next').text()).toContain('Next');
