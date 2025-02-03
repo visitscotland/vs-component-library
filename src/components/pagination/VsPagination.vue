@@ -264,7 +264,7 @@ watch(() => props.numberOfPages, () => {
     &__prev .vs-button,
     &__next .vs-button {
         border: none;
-        padding: $spacer-025 $spacer-075;
+        margin-top: $spacer-0125;
 
         &.disabled {
             background-color: $vs-color-background-inverse !important;
