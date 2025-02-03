@@ -18,6 +18,7 @@ import {
     carbonCompleteTemplate,
     productSearchTemplate,
     cmsReferralTemplate,
+    accordionOpenTemplate,
 } from '../utils/data-layer-templates';
 
 /**
@@ -314,6 +315,21 @@ const dataLayerMixin = {
 
                 fullTemplate = this.compileFullTemplate(templateValues);
                 dataLayerData = this.templateFiller(cmsReferralTemplate, fullTemplate);
+
+                break;
+
+            case 'accordionOpenEvent':
+                eventName = 'accordion_opened';
+                tagName = 'GA4 - Event - Accordion Opened';
+
+                templateValues = {
+                    event: eventName,
+                    tag_name: tagName,
+                    accordion_text: event.accordion_text,
+                };
+
+                fullTemplate = this.compileFullTemplate(templateValues);
+                dataLayerData = this.templateFiller(accordionOpenTemplate, fullTemplate);
 
                 break;
 
