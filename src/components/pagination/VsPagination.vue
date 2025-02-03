@@ -24,18 +24,23 @@
                 <li
                     v-for="(page, index) in pages"
                     class="vs-pagination__item"
-                    :class="{ 'vs-pagination__item--active': currentPage === page }"
+                    :class="{
+                        'vs-pagination__item--active': currentPage === page,
+                        'vs-pagination__item--ellipses': page === 'ellipses',
+                    }"
                     :key="index"
                 >
+                    <span v-if="page === 'ellipses'">&ctdot;</span>
+
                     <span
-                        v-if="page === 'ellipses'"
-                        class="vs-pagination__item--ellipses"
+                        v-else-if="currentPage === page"
+                        :aria-current="currentPage"
                     >
-                        &ctdot;
+                        {{ page }}
                     </span>
+
                     <VsButton
                         v-else
-                        :aria-current="currentPage === page ? 'page' : null"
                         :aria-label="`Page ${page}`"
                         size="sm"
                         @click="handleClick($event, page)"
@@ -182,14 +187,15 @@ watch(() => props.numberOfPages, () => {
 
 <style lang="scss">
 .vs-pagination {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    font-size: $font-size-4;
 
     &__count {
         display: flex;
 
-        @include media-breakpoint-up(md) {
+        @include media-breakpoint-up(sm) {
             display: none;
         }
     }
@@ -216,7 +222,11 @@ watch(() => props.numberOfPages, () => {
     }
 
     &__item {
-        padding: 0 $spacer-025;
+        margin-right: $spacer-050;
+
+        &:first-child {
+            margin-left: $spacer-050;
+        }
 
         .vs-button {
             @include vs-button-variant(
@@ -235,20 +245,24 @@ watch(() => props.numberOfPages, () => {
             background-color: $vs-color-background-inverse !important;
         }
 
-        &--active .vs-button {
+        &--active {
             background-color: $vs-color-interaction-cta-primary;
             color: $vs-color-text-inverse;
+            border-radius: $border-radius-pill;
+            line-height: 1;
+            padding: $spacer-050 $spacer-075;
         }
 
         &--ellipses {
-            vertical-align: sub;
+            align-items: flex-end;
+            display: flex;
         }
     }
 
     &__prev .vs-button,
     &__next .vs-button {
         border: none;
-        padding-top: $spacer-025;
+        padding: $spacer-025 $spacer-075;
 
         &.disabled {
             background-color: $vs-color-background-inverse !important;
