@@ -39,3 +39,9 @@ export const General = Template.bind({
 General.args = {
     variant: 'general',
 };
+
+export const Video = Template.bind({
+});
+Video.args = {
+    variant: 'video',
+};

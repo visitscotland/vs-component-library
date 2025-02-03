@@ -66,12 +66,17 @@
         v-if="variant !== 'article'"
         heading="Join the journey to change"
         lede="Scotland views business events as catalysts for social and economic transformation, addressing climate change, and advocating human rights."
-        :src="variant !== 'general' ? 'fixtures/hero/images/visitscotland_38462263949.jpg' : ''"
+        :src="imgSrcUrl"
         alt="Sunset at Lochan na h-Achlaise on Rannoch Moor"
         img-caption="Sunset at Lochan na h-Achlaise on Rannoch Moor"
         img-credit="VisitScotland / Kenny Lam"
         :split="variant === 'split-home' ? true : false"
-    />
+        :video-src="variant === 'video' ? 'fixtures/hero/video/winter-web-test.mp4' : ''"
+    >
+        <template #heroHeading>
+            Scotland, <br>it's good for the soul
+        </template>
+    </VsHeroSection>
     <VsPageIntro
         v-else
         has-toc
@@ -369,7 +374,6 @@ import VsArticle from '@/components/article/Article.vue';
 import VsArticleSidebar from '@/components/article/components/ArticleSidebar.vue';
 import VsArticleSection from '@/components/article/components/ArticleSection.vue';
 import VsHeading from '@/components/heading/Heading.vue';
-import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
 
 import navExample from '@/assets/fixtures/header/main-nav.json';
 import staticNavExample from '@/assets/fixtures/header/static-nav.json';
@@ -403,7 +407,6 @@ export default {
         VsArticleSidebar,
         VsArticleSection,
         VsHeading,
-        VsRichTextWrapper,
     },
     props: {
         /**
@@ -412,7 +415,7 @@ export default {
         variant: {
             type: String,
             default: 'split-home',
-            validator: (value) => value.match(/(split-home|article|general)/),
+            validator: (value) => value.match(/(split-home|article|general|video)/),
         },
     },
     data() {
@@ -422,10 +425,15 @@ export default {
         };
     },
     computed: {
-        heroType() {
-            return [
-                this.fullscreenMobile ? 'vs-page-intro__fullscreen-mobile-header' : '',
-            ];
+        imgSrcUrl() {
+            switch (this.variant) {
+            case 'video':
+                return 'fixtures/hero/images/winter-web-test.jpg';
+            case 'general':
+                return '';
+            default:
+                return 'fixtures/hero/images/visitscotland_38462263949.jpg';
+            }
         },
     },
 };
