@@ -2,6 +2,7 @@ import VsDetails from '@/components/details/VsDetails.vue';
 import VsFilter from '@/components/filter/VsFilter.vue';
 import VsFilterSection from '@/components/filter/components/VsFilterSection.vue';
 import VsList from '@/components/list/List.vue';
+import VsCheckbox from '@/components/checkbox/Checkbox.vue';
 
 export default {
     component: VsFilter,
@@ -17,6 +18,7 @@ const Template = (args) => ({
         VsFilter,
         VsFilterSection,
         VsList,
+        VsCheckbox,
     },
     setup() {
         return {
@@ -24,57 +26,78 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsFilter v-bind="args" @filter-updated="(e) => console.log(e.target.checked)">
-            <VsFilterSection>
-                <label>
-                    <input
-                        type="checkbox"
-                        :id="args.filters[0].label"
-                        :name="args.filters[0].label"
-                        :value="args.filters[0].label"
-                    >
-                    {{ args.filters[0].label }}
-                </label>
-                <label>
-                    <input
-                        type="checkbox"
-                        :id="args.filters[0].label"
-                        :name="args.filters[0].label"
-                        :value="args.filters[0].label"
-                    >
-                    Online
-                </label>
-            </VsFilterSection>
-            
-            <VsDetails :summaryTitle="args.filters[3].label">
-                <VsFilterSection>
-                    <label v-for="item in args.filters[3].values">
-                        <input
-                            type="checkbox"
-                            :id="item.value"
-                            :name="item.value"
-                            :value="item.value"
-                        >
-                        {{ item.name }}
+        <VsFilter v-bind="args" @filter-updated="(e) => console.log(e.target.value)">
+            <VsFilterSection type="date-range">
+                <div>
+                    <label for="from">
+                        From
                     </label>
-                </VsFilterSection>
-            </VsDetails>
+                    <div>
+                        <input
+                            type="date"
+                            id="from"
+                            name="from"
+                            min="2025-02-14"
+                        >
+                    </div>
+                </div>
+            
+                <div>
+                    <label for="to">
+                        To
+                    </label>
+                    <div>
+                        <input
+                            type="date"
+                            id="to"
+                            name="to"
+                            min="2025-03-03"
+                        >
+                    </div>
+                </div>
+            </VsFilterSection>
 
-            <VsDetails :summaryTitle="args.filters[4].label">
-                <VsList unstyled>
-                    <li v-for="item in args.filters[4].values">
-                        <label>
-                            <input
-                                type="checkbox"
-                                :id="item.value"
-                                :name="item.value"
-                                :value="item.value"
-                            >
-                            {{ item.name }}
-                        </label>
-                    </li>
-                </VsList>
-            </VsDetails>
+            <VsFilterSection type="open">
+                <VsCheckbox
+                    field-name="cookieConsent"
+                    value="checked"
+                    label="Free"
+                    size="sm"
+                />
+
+                <VsCheckbox
+                    field-name="cookieConsent"
+                    value="checked"
+                    label="Online"
+                    size="sm"
+                />
+            </VsFilterSection>
+
+            <VsFilterSection
+                :summary-title="args.filters[4].label"
+                type="group"
+            >
+                <VsCheckbox
+                    v-for="item in args.filters[4].values"
+                    :field-name="item.value"
+                    value="checked"
+                    :label="item.name"
+                    size="sm"
+                />
+            </VsFilterSection>
+
+            <VsFilterSection
+                :summary-title="args.filters[5].label"
+                type="group"
+            >
+                <VsCheckbox
+                    v-for="item in args.filters[5].values"
+                    :field-name="item.value"
+                    value="checked"
+                    :label="item.name"
+                    size="sm"
+                />
+            </VsFilterSection>
         </VsFilter>
     `,
 });
@@ -85,14 +108,22 @@ const base = {
         {
             label: 'Free',
             type: 'boolean',
+            group: 1,
+        },
+        {
+            label: 'Online',
+            type: 'boolean',
+            group: 1,
         },
         {
             label: 'From',
             type: 'date',
+            group: 2,
         },
         {
             label: 'To',
             type: 'date',
+            group: 2,
         },
         {
             label: 'Sector',

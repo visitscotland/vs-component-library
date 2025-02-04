@@ -85,10 +85,5 @@ defineExpose({
             border-bottom: solid 1px $vs-color-border-secondary;
         }
     }
-
-    .vs-list:not(.vs-details .vs-list) {
-        border-bottom: solid 1px $vs-color-border-secondary;
-        padding: $spacer-075 $spacer-125;
-    }
 }
 </style>

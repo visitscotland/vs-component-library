@@ -152,3 +152,9 @@ CheckboxGroup.args = {
         },
     ],
 };
+
+export const SmallSize = Template.bind();
+SmallSize.args = {
+    ...base,
+    size: 'sm',
+};
