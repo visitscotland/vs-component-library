@@ -1,35 +1,45 @@
 <template>
-    <fieldset
-        class="vs-filter"
-        ref="filter"
-        @change="(event) => $emit('filter-updated', event)"
+    <VsButton
+        id="toggle-btn"
+        icon="filters"
+        class="vs-filter__toggle"
+        ref="btnShow"
+        variant="secondary"
+        @click="emitter.emit('showModal', 'c05sg3G4oA4')"
     >
-        <legend class="vs-filter__legend">
-            <VsIcon
-                name="filters"
-                orientation="left"
-            />
-            {{ props.filterLabel }}
-        </legend>
+        Filter
+    </VsButton>
 
-        <!-- @slot default slot for the filter items -->
+    <VsModal
+        modal-id="c05sg3G4oA4"
+        close-btn-text="Close"
+    >
         <slot />
-    </fieldset>
+    </VsModal>
+
+    <div class="vs-filter__panel">
+        <slot />
+    </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import VsIcon from '@/components/icon/Icon.vue';
 
-const props = defineProps({
-    /**
-     * Label for the filter.
-     */
-    filterLabel: {
-        type: String,
-        required: true,
-    },
-});
+/**
+ * TODO: Filter button label
+ * TODO: Comment code.
+ * TODO: Unit tests for each component
+ * TODO: Remove VsDetails component
+ * TODO: Unit test for small checkbox
+ * TODO: Tidy code.
+ * TODO: Selected filter buttons
+ * TODO: Clear all button.
+ * TODO: Export all filter components.
+ * TODO: Style mobile version.
+ * TODO: Add mobile story.
+ */
+import { ref } from 'vue';
+import VsButton from '@/components/button/Button.vue';
+import VsModal from '@/components/modal/Modal.vue';
 
 defineEmits(['filter-updated']);
 
@@ -76,6 +86,18 @@ defineExpose({
         font-weight: 600;
         font-size: $font-size-6;
         margin-bottom: $spacer-0;
+    }
+
+    &__toggle.vs-button {
+        @include media-breakpoint-up(sm) {
+            display: none;
+        }
+    }
+
+    &__panel {
+        @include media-breakpoint-down(sm) {
+            display: none;
+        }
     }
 
     .vs-details-wrapper {

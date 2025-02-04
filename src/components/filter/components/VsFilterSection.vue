@@ -3,42 +3,53 @@
         :class="filterSectionClasses"
         data-test="vs-filter-section"
     >
-        <Component
-            :is="component"
-            v-bind="$attrs"
+        <details
+            v-if="props.type === 'group'"
+            class="vs-filter-section__details"
         >
-            <!-- @slot default slot for the filter section items -->
-            <slot />
-        </Component>
-    </div>
+            <summary class="vs-filter-section__summary">
+                {{ props.summaryTitle }}
+                <VsIcon name="chevron" />
+            </summary>
 
-    <!-- Different section types - always open, datepicker, group -->
+            <slot />
+        </details>
+
+        <div
+            v-else
+            class="vs-filter-section__section"
+        >
+            <slot />
+        </div>
+    </div>
 </template>
 
 <script setup>
-import {
-    computed,
-    defineAsyncComponent,
-} from 'vue';
+import { computed } from 'vue';
+import VsIcon from '@/components/icon/Icon.vue';
 
 const props = defineProps({
+    /**
+     * Type of content within this filter section.
+     */
     type: {
         type: String,
-        default: 'open',
-        validator: (value) => value.match(/(open|date-range|group)/),
+        default: 'list',
+        validator: (value) => value.match(/(inline|group|list)/),
+    },
+    /**
+     * Group title used within the details element.
+     */
+    summaryTitle: {
+        type: String,
+        default: undefined,
     },
 });
 
 const filterSectionClasses = computed(() => ({
     'vs-filter-section': true,
-    'vs-filter-section--date-range': props.type === 'date-range',
+    'vs-filter-section--inline': props.type === 'inline',
 }));
-
-const component = computed(() => (
-    props.type === 'group'
-        ? defineAsyncComponent(() => import('@/components/details/VsDetails.vue'))
-        : 'div'
-));
 </script>
 
 <style lang="scss">
@@ -48,7 +59,7 @@ const component = computed(() => (
     flex-direction: column;
     padding: $spacer-075 $spacer-125;
 
-    &--date-range > div {
+    &--inline .vs-filter-section__section {
         display: flex;
         justify-content: space-between;
 
@@ -57,12 +68,27 @@ const component = computed(() => (
         }
     }
 
-    .vs-details {
-        padding: 0;
+    &__details[open] {
+        .vs-filter-section__summary {
+            margin-bottom: $spacer-075;
+
+            .vs-icon {
+                transform: scale(1, 1);
+            }
+        }
     }
 
-    input[type="date"]:nth-child(2) {
-        margin-left: 1rem;
+    &__summary {
+        align-items: baseline;
+        display: flex;
+        font-size: $font-size-4;
+        font-weight: $font_weight_semi_bold;
+        justify-content: space-between;
+
+        .vs-icon {
+            color: $vs-color-icon-highlight;
+            transform: scale(-1, -1);
+        }
     }
 }
 </style>
