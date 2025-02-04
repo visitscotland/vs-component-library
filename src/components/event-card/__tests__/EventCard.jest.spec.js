@@ -6,19 +6,15 @@ config.global.renderStubDefaultSlot = true;
 
 function mountOptions(slotsData) {
     return {
-        propsData: {
-            ctaHref: 'https://www.google.com',
-            ctaLabel: 'Find out more',
-        },
         slots: {
             'event-card-header': 'Event card header',
             'event-card-date': 'EC Date',
-            'event-card-content-description': 'Event card description',
-            'event-card-content-details': 'Event card details',
+            'event-card-content': 'Event card content',
         },
         ...slotsData,
     };
 };
+
 const factoryMount = (slotsData) => mount(
     VsEventCard,
     mountOptions(slotsData),
@@ -46,34 +42,53 @@ describe('VsEventCard', () => {
             expect(card.find('[data-test="vs-event-card__header"]').exists()).toBe(true);
         });
 
-        it('should render a description', () => {
+        it('should render a date', () => {
             const wrapper = factoryMount();
 
             const card = wrapper.findComponent({
                 name: 'VsEventCard',
             });
 
-            expect(card.find('[data-test="vs-event-card__description"]').exists()).toBe(true);
+            expect(card.find('[data-test="vs-event-card__date"]').exists()).toBe(true);
         });
 
-        it('should render a details section', () => {
+        it('should render a slot for content when filled', () => {
             const wrapper = factoryMount();
 
             const card = wrapper.findComponent({
                 name: 'VsEventCard',
             });
 
-            expect(card.find('[data-test="vs-event-card__event-details"]').exists()).toBe(true);
+            expect(card.find('[data-test="vs-event-card__content"]').exists()).toBe(true);
+        });
+    });
+
+    describe(':props', () => {
+        it('should render a cta button when props are passed', async() => {
+            const wrapper = factoryMount();
+
+            wrapper.setProps({
+                ctaHref: 'https://www.google.com',
+                ctaLabel: 'Find out more',
+            });
+
+            await wrapper.vm.$nextTick();
+
+            const card = wrapper.findComponent({
+                name: 'VsEventCard',
+            });
+
+            expect(card.find('[data-test="vs-event-card__cta"]').exists()).toBe(true);
         });
 
-        it('should render a cta button', () => {
+        it('should not render a cta button when no props are passed', () => {
             const wrapper = factoryMount();
 
             const card = wrapper.findComponent({
                 name: 'VsEventCard',
             });
 
-            expect(card.find('[data-test="vs-event-card__event-cta"]').exists()).toBe(true);
+            expect(card.find('[data-test="vs-event-card__cta"]').exists()).toBe(false);
         });
     });
 

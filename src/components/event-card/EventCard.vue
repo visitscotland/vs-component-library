@@ -18,44 +18,37 @@
                 </VsHeading>
 
                 <!-- @slot for the date of event -->
-                <p class="vs-event-card__date">
-                    <slot name="event-card-header-date" />
+                <p
+                    class="vs-event-card__date"
+                    data-test="vs-event-card__date"
+                    v-if="$slots['event-card-date']"
+                >
+                    <slot name="event-card-date" />
                 </p>
             </div>
-            <div class="vs-event-card__content">
-                <!--@slot for event description-->
-                <div
-                    v-if="$slots['event-card-content-description']"
-                    class="vs-event-card__description"
-                    data-test="vs-event-card__description"
+
+            <div
+                class="vs-event-card__content"
+                data-test="vs-event-card__content"
+                v-if="$slots['event-card-content']"
+            >
+                <!-- @slot holds any content on the card (description, details, etc)-->
+                <slot name="event-card-content" />
+            </div>
+
+            <div
+                class="vs-event-card__cta"
+                data-test="vs-event-card__cta"
+                v-if="ctaHref && ctaLabel"
+            >
+                <VsButton
+                    :href="ctaHref"
+                    :icon="ctaIcon"
+                    icon-position="right"
+                    data-test="vs-event-card__cta"
                 >
-                    <p>
-                        <slot name="event-card-content-description" />
-                    </p>
-                </div>
-                <div class="vs-event-card__details">
-                    <div
-                        v-if="$slots['event-card-content-details']"
-                        class="vs-event-card__event-details"
-                        data-test="vs-event-card__event-details"
-                    >
-                        <slot name="event-card-content-details" />
-                    </div>
-                    <div
-                        class="vs-event-card__event-cta"
-                        data-test="vs-event-card__event-cta"
-                    >
-                        <VsButton
-                            :href="ctaHref"
-                            icon="external-link"
-                            icon-position="right"
-                            icon-size="xs"
-                            data-test="vs-event-card__cta"
-                        >
-                            {{ ctaLabel }}
-                        </VsButton>
-                    </div>
-                </div>
+                    {{ ctaLabel }}
+                </VsButton>
             </div>
         </div>
     </div>
@@ -91,6 +84,13 @@ export default {
          * Label value for the CTA button
          */
         ctaLabel: {
+            type: String,
+            default: '',
+        },
+        /**
+         * Icon name for the icon on CTA button
+         */
+        ctaIcon: {
             type: String,
             default: '',
         },
@@ -141,56 +141,17 @@ export default {
     }
 
     .vs-event-card__content {
-        li {
-            list-style: none outside;
-        }
-
         label {
             font-weight: $font-weight-semi-bold;
         }
-
-        .vs-event-card__description {
-            line-height: $line-height-s;
-        }
-
-        p {
-            margin: 0;
-        }
     }
 
-    .vs-event-card__details {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        margin: $spacer-075 0 0 0;
-
-        .vs-event-card__details-data {
-            display: inline;
-        }
-
-        .vs-event-card__details-data::before {
-            content: ' ';
-        }
-
-        @include media-breakpoint-up(sm) {
-            flex-direction: row;
-
-            .vs-event-card__event-details {
-                flex-basis: 35%;
-                flex-grow: 1;
-            }
-
-            .vs-event-card__travel-trade-event-details {
-                flex-basis: 45%;
-            }
-
-            .vs-event-card__event-cta {
-                flex-basis: 20%;
-                align-self: flex-end;
-            }
-        }
-
-        .vs-event-card__event-cta {
+    @include media-breakpoint-up(md) {
+        .vs-event-card__cta {
+            max-width: 25%;
+            position: absolute;
+            right: $spacer-100;
+            bottom: $spacer-100;
             margin-top: $spacer-075;
         }
     }
