@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.8.1](https://github.com/visitscotland/vs-component-library/compare/v4.8.0...v4.8.1) (2025-02-04)
+
+
+### 🐛 Bug Fixes
+
+* **vsarticle:** vs-article-image needs to be conditional on the slot having content to reder ([971d9d4](https://github.com/visitscotland/vs-component-library/commit/971d9d4424d2826585eb3cd43fb3a60ef3140623))
+
+
+### 🏗 Build System
+
+* **yarn:** upgrade yarn to latest version ([ab1abe8](https://github.com/visitscotland/vs-component-library/commit/ab1abe87b71a98ef5b97eb531cec4fcf7c1e84ff))
+
 ## [4.8.0](https://github.com/visitscotland/vs-component-library/compare/v4.7.7...v4.8.0) (2025-01-30)
 
 
