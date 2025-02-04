@@ -9,7 +9,7 @@
                 data-test="vs-event-card__header"
             >
                 <VsHeading
-                    class="vs-event-card__header-heading"
+                    class="vs-event-card__heading"
                     heading-style="heading-xs"
                     level="3"
                 >
@@ -18,7 +18,7 @@
                 </VsHeading>
 
                 <!-- @slot for the date of event -->
-                <p class="vs-event-card__header-date">
+                <p class="vs-event-card__date">
                     <slot name="event-card-header-date" />
                 </p>
             </div>
@@ -26,41 +26,34 @@
                 <!--@slot for event description-->
                 <div
                     v-if="$slots['event-card-content-description']"
-                    class="vs-event-card__content-description"
-                    data-test="vs-event-card__content-description"
+                    class="vs-event-card__description"
+                    data-test="vs-event-card__description"
                 >
                     <p>
                         <slot name="event-card-content-description" />
                     </p>
                 </div>
-                <div class="vs-event-card__content-details">
+                <div class="vs-event-card__details">
                     <div
                         v-if="$slots['event-card-content-details']"
-                        class="vs-event-card__content-details-event-details"
-                        data-test="vs-event-card__content-details-event-details"
+                        class="vs-event-card__event-details"
+                        data-test="vs-event-card__event-details"
                     >
-                        <VsList unstyled>
-                            <!--@slot for event details-->
-                            <slot name="event-card-content-details" />
-                        </VsList>
+                        <slot name="event-card-content-details" />
                     </div>
                     <div
-                        class="vs-event-card__content-details-travel-trade-details"
-                        data-test="vs-event-card__content-details-travel-trade-details"
-                        v-if="$slots['event-card-content-ttdetails']"
+                        class="vs-event-card__event-cta"
+                        data-test="vs-event-card__event-cta"
                     >
-                        <VsList unstyled>
-                            <!-- @slot optional for second column details for travel trade events-->
-                            <slot name="event-card-content-ttdetails" />
-                        </VsList>
-                    </div>
-                    <div
-                        class="vs-event-card__content-details-event-cta"
-                        data-test="vs-event-card__content-details-event-cta"
-                        v-if="$slots['event-card-cta']"
-                    >
-                        <!-- @slot for the cta button -->
-                        <slot name="event-card-cta" />
+                        <VsButton
+                            :href="ctaHref"
+                            icon="external-link"
+                            icon-position="right"
+                            icon-size="xs"
+                            data-test="vs-event-card__cta"
+                        >
+                            {{ ctaLabel }}
+                        </VsButton>
                     </div>
                 </div>
             </div>
@@ -70,7 +63,7 @@
 
 <script>
 import VsHeading from '@/components/heading/Heading.vue';
-import VsList from '@/components/list/List.vue';
+import VsButton from '@/components/button/Button.vue';
 
 /**
  * The Event card component displays details about training & events
@@ -84,125 +77,122 @@ export default {
     release: '0.0.1',
     components: {
         VsHeading,
-        VsList,
+        VsButton,
     },
     props: {
-        ctaLink: {
+        /**
+         * Href value for the CTA button
+         */
+        ctaHref: {
             type: String,
             default: '#',
         },
+        /**
+         * Label value for the CTA button
+         */
+        ctaLabel: {
+            type: String,
+            default: '',
+        },
     },
-
 };
 </script>
 
 <style lang="scss">
-    .card.vs-event-card {
-        border: none;
-        line-height: $line-height-m;
+.card.vs-event-card {
+    border: none;
+    line-height: $line-height-m;
 
-        &:after {
-            content: '';
-            border-bottom: 1px solid $vs-color-border-primary;
-            position: absolute;
-            width: calc(100% - 16px);
-            left: 8px;
-            bottom: 0;
+    .card-body {
+        padding: $spacer-100;
+        width: 100%;
+        border-bottom: 1px solid $vs-color-border-primary;
+    }
+
+    .vs-event-card__header {
+        display: flex;
+        flex-direction: column;
+        margin: 0 0 $spacer-075 0;
+        font-weight: $font-weight-semi-bold;
+    }
+
+    .vs-event-card__heading {
+        font-size: $font-size-8;
+    }
+
+    .vs-event-card__date {
+        margin: 0;
+        font-size: $font-size-6;
+    }
+
+    @include media-breakpoint-down(sm) {
+        .vs-event-card__heading {
+            margin-bottom: 0;
         }
+    }
 
-        .card-body {
-            padding: $spacer-100;
-            width: 100%;
-        }
-
+    @include media-breakpoint-up(sm) {
         .vs-event-card__header {
-            display: flex;
-            flex-direction: column;
-            margin: 0 0 $spacer-075 0;
-            font-weight: $font-weight-semi-bold;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 0 $spacer-025 0;
+        }
+    }
 
-            &.-heading {
-                font-size: $font-size-8;
-            }
-
-            p {
-                margin: 0;
-            }
+    .vs-event-card__content {
+        li {
+            list-style: none outside;
         }
 
-        @include media-breakpoint-down(sm) {
-            .vs-event-card__header .vs-heading {
-                margin-bottom: 0;
-            }
+        label {
+            font-weight: $font-weight-semi-bold;
+        }
+
+        .vs-event-card__description {
+            line-height: $line-height-s;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+
+    .vs-event-card__details {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        margin: $spacer-075 0 0 0;
+
+        .vs-event-card__details-data {
+            display: inline;
+        }
+
+        .vs-event-card__details-data::before {
+            content: ' ';
         }
 
         @include media-breakpoint-up(sm) {
-            .vs-event-card__header {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-                margin: 0 0 $spacer-025 0;
+            flex-direction: row;
+
+            .vs-event-card__event-details {
+                flex-basis: 35%;
+                flex-grow: 1;
+            }
+
+            .vs-event-card__travel-trade-event-details {
+                flex-basis: 45%;
+            }
+
+            .vs-event-card__event-cta {
+                flex-basis: 20%;
+                align-self: flex-end;
             }
         }
 
-        .vs-event-card__header-date {
-            font-size: $font-size-6;
-        }
-
-        .vs-event-card__content {
-            li {
-                list-style: none outside;
-            }
-
-            label {
-                font-weight: $font-weight-semi-bold;
-            }
-
-            .vs-event-card__content-description {
-                line-height: $line-height-s;
-            }
-
-            p {
-                margin: 0;
-            }
-        }
-
-        .vs-event-card__content-details {
-            display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            margin: $spacer-075 0 0 0;
-
-            .vs-event-card__content-details-data {
-                display: inline;
-            }
-
-            .vs-event-card__content-details-data::before {
-                content: " ";
-            }
-
-            @include media-breakpoint-up (sm) {
-                flex-direction: row;
-
-                .vs-event-card__content-details-event-details {
-                    flex-basis: 35%;
-                    flex-grow: 1;
-                }
-
-                .vs-event-card__content-details-travel-trade-details {
-                    flex-basis: 45%;
-                }
-
-                .vs-event-card__content-details-event-cta {
-                    flex-basis: 20%;
-                    align-self: flex-end;
-                }
-            }
-
-            .vs-event-card__content-details-event-cta {
-                    margin-top: $spacer-075;
-                }
-
+        .vs-event-card__event-cta {
+            margin-top: $spacer-075;
         }
     }
+}
 </style>

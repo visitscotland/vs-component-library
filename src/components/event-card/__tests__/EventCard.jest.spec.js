@@ -6,50 +6,22 @@ config.global.renderStubDefaultSlot = true;
 
 function mountOptions(slotsData) {
     return {
-        slots: {
-            'event-card-header': 'Event card header',
-            'event-card-date': 'EC Date',
-            'event-card-content-description': 'Event card description',
-            'event-card-content-details': '<li>Event card details</li>',
-            'event-card-cta': '<button>Button</button>',
-        },
-        ...slotsData,
-    };
-};
-
-function ttMountOptions(slotsData) {
-    return {
-        propData: {
-            price: '1950 GBP + VAT',
-            location: ' P&J Live, Aberdeen',
-            organizer: ' VisitScotland',
-            contact: 'connect@visitscotland.com',
-            registrationDeadline: '31/03/2025',
+        propsData: {
+            ctaHref: 'https://www.google.com',
+            ctaLabel: 'Find out more',
         },
         slots: {
             'event-card-header': 'Event card header',
             'event-card-date': 'EC Date',
             'event-card-content-description': 'Event card description',
-            'event-card-content-details': '<li>Event card details</li>',
-            'event-card-content-ttdetails': '<li>Event card details</li>',
-            'event-card-cta': {
-                label: 'Find out more',
-                link: 'https://www.google.com',
-                type: 'EXTERNAL',
-            },
+            'event-card-content-details': 'Event card details',
         },
         ...slotsData,
     };
 };
-
 const factoryMount = (slotsData) => mount(
     VsEventCard,
     mountOptions(slotsData),
-);
-
-const ttFactoryMount = (slotsData) => mount(
-    VsEventCard,
-    ttMountOptions(slotsData),
 );
 
 describe('VsEventCard', () => {
@@ -81,7 +53,7 @@ describe('VsEventCard', () => {
                 name: 'VsEventCard',
             });
 
-            expect(card.find('[data-test="vs-event-card__content-description"]').exists()).toBe(true);
+            expect(card.find('[data-test="vs-event-card__description"]').exists()).toBe(true);
         });
 
         it('should render a details section', () => {
@@ -91,17 +63,7 @@ describe('VsEventCard', () => {
                 name: 'VsEventCard',
             });
 
-            expect(card.find('[data-test="vs-event-card__content-details-event-details"]').exists()).toBe(true);
-        });
-
-        it('should render a travel-trade details section when present', () => {
-            const wrapper = ttFactoryMount();
-
-            const card = wrapper.findComponent({
-                name: 'VsEventCard',
-            });
-
-            expect(card.find('[data-test="vs-event-card__content-details-travel-trade-details"]').exists()).toBe(true);
+            expect(card.find('[data-test="vs-event-card__event-details"]').exists()).toBe(true);
         });
 
         it('should render a cta button', () => {
@@ -111,7 +73,7 @@ describe('VsEventCard', () => {
                 name: 'VsEventCard',
             });
 
-            expect(card.find('[data-test="vs-event-card__content-details-event-cta"]').exists()).toBe(true);
+            expect(card.find('[data-test="vs-event-card__event-cta"]').exists()).toBe(true);
         });
     });
 
