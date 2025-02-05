@@ -1,8 +1,7 @@
-import VsFilter from '@/components/filter/VsFilter.vue';
-import VsFilterSection from '@/components/filter/components/VsFilterSection.vue';
-import VsFilterPanel from '@/components/filter/components/VsFilterPanel.vue';
-import VsList from '@/components/list/List.vue';
 import VsCheckbox from '@/components/checkbox/Checkbox.vue';
+import VsFilter from '@/components/filter/VsFilter.vue';
+import VsFilterPanel from '@/components/filter/components/VsFilterPanel.vue';
+import VsFilterSection from '@/components/filter/components/VsFilterSection.vue';
 
 export default {
     component: VsFilter,
@@ -14,11 +13,10 @@ export default {
 
 const Template = (args) => ({
     components: {
+        VsCheckbox,
         VsFilter,
         VsFilterSection,
         VsFilterPanel,
-        VsList,
-        VsCheckbox,
     },
     setup() {
         return {

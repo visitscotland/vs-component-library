@@ -1,24 +1,31 @@
 <template>
-    <VsButton
-        id="toggle-btn"
-        icon="filters"
-        class="vs-filter__toggle"
-        ref="btnShow"
-        variant="secondary"
-        @click="emitter.emit('showModal', 'c05sg3G4oA4')"
+    <div
+        class="vs-filter"
+        data-test="vs-filter"
     >
-        {{ props.filterButtonText }}
-    </VsButton>
+        <VsButton
+            id="toggle-btn"
+            icon="filters"
+            class="vs-filter__toggle"
+            ref="btnShow"
+            variant="secondary"
+            @click="emitter.emit('showModal', 'c05sg3G4oA4')"
+        >
+            {{ props.filterButtonText }}
+        </VsButton>
 
-    <VsModal
-        modal-id="c05sg3G4oA4"
-        close-btn-text="Close"
-    >
-        <slot />
-    </VsModal>
+        <VsModal
+            modal-id="c05sg3G4oA4"
+            close-btn-text="Close"
+        >
+            <!-- @slot default slot for the filter panel -->
+            <slot />
+        </VsModal>
 
-    <div class="vs-filter__panel">
-        <slot />
+        <div class="vs-filter__panel">
+            <!-- @slot default slot for the filter panel -->
+            <slot />
+        </div>
     </div>
 </template>
 
@@ -26,18 +33,12 @@
 
 /**
  * TODO: Comment code.
- * TODO: Unit tests for each component
- * TODO: Remove VsDetails component
- * TODO: Unit test for small checkbox
  * TODO: Tidy code.
+ * TODO: Unit tests for each component
  * TODO: Selected filter buttons
  * TODO: Clear all button.
- * TODO: Export all filter components.
  * TODO: Style mobile version.
- * TODO: Add mobile story.
- * TODO: Move below functions to filterpanel component.
  */
-import { ref } from 'vue';
 import VsButton from '@/components/button/Button.vue';
 import VsModal from '@/components/modal/Modal.vue';
 
@@ -46,31 +47,6 @@ const props = defineProps({
         type: String,
         required: true,
     },
-});
-
-// Create a reference for this component.
-const filter = ref(null);
-
-// Uncheck an individual filter.
-const clearFilter = (filterId) => {
-    const filterInput = filter.value.getElementById(filterId);
-    filterInput.checked = false;
-};
-
-// reset all the filters
-const reset = () => {
-    const filterInputs = filter.value.querySelectorAll('input[type="checkbox"], input[type="date"]');
-
-    filterInputs.forEach((input) => {
-        const filterInput = input;
-        filterInput.checked = false;
-    });
-};
-
-// Expose functions so that they be called from a parent component.
-defineExpose({
-    clearFilter,
-    reset,
 });
 </script>
 

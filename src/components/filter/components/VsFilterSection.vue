@@ -12,6 +12,7 @@
                 <VsIcon name="chevron" />
             </summary>
 
+            <!-- @slot default slot for the filter section content -->
             <slot />
         </details>
 
@@ -19,6 +20,7 @@
             v-else
             class="vs-filter-section__section"
         >
+            <!-- @slot default slot for the filter section content -->
             <slot />
         </div>
     </div>
@@ -30,19 +32,19 @@ import VsIcon from '@/components/icon/Icon.vue';
 
 const props = defineProps({
     /**
+     * Group title used within the details element.
+     */
+    summaryTitle: {
+        type: String,
+        default: undefined,
+    },
+    /**
      * Type of content within this filter section.
      */
     type: {
         type: String,
         default: 'list',
         validator: (value) => value.match(/(inline|group|list)/),
-    },
-    /**
-     * Group title used within the details element.
-     */
-    summaryTitle: {
-        type: String,
-        default: undefined,
     },
 });
 

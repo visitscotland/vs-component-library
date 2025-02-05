@@ -1,6 +1,7 @@
 <template>
     <fieldset
-        class="vs-filter"
+        class="vs-filter__panel"
+        data-test="vs-filter__panel"
         ref="filter"
         @change="(event) => $emit('filter-updated', event)"
     >
@@ -18,9 +19,8 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import VsIcon from '@/components/icon/Icon.vue';
-
-defineEmits(['filter-updated']);
 
 const props = defineProps({
     /**
@@ -30,5 +30,32 @@ const props = defineProps({
         type: String,
         required: true,
     },
+});
+
+defineEmits(['filter-updated']);
+
+// Create a reference for this component.
+const filter = ref(null);
+
+// Uncheck an individual filter.
+const clearFilter = (filterId) => {
+    const filterInput = filter.value.getElementById(filterId);
+    filterInput.checked = false;
+};
+
+// reset all the filters
+const reset = () => {
+    const filterInputs = filter.value.querySelectorAll('input[type="checkbox"], input[type="date"]');
+
+    filterInputs.forEach((input) => {
+        const filterInput = input;
+        filterInput.checked = false;
+    });
+};
+
+// Expose functions so that they be called from a parent component.
+defineExpose({
+    clearFilter,
+    reset,
 });
 </script>
