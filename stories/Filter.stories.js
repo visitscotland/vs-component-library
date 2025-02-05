@@ -28,7 +28,7 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsFilter>
+        <VsFilter :filter-button-text="args.filterButtonText">
             <VsFilterPanel
                 :filter-label="args.filterLabel"
                 @filter-updated="(e) => console.log(e.target)"    
@@ -110,6 +110,7 @@ const Template = (args) => ({
 });
 
 const base = {
+    filterButtonText: 'Filter',
     filterLabel: 'Filter',
     filters: [
         {

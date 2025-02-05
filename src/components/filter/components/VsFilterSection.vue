@@ -46,6 +46,7 @@ const props = defineProps({
     },
 });
 
+// Calculate classes to be applied to this component.
 const filterSectionClasses = computed(() => ({
     'vs-filter-section': true,
     'vs-filter-section--inline': props.type === 'inline',

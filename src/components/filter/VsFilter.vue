@@ -7,7 +7,7 @@
         variant="secondary"
         @click="emitter.emit('showModal', 'c05sg3G4oA4')"
     >
-        Filter
+        {{ props.filterButtonText }}
     </VsButton>
 
     <VsModal
@@ -25,7 +25,6 @@
 <script setup>
 
 /**
- * TODO: Filter button label
  * TODO: Comment code.
  * TODO: Unit tests for each component
  * TODO: Remove VsDetails component
@@ -36,12 +35,18 @@
  * TODO: Export all filter components.
  * TODO: Style mobile version.
  * TODO: Add mobile story.
+ * TODO: Move below functions to filterpanel component.
  */
 import { ref } from 'vue';
 import VsButton from '@/components/button/Button.vue';
 import VsModal from '@/components/modal/Modal.vue';
 
-defineEmits(['filter-updated']);
+const props = defineProps({
+    filterButtonText: {
+        type: String,
+        required: true,
+    },
+});
 
 // Create a reference for this component.
 const filter = ref(null);

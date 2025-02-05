@@ -20,6 +20,8 @@
 <script setup>
 import VsIcon from '@/components/icon/Icon.vue';
 
+defineEmits(['filter-updated']);
+
 const props = defineProps({
     /**
      * Label for the filter.
