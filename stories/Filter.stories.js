@@ -1,4 +1,3 @@
-import VsDetails from '@/components/details/VsDetails.vue';
 import VsFilter from '@/components/filter/VsFilter.vue';
 import VsFilterSection from '@/components/filter/components/VsFilterSection.vue';
 import VsFilterPanel from '@/components/filter/components/VsFilterPanel.vue';
@@ -15,7 +14,6 @@ export default {
 
 const Template = (args) => ({
     components: {
-        VsDetails,
         VsFilter,
         VsFilterSection,
         VsFilterPanel,
@@ -174,3 +172,11 @@ const base = {
 
 export const Default = Template.bind();
 Default.args = base;
+
+export const Mobile = Template.bind();
+Mobile.args = base;
+Mobile.parameters = {
+    viewport: {
+        defaultViewport: 'mobile2',
+    },
+};
