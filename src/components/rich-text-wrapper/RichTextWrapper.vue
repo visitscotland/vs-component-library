@@ -48,8 +48,6 @@ export default {
     &--lead {
         line-height: $line-height-lead;
         font-size: $font-size-lead;
-        margin-top: $spacer-100;
-        margin-bottom: $spacer-200;
 
         @include media-breakpoint-up(md) {
             font-size: $font-size-lead-md;

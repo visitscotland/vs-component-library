@@ -33,6 +33,7 @@
                                     <VsHeading
                                         :level="headingLevel"
                                         heading-style="heading-xl"
+                                        class="mb-200 mb-lg-300"
                                         :class="businessSupport ? null : 'text-center'"
                                     >
                                         <span :id="anchorLink ? anchorLink : ''">
@@ -43,6 +44,7 @@
                                     <VsRichTextWrapper
                                         v-if="$slots['vs-article-intro']"
                                         variant="lead"
+                                        class="mb-300 mb-lg-400"
                                         :class="businessSupport ? null : 'text-center'"
                                     >
                                         <!-- @slot Slot to contain the introduction
