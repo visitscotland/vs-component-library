@@ -84,7 +84,6 @@ const Template = (args) => ({
                         </VsCol>
                     </VsRow>
                 </template>
-                <VsButton></VsButton>
         </VsEventCard>
     `,
 });
