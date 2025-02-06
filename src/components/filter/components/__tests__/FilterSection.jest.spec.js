@@ -19,17 +19,17 @@ describe('VsFilterSection', () => {
     });
 
     describe(':props', () => {
-        it('summaryTitle - should render the summary element containing the value passed', async() => {
-            const summaryTitle = 'summary title';
+        it('sectionTitle - should render a summary element containing the value passed', async() => {
+            const sectionTitle = 'summary title';
 
             await wrapper.setProps({
-                summaryTitle,
+                sectionTitle,
                 type: 'group',
             });
 
             const summary = wrapper.find('summary');
 
-            expect(summary.text()).toContain(summaryTitle);
+            expect(summary.text()).toContain(sectionTitle);
         });
 
         it('type - should render `vs-filter-section__section` when set to `list`', () => {

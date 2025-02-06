@@ -9,41 +9,59 @@
             class="vs-filter__toggle"
             ref="btnShow"
             variant="secondary"
-            @click="emitter.emit('showModal', 'c05sg3G4oA4')"
+            @click="emitter.emit('showModal', props.filterId)"
         >
             {{ props.filterButtonText }}
         </VsButton>
 
         <VsModal
-            modal-id="c05sg3G4oA4"
+            :modal-id="props.filterId"
             close-btn-text="Close"
         >
             <!-- @slot default slot for the filter panel -->
             <slot />
+
+            <VsButton
+                class="vs-filter__apply"
+                @click="emitter.emit('hideModal')"
+            >
+                {{ props.applyButtonText }}
+            </VsButton>
         </VsModal>
 
-        <div class="vs-filter__panel">
-            <!-- @slot default slot for the filter panel -->
-            <slot />
-        </div>
+        <!-- @slot default slot for the filter panel -->
+        <slot />
     </div>
 </template>
 
 <script setup>
-
 /**
  * TODO: Comment code.
  * TODO: Tidy code.
- * TODO: Unit tests for each component
- * TODO: Selected filter buttons
- * TODO: Clear all button.
- * TODO: Style mobile version.
+ * TODO: Style mobile version
  */
 import VsButton from '@/components/button/Button.vue';
 import VsModal from '@/components/modal/Modal.vue';
 
 const props = defineProps({
+    /**
+     * Button text for apply button, shown on mobile.
+     */
+    applyButtonText: {
+        type: String,
+        required: true,
+    },
+    /**
+     * Button text for filter open button, shown on mobile.
+     */
     filterButtonText: {
+        type: String,
+        required: true,
+    },
+    /**
+     * ID used to uniquely identify filter.
+     */
+    filterId: {
         type: String,
         required: true,
     },
@@ -52,21 +70,33 @@ const props = defineProps({
 
 <style lang="scss">
 .vs-filter {
-    border: solid 1px $vs-color-border-secondary;
-    border-radius: $border-radius-default;
-    overflow: auto;
-    background-color: $vs-color-background-primary;
+    &__panel:not(.vs-modal .vs-filter__panel) {
+        background-color: $vs-color-background-primary;
+        border: solid 1px $vs-color-border-secondary;
+        border-radius: $border-radius-default;
+        overflow: auto;
+
+        @include media-breakpoint-down(sm) {
+            display: none;
+        }
+    }
 
     &__legend {
-        display: flex;
         align-items: baseline;
-        gap: 8px;
         background-color: $vs-color-background-secondary;
-        padding: $spacer-075 $spacer-125;
         border-bottom:  solid 1px $vs-color-border-secondary;
-        font-weight: 600;
+        display: flex;
         font-size: $font-size-6;
+        font-weight: 600;
+        gap: 8px;
         margin-bottom: $spacer-0;
+        padding: $spacer-075 $spacer-125;
+    }
+
+    &__toggle,
+    &__apply {
+        margin: $spacer-300 $spacer-0;
+        width: 100%;
     }
 
     &__toggle.vs-button {
@@ -74,19 +104,11 @@ const props = defineProps({
             display: none;
         }
     }
+}
 
-    &__panel {
-        @include media-breakpoint-down(sm) {
-            display: none;
-        }
-    }
-
-    .vs-details-wrapper {
-        border-width: 0;
-
-        &:not(:last-child) {
-            border-bottom: solid 1px $vs-color-border-secondary;
-        }
+.vs-modal .vs-filter {
+    &__legend {
+        background-color: $vs-color-background-inverse;
     }
 }
 </style>

@@ -37,25 +37,37 @@ defineEmits(['filter-updated']);
 // Create a reference for this component.
 const filter = ref(null);
 
-// Uncheck an individual filter.
-const clearFilter = (filterId) => {
-    const filterInput = filter.value.getElementById(filterId);
-    filterInput.checked = false;
+// Clear the input value.
+const clearFilter = (inputField) => {
+    const input = inputField;
+
+    if (input.type === 'checkbox') {
+        input.checked = false;
+    } else if (input.type === 'date') {
+        input.value = '';
+    }
+};
+
+// Reset one filter
+const resetOne = (filterId) => {
+    const inputField = filter.value.querySelector(`#${filterId}`);
+
+    clearFilter(inputField);
 };
 
 // reset all the filters
-const reset = () => {
-    const filterInputs = filter.value.querySelectorAll('input[type="checkbox"], input[type="date"]');
+const resetAll = () => {
+    const inputFields = filter.value.querySelectorAll('input[type="checkbox"], input[type="date"]');
 
-    filterInputs.forEach((input) => {
-        const filterInput = input;
-        filterInput.checked = false;
+    inputFields.forEach((input) => {
+        clearFilter(input);
     });
 };
 
 // Expose functions so that they be called from a parent component.
 defineExpose({
     clearFilter,
-    reset,
+    resetAll,
+    resetOne,
 });
 </script>

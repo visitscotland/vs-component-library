@@ -2,14 +2,16 @@ import { mount } from '@vue/test-utils';
 import axe from '@/../test/unit/helpers/axe-helper';
 import VsFilter from '../VsFilter.vue';
 
-const filterButtonContent = 'Filter';
+const applyButtonText = 'Apply';
+const filterButtonText = 'Filter';
 const defaultSlotContent = 'Slot content';
 let wrapper;
 
 beforeEach(() => {
     wrapper = mount(VsFilter, {
         propsData: {
-            filterButtonText: filterButtonContent,
+            applyButtonText,
+            filterButtonText,
         },
         slots: {
             default: defaultSlotContent,
@@ -26,7 +28,7 @@ describe('VsFilter', () => {
         it('filterButtonText - should render a button with the value passed', () => {
             const filterButton = wrapper.find('.vs-filter__toggle');
 
-            expect(filterButton.text()).toContain(filterButtonContent);
+            expect(filterButton.text()).toContain(filterButtonText);
         });
     });
 

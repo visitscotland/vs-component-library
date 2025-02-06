@@ -8,7 +8,7 @@
             class="vs-filter-section__details"
         >
             <summary class="vs-filter-section__summary">
-                {{ props.summaryTitle }}
+                {{ props.sectionTitle }}
                 <VsIcon name="chevron" />
             </summary>
 
@@ -34,7 +34,7 @@ const props = defineProps({
     /**
      * Group title used within the details element.
      */
-    summaryTitle: {
+    sectionTitle: {
         type: String,
         default: undefined,
     },
@@ -57,10 +57,13 @@ const filterSectionClasses = computed(() => ({
 
 <style lang="scss">
 .vs-filter-section {
-    border-bottom: solid 1px $vs-color-border-secondary;
     display: flex;
     flex-direction: column;
     padding: $spacer-075 $spacer-125;
+
+    &:not(:last-child) {
+        border-bottom: solid 1px $vs-color-border-secondary;
+    }
 
     &--inline .vs-filter-section__section {
         display: flex;

@@ -24,7 +24,7 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsFilter :filter-button-text="args.filterButtonText">
+        <VsFilter v-bind="args">
             <VsFilterPanel
                 :filter-label="args.filterLabel"
                 @filter-updated="(e) => console.log(e.target)"    
@@ -76,7 +76,7 @@ const Template = (args) => ({
                 </VsFilterSection>
 
                 <VsFilterSection
-                    :summary-title="args.filters[4].label"
+                    :section-title="args.filters[4].label"
                     type="group"
                 >
                     <VsCheckbox
@@ -89,7 +89,7 @@ const Template = (args) => ({
                 </VsFilterSection>
 
                 <VsFilterSection
-                    :summary-title="args.filters[5].label"
+                    :section-title="args.filters[5].label"
                     type="group"
                 >
                     <VsCheckbox
@@ -106,6 +106,8 @@ const Template = (args) => ({
 });
 
 const base = {
+    filterId: 'filter-1',
+    applyButtonText: 'Apply',
     filterButtonText: 'Filter',
     filterLabel: 'Filter',
     filters: [
