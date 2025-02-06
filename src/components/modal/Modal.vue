@@ -110,6 +110,7 @@ export default {
 
         if (this.emitter) {
             this.emitter.on('showModal', (id) => this.showModal(id));
+            this.emitter.on('hideModal', () => this.hideModal());
 
             if (this.isVideoModal) {
                 this.emitter.on('showModal', (id) => {
