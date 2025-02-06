@@ -18,6 +18,7 @@
                 :variant="variant"
                 :class="toggleAccordionBtn"
                 @toggle-panel="onButtonClick"
+                ref="accordion-toggle"
             >
                 <div
                     class="vs-accordion-item__card-colour-badge"
@@ -78,6 +79,9 @@
 import VsAccordionToggle from '@/components/accordion/components/AccordionToggle.vue';
 import VsIcon from '@/components/icon/Icon.vue';
 import VsHeading from '@/components/heading/Heading.vue';
+
+import dataLayerMixin from '@/mixins/dataLayerMixin';
+
 import { inject } from 'vue';
 import { isNumber } from 'lodash';
 import {
@@ -104,6 +108,9 @@ export default {
         BCardBody,
         VsHeading,
     },
+    mixins: [
+        dataLayerMixin,
+    ],
     /**
      * Injects breakPoint prop provided by Accordion
      */
@@ -188,6 +195,12 @@ export default {
     },
     methods: {
         onButtonClick() {
+            if (!this.show) {
+                this.createDataLayerObject('accordionOpenEvent', {
+                    accordion_text: this.$refs['accordion-toggle'].$el.innerText,
+                });
+            }
+
             this.show = !this.show;
         },
     },
