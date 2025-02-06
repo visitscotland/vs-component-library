@@ -217,7 +217,7 @@ const dataLayerMixin = {
 
             case 'errorDataEvent':
                 eventName = 'errors';
-                tagName = 'GA4 - Event - Errors';
+                tagName = 'VS - GA - Errors';
 
                 templateValues = {
                     event: eventName,
