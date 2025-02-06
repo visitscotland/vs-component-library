@@ -80,6 +80,7 @@ export { default as VsModal } from './modal/Modal.vue';
 export { default as VsModuleWrapper } from './module-wrapper/ModuleWrapper.vue';
 export { default as VsNumberInput } from './number-input/NumberInput.vue';
 export { default as VsPageIntro } from './page-intro/PageIntro.vue';
+export { default as VsPagination } from './pagination/VsPagination.vue';
 export { default as VsPanel } from './panel/Panel.vue';
 export { default as VsProductSearch } from './product-search/ProductSearch.vue';
 export { default as VsProgressBar } from './progress-bar/ProgressBar.vue';
