@@ -57,6 +57,16 @@ FullBleed.args = {
     imgCredit: 'VisitScotland / Kenny Lam',
 };
 
+export const WithVideo = Template.bind({
+});
+
+WithVideo.args = {
+    heading: 'Scotland, <br/>it\'s good for the soul',
+    lede: 'Where history meets breathtaking beauty, and every visit feels like home.',
+    src: 'fixtures/hero/images/winter-web-test.jpg',
+    videoSrc: 'fixtures/hero/video/winter-web-test.mp4',
+};
+
 export const Inset = Template.bind({
 });
 

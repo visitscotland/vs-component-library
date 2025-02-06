@@ -7,6 +7,7 @@ const ledeText = 'Welcome to Scotland, where history meets breathtaking beauty, 
 const heroImgSrc = 'fixtures/hero/images/visitscotland_38462263949.jpg';
 const heroCaption = 'Sunset at Lochan na h-Achlaise on Rannoch Moor';
 const heroCredit = 'VisitScotland / Kenny Lam';
+const heroVideoSrc = 'fixtures/hero/video/winter-web-test.mp4';
 
 config.global.renderStubDefaultSlot = true;
 
@@ -58,7 +59,7 @@ describe('VsHeroSection', () => {
             expect(divider.exists()).toBe(false);
         });
 
-        it('should render an image when an img `src` is passed', async() => {
+        it('renders image when src is provided and no videoSrc', async() => {
             const wrapper = factoryShallowMount();
             await wrapper.setProps({
                 src: heroImgSrc,
@@ -103,6 +104,31 @@ describe('VsHeroSection', () => {
             });
 
             expect(wrapper.classes('vs-hero-section--split')).toBe(true);
+        });
+
+        it('renders video when videoSrc is provided', async() => {
+            const wrapper = factoryShallowMount();
+            await wrapper.setProps({
+                videoSrc: heroVideoSrc,
+                src: heroImgSrc,
+            });
+
+            const video = wrapper.find('video');
+            const source = wrapper.find('source');
+
+            expect(video.exists()).toBe(true);
+            expect(video.attributes('poster')).toBe(heroImgSrc);
+            expect(source.attributes('src')).toBe(heroVideoSrc);
+        });
+
+        it('adds video classes to text container when video is present', async() => {
+            const wrapper = factoryShallowMount();
+            await wrapper.setProps({
+                videoSrc: heroVideoSrc,
+            });
+
+            const textContainer = wrapper.find('.vs-hero-section__text-container');
+            expect(textContainer.classes()).toContain('vs-hero-section__text-container--video');
         });
     });
 
