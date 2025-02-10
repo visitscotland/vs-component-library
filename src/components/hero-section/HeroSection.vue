@@ -26,6 +26,8 @@
                     loop
                     muted
                     autoplay
+                    playsinline
+                    preload="auto"
                     :poster="src"
                     class="vs-hero-section__video"
                     ref="heroVideo"
