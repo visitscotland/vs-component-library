@@ -75,7 +75,7 @@
                             :is-visible="!panelVisible"
                             :labels="{
                             }"
-                            :filters="filtersWithLocations"
+                            :filters="filters"
                             :places="activePins"
                             :selected-item="selectedItem"
                             :map-id="mapId"
@@ -110,10 +110,10 @@
                             </template>
                         </VsMap>
                         <VsButtonToggleGroup
-                            v-if="togglesWithLocations.length > 1"
+                            v-if="toggleData.length > 0"
                             data-test="vs-map-with-sidebar__map-toggle-group"
                             :initial-selected="selectedToggle"
-                            :options="togglesWithLocations"
+                            :options="toggleData"
                             :buttons-label="buttonsLabel"
                             @toggle-changed="onToggleChanged"
                         />
@@ -170,7 +170,6 @@ export default {
     provide() {
         return {
             filters: this.filters,
-            filtersWithLocations: this.filtersWithLocations,
             placesData: this.placesData,
             mapId: this.mapId,
             regions: this.regionsData,
@@ -373,37 +372,6 @@ export default {
             }
 
             return msg;
-        },
-        /**
-         * A list of the categories that actually exist in the data, so we can filter out any
-         * category filters with 0 options - targeting the removal of icentres
-         */
-        existingCategories() {
-            if (this.placesData) {
-                return [
-                    ...new Set(
-                        this.placesData.map((place) => place.properties.category.id),
-                    ),
-                ];
-            }
-
-            return [];
-        },
-        /**
-         * Filters that correspond with any existing location in the data
-         */
-        filtersWithLocations() {
-            return this.filters.filter((filter) => this.existingCategories.includes(filter.id));
-        },
-        /**
-         * Toggles that correspond with any existing location in the data
-         */
-        togglesWithLocations() {
-            if (this.existingCategories.indexOf('vics') === -1) {
-                return this.toggleData.filter((toggle) => toggle.value !== 'icentres');
-            }
-
-            return this.toggleData;
         },
     },
     watch: {
@@ -674,12 +642,6 @@ export default {
             } else {
                 this.panelStatus = 'loading';
             }
-        },
-        /**
-         * Returns true if a given category by id has any locations
-         */
-        categoryHasData(id) {
-            return this.existingCategories.indexOf(id) !== -1;
         },
     },
 };

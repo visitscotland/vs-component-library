@@ -115,7 +115,7 @@
             </template>
             <template v-else>
                 <VsMapWithSidebarCategory
-                    v-for="filter in filtersWithLocations"
+                    v-for="filter in filters"
                     :key="filter.id"
                     :category-name="filter.label"
                     :type="filter.id"
@@ -238,7 +238,6 @@ export default {
     },
     inject: [
         'filters',
-        'filtersWithLocations',
         'placesData',
         'regions',
         'mapId',
