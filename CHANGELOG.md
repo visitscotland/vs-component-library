@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.8.2](https://github.com/visitscotland/vs-component-library/compare/v4.8.1...v4.8.2) (2025-02-06)
+
+
+### ♻️ Code Refactoring
+
+* **analytics:** remove redundant commented out code ([48d38ff](https://github.com/visitscotland/vs-component-library/commit/48d38ffa462595f0467ba6f6ef91d1a5585caff3))
+
+
+### ✨ Features
+
+* **analytics:** add accordion open event ([ef8fd61](https://github.com/visitscotland/vs-component-library/commit/ef8fd6133497ba6c77326a0e322fb43d2b9fcea5))
+
+
+### 🐛 Bug Fixes
+
+* **analytics:** revert change to errors tag name ([18beeb6](https://github.com/visitscotland/vs-component-library/commit/18beeb687d13333f2cd426c1bdd143548909e4bb))
+* **analytics:** update error event name to GA4 schema ([ce1929c](https://github.com/visitscotland/vs-component-library/commit/ce1929ccb960dfdce0603c8afbbf24a138563e41))
+
+### [4.8.1](https://github.com/visitscotland/vs-component-library/compare/v4.8.0...v4.8.1) (2025-02-04)
+
+
+### 🐛 Bug Fixes
+
+* **vsarticle:** vs-article-image needs to be conditional on the slot having content to reder ([971d9d4](https://github.com/visitscotland/vs-component-library/commit/971d9d4424d2826585eb3cd43fb3a60ef3140623))
+
+
+### 🏗 Build System
+
+* **yarn:** upgrade yarn to latest version ([ab1abe8](https://github.com/visitscotland/vs-component-library/commit/ab1abe87b71a98ef5b97eb531cec4fcf7c1e84ff))
+
 ## [4.8.0](https://github.com/visitscotland/vs-component-library/compare/v4.7.7...v4.8.0) (2025-01-30)
 
 
