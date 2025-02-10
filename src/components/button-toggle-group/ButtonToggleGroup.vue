@@ -217,12 +217,9 @@ export default {
             display: flex;
 
             &:first-child {
+                margin-right: -(#{$spacer-100});
                 border-top-left-radius: $border-radius-pill;
                 border-bottom-left-radius: $border-radius-pill;
-
-                &:not(:last-child) {
-                    margin-right: -(#{$spacer-100});
-                }
             }
 
             &:last-child {

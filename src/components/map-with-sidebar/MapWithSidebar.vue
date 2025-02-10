@@ -110,7 +110,7 @@
                             </template>
                         </VsMap>
                         <VsButtonToggleGroup
-                            v-if="togglesWithLocations.length > 0"
+                            v-if="togglesWithLocations.length > 1"
                             data-test="vs-map-with-sidebar__map-toggle-group"
                             :initial-selected="selectedToggle"
                             :options="togglesWithLocations"
