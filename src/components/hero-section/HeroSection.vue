@@ -6,7 +6,7 @@
     >
         <div class="vs-hero-section__grid">
             <div
-                v-if="src"
+                v-if="src && !videoSrc"
                 :class="['vs-hero-section__image', imageClasses]"
             >
                 <VsHeroSectionImage
@@ -18,12 +18,34 @@
                 />
             </div>
 
+            <div
+                v-else-if="videoSrc"
+                class="vs-hero-section__video-wrapper"
+            >
+                <video
+                    loop
+                    muted
+                    autoplay
+                    playsinline
+                    preload="auto"
+                    :poster="src"
+                    class="vs-hero-section__video"
+                    ref="heroVideo"
+                >
+                    <source
+                        :src="videoSrc"
+                        type="video/mp4"
+                    >
+                </video>
+                <div class="vs-hero-section__video-overlay" />
+            </div>
+
             <hr
                 v-else
                 class="vs-hero-section__divider"
             >
 
-            <div class="vs-hero-section__text-container">
+            <div :class="textContainerClasses">
                 <div class="vs-hero-section__text">
                     <VsHeading
                         class="vs-hero-section__heading"
@@ -31,7 +53,7 @@
                         level="1"
                         heading-style="display-xs"
                     >
-                        {{ heading }}
+                        <span v-html="heading" />
                     </VsHeading>
 
                     <VsRichTextWrapper
@@ -131,12 +153,27 @@ export default {
             type: Boolean,
             default: false,
         },
+        /**
+        * The image src url to display
+        */
+        videoSrc: {
+            type: String,
+            default: '',
+        },
     },
     computed: {
         imageClasses() {
             return {
                 'vs-hero-section__image--inset': this.inset,
             };
+        },
+        textContainerClasses() {
+            return [
+                {
+                    'vs-hero-section__text-container--video': this.videoSrc,
+                },
+                'vs-hero-section__text-container',
+            ];
         },
     },
 };
@@ -182,6 +219,7 @@ export default {
             display: grid;
             grid-template-columns: var(--grid-columns);
             width: 100%;
+            position: relative;
         }
 
         &__image {
@@ -245,6 +283,62 @@ export default {
                 @include media-breakpoint-up(xl) {
                     @include heading-style(display-m);
                     margin: 0;
+                }
+            }
+        }
+
+        &__video-wrapper {
+            grid-row: 1;
+            grid-column: 1 / -1;
+            position: relative;
+            line-height: 0;
+
+            .vs-hero-section__video {
+                width: 100%;
+                height: 560px;
+                object-fit: cover;
+
+                @include media-breakpoint-up(sm) {
+                    height: 648px;
+                }
+                @include media-breakpoint-up(lg) {
+                    height: 812px;
+                }
+            }
+
+            .vs-hero-section__video-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                transition: opacity 1s;
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 40%, rgba(0, 0, 0, 0.40) 100%);
+            }
+        }
+
+        .vs-hero-section__text-container--video {
+            color: $vs-color-text-inverse;
+
+            .vs-hero-section__text {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 0;
+                position: absolute;
+                bottom: $spacer-500;
+                width: 70%;
+
+                @include media-breakpoint-up(md) {
+                    width: 50%;
+                }
+
+                .vs-hero-section__heading.vs-heading {
+                    color: $vs-color-text-inverse;
+                    text-wrap: balance;
+
+                    @include media-breakpoint-up(lg) {
+                        margin: 0 0 $spacer-150 0;
+                    }
                 }
             }
         }
