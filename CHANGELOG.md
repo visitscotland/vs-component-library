@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.9.0](https://github.com/visitscotland/vs-component-library/compare/v4.8.3...v4.9.0) (2025-02-11)
+
+
+### ⏪ Revertions
+
+* Revert "Revert "feat(map with sidebar): add separate story for regions with no icentres"" ([acc8a4d](https://github.com/visitscotland/vs-component-library/commit/acc8a4d9ce8ad60de8f0625436faf0f072c5c740))
+* Revert "Revert "feat(map with sidebar): remove filters and toggles with no data"" ([464d9ba](https://github.com/visitscotland/vs-component-library/commit/464d9ba2a93119ae1875f5299f612a4fe32b445b))
+
+
+### 🐛 Bug Fixes
+
+* **map:** hide toggles unless multiple present ([82941f1](https://github.com/visitscotland/vs-component-library/commit/82941f18a60615c6cacf167dc4423f2d6dee7c99))
+
+### [4.8.3](https://github.com/visitscotland/vs-component-library/compare/v4.8.2...v4.8.3) (2025-02-11)
+
+
+### ⏪ Revertions
+
+* Revert "feat(map with sidebar): remove filters and toggles with no data" ([6974d4f](https://github.com/visitscotland/vs-component-library/commit/6974d4f53c791d3d6dc396cc777a5a15be5c5b9d))
+
+
+### 🐛 Bug Fixes
+
+* **hero:** remove rounded corners on hero image on smaller screens ([9f265d9](https://github.com/visitscotland/vs-component-library/commit/9f265d993c0d281f875ac119fc092a3dba904cb5))
+
 ### [4.8.2](https://github.com/visitscotland/vs-component-library/compare/v4.8.1...v4.8.2) (2025-02-06)
 
 
