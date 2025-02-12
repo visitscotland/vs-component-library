@@ -57,8 +57,6 @@ const filterSectionClasses = computed(() => ({
 
 <style lang="scss">
 .vs-filter-section {
-    display: flex;
-    flex-direction: column;
     padding: $spacer-075 $spacer-125;
 
     &:not(:last-child) {
@@ -67,7 +65,7 @@ const filterSectionClasses = computed(() => ({
 
     &--inline .vs-filter-section__section {
         display: flex;
-        justify-content: space-between;
+        gap: $spacer-100;
 
         label {
             font-size: 1rem;
@@ -95,6 +93,10 @@ const filterSectionClasses = computed(() => ({
             color: $vs-color-icon-highlight;
             transform: scale(-1, -1);
         }
+    }
+
+    input[type="date"] {
+        width: 115px;
     }
 }
 </style>

@@ -2,21 +2,26 @@ import VsCheckbox from '@/components/checkbox/Checkbox.vue';
 import VsFilter from '@/components/filter/VsFilter.vue';
 import VsFilterPanel from '@/components/filter/components/VsFilterPanel.vue';
 import VsFilterSection from '@/components/filter/components/VsFilterSection.vue';
+import {
+    VsCol,
+    VsContainer,
+    VsRow,
+} from '@/components/grid';
 
 export default {
     component: VsFilter,
     title: 'Filter',
-    decorators: [() => ({
-        template: '<div style="max-width: 360px;"><story /></div>',
-    })],
 };
 
 const Template = (args) => ({
     components: {
         VsCheckbox,
+        VsCol,
+        VsContainer,
         VsFilter,
         VsFilterSection,
         VsFilterPanel,
+        VsRow,
     },
     setup() {
         return {
@@ -24,84 +29,92 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsFilter v-bind="args">
-            <VsFilterPanel
-                :filter-label="args.filterLabel"
-                @filter-updated="(e) => console.log(e.target)"    
-            >
-                <VsFilterSection type="inline">
-                    <div class="date-picker">
-                        <label for="from">
-                            From
-                        </label>
-                        <div>
-                            <input
-                                type="date"
-                                id="from"
-                                name="from"
-                                min="2025-02-14"
-                            >
-                        </div>
-                    </div>
-                
-                    <div class="date-picker">
-                        <label for="to">
-                            To
-                        </label>
-                        <div>
-                            <input
-                                type="date"
-                                id="to"
-                                name="to"
-                                min="2025-03-03"
-                            >
-                        </div>
-                    </div>
-                </VsFilterSection>
-
-                <VsFilterSection type="list">
-                    <VsCheckbox
-                        field-name="cookieConsent"
-                        value="checked"
-                        label="Free"
-                        size="sm"
-                    />
-
-                    <VsCheckbox
-                        field-name="cookieConsent"
-                        value="checked"
-                        label="Online"
-                        size="sm"
-                    />
-                </VsFilterSection>
-
-                <VsFilterSection
-                    :section-title="args.filters[4].label"
-                    type="group"
+        <VsContainer>
+            <VsRow>
+                <VsCol
+                    cols="12"
+                    md="3"
                 >
-                    <VsCheckbox
-                        v-for="item in args.filters[4].values"
-                        :field-name="item.value"
-                        value="checked"
-                        :label="item.name"
-                        size="sm"
-                    />
-                </VsFilterSection>
+                    <VsFilter v-bind="args">
+                        <VsFilterPanel
+                            :filter-label="args.filterLabel"   
+                        >
+                            <VsFilterSection type="inline">
+                                <div class="date-picker">
+                                    <label for="from">
+                                        From
+                                    </label>
+                                    <div>
+                                        <input
+                                            type="date"
+                                            id="from"
+                                            name="from"
+                                            min="2025-02-14"
+                                        >
+                                    </div>
+                                </div>
+                            
+                                <div class="date-picker">
+                                    <label for="to">
+                                        To
+                                    </label>
+                                    <div>
+                                        <input
+                                            type="date"
+                                            id="to"
+                                            name="to"
+                                            min="2025-03-03"
+                                        >
+                                    </div>
+                                </div>
+                            </VsFilterSection>
 
-                <VsFilterSection
-                    :section-title="args.filters[5].label"
-                    type="group"
-                >
-                    <VsCheckbox
-                        v-for="item in args.filters[5].values"
-                        :field-name="item.value"
-                        value="checked"
-                        :label="item.name"
-                        size="sm"
-                    />
-                </VsFilterSection>
-            </VsFilterPanel>
-        </VsFilter>
+                            <VsFilterSection type="list">
+                                <VsCheckbox
+                                    field-name="cookieConsent"
+                                    value="checked"
+                                    label="Free"
+                                    size="sm"
+                                />
+
+                                <VsCheckbox
+                                    field-name="cookieConsent"
+                                    value="checked"
+                                    label="Online"
+                                    size="sm"
+                                />
+                            </VsFilterSection>
+
+                            <VsFilterSection
+                                :section-title="args.filters[4].label"
+                                type="group"
+                            >
+                                <VsCheckbox
+                                    v-for="item in args.filters[4].values"
+                                    :field-name="item.value"
+                                    value="checked"
+                                    :label="item.name"
+                                    size="sm"
+                                />
+                            </VsFilterSection>
+
+                            <VsFilterSection
+                                :section-title="args.filters[5].label"
+                                type="group"
+                            >
+                                <VsCheckbox
+                                    v-for="item in args.filters[5].values"
+                                    :field-name="item.value"
+                                    value="checked"
+                                    :label="item.name"
+                                    size="sm"
+                                />
+                            </VsFilterSection>
+                        </VsFilterPanel>
+                    </VsFilter>
+                </VsCol>
+            </VsRow>
+        </VsContainer>
     `,
 });
 

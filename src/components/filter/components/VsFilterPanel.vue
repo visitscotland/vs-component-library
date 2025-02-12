@@ -24,7 +24,7 @@ import VsIcon from '@/components/icon/Icon.vue';
 
 const props = defineProps({
     /**
-     * Label for the filter.
+     * Label for the filter panel.
      */
     filterLabel: {
         type: String,
@@ -48,14 +48,14 @@ const clearFilter = (inputField) => {
     }
 };
 
-// Reset one filter
+// Reset one filter.
 const resetOne = (filterId) => {
     const inputField = filter.value.querySelector(`#${filterId}`);
 
     clearFilter(inputField);
 };
 
-// reset all the filters
+// reset all the filters.
 const resetAll = () => {
     const inputFields = filter.value.querySelectorAll('input[type="checkbox"], input[type="date"]');
 

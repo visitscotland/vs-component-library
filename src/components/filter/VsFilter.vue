@@ -4,9 +4,9 @@
         data-test="vs-filter"
     >
         <VsButton
-            id="toggle-btn"
-            icon="filters"
             class="vs-filter__toggle"
+            icon="filters"
+            id="toggle-btn"
             ref="btnShow"
             variant="secondary"
             @click="emitter.emit('showModal', props.filterId)"
@@ -15,8 +15,8 @@
         </VsButton>
 
         <VsModal
-            :modal-id="props.filterId"
             close-btn-text="Close"
+            :modal-id="props.filterId"
         >
             <!-- @slot default slot for the filter panel -->
             <slot />
@@ -35,11 +35,6 @@
 </template>
 
 <script setup>
-/**
- * TODO: Comment code.
- * TODO: Tidy code.
- * TODO: Style mobile version
- */
 import VsButton from '@/components/button/Button.vue';
 import VsModal from '@/components/modal/Modal.vue';
 
