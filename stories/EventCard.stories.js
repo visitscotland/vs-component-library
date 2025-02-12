@@ -53,7 +53,7 @@ const Template = (args) => ({
                                 <li v-if="!(args.registrationDeadline && args.contact)">
                                     <span class="fw-bold">Organiser: </span>{{ args.organizer }}
                                 </li>
-                            </dl>
+                            </VsList>
                         </VsCol>
                         <VsCol
                             sm="12"
@@ -69,7 +69,7 @@ const Template = (args) => ({
                                 <li v-if="args.contact">
                                     <span class="fw-bold">Contact: </span>{{ args.contact }}
                                 </li>
-                            </dl>
+                            </VsList>
                         </VsCol>
                     </VsRow>
                 </template>
