@@ -44,11 +44,9 @@ const Template = (args) => ({
                                 <li v-if="args.times">
                                     <span class="fw-bold">Time: </span> {{ args.times }}
                                 </li>
-                                    
                                 <li v-if="args.price">
                                     <span class="fw-bold">Price: </span>{{ args.price }}
                                 </li>
-                                    
                                 <li v-if="args.location">
                                     <span class="fw-bold">Location: </span>{{ args.location }}
                                 </li>                                
