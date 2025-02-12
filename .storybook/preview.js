@@ -27,6 +27,9 @@ const preview = {
                 { name: 'Dark', value: '#200F2E' },
             ],
         },
+        viewport: {
+            defaultViewport: 'reset',
+        },
     },
     decorators: [
         (story) => {
