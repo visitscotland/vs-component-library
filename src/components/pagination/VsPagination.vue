@@ -4,7 +4,10 @@
         class="vs-pagination"
         data-test="vs-pagination"
     >
-        <div class="vs-pagination__count">
+        <div
+            aria-live="polite"
+            class="vs-pagination__count"
+        >
             <p>{{ resultsText }}</p>
         </div>
         <div class="vs-pagination__controls">
@@ -28,15 +31,9 @@
                 >
                     <span v-if="page === 'ellipses'">&ctdot;</span>
 
-                    <span
-                        v-else-if="currentPage === page"
-                        :aria-current="currentPage"
-                    >
-                        {{ page }}
-                    </span>
-
                     <VsButton
                         v-else
+                        :aria-current="currentPage === page ? 'page' : null"
                         :aria-label="`Page ${page}`"
                         size="sm"
                         @click="handleClick($event, page)"
@@ -236,7 +233,7 @@ watch(() => props.numberOfPages, () => {
                 $vs-color-text-primary, $vs-color-background-inverse, $vs-color-border-inverse,
                 $vs-color-text-inverse, $vs-color-interaction-cta-primary, $vs-color-border-inverse,
             );
-            padding: $spacer-0125 $spacer-075;
+            padding: $spacer-025 $spacer-075;
 
             &:hover {
                 text-decoration: underline;
@@ -247,7 +244,7 @@ watch(() => props.numberOfPages, () => {
             background-color: $vs-color-background-inverse !important;
         }
 
-        &--active {
+        &--active .vs-button {
             background-color: $vs-color-interaction-cta-primary;
             color: $vs-color-text-inverse;
             border-radius: $border-radius-pill;
@@ -264,7 +261,7 @@ watch(() => props.numberOfPages, () => {
     &__prev .vs-button,
     &__next .vs-button {
         border: none;
-        margin-top: $spacer-0125;
+        margin-top: $spacer-025;
 
         &.disabled {
             background-color: $vs-color-background-inverse !important;

@@ -31,7 +31,7 @@ describe('VsPagination.vue', () => {
         const previousButton = wrapper.find('.vs-pagination__prev .vs-button');
         const pageItems = wrapper.findAll('.vs-pagination__item .vs-button');
 
-        await pageItems.at(0).trigger('click');
+        await pageItems.at(1).trigger('click');
 
         expect(previousButton.attributes().disabled).toBeUndefined();
     });
@@ -131,7 +131,7 @@ describe('VsPagination.vue', () => {
         it(':page-click - should be emitted when a page button is clicked', async() => {
             const pageItems = wrapper.findAll('.vs-pagination__item .vs-button');
 
-            await pageItems.at(0).trigger('click');
+            await pageItems.at(1).trigger('click');
 
             expect(wrapper.emitted('page-click')).toBeTruthy();
             expect(wrapper.emitted('page-click')[0]).toEqual([2]);
