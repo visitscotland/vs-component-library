@@ -34,29 +34,27 @@
                 </VsCol>
             </VsRow>
 
-            <div>
-                <div
-                    class="vs-event-card__content"
-                    data-test="vs-event-card__content"
-                    v-if="$slots['event-card-content']"
-                >
-                    <!-- @slot holds any content on the card (description, details, etc)-->
-                    <slot name="event-card-content" />
-                </div>
-                <div
-                    class="vs-event-card__cta"
+            <div
+                class="vs-event-card__content"
+                data-test="vs-event-card__content"
+                v-if="$slots['event-card-content']"
+            >
+                <!-- @slot holds any content on the card (description, details, etc)-->
+                <slot name="event-card-content" />
+            </div>
+            <div
+                class="vs-event-card__cta"
+                data-test="vs-event-card__cta"
+                v-if="ctaHref && ctaLabel"
+            >
+                <VsButton
+                    :href="ctaHref"
+                    :icon="ctaIcon"
+                    icon-position="right"
                     data-test="vs-event-card__cta"
-                    v-if="ctaHref && ctaLabel"
                 >
-                    <VsButton
-                        :href="ctaHref"
-                        :icon="ctaIcon"
-                        icon-position="right"
-                        data-test="vs-event-card__cta"
-                    >
-                        {{ ctaLabel }}
-                    </VsButton>
-                </div>
+                    {{ ctaLabel }}
+                </VsButton>
             </div>
         </div>
     </div>

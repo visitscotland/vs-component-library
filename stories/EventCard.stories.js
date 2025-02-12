@@ -42,24 +42,24 @@ const Template = (args) => ({
                             
                         >
                             <dl class="mb-0">
-                                <div v-if="args.times">
+                                <template v-if="args.times">
                                     <dt class="d-inline">Time: </dt>
                                     <dd class="d-inline"> {{ args.times }}</dd>
-                                </div>
+                                </template>
                                     
-                                <div v-if="args.price">
+                                <template v-if="args.price">
                                     <dt class="d-inline">Price: </dt>
                                     <dd class="d-inline"> {{ args.price }}</dd>
-                                </div>
+                                </template>
                                     
-                                <div v-if="args.location">
+                                <template v-if="args.location">
                                     <dt class="d-inline">Location: </dt>
                                     <dd class="d-inline"> {{ args.location }}</dd>
-                                </div>                                
-                                <div v-if="!(args.registrationDeadline && args.contact)">
+                                </template>                                
+                                <template v-if="!(args.registrationDeadline && args.contact)">
                                     <dt class="d-inline">Organiser: </dt>
                                     <dd class="d-inline m-0"> {{ args.organizer }}</dd>
-                                </div>
+                                </template>
                             </dl>
                         </VsCol>
                         <VsCol
@@ -67,18 +67,18 @@ const Template = (args) => ({
                             md="5"
                         >
                             <dl class="m-md-0">
-                                <div v-if="args.registrationDeadline">
+                                <template v-if="args.registrationDeadline">
                                     <dt class="d-inline">Registration Deadline: </dt>
                                     <dd class="d-inline"> {{ args.registrationDeadline }}</dd>
-                                </div>
-                                <div v-if="(args.registrationDeadline && args.contact)">
+                                </template>
+                                <template v-if="(args.registrationDeadline && args.contact)">
                                     <dt class="d-inline">Organiser: </dt>
                                     <dd class="d-inline"> {{ args.organizer }}</dd>
-                                </div>
-                                <div v-if="args.contact">
+                                </template>
+                                <template v-if="args.contact">
                                     <dt class="d-inline">Contact: </dt>
                                     <dd class="d-inline m-0"> {{ args.contact }}</dd>
-                                </div>
+                                </template>
                             </dl>
                         </VsCol>
                     </VsRow>
