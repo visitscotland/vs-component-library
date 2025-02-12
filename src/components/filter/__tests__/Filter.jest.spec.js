@@ -4,6 +4,7 @@ import VsFilter from '../VsFilter.vue';
 
 const applyButtonText = 'Apply';
 const filterButtonText = 'Filter';
+const filterId = 'modal-1';
 const defaultSlotContent = 'Slot content';
 let wrapper;
 
@@ -12,6 +13,7 @@ beforeEach(() => {
         propsData: {
             applyButtonText,
             filterButtonText,
+            filterId,
         },
         slots: {
             default: defaultSlotContent,
@@ -29,6 +31,29 @@ describe('VsFilter', () => {
             const filterButton = wrapper.find('.vs-filter__toggle');
 
             expect(filterButton.text()).toContain(filterButtonText);
+        });
+
+        it('applyButtonText - should render a button component within the modal with the passed value', async() => {
+            const modal = wrapper.findComponent({
+                name: 'VsModal',
+            });
+
+            const applyButton = modal.findAllComponents({
+                name: 'VsButton',
+            })[1];
+
+            expect(applyButton.exists()).toBe(true);
+            expect(applyButton.classes()).toContain('vs-filter__apply');
+            expect(applyButton.text()).toBe(applyButtonText);
+        });
+
+        it('filterId - should render a modal with the `modal-id` prop with the value passed', () => {
+            const modal = wrapper.findComponent({
+                name: 'VsModal',
+            });
+
+            expect(modal.exists()).toBe(true);
+            expect(modal.props('modalId')).toBe(filterId);
         });
     });
 
