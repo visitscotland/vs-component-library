@@ -43,7 +43,7 @@
                 <slot name="event-card-content" />
             </div>
             <div
-                class="vs-event-card__cta"
+                class="vs-event-card__cta mt-050"
                 data-test="vs-event-card__cta"
                 v-if="ctaHref && ctaLabel"
             >

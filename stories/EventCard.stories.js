@@ -38,47 +38,39 @@ const Template = (args) => ({
                     <VsRow class="mb-025">
                         <VsCol
                             sm="12"
-                            md="4"
-                            
+                            md="4"    
                         >
-                            <dl class="mb-0">
-                                <template v-if="args.times">
-                                    <dt class="d-inline">Time: </dt>
-                                    <dd class="d-inline"> {{ args.times }}</dd>
-                                </template>
+                            <VsList unstyled class="m-md-0">
+                                <li v-if="args.times">
+                                    <span class="fw-bold">Time: </span> {{ args.times }}
+                                </li>
                                     
-                                <template v-if="args.price">
-                                    <dt class="d-inline">Price: </dt>
-                                    <dd class="d-inline"> {{ args.price }}</dd>
-                                </template>
+                                <li v-if="args.price">
+                                    <span class="fw-bold">Price: </span>{{ args.price }}
+                                </li>
                                     
-                                <template v-if="args.location">
-                                    <dt class="d-inline">Location: </dt>
-                                    <dd class="d-inline"> {{ args.location }}</dd>
-                                </template>                                
-                                <template v-if="!(args.registrationDeadline && args.contact)">
-                                    <dt class="d-inline">Organiser: </dt>
-                                    <dd class="d-inline m-0"> {{ args.organizer }}</dd>
-                                </template>
+                                <li v-if="args.location">
+                                    <span class="fw-bold">Location: </span>{{ args.location }}
+                                </li>                                
+                                <li v-if="!(args.registrationDeadline && args.contact)">
+                                    <span class="fw-bold">Organiser: </span>{{ args.organizer }}
+                                </li>
                             </dl>
                         </VsCol>
                         <VsCol
                             sm="12"
                             md="5"
                         >
-                            <dl class="m-md-0">
-                                <template v-if="args.registrationDeadline">
-                                    <dt class="d-inline">Registration Deadline: </dt>
-                                    <dd class="d-inline"> {{ args.registrationDeadline }}</dd>
-                                </template>
-                                <template v-if="(args.registrationDeadline && args.contact)">
-                                    <dt class="d-inline">Organiser: </dt>
-                                    <dd class="d-inline"> {{ args.organizer }}</dd>
-                                </template>
-                                <template v-if="args.contact">
-                                    <dt class="d-inline">Contact: </dt>
-                                    <dd class="d-inline m-0"> {{ args.contact }}</dd>
-                                </template>
+                            <VsList unstyled class="m-md-0">
+                                <li v-if="args.registrationDeadline">
+                                    <span class="fw-bold">Registration Deadline: </span>{{ args.registrationDeadline }}
+                                </li>
+                                <li v-if="(args.registrationDeadline && args.contact)">
+                                    <span class="fw-bold">Organiser: </span>{{ args.organizer }}
+                                </li>
+                                <li v-if="args.contact">
+                                    <span class="fw-bold">Contact: </span>{{ args.contact }}
+                                </li>
                             </dl>
                         </VsCol>
                     </VsRow>
