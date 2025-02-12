@@ -33,54 +33,53 @@ const Template = (args) => ({
 
                 <template v-slot:event-card-content>
 
-                    <p class="mb-050"> {{ args.description }} </p>
+                    <p class="mb-025"> {{ args.description }} </p>
 
-                    <VsRow class="mb-050">
+                    <VsRow class="mb-025">
                         <VsCol
                             sm="12"
                             md="4"
+                            
                         >
-                            <VsList
-                                unstyled
-                            >
-                                <li>
-                                    <label for="time">Time:</label>
-                                    <span class="vs-event-card__details-data" id="time"> {{ args.times }}</span>
-                                </li>
-                                <li>
-                                    <label for="price">Price:</label>
-                                    <span class="vs-event-card__details-data" id="price"> {{ args.price }}</span>
-                                </li>
-                                <li>
-                                    <label for="location">Location:</label>
-                                    <span class="vs-event-card__details-data" id="location"> {{ args.location }}</span>
-                                </li>
-                                <li v-if="!(args.registrationDeadline && args.contact)">
-                                    <label for="organizer">Organiser:</label>
-                                    <span class="vs-event-card__details-data" id="organizer"> {{ args.organizer }}</span>
-                                </li>
-                                </VsList>
+                            <dl class="mb-0">
+                                <div v-if="args.times">
+                                    <dt class="d-inline">Time: </dt>
+                                    <dd class="d-inline"> {{ args.times }}</dd>
+                                </div>
+                                    
+                                <div v-if="args.price">
+                                    <dt class="d-inline">Price: </dt>
+                                    <dd class="d-inline"> {{ args.price }}</dd>
+                                </div>
+                                    
+                                <div v-if="args.location">
+                                    <dt class="d-inline">Location: </dt>
+                                    <dd class="d-inline"> {{ args.location }}</dd>
+                                </div>                                
+                                <div v-if="!(args.registrationDeadline && args.contact)">
+                                    <dt class="d-inline">Organiser: </dt>
+                                    <dd class="d-inline m-0"> {{ args.organizer }}</dd>
+                                </div>
+                            </dl>
                         </VsCol>
                         <VsCol
                             sm="12"
-                            md="6"
+                            md="5"
                         >
-                            <VsList
-                                unstyled
-                            >
-                                <li v-if="args.registrationDeadline">
-                                    <label for="registrationDeadline">Registration Deadline:</label>
-                                    <span class="vs-event-card__details-data" id="registrationDeadline"> {{ args.registrationDeadline }}</span>
-                                </li>
-                                <li v-if="(args.registrationDeadline && args.contact)">
-                                    <label for="organizer">Organiser:</label>
-                                    <span class="vs-event-card__details-data" id="organizer"> {{ args.organizer }}</span>
-                                </li>
-                                <li v-if="args.contact">
-                                    <label for="contact">Contact:</label>
-                                    <span class="vs-event-card__details-data" id="contact"> {{ args.contact }}</span>
-                                </li>
-                            </VsList>
+                            <dl class="m-md-0">
+                                <div v-if="args.registrationDeadline">
+                                    <dt class="d-inline">Registration Deadline: </dt>
+                                    <dd class="d-inline"> {{ args.registrationDeadline }}</dd>
+                                </div>
+                                <div v-if="(args.registrationDeadline && args.contact)">
+                                    <dt class="d-inline">Organiser: </dt>
+                                    <dd class="d-inline"> {{ args.organizer }}</dd>
+                                </div>
+                                <div v-if="args.contact">
+                                    <dt class="d-inline">Contact: </dt>
+                                    <dd class="d-inline m-0"> {{ args.contact }}</dd>
+                                </div>
+                            </dl>
                         </VsCol>
                     </VsRow>
                 </template>

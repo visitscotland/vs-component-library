@@ -4,51 +4,59 @@
         data-test="vs-event-card"
     >
         <div class="card-body">
-            <div
-                class="vs-event-card__header"
-                data-test="vs-event-card__header"
-            >
-                <VsHeading
-                    class="vs-event-card__heading"
-                    heading-style="heading-xs"
-                    level="3"
+            <VsRow class="vs-event-card__header">
+                <VsCol
+                    sm="12"
+                    md="9"
+                    class="p-0"
                 >
-                    <!-- @slot for the title of the event -->
-                    <slot name="event-card-header" />
-                </VsHeading>
-
-                <!-- @slot for the date of event -->
-                <p
-                    class="vs-event-card__date"
-                    data-test="vs-event-card__date"
+                    <VsHeading
+                        class="vs-event-card__heading"
+                        heading-style="heading-xs"
+                        level="3"
+                        data-test="vs-event-card__heading"
+                    >
+                        <!-- @slot for the title of the event -->
+                        <slot name="event-card-header" />
+                    </VsHeading>
+                </VsCol>
+                <VsCol
+                    sm="12"
+                    md="3"
+                    class="my-auto p-0"
                     v-if="$slots['event-card-date']"
+                    data-test="vs-event-card__date"
                 >
-                    <slot name="event-card-date" />
-                </p>
-            </div>
+                    <p class="vs-event-card__date">
+                        <!-- @slot for the event date -->
+                        <slot name="event-card-date" />
+                    </p>
+                </VsCol>
+            </VsRow>
 
-            <div
-                class="vs-event-card__content"
-                data-test="vs-event-card__content"
-                v-if="$slots['event-card-content']"
-            >
-                <!-- @slot holds any content on the card (description, details, etc)-->
-                <slot name="event-card-content" />
-            </div>
-
-            <div
-                class="vs-event-card__cta"
-                data-test="vs-event-card__cta"
-                v-if="ctaHref && ctaLabel"
-            >
-                <VsButton
-                    :href="ctaHref"
-                    :icon="ctaIcon"
-                    icon-position="right"
+            <div>
+                <div
+                    class="vs-event-card__content"
+                    data-test="vs-event-card__content"
+                    v-if="$slots['event-card-content']"
+                >
+                    <!-- @slot holds any content on the card (description, details, etc)-->
+                    <slot name="event-card-content" />
+                </div>
+                <div
+                    class="vs-event-card__cta"
                     data-test="vs-event-card__cta"
+                    v-if="ctaHref && ctaLabel"
                 >
-                    {{ ctaLabel }}
-                </VsButton>
+                    <VsButton
+                        :href="ctaHref"
+                        :icon="ctaIcon"
+                        icon-position="right"
+                        data-test="vs-event-card__cta"
+                    >
+                        {{ ctaLabel }}
+                    </VsButton>
+                </div>
             </div>
         </div>
     </div>
@@ -57,6 +65,8 @@
 <script>
 import VsHeading from '@/components/heading/Heading.vue';
 import VsButton from '@/components/button/Button.vue';
+import VsCol from '@/components/grid/Col.vue';
+import VsRow from '@/components/grid/Row.vue';
 
 /**
  * The Event card component displays details about training & events
@@ -71,6 +81,8 @@ export default {
     components: {
         VsHeading,
         VsButton,
+        VsCol,
+        VsRow,
     },
     props: {
         /**
@@ -101,58 +113,51 @@ export default {
 <style lang="scss">
 .card.vs-event-card {
     border: none;
-    line-height: $line-height-m;
-
     .card-body {
         padding: $spacer-100;
         width: 100%;
         border-bottom: 1px solid $vs-color-border-primary;
     }
 
-    .vs-event-card__header {
-        display: flex;
-        flex-direction: column;
-        margin: 0 0 $spacer-075 0;
+    .vs-event-card__date {
+        margin: auto $spacer-0;
+        font-size: $font-size-6;
         font-weight: $font-weight-semi-bold;
     }
 
     .vs-event-card__heading {
-        font-size: $font-size-8;
+        margin: $spacer-0;
     }
 
-    .vs-event-card__date {
-        margin: 0;
-        font-size: $font-size-6;
+    .vs-event-card__header {
+        margin: $spacer-050 $spacer-0;
     }
 
-    @include media-breakpoint-down(sm) {
-        .vs-event-card__heading {
-            margin-bottom: 0;
-        }
-    }
-
-    @include media-breakpoint-up(sm) {
-        .vs-event-card__header {
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            margin: 0 0 $spacer-025 0;
-        }
-    }
-
-    .vs-event-card__content {
-        label {
-            font-weight: $font-weight-semi-bold;
-        }
+    .vs-event-card__cta {
+        margin-bottom: $spacer-050;
     }
 
     @include media-breakpoint-up(md) {
+
+        .vs-event-card__header {
+            margin: $spacer-0 $spacer-0 $spacer-0 $spacer-0;
+        }
+
+        .vs-event-card__heading {
+        margin: $spacer-050 $spacer-0;
+        }
+
+        .vs-event-card__date {
+            text-align: right;
+            align-self: middle;
+        }
+
         .vs-event-card__cta {
-            max-width: 25%;
-            position: absolute;
-            right: $spacer-100;
-            bottom: $spacer-100;
-            margin-top: $spacer-075;
+            position: relative;
+            right: $spacer-0;
+            bottom: $spacer-300;
+            float: right;
+            margin-bottom: -$spacer-300;
         }
     }
 }

@@ -39,7 +39,7 @@ describe('VsEventCard', () => {
                 name: 'VsEventCard',
             });
 
-            expect(card.find('[data-test="vs-event-card__header"]').exists()).toBe(true);
+            expect(card.find('[data-test="vs-event-card__heading"]').exists()).toBe(true);
         });
 
         it('should render a date', () => {
