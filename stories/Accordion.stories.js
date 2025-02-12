@@ -6,7 +6,6 @@ import VsIcon from '@/components/icon/Icon.vue';
 export default {
     component: VsAccordion,
     title: 'Accordion',
-    tags: ['autodocs'],
     argTypes: {
         breakPoint: {
             options: [

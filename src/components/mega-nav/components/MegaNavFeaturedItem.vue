@@ -88,7 +88,7 @@ export default {
             width: 80%;
             bottom: 0;
             left: 0;
-            background: $vs-color-new-background-primary;
+            background: $vs-color-background-primary;
             padding: $spacer-125 $spacer-075;
         }
 
@@ -155,7 +155,7 @@ export default {
             .vs-stretched-link-card__content {
                 display: -webkit-box;
                 margin: $spacer-0;
-                color: $vs-color-text;
+                color: $vs-color-text-primary;
             }
 
             .vs-stretched-link-card__link {

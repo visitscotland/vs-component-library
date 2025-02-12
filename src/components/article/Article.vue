@@ -42,6 +42,7 @@
                                     </VsHeading>
 
                                     <VsRichTextWrapper
+                                        v-if="$slots['vs-article-intro']"
                                         variant="lead"
                                         class="mb-300 mb-lg-400"
                                         :class="businessSupport ? null : 'text-center'"
@@ -53,7 +54,7 @@
                                 </div>
 
                                 <VsCol
-                                    v-if="businessSupport"
+                                    v-if="businessSupport && $slots['vs-article-img']"
                                     class="mb-300"
                                     cols="7"
                                 >
@@ -139,7 +140,7 @@ export default {
 <style lang="scss">
 .vs-article {
     &__wrapper{
-        border: 1px solid $vs-color-border;
+        border: 1px solid $vs-color-border-primary;
 
         figure{
             margin-bottom: 0;

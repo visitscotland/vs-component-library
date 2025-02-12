@@ -50,6 +50,7 @@
                         <slot name="tourism-info-quote" />
 
                         <div
+                            v-if="$slots['tourism-info-links']"
                             class="vs-tourism-info__links-contained"
                             data-test="vs-tourism-info__embedded-links"
                         >

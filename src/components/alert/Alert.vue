@@ -45,7 +45,7 @@ export default {
     }
 
     .vs-alert__icon-holder {
-        background-color: $vs-color-text-tertiary;
+        background-color: $vs-color-text-highlight;
         display: inline-flex;
         justify-content: center;
         align-items: center;
@@ -68,7 +68,7 @@ export default {
         align-items: center;
         padding: $spacer-075;
         background-color: $vs-color-background-information;
-        border: 1px solid $vs-color-border-tertiary;
+        border: 1px solid $vs-color-border-highlight;
         min-height: 100%;
     }
 </style>

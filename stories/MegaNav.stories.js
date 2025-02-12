@@ -17,7 +17,6 @@ import staticNavExample from '@/assets/fixtures/header/static-nav.json';
 export default {
     component: VsMeganav,
     title: 'MegaNav',
-    tags: ['autodocs'],
     argTypes: {
         topMenuItemAlign: {
             options: [
@@ -88,9 +87,17 @@ const Template = (args) => ({
                                 :key="subHeadingIndex"
                                 :list-heading="subHeading.title"
                             >
-                                <template 
-                                    v-slot:nav-list-items
-                                >
+                                <template v-slot:nav-heading-cta-link>
+                                    <VsMegaNavListItem
+                                        v-if="subHeading.href && subHeading.cta"
+                                        :href="subHeading.href"
+                                        subheading-link
+                                    >
+                                        {{ subHeading.cta }}
+                                    </VsMegaNavListItem>
+                                </template>
+
+                                <template v-slot:nav-list-items>
                                     <VsMegaNavListItem
                                         v-for="(navLink, navLinkIndex)
                                             in subHeading.dropdownNav"
@@ -98,13 +105,6 @@ const Template = (args) => ({
                                         :href="navLink.href"
                                     >
                                         {{ navLink.title }}
-                                    </VsMegaNavListItem>
-                                    <VsMegaNavListItem
-                                        v-if="subHeading.href && subHeading.cta"
-                                        :href="subHeading.href"
-                                        subheading-link
-                                    >
-                                        {{ subHeading.cta }}
                                     </VsMegaNavListItem>
                                 </template>
                             </VsMegaNavList>
@@ -230,7 +230,7 @@ const Template = (args) => ({
                                         v-slot:nav-heading-cta-link
                                     >
                                         <VsMegaNavListItem
-                                            v-if="subHeading.href"
+                                            v-if="subHeading.href && subHeading.cta"
                                             :href="subHeading.href"
                                             subheading-link
                                         >

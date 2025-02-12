@@ -7,7 +7,6 @@ import VsForm from '@/components/form/Form.vue';
 export default {
     component: VsForm,
     title: 'Form',
-    tags: ['autodocs'],
 };
 
 const Template = (args) => ({
@@ -49,9 +48,9 @@ const Template = (args) => ({
 const base = {
     isMarketo: true,
     submitUrl: '/test/api/url',
-    dataUrl: '/fixtures/forms/form-example.json',
-    messagingUrl: '/fixtures/forms/messaging.json',
-    countryListUrl: '/fixtures/forms/countries.json',
+    dataUrl: './fixtures/forms/form-example.json',
+    messagingUrl: './fixtures/forms/messaging.json',
+    countryListUrl: './fixtures/forms/countries.json',
     marketoInstance: '',
     munchkinId: '',
     language: 'en',

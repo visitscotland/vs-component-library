@@ -3,13 +3,12 @@
      * @param name {string} name - library to wait for
      * @param callback {function} - function to call if the library is loaded
      */
-const checkVendorLibrary = (name, callback) => {
-    const interval = 500;
+const checkVendorLibrary = (name, callback, interval = 0) => {
     window.setTimeout(() => {
         if (window[name]) {
             callback(window[name]);
         } else {
-            checkVendorLibrary(name, callback);
+            checkVendorLibrary(name, callback, 500);
         }
     }, interval);
 };

@@ -10,6 +10,7 @@
         :static="isVideoModal"
         v-model="show"
         v-if="mounted"
+        @hidden="hideModal"
     >
         <VsContainer>
             <VsRow>

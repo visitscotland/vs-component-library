@@ -7,7 +7,6 @@ import VsInput from '@/components/input/Input.vue';
 export default {
     component: VsInput,
     title: 'Input',
-    tags: ['autodocs'],
 };
 
 const Template = (args, required) => ({
@@ -66,6 +65,7 @@ export const HintText = Template.bind({
 HintText.args = {
     ...base,
     hintText: 'We\'ll only use this to email you our newsletter.',
+    placeholder: 'e.g john.smith@gmail.com',
 };
 
 export const Required = Template.bind({

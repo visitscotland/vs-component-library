@@ -14,7 +14,6 @@ import { VsCol, VsRow } from '@/components/grid';
 export default {
     component: VsArticle,
     title: 'Article',
-    tags: ['autodocs'],
     argTypes: {
         vsArticleIntro: {
             control: {
@@ -108,7 +107,7 @@ const Template = (args) => ({
                     :businessSupport="args.businessSupport"
                 >
                     <template
-                        v-if="args.sidebarImg || args.sidebarQuote"
+                        v-if="args.sidebarImg || args.sidebarQuote || args.tableOfContents"
                         v-slot:article-sidebar
                     >
                         <VsArticleSidebar :sidebar-align="args.sidebarAlign">
@@ -152,16 +151,18 @@ const Template = (args) => ({
                                 </VsImageWithCaption>
                             </template>
 
-                            <template v-slot:vs-article-sidebar-quote>
+                            <template
+                                v-if="args.sidebarQuote"
+                                v-slot:vs-article-sidebar-quote>
                                 <VsQuote :with-border="args.businessSupport">
                                     <template v-slot:quote-content>
-                                        <p>{{ args['sidebarQuote'] }}</p>
+                                        <p>{{ args.sidebarQuote.quote }}</p>
                                     </template>
                                     <template v-slot:quote-author-name>
-                                        Penny
+                                        {{ args.sidebarQuote.authorName }}
                                     </template>
                                     <template v-slot:quote-author-title>
-                                        Visitor Services Advisor at Fort William iCentre
+                                        {{ args.sidebarQuote.authorTitle }}
                                     </template>
                                 </VsQuote>
                             </template>
@@ -207,7 +208,11 @@ const base = {
         caption: 'Mountain stream',
         credit: '© CutMedia / Chris Rowland',
     },
-    sidebarQuote: 'Scotland\'s largest mountain was once a massive active volcano which exploded and collapsed inwards on itself millions of years ago.',
+    sidebarQuote: {
+        authorName: 'Penny',
+        authorTitle: 'Visitor Services Advisor at Fort William iCentre',
+        quote: 'Scotland\'s largest mountain was once a massive active volcano which exploded and collapsed inwards on itself millions of years ago.',
+    },
     defaultContent: `
         <p>Ben Nevis is the king of them all. In the north west <a href='#'>Highlands</a>, near the town of <a href='#'>Fort William</a> and part of the <a href='#'>Grampian Mountain</a> range, the famous peak attracts 125k walkers a year. Whether you're an avid ambler or you just love beautiful landscapes, bagging 'the Ben' is likely to feature near the top of your Scottish bucket list.</p>
         <p>An ancient giant of the land, Ben Nevis was once a massive active volcano which exploded and collapsed inwards on itself millions of years ago. At the summit, there is evidence of an explosion in the form of light-coloured granite. The name itself has two translations from the ancient Gaelic language, meaning 'mountain with its head in the clouds', thanks to its iconic mist-shrouded peak, or it can also mean 'venomous mountain' - you can decide which translation you prefer after the climb!</p>

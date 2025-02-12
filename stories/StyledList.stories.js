@@ -4,7 +4,6 @@ import VsStyledListItem from '@/components/styled-list/components/StyledListItem
 export default {
     component: VsStyledList,
     title: 'StyledList',
-    tags: ['autodocs'],
     argTypes: {
         variant: {
             options: [
@@ -30,7 +29,7 @@ const Template = (args) => ({
     },
     template: `
         <VsStyledList v-bind="args">
-                <VsStyledListItem
+            <VsStyledListItem
                 v-for="(item, index) in args.listItems"
                 :key="index"
                 :heading="item.heading"
@@ -40,14 +39,21 @@ const Template = (args) => ({
             >
                 <div v-html="item.content" />
             </VsStyledListItem>
+
+            <template
+                v-if="args.source"
+                #list-source
+            >
+                <div v-html="args.source" />
+            </template>
         </VsStyledList>
     `,
 });
 
-export const Default = Template.bind({
+export const WithIcon = Template.bind({
 });
 
-Default.args = {
+WithIcon.args = {
     variant: 'icon',
     listItems: [
         {
@@ -161,10 +167,10 @@ WithImage.args = {
     ],
 };
 
-export const HorizontalWithImage = Template.bind({
+export const WithImageHorizontal = Template.bind({
 });
 
-HorizontalWithImage.args = {
+WithImageHorizontal.args = {
     variant: 'image-horizontal',
     listItems: [
         {
@@ -188,5 +194,5 @@ HorizontalWithImage.args = {
             content: '<p>of visitors highlighted visiting friends and family.</p>',
         },
     ],
-    source: 'Source: Scotland Visitor Survey, 2023',
+    source: '<p>Source: Scotland Visitor Survey, 2023</p>',
 };

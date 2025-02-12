@@ -9,7 +9,6 @@ import VsTourismInfo from '@/components/tourism-info/TourismInfo.vue';
 export default {
     component: VsTourismInfo,
     title: 'Tourism Info',
-    tags: ['autodocs'],
 };
 
 const Template = (args) => ({
@@ -54,7 +53,10 @@ const Template = (args) => ({
                 v-slot:tourism-info-quote
             >
                 <VsQuote variant="wide">
-                    <template v-slot:quote-image>
+                    <template 
+                        v-slot:quote-image
+                        v-if="args.quoteImageSrc"
+                    >
                         <VsImg
                             :src="args.quoteImageSrc"
                             :alt="args.quoteImageAltText"
@@ -70,17 +72,23 @@ const Template = (args) => ({
                     <template v-slot:quote-author-title>
                         {{ args.quoteAuthorTitle }}
                     </template>
-                    <template v-slot:quote-link>
+                    <template 
+                        v-if="args['buttonText']" 
+                        v-slot:quote-link
+                    >
                         <VsButton
+                            v-if="args.buttonText"
                             :args="args.buttonHref"
                         >
                             {{ args.buttonText }}
                         </VsButton>
-                </template>
+                    </template>
                 </VsQuote>
             </template>
 
-            <template v-slot:tourism-info-links>
+            <template 
+                v-if="args['tourism-info-links']"
+                v-slot:tourism-info-links>
                 <p>
                     <VsLink :href="args['tourism-info-links'].linkHref">
                         {{ args['tourism-info-links'].linkText }}
@@ -92,22 +100,14 @@ const Template = (args) => ({
 });
 
 const base = {
-    imageSrc: '/fixtures/icentre/icentre.jpg',
+    imageSrc: './fixtures/icentre/icentre.jpg',
     imageAltText: 'Tourism Info',
     imageToggleText: 'Toggle caption',
     imageCaption: 'VisitScotland Information Centre',
     imageCredit: '&copy; VisitScotland',
-    quoteImageSrc: '/fixtures/icentre/icentre.jpg',
-    quoteImageAltText: 'Penny, icentre staff',
     quoteContent: 'Look out for the incredible architecture, parks and gardens as you browse independent shops, galleries and eateries.',
     quoteAuthor: 'Penny',
     quoteAuthorTitle: 'Visitor Services Advisor at Aberdeen iCentre',
-    buttonHref: '#',
-    buttonText: 'See more',
-    'tourism-info-links': {
-        linkText: 'See all Aberdeen attractions',
-        linkHref: '#',
-    },
 };
 
 export const Default = Template.bind({
@@ -121,6 +121,48 @@ Default.parameters = {
     },
 };
 
+export const WithLinks = Template.bind({
+});
+
+WithLinks.args = {
+    ...base,
+    'tourism-info-links': {
+        linkText: 'See all Aberdeen attractions',
+        linkHref: '#',
+    },
+};
+
+export const WithButton = Template.bind({
+});
+
+WithButton.args = {
+    ...base,
+    buttonHref: '#',
+    buttonText: 'See more',
+};
+
+export const WithButtonAndLink = Template.bind({
+});
+
+WithButtonAndLink.args = {
+    ...base,
+    buttonHref: '#',
+    buttonText: 'See more',
+    'tourism-info-links': {
+        linkText: 'See all Aberdeen attractions',
+        linkHref: '#',
+    },
+};
+
+export const WithQuoteImage = Template.bind({
+});
+
+WithQuoteImage.args = {
+    ...base,
+    quoteImageSrc: './fixtures/icentre/icentre.jpg',
+    quoteImageAltText: 'Penny, icentre staff',
+};
+
 export const NoQuote = Template.bind({
 });
 
@@ -131,6 +173,10 @@ NoQuote.args = {
     quoteAuthorTitle: '',
     quoteImageAltText: '',
     quoteImageSrc: '',
+    'tourism-info-links': {
+        linkText: 'See all Aberdeen attractions',
+        linkHref: '#',
+    },
 };
 
 NoQuote.parameters = Default.parameters;

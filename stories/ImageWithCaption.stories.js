@@ -9,7 +9,6 @@ import { VsCol, VsRow } from '@/components/grid';
 export default {
     component: VsImageWithCaption,
     title: 'ImageWithCaption',
-    tags: ['autodocs'],
     decorators: [() => ({
         template: '<div style="max-width: 500px;"><story /></div>',
     })],
@@ -177,4 +176,14 @@ NoJavascript.args = {
     ...base,
     ...WithVideo.args,
     jsDisabled: true,
+};
+
+export const SvgImage = Template.bind();
+
+SvgImage.args = {
+    ...base,
+    imageSrc: 'fixtures/image-with-caption/images/thistle.svg',
+    'img-caption': {
+        caption: 'VisitScotland logo',
+    },
 };

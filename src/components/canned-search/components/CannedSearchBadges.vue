@@ -124,16 +124,16 @@ export default {
 
             &--category {
                 color: $vs-color-text-inverse;
-                background-color: $vs-color-background-tertiary;
+                background-color: $vs-color-background-accent-heather-80;
             }
 
             &--offer {
                 color: $vs-color-text-inverse;
-                background-color: $vs-color-background-accent-cuillin;
+                background-color: $vs-color-background-accent-tolsta-40;
             }
 
             &--open {
-                color: $vs-color-text-tertiary;
+                color: $vs-color-text-highlight;
                 background-color: $vs-color-background-information;
                 font-weight: $font-weight-bold;
             }

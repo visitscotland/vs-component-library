@@ -1,52 +1,55 @@
 // variables
 // --------------------------
 
-$fa-css-prefix          : fa !default;
-$fa-style               : 900 !default;
-$fa-style-family        : "Font Awesome 6 Pro" !default;
+$fa-css-prefix            : fa !default;
+$fa-style                 : 900 !default;
+$fa-style-family          : "Font Awesome 6 Pro" !default;
 
-$fa-display             : inline-block !default;
+$fa-icon-property         : --fa;
+$fa-duotone-icon-property : --fa--fa;
 
-$fa-fw-width            : fa-divide(20em, 16) !default;
-$fa-inverse             : #fff !default;
+$fa-display               : inline-block !default;
 
-$fa-border-color        : #eee !default;
-$fa-border-padding      : .2em .25em .15em !default;
-$fa-border-radius       : .1em !default;
-$fa-border-style        : solid !default;
-$fa-border-width        : .08em !default;
+$fa-fw-width              : fa-divide(20em, 16) !default;
+$fa-inverse               : #fff !default;
 
-$fa-size-scale-2xs      : 10 !default;
-$fa-size-scale-xs       : 12 !default;
-$fa-size-scale-sm       : 14 !default;
-$fa-size-scale-base     : 16 !default;
-$fa-size-scale-lg       : 20 !default;
-$fa-size-scale-xl       : 24 !default;
-$fa-size-scale-2xl      : 32 !default;
+$fa-border-color          : #eee !default;
+$fa-border-padding        : .2em .25em .15em !default;
+$fa-border-radius         : .1em !default;
+$fa-border-style          : solid !default;
+$fa-border-width          : .08em !default;
+
+$fa-size-scale-2xs        : 10 !default;
+$fa-size-scale-xs         : 12 !default;
+$fa-size-scale-sm         : 14 !default;
+$fa-size-scale-base       : 16 !default;
+$fa-size-scale-lg         : 20 !default;
+$fa-size-scale-xl         : 24 !default;
+$fa-size-scale-2xl        : 32 !default;
 
 $fa-sizes: (
-  "2xs"                 : $fa-size-scale-2xs,
-  "xs"                  : $fa-size-scale-xs,
-  "sm"                  : $fa-size-scale-sm,
-  "lg"                  : $fa-size-scale-lg,
-  "xl"                  : $fa-size-scale-xl,
-  "2xl"                 : $fa-size-scale-2xl
+  "2xs"                   : $fa-size-scale-2xs,
+  "xs"                    : $fa-size-scale-xs,
+  "sm"                    : $fa-size-scale-sm,
+  "lg"                    : $fa-size-scale-lg,
+  "xl"                    : $fa-size-scale-xl,
+  "2xl"                   : $fa-size-scale-2xl
 ) !default;
 
-$fa-li-width            : 2em !default;
-$fa-li-margin           : $fa-li-width * fa-divide(5, 4) !default;
+$fa-li-width              : 2em !default;
+$fa-li-margin             : $fa-li-width * fa-divide(5, 4) !default;
 
-$fa-pull-margin         : .3em !default;
+$fa-pull-margin           : .3em !default;
 
-$fa-primary-opacity     : 1 !default;
-$fa-secondary-opacity   : .4 !default;
+$fa-primary-opacity       : 1 !default;
+$fa-secondary-opacity     : .4 !default;
 
-$fa-stack-vertical-align: middle !default;
-$fa-stack-width         : ($fa-fw-width * 2) !default;
-$fa-stack-z-index       : auto !default;
+$fa-stack-vertical-align  : middle !default;
+$fa-stack-width           : ($fa-fw-width * 2) !default;
+$fa-stack-z-index         : auto !default;
 
-$fa-font-display        : block !default;
-$fa-font-path           : "/src/assets/fontawesome/webfonts";
+$fa-font-display          : block !default;
+$fa-font-path             : "/src/assets/fontawesome/webfonts" !default;
 
 $fa-var-circle-info: \f05a;
 $fa-var-info-circle: \f05a;
@@ -76,6 +79,7 @@ $fa-custom-icons: (
   accessible-toilet: "\e000",
   accommodation-map-pin: "\e001",
   activities-map-pin: "\e002",
+  arrow-up: "\e0b1",
   attractions-map-pin: "\e003",
   attractions-map-pin-1: "\e004",
   bars-mobile-menu: "\e005",
@@ -156,6 +160,7 @@ $fa-custom-icons: (
   level-access-dining-room: "\e051",
   level-entry-shower: "\e04f",
   link: "\e050",
+  linkedin: "\e097",
   list: "\e052",
   map: "\e053",
   map-marker: "\e055",
@@ -167,6 +172,7 @@ $fa-custom-icons: (
   phone: "\e05a",
   picture: "\e05b",
   pinterest: "\e05c",
+  pintrest: "\e098",
   places-map-pin: "\e05d",
   plane: "\e05f",
   play: "\e060",
@@ -188,7 +194,6 @@ $fa-custom-icons: (
   regions-map-pin: "\e06f",
   reverse-arrow: "\e070",
   reverse-arrow-filled: "\e071",
-  review: "\e072",
   route: "\e073",
   search: "\e074",
   season-autumn: "\e075",
@@ -202,6 +207,7 @@ $fa-custom-icons: (
   ski-boot: "\e07d",
   ski-lift: "\e07e",
   smile: "\e07f",
+  square-instagram: "\e099",
   star: "\e080",
   status-closed: "\e081",
   subway: "\e082",
@@ -218,10 +224,29 @@ $fa-custom-icons: (
   universal-access: "\e08d",
   user: "\e08e",
   vegan-vegetarian: "\e08f",
+  vs-accessible-dining: "\e09a",
+  vs-accessible-parking: "\e09b",
+  vs-accessible-toilet: "\e09c",
+  vs-bed-bunk: "\e09d",
+  vs-bus-taxi: "\e09e",
+  vs-coo: "\e09f",
+  vs-coo-solid: "\e0a0",
+  vs-kilt: "\e0a1",
+  vs-lighthouse: "\e0a2",
+  vs-map-scotland: "\e0a3",
+  vs-putting-green: "\e0a4",
+  vs-signpost-mountain: "\e0a5",
+  vs-still: "\e0a6",
+  vs-still-solid: "\e0a7",
+  vs-tent-caravan: "\e0a8",
+  vs-tree-mountain-water: "\e0a9",
+  vs-unicorn: "\e0aa",
   walk: "\e090",
+  warning: "\e0b0",
   webcam: "\e091",
   wellness: "\e092",
   whatsapp: "\e093",
   whisky: "\e094",
+  x-twitter: "\e0ac",
   youtube: "\e095",
 );

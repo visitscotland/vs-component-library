@@ -26,12 +26,11 @@
             {{ noJsMessage }}
         </VsWarning>
         <div
+            v-if="imgSrc"
             class="vs-stretched-link-card__img-container"
             :class="warningClass"
         >
-            <template
-                v-if="imgSrc"
-            >
+            <template v-if="imgSrc">
                 <VsImg
                     :src="imgSrc"
                     :alt="imgAlt"
@@ -110,10 +109,13 @@
                 data-test="vs-stretched-link-card__title"
             >
                 <template v-if="$slots['stretched-card-link'] && $slots['stretched-card-link']()">
-                    <slot name="stretched-card-header" />
+                    <slot
+                        name="stretched-card-header"
+                    />
                 </template>
 
-                <template v-else-if="type === 'video'">
+                <!-- On BSH video link is tabbable still in absence of video button -->
+                <template v-else-if="!businessSupport && type === 'video'">
                     <slot name="stretched-card-header" />
                 </template>
 
@@ -126,7 +128,7 @@
                     :variant="theme === 'dark' ? 'on-dark' : 'primary'"
                     data-test="vs-stretched-link"
                     :disabled="disabled"
-                    :tabindex="(videoId || disabled) ? '-1' : '0'"
+                    :tabindex="(videoId || disabled) && !businessSupport ? '-1' : '0'"
                 >
                     <!-- @slot Contains header content for the card  -->
                     <slot name="stretched-card-header" />
@@ -138,6 +140,15 @@
             >
                 <!-- @slot Contains body content for the card  -->
                 <slot name="stretched-card-content" />
+            </div>
+
+            <div
+                v-if="$slots['stretched-card-badges'] && $slots['stretched-card-badges']()"
+                class="vs-stretched-link-card__badges"
+                data-test="vs-stretched-link-card__badges"
+            >
+                <!-- @slot to add badges to the card  -->
+                <slot name="stretched-card-badges" />
             </div>
 
             <VsLink
@@ -231,8 +242,8 @@ export default {
         * The image to use in the component
         */
         imgSrc: {
-            required: true,
             type: String,
+            default: undefined,
         },
         /**
         * The image alt text to use in the component
@@ -285,6 +296,21 @@ export default {
             type: String,
             default: 'small',
             validator: (value) => value.match(/(normal|small)/),
+        },
+        /**
+         * Flag for Business Support Hub (BSH) which has different
+         * styling to consumer site component.
+         */
+        businessSupport: {
+            type: Boolean,
+            default: false,
+        },
+        /**
+         * Flag for homepage styling which differs on BSH
+         */
+        isHomePage: {
+            type: Boolean,
+            default: false,
         },
     },
     setup() {
@@ -409,16 +435,15 @@ export default {
 
         &:hover {
             .vs-stretched-link-card__video-button {
-                background-color: $vs-color-background-hover;
-                border-color: $vs-color-background-hover;
+                background-color: $vs-color-interaction-cta-hover;
+                border-color: $vs-color-interaction-cta-hover;
             }
         }
 
         &:active {
             .vs-stretched-link-card__video-button {
-                background-color: $vs-color-background-active;
-                border-color: $vs-color-background-active;
-                color: $vs-color-text-primary;
+                background-color: $vs-color-interaction-cta-pressed;
+                border-color: $vs-color-interaction-cta-pressed;
             }
         }
 
@@ -451,11 +476,11 @@ export default {
         }
 
         .vs-stretched-link-card__title {
-            color: $vs-color-text;
+            color: $vs-color-text-primary;
             display: flex;
 
             .stretched-link {
-                color: $vs-color-text;
+                color: $vs-color-text-primary;
                 text-decoration: none;
                 letter-spacing: inherit;
                 display: block;
@@ -477,7 +502,7 @@ export default {
                 }
 
                 .vs-icon {
-                    color: $vs-color-icon-tertiary;
+                    color: $vs-color-icon-highlight;
                 }
             }
         }
@@ -485,7 +510,7 @@ export default {
         .vs-stretched-link-card__category {
             font-size: $font-size-3;
             line-height: $line-height-xs;
-            color: $vs-color-text-subtle;
+            color: $vs-color-text-tertiary;
             letter-spacing: normal;
             margin-bottom: $spacer-100;
         }
@@ -494,6 +519,7 @@ export default {
             margin-top: $spacer-050;
             line-height: $line-height-s;
             font-size: $font-size-teaser;
+            text-align: left;
 
             p:last-of-type {
                 margin-bottom: 0;
@@ -515,7 +541,7 @@ export default {
 
         .vs-stretched-link-card__link {
             margin: $spacer-100 $spacer-0 $spacer-0;
-            color: $vs-color-link;
+            color: $vs-color-interaction-link-primary;
             text-decoration: underline;
         }
 
@@ -547,6 +573,10 @@ export default {
         .vs-stretched-link-card__full-warning--no-js,
         .vs-stretched-link-card__image-warning--no-js {
             display: none;
+        }
+
+        .vs-stretched-link-card__badges {
+            margin-top: $spacer-050;
         }
     }
 

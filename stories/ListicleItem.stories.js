@@ -9,7 +9,6 @@ import VsLink from '@/components/link/Link.vue';
 export default {
     component: VsListicleItem,
     title: 'ListicleItem',
-    tags: ['autodocs'],
     decorators: [() => ({
         template: '<div style="max-width: 1150px;"><story /></div>',
     })],
@@ -110,7 +109,7 @@ const base = {
     'description-slot': description,
     'facilities-slot': facilities,
     'hippo-details': '',
-    imageSrc: '/fixtures/listicles/stenness.jpg',
+    imageSrc: './fixtures/listicles/stenness.jpg',
     imageAltText: 'A photo of the Standing Stones of Stenness against a blue Sky',
     imageCaption: 'The Standing Stones of Stenness make up a a small circle dating from the third millennium BC. ',
     imageCredit: 'Historic Environment Scotland',

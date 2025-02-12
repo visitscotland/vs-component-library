@@ -11,13 +11,13 @@
 
     .error {
         font-size: $font-size-body;
-        color: $vs-color-text-danger;
+        color: $vs-color-text-error;
         display: block;
     }
 
     .hint-text {
         font-size: $font-size-body;
-        color: $vs-color-text-subtle;
+        color: $vs-color-text-secondary;
         margin-bottom: 0;
     }
 }
@@ -27,20 +27,20 @@
 }
 
 @mixin form-error-state {
-    border-color: $vs-color-border-danger;
-    box-shadow: 0 0 0 2px $vs-color-border-danger inset;
+    border-color: $vs-color-border-error;
+    box-shadow: 0 0 0 2px $vs-color-border-error inset;
 }
 
 @mixin form-focus-state {
-    border-color: $vs-color-border-focus;
-    box-shadow: 0 0 0 2px $vs-color-border-focus inset;
+    border-color: $vs-color-interaction-focus;
+    box-shadow: 0 0 0 2px $vs-color-interaction-focus inset;
     outline: none;
 }
 
 @mixin form-disabled-state {
     background-color: $vs-color-background-inverse;
     border-color: $vs-color-border-disabled;
-    opacity: 0.5;
+    color: $vs-color-text-disabled;
 }
 
 @mixin form-checkbox($size, $font-size, $line-height) {
@@ -80,7 +80,7 @@
         &:checked {
             &:before {
                 font-family: "Font Awesome Kit";
-                background-color: $vs-color-background-primary;
+                background-color: $vs-color-interaction-cta-primary;
                 content: "\e085";
                 color: $vs-color-icon-inverse;
                 text-align: center;

@@ -191,11 +191,12 @@ export default {
 <style lang="scss">
 
 .vs-site-search-form {
-    background-color: rgba($vs-color-background-information, 0.75);
+    background-color: rgba($vs-color-background-secondary, 0.75);
     backdrop-filter: blur(30px);
     padding: $spacer-125 0;
     position: absolute;
     width: 100%;
+    z-index: 1;
 
     @include media-breakpoint-up(lg) {
         padding: $spacer-200 0;

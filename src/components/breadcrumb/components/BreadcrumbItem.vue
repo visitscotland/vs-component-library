@@ -62,7 +62,7 @@ export default {
 
 <style lang="scss">
 .vs-breadcrumb-item {
-    color: $vs-color-text;
+    color: $vs-color-text-secondary;
     font-size: $font-size-4;
     font-weight: $font-weight-normal;
     white-space: nowrap;
@@ -70,12 +70,12 @@ export default {
     padding: 3px; // Prevents breadcrumb link focus state from being clipped
 
     &:last-child {
-        color: $vs-color-text;
+        color: $vs-color-text-secondary;
         font-weight: $font-weight-light;
     }
 
     a {
-        color: $vs-color-text;
+        color: $vs-color-text-secondary;
 
         &:focus {
             @extend %outline-link-focus;

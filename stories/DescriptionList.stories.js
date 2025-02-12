@@ -4,7 +4,6 @@ import VsDescriptionListItem from '@/components/description-list/components/Desc
 export default {
     component: VsDescriptionList,
     title: 'DescriptionList',
-    tags: ['autodocs'],
 };
 
 const Template = (args) => ({

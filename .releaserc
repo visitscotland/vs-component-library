@@ -1,0 +1,33 @@
+{
+    "branches": [
+        "main"
+    ],
+    "plugins": [
+        "@semantic-release/commit-analyzer",
+        "@semantic-release/release-notes-generator",
+        [
+            "@semantic-release/changelog",
+            {
+                "changelogFile": "CHANGELOG.md"
+            }
+        ],
+        "@semantic-release/npm",
+        [
+            "@semantic-release/git",
+            {
+                "assets": [
+                    "CHANGELOG.md",
+                    "package.json"
+                ]
+            }
+        ],
+        "@semantic-release/github",
+        [
+            "@semantic-release/exec",
+            {
+                "analyzeCommitsCmd": "echo 'NEW_VERSION=false' >> $GITHUB_ENV",
+                "verifyReleaseCmd": "echo 'NEW_VERSION=true' >> $GITHUB_ENV"
+            }
+        ]
+    ]
+}

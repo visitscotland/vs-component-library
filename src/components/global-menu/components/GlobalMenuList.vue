@@ -71,9 +71,8 @@ export default {
             color: $vs-color-text-inverse;;
             text-decoration: none;
             transition: $duration-base all;
-            padding: 0 $spacer-125;
-            line-height: 35px;
-            height: 35px;
+            padding: $spacer-075 $spacer-125;
+            line-height: $line-height-xs;
             display: inline-block;
 
             &:focus {
@@ -82,12 +81,12 @@ export default {
             }
 
             &:hover {
-                background: $vs-color-background-accent-heather;
+                background: $vs-color-interaction-cta-subtle-hover;
             }
 
             &:active {
                 background: $vs-color-background-inverse;
-                color: $vs-color-text;
+                color: $vs-color-text-primary;
                 outline: none;
             }
         }
@@ -95,14 +94,14 @@ export default {
         &--active {
             a {
                 background: $vs-color-background-inverse;
-                color: $vs-color-text;
+                color: $vs-color-text-primary;
 
                 &:hover {
                     background: $vs-color-background-inverse;
                 }
                 &:active {
                     background: $vs-color-background-inverse;
-                    color: $vs-color-text;
+                    color: $vs-color-text-primary;
                 }
             }
         }
