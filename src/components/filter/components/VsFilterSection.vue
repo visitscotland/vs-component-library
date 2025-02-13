@@ -9,7 +9,10 @@
         >
             <summary class="vs-filter-section__summary">
                 {{ props.sectionTitle }}
-                <VsIcon name="chevron" />
+                <VsIcon
+                    name="chevron"
+                    variant="tertiary"
+                />
             </summary>
 
             <!-- @slot default slot for the filter section content -->
@@ -68,7 +71,7 @@ const filterSectionClasses = computed(() => ({
         gap: $spacer-100;
 
         label {
-            font-size: 1rem;
+            font-size: $font-size-4;
         }
     }
 
@@ -90,7 +93,6 @@ const filterSectionClasses = computed(() => ({
         justify-content: space-between;
 
         .vs-icon {
-            color: $vs-color-icon-highlight;
             transform: scale(-1, -1);
         }
     }

@@ -2,26 +2,21 @@ import VsCheckbox from '@/components/checkbox/Checkbox.vue';
 import VsFilter from '@/components/filter/VsFilter.vue';
 import VsFilterPanel from '@/components/filter/components/VsFilterPanel.vue';
 import VsFilterSection from '@/components/filter/components/VsFilterSection.vue';
-import {
-    VsCol,
-    VsContainer,
-    VsRow,
-} from '@/components/grid';
 
 export default {
     component: VsFilter,
     title: 'Filter',
+    decorators: [() => ({
+        template: '<div style="max-width: 400px;"><story /></div>',
+    })],
 };
 
 const Template = (args) => ({
     components: {
         VsCheckbox,
-        VsCol,
-        VsContainer,
         VsFilter,
         VsFilterSection,
         VsFilterPanel,
-        VsRow,
     },
     setup() {
         return {
@@ -29,56 +24,47 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsContainer>
-            <VsRow>
-                <VsCol
-                    cols="12"
-                    md="3"
+        <VsFilter v-bind="args">
+            <VsFilterPanel
+                :filter-label="args.filterLabel"   
+            >
+                <VsFilterSection
+                    v-for="group in args.filterGroups"
+                    :key="group.group"
+                    :type="group.type"
+                    :section-title="group.label || null"
                 >
-                    <VsFilter v-bind="args">
-                        <VsFilterPanel
-                            :filter-label="args.filterLabel"   
+                    <template v-if="group.type === 'inline'">
+                        <div
+                            v-for="filter in group.filters"
+                            class="date-picker"
                         >
-                            <VsFilterSection
-                                v-for="group in args.filterGroups"
-                                :key="group.group"
-                                :type="group.type"
-                                :section-title="group.label || null"
-                            >
-                                <template v-if="group.type === 'inline'">
-                                    <div
-                                        v-for="filter in group.filters"
-                                        class="date-picker"
-                                    >
-                                        <label :for="filter.label">
-                                            {{ filter.label }}
-                                        </label>
-                                        <div>
-                                            <input
-                                                type="date"
-                                                :id="filter.label"
-                                                :name="filter.label"
-                                                :min="args.minDate"
-                                            >
-                                        </div>
-                                    </div>
-                                </template>
+                            <label :for="filter.label">
+                                {{ filter.label }}
+                            </label>
+                            <div>
+                                <input
+                                    type="date"
+                                    :id="filter.label"
+                                    :name="filter.label"
+                                    :min="args.minDate"
+                                >
+                            </div>
+                        </div>
+                    </template>
 
-                                <template v-else>
-                                    <VsCheckbox
-                                        v-for="filter in group.filters"
-                                        :field-name="filter.label"
-                                        value="checked"
-                                        :label="filter.label"
-                                        size="sm"
-                                    />
-                                </template>
-                            </VsFilterSection>                       
-                        </VsFilterPanel>
-                    </VsFilter>
-                </VsCol>
-            </VsRow>
-        </VsContainer>
+                    <template v-else>
+                        <VsCheckbox
+                            v-for="filter in group.filters"
+                            :field-name="filter.label"
+                            value="checked"
+                            :label="filter.label"
+                            size="sm"
+                        />
+                    </template>
+                </VsFilterSection>                       
+            </VsFilterPanel>
+        </VsFilter>
     `,
 });
 

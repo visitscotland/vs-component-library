@@ -92,8 +92,8 @@ onMounted(() => {
         border-bottom:  solid 1px $vs-color-border-secondary;
         display: flex;
         font-size: $font-size-6;
-        font-weight: 600;
-        gap: 8px;
+        font-weight: $font_weight_semi_bold;
+        gap: $spacer-050;
         margin-bottom: $spacer-0;
         padding: $spacer-075 $spacer-125;
     }
