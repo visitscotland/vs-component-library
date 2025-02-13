@@ -4,6 +4,7 @@ import mapFiltersOutlanderSubcategories from '@/assets/fixtures/maps/map-filters
 import mapFiltersRegions from '@/assets/fixtures/maps/map-filters-regions.json';
 import mapFiltersRegional from '@/assets/fixtures/maps/map-filters-regional.json';
 import placesDataRegional from '@/assets/fixtures/maps/places-data-regional.json';
+import placesDataRegionalNoIcentres from '@/assets/fixtures/maps/places-data-regional-no-icentres.json';
 import placesDataFeatured from '@/assets/fixtures/maps/places-data-featured.json';
 import placesDataOutlander from '@/assets/fixtures/maps/places-data-outlander.json';
 import placesDataRegions from '@/assets/fixtures/maps/places-data-regions.json';
@@ -105,6 +106,27 @@ RegionalMap.args = {
     categoryHeading: 'Map of The Highlands',
     filters: mapFiltersRegional,
     placesData: placesDataRegional.features,
+    toggleData: [
+        {
+            text: 'Places',
+            value: 'places-regional',
+        },
+        {
+            text: 'iCentres',
+            value: 'icentres',
+        },
+    ],
+    mapId: 'vs-map',
+};
+
+export const RegionalMapNoIcentres = Template.bind({
+});
+
+RegionalMapNoIcentres.args = {
+    ...base,
+    categoryHeading: 'Map of The Highlands',
+    filters: mapFiltersRegional,
+    placesData: placesDataRegionalNoIcentres.features,
     toggleData: [
         {
             text: 'Places',

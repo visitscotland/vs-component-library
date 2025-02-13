@@ -54,7 +54,7 @@
                                 </div>
 
                                 <VsCol
-                                    v-if="businessSupport"
+                                    v-if="businessSupport && $slots['vs-article-img']"
                                     class="mb-300"
                                     cols="7"
                                 >

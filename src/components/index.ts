@@ -28,6 +28,7 @@ export { default as VsDescriptionListItem } from './description-list/components/
 export { default as VsDropdown } from './dropdown/Dropdown.vue';
 export { default as VsDropdownItem } from './dropdown/components/DropdownItem.vue';
 export { default as VsEmbedWrapper } from './embed-wrapper/EmbedWrapper.vue';
+export { default as VsEventCard } from './event-card/EventCard.vue';
 export { default as VsFilter } from './filter/VsFilter.vue';
 export { default as VsFilterPanel } from './filter/components/VsFilterPanel.vue';
 export { default as VsFilterSection } from './filter/components/VsFilterSection.vue';
