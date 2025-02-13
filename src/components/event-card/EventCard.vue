@@ -43,7 +43,7 @@
                 <slot name="event-card-content" />
             </div>
             <div
-                class="vs-event-card__cta mt-050"
+                class="vs-event-card__cta"
                 data-test="vs-event-card__cta"
                 v-if="ctaHref && ctaLabel"
             >
@@ -133,6 +133,12 @@ export default {
 
     .vs-event-card__cta {
         margin-bottom: $spacer-050;
+    }
+
+    @include media-breakpoint-down(md) {
+        .vs-event-card__cta {
+        margin-top: $spacer-150;
+    }
     }
 
     @include media-breakpoint-up(md) {
