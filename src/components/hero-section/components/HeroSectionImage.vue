@@ -112,7 +112,6 @@ export default {
         &--split {
             .vs-hero-section-image__img {
                 height: 255px;
-                border-radius: 0 0 40px 0;
 
                 @include media-breakpoint-up(sm) {
                     height: 408px;

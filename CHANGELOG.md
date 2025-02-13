@@ -2,6 +2,116 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.10.0](https://github.com/visitscotland/vs-component-library/compare/v4.8.3...v4.10.0) (2025-02-12)
+
+
+### 🏗 Build System
+
+* **deps:** bump elliptic from 6.5.7 to 6.6.0 in the npm_and_yarn group ([6da9376](https://github.com/visitscotland/vs-component-library/commit/6da937608b0a5854ea7e59bf7a9cc2ea9ccc12e5))
+
+
+### ✨ Features
+
+* **eventcard:** added new Event Card component as per BSHUB-524 ([a35c42f](https://github.com/visitscotland/vs-component-library/commit/a35c42fbb908928febd308f3863223024a63d9a5))
+* **hero:** add new video hero variant to herosection component ([87a2325](https://github.com/visitscotland/vs-component-library/commit/87a232520563632c5bccbc0ce193b19ad5e3085e))
+
+
+### ✅ Tests
+
+* **eventcard:** add tests for new component ([4e389e1](https://github.com/visitscotland/vs-component-library/commit/4e389e112693128512a3573a4702bd4fe35a0432))
+* **hero:** update hero section unit tests to include new video variant ([c25cc1b](https://github.com/visitscotland/vs-component-library/commit/c25cc1bb24232e7cb70b729d9478d890d333a7fa))
+
+
+### ⏪ Revertions
+
+* Revert "Revert "feat(map with sidebar): add separate story for regions with no icentres"" ([acc8a4d](https://github.com/visitscotland/vs-component-library/commit/acc8a4d9ce8ad60de8f0625436faf0f072c5c740))
+* Revert "Revert "feat(map with sidebar): remove filters and toggles with no data"" ([464d9ba](https://github.com/visitscotland/vs-component-library/commit/464d9ba2a93119ae1875f5299f612a4fe32b445b))
+
+
+### 🔖 Others
+
+* **release:** 4.9.0 ([bc745e3](https://github.com/visitscotland/vs-component-library/commit/bc745e381af5470dbd081f75b537b3f11f2d2852))
+
+
+### ♻️ Code Refactoring
+
+* **eventcard:** changed the data structure of component to better match cms data ([f451ded](https://github.com/visitscotland/vs-component-library/commit/f451ded480f80b2f1f973a8df60ef1e3bc7804fc))
+* **eventcard:** changes story to detail-list and refactored button positioning ([63c9d0f](https://github.com/visitscotland/vs-component-library/commit/63c9d0fcef306225d15d89bd19ad1b551d078a04))
+* **eventcard:** implemented PR Feedback, change class names, added prop comments, VsButton, etc ([b473073](https://github.com/visitscotland/vs-component-library/commit/b47307397c36ddc09993d79d79b245bb84006ada))
+* **eventcard:** listing now using VsList element as a description list was not right for job ([ef5f900](https://github.com/visitscotland/vs-component-library/commit/ef5f900fa5ed20109d8bee83affe7a3b49bf7c5b))
+* **eventcard:** refactored card so that there is only one content slot, for reusability ([3b9b200](https://github.com/visitscotland/vs-component-library/commit/3b9b2005997170471085bfdd9f52b6a57e7c2e17))
+* **eventcard:** refactored code to make neater and ensure proper style ([8826af5](https://github.com/visitscotland/vs-component-library/commit/8826af53f35e3ddb801c61a930068b4f638439b2))
+* **eventcard:** remove unnecessary button from story ([0a4e62f](https://github.com/visitscotland/vs-component-library/commit/0a4e62ff43535707a0754434636c6ecdb9d9fc52))
+* **eventcard:** removed divs for performance and to make semantically correct ([e0e06fd](https://github.com/visitscotland/vs-component-library/commit/e0e06fd681b35de55580e4d052270bd22afe97dc))
+
+
+### 🎨 Styling
+
+* **eventcard:** fixed spacing issue ([579618e](https://github.com/visitscotland/vs-component-library/commit/579618e41eeab9bd01737b30abdd46c521a3263a))
+
+
+### 🐛 Bug Fixes
+
+* **eventcard:** fixed error causing storybook to not render Travel Trade variant of component ([06d881b](https://github.com/visitscotland/vs-component-library/commit/06d881bb47078fc37f75fdca438b977730c8bb52))
+* **eventcard:** fixed mis-matched closing tags on VsLists causing Chromatic errors ([db4323d](https://github.com/visitscotland/vs-component-library/commit/db4323da8d5c009d331a0a9d86bc74526b945bd0))
+* **hero:** add playinline to fix video not playing on iOS ([2780eff](https://github.com/visitscotland/vs-component-library/commit/2780effdaa2dcd42b83f749a00caa16d4f8159b2))
+* **map:** hide toggles unless multiple present ([82941f1](https://github.com/visitscotland/vs-component-library/commit/82941f18a60615c6cacf167dc4423f2d6dee7c99))
+
+## [4.9.0](https://github.com/visitscotland/vs-component-library/compare/v4.8.3...v4.9.0) (2025-02-11)
+
+
+### ⏪ Revertions
+
+* Revert "Revert "feat(map with sidebar): add separate story for regions with no icentres"" ([acc8a4d](https://github.com/visitscotland/vs-component-library/commit/acc8a4d9ce8ad60de8f0625436faf0f072c5c740))
+* Revert "Revert "feat(map with sidebar): remove filters and toggles with no data"" ([464d9ba](https://github.com/visitscotland/vs-component-library/commit/464d9ba2a93119ae1875f5299f612a4fe32b445b))
+
+
+### 🐛 Bug Fixes
+
+* **map:** hide toggles unless multiple present ([82941f1](https://github.com/visitscotland/vs-component-library/commit/82941f18a60615c6cacf167dc4423f2d6dee7c99))
+
+### [4.8.3](https://github.com/visitscotland/vs-component-library/compare/v4.8.2...v4.8.3) (2025-02-11)
+
+
+### ⏪ Revertions
+
+* Revert "feat(map with sidebar): remove filters and toggles with no data" ([6974d4f](https://github.com/visitscotland/vs-component-library/commit/6974d4f53c791d3d6dc396cc777a5a15be5c5b9d))
+
+
+### 🐛 Bug Fixes
+
+* **hero:** remove rounded corners on hero image on smaller screens ([9f265d9](https://github.com/visitscotland/vs-component-library/commit/9f265d993c0d281f875ac119fc092a3dba904cb5))
+
+### [4.8.2](https://github.com/visitscotland/vs-component-library/compare/v4.8.1...v4.8.2) (2025-02-06)
+
+
+### ♻️ Code Refactoring
+
+* **analytics:** remove redundant commented out code ([48d38ff](https://github.com/visitscotland/vs-component-library/commit/48d38ffa462595f0467ba6f6ef91d1a5585caff3))
+
+
+### ✨ Features
+
+* **analytics:** add accordion open event ([ef8fd61](https://github.com/visitscotland/vs-component-library/commit/ef8fd6133497ba6c77326a0e322fb43d2b9fcea5))
+
+
+### 🐛 Bug Fixes
+
+* **analytics:** revert change to errors tag name ([18beeb6](https://github.com/visitscotland/vs-component-library/commit/18beeb687d13333f2cd426c1bdd143548909e4bb))
+* **analytics:** update error event name to GA4 schema ([ce1929c](https://github.com/visitscotland/vs-component-library/commit/ce1929ccb960dfdce0603c8afbbf24a138563e41))
+
+### [4.8.1](https://github.com/visitscotland/vs-component-library/compare/v4.8.0...v4.8.1) (2025-02-04)
+
+
+### 🐛 Bug Fixes
+
+* **vsarticle:** vs-article-image needs to be conditional on the slot having content to reder ([971d9d4](https://github.com/visitscotland/vs-component-library/commit/971d9d4424d2826585eb3cd43fb3a60ef3140623))
+
+
+### 🏗 Build System
+
+* **yarn:** upgrade yarn to latest version ([ab1abe8](https://github.com/visitscotland/vs-component-library/commit/ab1abe87b71a98ef5b97eb531cec4fcf7c1e84ff))
+
 ## [4.8.0](https://github.com/visitscotland/vs-component-library/compare/v4.7.7...v4.8.0) (2025-01-30)
 
 

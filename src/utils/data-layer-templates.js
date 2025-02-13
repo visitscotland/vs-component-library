@@ -334,6 +334,22 @@ const cmsReferralTemplate = [
     'dmo_referral',
 ];
 
+const accordionOpenTemplate = [
+    'event',
+    'site_language',
+    'page_category_1',
+    'page_category_2',
+    'page_category_3',
+    'page_category_4',
+    'page_category_5',
+    'page_category_6',
+    'user_country_setting',
+    'hit_timestamp',
+    'tag_name',
+    'meta_data',
+    'accordion_text',
+];
+
 export {
     pageViewTemplate,
     menuNavigationTemplate,
@@ -353,4 +369,5 @@ export {
     carbonCompleteTemplate,
     productSearchTemplate,
     cmsReferralTemplate,
+    accordionOpenTemplate,
 };
