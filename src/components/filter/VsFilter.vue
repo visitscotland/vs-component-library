@@ -1,44 +1,45 @@
 <template>
-    <div class="vs-filter__wrapper">
-        <div
-            class="vs-filter"
-            data-test="vs-filter"
+    <div
+        class="vs-filter"
+        data-test="vs-filter"
+    >
+        <VsButton
+            class="vs-filter__toggle"
+            icon="filters"
+            id="toggle-btn"
+            ref="btnShow"
+            variant="secondary"
+            @click="emitter.emit('showModal', props.filterId)"
         >
-            <VsButton
-                class="vs-filter__toggle"
-                icon="filters"
-                id="toggle-btn"
-                ref="btnShow"
-                variant="secondary"
-                @click="emitter.emit('showModal', props.filterId)"
-            >
-                {{ props.filterButtonText }}
-            </VsButton>
+            {{ props.filterButtonText }}
+        </VsButton>
 
-            <VsModal
-                close-btn-text="Close"
-                :modal-id="props.filterId"
-            >
-                <!-- @slot default slot for the filter panel -->
-                <slot />
-
-                <VsButton
-                    class="vs-filter__apply"
-                    @click="emitter.emit('hideModal')"
-                >
-                    {{ props.applyButtonText }}
-                </VsButton>
-            </VsModal>
-
+        <VsModal
+            close-btn-text="Close"
+            :modal-id="props.filterId"
+        >
             <!-- @slot default slot for the filter panel -->
             <slot />
-        </div>
 
-        <VsWarning>
-            <!-- @slot Message to show when JS is disabled  -->
-            <slot name="no-js" />
-        </VsWarning>
+            <VsButton
+                class="vs-filter__apply"
+                @click="emitter.emit('hideModal')"
+            >
+                {{ props.applyButtonText }}
+            </VsButton>
+        </VsModal>
+
+        <!-- @slot default slot for the filter panel -->
+        <slot />
     </div>
+
+    <VsWarning
+        v-if="$slots['no-js']"
+        class="vs-filter__warning"
+    >
+        <!-- @slot Message to show when JS is disabled  -->
+        <slot name="no-js" />
+    </VsWarning>
 </template>
 
 <script setup>

@@ -23,7 +23,7 @@ beforeEach(() => {
 
 describe('VsFilter', () => {
     it('should render an element with the `vs-filter` test attribute', () => {
-        expect(wrapper.attributes('data-test')).toBe('vs-filter');
+        expect(wrapper.find('[data-test="vs-filter"]').exists()).toBe(true);
     });
 
     describe(':props', () => {
