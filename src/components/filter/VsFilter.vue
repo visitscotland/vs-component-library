@@ -37,6 +37,9 @@
 <script setup>
 import VsButton from '@/components/button/Button.vue';
 import VsModal from '@/components/modal/Modal.vue';
+import { inject, onMounted } from 'vue';
+
+const emitter = inject('emitter');
 
 const props = defineProps({
     /**
@@ -60,6 +63,13 @@ const props = defineProps({
         type: String,
         required: true,
     },
+});
+
+onMounted(() => {
+    // Close the modal when the screen is resized.
+    window.addEventListener('resize', () => {
+        emitter.emit('hideModal');
+    });
 });
 </script>
 
