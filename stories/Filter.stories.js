@@ -24,47 +24,59 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsFilter v-bind="args">
-            <VsFilterPanel
-                :filter-label="args.filterLabel"   
-            >
-                <VsFilterSection
-                    v-for="group in args.filterGroups"
-                    :key="group.group"
-                    :type="group.type"
-                    :section-title="group.label || null"
+        <div
+            :class="args.jsDisabled ? 'no-js' : ''"
+        >
+            <VsFilter v-bind="args">
+                <VsFilterPanel
+                    :filter-label="args.filterLabel"   
                 >
-                    <template v-if="group.type === 'inline'">
-                        <div
-                            v-for="filter in group.filters"
-                            class="date-picker"
-                        >
-                            <label :for="filter.label">
-                                {{ filter.label }}
-                            </label>
-                            <div>
-                                <input
-                                    type="date"
-                                    :id="filter.label"
-                                    :name="filter.label"
-                                    :min="args.minDate"
-                                >
+                    <VsFilterSection
+                        v-for="group in args.filterGroups"
+                        :key="group.group"
+                        :type="group.type"
+                        :section-title="group.label || null"
+                    >
+                        <template v-if="group.type === 'inline'">
+                            <div
+                                v-for="filter in group.filters"
+                                class="date-picker"
+                            >
+                                <label :for="filter.label">
+                                    {{ filter.label }}
+                                </label>
+                                <div>
+                                    <input
+                                        type="date"
+                                        :id="filter.label"
+                                        :name="filter.label"
+                                        :min="args.minDate"
+                                    >
+                                </div>
                             </div>
-                        </div>
-                    </template>
+                        </template>
 
-                    <template v-else>
-                        <VsCheckbox
-                            v-for="filter in group.filters"
-                            :field-name="filter.label"
-                            value="checked"
-                            :label="filter.label"
-                            size="sm"
-                        />
-                    </template>
-                </VsFilterSection>                       
-            </VsFilterPanel>
-        </VsFilter>
+                        <template v-else>
+                            <VsCheckbox
+                                v-for="filter in group.filters"
+                                :field-name="filter.label"
+                                value="checked"
+                                :label="filter.label"
+                                size="sm"
+                            />
+                        </template>
+                    </VsFilterSection>                       
+                </VsFilterPanel>
+
+                <template
+                    #no-js
+                    v-if="args.jsDisabled"
+                >
+                    {{ args.noJsMessage }}
+                </template>
+
+            </VsFilter>
+        </div>
     `,
 });
 
@@ -160,4 +172,11 @@ Mobile.parameters = {
     viewport: {
         defaultViewport: 'mobile2',
     },
+};
+
+export const NoJavascript = Template.bind();
+NoJavascript.args = {
+    ...base,
+    jsDisabled: true,
+    noJsMessage: 'You need Javascript enabled to use this filter',
 };

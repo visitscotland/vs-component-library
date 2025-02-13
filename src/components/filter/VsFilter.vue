@@ -1,42 +1,50 @@
 <template>
-    <div
-        class="vs-filter"
-        data-test="vs-filter"
-    >
-        <VsButton
-            class="vs-filter__toggle"
-            icon="filters"
-            id="toggle-btn"
-            ref="btnShow"
-            variant="secondary"
-            @click="emitter.emit('showModal', props.filterId)"
+    <div class="vs-filter__wrapper">
+        <div
+            class="vs-filter"
+            data-test="vs-filter"
         >
-            {{ props.filterButtonText }}
-        </VsButton>
+            <VsButton
+                class="vs-filter__toggle"
+                icon="filters"
+                id="toggle-btn"
+                ref="btnShow"
+                variant="secondary"
+                @click="emitter.emit('showModal', props.filterId)"
+            >
+                {{ props.filterButtonText }}
+            </VsButton>
 
-        <VsModal
-            close-btn-text="Close"
-            :modal-id="props.filterId"
-        >
+            <VsModal
+                close-btn-text="Close"
+                :modal-id="props.filterId"
+            >
+                <!-- @slot default slot for the filter panel -->
+                <slot />
+
+                <VsButton
+                    class="vs-filter__apply"
+                    @click="emitter.emit('hideModal')"
+                >
+                    {{ props.applyButtonText }}
+                </VsButton>
+            </VsModal>
+
             <!-- @slot default slot for the filter panel -->
             <slot />
+        </div>
 
-            <VsButton
-                class="vs-filter__apply"
-                @click="emitter.emit('hideModal')"
-            >
-                {{ props.applyButtonText }}
-            </VsButton>
-        </VsModal>
-
-        <!-- @slot default slot for the filter panel -->
-        <slot />
+        <VsWarning>
+            <!-- @slot Message to show when JS is disabled  -->
+            <slot name="no-js" />
+        </VsWarning>
     </div>
 </template>
 
 <script setup>
 import VsButton from '@/components/button/Button.vue';
 import VsModal from '@/components/modal/Modal.vue';
+import VsWarning from '@/components/warning/Warning.vue';
 import { inject, onMounted } from 'vue';
 
 const emitter = inject('emitter');
@@ -114,6 +122,16 @@ onMounted(() => {
 .vs-modal .vs-filter {
     &__legend {
         background-color: $vs-color-background-inverse;
+    }
+}
+
+@include no-js {
+    .vs-filter {
+        display: none;
+    }
+
+    .vs-filter__wrapper .vs-warning {
+        display: block;
     }
 }
 </style>
