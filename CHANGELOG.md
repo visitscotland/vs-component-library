@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.10.2](https://github.com/visitscotland/vs-component-library/compare/v4.10.1...v4.10.2) (2025-02-13)
+
+
+### 🐛 Bug Fixes
+
+* **analytics:** remove spaces from signpost urls ([7210f4e](https://github.com/visitscotland/vs-component-library/commit/7210f4e6566a4dbc44df7ab9c88a1dfd2c81f476))
+
 ### [4.10.1](https://github.com/visitscotland/vs-component-library/compare/v4.10.0...v4.10.1) (2025-02-13)
 
 
