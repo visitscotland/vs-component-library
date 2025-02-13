@@ -65,6 +65,7 @@ WithVideo.args = {
     lede: 'Where history meets breathtaking beauty, and every visit feels like home.',
     src: 'fixtures/hero/images/winter-web-test.jpg',
     videoSrc: 'fixtures/hero/video/winter-web-test.mp4',
+    videoBtnText: 'Toggle video',
 };
 
 export const Inset = Template.bind({

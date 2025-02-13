@@ -130,6 +130,18 @@ describe('VsHeroSection', () => {
             const textContainer = wrapper.find('.vs-hero-section__text-container');
             expect(textContainer.classes()).toContain('vs-hero-section__text-container--video');
         });
+
+        it('renders with custom video button text when prop is provided', async() => {
+            const wrapper = factoryShallowMount();
+            const customBtnText = 'Toggle video';
+
+            await wrapper.setProps({
+                videoBtnText: customBtnText,
+            });
+
+            const videoControl = wrapper.find('vs-hero-section-video-control-stub');
+            expect(videoControl.text()).toContain(customBtnText);
+        });
     });
 
     describe(':accessibility', () => {
