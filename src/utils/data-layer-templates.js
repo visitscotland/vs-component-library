@@ -173,6 +173,7 @@ const externalLinkTemplate = [
     'click_text',
     'click_URL',
     'dmo_referral',
+    'partner_referral',
 ];
 
 const internalLinkTemplate = [

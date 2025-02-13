@@ -3,6 +3,8 @@ import useDataLayerStore from '../stores/dataLayer.store';
 
 import checkVendorLibrary from '../utils/check-vendor-library';
 
+import { signpostedPartners } from '../constants';
+
 import {
     pageViewTemplate,
     externalLinkTemplate,
@@ -180,7 +182,14 @@ const dataLayerMixin = {
                     tag_name: tagName,
                     click_text: clickText,
                     click_URL: href,
+                    partner_referral: 'False',
                 };
+
+                for (let x = 0; x < signpostedPartners.length; x++) {
+                    if (href.includes(signpostedPartners[x])) {
+                        templateValues.partner_referral = 'True';
+                    }
+                }
 
                 fullTemplate = this.compileFullTemplate(templateValues);
                 dataLayerData = this.templateFiller(externalLinkTemplate, fullTemplate);
