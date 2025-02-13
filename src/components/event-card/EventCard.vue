@@ -137,8 +137,8 @@ export default {
 
     @include media-breakpoint-down(md) {
         .vs-event-card__cta {
-        margin-top: $spacer-150;
-    }
+            margin-top: $spacer-150;
+        }
     }
 
     @include media-breakpoint-up(md) {
