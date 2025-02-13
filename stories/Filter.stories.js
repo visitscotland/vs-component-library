@@ -39,77 +39,41 @@ const Template = (args) => ({
                         <VsFilterPanel
                             :filter-label="args.filterLabel"   
                         >
-                            <VsFilterSection type="inline">
-                                <div class="date-picker">
-                                    <label for="from">
-                                        From
-                                    </label>
-                                    <div>
-                                        <input
-                                            type="date"
-                                            id="from"
-                                            name="from"
-                                            min="2025-02-14"
-                                        >
-                                    </div>
-                                </div>
-                            
-                                <div class="date-picker">
-                                    <label for="to">
-                                        To
-                                    </label>
-                                    <div>
-                                        <input
-                                            type="date"
-                                            id="to"
-                                            name="to"
-                                            min="2025-03-03"
-                                        >
-                                    </div>
-                                </div>
-                            </VsFilterSection>
-
-                            <VsFilterSection type="list">
-                                <VsCheckbox
-                                    field-name="cookieConsent"
-                                    value="checked"
-                                    label="Free"
-                                    size="sm"
-                                />
-
-                                <VsCheckbox
-                                    field-name="cookieConsent"
-                                    value="checked"
-                                    label="Online"
-                                    size="sm"
-                                />
-                            </VsFilterSection>
-
                             <VsFilterSection
-                                :section-title="args.filters[4].label"
-                                type="group"
+                                v-for="group in args.filterGroups"
+                                :key="group.group"
+                                :type="group.type"
+                                :section-title="group.label || null"
                             >
-                                <VsCheckbox
-                                    v-for="item in args.filters[4].values"
-                                    :field-name="item.value"
-                                    value="checked"
-                                    :label="item.name"
-                                    size="sm"
-                                />
-                            </VsFilterSection>
+                                <template v-if="group.type === 'inline'">
+                                    <div
+                                        v-for="filter in group.filters"
+                                        class="date-picker"
+                                    >
+                                        <label :for="filter.label">
+                                            {{ filter.label }}
+                                        </label>
+                                        <div>
+                                            <input
+                                                type="date"
+                                                :id="filter.label"
+                                                :name="filter.label"
+                                                :min="args.minDate"
+                                            >
+                                        </div>
+                                    </div>
+                                </template>
 
-                            <VsFilterSection
-                                :section-title="args.filters[5].label"
-                                type="group"
-                            >
-                                <VsCheckbox
-                                    v-for="item in args.filters[5].values"
-                                    :field-name="item.value"
-                                    value="checked"
-                                    :label="item.name"
-                                    size="sm"
-                                />
-                            </VsFilterSection>
+                                <template v-else>
+                                    <VsCheckbox
+                                        v-for="filter in group.filters"
+                                        :field-name="filter.label"
+                                        value="checked"
+                                        :label="filter.label"
+                                        size="sm"
+                                    />
+                                </template>
+                            </VsFilterSection>                       
                         </VsFilterPanel>
                     </VsFilter>
                 </VsCol>
@@ -118,65 +82,83 @@ const Template = (args) => ({
     `,
 });
 
+const getTodayDate = () => {
+    let todayDate = new Date();
+    const offset = todayDate.getTimezoneOffset();
+    todayDate = new Date(todayDate.getTime() - (offset * 60 * 1000));
+    return todayDate.toISOString().split('T')[0];
+};
+
 const base = {
     filterId: 'filter-1',
     applyButtonText: 'Apply',
     filterButtonText: 'Filter',
     filterLabel: 'Filter',
-    filters: [
+    minDate: getTodayDate(),
+    filterGroups: [
         {
-            label: 'Free',
-            type: 'boolean',
             group: 1,
-        },
-        {
-            label: 'Online',
-            type: 'boolean',
-            group: 1,
-        },
-        {
-            label: 'From',
-            type: 'date',
-            group: 2,
-        },
-        {
-            label: 'To',
-            type: 'date',
-            group: 2,
-        },
-        {
-            label: 'Sector',
-            type: 'multiselect',
-            values: [
+            type: 'inline',
+            filters: [
                 {
-                    name: 'Accommodation',
-                    value: 'accommodation',
+                    label: 'From',
+                    type: 'date',
                 },
                 {
-                    name: 'Food and Drink',
-                    value: 'food-drink',
-                },
-                {
-                    name: 'Tours, Guides and Transport',
-                    value: 'tours',
+                    label: 'To',
+                    type: 'date',
                 },
             ],
         },
         {
+            group: 2,
+            type: 'list',
+            filters: [
+                {
+                    label: 'Free',
+                    type: 'boolean',
+                },
+                {
+                    label: 'Online',
+                    type: 'boolean',
+                },
+            ],
+        },
+        {
+            group: 3,
+            type: 'group',
+            label: 'Sector',
+            filters: [
+                {
+                    label: 'Accommodation',
+                    type: 'accommodation',
+                },
+                {
+                    label: 'Food and Drink',
+                    type: 'food-drink',
+                },
+                {
+                    label: 'Tours, Guides and Transport',
+                    type: 'tours',
+                },
+            ],
+        },
+        {
+            group: 4,
+            type: 'group',
             label: 'Training Topic',
-            type: 'multiselect',
-            values: [
+            filters: [
                 {
-                    name: 'Bookkeeping and finance',
-                    value: 'bookkeeping-finance',
+                    label: 'Bookkeeping and finance',
+                    type: 'bookkeeping-finance',
                 },
                 {
-                    name: 'Growing your business',
-                    value: 'growing-business',
+                    label: 'Growing your business',
+                    type: 'growing-business',
                 },
                 {
-                    name: 'IT and cyber security',
-                    value: 'it-cyber-security',
+                    label: 'IT and cyber security',
+                    type: 'it-cyber-security',
                 },
             ],
         },
