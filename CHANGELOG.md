@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.10.1](https://github.com/visitscotland/vs-component-library/compare/v4.10.0...v4.10.1) (2025-02-13)
+
+
+### ✨ Features
+
+* **analytics:** track partner referrals for external links ([67b9940](https://github.com/visitscotland/vs-component-library/commit/67b99405bef79830fe3226880c690f690d7e6e43))
+
 ## [4.10.0](https://github.com/visitscotland/vs-component-library/compare/v4.8.3...v4.10.0) (2025-02-12)
 
 
