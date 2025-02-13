@@ -111,3 +111,11 @@ NoJavascript.args = {
     ...base,
     jsDisabled: true,
 };
+
+export const BSHVariant = Template.bind({
+});
+
+BSHVariant.args = {
+    ...base,
+    businessSupportVariant: true,
+};

@@ -4,8 +4,11 @@ NEW
     <div
         class="vs-tabs"
         data-test="vs-tabs"
+        align="center"
     >
-        <BTabs>
+        <BTabs
+            :business-support-variant="businessSupportVariant"
+        >
             <!-- @slot default slot for VsTabItems -->
             <slot />
         </BTabs>
@@ -26,13 +29,24 @@ export default {
     components: {
         BTabs,
     },
+    props: {
+        businessSupportVariant: {
+            type: Boolean,
+            deafult: false,
+        },
+    },
 };
 </script>
 
 <style lang="scss">
     .vs-tabs{
+        // .nav-item {
+        //     flex: auto;
+        //     align-self: flex-end;
+        // }
+
         .nav-item {
-            flex: auto;
+            flex: 1;
             align-self: flex-end;
         }
 
