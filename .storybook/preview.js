@@ -8,6 +8,7 @@ import mitt from 'mitt';
 setup(app => {
     const emitter = mitt();
     app.config.globalProperties.emitter = emitter;
+    app.provide('emitter', emitter);
     app.use(pinia());
 });
 

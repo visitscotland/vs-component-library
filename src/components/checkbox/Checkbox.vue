@@ -1,7 +1,6 @@
 <template>
     <div
-        class="vs-checkbox"
-        :class="errorClass"
+        :class="checkBoxClasses"
     >
         <p
             class="hint-text"
@@ -171,6 +170,15 @@ export default {
             type: Boolean,
             default: false,
         },
+        /**
+         * Size of the checkbox
+         * `sm|md|lg`.
+         */
+        size: {
+            type: String,
+            default: undefined,
+            validator: (value) => value.match(/(sm|md|lg)/),
+        },
     },
     setup: () => ({
         v$: useVuelidate(),
@@ -182,8 +190,12 @@ export default {
         };
     },
     computed: {
-        errorClass() {
-            return this.isInvalid ? 'vs-checkbox--error' : '';
+        checkBoxClasses() {
+            return {
+                'vs-checkbox': true,
+                'vs-checkbox--error': this.isInvalid,
+                'vs-checkbox--small': this.size === 'sm',
+            };
         },
     },
     watch: {
@@ -244,6 +256,10 @@ export default {
                     @include form-error-state;
                 }
             }
+        }
+
+        &--small {
+            @include form-checkbox(16px, $font-size-2, $line-height-s);
         }
 
         .form-check-input[disabled] ~ .form-check-label,
