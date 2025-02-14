@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.10.3](https://github.com/visitscotland/vs-component-library/compare/v4.10.2...v4.10.3) (2025-02-14)
+
+
+### 🐛 Bug Fixes
+
+* **analytics:** make partner urls protocol agnostic ([c4df803](https://github.com/visitscotland/vs-component-library/commit/c4df8032de50929c5be1b95650add993b3fe850b))
+
 ### [4.10.2](https://github.com/visitscotland/vs-component-library/compare/v4.10.1...v4.10.2) (2025-02-13)
 
 
