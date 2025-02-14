@@ -106,6 +106,22 @@ describe('VsPagination.vue', () => {
     });
 
     describe(':props', () => {
+        it(':modelValue - should be set to the value passed', async() => {
+            await wrapper.setProps({
+                modelValue: 2,
+            });
+
+            expect(wrapper.props('modelValue')).toBe(2);
+        });
+
+        it(':modelValue - should update when a page button is clicked', async() => {
+            const pageItems = wrapper.findAll('.vs-pagination__item .vs-button');
+
+            await pageItems.at(2).trigger('click');
+
+            expect(wrapper.vm.modelValue).toBe(3);
+        });
+
         it(':nextButtonLabel - should render the next button with the label passed', async() => {
             expect(wrapper.find('.vs-pagination__next').text()).toContain('Next');
         });
