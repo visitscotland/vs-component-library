@@ -1,15 +1,12 @@
 <template>
     <i
         :class="{
-            fak: true,
-            [`fa-${icon}`]: true,
+            [`${icon}`]: true,
             'vs-icon': true,
             [`vs-icon--size-${size}`]: true,
             [`vs-icon--sm-size-${smallSize}`]: smallSize,
-            [`vs-icon--${formattedName}`]: true,
             ['icon--' + orientation]: orientation,
             [`vs-icon--variant-${variant}`]: variant,
-            [`fa-duotone`]: duotone,
         }"
         :style="[customColour ? { color: customColour } : {}]"
         v-bind="$attrs"
@@ -18,6 +15,8 @@
 </template>
 
 <script>
+import designTokens from '@/assets/tokens/tokens.json';
+
 /**
  * Icons are used to visually communicate available actions
  * or ideas and can help users navigate the product.
@@ -30,12 +29,13 @@ export default {
     release: '0.1.0',
     props: {
         /**
-         * The name of the icon to display, which will be the name of the icon file
+         * A string that specifies the Font Awesome icon to render,
+         * either as a semantic design token or as a set
+         * of `fa-` classes.
          */
-        name: {
+        icon: {
             type: String,
             required: true,
-            default: 'search',
         },
         /**
          * The color of the icon.
@@ -45,7 +45,7 @@ export default {
             type: String,
             default: 'default',
             validator: (value) => value.match(
-                /(default|primary|secondary|inverse|disabled|tertiary|danger|warning)/,
+                /(default|primary|secondary|inverse|disabled|tertiary|success|danger|warning)/,
             ),
         },
         /**
@@ -98,147 +98,12 @@ export default {
     },
     data() {
         return {
-            /*
-                *  Some DMS feed categories are different
-                    from the name of the icon file.  This lookup marries up discrepencies
-                */
-            iconLookup: [
-                {
-                    key: 'accesstoliet',
-                    value: 'accessible-toilet',
-                },
-                {
-                    key: 'accessparkdrop',
-                    value: 'facility-accessparkdrop',
-                },
-                {
-                    key: 'acco',
-                    value: 'product-accommodation',
-                },
-                {
-                    key: 'acti',
-                    value: 'product-activities',
-                },
-                {
-                    key: 'attr',
-                    value: 'product-attractions',
-                },
-                {
-                    key: 'audioloop',
-                    value: 'facility-audioloop',
-                },
-                {
-                    key: 'cafereston',
-                    value: 'cafe',
-                },
-                {
-                    key: 'cate',
-                    value: 'product-food-and-drink',
-                },
-                {
-                    key: 'cities',
-                    value: 'city',
-                },
-                {
-                    key: 'cycling',
-                    value: 'cycle',
-                },
-                {
-                    key: 'dsblaccess',
-                    value: 'facility-dsblaccess',
-                },
-                {
-                    key: 'wheelchairaccess',
-                    value: 'facility-dsblaccess',
-                },
-                {
-                    key: 'even',
-                    value: 'product-events',
-                },
-                {
-                    key: 'familyev',
-                    value: 'family',
-                },
-                {
-                    key: 'filmev',
-                    value: 'film-tv',
-                },
-                {
-                    key: 'hottub',
-                    value: 'hot-tub',
-                },
-                {
-                    key: 'parking',
-                    value: 'facility-parking',
-                },
-                {
-                    key: 'petswelcom',
-                    value: 'facility-petswelcom',
-                },
-                {
-                    key: 'wifi',
-                    value: 'facility-wifi',
-                },
-                {
-                    key: 'public',
-                    value: 'public-transport',
-                },
-                {
-                    key: 'pubtranrte',
-                    value: 'public-transport',
-                },
-                {
-                    key: 'reta',
-                    value: 'product-shopping',
-                },
-                {
-                    key: 'spahealth',
-                    value: 'wellness',
-                },
-                {
-                    key: 'vege',
-                    value: 'vegan-vegetarian',
-                },
-                {
-                    key: 'walking',
-                    value: 'walk',
-                },
-                {
-                    key: 'boat',
-                    value: 'boat',
-                },
-                {
-                    key: 'transport',
-                    value: 'transport',
-                },
-                {
-                    key: 'brekavail',
-                    value: 'breakfast-available',
-                },
-                {
-                    key: 'wetroom',
-                    value: 'level-entry-shower',
-                },
-                {
-                    key: 'linkedin',
-                    value: 'linkedin-in fa-brands',
-                },
-            ],
+            tokens: designTokens,
         };
     },
     computed: {
-        icon() {
-            return this.formattedName;
-        },
-        formattedName() {
-            /*
-             * To facilitate more readable icon names and
-             * organise / group icons within the design system
-             * there is a lookup for how keys may be passed from the backend
-             */
-            const formattedNameLookup = this.iconLookup.find(({ key }) => key === this.name);
-
-            return formattedNameLookup !== undefined ? formattedNameLookup.value : this.name;
+        iconClasses() {
+            return this.tokens[this.icon] || this.icon;
         },
     },
 };
