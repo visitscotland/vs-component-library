@@ -41,7 +41,7 @@ export default {
 <style lang="scss">
     .vs-tabs {
         .nav-item {
-            flex: 1;
+            flex: auto;
             align-self: flex-end;
         }
 
