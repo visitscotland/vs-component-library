@@ -1,17 +1,17 @@
 #
 # ICON TOKENS
-# Use these tokens to set icon sizes.
+# Use these semantic tokens for icons.
 #
 
 props:
-   vs-icon-x-twitter:
-    value: "fa-x-twitter fa-brands"
-  vs-icon-season-autumn:
-    value: "fa-leaf-oak fa-regular"
-  vs-icon-whatsapp:
-    value: "fa-whatsapp fa-brands"
-  vs-icon-crow:
-    value: "fa-duotone fa-crow"
+  vs-icon-close:
+    value: "fa-regular fa-xmark"
+  vs-icon-internal-link:
+    value: "fa-regular fa-arrow-right"
+  vs-icon-external-link:
+    value: "fa-regular fa-square-arrow-up-right"
+  vs-icon-information:
+    value: "fa-regular fa-circle-info"
 global:
   type: string
   category: icons

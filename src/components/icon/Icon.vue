@@ -88,13 +88,6 @@ export default {
             default: null,
             validator: (value) => value.match(/(xxs|xs|sm|md|lg|xl)/),
         },
-        /**
-        * Uses FontAwesome Duotone
-        */
-        duotone: {
-            type: Boolean,
-            default: false,
-        },
     },
     data() {
         return {
