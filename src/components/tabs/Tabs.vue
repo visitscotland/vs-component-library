@@ -30,6 +30,9 @@ export default {
         BTabs,
     },
     props: {
+        /**
+         * For changing the styling to BSH styling.
+         */
         businessSupportVariant: {
             type: Boolean,
             deafult: false,
@@ -52,7 +55,7 @@ export default {
             border: 1px solid $vs-color-border-primary;
             border-top: 0;
 
-            .vs-heading{
+            .vs-heading {
                 display: none;
             }
         }
@@ -71,15 +74,15 @@ export default {
             text-align: left;
             border-top: 1px solid $vs-color-border-primary;
 
-            .vs-heading{
+            .vs-heading {
                 display: none;
             }
         }
     }
 
 @include no-js {
-    .vs-tabs, .vs-tabs--bsh{
-        .tab-content > .tab-pane{
+    .vs-tabs, .vs-tabs--bsh {
+        .tab-content > .tab-pane {
             position: relative;
             display: block!important;
             margin-bottom: $spacer-300;

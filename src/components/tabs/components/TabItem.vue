@@ -44,6 +44,9 @@ export default {
             type: String,
             required: true,
         },
+        /**
+         * For changing the styling to BSH styling.
+         */
         businessSupportVariant: {
             type: Boolean,
             default: false,
@@ -52,7 +55,7 @@ export default {
 };
 </script>
 <style lang="scss">
-    .vs-tab-link{
+    .vs-tab-link {
         width: 100%;
         background-color: $vs-color-interaction-cta-subtle-hover;
         color: $vs-color-text-primary;
@@ -93,7 +96,7 @@ export default {
             border-color: $vs-color-interaction-cta-disabled;
         }
 
-        &:focus-visible{
+        &:focus-visible {
             box-shadow: $vs-box-shadow-focus;
             outline: none;
         }
@@ -142,7 +145,7 @@ export default {
             border-color: $vs-color-interaction-cta-disabled;
         }
 
-        &:focus-visible{
+        &:focus-visible {
             box-shadow: $vs-box-shadow-focus;
             outline: none;
         }
