@@ -42,6 +42,21 @@ describe('VsTabs', () => {
         });
     });
 
+    describe('props:', () => {
+        it('should render a bsh variant when BSH variant prop is true', () => {
+            const wrapper = shallowMount(VsTabs, {
+                factoryMount,
+                propsData: {
+                    businessSupportVariant: true,
+                },
+            });
+
+            const tabs = wrapper.find('div[data-test="vs-tabs"]');
+
+            expect(tabs.classes()).toContain('vs-tabs--bsh');
+        });
+    });
+
     describe(':accessibility', () => {
         it('should not have aXe accessibility issues', async() => {
             const wrapper = factoryMount();
