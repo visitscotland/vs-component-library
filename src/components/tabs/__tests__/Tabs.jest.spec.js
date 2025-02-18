@@ -47,13 +47,13 @@ describe('VsTabs', () => {
             const wrapper = shallowMount(VsTabs, {
                 factoryMount,
                 propsData: {
-                    businessSupportVariant: true,
+                    noContainer: true,
                 },
             });
 
             const tabs = wrapper.find('div[data-test="vs-tabs"]');
 
-            expect(tabs.classes()).toContain('vs-tabs--bsh');
+            expect(tabs.classes()).toContain('vs-tabs--no-container');
         });
     });
 
