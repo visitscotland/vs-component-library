@@ -32,8 +32,7 @@ const Template = (args) => ({
         <div
             :class="args.jsDisabled ? 'no-js' : ''"
         >
-            <VsTabs 
-                v-bind="args">
+            <VsTabs v-bind="args">
                 <VsTabItem 
                     title="Getting Here"
                     :businessSupportVariant="args.businessSupportVariant"

@@ -46,6 +46,8 @@ export default {
         },
         /**
          * For changing the styling to BSH styling.
+         * Rounded tabs that are the width of their content,
+         * and centered in the tab row.
          */
         businessSupportVariant: {
             type: Boolean,
@@ -108,7 +110,7 @@ export default {
         color: $vs-color-text-primary;
         border-width: 1px;
         border-color: $vs-color-border-primary;
-        border-radius: 5px 5px 0 0;
+        border-radius: $border-radius-lg $border-radius-lg $spacer-0 $spacer-0;
         text-wrap: wrap;
         padding: $spacer-100 $spacer-075;
         transition: $duration-base all;

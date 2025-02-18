@@ -32,6 +32,8 @@ export default {
     props: {
         /**
          * For changing the styling to BSH styling.
+         * Rounded tabs that are the width of their content,
+         * and centered in the tab row.
          */
         businessSupportVariant: {
             type: Boolean,
