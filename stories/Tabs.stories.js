@@ -35,7 +35,7 @@ const Template = (args) => ({
             <VsTabs v-bind="args">
                 <VsTabItem 
                     title="Getting Here"
-                    :businessSupportVariant="args.businessSupportVariant"
+                    :noContainer="args.noContainer"
                 >
                     <div class="px-125 py-100">
                         <p>
@@ -50,7 +50,7 @@ const Template = (args) => ({
                 </VsTabItem>
                 <VsTabItem 
                     title="Getting Around"
-                    :businessSupportVariant="args.businessSupportVariant"
+                    :noContainer="args.noContainer"
                 >
                     <div class="px-125 py-100">
                     <p>
@@ -66,7 +66,7 @@ const Template = (args) => ({
                     title="Where to Stay"
                     :disabled="args.disabled ? true : false"
                     :aria-disabled="args.disabled ? true : false"
-                    :businessSupportVariant="args.businessSupportVariant"
+                    :noContainer="args.noContainer"
                 >
                     <div class="px-125 py-100">
                     <p>
@@ -119,10 +119,10 @@ NoJavascript.args = {
     jsDisabled: true,
 };
 
-export const BSHVariant = Template.bind({
+export const NoContainer = Template.bind({
 });
 
-BSHVariant.args = {
+NoContainer.args = {
     ...base,
-    businessSupportVariant: true,
+    noContainer: true,
 };

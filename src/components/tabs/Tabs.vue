@@ -2,12 +2,12 @@ NEW
 
 <template>
     <div
-        :class="businessSupportVariant ? 'vs-tabs--bsh' : 'vs-tabs'"
+        :class="noContainer ? 'vs-tabs--no-container' : 'vs-tabs'"
         data-test="vs-tabs"
     >
         <BTabs
-            :buisness-support-variant="businessSupportVariant"
-            :align="businessSupportVariant ? 'center' : null"
+            :no-container="noContainer"
+            :align="noContainer ? 'center' : null"
         >
             <!-- @slot default slot for VsTabItems -->
             <slot />
@@ -31,11 +31,11 @@ export default {
     },
     props: {
         /**
-         * For changing the styling to BSH styling.
+         * Changes to a no-container layout.
          * Rounded tabs that are the width of their content,
          * and centered in the tab row.
          */
-        businessSupportVariant: {
+        noContainer: {
             type: Boolean,
             deafult: false,
         },
@@ -63,27 +63,41 @@ export default {
         }
     }
 
-    .vs-tabs--bsh {
+    .vs-tabs--no-container {
+        .nav {
+            flex-wrap: nowrap;
+        }
+
         .nav-item {
-            flex: none;
+            margin: $spacer-0 $spacer-025;
+            text-wrap: wrap;
             align-self: flex-end;
-            margin: 0 1em;
+            flex-direction: row;
+            flex-wrap: nowrap;
         }
 
         .tab-pane {
-            background-color: $vs-color-background-inverse;
-            color: $vs-color-text-primary;
-            text-align: left;
-            border-top: 1px solid $vs-color-border-primary;
-
             .vs-heading {
                 display: none;
+            }
+        }
+
+        @include media-breakpoint-up(md) {
+            .nav-item {
+                margin: $spacer-0 $spacer-100;
+            }
+
+            .tab-pane {
+                background-color: $vs-color-background-inverse;
+                color: $vs-color-text-primary;
+                text-align: left;
+                border-top: 1px solid $vs-color-border-primary;
             }
         }
     }
 
 @include no-js {
-    .vs-tabs, .vs-tabs--bsh {
+    .vs-tabs, .vs-tabs--no-container {
         .tab-content > .tab-pane {
             position: relative;
             display: block!important;

@@ -2,8 +2,8 @@
     <BTab
         class="vs-tab__item"
         data-test="vs-tab__item"
-        :buisness-support-variant="businessSupportVariant"
-        :title-link-class="businessSupportVariant ? 'vs-tab-link--bsh vs-heading' : 'vs-tab-link vs-heading'"
+        :no-container="noContainer"
+        :title-link-class="noContainer ? 'vs-tab-link--no-container vs-heading' : 'vs-tab-link vs-heading'"
         :title="title"
     >
         <VsHeading
@@ -45,11 +45,11 @@ export default {
             required: true,
         },
         /**
-         * For changing the styling to BSH styling.
+         * Changes to a no-container layout.
          * Rounded tabs that are the width of their content,
          * and centered in the tab row.
          */
-        businessSupportVariant: {
+        noContainer: {
             type: Boolean,
             default: false,
         },
@@ -104,15 +104,15 @@ export default {
         }
     }
 
-    .vs-tab-link--bsh {
+    .vs-tab-link--no-container {
         flex-grow: 1;
         background-color: $vs-color-interaction-cta-subtle-hover;
         color: $vs-color-text-primary;
         border-width: 1px;
         border-color: $vs-color-border-primary;
         border-radius: $border-radius-lg $border-radius-lg $spacer-0 $spacer-0;
-        text-wrap: wrap;
-        padding: $spacer-100 $spacer-075;
+        text-wrap: pretty;
+        padding: $spacer-075 $spacer-075;
         transition: $duration-base all;
         transition: all 200ms ease;
         transition-property: background-color, color;
@@ -132,7 +132,7 @@ export default {
         &.active {
             position: relative;
             background-color: $vs-color-background-inverse;
-            padding: $spacer-075 $spacer-075;
+            padding: $spacer-100 $spacer-075;
             @include heading-style(heading-xs, false);
 
             @include media-breakpoint-up(sm) {
