@@ -32,8 +32,12 @@ const Template = (args) => ({
         <div
             :class="args.jsDisabled ? 'no-js' : ''"
         >
-            <VsTabs v-bind="args">
-                <VsTabItem title="Getting Here">
+            <VsTabs 
+                v-bind="args">
+                <VsTabItem 
+                    title="Getting Here"
+                    :businessSupportVariant="args.businessSupportVariant"
+                >
                     <div class="px-125 py-100">
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -45,7 +49,10 @@ const Template = (args) => ({
                         </p>
                     </div>
                 </VsTabItem>
-                <VsTabItem title="Getting Around">
+                <VsTabItem 
+                    title="Getting Around"
+                    :businessSupportVariant="args.businessSupportVariant"
+                >
                     <div class="px-125 py-100">
                     <p>
                         Duis feugiat, turpis vitae congue lacinia, purus orci
@@ -60,6 +67,7 @@ const Template = (args) => ({
                     title="Where to Stay"
                     :disabled="args.disabled ? true : false"
                     :aria-disabled="args.disabled ? true : false"
+                    :businessSupportVariant="args.businessSupportVariant"
                 >
                     <div class="px-125 py-100">
                     <p>

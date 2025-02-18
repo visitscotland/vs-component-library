@@ -2,12 +2,12 @@ NEW
 
 <template>
     <div
-        class="vs-tabs"
+        :class="businessSupportVariant ? 'vs-tabs--bsh' : 'vs-tabs'"
         data-test="vs-tabs"
-        align="center"
     >
         <BTabs
-            :business-support-variant="businessSupportVariant"
+            :buisness-support-variant="businessSupportVariant"
+            :align="businessSupportVariant ? 'center' : null"
         >
             <!-- @slot default slot for VsTabItems -->
             <slot />
@@ -39,12 +39,7 @@ export default {
 </script>
 
 <style lang="scss">
-    .vs-tabs{
-        // .nav-item {
-        //     flex: auto;
-        //     align-self: flex-end;
-        // }
-
+    .vs-tabs {
         .nav-item {
             flex: 1;
             align-self: flex-end;
@@ -63,8 +58,27 @@ export default {
         }
     }
 
+    .vs-tabs--bsh {
+        .nav-item {
+            flex: none;
+            align-self: flex-end;
+            margin: 0 1em;
+        }
+
+        .tab-pane {
+            background-color: $vs-color-background-inverse;
+            color: $vs-color-text-primary;
+            text-align: left;
+            border-top: 1px solid $vs-color-border-primary;
+
+            .vs-heading{
+                display: none;
+            }
+        }
+    }
+
 @include no-js {
-    .vs-tabs{
+    .vs-tabs, .vs-tabs--bsh{
         .tab-content > .tab-pane{
             position: relative;
             display: block!important;

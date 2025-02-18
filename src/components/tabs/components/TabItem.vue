@@ -46,7 +46,7 @@ export default {
         },
         businessSupportVariant: {
             type: Boolean,
-            default: true,
+            default: false,
         },
     },
 };
@@ -105,7 +105,7 @@ export default {
         color: $vs-color-text-primary;
         border-width: 1px;
         border-color: $vs-color-border-primary;
-        border-radius: 3px 3px 0 0;
+        border-radius: 5px 5px 0 0;
         text-wrap: wrap;
         padding: $spacer-100 $spacer-075;
         transition: $duration-base all;
