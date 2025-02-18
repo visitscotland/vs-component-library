@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.11.0](https://github.com/visitscotland/vs-component-library/compare/v4.10.3...v4.11.0) (2025-02-14)
+
+
+### 📝 Docs
+
+* **pagination:** update story to reflect component changes ([fb0ff83](https://github.com/visitscotland/vs-component-library/commit/fb0ff833840d193bb8221fcfaaa670751edf7f02))
+
+
+### 🎨 Styling
+
+* **pagination:** fix typos and remove commented out code ([2d83df1](https://github.com/visitscotland/vs-component-library/commit/2d83df115f3110775e81914ebd7c5a24892aa1f6))
+
+
+### ✅ Tests
+
+* **pagination:** add tests for logic displaying page numbers ([774508b](https://github.com/visitscotland/vs-component-library/commit/774508b734ab03c4a1b887a2ea4e0a36c9af533a))
+* **pagination:** add tests for previous and next buttons ([471ad44](https://github.com/visitscotland/vs-component-library/commit/471ad447e5a3fcca880dc24c64f3348d521f1f66))
+* **pagination:** add unit tests ([142b7a7](https://github.com/visitscotland/vs-component-library/commit/142b7a72a812073d7424a29b919737aa402b1bcc))
+
+
+### ✨ Features
+
+* **pagination:** add new component ([01582dd](https://github.com/visitscotland/vs-component-library/commit/01582dd00658424f2748ddb1e8d00f07998beded))
+* **pagination:** add styles and mobile version ([2cb36a9](https://github.com/visitscotland/vs-component-library/commit/2cb36a91eb799b36e9c600d1ef35c4ae8d2d8e48))
+* **pagination:** correct style issues ([43851ea](https://github.com/visitscotland/vs-component-library/commit/43851eafae048e31e052c42f8c53c1384f27d052))
+* **pagination:** rework component ([fa569e1](https://github.com/visitscotland/vs-component-library/commit/fa569e1f7415b47dd356773611807e8faeb23277))
+* **pagination:** update styling ([fabd7ef](https://github.com/visitscotland/vs-component-library/commit/fabd7ef0f7718c6f79aed932ca9f87d570fb6aa7))
+* **pagination:** use a function to set button classes ([f931e5d](https://github.com/visitscotland/vs-component-library/commit/f931e5d7da6c647cafebaa0ea43c76f9019b27d7))
+
+
+### 🐛 Bug Fixes
+
+* **pagination:** accessibility fixes ([1ce3584](https://github.com/visitscotland/vs-component-library/commit/1ce35846a32a4e59e7d268ae7970c7daaffb5d3b))
+* **storybook:** reset viewport when switching between stories ([b3121b9](https://github.com/visitscotland/vs-component-library/commit/b3121b92b9cb2838d82e3784b1a947205f1f759f))
+
+### [4.10.3](https://github.com/visitscotland/vs-component-library/compare/v4.10.2...v4.10.3) (2025-02-14)
+
+
+### 🐛 Bug Fixes
+
+* **analytics:** make partner urls protocol agnostic ([c4df803](https://github.com/visitscotland/vs-component-library/commit/c4df8032de50929c5be1b95650add993b3fe850b))
+
 ### [4.10.2](https://github.com/visitscotland/vs-component-library/compare/v4.10.1...v4.10.2) (2025-02-13)
 
 
