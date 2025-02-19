@@ -1,0 +1,17 @@
+#
+# ICON TOKENS
+# Use these semantic tokens for icons.
+#
+
+props:
+  vs-icon-close:
+    value: "fa-regular fa-xmark"
+  vs-icon-internal-link:
+    value: "fa-regular fa-arrow-right"
+  vs-icon-external-link:
+    value: "fa-regular fa-square-arrow-up-right"
+  vs-icon-information:
+    value: "fa-regular fa-circle-info"
+global:
+  type: string
+  category: icons

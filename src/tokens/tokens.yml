@@ -8,6 +8,8 @@ imports:
   - ./color/color-icons.yml
   - ./color/color-interaction.yml
   - ./color/color-text.yml
+  - ./icon/icon-size.yml
+  - ./icon/icon.yml
   - ./layout/breakpoints.yml
   - ./layout/grid-layout.yml
   - ./layout/spacing.yml
@@ -16,7 +18,6 @@ imports:
   - ./font-size.yml
   - ./font-weight.yml
   - ./font.yml
-  - ./icons.yml
   - ./opacity.yml
   - ./timing.yml
   - ./box-shadow.yml
