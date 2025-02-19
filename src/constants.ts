@@ -141,12 +141,12 @@ export const dmoUrls = [
 ];
 
 export const signpostedPartners = [
-    'https://findbusinesssupport.gov.scot',
-    'https://www.bgateway.com',
-    'https://www.creativescotland.com',
-    'https://www.hie.co.uk',
-    'https://www.scottish-enterprise.com',
-    'https://www.southofscotlandenterprise.com',
-    'https://www.skillsdevelopmentscotland.co.uk',
-    'https://www.slaed.org.uk'
+    'findbusinesssupport.gov.scot',
+    'www.bgateway.com',
+    'www.creativescotland.com',
+    'www.hie.co.uk',
+    'www.scottish-enterprise.com',
+    'www.southofscotlandenterprise.com',
+    'www.skillsdevelopmentscotland.co.uk',
+    'www.slaed.org.uk'
 ];
