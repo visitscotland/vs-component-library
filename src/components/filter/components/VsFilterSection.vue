@@ -98,7 +98,7 @@ const filterSectionClasses = computed(() => ({
     }
 
     input[type="date"] {
-        width: 115px;
+        width: 125px;
     }
 }
 </style>
