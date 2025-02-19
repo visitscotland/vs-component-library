@@ -59,7 +59,7 @@ const Template = (args) => ({
 });
 
 const base = {
-    icon: 'fa-kit fa-vs-unicorn',
+    icon: 'vs-icon-close',
 };
 
 export const Default = Template.bind({
