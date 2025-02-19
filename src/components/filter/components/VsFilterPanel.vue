@@ -8,7 +8,6 @@
         <legend class="vs-filter__legend">
             <VsIcon
                 name="filters"
-                orientation="left"
             />
             {{ props.filterLabel }}
         </legend>

@@ -52,18 +52,6 @@ export default {
             default: null,
         },
         /**
-        * The orientation of the icon
-        * `up|down|left|right`
-        * @deprecated use the correct icon from FA instead
-        */
-        orientation: {
-            type: String,
-            default: null,
-            validator: (value) => value.match(
-                /(up|down|left|right)/,
-            ),
-        },
-        /**
         * Size of icon
         * `xxs|xs|sm|md|lg|xl`
         */
@@ -166,18 +154,6 @@ $variants: (
         &.vs-icon--variant-#{$variant} {
             color: map-get($variants, $variant);
         }
-    }
-
-    &.icon--down {
-        transform: rotate(180deg);
-    }
-
-    &.icon--left {
-        transform: rotate(270deg);
-    }
-
-    &.icon--right {
-        transform: rotate(90deg);
     }
 }
 </style>

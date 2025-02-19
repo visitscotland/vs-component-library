@@ -52,7 +52,7 @@ const Template = (args) => ({
                     >
                         <template v-slot:icon-open>
                             <VsIcon
-                                name="chevron"
+                                icon="vs-icon-open"
                                 variant="inverse"
                                 size="xs"
                             />
@@ -60,8 +60,7 @@ const Template = (args) => ({
 
                         <template v-slot:icon-closed>
                             <VsIcon
-                                name="chevron"
-                                orientation="down"
+                                icon="vs-icon-closed"
                                 variant="inverse"
                                 size="xs"
                             />
@@ -104,7 +103,7 @@ const Template = (args) => ({
                     >
                         <template v-slot:icon-open>
                             <VsIcon
-                                name="chevron"
+                                icon="vs-icon-open"
                                 variant="inverse"
                                 size="xs"
                             />
@@ -112,8 +111,7 @@ const Template = (args) => ({
 
                         <template v-slot:icon-closed>
                             <VsIcon
-                                name="chevron"
-                                orientation="down"
+                                icon="vs-icon-closed"
                                 variant="inverse"
                                 size="xs"
                             />
@@ -156,7 +154,7 @@ const Template = (args) => ({
                     >
                         <template v-slot:icon-open>
                             <VsIcon
-                                name="chevron"
+                                icon="vs-icon-open"
                                 variant="inverse"
                                 size="xs"
                             />
@@ -164,8 +162,7 @@ const Template = (args) => ({
 
                         <template v-slot:icon-closed>
                             <VsIcon
-                                name="chevron"
-                                orientation="down"
+                                icon="vs-icon-closed"
                                 variant="inverse"
                                 size="xs"
                             />

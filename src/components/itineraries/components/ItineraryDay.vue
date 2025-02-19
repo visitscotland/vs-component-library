@@ -28,8 +28,7 @@
                         <template #icon-open>
                             <!-- @slot Slot for the icon to show when accordion item is open  -->
                             <VsIcon
-                                name="chevron"
-                                orientation="down"
+                                icon="vs-icon-open"
                                 size="lg"
                                 :padding="3"
                                 class="vs-itinerary-day__toggle-button"
@@ -38,7 +37,7 @@
                         <template #icon-closed>
                             <!-- @slot Slot for the icon to show when accordion item is closed  -->
                             <VsIcon
-                                name="chevron"
+                                icon="vs-icon-closed"
                                 size="lg"
                                 :padding="3"
                                 class="vs-itinerary-day__toggle-button"
