@@ -16,12 +16,6 @@ export default {
                 type: 'radio',
             },
         },
-        orientation: {
-            options: ['up', 'down', 'left', 'right'],
-            control: {
-                type: 'radio',
-            },
-        },
         smallSize: {
             options: ['xxs', 'xs', 'sm', 'md', 'lg', 'xl'],
             control: {

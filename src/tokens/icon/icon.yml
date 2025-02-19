@@ -12,6 +12,10 @@ props:
     value: "fa-regular fa-square-arrow-up-right"
   vs-icon-information:
     value: "fa-regular fa-circle-info"
+  vs-icon-open:
+    value: "fa-regular fa-chevron-up"
+  vs-icon-closed:
+    value: "fa-regular fa-chevron-down"
 global:
   type: string
   category: icons
