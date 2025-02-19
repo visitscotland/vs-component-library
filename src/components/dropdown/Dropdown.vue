@@ -1,7 +1,7 @@
 <template>
     <BDropdown
         v-bind="$attrs"
-        variant="primary"
+        :variant="variant"
         class="vs-dropdown"
     >
         <template
@@ -55,6 +55,17 @@ export default {
             type: String,
             default: '',
         },
+        /**
+         * Style variation to give additional meaning
+         * `primary|secondary`.
+         */
+        variant: {
+            type: String,
+            default: 'primary',
+            validator: (value) => value.match(
+                /(primary|secondary)/,
+            ),
+        },
     },
     computed: {
         nonButtonContentSlots() {
@@ -93,6 +104,22 @@ export default {
             border: 0;
             font-weight: 400;
             vertical-align: bottom;
+        }
+
+        &.btn-secondary {
+            @include vs-button-variant(
+                $vs-color-text-cta-on-light, $vs-color-interaction-cta-secondary, $vs-color-interaction-cta-primary,
+                $vs-color-text-inverse, $vs-color-interaction-cta-hover, $vs-color-interaction-cta-hover,
+                $vs-color-text-inverse, $vs-color-interaction-cta-pressed, $vs-color-interaction-cta-pressed,
+            );
+
+            &::after {
+                color: $vs-color-icon-cta-on-light;
+            }
+
+            &:hover::after {
+                color: $vs-color-icon-inverse;
+            }
         }
     }
 
