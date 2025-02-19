@@ -2,6 +2,43 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.12.0](https://github.com/visitscotland/vs-component-library/compare/v4.11.1...v4.12.0) (2025-02-19)
+
+
+### 📝 Docs
+
+* **filter:** add mobile story ([dd85d3c](https://github.com/visitscotland/vs-component-library/commit/dd85d3c44d8016efd589bd20c7e0f961b93947f8))
+* **filter:** update story ([bcb36ec](https://github.com/visitscotland/vs-component-library/commit/bcb36ec0795affa184f9800d235acde1de905fb3))
+
+
+### ✨ Features
+
+* **filter:** add new component ([93c74e4](https://github.com/visitscotland/vs-component-library/commit/93c74e48db948ff106c4c8fcdb5f54ce443a990e))
+* **filter:** add nojs fallback ([8a502cf](https://github.com/visitscotland/vs-component-library/commit/8a502cf4a0c6abe61b71887bad56a8b891fbb4fc))
+* **filter:** close modal when resizing screen ([7f1b058](https://github.com/visitscotland/vs-component-library/commit/7f1b058e4709f9665025e07a1605999c76d6821c))
+* **filter:** develop new component ([2c715f8](https://github.com/visitscotland/vs-component-library/commit/2c715f8f63bd767edb2f8b1e255f3163f8a323c3))
+* **filter:** set filter button text ([b42c89c](https://github.com/visitscotland/vs-component-library/commit/b42c89cebb2593b17a11d366fe6bd195c80fe269))
+* **filter:** setup new component ([5e16519](https://github.com/visitscotland/vs-component-library/commit/5e165198edb3e3ffbabda58307a3fb164147a6d3))
+* **filter:** tidy up code ([d7bd5c1](https://github.com/visitscotland/vs-component-library/commit/d7bd5c16ac312ea4fe618e086cebe623141acf2d))
+* **filter:** tidy up code ([c0ded56](https://github.com/visitscotland/vs-component-library/commit/c0ded56d10cc62ecf54ebfb2c311abafdda77936))
+* **filter:** work on mobile version ([83fc02e](https://github.com/visitscotland/vs-component-library/commit/83fc02e7e5d1c8fed6ab27f86c080fffcfaf5de9))
+* **modal:** add emitter listener for hideModal event ([69d3f29](https://github.com/visitscotland/vs-component-library/commit/69d3f29feca38ded5f6c4e01ef14f75a5d51cfc8))
+
+
+### ✅ Tests
+
+* **checkbox:** add test for size prop ([3f5ec91](https://github.com/visitscotland/vs-component-library/commit/3f5ec91e651bca57b199a41a5f155551c4b578ef))
+* **filter:** add unit tests for the filter components ([ec0c024](https://github.com/visitscotland/vs-component-library/commit/ec0c024b8bd325ead4a1fe60f85026ce64098249))
+* **filter:** update test ([8d539a7](https://github.com/visitscotland/vs-component-library/commit/8d539a7928e280b1cc13f6fe100f28e1324f59fa))
+* **filter:** update unit tests ([90e763b](https://github.com/visitscotland/vs-component-library/commit/90e763b217006148a71c85209de1f1d6642a1cb1))
+
+
+### 🐛 Bug Fixes
+
+* **bootstrap:** suppress deprecation warnings ([05e7b67](https://github.com/visitscotland/vs-component-library/commit/05e7b6773560e9025a24dbbc0f415b395dd3676d))
+* **filter:** date picker width ([b9b9acb](https://github.com/visitscotland/vs-component-library/commit/b9b9acbec6b9974f2293a41abf808021db277a33))
+* **filter:** minor changes ([79e7367](https://github.com/visitscotland/vs-component-library/commit/79e73678260ee6bc1949be1d1f8175fb3aaa0974))
+
 ### [4.11.1](https://github.com/visitscotland/vs-component-library/compare/v4.11.0...v4.11.1) (2025-02-19)
 
 
