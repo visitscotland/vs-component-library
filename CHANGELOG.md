@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.11.1](https://github.com/visitscotland/vs-component-library/compare/v4.11.0...v4.11.1) (2025-02-19)
+
+
+### ♻️ Code Refactoring
+
+* **eventcard:** fixed css spacing ([4c23aca](https://github.com/visitscotland/vs-component-library/commit/4c23acad34ab3aea8c5f4c1281a7c200b967f19a))
+
+
+### 🐛 Bug Fixes
+
+* **eventcard:** fixes cta button spacing on mobile ([3c47c86](https://github.com/visitscotland/vs-component-library/commit/3c47c86aaa467747023cb48dfc3388645d819240))
+* **pagination:** enable two-way binding ([d454877](https://github.com/visitscotland/vs-component-library/commit/d45487799d923baff1a8882a6cb68f3f501bb80b))
+
+
+### ✨ Features
+
+* **dropdown:** add secondary colour variant ([f01b6f4](https://github.com/visitscotland/vs-component-library/commit/f01b6f428c32ca93c9c32d4ccc7d285624bd432b))
+
+
+### ✅ Tests
+
+* **dropdown:** add unit test ([332dadc](https://github.com/visitscotland/vs-component-library/commit/332dadc762dbde21918a25dd1fc15af8467d8f9a))
+
 ## [4.11.0](https://github.com/visitscotland/vs-component-library/compare/v4.10.3...v4.11.0) (2025-02-14)
 
 
