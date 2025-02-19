@@ -34,6 +34,7 @@ export const initApp = (options, skipRemoveNoJsClass) => {
 
     const emitter = mitt();
     app.config.globalProperties.emitter = emitter;
+    app.provide('emitter', emitter);
     app.config.compilerOptions.comments = true;
 
     if (!skipRemoveNoJsClass) {
@@ -57,6 +58,7 @@ export const initSSRApp = (options, skipRemoveNoJsClass) => {
 
     const emitter = mitt();
     app.config.globalProperties.emitter = emitter;
+    app.provide('emitter', emitter);
     app.config.compilerOptions.comments = true;
 
     if (!skipRemoveNoJsClass) {
