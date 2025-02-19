@@ -13,11 +13,11 @@
         <div class="vs-pagination__controls">
             <div class="vs-pagination__prev">
                 <VsButton
-                    :disabled="currentPage === 1"
+                    :disabled="modelValue === 1"
                     icon="internal-link-back"
                     size="sm"
                     variant="transparent"
-                    @click="handleClick($event, currentPage - 1)"
+                    @click="handleClick($event, modelValue - 1)"
                 >
                     {{ props.previousButtonLabel }}
                 </VsButton>
@@ -33,7 +33,7 @@
 
                     <VsButton
                         v-else
-                        :aria-current="currentPage === page ? 'page' : null"
+                        :aria-current="modelValue === page ? 'page' : null"
                         :aria-label="`Page ${page}`"
                         size="sm"
                         @click="handleClick($event, page)"
@@ -45,12 +45,12 @@
 
             <div class="vs-pagination__next">
                 <VsButton
-                    :disabled="currentPage === props.numberOfPages"
+                    :disabled="modelValue === props.numberOfPages"
                     icon="internal-link"
                     icon-position="right"
                     size="sm"
                     variant="transparent"
-                    @click="handleClick($event, currentPage + 1)"
+                    @click="handleClick($event, modelValue + 1)"
                 >
                     {{ props.nextButtonLabel }}
                 </VsButton>
@@ -62,7 +62,6 @@
 <script setup>
 import {
     computed,
-    ref,
     watch,
 } from 'vue';
 import VsButton from '@/components/button/Button.vue';
@@ -107,18 +106,21 @@ const props = defineProps({
 
 const emit = defineEmits(['page-click']);
 
-// Track current page number.
-const currentPage = ref(1);
+// Track current page number and allow it to be updated by the parent (v-model).
+const modelValue = defineModel({
+    type: Number,
+    default: 1,
+});
 
 // Number of page buttons to display.
 const limit = 7;
 
 // Format text shown above controls on mobile.
-const resultsText = computed(() => `${props.pageLabel} ${currentPage.value} ${props.ofLabel} ${props.numberOfPages}`);
+const resultsText = computed(() => `${props.pageLabel} ${modelValue.value} ${props.ofLabel} ${props.numberOfPages}`);
 
 const buttonClasses = (page) => ({
     'vs-pagination__item': true,
-    'vs-pagination__item--active': currentPage.value === page,
+    'vs-pagination__item--active': modelValue.value === page,
     'vs-pagination__item--ellipses': page === 'ellipses',
 });
 
@@ -137,7 +139,7 @@ const pages = computed(() => {
 
     // If current page is within the first three pages then show the first
     // five pages, an ellipsis and the last page.
-    if (currentPage.value <= halfLimit) {
+    if (modelValue.value <= halfLimit) {
         for (let index = 1; index < limit - 1; index++) {
             buttons = [...buttons, index];
         }
@@ -146,7 +148,7 @@ const pages = computed(() => {
 
     // If current page is within the last three pages then show the first
     // pages, an ellipsis and the last five pages.
-    } else if (currentPage.value > props.numberOfPages - halfLimit) {
+    } else if (modelValue.value > props.numberOfPages - halfLimit) {
         buttons = [1, 'ellipses'];
 
         const start = props.numberOfPages - limit + 2;
@@ -157,7 +159,7 @@ const pages = computed(() => {
     // If current page is not any of the above then show the first
     // page, an ellipsis, three middle pages, an ellipsis and the last pages.
     } else {
-        const start = (currentPage.value - halfLimit) + 1;
+        const start = (modelValue.value - halfLimit) + 1;
         buttons = [1, 'ellipses'];
 
         for (let index = 1; index < limit - 3; index++) {
@@ -172,15 +174,15 @@ const pages = computed(() => {
 
 // Emit event when a page button is clicked and update the current page.
 const handleClick = (event, page) => {
-    if (currentPage.value === page) return;
+    if (modelValue.value === page) return;
 
     emit('page-click', page);
-    currentPage.value = page;
+    modelValue.value = page;
 };
 
 // Reset current page to 1 when number of pages changes.
 watch(() => props.numberOfPages, () => {
-    currentPage.value = 1;
+    modelValue.value = 1;
 });
 </script>
 

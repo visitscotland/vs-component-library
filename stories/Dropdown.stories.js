@@ -49,10 +49,16 @@ const base = {
     text: 'Language',
 };
 
-export const Default = Template.bind({
+export const Primary = Template.bind({
 });
 
-Default.args = base;
+Primary.args = base;
+
+export const Secondary = Template.bind();
+Secondary.args = {
+    ...base,
+    variant: 'secondary',
+};
 
 export const MenuOpen = Template.bind({
 });

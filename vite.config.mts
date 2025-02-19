@@ -18,6 +18,7 @@ export default defineConfig(({ mode }) => {
                     additionalData: `
                         @import "@/styles/resources.scss";
                     `,
+                    silenceDeprecations: ['mixed-decls', 'color-functions', 'global-builtin', 'import', 'legacy-js-api'],
                 },
             },
         },
