@@ -85,6 +85,7 @@ export default {
         @include media-breakpoint-up(md) {
             .nav-item {
                 margin: $spacer-0 $spacer-100;
+                flex-grow: unset;
             }
 
             .tab-pane {

@@ -116,11 +116,10 @@ export default {
         transition: $duration-base all;
         transition: all 200ms ease;
         transition-property: background-color, color;
-        @include heading-style(heading-xxs, false);
 
         @include media-breakpoint-up(sm) {
             padding: $spacer-075 $spacer-125;
-            @include heading-style(heading-s, false);
+            @include heading-style(heading-xs, false);
         }
 
         &:hover:not(.active) {
@@ -132,12 +131,10 @@ export default {
         &.active {
             position: relative;
             background-color: $vs-color-background-inverse;
-            padding: $spacer-100 $spacer-075;
-            @include heading-style(heading-xs, false);
 
             @include media-breakpoint-up(sm) {
                 padding: $spacer-100 $spacer-125;
-                @include heading-style(heading-s, false);
+                @include heading-style(heading-xs, false);
             }
         }
 
