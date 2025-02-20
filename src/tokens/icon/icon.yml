@@ -4,18 +4,96 @@
 #
 
 props:
-  vs-icon-close:
+  ## Control Icons
+  vs-icon-control-dismiss:
     value: "fa-regular fa-xmark"
-  vs-icon-internal-link:
-    value: "fa-regular fa-arrow-right"
-  vs-icon-external-link:
-    value: "fa-regular fa-square-arrow-up-right"
-  vs-icon-information:
-    value: "fa-regular fa-circle-info"
-  vs-icon-open:
-    value: "fa-regular fa-chevron-up"
-  vs-icon-closed:
+  vs-icon-control-download:
+    value: "fa-regular fa-arrow-down-to-line"
+  vs-icon-control-external-link:
+    value: "fa-regular fa-square-arrow-up-right"  
+  vs-icon-control-expand:
     value: "fa-regular fa-chevron-down"
+  vs-icon-control-collapse:
+    value: "fa-regular fa-chevron-up"
+  vs-icon-control-filters:
+    value: "fa-regular fa-sliders"
+  vs-icon-control-search:
+    value: "fa-regular fa-magnifying-glass"
+  vs-icon-control-main-menu:
+    value: "fa-regular fa-bars"  
+
+  vs-icon-control-share:
+    value: "fa-regular fa-share"
+  vs-icon-control-print:
+    value: "fa-regular fa-print"
+  vs-icon-control-edit:
+    value: "fa-regular fa-pen-to-square"  
+  vs-icon-control-refresh:
+    value: "fa-regular fa-arrows-rotate"
+  vs-icon-control-map:
+    value: "fa-regular fa-map"
+  vs-icon-control-list:
+    value: "fa-regular fa-list"
+  vs-icon-control-maximize:
+    value: "fa-regular fa-arrows-maximize"
+  vs-icon-control-minimize:
+    value: "fa-regular fa-minimize"
+  vs-icon-control-decrease:
+    value: "fa-regular fa-minus"
+  vs-icon-control-increase:
+    value: "fa-regular fa-plus"
+  vs-icon-control-play:
+    value: "fa-regular fa-play"
+  vs-icon-control-back-to-top:
+    value: "fa-regular fa-arrow-up"
+
+  ## Feedback Icons
+  vs-icon-feedback-information:
+    value: "fa-regular fa-circle-info"
+  vs-icon-feedback-error:
+    value: "fa-regular fa-circle-xmark"
+  vs-icon-feedback-success:
+    value: "fa-regular fa-circle-check"
+  vs-icon-feedback-warning:
+    value: "fa-regular fa-triangle-exclamation"
+
+  ## Season Icons
+  vs-icon-season-winter:
+    value: "fa-regular fa-snowman"
+  vs-icon-season-spring:
+    value: "fa-regular fa-flower-tulip"
+  vs-icon-season-summer:
+    value: "fa-regular fa-sun"
+  vs-icon-season-autumn:
+    value: "fa-regular fa-leaf-oak"
+
+  ## Facility Icons
+  vs-icon-facility-parking:
+    value: "fa-regular fa-square-parking"
+  vs-icon-facility-wifi:
+    value: "fa-regular fa-wifi"
+  vs-icon-facility-pets-welcome:
+    value: "fa-regular fa-dog-leashed"
+  vs-icon-facility-audio-loop:
+    value: "fa-regular fa-ear-listen"
+  vs-icon-facility-cafe:
+    value: "fa-regular fa-mug-saucer"
+  vs-icon-facility-breakfast:
+    value: "fa-regular fa-egg-fried"
+  vs-icon-facility-public-transport:
+    value: "fa-kit fa-vs-public-transport"
+  vs-icon-facility-wheelchair-access:
+    value: "fa-regular fa-wheelchair"
+  vs-icon-facility-accessible-toilet:
+    value: "fa-kit fa-vs-accessible-toilet"
+  vs-icon-facility-accessible-parking:
+    value: "fa-kit fa-vs-accessible-parking" 
+  vs-icon-facility-accessible-dining:
+    value: "fa-kit fa-vs-accessible-dining"
+  vs-icon-facility-accessible-shower:
+    value: "fa-kit fa-vs-accessible-shower"
+  vs-icon-facility-vegan:
+    value: "fa-kit fa-vs-vegan"
 global:
   type: string
   category: icons
