@@ -16,12 +16,6 @@ export default {
                 type: 'radio',
             },
         },
-        orientation: {
-            options: ['up', 'down', 'left', 'right'],
-            control: {
-                type: 'radio',
-            },
-        },
         smallSize: {
             options: ['xxs', 'xs', 'sm', 'md', 'lg', 'xl'],
             control: {
@@ -59,7 +53,7 @@ const Template = (args) => ({
 });
 
 const base = {
-    icon: 'fa-kit fa-vs-unicorn',
+    icon: 'vs-icon-close',
 };
 
 export const Default = Template.bind({
