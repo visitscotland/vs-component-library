@@ -35,7 +35,6 @@ const Template = (args) => ({
             <VsTabs v-bind="args">
                 <VsTabItem 
                     title="Getting Here"
-                    :noContainer="args.noContainer"
                 >
                     <div class="px-125 py-100">
                         <p>
@@ -50,7 +49,6 @@ const Template = (args) => ({
                 </VsTabItem>
                 <VsTabItem 
                     title="Getting Around"
-                    :noContainer="args.noContainer"
                 >
                     <div class="px-125 py-100">
                     <p>
@@ -66,7 +64,6 @@ const Template = (args) => ({
                     title="Where to Stay"
                     :disabled="args.disabled ? true : false"
                     :aria-disabled="args.disabled ? true : false"
-                    :noContainer="args.noContainer"
                 >
                     <div class="px-125 py-100">
                     <p>

@@ -2,7 +2,6 @@
     <BTab
         class="vs-tab__item"
         data-test="vs-tab__item"
-        :no-container="noContainer"
         :title-link-class="noContainer ? 'vs-tab-link--no-container vs-heading' : 'vs-tab-link vs-heading'"
         :title="title"
     >
@@ -36,6 +35,10 @@ export default {
         VsHeading,
         BTab,
     },
+    /**
+     * Injects noContainer prop from Tab parent.
+     */
+    inject: ['noContainer'],
     props: {
         /**
          * Title of the tab button
@@ -45,14 +48,17 @@ export default {
             required: true,
         },
         /**
-         * Changes to a no-container layout.
+         * When provided changes to a no-container layout.
+         * Injected from parent component, VsTabs.
          * Rounded tabs that are the width of their content,
          * and centered in the tab row.
          */
-        noContainer: {
-            type: Boolean,
-            default: false,
-        },
+        // noContainer: {
+        //     type: Boolean,
+        //     default() {
+        //         return inject('noContainer', false);
+        //     },
+        // },
     },
 };
 </script>

@@ -17,6 +17,7 @@ NEW
 
 <script>
 import { BTabs } from 'bootstrap-vue-next';
+import { computed } from 'vue';
 /**
  * Tabs wrapper used with TabItems.
  *
@@ -29,15 +30,24 @@ export default {
     components: {
         BTabs,
     },
+    /**
+     * Provides noContainer prop to be injected to child components
+     */
+    provide() {
+        return {
+            noContainer: computed(() => this.noContainer),
+        };
+    },
     props: {
         /**
          * Changes to a no-container layout.
          * Rounded tabs that are the width of their content,
          * and centered in the tab row.
+         * Provided to child components.
          */
         noContainer: {
             type: Boolean,
-            deafult: false,
+            default: false,
         },
     },
 };
