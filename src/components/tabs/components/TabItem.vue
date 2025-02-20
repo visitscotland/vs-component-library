@@ -47,18 +47,6 @@ export default {
             type: String,
             required: true,
         },
-        /**
-         * When provided changes to a no-container layout.
-         * Injected from parent component, VsTabs.
-         * Rounded tabs that are the width of their content,
-         * and centered in the tab row.
-         */
-        // noContainer: {
-        //     type: Boolean,
-        //     default() {
-        //         return inject('noContainer', false);
-        //     },
-        // },
     },
 };
 </script>
