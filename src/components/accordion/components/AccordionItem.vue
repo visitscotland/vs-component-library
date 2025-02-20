@@ -33,7 +33,7 @@
                     <!-- @slot Slot for the icon to show when accordion item is open  -->
                     <slot name="icon-open">
                         <VsIcon
-                            name="chevron"
+                            icon="vs-icon-open"
                             size="sm"
                         />
                     </slot>
@@ -42,8 +42,7 @@
                     <!-- @slot Slot for the icon to show when accordion item is closed  -->
                     <slot name="icon-closed">
                         <VsIcon
-                            name="chevron"
-                            orientation="down"
+                            icon="vs-icon-closed"
                             size="sm"
                         />
                     </slot>

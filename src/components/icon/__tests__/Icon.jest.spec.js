@@ -30,15 +30,6 @@ describe('VsIcon', () => {
             expect(wrapper.classes(`vs-icon--variant-${testVariant}`)).toBe(true);
         });
 
-        it(':orientation - should accept and render orientations as props', () => {
-            const testOrientation = 'down';
-            const wrapper = factoryShallowMount({
-                orientation: testOrientation,
-            });
-
-            expect(wrapper.classes(`icon--${testOrientation}`)).toBe(true);
-        });
-
         it(':size - should accept and render sizes as props', () => {
             const testSize = 'lg';
             const wrapper = factoryShallowMount({

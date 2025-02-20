@@ -1,14 +1,7 @@
 <template>
     <i
-        :class="{
-            [`${icon}`]: true,
-            'vs-icon': true,
-            [`vs-icon--size-${size}`]: true,
-            [`vs-icon--sm-size-${smallSize}`]: smallSize,
-            ['icon--' + orientation]: orientation,
-            [`vs-icon--variant-${variant}`]: variant,
-        }"
-        :style="[customColour ? { color: customColour } : {}]"
+        :class="iconClasses"
+        :style="iconStyles"
         v-bind="$attrs"
         data-test="vs-icon"
     />
@@ -59,18 +52,6 @@ export default {
             default: null,
         },
         /**
-        * The orientation of the icon
-        * `up|down|left|right`
-        * @deprecated use the correct icon from FA instead
-        */
-        orientation: {
-            type: String,
-            default: null,
-            validator: (value) => value.match(
-                /(up|down|left|right)/,
-            ),
-        },
-        /**
         * Size of icon
         * `xxs|xs|sm|md|lg|xl`
         */
@@ -96,7 +77,21 @@ export default {
     },
     computed: {
         iconClasses() {
+            return [
+                this.fontAwesomeClasses,
+                'vs-icon',
+                `vs-icon--size-${this.size}`,
+                this.smallSize && `vs-icon--sm-size-${this.smallSize}`,
+                this.variant && `vs-icon--variant-${this.variant}`,
+            ];
+        },
+        fontAwesomeClasses() {
             return this.tokens[this.icon] || this.icon;
+        },
+        iconStyles() {
+            return this.customColour ? {
+                color: this.customColour,
+            } : null;
         },
     },
 };
@@ -159,18 +154,6 @@ $variants: (
         &.vs-icon--variant-#{$variant} {
             color: map-get($variants, $variant);
         }
-    }
-
-    &.icon--down {
-        transform: rotate(180deg);
-    }
-
-    &.icon--left {
-        transform: rotate(270deg);
-    }
-
-    &.icon--right {
-        transform: rotate(90deg);
     }
 }
 </style>
