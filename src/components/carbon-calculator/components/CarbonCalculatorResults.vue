@@ -59,7 +59,7 @@
                 <VsIcon
                     name="unicorn"
                     size="lg"
-                    variant="tertiary"
+                    variant="highlight"
                     class="vs-carbon-calculator-results__unicorn-icon"
                 />
             </div>

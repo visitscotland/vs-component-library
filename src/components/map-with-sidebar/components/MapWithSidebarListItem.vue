@@ -27,7 +27,7 @@
 
         <VsIcon
             name="internal-link"
-            variant="tertiary"
+            variant="highlight"
             size="xxs"
             class="vs-map-with-sidebar-list-item__icon"
         />
