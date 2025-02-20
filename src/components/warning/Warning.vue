@@ -8,7 +8,7 @@
             <VsIcon
                 class="vs-warning__icon"
                 :name="icon"
-                variant="tertiary"
+                variant="highlight"
             />
 
             <div>
