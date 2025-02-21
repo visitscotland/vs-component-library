@@ -13,7 +13,7 @@ const factoryShallowMount = (propsData) => shallowMount(VsIconListItem, {
 const factoryMount = (propsData) => mount(VsIconListItem, {
     propsData: {
         ...propsData,
-        icon: 'facility-wifi',
+        icon: 'fa-regular fa-wifi',
         label: 'wifi',
     },
 });
@@ -40,7 +40,7 @@ describe('VsIconListItem', () => {
 
         it('should accept an `icon` property and pass it to the icon', async() => {
             const vsLink = wrapper.find('vs-icon-stub');
-            expect(vsLink.attributes('name')).toBe('facility-wifi');
+            expect(vsLink.attributes('icon')).toBe('facility-wifi');
         });
     });
 

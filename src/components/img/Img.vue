@@ -14,7 +14,7 @@
         sizes="(min-width: 768px) 75vw, 100vw"
     >
         <VsIcon
-            name="user"
+            icon="fa-regular fa-user"
             size="lg"
         />
 

@@ -6,9 +6,7 @@
         @change="(event) => $emit('filter-updated', event)"
     >
         <legend class="vs-filter__legend">
-            <VsIcon
-                name="filters"
-            />
+            <VsIcon icon="vs-icon-control-filters" />
             {{ props.filterLabel }}
         </legend>
 
