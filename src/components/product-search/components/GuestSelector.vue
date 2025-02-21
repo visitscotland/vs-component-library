@@ -156,7 +156,7 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
                 class="align-self-end"
                 data-test="vs-guest-selector__close-btn"
                 variant="transparent"
-                icon="close"
+                icon="vs-icon-control-dismiss"
                 size="md"
                 icon-only
                 @click.prevent="hidePicker"

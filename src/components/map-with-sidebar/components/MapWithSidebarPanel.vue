@@ -47,7 +47,7 @@
                 >
                     <VsButton
                         icon-only
-                        icon="close"
+                        icon="vs-icon-control-dismiss"
                         size="md"
                         variant="transparent"
                         @click="closePanel"
@@ -93,7 +93,7 @@
             >
                 <VsButton
                     icon-only
-                    icon="close"
+                    icon="vs-icon-control-dismiss"
                     size="md"
                     variant="transparent"
                     @click="resetPanel"

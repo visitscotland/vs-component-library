@@ -55,7 +55,7 @@
             class="vs-input__clear-button d-none d-lg-block"
             data-test="input-clear-button"
             variant="transparent"
-            icon="close"
+            icon="vs-icon-control-dismiss"
             size="md"
             icon-only
             @click.prevent="clearInputAndFocus()"
