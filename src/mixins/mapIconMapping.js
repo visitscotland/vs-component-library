@@ -14,7 +14,7 @@ const mapIconMapping = {
                 icon.name = 'fa-regular fa-ship';
                 break;
             case 'regions':
-                icon.name = 'fa-regular fa-map';
+                icon.name = 'fa-regular fa-map-location-dot';
                 break;
             case 'acco':
                 icon.name = 'fa-regular fa-bed';

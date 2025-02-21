@@ -79,9 +79,9 @@
     
         &:checked {
             &:before {
-                font-family: "Font Awesome Kit";
+                font-family: "Font Awesome 6 Pro";
                 background-color: $vs-color-interaction-cta-primary;
-                content: "\e085";
+                content: "\f00c";
                 color: $vs-color-icon-inverse;
                 text-align: center;
                 line-height: $line-height;

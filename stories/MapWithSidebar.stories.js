@@ -152,12 +152,12 @@ const regionsExample = {
         {
             text: 'Places',
             value: 'places',
-            icon: 'map-marker',
+            icon: 'fa-regular fa-location-dot',
         },
         {
             text: 'Regions',
             value: 'regions',
-            icon: 'map',
+            icon: 'fa-regular fa-map-location-dot',
         },
     ],
 };
