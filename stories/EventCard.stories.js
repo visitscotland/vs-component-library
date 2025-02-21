@@ -87,7 +87,7 @@ const base = {
     organizer: 'VisitScotland',
     ctaHref: 'https://visitscotland.eventsair.com/visitscotlandconnect/',
     ctaLabel: 'Find out more',
-    ctaIcon: 'external-link',
+    ctaIcon: 'fa-regular fa-pen-to-square',
 };
 
 export const Default = Template.bind({

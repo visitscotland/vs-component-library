@@ -205,19 +205,19 @@ const Template = (args) => ({
 
                     <VsFooterSocialItem
                         href="#"
-                        icon="facebook"
+                        icon="fa-brands fa-facebook"
                     />
                     <VsFooterSocialItem
                         href="#"
-                        icon="x-twitter"
+                        icon="fa-brands fa-x-twitter"
                     />
                     <VsFooterSocialItem
                         href="#"
-                        icon="youtube"
+                        icon="fa-brands fa-youtube"
                     />
                     <VsFooterSocialItem
                         href="#"
-                        icon="instagram"
+                        icon="fa-brands fa-instagram"
                     />
                 </VsFooterSocialMenu>
             </template>

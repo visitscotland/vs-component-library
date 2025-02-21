@@ -26,7 +26,7 @@ describe('VsFooterSocialItem', () => {
         it(':icon - Should show correct social icon', () => {
             const icon = wrapper.find('[data-test="vs-footer-social-item__link"').find('vs-icon-stub');
 
-            expect(icon.attributes('name')).toBe('facebook');
+            expect(icon.attributes('icon')).toBe('facebook');
         });
 
         it(':href - Should show the correct social URL on the link', () => {

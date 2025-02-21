@@ -53,7 +53,7 @@ const Template = (args) => ({
 });
 
 const base = {
-    icon: 'vs-icon-close',
+    icon: 'vs-icon-control-dismiss',
 };
 
 export const Default = Template.bind({

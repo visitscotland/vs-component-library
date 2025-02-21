@@ -19,7 +19,7 @@ props:
     value: "fa-regular fa-sliders"
   vs-icon-control-search:
     value: "fa-regular fa-magnifying-glass"
-  vs-icon-control-main-menu:
+  vs-icon-control-menu:
     value: "fa-regular fa-bars"  
 
   ## Feedback Icons

@@ -31,7 +31,7 @@
             class="vs-number-input__increment"
             :icon-only="true"
             size="sm"
-            icon="minus"
+            icon="fa-regular fa-minus"
             :disabled="(inputVal <= minimumNumber) ? true : null"
             @click="decrementValue"
         >
@@ -63,7 +63,7 @@
             class="vs-number-input__increment"
             :icon-only="true"
             size="sm"
-            icon="plus"
+            icon="fa-regular fa-plus"
             :disabled="(inputVal >= maximumNumber) ? true : null"
             @click="incrementValue"
         >

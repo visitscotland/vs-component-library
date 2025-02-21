@@ -20,7 +20,7 @@
                             class="vs-carousel__control vs-carousel__control--prev"
                             @click="sliderNavigate($event, 'prev')"
                             @keypress="sliderNavigate($event, 'prev', true)"
-                            icon="internal-link-back"
+                            icon="fa-regular fa-arrow-left"
                             ref="prevButton"
                         >
                             {{ prevText }}
@@ -40,7 +40,7 @@
                             class="vs-carousel__control vs-carousel__control--next"
                             @keypress="sliderNavigate($event, 'next', true)"
                             @click="sliderNavigate($event, 'next')"
-                            icon="internal-link"
+                            icon="fa-regular fa-arrow-right"
                             ref="nextButton"
                         >
                             {{ nextText }}

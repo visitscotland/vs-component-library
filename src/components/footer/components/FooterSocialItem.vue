@@ -52,12 +52,10 @@ export default {
         },
         /**
          * Social icon to show, will also be used to choose hover colour
-         * `facebook, instagram, x-twitter, youtube`
          */
         icon: {
             type: String,
             required: true,
-            validator: (value) => value.match(/(facebook|instagram|x-twitter|youtube|linkedin)/),
         },
     },
 };

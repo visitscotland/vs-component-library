@@ -15,7 +15,7 @@
                 >
                     <VsButton
                         class="vs-map-with-sidebar-panel_menu"
-                        icon="bars-mobile-menu"
+                        icon="vs-icon-control-menu"
                         size="sm"
                         @click="stageBack"
                         data-test="vs-map-with-sidebar__menu-toggle"
@@ -32,7 +32,7 @@
                 >
                     <VsButton
                         icon-only
-                        icon="internal-link-back"
+                        icon="fa-regular fa-arrow-left"
                         size="md"
                         variant="transparent"
                         @click="stageBack"
@@ -65,7 +65,7 @@
             >
                 <VsButton
                     icon-only
-                    icon="internal-link-back"
+                    icon="fa-regular fa-arrow-left"
                     size="md"
                     variant="transparent"
                     @click="stageBack"

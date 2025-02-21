@@ -5,7 +5,7 @@
     >
         <VsButton
             class="vs-filter__toggle"
-            icon="filters"
+            icon="vs-icon-control-filters"
             id="toggle-btn"
             ref="btnShow"
             variant="secondary"
