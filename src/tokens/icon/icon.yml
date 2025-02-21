@@ -9,8 +9,8 @@ props:
     value: "fa-regular fa-xmark"
   vs-icon-control-download:
     value: "fa-regular fa-arrow-down-to-line"
-  vs-icon-control-external-link:
-    value: "fa-regular fa-square-arrow-up-right"  
+  vs-icon-control-back-to-top:
+    value: "fa-regular fa-arrow-up"
   vs-icon-control-expand:
     value: "fa-regular fa-chevron-down"
   vs-icon-control-collapse:
@@ -21,31 +21,6 @@ props:
     value: "fa-regular fa-magnifying-glass"
   vs-icon-control-main-menu:
     value: "fa-regular fa-bars"  
-
-  vs-icon-control-share:
-    value: "fa-regular fa-share"
-  vs-icon-control-print:
-    value: "fa-regular fa-print"
-  vs-icon-control-edit:
-    value: "fa-regular fa-pen-to-square"  
-  vs-icon-control-refresh:
-    value: "fa-regular fa-arrows-rotate"
-  vs-icon-control-map:
-    value: "fa-regular fa-map"
-  vs-icon-control-list:
-    value: "fa-regular fa-list"
-  vs-icon-control-maximize:
-    value: "fa-regular fa-arrows-maximize"
-  vs-icon-control-minimize:
-    value: "fa-regular fa-minimize"
-  vs-icon-control-decrease:
-    value: "fa-regular fa-minus"
-  vs-icon-control-increase:
-    value: "fa-regular fa-plus"
-  vs-icon-control-play:
-    value: "fa-regular fa-play"
-  vs-icon-control-back-to-top:
-    value: "fa-regular fa-arrow-up"
 
   ## Feedback Icons
   vs-icon-feedback-information:
