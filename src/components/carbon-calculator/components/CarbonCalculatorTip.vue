@@ -9,7 +9,7 @@
             <VsIcon
                 name="coo"
                 size="lg"
-                variant="tertiary"
+                variant="hightlight"
                 class="vs-carbon-calculator-tip__icon"
             />
         </div>
