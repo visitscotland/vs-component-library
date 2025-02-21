@@ -24,7 +24,7 @@
         <VsIcon
             v-else
             class="vs-map-marker-icon__icon"
-            :name="getIconDetails(id).name"
+            :icon="getIconDetails(id).name"
             size="xs"
         />
     </div>
