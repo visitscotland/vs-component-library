@@ -89,7 +89,7 @@
                     <VsTableRow>
                         <VsTableDataCell>
                             <VsIcon
-                                name="tick"
+                                icon="fa-regular fa-check"
                                 size="xs"
                                 class="me-050"
                             />
@@ -112,7 +112,7 @@
                     >
                         <VsTableDataCell>
                             <VsIcon
-                                name="ski-boot"
+                                icon="fa-regular fa-ski-boot-ski"
                                 size="xs"
                                 class="me-050"
                             />
@@ -132,7 +132,7 @@
                     <VsTableRow>
                         <VsTableDataCell>
                             <VsIcon
-                                name="expected-open"
+                                icon="fa-regular fa-timer"
                                 size="xs"
                                 class="me-050"
                             />
@@ -152,7 +152,7 @@
                     <VsTableRow>
                         <VsTableDataCell>
                             <VsIcon
-                                name="status-closed"
+                                icon="fa-regular fa-ban"
                                 size="xs"
                                 class="me-050"
                             />
@@ -174,7 +174,7 @@
                     >
                         <VsTableDataCell>
                             <VsIcon
-                                name="hourglass"
+                                icon="fa-regular fa-hourglass"
                                 size="xs"
                                 class="me-050"
                             />

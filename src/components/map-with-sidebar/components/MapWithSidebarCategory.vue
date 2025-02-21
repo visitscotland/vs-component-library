@@ -24,7 +24,7 @@
             </div>
 
             <VsIcon
-                name="internal-link"
+                icon="fa-regular fa-arrow-right"
                 variant="highlight"
                 size="xs"
                 class="vs-main-map-category__icon align-self-center me-0"

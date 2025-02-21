@@ -10,7 +10,7 @@
             <summary class="vs-filter-section__summary">
                 {{ props.sectionTitle }}
                 <VsIcon
-                    name="chevron"
+                    icon="vs-icon-control-expand"
                     variant="highlight"
                 />
             </summary>

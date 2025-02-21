@@ -16,7 +16,7 @@
         <!-- @slot Default slot for link content -->
         <slot /><VsIcon
             v-if="type !== 'default'"
-            :name="`${type}-link`"
+            :icon="`${type}-link`"
             :variant="variant == 'cta' ? 'cta' : 'inverse'"
             :size="iconSize"
             class="ms-025 vs-link__icon"

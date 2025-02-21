@@ -12,7 +12,7 @@
             data-layer-value="socialMediaExternalLinkDataEvent"
         >
             <VsIcon
-                :name="icon"
+                :icon="icon"
                 variant="inverse"
                 size="sm"
             />

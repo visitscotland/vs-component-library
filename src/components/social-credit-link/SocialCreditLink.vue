@@ -5,7 +5,7 @@
     >
         <VsIcon
             v-if="source"
-            :name="source"
+            :icon="source"
             variant="inverse"
             size="xs"
             class="me-025"

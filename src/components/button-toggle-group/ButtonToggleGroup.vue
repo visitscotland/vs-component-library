@@ -33,7 +33,7 @@
                     <span>
                         <VsIcon
                             v-if="option.icon"
-                            :name="option.icon"
+                            :icon="option.icon"
                             class="me-025"
                         />
                         {{ option.text }}

@@ -18,7 +18,7 @@
                         >
                             <VsIcon
                                 size="sm"
-                                name="warning"
+                                icon="vs-icon-feedback-warning"
                                 class="vs-banner__icon"
                             />
                         </VsCol>

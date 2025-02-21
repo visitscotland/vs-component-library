@@ -5,7 +5,7 @@
         :class="parentClasses"
     >
         <VsIcon
-            :name="mapMarkerType"
+            :icon="mapMarkerType"
             class="vs-map-marker-icon__marker"
             :class="markerClasses"
             size="xl"
@@ -64,10 +64,10 @@ export default {
     },
     computed: {
         mapMarkerType() {
-            let type = 'map-marker-filled';
+            let type = 'fa-solid fa-location-pin';
 
             if (this.id === 'twnv') {
-                type = 'places-map-pin';
+                type = 'fa-solid fa-location-dot';
             }
 
             return type;

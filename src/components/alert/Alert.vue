@@ -6,7 +6,7 @@
         <div class="vs-alert__icon-holder">
             <VsIcon
                 class="vs-alert__icon"
-                name="information"
+                icon="vs-icon-feedback-information"
                 variant="inverse"
             />
         </div>

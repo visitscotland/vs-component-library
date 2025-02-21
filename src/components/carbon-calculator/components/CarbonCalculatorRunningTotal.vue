@@ -7,7 +7,7 @@
             class="vs-carbon-calculator-running-total__icon"
         >
             <VsIcon
-                name="notes"
+                name="fa-regular fa-pen-field"
                 size="lg"
             />
         </div>

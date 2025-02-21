@@ -23,7 +23,7 @@
                                     {{ labelText }}
                                 </span>
                                 <VsIcon
-                                    name="search"
+                                    icon="vs-icon-control-search"
                                     size="xs"
                                 />
                             </label>

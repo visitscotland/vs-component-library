@@ -17,7 +17,7 @@
             class="mb-150"
         >
             <VsIcon
-                name="clock"
+                icon="fa-regular fa-clock"
                 :variant="iconVariant"
                 class="align-text-top me-050"
             />{{ blogReadTime }}

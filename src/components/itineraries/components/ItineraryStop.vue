@@ -10,7 +10,7 @@
             >
                 <div class="position-relative">
                     <VsIcon
-                        name="map-marker-filled"
+                        icon="fa-solid fa-location-pin"
                         variant="highlight"
                         size="xl"
                     />

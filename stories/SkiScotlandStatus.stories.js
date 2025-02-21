@@ -37,7 +37,7 @@ const Template = (args) => ({
                 <VsList unstyled>
                     <li v-if="args['centre-information'].phone" class="mb-050">
                         <VsIcon
-                            name="phone"
+                            icon="fa-regular fa-phone"
                             size="xs"
                             class="me-050"
                         ></VsIcon>
@@ -47,7 +47,7 @@ const Template = (args) => ({
                     </li>
                     <li v-if="args['centre-information'].website" class="mb-050">
                         <VsIcon
-                            name="globe"
+                            icon="fa-regular fa-globe"
                             size="xs"
                             class="me-050"
                         ></VsIcon>
@@ -60,7 +60,7 @@ const Template = (args) => ({
                     </li>
                     <li v-if="args['centre-information'].address" class="mb-050">
                         <VsIcon
-                            name="map-marker"
+                            icon="fa-regular fa-location-dot"
                             size="xs"
                             class="me-050"
                         ></VsIcon>
@@ -70,7 +70,7 @@ const Template = (args) => ({
                     </li>
                     <li v-if="args['centre-information'].pisteMap" class="mb-050">
                         <VsIcon
-                            name="landscape"
+                            icon="fa-regular fa-mountain"
                             size="xs"
                             class="me-050"
                         ></VsIcon>
@@ -83,7 +83,7 @@ const Template = (args) => ({
                     </li>
                     <li v-if="args['centre-information'].openingLink" class="mb-050">
                         <VsIcon
-                            name="clock"
+                            icon="fa-regular fa-clock"
                             size="xs"
                             class="me-050"
                         ></VsIcon>
@@ -95,7 +95,7 @@ const Template = (args) => ({
                     </li>
                     <li v-if="args['centre-information'].webcam" class="mb-050">
                         <VsIcon
-                            name="webcam"
+                            icon="fa-regular fa-camera-web"
                             size="xs"
                             class="me-050"
                         ></VsIcon>
@@ -110,7 +110,7 @@ const Template = (args) => ({
                         <span class="visually-hidden">Twitter</span>
                         <VsIcon
                             size="sm"
-                            name="twitter"
+                            icon="fa-brands fa-twitter"
                             custom-colour="#55ACEE"
                         ></VsIcon>
                     </div>
@@ -123,7 +123,7 @@ const Template = (args) => ({
                         <span class="visually-hidden">Facebook</span>
                         <VsIcon
                             size="sm"
-                            name="facebook"
+                            icon="fa-brands fa-facebook"
                             custom-colour="#3A5A99"
                         ></VsIcon>
                     </div>
@@ -136,7 +136,7 @@ const Template = (args) => ({
                         <span class="visually-hidden">Instagram</span>
                         <VsIcon
                             size="sm"
-                            name="instagram"
+                            icon="fa-brands fa-instagram"
                             custom-colour="#E1306C"
                         ></VsIcon>
                     </div>

@@ -7,7 +7,7 @@
         <div class="vs-warning__content">
             <VsIcon
                 class="vs-warning__icon"
-                :name="icon"
+                :icon="icon"
                 variant="highlight"
             />
 
@@ -59,7 +59,7 @@ export default {
         */
         icon: {
             type: String,
-            default: 'warning',
+            default: 'vs-icon-feedback-warning',
         },
         /**
         * Type of warning

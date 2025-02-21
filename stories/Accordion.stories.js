@@ -55,7 +55,7 @@ const Template = (args) => ({
                     <template v-slot:title>
                         <VsIcon
                             v-if="accordionItem.icon"
-                            :name="accordionItem.icon"
+                            :icon="accordionItem.icon"
                             size="sm"
                             class="me-025"
                         />
@@ -104,15 +104,15 @@ WithIcon.args = {
     accordionItems: [
         {
             ...base.accordionItems[0],
-            icon: 'walk',
+            icon: 'fa-regular fa-person-walking',
         },
         {
             ...base.accordionItems[1],
-            icon: 'car',
+            icon: 'fa-regular fa-car-side',
         },
         {
             ...base.accordionItems[2],
-            icon: 'cycle',
+            icon: 'fa-regular fa-person-biking',
         },
     ],
 };

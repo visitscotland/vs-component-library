@@ -4,7 +4,7 @@
         data-test="vs-address"
     >
         <VsIcon
-            name="map-marker"
+            icon="fa-regular fa-location-dot"
             class="vs-address__map-marker me-050"
         />
         <address class="vs-address__address-box">

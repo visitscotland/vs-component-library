@@ -12,7 +12,7 @@
             :id="`vs-share-${name}`"
         >
             <VsIcon
-                :name="name"
+                :icon="name"
                 :custom-colour="iconColour"
                 size="xl"
                 small-size="lg"

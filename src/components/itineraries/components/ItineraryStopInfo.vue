@@ -4,7 +4,7 @@
         data-test="vs-itinerary-stop-info"
     >
         <VsIcon
-            name="information"
+            icon="vs-icon-feedback-information"
             class="vs-address__map-marker me-050"
         />
         <div>

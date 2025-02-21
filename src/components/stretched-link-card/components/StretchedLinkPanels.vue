@@ -14,7 +14,7 @@
             data-test="vs-stretched-link-panel"
         >
             <VsIcon
-                :name="transport"
+                :icon="transport"
                 variant="inverse"
                 size="sm"
                 class="vs-stretched-link-panels__icon"

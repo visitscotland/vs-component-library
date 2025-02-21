@@ -14,7 +14,7 @@
         <VsIcon
             v-if="icon"
             class="align-self-center"
-            :name="icon"
+            :icon="icon"
             :class="iconClasses"
             size="xs"
             :padding="0"

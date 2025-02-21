@@ -14,7 +14,7 @@
             v-if="show"
             duotone
             class="fa-icon-colours fa-icon-colours--white"
-            name="circle-xmark"
+            icon="fa-duotone fa-circle-xmark"
         />
 
         <!-- @slot Slot for custom toggle icon - used for social images -->
@@ -25,7 +25,7 @@
             <VsIcon
                 duotone
                 class="fa-icon-colours"
-                name="circle-info"
+                icon="fa-duotone fa-circle-info"
             />
         </slot>
     </VsButton>
