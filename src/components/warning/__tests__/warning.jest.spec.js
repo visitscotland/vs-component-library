@@ -30,16 +30,16 @@ describe('VsWarning', () => {
             const wrapper = factoryMount();
             const icon = wrapper.find('.vs-icon');
 
-            expect(icon.classes()).toContain('vs-icon--warning');
+            expect(icon.classes()).toContain('fa-triangle-exclamation');
         });
 
         it(':icon - should render an icon with the same name as the `icon` prop', () => {
             const wrapper = factoryMount({
-                icon: 'test',
+                icon: 'vs-icon-feedback-information',
             });
             const icon = wrapper.find('.vs-icon');
 
-            expect(icon.classes()).toContain('vs-icon--test');
+            expect(icon.classes()).toContain('fa-circle-info');
         });
 
         it(':size - should render a class matching the `size` prop', () => {

@@ -9,7 +9,7 @@
             <VsIcon
                 icon="fa-kit fa-vs-coo-head"
                 size="lg"
-                variant="hightlight"
+                variant="highlight"
                 class="vs-carbon-calculator-tip__icon"
             />
         </div>
