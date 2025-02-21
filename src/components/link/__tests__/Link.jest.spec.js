@@ -84,6 +84,38 @@ describe('VsLink', () => {
             });
             expect(wrapper.attributes()).not.toContain('download');
         });
+
+        it('does not render icon for default type', () => {
+            const wrapper = factoryShallowMount();
+            expect(wrapper.findComponent(VsIcon).exists()).toBe(false);
+        });
+
+        it('renders correct icon for external type', () => {
+            const wrapper = factoryShallowMount({
+                type: 'external',
+            });
+            const icon = wrapper.findComponent(VsIcon);
+            expect(icon.exists()).toBe(true);
+            expect(icon.props('icon')).toBe('fa-regular fa-square-arrow-up-right');
+        });
+
+        it('renders correct icon for internal type', () => {
+            const wrapper = factoryShallowMount({
+                type: 'internal',
+            });
+            const icon = wrapper.findComponent(VsIcon);
+            expect(icon.exists()).toBe(true);
+            expect(icon.props('icon')).toBe('fa-regular fa-arrow-right');
+        });
+
+        it('renders correct icon for download type', () => {
+            const wrapper = factoryShallowMount({
+                type: 'download',
+            });
+            const icon = wrapper.findComponent(VsIcon);
+            expect(icon.exists()).toBe(true);
+            expect(icon.props('icon')).toBe('vs-icon-control-download');
+        });
     });
 
     describe(':accessibility', () => {
