@@ -83,7 +83,7 @@ export const WithPanels = Template.bind({
 WithPanels.args = {
     ...base,
     days: '14',
-    transport: 'bus',
+    transport: 'fa-regular fa-bus',
     transportName: 'Bus',
 };
 
@@ -104,7 +104,7 @@ export const NoJavascript = Template.bind({
 NoJavascript.args = {
     ...base,
     days: '14',
-    transport: 'bus',
+    transport: 'fa-regular fa-bus',
     transportName: 'Bus',
     jsDisabled: true,
 };

@@ -153,7 +153,7 @@ WithPanels.args = {
     'stretched-card-panels': `
         <VsStretchedLinkPanels
             days="14"
-            transport="car"
+            transport="fa-regular fa-car-side"
             transportName="Car"
             daysLabel="days"
         />

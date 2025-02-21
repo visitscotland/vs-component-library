@@ -19,7 +19,7 @@
     "totalMiles": "60",
     "totalKM": "96",
     "transport": {
-        "key": "bus",
+        "key": "fa-regular fa-bus",
         "value": "Public Transport / Walking"
     },
     "theme": {
@@ -37,15 +37,15 @@
             "dayKM": "26",
             "transport": [
                 {
-                    "key": "car",
+                    "key": "fa-regular fa-car-side",
                     "value": "Car"
                 },
                 {
-                    "key": "walk",
+                    "key": "fa-regular fa-person-walking",
                     "value": "Walking"
                 },
                 {
-                    "key": "transport",
+                    "key": "fa-kit fa-vs-public-transport",
                     "value": "Transport"
                 }
             ],
@@ -241,11 +241,11 @@
             "dayKM": "61",
             "transport": [
                 {
-                    "key": "car",
+                    "key": "fa-regular fa-car-side",
                     "value": "Car"
                 },
                 {
-                    "key": "walk",
+                    "key": "fa-regular fa-person-walking",
                     "value": "Walking"
                 }
             ],
@@ -399,11 +399,11 @@
             "dayKM": "26",
             "transport": [
                 {
-                    "key": "car",
+                    "key": "fa-regular fa-car-side",
                     "value": "Car"
                 },
                 {
-                    "key": "walk",
+                    "key": "fa-regular fa-person-walking",
                     "value": "Walking"
                 }
             ],
@@ -567,11 +567,11 @@
             "dayKM": "26",
             "transport": [
                 {
-                    "key": "car",
+                    "key": " fa-regular fa-car-side",
                     "value": "Car"
                 },
                 {
-                    "key": "walk",
+                    "key": "fa-regular fa-person-walking",
                     "value": "Walking"
                 }
             ],
