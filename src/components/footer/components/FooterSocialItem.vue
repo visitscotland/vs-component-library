@@ -7,7 +7,6 @@
             data-test="vs-footer-social-item__link"
             :href="href"
             type="external"
-            :class="icon"
             :aria-label="icon"
             data-layer-value="socialMediaExternalLinkDataEvent"
         >
@@ -63,7 +62,7 @@ export default {
 
 <style lang="scss">
 .vs-list.vs-list--unstyled  {
-    .vs-footer-social-item{
+    .vs-footer-social-item {
         display: inline-block;
         margin-right: $spacer-075;
         margin-bottom: $spacer-075;
@@ -80,7 +79,7 @@ export default {
                 line-height: $line-height-m;
                 display: block;
 
-                &.vs-icon--external-link {
+                &.fa-square-arrow-up-right {
                     display: none;
                 }
             }

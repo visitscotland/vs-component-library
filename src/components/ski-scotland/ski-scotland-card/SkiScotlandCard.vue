@@ -91,7 +91,7 @@
                             <VsIcon
                                 icon="fa-regular fa-check"
                                 size="xs"
-                                class="me-050"
+                                class="me-050 fa-fw"
                             />
                             <span data-test="vs-ski__open-label">
                                 {{ summaryOpenLabel }}
@@ -114,7 +114,7 @@
                             <VsIcon
                                 icon="fa-regular fa-ski-boot-ski"
                                 size="xs"
-                                class="me-050"
+                                class="me-050 fa-fw"
                             />
                             <span data-test="vs-ski__limited-patrol-label">
                                 {{ summaryLimitedPatrolLabel }}
@@ -134,7 +134,7 @@
                             <VsIcon
                                 icon="fa-regular fa-timer"
                                 size="xs"
-                                class="me-050"
+                                class="me-050 fa-fw"
                             />
                             <span data-test="vs-ski__opening-label">
                                 {{ summaryOpeningLabel }}
@@ -154,7 +154,7 @@
                             <VsIcon
                                 icon="fa-regular fa-ban"
                                 size="xs"
-                                class="me-050"
+                                class="me-050 fa-fw"
                             />
                             <span data-test="vs-ski__closed-label">
                                 {{ summaryClosedLabel }}
@@ -176,7 +176,7 @@
                             <VsIcon
                                 icon="fa-regular fa-hourglass"
                                 size="xs"
-                                class="me-050"
+                                class="me-050 fa-fw"
                             />
                             <span data-test="vs-ski__on-hold-label">
                                 {{ summaryOnHoldLabel }}

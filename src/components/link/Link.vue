@@ -105,7 +105,7 @@ export default {
 
             switch (this.type) {
             case 'external':
-                icon = 'fa-regular fa-pen-to-square';
+                icon = 'fa-regular fa-square-arrow-up-right';
                 break;
             case 'internal':
                 icon = 'fa-regular fa-arrow-right';

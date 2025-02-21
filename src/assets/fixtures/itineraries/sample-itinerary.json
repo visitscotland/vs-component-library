@@ -23,7 +23,7 @@
         "value": "Public Transport / Walking"
     },
     "theme": {
-        "key": "child",
+        "key": "fa-regular fa-child-reaching",
         "value": "Families"
     },
     "highlights": ["East Neuk of Fife", "St Andrews", "Dundee", "Angus"],

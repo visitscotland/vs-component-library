@@ -107,21 +107,21 @@ export const WithIcon = Template.bind();
 WithIcon.args = {
     ...base,
     default: 'Search',
-    icon: 'search',
+    icon: 'vs-icon-control-search',
 };
 
 export const WithIconOnRight = Template.bind();
 WithIconOnRight.args = {
     ...base,
     default: 'Search',
-    icon: 'search',
+    icon: 'vs-icon-control-search',
     iconPosition: 'right',
 };
 
 export const IconOnly = Template.bind();
 IconOnly.args = {
     ...base,
-    icon: 'search',
+    icon: 'vs-icon-control-search',
     iconOnly: true,
     default: 'Search',
 };
@@ -129,7 +129,7 @@ IconOnly.args = {
 export const IconOnlySecondary = Template.bind();
 IconOnlySecondary.args = {
     ...base,
-    icon: 'close',
+    icon: 'vs-icon-control-dismiss',
     variant: 'secondary',
     iconOnly: true,
     default: 'close',
@@ -138,7 +138,7 @@ IconOnlySecondary.args = {
 export const IconOnlyTransparent = Template.bind();
 IconOnlyTransparent.args = {
     ...base,
-    icon: 'close',
+    icon: 'vs-icon-control-dismiss',
     iconOnly: true,
     default: 'close',
     variant: 'transparent',
@@ -147,7 +147,7 @@ IconOnlyTransparent.args = {
 export const IconOnlySmall = Template.bind();
 IconOnlySmall.args = {
     ...base,
-    icon: 'close',
+    icon: 'vs-icon-control-dismiss',
     iconOnly: true,
     size: 'sm',
     default: 'close',
@@ -156,7 +156,7 @@ IconOnlySmall.args = {
 export const IconOnlyLarge = Template.bind();
 IconOnlyLarge.args = {
     ...base,
-    icon: 'close',
+    icon: 'vs-icon-control-dismiss',
     iconOnly: true,
     size: 'lg',
     default: 'close',

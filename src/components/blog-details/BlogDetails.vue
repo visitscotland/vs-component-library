@@ -74,7 +74,7 @@ export default {
     },
     computed: {
         iconVariant() {
-            return this.blogAuthor ? 'secondary' : 'tertiary';
+            return this.blogAuthor ? 'secondary' : 'highlight';
         },
     },
 };

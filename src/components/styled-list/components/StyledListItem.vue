@@ -84,9 +84,9 @@ const props = defineProps({
         position: relative;
 
         &::before {
-            content: '\e085';
+            font-family: "Font Awesome 6 Pro";
+            content: "\f00c";
             color: $vs-color-icon-accent-saltire-30;
-            font-family: 'Font Awesome Kit';
             font-size: $font-size-8;
             position: absolute;
             top: $spacer-075;
