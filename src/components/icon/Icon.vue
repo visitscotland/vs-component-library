@@ -36,7 +36,7 @@ export default {
          */
         variant: {
             type: String,
-            default: 'default',
+            default: 'primary',
             validator: (value) => value.match(
                 /(primary|secondary|cta|inverse|disabled|highlight|error|warning|success)/,
             ),

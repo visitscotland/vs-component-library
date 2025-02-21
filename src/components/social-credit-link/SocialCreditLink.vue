@@ -5,7 +5,7 @@
     >
         <VsIcon
             v-if="source"
-            :icon="source"
+            :icon="`fa-brands fa-${source}`"
             variant="inverse"
             size="xs"
             class="me-025"

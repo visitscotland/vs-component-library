@@ -60,7 +60,7 @@ describe('VsSocialCreditLink', () => {
                 name: 'VsIcon',
             });
 
-            expect(icon.props().name).toBe('instagram');
+            expect(icon.props().icon).toBe('instagram');
         });
     });
 
