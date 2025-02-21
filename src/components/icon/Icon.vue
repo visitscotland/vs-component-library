@@ -32,13 +32,13 @@ export default {
         },
         /**
          * The color of the icon.
-         * `default|primary|secondary|inverse|disabled|tertiary|danger|warning`
+         * `primary|secondary|cta|inverse|disabled|highlight|error|warning|success`
          */
         variant: {
             type: String,
             default: 'default',
             validator: (value) => value.match(
-                /(default|primary|secondary|inverse|disabled|tertiary|success|danger|warning)/,
+                /(primary|secondary|cta|inverse|disabled|highlight|error|warning|success)/,
             ),
         },
         /**
@@ -109,15 +109,15 @@ $sizes: (
 );
 
 $variants: (
-    default: $vs-color-icon-primary,
-    primary: $vs-color-icon-cta-on-light,
+    primary: $vs-color-icon-primary,
     secondary: $vs-color-icon-secondary,
-    tertiary: $vs-color-icon-highlight,
+    cta: $vs-color-icon-cta-on-light,
     inverse: $vs-color-icon-inverse,
-    success: $vs-color-icon-success,
-    danger: $vs-color-icon-error,
-    warning: $vs-color-icon-warning,
+    highlight: $vs-color-icon-highlight,
     disabled: $vs-color-icon-disabled,
+    error: $vs-color-icon-error,
+    warning: $vs-color-icon-warning,
+    success: $vs-color-icon-success,
 );
 
 .vs-icon {

@@ -121,7 +121,7 @@ onMounted(() => {
                 />
                 <VsIcon 
                     name="chevron-down"
-                    variant="primary"
+                    variant="cta"
                     size="sm"
                 />
                 <ul

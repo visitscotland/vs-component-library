@@ -11,7 +11,7 @@
                 {{ props.sectionTitle }}
                 <VsIcon
                     name="chevron"
-                    variant="tertiary"
+                    variant="highlight"
                 />
             </summary>
 
