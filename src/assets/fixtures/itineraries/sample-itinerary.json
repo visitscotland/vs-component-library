@@ -271,7 +271,7 @@
                     },
                     "latitude": "56.30453",
                     "longitude": "-3.08709",
-                    "facilities": [                        
+                    "facilities": [
                         {
                             "key": "vs-icon-facility-public-transport",
                             "value": "On Public Transport Route"
@@ -567,7 +567,7 @@
             "dayKM": "26",
             "transport": [
                 {
-                    "key": " fa-regular fa-car-side",
+                    "key": "fa-regular fa-car-side",
                     "value": "Car"
                 },
                 {

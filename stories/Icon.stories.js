@@ -104,7 +104,7 @@ Colour.args = {
         },
         {
             classes: 'fa-regular fa-user',
-            variant: 'primary',
+            variant: 'secondary',
         },
         {
             classes: 'fa-regular fa-user',
