@@ -34,7 +34,7 @@
                             <VsButton
                                 class="vs-mega-nav-dropdown__close-btn
                                 d-none d-lg-block position-absolute"
-                                icon="close"
+                                icon="vs-icon-control-dismiss"
                                 icon-only
                                 size="sm"
                                 variant="transparent"
@@ -75,7 +75,7 @@
                             <VsButton
                                 class="vs-mega-nav-dropdown__close-btn
                                 d-none d-lg-block position-absolute"
-                                icon="close"
+                                icon="vs-icon-control-dismiss"
                                 icon-only
                                 size="sm"
                                 variant="transparent"

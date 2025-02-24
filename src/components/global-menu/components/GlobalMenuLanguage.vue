@@ -6,7 +6,7 @@
         <template #button-content>
             <VsIcon
                 class="vs-global-menu__languages__icon"
-                name="globe"
+                icon="fa-regular fa-globe"
                 variant="inverse"
                 size="xxs"
                 focusable="false"
@@ -22,7 +22,7 @@
             role="menuitem"
         >
             <VsIcon
-                name="globe"
+                icon="fa-regular fa-globe"
                 variant="inverse"
                 size="xxs"
                 focusable="false"

@@ -22,7 +22,7 @@ const mountOptions = {
         theme: 'grey',
         days: '3',
         daysLabel: 'days',
-        transport: 'bus',
+        transport: 'fa-regular fa-bus',
         transportName: 'Bus',
         videoId,
         videoBtnText,

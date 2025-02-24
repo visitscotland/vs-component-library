@@ -39,7 +39,7 @@ describe('VsToggleButton', () => {
             const wrapper = factoryShallowMount();
 
             expect(wrapper.find('[data-test="vs-toggle-btn"]').attributes('aria-expanded')).toContain('false');
-            expect(wrapper.find('vs-icon-stub').attributes('name')).toContain('circle-info');
+            expect(wrapper.find('vs-icon-stub').attributes('icon')).toContain('circle-info');
         });
 
         it('renders content in the `default` slot', () => {
@@ -67,7 +67,7 @@ describe('VsToggleButton', () => {
             await wrapper.vm.$nextTick();
 
             expect(toggleCaptionBtn.attributes('aria-expanded')).toContain('true');
-            expect(wrapper.find('vs-icon-stub').attributes('name')).toContain('circle-xmark');
+            expect(wrapper.find('vs-icon-stub').attributes('icon')).toContain('circle-xmark');
         });
     });
 });

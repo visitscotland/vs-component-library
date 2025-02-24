@@ -36,8 +36,8 @@
 
             &::after {
                 display: inline-block;
-                font-family: "Font Awesome Kit";
-                content: "\e012";
+                font-family: "Font Awesome 6 Pro";
+                content: "\f078";
                 color: $vs-color-icon-inverse;
                 border: 0;
                 vertical-align: bottom;
@@ -207,8 +207,8 @@
                             }
 
                             &:after {
-                                font-family: "Font Awesome Kit";
-                                content: "\e049";
+                                font-family: "Font Awesome 6 Pro";
+                                content: "\f061";
                                 color: $vs-color-icon-highlight;
                                 font-size: $font-size-4;
                                 top: -4px;
@@ -307,8 +307,8 @@
 
                     &.next-mobile a:after, 
                     &.previous a:before{
-                        font-family: "Font Awesome Kit";
-                        content: "\e049";
+                        font-family: "Font Awesome 6 Pro";
+                        content: "\f061";
                         color: $vs-color-icon-cta-on-light;
                         font-weight: $font-weight-normal;
                         font-size: $font-size-3;

@@ -53,7 +53,7 @@ const Template = (args) => ({
 });
 
 const base = {
-    icon: 'vs-icon-close',
+    icon: 'vs-icon-control-dismiss',
 };
 
 export const Default = Template.bind({
@@ -100,10 +100,6 @@ Colour.args = {
     icons: [
         {
             classes: 'fa-regular fa-user',
-            variant: 'default',
-        },
-        {
-            classes: 'fa-regular fa-user',
             variant: 'primary',
         },
         {
@@ -112,15 +108,23 @@ Colour.args = {
         },
         {
             classes: 'fa-regular fa-user',
+            variant: 'cta',
+        },
+        {
+            classes: 'fa-regular fa-user',
             variant: 'inverse',
         },
         {
             classes: 'fa-regular fa-user',
-            variant: 'tertiary',
+            variant: 'highlight',
         },
         {
             classes: 'fa-regular fa-user',
-            variant: 'success',
+            variant: 'disabled',
+        },
+        {
+            classes: 'fa-regular fa-user',
+            variant: 'error',
         },
         {
             classes: 'fa-regular fa-user',
@@ -128,11 +132,7 @@ Colour.args = {
         },
         {
             classes: 'fa-regular fa-user',
-            variant: 'danger',
-        },
-        {
-            classes: 'fa-regular fa-user',
-            variant: 'disabled',
+            variant: 'success',
         },
     ],
 };

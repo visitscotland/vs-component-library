@@ -74,7 +74,7 @@ describe('VsBlogDetails', () => {
         });
 
         it('computes correct icon variant when author is not present', () => {
-            expect(wrapper.vm.iconVariant).toBe('tertiary');
+            expect(wrapper.vm.iconVariant).toBe('highlight');
         });
 
         it('applies highlight class correctly when author is not present', () => {

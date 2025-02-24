@@ -16,8 +16,8 @@
         <!-- @slot Default slot for link content -->
         <slot /><VsIcon
             v-if="type !== 'default'"
-            :name="`${type}-link`"
-            :variant="variant == 'cta' ? 'cta' : 'inverse'"
+            :icon="iconName"
+            :variant="variant == 'primary' ? 'cta' : 'inverse'"
             :size="iconSize"
             class="ms-025 vs-link__icon"
         />
@@ -99,6 +99,24 @@ export default {
     computed: {
         variantClass() {
             return `vs-link--variant-${this.variant}`;
+        },
+        iconName() {
+            let icon = '';
+
+            switch (this.type) {
+            case 'external':
+                icon = 'fa-regular fa-square-arrow-up-right';
+                break;
+            case 'internal':
+                icon = 'fa-regular fa-arrow-right';
+                break;
+            case 'download':
+                icon = 'vs-icon-control-download';
+                break;
+            default:
+                icon = '';
+            };
+            return icon;
         },
     },
     methods: {

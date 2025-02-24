@@ -117,6 +117,6 @@ export const DifferentIcon = Template.bind({
 DifferentIcon.args = {
     ...base,
     default: 'You have 10 minutes before this form times out',
-    icon: 'clock',
+    icon: 'fa-regular fa-clock',
     size: 'small',
 };

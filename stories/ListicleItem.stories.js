@@ -88,15 +88,15 @@ const description = `
 const facilities = `
     <VsIconList title="Key Facilities">
         <VsIconListItem
-            icon="facility-petswelcom"
+            icon="vs-icon-facility-pets-welcome"
             label="Pets Welcome">
         </VsIconListItem>
         <VsIconListItem
-            icon="facility-dsblaccess"
+            icon="vs-icon-facility-wheelchair-access"
             label="Wheelchair Access">
         </VsIconListItem>
         <VsIconListItem
-            icon="facility-audioloop"
+            icon="vs-icon-facility-audio-loop"
             label="Hearing Loop">
         </VsIconListItem>
     </VsIconList>

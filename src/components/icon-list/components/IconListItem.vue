@@ -4,7 +4,7 @@
         data-test="vs-icon-list__item"
     >
         <VsIcon
-            :name="icon"
+            :icon="icon"
             size="md"
             class="d-block mx-auto"
         />

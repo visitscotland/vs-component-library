@@ -52,7 +52,7 @@ const Template = (args) => ({
                     >
                         <template v-slot:icon-open>
                             <VsIcon
-                                icon="vs-icon-open"
+                                icon="vs-icon-control-collapse"
                                 variant="inverse"
                                 size="xs"
                             />
@@ -60,7 +60,7 @@ const Template = (args) => ({
 
                         <template v-slot:icon-closed>
                             <VsIcon
-                                icon="vs-icon-closed"
+                                icon="vs-icon-control-expand"
                                 variant="inverse"
                                 size="xs"
                             />
@@ -103,7 +103,7 @@ const Template = (args) => ({
                     >
                         <template v-slot:icon-open>
                             <VsIcon
-                                icon="vs-icon-open"
+                                icon="vs-icon-control-collapse"
                                 variant="inverse"
                                 size="xs"
                             />
@@ -111,7 +111,7 @@ const Template = (args) => ({
 
                         <template v-slot:icon-closed>
                             <VsIcon
-                                icon="vs-icon-closed"
+                                icon="vs-icon-control-expand"
                                 variant="inverse"
                                 size="xs"
                             />
@@ -154,7 +154,7 @@ const Template = (args) => ({
                     >
                         <template v-slot:icon-open>
                             <VsIcon
-                                icon="vs-icon-open"
+                                icon="vs-icon-control-collapse"
                                 variant="inverse"
                                 size="xs"
                             />
@@ -162,7 +162,7 @@ const Template = (args) => ({
 
                         <template v-slot:icon-closed>
                             <VsIcon
-                                icon="vs-icon-closed"
+                                icon="vs-icon-control-expand"
                                 variant="inverse"
                                 size="xs"
                             />
@@ -205,19 +205,19 @@ const Template = (args) => ({
 
                     <VsFooterSocialItem
                         href="#"
-                        icon="facebook"
+                        icon="fa-brands fa-facebook"
                     />
                     <VsFooterSocialItem
                         href="#"
-                        icon="x-twitter"
+                        icon="fa-brands fa-x-twitter"
                     />
                     <VsFooterSocialItem
                         href="#"
-                        icon="youtube"
+                        icon="fa-brands fa-youtube"
                     />
                     <VsFooterSocialItem
                         href="#"
-                        icon="instagram"
+                        icon="fa-brands fa-instagram"
                     />
                 </VsFooterSocialMenu>
             </template>

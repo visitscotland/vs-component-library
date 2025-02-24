@@ -57,7 +57,7 @@ const Template = (args) => ({
 });
 
 const base = {
-    icon: 'bus',
+    icon: 'fa-regular fa-bus',
     size: 'sm',
     position: 'top',
     title: 'Travel by bus',

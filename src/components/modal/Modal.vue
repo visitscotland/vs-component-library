@@ -24,7 +24,7 @@
                         data-test="vs-modal__close-btn"
                         variant="transparent"
                         icon-only
-                        icon="close"
+                        icon="vs-icon-control-dismiss"
                         @click="hideModal"
                     >
                         {{ closeBtnText }}

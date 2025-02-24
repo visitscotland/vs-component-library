@@ -33,23 +33,23 @@ const base = {
     title: 'Key Facilities',
     icons: [
         {
-            icon: 'facility-wifi',
+            icon: 'vs-icon-facility-wifi',
             label: 'Wifi',
         },
         {
-            icon: 'facility-petswelcom',
+            icon: 'vs-icon-facility-pets-welcome',
             label: 'Pets Welcome',
         },
         {
-            icon: 'facility-parking',
+            icon: 'vs-icon-facility-parking',
             label: 'Parking',
         },
         {
-            icon: 'facility-dsblaccess',
+            icon: 'vs-icon-facility-wheelchair-access',
             label: 'Level Access',
         },
         {
-            icon: 'facility-audioloop',
+            icon: 'vs-icon-facility-audio-loop',
             label: 'Hearing Loop',
         },
     ],

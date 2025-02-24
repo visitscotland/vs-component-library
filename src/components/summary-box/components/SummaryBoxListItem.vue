@@ -27,7 +27,7 @@
         >
             <div class="icon-wrapper text-end">
                 <VsIcon
-                    :name="icon"
+                    :icon="icon"
                     size="xl"
                 />
             </div>

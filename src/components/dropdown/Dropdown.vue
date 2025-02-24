@@ -98,8 +98,8 @@ export default {
 
         &::after {
             display: inline-block;
-            font-family: "Font Awesome Kit";
-            content: "\e012";
+            font-family: "Font Awesome 6 Pro";
+            content: "\f078";
             color: $vs-color-icon-inverse;
             border: 0;
             font-weight: 400;

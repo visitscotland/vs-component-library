@@ -26,7 +26,7 @@
         </span>
 
         <VsIcon
-            name="internal-link"
+            icon="fa-regular fa-arrow-right"
             variant="highlight"
             size="xxs"
             class="vs-map-with-sidebar-list-item__icon"

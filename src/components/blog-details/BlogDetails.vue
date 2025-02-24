@@ -17,7 +17,7 @@
             class="mb-150"
         >
             <VsIcon
-                name="clock"
+                icon="fa-regular fa-clock"
                 :variant="iconVariant"
                 class="align-text-top me-050"
             />{{ blogReadTime }}
@@ -74,7 +74,7 @@ export default {
     },
     computed: {
         iconVariant() {
-            return this.blogAuthor ? 'secondary' : 'tertiary';
+            return this.blogAuthor ? 'secondary' : 'highlight';
         },
     },
 };

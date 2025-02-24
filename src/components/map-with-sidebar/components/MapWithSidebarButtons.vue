@@ -19,7 +19,7 @@
                 class="vs-map-with-sidebar-buttons__filters"
                 data-test="vs-map-with-sidebar-buttons__filters"
                 variant="secondary"
-                icon="filters"
+                icon="vs-icon-control-filters"
                 size="sm"
                 @click="filtersClick"
             >

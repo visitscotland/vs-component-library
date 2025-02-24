@@ -63,6 +63,8 @@ $fa-var-compress-arrows: \e0a5;
 $fa-var-arrows-rotate: \f021;
 $fa-var-refresh: \f021;
 $fa-var-sync: \f021;
+$fa-var-atom-simple: \f5d3;
+$fa-var-atom-alt: \f5d3;
 $fa-var-bag-shopping: \f290;
 $fa-var-shopping-bag: \f290;
 $fa-var-ban: \f05e;
@@ -71,6 +73,11 @@ $fa-var-bars: \f0c9;
 $fa-var-navicon: \f0c9;
 $fa-var-bed: \f236;
 $fa-var-bed-bunk: \f8f8;
+$fa-var-beer-mug: \e0b3;
+$fa-var-beer-foam: \e0b3;
+$fa-var-bell-concierge: \f562;
+$fa-var-concierge-bell: \f562;
+$fa-var-bench-tree: \e2e7;
 $fa-var-binoculars: \f1e5;
 $fa-var-bus: \f207;
 $fa-var-calendar-check: \f274;
@@ -90,12 +97,16 @@ $fa-var-chevron-right: \f054;
 $fa-var-chevron-up: \f077;
 $fa-var-child-reaching: \e59d;
 $fa-var-church: \f51d;
+$fa-var-circle-check: \f058;
+$fa-var-check-circle: \f058;
 $fa-var-circle-chevron-down: \f13a;
 $fa-var-chevron-circle-down: \f13a;
 $fa-var-circle-chevron-right: \f138;
 $fa-var-chevron-circle-right: \f138;
 $fa-var-circle-info: \f05a;
 $fa-var-info-circle: \f05a;
+$fa-var-circle-question: \f059;
+$fa-var-question-circle: \f059;
 $fa-var-circle-s: \e121;
 $fa-var-circle-xmark: \f057;
 $fa-var-times-circle: \f057;
@@ -103,26 +114,44 @@ $fa-var-xmark-circle: \f057;
 $fa-var-city: \f64f;
 $fa-var-clock: \f017;
 $fa-var-clock-four: \f017;
+$fa-var-cloud: \f0c2;
+$fa-var-cloud-bolt: \f76c;
+$fa-var-thunderstorm: \f76c;
+$fa-var-cloud-fog: \f74e;
+$fa-var-fog: \f74e;
+$fa-var-cloud-hail-mixed: \f73a;
+$fa-var-cloud-showers: \f73f;
+$fa-var-cloud-showers-heavy: \f740;
+$fa-var-cloud-sleet: \f741;
+$fa-var-cloud-snow: \f742;
 $fa-var-cloud-sun: \f6c4;
+$fa-var-cloud-sun-rain: \f743;
+$fa-var-compass: \f14e;
 $fa-var-crown: \f521;
 $fa-var-dog-leashed: \f6d4;
 $fa-var-ear-listen: \f2a2;
 $fa-var-assistive-listening-systems: \f2a2;
 $fa-var-egg-fried: \f7fc;
 $fa-var-envelope: \f0e0;
+$fa-var-eye: \f06e;
 $fa-var-face-smile: \f118;
 $fa-var-smile: \f118;
 $fa-var-family: \e300;
+$fa-var-ferry: \e4ea;
 $fa-var-file-pdf: \f1c1;
 $fa-var-flower-tulip: \f801;
 $fa-var-gift: \f06b;
+$fa-var-glasses: \f530;
 $fa-var-globe: \f0ac;
 $fa-var-heart: \f004;
 $fa-var-hot-tub-person: \f593;
 $fa-var-hot-tub: \f593;
+$fa-var-hotel: \f594;
 $fa-var-hourglass: \f254;
 $fa-var-hourglass-empty: \f254;
+$fa-var-house-building: \e1b1;
 $fa-var-house-chimney-window: \e00d;
+$fa-var-house-tree: \e1b3;
 $fa-var-images: \f302;
 $fa-var-island-tropical: \f811;
 $fa-var-island-tree-palm: \f811;
@@ -136,15 +165,22 @@ $fa-var-list: \f03a;
 $fa-var-list-squares: \f03a;
 $fa-var-location-dot: \f3c5;
 $fa-var-map-marker-alt: \f3c5;
+$fa-var-location-pin: \f041;
+$fa-var-map-marker: \f041;
 $fa-var-magnifying-glass: \f002;
 $fa-var-search: \f002;
 $fa-var-map: \f279;
+$fa-var-map-location-dot: \f5a0;
+$fa-var-map-marked-alt: \f5a0;
+$fa-var-masks-theater: \f630;
+$fa-var-theater-masks: \f630;
 $fa-var-minus: \f068;
 $fa-var-subtract: \f068;
 $fa-var-mountain: \f6fc;
 $fa-var-mountains: \f6fd;
 $fa-var-mug-saucer: \f0f4;
 $fa-var-coffee: \f0f4;
+$fa-var-oven: \e01d;
 $fa-var-pen-field: \e211;
 $fa-var-pen-to-square: \f044;
 $fa-var-edit: \f044;
@@ -157,6 +193,7 @@ $fa-var-ski-lift: \f7c8;
 $fa-var-person-walking: \f554;
 $fa-var-walking: \f554;
 $fa-var-phone: \f095;
+$fa-var-plane: \f072;
 $fa-var-play: \f04b;
 $fa-var-plus: \2b;
 $fa-var-add: \2b;
@@ -170,13 +207,20 @@ $fa-var-ship: \f21a;
 $fa-var-ski-boot-ski: \e3cd;
 $fa-var-sliders: \f1de;
 $fa-var-sliders-h: \f1de;
+$fa-var-snow-blowing: \f761;
+$fa-var-snowflakes: \f7cf;
 $fa-var-snowman: \f7d0;
 $fa-var-spa: \f5bb;
 $fa-var-square-arrow-up-right: \f14c;
 $fa-var-external-link-square: \f14c;
 $fa-var-square-parking: \f540;
 $fa-var-parking: \f540;
+$fa-var-squirrel: \f71a;
+$fa-var-star: \f005;
 $fa-var-sun: \f185;
+$fa-var-sun-bright: \e28f;
+$fa-var-sun-alt: \e28f;
+$fa-var-sun-haze: \f765;
 $fa-var-taxi: \f1ba;
 $fa-var-cab: \f1ba;
 $fa-var-taxi-bus: \e298;
@@ -186,18 +230,26 @@ $fa-var-timer: \e29e;
 $fa-var-train: \f238;
 $fa-var-train-subway: \f239;
 $fa-var-subway: \f239;
+$fa-var-train-subway-tunnel: \e2a3;
+$fa-var-subway-tunnel: \e2a3;
 $fa-var-triangle-exclamation: \f071;
 $fa-var-exclamation-triangle: \f071;
 $fa-var-warning: \f071;
+$fa-var-umbrella-beach: \f5ca;
 $fa-var-unicorn: \f727;
 $fa-var-universal-access: \f29a;
 $fa-var-user: \f007;
+$fa-var-user-chef: \e3d2;
 $fa-var-utensils: \f2e7;
 $fa-var-cutlery: \f2e7;
+$fa-var-wheat: \f72d;
 $fa-var-wheelchair: \f193;
+$fa-var-whiskey-glass-ice: \f7a1;
+$fa-var-glass-whiskey-rocks: \f7a1;
 $fa-var-wifi: \f1eb;
 $fa-var-wifi-3: \f1eb;
 $fa-var-wifi-strong: \f1eb;
+$fa-var-wind: \f72e;
 $fa-var-wrench: \f0ad;
 $fa-var-xmark: \f00d;
 $fa-var-close: \f00d;
@@ -229,6 +281,8 @@ $fa-icons: (
   "arrows-rotate": $fa-var-arrows-rotate,
   "refresh": $fa-var-refresh,
   "sync": $fa-var-sync,
+  "atom-simple": $fa-var-atom-simple,
+  "atom-alt": $fa-var-atom-alt,
   "bag-shopping": $fa-var-bag-shopping,
   "shopping-bag": $fa-var-shopping-bag,
   "ban": $fa-var-ban,
@@ -237,6 +291,11 @@ $fa-icons: (
   "navicon": $fa-var-navicon,
   "bed": $fa-var-bed,
   "bed-bunk": $fa-var-bed-bunk,
+  "beer-mug": $fa-var-beer-mug,
+  "beer-foam": $fa-var-beer-foam,
+  "bell-concierge": $fa-var-bell-concierge,
+  "concierge-bell": $fa-var-concierge-bell,
+  "bench-tree": $fa-var-bench-tree,
   "binoculars": $fa-var-binoculars,
   "bus": $fa-var-bus,
   "calendar-check": $fa-var-calendar-check,
@@ -256,12 +315,16 @@ $fa-icons: (
   "chevron-up": $fa-var-chevron-up,
   "child-reaching": $fa-var-child-reaching,
   "church": $fa-var-church,
+  "circle-check": $fa-var-circle-check,
+  "check-circle": $fa-var-check-circle,
   "circle-chevron-down": $fa-var-circle-chevron-down,
   "chevron-circle-down": $fa-var-chevron-circle-down,
   "circle-chevron-right": $fa-var-circle-chevron-right,
   "chevron-circle-right": $fa-var-chevron-circle-right,
   "circle-info": $fa-var-circle-info,
   "info-circle": $fa-var-info-circle,
+  "circle-question": $fa-var-circle-question,
+  "question-circle": $fa-var-question-circle,
   "circle-s": $fa-var-circle-s,
   "circle-xmark": $fa-var-circle-xmark,
   "times-circle": $fa-var-times-circle,
@@ -269,26 +332,44 @@ $fa-icons: (
   "city": $fa-var-city,
   "clock": $fa-var-clock,
   "clock-four": $fa-var-clock-four,
+  "cloud": $fa-var-cloud,
+  "cloud-bolt": $fa-var-cloud-bolt,
+  "thunderstorm": $fa-var-thunderstorm,
+  "cloud-fog": $fa-var-cloud-fog,
+  "fog": $fa-var-fog,
+  "cloud-hail-mixed": $fa-var-cloud-hail-mixed,
+  "cloud-showers": $fa-var-cloud-showers,
+  "cloud-showers-heavy": $fa-var-cloud-showers-heavy,
+  "cloud-sleet": $fa-var-cloud-sleet,
+  "cloud-snow": $fa-var-cloud-snow,
   "cloud-sun": $fa-var-cloud-sun,
+  "cloud-sun-rain": $fa-var-cloud-sun-rain,
+  "compass": $fa-var-compass,
   "crown": $fa-var-crown,
   "dog-leashed": $fa-var-dog-leashed,
   "ear-listen": $fa-var-ear-listen,
   "assistive-listening-systems": $fa-var-assistive-listening-systems,
   "egg-fried": $fa-var-egg-fried,
   "envelope": $fa-var-envelope,
+  "eye": $fa-var-eye,
   "face-smile": $fa-var-face-smile,
   "smile": $fa-var-smile,
   "family": $fa-var-family,
+  "ferry": $fa-var-ferry,
   "file-pdf": $fa-var-file-pdf,
   "flower-tulip": $fa-var-flower-tulip,
   "gift": $fa-var-gift,
+  "glasses": $fa-var-glasses,
   "globe": $fa-var-globe,
   "heart": $fa-var-heart,
   "hot-tub-person": $fa-var-hot-tub-person,
   "hot-tub": $fa-var-hot-tub,
+  "hotel": $fa-var-hotel,
   "hourglass": $fa-var-hourglass,
   "hourglass-empty": $fa-var-hourglass-empty,
+  "house-building": $fa-var-house-building,
   "house-chimney-window": $fa-var-house-chimney-window,
+  "house-tree": $fa-var-house-tree,
   "images": $fa-var-images,
   "island-tropical": $fa-var-island-tropical,
   "island-tree-palm": $fa-var-island-tree-palm,
@@ -302,15 +383,22 @@ $fa-icons: (
   "list-squares": $fa-var-list-squares,
   "location-dot": $fa-var-location-dot,
   "map-marker-alt": $fa-var-map-marker-alt,
+  "location-pin": $fa-var-location-pin,
+  "map-marker": $fa-var-map-marker,
   "magnifying-glass": $fa-var-magnifying-glass,
   "search": $fa-var-search,
   "map": $fa-var-map,
+  "map-location-dot": $fa-var-map-location-dot,
+  "map-marked-alt": $fa-var-map-marked-alt,
+  "masks-theater": $fa-var-masks-theater,
+  "theater-masks": $fa-var-theater-masks,
   "minus": $fa-var-minus,
   "subtract": $fa-var-subtract,
   "mountain": $fa-var-mountain,
   "mountains": $fa-var-mountains,
   "mug-saucer": $fa-var-mug-saucer,
   "coffee": $fa-var-coffee,
+  "oven": $fa-var-oven,
   "pen-field": $fa-var-pen-field,
   "pen-to-square": $fa-var-pen-to-square,
   "edit": $fa-var-edit,
@@ -323,6 +411,7 @@ $fa-icons: (
   "person-walking": $fa-var-person-walking,
   "walking": $fa-var-walking,
   "phone": $fa-var-phone,
+  "plane": $fa-var-plane,
   "play": $fa-var-play,
   "plus": $fa-var-plus,
   "add": $fa-var-add,
@@ -336,13 +425,20 @@ $fa-icons: (
   "ski-boot-ski": $fa-var-ski-boot-ski,
   "sliders": $fa-var-sliders,
   "sliders-h": $fa-var-sliders-h,
+  "snow-blowing": $fa-var-snow-blowing,
+  "snowflakes": $fa-var-snowflakes,
   "snowman": $fa-var-snowman,
   "spa": $fa-var-spa,
   "square-arrow-up-right": $fa-var-square-arrow-up-right,
   "external-link-square": $fa-var-external-link-square,
   "square-parking": $fa-var-square-parking,
   "parking": $fa-var-parking,
+  "squirrel": $fa-var-squirrel,
+  "star": $fa-var-star,
   "sun": $fa-var-sun,
+  "sun-bright": $fa-var-sun-bright,
+  "sun-alt": $fa-var-sun-alt,
+  "sun-haze": $fa-var-sun-haze,
   "taxi": $fa-var-taxi,
   "cab": $fa-var-cab,
   "taxi-bus": $fa-var-taxi-bus,
@@ -352,18 +448,26 @@ $fa-icons: (
   "train": $fa-var-train,
   "train-subway": $fa-var-train-subway,
   "subway": $fa-var-subway,
+  "train-subway-tunnel": $fa-var-train-subway-tunnel,
+  "subway-tunnel": $fa-var-subway-tunnel,
   "triangle-exclamation": $fa-var-triangle-exclamation,
   "exclamation-triangle": $fa-var-exclamation-triangle,
   "warning": $fa-var-warning,
+  "umbrella-beach": $fa-var-umbrella-beach,
   "unicorn": $fa-var-unicorn,
   "universal-access": $fa-var-universal-access,
   "user": $fa-var-user,
+  "user-chef": $fa-var-user-chef,
   "utensils": $fa-var-utensils,
   "cutlery": $fa-var-cutlery,
+  "wheat": $fa-var-wheat,
   "wheelchair": $fa-var-wheelchair,
+  "whiskey-glass-ice": $fa-var-whiskey-glass-ice,
+  "glass-whiskey-rocks": $fa-var-glass-whiskey-rocks,
   "wifi": $fa-var-wifi,
   "wifi-3": $fa-var-wifi-3,
   "wifi-strong": $fa-var-wifi-strong,
+  "wind": $fa-var-wind,
   "wrench": $fa-var-wrench,
   "xmark": $fa-var-xmark,
   "close": $fa-var-close,
@@ -386,12 +490,26 @@ $fa-brand-icons: (
 );
 
 $fa-custom-icons: (
+  vs-accessible-dining: "\e011",
+  vs-accessible-parking: "\e010",
+  vs-accessible-shower: "\e012",
+  vs-accessible-toilet: "\e00f",
+  vs-cloud-hail-sun: "\e015",
+  vs-cloud-shower-sun: "\e014",
+  vs-cloud-sun-heavy-snow: "\e018",
+  vs-cloud-sun-snow: "\e016",
+  vs-cloud-wind: "\e017",
   vs-coo: "\e009",
+  vs-coo-head: "\e00e",
+  vs-distillery: "\e01a",
+  vs-icentre-information: "\e01b",
   vs-kilt: "\e003",
   vs-landscape: "\e006",
   vs-lighthouse: "\e002",
+  vs-public-transport: "\e00d",
   vs-putting-green: "\e007",
   vs-signpost-hill: "\e000",
+  vs-sun-wind: "\e013",
   vs-tent-caravan: "\e00b",
   vs-unicorn: "\e004",
   vs-vegan: "\e00c",

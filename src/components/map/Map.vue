@@ -1107,7 +1107,7 @@ export default {
         position: relative;
 
         &::after {
-            font-family: "Font Awesome Kit";
+            font-family: "Font Awesome 6 Pro";
             display: inline-block;
         }
 
@@ -1134,25 +1134,25 @@ export default {
         }
 
         &::after {
-            content: "\e028";
+            content: "\f31d";
         }
     }
 
     .mapboxgl-ctrl-shrink {
         &::after {
-            content: "\e01e";
+            content: "\e0a5";
         }
     }
 
     .mapboxgl-ctrl-zoom-in {
         &::after {
-            content: "\e062";
+            content: "\2b";
         }
     }
 
     .mapboxgl-ctrl-zoom-out {
         &::after {
-            content: "\e057";
+            content: "\f068";
         }
     }
 

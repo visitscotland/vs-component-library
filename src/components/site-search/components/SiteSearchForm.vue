@@ -23,7 +23,7 @@
                                     {{ labelText }}
                                 </span>
                                 <VsIcon
-                                    name="search"
+                                    icon="vs-icon-control-search"
                                     size="xs"
                                 />
                             </label>
@@ -58,7 +58,7 @@
         <VsButton
             class="vs-site-search-form__close-button d-none d-lg-block"
             variant="transparent"
-            icon="close"
+            icon="vs-icon-control-dismiss"
             size="md"
             icon-only
             @click="closeSearchForm"

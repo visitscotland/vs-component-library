@@ -57,7 +57,7 @@
                 class="vs-carbon-calculator-results__unicorn-icon-container"
             >
                 <VsIcon
-                    name="unicorn"
+                    icon="fa-kit fa-vs-unicorn"
                     size="lg"
                     variant="highlight"
                     class="vs-carbon-calculator-results__unicorn-icon"

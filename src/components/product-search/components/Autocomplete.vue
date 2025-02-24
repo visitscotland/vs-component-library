@@ -120,7 +120,7 @@ onMounted(() => {
                     @click="openMenu()"
                 />
                 <VsIcon 
-                    name="chevron-down"
+                    icon="vs-icon-control-expand"
                     variant="cta"
                     size="sm"
                 />

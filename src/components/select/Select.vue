@@ -268,8 +268,8 @@ export default {
             border-radius: 0;
 
             &::after {
-                font-family: "Font Awesome Kit";
-                content: "\e012";
+                font-family: "Font Awesome 6 Pro";
+                content: "\f078";
                 display: inline-block;
                 position: absolute;
                 top: calc(50% - #{$spacer-075});

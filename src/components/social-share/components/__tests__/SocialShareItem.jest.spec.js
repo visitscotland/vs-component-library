@@ -68,7 +68,7 @@ describe('VsSocialShareItem', () => {
             const shareIcon = shareItem.find('vs-icon-stub');
 
             expect(shareLink.attributes('href')).toBe('https://www.facebook.com/sharer/sharer.php?u=https://www.visitscotland.com&t=VisitScotland');
-            expect(shareIcon.attributes('name')).toBe('facebook');
+            expect(shareIcon.attributes('icon')).toContain('facebook');
             expect(shareIcon.attributes('customcolour')).toBe('#1877f2');
         });
 
@@ -82,7 +82,7 @@ describe('VsSocialShareItem', () => {
             const shareIcon = shareItem.find('vs-icon-stub');
 
             expect(shareLink.attributes('href')).toBe('https://wa.me/?text=VisitScotland%20-%20https://www.visitscotland.com');
-            expect(shareIcon.attributes('name')).toBe('whatsapp');
+            expect(shareIcon.attributes('icon')).toContain('whatsapp');
             expect(shareIcon.attributes('customcolour')).toBe('#455a64');
         });
 
@@ -96,7 +96,7 @@ describe('VsSocialShareItem', () => {
             const shareIcon = shareItem.find('vs-icon-stub');
 
             expect(shareLink.attributes('href')).toBe('https://twitter.com/intent/tweet?text=VisitScotland%20@VisitScotland&url=https://www.visitscotland.com');
-            expect(shareIcon.attributes('name')).toBe('x-twitter');
+            expect(shareIcon.attributes('icon')).toContain('x-twitter');
             expect(shareIcon.attributes('customcolour')).toBe('#0F1419');
         });
 
@@ -110,7 +110,7 @@ describe('VsSocialShareItem', () => {
             const shareIcon = shareItem.find('vs-icon-stub');
 
             expect(shareLink.attributes('href')).toBe('https://www.pinterest.com/pin/create/button/?url=https://www.visitscotland.com');
-            expect(shareIcon.attributes('name')).toBe('pinterest');
+            expect(shareIcon.attributes('icon')).toContain('pinterest');
             expect(shareIcon.attributes('customcolour')).toBe('#E60023');
         });
 
@@ -124,7 +124,7 @@ describe('VsSocialShareItem', () => {
             const shareIcon = shareItem.find('vs-icon-stub');
 
             expect(shareLink.attributes('href')).toBe('mailto:?body=VisitScotland%20-%20https://www.visitscotland.com&subject=VisitScotland');
-            expect(shareIcon.attributes('name')).toBe('email');
+            expect(shareIcon.attributes('icon')).toContain('envelope');
             expect(shareIcon.attributes('customcolour')).toBe('#000000');
         });
 
@@ -138,7 +138,7 @@ describe('VsSocialShareItem', () => {
             const shareIcon = shareItem.find('vs-icon-stub');
 
             expect(shareLink.attributes('href')).toBe('#');
-            expect(shareIcon.attributes('name')).toBe('link');
+            expect(shareIcon.attributes('icon')).toContain('link');
             expect(shareIcon.attributes('customcolour')).toBe('#000000');
         });
 

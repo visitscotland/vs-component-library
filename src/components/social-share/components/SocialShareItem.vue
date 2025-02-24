@@ -12,7 +12,7 @@
             :id="`vs-share-${name}`"
         >
             <VsIcon
-                :name="name"
+                :icon="iconName"
                 :custom-colour="iconColour"
                 size="xl"
                 small-size="lg"
@@ -30,6 +30,39 @@ import VsLink from '@/components/link/Link.vue';
 import VsIcon from '@/components/icon/Icon.vue';
 import { VsCol } from '@/components/grid';
 import dataLayerMixin from '../../../mixins/dataLayerMixin';
+
+const socialMediaData = {
+    facebook: {
+        color: '#1877f2',
+        icon: 'fa-brands fa-facebook',
+        getUrl: (pageUrl, pageTitle) => `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}&t=${pageTitle}`,
+    },
+    'x-twitter': {
+        color: '#0F1419',
+        icon: 'fa-brands fa-x-twitter',
+        getUrl: (pageUrl, pageTitle) => `https://twitter.com/intent/tweet?text=${pageTitle}%20@VisitScotland&url=${pageUrl}`,
+    },
+    pinterest: {
+        color: '#E60023',
+        icon: 'fa-brands fa-pinterest',
+        getUrl: (pageUrl) => `https://www.pinterest.com/pin/create/button/?url=${pageUrl}`,
+    },
+    whatsapp: {
+        color: '#455a64',
+        icon: 'fa-brands fa-whatsapp',
+        getUrl: (pageUrl, pageTitle) => `https://wa.me/?text=${pageTitle}%20-%20${pageUrl}`,
+    },
+    email: {
+        color: '#000000',
+        icon: 'fa-regular fa-envelope',
+        getUrl: (pageUrl, pageTitle) => `mailto:?body=${pageTitle}%20-%20${pageUrl}&subject=${pageTitle}`,
+    },
+    link: {
+        color: '#000000',
+        icon: 'fa-regular fa-link',
+        getUrl: () => '#',
+    },
+};
 
 /**
  * This component displays an icon and link to a social sharing channel
@@ -100,55 +133,17 @@ export default {
     },
     computed: {
         iconColour() {
-            let colour = '';
-
-            switch (this.name) {
-            case 'facebook':
-                colour = '#1877f2';
-                break;
-            case 'x-twitter':
-                colour = '#0F1419';
-                break;
-            case 'pinterest':
-                colour = '#E60023';
-                break;
-            case 'whatsapp':
-                colour = '#455a64';
-                break;
-            default:
-                colour = '#000000';
-            };
-            return colour;
+            return socialMediaData[this.name]?.color || '#200F2E';
+        },
+        iconName() {
+            return socialMediaData[this.name]?.icon || 'fa-solid fa-link';
+        },
+        shareUrl() {
+            const config = socialMediaData[this.name];
+            return config?.getUrl(this.referringPageUrl, this.encodedPageTitle) || '#';
         },
         encodedPageTitle() {
             return encodeURI(this.pageTitle);
-        },
-        shareUrl() {
-            let url = '';
-
-            switch (this.name) {
-            case 'facebook':
-                url = `https://www.facebook.com/sharer/sharer.php?u=${this.referringPageUrl}&t=${this.encodedPageTitle}`;
-                break;
-            case 'x-twitter':
-                url = `https://twitter.com/intent/tweet?text=${this.encodedPageTitle}%20@VisitScotland&url=${this.referringPageUrl}`;
-                break;
-            case 'pinterest':
-                url = `https://www.pinterest.com/pin/create/button/?url=${this.referringPageUrl}`;
-                break;
-            case 'email':
-                url = `mailto:?body=${this.encodedPageTitle}%20-%20${this.referringPageUrl}&subject=${this.encodedPageTitle}`;
-                break;
-            case 'whatsapp':
-                url = `https://wa.me/?text=${this.encodedPageTitle}%20-%20${this.referringPageUrl}`;
-                break;
-            case 'link':
-                url = '#';
-                break;
-            default:
-                url = '#';
-            };
-            return url;
         },
     },
     methods: {
