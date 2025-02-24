@@ -100,7 +100,7 @@ Colour.args = {
     icons: [
         {
             classes: 'fa-regular fa-user',
-            variant: 'default',
+            variant: 'primary',
         },
         {
             classes: 'fa-regular fa-user',
@@ -108,7 +108,7 @@ Colour.args = {
         },
         {
             classes: 'fa-regular fa-user',
-            variant: 'secondary',
+            variant: 'cta',
         },
         {
             classes: 'fa-regular fa-user',
@@ -116,11 +116,15 @@ Colour.args = {
         },
         {
             classes: 'fa-regular fa-user',
-            variant: 'tertiary',
+            variant: 'highlight',
         },
         {
             classes: 'fa-regular fa-user',
-            variant: 'success',
+            variant: 'disabled',
+        },
+        {
+            classes: 'fa-regular fa-user',
+            variant: 'error',
         },
         {
             classes: 'fa-regular fa-user',
@@ -128,11 +132,7 @@ Colour.args = {
         },
         {
             classes: 'fa-regular fa-user',
-            variant: 'danger',
-        },
-        {
-            classes: 'fa-regular fa-user',
-            variant: 'disabled',
+            variant: 'success',
         },
     ],
 };
