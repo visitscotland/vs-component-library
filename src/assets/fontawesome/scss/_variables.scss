@@ -137,6 +137,7 @@ $fa-var-eye: \f06e;
 $fa-var-face-smile: \f118;
 $fa-var-smile: \f118;
 $fa-var-family: \e300;
+$fa-var-ferry: \e4ea;
 $fa-var-file-pdf: \f1c1;
 $fa-var-flower-tulip: \f801;
 $fa-var-gift: \f06b;
@@ -354,6 +355,7 @@ $fa-icons: (
   "face-smile": $fa-var-face-smile,
   "smile": $fa-var-smile,
   "family": $fa-var-family,
+  "ferry": $fa-var-ferry,
   "file-pdf": $fa-var-file-pdf,
   "flower-tulip": $fa-var-flower-tulip,
   "gift": $fa-var-gift,
@@ -488,7 +490,6 @@ $fa-brand-icons: (
 );
 
 $fa-custom-icons: (
-  icentre-information: "\e019",
   vs-accessible-dining: "\e011",
   vs-accessible-parking: "\e010",
   vs-accessible-shower: "\e012",
@@ -501,6 +502,7 @@ $fa-custom-icons: (
   vs-coo: "\e009",
   vs-coo-head: "\e00e",
   vs-distillery: "\e01a",
+  vs-icentre-information: "\e01b",
   vs-kilt: "\e003",
   vs-landscape: "\e006",
   vs-lighthouse: "\e002",

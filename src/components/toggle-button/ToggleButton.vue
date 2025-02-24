@@ -13,7 +13,7 @@
         <VsIcon
             v-if="show"
             class="fa-icon-colours fa-icon-colours--white"
-            icon="fa-duotone fa-regular fa-circle-xmark"
+            icon="fa-duotone fa-solid fa-circle-xmark"
         />
 
         <!-- @slot Slot for custom toggle icon - used for social images -->
@@ -23,7 +23,7 @@
         >
             <VsIcon
                 class="fa-icon-colours"
-                icon="fa-duotone fa-regular fa-circle-info"
+                icon="fa-duotone fa-solid fa-circle-info"
             />
         </slot>
     </VsButton>

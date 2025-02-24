@@ -35,13 +35,13 @@ const mapIconMapping = {
                 icon.name = 'fa-regular fa-bag-shopping';
                 break;
             case 'featured':
-                icon.name = 'fa-regular fa-star';
+                icon.name = 'fa-solid fa-star';
                 break;
             case 'twnv':
                 icon.name = '';
                 break;
             case 'vics':
-                icon.name = 'fa-kit fa-icentre-information';
+                icon.name = 'fa-kit fa-vs-icentre-information';
                 break;
             case 'outlander-castle':
                 icon.name = 'fa-regular fa-chess-rook';
