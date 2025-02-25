@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.12.1](https://github.com/visitscotland/vs-component-library/compare/v4.12.0...v4.12.1) (2025-02-25)
+
+
+### 🐛 Bug Fixes
+
+* **maps:** ensure filters with subcategories remain visible ([27aaf75](https://github.com/visitscotland/vs-component-library/commit/27aaf754a284dcc2dd62b3f5b1f5bb4f0ff8ace2))
+
+
+### ✨ Features
+
+* **vsheading:** add new smallest size for headings ([194c0c2](https://github.com/visitscotland/vs-component-library/commit/194c0c21c543220f8b41bddf3857a29adef3ad92))
+
 ## [4.12.0](https://github.com/visitscotland/vs-component-library/compare/v4.11.1...v4.12.0) (2025-02-19)
 
 
