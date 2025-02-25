@@ -2,35 +2,27 @@
     <div
         class="vs-filter"
         data-test="vs-filter"
+        :id="props.filterId"
+        ref="filter"
     >
-        <VsButton
-            class="vs-filter__toggle"
-            icon="filters"
-            id="toggle-btn"
-            ref="btnShow"
-            variant="secondary"
-            @click="emitter.emit('showModal', props.filterId)"
-        >
-            {{ props.filterButtonText }}
-        </VsButton>
-
-        <VsModal
-            close-btn-text="Close"
-            :modal-id="props.filterId"
-        >
-            <!-- @slot default slot for the filter panel -->
-            <slot />
-
-            <VsButton
-                class="vs-filter__apply"
-                @click="emitter.emit('hideModal')"
+        <div class="vs-filter__panel-wrapper">
+            <fieldset
+                class="vs-filter__panel"
+                data-test="vs-filter__panel"
+                @change="(event) => $emit('filter-updated', event)"
             >
-                {{ props.applyButtonText }}
-            </VsButton>
-        </VsModal>
+                <legend class="vs-filter__legend">
+                    <VsIcon
+                        name="filters"
+                        orientation="left"
+                    />
+                    {{ props.filterLabel }}
+                </legend>
 
-        <!-- @slot default slot for the filter panel -->
-        <slot />
+                <!-- @slot default slot for the filter sections -->
+                <slot />
+            </fieldset>
+        </div>
     </div>
 
     <VsWarning
@@ -43,28 +35,11 @@
 </template>
 
 <script setup>
-import VsButton from '@/components/button/Button.vue';
-import VsModal from '@/components/modal/Modal.vue';
+import { ref } from 'vue';
+import VsIcon from '@/components/icon/Icon.vue';
 import VsWarning from '@/components/warning/Warning.vue';
-import { inject, onMounted } from 'vue';
-
-const emitter = inject('emitter');
 
 const props = defineProps({
-    /**
-     * Button text for apply button, shown on mobile.
-     */
-    applyButtonText: {
-        type: String,
-        required: true,
-    },
-    /**
-     * Button text for filter open button, shown on mobile.
-     */
-    filterButtonText: {
-        type: String,
-        required: true,
-    },
     /**
      * ID used to uniquely identify filter.
      */
@@ -72,27 +47,61 @@ const props = defineProps({
         type: String,
         required: true,
     },
+    /**
+     * Label for the filter panel.
+     */
+    filterLabel: {
+        type: String,
+        required: true,
+    },
 });
 
-onMounted(() => {
-    // Close the modal when the screen is resized.
-    window.addEventListener('resize', () => {
-        emitter.emit('hideModal');
+defineEmits(['filter-updated']);
+
+const filter = ref();
+
+// Clear the input value.
+const clearFilter = (inputField) => {
+    const input = inputField;
+
+    if (input.type === 'checkbox') {
+        input.checked = false;
+    } else if (input.type === 'date') {
+        input.value = '';
+    }
+};
+
+// Reset one filter.
+const resetOne = (filterId) => {
+    const inputField = filter.value.querySelector(`#${filterId}`);
+
+    clearFilter(inputField);
+};
+
+// Reset all the filters.
+const resetAll = () => {
+    const inputFields = filter.value.querySelectorAll('input[type="checkbox"], input[type="date"]');
+
+    inputFields.forEach((input) => {
+        clearFilter(input);
     });
+};
+
+// Expose functions so that they be called from a parent component.
+defineExpose({
+    clearFilter,
+    resetAll,
+    resetOne,
 });
 </script>
 
 <style lang="scss">
 .vs-filter {
-    &__panel:not(.vs-modal .vs-filter__panel) {
+    &__panel {
         background-color: $vs-color-background-primary;
         border: solid 1px $vs-color-border-secondary;
         border-radius: $border-radius-default;
         overflow: auto;
-
-        @include media-breakpoint-down(sm) {
-            display: none;
-        }
     }
 
     &__legend {
@@ -105,24 +114,6 @@ onMounted(() => {
         gap: $spacer-050;
         margin-bottom: $spacer-0;
         padding: $spacer-075 $spacer-125;
-    }
-
-    &__toggle,
-    &__apply {
-        margin: $spacer-300 $spacer-0;
-        width: 100%;
-    }
-
-    &__toggle.vs-button {
-        @include media-breakpoint-up(sm) {
-            display: none;
-        }
-    }
-}
-
-.vs-modal .vs-filter {
-    &__legend {
-        background-color: $vs-color-background-inverse;
     }
 }
 

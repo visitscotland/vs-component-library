@@ -30,7 +30,6 @@ export { default as VsDropdownItem } from './dropdown/components/DropdownItem.vu
 export { default as VsEmbedWrapper } from './embed-wrapper/EmbedWrapper.vue';
 export { default as VsEventCard } from './event-card/EventCard.vue';
 export { default as VsFilter } from './filter/VsFilter.vue';
-export { default as VsFilterPanel } from './filter/components/VsFilterPanel.vue';
 export { default as VsFilterSection } from './filter/components/VsFilterSection.vue';
 export { default as VsFooter } from './footer/Footer.vue';
 export { default as VsFooterAccordionItem } from './footer/components/FooterAccordionItem.vue';
