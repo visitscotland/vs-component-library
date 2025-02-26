@@ -685,6 +685,7 @@ export default {
          */
         preSubmit(e) {
             e.preventDefault();
+            this.submitError = false;
 
             function isRequired(value) {
                 return value.validation && value.validation.required;
@@ -741,6 +742,7 @@ export default {
             } else {
                 this.showErrorMessage = true;
                 this.reAlertErrors = true;
+                this.submitError = true;
 
                 setTimeout(() => {
                     this.reAlertErrors = false;
