@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.12.2](https://github.com/visitscotland/vs-component-library/compare/v4.12.1...v4.12.2) (2025-02-26)
+
+
+### 🐛 Bug Fixes
+
+* **filter:** simplify component ([5d9efbc](https://github.com/visitscotland/vs-component-library/commit/5d9efbc34780db8595aaa09ede6df66460ef92c8))
+
 ### [4.12.1](https://github.com/visitscotland/vs-component-library/compare/v4.12.0...v4.12.1) (2025-02-25)
 
 
