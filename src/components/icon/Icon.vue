@@ -39,13 +39,13 @@ export default {
         },
         /**
          * The color of the icon.
-         * `default|primary|inverse|disabled|tertiary|danger`
+         * `default|primary|secondary|inverse|disabled|tertiary|danger|warning`
          */
         variant: {
             type: String,
             default: 'default',
             validator: (value) => value.match(
-                /(default|primary|inverse|disabled|tertiary|danger|warning)/,
+                /(default|primary|secondary|inverse|disabled|tertiary|danger|warning)/,
             ),
         },
         /**
@@ -61,6 +61,7 @@ export default {
         /**
         * The orientation of the icon
         * `up|down|left|right`
+        * @deprecated use the correct icon from FA instead
         */
         orientation: {
             type: String,
@@ -219,10 +220,6 @@ export default {
                     value: 'level-entry-shower',
                 },
                 {
-                    key: 'x-twitter',
-                    value: 'x-twitter fa-brands',
-                },
-                {
                     key: 'linkedin',
                     value: 'linkedin-in fa-brands',
                 },
@@ -259,13 +256,15 @@ $sizes: (
 );
 
 $variants: (
-    default: $vs-color-icon,
-    primary: $vs-color-icon-primary,
+    default: $vs-color-icon-primary,
+    primary: $vs-color-icon-cta-on-light,
+    secondary: $vs-color-icon-secondary,
+    tertiary: $vs-color-icon-highlight,
     inverse: $vs-color-icon-inverse,
-    disabled: $vs-color-icon-disabled,
-    tertiary: $vs-color-icon-tertiary,
-    danger: $vs-color-icon-danger,
+    success: $vs-color-icon-success,
+    danger: $vs-color-icon-error,
     warning: $vs-color-icon-warning,
+    disabled: $vs-color-icon-disabled,
 );
 
 .vs-icon {

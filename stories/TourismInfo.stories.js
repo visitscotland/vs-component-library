@@ -9,7 +9,6 @@ import VsTourismInfo from '@/components/tourism-info/TourismInfo.vue';
 export default {
     component: VsTourismInfo,
     title: 'Tourism Info',
-    tags: ['autodocs'],
 };
 
 const Template = (args) => ({
@@ -101,7 +100,7 @@ const Template = (args) => ({
 });
 
 const base = {
-    imageSrc: '/fixtures/icentre/icentre.jpg',
+    imageSrc: './fixtures/icentre/icentre.jpg',
     imageAltText: 'Tourism Info',
     imageToggleText: 'Toggle caption',
     imageCaption: 'VisitScotland Information Centre',
@@ -160,7 +159,7 @@ export const WithQuoteImage = Template.bind({
 
 WithQuoteImage.args = {
     ...base,
-    quoteImageSrc: '/fixtures/icentre/icentre.jpg',
+    quoteImageSrc: './fixtures/icentre/icentre.jpg',
     quoteImageAltText: 'Penny, icentre staff',
 };
 

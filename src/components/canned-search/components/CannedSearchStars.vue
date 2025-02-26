@@ -67,6 +67,6 @@ export default {
     }
 
     .vs-canned-search-stars__star {
-        color: $vs-color-icon-tertiary;
+        color: $vs-color-icon-highlight;
     }
 </style>

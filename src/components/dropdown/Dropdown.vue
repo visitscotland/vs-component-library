@@ -1,7 +1,7 @@
 <template>
     <BDropdown
         v-bind="$attrs"
-        variant="primary"
+        :variant="variant"
         class="vs-dropdown"
     >
         <template
@@ -55,6 +55,17 @@ export default {
             type: String,
             default: '',
         },
+        /**
+         * Style variation to give additional meaning
+         * `primary|secondary`.
+         */
+        variant: {
+            type: String,
+            default: 'primary',
+            validator: (value) => value.match(
+                /(primary|secondary)/,
+            ),
+        },
     },
     computed: {
         nonButtonContentSlots() {
@@ -70,10 +81,15 @@ export default {
 .vs-dropdown {
     .dropdown-toggle {
         @extend %button-default-styles;
+        line-height: $line-height-xs;
         padding: $spacer-050 $spacer-150;
 
         &:hover {
-            background-color: $vs-color-background-hover;
+            background-color: $vs-color-interaction-cta-hover;
+        }
+
+        &:active {
+            background-color: $vs-color-interaction-cta-pressed;
         }
 
         &:focus {
@@ -89,30 +105,42 @@ export default {
             font-weight: 400;
             vertical-align: bottom;
         }
+
+        &.btn-secondary {
+            @include vs-button-variant(
+                $vs-color-text-cta-on-light, $vs-color-interaction-cta-secondary, $vs-color-interaction-cta-primary,
+                $vs-color-text-inverse, $vs-color-interaction-cta-hover, $vs-color-interaction-cta-hover,
+                $vs-color-text-inverse, $vs-color-interaction-cta-pressed, $vs-color-interaction-cta-pressed,
+            );
+
+            &::after {
+                color: $vs-color-icon-cta-on-light;
+            }
+
+            &:hover::after {
+                color: $vs-color-icon-inverse;
+            }
+        }
     }
 
     .dropdown-menu {
         li {
-            border-bottom: 1px solid $vs-color-border;
+            border-bottom: 1px solid $vs-color-border-primary;
 
             &:last-of-type {
                 border-bottom: 0;
             }
 
             .dropdown-item {
-                &.active, &:active {
-                    color: $vs-color-text-primary;
-                    background-color: $vs-color-background-active;
-                }
-
-                &:hover {
-                    color: $vs-color-text-inverse;
-                    background-color: $vs-color-background-hover;
+                &:hover, &.active, &:active {
+                    color: $vs-color-text-cta-on-light;
+                    background-color: $vs-color-interaction-cta-subtle-hover;
                     outline: 0;
                 }
 
                 &:focus {
                     outline: 0;
+                    color: $vs-color-text-cta-on-light;
                     box-shadow: $vs-box-shadow-focus inset;
                 }
             }

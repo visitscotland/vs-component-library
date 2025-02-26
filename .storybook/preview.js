@@ -8,6 +8,7 @@ import mitt from 'mitt';
 setup(app => {
     const emitter = mitt();
     app.config.globalProperties.emitter = emitter;
+    app.provide('emitter', emitter);
     app.use(pinia());
 });
 
@@ -23,9 +24,12 @@ const preview = {
             default: 'Light',
             values: [
                 { name: 'Light', value: '#fff' },
-                { name: 'Grey', value: '#f0eff4' },
-                { name: 'Dark', value: '#271438' },
+                { name: 'Grey', value: '#F2F2F8' },
+                { name: 'Dark', value: '#200F2E' },
             ],
+        },
+        viewport: {
+            defaultViewport: 'reset',
         },
     },
     decorators: [
@@ -40,6 +44,7 @@ const preview = {
             };
         },
     ],
+    tags: ["autodocs"],
 };
 
 export default preview;

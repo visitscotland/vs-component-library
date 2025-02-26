@@ -105,7 +105,7 @@ export default {
             justify-content: space-around;
             align-items: center;
             min-height: 75px;
-            border-top: $vs-color-border solid 1px;
+            border-top: $vs-color-border-primary solid 1px;
             background: $vs-color-background-inverse;
             width: calc(100% + #{$spacer-200});
             margin-top: auto;

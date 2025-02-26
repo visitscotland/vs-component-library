@@ -3,10 +3,9 @@ import VsHeading from '@/components/heading/Heading.vue';
 export default {
     component: VsHeading,
     title: 'Heading',
-    tags: ['autodocs'],
     argTypes: {
         headingStyle: {
-            options: ['display-l', 'display-m', 'display-s', 'display-xs', 'heading-xxl', 'heading-xl', 'heading-l', 'heading-m', 'heading-s', 'heading-xs', 'heading-xxs'],
+            options: ['display-l', 'display-m', 'display-s', 'display-xs', 'heading-xxl', 'heading-xl', 'heading-l', 'heading-m', 'heading-s', 'heading-xs', 'heading-xxs', 'heading-xxxs'],
             control: {
                 type: 'select',
             },

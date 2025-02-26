@@ -20,7 +20,6 @@ import sampleItinerary from '@/assets/fixtures/itineraries/sample-itinerary.json
 export default {
     component: VsItinerary,
     title: 'Itinerary',
-    tags: ['autodocs'],
 };
 
 const Template = (args) => ({
@@ -158,6 +157,7 @@ const Template = (args) => ({
                             </template>
             
                             <template
+                                v-slot:stop-time-to-explore
                                 v-if="stop.timeToExplore"
                             >
                                 <VsDescriptionList class="my-100 justify-content-start" inline>

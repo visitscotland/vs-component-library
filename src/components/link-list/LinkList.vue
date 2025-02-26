@@ -7,7 +7,7 @@
             <VsHeading
                 v-if="hasHeadingSlot"
                 level="2"
-                heading-style="heading-l"
+                heading-style="heading-m"
             >
                 <slot name="heading" />
             </VsHeading>
@@ -68,12 +68,12 @@ export default {
         }
 
         &--toc {
-            background: $vs-color-background-information;
-            padding: $spacer-200 $spacer-300;
+            background: $vs-color-background-secondary;
+            padding: $spacer-100 $spacer-200 $spacer-200;
             width: 100%;
 
             @include media-breakpoint-up(md) {
-                width: 580px;
+                max-width: 580px;
             }
 
             .link-list__list {

@@ -100,7 +100,7 @@ export default {
     }
 
     &::after {
-        border: 1px solid $vs-color-border-bold;
+        border: 1px solid $vs-color-border-secondary;
         content: "";
         display: block;
         padding-bottom: 100%;

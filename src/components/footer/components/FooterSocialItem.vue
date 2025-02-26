@@ -89,7 +89,7 @@ export default {
 
             &:hover {
                 .vs-icon {
-                    color: $vs-color-icon-accent-etive;
+                    color: $vs-color-icon-accent-saltire-30;
                 }
             }
 

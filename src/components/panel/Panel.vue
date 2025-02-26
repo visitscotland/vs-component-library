@@ -37,7 +37,7 @@ export default {
 <style lang="scss">
 .vs-panel.card {
     background-color: $vs-color-background-information;
-    border-color: $vs-color-border;
+    border-color: $vs-color-border-primary;
     padding: $spacer-300 $spacer-100 $spacer-300;
 
     .card-body {

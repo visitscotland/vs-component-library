@@ -4,7 +4,6 @@ import VsCarouselSlide from '@/components/carousel/components/CarouselSlide.vue'
 export default {
     component: VsCarouselSlide,
     title: 'Carousel',
-    tags: ['autodocs'],
     argTypes: {
         // Delete if empty
     },
@@ -38,7 +37,11 @@ const Template = (args) => ({
                     v-bind="args"
                     :slide-index="n"
                 >
-                    <template v-if="${'vs-carousel-slide-heading' in args}" v-slot:vs-carousel-slide-heading>${args['vs-carousel-slide-heading']}</template>
+                    <template
+                        v-if="${'vs-carousel-slide-heading' in args}" v-slot:vs-carousel-slide-heading
+                    >
+                        ${args['vs-carousel-slide-heading']}
+                    </template>
                 </VsCarouselSlide>
 
                 <template v-slot:vs-carousel-of>

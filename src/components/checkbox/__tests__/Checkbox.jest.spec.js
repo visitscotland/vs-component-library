@@ -80,6 +80,16 @@ describe('VsCheckbox', () => {
 
             expect(mountedWrapper.vm.errorsList.length).toBeGreaterThan(0);
         });
+
+        it(':size - should render with a class `vs-checkbox--small` when `sn` is passed', async() => {
+            await wrapper.setProps({
+                size: 'sm',
+            });
+
+            const smallCheckbox = wrapper.find('.vs-checkbox--small');
+
+            expect(smallCheckbox.exists()).toBe(true);
+        });
     });
 
     describe(':watchers', () => {

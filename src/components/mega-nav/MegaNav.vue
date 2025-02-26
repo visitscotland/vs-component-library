@@ -25,7 +25,7 @@
                                 data-test="vs-mega-nav__logo"
                                 :link-alt-text="logoAltText"
                                 :href="href"
-                                :svg-fill="tokens['vs-color-brand']"
+                                :svg-fill="tokens['vs-color-background-brand']"
                                 svg-path="visitscotland-logo"
                                 data-layer-value="homePageLogoClickDataEvent"
                             />
@@ -269,6 +269,7 @@ export default {
 
 <style lang="scss">
 .vs-mega-nav {
+    z-index: 2;
     position: relative;
     display: flex;
     align-items: center;

@@ -27,6 +27,8 @@ props:
       value: "{!font-size-400}"
     - name: heading-xxs
       value: "{!font-size-300}"
+    - name: heading-xxxs
+      value: "{!font-size-200}"
 
     - name: sub-heading-l
       value: "{!font-size-400}"

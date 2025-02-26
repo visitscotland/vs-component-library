@@ -4,7 +4,6 @@ import VsHeading from '@/components/heading/Heading.vue';
 export default {
     component: VsPanel,
     title: 'Panel',
-    tags: ['autodocs'],
 };
 
 const Template = (args) => ({

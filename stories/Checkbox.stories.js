@@ -5,7 +5,6 @@ import VsCheckbox from '@/components/checkbox/Checkbox.vue';
 export default {
     component: VsCheckbox,
     title: 'Checkbox',
-    tags: ['autodocs'],
     argTypes: {
 
     },
@@ -152,4 +151,10 @@ CheckboxGroup.args = {
             label: 'Walking',
         },
     ],
+};
+
+export const SmallSize = Template.bind();
+SmallSize.args = {
+    ...base,
+    size: 'sm',
 };

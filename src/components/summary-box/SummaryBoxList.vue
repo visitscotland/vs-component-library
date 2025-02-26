@@ -38,7 +38,7 @@ export default {
 }
 
 .vs-summary-box__list {
-    background-color: $vs-color-background-accent-gorse;
+    background-color: $vs-color-background-accent-gorse-05;
     width: 350px;
 
     @include media-breakpoint-up(lg) {

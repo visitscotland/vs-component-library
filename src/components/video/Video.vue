@@ -185,7 +185,7 @@ export default {
         /**
          * Stops the video, which resets to beginning
          */
-        async stopVideo(){
+        async stopVideo() {
             if (this.player) {
                 await this.player.stopVideo();
             }
@@ -316,7 +316,7 @@ export default {
                         if (args.action === 'modal-opened') {
                             this.playVideo();
                         }
-                        if(args.action === 'modal-closed'){
+                        if (args.action === 'modal-closed') {
                             this.stopVideo();
                         }
 

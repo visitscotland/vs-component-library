@@ -156,7 +156,7 @@ export default {
         }
 
         &--radios {
-            background-color: $vs-color-background-tertiary;
+            background-color: $vs-color-interaction-cta-subtle-hover;
             display: flex;
             border-radius: $border-radius-pill;
             overflow: hidden;
@@ -169,7 +169,7 @@ export default {
 
             label.btn-secondary {
                 @extend %button-default-styles;
-                color: $vs-color-text-inverse;
+                color: $vs-color-text-cta-on-light;
                 transition: none;
                 padding-top: $spacer-050;
                 margin-bottom: $spacer-0;
@@ -179,7 +179,7 @@ export default {
 
                 .vs-icon{
                     transition: none;
-                    color: $vs-color-text-inverse;
+                    color: $vs-color-text-cta-on-light;
                 }
 
                 & > span {
@@ -194,12 +194,12 @@ export default {
                 }
 
                 &:hover {
-                    background-color: $vs-color-background-hover;
-                    border-color: $vs-color-background-hover;
+                    background-color: $vs-color-interaction-cta-hover;
+                    border-color: $vs-color-interaction-cta-hover;
                     color: $vs-color-text-inverse;
 
                     .vs-icon {
-                        color: $vs-color-text-inverse;
+                        color: $vs-color-icon-inverse;
                     }
                 }
             }
@@ -208,7 +208,7 @@ export default {
         &--tabbed-focus {
             input:focus {
                 + label span {
-                    border: 2px solid $vs-color-border-focus;
+                    border: 2px solid $vs-color-interaction-focus;
                 }
             }
         }
@@ -217,9 +217,12 @@ export default {
             display: flex;
 
             &:first-child {
-                margin-right: -(#{$spacer-100});
                 border-top-left-radius: $border-radius-pill;
                 border-bottom-left-radius: $border-radius-pill;
+
+                &:not(:last-child) {
+                    margin-right: -(#{$spacer-100});
+                }
             }
 
             &:last-child {
@@ -238,16 +241,16 @@ export default {
                     cursor: default;
 
                     @include vs-button-variant(
-                        $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
-                        $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
-                        $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
+                        $vs-color-interaction-cta-primary, $vs-color-interaction-cta-secondary, $vs-color-interaction-cta-primary,
+                        $vs-color-interaction-cta-primary, $vs-color-interaction-cta-secondary, $vs-color-interaction-cta-primary,
+                        $vs-color-interaction-cta-primary, $vs-color-interaction-cta-secondary, $vs-color-interaction-cta-primary,
                     );
 
                     @include media-breakpoint-up(lg) {
                         @include vs-button-variant(
-                            $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
-                            $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
-                            $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
+                            $vs-color-interaction-cta-primary, $vs-color-interaction-cta-secondary, $vs-color-interaction-cta-primary,
+                            $vs-color-interaction-cta-primary, $vs-color-interaction-cta-secondary, $vs-color-interaction-cta-primary,
+                            $vs-color-interaction-cta-primary, $vs-color-interaction-cta-secondary, $vs-color-interaction-cta-primary,
                         );
                     }
                 }

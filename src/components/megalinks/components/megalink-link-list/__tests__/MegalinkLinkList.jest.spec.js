@@ -1,4 +1,8 @@
-import { config, mount } from '@vue/test-utils';
+import {
+    config,
+    mount,
+    shallowMount,
+} from '@vue/test-utils';
 import axe from '@/../test/unit/helpers/axe-helper';
 import { setActivePinia, createPinia } from 'pinia';
 import VsMegalinkLinkList from '../MegalinkLinkList.vue';
@@ -22,6 +26,27 @@ const factoryMount = () => mount(VsMegalinkLinkList, {
         transportName: 'Bus',
         videoId,
         videoBtnText,
+    },
+    slots: {
+        'vs-link-list-heading': slotHeading,
+        'vs-link-list-content': slotContent,
+    },
+});
+
+const bshMount = () => mount(VsMegalinkLinkList, {
+    propsData: {
+        featured: true,
+        imgSrc: 'test',
+        linkType: 'external',
+        linkUrl: 'www.visitscotland.com',
+        days: '3',
+        daysLabel: 'days',
+        transport: 'bus',
+        transportName: 'Bus',
+        videoId,
+        videoBtnText,
+        businessSupport: true,
+        isHomePage: false,
     },
     slots: {
         'vs-link-list-heading': slotHeading,
@@ -71,6 +96,94 @@ describe('VsMegalinkLinkList', () => {
             const wrapper = factoryMount();
 
             expect(wrapper.find('[data-test="vs-itinerary-panels"]').exists()).toBe(true);
+        });
+    });
+
+    describe(':businessSupportHub', () => {
+        it('renders content inserted into a badge slot', () => {
+            const wrapper = bshMount();
+
+            const card = wrapper.findComponent({
+                name: 'VsStretchedLinkCard',
+            });
+
+            expect(card.find('[data-test="vs-stretched-link-card__badges"]').exists()).toBe(true);
+        });
+
+        it('shouldnt render badges on a bsh homepage)', () => {
+            const wrapper = shallowMount(VsMegalinkLinkList, {
+                bshMount,
+                propsData: {
+                    isHomePage: true,
+                },
+            });
+
+            const card = wrapper.findComponent({
+                name: 'VsStretchedLinkCard',
+            });
+
+            expect(card.find('[data-test="vs-stretched-link-card__badges"]').exists()).toBe(false);
+        });
+
+        it('shouldnt render images when viewport is <=sm on a bsh homepage)', () => {
+            const wrapper = shallowMount(VsMegalinkLinkList, {
+                bshMount,
+                propsData: {
+                    isHomePage: true,
+                },
+            });
+
+            wrapper.innerWidth = 500;
+
+            const card = wrapper.findComponent({
+                name: 'VsStretchedLinkCard',
+            });
+
+            expect(card.find('[data-test="vs-stretched-link-card__img"]').exists()).toBe(false);
+        });
+
+        it('shouldnt render images when on an internal bsh page)', () => {
+            const wrapper = shallowMount(VsMegalinkLinkList, {
+                bshMount,
+                propsData: {
+                    isHomePage: false,
+                },
+            });
+
+            const card = wrapper.findComponent({
+                name: 'VsStretchedLinkCard',
+            });
+
+            expect(card.find('[data-test="vs-stretched-link-card__img"]').exists()).toBe(false);
+        });
+
+        it('should set megalink class to bsh variant when bsh prop is true', () => {
+            const wrapper = bshMount();
+
+            const megalinkList = wrapper.find('div[data-test="vs-megalink-link-list"]');
+
+            expect(megalinkList.classes()).toContain('vs-megalink-link-list--business-support');
+        });
+
+        it('should set megalink to bsh internal page variant when bsh prop is true and homepage prop is false', () => {
+            const wrapper = bshMount();
+
+            const megalinkList = wrapper.find('div[data-test="vs-megalink-link-list"]');
+
+            expect(megalinkList.classes()).toContain('vs-megalink-link-list--internal-page');
+        });
+
+        it('shouldnt set megalink to bsh internal page variant when bsh and homepage props are true', async() => {
+            const wrapper = bshMount();
+
+            await wrapper.setProps({
+                isHomePage: true,
+            });
+
+            const megalinkList = wrapper.find('div[data-test="vs-megalink-link-list"]');
+
+            expect(megalinkList.classes()).toContain('vs-megalink-link-list--business-support');
+            expect(megalinkList.classes()).not.toContain('vs-megalink-link-list--internal-page');
         });
     });
 

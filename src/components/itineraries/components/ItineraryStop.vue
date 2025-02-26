@@ -39,6 +39,10 @@
             <!-- @slot The description content for the stop -->
             <slot name="stop-description" />
 
+            <!-- @slot Indicator of length of time to explore stop -->
+
+            <slot name="stop-time-to-explore" />
+
             <!-- @slot The tips content for the stop -->
             <slot name="stop-tips" />
 
@@ -135,7 +139,7 @@ export default {
     .border {
         position: relative;
         background-color: $vs-color-background-inverse;
-        border: 1px solid $vs-color-border;
+        border: 1px solid $vs-color-border-primary;
         padding: $spacer-100;
     }
 
@@ -158,7 +162,7 @@ export default {
     }
 
     .vs-icon-list {
-        border-top: 1px solid $vs-color-border;
+        border-top: 1px solid $vs-color-border-primary;
         margin-top: $spacer-100;
 
         .vs-icon-list__title {

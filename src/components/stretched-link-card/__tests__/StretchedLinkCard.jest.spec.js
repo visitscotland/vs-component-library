@@ -24,6 +24,7 @@ function mountOptions(slotsData) {
             'stretched-card-header': 'Stretched link header',
             'stretched-card-category': 'Stretched link category',
             'stretched-card-content': 'Stretched link content',
+            'stretched-card-badges': 'Stretched badges content',
         },
         ...slotsData,
     };
@@ -163,6 +164,12 @@ describe('VsStretchedLinkCard', () => {
 
             const headerElement = wrapper.find('[data-test="vs-stretched-link-card__title"]');
             expect(headerElement.find('vslink-stub').exists()).toBe(false);
+        });
+
+        it('renders content inserted in a stretched-card-badges slot', () => {
+            const wrapper = factoryShallowMount();
+
+            expect(wrapper.find('[data-test="vs-stretched-link-card__badges"]').text()).toBe('Stretched badges content');
         });
     });
 

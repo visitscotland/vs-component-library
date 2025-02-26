@@ -3,7 +3,7 @@ import VsMegalinkMultiImage from '@/components/megalinks/components/megalink-mul
 import VsImageWithCaption from '@/components/image-with-caption/ImageWithCaption.vue';
 import VsCaption from '@/components/caption/Caption.vue';
 import VsModal from '@/components/modal/Modal.vue';
-
+import VsBadge from '@/components/badge/VsBadge.vue';
 import VsLink from '@/components/link/Link.vue';
 import VsVideo from '@/components/video/Video.vue';
 import {
@@ -15,7 +15,6 @@ import {
 export default {
     component: VsMegalinks,
     title: 'MegalinksMultiImage',
-    tags: ['autodocs'],
 };
 
 const Template = (args) => ({
@@ -30,6 +29,7 @@ const Template = (args) => ({
         VsCaption,
         VsModal,
         VsVideo,
+        VsBadge,
     },
     setup() {
         return {
@@ -77,6 +77,19 @@ const Template = (args) => ({
 
                                 <template v-slot:vs-multi-image-content>
                                     <p>{{ link.content }}</p>
+                                </template>
+
+                                <template
+                                    v-slot:vs-multi-image-badges
+                                    v-if="link.badges"
+                                >
+                                    <VsBadge
+                                        v-for="(badge, badgeIndex) in link.badges"
+                                        :key="badgeIndex"
+                                        class="mb-050"
+                                    >
+                                        {{ badge}}
+                                    </VsBadge>
                                 </template>
                             </VsMegalinkMultiImage>
                             
@@ -173,6 +186,75 @@ export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const WithBadges = Template.bind({
+});
+
+WithBadges.args = {
+    ...base,
+    links: [
+        {
+            featured: true,
+            imgSrc: '/fixtures/megalinks/glentress-forest.jpg',
+            imgAlt: 'Clycling in glentress forest',
+            linkType: 'internal',
+            linkUrl: '#',
+            heading: '2023 UCI Cycling World Championships',
+            content: 'We\'ve pulled together a handy guide on dates and times, travel info, accommodation and things to see near host venues.',
+        },
+        {
+            featured: false,
+            imgSrc: '/fixtures/megalinks/wellness.jpg',
+            imgAlt: 'Wellness breaks in Scotland',
+            linkType: 'internal',
+            linkUrl: '#',
+            heading: 'Wellness breaks in Scotland',
+            content: 'Slow down and refresh your mind, body and spirit in Scotland.',
+            badges: [
+                'Content Type',
+                'Read Time',
+                'Published Date',
+            ],
+        },
+        {
+            featured: false,
+            imgSrc: '/fixtures/megalinks/grand-hotel.jpg',
+            imgAlt: 'Luxury holidays and breaks in Scotland',
+            linkType: 'internal',
+            linkUrl: '#',
+            heading: 'Luxury holidays and breaks in Scotland',
+            content: 'Plan your luxury getaway in SCotland, from 5-star accommodation to Michelin-star dining.',
+            badges: [
+                'Content Type',
+                'Read Time',
+                'Published Date',
+            ],
+        },
+        {
+            featured: false,
+            imgSrc: '/fixtures/megalinks/outlander-wedding.jpg',
+            imgAlt: 'Tour Scotland with Outlander',
+            linkType: 'internal',
+            linkUrl: '#',
+            heading: 'Tour Scotland with Outlander',
+            content: 'See Outlander filming locations, book locations and attractions with real-life Jacobite connections.',
+            badges: [
+                'Content Type',
+                'Read Time',
+                'Published Date',
+            ],
+        },
+        {
+            featured: true,
+            imgSrc: '/fixtures/megalinks/ashton-lane.jpg',
+            imgAlt: 'City breaks',
+            linkType: 'internal',
+            linkUrl: '#',
+            heading: 'City breaks',
+            content: 'Get inspiration on city accommodation, attractions and hidden gems loved by locals',
+        },
+    ],
+};
 
 export const WithVideo = Template.bind({
 });

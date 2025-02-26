@@ -49,7 +49,7 @@ export default {
             type: [String, Number],
             required: true,
             validator: (value) => value.match(
-                /(display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs)/,
+                /(display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs|heading-xxxs)/,
             ),
         },
     },
@@ -157,6 +157,10 @@ export default {
 
     &--heading-xxs {
         @include heading-style(heading-xxs);
+    }
+
+    &--heading-xxxs {
+        @include heading-style(heading-xxxs);
     }
 
     .vs-heading__sub-heading {

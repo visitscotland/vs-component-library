@@ -40,7 +40,7 @@ export default {
 <style lang="scss">
     .vs-tag.vs-link {
         display: inline-block;
-        border: 2px solid $vs-color-border-tertiary;
+        border: 2px solid $vs-color-border-highlight;
         border-radius: $border-radius-pill;
         transition: background $duration-base;
         text-decoration: none;
@@ -48,14 +48,17 @@ export default {
         font-size: $font-size-4;
 
         @include vs-button-variant(
-            $vs-color-text-tertiary, $vs-color-background-inverse, $vs-color-border-tertiary,
-            $vs-color-text-inverse, $vs-color-background-hover, $vs-color-background-hover,
-            $vs-color-text-inverse, $vs-color-background-tertiary, $vs-color-background-tertiary,
+            $vs-color-text-highlight, $vs-color-background-inverse, $vs-color-border-highlight,
+            $vs-color-text-inverse, $vs-color-background-accent-heather-80, $vs-color-background-accent-heather-80,
+            $vs-color-text-inverse, $vs-color-background-highlight, $vs-color-border-highlight,
         );
 
         &:focus {
             outline: 0px;
-            box-shadow: $vs-color-background-inverse 0px 0px 0px 2px inset, $vs-color-background-tertiary 0px 0px 0px 3px inset;
+            background-color: $vs-color-background-highlight;
+            color: $vs-color-text-inverse;
+            border-color: $vs-color-border-highlight;
+            box-shadow: $vs-color-background-inverse 0px 0px 0px 2px, $vs-color-background-highlight 0px 0px 0px 4px;
         }
     }
 </style>

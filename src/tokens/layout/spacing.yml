@@ -1,0 +1,40 @@
+#
+# SPACING TOKENS
+# Use these tokens to set padding, margin and position coordinates.
+#
+props:
+  - name: spacer-0
+    value: "0"
+  - name: spacer-0125
+    value: "0.125rem"
+  - name: spacer-025
+    value: "0.25rem"
+  - name: spacer-050
+    value: "0.5rem"
+  - name: spacer-075
+    value: "0.75rem"
+  - name: spacer-100
+    value: "1rem"
+  - name: spacer-125
+    value: "1.25rem"
+  - name: spacer-150
+    value: "1.5rem"
+  - name: spacer-175
+    value: "1.75rem"
+  - name: spacer-200
+    value: "2rem"
+  - name: spacer-250
+    value: "2.5rem"
+  - name: spacer-300
+    value: "3rem"
+  - name: spacer-400
+    value: "4rem"
+  - name: spacer-500
+    value: "5rem"
+  - name: spacer-600
+    value: "6rem"
+  - name: spacer-700
+    value: "7rem"
+global:
+  type: number
+  category: space

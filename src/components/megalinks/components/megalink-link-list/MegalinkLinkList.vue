@@ -1,7 +1,8 @@
 <template>
     <div
         class="vs-megalink-link-list"
-        :class="`vs-megalink-link-list--${theme}`"
+        :class="megalinkClass"
+        data-test="vs-megalink-link-list"
     >
         <VsStretchedLinkCard
             :link="linkUrl"
@@ -14,6 +15,8 @@
             :video-btn-text="videoBtnText"
             :error-message="errorMessage"
             error-type="full"
+            :business-support="businessSupport"
+            :is-home-page="isHomePage"
         >
             <template
                 v-if="days && transport"
@@ -40,12 +43,19 @@
 
             <template #stretched-card-content>
                 <VsRichTextWrapper
-                    class="vs-megalink-link-list__content"
+                    :class="businessSupport ? 'd-block' : 'vs-megalink-link-list__content'"
                     data-test="megalink-link-list__content"
                 >
                     <!-- @slot Slot to contain content -->
                     <slot name="vs-link-list-content" />
                 </VsRichTextWrapper>
+            </template>
+
+            <template
+                #stretched-card-badges
+                v-if="businessSupport && !isHomePage"
+            >
+                <slot name="vs-link-list-badges" />
             </template>
         </VsStretchedLinkCard>
     </div>
@@ -163,6 +173,40 @@ export default {
             type: String,
             default: '',
         },
+        /**
+         * Flag for Business Support Hub (BSH) visual differences
+         * On mobile and internal pages there should be no images.
+         */
+        businessSupport: {
+            type: Boolean,
+            default: false,
+        },
+        /**
+         * Flag for homepage styling which differs on BSH
+         */
+        isHomePage: {
+            type: Boolean,
+            default: false,
+        },
+    },
+    computed: {
+        megalinkClass() {
+            let returnClass = '';
+
+            if (this.theme) {
+                returnClass += `vs-megalink-link-list--${this.theme} `;
+            }
+
+            if (!this.isHomePage) {
+                returnClass += 'vs-megalink-link-list--internal-page ';
+            }
+
+            if (this.businessSupport) {
+                returnClass += 'vs-megalink-link-list--business-support ';
+            }
+
+            return returnClass;
+        },
     },
 };
 </script>
@@ -177,7 +221,7 @@ export default {
 
         &:after {
             content: '';
-            border-bottom: 1px solid $vs-color-border;
+            border-bottom: 1px solid $vs-color-border-primary;
             position: absolute;
             width: calc(100% - 16px);
             left: 8px;
@@ -301,7 +345,7 @@ export default {
             @include media-breakpoint-up(lg) {
                 .vs-megalink-link-list__wrapper.card {
                     .vs-megalink-link-list__content p {
-                         font-size: $font-size-4;
+                        font-size: $font-size-4;
                     }
                 }
             }
@@ -341,6 +385,20 @@ export default {
                 }
             }
         }
+
+        &--business-support {
+            &.vs-megalink-link-list--internal-page {
+                .vs-stretched-link-card__img-container, .vs-stretched-link-card__video-button {
+                    display: none;
+                }
+            }
+
+            @include media-breakpoint-down(md) {
+                .vs-stretched-link-card__img-container, .vs-stretched-link-card__video-button {
+                    display: none;
+                }
+            }
+        }
     }
 
     @include no-js {
@@ -363,5 +421,6 @@ export default {
                 }
             }
         }
+
     }
 </style>

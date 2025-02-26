@@ -565,16 +565,50 @@ export default {
 
             return '';
         },
+        /**
+         * Collects all hidden input fields within the current element, parses their values,
+         * and returns an object where each hidden input's name serves as a key and its parsed value
+         * as the corresponding value. The function converts 'true' and 'false' strings to boolean
+         * values, and retains other values as strings.
+         *
+         * @returns {Object<string, boolean|string>} - An object where:
+         *   - `key`: The name of the hidden input field.
+         *   - `value`: The parsed value of the input field, where 'true' becomes `true`,
+         *     'false' becomes `false`, and other values remain as strings.
+         */
         getHiddenFields() {
-            const hiddenInputFields = this.$el.querySelectorAll('input[type=hidden]');
-            const fieldData = {
+            return [...this.$el.querySelectorAll('input[type=hidden]')]
+                .map(this.parseBooleanStringsFromInputField)
+                .reduce((accumulator, field) => {
+                    accumulator[field.name] = field.value;
+                    return accumulator;
+                }, {
+                });
+        },
+        /**
+         * Parses the value of an input field, converting 'true' and 'false' string values to their
+         * boolean primitive equivalents.
+         *
+         * @param {HTMLInputElement} inputField - The input field element to process. It must have a
+         * `value` and `name` property.
+         * @returns {{name: string, value: boolean|string}} - An object containing:
+         *   - `name`: The name of the input field.
+         *   - `value`: The parsed value of the input field. Returns `true` if the value is 'true',
+         *     `false` if the value is 'false', and the original value otherwise.
+         */
+        parseBooleanStringsFromInputField(inputField) {
+            let value = inputField.value;
+
+            if (value === 'true') {
+                value = true;
+            } else if (value === 'false') {
+                value = false;
+            }
+
+            return {
+                name: inputField.name,
+                value,
             };
-
-            hiddenInputFields.forEach((field) => {
-                fieldData[field.name] = field.value;
-            });
-
-            return fieldData;
         },
         /**
          * Returns true if a given value is undefined
@@ -745,6 +779,7 @@ export default {
          * Submits the form using Axios, submitting a json object to the submitUrl
          */
         axiosSubmit() {
+            this.createDataLayerObject('formsDataEvent');
             this.submitting = true;
 
             let gRecaptchaResponse = '';
@@ -787,9 +822,10 @@ export default {
                     {
                         email_id: this.form[this.emailFieldName],
                     },
-                    null,
-                    null,
-                    null,
+                    {
+                    },
+                    () => {},
+                    () => {},
                     true,
                 );
             }
