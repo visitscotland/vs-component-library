@@ -1,6 +1,5 @@
 import VsCheckbox from '@/components/checkbox/Checkbox.vue';
 import VsFilter from '@/components/filter/VsFilter.vue';
-import VsFilterPanel from '@/components/filter/components/VsFilterPanel.vue';
 import VsFilterSection from '@/components/filter/components/VsFilterSection.vue';
 
 export default {
@@ -16,7 +15,6 @@ const Template = (args) => ({
         VsCheckbox,
         VsFilter,
         VsFilterSection,
-        VsFilterPanel,
     },
     setup() {
         return {
@@ -28,45 +26,41 @@ const Template = (args) => ({
             :class="args.jsDisabled ? 'no-js' : ''"
         >
             <VsFilter v-bind="args">
-                <VsFilterPanel
-                    :filter-label="args.filterLabel"   
+                <VsFilterSection
+                    v-for="group in args.filterGroups"
+                    :key="group.group"
+                    :type="group.type"
+                    :section-title="group.label || null"
                 >
-                    <VsFilterSection
-                        v-for="group in args.filterGroups"
-                        :key="group.group"
-                        :type="group.type"
-                        :section-title="group.label || null"
-                    >
-                        <template v-if="group.type === 'inline'">
-                            <div
-                                v-for="filter in group.filters"
-                                class="date-picker"
-                            >
-                                <label :for="filter.label">
-                                    {{ filter.label }}
-                                </label>
-                                <div>
-                                    <input
-                                        type="date"
-                                        :id="filter.label"
-                                        :name="filter.label"
-                                        :min="args.minDate"
-                                    >
-                                </div>
+                    <template v-if="group.type === 'inline'">
+                        <div
+                            v-for="filter in group.filters"
+                            class="date-picker"
+                        >
+                            <label :for="filter.label">
+                                {{ filter.label }}
+                            </label>
+                            <div>
+                                <input
+                                    type="date"
+                                    :id="filter.label"
+                                    :name="filter.label"
+                                    :min="args.minDate"
+                                >
                             </div>
-                        </template>
+                        </div>
+                    </template>
 
-                        <template v-else>
-                            <VsCheckbox
-                                v-for="filter in group.filters"
-                                :field-name="filter.label"
-                                value="checked"
-                                :label="filter.label"
-                                size="sm"
-                            />
-                        </template>
-                    </VsFilterSection>                       
-                </VsFilterPanel>
+                    <template v-else>
+                        <VsCheckbox
+                            v-for="filter in group.filters"
+                            :field-name="filter.label"
+                            value="checked"
+                            :label="filter.label"
+                            size="sm"
+                        />
+                    </template>
+                </VsFilterSection>
 
                 <template
                     #no-js
@@ -165,14 +159,6 @@ const base = {
 
 export const Default = Template.bind();
 Default.args = base;
-
-export const Mobile = Template.bind();
-Mobile.args = base;
-Mobile.parameters = {
-    viewport: {
-        defaultViewport: 'mobile2',
-    },
-};
 
 export const NoJavascript = Template.bind();
 NoJavascript.args = {
