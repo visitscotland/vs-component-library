@@ -1,7 +1,7 @@
 <template>
     <BImg
         v-bind="$attrs"
-        :src="src"
+        :src="computedSrc"
         :alt="alt"
         :fluid="fluid"
         :fluid-grow="fluidGrow"
@@ -113,6 +113,13 @@ export default {
             }
 
             return null;
+        },
+        computedSrc() {
+            if (this.src.indexOf('visitscotland.com') !== -1 || this.src.indexOf('visitscotland.og') !== -1) {
+                return `https://d2mq8p11a67q50.cloudfront.net/?asset=${ encodeURI(this.src)}`;
+            }
+
+            return this.src;
         },
     },
 };
