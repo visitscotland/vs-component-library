@@ -161,7 +161,10 @@
                 />
             </template>
 
-            <p v-if="submitError">
+            <p
+                v-if="submitError"
+                class="mt-200"
+            >
                 <slot name="submit-error" />
             </p>
         </div>
@@ -742,7 +745,6 @@ export default {
             } else {
                 this.showErrorMessage = true;
                 this.reAlertErrors = true;
-                this.submitError = true;
 
                 setTimeout(() => {
                     this.reAlertErrors = false;
@@ -805,7 +807,10 @@ export default {
                 this.submitted = true;
                 this.attachEmail();
                 return false;
-            }).catch(() => {});
+            }).catch(() => {
+                this.submitError = true;
+                return false;
+            });
         },
         /**
          * If exponea is present in the window (via gtm with accepted cookies), attach the
