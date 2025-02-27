@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.13.1](https://github.com/visitscotland/vs-component-library/compare/v4.13.0...v4.13.1) (2025-02-27)
+
+
+### 🏗 Build System
+
+* **deps:** bump vite from 5.4.11 to 5.4.12 in the npm_and_yarn group ([a9f58a0](https://github.com/visitscotland/vs-component-library/commit/a9f58a0a6df87ef10637dd66de5a75064a10e8d6))
+
+
+### 🐛 Bug Fixes
+
+* **megalinks:** improve SVG layout in stretched link cards ([ef25f51](https://github.com/visitscotland/vs-component-library/commit/ef25f518d04cb84ffe53972021ad74660baa49b3))
+* **svgs:** stop using image scaler for SVGs ([78527af](https://github.com/visitscotland/vs-component-library/commit/78527af683dfd755a48acd47db26910865d48127))
+
 ## [4.13.0](https://github.com/visitscotland/vs-component-library/compare/v4.12.2...v4.13.0) (2025-02-27)
 
 
