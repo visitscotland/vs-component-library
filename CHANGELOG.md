@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.13.0](https://github.com/visitscotland/vs-component-library/compare/v4.12.2...v4.13.0) (2025-02-27)
+
+
+### ✨ Features
+
+* **tabs:** bSH Styling implented for tabs ([dd51a99](https://github.com/visitscotland/vs-component-library/commit/dd51a991d697ffa85f46a1a0ad756e5f18864183))
+* **tabs:** started to create a bsh styled variant ([f19e603](https://github.com/visitscotland/vs-component-library/commit/f19e60360a3c741f5d49152f766b9f725396cf1f))
+
+
+### 🐛 Bug Fixes
+
+* **tabs:** fixed slight change in non-bsh tabs appearance due to flex change ([cac0ddf](https://github.com/visitscotland/vs-component-library/commit/cac0ddf98f18daa8b5472f9a267b55412cd1d628))
+
+
+### 🎨 Styling
+
+* **tabs:** ensures conformity with code style ([149fc41](https://github.com/visitscotland/vs-component-library/commit/149fc41a2d33f01c74b35462fa66b6a63667dcd2))
+
+
+### ✅ Tests
+
+* **tabs:** added new bsh variant test ([585dc14](https://github.com/visitscotland/vs-component-library/commit/585dc14748792baa92188b68b32bc81be09f899f))
+* **tabs:** fix failing test ([b82f2e3](https://github.com/visitscotland/vs-component-library/commit/b82f2e33b1f8c90e46dd55a8398276fd5be2cc46))
+
+
+### ♻️ Code Refactoring
+
+* **tabs:** adds in more detailed comments, uses tokens for border-radius and fixes story ([69b9f15](https://github.com/visitscotland/vs-component-library/commit/69b9f1526153d76fdc58fc1f7763b57a19b0d322))
+* **tabs:** changed BSH Variant to No Container variant, added in mobile view ([5e35600](https://github.com/visitscotland/vs-component-library/commit/5e356002c1ded6a41912abc777a537047a24e112))
+* **tabs:** fine-tuned sizing on tabs ([a5967c2](https://github.com/visitscotland/vs-component-library/commit/a5967c2f5ddaff224a9f9629832779edccf2ba55))
+* **tabs:** refactored tabs to use provide/inject instead of props for child TabItem ([cddf457](https://github.com/visitscotland/vs-component-library/commit/cddf4579bbcce67ba6f472aa3cbfb3c57199228d))
+* **tabs:** removed obsolete commented code ([e7aa6b1](https://github.com/visitscotland/vs-component-library/commit/e7aa6b14d3944d7a01e76934ae0960f3bb354074))
+
 ### [4.12.2](https://github.com/visitscotland/vs-component-library/compare/v4.12.1...v4.12.2) (2025-02-26)
 
 
