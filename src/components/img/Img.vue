@@ -106,7 +106,7 @@ export default {
     },
     computed: {
         imgStyle() {
-            if (!this.useGenericLqip) {
+            if (!this.useGenericLqip && !this.src.includes('.svg')) {
                 return {
                     backgroundImage: `url(${this.specificImgSize('xxs')})`,
                 };

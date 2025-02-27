@@ -35,6 +35,7 @@
                     :src="imgSrc"
                     :alt="imgAlt"
                     class="vs-stretched-link-card__img"
+                    :class="isSvg ? 'vs-stretched-link-card__img--svg' : ''"
                     data-test="vs-stretched-link-card__img"
                     data-chromatic="ignore"
                 />
@@ -398,6 +399,13 @@ export default {
 
             return attrsObj;
         },
+        isSvg() {
+            if (this.imgSrc && this.imgSrc.includes('.svg')) {
+                return true;
+            }
+
+            return false;
+        },
     },
     mounted() {
         // Checks whether js is disabled, to display an appropriate warning to the user
@@ -467,6 +475,10 @@ export default {
                 object-fit: cover;
                 align-self: flex-start;
                 flex-shrink: 0; // IE11 fix, prevents image vertical stretching
+
+                &--svg {
+                    object-fit: contain;
+                }
             }
         }
 

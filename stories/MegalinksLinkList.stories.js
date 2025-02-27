@@ -292,7 +292,7 @@ const businessSupportBase = {
     isHomePage: false,
     links: [
         {
-            imgSrc: './fixtures/megalinks/glentress-forest.jpg',
+            imgSrc: './fixtures/image-with-caption/images/thistle.svg',
             imgAlt: 'Clycling in glentress forest',
             linkType: 'internal',
             linkUrl: '#',
