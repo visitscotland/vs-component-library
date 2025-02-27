@@ -1,3 +1,11 @@
+## [4.13.2](https://github.com/visitscotland/vs-component-library/compare/v4.13.1...v4.13.2) (2025-02-27)
+
+
+### Bug Fixes
+
+* **semantic release:** add test file ([d2c9710](https://github.com/visitscotland/vs-component-library/commit/d2c971087b8af9eeb6d218f5d4f8a940e5e912cb))
+* **semantic release:** remove test file ([142092a](https://github.com/visitscotland/vs-component-library/commit/142092a53ed4d773245c93403ba711ad99c6ae0d))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
