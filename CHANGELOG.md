@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.13.4](https://github.com/visitscotland/vs-component-library/compare/v4.13.3...v4.13.4) (2025-02-28)
+
+
+### 🐛 Bug Fixes
+
+* **npm:** move package to devdeps ([228c18a](https://github.com/visitscotland/vs-component-library/commit/228c18a33622dfbbc6ff6c22581be79df7e0a3a8))
+
 ### [4.13.3](https://github.com/visitscotland/vs-component-library/compare/v4.13.2...v4.13.3) (2025-02-28)
 
 
