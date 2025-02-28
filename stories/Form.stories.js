@@ -40,6 +40,10 @@ const Template = (args) => ({
                 <template v-slot:no-js v-if="args['no-js']">
                     <p>{{ args['no-js'] }}</p>
                 </template>
+
+                <template v-slot:submit-error v-if="args['submit-error']">
+                    {{ args['submit-error'] }}
+                </template>
             </VsForm>
         </div>
     `,
