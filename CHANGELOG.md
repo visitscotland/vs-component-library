@@ -1,3 +1,15 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [4.13.3](https://github.com/visitscotland/vs-component-library/compare/v4.13.2...v4.13.3) (2025-02-28)
+
+
+### ✨ Features
+
+* **forms:** add spacing above error ([2622d9a](https://github.com/visitscotland/vs-component-library/commit/2622d9a392ed1e74a2d25176f6565b7119f7cacf))
+* **forms:** restore submit error ([9763180](https://github.com/visitscotland/vs-component-library/commit/9763180160112325177d1d2459c7938f751ff6cb))
+
 ## [4.13.2](https://github.com/visitscotland/vs-component-library/compare/v4.13.1...v4.13.2) (2025-02-27)
 
 
