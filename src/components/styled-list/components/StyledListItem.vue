@@ -80,7 +80,7 @@ const props = defineProps({
 <style lang="scss">
     .vs-styled-list--icon
     .vs-styled-list__item {
-        padding: $spacer-0 $spacer-0 $spacer-150 $spacer-300;
+        padding-left: $spacer-300;
         position: relative;
 
         &::before {
