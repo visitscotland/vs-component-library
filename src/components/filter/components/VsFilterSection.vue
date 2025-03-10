@@ -91,6 +91,12 @@ const filterSectionClasses = computed(() => ({
         font-size: $font-size-4;
         font-weight: $font_weight_semi_bold;
         justify-content: space-between;
+        list-style: none;
+
+        &::marker,
+        &::-webkit-details-marker {
+            display: none;
+        }
 
         .vs-icon {
             transform: scale(-1, -1);
