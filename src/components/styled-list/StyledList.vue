@@ -54,7 +54,7 @@ const props = defineProps({
 .vs-styled-list {
     &__list {
         list-style: none;
-        margin-top: $spacer-200;
+        // margin-top: $spacer-200;
     }
 
     &--icon {
