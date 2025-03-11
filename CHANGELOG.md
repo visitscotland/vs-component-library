@@ -1,3 +1,10 @@
+## [4.13.11](https://github.com/visitscotland/vs-component-library/compare/v4.13.10...v4.13.11) (2025-03-11)
+
+
+### Bug Fixes
+
+* **build:** correct getuid syntax ([3ec103d](https://github.com/visitscotland/vs-component-library/commit/3ec103d857adefd8adcfe828caf054af24ef4a42))
+
 ## [4.13.10](https://github.com/visitscotland/vs-component-library/compare/v4.13.9...v4.13.10) (2025-03-11)
 
 
