@@ -1,3 +1,11 @@
+## [4.13.7](https://github.com/visitscotland/vs-component-library/compare/v4.13.6...v4.13.7) (2025-03-11)
+
+
+### Bug Fixes
+
+* **build:** restrict process.env values passed to build ([e82b940](https://github.com/visitscotland/vs-component-library/commit/e82b940b7843729bb62b4b4e9de95af184b050e3))
+* **vsstyledlistitem:** remove bottom padding ([fc48ede](https://github.com/visitscotland/vs-component-library/commit/fc48edea4b1ae5bdf8c7e8b1474c02b054dbcc0a))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
