@@ -1,3 +1,10 @@
+## [4.13.10](https://github.com/visitscotland/vs-component-library/compare/v4.13.9...v4.13.10) (2025-03-11)
+
+
+### Bug Fixes
+
+* **build:** restore partial env alongside uid shim ([0362da3](https://github.com/visitscotland/vs-component-library/commit/0362da396dec81c659f95439b054498fdd51ce7c))
+
 ## [4.13.9](https://github.com/visitscotland/vs-component-library/compare/v4.13.8...v4.13.9) (2025-03-11)
 
 
