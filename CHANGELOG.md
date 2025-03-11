@@ -1,3 +1,11 @@
+## [4.13.13](https://github.com/visitscotland/vs-component-library/compare/v4.13.12...v4.13.13) (2025-03-11)
+
+
+### Bug Fixes
+
+* **styledlist:** remove margin-top ([729328d](https://github.com/visitscotland/vs-component-library/commit/729328de049d684e8e9423bccaba7d1e82cbd530))
+* **vsstyledlist:** remove margin-top ([5f585bd](https://github.com/visitscotland/vs-component-library/commit/5f585bda2a4f455bccad71c4a93856cb61f389d6))
+
 ## [4.13.12](https://github.com/visitscotland/vs-component-library/compare/v4.13.11...v4.13.12) (2025-03-11)
 
 
