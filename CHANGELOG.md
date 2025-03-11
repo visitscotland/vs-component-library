@@ -1,3 +1,10 @@
+## [4.13.9](https://github.com/visitscotland/vs-component-library/compare/v4.13.8...v4.13.9) (2025-03-11)
+
+
+### Bug Fixes
+
+* **build:** add process.getuid shim ([1d2e0ad](https://github.com/visitscotland/vs-component-library/commit/1d2e0ad489fa8ad25047fb8a91ab8fd25b7fc19b))
+
 ## [4.13.8](https://github.com/visitscotland/vs-component-library/compare/v4.13.7...v4.13.8) (2025-03-11)
 
 
