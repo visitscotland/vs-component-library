@@ -1,3 +1,46 @@
+## [4.13.12](https://github.com/visitscotland/vs-component-library/compare/v4.13.11...v4.13.12) (2025-03-11)
+
+
+### Bug Fixes
+
+* **build:** proxy all node functions ([a1779f9](https://github.com/visitscotland/vs-component-library/commit/a1779f9f4552955692f74bf1b24f4642ccbf3cc0))
+
+## [4.13.11](https://github.com/visitscotland/vs-component-library/compare/v4.13.10...v4.13.11) (2025-03-11)
+
+
+### Bug Fixes
+
+* **build:** correct getuid syntax ([3ec103d](https://github.com/visitscotland/vs-component-library/commit/3ec103d857adefd8adcfe828caf054af24ef4a42))
+
+## [4.13.10](https://github.com/visitscotland/vs-component-library/compare/v4.13.9...v4.13.10) (2025-03-11)
+
+
+### Bug Fixes
+
+* **build:** restore partial env alongside uid shim ([0362da3](https://github.com/visitscotland/vs-component-library/commit/0362da396dec81c659f95439b054498fdd51ce7c))
+
+## [4.13.9](https://github.com/visitscotland/vs-component-library/compare/v4.13.8...v4.13.9) (2025-03-11)
+
+
+### Bug Fixes
+
+* **build:** add process.getuid shim ([1d2e0ad](https://github.com/visitscotland/vs-component-library/commit/1d2e0ad489fa8ad25047fb8a91ab8fd25b7fc19b))
+
+## [4.13.8](https://github.com/visitscotland/vs-component-library/compare/v4.13.7...v4.13.8) (2025-03-11)
+
+
+### Bug Fixes
+
+* **build:** remove process.env completely ([e784935](https://github.com/visitscotland/vs-component-library/commit/e78493514fd41cff066b0c779be3cc36d0ccc48b))
+
+## [4.13.7](https://github.com/visitscotland/vs-component-library/compare/v4.13.6...v4.13.7) (2025-03-11)
+
+
+### Bug Fixes
+
+* **build:** restrict process.env values passed to build ([e82b940](https://github.com/visitscotland/vs-component-library/commit/e82b940b7843729bb62b4b4e9de95af184b050e3))
+* **vsstyledlistitem:** remove bottom padding ([fc48ede](https://github.com/visitscotland/vs-component-library/commit/fc48edea4b1ae5bdf8c7e8b1474c02b054dbcc0a))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
