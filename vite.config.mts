@@ -13,7 +13,7 @@ export default defineConfig(({ mode }) => {
                 ICON_API_TOKEN: env.ICON_API_TOKEN,
                 RECAPTCHA_TOKEN: env.RECAPTCHA_TOKEN,
             }),
-            'process.getuid': '(() => undefined)',
+            'process.getuid': '() => undefined',
             'process.versions': process.versions,
             'process.platform': `"${process.platform}"`,
         },
