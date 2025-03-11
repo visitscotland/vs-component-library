@@ -1,3 +1,10 @@
+## [4.13.8](https://github.com/visitscotland/vs-component-library/compare/v4.13.7...v4.13.8) (2025-03-11)
+
+
+### Bug Fixes
+
+* **build:** remove process.env completely ([e784935](https://github.com/visitscotland/vs-component-library/commit/e78493514fd41cff066b0c779be3cc36d0ccc48b))
+
 ## [4.13.7](https://github.com/visitscotland/vs-component-library/compare/v4.13.6...v4.13.7) (2025-03-11)
 
 
