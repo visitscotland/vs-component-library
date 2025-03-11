@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.13.6](https://github.com/visitscotland/vs-component-library/compare/v4.13.5...v4.13.6) (2025-03-10)
+
+
+### 🐛 Bug Fixes
+
+* **filter:** hide details marker on iOS devices ([31cf07c](https://github.com/visitscotland/vs-component-library/commit/31cf07c2e839c966aa10f1ecda12c2acc7d5ed87))
+
+### [4.13.5](https://github.com/visitscotland/vs-component-library/compare/v4.13.4...v4.13.5) (2025-03-03)
+
+
+### 🐛 Bug Fixes
+
+* **icon:** fix Linkedin icon ([1c9d780](https://github.com/visitscotland/vs-component-library/commit/1c9d78016c240fd1a0b963c3201b7c999c55f6d8))
+
 ### [4.13.4](https://github.com/visitscotland/vs-component-library/compare/v4.13.3...v4.13.4) (2025-02-28)
 
 
