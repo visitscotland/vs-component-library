@@ -5,6 +5,7 @@ import dts from 'vite-plugin-dts';
 
 export default defineConfig(() => ({
     define: {
+        'process.getuid': '(() => undefined)',
         'process.versions': process.versions,
         'process.platform': `"${process.platform}"`,
     },
