@@ -1,3 +1,10 @@
+## [4.13.12](https://github.com/visitscotland/vs-component-library/compare/v4.13.11...v4.13.12) (2025-03-11)
+
+
+### Bug Fixes
+
+* **build:** proxy all node functions ([a1779f9](https://github.com/visitscotland/vs-component-library/commit/a1779f9f4552955692f74bf1b24f4642ccbf3cc0))
+
 ## [4.13.11](https://github.com/visitscotland/vs-component-library/compare/v4.13.10...v4.13.11) (2025-03-11)
 
 
