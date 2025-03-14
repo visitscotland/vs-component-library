@@ -3,7 +3,7 @@
         icon-only
         class="vs-hero-section-video-control"
         data-test="vs-hero-section-video-control"
-        :icon=" isPlaying ? 'play-filled' : 'play'"
+        :icon=" isPlaying ? 'pause-regular' : 'play'"
         @click="toggleVideo"
     >
         <slot />
