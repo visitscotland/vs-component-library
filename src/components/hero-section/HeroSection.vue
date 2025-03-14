@@ -67,6 +67,13 @@
                         </p>
                     </VsRichTextWrapper>
                 </div>
+
+                <VsHeroSectionVideoControl
+                    video-btn-text="Toggle video"
+                    @video-toggled="onToggleVideo"
+                >
+                    {{ videoBtnText }}
+                </VsHeroSectionVideoControl>
             </div>
         </div>
     </div>
@@ -76,6 +83,7 @@
 import VsHeading from '@/components/heading/Heading.vue';
 import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
 import VsHeroSectionImage from '@/components/hero-section/components/HeroSectionImage.vue';
+import VsHeroSectionVideoControl from '@/components/hero-section/components/HeroSectionVideoControl.vue';
 
 /**
 * Component for the hero section at the top of a page.
@@ -93,6 +101,7 @@ export default {
         VsHeading,
         VsRichTextWrapper,
         VsHeroSectionImage,
+        VsHeroSectionVideoControl,
     },
     props: {
         /**
@@ -160,6 +169,13 @@ export default {
             type: String,
             default: '',
         },
+        /**
+        * The visually hidden text to display
+        */
+        videoBtnText: {
+            type: String,
+            default: '',
+        },
     },
     computed: {
         imageClasses() {
@@ -174,6 +190,18 @@ export default {
                 },
                 'vs-hero-section__text-container',
             ];
+        },
+    },
+    methods: {
+        /**
+         * Play/pause the video
+         */
+        onToggleVideo(isPlaying) {
+            if (isPlaying) {
+                this.$refs.heroVideo.pause();
+            } else {
+                this.$refs.heroVideo.play();
+            }
         },
     },
 };
@@ -233,6 +261,7 @@ export default {
         }
 
         &__text-container {
+            position: relative;
             grid-row: var(--container-row);
             grid-column: var(--container-col);
             width: var(--content_maxwidth);
@@ -319,6 +348,12 @@ export default {
 
         .vs-hero-section__text-container--video {
             color: $vs-color-text-inverse;
+
+            .vs-hero-section-video-control {
+                position: absolute;
+                bottom: $spacer-500;
+                right: $spacer-125;
+            }
 
             .vs-hero-section__text {
                 display: grid;

@@ -72,6 +72,7 @@
         img-credit="VisitScotland / Kenny Lam"
         :split="variant === 'split-home' ? true : false"
         :video-src="variant === 'video' ? 'fixtures/hero/video/winter-web-test.mp4' : ''"
+        :video-btn-text="variant === 'video' ? 'Toggle video' : ''"
     >
         <template #heroHeading>
             Scotland, <br>it's good for the soul
