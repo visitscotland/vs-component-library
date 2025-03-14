@@ -6,6 +6,7 @@
         :icon=" isPlaying ? 'pause-regular' : 'play'"
         @click="toggleVideo"
     >
+        <!-- Slot for visiblly hidden screen reader text -->
         <slot />
     </VsButton>
 </template>
