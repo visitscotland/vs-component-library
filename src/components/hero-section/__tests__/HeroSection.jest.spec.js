@@ -7,7 +7,7 @@ const ledeText = 'Welcome to Scotland, where history meets breathtaking beauty, 
 const heroImgSrc = 'fixtures/hero/images/visitscotland_38462263949.jpg';
 const heroCaption = 'Sunset at Lochan na h-Achlaise on Rannoch Moor';
 const heroCredit = 'VisitScotland / Kenny Lam';
-const heroVideoSrc = 'fixtures/hero/video/winter-web-test.mp4';
+const heroVideoSrc = 'fixtures/hero/video/lavendar-fields.mp4';
 
 config.global.renderStubDefaultSlot = true;
 
