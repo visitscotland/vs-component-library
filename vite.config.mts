@@ -2,13 +2,18 @@ import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import path from 'path';
 import dts from 'vite-plugin-dts';
+import { nodePolyfills } from 'vite-plugin-node-polyfills'
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, process.cwd(), '');
 
     return {
         define: {
-            'process.env': JSON.stringify(env),
+            'process.env': JSON.stringify({
+                ICON_KIT_TOKEN: env.ICON_KIT_TOKEN,
+                ICON_API_TOKEN: env.ICON_API_TOKEN,
+                RECAPTCHA_TOKEN: env.RECAPTCHA_TOKEN,
+            }),
             'process.versions': process.versions,
             'process.platform': `"${process.platform}"`,
         },
@@ -18,6 +23,7 @@ export default defineConfig(({ mode }) => {
                     additionalData: `
                         @import "@/styles/resources.scss";
                     `,
+                    silenceDeprecations: ['mixed-decls', 'color-functions', 'global-builtin', 'import', 'legacy-js-api'],
                 },
             },
         },
@@ -53,6 +59,7 @@ export default defineConfig(({ mode }) => {
                     './src/utils/__mocks__/**',
                 ],
             }),
+            nodePolyfills(),
         ],
         build: {
             cssCodeSplit: true,

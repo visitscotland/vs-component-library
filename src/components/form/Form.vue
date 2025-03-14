@@ -161,7 +161,10 @@
                 />
             </template>
 
-            <p v-if="submitError">
+            <p
+                v-if="submitError"
+                class="mt-200"
+            >
                 <slot name="submit-error" />
             </p>
         </div>
@@ -685,6 +688,7 @@ export default {
          */
         preSubmit(e) {
             e.preventDefault();
+            this.submitError = false;
 
             function isRequired(value) {
                 return value.validation && value.validation.required;
@@ -803,7 +807,10 @@ export default {
                 this.submitted = true;
                 this.attachEmail();
                 return false;
-            }).catch(() => {});
+            }).catch(() => {
+                this.submitError = true;
+                return false;
+            });
         },
         /**
          * If exponea is present in the window (via gtm with accepted cookies), attach the

@@ -2,7 +2,7 @@
     <BTab
         class="vs-tab__item"
         data-test="vs-tab__item"
-        title-link-class="vs-tab-link vs-heading"
+        :title-link-class="noContainer ? 'vs-tab-link--no-container vs-heading' : 'vs-tab-link vs-heading'"
         :title="title"
     >
         <VsHeading
@@ -35,6 +35,10 @@ export default {
         VsHeading,
         BTab,
     },
+    /**
+     * Injects noContainer prop from Tab parent.
+     */
+    inject: ['noContainer'],
     props: {
         /**
          * Title of the tab button
@@ -47,7 +51,7 @@ export default {
 };
 </script>
 <style lang="scss">
-    .vs-tab-link{
+    .vs-tab-link {
         width: 100%;
         background-color: $vs-color-interaction-cta-subtle-hover;
         color: $vs-color-text-primary;
@@ -88,7 +92,53 @@ export default {
             border-color: $vs-color-interaction-cta-disabled;
         }
 
-        &:focus-visible{
+        &:focus-visible {
+            box-shadow: $vs-box-shadow-focus;
+            outline: none;
+        }
+    }
+
+    .vs-tab-link--no-container {
+        flex-grow: 1;
+        background-color: $vs-color-interaction-cta-subtle-hover;
+        color: $vs-color-text-primary;
+        border-width: 1px;
+        border-color: $vs-color-border-primary;
+        border-radius: $border-radius-lg $border-radius-lg $spacer-0 $spacer-0;
+        text-wrap: pretty;
+        padding: $spacer-075 $spacer-075;
+        transition: $duration-base all;
+        transition: all 200ms ease;
+        transition-property: background-color, color;
+
+        @include media-breakpoint-up(sm) {
+            padding: $spacer-075 $spacer-125;
+            @include heading-style(heading-xs, false);
+        }
+
+        &:hover:not(.active) {
+            border-color: $vs-color-interaction-cta-hover;
+            background-color: $vs-color-interaction-cta-hover;
+            color: $vs-color-text-inverse;
+        }
+
+        &.active {
+            position: relative;
+            background-color: $vs-color-background-inverse;
+
+            @include media-breakpoint-up(sm) {
+                padding: $spacer-100 $spacer-125;
+                @include heading-style(heading-xs, false);
+            }
+        }
+
+        &.disabled {
+            color: $vs-color-text-disabled;
+            background-color: $vs-color-interaction-cta-disabled;
+            border-color: $vs-color-interaction-cta-disabled;
+        }
+
+        &:focus-visible {
             box-shadow: $vs-box-shadow-focus;
             outline: none;
         }

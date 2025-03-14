@@ -219,10 +219,6 @@ export default {
                     key: 'wetroom',
                     value: 'level-entry-shower',
                 },
-                {
-                    key: 'linkedin',
-                    value: 'linkedin-in fa-brands',
-                },
             ],
         };
     },
