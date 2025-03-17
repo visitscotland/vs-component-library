@@ -69,6 +69,7 @@
                 </div>
 
                 <VsHeroSectionVideoControl
+                    v-if="videoSrc"
                     video-btn-text="Toggle video"
                     @video-toggled="onToggleVideo"
                 >

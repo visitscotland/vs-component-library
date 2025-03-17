@@ -121,6 +121,37 @@ describe('VsHeroSection', () => {
             expect(source.attributes('src')).toBe(heroVideoSrc);
         });
 
+        it('does not render a video control when videoSrc is not provided', async() => {
+            const wrapper = factoryShallowMount();
+            const videoControl = wrapper.find('vs-hero-section-video-control-stub');
+
+            expect(videoControl.exists()).toBe(false);
+        });
+
+        it('renders video control button when videoSrc is provided', async() => {
+            const wrapper = factoryShallowMount();
+            await wrapper.setProps({
+                videoSrc: heroVideoSrc,
+                src: heroImgSrc,
+            });
+
+            const videoControl = wrapper.find('vs-hero-section-video-control-stub');
+            expect(videoControl.exists()).toBe(true);
+        });
+
+        it('renders with custom video button text when prop is provided', async() => {
+            const wrapper = factoryShallowMount();
+            const customBtnText = 'Toggle video';
+
+            await wrapper.setProps({
+                videoSrc: heroVideoSrc,
+                videoBtnText: customBtnText,
+            });
+
+            const videoControl = wrapper.find('vs-hero-section-video-control-stub');
+            expect(videoControl.text()).toContain(customBtnText);
+        });
+
         it('adds video classes to text container when video is present', async() => {
             const wrapper = factoryShallowMount();
             await wrapper.setProps({
@@ -129,18 +160,6 @@ describe('VsHeroSection', () => {
 
             const textContainer = wrapper.find('.vs-hero-section__text-container');
             expect(textContainer.classes()).toContain('vs-hero-section__text-container--video');
-        });
-
-        it('renders with custom video button text when prop is provided', async() => {
-            const wrapper = factoryShallowMount();
-            const customBtnText = 'Toggle video';
-
-            await wrapper.setProps({
-                videoBtnText: customBtnText,
-            });
-
-            const videoControl = wrapper.find('vs-hero-section-video-control-stub');
-            expect(videoControl.text()).toContain(customBtnText);
         });
     });
 
