@@ -20,12 +20,12 @@ describe('HeroSectionVideoControl', () => {
         expect(wrapper.attributes('data-test')).toBe('vs-hero-section-video-control');
     });
 
-    it('displays play-filled icon when video is playing', () => {
+    it('displays pause icon when video is playing', () => {
         expect(wrapper.findComponent(
             {
                 name: 'VsButton',
             },
-        ).props('icon')).toBe('play-filled');
+        ).props('icon')).toBe('pause-regular');
     });
 
     it('displays play icon when video is not playing', async() => {
