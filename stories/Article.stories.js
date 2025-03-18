@@ -300,8 +300,8 @@ BusinessSupportHubNoSidebar.args = {
     sidebarQuote: '',
 };
 
-export const BusinessSupportHubNoIntro = Template.bind();
-BusinessSupportHubNoIntro.args = {
+export const BusinessSupportHubWithSubheaders = Template.bind();
+BusinessSupportHubWithSubheaders.args = {
     ...base,
     sidebarAlign: 'right',
     businessSupport: true,

@@ -1,7 +1,6 @@
 <template>
     <article
         class="vs-article"
-        :class="!hasIntro ? 'vs-article--no-intro' : null"
         data-test="vs-article"
         v-bind="$attrs"
     >
@@ -43,7 +42,7 @@
                                     </VsHeading>
 
                                     <VsRichTextWrapper
-                                        v-if="hasIntro"
+                                        v-if="$slots['vs-article-intro']"
                                         variant="lead"
                                         class="mb-300 mb-lg-400"
                                         :class="businessSupport ? null : 'text-center'"
@@ -135,11 +134,6 @@ export default {
             validator: (value) => (isNumber(value) ? value > 0 && value < 7 : value.match(/(1|2|3|4|5|6)/)),
         },
     },
-    computed: {
-        hasIntro() {
-            return this.$slots['vs-article-intro'];
-        },
-    },
 };
 </script>
 
@@ -157,11 +151,9 @@ export default {
         }
     }
 
-    &--no-intro {
-        .vs-article-section:first-of-type {
-            .vs-heading:first-child {
-                margin-top: $spacer-0;
-            }
+    .vs-article-section:first-of-type {
+        .vs-heading:first-child {
+            margin-top: $spacer-0;
         }
     }
 
