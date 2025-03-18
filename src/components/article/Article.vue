@@ -160,7 +160,7 @@ export default {
     &--no-intro {
         .vs-article-section:first-of-type {
             .vs-heading:first-child {
-                margin-top: 0;
+                margin-top: $spacer-0;
             }
         }
     }
