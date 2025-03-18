@@ -174,7 +174,7 @@ const Template = (args) => ({
                     </template>
                     <template v-else>
                         ${args.defaultContent}
-                    </template
+                    </template>
 
                 </VsArticleSection>
             </VsArticle>
