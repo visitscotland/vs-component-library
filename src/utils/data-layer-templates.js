@@ -174,6 +174,7 @@ const externalLinkTemplate = [
     'click_URL',
     'dmo_referral',
     'partner_referral',
+    'event_listing',
 ];
 
 const internalLinkTemplate = [
@@ -351,6 +352,17 @@ const accordionOpenTemplate = [
     'accordion_text',
 ];
 
+const tabClickTemplate = [
+    'event',
+    'event_tab',
+    'site_language',
+    'user_country_setting',
+    'hit_timestamp',
+    'tag_name',
+    'meta_data',
+    'event_listing',
+];
+
 export {
     pageViewTemplate,
     menuNavigationTemplate,
@@ -371,4 +383,5 @@ export {
     productSearchTemplate,
     cmsReferralTemplate,
     accordionOpenTemplate,
+    tabClickTemplate,
 };
