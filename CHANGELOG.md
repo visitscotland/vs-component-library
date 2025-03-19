@@ -1,3 +1,10 @@
+# [4.15.0](https://github.com/visitscotland/vs-component-library/compare/v4.14.0...v4.15.0) (2025-03-19)
+
+
+### Features
+
+* **tabs:** add datalayer tracking for tab click event ([342752b](https://github.com/visitscotland/vs-component-library/commit/342752bbfe0cf7dc66d1d9f1f4bf7e3858bae7f9))
+
 # [4.14.0](https://github.com/visitscotland/vs-component-library/compare/v4.13.13...v4.14.0) (2025-03-18)
 
 
