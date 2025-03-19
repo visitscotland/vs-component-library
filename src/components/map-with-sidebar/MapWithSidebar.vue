@@ -390,10 +390,23 @@ export default {
             return [];
         },
         /**
-         * Filters that correspond with any existing location in the data
+         * Filters that correspond with any existing location in the data, or which have a set of
+         * subCategories themselves
          */
         filtersWithLocations() {
-            return this.filters.filter((filter) => this.existingCategories.includes(filter.id));
+            return this.filters.filter(
+                (filter) => {
+                    if (this.existingCategories.includes(filter.id)) {
+                        return true;
+                    }
+
+                    if (filter.subCategory && filter.subCategory.length) {
+                        return true;
+                    }
+
+                    return false;
+                },
+            );
         },
         /**
          * Toggles that correspond with any existing location in the data

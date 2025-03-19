@@ -9,8 +9,8 @@
         :style="imgStyle"
         class="low-res-img"
         :class="useGenericLqip ? 'generic-lqip' : ''"
-        :srcset="$attrs.srcset ? $attrs.srcset : fullSrcSet"
-        :low-res-image="specificImgSize('xxs')"
+        :srcset="computedSrcSet"
+        :low-res-image="isSvg ? '' : specificImgSize('xxs')"
         sizes="(min-width: 768px) 75vw, 100vw"
     >
         <VsIcon
@@ -106,13 +106,27 @@ export default {
     },
     computed: {
         imgStyle() {
-            if (!this.useGenericLqip) {
+            if (!this.useGenericLqip && !this.src.includes('.svg')) {
                 return {
                     backgroundImage: `url(${this.specificImgSize('xxs')})`,
                 };
             }
 
             return null;
+        },
+        isSvg() {
+            return this.src.includes('.svg');
+        },
+        computedSrcSet() {
+            if (this.isSvg) {
+                return null;
+            }
+
+            if (this.$attrs.srcset) {
+                return this.$attrs.srcset;
+            }
+
+            return this.fullSrcSet;
         },
     },
 };

@@ -21,6 +21,7 @@ import {
     productSearchTemplate,
     cmsReferralTemplate,
     accordionOpenTemplate,
+    tabClickTemplate,
 } from '../utils/data-layer-templates';
 
 /**
@@ -91,12 +92,22 @@ const dataLayerMixin = {
             let dataLayerData;
             let clickText;
             let socialTargetText = '';
+            let eventListing = 'False';
 
             if (event && event.target) {
                 if (event.target.text) {
                     clickText = event.target.text.trim();
                 } else {
                     clickText = event.target.innerText;
+                }
+
+                // An additional property is required for tracking tab and eventCard
+                // components when used on an events listing page (e.g. on BSH).
+                // A data attribute needs to be added to the these components
+                // on the consumer site to indicate that it is being used on
+                // an events listing page.
+                if (event.target.closest('[data-event-listing="True"]')) {
+                    eventListing = 'True';
                 }
             }
 
@@ -183,6 +194,7 @@ const dataLayerMixin = {
                     click_text: clickText,
                     click_URL: href,
                     partner_referral: 'False',
+                    event_listing: eventListing,
                 };
 
                 for (let x = 0; x < signpostedPartners.length; x++) {
@@ -339,6 +351,22 @@ const dataLayerMixin = {
 
                 fullTemplate = this.compileFullTemplate(templateValues);
                 dataLayerData = this.templateFiller(accordionOpenTemplate, fullTemplate);
+
+                break;
+
+            case 'tabClickEvent':
+                eventName = 'tab_click';
+                tagName = 'GA4 - Event - Tab Click';
+
+                templateValues = {
+                    event: eventName,
+                    tag_name: tagName,
+                    event_tab: clickText,
+                    event_listing: eventListing,
+                };
+
+                fullTemplate = this.compileFullTemplate(templateValues);
+                dataLayerData = this.templateFiller(tabClickTemplate, fullTemplate);
 
                 break;
 
