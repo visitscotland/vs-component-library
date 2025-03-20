@@ -1,3 +1,10 @@
+# [4.16.0](https://github.com/visitscotland/vs-component-library/compare/v4.15.0...v4.16.0) (2025-03-20)
+
+
+### Features
+
+* **global menu:** remove site navigation from global nav ([6e09616](https://github.com/visitscotland/vs-component-library/commit/6e09616e3429b40656ee77bbe7d9bf916e046fca))
+
 # [4.15.0](https://github.com/visitscotland/vs-component-library/compare/v4.14.0...v4.15.0) (2025-03-19)
 
 
