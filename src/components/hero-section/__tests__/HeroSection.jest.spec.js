@@ -7,7 +7,7 @@ const ledeText = 'Welcome to Scotland, where history meets breathtaking beauty, 
 const heroImgSrc = 'fixtures/hero/images/visitscotland_38462263949.jpg';
 const heroCaption = 'Sunset at Lochan na h-Achlaise on Rannoch Moor';
 const heroCredit = 'VisitScotland / Kenny Lam';
-const heroVideoSrc = 'fixtures/hero/video/winter-web-test.mp4';
+const heroVideoSrc = 'fixtures/hero/video/lavendar-fields.mp4';
 
 config.global.renderStubDefaultSlot = true;
 
@@ -119,6 +119,37 @@ describe('VsHeroSection', () => {
             expect(video.exists()).toBe(true);
             expect(video.attributes('poster')).toBe(heroImgSrc);
             expect(source.attributes('src')).toBe(heroVideoSrc);
+        });
+
+        it('does not render a video control when videoSrc is not provided', async() => {
+            const wrapper = factoryShallowMount();
+            const videoControl = wrapper.find('vs-hero-section-video-control-stub');
+
+            expect(videoControl.exists()).toBe(false);
+        });
+
+        it('renders video control button when videoSrc is provided', async() => {
+            const wrapper = factoryShallowMount();
+            await wrapper.setProps({
+                videoSrc: heroVideoSrc,
+                src: heroImgSrc,
+            });
+
+            const videoControl = wrapper.find('vs-hero-section-video-control-stub');
+            expect(videoControl.exists()).toBe(true);
+        });
+
+        it('renders with custom video button text when prop is provided', async() => {
+            const wrapper = factoryShallowMount();
+            const customBtnText = 'Toggle video';
+
+            await wrapper.setProps({
+                videoSrc: heroVideoSrc,
+                videoBtnText: customBtnText,
+            });
+
+            const videoControl = wrapper.find('vs-hero-section-video-control-stub');
+            expect(videoControl.text()).toContain(customBtnText);
         });
 
         it('adds video classes to text container when video is present', async() => {
