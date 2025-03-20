@@ -10,29 +10,7 @@
                         cols="12"
                         class="vs-global-menu__wrapper"
                     >
-                        <!-- Small Screens Menu -->
-                        <VsGlobalMenuDropdown
-                            class="d-lg-none"
-                            :active-site="activeSite"
-                            :dropdown-label="dropdownLabel"
-                            :websites="websites"
-                        />
-
-                        <!-- Large Screens Menu -->
-                        <VsGlobalMenuList
-                            class="d-none d-lg-flex"
-                            :active-site="activeSite"
-                            :websites="websites"
-                        />
-
-                        <!-- @slot The content you want to appear as the
-                            second element on the global menu, after the websites list,
-                            goes here. -->
-                        <slot name="second-menu-item" />
-
-                        <!-- @slot The content you want to appear as the
-                            third element on the global menu, after the websites list,
-                            goes here. -->
+                        <!-- @slot The content you want to appear in the global menu. -->
                         <slot name="third-menu-item" />
                     </VsCol>
                 </VsRow>
@@ -46,8 +24,6 @@ import {
     VsContainer, VsRow, VsCol,
 } from '@/components/grid';
 import { LazyHydrationWrapper } from 'vue3-lazy-hydration';
-import VsGlobalMenuDropdown from './components/GlobalMenuDropdown.vue';
-import VsGlobalMenuList from './components/GlobalMenuList.vue';
 
 /**
  * This component is the main Global Nav Wrapper for the top of the page.
@@ -64,18 +40,9 @@ export default {
         VsContainer,
         VsRow,
         VsCol,
-        VsGlobalMenuDropdown,
-        VsGlobalMenuList,
         LazyHydrationWrapper,
     },
     props: {
-        /**
-         * Determines the active website
-         */
-        activeSite: {
-            type: String,
-            required: true,
-        },
         /**
          * Translation text for the "Our Websites" label
          */
@@ -121,11 +88,13 @@ export default {
     font-size: $font-size-2;
     display: flex;
     align-items: center;
+    min-height: $spacer-200 + $spacer-025;
 
     &__wrapper {
         position: initial;
         display: flex;
         align-items: center;
+        justify-content: end;
 
         @include media-breakpoint-down(lg) {
             margin: 0;

@@ -26,7 +26,10 @@ const Template = (args) => ({
             <VsGlobalMenu
                 v-bind="args"
             >
-                <template v-slot:third-menu-item>
+                <template
+                    v-slot:third-menu-item
+                    v-if="!args.noLanguages"
+                >
                     <VsGlobalMenuLanguage
                         data-testid="language-btn"
                     >
@@ -50,9 +53,6 @@ const Template = (args) => ({
 });
 
 const base = {
-    dropdownLabel: 'Our websites',
-    activeSite: 'https://www.visitscotland.com/',
-    'second-menu-item': '',
     'third-menu-item': '',
     jsDisabled: false,
 };
@@ -79,4 +79,12 @@ export const NoJavascript = Template.bind({
 NoJavascript.args = {
     ...base,
     jsDisabled: true,
+};
+
+export const NoLanguages = Template.bind({
+});
+
+NoLanguages.args = {
+    ...base,
+    noLanguages: true,
 };
