@@ -172,6 +172,7 @@ export default {
 
             @include media-breakpoint-up(sm) {
                 @include heading-style(heading-m);
+                margin-bottom: $spacer-025;
             }
         }
 
