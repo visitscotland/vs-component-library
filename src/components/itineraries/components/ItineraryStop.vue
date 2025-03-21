@@ -12,6 +12,7 @@
                     <VsIcon
                         icon="fa-solid fa-location-pin"
                         variant="highlight"
+                        size="xl"
                     />
                     <span
                         class="vs-itinerary-stop__count"
@@ -142,28 +143,16 @@ export default {
             grid-row: span 2;
             position: relative;
 
-            .vs-icon.vs-icon--size-md {
-                font-size: 50px;
-
-                @include media-breakpoint-up(sm) {
-                    font-size: 66px;
-                }
-            }
-
             .vs-itinerary-stop__count {
                 color: $vs-color-text-inverse;
                 font-family: $display-font-family;
                 font-size: $font-size-4;
                 display: block;
                 position: absolute;
-                top: 10px;
+                top: 5px;
                 left: 0;
                 text-align: center;
                 width: 100%;
-
-                @include media-breakpoint-up(sm) {
-                    font-size: $font-size-8;
-                }
             }
         }
 
