@@ -32,6 +32,22 @@ describe('VsHeading', () => {
             expect(wrapper.element.tagName).toBe('H2');
         });
 
+        it(':id - should use contain an matching `id` attribute if the prop is provided', () => {
+            const wrapper = factoryShallowMount({
+                id: 'heading-id-attribute',
+            });
+
+            expect(wrapper.attributes().id).toBe('heading-id-attribute');
+        });
+
+        it(':id - should not have an `id` attribute if the prop is `null`', () => {
+            const wrapper = factoryShallowMount({
+                id: null,
+            });
+
+            expect(wrapper.attributes().id).toBe(undefined);
+        });
+
         it(':headingStyle - should accept and render the correct `headingStyle` class', () => {
             const wrapper = factoryShallowMount();
 

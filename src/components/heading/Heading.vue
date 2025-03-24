@@ -3,6 +3,7 @@
         :is="type"
         class="vs-heading"
         :class="headingClasses"
+        :id="id"
     >
         <!-- @slot The main heading content goes here -->
         <slot />
@@ -51,6 +52,14 @@ export default {
             validator: (value) => value.match(
                 /(display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs|heading-xxxs)/,
             ),
+        },
+        /**
+         * id string for h tag
+         * typically — though not necessarily — used as page anchor
+         */
+        id: {
+            type: String,
+            default: null,
         },
     },
     computed: {

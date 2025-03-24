@@ -21,6 +21,7 @@
                             heading-style="heading-xl"
                             class="vs-megalinks__heading"
                             data-test="vs-megalinks__heading"
+                            :id="sectionId"
                         >
                             {{ title }}
                         </VsHeading>
@@ -100,6 +101,14 @@ export default {
         * Title for the megalinks component
         */
         title: {
+            type: String,
+            required: false,
+            default: null,
+        },
+        /**
+        * ID for the section heading; can be used as anchor link
+        */
+        sectionId: {
             type: String,
             required: false,
             default: null,
