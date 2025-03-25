@@ -52,6 +52,7 @@
                         data-test="vs-hero-section__heading"
                         level="1"
                         heading-style="display-xs"
+                        id="main-heading"
                     >
                         <span v-html="heading" />
                     </VsHeading>
