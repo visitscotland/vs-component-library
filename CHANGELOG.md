@@ -1,3 +1,15 @@
+# [4.18.0](https://github.com/visitscotland/vs-component-library/compare/v4.17.0...v4.18.0) (2025-03-25)
+
+
+### Bug Fixes
+
+* **sticky nav:** ensure skip to is on screen if focussed ([abfc686](https://github.com/visitscotland/vs-component-library/commit/abfc6866e5a829cf9dc535d1eff66517ff21056d))
+
+
+### Features
+
+* **skip to:** add landmark id to hero section heading ([5fc2e99](https://github.com/visitscotland/vs-component-library/commit/5fc2e9964a24fd558d0be298d3c099ca5df6f8c5))
+
 # [4.17.0](https://github.com/visitscotland/vs-component-library/compare/v4.16.1...v4.17.0) (2025-03-25)
 
 
