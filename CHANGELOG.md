@@ -1,3 +1,45 @@
+# [4.17.0](https://github.com/visitscotland/vs-component-library/compare/v4.16.1...v4.17.0) (2025-03-25)
+
+
+### Features
+
+* **heading and megallinks:** added `id` prop to VsHeading and `sectionId` prop to VsMegalink ([e769c13](https://github.com/visitscotland/vs-component-library/commit/e769c134636a4af2eabe6374552d8b75bab14d1a))
+
+## [4.16.1](https://github.com/visitscotland/vs-component-library/compare/v4.16.0...v4.16.1) (2025-03-24)
+
+
+### Bug Fixes
+
+* **filter section:** remove width from date input ([5ffd793](https://github.com/visitscotland/vs-component-library/commit/5ffd793fd3c3ecc743bca8ef2c0be1eff609dc25))
+
+# [4.16.0](https://github.com/visitscotland/vs-component-library/compare/v4.15.0...v4.16.0) (2025-03-20)
+
+
+### Features
+
+* **global menu:** remove site navigation from global nav ([6e09616](https://github.com/visitscotland/vs-component-library/commit/6e09616e3429b40656ee77bbe7d9bf916e046fca))
+
+# [4.15.0](https://github.com/visitscotland/vs-component-library/compare/v4.14.0...v4.15.0) (2025-03-19)
+
+
+### Features
+
+* **tabs:** add datalayer tracking for tab click event ([342752b](https://github.com/visitscotland/vs-component-library/commit/342752bbfe0cf7dc66d1d9f1f4bf7e3858bae7f9))
+
+# [4.14.0](https://github.com/visitscotland/vs-component-library/compare/v4.13.13...v4.14.0) (2025-03-18)
+
+
+### Bug Fixes
+
+* **articles:** remove spacing in all cases ([04496c4](https://github.com/visitscotland/vs-component-library/commit/04496c4d942a52ef04ee261f90f36240683cf637))
+* **article:** switch to spacer ([5aabf7d](https://github.com/visitscotland/vs-component-library/commit/5aabf7d0d5c59cb8142ec6c92065e4b4ad3b8cae))
+* **stories:** add missing > ([7d41884](https://github.com/visitscotland/vs-component-library/commit/7d41884384ef39377405ed89bf5dc91693ac7c58))
+
+
+### Features
+
+* **article:** reduce spacing above vs-heading at top of article if no intro above ([e7266c8](https://github.com/visitscotland/vs-component-library/commit/e7266c84cdcd64289a87b381ccf5d8ee8686b98b))
+
 ## [4.13.13](https://github.com/visitscotland/vs-component-library/compare/v4.13.12...v4.13.13) (2025-03-11)
 
 

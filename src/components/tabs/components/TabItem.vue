@@ -4,6 +4,7 @@
         data-test="vs-tab__item"
         :title-link-class="noContainer ? 'vs-tab-link--no-container vs-heading' : 'vs-tab-link vs-heading'"
         :title="title"
+        @click="trackClick"
     >
         <VsHeading
             level="3"
@@ -22,6 +23,7 @@
 
 import VsHeading from '@/components/heading/Heading.vue';
 import { BTab } from 'bootstrap-vue-next';
+import dataLayerMixin from '@/mixins/dataLayerMixin';
 /**
  * Tab item for use within the Tabs component.
  *
@@ -35,6 +37,7 @@ export default {
         VsHeading,
         BTab,
     },
+    mixins: [dataLayerMixin],
     /**
      * Injects noContainer prop from Tab parent.
      */
@@ -46,6 +49,11 @@ export default {
         title: {
             type: String,
             required: true,
+        },
+    },
+    methods: {
+        trackClick(event) {
+            this.createDataLayerObject('tabClickEvent', event, null);
         },
     },
 };

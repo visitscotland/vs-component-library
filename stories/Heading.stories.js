@@ -50,6 +50,7 @@ const base = {
     default: 'Welcome to Scotland',
     'sub-heading': '',
     level: 1,
+    id: 'welcome-to-scotland',
 };
 
 export const Default = Template.bind({
