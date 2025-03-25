@@ -194,10 +194,6 @@ export default {
 
         .card-body {
             text-align: left;
-
-            .vs-heading__sub-heading {
-                display: none;
-            }
         }
     }
 

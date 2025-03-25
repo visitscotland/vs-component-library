@@ -6,26 +6,26 @@
         <slot name="hippo-details" />
 
         <!-- HEADER -->
-        <div class="d-flex justify-content-start align-items-top border-bottom border-white ">
-            <div class="position-relative">
-                <div class="count__bg">
-                    <span
-                        class="count"
-                        aria-hidden="true"
-                    >{{ index }}</span>
-                </div>
+        <div
+            class="vs-listicle-item__header"
+            data-test="vs-listicle-item-heading"
+        >
+            <div class="count__bg">
+                <span
+                    class="count"
+                    aria-hidden="true"
+                >{{ index }}</span>
             </div>
             <VsHeading
                 level="2"
                 heading-style="heading-s"
-                class="vs-listicle-item__heading"
+                class="vs-listicle-item__title mt-0"
             >
                 {{ title }}
-
-                <template #sub-heading>
-                    {{ subTitle }}
-                </template>
             </VsHeading>
+            <p class="vs-listicle-item__sub-heading">
+                {{ subTitle }}
+            </p>
         </div>
 
         <!-- BODY -->
@@ -111,49 +111,70 @@ export default {
         margin-bottom: $spacer-500;
     }
 
-    &__heading{
-        @include media-breakpoint-up(sm) {
-            @include heading-style(heading-m);
-        }
-    }
+    &__header {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: $spacer-100;
 
-    .count {
-        color: $vs-color-text-inverse;
-        font-family: $display-font-family;
-        font-size: $font-size-8;
-        line-height: $line-height-xs;
-        display: block;
-        text-align: center;
-        width: 100%;
-
-        &:after {
-            content: "";
-            border-bottom: 1px solid $vs-color-text-inverse;
-            display: block;
-            margin: $spacer-025 $spacer-100 0;
-            margin-top: $spacer-025;
+        .count__bg {
+            grid-column: 1;
+            grid-row: span 2;
+            position: relative;
+            background: $vs-color-background-highlight;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: $spacer-300;
+            height: $spacer-300;
 
             @include media-breakpoint-up(md) {
-                margin: $spacer-025 $spacer-150 0;
+                height: 67px;
+                width: 67px;
+            }
+
+            .count {
+                color: $vs-color-text-inverse;
+                font-family: $display-font-family;
+                font-size: $font-size-8;
+                line-height: $line-height-xs;
+                display: block;
+                text-align: center;
+                width: 100%;
+
+                &:after {
+                    content: "";
+                    border-bottom: 1px solid $vs-color-text-inverse;
+                    display: block;
+                    margin: $spacer-025 $spacer-100 0;
+                    margin-top: $spacer-025;
+
+                    @include media-breakpoint-up(md) {
+                        margin: $spacer-025 $spacer-150 0;
+                    }
+                }
+
+                @include media-breakpoint-up(md) {
+                    font-size: $font-size-9;
+                }
             }
         }
 
-        @include media-breakpoint-up(md) {
-            font-size: $font-size-9;
+        .vs-listicle-item__title {
+            grid-column: 2;
+
+            @include media-breakpoint-up(sm) {
+                @include heading-style(heading-m);
+                margin-bottom: $spacer-025;
+            }
         }
-    }
 
-    .count__bg {
-        background: $vs-color-background-highlight;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: $spacer-300;
-        height: $spacer-300;
+        .vs-listicle-item__sub-heading {
+            grid-column: 2;
+            font-size: $sub-heading-m;
 
-        @include media-breakpoint-up(md) {
-            height: 67px;
-            width: 67px;
+            @include media-breakpoint-up(sm) {
+                font-size: $sub-heading-l;
+            }
         }
     }
 
@@ -164,10 +185,6 @@ export default {
             padding: $spacer-200;
         }
 
-        @include media-breakpoint-up(lg) {
-            padding: $spacer-200;
-        }
-
         @include media-breakpoint-up(xl) {
             padding: $spacer-500;
         }
@@ -175,25 +192,6 @@ export default {
         @include media-breakpoint-up(xxl) {
             padding: $spacer-600;
         }
-    }
-
-    h2.vs-heading {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin: 0 0 $spacer-125 $spacer-075;
-
-        .vs-heading__sub-heading {
-            margin-top: $spacer-0;
-        }
-
-        @include media-breakpoint-up(md) {
-            margin-bottom: 0;
-        }
-    }
-
-    .vs-caption-image-map {
-        height: $spacer-500;
     }
 
     .key-facilities-list {
