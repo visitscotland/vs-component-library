@@ -154,6 +154,7 @@ export default {
         height: $spacer-300;
         align-items: center;
         padding: 0 $spacer-050;
+        background-color: $vs-color-background-primary;
 
         &__label {
             margin: 0;

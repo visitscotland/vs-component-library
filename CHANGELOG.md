@@ -1,3 +1,36 @@
+# [4.18.0](https://github.com/visitscotland/vs-component-library/compare/v4.17.0...v4.18.0) (2025-03-25)
+
+
+### Bug Fixes
+
+* **sticky nav:** ensure skip to is on screen if focussed ([abfc686](https://github.com/visitscotland/vs-component-library/commit/abfc6866e5a829cf9dc535d1eff66517ff21056d))
+
+
+### Features
+
+* **skip to:** add landmark id to hero section heading ([5fc2e99](https://github.com/visitscotland/vs-component-library/commit/5fc2e9964a24fd558d0be298d3c099ca5df6f8c5))
+
+# [4.17.0](https://github.com/visitscotland/vs-component-library/compare/v4.16.1...v4.17.0) (2025-03-25)
+
+
+### Features
+
+* **heading and megallinks:** added `id` prop to VsHeading and `sectionId` prop to VsMegalink ([e769c13](https://github.com/visitscotland/vs-component-library/commit/e769c134636a4af2eabe6374552d8b75bab14d1a))
+
+## [4.16.1](https://github.com/visitscotland/vs-component-library/compare/v4.16.0...v4.16.1) (2025-03-24)
+
+
+### Bug Fixes
+
+* **filter section:** remove width from date input ([5ffd793](https://github.com/visitscotland/vs-component-library/commit/5ffd793fd3c3ecc743bca8ef2c0be1eff609dc25))
+
+# [4.16.0](https://github.com/visitscotland/vs-component-library/compare/v4.15.0...v4.16.0) (2025-03-20)
+
+
+### Features
+
+* **global menu:** remove site navigation from global nav ([6e09616](https://github.com/visitscotland/vs-component-library/commit/6e09616e3429b40656ee77bbe7d9bf916e046fca))
+
 # [4.15.0](https://github.com/visitscotland/vs-component-library/compare/v4.14.0...v4.15.0) (2025-03-19)
 
 

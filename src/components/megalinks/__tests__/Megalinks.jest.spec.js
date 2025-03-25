@@ -7,6 +7,7 @@ config.global.renderStubDefaultSlot = true;
 const factoryShallowMount = () => shallowMount(VsMegalinks, {
     propsData: {
         title: 'A megalinks title',
+        sectionId: 'a-megalinks-title',
         buttonLink: 'http://www.visitscotland.com',
         variant: 'multi-image',
     },
@@ -43,6 +44,15 @@ describe('VsMegalinks', () => {
                 title: '',
             });
             expect(wrapper.find('[data-test="vs-megalinks__intro"]').exists()).toBe(false);
+        });
+
+        it('should pass an id to the heading only if one is supplied', async() => {
+            expect(wrapper.find('[data-test="vs-megalinks__heading"]').attributes().id).toBe('a-megalinks-title');
+
+            await wrapper.setProps({
+                sectionId: null,
+            });
+            expect(wrapper.find('[data-test="vs-megalinks__heading"]').attributes().id).toBe(undefined);
         });
     });
 
