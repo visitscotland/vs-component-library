@@ -83,6 +83,28 @@ describe('VsModuleWrapper', () => {
             expect(wrapper.find('h2').exists()).toBe(true);
         });
 
+        it(':headingStyle - changes the default headingStyle renders by default', () => {
+            const wrapper = factoryMount();
+            const headingStyle = 'heading-xl';
+
+            const heading = wrapper.find(`.vs-heading--${headingStyle}`);
+
+            expect(heading.exists()).toBe(true);
+        });
+
+        it(':headingStyle - changes the heading style to the value passed', async() => {
+            const wrapper = factoryMount();
+            const headingStyle = 'heading-m';
+
+            await wrapper.setProps({
+                headingStyle,
+            });
+
+            const heading = wrapper.find(`.vs-heading--${headingStyle}`);
+
+            expect(heading.exists()).toBe(true);
+        });
+
         it(':anchorId - sets the id on the heading element', async() => {
             const wrapper = factoryMount();
             const anchorId = 'anchor-test';
