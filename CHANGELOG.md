@@ -1,3 +1,108 @@
+# [4.18.0](https://github.com/visitscotland/vs-component-library/compare/v4.17.0...v4.18.0) (2025-03-25)
+
+
+### Bug Fixes
+
+* **sticky nav:** ensure skip to is on screen if focussed ([abfc686](https://github.com/visitscotland/vs-component-library/commit/abfc6866e5a829cf9dc535d1eff66517ff21056d))
+
+
+### Features
+
+* **skip to:** add landmark id to hero section heading ([5fc2e99](https://github.com/visitscotland/vs-component-library/commit/5fc2e9964a24fd558d0be298d3c099ca5df6f8c5))
+
+# [4.17.0](https://github.com/visitscotland/vs-component-library/compare/v4.16.1...v4.17.0) (2025-03-25)
+
+
+### Features
+
+* **heading and megallinks:** added `id` prop to VsHeading and `sectionId` prop to VsMegalink ([e769c13](https://github.com/visitscotland/vs-component-library/commit/e769c134636a4af2eabe6374552d8b75bab14d1a))
+
+## [4.16.1](https://github.com/visitscotland/vs-component-library/compare/v4.16.0...v4.16.1) (2025-03-24)
+
+
+### Bug Fixes
+
+* **filter section:** remove width from date input ([5ffd793](https://github.com/visitscotland/vs-component-library/commit/5ffd793fd3c3ecc743bca8ef2c0be1eff609dc25))
+
+# [4.16.0](https://github.com/visitscotland/vs-component-library/compare/v4.15.0...v4.16.0) (2025-03-20)
+
+
+### Features
+
+* **global menu:** remove site navigation from global nav ([6e09616](https://github.com/visitscotland/vs-component-library/commit/6e09616e3429b40656ee77bbe7d9bf916e046fca))
+
+# [4.15.0](https://github.com/visitscotland/vs-component-library/compare/v4.14.0...v4.15.0) (2025-03-19)
+
+
+### Features
+
+* **tabs:** add datalayer tracking for tab click event ([342752b](https://github.com/visitscotland/vs-component-library/commit/342752bbfe0cf7dc66d1d9f1f4bf7e3858bae7f9))
+
+# [4.14.0](https://github.com/visitscotland/vs-component-library/compare/v4.13.13...v4.14.0) (2025-03-18)
+
+
+### Bug Fixes
+
+* **articles:** remove spacing in all cases ([04496c4](https://github.com/visitscotland/vs-component-library/commit/04496c4d942a52ef04ee261f90f36240683cf637))
+* **article:** switch to spacer ([5aabf7d](https://github.com/visitscotland/vs-component-library/commit/5aabf7d0d5c59cb8142ec6c92065e4b4ad3b8cae))
+* **stories:** add missing > ([7d41884](https://github.com/visitscotland/vs-component-library/commit/7d41884384ef39377405ed89bf5dc91693ac7c58))
+
+
+### Features
+
+* **article:** reduce spacing above vs-heading at top of article if no intro above ([e7266c8](https://github.com/visitscotland/vs-component-library/commit/e7266c84cdcd64289a87b381ccf5d8ee8686b98b))
+
+## [4.13.13](https://github.com/visitscotland/vs-component-library/compare/v4.13.12...v4.13.13) (2025-03-11)
+
+
+### Bug Fixes
+
+* **styledlist:** remove margin-top ([729328d](https://github.com/visitscotland/vs-component-library/commit/729328de049d684e8e9423bccaba7d1e82cbd530))
+* **vsstyledlist:** remove margin-top ([5f585bd](https://github.com/visitscotland/vs-component-library/commit/5f585bda2a4f455bccad71c4a93856cb61f389d6))
+
+## [4.13.12](https://github.com/visitscotland/vs-component-library/compare/v4.13.11...v4.13.12) (2025-03-11)
+
+
+### Bug Fixes
+
+* **build:** proxy all node functions ([a1779f9](https://github.com/visitscotland/vs-component-library/commit/a1779f9f4552955692f74bf1b24f4642ccbf3cc0))
+
+## [4.13.11](https://github.com/visitscotland/vs-component-library/compare/v4.13.10...v4.13.11) (2025-03-11)
+
+
+### Bug Fixes
+
+* **build:** correct getuid syntax ([3ec103d](https://github.com/visitscotland/vs-component-library/commit/3ec103d857adefd8adcfe828caf054af24ef4a42))
+
+## [4.13.10](https://github.com/visitscotland/vs-component-library/compare/v4.13.9...v4.13.10) (2025-03-11)
+
+
+### Bug Fixes
+
+* **build:** restore partial env alongside uid shim ([0362da3](https://github.com/visitscotland/vs-component-library/commit/0362da396dec81c659f95439b054498fdd51ce7c))
+
+## [4.13.9](https://github.com/visitscotland/vs-component-library/compare/v4.13.8...v4.13.9) (2025-03-11)
+
+
+### Bug Fixes
+
+* **build:** add process.getuid shim ([1d2e0ad](https://github.com/visitscotland/vs-component-library/commit/1d2e0ad489fa8ad25047fb8a91ab8fd25b7fc19b))
+
+## [4.13.8](https://github.com/visitscotland/vs-component-library/compare/v4.13.7...v4.13.8) (2025-03-11)
+
+
+### Bug Fixes
+
+* **build:** remove process.env completely ([e784935](https://github.com/visitscotland/vs-component-library/commit/e78493514fd41cff066b0c779be3cc36d0ccc48b))
+
+## [4.13.7](https://github.com/visitscotland/vs-component-library/compare/v4.13.6...v4.13.7) (2025-03-11)
+
+
+### Bug Fixes
+
+* **build:** restrict process.env values passed to build ([e82b940](https://github.com/visitscotland/vs-component-library/commit/e82b940b7843729bb62b4b4e9de95af184b050e3))
+* **vsstyledlistitem:** remove bottom padding ([fc48ede](https://github.com/visitscotland/vs-component-library/commit/fc48edea4b1ae5bdf8c7e8b1474c02b054dbcc0a))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.

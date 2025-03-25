@@ -151,6 +151,12 @@ export default {
         }
     }
 
+    .vs-article-section:first-of-type {
+        .vs-heading:first-child {
+            margin-top: $spacer-0;
+        }
+    }
+
     .vs-video-caption__details {
         display: block;
     }
