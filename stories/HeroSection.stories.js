@@ -65,7 +65,7 @@ WithVideo.args = {
     lede: 'Where history meets breathtaking beauty, and every visit feels like home.',
     src: 'fixtures/hero/images/lavendar-fields.jpg',
     videoSrc: 'fixtures/hero/video/lavendar-fields.mp4',
-    videoBtnText: 'Toggle video',
+    videoBtnText: 'Play/pause background video',
 };
 
 export const Inset = Template.bind({

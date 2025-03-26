@@ -31,6 +31,7 @@
                     :poster="src"
                     class="vs-hero-section__video"
                     ref="heroVideo"
+                    aria-hidden="true"
                 >
                     <source
                         :src="videoSrc"
