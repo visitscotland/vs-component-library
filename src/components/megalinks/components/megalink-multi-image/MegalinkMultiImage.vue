@@ -222,8 +222,8 @@ export default {
         }
 
         .vs-stretched-link-card__video-button {
-            position: absolute;
-            bottom: 100%;
+            float: left;
+            bottom: 0;
             left: 0;
         }
 
@@ -231,22 +231,7 @@ export default {
 
         @include media-breakpoint-up(xl) {
             &.vs-megalink-multi-image-card--featured {
-                .vs-stretched-link-card__video-button {
-                    bottom: 100%;
-                    left: $spacer-0;
-                }
-
                 @include full-rectangle-video-button();
-            }
-        }
-
-        @include media-breakpoint-up(xl) {
-            &.vs-megalink-multi-image-card--featured {
-                .vs-stretched-link-card__video-button {
-                    bottom: $spacer-050;
-                    left: $spacer-050;
-                    z-index: 2;
-                }
             }
         }
     };
@@ -302,10 +287,6 @@ export default {
                 box-shadow: $vs-elevation-shadow-raised;
             }
 
-            .vs-stretched-link-card__video-button {
-                position: fixed;
-            }
-
             .stretched-link:after {
                 position: fixed;
                 left: 0;
@@ -334,11 +315,6 @@ export default {
                 .card-body {
                     left: $spacer-0;;
                     right: auto;
-                }
-
-                .vs-stretched-link-card__video-button {
-                    left: auto;
-                    right: $spacer-050;
                 }
             }
         }
