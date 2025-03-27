@@ -54,6 +54,10 @@ export default {
         }
     }
 
+    p {
+        margin-bottom: $spacer-100;
+    }
+
     h3.vs-heading {
         margin-top: $spacer-100;
         margin-bottom: $spacer-100;

@@ -38,8 +38,10 @@
                 lg="8"
                 class="mt-050 mt-sm-300 mb-100 mt-lg-050 pe-lg-300"
             >
-                <!-- @slot Contains the description to be shown.  -->
-                <slot name="description-slot" />
+                <VsRichTextWrapper>
+                    <!-- @slot Contains the description to be shown.  -->
+                    <slot name="description-slot" />
+                </VsRichTextWrapper>
             </VsCol>
             <VsCol
                 cols="12"
@@ -57,6 +59,7 @@
 <script>
 import VsHeading from '@/components/heading/Heading.vue';
 import { VsRow, VsCol } from '@/components/grid';
+import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
 
 /**
  * TODO: Document usage
@@ -71,6 +74,7 @@ export default {
         VsHeading,
         VsRow,
         VsCol,
+        VsRichTextWrapper,
     },
     props: {
         /**
@@ -171,6 +175,7 @@ export default {
         .vs-listicle-item__sub-heading {
             grid-column: 2;
             font-size: $sub-heading-m;
+            margin-bottom: $spacer-100;
 
             @include media-breakpoint-up(sm) {
                 font-size: $sub-heading-l;

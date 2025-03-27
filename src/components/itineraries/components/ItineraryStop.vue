@@ -35,8 +35,10 @@
             <!-- @ Default slot for the image component for the stop -->
             <slot />
 
-            <!-- @slot The description content for the stop -->
-            <slot name="stop-description" />
+            <VsRichTextWrapper>
+                <!-- @slot The description content for the stop -->
+                <slot name="stop-description" />
+            </VsRichTextWrapper>
 
             <!-- @slot Indicator of length of time to explore stop -->
 
@@ -75,6 +77,7 @@
 <script>
 import VsIcon from '@/components/icon/Icon.vue';
 import VsHeading from '@/components/heading/Heading.vue';
+import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
 
 /**
  * Itinerary Day list items.
@@ -89,6 +92,7 @@ export default {
     components: {
         VsHeading,
         VsIcon,
+        VsRichTextWrapper,
     },
     props: {
         /**
@@ -168,6 +172,7 @@ export default {
         .vs-itinerary-stop__sub-heading {
             grid-column: 2;
             font-size: $sub-heading-m;
+            margin-bottom: $spacer-100;
 
             @include media-breakpoint-up(sm) {
                 font-size: $sub-heading-l;
