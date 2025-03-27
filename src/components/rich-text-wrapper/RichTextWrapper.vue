@@ -58,10 +58,6 @@ export default {
         margin-bottom: $spacer-100;
     }
 
-    h1 {
-        @include heading-style(heading-xxl);
-    }
-
     h2 {
         @include heading-style(heading-xl);
     }
@@ -71,19 +67,25 @@ export default {
     }
 
     h4 {
-        @include heading-style(heading-s);
-    }
-
-    h5 {
         @include heading-style(heading-xs);
     }
 
-    h6 {
+    h5, h6 {
         @include heading-style(heading-xxs);
     }
 
     ul {
         @extend %default-list-styles;
+    }
+
+    a.external-link{
+        &::after {
+            display: inline-block;
+            font-family: "Font Awesome 6 Pro";
+            content: "\f14c";
+            margin-left: $spacer-025;
+            font-size: $font-size-2;
+        }
     }
 }
 
