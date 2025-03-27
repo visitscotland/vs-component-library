@@ -1,3 +1,19 @@
+# [4.19.0](https://github.com/visitscotland/vs-component-library/compare/v4.18.1...v4.19.0) (2025-03-27)
+
+
+### Bug Fixes
+
+* **hero:** only show video control when videoSrc is passed ([ec83520](https://github.com/visitscotland/vs-component-library/commit/ec835201fe247db3a40be3e0fe9f6c3f2bb5c700))
+* **hero:** update hero video control test for updated icon ([dbbefbb](https://github.com/visitscotland/vs-component-library/commit/dbbefbbf9e22a6719052def49b26df37d18194b9))
+
+
+### Features
+
+* **hero:** add toggle control for video in hero ([f29f8a5](https://github.com/visitscotland/vs-component-library/commit/f29f8a5db680ff7dfc99619d27509cf5dca1b293))
+* **hero:** hide video from screen readers ([3dbcc68](https://github.com/visitscotland/vs-component-library/commit/3dbcc68deb3f3d60129d0d2b1c1884ba9c9d3a3c))
+* **hero:** update hero video control colours and hero video example ([5d1b0fc](https://github.com/visitscotland/vs-component-library/commit/5d1b0fcab025bf8f46b14ccbdc84f79ff00d8ba3))
+* **hero:** update hero video control to use new pause icon ([9a0b108](https://github.com/visitscotland/vs-component-library/commit/9a0b1082d6dc86fcb896580604dc3e0dbd7c16f1))
+
 ## [4.18.1](https://github.com/visitscotland/vs-component-library/compare/v4.18.0...v4.18.1) (2025-03-27)
 
 
