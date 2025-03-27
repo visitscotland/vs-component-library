@@ -54,6 +54,46 @@ describe('VsMegalinks', () => {
             });
             expect(wrapper.find('[data-test="vs-megalinks__heading"]').attributes().id).toBe(undefined);
         });
+
+        it(':headingLevel - changes the default headingLevel renders by default', () => {
+            const headingLevel = '2';
+
+            const heading = wrapper.find('[data-test="vs-megalinks__heading"]');
+
+            expect(heading.attributes('level')).toBe(headingLevel);
+        });
+
+        it(':headingLevel - changes the heading level to the value passed', async() => {
+            const headingLevel = '3';
+
+            await wrapper.setProps({
+                headingLevel,
+            });
+
+            const heading = wrapper.find('[data-test="vs-megalinks__heading"]');
+
+            expect(heading.attributes('level')).toBe(headingLevel);
+        });
+
+        it(':headingStyle - changes the default headingStyle renders by default', () => {
+            const headingStyle = 'heading-xl';
+
+            const heading = wrapper.find('[data-test="vs-megalinks__heading"]');
+
+            expect(heading.attributes('headingstyle')).toBe(headingStyle);
+        });
+
+        it(':headingStyle - changes the heading style to the value passed', async() => {
+            const headingStyle = 'heading-m';
+
+            await wrapper.setProps({
+                headingStyle,
+            });
+
+            const heading = wrapper.find('[data-test="vs-megalinks__heading"]');
+
+            expect(heading.attributes('headingstyle')).toBe(headingStyle);
+        });
     });
 
     describe(':slots', () => {
