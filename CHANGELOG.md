@@ -1,3 +1,13 @@
+## [4.18.1](https://github.com/visitscotland/vs-component-library/compare/v4.18.0...v4.18.1) (2025-03-27)
+
+
+### Bug Fixes
+
+* **article:** add ability to override heading style ([20e265a](https://github.com/visitscotland/vs-component-library/commit/20e265a6ad417a15aca8f7d79695926a1e62a6fb))
+* **megalinks:** add ability to override heading level and style ([71d6e63](https://github.com/visitscotland/vs-component-library/commit/71d6e63986db51bd5bd4a66a31ad81581e24b5af))
+* **meganav:** update aria role so that they work with all combinations of the menu ([c1c905f](https://github.com/visitscotland/vs-component-library/commit/c1c905f644a91435b52cba29498a61f75b9ec13a))
+* **module wrapper:** add ability to override heading style ([bdbef28](https://github.com/visitscotland/vs-component-library/commit/bdbef28941ca25a8766682c29f37a77d64e8738b))
+
 # [4.18.0](https://github.com/visitscotland/vs-component-library/compare/v4.17.0...v4.18.0) (2025-03-25)
 
 
