@@ -2,7 +2,7 @@ import VsAccordion from '@/components/accordion/Accordion.vue';
 import VsAccordionItem from '@/components/accordion/components/AccordionItem.vue';
 import VsAccordionToggle from '@/components/accordion/components/AccordionToggle.vue';
 import VsIcon from '@/components/icon/Icon.vue';
-import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsBody from '@/components/body/Body.vue';
 
 
 export default {
@@ -32,7 +32,7 @@ const Template = (args) => ({
         VsAccordionItem,
         VsAccordionToggle,
         VsIcon,
-        VsRichTextWrapper,
+        VsBody,
     },
     setup() {
         return {
@@ -65,9 +65,9 @@ const Template = (args) => ({
                         {{ accordionItem.title }}
                     </template>
 
-                    <VsRichTextWrapper class="p-075">
+                    <VsBody class="p-075">
                         <div v-html="accordionItem.content" />
-                    </VsRichTextWrapper>
+                    </VsBody>
                 </VsAccordionItem>
             </VsAccordion>
         </div>

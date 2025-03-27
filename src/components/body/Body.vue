@@ -1,8 +1,8 @@
 <template>
     <div
-        class="vs-rich-text-wrapper"
+        class="vs-body"
         :class="[
-            `vs-rich-text-wrapper--${variant}`,
+            `vs-body--${variant}`,
         ]"
     >
         <!-- @slot Default slot for rich text content -->
@@ -18,7 +18,7 @@
  * @displayName Rich Text Wrapper
  */
 export default {
-    name: 'VsRichTextWrapper',
+    name: 'VsBody',
     status: 'prototype',
     release: '0.0.1',
     props: {
@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style lang="scss">
-.vs-rich-text-wrapper {
+.vs-body {
     &--normal{
         font-size: $font-size-body;
 

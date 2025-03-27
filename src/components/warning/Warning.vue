@@ -12,7 +12,7 @@
             />
 
             <div>
-                <VsRichTextWrapper>
+                <VsBody>
                     <p>
                         <!-- Default slot to contain main warning message -->
                         <slot />
@@ -21,7 +21,7 @@
                         <!-- slot to contain extra content to support main message -->
                         <slot name="extra-content" />
                     </p>
-                </VsRichTextWrapper>
+                </VsBody>
             </div>
         </div>
 
@@ -39,7 +39,7 @@
 <script>
 import VsIcon from '@/components/icon/Icon.vue';
 import VsButton from '@/components/button/Button.vue';
-import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsBody from '@/components/body/Body.vue';
 
 /**
  * A generic warning component that expands to cover whatever component
@@ -54,7 +54,7 @@ export default {
     components: {
         VsIcon,
         VsButton,
-        VsRichTextWrapper,
+        VsBody,
     },
     props: {
         /**

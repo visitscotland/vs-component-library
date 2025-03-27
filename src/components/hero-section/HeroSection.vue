@@ -58,7 +58,7 @@
                         <span v-html="heading" />
                     </VsHeading>
 
-                    <VsRichTextWrapper
+                    <VsBody
                         v-if="lede"
                         class="vs-hero-section__lede"
                         data-test="vs-hero-section__lede"
@@ -67,7 +67,7 @@
                         <p class="mb-0">
                             {{ lede }}
                         </p>
-                    </VsRichTextWrapper>
+                    </VsBody>
                 </div>
 
                 <VsHeroSectionVideoControl
@@ -84,7 +84,7 @@
 
 <script>
 import VsHeading from '@/components/heading/Heading.vue';
-import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsBody from '@/components/body/Body.vue';
 import VsHeroSectionImage from '@/components/hero-section/components/HeroSectionImage.vue';
 import VsHeroSectionVideoControl from '@/components/hero-section/components/HeroSectionVideoControl.vue';
 
@@ -102,7 +102,7 @@ export default {
     release: '0.0.1',
     components: {
         VsHeading,
-        VsRichTextWrapper,
+        VsBody,
         VsHeroSectionImage,
         VsHeroSectionVideoControl,
     },

@@ -1,10 +1,10 @@
-import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsBody from '@/components/body/Body.vue';
 import VsLink from '@/components/link/Link.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 
 export default {
-    component: VsRichTextWrapper,
-    title: 'RichTextWrapper',
+    component: VsBody,
+    title: 'Body',
     argTypes: {
         variant: {
             options: [
@@ -23,7 +23,7 @@ export default {
 
 const Template = (args) => ({
     components: {
-        VsRichTextWrapper,
+        VsBody,
         VsLink,
         VsHeading,
     },
@@ -33,9 +33,9 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsRichTextWrapper v-bind="args">
+        <VsBody v-bind="args">
             <template v-if="${'default' in args}" v-slot>${args.default}</template>
-        </VsRichTextWrapper>
+        </VsBody>
     `,
 });
 
