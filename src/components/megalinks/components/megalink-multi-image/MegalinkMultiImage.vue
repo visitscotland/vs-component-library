@@ -222,7 +222,6 @@ export default {
         }
 
         .vs-stretched-link-card__video-button {
-            float: left;
             bottom: 0;
             left: 0;
         }
