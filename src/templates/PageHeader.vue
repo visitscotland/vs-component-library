@@ -71,7 +71,8 @@
         img-caption="Sunset at Lochan na h-Achlaise on Rannoch Moor"
         img-credit="VisitScotland / Kenny Lam"
         :split="variant === 'split-home' ? true : false"
-        :video-src="variant === 'video' ? 'fixtures/hero/video/winter-web-test.mp4' : ''"
+        :video-src="variant === 'video' ? 'fixtures/hero/video/lavendar-fields.mp4' : ''"
+        :video-btn-text="variant === 'video' ? 'Toggle video' : ''"
     >
         <template #heroHeading>
             Scotland, <br>it's good for the soul
@@ -428,7 +429,7 @@ export default {
         imgSrcUrl() {
             switch (this.variant) {
             case 'video':
-                return 'fixtures/hero/images/winter-web-test.jpg';
+                return 'fixtures/hero/images/lavendar-fields.jpg';
             case 'general':
                 return '';
             default:
