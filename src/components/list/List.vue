@@ -54,54 +54,7 @@ export default {
 
 <style lang="scss">
 .vs-list {
-    margin: 0 0 $spacer-125 $spacer-150;
-    padding: 0;
-    list-style: none;
-
-    li {
-        margin-bottom: $spacer-025;
-
-        &::before {
-            content: "• ";
-            padding-right: 0.7rem;
-            margin-left: -$spacer-150;
-            font-size: $font-size-6;
-            line-height: $line-height-xs;
-        }
-
-        /* Nested list styles */
-        ol,
-        ul {
-            list-style: none;
-            padding-inline-start: $spacer-200;
-            margin: $spacer-100 0 $spacer-125 $spacer-150;
-        }
-
-        ul {
-            li {
-                &::before {
-                    content: "– ";
-                    padding-right: 0.6rem;
-                    font-size: $font-size-5;
-                }
-            }
-        }
-
-        ol {
-            counter-reset: list-counter;
-
-            li {
-                margin-bottom: 0;
-
-                &::before {
-                    padding-right: $spacer-050;
-                    font-size: inherit;
-                    counter-increment: list-counter;
-                    content: counter(list-counter, lower-alpha)  ". ";
-                }
-            }
-        }
-    }
+    @extend %default-list-styles;
 
     &--ordered {
         margin: 0 0 $spacer-125 $spacer-150;

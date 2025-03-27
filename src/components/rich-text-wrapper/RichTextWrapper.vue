@@ -58,16 +58,32 @@ export default {
         margin-bottom: $spacer-100;
     }
 
-    h3.vs-heading {
-        margin-top: $spacer-100;
-        margin-bottom: $spacer-100;
+    h1 {
+        @include heading-style(heading-xxl);
     }
-    .vs-heading--style-level-6 {
-        margin-top: $spacer-100;
-        margin-bottom: $spacer-200;
+
+    h2 {
+        @include heading-style(heading-xl);
     }
-    *:not(.vs-heading) + .vs-heading--style-level-6 {
-        margin-top: $spacer-400;
+
+    h3 {
+        @include heading-style(heading-m);
+    }
+
+    h4 {
+        @include heading-style(heading-s);
+    }
+
+    h5 {
+        @include heading-style(heading-xs);
+    }
+
+    h6 {
+        @include heading-style(heading-xxs);
+    }
+
+    ul {
+        @extend %default-list-styles;
     }
 }
 
