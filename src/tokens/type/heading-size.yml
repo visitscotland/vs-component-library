@@ -28,7 +28,7 @@ props:
     - name: heading-xxxs
       value: "{!font-size-100}"
 imports:
-  - ./primitives/font-size-primitives.yml
+  - ../primitives/font-size-primitives.yml
 global:
     type: number
     category: heading-size
