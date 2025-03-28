@@ -74,7 +74,7 @@ const base = {
             <li>Vestibulum id ante commodo, tincidunt lacus sed, pellentesque ipsum. Nulla commodo feugiat molestie. Nulla aliquam, justo quis pellentesque fringilla, orci felis dictum nibh</li>
             <li>Curabitur efficitur odio tellus, quis tristique purus rhoncus sit amet. Aliquam erat volutpat.</li>
             <li>Etiam maximus, tellus vel eleifend vulputate, risus orci malesuada massa, sit amet accumsan nunc erat et magna. Vestibulum eget est mauris. </li>
-        </ul>
+        </ol>
     `,
     variant: 'normal',
 };
