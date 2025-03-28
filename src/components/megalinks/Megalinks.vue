@@ -212,10 +212,6 @@ export default {
             text-align: center;
             margin-bottom: $spacer-200;
 
-            .vs-heading__sub-heading {
-                margin: 0;
-            }
-
             p:first-of-type {
                 margin-top: $spacer-150;
             }
@@ -227,10 +223,6 @@ export default {
 
         .vs-megalinks__heading {
             margin-bottom: 0 !important;
-
-            .heading__sub-heading {
-                display: none;
-            }
         }
 
         .vs-megalinks__button {

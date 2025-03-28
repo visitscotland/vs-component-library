@@ -3,7 +3,7 @@
         icon-only
         class="vs-hero-section-video-control"
         data-test="vs-hero-section-video-control"
-        :icon=" isPlaying ? 'pause-regular' : 'play'"
+        :icon=" isPlaying ? 'fa-regular fa-pause' : 'fa-regular fa-play'"
         @click="toggleVideo"
     >
         <!-- Slot for visiblly hidden screen reader text -->

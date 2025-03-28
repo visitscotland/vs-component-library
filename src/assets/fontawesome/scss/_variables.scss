@@ -138,7 +138,13 @@ $fa-var-face-smile: \f118;
 $fa-var-smile: \f118;
 $fa-var-family: \e300;
 $fa-var-ferry: \e4ea;
+$fa-var-file-eps: \e644;
+$fa-var-file-excel: \f1c3;
+$fa-var-file-jpg: \e646;
 $fa-var-file-pdf: \f1c1;
+$fa-var-file-png: \e666;
+$fa-var-file-svg: \e64b;
+$fa-var-file-word: \f1c2;
 $fa-var-flower-tulip: \f801;
 $fa-var-gift: \f06b;
 $fa-var-glasses: \f530;
@@ -181,6 +187,7 @@ $fa-var-mountains: \f6fd;
 $fa-var-mug-saucer: \f0f4;
 $fa-var-coffee: \f0f4;
 $fa-var-oven: \e01d;
+$fa-var-pause: \f04c;
 $fa-var-pen-field: \e211;
 $fa-var-pen-to-square: \f044;
 $fa-var-edit: \f044;
@@ -356,7 +363,13 @@ $fa-icons: (
   "smile": $fa-var-smile,
   "family": $fa-var-family,
   "ferry": $fa-var-ferry,
+  "file-eps": $fa-var-file-eps,
+  "file-excel": $fa-var-file-excel,
+  "file-jpg": $fa-var-file-jpg,
   "file-pdf": $fa-var-file-pdf,
+  "file-png": $fa-var-file-png,
+  "file-svg": $fa-var-file-svg,
+  "file-word": $fa-var-file-word,
   "flower-tulip": $fa-var-flower-tulip,
   "gift": $fa-var-gift,
   "glasses": $fa-var-glasses,
@@ -399,6 +412,7 @@ $fa-icons: (
   "mug-saucer": $fa-var-mug-saucer,
   "coffee": $fa-var-coffee,
   "oven": $fa-var-oven,
+  "pause": $fa-var-pause,
   "pen-field": $fa-var-pen-field,
   "pen-to-square": $fa-var-pen-to-square,
   "edit": $fa-var-edit,
