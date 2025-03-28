@@ -43,14 +43,14 @@ export default {
         },
         /**
          * The heading style used for the heading.
-         * `display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|
+         * `display-l|display-m|display-s|heading-xxl|heading-xl|
          * heading-l|heading-m|heading-s|heading-xs|heading-xxs`
          */
         headingStyle: {
             type: [String, Number],
             required: true,
             validator: (value) => value.match(
-                /(display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs|heading-xxxs)/,
+                /(display-l|display-m|display-s|heading-xxl|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs|heading-xxxs)/,
             ),
         },
         /**
@@ -82,7 +82,6 @@ export default {
             case 'heading-xl':
                 subHeadingStyle = 'l';
                 break;
-            case 'display-xs':
             case 'heading-l':
             case 'heading-m':
                 subHeadingStyle = 'm';
@@ -134,10 +133,6 @@ export default {
 
     &--display-s {
         @include heading-style(display-s);
-    }
-
-    &--display-xs {
-        @include heading-style(display-xs);
     }
 
     &--heading-xxl {

@@ -5,7 +5,7 @@ export default {
     title: 'Heading',
     argTypes: {
         headingStyle: {
-            options: ['display-l', 'display-m', 'display-s', 'display-xs', 'heading-xxl', 'heading-xl', 'heading-l', 'heading-m', 'heading-s', 'heading-xs', 'heading-xxs', 'heading-xxxs'],
+            options: ['display-l', 'display-m', 'display-s', 'heading-xxl', 'heading-xl', 'heading-l', 'heading-m', 'heading-s', 'heading-xs', 'heading-xxs', 'heading-xxxs'],
             control: {
                 type: 'select',
             },
