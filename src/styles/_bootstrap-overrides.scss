@@ -18,15 +18,17 @@ $theme-colors: (
     danger: $vs-color-background-error,
 );
 
+/* body text */
 $body-color: $vs-color-text-primary;
 $body-emphasis-color: $vs-color-text-primary;
+$paragraph-margin-bottom: 0;
+
 
 /* Links */
 $link-color: $vs-color-interaction-link-primary;
 $link-decoration: none;
 $link-hover-color: $vs-color-interaction-link-primary;
 $link-hover-decoration: none;
-
 
 /* Grid */
 

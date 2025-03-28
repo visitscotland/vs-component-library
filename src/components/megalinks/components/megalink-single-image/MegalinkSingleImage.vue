@@ -35,10 +35,10 @@
                     >
                         {{ title }}
                     </VsHeading>
-                    <VsRichTextWrapper variant="lead">
+                    <VsBody variant="lead">
                         <!-- @slot Slot for content -->
                         <slot name="vs-single-image-content" />
-                    </VsRichTextWrapper>
+                    </VsBody>
 
                     <VsLinkList>
                         <!-- @slot Slot for links list -->
@@ -63,7 +63,7 @@
 
 <script>
 import VsHeading from '@/components/heading/Heading.vue';
-import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsBody from '@/components/body/Body.vue';
 import VsButton from '@/components/button/Button.vue';
 import VsLinkList from '@/components/link-list/LinkList.vue';
 import { VsRow, VsCol } from '@/components/grid';
@@ -81,7 +81,7 @@ export default {
     release: '0.0.1',
     components: {
         VsHeading,
-        VsRichTextWrapper,
+        VsBody,
         VsButton,
         VsRow,
         VsCol,

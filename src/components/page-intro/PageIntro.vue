@@ -87,10 +87,10 @@
                         cols="12"
                         v-bind="contentColProps"
                     >
-                        <VsRichTextWrapper variant="lead">
+                        <VsBody variant="lead">
                             <!-- @slot Intro section content -->
                             <slot name="vs-intro-content" />
-                        </VsRichTextWrapper>
+                        </VsBody>
                         <dl
                             class="list-inline"
                             v-if="$slots['vs-intro-start-finish'] && $slots['vs-intro-start-finish']()"
@@ -127,7 +127,7 @@
 
 <script>
 import VsHeading from '@/components/heading/Heading.vue';
-import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsBody from '@/components/body/Body.vue';
 import {
     VsContainer,
     VsRow,
@@ -148,7 +148,7 @@ export default {
     release: '0.0.1',
     components: {
         VsHeading,
-        VsRichTextWrapper,
+        VsBody,
         VsContainer,
         VsRow,
         VsCol,
