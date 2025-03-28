@@ -98,14 +98,14 @@ export default {
         },
         /**
          * The heading style used for the heading.
-         * `display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|
+         * `display-l|display-m|display-s|heading-xxl|heading-xl|
          * heading-l|heading-m|heading-s|heading-xs|heading-xxs`
          */
         headingStyle: {
             type: String,
             default: 'heading-xl',
             validator: (value) => value.match(
-                /(display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs|heading-xxxs)/,
+                /(display-l|display-m|display-s|heading-xxl|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs|heading-xxxs)/,
             ),
         },
         /**

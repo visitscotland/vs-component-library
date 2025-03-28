@@ -9,9 +9,7 @@ props:
     - name: display-m
       value: "{!font-size-900}"
     - name: display-s
-      value: "{!font-size-700}"
-    - name: display-xs
-      value: "{!font-size-400}"
+      value: "{!font-size-600}"
   
     - name: heading-xxl
       value: "{!font-size-900}"
@@ -28,7 +26,7 @@ props:
     - name: heading-xxs
       value: "{!font-size-300}"
     - name: heading-xxxs
-      value: "{!font-size-200}"
+      value: "{!font-size-100}"
 
     - name: sub-heading-l
       value: "{!font-size-400}"
