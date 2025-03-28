@@ -5,17 +5,17 @@
             `vs-body--${variant}`,
         ]"
     >
-        <!-- @slot Default slot for rich text content -->
+        <!-- @slot Default slot for body text content -->
         <slot />
     </div>
 </template>
 
 <script>
 /**
- * The rich text wrapper renders HTML or text
- * content from WYSIWYG editors.
+ * The body component renders HTML or text
+ * including dynamic content from WYSIWYG editors.
  *
- * @displayName Rich Text Wrapper
+ * @displayName Body
  */
 export default {
     name: 'VsBody',
@@ -58,26 +58,31 @@ export default {
         margin-bottom: $spacer-100;
     }
 
+    h2, h3, h4, h5, h6 {
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        font-weight: 600;
+    }
+
     h2 {
-        @include heading-style(heading-xl);
+        @include heading-style(heading-xxl);
     }
 
     h3 {
-        @include heading-style(heading-m);
+        @include heading-style(heading-l);
     }
 
     h4 {
+        @include heading-style(heading-m);
+    }
+
+    h5 {
+        @include heading-style(heading-s);
+    }
+
+    h6 {
         @include heading-style(heading-xs);
     }
-
-    h5, h6 {
-        @include heading-style(heading-xxs);
-    }
-
-    ul {
-        @extend %default-list-styles;
-    }
-
     a.external-link{
         &::after {
             display: inline-block;

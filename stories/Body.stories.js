@@ -41,7 +41,6 @@ const Template = (args) => ({
 
 const base = {
     default: `
-
         <h2>
             Experiencing Ben Nevis
         </h2>
@@ -49,7 +48,7 @@ const base = {
         <p>An ancient giant of the land, Ben Nevis was once a massive active volcano which exploded and collapsed inwards on itself millions of years ago. At the summit, there is evidence of an explosion in the form of light-coloured granite. The name itself has two translations from the ancient Gaelic language, meaning 'mountain with its head in the clouds', thanks to its iconic mist-shrouded peak, or it can also mean 'venomous mountain' - you can decide which translation you prefer after the climb!</p>
         
         <h3>
-            It's a big mountain
+            More information
         </h3>
         <p>Read on for an overview of walking routes up the mountain, or visit <a href='#'>Walk Highlands</a> for detailed maps, difficulty levels and walking advice.</p>
         <p>Remember it's never 'easy' to bag a Scottish Munro or Corbett. You'll need a good amount of hillwalking experience, fitness, hill craft and navigation skills using a map and compass, before attempting any Scottish mountains, even more so in winter.</p>
@@ -70,8 +69,8 @@ const base = {
             <li>Proin a leo erat. Pellentesque aliquet orci nulla. Integer commodo tristique gravida.</li>
         </ul>
 
-        <h5>More questions</h5>
-        <ul>
+        <h6>More questions</h6>
+        <ol>
             <li>Vestibulum id ante commodo, tincidunt lacus sed, pellentesque ipsum. Nulla commodo feugiat molestie. Nulla aliquam, justo quis pellentesque fringilla, orci felis dictum nibh</li>
             <li>Curabitur efficitur odio tellus, quis tristique purus rhoncus sit amet. Aliquam erat volutpat.</li>
             <li>Etiam maximus, tellus vel eleifend vulputate, risus orci malesuada massa, sit amet accumsan nunc erat et magna. Vestibulum eget est mauris. </li>
