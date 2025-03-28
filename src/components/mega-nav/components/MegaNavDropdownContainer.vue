@@ -3,6 +3,7 @@
         class="vs-mega-nav-dropdown-container"
         data-test="vs-mega-nav-dropdown-container"
         ref="menuToggle"
+        role="presentation"
     >
         <LazyHydrationWrapper :on-interaction="['focus', 'click']">
             <VsMegaNavDropdown
