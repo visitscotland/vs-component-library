@@ -59,9 +59,9 @@ export default {
     }
 
     h2, h3, h4, h5, h6 {
-        line-height: 1.2;
-        letter-spacing: -0.01em;
-        font-weight: 600;
+        line-height: $line-height-heading;
+        letter-spacing: $tracking-heading;
+        font-weight: $font-weight-semi-bold;
     }
 
     h2 {
