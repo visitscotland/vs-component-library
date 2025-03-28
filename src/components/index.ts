@@ -90,7 +90,7 @@ export { default as VsProgressBar } from './progress-bar/ProgressBar.vue';
 export { default as VsRadioButton } from './radio-button/RadioButton.vue';
 export { default as VsQuote } from './quote/Quote.vue';
 export { default as VsRecaptcha } from './recaptcha/Recaptcha.vue';
-export { default as VsRichTextWrapper } from './rich-text-wrapper/RichTextWrapper.vue';
+export { default as VsBody } from './body/Body.vue';
 export { default as VsSelect } from './select/Select.vue';
 export { default as VsSiteSearch } from './site-search/SiteSearch.vue';
 export { default as VsSiteSearchForm } from './site-search/components/SiteSearchForm.vue';

@@ -24,10 +24,10 @@
                     {{ heading }}
                 </VsHeading>
 
-                <VsRichTextWrapper>
+                <VsBody>
                     <!-- @slot default slot to contain the content of this list item  -->
                     <slot />
-                </VsRichTextWrapper>
+                </VsBody>
             </VsCol>
         </VsRow>
     </li>
@@ -37,7 +37,7 @@
 import { isNumber } from 'lodash';
 import VsHeading from '../../heading/Heading.vue';
 import VsImg from '../../img/Img.vue';
-import VsRichTextWrapper from '../../rich-text-wrapper/RichTextWrapper.vue';
+import VsBody from '../../body/Body.vue';
 import { VsRow, VsCol } from '../../grid';
 
 const props = defineProps({

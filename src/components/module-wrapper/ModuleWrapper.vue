@@ -28,14 +28,14 @@
                     v-bind="IntroColumnSizes"
                     v-if="$slots['vs-module-wrapper-intro'] && $slots['vs-module-wrapper-intro']"
                 >
-                    <VsRichTextWrapper
+                    <VsBody
                         class="vs-module-wrapper__intro"
                         data-test="vs-module-wrapper__intro"
                         variant="lead"
                     >
                         <!-- @slot Slot to contain intro text -->
                         <slot name="vs-module-wrapper-intro" />
-                    </VsRichTextWrapper>
+                    </VsBody>
                 </VsCol>
             </VsRow>
         </VsContainer>
@@ -47,7 +47,7 @@
 
 <script>
 import VsHeading from '@/components/heading/Heading.vue';
-import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsBody from '@/components/body/Body.vue';
 import { isNumber } from 'lodash';
 import {
     VsContainer, VsRow, VsCol,
@@ -64,7 +64,7 @@ export default {
     release: '0.0.1',
     components: {
         VsHeading,
-        VsRichTextWrapper,
+        VsBody,
         VsContainer,
         VsRow,
         VsCol,

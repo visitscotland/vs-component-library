@@ -12,15 +12,16 @@
             />
 
             <div>
-                <p>
-                    <slot />
-                </p>
-
-                <p
-                    v-if="$slots['extra-content'] && $slots['extra-content']()"
-                >
-                    <slot name="extra-content" />
-                </p>
+                <VsBody>
+                    <p>
+                        <!-- Default slot to contain main warning message -->
+                        <slot />
+                    </p>
+                    <p v-if="$slots['extra-content'] && $slots['extra-content']()">
+                        <!-- slot to contain extra content to support main message -->
+                        <slot name="extra-content" />
+                    </p>
+                </VsBody>
             </div>
         </div>
 
@@ -38,6 +39,7 @@
 <script>
 import VsIcon from '@/components/icon/Icon.vue';
 import VsButton from '@/components/button/Button.vue';
+import VsBody from '@/components/body/Body.vue';
 
 /**
  * A generic warning component that expands to cover whatever component
@@ -52,6 +54,7 @@ export default {
     components: {
         VsIcon,
         VsButton,
+        VsBody,
     },
     props: {
         /**

@@ -42,13 +42,13 @@
             </template>
 
             <template #stretched-card-content>
-                <VsRichTextWrapper
+                <VsBody
                     :class="businessSupport ? 'd-block' : 'vs-megalink-link-list__content'"
                     data-test="megalink-link-list__content"
                 >
                     <!-- @slot Slot to contain content -->
                     <slot name="vs-link-list-content" />
-                </VsRichTextWrapper>
+                </VsBody>
             </template>
 
             <template
@@ -64,7 +64,7 @@
 <script>
 import VsStretchedLinkCard from '@/components/stretched-link-card/StretchedLinkCard.vue';
 import VsStretchedLinkPanels from '@/components/stretched-link-card/components/StretchedLinkPanels.vue';
-import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsBody from '@/components/body/Body.vue';
 
 /**
 * Megalink link list cards to be used in the megalinks component
@@ -79,7 +79,7 @@ export default {
     release: '0.0.1',
     components: {
         VsStretchedLinkCard,
-        VsRichTextWrapper,
+        VsBody,
         VsStretchedLinkPanels,
     },
     props: {

@@ -1,10 +1,10 @@
 import { shallowMount } from '@vue/test-utils';
 
-import VsRichTextWrapper from '../RichTextWrapper.vue';
+import VsBody from '../Body.vue';
 
-const slotText = 'Rich text wrapper content';
+const slotText = 'Body content';
 
-const factoryShallowMount = (propsData) => shallowMount(VsRichTextWrapper, {
+const factoryShallowMount = (propsData) => shallowMount(VsBody, {
     slots: {
         default: slotText,
     },
@@ -13,12 +13,12 @@ const factoryShallowMount = (propsData) => shallowMount(VsRichTextWrapper, {
     },
 });
 
-describe('VsRichTextWrapper', () => {
-    it('should render a div with the class `vs-rich-text-wrapper`', () => {
+describe('VsBody', () => {
+    it('should render a div with the class `vs-body`', () => {
         const wrapper = factoryShallowMount();
 
         expect(wrapper.element.tagName).toBe('DIV');
-        expect(wrapper.classes('vs-rich-text-wrapper')).toBe(true);
+        expect(wrapper.classes('vs-body')).toBe(true);
     });
 
     describe(':props', () => {
@@ -28,7 +28,7 @@ describe('VsRichTextWrapper', () => {
                 variant: testVariant,
             });
 
-            expect(wrapper.classes('vs-rich-text-wrapper--lead')).toBe(true);
+            expect(wrapper.classes('vs-body--lead')).toBe(true);
         });
     });
 

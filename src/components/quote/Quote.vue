@@ -101,6 +101,7 @@ export default {
         font-size: $font-size-8;
         font-weight: $font-weight-light;
         line-height: $line-height-s;
+        margin-bottom: $spacer-100;
     }
 
     &__author-name {

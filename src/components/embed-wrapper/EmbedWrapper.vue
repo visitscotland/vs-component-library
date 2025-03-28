@@ -12,7 +12,7 @@
                     md="6"
                     offset-md="3"
                 >
-                    <VsRichTextWrapper
+                    <VsBody
                         class="vs-module-wrapper__intro vs-embed-wrapper__intro"
                         v-if="($slots['embed-intro-copy'] && $slots['embed-intro-copy']())
                             && !showError"
@@ -20,7 +20,7 @@
                     >
                         <!-- @slot Slot to contain intro text -->
                         <slot name="embed-intro-copy" />
-                    </VsRichTextWrapper>
+                    </VsBody>
                 </VsCol>
                 <VsCol
                     cols="12"
@@ -82,7 +82,7 @@
 import {
     VsContainer, VsRow, VsCol,
 } from '@/components/grid';
-import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsBody from '@/components/body/Body.vue';
 import VsWarning from '@/components/warning/Warning.vue';
 import verifyCookiesMixin from '../../mixins/verifyCookiesMixin';
 import requiredCookiesData from '../../utils/required-cookies-data';
@@ -103,7 +103,7 @@ export default {
         VsContainer,
         VsRow,
         VsCol,
-        VsRichTextWrapper,
+        VsBody,
         VsWarning,
     },
     mixins: [

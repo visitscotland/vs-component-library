@@ -25,7 +25,7 @@
                         <VsCol
                             cols="11"
                         >
-                            <VsRichTextWrapper
+                            <VsBody
                                 class="vs-banner__text"
                                 v-if="!!$slots['banner-text'] || !!$slots['banner-cta']"
                             >
@@ -39,7 +39,7 @@
                                     <!-- @slot Slot to contain CTA link -->
                                     <slot name="banner-cta" />
                                 </span>
-                            </VsRichTextWrapper>
+                            </VsBody>
                         </VsCol>
                     </VsRow>
                 </VsCol>
@@ -65,7 +65,7 @@
 
 <script>
 import VsButton from '@/components/button/Button.vue';
-import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsBody from '@/components/body/Body.vue';
 import VsIcon from '@/components/icon/Icon.vue';
 import {
     VsContainer, VsRow, VsCol,
@@ -88,7 +88,7 @@ export default {
         VsContainer,
         VsRow,
         VsCol,
-        VsRichTextWrapper,
+        VsBody,
         VsIcon,
     },
     mixins: [
@@ -192,7 +192,7 @@ export default {
         }
     }
 
-    &__text.vs-rich-text-wrapper--normal {
+    &__text.vs-body--normal {
         display: inline-block;
         padding-left: $spacer-025;
 
@@ -209,7 +209,7 @@ export default {
         }
     }
 
-    &__text.vs-rich-text-wrapper--normal,
+    &__text.vs-body--normal,
     &__cta-link {
         font-size: $font-size-3;
         line-height: $line-height-s;

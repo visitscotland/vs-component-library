@@ -26,7 +26,7 @@
                             {{ title }}
                         </VsHeading>
 
-                        <VsRichTextWrapper
+                        <VsBody
                             class="vs-megalinks__intro-content"
                             v-if="$slots['vs-megalinks-intro'] && $slots['vs-megalinks-intro']()"
                             variant="lead"
@@ -34,7 +34,7 @@
                         >
                             <!-- @slot Slot to contain optional intro content -->
                             <slot name="vs-megalinks-intro" />
-                        </VsRichTextWrapper>
+                        </VsBody>
                     </div>
                 </VsCol>
             </VsRow>
@@ -65,7 +65,7 @@
 import { isNumber } from 'lodash';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsButton from '@/components/button/Button.vue';
-import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsBody from '@/components/body/Body.vue';
 import {
     VsContainer,
     VsRow,
@@ -87,7 +87,7 @@ export default {
         VsCol,
         VsHeading,
         VsButton,
-        VsRichTextWrapper,
+        VsBody,
     },
     provide() {
         return {

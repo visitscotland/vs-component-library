@@ -157,7 +157,7 @@ export default {
         background-color: $vs-color-background-primary;
 
         &__label {
-            margin: 0;
+            margin-bottom: $spacer-100;
         }
 
         &:focus-within {
