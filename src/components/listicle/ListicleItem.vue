@@ -38,8 +38,10 @@
                 lg="8"
                 class="mt-050 mt-sm-300 mb-100 mt-lg-050 pe-lg-300"
             >
-                <!-- @slot Contains the description to be shown.  -->
-                <slot name="description-slot" />
+                <VsBody>
+                    <!-- @slot Contains the description to be shown.  -->
+                    <slot name="description-slot" />
+                </VsBody>
             </VsCol>
             <VsCol
                 cols="12"
@@ -57,6 +59,7 @@
 <script>
 import VsHeading from '@/components/heading/Heading.vue';
 import { VsRow, VsCol } from '@/components/grid';
+import VsBody from '@/components/body/Body.vue';
 
 /**
  * TODO: Document usage
@@ -71,6 +74,7 @@ export default {
         VsHeading,
         VsRow,
         VsCol,
+        VsBody,
     },
     props: {
         /**
