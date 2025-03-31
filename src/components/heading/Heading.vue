@@ -34,14 +34,14 @@ export default {
         },
         /**
          * The heading style used for the heading.
-         * `display-l|display-m|display-s|heading-xxl|heading-xl|
+         * `display-m|display-s|heading-xl|
          * heading-l|heading-m|heading-s|heading-xs|heading-xxs`
          */
         headingStyle: {
             type: [String, Number],
             required: true,
             validator: (value) => value.match(
-                /(display-l|display-m|display-s|heading-xxl|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs|heading-xxxs)/,
+                /(display-m|display-s|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs|heading-xxxs)/,
             ),
         },
         /**
@@ -80,20 +80,12 @@ export default {
     line-height: 1.2;
     font-weight: $font-weight-semi-bold;
 
-    &--display-l {
-        @include heading-style(display-l);
-    }
-
     &--display-m {
         @include heading-style(display-m);
     }
 
     &--display-s {
         @include heading-style(display-s);
-    }
-
-    &--heading-xxl {
-        @include heading-style(heading-xxl);
     }
 
     &--heading-xl {

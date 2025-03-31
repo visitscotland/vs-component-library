@@ -14,10 +14,6 @@ body {
     @include media-breakpoint-up(md) {
         font-size: $body-m;
     }
-
-    @include media-breakpoint-up(xl) {
-        font-size: $body-l;
-    }
 }
 
 hr {

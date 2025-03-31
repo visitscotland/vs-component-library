@@ -23,20 +23,12 @@
 }
 
 $heading-styles: (
-    display-l: (
-        size: $display-l, 
-        margin: $spacer-100 0 $spacer-075,
-    ),
     display-m: (
         size: $display-m, 
         margin: $spacer-100 0 $spacer-075,
     ),
     display-s: (
         size: $display-s, 
-        margin: $spacer-100 0 $spacer-075,
-    ),
-    heading-xxl: (
-        size: $heading-xxl,
         margin: $spacer-100 0 $spacer-075,
     ),
     heading-xl: (

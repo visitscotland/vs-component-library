@@ -43,10 +43,6 @@ export default {
         @include media-breakpoint-up(md) {
             font-size: $body-l;
         }
-
-        @include media-breakpoint-up(xl) {
-            font-size: $body-xl;
-        }
     }
 
     p {
@@ -65,10 +61,6 @@ export default {
         @include media-breakpoint-up(md) {
             @include heading-style(heading-xl);
         }
-
-        @include media-breakpoint-up(xl) {
-            @include heading-style(heading-xxl);
-        }
     }
 
     h3 {
@@ -76,10 +68,6 @@ export default {
 
         @include media-breakpoint-up(md) {
             @include heading-style(heading-m);
-        }
-
-        @include media-breakpoint-up(xl) {
-            @include heading-style(heading-l);
         }
     }
 
@@ -89,10 +77,6 @@ export default {
         @include media-breakpoint-up(md) {
             @include heading-style(heading-xs);
         }
-
-        @include media-breakpoint-up(xl) {
-            @include heading-style(heading-s);
-        }
     }
 
     h5 {
@@ -101,10 +85,6 @@ export default {
         @include media-breakpoint-up(md) {
             @include heading-style(heading-xxs);
         }
-
-        @include media-breakpoint-up(xl) {
-            @include heading-style(heading-xs);
-        }
     }
 
     h6 {
@@ -112,10 +92,6 @@ export default {
 
         @include media-breakpoint-up(md) {
             @include heading-style(heading-xxxs);
-        }
-
-        @include media-breakpoint-up(xl) {
-            @include heading-style(heading-xxs);
         }
     }
 

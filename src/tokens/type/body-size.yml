@@ -4,8 +4,6 @@
 #
 
 props:
-    - name: body-xl
-      value: "{!font-size-400}"
     - name: body-l
       value: "{!font-size-300}"
     - name: body-m

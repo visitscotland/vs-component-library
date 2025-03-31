@@ -4,15 +4,11 @@
 #
 
 props:
-    - name: display-l
-      value: "{!font-size-1000}"
     - name: display-m
       value: "{!font-size-900}"
     - name: display-s
       value: "{!font-size-600}"
   
-    - name: heading-xxl
-      value: "{!font-size-900}"
     - name: heading-xl
       value: "{!font-size-800}"
     - name: heading-l

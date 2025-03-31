@@ -311,11 +311,6 @@ export default {
                 @include media-breakpoint-up(lg) {
                     margin: 0;
                 }
-
-                @include media-breakpoint-up(xl) {
-                    @include heading-style(display-l);
-                    margin: 0;
-                }
             }
         }
 
