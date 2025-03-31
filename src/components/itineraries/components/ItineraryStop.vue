@@ -162,20 +162,11 @@ export default {
 
         .vs-itinerary-stop__title {
             grid-column: 2;
-
-            @include media-breakpoint-up(sm) {
-                @include heading-style(heading-m);
-                margin-bottom: $spacer-025;
-            }
         }
 
         .vs-itinerary-stop__sub-heading {
             grid-column: 2;
             @include heading-style(heading-xxs, false);
-
-            @include media-breakpoint-up(sm) {
-                @include heading-style(heading-xs, false);
-            }
         }
     }
 

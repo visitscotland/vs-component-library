@@ -57,42 +57,22 @@ export default {
 
     h2 {
         @include heading-style(heading-l);
-
-        @include media-breakpoint-up(md) {
-            @include heading-style(heading-xl);
-        }
     }
 
     h3 {
         @include heading-style(heading-s);
-
-        @include media-breakpoint-up(md) {
-            @include heading-style(heading-m);
-        }
     }
 
     h4 {
         @include heading-style(heading-xs);
-
-        @include media-breakpoint-up(md) {
-            @include heading-style(heading-xs);
-        }
     }
 
     h5 {
         @include heading-style(heading-xxs);
-
-        @include media-breakpoint-up(md) {
-            @include heading-style(heading-xxs);
-        }
     }
 
     h6 {
         @include heading-style(heading-xxxs);
-
-        @include media-breakpoint-up(md) {
-            @include heading-style(heading-xxxs);
-        }
     }
 
     a.external-link{
