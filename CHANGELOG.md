@@ -1,3 +1,11 @@
+## [4.19.1](https://github.com/visitscotland/vs-component-library/compare/v4.19.0...v4.19.1) (2025-03-31)
+
+
+### Bug Fixes
+
+* **tabs:** adjust tab display on desktop ([366b130](https://github.com/visitscotland/vs-component-library/commit/366b130c524c9a46aebb3f95e30bb1f6c8708758))
+* **tabs:** tab height on small mobile ([2bf0a8e](https://github.com/visitscotland/vs-component-library/commit/2bf0a8ed5266c9fabc459d5e2325a91ba9cd9b97))
+
 # [4.19.0](https://github.com/visitscotland/vs-component-library/compare/v4.18.1...v4.19.0) (2025-03-27)
 
 
