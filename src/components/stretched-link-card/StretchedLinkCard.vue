@@ -77,7 +77,7 @@
             <VsButton
                 class="vs-stretched-link-card__video-button"
                 data-test="vs-stretched-link-card__video-button"
-                icon="fa-regular fa-play"
+                icon="vs-icon-control-play"
                 icon-position="left"
                 size="md"
                 ref="videoShow"
@@ -220,14 +220,14 @@ export default {
         },
         /**
          * The heading style used for the heading.
-         * `display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|
+         * `display-l|display-m|display-s|heading-xxl|heading-xl|
          * heading-l|heading-m|heading-s|heading-xs|heading-xxs`
          */
         headingStyle: {
             type: [String, Number],
             default: 'heading-xs',
             validator: (value) => value.match(
-                /(display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs)/,
+                /(display-l|display-m|display-s|heading-xxl|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs)/,
             ),
         },
         /**
