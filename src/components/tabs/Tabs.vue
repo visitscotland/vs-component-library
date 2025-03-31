@@ -105,6 +105,13 @@ export default {
                 border-top: 1px solid $vs-color-border-primary;
             }
         }
+
+        @include media-breakpoint-up(lg) {
+            .nav-item {
+                align-self: flex-end;
+                display: block;
+            }
+        }
     }
 
 @include no-js {
