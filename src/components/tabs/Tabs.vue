@@ -79,9 +79,9 @@ export default {
         }
 
         .nav-item {
+            display: flex;
             margin: $spacer-0 $spacer-025;
             text-wrap: wrap;
-            align-self: flex-end;
             flex-direction: row;
             flex-wrap: nowrap;
         }
