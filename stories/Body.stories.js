@@ -39,7 +39,29 @@ const Template = (args) => ({
     `,
 });
 
-const base = {
+export const Default = Template.bind({
+});
+
+Default.args = {
+    default: `
+        <p>An ancient giant of the land, Ben Nevis was once a massive active volcano which exploded and collapsed inwards on itself millions of years ago. At the summit, there is evidence of an explosion in the form of light-coloured granite. The name itself has two translations from the ancient Gaelic language, meaning 'mountain with its head in the clouds', thanks to its iconic mist-shrouded peak, or it can also mean 'venomous mountain' - you can decide which translation you prefer after the climb!</p>
+    `,
+};
+
+export const Lead = Template.bind({
+});
+
+Lead.args = {
+    default: `
+        <p>Ben Nevis is the king of them all. In the north west <a href='#' class="external-link">Highlands</a>, near the town of <a href='#'>Fort William</a> and part of the <a href='#'>Grampian Mountain</a> range, the famous peak attracts 125k walkers a year. Whether you're an avid ambler or you just love beautiful landscapes, bagging 'the Ben' is likely to feature near the top of your Scottish bucket list.</p>
+    `,
+    variant: 'lead',
+};
+
+export const WithRichText = Template.bind({
+});
+
+WithRichText.args = {
     default: `
         <h2>
             Experiencing Ben Nevis
@@ -76,18 +98,4 @@ const base = {
             <li>Etiam maximus, tellus vel eleifend vulputate, risus orci malesuada massa, sit amet accumsan nunc erat et magna. Vestibulum eget est mauris. </li>
         </ol>
     `,
-    variant: 'normal',
-};
-
-export const Default = Template.bind({
-});
-
-Default.args = base;
-
-export const Lead = Template.bind({
-});
-
-Lead.args = {
-    ...base,
-    variant: 'lead',
 };

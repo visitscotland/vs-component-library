@@ -141,6 +141,7 @@ export default {
         display: grid;
         grid-template-columns: auto 1fr;
         column-gap: $spacer-100;
+        margin-bottom: $spacer-075;
 
         .vs-itinerary-stop__marker {
             grid-column: 1;

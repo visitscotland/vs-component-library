@@ -9,7 +9,7 @@
             class="vs-mega-nav-list__heading"
             :id="listHeadingId"
             level="2"
-            heading-style="heading-xxs"
+            heading-style="heading-xxxs"
         >
             {{ listHeading }}
         </VsHeading>

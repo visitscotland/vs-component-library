@@ -119,6 +119,7 @@ export default {
         display: grid;
         grid-template-columns: auto 1fr;
         column-gap: $spacer-100;
+        margin-bottom: $spacer-075;
 
         .count__bg {
             grid-column: 1;
