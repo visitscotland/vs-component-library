@@ -77,7 +77,7 @@
             <VsButton
                 class="vs-stretched-link-card__video-button"
                 data-test="vs-stretched-link-card__video-button"
-                icon="fa-regular fa-play"
+                icon="vs-icon-control-play"
                 icon-position="left"
                 size="md"
                 ref="videoShow"

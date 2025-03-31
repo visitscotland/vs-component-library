@@ -18,7 +18,7 @@
                 <div class="container">
                     <VsButton
                         class="vs-video-caption__button"
-                        icon="fa-regular fa-play"
+                        icon="vs-icon-control-play"
                         icon-position="left"
                         size="md"
                         ref="videoShow"
