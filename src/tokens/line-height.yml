@@ -22,8 +22,6 @@ props:
 # New tokens
   line-height-heading:
     value: "1.2"
-  line-height-sub-heading:
-    value: "1.3" 
   line-height-body:
     value: "1.5" 
     

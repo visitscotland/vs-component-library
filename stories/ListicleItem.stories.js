@@ -57,10 +57,6 @@ const Template = (args) => ({
                     </VsImageWithCaption>
                 </template>
 
-                <template v-if="${'sub-heading' in args}" v-slot:sub-heading>
-                    ${args['sub-heading']}
-                </template>
-
                 <template v-if="${'description-slot' in args}" v-slot:description-slot>
                     ${args['description-slot']}
 
