@@ -167,10 +167,10 @@ export default {
 
         .vs-itinerary-stop__sub-heading {
             grid-column: 2;
-            font-size: $sub-heading-m;
+            @include heading-style(heading-xxs, false);
 
             @include media-breakpoint-up(sm) {
-                font-size: $sub-heading-l;
+                @include heading-style(heading-xs, false);
             }
         }
     }

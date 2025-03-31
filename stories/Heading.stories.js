@@ -39,16 +39,12 @@ const Template = (args) => ({
     template: `
         <VsHeading v-bind="args">
             <template v-if="${'default' in args}" v-slot>${args.default}</template>
-            <template v-if="${'sub-heading' in args}" v-slot:sub-heading>
-                ${args['sub-heading']}
-            </template>
         </VsHeading>
     `,
 });
 
 const base = {
     default: 'Welcome to Scotland',
-    'sub-heading': '',
     level: 1,
     id: 'welcome-to-scotland',
 };
@@ -67,24 +63,4 @@ export const Display = Template.bind({
 Display.args = {
     headingStyle: 'display-l',
     ...base,
-};
-
-export const WithSubheading = Template.bind({
-});
-
-WithSubheading.args = {
-    headingStyle: 'heading-l',
-    ...base,
-    default: 'Heart of Neolithic Orkney',
-    'sub-heading': 'Mainland, Orkney',
-};
-
-export const WithSubheadingDisplay = Template.bind({
-});
-
-WithSubheadingDisplay.args = {
-    headingStyle: 'display-l',
-    ...base,
-    default: 'Welcome to VisitScotland',
-    'sub-heading': 'What VisitScotland can do for you',
 };
