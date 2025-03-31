@@ -175,14 +175,14 @@ export default {
         },
         /**
          * The heading style used for the heading.
-         * `display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|
+         * `display-l|display-m|display-s|heading-xxl|heading-xl|
          * heading-l|heading-m|heading-s|heading-xs|heading-xxs`
          */
         headingStyle: {
             type: String,
             default: 'heading-xl',
             validator: (value) => value.match(
-                /(display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs|heading-xxxs)/,
+                /(display-l|display-m|display-s|heading-xxl|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs|heading-xxxs)/,
             ),
         },
     },
@@ -212,10 +212,6 @@ export default {
             text-align: center;
             margin-bottom: $spacer-200;
 
-            .vs-heading__sub-heading {
-                margin: 0;
-            }
-
             p:first-of-type {
                 margin-top: $spacer-150;
             }
@@ -227,10 +223,6 @@ export default {
 
         .vs-megalinks__heading {
             margin-bottom: 0 !important;
-
-            .heading__sub-heading {
-                display: none;
-            }
         }
 
         .vs-megalinks__button {

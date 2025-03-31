@@ -174,12 +174,11 @@ export default {
 
         .vs-listicle-item__sub-heading {
             grid-column: 2;
-            font-size: $sub-heading-m;
-            margin-bottom: $spacer-100;
+            @include heading-style(heading-xxs, false);
 
-            @include media-breakpoint-up(sm) {
-                font-size: $sub-heading-l;
-            }
+                @include media-breakpoint-up(sm) {
+                    @include heading-style(heading-xs, false);
+                }
         }
     }
 

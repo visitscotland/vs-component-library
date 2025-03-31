@@ -21,6 +21,10 @@ props:
     value: "fa-regular fa-magnifying-glass"
   vs-icon-control-menu:
     value: "fa-regular fa-bars"  
+  vs-icon-control-play:
+    value: "fa-regular fa-play"
+  vs-icon-control-pause:
+    value: "fa-regular fa-pause"  
 
   ## Feedback Icons
   vs-icon-feedback-information:

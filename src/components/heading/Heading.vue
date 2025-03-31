@@ -7,15 +7,6 @@
     >
         <!-- @slot The main heading content goes here -->
         <slot />
-
-        <span
-            class="vs-heading__sub-heading"
-            :class="subHeadingClass"
-            v-if="!!$slots['sub-heading']"
-        >
-            <!-- @slot Slot for sub-heading content -->
-            <slot name="sub-heading" />
-        </span>
     </Component>
 </template>
 
@@ -43,14 +34,14 @@ export default {
         },
         /**
          * The heading style used for the heading.
-         * `display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|
+         * `display-l|display-m|display-s|heading-xxl|heading-xl|
          * heading-l|heading-m|heading-s|heading-xs|heading-xxs`
          */
         headingStyle: {
             type: [String, Number],
             required: true,
             validator: (value) => value.match(
-                /(display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs|heading-xxxs)/,
+                /(display-l|display-m|display-s|heading-xxl|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs|heading-xxxs)/,
             ),
         },
         /**
@@ -63,40 +54,10 @@ export default {
         },
     },
     computed: {
-        hasSubtitle() {
-            return !!this.$slots['sub-heading'];
-        },
         headingClasses() {
             return [
                 this.headingStyle ? `vs-heading--${this.headingStyle}` : '',
             ];
-        },
-        subHeadingClass() {
-            let subHeadingStyle = '';
-
-            switch (this.headingStyle) {
-            case 'display-l':
-            case 'display-m':
-            case 'display-s':
-            case 'heading-xxl':
-            case 'heading-xl':
-                subHeadingStyle = 'l';
-                break;
-            case 'display-xs':
-            case 'heading-l':
-            case 'heading-m':
-                subHeadingStyle = 'm';
-                break;
-            case 'heading-s':
-            case 'heading-xs':
-            case 'heading-xxs':
-                subHeadingStyle = 's';
-                break;
-            default:
-                subHeadingStyle = '';
-            }
-
-            return `vs-heading__sub-heading--${subHeadingStyle}`;
         },
         type() {
             return `h${this.level}`;
@@ -109,11 +70,6 @@ export default {
 [class*="vs-heading--display-"] {
     font-family: $display-font-family;
     letter-spacing: 0.02em;
-
-    .vs-heading__sub-heading {
-        font-family: $font-family-base;
-        font-weight: $font-weight-semi-bold;
-    }
 }
 
 [class*="vs-heading--heading-"] {
@@ -134,10 +90,6 @@ export default {
 
     &--display-s {
         @include heading-style(display-s);
-    }
-
-    &--display-xs {
-        @include heading-style(display-xs);
     }
 
     &--heading-xxl {
@@ -170,25 +122,6 @@ export default {
 
     &--heading-xxxs {
         @include heading-style(heading-xxxs);
-    }
-
-    .vs-heading__sub-heading {
-        display: block;
-        font-weight: $font-weight-normal;
-        line-height: $line-height-sub-heading;
-        letter-spacing: $tracking-sub-heading;
-
-        &--l {
-            @include sub-heading-style(sub-heading-l);
-        }
-
-        &--m {
-            @include sub-heading-style(sub-heading-m);
-        }
-
-        &--s {
-            @include sub-heading-style(sub-heading-s);
-        }
     }
 }
 </style>

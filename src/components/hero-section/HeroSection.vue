@@ -52,7 +52,7 @@
                         class="vs-hero-section__heading"
                         data-test="vs-hero-section__heading"
                         level="1"
-                        heading-style="display-xs"
+                        heading-style="display-s"
                         id="main-heading"
                     >
                         <span v-html="heading" />
@@ -305,7 +305,7 @@ export default {
                 color: $vs-color-text-brand;
 
                 @include media-breakpoint-up(md) {
-                    @include heading-style(display-s);
+                    @include heading-style(display-m);
                 }
 
                 @include media-breakpoint-up(lg) {
@@ -313,7 +313,7 @@ export default {
                 }
 
                 @include media-breakpoint-up(xl) {
-                    @include heading-style(display-m);
+                    @include heading-style(display-l);
                     margin: 0;
                 }
             }
