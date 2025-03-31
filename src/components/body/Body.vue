@@ -37,18 +37,6 @@ export default {
 
 <style lang="scss">
 .vs-body {
-    &--normal{
-        font-size: $body-s;
-
-        @include media-breakpoint-up(md) {
-            font-size: $body-m;
-        }
-
-        @include media-breakpoint-up(xl) {
-            font-size: $body-l;
-        }
-    }
-
     &--lead {
         font-size: $body-m;
 

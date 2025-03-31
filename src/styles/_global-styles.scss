@@ -7,10 +7,16 @@
  */
 
 body {
-    font-size: $font-size-body;
+    line-height: $line-height-body;
+    letter-spacing: $tracking-body;
+    font-size: $body-s;
 
     @include media-breakpoint-up(md) {
-        font-size: $font-size-body-md;
+        font-size: $body-m;
+    }
+
+    @include media-breakpoint-up(xl) {
+        font-size: $body-l;
     }
 }
 
