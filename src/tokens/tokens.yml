@@ -13,21 +13,23 @@ imports:
   - ./layout/breakpoints.yml
   - ./layout/grid-layout.yml
   - ./layout/spacing.yml
+  - ./type/font-weight.yml
+  - ./type/font.yml
+  - ./type/heading-size.yml
+  - ./type/body-size.yml
+  - ./type/tracking.yml
+  - ./type/line-height.yml
   - ./elevation-shadow.yml
   - ./elevation-surface.yml
   - ./font-size.yml
-  - ./font-weight.yml
-  - ./font.yml
+  - ./letter-spacing.yml
   - ./opacity.yml
   - ./timing.yml
   - ./box-shadow.yml
-  - ./heading-size.yml
-  - ./letter-spacing.yml
   - ./border-radius.yml
-  - ./line-height.yml
   - ./utility.yml
   - ./themes.yml
-  - ./tracking.yml
+
 global:
   type: global
   category: all

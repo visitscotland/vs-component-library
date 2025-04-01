@@ -1,0 +1,17 @@
+#
+# BODY-SIZE TOKENS
+# Use these tokens to set body text font sizes.
+#
+
+props:
+    - name: body-l
+      value: "{!font-size-300}"
+    - name: body-m
+      value: "{!font-size-200}"
+    - name: body-s
+      value: "{!font-size-100}"
+imports:
+  - ../primitives/font-size-primitives.yml
+global:
+    type: number
+    category: body-size

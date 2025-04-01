@@ -58,6 +58,10 @@ export default {
         margin: $spacer-0;
         margin-bottom: $spacer-075;
 
+        @include media-breakpoint-up(md) {
+            font-size: $heading-xxs;
+        }
+
         &--lines-1 {
             @include truncate-text(1);
         }

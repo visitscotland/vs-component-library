@@ -304,16 +304,7 @@ export default {
             .vs-hero-section__heading.vs-heading {
                 color: $vs-color-text-brand;
 
-                @include media-breakpoint-up(md) {
-                    @include heading-style(display-m);
-                }
-
                 @include media-breakpoint-up(lg) {
-                    margin: 0;
-                }
-
-                @include media-breakpoint-up(xl) {
-                    @include heading-style(display-l);
                     margin: 0;
                 }
             }

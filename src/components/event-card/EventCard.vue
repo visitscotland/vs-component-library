@@ -148,7 +148,7 @@ export default {
         }
 
         .vs-event-card__heading {
-        margin: $spacer-050 $spacer-0;
+            margin: $spacer-050 $spacer-0;
         }
 
         .vs-event-card__date {

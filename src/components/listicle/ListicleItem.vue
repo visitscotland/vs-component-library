@@ -119,6 +119,7 @@ export default {
         display: grid;
         grid-template-columns: auto 1fr;
         column-gap: $spacer-100;
+        margin-bottom: $spacer-075;
 
         .count__bg {
             grid-column: 1;
@@ -165,20 +166,11 @@ export default {
 
         .vs-listicle-item__title {
             grid-column: 2;
-
-            @include media-breakpoint-up(sm) {
-                @include heading-style(heading-m);
-                margin-bottom: $spacer-025;
-            }
         }
 
         .vs-listicle-item__sub-heading {
             grid-column: 2;
             @include heading-style(heading-xxs, false);
-
-                @include media-breakpoint-up(sm) {
-                    @include heading-style(heading-xs, false);
-                }
         }
     }
 

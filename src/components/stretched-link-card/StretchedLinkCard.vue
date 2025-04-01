@@ -220,14 +220,14 @@ export default {
         },
         /**
          * The heading style used for the heading.
-         * `display-l|display-m|display-s|heading-xxl|heading-xl|
+         * `display-m|display-s|heading-xl|
          * heading-l|heading-m|heading-s|heading-xs|heading-xxs`
          */
         headingStyle: {
             type: [String, Number],
             default: 'heading-xs',
             validator: (value) => value.match(
-                /(display-l|display-m|display-s|heading-xxl|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs)/,
+                /(display-m|display-s|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs)/,
             ),
         },
         /**
@@ -490,6 +490,10 @@ export default {
         .vs-stretched-link-card__title {
             color: $vs-color-text-primary;
             display: flex;
+
+            @include media-breakpoint-up(md) {
+                font-size: $heading-xs;
+            }
 
             .stretched-link {
                 color: $vs-color-text-primary;

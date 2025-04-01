@@ -2,6 +2,7 @@
 # LETTER SPACING TOKENS
 # Use these tokens to adjust letter-spacing.
 #
+# TO BE DEPRECATED
 
 props:
     letter_spacing_xxl:

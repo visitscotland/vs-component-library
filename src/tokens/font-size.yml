@@ -2,6 +2,7 @@
 # FONT-SIZE TOKENS
 # Use these tokens to set a font-size.
 #
+# TO BE DEPRECATED
 props:
     - name: font-size-1
       value: "0.625rem"

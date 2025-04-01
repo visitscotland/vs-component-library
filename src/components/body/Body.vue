@@ -37,20 +37,11 @@ export default {
 
 <style lang="scss">
 .vs-body {
-    &--normal{
-        font-size: $font-size-body;
-
-        @include media-breakpoint-up(md) {
-            font-size: $font-size-body-md;
-        }
-    }
-
     &--lead {
-        line-height: $line-height-lead;
-        font-size: $font-size-lead;
+        font-size: $body-m;
 
         @include media-breakpoint-up(md) {
-            font-size: $font-size-lead-md;
+            font-size: $body-l;
         }
     }
 
@@ -66,62 +57,22 @@ export default {
 
     h2 {
         @include heading-style(heading-l);
-
-        @include media-breakpoint-up(md) {
-            @include heading-style(heading-xl);
-        }
-
-        @include media-breakpoint-up(xl) {
-            @include heading-style(heading-xxl);
-        }
     }
 
     h3 {
         @include heading-style(heading-s);
-
-        @include media-breakpoint-up(md) {
-            @include heading-style(heading-m);
-        }
-
-        @include media-breakpoint-up(xl) {
-            @include heading-style(heading-l);
-        }
     }
 
     h4 {
         @include heading-style(heading-xs);
-
-        @include media-breakpoint-up(md) {
-            @include heading-style(heading-xs);
-        }
-
-        @include media-breakpoint-up(xl) {
-            @include heading-style(heading-s);
-        }
     }
 
     h5 {
         @include heading-style(heading-xxs);
-
-        @include media-breakpoint-up(md) {
-            @include heading-style(heading-xxs);
-        }
-
-        @include media-breakpoint-up(xl) {
-            @include heading-style(heading-xs);
-        }
     }
 
     h6 {
         @include heading-style(heading-xxxs);
-
-        @include media-breakpoint-up(md) {
-            @include heading-style(heading-xxxs);
-        }
-
-        @include media-breakpoint-up(xl) {
-            @include heading-style(heading-xxs);
-        }
     }
 
     a.external-link{

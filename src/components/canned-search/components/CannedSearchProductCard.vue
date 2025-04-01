@@ -325,6 +325,10 @@ export default {
             display: flex;
             margin: $spacer-075 $spacer-0 $spacer-050;
 
+            @include media-breakpoint-up(md) {
+                font-size: $heading-xs;
+            }
+
             @include truncate-text(2);
         }
 

@@ -3,68 +3,76 @@
  */
 
 @mixin heading-style($style, $with-margins: true) {
-    // Extract properties from the map
+    // Extract base properties
     $size: map-get(
         map-get($heading-styles, $style), size
+    );
+    $size-md: map-get(
+        map-get($heading-styles, $style), breakpoint-md
     );
 
     // set the heading font size
     font-size: $size;
 
-    @if $with-margins  == true { 
-        // Extract properties from the map
+    // Apply breakpoint-md font size if defined
+    @if $size-md {
+        @media (min-width: 768px) {
+            font-size: $size-md;
+        }
+    }
+
+    // set margins if with-margins is true
+    @if $with-margins {
         $margin: map-get(
             map-get($heading-styles, $style), margin
         );
 
-        // set the heading margins
         margin: $margin;
-    }    
+    }
 }
 
 $heading-styles: (
-    display-l: (
-        size: $display-l, 
-        margin: $spacer-100 0 $spacer-075,
-    ),
     display-m: (
-        size: $display-m, 
+        size: $display-m,
         margin: $spacer-100 0 $spacer-075,
     ),
     display-s: (
-        size: $display-s, 
-        margin: $spacer-100 0 $spacer-075,
-    ),
-    heading-xxl: (
-        size: $heading-xxl,
+        size: $display-s,
+        breakpoint-md: $display-m,
         margin: $spacer-100 0 $spacer-075,
     ),
     heading-xl: (
-        size: $heading-xl, 
+        size: $heading-xl,
         margin: $spacer-100 0 $spacer-075,
     ),
     heading-l: (
-        size: $heading-l, 
+        size: $heading-l,
+        breakpoint-md: $heading-xl,
         margin: $spacer-100 0 $spacer-075,
     ),
     heading-m: (
-        size: $heading-m, 
+        size: $heading-m,
+        breakpoint-md: $heading-l,
         margin: $spacer-075 0 $spacer-050,
     ),
     heading-s: (
-        size: $heading-s, 
+        size: $heading-s,
+        breakpoint-md: $heading-m,
         margin: $spacer-075 0 $spacer-050,
     ),
     heading-xs: (
-        size: $heading-xs, 
+        size: $heading-xs,
+        breakpoint-md: $heading-s,
         margin: $spacer-075 0 $spacer-050,
     ),
     heading-xxs: (
-        size: $heading-xxs, 
+        size: $heading-xxs,
+        breakpoint-md: $heading-xs,
         margin: $spacer-075 0 $spacer-050,
     ),
     heading-xxxs: (
-        size: $heading-xxxs, 
+        size: $heading-xxxs,
+        breakpoint-md: $heading-xxs,
         margin: $spacer-075 0 $spacer-050,
     ),
 );
