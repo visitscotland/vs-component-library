@@ -15,7 +15,7 @@
                 >
                     <VsHeading
                         :level="headingLevel"
-                        heading-style="heading-xl"
+                        :heading-style="headingStyle"
                         class="vs-module-wrapper__heading"
                         data-test="vs-module-wrapper__heading"
                         :id="anchorId"
@@ -95,6 +95,18 @@ export default {
             type: Number,
             default: 2,
             validator: (value) => (isNumber(value) ? value > 0 && value < 7 : value.match(/(1|2|3|4|5|6)/)),
+        },
+        /**
+         * The heading style used for the heading.
+         * `display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|
+         * heading-l|heading-m|heading-s|heading-xs|heading-xxs`
+         */
+        headingStyle: {
+            type: String,
+            default: 'heading-xl',
+            validator: (value) => value.match(
+                /(display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs|heading-xxxs)/,
+            ),
         },
         /**
         * Theme of module wrapper to use

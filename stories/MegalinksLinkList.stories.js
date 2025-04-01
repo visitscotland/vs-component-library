@@ -53,6 +53,8 @@ const Template = (args) => ({
             :noCookiesMessage="args.noCookiesMessage"
             :cookieLinkText="args.cookieLinkText"
             :sectionId="args.sectionId"
+            :heading-level="args.headingLevel"
+            :heading-style="args.headingStyle"
         >
             <template v-slot:vs-megalinks-intro>
                 <p>{{ args.megalinksIntro }}</p>

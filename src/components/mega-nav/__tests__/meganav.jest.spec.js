@@ -19,7 +19,7 @@ function mountOptions(propsData) {
             ...propsData,
         },
         slots: {
-            'mega-nav-top-menu-items': '<li class="mega-nav-top-menu-items"></li>',
+            'mega-nav-top-menu-items': '<li class="mega-nav-top-menu-items" role="menuitem">menu item</li>',
         },
     };
 };
