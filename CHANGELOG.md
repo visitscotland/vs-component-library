@@ -1,3 +1,37 @@
+## [4.19.1](https://github.com/visitscotland/vs-component-library/compare/v4.19.0...v4.19.1) (2025-03-31)
+
+
+### Bug Fixes
+
+* **tabs:** adjust tab display on desktop ([366b130](https://github.com/visitscotland/vs-component-library/commit/366b130c524c9a46aebb3f95e30bb1f6c8708758))
+* **tabs:** tab height on small mobile ([2bf0a8e](https://github.com/visitscotland/vs-component-library/commit/2bf0a8ed5266c9fabc459d5e2325a91ba9cd9b97))
+
+# [4.19.0](https://github.com/visitscotland/vs-component-library/compare/v4.18.1...v4.19.0) (2025-03-27)
+
+
+### Bug Fixes
+
+* **hero:** only show video control when videoSrc is passed ([ec83520](https://github.com/visitscotland/vs-component-library/commit/ec835201fe247db3a40be3e0fe9f6c3f2bb5c700))
+* **hero:** update hero video control test for updated icon ([dbbefbb](https://github.com/visitscotland/vs-component-library/commit/dbbefbbf9e22a6719052def49b26df37d18194b9))
+
+
+### Features
+
+* **hero:** add toggle control for video in hero ([f29f8a5](https://github.com/visitscotland/vs-component-library/commit/f29f8a5db680ff7dfc99619d27509cf5dca1b293))
+* **hero:** hide video from screen readers ([3dbcc68](https://github.com/visitscotland/vs-component-library/commit/3dbcc68deb3f3d60129d0d2b1c1884ba9c9d3a3c))
+* **hero:** update hero video control colours and hero video example ([5d1b0fc](https://github.com/visitscotland/vs-component-library/commit/5d1b0fcab025bf8f46b14ccbdc84f79ff00d8ba3))
+* **hero:** update hero video control to use new pause icon ([9a0b108](https://github.com/visitscotland/vs-component-library/commit/9a0b1082d6dc86fcb896580604dc3e0dbd7c16f1))
+
+## [4.18.1](https://github.com/visitscotland/vs-component-library/compare/v4.18.0...v4.18.1) (2025-03-27)
+
+
+### Bug Fixes
+
+* **article:** add ability to override heading style ([20e265a](https://github.com/visitscotland/vs-component-library/commit/20e265a6ad417a15aca8f7d79695926a1e62a6fb))
+* **megalinks:** add ability to override heading level and style ([71d6e63](https://github.com/visitscotland/vs-component-library/commit/71d6e63986db51bd5bd4a66a31ad81581e24b5af))
+* **meganav:** update aria role so that they work with all combinations of the menu ([c1c905f](https://github.com/visitscotland/vs-component-library/commit/c1c905f644a91435b52cba29498a61f75b9ec13a))
+* **module wrapper:** add ability to override heading style ([bdbef28](https://github.com/visitscotland/vs-component-library/commit/bdbef28941ca25a8766682c29f37a77d64e8738b))
+
 # [4.18.0](https://github.com/visitscotland/vs-component-library/compare/v4.17.0...v4.18.0) (2025-03-25)
 
 
