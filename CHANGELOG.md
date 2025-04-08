@@ -1,3 +1,10 @@
+## [4.19.3](https://github.com/visitscotland/vs-component-library/compare/v4.19.2...v4.19.3) (2025-04-08)
+
+
+### Bug Fixes
+
+* **input,meganav,sitesearchform:** remove clear button props, add and style native clear ([8d4e8f3](https://github.com/visitscotland/vs-component-library/commit/8d4e8f309efda22ec418916961aa4e296763c004))
+
 ## [4.19.2](https://github.com/visitscotland/vs-component-library/compare/v4.19.1...v4.19.2) (2025-04-08)
 
 
