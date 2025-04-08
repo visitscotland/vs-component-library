@@ -34,7 +34,6 @@
                                 type="search"
                                 field-name="site-search"
                                 :placeholder="labelText"
-                                :clear-button-text="clearButtonText"
                                 :auto-complete="false"
                                 @updated="updateVal"
                             />
@@ -118,6 +117,7 @@ export default {
         },
         /**
          * Text that renders inside the clear button (visually-hidden)
+         * DEPRECATED
          */
         clearButtonText: {
             type: String,
@@ -229,7 +229,6 @@ export default {
     }
 
     .vs-input--site-search.form-control {
-        @extend %reset-clear;
         font-size: $font-size-body;
         height: 50px;
         padding: $spacer-075 $spacer-125 $spacer-075 2.5rem;
@@ -241,7 +240,7 @@ export default {
         }
 
         @include media-breakpoint-up(lg) {
-            padding: $spacer-100 $spacer-400;
+            padding: $spacer-100 $spacer-100 $spacer-100 $spacer-400;
             font-size: $font-size-6;
             height: 64px;
         }

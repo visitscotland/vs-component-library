@@ -32,7 +32,7 @@
             :type="type"
             class="vs-input"
             v-model="inputVal"
-            :class="elementClass"
+            :class="[!!inputVal ? 'show-cancel' : '', elementClass]"
             :id="fieldName"
             :name="name ? name : fieldName"
             :placeholder="placeholder"
@@ -374,5 +374,14 @@ export default {
         top: 50%;
         transform: translate(0, -50%);
     }
+}
+input[type="search"].show-cancel::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    display: block;
+    opacity: 1 !important;
+    width: 16px;
+    height: 16px;
+    background-image: url(data:image/svg+xml;base64,DQo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDM4NCA1MTIiIGZpbGw9IiMxZjQ5ZDYiPjxwYXRoIGQ9Ik0zNDIuNiAxNTAuNmMxMi41LTEyLjUgMTIuNS0zMi44IDAtNDUuM3MtMzIuOC0xMi41LTQ1LjMgMEwxOTIgMjEwLjcgODYuNiAxMDUuNGMtMTIuNS0xMi41LTMyLjgtMTIuNS00NS4zIDBzLTEyLjUgMzIuOCAwIDQ1LjNMMTQ2LjcgMjU2IDQxLjQgMzYxLjRjLTEyLjUgMTIuNS0xMi41IDMyLjggMCA0NS4zczMyLjggMTIuNSA0NS4zIDBMMTkyIDMwMS4zIDI5Ny40IDQwNi42YzEyLjUgMTIuNSAzMi44IDEyLjUgNDUuMyAwczEyLjUtMzIuOCAwLTQ1LjNMMjM3LjMgMjU2IDM0Mi42IDE1MC42eiIvPjwvc3ZnPg0K);
+    background-repeat: no-repeat;
 }
 </style>
