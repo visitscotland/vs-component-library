@@ -1,3 +1,10 @@
+## [4.19.2](https://github.com/visitscotland/vs-component-library/compare/v4.19.1...v4.19.2) (2025-04-08)
+
+
+### Bug Fixes
+
+* **font awesome:** add missing icons ([dc7c5c3](https://github.com/visitscotland/vs-component-library/commit/dc7c5c330631a010ee57179ac9b52f7fb7578cae))
+
 ## [4.19.1](https://github.com/visitscotland/vs-component-library/compare/v4.19.0...v4.19.1) (2025-03-31)
 
 
