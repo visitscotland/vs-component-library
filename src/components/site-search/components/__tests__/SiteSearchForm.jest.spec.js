@@ -12,7 +12,6 @@ function mountOptions(propsData) {
             ...propsData,
             labelText: 'What are you looking for?',
             submitButtonText: 'Search',
-            clearButtonText: 'Clear form',
             closeButtonText: 'Close search form',
         },
     };
@@ -45,12 +44,6 @@ describe('VsSiteSearchForm', () => {
             const wrapper = factoryShallowMount();
             const searchBtn = wrapper.find('.vs-site-search-form__search-button');
             expect(searchBtn.text()).toContain('Search');
-        });
-
-        it('should display `clearButtonText` within the submit button', () => {
-            const wrapper = factoryShallowMount();
-            const input = wrapper.find('vs-input-stub');
-            expect(input.attributes('clearbuttontext')).toBe('Clear form');
         });
 
         it('should display `closeButtonText` within the submit button', () => {

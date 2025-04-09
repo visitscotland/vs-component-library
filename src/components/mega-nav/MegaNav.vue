@@ -96,7 +96,6 @@
             :is-showing="showSearch"
             :label-text="searchLabelText"
             :submit-button-text="searchButtonText"
-            :clear-button-text="searchClearButtonText"
             :close-button-text="searchCloseButtonText"
         />
     </div>
