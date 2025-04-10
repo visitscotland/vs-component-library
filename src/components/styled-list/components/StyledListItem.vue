@@ -20,6 +20,7 @@
                 <VsHeading
                     :level="props.headingLevel"
                     heading-style="heading-xxs"
+                    :id="anchorLink ? anchorLink : ''"
                 >
                     {{ heading }}
                 </VsHeading>
@@ -73,6 +74,13 @@ const props = defineProps({
         type: String,
         default: 'icon',
         validator: (value) => ['icon', 'image', 'image-horizontal', 'numbered'].includes(value),
+    },
+    /**
+     * ID of the anchor link if needed
+     */
+    anchorLink: {
+        type: String,
+        default: '',
     },
 });
 </script>
