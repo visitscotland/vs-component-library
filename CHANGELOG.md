@@ -1,3 +1,10 @@
+## [4.20.1](https://github.com/visitscotland/vs-component-library/compare/v4.20.0...v4.20.1) (2025-04-14)
+
+
+### Bug Fixes
+
+* **megalinks:** fixed bug where video play button was misaligned with image ([aae2add](https://github.com/visitscotland/vs-component-library/commit/aae2add601084546c1fca6537f20492572c8db84))
+
 # [4.20.0](https://github.com/visitscotland/vs-component-library/compare/v4.19.3...v4.20.0) (2025-04-10)
 
 
