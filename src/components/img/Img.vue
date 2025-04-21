@@ -124,7 +124,7 @@ export default {
 
             try {
                 const parsedUrl = new URL(this.src);
-                const allowedHosts = ['www.visitscotland.com', 'www.visitscotland.og'];
+                const allowedHosts = ['www.visitscotland.com', 'www.visitscotland.org', 'cimg.visitscotland.com'];
 
                 if (allowedHosts.includes(parsedUrl.host)) {
                     return `https://d2mq8p11a67q50.cloudfront.net/?asset=${ encodeURI(this.src)}`;

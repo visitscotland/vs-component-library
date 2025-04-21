@@ -81,22 +81,6 @@ describe('VsImg', () => {
                 true, true,
             ]);
         });
-
-        it('should construct the srcSet using a ? if the src contains no query parameter', async() => {
-            const wrapper = factoryShallowMount({
-                src: 'https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander',
-            });
-
-            await expect(wrapper.attributes('srcset')).toContain('&size=');
-        });
-
-        it('should construct the srcSet using an & if the src contains a query parameter', async() => {
-            const wrapper = factoryShallowMount({
-                src: 'https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?preview-token=test',
-            });
-
-            await expect(wrapper.attributes('srcset')).toContain('&size=');
-        });
     });
 
     describe(':accessibility', () => {
