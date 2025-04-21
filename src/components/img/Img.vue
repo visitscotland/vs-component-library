@@ -122,8 +122,17 @@ export default {
                 return this.src;
             }
 
-            if (this.src.indexOf('visitscotland.com') !== -1 || this.src.indexOf('visitscotland.og') !== -1) {
-                return `https://d2mq8p11a67q50.cloudfront.net/?asset=${ encodeURI(this.src)}`;
+            try {
+                const parsedUrl = new URL(this.src);
+                const allowedHosts = ['www.visitscotland.com', 'www.visitscotland.og'];
+
+                if (allowedHosts.includes(parsedUrl.host)) {
+                    return `https://d2mq8p11a67q50.cloudfront.net/?asset=${ encodeURI(this.src)}`;
+                }
+
+                return this.src;
+            } catch (e) {
+                console.error('Invalid URL:', this.src);
             }
 
             return this.src;
