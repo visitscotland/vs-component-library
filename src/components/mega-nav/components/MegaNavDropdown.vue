@@ -2,6 +2,7 @@
     <div
         class="vs-mega-nav-dropdown"
         data-test="vs-mega-nav-dropdown"
+        role="menuitem"
     >
         <BDropdown
             variant="transparent"

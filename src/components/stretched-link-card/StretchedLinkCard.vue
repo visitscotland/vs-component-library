@@ -35,9 +35,30 @@
                     :src="imgSrc"
                     :alt="imgAlt"
                     class="vs-stretched-link-card__img"
+                    :class="isSvg ? 'vs-stretched-link-card__img--svg' : ''"
                     data-test="vs-stretched-link-card__img"
                     data-chromatic="ignore"
                 />
+
+                <VsButton
+                    class="vs-stretched-link-card__video-button"
+                    data-test="vs-stretched-link-card__video-button"
+                    icon="play"
+                    icon-position="left"
+                    size="md"
+                    ref="videoShow"
+                    :rounded="false"
+                    @click="emitShowModal"
+                    v-if="videoId && videoLoaded"
+                >
+                    <span
+                        class="vs-stretched-link-card__video-btn-text"
+                        v-if="videoBtnText"
+                    >
+                        {{ formattedVideoBtnText }}
+                    </span>
+                    {{ formattedVideoDuration }}
+                </VsButton>
             </template>
 
             <VsWarning
@@ -70,29 +91,8 @@
 
         <div
             class="card-body"
-            :class="videoId ? 'position-relative' : ''"
             v-if="showWarning !== 'full'"
         >
-            <VsButton
-                class="vs-stretched-link-card__video-button"
-                data-test="vs-stretched-link-card__video-button"
-                icon="play"
-                icon-position="left"
-                size="md"
-                ref="videoShow"
-                :rounded="false"
-                @click="emitShowModal"
-                v-if="videoId && videoLoaded"
-            >
-                <span
-                    class="vs-stretched-link-card__video-btn-text"
-                    v-if="videoBtnText"
-                >
-                    {{ formattedVideoBtnText }}
-                </span>
-                {{ formattedVideoDuration }}
-            </VsButton>
-
             <span
                 class="vs-stretched-link-card__category"
                 v-if="$slots['stretched-card-category'] && $slots['stretched-card-category']()"
@@ -398,6 +398,13 @@ export default {
 
             return attrsObj;
         },
+        isSvg() {
+            if (this.imgSrc && this.imgSrc.includes('.svg')) {
+                return true;
+            }
+
+            return false;
+        },
     },
     mounted() {
         // Checks whether js is disabled, to display an appropriate warning to the user
@@ -467,6 +474,10 @@ export default {
                 object-fit: cover;
                 align-self: flex-start;
                 flex-shrink: 0; // IE11 fix, prevents image vertical stretching
+
+                &--svg {
+                    object-fit: contain;
+                }
             }
         }
 

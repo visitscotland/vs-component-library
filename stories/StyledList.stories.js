@@ -36,6 +36,7 @@ const Template = (args) => ({
                 :imageSrc="item.imageSrc ? item.imageSrc : null"
                 :variant="args.variant"
                 :heading-level="args.headingLevel"
+                :anchor-link="item.anchorLink ? item.anchorLink : null"
             >
                 <div v-html="item.content" />
             </VsStyledListItem>
@@ -58,6 +59,7 @@ WithIcon.args = {
     listItems: [
         {
             heading: 'Showcase your excellence',
+            anchorLink: 'showcase-your-excellence',
             content: `
                 <p>Being a Taste Our Best business means that you can be easily identified as a provider of high quality, locally sourced food and drink. This is something that we'll help support throughout our marketing.</p>
             `,

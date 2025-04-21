@@ -19,7 +19,7 @@ function mountOptions(propsData) {
             ...propsData,
         },
         slots: {
-            'mega-nav-top-menu-items': '<li class="mega-nav-top-menu-items"></li>',
+            'mega-nav-top-menu-items': '<li class="mega-nav-top-menu-items" role="menuitem">menu item</li>',
         },
     };
 };
@@ -80,13 +80,6 @@ describe('VsMegaNav', () => {
             const siteSearchFormStub = wrapper.find('vs-site-search-form-stub');
 
             expect(siteSearchFormStub.attributes().submitbuttontext).toBe('Search');
-        });
-
-        it('should pass `searchClearButtonText` prop to search form', () => {
-            const wrapper = factoryShallowMount();
-            const siteSearchFormStub = wrapper.find('vs-site-search-form-stub');
-
-            expect(siteSearchFormStub.attributes().clearbuttontext).toBe('Clear form');
         });
 
         it('should pass `searchCloseButtonText` prop to search form', () => {

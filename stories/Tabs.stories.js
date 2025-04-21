@@ -33,7 +33,9 @@ const Template = (args) => ({
             :class="args.jsDisabled ? 'no-js' : ''"
         >
             <VsTabs v-bind="args">
-                <VsTabItem title="Getting Here">
+                <VsTabItem 
+                    title="Getting Here"
+                >
                     <div class="px-125 py-100">
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -45,7 +47,9 @@ const Template = (args) => ({
                         </p>
                     </div>
                 </VsTabItem>
-                <VsTabItem title="Getting Around">
+                <VsTabItem 
+                    title="Getting Around"
+                >
                     <div class="px-125 py-100">
                     <p>
                         Duis feugiat, turpis vitae congue lacinia, purus orci
@@ -110,4 +114,12 @@ export const NoJavascript = Template.bind({
 NoJavascript.args = {
     ...base,
     jsDisabled: true,
+};
+
+export const NoContainer = Template.bind({
+});
+
+NoContainer.args = {
+    ...base,
+    noContainer: true,
 };

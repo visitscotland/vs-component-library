@@ -20,6 +20,7 @@
                 <VsHeading
                     :level="props.headingLevel"
                     heading-style="heading-xxs"
+                    :id="anchorLink ? anchorLink : ''"
                 >
                     {{ heading }}
                 </VsHeading>
@@ -74,13 +75,20 @@ const props = defineProps({
         default: 'icon',
         validator: (value) => ['icon', 'image', 'image-horizontal', 'numbered'].includes(value),
     },
+    /**
+     * ID of the anchor link if needed
+     */
+    anchorLink: {
+        type: String,
+        default: '',
+    },
 });
 </script>
 
 <style lang="scss">
     .vs-styled-list--icon
     .vs-styled-list__item {
-        padding: $spacer-0 $spacer-0 $spacer-150 $spacer-300;
+        padding-left: $spacer-300;
         position: relative;
 
         &::before {
