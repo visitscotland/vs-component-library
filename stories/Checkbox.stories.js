@@ -104,55 +104,6 @@ Invalid.play = async({ canvasElement }) => {
     });
 };
 
-const GroupTemplate = (args) => ({
-    components: {
-        VsCheckbox,
-    },
-    setup() {
-        return {
-            args,
-        };
-    },
-    template: `
-        <fieldset>
-            <VsCheckbox
-                v-for="item in args.items"
-                :key="item.fieldName"
-                v-bind="item"
-            >
-            </VsCheckbox>
-        </fieldset>
-    `,
-});
-
-export const CheckboxGroup = GroupTemplate.bind({
-});
-
-CheckboxGroup.args = {
-    items: [
-        {
-            ...Default.args,
-            fieldName: 'bus',
-            label: 'Bus',
-        },
-        {
-            ...Default.args,
-            fieldName: 'train',
-            label: 'Train',
-        },
-        {
-            ...Default.args,
-            fieldName: 'car',
-            label: 'Car',
-        },
-        {
-            ...Default.args,
-            fieldName: 'walking',
-            label: 'Walking',
-        },
-    ],
-};
-
 export const SmallSize = Template.bind();
 SmallSize.args = {
     ...base,
