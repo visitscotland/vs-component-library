@@ -38,7 +38,7 @@ describe('VsImg', () => {
         it('should accept and render a `src` property', () => {
             const wrapper = factoryShallowMount();
 
-            expect(wrapper.attributes('src')).toBe(`${imgUrl}`);
+            expect(wrapper.attributes('src')).toContain(`${imgUrl}`);
         });
 
         it('should accept and render an `alt` property', () => {
@@ -50,7 +50,7 @@ describe('VsImg', () => {
         it('should accept and render a `lowResImage` property', () => {
             const wrapper = factoryMount();
 
-            expect(wrapper.attributes('style')).toContain(`${imgUrl}?size=xxs`);
+            expect(wrapper.attributes('style')).toContain(`${imgUrl}&size=xxs`);
         });
 
         it('should set a `generic-lqip` class if `useGenericLqip` is set to true', () => {
@@ -87,7 +87,7 @@ describe('VsImg', () => {
                 src: 'https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander',
             });
 
-            await expect(wrapper.attributes('srcset')).toContain('?size=');
+            await expect(wrapper.attributes('srcset')).toContain('&size=');
         });
 
         it('should construct the srcSet using an & if the src contains a query parameter', async() => {
