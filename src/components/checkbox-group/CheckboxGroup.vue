@@ -26,6 +26,7 @@
             </div>
 
             <BFormCheckboxGroup
+                v-if="fieldName"
                 :id="`checkbox-group-${fieldName}`"
                 v-model="selected"
                 :name="fieldName"
