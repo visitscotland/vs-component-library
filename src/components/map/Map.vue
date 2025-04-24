@@ -44,6 +44,17 @@
                 ref="mapbox"
             />
         </div>
+        <div
+            v-if="isRouteMap"
+            class="vs-map__route-controls pt-100"
+        >
+            <VsButton
+                @click="downloadRouteAsGpx"
+                icon="download-link"
+            >
+                Download as GPX
+            </VsButton>
+        </div>
         <VsWarning class="vs-map__no-js">
             <!-- @slot Message to show when JS is disabled  -->
             <slot name="no-js" />
@@ -54,6 +65,7 @@
 <script>
 import VsWarning from '@/components/warning/Warning.vue';
 import VsLoading from '@/components/loading-spinner/LoadingSpinner.vue';
+import VsButton from '@/components/button/Button.vue';
 import osBranding from '@/utils/os-branding';
 import { render, h } from 'vue';
 import { mapState } from 'pinia';
@@ -78,6 +90,7 @@ export default {
     components: {
         VsWarning,
         VsLoading,
+        VsButton,
     },
     props: {
         /**
@@ -180,6 +193,13 @@ export default {
         showMarkerPopups: {
             type: Boolean,
             default: true,
+        },
+        /**
+         * Whether the map is a route map or not, determines whether route download controls
+         */
+        isRouteMap: {
+            type: Boolean,
+            default: false,
         },
     },
     emits: [
@@ -373,8 +393,6 @@ export default {
                 this.isLoading = false;
                 this.$emit('map-ready', true);
                 this.mapbox.map.boxZoom.enable();
-
-                this.downloadRouteAsGpx();
             });
 
             this.mapbox.map.on('zoomend', () => {
@@ -1082,7 +1100,7 @@ export default {
 
             // @see https://stackoverflow.com/questions/10654971/create-text-file-from-string-using-js-and-html5
             const link = document.createElement('a');
-            link.download = 'geojson-to-gpx.gpx';
+            link.download = 'visitscotland-route.gpx';
             const blob = new Blob([gpxString], {
                 type: 'text/xml',
             });

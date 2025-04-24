@@ -65,6 +65,7 @@ WithRoute.args = {
     boundsData: {
         type: 'Route',
     },
+    isRouteMap: true,
 };
 
 export const NoJavascript = Template.bind({
