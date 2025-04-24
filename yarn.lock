@@ -1520,6 +1520,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@dwayneparton/geojson-to-gpx@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "@dwayneparton/geojson-to-gpx@npm:0.2.0"
+  checksum: 10c0/9fec48befe6ce68e7b5976d1a6214e309024322df8444f2a8b88160a0d359c1ea37953a1e7916227cd978f3e750b3d63ae48cbb0d024e40f0226263a4a0917ee
+  languageName: node
+  linkType: hard
+
 "@esbuild/aix-ppc64@npm:0.21.5":
   version: 0.21.5
   resolution: "@esbuild/aix-ppc64@npm:0.21.5"
@@ -4492,6 +4499,7 @@ __metadata:
     "@babel/preset-env": "npm:^7.23.2"
     "@babel/preset-react": "npm:7.12.13"
     "@chromatic-com/storybook": "npm:^3.2.2"
+    "@dwayneparton/geojson-to-gpx": "npm:^0.2.0"
     "@mapbox/geojson-extent": "npm:^1.0.1"
     "@originjs/vite-plugin-require-context": "npm:^1.0.9"
     "@pinia/testing": "npm:^0.1.3"

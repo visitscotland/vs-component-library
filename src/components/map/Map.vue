@@ -60,6 +60,7 @@ import { mapState } from 'pinia';
 import useMapStore from '@/stores/map.store';
 import mapboxgl from 'mapbox-gl';
 import geojsonExtent from '@mapbox/geojson-extent';
+import GeoJsonToGpx from '@dwayneparton/geojson-to-gpx';
 import VsMapMarker from './components/MapMarker.vue';
 
 let mapStore = null;
@@ -372,6 +373,8 @@ export default {
                 this.isLoading = false;
                 this.$emit('map-ready', true);
                 this.mapbox.map.boxZoom.enable();
+
+                this.downloadRouteAsGpx();
             });
 
             this.mapbox.map.on('zoomend', () => {
@@ -1061,6 +1064,30 @@ export default {
             }
 
             return boundingBox;
+        },
+        /**
+         * If the map has a route, download it as a gpx file
+         */
+        downloadRouteAsGpx() {
+            const gpx = GeoJsonToGpx(this.geojsonData, {
+                metadata: {
+                    name: 'A lovely walk around Scotland',
+                    author: {
+                        name: 'VisitScotland',
+                    },
+                },
+            });
+
+            const gpxString = new XMLSerializer().serializeToString(gpx);
+
+            // @see https://stackoverflow.com/questions/10654971/create-text-file-from-string-using-js-and-html5
+            const link = document.createElement('a');
+            link.download = 'geojson-to-gpx.gpx';
+            const blob = new Blob([gpxString], {
+                type: 'text/xml',
+            });
+            link.href = window.URL.createObjectURL(blob);
+            link.click();
         },
     },
 };
