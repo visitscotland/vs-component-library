@@ -56,6 +56,17 @@ export const Default = Template.bind({
 
 Default.args = base;
 
+export const WithRoute = Template.bind({
+});
+
+WithRoute.args = {
+    ...base,
+    places: placesData.routeFeatures,
+    boundsData: {
+        type: 'Route',
+    },
+};
+
 export const NoJavascript = Template.bind({
 });
 

@@ -1977,5 +1977,33 @@
                 ]
             }
         }
+    ],
+    "routeFeatures": [
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "RouteOne"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [-4.2786, 55.8790],
+                    [-4.2715, 55.8641]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "title": "RouteTwo"
+            },
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [-4.2715, 55.8641],
+                    [-4.2770, 55.8520]
+                ]
+            }
+        }
     ]
 }

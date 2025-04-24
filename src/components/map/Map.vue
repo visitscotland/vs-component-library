@@ -367,6 +367,7 @@ export default {
 
             this.mapbox.map.on('load', () => {
                 this.addMapPolygons();
+                this.addMapRoutes();
                 this.showMapMessage = false;
                 this.isLoading = false;
                 this.$emit('map-ready', true);
@@ -543,6 +544,29 @@ export default {
             renderer.remove();
         },
         /**
+         * Adds a layer to the map for a route and renders it
+         */
+        createMapRoute(feature, title) {
+            this.mapbox.map.addSource(`route-${title}`, {
+                type: 'geojson',
+                data: feature,
+            });
+
+            this.mapbox.map.addLayer({
+                id: `route-${title}`,
+                type: 'line',
+                source: `route-${title}`,
+                layout: {
+                    'line-join': 'round',
+                    'line-cap': 'round',
+                },
+                paint: {
+                    'line-color': '#FFA500',
+                    'line-width': 8,
+                },
+            });
+        },
+        /**
          * Hide all polygons
          */
         hideMapPolygons() {
@@ -555,6 +579,16 @@ export default {
         showMapPolygons() {
             this.mapbox.map.setLayoutProperty('regionFills', 'visibility', 'visible');
             this.mapbox.map.setLayoutProperty('regionBorders', 'visibility', 'visible');
+        },
+        /**
+         * Add routes from data into the map
+         */
+        addMapRoutes() {
+            this.geojsonData.features.forEach((feature) => {
+                if (feature.geometry.type === 'LineString') {
+                    this.createMapRoute(feature, feature.properties ? feature.properties.title : '');
+                }
+            });
         },
         /**
          * Add polygons from data into map
@@ -935,6 +969,46 @@ export default {
             /* eslint-enable arrow-body-style */
         },
         /**
+         * Adds padding to a bounds object
+         */
+        padBounds(bounds, paddingFraction = 0.1) {
+            const sw = bounds.getSouthWest();
+            const ne = bounds.getNorthEast();
+
+            const latDiff = ne.lat - sw.lat;
+            const lngDiff = ne.lng - sw.lng;
+
+            const padLat = latDiff * paddingFraction;
+            const padLng = lngDiff * paddingFraction;
+
+            return new mapboxgl.LngLatBounds(
+                [sw.lng - padLng, sw.lat - padLat],
+                [ne.lng + padLng, ne.lat + padLat],
+            );
+        },
+        /**
+         * Creates a map bounding object from route data
+         */
+        getBoundsFromRoute() {
+            const routeCoords = this.places.map(
+                (place) => {
+                    if (place.geometry.type === 'LineString') {
+                        return place.geometry.coordinates;
+                    }
+                    return null;
+                },
+            );
+
+            const flatRouteCoords = routeCoords.flat();
+
+            const bounds = flatRouteCoords.reduce(
+                (b, coord) => b.extend(coord),
+                new mapboxgl.LngLatBounds(flatRouteCoords[0], flatRouteCoords[0]),
+            );
+
+            return this.padBounds(bounds, 0.1);
+        },
+        /**
          * Check a marker is visible on the map
          */
         checkPointIsVisible() {
@@ -977,6 +1051,8 @@ export default {
                 boundingBox = new mapboxgl.LngLatBounds(southWest, northEast);
             } else if (this.boundsData.type === 'Polygon') {
                 boundingBox = this.getBoundsFromPolygon();
+            } else if (this.boundsData.type === 'Route') {
+                boundingBox = this.getBoundsFromRoute();
             } else {
                 boundingBox = [
                     [-7.555827, 54.608836], // south-west point.
