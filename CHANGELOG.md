@@ -1,3 +1,119 @@
+## [4.20.1](https://github.com/visitscotland/vs-component-library/compare/v4.20.0...v4.20.1) (2025-04-14)
+
+
+### Bug Fixes
+
+* **megalinks:** fixed bug where video play button was misaligned with image ([aae2add](https://github.com/visitscotland/vs-component-library/commit/aae2add601084546c1fca6537f20492572c8db84))
+
+# [4.20.0](https://github.com/visitscotland/vs-component-library/compare/v4.19.3...v4.20.0) (2025-04-10)
+
+
+### Features
+
+* **styled lists:** allow anchor links to styled list items ([f682ea0](https://github.com/visitscotland/vs-component-library/commit/f682ea07ad57263989ad06037880db87f5e36fb4))
+
+## [4.19.3](https://github.com/visitscotland/vs-component-library/compare/v4.19.2...v4.19.3) (2025-04-08)
+
+
+### Bug Fixes
+
+* **input,meganav,sitesearchform:** remove clear button props, add and style native clear ([8d4e8f3](https://github.com/visitscotland/vs-component-library/commit/8d4e8f309efda22ec418916961aa4e296763c004))
+
+## [4.19.2](https://github.com/visitscotland/vs-component-library/compare/v4.19.1...v4.19.2) (2025-04-08)
+
+
+### Bug Fixes
+
+* **font awesome:** add missing icons ([dc7c5c3](https://github.com/visitscotland/vs-component-library/commit/dc7c5c330631a010ee57179ac9b52f7fb7578cae))
+
+## [4.19.1](https://github.com/visitscotland/vs-component-library/compare/v4.19.0...v4.19.1) (2025-03-31)
+
+
+### Bug Fixes
+
+* **tabs:** adjust tab display on desktop ([366b130](https://github.com/visitscotland/vs-component-library/commit/366b130c524c9a46aebb3f95e30bb1f6c8708758))
+* **tabs:** tab height on small mobile ([2bf0a8e](https://github.com/visitscotland/vs-component-library/commit/2bf0a8ed5266c9fabc459d5e2325a91ba9cd9b97))
+
+# [4.19.0](https://github.com/visitscotland/vs-component-library/compare/v4.18.1...v4.19.0) (2025-03-27)
+
+
+### Bug Fixes
+
+* **hero:** only show video control when videoSrc is passed ([ec83520](https://github.com/visitscotland/vs-component-library/commit/ec835201fe247db3a40be3e0fe9f6c3f2bb5c700))
+* **hero:** update hero video control test for updated icon ([dbbefbb](https://github.com/visitscotland/vs-component-library/commit/dbbefbbf9e22a6719052def49b26df37d18194b9))
+
+
+### Features
+
+* **hero:** add toggle control for video in hero ([f29f8a5](https://github.com/visitscotland/vs-component-library/commit/f29f8a5db680ff7dfc99619d27509cf5dca1b293))
+* **hero:** hide video from screen readers ([3dbcc68](https://github.com/visitscotland/vs-component-library/commit/3dbcc68deb3f3d60129d0d2b1c1884ba9c9d3a3c))
+* **hero:** update hero video control colours and hero video example ([5d1b0fc](https://github.com/visitscotland/vs-component-library/commit/5d1b0fcab025bf8f46b14ccbdc84f79ff00d8ba3))
+* **hero:** update hero video control to use new pause icon ([9a0b108](https://github.com/visitscotland/vs-component-library/commit/9a0b1082d6dc86fcb896580604dc3e0dbd7c16f1))
+
+## [4.18.1](https://github.com/visitscotland/vs-component-library/compare/v4.18.0...v4.18.1) (2025-03-27)
+
+
+### Bug Fixes
+
+* **article:** add ability to override heading style ([20e265a](https://github.com/visitscotland/vs-component-library/commit/20e265a6ad417a15aca8f7d79695926a1e62a6fb))
+* **megalinks:** add ability to override heading level and style ([71d6e63](https://github.com/visitscotland/vs-component-library/commit/71d6e63986db51bd5bd4a66a31ad81581e24b5af))
+* **meganav:** update aria role so that they work with all combinations of the menu ([c1c905f](https://github.com/visitscotland/vs-component-library/commit/c1c905f644a91435b52cba29498a61f75b9ec13a))
+* **module wrapper:** add ability to override heading style ([bdbef28](https://github.com/visitscotland/vs-component-library/commit/bdbef28941ca25a8766682c29f37a77d64e8738b))
+
+# [4.18.0](https://github.com/visitscotland/vs-component-library/compare/v4.17.0...v4.18.0) (2025-03-25)
+
+
+### Bug Fixes
+
+* **sticky nav:** ensure skip to is on screen if focussed ([abfc686](https://github.com/visitscotland/vs-component-library/commit/abfc6866e5a829cf9dc535d1eff66517ff21056d))
+
+
+### Features
+
+* **skip to:** add landmark id to hero section heading ([5fc2e99](https://github.com/visitscotland/vs-component-library/commit/5fc2e9964a24fd558d0be298d3c099ca5df6f8c5))
+
+# [4.17.0](https://github.com/visitscotland/vs-component-library/compare/v4.16.1...v4.17.0) (2025-03-25)
+
+
+### Features
+
+* **heading and megallinks:** added `id` prop to VsHeading and `sectionId` prop to VsMegalink ([e769c13](https://github.com/visitscotland/vs-component-library/commit/e769c134636a4af2eabe6374552d8b75bab14d1a))
+
+## [4.16.1](https://github.com/visitscotland/vs-component-library/compare/v4.16.0...v4.16.1) (2025-03-24)
+
+
+### Bug Fixes
+
+* **filter section:** remove width from date input ([5ffd793](https://github.com/visitscotland/vs-component-library/commit/5ffd793fd3c3ecc743bca8ef2c0be1eff609dc25))
+
+# [4.16.0](https://github.com/visitscotland/vs-component-library/compare/v4.15.0...v4.16.0) (2025-03-20)
+
+
+### Features
+
+* **global menu:** remove site navigation from global nav ([6e09616](https://github.com/visitscotland/vs-component-library/commit/6e09616e3429b40656ee77bbe7d9bf916e046fca))
+
+# [4.15.0](https://github.com/visitscotland/vs-component-library/compare/v4.14.0...v4.15.0) (2025-03-19)
+
+
+### Features
+
+* **tabs:** add datalayer tracking for tab click event ([342752b](https://github.com/visitscotland/vs-component-library/commit/342752bbfe0cf7dc66d1d9f1f4bf7e3858bae7f9))
+
+# [4.14.0](https://github.com/visitscotland/vs-component-library/compare/v4.13.13...v4.14.0) (2025-03-18)
+
+
+### Bug Fixes
+
+* **articles:** remove spacing in all cases ([04496c4](https://github.com/visitscotland/vs-component-library/commit/04496c4d942a52ef04ee261f90f36240683cf637))
+* **article:** switch to spacer ([5aabf7d](https://github.com/visitscotland/vs-component-library/commit/5aabf7d0d5c59cb8142ec6c92065e4b4ad3b8cae))
+* **stories:** add missing > ([7d41884](https://github.com/visitscotland/vs-component-library/commit/7d41884384ef39377405ed89bf5dc91693ac7c58))
+
+
+### Features
+
+* **article:** reduce spacing above vs-heading at top of article if no intro above ([e7266c8](https://github.com/visitscotland/vs-component-library/commit/e7266c84cdcd64289a87b381ccf5d8ee8686b98b))
+
 ## [4.13.13](https://github.com/visitscotland/vs-component-library/compare/v4.13.12...v4.13.13) (2025-03-11)
 
 

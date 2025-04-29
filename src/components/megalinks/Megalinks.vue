@@ -17,10 +17,11 @@
                         data-test="vs-megalinks__intro"
                     >
                         <VsHeading
-                            level="2"
-                            heading-style="heading-xl"
+                            :level="headingLevel"
+                            :heading-style="headingStyle"
                             class="vs-megalinks__heading"
                             data-test="vs-megalinks__heading"
+                            :id="sectionId"
                         >
                             {{ title }}
                         </VsHeading>
@@ -61,6 +62,7 @@
 </template>
 
 <script>
+import { isNumber } from 'lodash';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsButton from '@/components/button/Button.vue';
 import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
@@ -100,6 +102,14 @@ export default {
         * Title for the megalinks component
         */
         title: {
+            type: String,
+            required: false,
+            default: null,
+        },
+        /**
+        * ID for the section heading; can be used as anchor link
+        */
+        sectionId: {
             type: String,
             required: false,
             default: null,
@@ -152,6 +162,28 @@ export default {
         cookieLinkText: {
             type: String,
             default: '',
+        },
+        /**
+        * The correct heading level for page hierarchy, the
+        * heading will be styled the same regardless of level provided
+        * `1|2|3|4|5|6`
+        */
+        headingLevel: {
+            type: Number,
+            default: 2,
+            validator: (value) => (isNumber(value) ? value > 0 && value < 7 : value.match(/(1|2|3|4|5|6)/)),
+        },
+        /**
+         * The heading style used for the heading.
+         * `display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|
+         * heading-l|heading-m|heading-s|heading-xs|heading-xxs`
+         */
+        headingStyle: {
+            type: String,
+            default: 'heading-xl',
+            validator: (value) => value.match(
+                /(display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs|heading-xxxs)/,
+            ),
         },
     },
     computed: {

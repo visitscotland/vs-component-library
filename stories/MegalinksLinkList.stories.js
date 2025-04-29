@@ -52,6 +52,9 @@ const Template = (args) => ({
             :noJsMessage="args.noJsMessage"
             :noCookiesMessage="args.noCookiesMessage"
             :cookieLinkText="args.cookieLinkText"
+            :sectionId="args.sectionId"
+            :heading-level="args.headingLevel"
+            :heading-style="args.headingStyle"
         >
             <template v-slot:vs-megalinks-intro>
                 <p>{{ args.megalinksIntro }}</p>
@@ -121,6 +124,7 @@ const megalinksIntro = `From the rugged coastline to sparkling city lights,
 
 const base = {
     mainTitle: 'More inspiration for your next adventure',
+    sectionId: 'more-inspiration-for-your-next-adventure',
     buttonLink: '#',
     buttonText: 'Get more inspiration',
     megalinksIntro,

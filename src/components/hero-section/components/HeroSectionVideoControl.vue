@@ -3,9 +3,10 @@
         icon-only
         class="vs-hero-section-video-control"
         data-test="vs-hero-section-video-control"
-        :icon=" isPlaying ? 'play-filled' : 'play'"
+        :icon=" isPlaying ? 'pause-regular' : 'play'"
         @click="toggleVideo"
     >
+        <!-- Slot for visiblly hidden screen reader text -->
         <slot />
     </VsButton>
 </template>
@@ -53,10 +54,15 @@ export default {
     .vs-hero-section-video-control {
         &.vs-button{
             @include vs-button-variant(
-                $vs-color-text-inverse, $vs-color-background-bold, transparent,
-                $vs-color-text-inverse, transparent, transparent,
-                $vs-color-text-inverse, transparent, transparent,
+                $vs-color-text-inverse, #200F2E, transparent,
+                $vs-color-text-inverse, $vs-color-interaction-cta-hover, transparent,
+                $vs-color-text-inverse, $vs-color-interaction-cta-pressed, transparent,
             );
+
+            &:focus {
+                background-color: $vs-color-interaction-cta-primary;
+                @extend %primary-button-focus;
+            }
         }
     }
 </style>

@@ -83,6 +83,26 @@ describe('VsArticle', () => {
 
             expect(h2.exists()).toBe(true);
         });
+
+        it(':headingStyle - changes the default headingStyle renders by default', () => {
+            const headingStyle = 'heading-xl';
+
+            const heading = wrapper.find(`.vs-heading--${headingStyle}`);
+
+            expect(heading.exists()).toBe(true);
+        });
+
+        it(':headingStyle - changes the heading style to the value passed', async() => {
+            const headingStyle = 'heading-m';
+
+            await wrapper.setProps({
+                headingStyle,
+            });
+
+            const heading = wrapper.find(`.vs-heading--${headingStyle}`);
+
+            expect(heading.exists()).toBe(true);
+        });
     });
 
     describe(':slots', () => {

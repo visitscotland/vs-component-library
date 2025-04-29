@@ -79,9 +79,9 @@ export default {
         }
 
         .nav-item {
+            display: flex;
             margin: $spacer-0 $spacer-025;
             text-wrap: wrap;
-            align-self: flex-end;
             flex-direction: row;
             flex-wrap: nowrap;
         }
@@ -103,6 +103,13 @@ export default {
                 color: $vs-color-text-primary;
                 text-align: left;
                 border-top: 1px solid $vs-color-border-primary;
+            }
+        }
+
+        @include media-breakpoint-up(lg) {
+            .nav-item {
+                align-self: flex-end;
+                display: block;
             }
         }
     }

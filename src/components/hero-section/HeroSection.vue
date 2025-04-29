@@ -31,6 +31,7 @@
                     :poster="src"
                     class="vs-hero-section__video"
                     ref="heroVideo"
+                    aria-hidden="true"
                 >
                     <source
                         :src="videoSrc"
@@ -52,6 +53,7 @@
                         data-test="vs-hero-section__heading"
                         level="1"
                         heading-style="display-xs"
+                        id="main-heading"
                     >
                         <span v-html="heading" />
                     </VsHeading>
@@ -69,6 +71,7 @@
                 </div>
 
                 <VsHeroSectionVideoControl
+                    v-if="videoSrc"
                     video-btn-text="Toggle video"
                     @video-toggled="onToggleVideo"
                 >

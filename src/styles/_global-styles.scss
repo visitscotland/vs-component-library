@@ -28,7 +28,13 @@ hr {
     top: -28px;
 
     @include media-breakpoint-up(md) {
-        top: -35px;
+        top: -36px;
+    }
+
+    // If the skip to bar is focussed, stop trying to hide the global menu as this cuts the skip to
+    // in half
+    &:has(.vs-skip-to:focus-within) {
+        top: 0;
     }
 }
 
