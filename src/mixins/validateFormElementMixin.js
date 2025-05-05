@@ -15,6 +15,7 @@ const validateFormElementMixin = {
             isInvalid: this.invalid,
         };
     },
+    emits: ['status-update'],
     computed: {
         /**
          * calculate whether element is required

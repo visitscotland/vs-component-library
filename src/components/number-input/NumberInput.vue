@@ -101,7 +101,7 @@ import ariaDescriptionMixin from '../../mixins/ariaDescriptionMixin';
  */
 
 export default {
-    name: 'VsInput',
+    name: 'VsNumberInput',
     status: 'prototype',
     release: '0.0.1',
     components: {
@@ -339,6 +339,8 @@ export default {
             }
 
             this.inputVal = Math.max(this.inputVal - 1, this.minimumNumber);
+
+            this.validateErrors();
         },
         /**
          * If the input value is a number, increment it by one up to the maximum value
@@ -349,6 +351,8 @@ export default {
             }
 
             this.inputVal = Math.min(this.inputVal + 1, this.maximumNumber);
+
+            this.validateErrors();
         },
     },
     validations() {

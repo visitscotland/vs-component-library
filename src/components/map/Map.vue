@@ -583,7 +583,7 @@ export default {
                 },
                 paint: {
                     'line-color': '#FFA500',
-                    'line-width': 8,
+                    'line-width': 4,
                 },
             });
         },
