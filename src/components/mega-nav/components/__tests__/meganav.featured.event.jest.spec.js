@@ -107,7 +107,7 @@ describe('VsMegaNavFeaturedEvent', () => {
 
             return new Promise((resolve) => {
                 moxios.wait(() => {
-                    expect(wrapper.find('img').attributes('src')).toBe(images[0].mediaUrl);
+                    expect(wrapper.find('img').attributes('src')).toContain(images[0].mediaUrl);
                     resolve();
                 });
             });

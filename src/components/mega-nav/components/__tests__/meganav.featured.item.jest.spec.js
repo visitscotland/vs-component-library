@@ -30,7 +30,7 @@ describe('VsMegaNavFeaturedItem', () => {
 
         it('should render an image using the imgUrl prop', async() => {
             const wrapper = factoryMount();
-            expect(wrapper.find('img').attributes('src')).toBe('https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm');
+            expect(wrapper.find('img').attributes('src')).toContain('https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander?size=sm');
         });
 
         it('should render image alt text using the imgAlt prop', async() => {

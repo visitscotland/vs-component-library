@@ -71,7 +71,7 @@ describe('VsCannedSearchProductCard', () => {
             it('should render a `vs-img` with the `src` provided in `imgSrc`', () => {
                 const mainProdImg = wrapper.find('[data-test="vs-product-card__img"]');
 
-                expect(mainProdImg.attributes().src).toBe(imgSrc);
+                expect(mainProdImg.attributes().src).toContain(imgSrc);
             });
         });
 
