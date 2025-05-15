@@ -28,102 +28,166 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsCard v-bind="args" :horizontal="args.horizontal" :contentLink="args.contentLinkUrl" :style="args.horizontal ? 'width: 50rem;' : 'width: 20rem;' ">
-            <template v-slot:vs-card-media v-if="args.imageSrc">
+    <div :style="args.horizontal ? 'width: 100%;' : 'width: 20rem;' ">
+        <VsCard 
+            v-bind="args" 
+            :horizontal="args.horizontal" 
+            :contentLink="args.contentLinkUrl"
+        >
+            <template v-slot:vs-card-header>
                 <VsImg
+                    v-if="args.imageSrc"
                     :src="args.imageSrc"
+                    class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
                 />
+
+                <p v-if="args.header" class="px-100 mb-0">
+                    ${args.header}
+                </p>
             </template>
 
-            <template v-slot:vs-card-body v-if="args.body">
-                <VsRichTextWrapper>
+            <template v-slot:vs-card-body v-if="args.body || args.title">
+                <VsHeading
+                    v-if="args.title"
+                    level="3"
+                    heading-style="heading-s"
+                    class="px-100"
+                >
+                    <VsLink
+                        :href="args.contentLinkUrl"
+                        class="stretched-link"
+                        variant="secondary"
+                    >
+                        ${args.title}
+                    </VsLink>
+                </VsHeading>
+
+                <VsRichTextWrapper 
+                    v-if="args.body"
+                    class="px-100"
+                    :class="args.horizontal ? 'd-none d-sm-block' : ''"
+                >
                     ${args.body}
                 </VsRichTextWrapper>
             </template>
 
-            <template v-slot:vs-card-footer v-if="args.buttonText1 || args.buttonText2 || args.ctaUrl">
-                <VsButton variant="secondary" v-if="args.buttonText1" class="card-link">
-                    ${args.buttonText1}
-                </VsButton>
-
-                <VsButton v-if="args.buttonText2" class="card-link">
-                    ${args.buttonText2}
-                </VsButton>
-
-                <VsLink :href="args.ctaUrl" v-if="args.ctaUrl" class="card-link">
-                    ${args.ctaText}
-                </VsLink> 
+            <template v-slot:vs-card-footer v-if="args.footer">
+                <div class="px-100 pb-100">
+                    ${args.footer}
+                </div>
             </template>
         </VsCard>
+    </div>
     `,
 });
 
 const bodyText = `
-        <p>Supporting text can explain more about the topic the card is displaying.</p>
+        <p>Get a taste for Scotland and discover the country's mouth-watering food and drink.</p>
     `;
-const imgUrl = './fixtures/megalinks/illustrated-map-of-scotland.jpg';
+const imgUrl = './fixtures/megalinks/ashton-lane-wide.jpg';
 
-const clickableBase = {
-    title: 'Example heading',
+const cardBase = {
+    title: 'Scottish food & drink',
     contentLinkUrl: '#',
+};
+
+export const Default = Template.bind({
+});
+
+Default.args = {
+    ...cardBase,
+};
+
+Default.parameters = {
+    backgrounds: {
+        default: 'Grey',
+    },
+};
+
+export const Elevated = Template.bind({
+});
+
+Elevated.args = {
+    ...cardBase,
+    cardStyle: 'elevated',
+    fillColor: 'vs-color-background-primary',
     body: bodyText,
 };
 
-const staticBase = {
-    title: 'Example heading',
+Elevated.parameters = {
+    backgrounds: {
+        default: 'Grey',
+    },
+};
+
+export const Outlined = Template.bind({
+});
+
+Outlined.args = {
+    ...cardBase,
+    cardStyle: 'outlined',
+    fillColor: 'vs-color-background-primary',
     body: bodyText,
 };
 
-export const Clickable = Template.bind({
-});
-
-Clickable.args = {
-    ...clickableBase,
+Outlined.parameters = {
+    backgrounds: {
+        default: 'Grey',
+    },
 };
 
-export const ClickableWithMedia = Template.bind({
+export const Filled = Template.bind({
 });
 
-ClickableWithMedia.args = {
-    ...clickableBase,
+Filled.args = {
+    ...cardBase,
+    fillColor: 'vs-color-background-primary',
+    body: bodyText,
+};
+
+Filled.parameters = {
+    backgrounds: {
+        default: 'Grey',
+    },
+};
+
+export const WithHeader = Template.bind({
+});
+
+WithHeader.args = {
+    ...cardBase,
+    body: bodyText,
+    header: `
+        Header text
+    `,
+};
+
+export const WithFooter = Template.bind({
+});
+
+WithFooter.args = {
+    ...cardBase,
+    body: bodyText,
+    footer: `
+        Footer text
+    `,
+};
+
+export const Split = Template.bind({
+});
+
+Split.args = {
+    ...cardBase,
     imageSrc: imgUrl,
+    body: bodyText,
 };
 
-export const ClickableHorizontal = Template.bind({
+export const SplitHorizontal = Template.bind({
 });
 
-ClickableHorizontal.args = {
-    ...clickableBase,
+SplitHorizontal.args = {
+    ...cardBase,
     imageSrc: imgUrl,
     horizontal: true,
-};
-
-export const Static = Template.bind({
-});
-
-Static.args = {
-    ...staticBase,
-    ctaUrl: '#',
-    ctaText: 'Read more',
-};
-
-export const StaticWithMedia = Template.bind({
-});
-
-StaticWithMedia.args = {
-    ...staticBase,
-    imageSrc: imgUrl,
-    ctaUrl: '#',
-    ctaText: 'Read more',
-};
-
-export const StaticWithActions = Template.bind({
-});
-
-StaticWithActions.args = {
-    ...staticBase,
-    imageSrc: imgUrl,
     body: bodyText,
-    buttonText2: 'Open',
-    buttonText1: 'Clear',
 };
