@@ -1,6 +1,7 @@
 <template>
     <div
         class="vs-card"
+        data-test="vs-card"
         :class="cardClasses"
         :style="cardStyles"
     >
