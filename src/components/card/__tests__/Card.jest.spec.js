@@ -1,5 +1,5 @@
 import { shallowMount, mount } from '@vue/test-utils';
-// import axe from '@/../test/unit/helpers/axe-helper';
+import axe from '@/../test/unit/helpers/axe-helper';
 import designTokens from '@/assets/tokens/tokens.json';
 import VsCard from '../Card.vue';
 
@@ -110,6 +110,13 @@ describe('VsCard', () => {
             expect(wrapper.find('.vs-card__header').exists()).toBe(false);
             expect(wrapper.find('.vs-card__body').exists()).toBe(false);
             expect(wrapper.find('.vs-card__footer').exists()).toBe(false);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryShallowMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
 });

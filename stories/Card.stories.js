@@ -98,12 +98,6 @@ Default.args = {
     ...cardBase,
 };
 
-Default.parameters = {
-    backgrounds: {
-        default: 'Grey',
-    },
-};
-
 export const Elevated = Template.bind({
 });
 
