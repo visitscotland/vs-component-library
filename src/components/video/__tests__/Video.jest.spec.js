@@ -1,6 +1,4 @@
-import {
-    shallowMount, mount, config,
-} from '@vue/test-utils';
+import { shallowMount, config } from '@vue/test-utils';
 import axe from '@/../test/unit/helpers/axe-helper';
 import { setActivePinia, createPinia } from 'pinia';
 import VsVideo from '../Video.vue';
