@@ -34,11 +34,6 @@ const factoryShallowMount = () => shallowMount(
     mountOptions(),
 );
 
-const factoryMount = () => mount(
-    VsVideo,
-    mountOptions(),
-);
-
 describe('VsVideo', () => {
     beforeEach(() => {
         setActivePinia(createPinia());
@@ -52,7 +47,7 @@ describe('VsVideo', () => {
 
     describe(':accessibility', () => {
         it('should not have aXe accessibility issues', async() => {
-            const wrapper = factoryMount();
+            const wrapper = factoryShallowMount();
             expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
