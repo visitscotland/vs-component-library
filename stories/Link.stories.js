@@ -98,6 +98,14 @@ Download.args = {
 export const OnDark = Template.bind({
 });
 
+export const Secondary = Template.bind({
+});
+
+Secondary.args = {
+    ...base,
+    variant: 'secondary',
+};
+
 OnDark.args = {
     ...base,
     variant: 'on-dark',

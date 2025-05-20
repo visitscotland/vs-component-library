@@ -7,7 +7,7 @@
         :fluid-grow="fluidGrow"
         :loading="useLazyLoading ? 'lazy' : 'eager'"
         :style="imgStyle"
-        class="low-res-img"
+        class="vs-img low-res-img"
         :class="useGenericLqip ? 'generic-lqip' : ''"
         :srcset="computedSrcSet"
         :low-res-image="isSvg ? '' : specificImgSize('xxs')"
@@ -133,7 +133,12 @@ export default {
 </script>
 
 <style lang="scss">
-    .low-res-img {
+.vs-img{
+    &.img-zoom-on-hover {
+        transition: transform 0.4s cubic-bezier(.73,.86,.4,1.2);
+    }
+
+    &.low-res-img {
         background-repeat: no-repeat;
         background-size: cover;
         display: block;
@@ -142,4 +147,5 @@ export default {
             background-image: url('@/assets/images/placeholders/generic-lqip.jpg'),
         }
     }
+}
 </style>

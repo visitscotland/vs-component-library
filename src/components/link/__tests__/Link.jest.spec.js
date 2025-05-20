@@ -33,6 +33,17 @@ describe('VsLink', () => {
             const wrapper = factoryShallowMount();
 
             expect(wrapper.classes()).toContain('vs-link--variant-primary');
+            expect(wrapper.vm.iconVariant).toBe('primary');
+        });
+
+        it(':variant - should render the secondary variant', () => {
+            const wrapper = factoryShallowMount({
+                variant: 'secondary',
+            });
+
+            expect(wrapper.classes()).toContain('vs-link--variant-secondary');
+            expect(wrapper.vm.iconVariant).toBe('default');
+            expect(wrapper.classes()).not.toContain('vs-link--variant-primary');
         });
 
         it(':variant - should render the on-dark variant', () => {
@@ -41,6 +52,7 @@ describe('VsLink', () => {
             });
 
             expect(wrapper.classes()).toContain('vs-link--variant-on-dark');
+            expect(wrapper.vm.iconVariant).toBe('inverse');
             expect(wrapper.classes()).not.toContain('vs-link--variant-primary');
         });
 
