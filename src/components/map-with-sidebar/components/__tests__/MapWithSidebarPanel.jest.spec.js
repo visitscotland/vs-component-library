@@ -43,6 +43,28 @@ const factoryShallowMount = (propsData) => shallowMount(VsMapWithSidebarPanel, {
                     label: 'Featured',
                 },
             ],
+            filtersWithLocations: [
+                {
+                    id: 'cities',
+                    label: 'Cities',
+                },
+                {
+                    id: 'towns',
+                    label: 'Towns',
+                },
+                {
+                    id: 'islands',
+                    label: 'Islands',
+                },
+                {
+                    id: 'regions',
+                    label: 'Regions',
+                },
+                {
+                    id: 'featured',
+                    label: 'Featured',
+                },
+            ],
             methods: {
                 subCatExists: mockMethod,
             },
