@@ -4,6 +4,11 @@ import VsMegaNavTopMenu from '../MegaNavTopMenu.vue';
 config.global.renderStubDefaultSlot = true;
 
 const factoryShallowMount = () => shallowMount(VsMegaNavTopMenu, {
+    global: {
+        provide: {
+            isStatic: false,
+        },
+    },
     slots: {
         default: '<li class="top-menu-item"></li>',
     },
