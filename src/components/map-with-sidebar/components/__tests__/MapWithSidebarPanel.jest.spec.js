@@ -14,6 +14,11 @@ const factoryShallowMount = (propsData) => shallowMount(VsMapWithSidebarPanel, {
         'menu-btn-text': 'Map menu',
     },
     propsData: {
+        selectedItem: {
+            properties: {
+                id: 'aberdeen',
+            },
+        },
         ...propsData,
     },
     global: {
@@ -22,6 +27,28 @@ const factoryShallowMount = (propsData) => shallowMount(VsMapWithSidebarPanel, {
             focussedListItem: 1,
             placesData: placesTestData,
             filters: [
+                {
+                    id: 'cities',
+                    label: 'Cities',
+                },
+                {
+                    id: 'towns',
+                    label: 'Towns',
+                },
+                {
+                    id: 'islands',
+                    label: 'Islands',
+                },
+                {
+                    id: 'regions',
+                    label: 'Regions',
+                },
+                {
+                    id: 'featured',
+                    label: 'Featured',
+                },
+            ],
+            filtersWithLocations: [
                 {
                     id: 'cities',
                     label: 'Cities',

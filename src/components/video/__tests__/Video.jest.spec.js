@@ -1,6 +1,4 @@
-import {
-    shallowMount, mount, config,
-} from '@vue/test-utils';
+import { shallowMount, config } from '@vue/test-utils';
 import axe from '@/../test/unit/helpers/axe-helper';
 import { setActivePinia, createPinia } from 'pinia';
 import VsVideo from '../Video.vue';
@@ -34,11 +32,6 @@ const factoryShallowMount = () => shallowMount(
     mountOptions(),
 );
 
-const factoryMount = () => mount(
-    VsVideo,
-    mountOptions(),
-);
-
 describe('VsVideo', () => {
     beforeEach(() => {
         setActivePinia(createPinia());
@@ -52,7 +45,7 @@ describe('VsVideo', () => {
 
     describe(':accessibility', () => {
         it('should not have aXe accessibility issues', async() => {
-            const wrapper = factoryMount();
+            const wrapper = factoryShallowMount();
             expect(await axe(wrapper.html())).toHaveNoViolations();
         });
     });
