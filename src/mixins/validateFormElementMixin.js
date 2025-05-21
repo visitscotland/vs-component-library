@@ -9,6 +9,9 @@ import {
 const postcode = helpers.regex(/^([A-Za-z][A-HJ-Ya-hj-y]?\d[A-Za-z\d]? ?\d[A-Za-z]{2}|GIR ?0A{2})$/);
 
 const validateFormElementMixin = {
+    emits: [
+        'status-update',
+    ],
     data() {
         return {
             inputVal: this.value,
