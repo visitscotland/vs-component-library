@@ -14,6 +14,11 @@ const factoryShallowMount = (propsData) => shallowMount(VsMapWithSidebarPanel, {
         'menu-btn-text': 'Map menu',
     },
     propsData: {
+        selectedItem: {
+            properties: {
+                id: 'aberdeen',
+            },
+        },
         ...propsData,
     },
     global: {
