@@ -10,6 +10,8 @@ props:
       value: "{!vs-heather-60}"
     - name: vs-color-border-highlight
       value: "{!vs-bramble-60}"
+    - name: vs-color-border-bold
+      value: "{!vs-basalt-90}"
     - name: vs-color-border-success
       value: "{!vs-color-support-success}"
     - name: vs-color-border-warning

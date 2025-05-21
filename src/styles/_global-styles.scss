@@ -22,6 +22,10 @@ hr {
     z-index: $zindex-fixed;
 }
 
+.aspect-ratio-3-2 {
+    aspect-ratio: 3/2;
+}
+
 .vs-sticky-nav {
     position: sticky;
     z-index: $zindex-fixed;
