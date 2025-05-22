@@ -1,3 +1,12 @@
+# [4.21.0](https://github.com/visitscotland/vs-component-library/compare/v4.20.1...v4.21.0) (2025-05-20)
+
+
+### Features
+
+* **card:** add new card component ([551ce0a](https://github.com/visitscotland/vs-component-library/commit/551ce0a853e25c2d91ecb2ca32343448ec876f21))
+* **card:** adds new card component ([1a38b00](https://github.com/visitscotland/vs-component-library/commit/1a38b0097d1afbf47a879b90073f958b4056f00c))
+* **link:** added new link variant for secondary links - used in cards ([f8baf98](https://github.com/visitscotland/vs-component-library/commit/f8baf98b105e344c665e76b0eea13f254b096b33))
+
 ## [4.20.1](https://github.com/visitscotland/vs-component-library/compare/v4.20.0...v4.20.1) (2025-04-14)
 
 
