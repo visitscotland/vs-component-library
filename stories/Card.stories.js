@@ -41,38 +41,44 @@ const Template = (args) => ({
                     class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
                 />
 
-                <p v-if="args.header" class="px-100 mb-0">
+                <p 
+                    v-if="args.header" 
+                    class="mb-0"
+                >
                     ${args.header}
                 </p>
             </template>
 
             <template v-slot:vs-card-body v-if="args.body || args.title">
-                <VsHeading
-                    v-if="args.title"
-                    level="3"
-                    heading-style="heading-s"
-                    class="px-100"
-                >
-                    <VsLink
-                        :href="args.contentLinkUrl"
-                        class="stretched-link"
-                        variant="secondary"
+                <div :class="args.horizontal || args.fillColor || args.cardStyle ? 'px-100' : ''">
+                    <VsHeading
+                        v-if="args.title"
+                        level="3"
+                        heading-style="heading-s"
                     >
-                        ${args.title}
-                    </VsLink>
-                </VsHeading>
+                        <VsLink
+                            :href="args.contentLinkUrl"
+                            class="stretched-link"
+                            variant="secondary"
+                        >
+                            ${args.title}
+                        </VsLink>
+                    </VsHeading>
 
-                <VsRichTextWrapper 
-                    v-if="args.body"
-                    class="px-100"
-                    :class="args.horizontal ? 'd-none d-sm-block' : ''"
-                >
-                    ${args.body}
-                </VsRichTextWrapper>
+                    <VsRichTextWrapper 
+                        v-if="args.body"
+                        :class="args.horizontal ? 'd-none d-sm-block' : ''"
+                    >
+                        ${args.body}
+                    </VsRichTextWrapper>
+                </div>
             </template>
 
             <template v-slot:vs-card-footer v-if="args.footer">
-                <div class="px-100 pb-100">
+                <div 
+                    class="pb-100"
+                    :class="args.horizontal || args.fillColor || args.cardStyle ? 'd-none d-sm-block px-100' : ''"
+                >
                     ${args.footer}
                 </div>
             </template>
