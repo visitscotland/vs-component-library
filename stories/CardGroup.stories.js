@@ -25,18 +25,58 @@ const Template = (args) => ({
         VsRichTextWrapper,
     },
     setup() {
+        const cards = [
+            {
+                image: './fixtures/megalinks/ashton-lane-wide.jpg',
+                title: '11 off-the-beaten-track holiday destinations',
+                description: 'Escape the tourist trails with out best off-the-beaten-track holiday ideas',
+                link: '#',
+            },
+            {
+                image: './fixtures/megalinks/glentress-forest.jpg',
+                title: 'Walking in Scotland',
+                description: 'Walking in Scotland means mighty mountains to conquer...',
+                link: '#',
+            },
+            {
+                image: './fixtures/megalinks/grand-hotel.jpg',
+                title: 'Family holidays in Scotland',
+                description: 'You\'ll wish your family holiday in Scotland could last forever.',
+                link: '#',
+            },
+            {
+                image: './fixtures/megalinks/wellness.jpg',
+                title: 'Walking in Scotland',
+                description: 'Walking in Scotland means mighty mountains to conquer...',
+                link: '#',
+            },
+            {
+                image: './fixtures/megalinks/outlander-wedding.jpg',
+                title: 'Family holidays in Scotland',
+                description: 'You\'ll wish your family holiday in Scotland could last forever.',
+                link: '#',
+            },
+            {
+                image: './fixtures/megalinks/illustrated-map-of-scotland.jpg',
+                title: '11 off-the-beaten-track holiday destinations',
+                description: 'Escape the tourist trails with out best off-the-beaten-track holiday ideas',
+                link: '#',
+            },
+        ];
+
         return {
             args,
+            cards,
         };
     },
     template: `
     <VsCardGroup 
         v-bind="args"
     >
-        <VsCard>
+        <VsCard v-for="(card, index) in cards" :key="index">
             <template #vs-card-header>
                 <VsImg
-                    src="./fixtures/megalinks/ashton-lane-wide.jpg"
+                    :src="card.image"
                     class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
                 />
             </template>
@@ -47,156 +87,16 @@ const Template = (args) => ({
                     heading-style="heading-s"
                 >
                     <VsLink
-                        href="#"
+                        :href="card.link"
                         class="stretched-link"
                         variant="secondary"
                     >
-                        11 off-the-beaten-track holiday destinations
+                        {{ card.title }}
                     </VsLink>
                 </VsHeading>
 
                 <VsRichTextWrapper>
-                    Escape the tourist trails with out best off-the-beaten-track holiday ideas
-                </VsRichTextWrapper>
-            </template>
-        </VsCard>
-
-        <VsCard>
-            <template #vs-card-header>
-                <VsImg
-                    src="./fixtures/megalinks/ashton-lane-wide.jpg"
-                    class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                />
-            </template>
-
-            <template #vs-card-body>
-                <VsHeading
-                    level="3"
-                    heading-style="heading-s"
-                >
-                    <VsLink
-                        href="#"
-                        class="stretched-link"
-                        variant="secondary"
-                    >
-                        Walking in Scotland
-                    </VsLink>
-                </VsHeading>
-
-                <VsRichTextWrapper>
-                    Walking in Scotland means mighty mountains to conquer...
-                </VsRichTextWrapper>
-            </template>
-        </VsCard>
-
-        <VsCard>
-            <template #vs-card-header>
-                <VsImg
-                    src="./fixtures/megalinks/ashton-lane-wide.jpg"
-                    class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                />
-            </template>
-
-            <template #vs-card-body>
-                <VsHeading
-                    level="3"
-                    heading-style="heading-s"
-                >
-                    <VsLink
-                        href="#"
-                        class="stretched-link"
-                        variant="secondary"
-                    >
-                        Family holidays in Scotland
-                    </VsLink>
-                </VsHeading>
-
-                <VsRichTextWrapper>
-                    You'll wish your family holiday in Scotland could last forever.
-                </VsRichTextWrapper>
-            </template>
-        </VsCard>
-
-        <VsCard>
-            <template #vs-card-header>
-                <VsImg
-                    src="./fixtures/megalinks/ashton-lane-wide.jpg"
-                    class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                />
-            </template>
-
-            <template #vs-card-body>
-                <VsHeading
-                    level="3"
-                    heading-style="heading-s"
-                >
-                    <VsLink
-                        href="#"
-                        class="stretched-link"
-                        variant="secondary"
-                    >
-                        Walking in Scotland
-                    </VsLink>
-                </VsHeading>
-
-                <VsRichTextWrapper>
-                    Walking in Scotland means mighty mountains to conquer...
-                </VsRichTextWrapper>
-            </template>
-        </VsCard>
-
-        <VsCard>
-            <template #vs-card-header>
-                <VsImg
-                    src="./fixtures/megalinks/ashton-lane-wide.jpg"
-                    class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                />
-            </template>
-
-            <template #vs-card-body>
-                <VsHeading
-                    level="3"
-                    heading-style="heading-s"
-                >
-                    <VsLink
-                        href="#"
-                        class="stretched-link"
-                        variant="secondary"
-                    >
-                        Family holidays in Scotland
-                    </VsLink>
-                </VsHeading>
-
-                <VsRichTextWrapper>
-                    You'll wish your family holiday in Scotland could last forever.
-                </VsRichTextWrapper>
-            </template>
-        </VsCard>
-
-        <VsCard>
-            <template #vs-card-header>
-                <VsImg
-                    src="./fixtures/megalinks/ashton-lane-wide.jpg"
-                    class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                />
-            </template>
-
-            <template #vs-card-body>
-                <VsHeading
-                    level="3"
-                    heading-style="heading-s"
-                >
-                    <VsLink
-                        href="#"
-                        class="stretched-link"
-                        variant="secondary"
-                    >
-                        11 off-the-beaten-track holiday destinations
-                    </VsLink>
-                </VsHeading>
-
-                <VsRichTextWrapper>
-                    Escape the tourist trails with out best off-the-beaten-track holiday ideas
+                    {{ card.description }}
                 </VsRichTextWrapper>
             </template>
         </VsCard>
