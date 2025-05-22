@@ -212,7 +212,7 @@ export default {
             default: false,
         },
     },
-    emits: ['updated', 'status-update'],
+    emits: ['updated'],
     setup: () => ({
         v$: useVuelidate(),
     }),
