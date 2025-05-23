@@ -118,6 +118,7 @@ export default {
 
         &__header {
             overflow: hidden;
+            border-radius: $border-radius-default;
         }
 
         &__body {
