@@ -43,6 +43,13 @@ describe('VsCard', () => {
             expect(wrapper.classes()).toContain('vs-card--horizontal');
         });
 
+        it('applies accent bar class when accentBar prop is true', () => {
+            const wrapper = factoryShallowMount({
+                accentBar: true,
+            });
+            expect(wrapper.classes()).toContain('vs-card--accent-bar');
+        });
+
         it('applies background color from design token', () => {
             const wrapper = factoryShallowMount({
                 fillColor: 'vs-color-background-primary',

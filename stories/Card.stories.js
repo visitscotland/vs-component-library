@@ -50,7 +50,7 @@ const Template = (args) => ({
             </template>
 
             <template v-slot:vs-card-body v-if="args.body || args.title">
-                <div :class="args.horizontal || args.fillColor || args.cardStyle ? 'px-100' : ''">
+                <div :class="args.horizontal || args.fillColor || args.cardStyle || args.accentBar ? 'px-100' : ''">
                     <VsHeading
                         v-if="args.title"
                         level="3"
@@ -152,6 +152,15 @@ Filled.parameters = {
     backgrounds: {
         default: 'Grey',
     },
+};
+
+export const AccentBar = Template.bind({
+});
+
+AccentBar.args = {
+    ...cardBase,
+    accentBar: true,
+    body: bodyText,
 };
 
 export const WithHeader = Template.bind({

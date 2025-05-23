@@ -59,6 +59,13 @@ export default {
             default: 'vs-color-background-cta-subtle',
         },
         /**
+        * Adds an accent bar to the left of the card
+        */
+        accentBar: {
+            type: Boolean,
+            default: false,
+        },
+        /**
         * Sets the card to horizontal layout
         */
         horizontal: {
@@ -76,6 +83,7 @@ export default {
             return [
                 {
                     'vs-card--horizontal': this.horizontal,
+                    'vs-card--accent-bar': this.accentBar,
                 },
                 this.cardStyle ? `vs-card--${this.cardStyle}` : null,
             ];
@@ -145,6 +153,10 @@ export default {
 
         &--filled {
             background-color: $vs-color-background-primary;
+        }
+
+        &--accent-bar {
+            border-left: 8px solid $vs-color-border-secondary;
         }
 
         &--horizontal {
