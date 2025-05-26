@@ -119,6 +119,8 @@ export default {
         border-radius: $border-radius-default ;
 
         &:hover {
+            cursor: pointer;
+
             .img-zoom-on-hover {
                 transform: scale(1.05);
             }
@@ -156,7 +158,7 @@ export default {
         }
 
         &--accent-bar {
-            border-left: 8px solid $vs-color-border-secondary;
+            border-left: 8px solid $vs-color-border-primary;
         }
 
         &--horizontal {

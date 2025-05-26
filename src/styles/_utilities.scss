@@ -9,3 +9,7 @@
 .truncate-2-lines { 
     @include truncate-text(2);
 }
+
+.truncate-3-lines { 
+    @include truncate-text(3);
+}
