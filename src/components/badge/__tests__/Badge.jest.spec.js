@@ -20,6 +20,23 @@ describe('VsBanner', () => {
         expect(wrapper.attributes('data-test')).toBe('vs-badge');
     });
 
+    describe(':props', () => {
+        it('has default variant class by default', () => {
+            expect(wrapper.classes()).toContain('vs-badge--default');
+            expect(wrapper.classes()).toContain('vs-badge');
+        });
+
+        it('applies subtle variant class when variant prop is subtle', async() => {
+            wrapper.setProps({
+                variant: 'subtle',
+            });
+            await wrapper.vm.$nextTick();
+
+            expect(wrapper.classes()).toContain('vs-badge--subtle');
+            expect(wrapper.classes()).toContain('vs-badge');
+        });
+    });
+
     describe(':slots', () => {
         it('renders content inserted into default `slot`', () => {
             expect(wrapper.text()).toContain(slotText);
