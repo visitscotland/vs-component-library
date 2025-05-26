@@ -1,4 +1,4 @@
-import VsBadge from '@/components/badge/VsBadge.vue';
+import VsBadge from '@/components/badge/Badge.vue';
 
 export default {
     component: VsBadge,

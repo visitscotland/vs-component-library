@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
 import axe from '@/../test/unit/helpers/axe-helper';
-import VsBadge from '../VsBadge.vue';
+import VsBadge from '../Badge.vue';
 
 const slotText = 'Read time';
 
