@@ -107,7 +107,6 @@ const Template = (args) => ({
             <template v-slot:vs-card-footer>
                 <VsBlogDetails 
                     v-if="args.metaData"
-                    class="mb-150" 
                     :class="needsPadding() ? 'px-125' : ''"
                     blogReadTime="2 minute read"
                 />

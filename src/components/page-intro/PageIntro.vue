@@ -67,7 +67,7 @@
                         :lg="heroIntro ? '7' : '10'"
                         :xl="heroIntro ? '8' : '10'"
                         :offset-lg="heroIntro ? '1' : '0'"
-                        class="mt-050 mb-150"
+                        class="mt-050"
                     >
                         <VsHeading
                             level="1"

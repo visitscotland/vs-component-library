@@ -14,6 +14,7 @@
         <div
             data-test="vs-blog-details__date-time"
             :class="!blogAuthor ? 'vs-blog-details--highlight' : ''"
+            class="mb-150"
         >
             <VsIcon
                 name="clock"

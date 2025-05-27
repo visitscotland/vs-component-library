@@ -25,8 +25,34 @@ const Template = (args) => ({
     `,
 });
 
-export const CardGrid = Template.bind({
+export const SplitLinkGrid3 = Template.bind({
 });
-CardGrid.args = {
+SplitLinkGrid3.args = {
+    cardType: 'split',
     variant: 'grid',
+    cardsPerRow: 3,
+};
+
+export const SplitLinkGrid4 = Template.bind({
+});
+SplitLinkGrid4.args = {
+    cardType: 'split',
+    variant: 'grid',
+    cardsPerRow: 4,
+};
+
+export const LinkCardGrid3 = Template.bind({
+});
+LinkCardGrid3.args = {
+    cardType: 'link',
+    variant: 'grid',
+    cardsPerRow: 3,
+};
+
+export const LinkCardGrid4 = Template.bind({
+});
+LinkCardGrid4.args = {
+    cardType: 'link',
+    variant: 'grid',
+    cardsPerRow: 4,
 };

@@ -1,0 +1,49 @@
+{
+    "splitCard3": [
+      {
+        "image": "./fixtures/megalinks/ashton-lane-wide.jpg",
+        "title": "11 off-the-beaten-track holiday destinations",
+        "description": "Escape the tourist trails with our best off-the-beaten-track holiday ideas",
+        "link": "#"
+      },
+      {
+        "image": "./fixtures/megalinks/glentress-forest.jpg",
+        "title": "Scottish food & drink",
+        "description": "Get a taste for Scotland and discover the country's mouth-watering food and drink.",
+        "link": "#"
+      },
+      {
+        "image": "./fixtures/megalinks/grand-hotel.jpg",
+        "title": "Unusual accommodation in Scotland",
+        "description": "Fancy staying somewhere a little different? From castles to lighthouses, teepees to brochs, there's lots of unusual choices.",
+        "link": "#"
+      }
+    ],
+    "splitCard4": [
+      {
+        "image": "./fixtures/megalinks/wellness.jpg",
+        "title": "Walking in Scotland",
+        "description": "Walking in Scotland means mighty mountains to conquer.",
+        "link": "#"
+      },
+      {
+        "image": "./fixtures/megalinks/outlander-wedding.jpg",
+        "title": "Scottish arts & culture",
+        "description": "Enrich your cultural horizons and learn about all the fantastic galleries, cinemas, museums, and performances throughout Scotland.",
+        "link": "#"
+      },
+      {
+        "image": "./fixtures/megalinks/illustrated-map-of-scotland.jpg",
+        "title": "11 off-the-beaten-track holiday destinations",
+        "description": "Escape the tourist trails with our best off-the-beaten-track holiday ideas.",
+        "link": "#"
+      },
+      {
+        "image": "./fixtures/megalinks/ashton-lane-wide.jpg",
+        "title": "Walking in Scotland",
+        "description": "Walking in Scotland means mighty mountains to conquer.",
+        "link": "#"
+      }
+    ]
+  }
+  
