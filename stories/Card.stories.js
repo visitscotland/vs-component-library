@@ -67,7 +67,10 @@ const Template = (args) => ({
 
                     <VsRichTextWrapper 
                         v-if="args.body"
-                        :class="args.horizontal ? 'd-none d-sm-block' : ''"
+                        :class="[
+                            args.horizontal ? 'd-none d-sm-block' : '',
+                            args.truncate ? 'truncate-2-lines' : '',
+                        ]"
                     >
                         ${args.body}
                     </VsRichTextWrapper>
@@ -180,6 +183,7 @@ Split.args = {
     ...cardBase,
     imageSrc: imgUrl,
     body: bodyText,
+    truncate: true,
 };
 
 export const SplitHorizontal = Template.bind({
@@ -190,4 +194,5 @@ SplitHorizontal.args = {
     imageSrc: imgUrl,
     horizontal: true,
     body: bodyText,
+    truncate: true,
 };

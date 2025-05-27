@@ -33,7 +33,7 @@
                                 </VsLink>
                             </VsHeading>
 
-                            <VsRichTextWrapper>
+                            <VsRichTextWrapper class="truncate-2-lines">
                                 {{ card.description }}
                             </VsRichTextWrapper>
                         </template>
@@ -70,7 +70,7 @@
                                 </VsLink>
                             </VsHeading>
 
-                            <VsRichTextWrapper>
+                            <VsRichTextWrapper class="truncate-2-lines">
                                 {{ card.description }}
                             </VsRichTextWrapper>
                         </template>
@@ -132,14 +132,14 @@ export default {
                 },
                 {
                     image: './fixtures/megalinks/glentress-forest.jpg',
-                    title: 'Walking in Scotland',
-                    description: 'Walking in Scotland means mighty mountains to conquer...',
+                    title: 'Scottish food & drink',
+                    description: 'Get a taste for Scotland and discover the country\'s mouth-watering food and drink.',
                     link: '#',
                 },
                 {
                     image: './fixtures/megalinks/grand-hotel.jpg',
-                    title: 'Family holidays in Scotland',
-                    description: 'You\'ll wish your family holiday in Scotland could last forever.',
+                    title: 'Unusual accommodation in Scotland',
+                    description: 'Fancy staying somewhere a little different? From castles to lighthouses, teepees to brochs, there\'s lots of unusual choices.',
                     link: '#',
                 },
             ],
@@ -147,26 +147,26 @@ export default {
                 {
                     image: './fixtures/megalinks/wellness.jpg',
                     title: 'Walking in Scotland',
-                    description: 'Walking in Scotland means mighty mountains to conquer...',
+                    description: 'Walking in Scotland means mighty mountains to conquer.',
                     link: '#',
                 },
                 {
                     image: './fixtures/megalinks/outlander-wedding.jpg',
-                    title: 'Family holidays in Scotland',
-                    description: 'You\'ll wish your family holiday in Scotland could last forever.',
+                    title: 'Scottish arts & culture',
+                    description: 'Enrich your cultural horizons and learn about all the fantastic galleries, cinemas, museums, and performances throughout Scotland.',
                     link: '#',
                 },
                 {
                     image: './fixtures/megalinks/illustrated-map-of-scotland.jpg',
                     title: '11 off-the-beaten-track holiday destinations',
-                    description: 'Escape the tourist trails with out best off-the-beaten-track holiday ideas',
+                    description: 'Escape the tourist trails with out best off-the-beaten-track holiday ideas.',
                     link: '#',
                 },
                 {
                     image: './fixtures/megalinks/ashton-lane-wide.jpg',
                     link: '#',
                     title: 'Walking in Scotland',
-                    description: 'Walking in Scotland means mighty mountains to conquer...'
+                    description: 'Walking in Scotland means mighty mountains to conquer.',
                 },
             ],
         };

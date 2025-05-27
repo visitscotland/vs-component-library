@@ -25,8 +25,8 @@ const Template = (args) => ({
     `,
 });
 
-export const SplitCardGrid = Template.bind({
+export const CardGrid = Template.bind({
 });
-SplitCardGrid.args = {
+CardGrid.args = {
     variant: 'grid',
 };
