@@ -1,3 +1,11 @@
+# [4.23.0](https://github.com/visitscotland/vs-component-library/compare/v4.22.0...v4.23.0) (2025-05-27)
+
+
+### Features
+
+* **card:** apply new truncate utility class to split card body ([c5485e3](https://github.com/visitscotland/vs-component-library/commit/c5485e3f6145bc87a5d8e3c901e7d0ddb212ece3))
+* **utilities:** creates new utilities scss file for utility classes ([20ddf84](https://github.com/visitscotland/vs-component-library/commit/20ddf847ca78d5197b653ae60b9e8581494ec691))
+
 # [4.22.0](https://github.com/visitscotland/vs-component-library/compare/v4.21.0...v4.22.0) (2025-05-27)
 
 
