@@ -1,3 +1,11 @@
+# [4.22.0](https://github.com/visitscotland/vs-component-library/compare/v4.21.0...v4.22.0) (2025-05-27)
+
+
+### Features
+
+* **card layout:** add card layout pattern ([904bb13](https://github.com/visitscotland/vs-component-library/commit/904bb134ec393039df3081efcf5e99f8d1db9788))
+* **cardgroup:** add new card group component to the library ([bb0610c](https://github.com/visitscotland/vs-component-library/commit/bb0610cf989b55a1fbc9758ef99ec33dccd487f3))
+
 # [4.21.0](https://github.com/visitscotland/vs-component-library/compare/v4.20.1...v4.21.0) (2025-05-20)
 
 
