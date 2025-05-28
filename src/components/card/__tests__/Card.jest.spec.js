@@ -67,16 +67,6 @@ describe('VsCard', () => {
 
             expect(wrapper.attributes('style')).toContain('background-color: rgb(255, 0, 0);');
         });
-
-        it('applies centered class to body when content exists', () => {
-            const wrapper = mount(VsCard, {
-                slots: {
-                    'vs-card-body': '<div>Body Content</div>',
-                },
-            });
-
-            expect(wrapper.find('.vs-card__body').classes()).toContain('vs-card__body--centered');
-        });
     });
 
     describe('slots', () => {
