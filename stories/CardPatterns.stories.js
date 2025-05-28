@@ -3,7 +3,7 @@ import VsHeading from '@/components/heading/Heading.vue';
 import VsImg from '@/components/img/Img.vue';
 import VsLink from '@/components/link/Link.vue';
 import VsButton from '@/components/button/Button.vue';
-import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsBody from '@/components/body/Body.vue';
 import VsBlogDetails from '@/components/blog-details/BlogDetails.vue';
 import VsBadge from '@/components/badge/Badge.vue';
 import VsIcon from '@/components/icon/Icon.vue';
@@ -23,7 +23,7 @@ const Template = (args) => ({
         VsImg,
         VsLink,
         VsButton,
-        VsRichTextWrapper,
+        VsBody,
         VsBlogDetails,
         VsBadge,
         VsIcon,
@@ -64,8 +64,8 @@ const Template = (args) => ({
 
                 <VsIcon 
                     v-if="args.icon" 
-                    name="globe"
-                    variant="tertiary"
+                    icon="fa-regular fa-atom-simple"
+                    variant="highlight"
                     size="lg"
                     class="mt-125"
                     :class="needsPadding() ? 'px-125' : ''"
@@ -80,7 +80,7 @@ const Template = (args) => ({
                     <VsHeading
                         v-if="args.title"
                         level="3"
-                        heading-style="heading-s"
+                        heading-style="heading-xs"
                     >
                         <VsLink
                             :href="args.contentLinkUrl"
@@ -91,7 +91,7 @@ const Template = (args) => ({
                         </VsLink>
                     </VsHeading>
 
-                    <VsRichTextWrapper 
+                    <VsBody 
                         v-if="args.body"
                         class="mb-150"
                         :class="args.horizontal ? 'd-none d-sm-block' : ''"
@@ -99,7 +99,7 @@ const Template = (args) => ({
                         <p :class="args.truncate || ''">
                             ${args.body}
                         </p>
-                    </VsRichTextWrapper>
+                    </VsBody>
                 </div>
             </template>
 

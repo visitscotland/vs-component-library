@@ -17,7 +17,6 @@
         <slot /><VsIcon
             v-if="type !== 'default'"
             :icon="iconName"
-            :variant="variant == 'primary' ? 'cta' : 'inverse'"
             :variant="iconVariant"
             :size="iconSize"
             class="ms-025 vs-link__icon"
