@@ -1,4 +1,4 @@
-import VsBadge from '@/components/badge/VsBadge.vue';
+import VsBadge from '@/components/badge/Badge.vue';
 
 export default {
     component: VsBadge,
@@ -14,7 +14,7 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsBadge v-for="badge in args.badges">
+        <VsBadge v-bind="args" v-for="badge in args.badges">
             {{ badge }}
         </VsBadge>
     `,
@@ -30,3 +30,11 @@ const base = {
 export const Default = Template.bind();
 
 Default.args = base;
+
+export const Subtle = Template.bind({
+});
+
+Subtle.args = {
+    ...base,
+    variant: 'subtle',
+};

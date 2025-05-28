@@ -1,3 +1,3 @@
-import VsBadge from './VsBadge.vue';
+import VsBadge from './Badge.vue';
 
 export default VsBadge;
