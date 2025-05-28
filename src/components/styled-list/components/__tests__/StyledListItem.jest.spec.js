@@ -94,6 +94,18 @@ describe('VsStyledListItem', () => {
 
             expect(h3.exists()).toBe(true);
         });
+
+        it('should set an id when the `anchorLink` prop is set', () => {
+            const anchorLink = 'showcase-your-excellence';
+            wrapper = factoryMount({
+                anchorLink,
+            });
+
+            const anchor = wrapper.find('h3');
+
+            expect(anchor.exists()).toBe(true);
+            expect(anchor.attributes('id')).toBe(anchorLink);
+        });
     });
 
     describe(':slots', () => {

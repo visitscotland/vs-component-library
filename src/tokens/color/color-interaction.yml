@@ -24,6 +24,8 @@ props:
     ## Link  
     - name: vs-color-interaction-link-primary
       value: "{!vs-saltire-60}"
+    - name: vs-color-interaction-link-secondary
+      value: "{!vs-basalt-90}"
     - name: vs-color-interaction-link-active
       value: "{!vs-saltire-80}"
     - name: vs-color-interaction-link-visited

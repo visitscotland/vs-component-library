@@ -249,8 +249,7 @@ export default {
             }
 
             .vs-stretched-link-card__video-button {
-                bottom: $spacer-050;
-                left: $spacer-050;
+                bottom: $spacer-0;
                 z-index: 2;
             }
 

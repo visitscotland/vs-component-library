@@ -39,6 +39,26 @@
                     data-test="vs-stretched-link-card__img"
                     data-chromatic="ignore"
                 />
+
+                <VsButton
+                    class="vs-stretched-link-card__video-button"
+                    data-test="vs-stretched-link-card__video-button"
+                    icon="play"
+                    icon-position="left"
+                    size="md"
+                    ref="videoShow"
+                    :rounded="false"
+                    @click="emitShowModal"
+                    v-if="videoId && videoLoaded"
+                >
+                    <span
+                        class="vs-stretched-link-card__video-btn-text"
+                        v-if="videoBtnText"
+                    >
+                        {{ formattedVideoBtnText }}
+                    </span>
+                    {{ formattedVideoDuration }}
+                </VsButton>
             </template>
 
             <VsWarning
@@ -71,29 +91,8 @@
 
         <div
             class="card-body"
-            :class="videoId ? 'position-relative' : ''"
             v-if="showWarning !== 'full'"
         >
-            <VsButton
-                class="vs-stretched-link-card__video-button"
-                data-test="vs-stretched-link-card__video-button"
-                icon="vs-icon-control-play"
-                icon-position="left"
-                size="md"
-                ref="videoShow"
-                :rounded="false"
-                @click="emitShowModal"
-                v-if="videoId && videoLoaded"
-            >
-                <span
-                    class="vs-stretched-link-card__video-btn-text"
-                    v-if="videoBtnText"
-                >
-                    {{ formattedVideoBtnText }}
-                </span>
-                {{ formattedVideoDuration }}
-            </VsButton>
-
             <span
                 class="vs-stretched-link-card__category"
                 v-if="$slots['stretched-card-category'] && $slots['stretched-card-category']()"

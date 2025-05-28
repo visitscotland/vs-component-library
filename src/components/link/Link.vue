@@ -18,6 +18,7 @@
             v-if="type !== 'default'"
             :icon="iconName"
             :variant="variant == 'primary' ? 'cta' : 'inverse'"
+            :variant="iconVariant"
             :size="iconSize"
             class="ms-025 vs-link__icon"
         />
@@ -65,12 +66,12 @@ export default {
         },
         /**
          * Option to choose a pre-defined style variant
-         * `primary|on-dark`
+         * `primary|secondary|on-dark`
          */
         variant: {
             type: String,
             default: 'primary',
-            validator: (value) => value.match(/(primary|on-dark)/),
+            validator: (value) => value.match(/(primary|secondary|on-dark)/),
         },
         /**
         * Size of icon
@@ -118,6 +119,21 @@ export default {
             };
             return icon;
         },
+        iconVariant() {
+            let iconVariant = '';
+
+            switch (this.variant) {
+            case 'secondary':
+                iconVariant = 'primary';
+                break;
+            case 'on-dark':
+                iconVariant = 'inverse';
+                break;
+            default:
+                iconVariant = 'cta';
+            };
+            return iconVariant;
+        },
     },
     methods: {
         clickHandler(event) {
@@ -163,9 +179,8 @@ export default {
 
 <style lang="scss">
 .vs-link {
-    &.vs-link--variant-primary {
-        color: $vs-color-interaction-link-primary;
-
+    &.vs-link--variant-primary,
+    &.vs-link--variant-secondary {
         &:focus {
             @extend %outline-link-focus;
         }
@@ -176,6 +191,19 @@ export default {
 
         &:visited {
             color: $vs-color-interaction-link-visited;
+        }
+    }
+
+    &.vs-link--variant-primary {
+        color: $vs-color-interaction-link-primary;
+    }
+
+    &.vs-link--variant-secondary {
+        color: $vs-color-interaction-link-secondary;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
         }
     }
 

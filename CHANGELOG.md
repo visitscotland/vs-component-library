@@ -1,3 +1,53 @@
+# [4.24.0](https://github.com/visitscotland/vs-component-library/compare/v4.23.0...v4.24.0) (2025-05-28)
+
+
+### Features
+
+* **badge:** add new subtle variant for badge component ([45b15c5](https://github.com/visitscotland/vs-component-library/commit/45b15c5c6233a401a0307c4dce7fb7a546335b6d))
+* **card group:** update card group pattern files to include new link card ([10c8baf](https://github.com/visitscotland/vs-component-library/commit/10c8baf62b6113d34536954fb8ce851a5a959479))
+* **card:** add accentBar option to card component ([54e8889](https://github.com/visitscotland/vs-component-library/commit/54e88898a6cae0158de41451130df93f89948bee))
+* **card:** push footer content to the bottom of the card ([f357a69](https://github.com/visitscotland/vs-component-library/commit/f357a6975b852cef77a10a79b9802f0c5f590021))
+* **card:** update card component to include new link card pattern ([f2f4024](https://github.com/visitscotland/vs-component-library/commit/f2f4024d84473af90c68ba11d02b21a8e5bdadd8))
+
+# [4.23.0](https://github.com/visitscotland/vs-component-library/compare/v4.22.0...v4.23.0) (2025-05-27)
+
+
+### Features
+
+* **card:** apply new truncate utility class to split card body ([c5485e3](https://github.com/visitscotland/vs-component-library/commit/c5485e3f6145bc87a5d8e3c901e7d0ddb212ece3))
+* **utilities:** creates new utilities scss file for utility classes ([20ddf84](https://github.com/visitscotland/vs-component-library/commit/20ddf847ca78d5197b653ae60b9e8581494ec691))
+
+# [4.22.0](https://github.com/visitscotland/vs-component-library/compare/v4.21.0...v4.22.0) (2025-05-27)
+
+
+### Features
+
+* **card layout:** add card layout pattern ([904bb13](https://github.com/visitscotland/vs-component-library/commit/904bb134ec393039df3081efcf5e99f8d1db9788))
+* **cardgroup:** add new card group component to the library ([bb0610c](https://github.com/visitscotland/vs-component-library/commit/bb0610cf989b55a1fbc9758ef99ec33dccd487f3))
+
+# [4.21.0](https://github.com/visitscotland/vs-component-library/compare/v4.20.1...v4.21.0) (2025-05-20)
+
+
+### Features
+
+* **card:** add new card component ([551ce0a](https://github.com/visitscotland/vs-component-library/commit/551ce0a853e25c2d91ecb2ca32343448ec876f21))
+* **card:** adds new card component ([1a38b00](https://github.com/visitscotland/vs-component-library/commit/1a38b0097d1afbf47a879b90073f958b4056f00c))
+* **link:** added new link variant for secondary links - used in cards ([f8baf98](https://github.com/visitscotland/vs-component-library/commit/f8baf98b105e344c665e76b0eea13f254b096b33))
+
+## [4.20.1](https://github.com/visitscotland/vs-component-library/compare/v4.20.0...v4.20.1) (2025-04-14)
+
+
+### Bug Fixes
+
+* **megalinks:** fixed bug where video play button was misaligned with image ([aae2add](https://github.com/visitscotland/vs-component-library/commit/aae2add601084546c1fca6537f20492572c8db84))
+
+# [4.20.0](https://github.com/visitscotland/vs-component-library/compare/v4.19.3...v4.20.0) (2025-04-10)
+
+
+### Features
+
+* **styled lists:** allow anchor links to styled list items ([f682ea0](https://github.com/visitscotland/vs-component-library/commit/f682ea07ad57263989ad06037880db87f5e36fb4))
+
 ## [4.19.3](https://github.com/visitscotland/vs-component-library/compare/v4.19.2...v4.19.3) (2025-04-08)
 
 

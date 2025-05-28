@@ -1,6 +1,6 @@
 import VsStretchedLinkCard from '@/components/stretched-link-card/StretchedLinkCard.vue';
 import VsStretchedLinkPanels from '@/components/stretched-link-card/components/StretchedLinkPanels.vue';
-import VsBadge from '@/components/badge/VsBadge.vue';
+import VsBadge from '@/components/badge/Badge.vue';
 
 export default {
     component: VsStretchedLinkCard,
