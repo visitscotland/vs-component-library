@@ -14,7 +14,6 @@
         <template v-if="$slots['vs-card-body'] && $slots['vs-card-body']()">
             <div
                 class="vs-card__body"
-                :class="bodyClasses"
             >
                 <slot name="vs-card-body" />
             </div>
@@ -59,6 +58,13 @@ export default {
             default: 'vs-color-background-cta-subtle',
         },
         /**
+        * Adds an accent bar to the left of the card
+        */
+        accentBar: {
+            type: Boolean,
+            default: false,
+        },
+        /**
         * Sets the card to horizontal layout
         */
         horizontal: {
@@ -76,17 +82,10 @@ export default {
             return [
                 {
                     'vs-card--horizontal': this.horizontal,
+                    'vs-card--accent-bar': this.accentBar,
                 },
                 this.cardStyle ? `vs-card--${this.cardStyle}` : null,
             ];
-        },
-        bodyClasses() {
-            const slot = this.$slots['vs-card-body'];
-            const hasContent = slot && slot().length > 0;
-
-            return {
-                'vs-card__body--centered': hasContent,
-            };
         },
         cardStyles() {
             if (this.fillColor) {
@@ -109,8 +108,11 @@ export default {
         display: flex;
         flex-direction: column;
         border-radius: $border-radius-default ;
+        height: 100%;
 
         &:hover {
+            cursor: pointer;
+
             .img-zoom-on-hover {
                 transform: scale(1.05);
             }
@@ -118,15 +120,13 @@ export default {
 
         &__header {
             overflow: hidden;
+            border-radius: $border-radius-default;
         }
 
         &__body {
             display: flex;
             flex-direction: column;
-
-            &--centered {
-                justify-content: center;
-            }
+            flex-grow: 1;
         }
 
         &--elevated {
@@ -144,6 +144,10 @@ export default {
 
         &--filled {
             background-color: $vs-color-background-primary;
+        }
+
+        &--accent-bar {
+            border-left: 8px solid $vs-color-border-primary;
         }
 
         &--horizontal {

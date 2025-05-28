@@ -1,6 +1,5 @@
 import VsCard from '@/components/card/Card.vue';
 import VsHeading from '@/components/heading/Heading.vue';
-import VsImg from '@/components/img/Img.vue';
 import VsLink from '@/components/link/Link.vue';
 import VsButton from '@/components/button/Button.vue';
 import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
@@ -17,62 +16,69 @@ const Template = (args) => ({
     components: {
         VsCard,
         VsHeading,
-        VsImg,
         VsLink,
         VsButton,
         VsRichTextWrapper,
     },
     setup() {
+        const needsPadding = () => args.fillColor
+        || args.cardStyle
+        || args.accentBar;
+
         return {
             args,
+            needsPadding,
         };
     },
     template: `
-    <div :style="args.horizontal ? 'width: 100%;' : 'width: 20rem;' ">
+    <div style="width: 22rem">
         <VsCard 
             v-bind="args" 
-            :horizontal="args.horizontal" 
             :contentLink="args.contentLinkUrl"
         >
             <template v-slot:vs-card-header>
-                <VsImg
-                    v-if="args.imageSrc"
-                    :src="args.imageSrc"
-                    class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                />
-
-                <p v-if="args.header" class="px-100 mb-0">
+                <p 
+                    v-if="args.header" 
+                    class="mb-0"
+                    :class="needsPadding() ? 'px-125' : ''"
+                >
                     ${args.header}
                 </p>
             </template>
 
             <template v-slot:vs-card-body v-if="args.body || args.title">
-                <VsHeading
-                    v-if="args.title"
-                    level="3"
-                    heading-style="heading-s"
-                    class="px-100"
-                >
-                    <VsLink
-                        :href="args.contentLinkUrl"
-                        class="stretched-link"
-                        variant="secondary"
+                <div :class="needsPadding() ? 'px-125' : ''">
+                    <VsHeading
+                        v-if="args.title"
+                        level="3"
+                        heading-style="heading-s"
                     >
-                        ${args.title}
-                    </VsLink>
-                </VsHeading>
+                        <VsLink
+                            :href="args.contentLinkUrl"
+                            class="stretched-link"
+                            variant="secondary"
+                        >
+                            ${args.title}
+                        </VsLink>
+                    </VsHeading>
 
-                <VsRichTextWrapper 
-                    v-if="args.body"
-                    class="px-100"
-                    :class="args.horizontal ? 'd-none d-sm-block' : ''"
-                >
-                    ${args.body}
-                </VsRichTextWrapper>
+                    <VsRichTextWrapper 
+                        v-if="args.body"
+                        class="mb-125"
+                    >
+                        <p>
+                            ${args.body}
+                        </p>
+                    </VsRichTextWrapper>
+                </div>
             </template>
 
-            <template v-slot:vs-card-footer v-if="args.footer">
-                <div class="px-100 pb-100">
+            <template v-slot:vs-card-footer>
+                <div 
+                    v-if="args.footer"
+                    class="mb-100"
+                    :class="needsPadding() ? 'd-none d-sm-block px-125' : ''"
+                >
                     ${args.footer}
                 </div>
             </template>
@@ -82,72 +88,62 @@ const Template = (args) => ({
 });
 
 const bodyText = `
-        <p>Get a taste for Scotland and discover the country's mouth-watering food and drink.</p>
+        Fancy staying somewhere a little different? From castles to lighthouses, teepees to brochs, there's lots of unusual choices.
     `;
-const imgUrl = './fixtures/megalinks/ashton-lane-wide.jpg';
 
 const cardBase = {
-    title: 'Scottish food & drink',
+    title: 'Unusual accommodation in Scotland',
     contentLinkUrl: '#',
+};
+
+const filledCardBase = {
+    ...cardBase,
+    fillColor: 'vs-color-background-primary',
+    body: bodyText,
+};
+
+const greyBackground = {
+    backgrounds: {
+        default: 'Grey',
+    },
 };
 
 export const Default = Template.bind({
 });
-
 Default.args = {
     ...cardBase,
 };
 
-export const Elevated = Template.bind({
+export const Filled = Template.bind({
 });
-
-Elevated.args = {
-    ...cardBase,
-    cardStyle: 'elevated',
-    fillColor: 'vs-color-background-primary',
-    body: bodyText,
-};
-
-Elevated.parameters = {
-    backgrounds: {
-        default: 'Grey',
-    },
-};
+Filled.args = filledCardBase;
+Filled.parameters = greyBackground;
 
 export const Outlined = Template.bind({
 });
-
 Outlined.args = {
-    ...cardBase,
+    ...filledCardBase,
     cardStyle: 'outlined',
-    fillColor: 'vs-color-background-primary',
-    body: bodyText,
 };
+Outlined.parameters = greyBackground;
 
-Outlined.parameters = {
-    backgrounds: {
-        default: 'Grey',
-    },
-};
-
-export const Filled = Template.bind({
+export const Elevated = Template.bind({
 });
-
-Filled.args = {
-    ...cardBase,
-    fillColor: 'vs-color-background-primary',
-    body: bodyText,
+Elevated.args = {
+    ...filledCardBase,
+    cardStyle: 'elevated',
 };
+Elevated.parameters = greyBackground;
 
-Filled.parameters = {
-    backgrounds: {
-        default: 'Grey',
-    },
+export const AccentBar = Template.bind({
+});
+AccentBar.args = {
+    ...filledCardBase,
+    accentBar: true,
 };
 
 export const WithHeader = Template.bind({
 });
-
 WithHeader.args = {
     ...cardBase,
     body: bodyText,
@@ -158,30 +154,10 @@ WithHeader.args = {
 
 export const WithFooter = Template.bind({
 });
-
 WithFooter.args = {
     ...cardBase,
     body: bodyText,
     footer: `
         Footer text
     `,
-};
-
-export const Split = Template.bind({
-});
-
-Split.args = {
-    ...cardBase,
-    imageSrc: imgUrl,
-    body: bodyText,
-};
-
-export const SplitHorizontal = Template.bind({
-});
-
-SplitHorizontal.args = {
-    ...cardBase,
-    imageSrc: imgUrl,
-    horizontal: true,
-    body: bodyText,
 };
