@@ -1,3 +1,14 @@
+# [4.24.0](https://github.com/visitscotland/vs-component-library/compare/v4.23.0...v4.24.0) (2025-05-28)
+
+
+### Features
+
+* **badge:** add new subtle variant for badge component ([45b15c5](https://github.com/visitscotland/vs-component-library/commit/45b15c5c6233a401a0307c4dce7fb7a546335b6d))
+* **card group:** update card group pattern files to include new link card ([10c8baf](https://github.com/visitscotland/vs-component-library/commit/10c8baf62b6113d34536954fb8ce851a5a959479))
+* **card:** add accentBar option to card component ([54e8889](https://github.com/visitscotland/vs-component-library/commit/54e88898a6cae0158de41451130df93f89948bee))
+* **card:** push footer content to the bottom of the card ([f357a69](https://github.com/visitscotland/vs-component-library/commit/f357a6975b852cef77a10a79b9802f0c5f590021))
+* **card:** update card component to include new link card pattern ([f2f4024](https://github.com/visitscotland/vs-component-library/commit/f2f4024d84473af90c68ba11d02b21a8e5bdadd8))
+
 # [4.23.0](https://github.com/visitscotland/vs-component-library/compare/v4.22.0...v4.23.0) (2025-05-27)
 
 
