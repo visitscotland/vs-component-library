@@ -81,7 +81,6 @@ const Template = (args) => ({
                         v-if="args.title"
                         level="3"
                         heading-style="heading-s"
-                        class="mt-125"
                     >
                         <VsLink
                             :href="args.contentLinkUrl"
