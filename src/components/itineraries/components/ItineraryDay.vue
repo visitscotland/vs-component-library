@@ -8,7 +8,7 @@
                     <VsAccordionItem
                         :open-by-default="show"
                         :control-id="'itinerary-day-' + dayNumber"
-                        variant="transparent"
+                        variant="subtle"
                         item-break-point="lg"
                         class="vs-itinerary-day__list-item"
                     >

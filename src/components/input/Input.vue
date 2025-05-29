@@ -54,7 +54,7 @@
             v-if="showClearButton"
             class="vs-input__clear-button d-none d-lg-block"
             data-test="input-clear-button"
-            variant="transparent"
+            variant="subtle"
             icon="vs-icon-control-dismiss"
             size="md"
             icon-only
