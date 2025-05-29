@@ -3,7 +3,7 @@ import VsMegalinkMultiImage from '@/components/megalinks/components/megalink-mul
 import VsImageWithCaption from '@/components/image-with-caption/ImageWithCaption.vue';
 import VsCaption from '@/components/caption/Caption.vue';
 import VsModal from '@/components/modal/Modal.vue';
-import VsBadge from '@/components/badge/VsBadge.vue';
+import VsBadge from '@/components/badge/Badge.vue';
 import VsLink from '@/components/link/Link.vue';
 import VsVideo from '@/components/video/Video.vue';
 import {

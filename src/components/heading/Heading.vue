@@ -47,7 +47,7 @@ export default {
          * heading-l|heading-m|heading-s|heading-xs|heading-xxs`
          */
         headingStyle: {
-            type: [String, Number],
+            type: String,
             required: true,
             validator: (value) => value.match(
                 /(display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs|heading-xxxs)/,

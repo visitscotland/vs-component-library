@@ -9,7 +9,7 @@ export { default as VsArticle } from './article/Article.vue';
 export { default as VsArticleSection } from './article/components/ArticleSection.vue';
 export { default as VsArticleSidebar } from './article/components/ArticleSidebar.vue';
 export { default as VsBackToTop } from './back-to-top/BackToTop.vue';
-export { default as VsBadge } from './badge/VsBadge.vue';
+export { default as VsBadge } from './badge/Badge.vue';
 export { default as VsBanner } from './banner/Banner.vue';
 export { default as VsBlogDetails } from './blog-details/BlogDetails.vue';
 export { default as VsBreadcrumb } from './breadcrumb/Breadcrumb.vue';
@@ -19,6 +19,7 @@ export { default as VsButtonToggleGroup } from './button-toggle-group/ButtonTogg
 export { default as VsCannedSearch } from './canned-search/CannedSearch.vue';
 export { default as VsCaption } from './caption/Caption.vue';
 export { default as VsCarbonCalculator } from './carbon-calculator/CarbonCalculator.vue';
+export { default as VsCard } from './card/Card.vue';
 export { default as VsCarousel } from './carousel/Carousel.vue';
 export { default as VsCarouselSlide } from './carousel/components/CarouselSlide.vue';
 export { default as VsCheckbox } from './checkbox/Checkbox.vue';
