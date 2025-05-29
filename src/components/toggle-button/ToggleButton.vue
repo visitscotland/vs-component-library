@@ -79,7 +79,7 @@ export default {
 };
 </script>
 <style lang="scss">
-    .vs-toggle-btn.vs-button.btn-btn-subtle{
+    .vs-toggle-btn.vs-button.btn-subtle {
         line-height: 1;
 
         @include vs-button-variant(
