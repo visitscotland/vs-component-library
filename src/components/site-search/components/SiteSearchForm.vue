@@ -116,14 +116,6 @@ export default {
             default: '',
         },
         /**
-         * Text that renders inside the clear button (visually-hidden)
-         * DEPRECATED
-         */
-        clearButtonText: {
-            type: String,
-            default: '',
-        },
-        /**
          * Text that renders inside the close button (visually-hidden)
          */
         closeButtonText: {
