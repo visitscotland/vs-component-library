@@ -1,3 +1,16 @@
+## [4.24.1](https://github.com/visitscotland/vs-component-library/compare/v4.24.0...v4.24.1) (2025-05-29)
+
+
+### Bug Fixes
+
+* **input:** fixed "component emitted event 'status-update' but is not declared" error message ([48b861b](https://github.com/visitscotland/vs-component-library/commit/48b861bcd6150eac48697a61c008153d7268f8b4))
+* **vsinput:** fixed "component emitted event 'status-update' but is not declared" error message ([91028f9](https://github.com/visitscotland/vs-component-library/commit/91028f997fd843b8955c9bb22b8aeb731d8fc78d))
+
+
+### Reverts
+
+* **input:** revert adding emit ([60cf8db](https://github.com/visitscotland/vs-component-library/commit/60cf8dbb952cfb33532a2ef9cb3c66976d8ea11d))
+
 # [4.24.0](https://github.com/visitscotland/vs-component-library/compare/v4.23.0...v4.24.0) (2025-05-28)
 
 
