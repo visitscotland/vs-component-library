@@ -11,6 +11,8 @@ const pluralMinuteDescriptor = '%s minutos';
 const language = 'de';
 
 const noJsContent = 'Js is off';
+const noCookiesContent = 'Cookies are off';
+const cookieButtonContent = 'Manage cookies';
 const errorContent = 'Error content';
 
 function mountOptions() {
@@ -22,6 +24,8 @@ function mountOptions() {
             language,
             errorMessage: errorContent,
             noJsMessage: noJsContent,
+            noCookiesMessage: noCookiesContent,
+            cookieBtnText: cookieButtonContent,
             player: null,
         },
     };
@@ -53,6 +57,10 @@ describe('VsVideo', () => {
     describe(':props', () => {
         it('should pass a videoId prop to the youtube component', async() => {
             const wrapper = factoryShallowMount();
+
+            await wrapper.setData({
+                requiredCookies: [],
+            });
 
             await wrapper.vm.$nextTick();
 
