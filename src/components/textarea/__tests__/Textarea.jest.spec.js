@@ -111,13 +111,13 @@ describe('VsTextarea', () => {
         });
 
         it(':rows - should set the rows attribute to the set number', async() => {
-            const rows = '5';
+            const rows = 5;
 
             await wrapper.setProps({
                 rows,
             });
 
-            expect(wrapper.find('.vs-textarea').attributes('rows')).toBe(rows);
+            expect(wrapper.find('.vs-textarea').attributes('rows')).toBe(`${rows}`);
         });
     });
 

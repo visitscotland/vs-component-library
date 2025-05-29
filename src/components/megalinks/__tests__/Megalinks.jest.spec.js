@@ -64,7 +64,7 @@ describe('VsMegalinks', () => {
         });
 
         it(':headingLevel - changes the heading level to the value passed', async() => {
-            const headingLevel = '3';
+            const headingLevel = 3;
 
             await wrapper.setProps({
                 headingLevel,
@@ -72,7 +72,7 @@ describe('VsMegalinks', () => {
 
             const heading = wrapper.find('[data-test="vs-megalinks__heading"]');
 
-            expect(heading.attributes('level')).toBe(headingLevel);
+            expect(heading.attributes('level')).toBe(`${headingLevel}`);
         });
 
         it(':headingStyle - changes the default headingStyle renders by default', () => {
