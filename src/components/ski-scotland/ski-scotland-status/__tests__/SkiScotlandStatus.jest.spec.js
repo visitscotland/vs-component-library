@@ -1,11 +1,14 @@
 import { config, mount } from '@vue/test-utils';
 import axe from '@/../test/unit/helpers/axe-helper';
+import axios from 'axios';
 import moxios from 'moxios';
 import sampleSkiData from '@/assets/fixtures/ski-scotland/sample-ski-data.json';
 import sampleCairngormsData from '@/assets/fixtures/ski-scotland/sample-cairngorms-ski-data.json';
 import VsSkiScotlandStatus from '../SkiScotlandStatus.vue';
 
 config.global.renderStubDefaultSlot = true;
+
+jest.mock('axios');
 
 const centreInformationSlot = 'Centre Information Placeholder';
 const skiStatusUrl = 'https://testurl';
@@ -65,6 +68,10 @@ describe('VsSkiScotlandStatus', () => {
     describe(':props', () => {
         let wrapper;
         beforeEach(() => {
+            axios.get.mockResolvedValue({
+                data: sampleSkiData,
+            });
+
             moxios.install();
 
             moxios.stubRequest(skiStatusUrl, {
@@ -195,8 +202,6 @@ describe('VsSkiScotlandStatus', () => {
         it('should correctly display the last updated month in english if the locale is `en-gb` (default)', () => {
             const container = wrapper.find('[data-test="vs-ski__last-updated-label"]');
             expect(container.html()).toContain('January');
-
-            moxios.uninstall();
         });
     });
 
@@ -215,6 +220,10 @@ describe('VsSkiScotlandStatus', () => {
     describe(':skiScotlandData', () => {
         let wrapper;
         beforeEach(() => {
+            axios.get.mockResolvedValue({
+                data: sampleSkiData,
+            });
+
             moxios.install();
 
             moxios.stubRequest(skiStatusUrl, {
@@ -254,6 +263,10 @@ describe('VsSkiScotlandStatus', () => {
     describe(':cairngormsData', () => {
         let wrapper;
         beforeEach(() => {
+            axios.get.mockResolvedValue({
+                data: sampleCairngormsData,
+            });
+
             moxios.install();
 
             moxios.stubRequest(skiStatusCairngormsUrl, {

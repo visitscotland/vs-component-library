@@ -184,6 +184,9 @@ export default {
             default: 2,
         },
     },
+    emits: [
+        'updated',
+    ],
     setup: () => ({
         v$: useVuelidate(),
     }),

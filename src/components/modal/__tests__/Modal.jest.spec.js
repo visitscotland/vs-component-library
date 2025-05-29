@@ -1,6 +1,7 @@
 import {
     config, shallowMount, mount,
 } from '@vue/test-utils';
+import { createBootstrap } from 'bootstrap-vue-next';
 import axe from '@/../test/unit/helpers/axe-helper';
 import VsModal from '../Modal.vue';
 
@@ -19,6 +20,11 @@ const propOptions = {
 };
 
 const factoryShallowMount = (propsData) => shallowMount(VsModal, {
+    global: {
+        plugins: [
+            createBootstrap(),
+        ],
+    },
     slots: slotOptions,
     propsData: {
         ...propOptions,
@@ -27,6 +33,11 @@ const factoryShallowMount = (propsData) => shallowMount(VsModal, {
 });
 
 const factoryMount = (propsData) => mount(VsModal, {
+    global: {
+        plugins: [
+            createBootstrap(),
+        ],
+    },
     slots: slotOptions,
     propsData: {
         ...propOptions,
