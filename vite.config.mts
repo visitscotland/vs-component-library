@@ -66,6 +66,7 @@ export default defineConfig(({ mode }) => {
             lib: {
                 entry: {
                     'vs-component-library': path.resolve(__dirname, 'src/component-entry.ts'),
+                    'vs-component-library-maps': path.resolve(__dirname, 'src/components/map-index.ts'),
                     fonts: path.resolve(__dirname, 'src/assets/fonts/fonts.scss'),
                     icons: path.resolve(__dirname, 'src/styles/third-party/_font-awesome.scss'),
                 },
@@ -75,9 +76,7 @@ export default defineConfig(({ mode }) => {
             rollupOptions: {
                 external: [
                     'vue',
-                    'bootstrap-vue-next',
                     'pinia',
-                    'mapbox-gl',
                 ],
                 output: {
                     dir: 'dist/components',
