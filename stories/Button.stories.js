@@ -8,7 +8,7 @@ export default {
             options: [
                 'primary',
                 'secondary',
-                'transparent',
+                'subtle',
             ],
             control: {
                 type: 'radio',
@@ -79,10 +79,10 @@ Secondary.args = {
     variant: 'secondary',
 };
 
-export const Transparent = Template.bind();
-Transparent.args = {
+export const Subtle = Template.bind();
+Subtle.args = {
     ...base,
-    variant: 'transparent',
+    variant: 'subtle',
 };
 
 export const Disabled = Template.bind();
@@ -135,13 +135,13 @@ IconOnlySecondary.args = {
     default: 'close',
 };
 
-export const IconOnlyTransparent = Template.bind();
-IconOnlyTransparent.args = {
+export const IconOnlySubtle = Template.bind();
+IconOnlySubtle.args = {
     ...base,
     icon: 'vs-icon-control-dismiss',
     iconOnly: true,
     default: 'close',
-    variant: 'transparent',
+    variant: 'subtle',
 };
 
 export const IconOnlySmall = Template.bind();

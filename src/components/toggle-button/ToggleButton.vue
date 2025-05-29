@@ -2,7 +2,7 @@
     <VsButton
         class="vs-toggle-btn"
         data-test="vs-toggle-btn"
-        variant="transparent"
+        variant="subtle"
         :aria-controls="toggleId"
         :aria-expanded="show ? 'true' : 'false'"
         @click="toggleAction"
@@ -79,7 +79,7 @@ export default {
 };
 </script>
 <style lang="scss">
-    .vs-toggle-btn.vs-button.btn-transparent{
+    .vs-toggle-btn.vs-button.btn-subtle {
         line-height: 1;
 
         @include vs-button-variant(

@@ -16,7 +16,7 @@
                     :disabled="modelValue === 1"
                     icon="fa-regular fa-arrow-left"
                     size="sm"
-                    variant="transparent"
+                    variant="subtle"
                     @click="handleClick($event, modelValue - 1)"
                 >
                     {{ props.previousButtonLabel }}
@@ -49,7 +49,7 @@
                     icon="fa-regular fa-arrow-right"
                     icon-position="right"
                     size="sm"
-                    variant="transparent"
+                    variant="subtle"
                     @click="handleClick($event, modelValue + 1)"
                 >
                     {{ props.nextButtonLabel }}

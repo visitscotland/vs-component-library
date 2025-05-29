@@ -66,7 +66,7 @@ const handleRemove = () => {
         <VsButton
             class="vs-guest-selector-row__remove"
             @click.prevent="handleRemove"
-            variant="transparent"
+            variant="subtle"
             icon="vs-icon-control-dismiss"
             icon-size="sm"
             icon-position="left"

@@ -155,7 +155,7 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
             <VsButton
                 class="align-self-end"
                 data-test="vs-guest-selector__close-btn"
-                variant="transparent"
+                variant="subtle"
                 icon="vs-icon-control-dismiss"
                 size="md"
                 icon-only

@@ -34,9 +34,3 @@ export const Default = Template.bind({
 });
 
 Default.args = base;
-
-Default.parameters = {
-    backgrounds: {
-        default: 'Dark',
-    },
-};

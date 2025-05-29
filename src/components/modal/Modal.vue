@@ -22,7 +22,7 @@
                     <VsButton
                         class="vs-modal__close-btn mb-125 mb-lg-0"
                         data-test="vs-modal__close-btn"
-                        variant="transparent"
+                        variant="subtle"
                         icon-only
                         icon="vs-icon-control-dismiss"
                         @click="hideModal"

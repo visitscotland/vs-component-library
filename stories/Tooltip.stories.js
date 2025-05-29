@@ -8,7 +8,7 @@ export default {
             options: [
                 'primary',
                 'secondary',
-                'transparent',
+                'subtle',
                 'dark',
                 'light',
             ],
@@ -63,7 +63,7 @@ const base = {
     title: 'Travel by bus',
     href: '#',
     'icon-only': true,
-    variant: 'transparent',
+    variant: 'subtle',
 };
 
 export const Default = Template.bind({

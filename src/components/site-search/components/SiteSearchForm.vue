@@ -56,7 +56,7 @@
 
         <VsButton
             class="vs-site-search-form__close-button d-none d-lg-block"
-            variant="transparent"
+            variant="subtle"
             icon="vs-icon-control-dismiss"
             size="md"
             icon-only

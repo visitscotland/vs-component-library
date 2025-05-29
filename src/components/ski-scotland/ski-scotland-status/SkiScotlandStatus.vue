@@ -390,7 +390,7 @@
                     >
                         <VsAccordion>
                             <VsAccordionItem
-                                variant="transparent"
+                                variant="subtle"
                                 :control-id="'accordion_item_' + level.name"
                                 :colour-badge="level.colourToken"
                             >

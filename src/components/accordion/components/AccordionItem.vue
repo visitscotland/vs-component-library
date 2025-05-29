@@ -168,7 +168,7 @@ export default {
          */
         variant: {
             type: String,
-            default: 'transparent',
+            default: 'subtle',
         },
     },
     data() {
