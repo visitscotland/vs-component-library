@@ -3,6 +3,11 @@ import { shallowMount } from '@vue/test-utils';
 import VsTabItem from '../TabItem.vue';
 
 const factoryShallowMount = (propsData) => shallowMount(VsTabItem, {
+    global: {
+        provide: {
+            noContainer: false,
+        },
+    },
     propsData: {
         ...propsData,
         title: 'First tab',

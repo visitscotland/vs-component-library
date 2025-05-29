@@ -1,12 +1,18 @@
 import {
     config, shallowMount, mount,
 } from '@vue/test-utils';
+import { createBootstrap } from 'bootstrap-vue-next';
 import axe from '@/../test/unit/helpers/axe-helper';
 import VsBreadcrumb from '../Breadcrumb.vue';
 
 config.global.renderStubDefaultSlot = true;
 
 const mountOptions = {
+    global: {
+        plugins: [
+            createBootstrap(),
+        ],
+    },
     slots: {
         default: '<li class="vs-breadcrumb-item"><a href="#" target="_self">Breadcrumb Item</a></li>',
     },
