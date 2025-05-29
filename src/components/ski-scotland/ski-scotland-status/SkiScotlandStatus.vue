@@ -421,7 +421,7 @@
                                                 v-if="run.status === '0' || run.status === 0"
                                             >
                                                 <VsIcon
-                                                    name="fa-regular fa-ban"
+                                                    icon="fa-regular fa-ban"
                                                     size="xs"
                                                     class="me-050"
                                                 /> {{ statusClosedLabel }}
@@ -430,7 +430,7 @@
                                                 v-if="run.status === '1' || run.status === 1"
                                             >
                                                 <VsIcon
-                                                    name="fa-regular fa-check"
+                                                    icon="fa-regular fa-check"
                                                     size="xs"
                                                     class="me-050"
                                                 /> {{ statusOpenLabel }}
@@ -439,7 +439,7 @@
                                                 v-if="run.status === '2' || run.status === 2"
                                             >
                                                 <VsIcon
-                                                    name="fa-regular fa-timer"
+                                                    icon="fa-regular fa-timer"
                                                     size="xs"
                                                     class="me-050"
                                                 /> {{ statusOpeningLabel }}
@@ -448,7 +448,7 @@
                                                 v-if="run.status === '3' || run.status === 3"
                                             >
                                                 <VsIcon
-                                                    name="fa-regular fa-ski-boot-ski"
+                                                    icon="fa-regular fa-ski-boot-ski"
                                                     size="xs"
                                                     class="me-050"
                                                 /> {{ statusLimitedPatrolLabel }}
@@ -457,7 +457,7 @@
                                                 v-if="run.status === '4' || run.status === 4"
                                             >
                                                 <VsIcon
-                                                    name="fa-regular fa-hourglass"
+                                                    icon="fa-regular fa-hourglass"
                                                     size="xs"
                                                     class="me-050"
                                                 /> {{ statusOnHoldLabel }}
