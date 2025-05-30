@@ -19,10 +19,7 @@
     "./maps": {
       "import": "./dist/components/vs-component-library-maps.mjs"
     },
-    "./components/style.css": "./dist/components/vs-component-library.css",
-    "./components/fonts.css": "./dist/components/fonts.css",
-    "./components/icons.css": "./dist/components/icons.css",
-    "./maps/style.css": "./dist/components/vs-component-library-maps.css"
+    "./style.css": "./dist/components/style.css"
   },
   "license": "MIT",
   "scripts": {
