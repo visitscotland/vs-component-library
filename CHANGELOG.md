@@ -1,3 +1,35 @@
+## [4.24.1](https://github.com/visitscotland/vs-component-library/compare/v4.24.0...v4.24.1) (2025-05-29)
+
+
+### Bug Fixes
+
+* **input:** fixed "component emitted event 'status-update' but is not declared" error message ([48b861b](https://github.com/visitscotland/vs-component-library/commit/48b861bcd6150eac48697a61c008153d7268f8b4))
+* **vsinput:** fixed "component emitted event 'status-update' but is not declared" error message ([91028f9](https://github.com/visitscotland/vs-component-library/commit/91028f997fd843b8955c9bb22b8aeb731d8fc78d))
+
+
+### Reverts
+
+* **input:** revert adding emit ([60cf8db](https://github.com/visitscotland/vs-component-library/commit/60cf8dbb952cfb33532a2ef9cb3c66976d8ea11d))
+
+# [4.24.0](https://github.com/visitscotland/vs-component-library/compare/v4.23.0...v4.24.0) (2025-05-28)
+
+
+### Features
+
+* **badge:** add new subtle variant for badge component ([45b15c5](https://github.com/visitscotland/vs-component-library/commit/45b15c5c6233a401a0307c4dce7fb7a546335b6d))
+* **card group:** update card group pattern files to include new link card ([10c8baf](https://github.com/visitscotland/vs-component-library/commit/10c8baf62b6113d34536954fb8ce851a5a959479))
+* **card:** add accentBar option to card component ([54e8889](https://github.com/visitscotland/vs-component-library/commit/54e88898a6cae0158de41451130df93f89948bee))
+* **card:** push footer content to the bottom of the card ([f357a69](https://github.com/visitscotland/vs-component-library/commit/f357a6975b852cef77a10a79b9802f0c5f590021))
+* **card:** update card component to include new link card pattern ([f2f4024](https://github.com/visitscotland/vs-component-library/commit/f2f4024d84473af90c68ba11d02b21a8e5bdadd8))
+
+# [4.23.0](https://github.com/visitscotland/vs-component-library/compare/v4.22.0...v4.23.0) (2025-05-27)
+
+
+### Features
+
+* **card:** apply new truncate utility class to split card body ([c5485e3](https://github.com/visitscotland/vs-component-library/commit/c5485e3f6145bc87a5d8e3c901e7d0ddb212ece3))
+* **utilities:** creates new utilities scss file for utility classes ([20ddf84](https://github.com/visitscotland/vs-component-library/commit/20ddf847ca78d5197b653ae60b9e8581494ec691))
+
 # [4.22.0](https://github.com/visitscotland/vs-component-library/compare/v4.21.0...v4.22.0) (2025-05-27)
 
 

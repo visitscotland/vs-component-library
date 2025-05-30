@@ -1,0 +1,76 @@
+{
+  "linkCard3": [
+    {
+      "title": "Manage your website",
+      "description": "Find out what makes a good accessible website including key pages and booking systems, and how you can develop and improve this digital channel.",
+      "link": "#",
+      "badgeTitle": "Article",
+      "metaData": "7 minute read",
+      "accentBar": true,
+      "fillColor": "vs-color-background-primary",
+      "style": "elevated"
+    },
+    {
+      "title": "Improve your website user experience",
+      "description": "Find out how creating a good user experience (UX) can positively impact your business and get tips on improving your website's UX and accessibility.",
+      "link": "#",
+      "badgeTitle": "Article",
+      "metaData": "5 minute read",
+      "accentBar": true,
+      "fillColor": "vs-color-background-primary",
+      "style": "elevated"
+    },
+    {
+      "title": "Manage your social media accounts",
+      "description": "Find out how to use social media to share information about your business and inspire people to come and visit you.",
+      "link": "#",
+      "badgeTitle": "Article",
+      "metaData": "7 minute read",
+      "accentBar": true,
+      "fillColor": "vs-color-background-primary",
+      "style": "elevated"
+    }
+  ],
+  "linkCard4": [
+    {
+      "title": "Manage your website",
+      "description": "Find out what makes a good accessible website including key pages and booking systems, and how you can develop and improve this digital channel.",
+      "link": "#",
+      "badgeTitle": "Article",
+      "metaData": "7 minute read",
+      "accentBar": true,
+      "fillColor": "vs-color-background-primary",
+      "style": "elevated"
+    },
+    {
+      "title": "Improve your website user experience",
+      "description": "Find out how creating a good user experience (UX) can positively impact your business and get tips on improving your website's UX and accessibility.",
+      "link": "#",
+      "badgeTitle": "Article",
+      "metaData": "5 minute read",
+      "accentBar": true,
+      "fillColor": "vs-color-background-primary",
+      "style": "elevated"
+    },
+    {
+      "title": "Manage your social media accounts",
+      "description": "Find out how to use social media to share information about your business and inspire people to come and visit you.",
+      "link": "#",
+      "badgeTitle": "Article",
+      "metaData": "7 minute read",
+      "accentBar": true,
+      "fillColor": "vs-color-background-primary",
+      "style": "elevated"
+    },
+    {
+      "title": "Photography tips",
+      "description": "Create high quality images to impress customers and showcase the unique selling points of your business.",
+      "link": "#",
+      "badgeTitle": "How-to",
+      "metaData": "6 minute read",
+      "accentBar": true,
+      "fillColor": "vs-color-background-primary",
+      "style": "elevated"
+    }
+  ]
+}

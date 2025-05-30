@@ -1,0 +1,15 @@
+.zindex-fixed {
+    z-index: $zindex-fixed;
+}
+
+.aspect-ratio-3-2 {
+    aspect-ratio: 3/2;
+}
+
+.truncate-2-lines { 
+    @include truncate-text(2);
+}
+
+.truncate-3-lines { 
+    @include truncate-text(3);
+}
