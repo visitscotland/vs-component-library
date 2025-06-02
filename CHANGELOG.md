@@ -1,3 +1,15 @@
+# [4.25.0](https://github.com/visitscotland/vs-component-library/compare/v4.24.1...v4.25.0) (2025-06-02)
+
+
+### Bug Fixes
+
+* **video:** update tests ([b73ed01](https://github.com/visitscotland/vs-component-library/commit/b73ed0144a79a578fbe757955b34e8b8648fd633))
+
+
+### Features
+
+* **video:** restore no-cookie warning and block video ([45c0fe7](https://github.com/visitscotland/vs-component-library/commit/45c0fe76042818c8adc9b8c8d3646d4f237db392))
+
 ## [4.24.1](https://github.com/visitscotland/vs-component-library/compare/v4.24.0...v4.24.1) (2025-05-29)
 
 
