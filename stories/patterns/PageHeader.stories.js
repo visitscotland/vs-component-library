@@ -1,4 +1,4 @@
-import VsPageHeader from '../src/templates/PageHeader.vue';
+import VsPageHeader from '../../src/templates/PageHeader.vue';
 
 export default {
     component: VsPageHeader,

@@ -1,0 +1,74 @@
+{
+  "cardList1": {
+    "cards": [
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/20/loch-ken",
+        "title": "15 Most beautiful places & beauty spots in Scotland",
+        "description": " Take a look and be blown away by the most beautiful places to visit in Scotland.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/02/12/60285-national-museum-of-scotland-large.jpg",
+        "title": "Top tourist attractions & places to visit in Scotland",
+        "description": "Discover the best things to do in Scotland with our list of top 20 most visited tourist attractions.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2023/06/12/caerlaverock-castle-2.jpg",
+        "title": "9 Magical landmarks & attractions in Scotland",
+        "description": "Discover beautiful landmarks in Scotland, so magical you won't believe they're real! Including fairytale castles, stunning gardens, and more.",
+        "link": "#"
+      }
+    ]
+  },
+  "cardList2": {
+    "cards": [
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/13/pipe-band-marching-at-the-ballater-highland-games.jpg",
+        "title": "Highland games in Scotland",
+        "description": "From the tug o' war to the caber toss, Scotland's Highland games are not to be missed.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/08/01/edinburgh-international-festival-opening",
+        "title": "Edinburgh festivals",
+        "description": "Discover Edinburgh's summer festivals, including the world-famous Edinburgh International Festival and Edinburgh Festival Fringe.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2023/06/12/90084-the-foot-stompin-ceilidh-band-1.jpg",
+        "title": "16 Scottish music festivals in 2025",
+        "description": "Find out more about music festivals throughout the year including summer festivals, celebrating traditional music, pop, rock and alternative genres.",
+        "link": "#"
+      }
+    ]
+  },
+  "cardList3": {
+    "cards": [
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2023/03/27/dunnottar-castle",
+        "title": "10 Great Scottish castles",
+        "description": "Discover 10 of Scotland's greatest castles and find out what makes them so iconic.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/07/30/highland-cow-on-mull.jpg",
+        "title": "Where to see Highland cows in Scotland",
+        "description": "One of the most sought-after Scottish experiences is meeting our hairy and loveable Highland cows. Or as we Scots call them, Highland coos!",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/25/beinn-eighe-mountain-trail",
+        "title": "15 Beautiful nature reserves to explore in Scotland",
+        "description": "It's time to get out on the road and discover (or rediscover!) some of the many nature reserves which Scotland has to offer.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/10/26/friends-at-ben-ledi",
+        "title": "Scotland's national parks and natural heritage sites",
+        "description": "Explore the wild expanses of our national parks and national nature reserves and learn about how Scotland was formed in our Geoparks.",
+        "link": "#"
+      }
+    ]
+  }
+}
