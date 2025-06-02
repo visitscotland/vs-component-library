@@ -1,0 +1,53 @@
+{
+  "textCardList1": {
+    "cards": [
+      {
+        "title": "Start your business",
+        "description": "Essential tools, legal guidance and staff support to launch successfully.",
+        "link": "#"
+      },
+      {
+        "title": "Improve your business",
+        "description": "Deliver quality experiences with customer insights, accessibility and service excellence.",
+        "link": "#"
+      },
+      {
+        "title": "Promote your business",
+        "description": "Boost visibility through engaging content, social media and marketing partnerships.",
+        "link": "#"
+      },
+      {
+        "title": "Grow your business",
+        "description": "Develop new products, secure funding and expand with expert advice.",
+        "link": "#"
+      }
+    ]
+  },
+  "textCardList2": {
+    "cards": [
+      {
+        "title": "Contact us",
+        "description": "Looking for more advice to improve and grow your business? Fill out the form below to contact the VisitScotland team.",
+        "link": "#"
+      },
+      {
+        "title": "Our website policies",
+        "description": "Learn more about our website terms of use and our accessibility policies.",
+        "link": "#",
+        "metaData": "5 minute read"
+      },
+      {
+        "title": "Training and events listings",
+        "description": "View training and event listings taking place throughout the calendar year. Including networking opportunities, workshops and much more.",
+        "link": "#"
+      },
+      {
+        "title": "Glossary",
+        "description": "Explore key terms in Scottish tourism with our glossary, equipping businesses for industry success.",
+        "link": "#",
+        "badgeTitle": "Article",
+        "metaData": "12 minute read"
+      }
+    ]
+  }
+}

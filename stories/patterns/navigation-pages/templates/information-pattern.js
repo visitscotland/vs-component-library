@@ -15,159 +15,25 @@ export default `
             FEATURED LINK - Module spacing come from the megalinks wrapper
               ------------------------------------------------------------>
             <VsMegalinks 
-                title="Top things to  do and experience in Scotland"
-                variant="multi-image"
+                variant="multi-image" 
+                theme="grey"
             >
                 <VsContainer>
                     <VsRow>
                         <VsCol cols="12" xl="10" class="offset-xl-1">
                             <VsMegalinkMultiImage
-                                theme="light"
+                                theme="grey"
                                 :featured="true"
-                                img-src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/08/14/stac-pollaidh-header.jpg"
+                                img-src="https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/20-jan/cairnie-fruit-farm"
                                 link-type="internal"
                                 link-url="#"
                             >
                                 <template v-slot:vs-multi-image-heading>
-                                    Scotland's UNESCO Trail
+                                    Support by sector
                                 </template>
 
                                 <template v-slot:vs-multi-image-content>
-                                    <p>The first country in the world to bring together 16 UNESCO sites into one trail. Are you ready to discover the wonders within?</p>
-                                </template>
-                            </VsMegalinkMultiImage>
-                        </VsCol>
-                    </VsRow>
-                </VsContainer>
-            </VsMegalinks>
-
-            <!------------------------------------------------------------
-            NEW CARD GROUP - This one has no module wrapper so has spacing applied to the card group
-              ------------------------------------------------------------>
-            <VsContainer>
-                <VsRow>
-                    <VsCol>
-                        <VsCardGroup
-                            scroll-snap
-                            :cards-per-row="3"
-                            class="mb-500"
-                        >
-                            <VsCard
-                                v-for="(card, index) in cardList1"
-                                :key="'card-2-' + index"
-                            >
-                                <template #vs-card-header>
-                                    <VsImg
-                                        v-if="card.image"
-                                        :src="card.image"
-                                        class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                                    />
-                                </template>
-
-                                <template #vs-card-body>
-                                    <div>
-                                        <VsHeading
-                                            level="3"
-                                            heading-style="heading-s"
-                                        >
-                                            <VsLink
-                                                :href="card.link"
-                                                class="stretched-link"
-                                                variant="secondary"
-                                            >
-                                                {{ card.title }}
-                                            </VsLink>
-                                        </VsHeading>
-
-                                        <VsRichTextWrapper class="mb-150 truncate-2-lines">
-                                            {{ card.description }}
-                                        </VsRichTextWrapper>
-                                    </div>
-                                </template>
-                            </VsCard>
-                        </VsCardGroup>
-                    </VsCol>
-                </VsRow>
-            </VsContainer>
-
-            <!------------------------------------------------------------
-            NEW SECTION & CARD GROUP - Module wrapper used for new card group heading/intro
-              ------------------------------------------------------------>
-            <VsModuleWrapper theme="grey">
-                <template v-slot:vs-module-wrapper-heading>
-                    Captivating Scottish events
-                </template>
-                <template v-slot:vs-module-wrapper-intro>
-                    <p>Discover new musicians you'll love forever, watch incredible athletes compete for gold or spend some time with the locals at authentic community events. It's a packed calendar all year round!</p>
-                </template>
-
-                <VsContainer>
-                    <VsRow>
-                        <VsCol>
-                            <VsCardGroup
-                                scroll-snap
-                                :cards-per-row="3"
-                                class="text-start"
-                            >
-                                <VsCard
-                                    v-for="(card, index) in cardList2"
-                                    :key="'card-2-' + index"
-                                >
-                                    <template #vs-card-header>
-                                        <VsImg
-                                            v-if="card.image"
-                                            :src="card.image"
-                                            class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                                        />
-                                    </template>
-
-                                    <template #vs-card-body>
-                                        <div>
-                                            <VsHeading
-                                                level="3"
-                                                heading-style="heading-s"
-                                            >
-                                                <VsLink
-                                                    :href="card.link"
-                                                    class="stretched-link"
-                                                    variant="secondary"
-                                                >
-                                                    {{ card.title }}
-                                                </VsLink>
-                                            </VsHeading>
-
-                                            <VsRichTextWrapper class="mb-150 truncate-2-lines">
-                                                {{ card.description }}
-                                            </VsRichTextWrapper>
-                                        </div>
-                                    </template>
-                                </VsCard>
-                            </VsCardGroup>
-                        </VsCol>
-                    </VsRow>
-                </VsContainer>
-            </VsModuleWrapper>
-
-            <!------------------------------------------------------------
-            FEATURED LINK - Module spacing come from the megalinks wrapper
-              ------------------------------------------------------------>
-            <VsMegalinks variant="multi-image">
-                <VsContainer>
-                    <VsRow>
-                        <VsCol cols="12" xl="10" class="offset-xl-1">
-                            <VsMegalinkMultiImage
-                                theme="light"
-                                :featured="true"
-                                img-src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/05/outlander-image"
-                                link-type="internal"
-                                link-url="#"
-                            >
-                                <template v-slot:vs-multi-image-heading>
-                                    Film & TV locations
-                                </template>
-
-                                <template v-slot:vs-multi-image-content>
-                                    <p>This country has produced its fair share of top Hollywood names, and there have been a surprising number of movies filmed in Scotland, too.</p>
+                                    <p>Find tailored advice and case studies for accommodation, active and outdoor, events and festivals, food and drink and visitor attraction sectors.</p>
                                 </template>
                             </VsMegalinkMultiImage>
                         </VsCol>
@@ -178,12 +44,12 @@ export default `
             <!------------------------------------------------------------
             NEW SECTION & CARD GROUP - Module wrapper used for new card group heading/intro
               ------------------------------------------------------------>
-            <VsModuleWrapper theme="grey">
+            <VsModuleWrapper>
                 <template v-slot:vs-module-wrapper-heading>
-                    Magical places to visit
+                    Advice for each stage of your journey
                 </template>
                 <template v-slot:vs-module-wrapper-intro>
-                    <p>Make new memories at some of our most popular attractions, uncover incredible film locations, or get up and close with  Scotland stunning landscapes and wildlife.</p>
+                    <p>Whatever stage you're at - whether you just have an idea, or you've been welcoming customers for over 20 years, there's always room for sustainable growth.</p>
                 </template>
 
                 <VsContainer>
@@ -195,19 +61,24 @@ export default `
                                 class="text-start"
                             >
                                 <VsCard
-                                    v-for="(card, index) in cardList3"
-                                    :key="'card-2-' + index"
+                                    v-for="(card, index) in textCardList1"
+                                    :key="'card-1-' + index"
+                                    :accent-bar="true"
+                                    :fill-color="'vs-color-background-primary'"
+                                    card-style="elevated"
                                 >
                                     <template #vs-card-header>
-                                        <VsImg
-                                            v-if="card.image"
-                                            :src="card.image"
-                                            class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                                        />
+                                        <VsBadge
+                                            v-if="card.badgeTitle"
+                                            variant="subtle"
+                                            class="mt-125 mx-075"
+                                        >
+                                            {{ card.badgeTitle }}
+                                        </VsBadge>
                                     </template>
 
                                     <template #vs-card-body>
-                                        <div>
+                                        <div class="px-125 py-050">
                                             <VsHeading
                                                 level="3"
                                                 heading-style="heading-s"
@@ -221,10 +92,18 @@ export default `
                                                 </VsLink>
                                             </VsHeading>
 
-                                            <VsRichTextWrapper class="mb-150 truncate-2-lines">
+                                            <VsRichTextWrapper class="mb-150 truncate-3-lines">
                                                 {{ card.description }}
                                             </VsRichTextWrapper>
                                         </div>
+                                    </template>
+
+                                    <template #vs-card-footer>
+                                        <VsBlogDetails
+                                            v-if="card.metaData"
+                                            class="px-125"
+                                            :blog-read-time="card.metaData"
+                                        />
                                     </template>
                                 </VsCard>
                             </VsCardGroup>
@@ -234,64 +113,105 @@ export default `
             </VsModuleWrapper>
 
 
-            <VsMegalinks
-                title="Days out ideas"
-                variant="single-image"
+            <!------------------------------------------------------------
+            FEATURED LINK - Module spacing come from the megalinks wrapper
+              ------------------------------------------------------------>
+            <VsMegalinks 
+                variant="multi-image" 
+                theme="grey"
             >
-                <template #vs-megalinks-intro>
-                    <p>
-                        Embark on a fascinating tour or follow an itinerary to learn more as you explore, or enjoy the great outdoors on foot, two wheels or make a splash in our lochs and coastal spots.
-                    </p>
+                <VsContainer>
+                    <VsRow>
+                        <VsCol cols="12" xl="10" class="offset-xl-1">
+                            <VsMegalinkMultiImage
+                                theme="grey"
+                                :featured="true"
+                                img-src="https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/12-mar/loch-affric"
+                                link-type="internal"
+                                link-url="#"
+                            >
+                                <template v-slot:vs-multi-image-heading>
+                                    Sustainability
+                                </template>
+
+                                <template v-slot:vs-multi-image-content>
+                                    <p>Sustainably grow your tourism or events business with actionable green strategies.</p>
+                                </template>
+                            </VsMegalinkMultiImage>
+                        </VsCol>
+                    </VsRow>
+                </VsContainer>
+            </VsMegalinks>
+
+
+            <!------------------------------------------------------------
+            NEW SECTION & CARD GROUP - Module wrapper used for new card group heading/intro
+              ------------------------------------------------------------>
+            <VsModuleWrapper>
+                <template v-slot:vs-module-wrapper-heading>
+                    Related pages
                 </template>
 
-                <VsCol cols="12">
-                    <VsMegalinkSingleImage
-                        title="Tours & itineraries"
-                    >
-                        <template #vs-single-image>
-                            <VsImageWithCaption
-                                mobile-overlap
-                                image-src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/01/cawdor-castle-and-gardens"
+                <VsContainer>
+                    <VsRow>
+                        <VsCol>
+                            <VsCardGroup
+                                scroll-snap
+                                :cards-per-row="4"
+                                class="text-start mt-150"
                             >
-                                <template #img-caption>
-                                    <VsCaption text-align="right">
-                                        <template #caption>
-                                            Cawdor Castle and Gardens
-                                        </template>
+                                <VsCard
+                                    v-for="(card, index) in textCardList2"
+                                    :key="'card-1-' + index"
+                                    :accent-bar="true"
+                                    :fill-color="'vs-color-background-primary'"
+                                    card-style="elevated"
+                                >
+                                    <template #vs-card-header>
+                                        <VsBadge
+                                            v-if="card.badgeTitle"
+                                            variant="subtle"
+                                            class="mt-125 mx-075"
+                                        >
+                                            {{ card.badgeTitle }}
+                                        </VsBadge>
+                                    </template>
 
-                                        <template #credit>
-                                            © VisitScotland / Kenny Lam
-                                        </template>
-                                    </VsCaption>
-                                </template>
-                            </VsImageWithCaption>
-                        </template>
-                        <template #vs-single-image-content>
-                            <p>
-                                Our tour guides know the best and most interesting info on Scotland so sit back and enjoy these moments!
-                            </p>
-                        </template>
-                        <template #vs-single-image-links>
-                            <VsLinkListItem href="#">
-                                Harry Potter film and book locations itinerary
-                            </VsLinkListItem>
-                            <VsLinkListItem href="#">
-                                Edinburgh in 3 days - 72-hour itinerary
-                            </VsLinkListItem>
-                            <VsLinkListItem href="#">
-                                Highland castles itinerary
-                            </VsLinkListItem>
-                            <VsLinkListItem href="#">
-                                Tours of Scotland
-                            </VsLinkListItem>
-                        </template>
+                                    <template #vs-card-body>
+                                        <div class="px-125 py-050">
+                                            <VsHeading
+                                                level="3"
+                                                heading-style="heading-s"
+                                            >
+                                                <VsLink
+                                                    :href="card.link"
+                                                    class="stretched-link"
+                                                    variant="secondary"
+                                                >
+                                                    {{ card.title }}
+                                                </VsLink>
+                                            </VsHeading>
 
-                        <template v-slot:vs-single-image-button-text>
-                            See all itineraries
-                        </template>
-                    </VsMegalinkSingleImage>
-                </VsCol>
-            </VsMegalinks>
+                                            <VsRichTextWrapper class="mb-150 truncate-3-lines">
+                                                {{ card.description }}
+                                            </VsRichTextWrapper>
+                                        </div>
+                                    </template>
+
+                                    <template #vs-card-footer>
+                                        <VsBlogDetails
+                                            v-if="card.metaData"
+                                            class="px-125"
+                                            :blog-read-time="card.metaData"
+                                        />
+                                    </template>
+                                </VsCard>
+                            </VsCardGroup>
+                        </VsCol>
+                    </VsRow>
+                </VsContainer>
+            </VsModuleWrapper>
+
         </template>
     </VsNavigationPage>
 `;

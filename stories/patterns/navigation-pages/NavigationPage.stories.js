@@ -16,10 +16,15 @@ import VsLink from '@/components/link/Link.vue';
 import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
 import VsBlogDetails from '@/components/blog-details/BlogDetails.vue';
 import VsBadge from '@/components/badge/Badge.vue';
+import VsModal from '@/components/modal/Modal.vue';
+import VsVideo from '@/components/video/Video.vue';
 import VsModuleWrapper from '@/components/module-wrapper/ModuleWrapper.vue';
 import cardLayoutData from '@/assets/fixtures/navigation-pages/card-layout-inspirational.json';
+import textCardLayoutData from '@/assets/fixtures/navigation-pages/card-layout-informational.json';
+import infoCardLayoutData from '@/assets/fixtures/navigation-pages/card-layout-informational2.json';
 import VisualPatternTemplate from './templates/visual-pattern';
 import InformationPatternTemplate from './templates/information-pattern';
+import Information2PatternTemplate from './templates/information-pattern2';
 import VsNavigationPage from '../../../src/templates/NavigationPage.vue';
 
 export default {
@@ -50,6 +55,8 @@ const createTemplate = (templateString) => (args) => ({
         VsCard,
         VsHeading,
         VsImg,
+        VsModal,
+        VsVideo,
         VsLink,
         VsRichTextWrapper,
         VsBlogDetails,
@@ -57,15 +64,27 @@ const createTemplate = (templateString) => (args) => ({
         VsModuleWrapper,
     },
     setup() {
-        const cardList1 = cardLayoutData.cardList1.cards;
-        const cardList2 = cardLayoutData.cardList2.cards;
-        const cardList3 = cardLayoutData.cardList3.cards;
+        const cardList1 = cardLayoutData.cardList1?.cards || [];
+        const cardList2 = cardLayoutData.cardList2?.cards || [];
+        const cardList3 = cardLayoutData.cardList3?.cards || [];
+        const textCardList1 = textCardLayoutData.textCardList1?.cards || [];
+        const textCardList2 = textCardLayoutData.textCardList2?.cards || [];
+        const infoCardList1 = infoCardLayoutData.infoCardList1?.cards || [];
+        const infoCardList2 = infoCardLayoutData.infoCardList2?.cards || [];
+        const infoCardList3 = infoCardLayoutData.infoCardList3?.cards || [];
+        const infoCardList4 = infoCardLayoutData.infoCardList4?.cards || [];
 
         return {
             args,
             cardList1,
             cardList2,
             cardList3,
+            textCardList1,
+            textCardList2,
+            infoCardList1,
+            infoCardList2,
+            infoCardList3,
+            infoCardList4,
         };
     },
     template: templateString,
@@ -85,8 +104,12 @@ export const InformationPattern = createTemplate(InformationPatternTemplate).bin
 });
 InformationPattern.args = {
     pageTitle: 'Advice and Support',
-    pageLede: 'What unique and incredible things do you want to do in Scotland? Let the kids learn new stories in amazing attractions, take your friends to a new festival or spend some time relaxing at stunning nature spots.',
-    imgUrl: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2025/04/16/paisley-abbey-header-new.jpg',
-    imgCaption: 'Paisley Abbey',
-    imgCredit: 'VisitScotland',
+    pageLede: 'Check out our how to articles and case studies on everything from digital channels to travel distribution.',
+};
+
+export const Information2Pattern = createTemplate(Information2PatternTemplate).bind({
+});
+Information2Pattern.args = {
+    pageTitle: 'Sustainability',
+    pageLede: 'Sustainably grow your tourism or events business with actionable green strategies.',
 };
