@@ -19,12 +19,14 @@ import VsBadge from '@/components/badge/Badge.vue';
 import VsModal from '@/components/modal/Modal.vue';
 import VsVideo from '@/components/video/Video.vue';
 import VsModuleWrapper from '@/components/module-wrapper/ModuleWrapper.vue';
+import VsBreadcrumb from '@/components/breadcrumb/Breadcrumb.vue';
+import VsBreadcrumbItem from '@/components/breadcrumb/components/BreadcrumbItem.vue';
 import cardLayoutData from '@/assets/fixtures/navigation-pages/card-layout-inspirational.json';
 import textCardLayoutData from '@/assets/fixtures/navigation-pages/card-layout-informational.json';
 import infoCardLayoutData from '@/assets/fixtures/navigation-pages/card-layout-informational2.json';
-import VisualPatternTemplate from './templates/visual-pattern';
-import InformationPatternTemplate from './templates/information-pattern';
-import Information2PatternTemplate from './templates/information-pattern2';
+import VisualImpactTemplate from './templates/visual-impact-pattern';
+import InfoFirstTopTemplate from './templates/info-first-top-pattern';
+import InfoFirstSecondaryTemplate from './templates/info-first-secondary-pattern';
 import VsNavigationPage from '../../../src/templates/NavigationPage.vue';
 
 export default {
@@ -62,6 +64,8 @@ const createTemplate = (templateString) => (args) => ({
         VsBlogDetails,
         VsBadge,
         VsModuleWrapper,
+        VsBreadcrumb,
+        VsBreadcrumbItem,
     },
     setup() {
         const cardList1 = cardLayoutData.cardList1?.cards || [];
@@ -90,9 +94,9 @@ const createTemplate = (templateString) => (args) => ({
     template: templateString,
 });
 
-export const VisualPattern = createTemplate(VisualPatternTemplate).bind({
+export const VisualImpact = createTemplate(VisualImpactTemplate).bind({
 });
-VisualPattern.args = {
+VisualImpact.args = {
     pageTitle: 'Things to see & do in Scotland',
     pageLede: 'What unique and incredible things do you want to do in Scotland? Let the kids learn new stories in amazing attractions, take your friends to a new festival or spend some time relaxing at stunning nature spots.',
     imgUrl: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2025/04/16/paisley-abbey-header-new.jpg',
@@ -100,16 +104,16 @@ VisualPattern.args = {
     imgCredit: 'VisitScotland',
 };
 
-export const InformationPattern = createTemplate(InformationPatternTemplate).bind({
+export const InfoFirstTop = createTemplate(InfoFirstTopTemplate).bind({
 });
-InformationPattern.args = {
+InfoFirstTop.args = {
     pageTitle: 'Advice and Support',
     pageLede: 'Check out our how to articles and case studies on everything from digital channels to travel distribution.',
 };
 
-export const Information2Pattern = createTemplate(Information2PatternTemplate).bind({
+export const InfoFirstSecondary = createTemplate(InfoFirstSecondaryTemplate).bind({
 });
-Information2Pattern.args = {
+InfoFirstSecondary.args = {
     pageTitle: 'Sustainability',
     pageLede: 'Sustainably grow your tourism or events business with actionable green strategies.',
 };

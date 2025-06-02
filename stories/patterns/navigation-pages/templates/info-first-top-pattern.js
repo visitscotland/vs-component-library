@@ -1,5 +1,28 @@
 export default `
     <VsNavigationPage>
+        <template v-slot:breadcrumb>
+            <VsContainer class="mt-075 mt-lg-200">
+                <VsRow>
+                    <VsCol
+                        cols="10"
+                        lg="8"
+                    >
+                        <VsBreadcrumb>
+                            <VsBreadcrumbItem
+                                href="#"
+                                text="Home"
+                            />
+                            <VsBreadcrumbItem
+                                href="#"
+                                text="Advice and support"
+                                active
+                            />
+                        </VsBreadcrumb>
+                    </VsCol>
+                </VsRow>
+            </VsContainer>
+        </template>
+
         <template v-slot:heroSection>
             <VsHeroSection
                 :heading="args.pageTitle"
