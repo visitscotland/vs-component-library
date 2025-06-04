@@ -74,6 +74,10 @@ describe('VsStretchedLinkCard', () => {
                 headingStyle: 'heading-xxs',
             });
 
+            wrapper.setData({
+                requiredCookies: [],
+            });
+
             await wrapper.vm.$nextTick();
 
             const heading = wrapper.find('[data-test="vs-stretched-link-card__title"]');
@@ -86,6 +90,10 @@ describe('VsStretchedLinkCard', () => {
 
             wrapper.setProps({
                 videoId: '123456',
+            });
+
+            wrapper.setData({
+                requiredCookies: [],
             });
 
             await wrapper.vm.$nextTick();
@@ -102,9 +110,31 @@ describe('VsStretchedLinkCard', () => {
                 videoBtnText,
             });
 
+            wrapper.setData({
+                requiredCookies: [],
+            });
+
             await wrapper.vm.$nextTick();
 
             expect(wrapper.html()).toContain(videoBtnText);
+        });
+
+        it('should render a image warning component if `errorType` is `image`', async() => {
+            const wrapper = factoryShallowMount();
+
+            wrapper.setProps({
+                videoId: '123456',
+                errorMessage: 'Error',
+                errorType: 'image',
+            });
+
+            wrapper.setData({
+                cookiesInitStatus: 'error',
+            });
+
+            await wrapper.vm.$nextTick();
+
+            expect(wrapper.find('[data-test="vs-stretched-link-card__image-warning"]').exists()).toBe(true);
         });
 
         it('should render a full warning component if `errorType` is `full`', async() => {

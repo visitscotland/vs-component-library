@@ -9,11 +9,18 @@
         <VsWarning
             v-if="showWarning === 'full'"
             :size="warningSize"
-            type="normal"
+            :type="showCookieWarning ? 'cookie' : 'normal'"
             data-test="vs-stretched-link-card__full-warning"
             class="vs-stretched-link-card__full-warning"
         >
             {{ warningMessage }}
+
+            <template
+                #button-text
+                v-if="cookieLinkText !== '' && showCookieWarning"
+            >
+                {{ cookieLinkText }}
+            </template>
         </VsWarning>
 
         <VsWarning
@@ -49,7 +56,7 @@
                     ref="videoShow"
                     :rounded="false"
                     @click="emitShowModal"
-                    v-if="videoId && videoLoaded"
+                    v-if="videoId && videoLoaded && requiredCookiesExist"
                 >
                     <span
                         class="vs-stretched-link-card__video-btn-text"
@@ -173,6 +180,11 @@ import VsWarning from '@/components/warning/Warning.vue';
 import jsIsDisabled from '@/utils/js-is-disabled';
 import useVideoStore from '@/stores/video.store';
 
+import verifyCookiesMixin from '../../mixins/verifyCookiesMixin';
+import requiredCookiesData from '../../utils/required-cookies-data';
+
+const cookieValues = requiredCookiesData.youtube;
+
 /**
  * The Stretched Link Card is a block that stretches its nested link across its whole area
  * meaning that the whole block is clickable
@@ -190,11 +202,20 @@ export default {
         VsButton,
         VsWarning,
     },
+    mixins: [
+        verifyCookiesMixin,
+    ],
     inject: {
         noJsMessage: {
             default: null,
         },
         theme: {
+            default: null,
+        },
+        noCookiesMessage: {
+            default: null,
+        },
+        cookieLinkText: {
             default: null,
         },
     },
@@ -322,6 +343,7 @@ export default {
     data() {
         return {
             jsDisabled: true,
+            requiredCookies: cookieValues,
         };
     },
     computed: {
@@ -368,17 +390,40 @@ export default {
         warningClass() {
             let className = '';
 
-            if (this.videoId && this.jsDisabled) {
+            if (this.videoId && (this.jsDisabled || !this.requiredCookiesExist)) {
                 className = 'vs-stretched-link-card__img-container--warning ';
 
-                if (this.errorType === 'full') {
+                if (this.errorType === 'full' && (this.cookiesInitStatus !== null
+                    || this.jsDisabled)) {
                     className += 'vs-stretched-link-card__img-container--warning-full';
                 }
             }
 
             return className;
         },
+        showCookieWarning() {
+            if (this.videoId && !this.jsDisabled
+                && !this.requiredCookiesExist
+                && this.cookiesInitStatus === true) {
+                return true;
+            }
+
+            return false;
+        },
+        showError() {
+            if (this.videoId
+                && this.errorMessage !== ''
+                && this.cookiesInitStatus === 'error') {
+                return true;
+            }
+
+            return false;
+        },
         showWarning() {
+            if (this.showError || this.showCookieWarning) {
+                return this.errorType;
+            }
+
             if (this.jsDisabled) {
                 return true;
             }
@@ -386,11 +431,23 @@ export default {
             return false;
         },
         warningMessage() {
-            return this.errorMessage;
+            let message = '';
+
+            if (this.showCookieWarning) {
+                message = this.noCookiesMessage;
+            } else {
+                message = this.errorMessage;
+            }
+
+            return message;
         },
         warningAttrs() {
             const attrsObj = {
             };
+
+            if (this.type === 'cookie') {
+                attrsObj.class = 'ot-sdk-show-settings vs-warning__cookie-trigger';
+            }
 
             if (this.size === 'small') {
                 attrsObj.size = 'sm';
@@ -412,7 +469,7 @@ export default {
     },
     methods: {
         emitShowModal() {
-            if (!this.videoId) {
+            if (!this.videoId || !this.requiredCookiesExist) {
                 return;
             }
 

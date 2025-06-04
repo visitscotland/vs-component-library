@@ -1,3 +1,10 @@
+# [4.26.0](https://github.com/visitscotland/vs-component-library/compare/v4.25.0...v4.26.0) (2025-06-04)
+
+
+### Features
+
+* **video:** restore missing cookie warnings ([157d624](https://github.com/visitscotland/vs-component-library/commit/157d624b3cd4b2d28c64e1b63d75fae6035eead0))
+
 # [4.25.0](https://github.com/visitscotland/vs-component-library/compare/v4.24.1...v4.25.0) (2025-06-02)
 
 

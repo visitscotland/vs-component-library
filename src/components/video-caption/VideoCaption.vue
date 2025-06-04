@@ -8,7 +8,7 @@
             data-test="video-caption-variants"
             class="vs-video-caption"
             :class="`vs-video-caption--${variant}`"
-            v-if="videoLoaded"
+            v-if="videoLoaded && requiredCookiesExist"
             key="video-caption"
         >
             <div
@@ -41,6 +41,7 @@
 
             <div
                 class="vs-video-caption__details"
+                v-if="requiredCookiesExist"
             >
                 <p class="vs-video-caption__title">
                     <!-- @slot Slot for video title -->
@@ -52,6 +53,32 @@
                 </p>
             </div>
         </div>
+
+        <div
+            v-if="!(videoLoaded && requiredCookiesExist) && showCookieMessage"
+            class="vs-video-caption vs-video-caption--warning"
+        >
+            <VsWarning
+                size="small"
+                type="cookie"
+            >
+                {{ noCookiesMessage }}
+                <template #button-text>
+                    {{ cookieLinkText }}
+                </template>
+            </VsWarning>
+        </div>
+        <div
+            v-if="!(videoLoaded && requiredCookiesExist) && cookiesInitStatus === 'error'"
+            class="vs-video-caption vs-video-caption--warning"
+        >
+            <VsWarning
+                size="small"
+            >
+                {{ errorMessage }}
+            </VsWarning>
+        </div>
+
         <div
             v-if="noJsMessage"
             class="vs-video-caption vs-video-caption--no-js vs-video-caption--warning"
@@ -73,6 +100,11 @@ import VsWarning from '@/components/warning/Warning.vue';
 
 import useVideoStore from '@/stores/video.store';
 
+import verifyCookiesMixin from '../../mixins/verifyCookiesMixin';
+import requiredCookiesData from '../../utils/required-cookies-data';
+
+const cookieValues = requiredCookiesData.youtube;
+
 /**
  * Caption to be used for opening a video
  *
@@ -87,8 +119,17 @@ export default {
         VsToggleButton,
         VsWarning,
     },
+    mixins: [
+        verifyCookiesMixin,
+    ],
     inject: {
         noJsMessage: {
+            default: '',
+        },
+        noCookiesMessage: {
+            default: '',
+        },
+        cookieLinkText: {
             default: '',
         },
         errorMessage: {
@@ -140,6 +181,7 @@ export default {
     data() {
         return {
             showErrorMessage: false,
+            requiredCookies: cookieValues,
         };
     },
     computed: {
@@ -148,6 +190,14 @@ export default {
         },
         videoLoaded() {
             if (typeof this.videoDetails !== 'undefined' && this.videoDetails.videoDuration > 0) {
+                return true;
+            }
+
+            return false;
+        },
+        showCookieMessage() {
+            if (!this.requiredCookiesExist
+                && this.noCookiesMessage) {
                 return true;
             }
 
