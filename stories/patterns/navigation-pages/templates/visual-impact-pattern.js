@@ -38,7 +38,7 @@ export default `
             FEATURED LINK - Module spacing come from the megalinks wrapper
               ------------------------------------------------------------>
             <VsMegalinks 
-                title="Top things to  do and experience in Scotland"
+                title="Top things to do and experience in Scotland"
                 variant="multi-image"
             >
                 <VsContainer>
