@@ -38,7 +38,7 @@ export default `
             FEATURED LINK - Module spacing come from the megalinks wrapper
               ------------------------------------------------------------>
             <VsMegalinks 
-                title="Top things to  do and experience in Scotland"
+                title="Top things to do and experience in Scotland"
                 variant="multi-image"
             >
                 <VsContainer>
@@ -206,7 +206,7 @@ export default `
                     Magical places to visit
                 </template>
                 <template v-slot:vs-module-wrapper-intro>
-                    <p>Make new memories at some of our most popular attractions, uncover incredible film locations, or get up and close with  Scotland stunning landscapes and wildlife.</p>
+                    <p>Make new memories at some of our most popular attractions, uncover incredible film locations, or get up and close with Scotland's stunning landscapes and wildlife.</p>
                 </template>
 
                 <VsContainer>
