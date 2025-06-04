@@ -77,7 +77,7 @@ export default `
                         >
                             <VsCard
                                 v-for="(card, index) in cardList1"
-                                :key="'card-2-' + index"
+                                :key="'card-list-1-' + index"
                             >
                                 <template #vs-card-header>
                                     <VsImg
@@ -134,7 +134,7 @@ export default `
                             >
                                 <VsCard
                                     v-for="(card, index) in cardList2"
-                                    :key="'card-2-' + index"
+                                    :key="'card-list-2-' + index"
                                 >
                                     <template #vs-card-header>
                                         <VsImg
@@ -219,7 +219,7 @@ export default `
                             >
                                 <VsCard
                                     v-for="(card, index) in cardList3"
-                                    :key="'card-2-' + index"
+                                    :key="'card-list-3-' + index"
                                 >
                                     <template #vs-card-header>
                                         <VsImg
