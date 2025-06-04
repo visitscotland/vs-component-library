@@ -135,7 +135,7 @@ export default `
                             >
                                 <VsCard
                                     v-for="(card, index) in infoCardList2"
-                                    :key="'card-1-' + index"
+                                    :key="'card-2-' + index"
                                     :accent-bar="true"
                                     :fill-color="'vs-color-background-primary'"
                                     card-style="elevated"
@@ -266,7 +266,7 @@ export default `
                             >
                                 <VsCard
                                     v-for="(card, index) in infoCardList3"
-                                    :key="'card-1-' + index"
+                                    :key="'card-3-' + index"
                                     :accent-bar="true"
                                     :fill-color="'vs-color-background-primary'"
                                     card-style="elevated"
@@ -481,7 +481,7 @@ export default `
                             >
                                 <VsCard
                                     v-for="(card, index) in infoCardList4"
-                                    :key="'card-1-' + index"
+                                    :key="'card-4-' + index"
                                     :accent-bar="true"
                                     :fill-color="'vs-color-background-primary'"
                                     card-style="elevated"
