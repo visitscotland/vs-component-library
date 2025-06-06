@@ -1,6 +1,7 @@
 import VsProductSearch from '@/components/product-search/ProductSearch.vue';
 import enLocations from '@/assets/fixtures/product-search/enLocations.json';
 import frLocations from '@/assets/fixtures/product-search/frLocations.json';
+import { onUnmounted } from 'vue';
 
 // Mock the getData function that's used in the component
 const mockGetData = (url) => {
@@ -44,8 +45,12 @@ const Template = (args) => ({
     },
     setup() {
         // Mock the getData function
-        window.getData = mockGetData;
-
+        if (typeof window !== 'undefined') {
+            window.getData = mockGetData;
+        }
+        onUnmounted(() => {
+            delete window.getData;
+        });
         return {
             args,
         };
