@@ -71,7 +71,7 @@
             <VsWarning
                 v-if="showWarning === 'image'"
                 :size="warningSize"
-                type="normal"
+                :type="showCookieWarning ? 'cookie' : 'normal'"
                 data-test="vs-stretched-link-card__image-warning"
                 class="vs-stretched-link-card__image-warning"
             >
