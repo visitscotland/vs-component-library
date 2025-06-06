@@ -47,7 +47,7 @@ const Template = (args) => ({
             </template>
 
             <template v-slot:vs-card-body v-if="args.body || args.title">
-                <div :class="needsPadding() ? 'px-125' : ''">
+                <div :class="needsPadding() ? 'px-125 py-050' : ''">
                     <VsHeading
                         v-if="args.title"
                         level="3"
