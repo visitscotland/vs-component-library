@@ -1,3 +1,10 @@
+## [4.26.3](https://github.com/visitscotland/vs-component-library/compare/v4.26.2...v4.26.3) (2025-06-06)
+
+
+### Bug Fixes
+
+* **cookies:** use proper warning type ([a832e41](https://github.com/visitscotland/vs-component-library/commit/a832e41a9fa62e9c7e04cd5054730b04db31c5c6))
+
 ## [4.26.2](https://github.com/visitscotland/vs-component-library/compare/v4.26.1...v4.26.2) (2025-06-06)
 
 
