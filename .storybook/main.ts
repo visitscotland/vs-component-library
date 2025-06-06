@@ -11,8 +11,6 @@ const config: StorybookConfig = {
     '@storybook/addon-links',
     '@chromatic-com/storybook',
     "@storybook/addon-a11y",
-    "storybook-addon-mock",
-    'storybook-addon-datalayer-watcher',
     '@storybook/addon-docs'
   ],
   framework: {
