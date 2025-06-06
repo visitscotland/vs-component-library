@@ -115,9 +115,9 @@ export const Default = Template.bind({
 
 Default.args = base;
 
-Default.parameters = {
+Default.globals = {
     backgrounds: {
-        default: 'Grey',
+        value: 'grey',
     },
 };
 

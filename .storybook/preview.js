@@ -21,16 +21,18 @@ const preview = {
             },
         },
         backgrounds: {
-            default: 'Light',
-            values: [
-                { name: 'Light', value: '#fff' },
-                { name: 'Grey', value: '#F2F2F8' },
-                { name: 'Dark', value: '#200F2E' },
-            ],
+            options: {
+                grey: { name: 'Grey', value: '#F2F2F8' },
+                dark: { name: 'Dark', value: '#200F2E' },
+                light: { name: 'Light', value: '#fff' },
+            },
         },
         viewport: {
             defaultViewport: 'reset',
         },
+    },
+    initialGlobals: {
+        theme: 'light'
     },
     decorators: [
         (story) => {

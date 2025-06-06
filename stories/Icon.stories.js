@@ -143,9 +143,9 @@ Colour.args = {
     ],
 };
 
-Colour.parameters = {
+Colour.globals = {
     backgrounds: {
-        default: 'Grey',
+        value: 'grey',
     },
 };
 

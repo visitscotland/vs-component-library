@@ -102,9 +102,9 @@ export const GreyTheme = Template.bind({
 
 GreyTheme.args = base;
 
-GreyTheme.parameters = {
+GreyTheme.globals = {
     backgrounds: {
-        default: 'Grey',
+        value: 'grey',
     },
 };
 
