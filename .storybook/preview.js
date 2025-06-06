@@ -27,12 +27,6 @@ const preview = {
                 light: { name: 'Light', value: '#fff' },
             },
         },
-        viewport: {
-            defaultViewport: 'reset',
-        },
-    },
-    initialGlobals: {
-        theme: 'light'
     },
     decorators: [
         (story) => {

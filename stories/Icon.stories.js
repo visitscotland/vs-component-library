@@ -174,8 +174,8 @@ SmallSize.args = {
     smallSize: 'xs',
 };
 
-SmallSize.parameters = {
+SmallSize.globals = {
     viewport: {
-        defaultViewport: 'mobile2',
+        value: 'mobile2',
     },
 };

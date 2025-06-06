@@ -32,8 +32,8 @@ Default.args = base;
 
 export const Mobile = Template.bind();
 Mobile.args = base;
-Mobile.parameters = {
+Mobile.globals = {
     viewport: {
-        defaultViewport: 'mobile2',
+        value: 'mobile2',
     },
 };

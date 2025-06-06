@@ -14,11 +14,6 @@ import {
 export default {
     component: VsMegalinks,
     title: 'MegalinksLinkList',
-    parameters: {
-        viewport: {
-            defaultViewport: 'default',
-        },
-    },
 };
 
 const Template = (args) => ({
@@ -353,9 +348,9 @@ BusinessSupportHubHomepageMobile.args = {
     isHomePage: true,
 };
 
-BusinessSupportHubHomepageMobile.parameters = {
+BusinessSupportHubHomepageMobile.globals = {
     viewport: {
-        defaultViewport: 'mobile2',
+        value: 'mobile2',
     },
 };
 
