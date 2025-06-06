@@ -7,7 +7,7 @@
     >
         <VsButton
             class="vs-social-share__share-btn"
-            variant="transparent"
+            variant="subtle"
             icon="fa-regular fa-share-nodes"
             :id="`vs-social-share-popover--${id}`"
             v-if="!noJs"
@@ -49,7 +49,7 @@
                 icon-only
                 class="vs-social-share__close-btn"
                 icon="vs-icon-control-dismiss"
-                variant="transparent"
+                variant="subtle"
                 ref="closeButton"
                 @click="onClose"
                 @keydown.tab="tabFromClose($event)"

@@ -49,7 +49,7 @@
                     <VsButton
                         class="vs-banner__close-btn"
                         data-test="vs-banner__close-btn"
-                        variant="transparent"
+                        variant="subtle"
                         icon="vs-icon-control-dismiss"
                         size="md"
                         icon-only

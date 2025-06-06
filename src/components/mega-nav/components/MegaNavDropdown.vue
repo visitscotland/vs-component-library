@@ -5,7 +5,7 @@
         role="menuitem"
     >
         <BDropdown
-            variant="transparent"
+            variant="subtle"
             ref="dropdown"
             @show="dataLayerSubmit($event)"
         >
@@ -38,7 +38,7 @@
                                 icon="vs-icon-control-dismiss"
                                 icon-only
                                 size="sm"
-                                variant="transparent"
+                                variant="subtle"
                                 @click="closeMenu"
                                 @keydown.tab="tabFromClose"
                             >
@@ -79,7 +79,7 @@
                                 icon="vs-icon-control-dismiss"
                                 icon-only
                                 size="sm"
-                                variant="transparent"
+                                variant="subtle"
                                 @click="closeMenu"
                             >
                                 {{ menuToggleAltText }}

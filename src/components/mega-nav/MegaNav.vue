@@ -69,7 +69,7 @@
                                 class="vs-mega-nav__mobile-menu-toggle p-0"
                                 icon-only
                                 :icon="isOpen ? 'vs-icon-control-dismiss' : 'vs-icon-control-menu'"
-                                variant="transparent"
+                                variant="subtle"
                                 @click="menuToggle()"
                                 ref="toggleButton"
                                 :rounded="false"

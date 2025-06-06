@@ -34,7 +34,7 @@
                         icon-only
                         icon="fa-regular fa-arrow-left"
                         size="md"
-                        variant="transparent"
+                        variant="subtle"
                         @click="stageBack"
                         data-test="vs-map-with-sidebar-panel--btn-back"
                     >
@@ -49,7 +49,7 @@
                         icon-only
                         icon="vs-icon-control-dismiss"
                         size="md"
-                        variant="transparent"
+                        variant="subtle"
                         @click="closePanel"
                         data-test="vs-map-with-sidebar-panel--btn-close"
                     >
@@ -67,7 +67,7 @@
                     icon-only
                     icon="fa-regular fa-arrow-left"
                     size="md"
-                    variant="transparent"
+                    variant="subtle"
                     @click="stageBack"
                     data-test="vs-map-with-sidebar-panel--btn-back"
                 >
@@ -95,7 +95,7 @@
                     icon-only
                     icon="vs-icon-control-dismiss"
                     size="md"
-                    variant="transparent"
+                    variant="subtle"
                     @click="resetPanel"
                     data-test="vs-map-with-sidebar-panel--btn-reset"
                 >
