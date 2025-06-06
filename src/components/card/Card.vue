@@ -107,8 +107,7 @@ export default {
         position: relative;
         display: flex;
         flex-direction: column;
-        border-radius: $border-radius-default ;
-        height: 100%;
+        border-radius: $border-radius-default;
 
         &:hover {
             cursor: pointer;
