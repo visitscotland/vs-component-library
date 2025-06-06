@@ -1,4 +1,4 @@
-import { setup } from '@storybook/vue3';
+import { setup } from '@storybook/vue3-vite';
 
 import '@/assets/fonts/fonts.scss';
 import '@/styles/core.styles.scss';
