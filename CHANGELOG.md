@@ -1,3 +1,17 @@
+## [4.26.2](https://github.com/visitscotland/vs-component-library/compare/v4.26.1...v4.26.2) (2025-06-06)
+
+
+### Bug Fixes
+
+* **video:** restore cookie button in megalinks ([061ac7c](https://github.com/visitscotland/vs-component-library/commit/061ac7cd69cc25a3231b5a082d3af2673b9fefcd))
+
+## [4.26.1](https://github.com/visitscotland/vs-component-library/compare/v4.26.0...v4.26.1) (2025-06-06)
+
+
+### Bug Fixes
+
+* **card:** fix card not appearing as same height in a row ([89cfde3](https://github.com/visitscotland/vs-component-library/commit/89cfde301d75a58d869cec90312e67cf53408bb1))
+
 # [4.26.0](https://github.com/visitscotland/vs-component-library/compare/v4.25.0...v4.26.0) (2025-06-04)
 
 

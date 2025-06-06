@@ -1,4 +1,4 @@
-import VsCardLayout from '../src/templates/CardLayout.vue';
+import VsCardLayout from '../../src/templates/CardLayout.vue';
 
 export default {
     component: VsCardLayout,

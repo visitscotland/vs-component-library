@@ -1,0 +1,23 @@
+[
+    {
+        "title": "Advice and support",
+        "href": "#",
+        "isExternal": false,
+        "isActive": true,
+        "trackingId": "nav.link.test-tracking-id"
+    },
+    {
+        "title": "Training and events",
+        "href": "#",
+        "isExternal": false,
+        "isActive": false,
+        "trackingId": "nav.link.test-tracking-id"
+    },
+    {
+        "title": "Contact us",
+        "href": "#",
+        "isExternal": false,
+        "isActive": false,
+        "trackingId": "nav.link.test-tracking-id"
+    }
+]

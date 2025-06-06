@@ -76,6 +76,13 @@
                 class="vs-stretched-link-card__image-warning"
             >
                 {{ warningMessage }}
+
+                <template
+                    #button-text
+                    v-if="cookieLinkText !== '' && showCookieWarning"
+                >
+                    {{ cookieLinkText }}
+                </template>
             </VsWarning>
 
             <VsWarning
