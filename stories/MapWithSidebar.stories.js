@@ -177,9 +177,9 @@ ToggleOnMobile.args = {
     mapId: 'vs-map-mobile',
 };
 
-ToggleOnMobile.parameters = {
+ToggleOnMobile.globals = {
     viewport: {
-        defaultViewport: 'mobile2',
+        value: 'mobile2',
     },
 };
 

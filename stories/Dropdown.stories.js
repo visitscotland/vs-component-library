@@ -1,4 +1,4 @@
-import { userEvent, within } from '@storybook/test';
+import { userEvent, within } from 'storybook/test';
 import VsDropdown from '@/components/dropdown/Dropdown.vue';
 import VsDropdownItem from '@/components/dropdown/components/DropdownItem.vue';
 import VsIcon from '@/components/icon/Icon.vue';

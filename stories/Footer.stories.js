@@ -291,9 +291,9 @@ FooterMobile.args = {
     ...base,
 };
 
-FooterMobile.parameters = {
+FooterMobile.globals = {
     viewport: {
-        defaultViewport: 'mobile2',
+        value: 'mobile2',
     },
 };
 
@@ -305,8 +305,8 @@ NoJavascript.args = {
     jsDisabled: true,
 };
 
-NoJavascript.parameters = {
+NoJavascript.globals = {
     viewport: {
-        defaultViewport: 'mobile2',
+        value: 'mobile2',
     },
 };

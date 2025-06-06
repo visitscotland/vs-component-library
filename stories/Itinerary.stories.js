@@ -286,9 +286,9 @@ export const ItineraryMobile = Template.bind({
 
 ItineraryMobile.args = base;
 
-ItineraryMobile.parameters = {
+ItineraryMobile.globals = {
     viewport: {
-        defaultViewport: 'mobile2',
+        value: 'mobile2',
     },
 };
 
@@ -308,8 +308,8 @@ ItineraryMobileNoJavascript.args = {
     jsDisabled: true,
 };
 
-ItineraryMobileNoJavascript.parameters = {
+ItineraryMobileNoJavascript.globals = {
     viewport: {
-        defaultViewport: 'mobile2',
+        value: 'mobile2',
     },
 };

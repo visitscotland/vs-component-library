@@ -1,6 +1,6 @@
 import {
     within, waitFor, userEvent,
-} from '@storybook/test';
+} from 'storybook/test';
 
 import VsSelect from '@/components/select/Select.vue';
 

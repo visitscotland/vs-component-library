@@ -111,9 +111,9 @@ OnDark.args = {
     variant: 'on-dark',
 };
 
-OnDark.parameters = {
+OnDark.globals = {
     backgrounds: {
-        default: 'Dark',
+        value: 'dark',
     },
 };
 

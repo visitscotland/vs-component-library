@@ -1,4 +1,4 @@
-import { setup } from '@storybook/vue3';
+import { setup } from '@storybook/vue3-vite';
 
 import '@/assets/fonts/fonts.scss';
 import '@/styles/core.styles.scss';
@@ -21,15 +21,11 @@ const preview = {
             },
         },
         backgrounds: {
-            default: 'Light',
-            values: [
-                { name: 'Light', value: '#fff' },
-                { name: 'Grey', value: '#F2F2F8' },
-                { name: 'Dark', value: '#200F2E' },
-            ],
-        },
-        viewport: {
-            defaultViewport: 'reset',
+            options: {
+                grey: { name: 'Grey', value: '#F2F2F8' },
+                dark: { name: 'Dark', value: '#200F2E' },
+                light: { name: 'Light', value: '#fff' },
+            },
         },
     },
     decorators: [

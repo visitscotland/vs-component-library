@@ -5,6 +5,7 @@ yarn-error.log
 .vscode
 storybook-static/
 build-storybook.log
+doctor-storybook.log
 .yarn/*
 !.yarn/cache
 !.yarn/patches

@@ -135,7 +135,7 @@ const linkCardBase = {
 
 const greyBackground = {
     backgrounds: {
-        default: 'Grey',
+        value: 'grey',
     },
 };
 
@@ -155,7 +155,7 @@ SplitLinkHorizontal.args = {
 export const LinkCard = Template.bind({
 });
 LinkCard.args = linkCardBase;
-LinkCard.parameters = greyBackground;
+LinkCard.globals = greyBackground;
 
 export const LinkCardWithDetails = Template.bind({
 });
@@ -164,7 +164,7 @@ LinkCardWithDetails.args = {
     badge: true,
     metaData: true,
 };
-LinkCardWithDetails.parameters = greyBackground;
+LinkCardWithDetails.globals = greyBackground;
 
 export const LinkCardWithIcon = Template.bind({
 });
@@ -172,4 +172,4 @@ LinkCardWithIcon.args = {
     ...linkCardBase,
     icon: true,
 };
-LinkCardWithIcon.parameters = greyBackground;
+LinkCardWithIcon.globals = greyBackground;
