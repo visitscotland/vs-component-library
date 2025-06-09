@@ -132,6 +132,7 @@
     "speed-measure-webpack-plugin": "^1.5.0",
     "standard-version": "^9.5.0",
     "storybook": "^9.1.0-alpha.2",
+    "storybook-addon-datalayer-watcher": "^2.0.1",
     "style-loader": "^3.3.2",
     "svgo-loader": "^4.0.0",
     "theo": "^8.1.5",
