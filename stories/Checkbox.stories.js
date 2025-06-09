@@ -1,4 +1,4 @@
-import { within, waitFor } from '@storybook/test';
+import { within, waitFor } from 'storybook/test';
 
 import VsCheckbox from '@/components/checkbox/Checkbox.vue';
 

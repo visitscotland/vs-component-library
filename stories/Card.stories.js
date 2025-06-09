@@ -104,7 +104,7 @@ const filledCardBase = {
 
 const greyBackground = {
     backgrounds: {
-        default: 'Grey',
+        value: 'grey',
     },
 };
 
@@ -117,7 +117,7 @@ Default.args = {
 export const Filled = Template.bind({
 });
 Filled.args = filledCardBase;
-Filled.parameters = greyBackground;
+Filled.globals = greyBackground;
 
 export const Outlined = Template.bind({
 });
@@ -125,7 +125,7 @@ Outlined.args = {
     ...filledCardBase,
     cardStyle: 'outlined',
 };
-Outlined.parameters = greyBackground;
+Outlined.globals = greyBackground;
 
 export const Elevated = Template.bind({
 });
@@ -133,7 +133,7 @@ Elevated.args = {
     ...filledCardBase,
     cardStyle: 'elevated',
 };
-Elevated.parameters = greyBackground;
+Elevated.globals = greyBackground;
 
 export const AccentBar = Template.bind({
 });
