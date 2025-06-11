@@ -68,7 +68,7 @@ describe('VsHeroSection', () => {
             const heroImage = heroImageWrapper.find('vs-hero-section-image-stub');
 
             expect(heroImageWrapper.exists()).toBe(true);
-            expect(heroImage.attributes('imgSrc')).toContain(heroImgSrc);
+            expect(heroImage.attributes('src')).toContain(heroImgSrc);
         });
 
         it('should render correct image attributes when passed', async() => {
@@ -118,7 +118,7 @@ describe('VsHeroSection', () => {
 
             expect(video.exists()).toBe(true);
             expect(video.attributes('poster')).toBe(heroImgSrc);
-            expect(source.attributes('imgSrc')).toBe(heroVideoSrc);
+            expect(source.attributes('src')).toBe(heroVideoSrc);
         });
 
         it('does not render a video control when videoSrc is not provided', async() => {
