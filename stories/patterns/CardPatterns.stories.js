@@ -4,7 +4,7 @@ import VsImg from '@/components/img/Img.vue';
 import VsLink from '@/components/link/Link.vue';
 import VsButton from '@/components/button/Button.vue';
 import VsBody from '@/components/body/Body.vue';
-import VsBlogDetails from '@/components/blog-details/BlogDetails.vue';
+import VsArticleDetails from '@/components/article-details/ArticleDetails.vue';
 import VsBadge from '@/components/badge/Badge.vue';
 import VsIcon from '@/components/icon/Icon.vue';
 
@@ -24,7 +24,7 @@ const Template = (args) => ({
         VsLink,
         VsButton,
         VsBody,
-        VsBlogDetails,
+        VsArticleDetails,
         VsBadge,
         VsIcon,
     },
@@ -104,10 +104,10 @@ const Template = (args) => ({
             </template>
 
             <template v-slot:vs-card-footer>
-                <VsBlogDetails 
+                <VsArticleDetails 
                     v-if="args.metaData"
                     :class="needsPadding() ? 'px-125' : ''"
-                    blogReadTime="2 minute read"
+                    articleReadTime="2 minute read"
                 />
             </template>
         </VsCard>

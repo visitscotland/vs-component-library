@@ -122,10 +122,10 @@ export default `
                                     </template>
 
                                     <template #vs-card-footer>
-                                        <VsBlogDetails
+                                        <VsArticleDetails
                                             v-if="card.metaData"
                                             class="px-125"
-                                            :blog-read-time="card.metaData"
+                                            :article-read-time="card.metaData"
                                         />
                                     </template>
                                 </VsCard>
@@ -222,10 +222,10 @@ export default `
                                     </template>
 
                                     <template #vs-card-footer>
-                                        <VsBlogDetails
+                                        <VsArticleDetails
                                             v-if="card.metaData"
                                             class="px-125"
-                                            :blog-read-time="card.metaData"
+                                            :article-read-time="card.metaData"
                                         />
                                     </template>
                                 </VsCard>

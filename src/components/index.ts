@@ -11,7 +11,7 @@ export { default as VsArticleSidebar } from './article/components/ArticleSidebar
 export { default as VsBackToTop } from './back-to-top/BackToTop.vue';
 export { default as VsBadge } from './badge/Badge.vue';
 export { default as VsBanner } from './banner/Banner.vue';
-export { default as VsBlogDetails } from './blog-details/BlogDetails.vue';
+export { default as VsArticleDetails } from './article-details/ArticleDetails.vue';
 export { default as VsBreadcrumb } from './breadcrumb/Breadcrumb.vue';
 export { default as VsBreadcrumbItem } from './breadcrumb/components/BreadcrumbItem.vue';
 export { default as VsButton } from './button/Button.vue';

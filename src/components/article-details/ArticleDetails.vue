@@ -1,32 +1,32 @@
 <template>
     <div
-        class="vs-blog-details"
-        data-test="vs-blog-details"
-        v-if="blogAuthor || blogReadTime || blogPublishDate"
+        class="vs-article-details"
+        data-test="vs-article-details"
+        v-if="articleAuthor || articleReadTime || articlePublishDate"
     >
         <div
-            v-if="blogAuthor"
-            class="vs-blog-details__author vs-blog-details--highlight"
+            v-if="articleAuthor"
+            class="vs-article-details__author vs-article-details--highlight"
         >
-            {{ blogAuthor }}
+            {{ articleAuthor }}
         </div>
 
         <div
-            data-test="vs-blog-details__date-time"
-            :class="!blogAuthor ? 'vs-blog-details--highlight' : ''"
+            data-test="vs-article-details__date-time"
+            :class="!articleAuthor ? 'vs-article-details--highlight' : ''"
             class="mb-150"
         >
             <VsIcon
                 icon="fa-regular fa-clock"
                 :variant="iconVariant"
                 class="align-text-top me-050"
-            />{{ blogReadTime }}
+            />{{ articleReadTime }}
             <span
-                v-if="blogPublishDate"
-                class="vs-blog-details__date"
+                v-if="articlePublishDate"
+                class="vs-article-details__date"
             >
-                <span class="vs-blog-details__divider">•</span>
-                {{ blogPublishDate }}
+                <span class="vs-article-details__divider">•</span>
+                {{ articlePublishDate }}
             </span>
         </div>
     </div>
@@ -36,14 +36,14 @@
 import VsIcon from '@/components/icon/Icon.vue';
 
 /**
- * Displays relevant blog details such as author, date published
+ * Displays relevant article details such as author, date published
  * and time to read.
  *
- * @displayName Blog Details
+ * @displayName Article Details
  */
 
 export default {
-    name: 'VsBlogDetails',
+    name: 'VsArticleDetails',
     status: 'prototype',
     release: '0.0.1',
     components: {
@@ -51,37 +51,37 @@ export default {
     },
     props: {
         /**
-         * Name of the blog author
+         * Name of the article author
          */
-        blogAuthor: {
+        articleAuthor: {
             type: String,
             default: null,
         },
         /**
-         * Date the blog was published
+         * Date the article was published
          */
-        blogPublishDate: {
+        articlePublishDate: {
             type: String,
             default: null,
         },
         /**
-         * How long the blog takes to read
+         * How long the article takes to read
          */
-        blogReadTime: {
+        articleReadTime: {
             type: String,
             default: null,
         },
     },
     computed: {
         iconVariant() {
-            return this.blogAuthor ? 'secondary' : 'highlight';
+            return this.articleAuthor ? 'secondary' : 'highlight';
         },
     },
 };
 </script>
 
 <style lang="scss">
-.vs-blog-details {
+.vs-article-details {
     &__date {
         display: block;
 
