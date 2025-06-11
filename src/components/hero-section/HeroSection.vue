@@ -6,12 +6,12 @@
     >
         <div class="vs-hero-section__grid">
             <div
-                v-if="src && !videoSrc"
+                v-if="imgSrc && !videoSrc"
                 :class="['vs-hero-section__image', imageClasses]"
             >
                 <VsHeroSectionImage
                     :img-alt="imgAlt"
-                    :src="src"
+                    :src="imgSrc"
                     :img-caption="imgCaption"
                     :img-credit="imgCredit"
                     :split="split"
@@ -28,7 +28,7 @@
                     autoplay
                     playsinline
                     preload="auto"
-                    :poster="src"
+                    :poster="imgSrc"
                     class="vs-hero-section__video"
                     ref="heroVideo"
                     aria-hidden="true"
@@ -126,7 +126,7 @@ export default {
         /**
         * The image src url to display
         */
-        src: {
+        imgSrc: {
             type: String,
             default: '',
         },

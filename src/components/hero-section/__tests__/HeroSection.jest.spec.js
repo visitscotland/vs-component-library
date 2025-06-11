@@ -49,32 +49,32 @@ describe('VsHeroSection', () => {
             expect(heroLede.text()).toContain(ledeText);
         });
 
-        it('should not render a divider when an image `src` is passed', async() => {
+        it('should not render a divider when an image `imgSrc` is passed', async() => {
             const wrapper = factoryShallowMount();
             await wrapper.setProps({
-                src: heroImgSrc,
+                imgSrc: heroImgSrc,
             });
 
             const divider = wrapper.find('[data-test=vs-hero-section]').find('.vs-hero-section__divider');
             expect(divider.exists()).toBe(false);
         });
 
-        it('renders image when src is provided and no videoSrc', async() => {
+        it('renders image when imgSrc is provided and no videoSrc', async() => {
             const wrapper = factoryShallowMount();
             await wrapper.setProps({
-                src: heroImgSrc,
+                imgSrc: heroImgSrc,
             });
             const heroImageWrapper = wrapper.find('.vs-hero-section__image');
             const heroImage = heroImageWrapper.find('vs-hero-section-image-stub');
 
             expect(heroImageWrapper.exists()).toBe(true);
-            expect(heroImage.attributes('src')).toContain(heroImgSrc);
+            expect(heroImage.attributes('imgSrc')).toContain(heroImgSrc);
         });
 
         it('should render correct image attributes when passed', async() => {
             const wrapper = factoryShallowMount();
             await wrapper.setProps({
-                src: heroImgSrc,
+                imgSrc: heroImgSrc,
                 imgAlt: heroCaption,
                 imgCaption: heroCaption,
                 imgCredit: heroCredit,
@@ -89,7 +89,7 @@ describe('VsHeroSection', () => {
         it('renders inset image if `inset` is passed', async() => {
             const wrapper = factoryShallowMount();
             await wrapper.setProps({
-                src: heroImgSrc,
+                imgSrc: heroImgSrc,
                 inset: true,
             });
             const heroImageWrapper = wrapper.find('.vs-hero-section__image');
@@ -110,7 +110,7 @@ describe('VsHeroSection', () => {
             const wrapper = factoryShallowMount();
             await wrapper.setProps({
                 videoSrc: heroVideoSrc,
-                src: heroImgSrc,
+                imgSrc: heroImgSrc,
             });
 
             const video = wrapper.find('video');
@@ -118,7 +118,7 @@ describe('VsHeroSection', () => {
 
             expect(video.exists()).toBe(true);
             expect(video.attributes('poster')).toBe(heroImgSrc);
-            expect(source.attributes('src')).toBe(heroVideoSrc);
+            expect(source.attributes('imgSrc')).toBe(heroVideoSrc);
         });
 
         it('does not render a video control when videoSrc is not provided', async() => {
@@ -132,7 +132,7 @@ describe('VsHeroSection', () => {
             const wrapper = factoryShallowMount();
             await wrapper.setProps({
                 videoSrc: heroVideoSrc,
-                src: heroImgSrc,
+                imgSrc: heroImgSrc,
             });
 
             const videoControl = wrapper.find('vs-hero-section-video-control-stub');

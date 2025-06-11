@@ -31,7 +31,7 @@ export default `
             <VsHeroSection
                 :heading="args.pageTitle"
                 :lede="args.pageLede"
-                :src="args.imgUrl"
+                :img-src="args.imgUrl"
                 :img-caption="args.imgCaption"
                 :img-credit="args.imgCredit"
             />
@@ -80,7 +80,7 @@ export default `
                                         <div class="px-125 py-050">
                                             <VsHeading
                                                 level="3"
-                                                heading-style="heading-s"
+                                                heading-style="heading-xs"
                                             >
                                                 <VsLink
                                                     :href="card.link"
@@ -91,9 +91,9 @@ export default `
                                                 </VsLink>
                                             </VsHeading>
 
-                                            <VsRichTextWrapper class="mb-150 truncate-3-lines">
+                                            <VsBody class="mb-150 truncate-3-lines">
                                                 {{ card.description }}
-                                            </VsRichTextWrapper>
+                                            </VsBody>
                                         </div>
                                     </template>
 
@@ -154,7 +154,7 @@ export default `
                                         <div class="px-125 py-050">
                                             <VsHeading
                                                 level="3"
-                                                heading-style="heading-s"
+                                                heading-style="heading-xs"
                                             >
                                                 <VsLink
                                                     :href="card.link"
@@ -165,9 +165,9 @@ export default `
                                                 </VsLink>
                                             </VsHeading>
 
-                                            <VsRichTextWrapper class="mb-150 truncate-3-lines">
+                                            <VsBody class="mb-150 truncate-3-lines">
                                                 {{ card.description }}
-                                            </VsRichTextWrapper>
+                                            </VsBody>
                                         </div>
                                     </template>
 
@@ -285,7 +285,7 @@ export default `
                                         <div class="px-125 py-050">
                                             <VsHeading
                                                 level="3"
-                                                heading-style="heading-s"
+                                                heading-style="heading-xs"
                                             >
                                                 <VsLink
                                                     :href="card.link"
@@ -296,9 +296,9 @@ export default `
                                                 </VsLink>
                                             </VsHeading>
 
-                                            <VsRichTextWrapper class="mb-150 truncate-3-lines">
+                                            <VsBody class="mb-150 truncate-3-lines">
                                                 {{ card.description }}
-                                            </VsRichTextWrapper>
+                                            </VsBody>
                                         </div>
                                     </template>
 
@@ -500,7 +500,7 @@ export default `
                                         <div class="px-125 py-050">
                                             <VsHeading
                                                 level="3"
-                                                heading-style="heading-s"
+                                                heading-style="heading-xs"
                                             >
                                                 <VsLink
                                                     :href="card.link"
@@ -511,9 +511,9 @@ export default `
                                                 </VsLink>
                                             </VsHeading>
 
-                                            <VsRichTextWrapper class="mb-150 truncate-3-lines">
+                                            <VsBody class="mb-150 truncate-3-lines">
                                                 {{ card.description }}
-                                            </VsRichTextWrapper>
+                                            </VsBody>
                                         </div>
                                     </template>
 
