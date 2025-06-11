@@ -16,16 +16,21 @@
             :class="!articleAuthor ? 'vs-article-details--highlight' : ''"
             class="mb-150"
         >
-            <VsIcon
-                icon="fa-regular fa-clock"
-                :variant="iconVariant"
-                class="align-text-top me-050"
-            />{{ articleReadTime }}
+            <template v-if="articleReadTime">
+                <VsIcon
+                    icon="fa-regular fa-clock"
+                    :variant="iconVariant"
+                    class="align-text-top me-050"
+                />{{ articleReadTime }}
+            </template>
             <span
                 v-if="articlePublishDate"
                 class="vs-article-details__date"
             >
-                <span class="vs-article-details__divider">•</span>
+                <span
+                    v-if="articleReadTime"
+                    class="vs-article-details__divider"
+                >•</span>
                 {{ articlePublishDate }}
             </span>
         </div>

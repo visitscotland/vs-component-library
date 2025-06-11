@@ -52,6 +52,12 @@ WithAuthor.args = {
     ...dateAuthor,
 };
 
+export const NoReadTime = Template.bind({
+});
+NoReadTime.args = {
+    articlePublishDate: 'Last updated: 24 January 2025',
+};
+
 export const StackMobile = Template.bind({
 });
 StackMobile.args = {
