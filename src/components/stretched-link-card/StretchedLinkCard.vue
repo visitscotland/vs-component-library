@@ -554,10 +554,6 @@ export default {
             color: $vs-color-text-primary;
             display: flex;
 
-            @include media-breakpoint-up(md) {
-                font-size: $heading-xs;
-            }
-
             .stretched-link {
                 color: $vs-color-text-primary;
                 text-decoration: none;
