@@ -1,6 +1,6 @@
 import {
     within, waitFor, userEvent,
-} from '@storybook/test';
+} from 'storybook/test';
 
 import VsInput from '@/components/input/Input.vue';
 

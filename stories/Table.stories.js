@@ -135,8 +135,8 @@ StackedOnMobile.args = {
     tableType: 'stacked',
 };
 
-StackedOnMobile.parameters = {
+StackedOnMobile.globals = {
     viewport: {
-        defaultViewport: 'mobile2',
+        value: 'mobile2',
     },
 };

@@ -137,9 +137,9 @@ Colour.args = {
     ],
 };
 
-Colour.parameters = {
+Colour.globals = {
     backgrounds: {
-        default: 'Grey',
+        value: 'grey',
     },
 };
 
@@ -159,8 +159,8 @@ SmallSize.args = {
     smallSize: 'xs',
 };
 
-SmallSize.parameters = {
+SmallSize.globals = {
     viewport: {
-        defaultViewport: 'mobile2',
+        value: 'mobile2',
     },
 };

@@ -1,4 +1,4 @@
-import { userEvent, within } from '@storybook/test';
+import { userEvent, within } from 'storybook/test';
 
 import VsMeganav from '@/components/mega-nav/MegaNav.vue';
 import VsMegaNavDropdownContainer from '@/components/mega-nav/components/MegaNavDropdownContainer.vue';
@@ -329,9 +329,9 @@ export const OnMobile = Template.bind({
 
 OnMobile.args = base;
 
-OnMobile.parameters = {
+OnMobile.globals = {
     viewport: {
-        defaultViewport: 'mobile2',
+        value: 'mobile2',
     },
 };
 
@@ -340,9 +340,9 @@ export const MenuOpenMobile = Template.bind({
 
 MenuOpenMobile.args = base;
 
-MenuOpenMobile.parameters = {
+MenuOpenMobile.globals = {
     viewport: {
-        defaultViewport: 'mobile2',
+        value: 'mobile2',
     },
 };
 

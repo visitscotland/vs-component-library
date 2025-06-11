@@ -2,7 +2,7 @@ import VsButton from '@/components/button/Button.vue';
 import VsModal from '@/components/modal/Modal.vue';
 import VsBody from '@/components/body/Body.vue';
 import VsVideo from '@/components/video/Video.vue';
-import { userEvent, within } from '@storybook/test';
+import { userEvent, within } from 'storybook/test';
 import { VsCol, VsRow } from '@/components/grid';
 
 export default {

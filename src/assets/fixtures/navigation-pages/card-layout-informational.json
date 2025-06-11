@@ -1,0 +1,58 @@
+{
+  "textCardList1": {
+    "cards": [
+      {
+        "title": "Start your business",
+        "description": "Essential tools, legal guidance and staff support to launch successfully.",
+        "link": "#"
+      },
+      {
+        "title": "Improve your business",
+        "description": "Deliver quality experiences with customer insights, accessibility and service excellence.",
+        "link": "#"
+      },
+      {
+        "title": "Promote your business",
+        "description": "Boost visibility through engaging content, social media and marketing partnerships.",
+        "link": "#"
+      },
+      {
+        "title": "Grow your business",
+        "description": "Develop new products, secure funding and expand with expert advice.",
+        "link": "#"
+      }
+    ]
+  },
+  "textCardList2": {
+    "cards": [
+      {
+        "title": "Create an inclusive business",
+        "description": "Create an inclusive business that all customers can enjoy without any barriers or restrictions.",
+        "link": "#",
+        "badgeTitle": "Article",
+        "metaData": "6 minute read"
+      },
+      {
+        "title": "Scotland's Tourism Funding Opportunities",
+        "description": "Find out about Scotland's tourism funding opportunities available for your business. Including sources of funding, event funding and more.",
+        "link": "#",
+        "badgeTitle": "Article",
+        "metaData": "2 minute read"
+      },
+      {
+        "title": "How to create business listings",
+        "description": "Find out how to create business listings online. Including where to list your business, details to include, how to track your performance and more.",
+        "link": "#",
+        "badgeTitle": "Article",
+        "metaData": "8 minute read"
+      },
+      {
+        "title": "Customer service",
+        "description": "Find useful information on how to deliver great customer service. Including tips for responding to customer enquiries, bookings, staff training and more.",
+        "link": "#",
+        "badgeTitle": "Article",
+        "metaData": "7 minute read"
+      }
+    ]
+  }
+}

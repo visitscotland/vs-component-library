@@ -1,3 +1,43 @@
+## [4.26.3](https://github.com/visitscotland/vs-component-library/compare/v4.26.2...v4.26.3) (2025-06-06)
+
+
+### Bug Fixes
+
+* **cookies:** use proper warning type ([a832e41](https://github.com/visitscotland/vs-component-library/commit/a832e41a9fa62e9c7e04cd5054730b04db31c5c6))
+
+## [4.26.2](https://github.com/visitscotland/vs-component-library/compare/v4.26.1...v4.26.2) (2025-06-06)
+
+
+### Bug Fixes
+
+* **video:** restore cookie button in megalinks ([061ac7c](https://github.com/visitscotland/vs-component-library/commit/061ac7cd69cc25a3231b5a082d3af2673b9fefcd))
+
+## [4.26.1](https://github.com/visitscotland/vs-component-library/compare/v4.26.0...v4.26.1) (2025-06-06)
+
+
+### Bug Fixes
+
+* **card:** fix card not appearing as same height in a row ([89cfde3](https://github.com/visitscotland/vs-component-library/commit/89cfde301d75a58d869cec90312e67cf53408bb1))
+
+# [4.26.0](https://github.com/visitscotland/vs-component-library/compare/v4.25.0...v4.26.0) (2025-06-04)
+
+
+### Features
+
+* **video:** restore missing cookie warnings ([157d624](https://github.com/visitscotland/vs-component-library/commit/157d624b3cd4b2d28c64e1b63d75fae6035eead0))
+
+# [4.25.0](https://github.com/visitscotland/vs-component-library/compare/v4.24.1...v4.25.0) (2025-06-02)
+
+
+### Bug Fixes
+
+* **video:** update tests ([b73ed01](https://github.com/visitscotland/vs-component-library/commit/b73ed0144a79a578fbe757955b34e8b8648fd633))
+
+
+### Features
+
+* **video:** restore no-cookie warning and block video ([45c0fe7](https://github.com/visitscotland/vs-component-library/commit/45c0fe76042818c8adc9b8c8d3646d4f237db392))
+
 ## [4.24.1](https://github.com/visitscotland/vs-component-library/compare/v4.24.0...v4.24.1) (2025-05-29)
 
 

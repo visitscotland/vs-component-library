@@ -59,8 +59,8 @@ StackMobile.args = {
     ...dateAuthor,
 };
 
-StackMobile.parameters = {
+StackMobile.globals = {
     viewport: {
-        defaultViewport: 'mobile2',
+        value: 'mobile2',
     },
 };

@@ -9,11 +9,9 @@ const config: StorybookConfig = {
   ],
   addons: [
     '@storybook/addon-links',
-    '@storybook/addon-essentials',
     '@chromatic-com/storybook',
-    '@storybook/addon-interactions',
     "@storybook/addon-a11y",
-    "storybook-addon-mock",
+    '@storybook/addon-docs',
     'storybook-addon-datalayer-watcher',
   ],
   framework: {

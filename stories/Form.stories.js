@@ -1,6 +1,6 @@
 import {
     userEvent, within, waitFor,
-} from '@storybook/test';
+} from 'storybook/test';
 
 import VsForm from '@/components/form/Form.vue';
 

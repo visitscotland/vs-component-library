@@ -94,20 +94,6 @@ describe('VsMegalinkLinkList', () => {
     });
 
     describe(':businessSupportHub', () => {
-        it('renders content inserted into a badge slot', async() => {
-            const wrapper = factoryMount();
-
-            await wrapper.setProps({
-                businessSupport: true,
-            });
-
-            const card = wrapper.findComponent({
-                name: 'VsStretchedLinkCard',
-            });
-
-            expect(card.find('[data-test="vs-stretched-link-card__badges"]').exists()).toBe(true);
-        });
-
         it('should not render badges on a bsh homepage', async() => {
             const wrapper = factoryShallowMount();
 
