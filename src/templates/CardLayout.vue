@@ -57,10 +57,10 @@
                         </template>
 
                         <template #vs-card-footer>
-                            <VsBlogDetails
+                            <VsArticleDetails
                                 v-if="card.metaData"
                                 class="px-125"
-                                :blog-read-time="card.metaData"
+                                :article-read-time="card.metaData"
                             />
                         </template>
                     </VsCard>
@@ -81,7 +81,7 @@ import VsHeading from '@/components/heading/Heading.vue';
 import VsImg from '@/components/img/Img.vue';
 import VsLink from '@/components/link/Link.vue';
 import VsBody from '@/components/body/Body.vue';
-import VsBlogDetails from '@/components/blog-details/BlogDetails.vue';
+import VsArticleDetails from '@/components/article-details/ArticleDetails.vue';
 import VsBadge from '@/components/badge/Badge.vue';
 
 import splitCards from '../assets/fixtures/cards/split-cards.json';
@@ -104,7 +104,7 @@ export default {
         VsImg,
         VsLink,
         VsBody,
-        VsBlogDetails,
+        VsArticleDetails,
         VsBadge,
     },
     props: {

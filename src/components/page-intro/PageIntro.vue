@@ -77,8 +77,8 @@
                             <!-- @slot Intro section heading -->
                             <slot name="vs-intro-heading" />
                         </VsHeading>
-                        <!-- @slot Section for blog data -->
-                        <slot name="vs-blog-data" />
+                        <!-- @slot Section for article data -->
+                        <slot name="vs-article-data" />
                     </VsCol>
                 </VsRow>
                 <VsRow>

@@ -1,4 +1,4 @@
-import VsBlogDetails from '@/components/blog-details/BlogDetails.vue';
+import VsArticleDetails from '@/components/article-details/ArticleDetails.vue';
 import VsBreadcrumb from '@/components/breadcrumb/Breadcrumb.vue';
 import VsBreadcrumbItem from '@/components/breadcrumb/components/BreadcrumbItem.vue';
 import VsCaption from '@/components/caption/Caption.vue';
@@ -21,7 +21,7 @@ import VsSummaryBoxDistanceListItem from '@/components/summary-box/components/Su
 import VsModal from '@/components/modal/Modal.vue';
 import VsVideo from '@/components/video/Video.vue';
 
-import { WithAuthor as blogDetailsWithAuthor } from './BlogDetails.stories';
+import { WithAuthor as articleDetailsWithAuthor } from './ArticleDetails.stories';
 import { Default as breadcrumbDefault } from './Breadcrumb.stories';
 import { Default as imageWithCaptionDefault } from './ImageWithCaption.stories';
 import { Default as socialShareDefault } from './SocialShare.stories';
@@ -44,7 +44,7 @@ export default {
 };
 const Template = (args) => ({
     components: {
-        VsBlogDetails,
+        VsArticleDetails,
         VsBreadcrumb,
         VsBreadcrumbItem,
         VsCaption,
@@ -130,10 +130,10 @@ const Template = (args) => ({
             </template>
 
             <template
-                v-slot:vs-blog-data
-                v-if="args['vs-blog-data']"
+                v-slot:vs-article-data
+                v-if="args['vs-article-data']"
             >
-                <VsBlogDetails v-bind="args['vs-blog-data']" />
+                <VsArticleDetails v-bind="args['vs-article-data']" />
             </template>
 
             <template v-slot:vs-intro-content>
@@ -266,11 +266,11 @@ const base = {
 export const Default = Template.bind();
 Default.args = base;
 
-export const WithBlogData = Template.bind();
-WithBlogData.args = {
+export const WithArticleData = Template.bind();
+WithArticleData.args = {
     ...base,
-    'vs-blog-data': {
-        ...blogDetailsWithAuthor.args,
+    'vs-article-data': {
+        ...articleDetailsWithAuthor.args,
     },
 };
 

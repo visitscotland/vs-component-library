@@ -1,10 +1,10 @@
-import VsBlogDetails from '@/components/blog-details/BlogDetails.vue';
+import VsArticleDetails from '@/components/article-details/ArticleDetails.vue';
 
 export default {
-    component: VsBlogDetails,
-    title: 'BlogDetails',
+    component: VsArticleDetails,
+    title: 'ArticleDetails',
     argTypes: {
-        blogPublishDate: {
+        articlePublishDate: {
             control: {
                 type: 'text',
             },
@@ -13,7 +13,7 @@ export default {
 };
 const Template = (args) => ({
     components: {
-        VsBlogDetails,
+        VsArticleDetails,
     },
     setup() {
         return {
@@ -21,17 +21,17 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsBlogDetails v-bind="args" />
+        <VsArticleDetails v-bind="args" />
     `,
 });
 
 const base = {
-    blogReadTime: '2 minute read',
+    articleReadTime: '2 minute read',
 };
 
 const dateAuthor = {
-    blogPublishDate: 'Last updated: 24 January 2025',
-    blogAuthor: 'Sarah Henderson',
+    articlePublishDate: 'Last updated: 24 January 2025',
+    articleAuthor: 'Sarah Henderson',
 };
 
 export const Default = Template.bind({
@@ -42,7 +42,7 @@ export const WithDate = Template.bind({
 });
 WithDate.args = {
     ...base,
-    blogPublishDate: 'Last updated: 24 January 2025',
+    articlePublishDate: 'Last updated: 24 January 2025',
 };
 
 export const WithAuthor = Template.bind({
@@ -50,6 +50,12 @@ export const WithAuthor = Template.bind({
 WithAuthor.args = {
     ...base,
     ...dateAuthor,
+};
+
+export const NoReadTime = Template.bind({
+});
+NoReadTime.args = {
+    articlePublishDate: 'Last updated: 24 January 2025',
 };
 
 export const StackMobile = Template.bind({
