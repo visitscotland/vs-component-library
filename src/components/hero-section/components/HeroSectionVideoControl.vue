@@ -9,6 +9,24 @@
         <!-- Slot for visiblly hidden screen reader text -->
         <slot />
     </VsButton>
+
+    <div
+        id="vs-hero-section-video-control__status"
+        aria-live="polite"
+        class="visually-hidden"
+        role="status"
+    >
+        <span
+            v-if="isPlaying && videoPlayingStatus"
+        >
+            {{ videoPlayingStatus }}
+        </span>
+        <span
+            v-if="!isPlaying && videoPausedStatus"
+        >
+            {{ videoPausedStatus }}
+        </span>
+    </div>
 </template>
 
 <script>
@@ -26,6 +44,14 @@ export default {
     release: '0.0.1',
     components: {
         VsButton,
+    },
+    inject: {
+        videoPlayingStatus: {
+            default: '',
+        },
+        videoPausedStatus: {
+            default: '',
+        },
     },
     emits: ['videoToggled'],
     data() {

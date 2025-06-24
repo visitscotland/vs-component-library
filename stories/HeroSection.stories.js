@@ -66,6 +66,8 @@ WithVideo.args = {
     src: 'fixtures/hero/images/lavendar-fields.jpg',
     videoSrc: 'fixtures/hero/video/lavendar-fields.mp4',
     videoBtnText: 'Play/pause background video',
+    videoPlayingStatus: 'Playing',
+    videoPausedStatus: 'Paused',
 };
 
 export const Inset = Template.bind({
