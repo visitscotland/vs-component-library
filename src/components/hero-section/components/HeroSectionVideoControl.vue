@@ -11,7 +11,6 @@
     </VsButton>
 
     <div
-        id="vs-hero-section-video-control__status"
         aria-live="polite"
         class="visually-hidden"
         role="status"
