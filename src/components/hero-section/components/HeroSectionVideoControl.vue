@@ -1,14 +1,34 @@
 <template>
-    <VsButton
-        icon-only
-        class="vs-hero-section-video-control"
+    <div
         data-test="vs-hero-section-video-control"
-        :icon=" isPlaying ? 'pause-regular' : 'play'"
-        @click="toggleVideo"
     >
-        <!-- Slot for visiblly hidden screen reader text -->
-        <slot />
-    </VsButton>
+        <VsButton
+            icon-only
+            class="vs-hero-section-video-control"
+            :icon=" isPlaying ? 'pause-regular' : 'play'"
+            @click="toggleVideo"
+        >
+            <!-- Slot for visiblly hidden screen reader text -->
+            <slot />
+        </VsButton>
+
+        <div
+            aria-live="polite"
+            class="visually-hidden"
+            role="status"
+        >
+            <span
+                v-if="isPlaying && videoPlayingStatus"
+            >
+                {{ videoPlayingStatus }}
+            </span>
+            <span
+                v-if="!isPlaying && videoPausedStatus"
+            >
+                {{ videoPausedStatus }}
+            </span>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -26,6 +46,14 @@ export default {
     release: '0.0.1',
     components: {
         VsButton,
+    },
+    inject: {
+        videoPlayingStatus: {
+            default: 'Playing',
+        },
+        videoPausedStatus: {
+            default: 'Paused',
+        },
     },
     emits: ['videoToggled'],
     data() {
