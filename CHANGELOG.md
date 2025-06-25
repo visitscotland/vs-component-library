@@ -1,3 +1,16 @@
+# [4.27.0](https://github.com/visitscotland/vs-component-library/compare/v4.26.3...v4.27.0) (2025-06-25)
+
+
+### Bug Fixes
+
+* **a11y:** add tests and correct wrapper detection for data-test ([55db30d](https://github.com/visitscotland/vs-component-library/commit/55db30d219d30329963f173082582ae3925ae7e7))
+* **a11y:** remove unneeded id ([54f5533](https://github.com/visitscotland/vs-component-library/commit/54f553339ea3baec457b1083410a21888b2dd9eb))
+
+
+### Features
+
+* **a11y:** add status alert to hero section video controls ([de9e9e3](https://github.com/visitscotland/vs-component-library/commit/de9e9e3ba2ca3c7e9f3475d53cc1bbec7d14bdce))
+
 ## [4.26.3](https://github.com/visitscotland/vs-component-library/compare/v4.26.2...v4.26.3) (2025-06-06)
 
 

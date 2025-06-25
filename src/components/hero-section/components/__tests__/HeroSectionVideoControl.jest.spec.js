@@ -37,6 +37,15 @@ describe('HeroSectionVideoControl', () => {
         ).props('icon')).toBe('vs-icon-control-play');
     });
 
+    it('announces playing label when video is playing', () => {
+        expect(wrapper.html()).toContain('Playing');
+    });
+
+    it('announces pause label when video is not playing', async() => {
+        await wrapper.vm.toggleVideo();
+        expect(wrapper.html()).toContain('Paused');
+    });
+
     describe(':events', () => {
         it('emits videoToggled event with correct value when button is clicked', async() => {
             await wrapper.findComponent(

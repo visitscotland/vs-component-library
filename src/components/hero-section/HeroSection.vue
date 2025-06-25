@@ -74,6 +74,8 @@
                     v-if="videoSrc"
                     video-btn-text="Toggle video"
                     @video-toggled="onToggleVideo"
+                    :video-playing-status="videoPlayingStatus"
+                    :video-paused-status="videoPausedStatus"
                 >
                     {{ videoBtnText }}
                 </VsHeroSectionVideoControl>
@@ -105,6 +107,12 @@ export default {
         VsBody,
         VsHeroSectionImage,
         VsHeroSectionVideoControl,
+    },
+    provide() {
+        return {
+            videoPlayingStatus: this.videoPlayingStatus,
+            videoPausedStatus: this.videoPausedStatus,
+        };
     },
     props: {
         /**
@@ -176,6 +184,20 @@ export default {
         * The visually hidden text to display
         */
         videoBtnText: {
+            type: String,
+            default: '',
+        },
+        /**
+        * The aria alerted text to announce when the video is playing
+        */
+        videoPlayingStatus: {
+            type: String,
+            default: '',
+        },
+        /**
+        * The aria alerted text to announce when the video is paused
+        */
+        videoPausedStatus: {
             type: String,
             default: '',
         },
