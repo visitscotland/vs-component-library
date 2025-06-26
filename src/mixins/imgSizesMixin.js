@@ -36,27 +36,27 @@ const imgSizesMixin = {
         computedSizes() {
             const breakpoints = [
                 {
-                    prop: 'xl',
+                    viewportSize: 'xl',
                     minWidth: 1200,
                 },
                 {
-                    prop: 'lg',
+                    viewportSize: 'lg',
                     minWidth: 992,
                 },
                 {
-                    prop: 'md',
+                    viewportSize: 'md',
                     minWidth: 769,
                 },
                 {
-                    prop: 'sm',
+                    viewportSize: 'sm',
                     minWidth: 576,
                 },
             ];
 
             const returnSizes = breakpoints
-                .filter(({ prop }) => this[prop])
-                .map(({ prop, minWidth }) => {
-                    const size = (this[prop] / 12) * 100;
+                .filter(({ viewportSize }) => this[viewportSize])
+                .map(({ viewportSize, minWidth }) => {
+                    const size = (this[viewportSize] / 12) * 100;
                     return `(min-width: ${minWidth}px) ${size}vw`;
                 });
 
