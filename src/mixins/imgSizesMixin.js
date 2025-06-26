@@ -34,36 +34,34 @@ const imgSizesMixin = {
          * image at an appropriate percent of the viewport width.
          */
         computedSizes() {
-            const returnSizes = [];
+            const breakpoints = [
+                {
+                    prop: 'xl',
+                    minWidth: 1200,
+                },
+                {
+                    prop: 'lg',
+                    minWidth: 992,
+                },
+                {
+                    prop: 'md',
+                    minWidth: 769,
+                },
+                {
+                    prop: 'sm',
+                    minWidth: 576,
+                },
+            ];
 
-            if (this.xl) {
-                const maxSize = (this.xl / 12) * 100;
-
-                returnSizes.push(`(min-width: 1200px) ${maxSize}vw`);
-            }
-
-            if (this.lg) {
-                const maxSize = (this.lg / 12) * 100;
-
-                returnSizes.push(`(min-width: 992px) ${maxSize}vw`);
-            }
-
-            if (this.md) {
-                const maxSize = (this.md / 12) * 100;
-
-                returnSizes.push(`(min-width: 769px) ${maxSize}vw`);
-            }
-
-            if (this.sm) {
-                const maxSize = (this.sm / 12) * 100;
-
-                returnSizes.push(`(min-width: 576px) ${maxSize}vw`);
-            }
+            const returnSizes = breakpoints
+                .filter(({ prop }) => this[prop])
+                .map(({ prop, minWidth }) => {
+                    const size = (this[prop] / 12) * 100;
+                    return `(min-width: ${minWidth}px) ${size}vw`;
+                });
 
             if (this.cols) {
-                const maxSize = (this.cols / 12) * 100;
-
-                returnSizes.push(`${maxSize}vw`);
+                returnSizes.push(`${(this.cols / 12) * 100}vw`);
             } else {
                 returnSizes.push('100vw');
             }
