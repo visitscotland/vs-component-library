@@ -11,7 +11,7 @@
         :class="useGenericLqip ? 'generic-lqip' : ''"
         :srcset="computedSrcSet"
         :low-res-image="isSvg ? '' : specificImgSize('xxs')"
-        sizes="(min-width: 768px) 75vw, 100vw"
+        :sizes="computedSizes"
     >
         <VsIcon
             name="user"
@@ -27,6 +27,7 @@
 import VsIcon from '@/components/icon/Icon.vue';
 import { BImg } from 'bootstrap-vue-next';
 import srcSetMixin from '@/mixins/srcSetMixin';
+import imgSizesMixin from '@/mixins/imgSizesMixin';
 /**
  * This image component is used to render images in our products
  * to help support and clarify content.
@@ -44,6 +45,7 @@ export default {
     },
     mixins: [
         srcSetMixin,
+        imgSizesMixin,
     ],
     props: {
         /**
