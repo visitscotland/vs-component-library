@@ -17,6 +17,7 @@ imports:
   - ./type/font.yml
   - ./type/heading-size.yml
   - ./type/body-size.yml
+  - ./type/detail-size.yml
   - ./type/tracking.yml
   - ./type/line-height.yml
   - ./elevation-shadow.yml
