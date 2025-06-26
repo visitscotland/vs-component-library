@@ -5,7 +5,7 @@ import VsImg from '../Img.vue';
 const slotText = 'Image text';
 const imgUrl = 'https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander';
 
-const factoryShallowMount = (propsData) => shallowMount(VsImg, {
+const factoryShallowMount = (propsData, provideData) => shallowMount(VsImg, {
     slots: {
         default: slotText,
     },
@@ -13,10 +13,15 @@ const factoryShallowMount = (propsData) => shallowMount(VsImg, {
         src: `${imgUrl}`,
         alt: 'Claire standing stones',
         ...propsData,
+    },
+    global: {
+        provide: {
+            ...provideData,
+        },
     },
 });
 
-const factoryMount = (propsData) => mount(VsImg, {
+const factoryMount = (propsData, provideData) => mount(VsImg, {
     slots: {
         default: slotText,
     },
@@ -24,6 +29,11 @@ const factoryMount = (propsData) => mount(VsImg, {
         src: `${imgUrl}`,
         alt: 'Claire standing stones',
         ...propsData,
+    },
+    global: {
+        provide: {
+            ...provideData,
+        },
     },
 });
 
@@ -96,6 +106,26 @@ describe('VsImg', () => {
             });
 
             await expect(wrapper.attributes('srcset')).toContain('&size=');
+        });
+
+        it('should construct a full width `sizes` attribute if no grid properties are provided', () => {
+            const wrapper = factoryMount();
+
+            expect(wrapper.attributes('sizes')).toBe('100vw');
+        });
+
+        it('should construct a responsive `sizes` attribute if grid properties are provided', () => {
+            const wrapper = factoryMount(
+                {
+                },
+                {
+                    cols: 12,
+                    md: 6,
+                    lg: 3,
+                },
+            );
+
+            expect(wrapper.attributes('sizes')).toBe('(min-width: 992px) 25vw, (min-width: 769px) 50vw, 100vw');
         });
     });
 
