@@ -23,56 +23,43 @@
 
     // set margins if with-margins is true
     @if $with-margins {
-        $margin: map-get(
-            map-get($heading-styles, $style), margin
-        );
-
-        margin: $margin;
+        @include font-based-margins(1.4, 0.25);
     }
 }
 
 $heading-styles: (
     display-m: (
         size: $display-m,
-        margin: $spacer-100 0 $spacer-075,
     ),
     display-s: (
         size: $display-s,
         breakpoint-md: $display-m,
-        margin: $spacer-100 0 $spacer-075,
     ),
     heading-xl: (
         size: $heading-xl,
-        margin: $spacer-100 0 $spacer-075,
     ),
     heading-l: (
         size: $heading-l,
         breakpoint-md: $heading-xl,
-        margin: $spacer-100 0 $spacer-075,
     ),
     heading-m: (
         size: $heading-m,
         breakpoint-md: $heading-l,
-        margin: $spacer-075 0 $spacer-050,
     ),
     heading-s: (
         size: $heading-s,
         breakpoint-md: $heading-m,
-        margin: $spacer-075 0 $spacer-050,
     ),
     heading-xs: (
         size: $heading-xs,
         breakpoint-md: $heading-s,
-        margin: $spacer-075 0 $spacer-050,
     ),
     heading-xxs: (
         size: $heading-xxs,
         breakpoint-md: $heading-xs,
-        margin: $spacer-075 0 $spacer-050,
     ),
     heading-xxxs: (
         size: $heading-xxxs,
         breakpoint-md: $heading-xxs,
-        margin: $spacer-075 0 $spacer-050,
     ),
 );
