@@ -1,3 +1,12 @@
+# [4.28.0](https://github.com/visitscotland/vs-component-library/compare/v4.27.0...v4.28.0) (2025-06-26)
+
+
+### Features
+
+* **images:** load appropriate images based on usage size as well as screen size ([46ddf67](https://github.com/visitscotland/vs-component-library/commit/46ddf674dee453f75a847b22917f763c10296787))
+* **images:** reduce code re-use in imgSizesMixin ([9964ec9](https://github.com/visitscotland/vs-component-library/commit/9964ec9688bfb3cbcc2a93d2c06cbcea85b3ba3b))
+* **images:** rename arg ([b01bab9](https://github.com/visitscotland/vs-component-library/commit/b01bab9f9b5713d1bcff23bcac30cd3e8a83f8f5))
+
 # [4.27.0](https://github.com/visitscotland/vs-component-library/compare/v4.26.3...v4.27.0) (2025-06-25)
 
 
