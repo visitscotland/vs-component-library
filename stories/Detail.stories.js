@@ -4,7 +4,7 @@ export default {
     component: VsDetail,
     title: 'Typography/Detail',
     argTypes: {
-        variant: {
+        size: {
             options: [
                 'small',
                 'medium',

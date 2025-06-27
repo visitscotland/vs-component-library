@@ -2,7 +2,7 @@
     <p
         class="vs-detail"
         :class="[
-            `vs-detail--${variant}`,
+            `vs-detail--${size}`,
         ]"
     >
         <!-- @slot Default slot for detail text content -->
@@ -26,7 +26,7 @@ export default {
          * The font size used by the wrapper
          * `small|medium|large`
          */
-        variant: {
+        size: {
             type: String,
             default: 'medium',
             validator: (value) => value.match(/(small|medium|large)/),
@@ -39,6 +39,7 @@ export default {
 .vs-detail {
     line-height: $line-height-detail;
     letter-spacing: $tracking-detail;
+    @include font-based-margins(1.4, 0.25);
 
     &--small {
         font-size: $detail-s;
@@ -60,5 +61,4 @@ export default {
         font-size: $detail-l;
     }
 }
-
 </style>
