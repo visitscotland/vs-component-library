@@ -50,7 +50,7 @@ export default {
                 'vs-detail',
                 `vs-detail--${this.size}`,
                 `vs-detail--${this.color}`,
-                !this.noMargins ? 'vs-detail--with-margins' : '',
+                ...(this.noMargins ? [] : ['vs-detail--with-margins']),
             ];
         },
     },
