@@ -6,6 +6,8 @@
 props:
     - name: tracking-heading
       value: "-0.01em"
+    - name: tracking-detail
+      value: "0"
     - name: tracking-body
       value: "0.01em"
 global:

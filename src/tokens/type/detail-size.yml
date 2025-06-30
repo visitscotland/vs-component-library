@@ -1,0 +1,17 @@
+#
+# DETAIL-SIZE TOKENS
+# Use these tokens to set detail text font sizes.
+#
+
+props:
+    - name: detail-l
+      value: "{!font-size-200}"
+    - name: detail-m
+      value: "{!font-size-100}"
+    - name: detail-s
+      value: "{!font-size-75}"
+imports:
+  - ../primitives/font-size-primitives.yml
+global:
+    type: number
+    category: detail-size
