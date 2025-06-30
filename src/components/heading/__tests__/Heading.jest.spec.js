@@ -52,6 +52,14 @@ describe('VsHeading', () => {
 
             expect(wrapper.classes('vs-heading--heading-l')).toBe(true);
         });
+
+        it('adds no-margins class when noMargins is true', () => {
+            const wrapper = factoryShallowMount({
+                noMargins: true,
+            });
+
+            expect(wrapper.classes()).toContain('vs-heading--no-margins');
+        });
     });
 
     describe('slots:', () => {

@@ -3,6 +3,6 @@
 // so the margins automatically scale with the font size
 
 @mixin font-based-margins($top-multiplier: 1.4, $bottom-multiplier: 0.25) {
-  margin-top: calc(1em / #{$top-multiplier});
-  margin-bottom: calc(1em * #{$bottom-multiplier});
+	margin-top: if($top-multiplier != 0, calc(1em / #{$top-multiplier}), 0);
+	margin-bottom: if($bottom-multiplier != 0, calc(1em * #{$bottom-multiplier}), 0);
 }
