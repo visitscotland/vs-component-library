@@ -14,7 +14,7 @@ const factoryShallowMount = (propsData) => shallowMount(VsDetail, {
 });
 
 describe('VsDetail', () => {
-    it('should render a div with the class `vs-detail`', () => {
+    it('should render a p element with the class `vs-detail`', () => {
         const wrapper = factoryShallowMount();
 
         expect(wrapper.element.tagName).toBe('P');
