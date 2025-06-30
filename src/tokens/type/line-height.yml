@@ -23,9 +23,9 @@ props:
   line-height-heading:
     value: "1.2"
   line-height-detail:
-    value: "1.3" 
+    value: "1.3"
   line-height-body:
-    value: "1.5" 
+    value: "1.5"
 
     
 global:
