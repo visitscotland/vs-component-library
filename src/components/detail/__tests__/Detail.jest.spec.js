@@ -20,15 +20,33 @@ describe('VsDetail', () => {
         expect(wrapper.element.tagName).toBe('P');
         expect(wrapper.classes('vs-detail')).toBe(true);
         expect(wrapper.classes()).toContain('vs-detail--medium');
+        expect(wrapper.classes()).toContain('vs-detail--primary');
+        expect(wrapper.classes()).toContain('vs-detail--with-margins');
     });
 
     describe(':props', () => {
-        it(':size - should accept and render a `size` prop', () => {
+        it('should accept and render a `size` prop', () => {
             const wrapper = factoryShallowMount({
                 size: 'large',
             });
 
             expect(wrapper.classes()).toContain('vs-detail--large');
+        });
+
+        it('should accept and render a `color` prop', () => {
+            const wrapper = factoryShallowMount({
+                color: 'secondary',
+            });
+
+            expect(wrapper.classes()).toContain('vs-detail--secondary');
+        });
+
+        it('removes margin class when noMargins is true', () => {
+            const wrapper = factoryShallowMount({
+                noMargins: true,
+            });
+
+            expect(wrapper.classes()).not.toContain('vs-detail--with-margins');
         });
     });
 

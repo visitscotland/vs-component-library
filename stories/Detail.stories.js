@@ -14,6 +14,16 @@ export default {
                 type: 'radio',
             },
         },
+        color: {
+            options: [
+                'primary',
+                'secondary',
+                'tertiary',
+            ],
+            control: {
+                type: 'radio',
+            },
+        },
     },
     decorators: [() => ({
         template: '<div style="max-width: 750px;"><story /></div>',

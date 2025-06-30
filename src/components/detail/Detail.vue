@@ -1,10 +1,5 @@
 <template>
-    <p
-        class="vs-detail"
-        :class="[
-            `vs-detail--${size}`,
-        ]"
-    >
+    <p :class="detailClasses">
         <!-- @slot Default slot for detail text content -->
         <slot />
     </p>
@@ -23,13 +18,40 @@ export default {
     release: '0.0.1',
     props: {
         /**
-         * The font size used by the wrapper
+         * The font size
          * `small|medium|large`
          */
         size: {
             type: String,
             default: 'medium',
             validator: (value) => value.match(/(small|medium|large)/),
+        },
+        /**
+         * The text color
+         * `primary|secondary|tertiary`
+         */
+        color: {
+            type: String,
+            default: 'primary',
+            validator: (value) => value.match(/(primary|secondary|tertiary)/),
+        },
+        /**
+         * Option to remove margins from the detail text.
+         * Useful when the detail text is used inside a component
+         */
+        noMargins: {
+            type: Boolean,
+            default: false,
+        },
+    },
+    computed: {
+        detailClasses() {
+            return [
+                'vs-detail',
+                `vs-detail--${this.size}`,
+                `vs-detail--${this.color}`,
+                !this.noMargins ? 'vs-detail--with-margins' : '',
+            ];
         },
     },
 };
@@ -39,7 +61,10 @@ export default {
 .vs-detail {
     line-height: $line-height-detail;
     letter-spacing: $tracking-detail;
-    @include font-based-margins(1.4, 0.25);
+
+    &--with-margins {
+        @include font-based-margins(1.4, 0.25);
+    }
 
     &--small {
         font-size: $detail-s;
@@ -59,6 +84,18 @@ export default {
 
     &--large {
         font-size: $detail-l;
+    }
+
+    &--primary {
+        color: $vs-color-text-primary;
+    }
+
+    &--secondary {
+        color: $vs-color-text-secondary;
+    }
+
+    &--tertiary {
+        color: $vs-color-text-tertiary;
     }
 }
 </style>
