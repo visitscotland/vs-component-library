@@ -24,6 +24,15 @@ export default {
                 type: 'radio',
             },
         },
+        noMargins: {
+            options: [
+                true,
+                false,
+            ],
+            control: {
+                type: 'inline-radio',
+            },
+        },
     },
     decorators: [() => ({
         template: '<div style="max-width: 750px;"><story /></div>',
@@ -50,6 +59,9 @@ export const Default = Template.bind({
 });
 
 Default.args = {
+    size: 'medium',
+    color: 'primary',
+    noMargins: false,
     default: `
         Recommendations
     `,
