@@ -4,7 +4,7 @@ import VsHeading from '@/components/heading/Heading.vue';
 
 export default {
     component: VsBody,
-    title: 'Body',
+    title: 'Typography/Body',
     argTypes: {
         variant: {
             options: [

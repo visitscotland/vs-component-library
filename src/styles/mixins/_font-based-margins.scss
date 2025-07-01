@@ -1,0 +1,8 @@
+// Mixin to set margins based on font-size
+// It uses em units which are relative to the element's font size, 
+// so the margins automatically scale with the font size
+
+@mixin font-based-margins($top-multiplier: 1.4, $bottom-multiplier: 0.25) {
+  margin-top: calc(1em / #{$top-multiplier});
+  margin-bottom: calc(1em * #{$bottom-multiplier});
+}
