@@ -59,7 +59,7 @@ export default {
 
     &--with-margins {
         p {
-            @include font-based-margins(0, 0.50);
+            @include font-based-margins(0, 0.75);
         }
     }
 

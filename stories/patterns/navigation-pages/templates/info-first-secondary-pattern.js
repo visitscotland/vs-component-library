@@ -77,7 +77,7 @@ export default `
                                     </template>
 
                                     <template #vs-card-body>
-                                        <div class="px-125 py-050">
+                                        <div class="px-125">
                                             <VsHeading
                                                 level="3"
                                                 heading-style="heading-xs"
@@ -151,7 +151,7 @@ export default `
                                     </template>
 
                                     <template #vs-card-body>
-                                        <div class="px-125 py-050">
+                                        <div class="px-125">
                                             <VsHeading
                                                 level="3"
                                                 heading-style="heading-xs"
@@ -282,7 +282,7 @@ export default `
                                     </template>
 
                                     <template #vs-card-body>
-                                        <div class="px-125 py-050">
+                                        <div class="px-125">
                                             <VsHeading
                                                 level="3"
                                                 heading-style="heading-xs"
@@ -497,7 +497,7 @@ export default `
                                     </template>
 
                                     <template #vs-card-body>
-                                        <div class="px-125 py-050">
+                                        <div class="px-125">
                                             <VsHeading
                                                 level="3"
                                                 heading-style="heading-xs"
