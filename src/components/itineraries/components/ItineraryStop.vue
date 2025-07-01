@@ -23,13 +23,17 @@
                 <VsHeading
                     level="3"
                     heading-style="heading-s"
-                    class="vs-itinerary-stop__title mt-0"
+                    class="s-itinerary-stop__title mb-025"
+                    no-margins
                 >
                     {{ stopLabel }}
                 </VsHeading>
-                <p class="vs-itinerary-stop__sub-heading">
+                <VsDetail
+                    class="vs-itinerary-stop__detail"
+                    no-margins
+                >
                     {{ stopTitle }}
-                </p>
+                </VsDetail>
             </div>
 
             <!-- @ Default slot for the image component for the stop -->
@@ -161,13 +165,9 @@ export default {
             }
         }
 
-        .vs-itinerary-stop__title {
+        .vs-itinerary-stop__title,
+        .vs-itinerary-stop__detail {
             grid-column: 2;
-        }
-
-        .vs-itinerary-stop__sub-heading {
-            grid-column: 2;
-            @include heading-style(heading-xxs, false);
         }
     }
 
