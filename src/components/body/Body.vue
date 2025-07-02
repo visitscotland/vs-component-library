@@ -1,10 +1,5 @@
 <template>
-    <div
-        class="vs-body"
-        :class="[
-            `vs-body--${variant}`,
-        ]"
-    >
+    <div :class="bodyClasses">
         <!-- @slot Default slot for body text content -->
         <slot />
     </div>
@@ -31,6 +26,23 @@ export default {
             default: 'normal',
             validator: (value) => value.match(/(normal|lead)/),
         },
+        /**
+         * Option to remove margins from body text.
+         * Useful when body is used inside a component
+         */
+        noMargins: {
+            type: Boolean,
+            default: false,
+        },
+    },
+    computed: {
+        bodyClasses() {
+            return [
+                'vs-body',
+                `vs-body--${this.variant}`,
+                ...(this.noMargins ? [] : ['vs-body--with-margins']),
+            ];
+        },
     },
 };
 </script>
@@ -45,8 +57,10 @@ export default {
         }
     }
 
-    p {
-        margin-bottom: $spacer-100;
+    &--with-margins {
+        p {
+            @include font-based-margins(0, 0.75);
+        }
     }
 
     h2, h3, h4, h5, h6 {

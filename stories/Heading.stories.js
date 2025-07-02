@@ -64,3 +64,12 @@ Display.args = {
     headingStyle: 'display-m',
     ...base,
 };
+
+export const NoMargins = Template.bind({
+});
+
+NoMargins.args = {
+    headingStyle: 'heading-l',
+    noMargins: true,
+    ...base,
+};

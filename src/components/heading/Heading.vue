@@ -52,11 +52,20 @@ export default {
             type: String,
             default: null,
         },
+        /**
+         * Option to remove margins from headings.
+         * Useful when heading is used inside a component
+         */
+        noMargins: {
+            type: Boolean,
+            default: false,
+        },
     },
     computed: {
         headingClasses() {
             return [
                 this.headingStyle ? `vs-heading--${this.headingStyle}` : '',
+                ...(this.noMargins ? ['vs-heading--no-margins'] : []),
             ];
         },
         type() {
@@ -114,6 +123,11 @@ export default {
 
     &--heading-xxxs {
         @include heading-style(heading-xxxs);
+    }
+
+    &--no-margins {
+        margin-top: 0;
+        margin-bottom: 0;
     }
 }
 </style>

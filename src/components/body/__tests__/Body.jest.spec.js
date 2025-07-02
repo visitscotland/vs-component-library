@@ -19,6 +19,7 @@ describe('VsBody', () => {
 
         expect(wrapper.element.tagName).toBe('DIV');
         expect(wrapper.classes('vs-body')).toBe(true);
+        expect(wrapper.classes()).toContain('vs-body--with-margins');
     });
 
     describe(':props', () => {
@@ -29,6 +30,14 @@ describe('VsBody', () => {
             });
 
             expect(wrapper.classes('vs-body--lead')).toBe(true);
+        });
+
+        it('removes margin class when noMargins is true', () => {
+            const wrapper = factoryShallowMount({
+                noMargins: true,
+            });
+
+            expect(wrapper.classes()).not.toContain('vs-body--with-margins');
         });
     });
 

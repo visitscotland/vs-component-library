@@ -55,14 +55,26 @@ const Template = (args) => ({
     `,
 });
 
-export const Default = Template.bind({
-});
-
-Default.args = {
+const base = {
     size: 'medium',
     color: 'primary',
     noMargins: false,
     default: `
         Recommendations
     `,
+};
+
+export const Default = Template.bind({
+});
+
+Default.args = {
+    ...base,
+};
+
+export const NoMargins = Template.bind({
+});
+
+NoMargins.args = {
+    ...base,
+    noMargins: true,
 };
