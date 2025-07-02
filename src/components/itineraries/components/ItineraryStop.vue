@@ -23,7 +23,7 @@
                 <VsHeading
                     level="3"
                     heading-style="heading-s"
-                    class="s-itinerary-stop__title mb-025"
+                    class="vs-itinerary-stop__title mb-025"
                     no-margins
                 >
                     {{ stopLabel }}
@@ -82,6 +82,7 @@
 import VsIcon from '@/components/icon/Icon.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsBody from '@/components/body/Body.vue';
+import VsDetail from '@/components/detail/Detail.vue';
 
 /**
  * Itinerary Day list items.
@@ -97,6 +98,7 @@ export default {
         VsHeading,
         VsIcon,
         VsBody,
+        VsDetail,
     },
     props: {
         /**
