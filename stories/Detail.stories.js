@@ -71,6 +71,14 @@ Default.args = {
     ...base,
 };
 
+export const Color = Template.bind({
+});
+
+Color.args = {
+    ...base,
+    color: 'tertiary',
+};
+
 export const NoMargins = Template.bind({
 });
 
