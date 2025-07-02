@@ -586,10 +586,6 @@ export default {
         margin-bottom: $spacer-300;
         height: calc(100% - #{$spacer-300});
 
-        &::nth-last-child(-n + 3) {
-            margin-bottom: $spacer-0;
-        }
-
         .vs-ski-scotland-card__img-container {
             width: 100%;
             max-width: 100%;
