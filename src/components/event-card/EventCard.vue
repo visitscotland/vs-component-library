@@ -153,7 +153,6 @@ export default {
 
         .vs-event-card__date {
             text-align: right;
-            align-self: middle;
         }
 
         .vs-event-card__cta {
