@@ -19,13 +19,17 @@
             <VsHeading
                 level="2"
                 heading-style="heading-s"
-                class="vs-listicle-item__title mt-0"
+                class="vs-listicle-item__title mb-025"
+                no-margins
             >
                 {{ title }}
             </VsHeading>
-            <p class="vs-listicle-item__sub-heading">
+            <VsDetail
+                class="vs-listicle-item__detail"
+                no-margins
+            >
                 {{ subTitle }}
-            </p>
+            </VsDetail>
         </div>
 
         <!-- BODY -->
@@ -58,6 +62,7 @@
 
 <script>
 import VsHeading from '@/components/heading/Heading.vue';
+import VsDetail from '@/components/detail/Detail.vue';
 import { VsRow, VsCol } from '@/components/grid';
 import VsBody from '@/components/body/Body.vue';
 
@@ -75,6 +80,7 @@ export default {
         VsRow,
         VsCol,
         VsBody,
+        VsDetail,
     },
     props: {
         /**
@@ -164,13 +170,9 @@ export default {
             }
         }
 
-        .vs-listicle-item__title {
+        .vs-listicle-item__title,
+        .vs-listicle-item__detail {
             grid-column: 2;
-        }
-
-        .vs-listicle-item__sub-heading {
-            grid-column: 2;
-            @include heading-style(heading-xxs, false);
         }
     }
 

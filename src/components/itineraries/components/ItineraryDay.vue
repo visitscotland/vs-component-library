@@ -175,7 +175,7 @@ export default {
         }
     }
 
-    &__header{
+    &__header {
         display: block;
         text-align: left;
         margin: $spacer-150 0;
