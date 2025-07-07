@@ -122,7 +122,7 @@ export default {
         padding: $spacer-075;
         font-size: $font-size-4;
         line-height: $line-height-xs;
-        font-weight: $font-weight-button;
+        font-weight: $vs-font-weight-medium;
         text-align: left;
 
         @include vs-button-variant(

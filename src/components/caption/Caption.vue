@@ -226,11 +226,11 @@ export default {
     }
 
     &__image-caption {
-        font-weight: $font-weight-label;
+        font-weight: $vs-font-weight-medium;
     }
 
     &__image-credit {
-        font-weight: $font-weight-light;
+        font-weight: $vs-font-weight-subtle;
         margin-bottom: $spacer-0;
     }
 

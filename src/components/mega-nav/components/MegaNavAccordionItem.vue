@@ -144,7 +144,7 @@ export default {
                     color: $vs-color-text-primary;
                     letter-spacing: normal;
                     text-align: left;
-                    font-weight: $font-weight-normal;
+                    font-weight: $vs-font-weight-regular;
                     transition: none;
                     border: 0;
 

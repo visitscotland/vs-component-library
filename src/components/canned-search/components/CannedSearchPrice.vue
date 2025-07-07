@@ -65,7 +65,7 @@ export default {
 <style lang="scss">
     .vs-canned-search-price {
         &__main {
-            font-weight: $font-weight-label;
+            font-weight: $vs-font-weight-medium;
         }
 
         &__outro {

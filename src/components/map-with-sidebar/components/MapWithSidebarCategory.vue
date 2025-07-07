@@ -118,7 +118,7 @@ export default {
             display: flex !important;
             letter-spacing: normal;
             font-size: $font-size-5;
-            font-weight: $font-weight-button;
+            font-weight: $vs-font-weight-medium;
             text-transform: none;
             transform: none;
             width: 100%;
@@ -147,7 +147,7 @@ export default {
 
             @include media-breakpoint-up(lg) {
                 font-size: $font-size-6;
-                font-weight: $font-weight-normal;
+                font-weight: $vs-font-weight-regular;
                 padding: $spacer-050 $spacer-100;
             }
         }

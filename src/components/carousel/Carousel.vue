@@ -525,7 +525,7 @@ export default {
             color: $vs-color-text-primary;
             padding: $spacer-025 $spacer-050;
             font-size: $font-size-2;
-            font-weight: bold;
+            font-weight: $vs-font-weight-strong;
             margin: 0;
         }
     }

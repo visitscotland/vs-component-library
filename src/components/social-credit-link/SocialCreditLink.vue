@@ -76,7 +76,7 @@ export default {
 
     .social-credit__link {
         color: $vs-color-text-inverse;
-        font-weight: $font-weight-light;
+        font-weight: $vs-font-weight-subtle;
         font-size: $font-size-3;
 
         .vs-icon {

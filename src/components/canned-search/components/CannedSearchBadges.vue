@@ -135,7 +135,7 @@ export default {
             &--open {
                 color: $vs-color-text-highlight;
                 background-color: $vs-color-background-information;
-                font-weight: $font-weight-bold;
+                font-weight: $vs-font-weight-strong;
             }
 
             &--tr {

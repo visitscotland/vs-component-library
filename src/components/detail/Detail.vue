@@ -61,6 +61,7 @@ export default {
 .vs-detail {
     line-height: $line-height-detail;
     letter-spacing: $tracking-detail;
+    font-weight: $vs-font-weight-detail;
 
     &--with-margins {
         @include font-based-margins(1.4, 0.25);

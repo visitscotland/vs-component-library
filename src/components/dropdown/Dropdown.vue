@@ -102,7 +102,7 @@ export default {
             content: "\f078";
             color: $vs-color-icon-inverse;
             border: 0;
-            font-weight: 400;
+            font-weight: $vs-font-weight-regular;
             vertical-align: bottom;
         }
 

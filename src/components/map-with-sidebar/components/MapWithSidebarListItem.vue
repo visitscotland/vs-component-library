@@ -184,7 +184,7 @@ export default {
         font-size: $font-size-4;
         text-transform: none;
         font-family: $font-family-base;
-        font-weight: $font-weight-button;
+        font-weight: $vs-font-weight-medium;
         padding: $spacer-025;
         min-height: 88px;
         border-bottom: 1px solid $vs-color-border-primary;

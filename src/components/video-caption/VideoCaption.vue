@@ -253,13 +253,13 @@ export default {
 
         &__title {
             font-size: $font-size-4;
-            font-weight: $font-weight-label;
+            font-weight: $vs-font-weight-medium;
             margin-bottom: $spacer-050;
         }
 
         &__duration {
             font-size: $font-size-4;
-            font-weight: $font-weight-light;
+            font-weight: $vs-font-weight-subtle;
             margin: 0;
         }
 

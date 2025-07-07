@@ -241,7 +241,7 @@ export default {
         &__label {
             display: inline-block;
             font-size: $font-size-body;
-            font-weight: $font-weight-normal;
+            font-weight: $vs-font-weight-regular;
         }
 
         &--error {

@@ -120,7 +120,7 @@ export default {
         display: block;
         font-size: $font-size-3;
         line-height: $line_height_standard;
-        font-weight: $font-weight-label;
+        font-weight: $vs-font-weight-medium;
 
         @include media-breakpoint-up(lg) {
             font-size: $font-size-5

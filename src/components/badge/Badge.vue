@@ -65,7 +65,7 @@ export default {
         background: transparent;
         color: $vs-color-text-highlight;
         font-size: $font-size-4;
-        font-weight: $font-weight-label;
+        font-weight: $vs-font-weight-strong;
     }
 
 }

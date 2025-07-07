@@ -4,16 +4,20 @@
 #
 
 props:
-    - name: font-weight-heading
-      value: "{!font-weight-semi-bold}"
-    - name: font-weight-body
-      value: "{!font-weight-normal}"
-    - name: font-weight-detail
-      value: "{!font-weight-normal}"
-    - name: font-weight-label
-      value: "{!font-weight-semi-bold}"
-    - name: font-weight-button
-      value: "{!font-weight-semi-bold}"
+    - name: vs-font-weight-strong
+      value: "{!vs-font-weight-bold}"
+    - name: vs-font-weight-medium
+      value: "{!vs-font-weight-semi-bold}"
+    - name: vs-font-weight-regular
+      value: "{!vs-font-weight-normal}"
+    - name: vs-font-weight-subtle
+      value: "{!vs-font-weight-light}"
+    - name: vs-font-weight-heading
+      value: "{!vs-font-weight-semi-bold}"
+    - name: vs-font-weight-body
+      value: "{!vs-font-weight-normal}"
+    - name: vs-font-weight-detail
+      value: "{!vs-font-weight-normal}"
 imports:
   - ../../primitives/typography/font-weight-primitives.yml
 global:

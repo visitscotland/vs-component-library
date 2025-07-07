@@ -62,7 +62,7 @@ export default {
 
 <style lang="scss">
     .vs-canned-search-tour-runs {
-        font-weight: $font-weight-label;
+        font-weight: $vs-font-weight-medium;
 
         @include truncate-text(2);
     }

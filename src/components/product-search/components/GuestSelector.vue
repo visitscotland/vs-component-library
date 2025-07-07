@@ -257,7 +257,7 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
         }
 
         &__label {
-            font-weight: $font-weight-label;
+            font-weight: $vs-font-weight-medium;
             margin-bottom: 0;
         }
 
