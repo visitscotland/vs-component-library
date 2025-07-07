@@ -132,7 +132,7 @@ export default {
         width: 60%;
         text-align: left;
         vertical-align: middle;
-        font-family: $vs-display-font-family;
+        font-family: $vs-font-family-display;
         font-weight: $vs-font-weight-medium;
     }
 

@@ -6,7 +6,7 @@
 props:
   vs-font-family-sans-serif:
     value: "'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'"
-  vs-display-font-family:
+  vs-font-family-display:
     value: "'evelethclean-regular', sans-serif, $vs-font-family-sans-serif"
 global:
   type: ...

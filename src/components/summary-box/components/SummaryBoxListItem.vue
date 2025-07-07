@@ -129,7 +129,7 @@ export default {
 }
 
 .vs-summary-box-item__display {
-    font-family: $vs-display-font-family;
+    font-family: $vs-font-family-display;
     font-size: $font-size-9;
     bottom: 35%;
 
