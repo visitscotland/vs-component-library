@@ -6,38 +6,38 @@
 props:
     # - Display
     - name: vs-font-size-display-m
-      value: "{!font-size-900}"
+      value: "{!vs-font-size-900}"
     - name: vs-font-size-display-s
-      value: "{!font-size-600}"
+      value: "{!vs-font-size-600}"
     # - Heading
     - name: vs-font-size-heading-xl
-      value: "{!font-size-800}"
+      value: "{!vs-font-size-800}"
     - name: vs-font-size-heading-l
-      value: "{!font-size-700}"
+      value: "{!vs-font-size-700}"
     - name: vs-font-size-heading-m
-      value: "{!font-size-600}"
+      value: "{!vs-font-size-600}"
     - name: vs-font-size-heading-s
-      value: "{!font-size-500}"
+      value: "{!vs-font-size-500}"
     - name: vs-font-size-heading-xs
-      value: "{!font-size-400}"
+      value: "{!vs-font-size-400}"
     - name: vs-font-size-heading-xxs
-      value: "{!font-size-300}"
+      value: "{!vs-font-size-300}"
     - name: vs-font-size-heading-xxxs
-      value: "{!font-size-100}"
+      value: "{!vs-font-size-100}"
     # - Detail
     - name: vs-font-size-detail-l
-      value: "{!font-size-200}"
+      value: "{!vs-font-size-200}"
     - name: vs-font-size-detail-m
-      value: "{!font-size-100}"
+      value: "{!vs-font-size-100}"
     - name: vs-font-size-detail-s
-      value: "{!font-size-75}"
+      value: "{!vs-font-size-75}"
     # - Body
     - name: vs-font-size-body-l
-      value: "{!font-size-300}"
+      value: "{!vs-font-size-300}"
     - name: vs-font-size-body-m
-      value: "{!font-size-200}"
+      value: "{!vs-font-size-200}"
     - name: vs-font-size-body-s
-      value: "{!font-size-100}"
+      value: "{!vs-font-size-100}"
 imports:
   - ../../primitives/typography/font-size-primitives.yml
 global:
