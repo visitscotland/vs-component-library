@@ -1,3 +1,10 @@
+## [4.28.1](https://github.com/visitscotland/vs-component-library/compare/v4.28.0...v4.28.1) (2025-07-07)
+
+
+### Bug Fixes
+
+* **css:** remove css rules with syntax errors ([d41ea97](https://github.com/visitscotland/vs-component-library/commit/d41ea97e4ab50b25ce1380c57d49c445bd336287))
+
 # [4.28.0](https://github.com/visitscotland/vs-component-library/compare/v4.27.0...v4.28.0) (2025-06-26)
 
 
