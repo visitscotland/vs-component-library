@@ -1,0 +1,21 @@
+#
+# FONT WEIGHT TOKENS
+# Use these tokens to set font-weight value.
+#
+
+props:
+    - name: font-weight-heading
+      value: "{!font-weight-semi-bold}"
+    - name: font-weight-body
+      value: "{!font-weight-normal}"
+    - name: font-weight-detail
+      value: "{!font-weight-normal}"
+    - name: font-weight-label
+      value: "{!font-weight-semi-bold}"
+    - name: font-weight-button
+      value: "{!font-weight-semi-bold}"
+imports:
+  - ../../primitives/typography/font-weight-primitives.yml
+global:
+  type: number
+  category: font-weight

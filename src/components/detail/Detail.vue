@@ -67,23 +67,23 @@ export default {
     }
 
     &--small {
-        font-size: $detail-s;
+        font-size: $vs-font-size-detail-s;
 
         @include media-breakpoint-up(md) {
-            font-size: $detail-m;
+            font-size: $vs-font-size-detail-m;
         }
     }
 
     &--medium {
-        font-size: $detail-m;
+        font-size: $vs-font-size-detail-m;
 
         @include media-breakpoint-up(md) {
-            font-size: $detail-l;
+            font-size: $vs-font-size-detail-l;
         }
     }
 
     &--large {
-        font-size: $detail-l;
+        font-size: $vs-font-size-detail-l;
     }
 
     &--primary {

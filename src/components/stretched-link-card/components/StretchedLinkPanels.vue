@@ -108,7 +108,7 @@ export default {
         &__days {
             font-size: $font-size-6;
             font-family: "Source Sans Pro";
-            font-weight: $font-weight-bold;
+            font-weight: $font-weight-label;
             display: block;
             margin-bottom: $spacer-025;
         }

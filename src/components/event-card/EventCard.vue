@@ -120,7 +120,7 @@ export default {
     .vs-event-card__date {
         margin: auto $spacer-0;
         font-size: $font-size-6;
-        font-weight: $font-weight-semi-bold;
+        font-weight: $font-weight-label;
     }
 
     .vs-event-card__heading {

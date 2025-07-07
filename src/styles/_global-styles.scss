@@ -9,10 +9,10 @@
 body {
     line-height: $line-height-body;
     letter-spacing: $tracking-body;
-    font-size: $body-s;
+    font-size: $vs-font-size-body-s;
 
     @include media-breakpoint-up(md) {
-        font-size: $body-m;
+        font-size: $vs-font-size-body-m;
     }
 }
 

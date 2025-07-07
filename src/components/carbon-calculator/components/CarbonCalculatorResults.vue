@@ -334,7 +334,7 @@ export default {
 
     .vs-carbon-calculator-results__total {
         font-size: $font-size-10;
-        font-weight: $font-weight-bold;
+        font-weight: $font-weight-label;
         margin-right: $spacer-050;
     }
 

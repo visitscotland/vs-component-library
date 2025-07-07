@@ -1172,7 +1172,7 @@ export default {
     &__popup-subtitle {
         font-family: $font-family-base;
         font-size: $font-size-4;
-        font-weight: $font-weight-bold;
+        font-weight: $font-weight-label;
         margin-bottom: $spacer-025;
     }
 

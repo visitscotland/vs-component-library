@@ -29,37 +29,37 @@
 
 $heading-styles: (
     display-m: (
-        size: $display-m,
+        size: $vs-font-size-display-m,
     ),
     display-s: (
-        size: $display-s,
-        breakpoint-md: $display-m,
+        size: $vs-font-size-display-s,
+        breakpoint-md: $vs-font-size-display-m,
     ),
     heading-xl: (
-        size: $heading-xl,
+        size: $vs-font-size-heading-xl,
     ),
     heading-l: (
-        size: $heading-l,
-        breakpoint-md: $heading-xl,
+        size: $vs-font-size-heading-l,
+        breakpoint-md: $vs-font-size-heading-xl,
     ),
     heading-m: (
-        size: $heading-m,
-        breakpoint-md: $heading-l,
+        size: $vs-font-size-heading-m,
+        breakpoint-md: $vs-font-size-heading-l,
     ),
     heading-s: (
-        size: $heading-s,
-        breakpoint-md: $heading-m,
+        size: $vs-font-size-heading-s,
+        breakpoint-md: $vs-font-size-heading-m,
     ),
     heading-xs: (
-        size: $heading-xs,
-        breakpoint-md: $heading-s,
+        size: $vs-font-size-heading-xs,
+        breakpoint-md: $vs-font-size-heading-s,
     ),
     heading-xxs: (
-        size: $heading-xxs,
-        breakpoint-md: $heading-xs,
+        size: $vs-font-size-heading-xxs,
+        breakpoint-md: $vs-font-size-heading-xs,
     ),
     heading-xxxs: (
-        size: $heading-xxxs,
-        breakpoint-md: $heading-xxs,
+        size: $vs-font-size-heading-xxxs,
+        breakpoint-md: $vs-font-size-heading-xxs,
     ),
 );

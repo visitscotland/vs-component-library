@@ -105,7 +105,7 @@ export default {
     }
 
     &__author-name {
-        font-weight: $font-weight-bold;
+        font-weight: $font-weight-label;
         margin-bottom: $spacer-0;
 
         @include media-breakpoint-up(md) {
@@ -135,7 +135,7 @@ export default {
     }
 
     &__speech-mark {
-        font-weight: $font-weight-bold;
+        font-weight: 700;
         color: $vs-color-text-tertiary;
         font-size: 7rem;
         height: 5rem;

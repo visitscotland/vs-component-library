@@ -87,7 +87,7 @@ export default {
 
 .vs-heading {
     line-height: 1.2;
-    font-weight: $font-weight-semi-bold;
+    font-weight: $font-weight-heading;
 
     &--display-m {
         @include heading-style(display-m);

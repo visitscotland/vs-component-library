@@ -54,7 +54,7 @@ export default {
     .vs-canned-search-categories {
         font-size: $font-size-4;
         line-height: $line-height-s;
-        font-weight: $font-weight-semi-bold;
+        font-weight: $font-weight-label;
         margin-bottom: $spacer-025;
     }
 </style>

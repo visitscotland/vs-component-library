@@ -50,10 +50,10 @@ export default {
 <style lang="scss">
 .vs-body {
     &--lead {
-        font-size: $body-m;
+        font-size: $vs-font-size-body-m;
 
         @include media-breakpoint-up(md) {
-            font-size: $body-l;
+            font-size: $vs-font-size-body-l;
         }
     }
 
@@ -66,7 +66,7 @@ export default {
     h2, h3, h4, h5, h6 {
         line-height: $line-height-heading;
         letter-spacing: $tracking-heading;
-        font-weight: $font-weight-semi-bold;
+        font-weight: $font-weight-heading;
     }
 
     h2 {

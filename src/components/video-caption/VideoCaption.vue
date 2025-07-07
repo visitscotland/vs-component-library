@@ -253,7 +253,7 @@ export default {
 
         &__title {
             font-size: $font-size-4;
-            font-weight: $font-weight-bold;
+            font-weight: $font-weight-label;
             margin-bottom: $spacer-050;
         }
 

@@ -222,7 +222,7 @@ export default {
 
     .vs-accordion-toggle {
         text-align: left;
-        font-weight: $font-weight-bold;
+        font-weight: $font-weight-button;
         font-size: $font-size-6;
         letter-spacing: normal;
         padding: $spacer-075;

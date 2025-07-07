@@ -153,7 +153,7 @@ export default {
         }
 
         .form-check-label {
-            font-weight: $font-weight-bold;
+            font-weight: $font-weight-label;
             display: flex;
             align-items: center;
             margin-right: $spacer-050;

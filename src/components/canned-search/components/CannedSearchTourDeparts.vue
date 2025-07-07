@@ -65,7 +65,7 @@ export default {
         @include truncate-text(2);
 
         &__label {
-            font-weight: $font-weight-bold;
+            font-weight: $font-weight-label;
         }
     }
 </style>

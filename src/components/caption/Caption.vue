@@ -226,7 +226,7 @@ export default {
     }
 
     &__image-caption {
-        font-weight: $font-weight-semi-bold;
+        font-weight: $font-weight-label;
     }
 
     &__image-credit {

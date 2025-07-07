@@ -197,7 +197,7 @@
                         h2{
                             @include heading-style(heading-m);
                             line-height: 1.2;
-                            font-weight: $font-weight-semi-bold;
+                            font-weight: $font-weight-heading;
                             margin-top: 0;
                             margin-bottom: $spacer-075;
 
@@ -335,7 +335,7 @@
                     &.next-mobile, &.previous{
                         text-transform: uppercase;
                         font-size: $font-size-3;
-                        font-weight: $font-weight-semi-bold;
+                        font-weight: $font-weight-button;
                         display: inline-block;
 
                         a {

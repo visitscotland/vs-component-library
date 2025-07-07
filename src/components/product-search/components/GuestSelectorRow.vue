@@ -133,7 +133,7 @@ const handleRemove = () => {
         }
 
         &__title {
-            font-weight: $font-weight-bold;
+            font-weight: $font-weight-label;
             margin-bottom: $spacer-075;
         }
 

@@ -163,12 +163,12 @@ export default {
         }
 
         .vs-mega-nav-featured-event__date-detail {
-            font-weight: $font-weight-bold;
+            font-weight: $font-weight-label;
         }
 
         .vs-mega-nav-featured-event__title {
             font-size: $small-font-size;
-            font-weight: $font-weight-bold;
+            font-weight: $font-weight-label;
             margin-bottom: $spacer-0;
 
             @include truncate-text(2);

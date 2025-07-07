@@ -118,7 +118,7 @@ export default {
             display: flex !important;
             letter-spacing: normal;
             font-size: $font-size-5;
-            font-weight: $font-weight-bold;
+            font-weight: $font-weight-button;
             text-transform: none;
             transform: none;
             width: 100%;
