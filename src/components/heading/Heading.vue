@@ -77,7 +77,7 @@ export default {
 
 <style lang="scss">
 [class*="vs-heading--display-"] {
-    font-family: $display-font-family;
+    font-family: $vs-display-font-family;
     letter-spacing: 0.02em;
 }
 
@@ -86,7 +86,7 @@ export default {
 }
 
 .vs-heading {
-    line-height: 1.2;
+    line-height: $vs-line-height-heading;
     font-weight: $vs-font-weight-heading;
 
     &--display-m {

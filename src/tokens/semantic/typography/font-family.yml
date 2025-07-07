@@ -1,0 +1,13 @@
+#
+# FONT FAMILY TOKENS
+# Use these tokens to set font-family.
+#
+
+props:
+  vs-font-family-sans-serif:
+    value: "'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'"
+  vs-display-font-family:
+    value: "'evelethclean-regular', sans-serif, $vs-font-family-sans-serif"
+global:
+  type: ...
+  category: font-family

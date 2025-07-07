@@ -10,7 +10,7 @@ imports:
   - ./semantic/color/color-text.yml
   - ./semantic/typography/font-size.yml
   - ./semantic/typography/font-weight.yml
-  - ./semantic/typography/font.yml
+  - ./semantic/typography/font-family.yml
   - ./semantic/typography/line-height.yml
   - ./semantic/typography/tracking.yml
   - ./icon/icon-size.yml

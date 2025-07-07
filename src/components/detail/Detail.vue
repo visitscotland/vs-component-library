@@ -59,7 +59,7 @@ export default {
 
 <style lang="scss">
 .vs-detail {
-    line-height: $line-height-detail;
+    line-height: $vs-line-height-detail;
     letter-spacing: $tracking-detail;
     font-weight: $vs-font-weight-detail;
 

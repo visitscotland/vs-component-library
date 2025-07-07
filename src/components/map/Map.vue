@@ -1170,14 +1170,14 @@ export default {
     }
 
     &__popup-subtitle {
-        font-family: $font-family-base;
+        font-family: $vs-font-family-sans-serif;
         font-size: $font-size-4;
         font-weight: $vs-font-weight-medium;
         margin-bottom: $spacer-025;
     }
 
     &__popup-title {
-        font-family: $font-family-base;
+        font-family: $vs-font-family-sans-serif;
         font-size: $font-size-4;
         font-weight: $vs-font-weight-medium;
         margin-bottom: 0;

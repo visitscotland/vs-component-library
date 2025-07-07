@@ -111,7 +111,7 @@ export default {
         color: $vs-color-text-inverse;
         display: block;
         font-size: $font-size-4;
-        font-family: $display-font-family;
+        font-family: $vs-display-font-family;
         position: absolute;
         top: 4px;
         left: 0;

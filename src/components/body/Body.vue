@@ -49,7 +49,7 @@ export default {
 
 <style lang="scss">
 .vs-body {
-    font-weight: $vs-font-weight-body;
+    // Inherits styles from global body styles
 
     &--lead {
         font-size: $vs-font-size-body-m;
@@ -66,7 +66,7 @@ export default {
     }
 
     h2, h3, h4, h5, h6 {
-        line-height: $line-height-heading;
+        line-height: $vs-line-height-heading;
         letter-spacing: $tracking-heading;
         font-weight: $vs-font-weight-heading;
     }
