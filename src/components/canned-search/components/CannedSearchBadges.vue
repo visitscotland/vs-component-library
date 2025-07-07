@@ -113,7 +113,6 @@ export default {
             position: absolute;
             padding: $spacer-0 $spacer-050;
             text-transform: uppercase;
-            letter-spacing: $letter-spacing-l;
             max-height: 1.5em;
             text-align: right;
             text-overflow: ellipsis;

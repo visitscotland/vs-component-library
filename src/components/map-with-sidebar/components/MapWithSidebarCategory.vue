@@ -116,7 +116,6 @@ export default {
         &__button {
             background: transparent;
             display: flex !important;
-            letter-spacing: normal;
             font-size: $font-size-5;
             font-weight: $vs-font-weight-medium;
             text-transform: none;

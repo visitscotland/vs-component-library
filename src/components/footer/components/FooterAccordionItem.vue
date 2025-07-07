@@ -118,7 +118,6 @@ export default {
 
     .vs-accordion-toggle {
         text-transform: none !important;
-        letter-spacing: initial;
         padding: $spacer-075;
         font-size: $font-size-4;
         line-height: $line-height-xs;

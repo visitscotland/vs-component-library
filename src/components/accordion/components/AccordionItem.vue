@@ -224,7 +224,6 @@ export default {
         text-align: left;
         font-weight: $vs-font-weight-strong;
         font-size: $font-size-6;
-        letter-spacing: normal;
         padding: $spacer-075;
         border: 0;
         margin-bottom: 1px;

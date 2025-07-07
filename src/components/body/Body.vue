@@ -67,7 +67,7 @@ export default {
 
     h2, h3, h4, h5, h6 {
         line-height: $vs-line-height-heading;
-        letter-spacing: $tracking-heading;
+        letter-spacing: $vs-letter-spacing-heading;
         font-weight: $vs-font-weight-heading;
     }
 

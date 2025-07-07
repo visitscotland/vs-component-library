@@ -142,7 +142,6 @@ export default {
                 &.btn {
                     background-color: $vs-color-background-inverse;
                     color: $vs-color-text-primary;
-                    letter-spacing: normal;
                     text-align: left;
                     font-weight: $vs-font-weight-regular;
                     transition: none;

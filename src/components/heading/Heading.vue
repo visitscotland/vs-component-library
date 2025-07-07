@@ -78,11 +78,11 @@ export default {
 <style lang="scss">
 [class*="vs-heading--display-"] {
     font-family: $vs-font-family-display;
-    letter-spacing: 0.02em;
+    letter-spacing: $vs-letter-spacing-display;
 }
 
 [class*="vs-heading--heading-"] {
-    letter-spacing: -0.01em;
+    letter-spacing: $vs-letter-spacing-heading;
 }
 
 .vs-heading {

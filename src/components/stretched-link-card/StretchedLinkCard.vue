@@ -586,7 +586,6 @@ export default {
             font-size: $font-size-3;
             line-height: $line-height-xs;
             color: $vs-color-text-tertiary;
-            letter-spacing: normal;
             margin-bottom: $spacer-100;
         }
 
