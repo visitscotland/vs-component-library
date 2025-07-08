@@ -169,7 +169,7 @@ export default {
         }
         .vs-caption{
             &__image-caption {
-                margin-bottom: $spacer-050;
+                margin-bottom: $spacer-025;
             }
 
             &__map-wrapper {
@@ -185,8 +185,8 @@ export default {
             min-height: 64px;
             text-align: left;
         }
-        .vs-caption__caption-info{
-            padding: $spacer-075 0;
+        .vs-caption__caption-info {
+            padding: $spacer-050 0;
         }
     }
 
@@ -222,7 +222,6 @@ export default {
     &__image-caption,
     &__image-credit {
         font-size: $font-size-3;
-        line-height: $line-height-standard;
     }
 
     &__image-caption {

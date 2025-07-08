@@ -53,7 +53,7 @@ export default {
     padding: $spacer-025 $spacer-050;
     border-radius: $border-radius-default;
     display: inline-block;
-    line-height: $line-height-xs;
+    line-height: 1;
 
     &--default {
         border: 1px solid $vs-color-border-secondary;

@@ -160,7 +160,6 @@ export default {
 .vs-summary-box-distance__label {
     top: $spacer-075;
     left: 0;
-    line-height: $line_height_xs;
 
     @include media-breakpoint-up(lg) {
         top: $spacer-050;
@@ -169,7 +168,6 @@ export default {
     .vs-summary-box-distance__label-inner {
         display: block;
         font-size: $font-size-3;
-        line-height: $line_height_standard;
         font-weight: $vs-font-weight-medium;
 
         @include media-breakpoint-up(lg) {

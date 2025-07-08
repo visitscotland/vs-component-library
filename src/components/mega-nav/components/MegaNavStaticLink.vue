@@ -85,7 +85,6 @@ export default {
             padding: $spacer-075 $spacer-125;
             border-top: 1px solid $vs-color-border-primary;
             font-size: $font-size-5;
-            line-height: $line-height-s;
         }
 
         .vs-mega-nav-static-link__inner {

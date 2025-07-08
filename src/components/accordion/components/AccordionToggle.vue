@@ -73,7 +73,6 @@ export default {
 .btn.vs-button.vs-accordion-toggle {
     display: flex;
     width: 100%;
-    line-height: $line-height-standard;
     color: $vs-color-text-primary;
 
     .btn-content {

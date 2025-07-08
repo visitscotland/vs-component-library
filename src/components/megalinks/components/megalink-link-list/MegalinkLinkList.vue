@@ -327,7 +327,6 @@ export default {
 
                 .vs-megalink-link-list__content {
                     margin: $spacer-050 0 0;
-                    line-height: $line-height-s;
                     display: block;
 
                     p {

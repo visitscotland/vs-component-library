@@ -110,7 +110,6 @@ export default {
 .vs-summary-box-item__label {
     top: $spacer-075;
     left: 0;
-    line-height: $line_height_xs;
 
     @include media-breakpoint-up(lg) {
         top: $spacer-050;
@@ -119,7 +118,6 @@ export default {
     .vs-summary-box-item__label-inner {
         display: block;
         font-size: $font-size-3;
-        line-height: $line_height_standard;
         font-weight: $vs-font-weight-medium;
 
         @include media-breakpoint-up(lg) {
@@ -150,14 +148,14 @@ export default {
 
     .text-wrapper {
         font-size: $font-size-3;
-        line-height: $line_height_xs;
+        line-height: 1;
         max-width: 90%;
         word-wrap: break-word;
         flex-basis: 0;
 
         @include media-breakpoint-up(lg) {
             font-size: $spacer-100;
-            line-height: $line_height_standard;
+            line-height: 1.3;
         }
     }
 }

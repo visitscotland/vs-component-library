@@ -194,7 +194,6 @@ export default {
             display: inline;
             color: $vs-color-text-inverse;
             padding: $spacer-075;
-            line-height: $line-height-s;
             font-size: $font-size-4;
             margin: 0 auto;
 

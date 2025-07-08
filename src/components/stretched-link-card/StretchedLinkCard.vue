@@ -502,7 +502,6 @@ export default {
     .card.vs-stretched-link-card {
         border: none;
         position: relative;
-        line-height: $line-height-xs;
 
         &:hover {
             .vs-stretched-link-card__video-button {
@@ -546,7 +545,7 @@ export default {
         }
 
         .card-body{
-            padding: $spacer-100 0 $spacer-050;
+            padding: $spacer-050 0;
             width: 100%;
         }
 
@@ -584,14 +583,12 @@ export default {
 
         .vs-stretched-link-card__category {
             font-size: $font-size-3;
-            line-height: $line-height-xs;
             color: $vs-color-text-tertiary;
             margin-bottom: $spacer-100;
         }
 
         .vs-stretched-link-card__content {
             margin-top: $spacer-050;
-            line-height: $line-height-s;
             font-size: $font-size-teaser;
             text-align: left;
 

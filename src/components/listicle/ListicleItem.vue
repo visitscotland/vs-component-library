@@ -147,7 +147,7 @@ export default {
                 color: $vs-color-text-inverse;
                 font-family: $vs-font-family-display;
                 font-size: $font-size-8;
-                line-height: $line-height-xs;
+                line-height: 1;
                 display: block;
                 text-align: center;
                 width: 100%;

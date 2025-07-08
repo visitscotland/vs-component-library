@@ -125,7 +125,6 @@ export default {
             padding: $spacer-100 $spacer-100;
             border: none;
             justify-content: space-between;
-            line-height: $line-height-standard;
 
             &::after {
                 display: none;
@@ -147,7 +146,7 @@ export default {
             @include media-breakpoint-up(lg) {
                 font-size: $font-size-6;
                 font-weight: $vs-font-weight-regular;
-                padding: $spacer-050 $spacer-100;
+                padding: $spacer-025 $spacer-100;
             }
         }
 

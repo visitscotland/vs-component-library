@@ -102,7 +102,6 @@ export default {
         text-decoration: none;
         transition: $duration-base color;
         font-size: $font-size-5;
-        line-height: $line-height-s;
         display: block;
         padding: $spacer-075 $spacer-200;
 
@@ -192,7 +191,6 @@ export default {
         > .vs-accordion-item__card-header{
             .vs-accordion-toggle.btn {
                 font-size: $font-size-5;
-                line-height: $line-height-s;
                 padding-left: $spacer-200;
                 padding-right: $spacer-125;
             }

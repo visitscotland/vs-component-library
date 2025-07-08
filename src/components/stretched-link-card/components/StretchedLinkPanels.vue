@@ -100,7 +100,7 @@ export default {
             p {
                 margin-bottom: 0;
                 text-align: center;
-                line-height: $line_height_xs;
+                line-height: 1;
                 font-size: $font-size-1;
             }
         }

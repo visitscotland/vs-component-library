@@ -59,7 +59,7 @@ export default {
         margin-bottom: $spacer-075;
 
         @include media-breakpoint-up(md) {
-            font-size: $vs-font-size-heading-xl;
+            font-size: $vs-font-size-heading-xxs;
         }
 
         &--lines-1 {

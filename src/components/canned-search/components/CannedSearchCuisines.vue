@@ -43,7 +43,6 @@ export default {
 <style lang="scss">
     .vs-canned-search-cuisines {
         font-size: $font-size-4;
-        line-height: $line-height-s;
         font-weight: $vs-font-weight-medium;
         margin-bottom: $spacer-025;
 

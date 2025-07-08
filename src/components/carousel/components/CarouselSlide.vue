@@ -251,7 +251,6 @@ export default {
 
                 &__title {
                     font-size: $font-size-2;
-                    line-height: $line-height-m;
                     color: $vs-color-text-primary;
                     text-decoration: none;
                 }
@@ -317,7 +316,6 @@ export default {
 
                     &__content {
                         margin: $spacer-050 0 0;
-                        line-height: $line-height-s;
                     }
                 }
             }

@@ -85,7 +85,6 @@
                 text-decoration: none;
                 color: $vs-color-text-primary;
                 transition: all .2s;      
-                line-height: $line-height-m;
                 padding: $spacer-050 $spacer-075;
 
                 &:focus {
@@ -196,7 +195,7 @@
 
                         h2{
                             @include heading-style(heading-m);
-                            line-height: 1.2;
+                            line-height: $vs-line-height-heading;
                             font-weight: $vs-font-weight-heading;
                             margin-top: 0;
                             margin-bottom: $spacer-075;

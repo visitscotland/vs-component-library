@@ -76,7 +76,7 @@ export default {
 
             .vs-icon {
                 text-align: center;
-                line-height: $line-height-m;
+                line-height: 1.6;
                 display: block;
 
                 &.fa-square-arrow-up-right {

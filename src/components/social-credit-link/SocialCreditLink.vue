@@ -72,7 +72,7 @@ export default {
 
 <style lang="scss">
 .social-credit {
-    line-height: $line_height_xs;
+    line-height: 1;
 
     .social-credit__link {
         color: $vs-color-text-inverse;

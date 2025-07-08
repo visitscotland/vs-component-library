@@ -100,7 +100,6 @@ export default {
     &__content {
         font-size: $font-size-8;
         font-weight: $vs-font-weight-subtle;
-        line-height: $line-height-s;
         margin-bottom: $spacer-100;
     }
 
@@ -115,11 +114,9 @@ export default {
     }
 
     &__author-title {
-        line-height: $spacer-125;
         margin-bottom: $spacer-0;
 
         @include media-breakpoint-up(md) {
-            line-height: $line-height-s;
             font-size: $font-size-5;
         }
 
@@ -139,7 +136,7 @@ export default {
         color: $vs-color-text-tertiary;
         font-size: 7rem;
         height: 5rem;
-        line-height: $line-height-xs;
+        line-height: 1;
         position: absolute;
         top: 50%;
         left: 50%;
