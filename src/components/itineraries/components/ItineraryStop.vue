@@ -156,7 +156,7 @@ export default {
 
             .vs-itinerary-stop__count {
                 color: $vs-color-text-inverse;
-                font-family: $display-font-family;
+                font-family: $vs-font-family-display;
                 font-size: $font-size-4;
                 display: block;
                 position: absolute;

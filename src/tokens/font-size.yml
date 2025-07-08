@@ -3,6 +3,8 @@
 # Use these tokens to set a font-size.
 #
 # TO BE DEPRECATED
+# These will be deprecated in favor of the new font-size semantic tokens. 
+# More work still to be done to fully transition (DS-1392)
 props:
     - name: font-size-1
       value: "0.625rem"

@@ -145,7 +145,7 @@ export default {
                 border-bottom: 1px solid $vs-color-border-primary;
             }
 
-            @include form-checkbox(20px, $font-size-2, $line-height-l);
+            @include form-checkbox(20px, $font-size-2, 2);
 
             input[type="checkbox"] {
                 margin-top: $spacer-075;
@@ -153,7 +153,7 @@ export default {
         }
 
         .form-check-label {
-            font-weight: $font-weight-bold;
+            font-weight: $vs-font-weight-medium;
             display: flex;
             align-items: center;
             margin-right: $spacer-050;

@@ -1,5 +1,6 @@
 import VsPanel from '@/components/panel/Panel.vue';
 import VsHeading from '@/components/heading/Heading.vue';
+import VsBody from '@/components/body/Body.vue';
 
 export default {
     component: VsPanel,
@@ -10,6 +11,7 @@ const Template = (args) => ({
     components: {
         VsPanel,
         VsHeading,
+        VsBody,
     },
     setup() {
         return {
@@ -24,7 +26,9 @@ const Template = (args) => ({
                 </VsHeading>
             </template>
             <template v-if="${'default' in args}">
-                ${args.default}
+                <VsBody>
+                    ${args.default}
+                </VsBody>
             </template>
         </VsPanel>
   `,

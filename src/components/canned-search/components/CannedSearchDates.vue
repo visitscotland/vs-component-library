@@ -65,6 +65,6 @@ export default {
     }
 
     .vs-canned-search-dates__main {
-        font-weight: bold;
+        font-weight: $vs-font-weight-strong;
     }
 </style>

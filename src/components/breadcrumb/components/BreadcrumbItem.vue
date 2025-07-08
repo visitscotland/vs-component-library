@@ -64,14 +64,12 @@ export default {
 .vs-breadcrumb-item {
     color: $vs-color-text-secondary;
     font-size: $font-size-4;
-    font-weight: $font-weight-normal;
     white-space: nowrap;
     overflow: hidden;
     padding: 3px; // Prevents breadcrumb link focus state from being clipped
 
     &:last-child {
         color: $vs-color-text-secondary;
-        font-weight: $font-weight-light;
     }
 
     a {

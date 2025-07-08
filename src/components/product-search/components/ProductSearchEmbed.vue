@@ -452,7 +452,7 @@ const preSubmitChecks = (e) => {
         }
 
         .product-search__in {
-            font-weight: $font-weight-semi-bold;
+            font-weight: $vs-font-weight-medium;
         }
     }
 </style>

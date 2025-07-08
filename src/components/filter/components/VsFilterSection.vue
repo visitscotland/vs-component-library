@@ -89,7 +89,7 @@ const filterSectionClasses = computed(() => ({
         align-items: baseline;
         display: flex;
         font-size: $font-size-4;
-        font-weight: $font_weight_semi_bold;
+        font-weight: $vs-font-weight-medium;
         justify-content: space-between;
         list-style: none;
 

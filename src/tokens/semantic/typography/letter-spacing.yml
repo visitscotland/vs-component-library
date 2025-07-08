@@ -1,0 +1,17 @@
+#
+# LETTER SPACING TOKENS
+# Use these tokens to set a letter-spacing. 
+# Tokens are calculated as percentage of the font-size.
+#
+props:
+    - name: vs-letter-spacing-display
+      value: "0.02em"
+    - name: vs-letter-spacing-heading
+      value: "-0.01em"
+    - name: vs-letter-spacing-detail
+      value: "0"
+    - name: vs-letter-spacing-body
+      value: "0.01em"
+global:
+    type: number
+    category: letter-spacing

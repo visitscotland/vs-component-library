@@ -1,0 +1,9 @@
+aliases:
+  vs-font-weight-bold:
+    value: "700"
+  vs-font-weight-semi-bold:
+    value: "600"
+  vs-font-weight-normal:
+    value: "400"
+  vs-font-weight-light:
+    value: "300"

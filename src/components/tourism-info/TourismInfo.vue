@@ -105,10 +105,6 @@ export default {
     &__links {
         font-size: $font-size-5;
         margin-bottom: $spacer-300;
-
-        @include media-breakpoint-up(lg) {
-            line-height: $spacer-175;
-        }
     }
 
     &__intro-content {
@@ -148,10 +144,6 @@ export default {
         margin-bottom: $spacer-0;
         margin-top: $spacer-300;
         font-size: $font-size-5;
-
-        @include media-breakpoint-up(lg) {
-            line-height: $spacer-175;
-        }
     }
 
     figure {

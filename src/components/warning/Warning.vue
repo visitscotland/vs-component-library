@@ -144,7 +144,7 @@ export default {
 
         &__icon {
             margin-right: $spacer-075;
-            line-height: $line-height-standard;
+            margin-top: $spacer-025;
         }
 
         &__button {

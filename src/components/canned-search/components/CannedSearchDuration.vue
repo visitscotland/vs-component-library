@@ -51,7 +51,7 @@ export default {
 <style lang="scss">
     .vs-canned-search-duration {
         &__main {
-            font-weight: $font-weight-bold;
+            font-weight: $vs-font-weight-medium;
         }
     }
 </style>

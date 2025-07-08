@@ -21,8 +21,8 @@ props:
     - name: vs-color-border-disabled
       value: "{!vs-cloud-40}"
 imports:
-  - ../primitives/color-primitives.yml
-  - ../primitives/color-support-primitives.yml
+  - ../../primitives/color/color-primitives.yml
+  - ../../primitives/color/color-support-primitives.yml
 global:
     type: color
     category: color-border

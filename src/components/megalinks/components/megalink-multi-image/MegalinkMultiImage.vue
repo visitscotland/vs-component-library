@@ -269,12 +269,6 @@ export default {
                 width: 75%
             }
 
-            .megalink-multi-image__content {
-                font-size: $font-size-5;
-                margin-top: $spacer-200;
-                line-height: $line-height-m;
-            }
-
             .card-body {
                 position: absolute !important;
                 background-color: $vs-elevation-surface-raised;

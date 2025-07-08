@@ -66,7 +66,6 @@ export default {
             padding-right: 0.7rem;
             margin-left: -$spacer-150;
             font-size: $font-size-6;
-            line-height: $line-height-xs;
         }
 
         /* Nested list styles */

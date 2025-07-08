@@ -48,7 +48,6 @@ export default {
         }
 
         &__address-box {
-            line-height: $line-height-s;
             display: inline-block;
             vertical-align: top;
         }

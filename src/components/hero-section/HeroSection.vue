@@ -336,7 +336,7 @@ export default {
             grid-row: 1;
             grid-column: 1 / -1;
             position: relative;
-            line-height: 0;
+            line-height: 0; //removes any extra space in the container
 
             .vs-hero-section__video {
                 width: 100%;
