@@ -1,3 +1,10 @@
+# [4.29.0](https://github.com/visitscotland/vs-component-library/compare/v4.28.1...v4.29.0) (2025-07-14)
+
+
+### Features
+
+* **hero:** add fetchpriority=”high” to video in hero section ([909fd11](https://github.com/visitscotland/vs-component-library/commit/909fd1105f40678c5758185f4b1dff87a1325328))
+
 ## [4.28.1](https://github.com/visitscotland/vs-component-library/compare/v4.28.0...v4.28.1) (2025-07-07)
 
 
