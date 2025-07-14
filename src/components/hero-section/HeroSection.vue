@@ -32,6 +32,7 @@
                     class="vs-hero-section__video"
                     ref="heroVideo"
                     aria-hidden="true"
+                    fetchpriority="high"
                 >
                     <source
                         :src="videoSrc"
