@@ -3,27 +3,24 @@
 #
 
 imports:
-  - ./color/color-background.yml
-  - ./color/color-border.yml
-  - ./color/color-icons.yml
-  - ./color/color-interaction.yml
-  - ./color/color-text.yml
+  - ./semantic/color/color-background.yml
+  - ./semantic/color/color-border.yml
+  - ./semantic/color/color-icons.yml
+  - ./semantic/color/color-interaction.yml
+  - ./semantic/color/color-text.yml
+  - ./semantic/typography/font-size.yml
+  - ./semantic/typography/font-weight.yml
+  - ./semantic/typography/font-family.yml
+  - ./semantic/typography/line-height.yml
+  - ./semantic/typography/letter-spacing.yml
   - ./icon/icon-size.yml
   - ./icon/icon.yml
   - ./layout/breakpoints.yml
   - ./layout/grid-layout.yml
   - ./layout/spacing.yml
-  - ./type/font-weight.yml
-  - ./type/font.yml
-  - ./type/heading-size.yml
-  - ./type/body-size.yml
-  - ./type/detail-size.yml
-  - ./type/tracking.yml
-  - ./type/line-height.yml
   - ./elevation-shadow.yml
   - ./elevation-surface.yml
   - ./font-size.yml
-  - ./letter-spacing.yml
   - ./opacity.yml
   - ./timing.yml
   - ./box-shadow.yml

@@ -85,7 +85,6 @@
                 text-decoration: none;
                 color: $vs-color-text-primary;
                 transition: all .2s;      
-                line-height: $line-height-m;
                 padding: $spacer-050 $spacer-075;
 
                 &:focus {
@@ -98,7 +97,7 @@
                     border-radius: $border-radius-pill;
                     min-width: 80px;
                     text-align: center;
-                    font-weight: 600;
+                    font-weight: $vs-font-weight-medium;
                     padding: $spacer-025 $spacer-075;
 
                     @include vs-button-variant(
@@ -196,8 +195,8 @@
 
                         h2{
                             @include heading-style(heading-m);
-                            line-height: 1.2;
-                            font-weight: $font-weight-semi-bold;
+                            line-height: $vs-line-height-heading;
+                            font-weight: $vs-font-weight-heading;
                             margin-top: 0;
                             margin-bottom: $spacer-075;
 
@@ -310,7 +309,7 @@
                         font-family: "Font Awesome 6 Pro";
                         content: "\f061";
                         color: $vs-color-icon-cta-on-light;
-                        font-weight: $font-weight-normal;
+                        font-weight: $vs-font-weight-regular;
                         font-size: $font-size-3;
                         display: inline-block;
                     }
@@ -335,7 +334,7 @@
                     &.next-mobile, &.previous{
                         text-transform: uppercase;
                         font-size: $font-size-3;
-                        font-weight: $font-weight-semi-bold;
+                        font-weight: $vs-font-weight-medium;
                         display: inline-block;
 
                         a {

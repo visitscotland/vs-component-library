@@ -145,9 +145,9 @@ export default {
 
             .count {
                 color: $vs-color-text-inverse;
-                font-family: $display-font-family;
+                font-family: $vs-font-family-display;
                 font-size: $font-size-8;
-                line-height: $line-height-xs;
+                line-height: 1;
                 display: block;
                 text-align: center;
                 width: 100%;

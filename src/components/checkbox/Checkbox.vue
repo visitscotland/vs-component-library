@@ -220,7 +220,7 @@ export default {
     @include forms-common;
 
     .vs-checkbox {
-        @include form-checkbox(38px, $font-size-6, $line-height-xl);
+        @include form-checkbox(38px, $font-size-6, 2);
 
         input[type="checkbox"] {
             margin: $spacer-050 $spacer-100 0 0;
@@ -241,7 +241,7 @@ export default {
         &__label {
             display: inline-block;
             font-size: $font-size-body;
-            font-weight: $font-weight-normal;
+            font-weight: $vs-font-weight-regular;
         }
 
         &--error {
@@ -259,7 +259,7 @@ export default {
         }
 
         &--small {
-            @include form-checkbox(16px, $font-size-2, $line-height-s);
+            @include form-checkbox(16px, $font-size-2, 1.3);
         }
 
         .form-check-input[disabled] ~ .form-check-label,

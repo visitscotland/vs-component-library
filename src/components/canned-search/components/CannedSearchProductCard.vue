@@ -326,7 +326,7 @@ export default {
             margin: $spacer-075 $spacer-0 $spacer-050;
 
             @include media-breakpoint-up(md) {
-                font-size: $heading-xs;
+                font-size: $vs-font-size-heading-xs;
             }
 
             @include truncate-text(2);

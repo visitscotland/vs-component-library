@@ -57,9 +57,9 @@ props:
       value: "{!vs-buachaille}"
   
 imports:
-  - ../primitives/color-core.yml
-  - ../primitives/color-primitives.yml
-  - ../primitives/color-support-primitives.yml
+  - ../../primitives/color/color-core.yml
+  - ../../primitives/color/color-primitives.yml
+  - ../../primitives/color/color-support-primitives.yml
 global:
     type: color
     category: color-icons

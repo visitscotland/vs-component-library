@@ -77,17 +77,17 @@ export default {
 
 <style lang="scss">
 [class*="vs-heading--display-"] {
-    font-family: $display-font-family;
-    letter-spacing: 0.02em;
+    font-family: $vs-font-family-display;
+    letter-spacing: $vs-letter-spacing-display;
 }
 
 [class*="vs-heading--heading-"] {
-    letter-spacing: -0.01em;
+    letter-spacing: $vs-letter-spacing-heading;
 }
 
 .vs-heading {
-    line-height: 1.2;
-    font-weight: $font-weight-semi-bold;
+    line-height: $vs-line-height-heading;
+    font-weight: $vs-font-weight-heading;
 
     &--display-m {
         @include heading-style(display-m);

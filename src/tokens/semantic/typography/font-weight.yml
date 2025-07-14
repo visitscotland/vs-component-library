@@ -1,0 +1,25 @@
+#
+# FONT WEIGHT TOKENS
+# Use these tokens to set font-weight value.
+#
+
+props:
+    - name: vs-font-weight-strong
+      value: "{!vs-font-weight-bold}"
+    - name: vs-font-weight-medium
+      value: "{!vs-font-weight-semi-bold}"
+    - name: vs-font-weight-regular
+      value: "{!vs-font-weight-normal}"
+    - name: vs-font-weight-subtle
+      value: "{!vs-font-weight-light}"
+    - name: vs-font-weight-heading
+      value: "{!vs-font-weight-semi-bold}"
+    - name: vs-font-weight-body
+      value: "{!vs-font-weight-normal}"
+    - name: vs-font-weight-detail
+      value: "{!vs-font-weight-normal}"
+imports:
+  - ../../primitives/typography/font-weight-primitives.yml
+global:
+  type: number
+  category: font-weight

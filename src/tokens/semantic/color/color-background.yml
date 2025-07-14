@@ -34,8 +34,8 @@ props:
     - name: vs-color-background-accent-gorse-05
       value: "{!vs-gorse-05}"
 imports:
-  - ../primitives/color-primitives.yml
-  - ../primitives/color-support-primitives.yml
+  - ../../primitives/color/color-primitives.yml
+  - ../../primitives/color/color-support-primitives.yml
 global:
     type: color
     category: color-background

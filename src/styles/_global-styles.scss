@@ -7,12 +7,14 @@
  */
 
 body {
-    line-height: $line-height-body;
-    letter-spacing: $tracking-body;
-    font-size: $body-s;
+    line-height: $vs-line-height-body;
+    letter-spacing: $vs-letter-spacing-body;
+    font-size: $vs-font-size-body-s;
+    font-weight: $vs-font-weight-body;
+    font-family: $vs-font-family-sans-serif;
 
     @include media-breakpoint-up(md) {
-        font-size: $body-m;
+        font-size: $vs-font-size-body-m;
     }
 }
 

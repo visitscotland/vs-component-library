@@ -110,7 +110,7 @@ defineExpose({
         border-bottom:  solid 1px $vs-color-border-secondary;
         display: flex;
         font-size: $font-size-6;
-        font-weight: $font_weight_semi_bold;
+        font-weight: $vs-font-weight-medium;
         gap: $spacer-050;
         margin-bottom: $spacer-0;
         padding: $spacer-075 $spacer-125;

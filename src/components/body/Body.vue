@@ -49,11 +49,13 @@ export default {
 
 <style lang="scss">
 .vs-body {
+    // Inherits styles from global body styles
+
     &--lead {
-        font-size: $body-m;
+        font-size: $vs-font-size-body-m;
 
         @include media-breakpoint-up(md) {
-            font-size: $body-l;
+            font-size: $vs-font-size-body-l;
         }
     }
 
@@ -64,9 +66,9 @@ export default {
     }
 
     h2, h3, h4, h5, h6 {
-        line-height: $line-height-heading;
-        letter-spacing: $tracking-heading;
-        font-weight: $font-weight-semi-bold;
+        line-height: $vs-line-height-heading;
+        letter-spacing: $vs-letter-spacing-heading;
+        font-weight: $vs-font-weight-heading;
     }
 
     h2 {

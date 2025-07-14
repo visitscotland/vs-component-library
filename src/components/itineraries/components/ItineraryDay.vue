@@ -184,13 +184,13 @@ export default {
             color: $vs-color-text-highlight;
             display: inline-block;
             @include heading-style(heading-s, false);
-            font-weight: 600;
+            font-weight: $vs-font-weight-heading;
         }
 
         .vs-itinerary-day__sub-heading{
             display: block;
             @include heading-style(heading-l);
-            font-weight: 600;
+            font-weight: $vs-font-weight-heading;
         }
 
         @include media-breakpoint-up(lg) {

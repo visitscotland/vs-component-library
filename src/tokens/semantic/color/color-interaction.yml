@@ -35,8 +35,8 @@ props:
     - name: vs-color-interaction-link-visited-on-bold
       value: "{!vs-saltire-10}"
 imports:
-  - ../primitives/color-primitives.yml
-  - ../primitives/color-support-primitives.yml
+  - ../../primitives/color/color-primitives.yml
+  - ../../primitives/color/color-support-primitives.yml
 global:
     type: color
     category: color-interaction

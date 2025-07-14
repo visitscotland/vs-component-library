@@ -212,7 +212,6 @@ export default {
     &__text.vs-body--normal,
     &__cta-link {
         font-size: $font-size-3;
-        line-height: $line-height-s;
 
         @include media-breakpoint-up(sm) {
             font-size: $font-size-4;

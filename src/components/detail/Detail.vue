@@ -59,31 +59,32 @@ export default {
 
 <style lang="scss">
 .vs-detail {
-    line-height: $line-height-detail;
-    letter-spacing: $tracking-detail;
+    line-height: $vs-line-height-detail;
+    letter-spacing: $vs-letter-spacing-detail;
+    font-weight: $vs-font-weight-detail;
 
     &--with-margins {
         @include font-based-margins(1.4, 0.25);
     }
 
     &--small {
-        font-size: $detail-s;
+        font-size: $vs-font-size-detail-s;
 
         @include media-breakpoint-up(md) {
-            font-size: $detail-m;
+            font-size: $vs-font-size-detail-m;
         }
     }
 
     &--medium {
-        font-size: $detail-m;
+        font-size: $vs-font-size-detail-m;
 
         @include media-breakpoint-up(md) {
-            font-size: $detail-l;
+            font-size: $vs-font-size-detail-l;
         }
     }
 
     &--large {
-        font-size: $detail-l;
+        font-size: $vs-font-size-detail-l;
     }
 
     &--primary {

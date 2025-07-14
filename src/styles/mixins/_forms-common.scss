@@ -1,7 +1,7 @@
 @mixin forms-common {
     label,
     legend {
-        font-weight: $font-weight-semi-bold;
+        font-weight: $vs-font-weight-medium;
         margin-bottom: 0;
     }
 

@@ -81,7 +81,6 @@ export default {
 .vs-dropdown {
     .dropdown-toggle {
         @extend %button-default-styles;
-        line-height: $line-height-xs;
         padding: $spacer-050 $spacer-150;
 
         &:hover {
@@ -102,7 +101,7 @@ export default {
             content: "\f078";
             color: $vs-color-icon-inverse;
             border: 0;
-            font-weight: 400;
+            font-weight: $vs-font-weight-regular;
             vertical-align: bottom;
         }
 
