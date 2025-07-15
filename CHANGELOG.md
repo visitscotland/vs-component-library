@@ -1,3 +1,100 @@
+# [5.0.0](https://github.com/visitscotland/vs-component-library/compare/v4.29.0...v5.0.0) (2025-07-15)
+
+
+### Bug Fixes
+
+* **articledetails:** fix logic for no read time in article details ([1a329ed](https://github.com/visitscotland/vs-component-library/commit/1a329ed4ba3fafae7bae6cb327188196102a8b0c))
+* **itinerary:** revert changes to itinerary stop icon to xl ([9178796](https://github.com/visitscotland/vs-component-library/commit/91787961337e29611b5694a9f4c132ebb4171d8c))
+* **skiscotland:** update icon name to use new prop ([3d36331](https://github.com/visitscotland/vs-component-library/commit/3d363310a2f02209adb33f71c7c7f5324a5a1f57))
+* **togglebutton:** fix class for toggle button ([05e834b](https://github.com/visitscotland/vs-component-library/commit/05e834b37dd71e7b5c8487deb37957a2d2ec9d16))
+
+
+### Features
+
+* **articledetails:** rename blogDetails component to articleDetails ([0639adf](https://github.com/visitscotland/vs-component-library/commit/0639adf415763554de67bd400a2a2c6eb08f1336))
+* **body:** adding calculated margins to heading and body components ([00d3615](https://github.com/visitscotland/vs-component-library/commit/00d361593c9feaf5a72054b35f53df84a805b19f))
+* **body:** adding global body typography styles ([93335b2](https://github.com/visitscotland/vs-component-library/commit/93335b2e4e4b4e522caddb56ee923dabaa444566))
+* **body:** adjust body heading sizes across viewports ([f59071b](https://github.com/visitscotland/vs-component-library/commit/f59071b1b5e6382235a52e71c461aa07f2f3f74f))
+* **body:** adjusting body font sizes across viewports ([f4adb80](https://github.com/visitscotland/vs-component-library/commit/f4adb80f3ef0e7054e27169a269cfde729873dab))
+* **body:** update spacing in body and cards ([9ab07d3](https://github.com/visitscotland/vs-component-library/commit/9ab07d3ace684fb610a4b96cff51c7db31ea7532))
+* **build:** bundle all styles into a single output in vite ([a61c09e](https://github.com/visitscotland/vs-component-library/commit/a61c09e728c79ea89e08779ca9389dfbc38a6704))
+* **button:** rename transparent button to subtle ([ba362bd](https://github.com/visitscotland/vs-component-library/commit/ba362bdbd85323492b2938ea5343df62be8cb2b6))
+* **card:** update cards to use new typography and icon component changes ([906c642](https://github.com/visitscotland/vs-component-library/commit/906c642d7b5c6291c894c50c400d45b4df34c10b))
+* **detail:** add colour and noMargin props to detail ([49046a9](https://github.com/visitscotland/vs-component-library/commit/49046a9b7cd162eb8dfe3429b7b2ec10637c00df))
+* **detail:** add new detail typography component ([a598de2](https://github.com/visitscotland/vs-component-library/commit/a598de20bec0480e2eb9cdb01561c96cd7acb376))
+* **detail:** add new font-based-margins mixin for calculating margin spacing ([98caf8f](https://github.com/visitscotland/vs-component-library/commit/98caf8fd3efa421cb5d01d2be79e5c22d2fb898e))
+* **detail:** updating story to include arg types ([93795a4](https://github.com/visitscotland/vs-component-library/commit/93795a40101b1c4a3eb425e6391f4cbe9e6f1c42))
+* **fontawesome:** update to most recent version of the icon kit ([d57bb29](https://github.com/visitscotland/vs-component-library/commit/d57bb2917c0748004dfe44323af5788b6d7273b0))
+* **heading:** add new font-based-margin mixin to calculate heading spacing ([2e7e5c8](https://github.com/visitscotland/vs-component-library/commit/2e7e5c8a6c4baeae5ef821e412bf775f0a0b584a))
+* **heading:** headings now scale automatically at md breakpoint ([f97de56](https://github.com/visitscotland/vs-component-library/commit/f97de56f6024f3e516fee47737be2113f3bf2576))
+* **heading:** remove all references to display-xs heading ([bbd3cff](https://github.com/visitscotland/vs-component-library/commit/bbd3cffcf188f6a2732388d5e82d07e599c44256))
+* **heading:** remove display-l and heading-xxl heading styles ([dd76c81](https://github.com/visitscotland/vs-component-library/commit/dd76c81f2307328803b46c29db6171211aa41e1c))
+* **heading:** removed subheading slot and subheading styles from heading component ([cf0462a](https://github.com/visitscotland/vs-component-library/commit/cf0462a9469f2903dbd90f1a9343d9c4a76a0915))
+* **hero:** hero section headings have been updated to be larger than body text ([a435dad](https://github.com/visitscotland/vs-component-library/commit/a435dad95176060f509a63e01cae4dcf011fb953))
+* **hero:** rename src prop to imgSrc ([c432bbb](https://github.com/visitscotland/vs-component-library/commit/c432bbb537159d7a75b88e840b63358e7481d47e))
+* **icon:** add new semantic icon tokens into the system ([eae9e15](https://github.com/visitscotland/vs-component-library/commit/eae9e15ea734bcbc11183e86b9c1d9146c4d07fe))
+* **icon:** add semantic icon tokens into the system ([b714e41](https://github.com/visitscotland/vs-component-library/commit/b714e41863e66746a9a3dd68b5df928beaba0188))
+* **icon:** fixing the rest of icons with new icon classes ([82c4aa6](https://github.com/visitscotland/vs-component-library/commit/82c4aa62d54db7bedbd4bb5838be27bbd1a77996))
+* **icon:** refactor icon variants to match new design tokens ([1ada7ef](https://github.com/visitscotland/vs-component-library/commit/1ada7efe0a472d67cd82a1d3e3be5cd9890a8cb4))
+* **icon:** removes orientation prop from icon component ([1c34657](https://github.com/visitscotland/vs-component-library/commit/1c3465705026290e9595761280781cccecc2922c))
+* **icons:** change icon name prop to icon and adds new FA kit ([fa576da](https://github.com/visitscotland/vs-component-library/commit/fa576da5d29967aaab9a7008324907eb427e19a9))
+* **icons:** update icon library to latest FA kit ([1caf4c0](https://github.com/visitscotland/vs-component-library/commit/1caf4c04a67904a988740d5cff20dd7fd7471991))
+* **icons:** update icon to latest kit ([8ca25c5](https://github.com/visitscotland/vs-component-library/commit/8ca25c57541345f0ad7dac569912745dae9a0dec))
+* **icon:** update close icon across the site to use new token ([e27bb69](https://github.com/visitscotland/vs-component-library/commit/e27bb69391fa9718b2a0271c8e050290d449a8e4))
+* **icon:** update icon colour variants in storybook ([b6c17c4](https://github.com/visitscotland/vs-component-library/commit/b6c17c411f544ead07a92274451b8d68a35e0cb9))
+* **icon:** update icon prop with correct value ([b7d956e](https://github.com/visitscotland/vs-component-library/commit/b7d956ef1732c2a2b7d46b737fe867e2893254c6))
+* **icon:** update icon to new classes ([7ceed92](https://github.com/visitscotland/vs-component-library/commit/7ceed9281230b8d8724faacb68ccec15acce9de3))
+* **icon:** update icon tokens to include play/pause ([5615071](https://github.com/visitscotland/vs-component-library/commit/56150712addd6a87aee09844cf7be06b3561ac93))
+* **icon:** update icons in buttons to new classes ([e030669](https://github.com/visitscotland/vs-component-library/commit/e0306696d52c06f4ba5d516eb89f8a8ca494b489))
+* **icon:** update icons in css to new kit font ([7a35ed7](https://github.com/visitscotland/vs-component-library/commit/7a35ed74ec9ba8b4edaed1269b8f9008d90d84de))
+* **icon:** update map icons to new icon classes ([7c285d0](https://github.com/visitscotland/vs-component-library/commit/7c285d022651e4d9d139727ce1d823decb4bd7e2))
+* **icon:** update transport icons across the system ([153076a](https://github.com/visitscotland/vs-component-library/commit/153076a5a2f1559d60723d32c1f4edc4dbfda53c))
+* **itinerary:** add detail to itinerary and listicle components ([a82826f](https://github.com/visitscotland/vs-component-library/commit/a82826f26b32bf960202d643993ac7e121c53348))
+* **itinerary:** decouple sub-heading from heading component in itinerary stop ([64d543b](https://github.com/visitscotland/vs-component-library/commit/64d543bf57e2f19417150ae0d84a236c89d3a6f6))
+* **link:** update link and social share to have correct icon variants ([cd61b19](https://github.com/visitscotland/vs-component-library/commit/cd61b19bc7591107551a5ce19a7e340ca4124448))
+* **listicle:** decouple subheading from heading in listicles ([c915d2e](https://github.com/visitscotland/vs-component-library/commit/c915d2e1da2ca57b733b6d6966758ddd7afed027))
+* **maps:** expose maps for consumption in nuxt sites ([24d55dd](https://github.com/visitscotland/vs-component-library/commit/24d55ddeec6410ccbfa78d3d685e954d523d65e1))
+* remove duotone prop from icon component ([ce0d949](https://github.com/visitscotland/vs-component-library/commit/ce0d9497263b9fac20563b0db19e1e1436e28132))
+* **rich-tect:** update external link style ([5db13b2](https://github.com/visitscotland/vs-component-library/commit/5db13b2a6d84c285214f11e225b8a3d3fd552709))
+* **rich-text:** add styles for headings and lists to rich text component ([2dfce47](https://github.com/visitscotland/vs-component-library/commit/2dfce4797aeaeec158758f511f74cb25f93d1508))
+* **rich-text:** rename vs-rich-text-wrapper component to vs-body ([b860c84](https://github.com/visitscotland/vs-component-library/commit/b860c84375b9707682c160fb48f022f2d28088e2))
+* **sitesearchform:** remove clearButtonText prop from siteSearchForm component ([8f64fc8](https://github.com/visitscotland/vs-component-library/commit/8f64fc8edf6fdb37533956abeb25d0693084e677))
+* **tokens:** add new tokens in and update font-weight across the library ([72eb27d](https://github.com/visitscotland/vs-component-library/commit/72eb27d473719bde54afc19c704472f6ff992c36))
+* **typography:** removes global paragraph spacing, adds to text component and updates use cases ([48d7158](https://github.com/visitscotland/vs-component-library/commit/48d71582cc723b1c5c31f35c5dea7bfbd48ebfca))
+
+
+### BREAKING CHANGES
+
+* **articledetails:** The rename blogDetails component and props have been updated to articleDetails and
+replacing blog with article in props and will need updated everywhere its used.
+* **hero:** src prop has been renamed to imgSrc so the heroSection will need to be updated to
+the new prop.
+* **build:** As the map and main js bundles both share a number of components (heading, icon,
+buttontogglegroup), css code split produces some unhelpful results. The shared components get put
+into a separate chunk, which some setups could consume asynchronously as they're needed but which
+our nuxt setup can't handle properly. To avoid a particularly complicated loading  setup in the nuxt
+sites it's simplest to just remove it. This also  means that the existing issue with icons not
+working on non-js sites is resolved, because all the icon css files are pulled in automatically with
+the main bundle. The performance concerns about that originally are no longer valid as the icon file
+is hugely smaller now we subset the icons properly.
+* **button:** The transparent button variant has been renamed to subtle and will need to be
+changed wherever it is used.
+* **sitesearchform:** Remove clearButtonText prop from siteSearchForm
+* **heading:** Subheading has been removed from heading component
+* **rich-text:** VsRichTextWrapper has been renamed to VsBody - this will need to be updated
+anywhere this component is used.
+* **typography:** Global paragraph spacing has been removed which may cause some unintended layout
+issues. Use the text component for consistent paragraph spacing for body text at and applit margin
+on an individual basis
+* **icon:** refactor icon variants to match new design tokens - these will need to be updated
+wherever used to ensure it matches to the new varients. Rename “default” to “primary“,  Rename
+“primary“ to “cta“,  Rename “tertiary” to “highlight“,  Rename “danger“ to “error“,  Add new
+variants : “secondary”, “success“, and “warning“
+* **icon:** removes orientation prop from icon component - use icon from the icon library
+instead
+* remove duotone prop from icon component, now use icon prop to pass correct set of
+classes to matching icon in the fontawesome kit
+
 # [4.29.0](https://github.com/visitscotland/vs-component-library/compare/v4.28.1...v4.29.0) (2025-07-14)
 
 
