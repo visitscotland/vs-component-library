@@ -31,17 +31,17 @@ const base = {
         {
             text: 'I\'m already here',
             value: 'noTravel',
-            icon: 'city',
+            icon: 'fa-regular fa-city',
         },
         {
             text: 'Plane',
             value: 'plane',
-            icon: 'plane',
+            icon: 'fa-regular fa-plane',
         },
         {
             text: 'Car (Petrol)',
             value: 'petrolCar',
-            icon: 'car',
+            icon: 'fa-regular fa-car-side',
         },
     ],
 };
@@ -76,17 +76,17 @@ Disabled.args = {
         {
             text: 'I\'m already here',
             value: 'noTravel',
-            icon: 'city',
+            icon: 'fa-regular fa-city',
         },
         {
             text: 'Plane',
             value: 'plane',
-            icon: 'plane',
+            icon: 'fa-regular fa-plane',
         },
         {
             text: 'Car (Petrol)',
             value: 'petrolCar',
-            icon: 'car',
+            icon: 'fa-regular fa-car-side',
             disabled: true,
         },
     ],

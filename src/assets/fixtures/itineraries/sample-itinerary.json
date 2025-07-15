@@ -19,11 +19,11 @@
     "totalMiles": "60",
     "totalKM": "96",
     "transport": {
-        "key": "bus",
+        "key": "fa-regular fa-bus",
         "value": "Public Transport / Walking"
     },
     "theme": {
-        "key": "child",
+        "key": "fa-regular fa-child-reaching",
         "value": "Families"
     },
     "highlights": ["East Neuk of Fife", "St Andrews", "Dundee", "Angus"],
@@ -37,15 +37,15 @@
             "dayKM": "26",
             "transport": [
                 {
-                    "key": "car",
+                    "key": "fa-regular fa-car-side",
                     "value": "Car"
                 },
                 {
-                    "key": "walk",
+                    "key": "fa-regular fa-person-walking",
                     "value": "Walking"
                 },
                 {
-                    "key": "transport",
+                    "key": "fa-kit fa-vs-public-transport",
                     "value": "Transport"
                 }
             ],
@@ -113,31 +113,31 @@
                     "longitude": "-2.76587",
                     "facilities": [
                         {
-                            "key": "parking",
+                            "key": "vs-icon-facility-parking",
                             "value": "Parking"
                         },
                         {
-                            "key": "accessparkdrop",
+                            "key": "vs-icon-facility-accessible-parking",
                             "value": "Accessible Parking and Dropoff"
                         },
                         {
-                            "key": "public-transport",
+                            "key": "vs-icon-facility-public-transport",
                             "value": "On Public Transport Route"
                         },
                         {
-                            "key": "facility-petswelcom",
+                            "key": "vs-icon-facility-pets-welcome",
                             "value": "Pets Welcome"
                         },
                         {
-                            "key": "facility-dsblaccess",
+                            "key": "vs-icon-facility-wheelchair-access",
                             "value": "Level Access"
                         },
                         {
-                            "key": "facility-wifi",
+                            "key": "vs-icon-facility-wifi",
                             "value": "WiFi"
                         },
                         {
-                            "key": "cafe",
+                            "key": "vs-icon-facility-cafe",
                             "value": "Cafe or Restaurant"
                         }
                     ],
@@ -168,11 +168,11 @@
                     "longitude": "-2.69826",
                     "facilities": [
                         {
-                            "key": "parking",
+                            "key": "vs-icon-facility-parking",
                             "value": "Parking"
                         },
                         {
-                            "key": "accessparkdrop",
+                            "key": "vs-icon-facility-accessible-parking",
                             "value": "Accessible Parking and Dropoff"
                         }
                     ],
@@ -203,23 +203,27 @@
                     "longitude": "-2.70087",
                     "facilities": [
                         {
-                            "key": "parking",
+                            "key": "vs-icon-facility-parking",
                             "value": "Parking"
                         },
                         {
-                            "key": "accessparkdrop",
+                            "key": "vs-icon-facility-accessible-parking",
                             "value": "Accessible Parking and Dropoff"
                         },
                         {
-                            "key": "facility-dsblaccess",
+                            "key": "vs-icon-facility-public-transport",
+                            "value": "On Public Transport Route"
+                        },
+                        {
+                            "key": "vs-icon-facility-wheelchair-access",
                             "value": "Level Access"
                         },
                         {
-                            "key": "facility-wifi",
+                            "key": "vs-icon-facility-wifi",
                             "value": "WiFi"
                         },
                         {
-                            "key": "cafe",
+                            "key": "vs-icon-facility-cafe",
                             "value": "Cafe or Restaurant"
                         }
                     ],
@@ -237,11 +241,11 @@
             "dayKM": "61",
             "transport": [
                 {
-                    "key": "car",
+                    "key": "fa-regular fa-car-side",
                     "value": "Car"
                 },
                 {
-                    "key": "walk",
+                    "key": "fa-regular fa-person-walking",
                     "value": "Walking"
                 }
             ],
@@ -269,16 +273,20 @@
                     "longitude": "-3.08709",
                     "facilities": [
                         {
-                            "key": "parking",
-                            "value": "Parking"
+                            "key": "vs-icon-facility-public-transport",
+                            "value": "On Public Transport Route"
                         },
                         {
-                            "key": "accessparkdrop",
-                            "value": "Accessible Parking and Dropoff"
+                            "key": "vs-icon-facility-pets-welcome",
+                            "value": "Pets Welcome"
                         },
                         {
-                            "key": "dsblaccess",
-                            "value": "Disabled Access"
+                            "key": "vs-icon-facility-wifi",
+                            "value": "WiFi"
+                        },
+                        {
+                            "key": "vs-icon-facility-cafe",
+                            "value": "Cafe or Restaurant"
                         }
                     ],
                     "info": "This is the info",
@@ -308,7 +316,7 @@
                     "longitude": "-2.79359",
                     "facilities": [
                         {
-                            "key": "parking",
+                            "key": "vs-icon-facility-parking",
                             "value": "Parking"
                         }
                     ],
@@ -339,16 +347,16 @@
                     "longitude": "-2.79972",
                     "facilities": [
                         {
-                            "key": "parking",
+                            "key": "vs-icon-facility-parking",
                             "value": "Parking"
                         },
                         {
-                            "key": "accessparkdrop",
+                            "key": "vs-icon-facility-accessible-parking",
                             "value": "Accessible Parking and Dropoff"
                         },
                         {
-                            "key": "dsblaccess",
-                            "value": "Disabled Access"
+                            "key": "vs-icon-facility-wheelchair-access",
+                            "value": "Level Access"
                         }
                     ],
                     "info": "This is the info",
@@ -391,11 +399,11 @@
             "dayKM": "26",
             "transport": [
                 {
-                    "key": "car",
+                    "key": "fa-regular fa-car-side",
                     "value": "Car"
                 },
                 {
-                    "key": "walk",
+                    "key": "fa-regular fa-person-walking",
                     "value": "Walking"
                 }
             ],
@@ -423,20 +431,16 @@
                     "longitude": "-2.96349",
                     "facilities": [
                         {
-                            "key": "audioloop",
-                            "value": "Audio Loop"
-                        },
-                        {
-                            "key": "parking",
+                            "key": "vs-icon-facility-parking",
                             "value": "Parking"
                         },
                         {
-                            "key": "accessparkdrop",
+                            "key": "vs-icon-facility-accessible-parking",
                             "value": "Accessible Parking and Dropoff"
                         },
                         {
-                            "key": "dsblaccess",
-                            "value": "Disabled Access"
+                            "key": "vs-icon-facility-public-transport",
+                            "value": "On Public Transport Route"
                         }
                     ],
                     "info": "This is the info",
@@ -467,11 +471,11 @@
 
                     "facilities": [
                         {
-                            "key": "parking",
+                            "key": "vs-icon-facility-parking",
                             "value": "Parking"
                         },
                         {
-                            "key": "accessparkdrop",
+                            "key": "vs-icon-facility-accessible-parking",
                             "value": "Accessible Parking and Dropoff"
                         }
                     ],
@@ -502,8 +506,8 @@
                     "longitude": "-2.9724",
                     "facilities": [
                         {
-                            "key": "accessparkdrop",
-                            "value": "Accessible Parking and Dropoff"
+                            "key": "vs-icon-facility-public-transport",
+                            "value": "On Public Transport Route"
                         }
                     ],
                     "info": "This is the info",
@@ -533,16 +537,20 @@
                     "longitude": "-2.9837",
                     "facilities": [
                         {
-                            "key": "parking",
+                            "key": "vs-icon-facility-parking",
                             "value": "Parking"
                         },
                         {
-                            "key": "accessparkdrop",
+                            "key": "vs-icon-facility-accessible-parking",
                             "value": "Accessible Parking and Dropoff"
                         },
                         {
-                            "key": "dsblaccess",
-                            "value": "Disabled Access"
+                            "key": "vs-icon-facility-wifi",
+                            "value": "WiFi"
+                        },
+                        {
+                            "key": "vs-icon-facility-cafe",
+                            "value": "Cafe or Restaurant"
                         }
                     ],
                     "info": "This is the info",
@@ -559,11 +567,11 @@
             "dayKM": "26",
             "transport": [
                 {
-                    "key": "car",
+                    "key": "fa-regular fa-car-side",
                     "value": "Car"
                 },
                 {
-                    "key": "walk",
+                    "key": "fa-regular fa-person-walking",
                     "value": "Walking"
                 }
             ],
@@ -617,20 +625,16 @@
                     "longitude": "-2.49169",
                     "facilities": [
                         {
-                            "key": "audioloop",
-                            "value": "Audio Loop"
-                        },
-                        {
-                            "key": "parking",
+                            "key": "vs-icon-facility-parking",
                             "value": "Parking"
                         },
                         {
-                            "key": "accessparkdrop",
+                            "key": "vs-icon-facility-accessible-parking",
                             "value": "Accessible Parking and Dropoff"
                         },
                         {
-                            "key": "dsblaccess",
-                            "value": "Disabled Access"
+                            "key": "vs-icon-facility-wheelchair-access",
+                            "value": "Level Access"
                         }
                     ],
                     "info": "This is the info",
@@ -660,11 +664,11 @@
                     "longitude": "-3.00178",
                     "facilities": [
                         {
-                            "key": "parking",
+                            "key": "vs-icon-facility-parking",
                             "value": "Parking"
                         },
                         {
-                            "key": "accessparkdrop",
+                            "key": "vs-icon-facility-accessible-parking",
                             "value": "Accessible Parking and Dropoff"
                         }
                     ],

@@ -99,12 +99,12 @@ export default {
 .vs-quote {
     &__content {
         font-size: $font-size-8;
-        font-weight: $font-weight-light;
-        line-height: $line-height-s;
+        font-weight: $vs-font-weight-subtle;
+        margin-bottom: $spacer-100;
     }
 
     &__author-name {
-        font-weight: $font-weight-bold;
+        font-weight: $vs-font-weight-medium;
         margin-bottom: $spacer-0;
 
         @include media-breakpoint-up(md) {
@@ -114,11 +114,9 @@ export default {
     }
 
     &__author-title {
-        line-height: $spacer-125;
         margin-bottom: $spacer-0;
 
         @include media-breakpoint-up(md) {
-            line-height: $line-height-s;
             font-size: $font-size-5;
         }
 
@@ -134,11 +132,11 @@ export default {
     }
 
     &__speech-mark {
-        font-weight: $font-weight-bold;
+        font-weight: $vs-font-weight-strong;
         color: $vs-color-text-tertiary;
         font-size: 7rem;
         height: 5rem;
-        line-height: $line-height-xs;
+        line-height: 1;
         position: absolute;
         top: 50%;
         left: 50%;

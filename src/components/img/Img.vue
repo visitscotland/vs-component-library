@@ -13,18 +13,12 @@
         :low-res-image="isSvg ? '' : specificImgSize('xxs')"
         :sizes="computedSizes"
     >
-        <VsIcon
-            name="user"
-            size="lg"
-        />
-
         <!-- @slot Default slot for image content -->
         <slot />
     </BImg>
 </template>
 
 <script>
-import VsIcon from '@/components/icon/Icon.vue';
 import { BImg } from 'bootstrap-vue-next';
 import srcSetMixin from '@/mixins/srcSetMixin';
 import imgSizesMixin from '@/mixins/imgSizesMixin';
@@ -41,7 +35,6 @@ export default {
     release: '0.0.1',
     components: {
         BImg,
-        VsIcon,
     },
     mixins: [
         srcSetMixin,

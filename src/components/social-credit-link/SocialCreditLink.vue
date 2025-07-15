@@ -5,7 +5,7 @@
     >
         <VsIcon
             v-if="source"
-            :name="source"
+            :icon="`fa-brands fa-${source}`"
             variant="inverse"
             size="xs"
             class="me-025"
@@ -72,11 +72,11 @@ export default {
 
 <style lang="scss">
 .social-credit {
-    line-height: $line_height_xs;
+    line-height: 1;
 
     .social-credit__link {
         color: $vs-color-text-inverse;
-        font-weight: $font-weight-light;
+        font-weight: $vs-font-weight-subtle;
         font-size: $font-size-3;
 
         .vs-icon {

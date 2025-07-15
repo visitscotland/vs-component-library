@@ -4,7 +4,7 @@ export default `
             <VsHeroSection
                 :heading="args.pageTitle"
                 :lede="args.pageLede"
-                :src="args.imgUrl"
+                :img-src="args.imgUrl"
                 :img-caption="args.imgCaption"
                 :img-credit="args.imgCredit"
                 video-src="fixtures/hero/video/lavendar-fields.mp4"

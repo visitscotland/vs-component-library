@@ -5,7 +5,7 @@
         role="menuitem"
     >
         <BDropdown
-            variant="transparent"
+            variant="subtle"
             ref="dropdown"
             @show="dataLayerSubmit($event)"
         >
@@ -35,10 +35,10 @@
                             <VsButton
                                 class="vs-mega-nav-dropdown__close-btn
                                 d-none d-lg-block position-absolute"
-                                icon="close"
+                                icon="vs-icon-control-dismiss"
                                 icon-only
                                 size="sm"
-                                variant="transparent"
+                                variant="subtle"
                                 @click="closeMenu"
                                 @keydown.tab="tabFromClose"
                             >
@@ -76,10 +76,10 @@
                             <VsButton
                                 class="vs-mega-nav-dropdown__close-btn
                                 d-none d-lg-block position-absolute"
-                                icon="close"
+                                icon="vs-icon-control-dismiss"
                                 icon-only
                                 size="sm"
-                                variant="transparent"
+                                variant="subtle"
                                 @click="closeMenu"
                             >
                                 {{ menuToggleAltText }}
@@ -227,9 +227,7 @@ export default {
 
     .btn.dropdown-toggle {
         position: relative;
-        letter-spacing: 0;
-        font-weight: $font-weight-normal;
-        line-height: $line-height-standard;
+        font-weight: $vs-font-weight-regular;
         border-radius: 0;
         border: 0;
         height: $spacer-175;

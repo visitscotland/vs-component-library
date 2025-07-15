@@ -41,7 +41,7 @@
                                         </span>
                                     </VsHeading>
 
-                                    <VsRichTextWrapper
+                                    <VsBody
                                         v-if="$slots['vs-article-intro']"
                                         variant="lead"
                                         class="mb-300 mb-lg-400"
@@ -50,7 +50,7 @@
                                         <!-- @slot Slot to contain the introduction
                                         for this article -->
                                         <slot name="vs-article-intro" />
-                                    </VsRichTextWrapper>
+                                    </VsBody>
                                 </div>
 
                                 <VsCol
@@ -81,7 +81,7 @@ import {
 } from '@/components/grid';
 import VsHeading from '@/components/heading/Heading.vue';
 import { isNumber } from 'lodash';
-import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsBody from '@/components/body/Body.vue';
 
 /**
  * The article component is used for in-depth editorial style
@@ -98,7 +98,7 @@ export default {
         VsRow,
         VsContainer,
         VsHeading,
-        VsRichTextWrapper,
+        VsBody,
     },
     props: {
         /**
@@ -135,14 +135,14 @@ export default {
         },
         /**
          * The heading style used for the heading.
-         * `display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|
+         * `display-m|display-s|heading-xl|
          * heading-l|heading-m|heading-s|heading-xs|heading-xxs`
          */
         headingStyle: {
             type: String,
             default: 'heading-xl',
             validator: (value) => value.match(
-                /(display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs|heading-xxxs)/,
+                /(display-m|display-s|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs|heading-xxxs)/,
             ),
         },
     },

@@ -6,12 +6,12 @@
     >
         <div class="vs-hero-section__grid">
             <div
-                v-if="src && !videoSrc"
+                v-if="imgSrc && !videoSrc"
                 :class="['vs-hero-section__image', imageClasses]"
             >
                 <VsHeroSectionImage
                     :img-alt="imgAlt"
-                    :src="src"
+                    :src="imgSrc"
                     :img-caption="imgCaption"
                     :img-credit="imgCredit"
                     :split="split"
@@ -28,7 +28,7 @@
                     autoplay
                     playsinline
                     preload="auto"
-                    :poster="src"
+                    :poster="imgSrc"
                     class="vs-hero-section__video"
                     ref="heroVideo"
                     aria-hidden="true"
@@ -53,13 +53,13 @@
                         class="vs-hero-section__heading"
                         data-test="vs-hero-section__heading"
                         level="1"
-                        heading-style="display-xs"
+                        heading-style="display-s"
                         id="main-heading"
                     >
                         <span v-html="heading" />
                     </VsHeading>
 
-                    <VsRichTextWrapper
+                    <VsBody
                         v-if="lede"
                         class="vs-hero-section__lede"
                         data-test="vs-hero-section__lede"
@@ -68,7 +68,7 @@
                         <p class="mb-0">
                             {{ lede }}
                         </p>
-                    </VsRichTextWrapper>
+                    </VsBody>
                 </div>
 
                 <VsHeroSectionVideoControl
@@ -87,7 +87,7 @@
 
 <script>
 import VsHeading from '@/components/heading/Heading.vue';
-import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsBody from '@/components/body/Body.vue';
 import VsHeroSectionImage from '@/components/hero-section/components/HeroSectionImage.vue';
 import VsHeroSectionVideoControl from '@/components/hero-section/components/HeroSectionVideoControl.vue';
 
@@ -105,7 +105,7 @@ export default {
     release: '0.0.1',
     components: {
         VsHeading,
-        VsRichTextWrapper,
+        VsBody,
         VsHeroSectionImage,
         VsHeroSectionVideoControl,
     },
@@ -135,7 +135,7 @@ export default {
         /**
         * The image src url to display
         */
-        src: {
+        imgSrc: {
             type: String,
             default: '',
         },
@@ -327,16 +327,7 @@ export default {
             .vs-hero-section__heading.vs-heading {
                 color: $vs-color-text-brand;
 
-                @include media-breakpoint-up(md) {
-                    @include heading-style(display-s);
-                }
-
                 @include media-breakpoint-up(lg) {
-                    margin: 0;
-                }
-
-                @include media-breakpoint-up(xl) {
-                    @include heading-style(display-m);
                     margin: 0;
                 }
             }
@@ -346,7 +337,7 @@ export default {
             grid-row: 1;
             grid-column: 1 / -1;
             position: relative;
-            line-height: 0;
+            line-height: 0; //removes any extra space in the container
 
             .vs-hero-section__video {
                 width: 100%;

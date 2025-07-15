@@ -14,7 +14,7 @@
         <VsIcon
             v-if="icon"
             class="align-self-center"
-            :name="icon"
+            :icon="icon"
             :class="iconClasses"
             size="xs"
             :padding="0"
@@ -69,13 +69,13 @@ export default {
         },
         /**
          * Style variation to give additional meaning
-         * `primary|secondary|transparent`.
+         * `primary|secondary|subtle`.
          */
         variant: {
             type: String,
             default: 'primary',
             validator: (value) => value.match(
-                /(primary|secondary|transparent)/,
+                /(primary|secondary|subtle)/,
             ),
         },
         /**
@@ -223,7 +223,7 @@ export default {
 
         &.btn-primary,
         &.btn-secondary,
-        &.btn-transparent:not(.vs-main-map-category__button) {
+        &.btn-subtle:not(.vs-main-map-category__button) {
             &.disabled, &:disabled {
                 @extend %button-disabled;
             }
@@ -247,7 +247,7 @@ export default {
             );
         }
 
-        &.btn-transparent {
+        &.btn-subtle {
             &:not(.vs-main-map-category__button) {
                 @include vs-button-variant(
                     $vs-color-text-cta-on-light, $vs-color-interaction-cta-subtle, $vs-color-interaction-cta-subtle,

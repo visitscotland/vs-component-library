@@ -45,7 +45,7 @@ describe('VsMegaNav', () => {
         const dropdownToggle = wrapper.find('[data-test="vs-mega-nav-mobile-container"]').find('.vs-mega-nav__mobile-menu-toggle');
 
         expect(dropdownToggle.exists()).toBe(true);
-        expect(dropdownToggle.html()).toContain('vs-icon--bars-mobile-menu');
+        expect(dropdownToggle.html()).toContain('fa-bars');
     });
 
     describe(':props', () => {

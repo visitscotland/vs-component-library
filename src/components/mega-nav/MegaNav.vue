@@ -68,8 +68,8 @@
                             <VsButton
                                 class="vs-mega-nav__mobile-menu-toggle p-0"
                                 icon-only
-                                :icon="isOpen ? 'close' : 'bars-mobile-menu'"
-                                variant="transparent"
+                                :icon="isOpen ? 'vs-icon-control-dismiss' : 'vs-icon-control-menu'"
+                                variant="subtle"
                                 @click="menuToggle()"
                                 ref="toggleButton"
                                 :rounded="false"

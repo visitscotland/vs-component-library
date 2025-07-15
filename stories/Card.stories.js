@@ -2,7 +2,7 @@ import VsCard from '@/components/card/Card.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsLink from '@/components/link/Link.vue';
 import VsButton from '@/components/button/Button.vue';
-import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsBody from '@/components/body/Body.vue';
 
 export default {
     component: VsCard,
@@ -18,7 +18,7 @@ const Template = (args) => ({
         VsHeading,
         VsLink,
         VsButton,
-        VsRichTextWrapper,
+        VsBody,
     },
     setup() {
         const needsPadding = () => args.fillColor
@@ -47,11 +47,11 @@ const Template = (args) => ({
             </template>
 
             <template v-slot:vs-card-body v-if="args.body || args.title">
-                <div :class="needsPadding() ? 'px-125 py-050' : ''">
+                <div :class="needsPadding() ? 'px-125' : ''">
                     <VsHeading
                         v-if="args.title"
                         level="3"
-                        heading-style="heading-s"
+                        heading-style="heading-xs"
                     >
                         <VsLink
                             :href="args.contentLinkUrl"
@@ -62,14 +62,14 @@ const Template = (args) => ({
                         </VsLink>
                     </VsHeading>
 
-                    <VsRichTextWrapper 
+                    <VsBody 
                         v-if="args.body"
                         class="mb-125"
                     >
                         <p>
                             ${args.body}
                         </p>
-                    </VsRichTextWrapper>
+                    </VsBody>
                 </div>
             </template>
 

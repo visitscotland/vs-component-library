@@ -13,8 +13,8 @@ import VsCard from '@/components/card/Card.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsImg from '@/components/img/Img.vue';
 import VsLink from '@/components/link/Link.vue';
-import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
-import VsBlogDetails from '@/components/blog-details/BlogDetails.vue';
+import VsBody from '@/components/body/Body.vue';
+import VsArticleDetails from '@/components/article-details/ArticleDetails.vue';
 import VsBadge from '@/components/badge/Badge.vue';
 import VsModal from '@/components/modal/Modal.vue';
 import VsVideo from '@/components/video/Video.vue';
@@ -60,8 +60,8 @@ const createTemplate = (templateString) => (args) => ({
         VsModal,
         VsVideo,
         VsLink,
-        VsRichTextWrapper,
-        VsBlogDetails,
+        VsBody,
+        VsArticleDetails,
         VsBadge,
         VsModuleWrapper,
         VsBreadcrumb,

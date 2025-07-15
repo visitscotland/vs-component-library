@@ -14,7 +14,7 @@
             data-test="vs-stretched-link-panel"
         >
             <VsIcon
-                :name="transport"
+                :icon="transport"
                 variant="inverse"
                 size="sm"
                 class="vs-stretched-link-panels__icon"
@@ -100,15 +100,15 @@ export default {
             p {
                 margin-bottom: 0;
                 text-align: center;
-                line-height: $line_height_xs;
+                line-height: 1;
                 font-size: $font-size-1;
             }
         }
 
         &__days {
             font-size: $font-size-6;
-            font-family: "Source Sans Pro";
-            font-weight: $font-weight-bold;
+            font-family: $vs-font-family-sans-serif;
+            font-weight: $vs-font-weight-medium;
             display: block;
             margin-bottom: $spacer-025;
         }

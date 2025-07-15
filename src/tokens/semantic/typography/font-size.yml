@@ -1,0 +1,45 @@
+#
+# FONT-SIZE TOKENS
+# Use these tokens to set heading, body, and detail text font sizes.
+#
+
+props:
+    # - Display
+    - name: vs-font-size-display-m
+      value: "{!vs-font-size-900}"
+    - name: vs-font-size-display-s
+      value: "{!vs-font-size-600}"
+    # - Heading
+    - name: vs-font-size-heading-xl
+      value: "{!vs-font-size-800}"
+    - name: vs-font-size-heading-l
+      value: "{!vs-font-size-700}"
+    - name: vs-font-size-heading-m
+      value: "{!vs-font-size-600}"
+    - name: vs-font-size-heading-s
+      value: "{!vs-font-size-500}"
+    - name: vs-font-size-heading-xs
+      value: "{!vs-font-size-400}"
+    - name: vs-font-size-heading-xxs
+      value: "{!vs-font-size-300}"
+    - name: vs-font-size-heading-xxxs
+      value: "{!vs-font-size-100}"
+    # - Detail
+    - name: vs-font-size-detail-l
+      value: "{!vs-font-size-200}"
+    - name: vs-font-size-detail-m
+      value: "{!vs-font-size-100}"
+    - name: vs-font-size-detail-s
+      value: "{!vs-font-size-75}"
+    # - Body
+    - name: vs-font-size-body-l
+      value: "{!vs-font-size-300}"
+    - name: vs-font-size-body-m
+      value: "{!vs-font-size-200}"
+    - name: vs-font-size-body-s
+      value: "{!vs-font-size-100}"
+imports:
+  - ../../primitives/typography/font-size-primitives.yml
+global:
+    type: number
+    category: font-size

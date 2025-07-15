@@ -7,8 +7,8 @@
             class="vs-carbon-calculator-running-total__icon"
         >
             <VsIcon
-                name="notes"
-                size="lg"
+                icon="fa-regular fa-pen-field"
+                size="md"
             />
         </div>
         <div
@@ -16,7 +16,7 @@
         >
             <p>{{ labelsMap.soFar }}</p>
             <p>
-                <span class="font-weight-bold">{{ totalKilos.toLocaleString(language, { minimumFractionDigits: 3 }) }}</span> {{ labelsMap.kgsOf }}
+                <span class="vs-carbon-calculator-running-total__value">{{ totalKilos.toLocaleString(language, { minimumFractionDigits: 3 }) }}</span> {{ labelsMap.kgsOf }}
             </p>
         </div>
     </div>
@@ -88,5 +88,9 @@ export default {
             margin-bottom: 0;
             vertical-align: middle;
         }
+    }
+
+    .vs-carbon-calculator-running-total__value {
+        font-weight: $vs-font-weight-medium;
     }
 </style>

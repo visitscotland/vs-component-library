@@ -9,7 +9,7 @@ import {
     VsCol, VsRow, VsContainer,
 } from '@/components/grid';
 import VsHeading from '@/components/heading/Heading.vue';
-import VsBlogDetails from '@/components/blog-details/BlogDetails.vue';
+import VsArticleDetails from '@/components/article-details/ArticleDetails.vue';
 import VsPageIntro from '@/components/page-intro/PageIntro.vue';
 import VsArticle from '@/components/article/Article.vue';
 import VsArticleSidebar from '@/components/article/components/ArticleSidebar.vue';
@@ -48,7 +48,7 @@ const createTemplate = (templateString) => (args) => ({
         VsContainer,
         VsRow,
         VsHeading,
-        VsBlogDetails,
+        VsArticleDetails,
         VsPageIntro,
         VsArticle,
         VsArticleSidebar,

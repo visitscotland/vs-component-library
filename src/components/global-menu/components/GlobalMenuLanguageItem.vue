@@ -75,7 +75,6 @@ export default {
             padding: $spacer-075;
             color: $vs-color-background-inverse;
             text-decoration: none;
-            line-height: $line-height-xs;
 
             &:hover {
                 background: $vs-color-background-accent-heather-80;

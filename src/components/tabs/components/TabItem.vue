@@ -71,9 +71,8 @@ export default {
         transition-property: background-color, color;
         @include heading-style(heading-xxs, false);
 
-        @include media-breakpoint-up(sm) {
+        @include media-breakpoint-up(md) {
             padding: $spacer-125 $spacer-100;
-            @include heading-style(heading-s, false);
         }
 
         &:hover:not(.active) {
@@ -88,9 +87,8 @@ export default {
             padding: $spacer-125 $spacer-075;
             @include heading-style(heading-xs, false);
 
-            @include media-breakpoint-up(sm) {
+            @include media-breakpoint-up(md) {
                 padding: $spacer-175 $spacer-125;
-                @include heading-style(heading-m, false);
             }
         }
 
@@ -118,10 +116,10 @@ export default {
         transition: $duration-base all;
         transition: all 200ms ease;
         transition-property: background-color, color;
+        @include heading-style(heading-xxs, false);
 
-        @include media-breakpoint-up(sm) {
+        @include media-breakpoint-up(md) {
             padding: $spacer-075 $spacer-125;
-            @include heading-style(heading-xs, false);
         }
 
         &:hover:not(.active) {
@@ -134,9 +132,8 @@ export default {
             position: relative;
             background-color: $vs-color-background-inverse;
 
-            @include media-breakpoint-up(sm) {
+            @include media-breakpoint-up(md) {
                 padding: $spacer-100 $spacer-125;
-                @include heading-style(heading-xs, false);
             }
         }
 

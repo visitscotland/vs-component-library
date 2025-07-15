@@ -63,7 +63,7 @@
                         v-if="isRepeatable(activeStage)"
                         class="my-100"
                         variant="secondary"
-                        icon="plus"
+                        icon="fa-regular fa-plus"
                         @click="duplicateCurrentStage()"
                     >
                         {{ activeStageRepeatable }}

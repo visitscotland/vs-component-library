@@ -105,7 +105,7 @@ const Template = (args) => ({
                                         :icon="transportType.key"
                                         size="sm"
                                         icon-only
-                                        variant="transparent"
+                                        variant="subtle"
                                     >
                                         {{transportType.value}}
                                     </VsTooltip>

@@ -33,7 +33,7 @@
                     <!-- @slot Slot for the icon to show when accordion item is open  -->
                     <slot name="icon-open">
                         <VsIcon
-                            name="chevron"
+                            icon="vs-icon-control-collapse"
                             size="sm"
                         />
                     </slot>
@@ -42,8 +42,7 @@
                     <!-- @slot Slot for the icon to show when accordion item is closed  -->
                     <slot name="icon-closed">
                         <VsIcon
-                            name="chevron"
-                            orientation="down"
+                            icon="vs-icon-control-expand"
                             size="sm"
                         />
                     </slot>
@@ -169,7 +168,7 @@ export default {
          */
         variant: {
             type: String,
-            default: 'transparent',
+            default: 'subtle',
         },
     },
     data() {
@@ -223,10 +222,9 @@ export default {
 
     .vs-accordion-toggle {
         text-align: left;
-        font-weight: $font-weight-bold;
+        font-weight: $vs-font-weight-strong;
         font-size: $font-size-6;
-        letter-spacing: normal;
-        padding: $spacer-075;
+        padding: $spacer-050 $spacer-075;
         border: 0;
         margin-bottom: 1px;
         box-shadow: 0px -1px 0px 0px $vs-color-border-primary;

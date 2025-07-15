@@ -132,8 +132,8 @@ export default {
         width: 60%;
         text-align: left;
         vertical-align: middle;
-        font-family: $display-font-family;
-        font-weight: $font-weight-bold;
+        font-family: $vs-font-family-display;
+        font-weight: $vs-font-weight-medium;
     }
 
     .vs-summary-box-distance__display-label {
@@ -160,7 +160,6 @@ export default {
 .vs-summary-box-distance__label {
     top: $spacer-075;
     left: 0;
-    line-height: $line_height_xs;
 
     @include media-breakpoint-up(lg) {
         top: $spacer-050;
@@ -169,8 +168,7 @@ export default {
     .vs-summary-box-distance__label-inner {
         display: block;
         font-size: $font-size-3;
-        line-height: $line_height_standard;
-        font-weight: $font-weight-bold;
+        font-weight: $vs-font-weight-medium;
 
         @include media-breakpoint-up(lg) {
             font-size: $font-size-5

@@ -1,11 +1,9 @@
 <template>
-    <div
-        data-test="vs-hero-section-video-control"
-    >
+    <div data-test="vs-hero-section-video-control">
         <VsButton
             icon-only
             class="vs-hero-section-video-control"
-            :icon=" isPlaying ? 'pause-regular' : 'play'"
+            :icon=" isPlaying ? 'vs-icon-control-pause' : 'vs-icon-control-play'"
             @click="toggleVideo"
         >
             <!-- Slot for visiblly hidden screen reader text -->

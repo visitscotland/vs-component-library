@@ -27,7 +27,7 @@ const Template = (args) => ({
             <template #button-content>
                 <VsIcon
                     v-if="args.icon"
-                    :name="args.icon"
+                    :icon="args.icon"
                     variant="inverse"
                     size="xs"
                     focusable="false"
@@ -90,5 +90,5 @@ export const WithIcon = Template.bind({
 
 WithIcon.args = {
     ...base,
-    icon: 'globe',
+    icon: 'fa-regular fa-globe',
 };

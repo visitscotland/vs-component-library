@@ -23,7 +23,7 @@
                                     {{ labelText }}
                                 </span>
                                 <VsIcon
-                                    name="search"
+                                    icon="vs-icon-control-search"
                                     size="xs"
                                 />
                             </label>
@@ -56,8 +56,8 @@
 
         <VsButton
             class="vs-site-search-form__close-button d-none d-lg-block"
-            variant="transparent"
-            icon="close"
+            variant="subtle"
+            icon="vs-icon-control-dismiss"
             size="md"
             icon-only
             @click="closeSearchForm"
@@ -112,14 +112,6 @@ export default {
          * Text that renders inside the submit button
          */
         submitButtonText: {
-            type: String,
-            default: '',
-        },
-        /**
-         * Text that renders inside the clear button (visually-hidden)
-         * DEPRECATED
-         */
-        clearButtonText: {
             type: String,
             default: '',
         },

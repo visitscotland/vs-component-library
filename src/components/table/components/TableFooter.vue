@@ -31,7 +31,7 @@ export default {
         tfoot{
             td{
                 font-size: $font-size-3;
-                font-weight: $font-weight-light;
+                color: $vs-color-text-secondary;
                 padding: $spacer-050 $spacer-025;
             }
         }

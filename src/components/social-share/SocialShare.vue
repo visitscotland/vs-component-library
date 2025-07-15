@@ -7,8 +7,8 @@
     >
         <VsButton
             class="vs-social-share__share-btn"
-            variant="transparent"
-            icon="share"
+            variant="subtle"
+            icon="fa-regular fa-share-nodes"
             :id="`vs-social-share-popover--${id}`"
             v-if="!noJs"
             ref="shareButton"
@@ -48,8 +48,8 @@
             <VsButton
                 icon-only
                 class="vs-social-share__close-btn"
-                icon="close"
-                variant="transparent"
+                icon="vs-icon-control-dismiss"
+                variant="subtle"
                 ref="closeButton"
                 @click="onClose"
                 @keydown.tab="tabFromClose($event)"

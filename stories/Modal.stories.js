@@ -1,6 +1,6 @@
 import VsButton from '@/components/button/Button.vue';
 import VsModal from '@/components/modal/Modal.vue';
-import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsBody from '@/components/body/Body.vue';
 import VsVideo from '@/components/video/Video.vue';
 import { userEvent, within } from 'storybook/test';
 import { VsCol, VsRow } from '@/components/grid';
@@ -17,7 +17,7 @@ const Template = (args) => ({
         VsButton,
         VsCol,
         VsModal,
-        VsRichTextWrapper,
+        VsBody,
         VsRow,
         VsVideo,
     },
@@ -58,7 +58,7 @@ const Template = (args) => ({
                     offset="1" 
                     v-else
                 >
-                    <VsRichTextWrapper>
+                    <VsBody>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam venenatis ultrices ex a volutpat. 
                             Donec consectetur porta ex vitae tincidunt. 
@@ -74,20 +74,20 @@ const Template = (args) => ({
                             mauris, eget aliquam felis vestibulum vitae. Nullam sagittis metus non gravida aliquet. 
                             Quisque ut tempor ex, non iaculis arcu.
                         </p>
-                    </VsRichTextWrapper>
+                    </VsBody>
                 </VsCol>
                 
                 <VsCol
                     cols="10"
                     offset="1"
                 >
-                    <VsRichTextWrapper>
+                    <VsBody>
                         <p>
                             Discover our incredible castles from a new perspective.
                             This incredible drone footage shows castles from Dumfries &amp;
                             Galloway to Wick on the north coastline.
                         </p>
-                    </VsRichTextWrapper>
+                    </VsBody>
                 </VsCol>
             </VsRow>
         </VsModal>

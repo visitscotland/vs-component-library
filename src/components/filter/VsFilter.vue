@@ -13,8 +13,8 @@
             >
                 <legend class="vs-filter__legend">
                     <VsIcon
-                        name="filters"
-                        orientation="left"
+                        icon="vs-icon-control-filters"
+                        size="sm"
                     />
                     {{ props.filterLabel }}
                 </legend>
@@ -110,7 +110,7 @@ defineExpose({
         border-bottom:  solid 1px $vs-color-border-secondary;
         display: flex;
         font-size: $font-size-6;
-        font-weight: $font_weight_semi_bold;
+        font-weight: $vs-font-weight-medium;
         gap: $spacer-050;
         margin-bottom: $spacer-0;
         padding: $spacer-075 $spacer-125;

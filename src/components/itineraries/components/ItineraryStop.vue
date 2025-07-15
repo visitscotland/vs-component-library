@@ -3,19 +3,19 @@
         class="vs-itinerary-stop"
         data-test="vs-itinerary-stop"
     >
-        <div class="border">
+        <div class="vs-itinerary-stop__border">
             <div
-                class="d-flex justify-content-start align-items-top"
+                class="vs-itinerary-stop__header"
                 data-test="vs-itinerary-stop-heading"
             >
-                <div class="position-relative">
+                <div class="vs-itinerary-stop__marker">
                     <VsIcon
-                        name="map-marker-filled"
-                        variant="tertiary"
+                        icon="fa-solid fa-location-pin"
+                        variant="highlight"
                         size="xl"
                     />
                     <span
-                        class="map-marker__count"
+                        class="vs-itinerary-stop__count"
                         aria-hidden="true"
                         data-test="vs-itinerary-stop-marker"
                     >{{ stopNumber }}</span>
@@ -23,21 +23,26 @@
                 <VsHeading
                     level="3"
                     heading-style="heading-s"
-                    class="vs-itinerary-stop__title ms-100 mt-0"
+                    class="vs-itinerary-stop__title mb-025"
+                    no-margins
                 >
                     {{ stopLabel }}
-
-                    <template #sub-heading>
-                        {{ stopTitle }}
-                    </template>
                 </VsHeading>
+                <VsDetail
+                    class="vs-itinerary-stop__detail"
+                    no-margins
+                >
+                    {{ stopTitle }}
+                </VsDetail>
             </div>
 
             <!-- @ Default slot for the image component for the stop -->
             <slot />
 
-            <!-- @slot The description content for the stop -->
-            <slot name="stop-description" />
+            <VsBody>
+                <!-- @slot The description content for the stop -->
+                <slot name="stop-description" />
+            </VsBody>
 
             <!-- @slot Indicator of length of time to explore stop -->
 
@@ -76,6 +81,8 @@
 <script>
 import VsIcon from '@/components/icon/Icon.vue';
 import VsHeading from '@/components/heading/Heading.vue';
+import VsBody from '@/components/body/Body.vue';
+import VsDetail from '@/components/detail/Detail.vue';
 
 /**
  * Itinerary Day list items.
@@ -90,6 +97,8 @@ export default {
     components: {
         VsHeading,
         VsIcon,
+        VsBody,
+        VsDetail,
     },
     props: {
         /**
@@ -120,45 +129,55 @@ export default {
 
 <style lang="scss">
 .vs-itinerary-stop {
-    margin-bottom: 3.125rem;
+    margin-bottom: $spacer-300;
+
+    @include media-breakpoint-up(sm) {
+        margin-bottom: $spacer-600;
+    }
 
     &:last-of-type {
         margin-bottom: 0;
 
-        .border {
+        .vs-itinerary-stop__border {
             padding-bottom: $spacer-200;
         }
     }
 
-    &__title {
-        @include media-breakpoint-up(sm) {
-            @include heading-style(heading-m);
+    &__header {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: $spacer-100;
+        margin-bottom: $spacer-075;
+
+        .vs-itinerary-stop__marker {
+            grid-column: 1;
+            grid-row: span 2;
+            position: relative;
+
+            .vs-itinerary-stop__count {
+                color: $vs-color-text-inverse;
+                font-family: $vs-font-family-display;
+                font-size: $font-size-4;
+                display: block;
+                position: absolute;
+                top: 5px;
+                left: 0;
+                text-align: center;
+                width: 100%;
+            }
+        }
+
+        .vs-itinerary-stop__title,
+        .vs-itinerary-stop__detail {
+            grid-column: 2;
         }
     }
 
-    .border {
+    &__border {
         position: relative;
         background-color: $vs-color-background-inverse;
         border: 1px solid $vs-color-border-primary;
         padding: $spacer-100;
-    }
-
-    @include media-breakpoint-up(sm) {
-        margin-bottom: 6.35rem;
-        &:last-of-type {
-            margin-bottom: 0;
-        }
-    }
-    .map-marker__count {
-        color: $vs-color-text-inverse;
-        font-family: $display-font-family;
-        font-size: $font-size-4;
-        display: block;
-        position: absolute;
-        top: 4px;
-        left: 0;
-        text-align: center;
-        width: 100%;
     }
 
     .vs-icon-list {

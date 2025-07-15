@@ -16,7 +16,7 @@ function mountOptions(propsData) {
         slots: {
             default: h(VsIconListItem, {
                 label: 'wifi',
-                icon: 'facility-wifi',
+                icon: 'vs-icon-facility-wifi',
             }),
         },
     };
