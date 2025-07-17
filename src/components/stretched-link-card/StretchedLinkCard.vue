@@ -380,7 +380,11 @@ export default {
             return outputClasses;
         },
         videoDetails() {
-            return videoStore.videos[this.videoId];
+            if (videoStore) {
+                return videoStore.videos[this.videoId];
+            }
+
+            return null;
         },
         videoLoaded() {
             if (typeof this.videoDetails !== 'undefined' && this.videoDetails.videoDuration > 0) {
