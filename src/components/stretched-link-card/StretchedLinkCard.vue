@@ -387,7 +387,11 @@ export default {
             return null;
         },
         videoLoaded() {
-            if (typeof this.videoDetails !== 'undefined' && this.videoDetails.videoDuration > 0) {
+            if (
+                typeof this.videoDetails !== 'undefined'
+                && this.videoDetails !== null
+                && this.videoDetails.videoDuration > 0
+            ) {
                 return true;
             }
 
