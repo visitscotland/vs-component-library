@@ -192,6 +192,8 @@ import requiredCookiesData from '../../utils/required-cookies-data';
 
 const cookieValues = requiredCookiesData.youtube;
 
+let videoStore = null;
+
 /**
  * The Stretched Link Card is a block that stretches its nested link across its whole area
  * meaning that the whole block is clickable
@@ -341,12 +343,6 @@ export default {
             default: false,
         },
     },
-    setup() {
-        const videoStore = useVideoStore();
-        return {
-            videoStore,
-        };
-    },
     data() {
         return {
             jsDisabled: true,
@@ -384,7 +380,7 @@ export default {
             return outputClasses;
         },
         videoDetails() {
-            return this.videoStore.videos[this.videoId];
+            return videoStore.videos[this.videoId];
         },
         videoLoaded() {
             if (typeof this.videoDetails !== 'undefined' && this.videoDetails.videoDuration > 0) {
@@ -471,6 +467,8 @@ export default {
         },
     },
     mounted() {
+        videoStore = useVideoStore();
+
         // Checks whether js is disabled, to display an appropriate warning to the user
         this.jsDisabled = jsIsDisabled();
     },
