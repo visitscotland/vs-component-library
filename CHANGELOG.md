@@ -1,3 +1,10 @@
+## [5.0.2](https://github.com/visitscotland/vs-component-library/compare/v5.0.1...v5.0.2) (2025-07-22)
+
+
+### Bug Fixes
+
+* **video:** restore play icon on slc video button ([135651c](https://github.com/visitscotland/vs-component-library/commit/135651ceb509b471dd09da714732d7458d379361))
+
 ## [5.0.1](https://github.com/visitscotland/vs-component-library/compare/v5.0.0...v5.0.1) (2025-07-18)
 
 
