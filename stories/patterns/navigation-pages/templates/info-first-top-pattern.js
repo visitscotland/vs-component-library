@@ -37,32 +37,20 @@ export default `
             <!------------------------------------------------------------
             FEATURED LINK - Module spacing come from the megalinks wrapper
               ------------------------------------------------------------>
-            <VsMegalinks 
-                variant="multi-image" 
-                theme="grey"
-            >
-                <VsContainer>
-                    <VsRow>
-                        <VsCol cols="12" xl="10" class="offset-xl-1">
-                            <VsMegalinkMultiImage
-                                theme="grey"
-                                :featured="true"
-                                img-src="https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/20-jan/cairnie-fruit-farm"
-                                link-type="internal"
-                                link-url="#"
-                            >
-                                <template v-slot:vs-multi-image-heading>
-                                    Support by sector
-                                </template>
 
-                                <template v-slot:vs-multi-image-content>
-                                    <p>Find tailored advice and case studies for accommodation, active and outdoor, events and festivals, food and drink and visitor attraction sectors.</p>
-                                </template>
-                            </VsMegalinkMultiImage>
-                        </VsCol>
-                    </VsRow>
-                </VsContainer>
-            </VsMegalinks>
+            <VsContainer>
+                <VsRow>
+                    <VsCol class="mt-500">
+                        <VsSpotlightSection 
+                            heading="Support by sector"
+                            description="Find tailored advice and case studies for accommodation, active and outdoor, events and festivals, food and drink and visitor attraction sectors."
+                            imageSrc="https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/20-jan/cairnie-fruit-farm"
+                            ctaLink="#"
+                            ctaText="Find sector support"
+                        />
+                    </VsCol>                
+                </VsRow>
+            </VsContainer>
 
             <!------------------------------------------------------------
             NEW SECTION & CARD GROUP - Module wrapper used for new card group heading/intro
@@ -139,32 +127,19 @@ export default `
             <!------------------------------------------------------------
             FEATURED LINK - Module spacing come from the megalinks wrapper
               ------------------------------------------------------------>
-            <VsMegalinks 
-                variant="multi-image" 
-                theme="grey"
-            >
-                <VsContainer>
-                    <VsRow>
-                        <VsCol cols="12" xl="10" class="offset-xl-1">
-                            <VsMegalinkMultiImage
-                                theme="grey"
-                                :featured="true"
-                                img-src="https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/12-mar/loch-affric"
-                                link-type="internal"
-                                link-url="#"
-                            >
-                                <template v-slot:vs-multi-image-heading>
-                                    Sustainability
-                                </template>
-
-                                <template v-slot:vs-multi-image-content>
-                                    <p>Sustainably grow your tourism or events business with actionable green strategies.</p>
-                                </template>
-                            </VsMegalinkMultiImage>
-                        </VsCol>
-                    </VsRow>
-                </VsContainer>
-            </VsMegalinks>
+            <VsContainer>
+                <VsRow>
+                    <VsCol>
+                        <VsSpotlightSection 
+                            heading="Sustainability"
+                            description="Sustainably grow your tourism or events business with actionable green strategies."
+                            imageSrc="https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/12-mar/loch-affric"
+                            ctaLink="#"
+                            ctaText="Explore sustainability"
+                        />
+                    </VsCol>                
+                </VsRow>
+            </VsContainer>
 
 
             <!------------------------------------------------------------
@@ -234,6 +209,20 @@ export default `
                     </VsRow>
                 </VsContainer>
             </VsModuleWrapper>
+
+            <VsContainer>
+                <VsRow>
+                    <VsCol class="mb-500">
+                        <VsSpotlightSection 
+                            heading="Sign up for the latest advice"
+                            description="Get expert tips, case studies, and business advice straight to your inbox with our monthly Business Support newsletter."
+                            ctaLink="#"
+                            ctaText="Join the newsletter"
+                            compact
+                        />
+                    </VsCol>                
+                </VsRow>
+            </VsContainer>
 
         </template>
     </VsNavigationPage>

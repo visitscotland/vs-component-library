@@ -1,9 +1,4 @@
 import VsSpotlightSection from '@/components/spotlight-section/SpotlightSection.vue';
-import {
-    VsCol,
-    VsContainer,
-    VsRow,
-} from '@/components/grid';
 
 export default {
     component: VsSpotlightSection,
@@ -30,9 +25,6 @@ export default {
 const Template = (args) => ({
     components: {
         VsSpotlightSection,
-        VsCol,
-        VsContainer,
-        VsRow,
     },
     setup() {
         return {
@@ -40,20 +32,11 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsContainer>
-            <VsRow>
-                <VsCol
-                    cols="12"
-                >
-                    <VsSpotlightSection v-bind="args" />
-                </VsCol>
-            </VsRow>
-        </VsContainer>
+        <VsSpotlightSection v-bind="args" />
     `,
 });
 
 const base = {
-    heading: 'Inspiring Scotland travel blogs',
     description: 'Find all the Scottish holiday inspiration you need in our Scottish travel blog.',
     ctaLink: '#',
     ctaText: 'Read the blog',
@@ -63,6 +46,7 @@ export const Standard = Template.bind({
 });
 
 Standard.args = {
+    heading: 'Inspiring Scotland travel blogs',
     imageSrc: 'fixtures/spotlight-section/kinnoul-hill.jpg',
     ...base,
 };
@@ -72,16 +56,31 @@ export const Compact = Template.bind({
 
 Compact.args = {
     imageSrc: 'fixtures/spotlight-section/kinnoul-hill.jpg',
-    heading: 'Die besten Aktivitäten und Erlebnisse in Schottland',
+    heading: 'Inspiring Scotland travel blogs',
     compact: true,
     ...base,
+};
+
+export const LongTitle = Template.bind({
+});
+
+LongTitle.args = {
+    imageSrc: 'fixtures/spotlight-section/kinnoul-hill.jpg',
+    heading: 'Conditions of contact for supply of consultancy services',
+    compact: true,
+    ...base,
+};
+LongTitle.globals = {
+    viewport: {
+        value: 'mobile1',
+    },
 };
 
 export const NoImage = Template.bind({
 });
 
 NoImage.args = {
-    heading: 'Die besten Aktivitäten und Erlebnisse in Schottland',
+    heading: 'Inspiring Scotland travel blogs',
     compact: true,
     ...base,
 };

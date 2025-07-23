@@ -60,10 +60,10 @@ import VsBody from '@/components/body/Body.vue';
 import VsButton from '@/components/button/Button.vue';
 
 /**
-* Component for the spotlight section.
-*
-* @displayName Spotlight Section
-*/
+ * Component for the spotlight section.
+ *
+ * @displayName Spotlight Section
+ */
 
 export default {
     name: 'VsSpotlightSection',
@@ -76,52 +76,43 @@ export default {
     },
     props: {
         /**
-        * The text for the heading
-        */
+         * The text for the heading
+         */
         heading: {
             type: String,
             required: true,
         },
         /**
-        * The text for the summary
-        */
+         * The text for the summary
+         */
         description: {
             type: String,
             default: '',
         },
         /**
-        * The CTA link to navigate to
-        */
+         * The CTA link to navigate to
+         */
         ctaLink: {
             type: String,
-            default: '',
             required: true,
         },
         /**
-        * The CTA text for the link
-        */
+         * The CTA text for the link
+         */
         ctaText: {
             type: String,
-            default: '',
             required: true,
         },
         /**
-        * The image src url to display
-        */
+         * The image src url to display
+         */
         imageSrc: {
             type: String,
             default: '',
         },
         /**
-        * The alt text for the image if applicable
-        */
-        imageAlt: {
-            type: String,
-            default: '',
-        },
-        /**
-        * The compact variant reduces the size of the section
-        */
+         * The compact variant reduces the size of the section
+         */
         compact: {
             type: Boolean,
             default: false,
@@ -129,18 +120,15 @@ export default {
     },
     computed: {
         spotlightSectionClasses() {
-            return [
-                {
-                    'vs-spotlight-section--compact': this.compact,
-                    'vs-spotlight-section--standard': !this.compact,
-                    'vs-spotlight-section--no-image': !this.imageSrc,
-                },
-                'vs-spotlight-section',
-            ];
+            return {
+                'vs-spotlight-section': true,
+                'vs-spotlight-section--compact': this.compact,
+                'vs-spotlight-section--standard': !this.compact,
+                'vs-spotlight-section--no-image': !this.imageSrc,
+            };
         },
     },
 };
-
 </script>
 
 <style lang="scss">
@@ -154,13 +142,11 @@ export default {
 
         &__overlay {
             position: relative;
-            top: 0;
-            left: 0;
             height: 100%;
+            width: 100%;
             display: grid;
             place-items: end;
             border-radius: 0.75rem;
-            width: 100%;
             padding: $spacer-175 $spacer-125;
             z-index: 1;
 
@@ -171,57 +157,60 @@ export default {
             &::before {
                 content: '';
                 position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
+                inset: 0;
                 border-radius: 0.75rem;
-                background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%), linear-gradient(270deg, rgba(0, 0, 0, 0.00) 30.29%, rgba(0, 0, 0, 0.50) 75%);
-                z-index: -1; /* Place behind the content */
-            }
-
-            @include media-breakpoint-up(lg) {
-                &::before {
-                    background: linear-gradient(270deg, rgba(0, 0, 0, 0.00) 30.29%, rgba(0, 0, 0, 0.50) 75%);
-                }
-            }
-
-            .vs-spotlight-section__description {
-                display: none;
-            }
-
-            .vs-spotlight-section__heading {
-                text-wrap: balance;
-                margin-bottom: $spacer-150;
-
-                @include media-breakpoint-up(sm) {
-                    @include heading-style(heading-m, false);
-                }
-
-                @include media-breakpoint-up(md) {
-                    padding-right: $spacer-300;
-                    @include heading-style(heading-m, false);
-                }
+                background:
+                    linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%),
+                    linear-gradient(270deg, rgba(0, 0, 0, 0) 30.29%, rgba(0, 0, 0, 0.5) 75%);
+                z-index: -1;
 
                 @include media-breakpoint-up(lg) {
-                    padding-right: $spacer-700;
-                }
-
-                @include media-breakpoint-up(xl) {
-                    @include heading-style(heading-xl, false);
+                    background: linear-gradient(
+                        270deg,rgba(0, 0, 0, 0) 30.29%,rgba(0, 0, 0, 0.5) 75%
+                    );
                 }
             }
         }
 
-        &--standard {
-            height: 360px;
+        &__description {
+            display: none;
+        }
+
+        &__heading {
+            text-wrap: balance;
+            margin-bottom: $spacer-150;
+
+            @include media-breakpoint-up(sm) {
+                @include heading-style(heading-m, false);
+            }
 
             @include media-breakpoint-up(md) {
-                height: 500px;
+                padding-right: $spacer-300;
+                @include heading-style(heading-l, false);
+            }
+
+            @include media-breakpoint-up(lg) {
+                padding-right: $spacer-700;
+            }
+
+            @include media-breakpoint-up(xl) {
+                @include heading-style(heading-xl, false);
+            }
+        }
+
+        &--standard {
+            min-height: 360px;
+            height: auto;
+
+            @include media-breakpoint-up(md) {
+                min-height: 500px;
             }
 
             .vs-spotlight-section__overlay {
+                min-height: 360px;
+
                 @include media-breakpoint-up(md) {
+                    min-height: 500px;
                     padding: $spacer-400 $spacer-300;
                 }
             }
@@ -237,7 +226,6 @@ export default {
                     margin-bottom: $spacer-250;
                     display: block;
                 }
-
                 @include media-breakpoint-up(xl) {
                     margin-bottom: $spacer-300;
                 }
@@ -249,19 +237,23 @@ export default {
             height: auto;
 
             @include media-breakpoint-up(lg) {
-                height: 276px;
-                min-height: auto;
+                min-height: 276px;
             }
 
             @include media-breakpoint-up(xl) {
-                height: 293px;
+                min-height: 293px;
             }
 
             .vs-spotlight-section__overlay {
                 min-height: 170px;
 
                 @include media-breakpoint-up(lg) {
+                    min-height: 276px;
                     padding: $spacer-400 $spacer-300;
+                }
+
+                @include media-breakpoint-up(xl) {
+                    min-height: 293px;
                 }
             }
 
@@ -284,13 +276,10 @@ export default {
         }
 
         &--no-image {
-            min-height: 170px;
             color: $vs-color-text-primary;
 
-            .vs-spotlight-section__overlay {
-                &::before {
-                    background: $vs-color-background-secondary;
-                }
+            .vs-spotlight-section__overlay::before {
+                background: $vs-color-background-secondary;
             }
         }
     }

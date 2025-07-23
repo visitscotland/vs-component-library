@@ -35,54 +35,25 @@ export default `
 
         <template v-slot:content>
             <!------------------------------------------------------------
-            FEATURED LINK - Module spacing come from the megalinks wrapper
-              ------------------------------------------------------------>
-            <VsMegalinks 
-                title="Top things to do and experience in Scotland"
-                variant="multi-image"
-            >
-                <VsContainer>
-                    <VsRow>
-                        <VsCol cols="12" xl="10" class="offset-xl-1">
-                            <VsMegalinkMultiImage
-                                theme="light"
-                                :featured="true"
-                                img-src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/08/14/stac-pollaidh-header.jpg"
-                                link-type="internal"
-                                link-url="#"
-                            >
-                                <template v-slot:vs-multi-image-heading>
-                                    Scotland's UNESCO Trail
-                                </template>
-
-                                <template v-slot:vs-multi-image-content>
-                                    <p>The first country in the world to bring together 16 UNESCO sites into one trail. Are you ready to discover the wonders within?</p>
-                                </template>
-                            </VsMegalinkMultiImage>
-                        </VsCol>
-                    </VsRow>
-                </VsContainer>
-            </VsMegalinks>
-
-            <!------------------------------------------------------------
             NEW CARD GROUP - This one has no module wrapper so has spacing applied to the card group
               ------------------------------------------------------------>
-            <VsContainer>
-                <VsRow>
-                    <VsCol>
-                        <VsCardGroup
-                            scroll-snap
-                            :cards-per-row="3"
-                            class="mb-500"
-                        >
-                            <VsCard
-                                v-for="(card, index) in cardList1"
-                                :key="'card-list-1-' + index"
-                            >
+
+             <VsModuleWrapper>
+                <template v-slot:vs-module-wrapper-heading>
+                    Top things to do and experience in Scotland
+                </template>
+
+                <template v-slot:vs-module-wrapper-intro>
+                    <p>Explore the top things to do in Scotland, including must-see attractions, exciting experiences, and inspiring ways to enjoy the outdoors.</p>
+                </template>
+
+                <VsContainer>
+                    <VsRow>
+                        <VsCol>
+                            <VsCard class="text-start mb-150">
                                 <template #vs-card-header>
                                     <VsImg
-                                        v-if="card.image"
-                                        :src="card.image"
+                                        src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/08/14/stac-pollaidh-header.jpg"
                                         class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
                                     />
                                 </template>
@@ -94,24 +65,64 @@ export default `
                                             heading-style="heading-xs"
                                         >
                                             <VsLink
-                                                :href="card.link"
+                                                href="#"
                                                 class="stretched-link"
                                                 variant="secondary"
                                             >
-                                                {{ card.title }}
+                                                Scotland's UNESCO Trail
                                             </VsLink>
                                         </VsHeading>
 
                                         <VsBody class="mb-150 truncate-2-lines">
-                                            {{ card.description }}
+                                            The first country in the world to bring together 16 UNESCO sites into one trail. Are you ready to discover the wonders within?
                                         </VsBody>
                                     </div>
                                 </template>
                             </VsCard>
-                        </VsCardGroup>
-                    </VsCol>
-                </VsRow>
-            </VsContainer>
+
+                            <VsCardGroup
+                                scroll-snap
+                                :cards-per-row="3"
+                                class="text-start"
+                            >
+                                <VsCard
+                                    v-for="(card, index) in cardList1"
+                                    :key="'card-list-1-' + index"
+                                >
+                                    <template #vs-card-header>
+                                        <VsImg
+                                            v-if="card.image"
+                                            :src="card.image"
+                                            class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
+                                        />
+                                    </template>
+
+                                    <template #vs-card-body>
+                                        <div>
+                                            <VsHeading
+                                                level="3"
+                                                heading-style="heading-xs"
+                                            >
+                                                <VsLink
+                                                    :href="card.link"
+                                                    class="stretched-link"
+                                                    variant="secondary"
+                                                >
+                                                    {{ card.title }}
+                                                </VsLink>
+                                            </VsHeading>
+
+                                            <VsBody class="mb-150 truncate-2-lines">
+                                                {{ card.description }}
+                                            </VsBody>
+                                        </div>
+                                    </template>
+                                </VsCard>
+                            </VsCardGroup>
+                        </VsCol>
+                    </VsRow>
+                </VsContainer>
+            </VsModuleWrapper>
 
             <!------------------------------------------------------------
             NEW SECTION & CARD GROUP - Module wrapper used for new card group heading/intro
@@ -174,29 +185,20 @@ export default `
             <!------------------------------------------------------------
             FEATURED LINK - Module spacing come from the megalinks wrapper
               ------------------------------------------------------------>
-            <VsMegalinks variant="multi-image">
-                <VsContainer>
-                    <VsRow>
-                        <VsCol cols="12" xl="10" class="offset-xl-1">
-                            <VsMegalinkMultiImage
-                                theme="light"
-                                :featured="true"
-                                img-src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/05/outlander-image"
-                                link-type="internal"
-                                link-url="#"
-                            >
-                                <template v-slot:vs-multi-image-heading>
-                                    Film & TV locations
-                                </template>
-
-                                <template v-slot:vs-multi-image-content>
-                                    <p>This country has produced its fair share of top Hollywood names, and there have been a surprising number of movies filmed in Scotland, too.</p>
-                                </template>
-                            </VsMegalinkMultiImage>
-                        </VsCol>
-                    </VsRow>
-                </VsContainer>
-            </VsMegalinks>
+            
+            <VsContainer>
+                <VsRow>
+                    <VsCol class="my-500">
+                        <VsSpotlightSection 
+                            heading="Film & TV locations"
+                            description="This country has produced its fair share of top Hollywood names, and there have been a surprising number of movies filmed in Scotland, too."
+                            imageSrc="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/05/outlander-image"
+                            ctaLink="#"
+                            ctaText="See the Locations"
+                        />
+                    </VsCol>
+                </VsRow>
+            </VsContainer>
 
             <!------------------------------------------------------------
             NEW SECTION & CARD GROUP - Module wrapper used for new card group heading/intro
@@ -315,6 +317,8 @@ export default `
                     </VsMegalinkSingleImage>
                 </VsCol>
             </VsMegalinks>
+
+            <VsContainer>
         </template>
     </VsNavigationPage>
 `;
