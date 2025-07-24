@@ -2,9 +2,15 @@
   "cardList1": {
     "cards": [
       {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/08/14/stac-pollaidh-header.jpg",
+        "title": "Scotland's UNESCO Trail",
+        "description": "The first country in the world to bring together 16 UNESCO sites into one trail. Are you ready to discover the wonders within?",
+        "link": "#"
+      },
+      {
         "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/20/loch-ken",
         "title": "15 Most beautiful places & beauty spots in Scotland",
-        "description": " Take a look and be blown away by the most beautiful places to visit in Scotland.",
+        "description": "Take a look and be blown away by the most beautiful places to visit in Scotland.",
         "link": "#"
       },
       {

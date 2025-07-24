@@ -50,39 +50,9 @@ export default `
                 <VsContainer>
                     <VsRow>
                         <VsCol>
-                            <VsCard class="text-start mb-150">
-                                <template #vs-card-header>
-                                    <VsImg
-                                        src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/08/14/stac-pollaidh-header.jpg"
-                                        class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                                    />
-                                </template>
-
-                                <template #vs-card-body>
-                                    <div>
-                                        <VsHeading
-                                            level="3"
-                                            heading-style="heading-xs"
-                                        >
-                                            <VsLink
-                                                href="#"
-                                                class="stretched-link"
-                                                variant="secondary"
-                                            >
-                                                Scotland's UNESCO Trail
-                                            </VsLink>
-                                        </VsHeading>
-
-                                        <VsBody class="mb-150 truncate-2-lines">
-                                            The first country in the world to bring together 16 UNESCO sites into one trail. Are you ready to discover the wonders within?
-                                        </VsBody>
-                                    </div>
-                                </template>
-                            </VsCard>
-
                             <VsCardGroup
                                 scroll-snap
-                                :cards-per-row="3"
+                                :cards-per-row="4"
                                 class="text-start"
                             >
                                 <VsCard
@@ -317,8 +287,6 @@ export default `
                     </VsMegalinkSingleImage>
                 </VsCol>
             </VsMegalinks>
-
-            <VsContainer>
         </template>
     </VsNavigationPage>
 `;
