@@ -112,7 +112,7 @@ export default {
                     }
 
                     @include media-breakpoint-up(lg) {
-                        flex: 0 0 420px;
+                        flex: 0 0 330px;
                     }
                 }
             }
