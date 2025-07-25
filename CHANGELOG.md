@@ -1,3 +1,20 @@
+## [5.0.2](https://github.com/visitscotland/vs-component-library/compare/v5.0.1...v5.0.2) (2025-07-22)
+
+
+### Bug Fixes
+
+* **video:** restore play icon on slc video button ([135651c](https://github.com/visitscotland/vs-component-library/commit/135651ceb509b471dd09da714732d7458d379361))
+
+## [5.0.1](https://github.com/visitscotland/vs-component-library/compare/v5.0.0...v5.0.1) (2025-07-18)
+
+
+### Bug Fixes
+
+* **build:** restore full build on prepack ([97f6b17](https://github.com/visitscotland/vs-component-library/commit/97f6b17feb2bb584e4b556af737ad5060126abd8))
+* **videostore:** account for change in videoLoaded as well ([4afad57](https://github.com/visitscotland/vs-component-library/commit/4afad579a1f1e396e64e52e2399ec4ade027572e))
+* **videostore:** add premount fallback for store ([0d7d887](https://github.com/visitscotland/vs-component-library/commit/0d7d88769560afd484a83eed5623679f331911b9))
+* **videostore:** adjust store loading timing in SLC component ([99317ec](https://github.com/visitscotland/vs-component-library/commit/99317ec03c6d283a8d78b27468fb4282132745fa))
+
 # [5.0.0](https://github.com/visitscotland/vs-component-library/compare/v4.29.0...v5.0.0) (2025-07-15)
 
 

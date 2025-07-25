@@ -50,7 +50,7 @@
                 <VsButton
                     class="vs-stretched-link-card__video-button"
                     data-test="vs-stretched-link-card__video-button"
-                    icon="play"
+                    icon="fa-regular fa-play"
                     icon-position="left"
                     size="md"
                     ref="videoShow"
@@ -191,6 +191,8 @@ import verifyCookiesMixin from '../../mixins/verifyCookiesMixin';
 import requiredCookiesData from '../../utils/required-cookies-data';
 
 const cookieValues = requiredCookiesData.youtube;
+
+let videoStore = null;
 
 /**
  * The Stretched Link Card is a block that stretches its nested link across its whole area
@@ -341,12 +343,6 @@ export default {
             default: false,
         },
     },
-    setup() {
-        const videoStore = useVideoStore();
-        return {
-            videoStore,
-        };
-    },
     data() {
         return {
             jsDisabled: true,
@@ -384,10 +380,18 @@ export default {
             return outputClasses;
         },
         videoDetails() {
-            return this.videoStore.videos[this.videoId];
+            if (videoStore) {
+                return videoStore.videos[this.videoId];
+            }
+
+            return null;
         },
         videoLoaded() {
-            if (typeof this.videoDetails !== 'undefined' && this.videoDetails.videoDuration > 0) {
+            if (
+                typeof this.videoDetails !== 'undefined'
+                && this.videoDetails !== null
+                && this.videoDetails.videoDuration > 0
+            ) {
                 return true;
             }
 
@@ -471,6 +475,8 @@ export default {
         },
     },
     mounted() {
+        videoStore = useVideoStore();
+
         // Checks whether js is disabled, to display an appropriate warning to the user
         this.jsDisabled = jsIsDisabled();
     },
