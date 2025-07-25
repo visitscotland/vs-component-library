@@ -24,8 +24,9 @@
                             {{ description }}
                         </p>
                     </VsBody>
+                    <!-- Standard variant CTA: shown only when compact is false -->
                     <VsButton
-                        v-if="!compact && ctaLink"
+                        v-if="!compact"
                         class="vs-spotlight-section__cta-button"
                         :href="ctaLink"
                         size="sm"
@@ -39,8 +40,8 @@
                     v-if="compact"
                     class="col-12 col-sm-5 col-md-4 col-lg-5 col-xl-6 align-self-sm-end text-sm-end p-0"
                 >
+                    <!-- Compact variant CTA: shown only when compact is true-->
                     <VsButton
-                        v-if="ctaLink"
                         class="vs-spotlight-section__cta-button"
                         :href="ctaLink"
                         size="sm"
@@ -61,6 +62,9 @@ import VsButton from '@/components/button/Button.vue';
 
 /**
  * Component for the spotlight section.
+ * Both standard and compact layouts support CTAs with different placements:
+ * - Standard: CTA appears below content in the main column
+ * - Compact: CTA appears in a separate right-aligned column
  *
  * @displayName Spotlight Section
  */
