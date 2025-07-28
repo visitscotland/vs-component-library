@@ -7,7 +7,7 @@ export default {
     },
     title: 'SpotlightSection',
     argTypes: {
-        inset: {
+        compact: {
             options: [true, false],
             control: {
                 type: 'radio',
@@ -48,6 +48,7 @@ export const Standard = Template.bind({
 Standard.args = {
     heading: 'Inspiring Scotland travel blogs',
     imageSrc: 'fixtures/spotlight-section/kinnoul-hill.jpg',
+    compact: false,
     ...base,
 };
 
