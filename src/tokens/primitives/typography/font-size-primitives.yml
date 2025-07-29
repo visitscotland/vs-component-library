@@ -1,0 +1,27 @@
+aliases:
+  vs-font-size-1100:
+    value: "3.25rem"
+  vs-font-size-1000:
+    value: "2.875rem"
+  vs-font-size-900:
+    value: "2.5625rem"
+  vs-font-size-800:
+    value: "2.25rem"
+  vs-font-size-700:
+    value: "2rem"
+  vs-font-size-600:
+    value: "1.8125rem"
+  vs-font-size-500:
+    value: "1.625rem"
+  vs-font-size-400:
+    value: "1.4375rem"
+  vs-font-size-300:
+    value: "1.25rem"
+  vs-font-size-200:
+    value: "1.125rem"
+  vs-font-size-100:
+    value: "1rem"
+  vs-font-size-75:
+    value: "0.875rem"
+  vs-font-size-50:
+    value: "0.8125rem"

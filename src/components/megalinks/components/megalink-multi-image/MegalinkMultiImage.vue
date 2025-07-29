@@ -5,7 +5,7 @@
             :type="linkType"
             class="vs-megalink-multi-image-card p-050"
             :class="multiImageClasses"
-            :heading-style="featured ? 'heading-m' : 'heading-xs'"
+            :heading-style="featured ? 'heading-s' : 'heading-xs'"
             :img-src="imgSrc"
             :img-alt="imgAlt"
             :data-test="featured ? 'megalink-multi-image-featured' : 'megalink-multi-image-card'"
@@ -36,13 +36,13 @@
             </template>
 
             <template #stretched-card-content>
-                <VsRichTextWrapper
+                <VsBody
                     class="vs-megalink-multi-image-card__content"
                     data-test="megalink-multi-image-card__content"
                 >
                     <!-- @slot Slot to contain content -->
                     <slot name="vs-multi-image-content" />
-                </VsRichTextWrapper>
+                </VsBody>
             </template>
 
             <template
@@ -59,7 +59,7 @@
 <script>
 import VsStretchedLinkCard from '@/components/stretched-link-card/StretchedLinkCard.vue';
 import VsStretchedLinkPanels from '@/components/stretched-link-card/components/StretchedLinkPanels.vue';
-import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsBody from '@/components/body/Body.vue';
 
 /**
 * Megalink cards to be used in the megalinks component
@@ -74,7 +74,7 @@ export default {
     release: '0.0.1',
     components: {
         VsStretchedLinkCard,
-        VsRichTextWrapper,
+        VsBody,
         VsStretchedLinkPanels,
     },
     props: {
@@ -267,12 +267,6 @@ export default {
 
             .vs-stretched-link-card__img-container {
                 width: 75%
-            }
-
-            .megalink-multi-image__content {
-                font-size: $font-size-5;
-                margin-top: $spacer-200;
-                line-height: $line-height-m;
             }
 
             .card-body {

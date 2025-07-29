@@ -18,7 +18,7 @@
                 <div class="container">
                     <VsButton
                         class="vs-video-caption__button"
-                        icon="play"
+                        icon="vs-icon-control-play"
                         icon-position="left"
                         size="md"
                         ref="videoShow"
@@ -253,13 +253,13 @@ export default {
 
         &__title {
             font-size: $font-size-4;
-            font-weight: $font-weight-bold;
+            font-weight: $vs-font-weight-medium;
             margin-bottom: $spacer-050;
         }
 
         &__duration {
             font-size: $font-size-4;
-            font-weight: $font-weight-light;
+            font-weight: $vs-font-weight-subtle;
             margin: 0;
         }
 

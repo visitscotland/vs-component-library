@@ -25,10 +25,10 @@
                     {{ heading }}
                 </VsHeading>
 
-                <VsRichTextWrapper>
+                <VsBody>
                     <!-- @slot default slot to contain the content of this list item  -->
                     <slot />
-                </VsRichTextWrapper>
+                </VsBody>
             </VsCol>
         </VsRow>
     </li>
@@ -38,7 +38,7 @@
 import { isNumber } from 'lodash';
 import VsHeading from '../../heading/Heading.vue';
 import VsImg from '../../img/Img.vue';
-import VsRichTextWrapper from '../../rich-text-wrapper/RichTextWrapper.vue';
+import VsBody from '../../body/Body.vue';
 import { VsRow, VsCol } from '../../grid';
 
 const props = defineProps({
@@ -92,9 +92,9 @@ const props = defineProps({
         position: relative;
 
         &::before {
-            content: '\e085';
+            font-family: "Font Awesome 6 Pro";
+            content: "\f00c";
             color: $vs-color-icon-accent-saltire-30;
-            font-family: 'Font Awesome Kit';
             font-size: $font-size-8;
             position: absolute;
             top: $spacer-075;

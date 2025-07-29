@@ -5,7 +5,7 @@
     >
         <VsButton
             v-if="visible"
-            icon="arrow-up"
+            icon="vs-icon-control-back-to-top"
             icon-only
             variant="secondary"
             @click="scrollTop"

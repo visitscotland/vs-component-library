@@ -30,10 +30,10 @@
                     class="mx-md-0"
                     :class="!businessSupport && 'mx-150'"
                 >
-                    <VsRichTextWrapper>
+                    <VsBody>
                         <!-- @slot Default slot to contain the copy for this article -->
                         <slot />
-                    </VsRichTextWrapper>
+                    </VsBody>
                 </div>
             </VsCol>
         </VsRow>
@@ -42,7 +42,7 @@
 
 <script>
 import { VsCol, VsRow } from '@/components/grid';
-import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsBody from '@/components/body/Body.vue';
 /**
  * The ArticleSection component is used within an Article to alternate paragraphs.
  * Each section can have one ArticleSidebar which is automatically
@@ -57,7 +57,7 @@ export default {
     components: {
         VsCol,
         VsRow,
-        VsRichTextWrapper,
+        VsBody,
     },
     props: {
         /**

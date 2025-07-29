@@ -26,7 +26,7 @@
                             {{ title }}
                         </VsHeading>
 
-                        <VsRichTextWrapper
+                        <VsBody
                             class="vs-megalinks__intro-content"
                             v-if="$slots['vs-megalinks-intro'] && $slots['vs-megalinks-intro']()"
                             variant="lead"
@@ -34,7 +34,7 @@
                         >
                             <!-- @slot Slot to contain optional intro content -->
                             <slot name="vs-megalinks-intro" />
-                        </VsRichTextWrapper>
+                        </VsBody>
                     </div>
                 </VsCol>
             </VsRow>
@@ -65,7 +65,7 @@
 import { isNumber } from 'lodash';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsButton from '@/components/button/Button.vue';
-import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsBody from '@/components/body/Body.vue';
 import {
     VsContainer,
     VsRow,
@@ -87,7 +87,7 @@ export default {
         VsCol,
         VsHeading,
         VsButton,
-        VsRichTextWrapper,
+        VsBody,
     },
     provide() {
         return {
@@ -175,14 +175,14 @@ export default {
         },
         /**
          * The heading style used for the heading.
-         * `display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|
+         * `display-m|display-s|heading-xl|
          * heading-l|heading-m|heading-s|heading-xs|heading-xxs`
          */
         headingStyle: {
             type: String,
             default: 'heading-xl',
             validator: (value) => value.match(
-                /(display-l|display-m|display-s|display-xs|heading-xxl|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs|heading-xxxs)/,
+                /(display-m|display-s|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs|heading-xxxs)/,
             ),
         },
     },
@@ -212,10 +212,6 @@ export default {
             text-align: center;
             margin-bottom: $spacer-200;
 
-            .vs-heading__sub-heading {
-                margin: 0;
-            }
-
             p:first-of-type {
                 margin-top: $spacer-150;
             }
@@ -227,10 +223,6 @@ export default {
 
         .vs-megalinks__heading {
             margin-bottom: 0 !important;
-
-            .heading__sub-heading {
-                display: none;
-            }
         }
 
         .vs-megalinks__button {

@@ -62,7 +62,7 @@
                     >
                         <VsButton
                             class="vs-map-with-sidebar__map-toggle"
-                            icon="bars-mobile-menu"
+                            icon="vs-icon-control-menu"
                             size="sm"
                             @click="openMenu"
                             data-test="vs-map-with-sidebar__map-toggle"

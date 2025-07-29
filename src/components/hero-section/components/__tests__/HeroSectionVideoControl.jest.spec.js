@@ -25,7 +25,7 @@ describe('HeroSectionVideoControl', () => {
             {
                 name: 'VsButton',
             },
-        ).props('icon')).toBe('pause-regular');
+        ).props('icon')).toBe('vs-icon-control-pause');
     });
 
     it('displays play icon when video is not playing', async() => {
@@ -34,7 +34,16 @@ describe('HeroSectionVideoControl', () => {
             {
                 name: 'VsButton',
             },
-        ).props('icon')).toBe('play');
+        ).props('icon')).toBe('vs-icon-control-play');
+    });
+
+    it('announces playing label when video is playing', () => {
+        expect(wrapper.html()).toContain('Playing');
+    });
+
+    it('announces pause label when video is not playing', async() => {
+        await wrapper.vm.toggleVideo();
+        expect(wrapper.html()).toContain('Paused');
     });
 
     describe(':events', () => {

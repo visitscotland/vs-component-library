@@ -3,7 +3,7 @@ import axe from '@/../test/unit/helpers/axe-helper';
 import VsButton from '../Button.vue';
 
 const slotText = 'Button text';
-const testIcon = 'food';
+const testIcon = 'fa-regular fa-utensils';
 
 function mountOptions(propsData) {
     return {
@@ -99,7 +99,7 @@ describe('VsButton', () => {
                 });
                 const icon = wrapper.find('.vs-icon');
 
-                expect(icon.classes('fa-food')).toBe(true);
+                expect(icon.classes('fa-utensils')).toBe(true);
             });
         });
 

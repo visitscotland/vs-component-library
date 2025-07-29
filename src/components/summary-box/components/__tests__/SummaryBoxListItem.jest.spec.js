@@ -39,17 +39,17 @@ describe('VsSummaryBoxListItem', () => {
 
         it('should accept and render an `icon` property', () => {
             const wrapper = factoryShallowMount({
-                icon: 'car',
+                icon: 'fa-regular fa-car-side',
             });
 
             const vsIcon = wrapper.find('vs-icon-stub');
 
-            expect(vsIcon.attributes('name')).toBe('car');
+            expect(vsIcon.attributes('icon')).toBe('fa-regular fa-car-side');
         });
 
         it('if an `icon` property is set, should accept and render an `iconLabel` properly', () => {
             const wrapper = factoryShallowMount({
-                icon: 'car',
+                icon: 'fa-regular fa-car-side',
                 iconLabel: 'A car',
             });
 

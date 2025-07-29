@@ -16,12 +16,6 @@ export default {
                 type: 'radio',
             },
         },
-        orientation: {
-            options: ['up', 'down', 'left', 'right'],
-            control: {
-                type: 'radio',
-            },
-        },
         smallSize: {
             options: ['xxs', 'xs', 'sm', 'md', 'lg', 'xl'],
             control: {
@@ -45,7 +39,7 @@ const Template = (args) => ({
             v-if="args.icons"
             class="me-125"
             v-for="icon in args.icons"
-            :name="icon.name"
+            :icon="icon.classes"
             :variant="icon.variant"
             :size="icon.size"
             :customColour="icon.customColour"
@@ -59,7 +53,7 @@ const Template = (args) => ({
 });
 
 const base = {
-    name: 'user',
+    icon: 'vs-icon-control-dismiss',
 };
 
 export const Default = Template.bind({
@@ -73,27 +67,27 @@ export const Size = Template.bind({
 Size.args = {
     icons: [
         {
-            name: 'user',
+            classes: 'fa-regular fa-user',
             size: 'xxs',
         },
         {
-            name: 'user',
+            classes: 'fa-regular fa-user',
             size: 'xs',
         },
         {
-            name: 'user',
+            classes: 'fa-regular fa-user',
             size: 'sm',
         },
         {
-            name: 'user',
+            classes: 'fa-regular fa-user',
             size: 'md',
         },
         {
-            name: 'user',
+            classes: 'fa-regular fa-user',
             size: 'lg',
         },
         {
-            name: 'user',
+            classes: 'fa-regular fa-user',
             size: 'xl',
         },
     ],
@@ -105,40 +99,40 @@ export const Colour = Template.bind({
 Colour.args = {
     icons: [
         {
-            name: 'user',
-            variant: 'default',
-        },
-        {
-            name: 'user',
+            classes: 'fa-regular fa-user',
             variant: 'primary',
         },
         {
-            name: 'user',
+            classes: 'fa-regular fa-user',
             variant: 'secondary',
         },
         {
-            name: 'user',
+            classes: 'fa-regular fa-user',
+            variant: 'cta',
+        },
+        {
+            classes: 'fa-regular fa-user',
             variant: 'inverse',
         },
         {
-            name: 'user',
-            variant: 'tertiary',
+            classes: 'fa-regular fa-user',
+            variant: 'highlight',
         },
         {
-            name: 'user',
-            variant: 'success',
+            classes: 'fa-regular fa-user',
+            variant: 'disabled',
         },
         {
-            name: 'user',
+            classes: 'fa-regular fa-user',
+            variant: 'error',
+        },
+        {
+            classes: 'fa-regular fa-user',
             variant: 'warning',
         },
         {
-            name: 'user',
-            variant: 'danger',
-        },
-        {
-            name: 'user',
-            variant: 'disabled',
+            classes: 'fa-regular fa-user',
+            variant: 'success',
         },
     ],
 };
@@ -155,15 +149,6 @@ export const CustomColour = Template.bind({
 CustomColour.args = {
     ...base,
     customColour: '#55ACEE',
-};
-
-export const Duotone = Template.bind({
-});
-
-Duotone.args = {
-    name: 'crow',
-    duotone: true,
-    style: '--fa-secondary-opacity: 1.0; --fa-primary-color: blue; --fa-secondary-color: gold;',
 };
 
 export const SmallSize = Template.bind({

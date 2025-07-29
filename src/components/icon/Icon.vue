@@ -1,23 +1,15 @@
 <template>
     <i
-        :class="{
-            fak: true,
-            [`fa-${icon}`]: true,
-            'vs-icon': true,
-            [`vs-icon--size-${size}`]: true,
-            [`vs-icon--sm-size-${smallSize}`]: smallSize,
-            [`vs-icon--${formattedName}`]: true,
-            [`icon--${orientation}`]: orientation,
-            [`vs-icon--variant-${variant}`]: variant,
-            [`fa-duotone`]: duotone,
-        }"
-        :style="[customColour ? { color: customColour } : {}]"
+        :class="iconClasses"
+        :style="iconStyles"
         v-bind="$attrs"
         data-test="vs-icon"
     />
 </template>
 
 <script>
+import designTokens from '@/assets/tokens/tokens.json';
+
 /**
  * Icons are used to visually communicate available actions
  * or ideas and can help users navigate the product.
@@ -30,22 +22,23 @@ export default {
     release: '0.1.0',
     props: {
         /**
-         * The name of the icon to display, which will be the name of the icon file
+         * A string that specifies the Font Awesome icon to render,
+         * either as a semantic design token or as a set
+         * of `fa-` classes.
          */
-        name: {
+        icon: {
             type: String,
             required: true,
-            default: 'search',
         },
         /**
          * The color of the icon.
-         * `default|primary|secondary|inverse|disabled|tertiary|danger|warning`
+         * `primary|secondary|cta|inverse|disabled|highlight|error|warning|success`
          */
         variant: {
             type: String,
-            default: 'default',
+            default: 'primary',
             validator: (value) => value.match(
-                /(default|primary|secondary|inverse|disabled|tertiary|danger|warning)/,
+                /(primary|secondary|cta|inverse|disabled|highlight|error|warning|success)/,
             ),
         },
         /**
@@ -57,18 +50,6 @@ export default {
         customColour: {
             type: String,
             default: null,
-        },
-        /**
-        * The orientation of the icon
-        * `up|down|left|right`
-        * @deprecated use the correct icon from FA instead
-        */
-        orientation: {
-            type: String,
-            default: null,
-            validator: (value) => value.match(
-                /(up|down|left|right)/,
-            ),
         },
         /**
         * Size of icon
@@ -88,153 +69,29 @@ export default {
             default: null,
             validator: (value) => value.match(/(xxs|xs|sm|md|lg|xl)/),
         },
-        /**
-        * Uses FontAwesome Duotone
-        */
-        duotone: {
-            type: Boolean,
-            default: false,
-        },
     },
     data() {
         return {
-            /*
-                *  Some DMS feed categories are different
-                    from the name of the icon file.  This lookup marries up discrepencies
-                */
-            iconLookup: [
-                {
-                    key: 'accesstoliet',
-                    value: 'accessible-toilet',
-                },
-                {
-                    key: 'accessparkdrop',
-                    value: 'facility-accessparkdrop',
-                },
-                {
-                    key: 'acco',
-                    value: 'product-accommodation',
-                },
-                {
-                    key: 'acti',
-                    value: 'product-activities',
-                },
-                {
-                    key: 'attr',
-                    value: 'product-attractions',
-                },
-                {
-                    key: 'audioloop',
-                    value: 'facility-audioloop',
-                },
-                {
-                    key: 'cafereston',
-                    value: 'cafe',
-                },
-                {
-                    key: 'cate',
-                    value: 'product-food-and-drink',
-                },
-                {
-                    key: 'cities',
-                    value: 'city',
-                },
-                {
-                    key: 'cycling',
-                    value: 'cycle',
-                },
-                {
-                    key: 'dsblaccess',
-                    value: 'facility-dsblaccess',
-                },
-                {
-                    key: 'wheelchairaccess',
-                    value: 'facility-dsblaccess',
-                },
-                {
-                    key: 'even',
-                    value: 'product-events',
-                },
-                {
-                    key: 'familyev',
-                    value: 'family',
-                },
-                {
-                    key: 'filmev',
-                    value: 'film-tv',
-                },
-                {
-                    key: 'hottub',
-                    value: 'hot-tub',
-                },
-                {
-                    key: 'parking',
-                    value: 'facility-parking',
-                },
-                {
-                    key: 'petswelcom',
-                    value: 'facility-petswelcom',
-                },
-                {
-                    key: 'wifi',
-                    value: 'facility-wifi',
-                },
-                {
-                    key: 'public',
-                    value: 'public-transport',
-                },
-                {
-                    key: 'pubtranrte',
-                    value: 'public-transport',
-                },
-                {
-                    key: 'reta',
-                    value: 'product-shopping',
-                },
-                {
-                    key: 'spahealth',
-                    value: 'wellness',
-                },
-                {
-                    key: 'vege',
-                    value: 'vegan-vegetarian',
-                },
-                {
-                    key: 'walking',
-                    value: 'walk',
-                },
-                {
-                    key: 'boat',
-                    value: 'boat',
-                },
-                {
-                    key: 'transport',
-                    value: 'transport',
-                },
-                {
-                    key: 'brekavail',
-                    value: 'breakfast-available',
-                },
-                {
-                    key: 'wetroom',
-                    value: 'level-entry-shower',
-                },
-            ],
+            tokens: designTokens,
         };
     },
     computed: {
-        icon() {
-            return this.formattedName;
+        iconClasses() {
+            return [
+                this.fontAwesomeClasses,
+                'vs-icon',
+                `vs-icon--size-${this.size}`,
+                this.smallSize && `vs-icon--sm-size-${this.smallSize}`,
+                this.variant && `vs-icon--variant-${this.variant}`,
+            ];
         },
-        formattedName() {
-            /*
-             * To facilitate more readable icon names and
-             * organise / group icons within the design system
-             * there is a lookup for how keys may be passed from the backend
-             */
-            const formattedNameLookup = this.iconLookup.find(({ key }) => key === this.name);
-
-            return formattedNameLookup !== undefined ? formattedNameLookup.value : this.name;
+        fontAwesomeClasses() {
+            return this.tokens[this.icon] || this.icon;
+        },
+        iconStyles() {
+            return this.customColour ? {
+                color: this.customColour,
+            } : null;
         },
     },
 };
@@ -252,15 +109,15 @@ $sizes: (
 );
 
 $variants: (
-    default: $vs-color-icon-primary,
-    primary: $vs-color-icon-cta-on-light,
+    primary: $vs-color-icon-primary,
     secondary: $vs-color-icon-secondary,
-    tertiary: $vs-color-icon-highlight,
+    cta: $vs-color-icon-cta-on-light,
     inverse: $vs-color-icon-inverse,
-    success: $vs-color-icon-success,
-    danger: $vs-color-icon-error,
-    warning: $vs-color-icon-warning,
+    highlight: $vs-color-icon-highlight,
     disabled: $vs-color-icon-disabled,
+    error: $vs-color-icon-error,
+    warning: $vs-color-icon-warning,
+    success: $vs-color-icon-success,
 );
 
 .vs-icon {
@@ -297,18 +154,6 @@ $variants: (
         &.vs-icon--variant-#{$variant} {
             color: map-get($variants, $variant);
         }
-    }
-
-    &.icon--down {
-        transform: rotate(180deg);
-    }
-
-    &.icon--left {
-        transform: rotate(270deg);
-    }
-
-    &.icon--right {
-        transform: rotate(90deg);
     }
 }
 </style>

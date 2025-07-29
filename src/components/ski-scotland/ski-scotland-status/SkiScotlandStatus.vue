@@ -84,7 +84,7 @@
                             <VsTableRow>
                                 <VsTableDataCell>
                                     <VsIcon
-                                        name="tick"
+                                        icon="fa-regular fa-check"
                                         size="xs"
                                         class="me-050"
                                     />
@@ -107,7 +107,7 @@
                             >
                                 <VsTableDataCell>
                                     <VsIcon
-                                        name="ski-boot"
+                                        icon="fa-regular fa-ski-boot-ski"
                                         size="xs"
                                         class="me-050"
                                     />
@@ -127,7 +127,7 @@
                             <VsTableRow>
                                 <VsTableDataCell>
                                     <VsIcon
-                                        name="expected-open"
+                                        icon="fa-regular fa-timer"
                                         size="xs"
                                         class="me-050"
                                     />
@@ -147,7 +147,7 @@
                             <VsTableRow>
                                 <VsTableDataCell>
                                     <VsIcon
-                                        name="status-closed"
+                                        icon="fa-regular fa-ban"
                                         size="xs"
                                         class="me-050"
                                     />
@@ -169,7 +169,7 @@
                             >
                                 <VsTableDataCell>
                                     <VsIcon
-                                        name="hourglass"
+                                        icon="fa-regular fa-hourglass"
                                         size="xs"
                                         class="me-050"
                                     />
@@ -321,35 +321,35 @@
                             >
                                 <VsTableDataCell v-if="lift.status === '0' || lift.status === 0">
                                     <VsIcon
-                                        name="status-closed"
+                                        icon="fa-regular fa-ban"
                                         size="xs"
                                         class="me-050"
                                     /> {{ statusClosedLabel }}
                                 </VsTableDataCell>
                                 <VsTableDataCell v-if="lift.status === '1' || lift.status === 1">
                                     <VsIcon
-                                        name="tick"
+                                        icon="fa-regular fa-check"
                                         size="xs"
                                         class="me-050"
                                     /> {{ statusOpenLabel }}
                                 </VsTableDataCell>
                                 <VsTableDataCell v-if="lift.status === '2' || lift.status === 2">
                                     <VsIcon
-                                        name="expected-open"
+                                        icon="fa-regular fa-timer"
                                         size="xs"
                                         class="me-050"
                                     /> {{ statusOpeningLabel }}
                                 </VsTableDataCell>
                                 <VsTableDataCell v-if="lift.status === '3' || lift.status === 3">
                                     <VsIcon
-                                        name="ski-boot"
+                                        icon="fa-regular fa-ski-boot-ski"
                                         size="xs"
                                         class="me-050"
                                     /> {{ statusLimitedPatrolLabel }}
                                 </VsTableDataCell>
                                 <VsTableDataCell v-if="lift.status === '4' || lift.status === 4">
                                     <VsIcon
-                                        name="hourglass"
+                                        icon="fa-regular fa-hourglass"
                                         size="xs"
                                         class="me-050"
                                     /> {{ statusOnHoldLabel }}
@@ -390,7 +390,7 @@
                     >
                         <VsAccordion>
                             <VsAccordionItem
-                                variant="transparent"
+                                variant="subtle"
                                 :control-id="`accordion_item_${level.name}`"
                                 :colour-badge="level.colourToken"
                             >
@@ -421,7 +421,7 @@
                                                 v-if="run.status === '0' || run.status === 0"
                                             >
                                                 <VsIcon
-                                                    name="status-closed"
+                                                    icon="fa-regular fa-ban"
                                                     size="xs"
                                                     class="me-050"
                                                 /> {{ statusClosedLabel }}
@@ -430,7 +430,7 @@
                                                 v-if="run.status === '1' || run.status === 1"
                                             >
                                                 <VsIcon
-                                                    name="tick"
+                                                    icon="fa-regular fa-check"
                                                     size="xs"
                                                     class="me-050"
                                                 /> {{ statusOpenLabel }}
@@ -439,7 +439,7 @@
                                                 v-if="run.status === '2' || run.status === 2"
                                             >
                                                 <VsIcon
-                                                    name="expected-open"
+                                                    icon="fa-regular fa-timer"
                                                     size="xs"
                                                     class="me-050"
                                                 /> {{ statusOpeningLabel }}
@@ -448,7 +448,7 @@
                                                 v-if="run.status === '3' || run.status === 3"
                                             >
                                                 <VsIcon
-                                                    name="ski-boot"
+                                                    icon="fa-regular fa-ski-boot-ski"
                                                     size="xs"
                                                     class="me-050"
                                                 /> {{ statusLimitedPatrolLabel }}
@@ -457,7 +457,7 @@
                                                 v-if="run.status === '4' || run.status === 4"
                                             >
                                                 <VsIcon
-                                                    name="hourglass"
+                                                    icon="fa-regular fa-hourglass"
                                                     size="xs"
                                                     class="me-050"
                                                 /> {{ statusOnHoldLabel }}

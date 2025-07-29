@@ -155,8 +155,8 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
             <VsButton
                 class="align-self-end"
                 data-test="vs-guest-selector__close-btn"
-                variant="transparent"
-                icon="close"
+                variant="subtle"
+                icon="vs-icon-control-dismiss"
                 size="md"
                 icon-only
                 @click.prevent="hidePicker"
@@ -226,8 +226,8 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
         }
 
         &::after{
-            font-family: "Font Awesome Kit";
-            content: "\e012";
+            font-family: "Font Awesome 6 Pro";
+            content: "\f078";
             display: inline-block;
             position: absolute;
             top: $spacer-300;
@@ -257,7 +257,7 @@ const handleChange = (type: string, groupName: string, unitId: string) => {
         }
 
         &__label {
-            font-weight: $font-weight-bold;
+            font-weight: $vs-font-weight-medium;
             margin-bottom: 0;
         }
 

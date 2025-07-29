@@ -8,7 +8,7 @@ export default {
             options: [
                 'primary',
                 'secondary',
-                'transparent',
+                'subtle',
                 'dark',
                 'light',
             ],
@@ -57,13 +57,13 @@ const Template = (args) => ({
 });
 
 const base = {
-    icon: 'bus',
+    icon: 'fa-regular fa-bus',
     size: 'sm',
     position: 'top',
     title: 'Travel by bus',
     href: '#',
     'icon-only': true,
-    variant: 'transparent',
+    variant: 'subtle',
 };
 
 export const Default = Template.bind({

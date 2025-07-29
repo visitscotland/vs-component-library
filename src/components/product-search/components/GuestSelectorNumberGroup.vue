@@ -84,7 +84,7 @@ onMounted(() => {
             <VsButton
                 class="vs-guest-selector-number-group__button--remove"
                 size="sm"
-                icon="minus"
+                icon="fa-regular fa-minus"
                 icon-only
                 value="-"
                 @click.prevent="handleDecrease"
@@ -106,7 +106,7 @@ onMounted(() => {
             <VsButton
                 class="vs-guest-selector-number-group__button--add"
                 size="sm"
-                icon="plus"
+                icon="fa-regular fa-plus"
                 icon-only
                 value="+"
                 @click.prevent="handleIncrease"

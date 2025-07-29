@@ -8,7 +8,7 @@
                     <VsAccordionItem
                         :open-by-default="show"
                         :control-id="`itinerary-day-${dayNumber}`"
-                        variant="transparent"
+                        variant="subtle"
                         item-break-point="lg"
                         class="vs-itinerary-day__list-item"
                     >
@@ -28,8 +28,7 @@
                         <template #icon-open>
                             <!-- @slot Slot for the icon to show when accordion item is open  -->
                             <VsIcon
-                                name="chevron"
-                                orientation="down"
+                                icon="vs-icon-control-collapse"
                                 size="lg"
                                 :padding="3"
                                 class="vs-itinerary-day__toggle-button"
@@ -38,7 +37,7 @@
                         <template #icon-closed>
                             <!-- @slot Slot for the icon to show when accordion item is closed  -->
                             <VsIcon
-                                name="chevron"
+                                icon="vs-icon-control-expand"
                                 size="lg"
                                 :padding="3"
                                 class="vs-itinerary-day__toggle-button"
@@ -176,7 +175,7 @@ export default {
         }
     }
 
-    &__header{
+    &__header {
         display: block;
         text-align: left;
         margin: $spacer-150 0;
@@ -185,13 +184,13 @@ export default {
             color: $vs-color-text-highlight;
             display: inline-block;
             @include heading-style(heading-s, false);
-            font-weight: 600;
+            font-weight: $vs-font-weight-heading;
         }
 
         .vs-itinerary-day__sub-heading{
             display: block;
             @include heading-style(heading-l);
-            font-weight: 600;
+            font-weight: $vs-font-weight-heading;
         }
 
         @include media-breakpoint-up(lg) {

@@ -2,7 +2,7 @@
     <VsButton
         class="vs-toggle-btn"
         data-test="vs-toggle-btn"
-        variant="transparent"
+        variant="subtle"
         :aria-controls="toggleId"
         :aria-expanded="show ? 'true' : 'false'"
         @click="toggleAction"
@@ -12,9 +12,8 @@
 
         <VsIcon
             v-if="show"
-            duotone
             class="fa-icon-colours fa-icon-colours--white"
-            name="circle-xmark"
+            icon="fa-duotone fa-solid fa-circle-xmark"
         />
 
         <!-- @slot Slot for custom toggle icon - used for social images -->
@@ -23,9 +22,8 @@
             name="toggle-icon"
         >
             <VsIcon
-                duotone
                 class="fa-icon-colours"
-                name="circle-info"
+                icon="fa-duotone fa-solid fa-circle-info"
             />
         </slot>
     </VsButton>
@@ -81,7 +79,7 @@ export default {
 };
 </script>
 <style lang="scss">
-    .vs-toggle-btn.vs-button.btn-transparent{
+    .vs-toggle-btn.vs-button.btn-subtle {
         line-height: 1;
 
         @include vs-button-variant(

@@ -27,7 +27,7 @@ export default `
             <VsHeroSection
                 :heading="args.pageTitle"
                 :lede="args.pageLede"
-                :src="args.imgUrl"
+                :img-src="args.imgUrl"
                 :img-caption="args.imgCaption"
                 :img-credit="args.imgCredit"
             />
@@ -101,10 +101,10 @@ export default `
                                     </template>
 
                                     <template #vs-card-body>
-                                        <div class="px-125 py-050">
+                                        <div class="px-125">
                                             <VsHeading
                                                 level="3"
-                                                heading-style="heading-s"
+                                                heading-style="heading-xs"
                                             >
                                                 <VsLink
                                                     :href="card.link"
@@ -115,17 +115,17 @@ export default `
                                                 </VsLink>
                                             </VsHeading>
 
-                                            <VsRichTextWrapper class="mb-150 truncate-3-lines">
+                                            <VsBody class="mb-150 truncate-3-lines">
                                                 {{ card.description }}
-                                            </VsRichTextWrapper>
+                                            </VsBody>
                                         </div>
                                     </template>
 
                                     <template #vs-card-footer>
-                                        <VsBlogDetails
+                                        <VsArticleDetails
                                             v-if="card.metaData"
                                             class="px-125"
-                                            :blog-read-time="card.metaData"
+                                            :article-read-time="card.metaData"
                                         />
                                     </template>
                                 </VsCard>
@@ -201,10 +201,10 @@ export default `
                                     </template>
 
                                     <template #vs-card-body>
-                                        <div class="px-125 py-050">
+                                        <div class="px-125">
                                             <VsHeading
                                                 level="3"
-                                                heading-style="heading-s"
+                                                heading-style="heading-xs"
                                             >
                                                 <VsLink
                                                     :href="card.link"
@@ -215,17 +215,17 @@ export default `
                                                 </VsLink>
                                             </VsHeading>
 
-                                            <VsRichTextWrapper class="mb-150 truncate-3-lines">
+                                            <VsBody class="mb-150 truncate-3-lines">
                                                 {{ card.description }}
-                                            </VsRichTextWrapper>
+                                            </VsBody>
                                         </div>
                                     </template>
 
                                     <template #vs-card-footer>
-                                        <VsBlogDetails
+                                        <VsArticleDetails
                                             v-if="card.metaData"
                                             class="px-125"
-                                            :blog-read-time="card.metaData"
+                                            :article-read-time="card.metaData"
                                         />
                                     </template>
                                 </VsCard>

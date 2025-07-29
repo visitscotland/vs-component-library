@@ -194,10 +194,6 @@ export default {
 
         .card-body {
             text-align: left;
-
-            .vs-heading__sub-heading {
-                display: none;
-            }
         }
     }
 
@@ -237,7 +233,6 @@ export default {
 
                 .stretched-link {
                     text-decoration: none;
-                    letter-spacing: 0;
                 }
 
                 .card-body {
@@ -256,8 +251,6 @@ export default {
 
                 &__title {
                     font-size: $font-size-2;
-                    letter-spacing: $letter-spacing-l;
-                    line-height: $line-height-m;
                     color: $vs-color-text-primary;
                     text-decoration: none;
                 }
@@ -323,7 +316,6 @@ export default {
 
                     &__content {
                         margin: $spacer-050 0 0;
-                        line-height: $line-height-s;
                     }
                 }
             }

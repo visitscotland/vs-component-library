@@ -24,8 +24,8 @@
             </div>
 
             <VsIcon
-                name="internal-link"
-                variant="tertiary"
+                icon="fa-regular fa-arrow-right"
+                variant="highlight"
                 size="xs"
                 class="vs-main-map-category__icon align-self-center me-0"
             />
@@ -116,9 +116,8 @@ export default {
         &__button {
             background: transparent;
             display: flex !important;
-            letter-spacing: normal;
             font-size: $font-size-5;
-            font-weight: $font-weight-bold;
+            font-weight: $vs-font-weight-medium;
             text-transform: none;
             transform: none;
             width: 100%;
@@ -126,7 +125,6 @@ export default {
             padding: $spacer-100 $spacer-100;
             border: none;
             justify-content: space-between;
-            line-height: $line-height-standard;
 
             &::after {
                 display: none;
@@ -147,8 +145,8 @@ export default {
 
             @include media-breakpoint-up(lg) {
                 font-size: $font-size-6;
-                font-weight: $font-weight-normal;
-                padding: $spacer-050 $spacer-100;
+                font-weight: $vs-font-weight-regular;
+                padding: $spacer-025 $spacer-100;
             }
         }
 

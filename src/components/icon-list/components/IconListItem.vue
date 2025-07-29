@@ -4,7 +4,7 @@
         data-test="vs-icon-list__item"
     >
         <VsIcon
-            :name="icon"
+            :icon="icon"
             size="md"
             class="d-block mx-auto"
         />
@@ -57,7 +57,6 @@ export default {
     margin-bottom: $spacer-100;
     padding: 0 $spacer-025;
     font-size: $font-size-3;
-    line-height: $line-height-standard;
 
     .vs-icon {
         margin-bottom: $spacer-075;

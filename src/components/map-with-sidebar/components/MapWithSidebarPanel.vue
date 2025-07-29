@@ -15,7 +15,7 @@
                 >
                     <VsButton
                         class="vs-map-with-sidebar-panel_menu"
-                        icon="bars-mobile-menu"
+                        icon="vs-icon-control-menu"
                         size="sm"
                         @click="stageBack"
                         data-test="vs-map-with-sidebar__menu-toggle"
@@ -32,9 +32,9 @@
                 >
                     <VsButton
                         icon-only
-                        icon="internal-link-back"
+                        icon="fa-regular fa-arrow-left"
                         size="md"
-                        variant="transparent"
+                        variant="subtle"
                         @click="stageBack"
                         data-test="vs-map-with-sidebar-panel--btn-back"
                     >
@@ -47,9 +47,9 @@
                 >
                     <VsButton
                         icon-only
-                        icon="close"
+                        icon="vs-icon-control-dismiss"
                         size="md"
-                        variant="transparent"
+                        variant="subtle"
                         @click="closePanel"
                         data-test="vs-map-with-sidebar-panel--btn-close"
                     >
@@ -65,9 +65,9 @@
             >
                 <VsButton
                     icon-only
-                    icon="internal-link-back"
+                    icon="fa-regular fa-arrow-left"
                     size="md"
-                    variant="transparent"
+                    variant="subtle"
                     @click="stageBack"
                     data-test="vs-map-with-sidebar-panel--btn-back"
                 >
@@ -93,9 +93,9 @@
             >
                 <VsButton
                     icon-only
-                    icon="close"
+                    icon="vs-icon-control-dismiss"
                     size="md"
-                    variant="transparent"
+                    variant="subtle"
                     @click="resetPanel"
                     data-test="vs-map-with-sidebar-panel--btn-reset"
                 >

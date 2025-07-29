@@ -907,7 +907,7 @@ export default {
             font-size: $font-size-6;
         }
         label {
-            font-weight: $font-weight-semi-bold;
+            font-weight: $vs-font-weight-medium;
             margin-bottom: 0;
         }
 

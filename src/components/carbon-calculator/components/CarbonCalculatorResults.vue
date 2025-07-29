@@ -57,9 +57,9 @@
                 class="vs-carbon-calculator-results__unicorn-icon-container"
             >
                 <VsIcon
-                    name="unicorn"
+                    icon="fa-kit fa-vs-unicorn"
                     size="lg"
-                    variant="tertiary"
+                    variant="highlight"
                     class="vs-carbon-calculator-results__unicorn-icon"
                 />
             </div>
@@ -334,7 +334,7 @@ export default {
 
     .vs-carbon-calculator-results__total {
         font-size: $font-size-10;
-        font-weight: $font-weight-bold;
+        font-weight: $vs-font-weight-medium;
         margin-right: $spacer-050;
     }
 

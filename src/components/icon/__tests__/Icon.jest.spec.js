@@ -5,7 +5,7 @@ import VsIcon from '../Icon.vue';
 const factoryShallowMount = (propsData) => shallowMount(VsIcon, {
     propsData: {
         ...propsData,
-        name: 'accessparkdrop',
+        icon: 'fa-regular fa-user',
     },
 });
 
@@ -16,9 +16,9 @@ describe('VsIcon', () => {
     });
 
     describe(':props', () => {
-        it(':name - should render the VsIcon with the correct class', () => {
+        it(':icon - should render the VsIcon with the correct class', () => {
             const wrapper = factoryShallowMount();
-            expect(wrapper.attributes('class')).toContain('facility-accessparkdrop');
+            expect(wrapper.attributes('class')).toContain('fa-regular fa-user');
         });
 
         it(':variant - should accept and render variants as props', () => {
@@ -28,15 +28,6 @@ describe('VsIcon', () => {
             });
 
             expect(wrapper.classes(`vs-icon--variant-${testVariant}`)).toBe(true);
-        });
-
-        it(':orientation - should accept and render orientations as props', () => {
-            const testOrientation = 'down';
-            const wrapper = factoryShallowMount({
-                orientation: testOrientation,
-            });
-
-            expect(wrapper.classes(`icon--${testOrientation}`)).toBe(true);
         });
 
         it(':size - should accept and render sizes as props', () => {

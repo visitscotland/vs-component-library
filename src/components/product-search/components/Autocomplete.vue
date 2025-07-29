@@ -120,8 +120,8 @@ onMounted(() => {
                     @click="openMenu()"
                 />
                 <VsIcon 
-                    name="chevron-down"
-                    variant="primary"
+                    icon="vs-icon-control-expand"
+                    variant="cta"
                     size="sm"
                 />
                 <ul

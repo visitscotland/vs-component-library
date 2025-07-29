@@ -47,20 +47,20 @@
                                     </VsLink>
                                 </VsHeading>
 
-                                <VsRichTextWrapper
+                                <VsBody
                                     class="mb-150"
                                     :class="truncateClass"
                                 >
                                     {{ card.description }}
-                                </VsRichTextWrapper>
+                                </VsBody>
                             </div>
                         </template>
 
                         <template #vs-card-footer>
-                            <VsBlogDetails
+                            <VsArticleDetails
                                 v-if="card.metaData"
                                 class="px-125"
-                                :blog-read-time="card.metaData"
+                                :article-read-time="card.metaData"
                             />
                         </template>
                     </VsCard>
@@ -80,8 +80,8 @@ import VsCard from '@/components/card/Card.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsImg from '@/components/img/Img.vue';
 import VsLink from '@/components/link/Link.vue';
-import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
-import VsBlogDetails from '@/components/blog-details/BlogDetails.vue';
+import VsBody from '@/components/body/Body.vue';
+import VsArticleDetails from '@/components/article-details/ArticleDetails.vue';
 import VsBadge from '@/components/badge/Badge.vue';
 
 import splitCards from '../assets/fixtures/cards/split-cards.json';
@@ -103,8 +103,8 @@ export default {
         VsHeading,
         VsImg,
         VsLink,
-        VsRichTextWrapper,
-        VsBlogDetails,
+        VsBody,
+        VsArticleDetails,
         VsBadge,
     },
     props: {
@@ -151,7 +151,7 @@ export default {
             return [];
         },
         headingSize() {
-            return this.cardsPerRow === 3 ? 'heading-s' : 'heading-xs';
+            return this.cardsPerRow === 3 ? 'heading-xs' : 'heading-xxs';
         },
         truncateClass() {
             return this.cardType === 'split' ? 'truncate-2-lines' : 'truncate-3-lines';

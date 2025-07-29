@@ -2,7 +2,7 @@ import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import path from 'path';
 import dts from 'vite-plugin-dts';
-import { nodePolyfills } from 'vite-plugin-node-polyfills'
+import { nodePolyfills } from 'vite-plugin-node-polyfills';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, process.cwd(), '');
@@ -62,10 +62,11 @@ export default defineConfig(({ mode }) => {
             nodePolyfills(),
         ],
         build: {
-            cssCodeSplit: true,
+            cssCodeSplit: false,
             lib: {
                 entry: {
                     'vs-component-library': path.resolve(__dirname, 'src/component-entry.ts'),
+                    'vs-component-library-maps': path.resolve(__dirname, 'src/components/map-index.ts'),
                     fonts: path.resolve(__dirname, 'src/assets/fonts/fonts.scss'),
                     icons: path.resolve(__dirname, 'src/styles/third-party/_font-awesome.scss'),
                 },
@@ -75,9 +76,7 @@ export default defineConfig(({ mode }) => {
             rollupOptions: {
                 external: [
                     'vue',
-                    'bootstrap-vue-next',
                     'pinia',
-                    'mapbox-gl',
                 ],
                 output: {
                     dir: 'dist/components',

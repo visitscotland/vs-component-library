@@ -64,7 +64,6 @@ export default {
 .vs-footer-nav-list-item {
     list-style: none;
     font-size: $font-size-3;
-    line-height: $line-height-s;
     padding: $spacer-075 $spacer-200;
 
     .vs-link {

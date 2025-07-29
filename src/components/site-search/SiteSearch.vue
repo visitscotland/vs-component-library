@@ -3,7 +3,7 @@
         data-test="vs-site-search"
         class="vs-site-search"
         :class="isShowing ? 'vs-site-search--active' : ''"
-        icon="search"
+        icon="vs-icon-control-search"
         size="md"
         :animate="false"
         @click="toggleAction"

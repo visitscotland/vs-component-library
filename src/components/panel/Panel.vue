@@ -61,15 +61,6 @@ export default {
         text-align: center;
     }
 
-    .vs-panel__text {
-        @include media-breakpoint-down(sm) {
-            .vs-rich-text-wrapper--lead {
-                font-size: $font-size-4;
-                line-height: $line-height-m;
-            }
-        }
-    }
-
     .card-header {
         text-align: center;
         background: none;

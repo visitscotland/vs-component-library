@@ -24,10 +24,10 @@ export default `
                     {{ args.pageTitle }}
                 </template>
 
-                <template #vs-blog-data>
-                    <VsBlogDetails
-                        blog-publish-date="Last updated: May 10, 2023"
-                        blog-read-time="Reading time: 2 minutes"
+                <template #vs-article-data>
+                    <VsArticleDetails
+                        article-publish-date="Last updated: May 10, 2023"
+                        article-read-time="Reading time: 2 minutes"
                     />
                 </template>
 

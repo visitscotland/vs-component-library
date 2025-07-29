@@ -4,7 +4,7 @@ import VsHeading from '@/components/heading/Heading.vue';
 import VsImg from '@/components/img/Img.vue';
 import VsLink from '@/components/link/Link.vue';
 import VsButton from '@/components/button/Button.vue';
-import VsRichTextWrapper from '@/components/rich-text-wrapper/RichTextWrapper.vue';
+import VsBody from '@/components/body/Body.vue';
 
 export default {
     component: VsCardGroup,
@@ -22,7 +22,7 @@ const Template = (args) => ({
         VsImg,
         VsLink,
         VsButton,
-        VsRichTextWrapper,
+        VsBody,
     },
     setup() {
         const cards = [
@@ -95,9 +95,9 @@ const Template = (args) => ({
                     </VsLink>
                 </VsHeading>
 
-                <VsRichTextWrapper>
+                <VsBody>
                     {{ card.description }}
-                </VsRichTextWrapper>
+                </VsBody>
             </template>
         </VsCard>
     </VsCardGroup>

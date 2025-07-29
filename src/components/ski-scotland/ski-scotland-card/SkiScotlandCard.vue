@@ -89,9 +89,9 @@
                     <VsTableRow>
                         <VsTableDataCell>
                             <VsIcon
-                                name="tick"
+                                icon="fa-regular fa-check"
                                 size="xs"
-                                class="me-050"
+                                class="me-050 fa-fw"
                             />
                             <span data-test="vs-ski__open-label">
                                 {{ summaryOpenLabel }}
@@ -112,9 +112,9 @@
                     >
                         <VsTableDataCell>
                             <VsIcon
-                                name="ski-boot"
+                                icon="fa-regular fa-ski-boot-ski"
                                 size="xs"
-                                class="me-050"
+                                class="me-050 fa-fw"
                             />
                             <span data-test="vs-ski__limited-patrol-label">
                                 {{ summaryLimitedPatrolLabel }}
@@ -132,9 +132,9 @@
                     <VsTableRow>
                         <VsTableDataCell>
                             <VsIcon
-                                name="expected-open"
+                                icon="fa-regular fa-timer"
                                 size="xs"
-                                class="me-050"
+                                class="me-050 fa-fw"
                             />
                             <span data-test="vs-ski__opening-label">
                                 {{ summaryOpeningLabel }}
@@ -152,9 +152,9 @@
                     <VsTableRow>
                         <VsTableDataCell>
                             <VsIcon
-                                name="status-closed"
+                                icon="fa-regular fa-ban"
                                 size="xs"
-                                class="me-050"
+                                class="me-050 fa-fw"
                             />
                             <span data-test="vs-ski__closed-label">
                                 {{ summaryClosedLabel }}
@@ -174,9 +174,9 @@
                     >
                         <VsTableDataCell>
                             <VsIcon
-                                name="hourglass"
+                                icon="fa-regular fa-hourglass"
                                 size="xs"
-                                class="me-050"
+                                class="me-050 fa-fw"
                             />
                             <span data-test="vs-ski__on-hold-label">
                                 {{ summaryOnHoldLabel }}
@@ -585,10 +585,6 @@ export default {
         overflow: hidden;
         margin-bottom: $spacer-300;
         height: calc(100% - #{$spacer-300});
-
-        &::nth-last-child(-n + 3) {
-            margin-bottom: $spacer-0;
-        }
 
         .vs-ski-scotland-card__img-container {
             width: 100%;

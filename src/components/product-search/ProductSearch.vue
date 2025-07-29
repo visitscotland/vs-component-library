@@ -119,12 +119,6 @@ export default {
             color: $vs-color-text-inverse;
         }
 
-        &__heading {
-            @include media-breakpoint-up(sm) {
-                @include heading-style(heading-xl);
-            }
-        }
-
         &__col--left {
             background: $vs-color-background-accent-heather-80;
             margin-bottom: $spacer-300;

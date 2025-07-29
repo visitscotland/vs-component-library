@@ -1107,7 +1107,7 @@ export default {
         position: relative;
 
         &::after {
-            font-family: "Font Awesome Kit";
+            font-family: "Font Awesome 6 Pro";
             display: inline-block;
         }
 
@@ -1134,25 +1134,25 @@ export default {
         }
 
         &::after {
-            content: "\e028";
+            content: "\f31d";
         }
     }
 
     .mapboxgl-ctrl-shrink {
         &::after {
-            content: "\e01e";
+            content: "\e0a5";
         }
     }
 
     .mapboxgl-ctrl-zoom-in {
         &::after {
-            content: "\e062";
+            content: "\2b";
         }
     }
 
     .mapboxgl-ctrl-zoom-out {
         &::after {
-            content: "\e057";
+            content: "\f068";
         }
     }
 
@@ -1170,16 +1170,16 @@ export default {
     }
 
     &__popup-subtitle {
-        font-family: $font-family-base;
+        font-family: $vs-font-family-sans-serif;
         font-size: $font-size-4;
-        font-weight: $font-weight-bold;
+        font-weight: $vs-font-weight-medium;
         margin-bottom: $spacer-025;
     }
 
     &__popup-title {
-        font-family: $font-family-base;
+        font-family: $vs-font-family-sans-serif;
         font-size: $font-size-4;
-        font-weight: $font-weight-normal;
+        font-weight: $vs-font-weight-medium;
         margin-bottom: 0;
     }
 

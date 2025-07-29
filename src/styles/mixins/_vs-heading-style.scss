@@ -3,72 +3,63 @@
  */
 
 @mixin heading-style($style, $with-margins: true) {
-    // Extract properties from the map
+    // Extract base properties
     $size: map-get(
         map-get($heading-styles, $style), size
+    );
+    $size-md: map-get(
+        map-get($heading-styles, $style), breakpoint-md
     );
 
     // set the heading font size
     font-size: $size;
 
-    @if $with-margins  == true { 
-        // Extract properties from the map
-        $margin: map-get(
-            map-get($heading-styles, $style), margin
-        );
+    // Apply breakpoint-md font size if defined
+    @if $size-md {
+        @media (min-width: 768px) {
+            font-size: $size-md;
+        }
+    }
 
-        // set the heading margins
-        margin: $margin;
-    }    
+    // set margins if with-margins is true
+    @if $with-margins {
+        @include font-based-margins(1.4, 0.25);
+    }
 }
 
 $heading-styles: (
-    display-l: (
-        size: $display-l, 
-        margin: $spacer-100 0 $spacer-075,
-    ),
     display-m: (
-        size: $display-m, 
-        margin: $spacer-100 0 $spacer-075,
+        size: $vs-font-size-display-m,
     ),
     display-s: (
-        size: $display-s, 
-        margin: $spacer-100 0 $spacer-075,
-    ),
-    display-xs: (
-        size: $display-xs, 
-        margin: $spacer-100 0 $spacer-075,
-    ),
-    heading-xxl: (
-        size: $heading-xxl,
-        margin: $spacer-100 0 $spacer-075,
+        size: $vs-font-size-display-s,
+        breakpoint-md: $vs-font-size-display-m,
     ),
     heading-xl: (
-        size: $heading-xl, 
-        margin: $spacer-100 0 $spacer-075,
+        size: $vs-font-size-heading-xl,
     ),
     heading-l: (
-        size: $heading-l, 
-        margin: $spacer-100 0 $spacer-075,
+        size: $vs-font-size-heading-l,
+        breakpoint-md: $vs-font-size-heading-xl,
     ),
     heading-m: (
-        size: $heading-m, 
-        margin: $spacer-075 0 $spacer-050,
+        size: $vs-font-size-heading-m,
+        breakpoint-md: $vs-font-size-heading-l,
     ),
     heading-s: (
-        size: $heading-s, 
-        margin: $spacer-075 0 $spacer-050,
+        size: $vs-font-size-heading-s,
+        breakpoint-md: $vs-font-size-heading-m,
     ),
     heading-xs: (
-        size: $heading-xs, 
-        margin: $spacer-075 0 $spacer-050,
+        size: $vs-font-size-heading-xs,
+        breakpoint-md: $vs-font-size-heading-s,
     ),
     heading-xxs: (
-        size: $heading-xxs, 
-        margin: $spacer-075 0 $spacer-050,
+        size: $vs-font-size-heading-xxs,
+        breakpoint-md: $vs-font-size-heading-xs,
     ),
     heading-xxxs: (
-        size: $heading-xxxs, 
-        margin: $spacer-075 0 $spacer-050,
+        size: $vs-font-size-heading-xxxs,
+        breakpoint-md: $vs-font-size-heading-xxs,
     ),
 );

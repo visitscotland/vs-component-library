@@ -14,9 +14,9 @@
             <div class="vs-pagination__prev">
                 <VsButton
                     :disabled="modelValue === 1"
-                    icon="internal-link-back"
+                    icon="fa-regular fa-arrow-left"
                     size="sm"
-                    variant="transparent"
+                    variant="subtle"
                     @click="handleClick($event, modelValue - 1)"
                 >
                     {{ props.previousButtonLabel }}
@@ -46,10 +46,10 @@
             <div class="vs-pagination__next">
                 <VsButton
                     :disabled="modelValue === props.numberOfPages"
-                    icon="internal-link"
+                    icon="fa-regular fa-arrow-right"
                     icon-position="right"
                     size="sm"
-                    variant="transparent"
+                    variant="subtle"
                     @click="handleClick($event, modelValue + 1)"
                 >
                     {{ props.nextButtonLabel }}

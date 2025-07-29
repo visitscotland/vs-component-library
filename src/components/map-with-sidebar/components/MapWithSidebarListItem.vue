@@ -26,8 +26,8 @@
         </span>
 
         <VsIcon
-            name="internal-link"
-            variant="tertiary"
+            icon="fa-regular fa-arrow-right"
+            variant="highlight"
             size="xxs"
             class="vs-map-with-sidebar-list-item__icon"
         />
@@ -183,8 +183,8 @@ export default {
         border: none;
         font-size: $font-size-4;
         text-transform: none;
-        font-family: $font-family-base;
-        font-weight: $font-weight-bold;
+        font-family: $vs-font-family-sans-serif;
+        font-weight: $vs-font-weight-medium;
         padding: $spacer-025;
         min-height: 88px;
         border-bottom: 1px solid $vs-color-border-primary;

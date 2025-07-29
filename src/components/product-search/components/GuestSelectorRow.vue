@@ -66,8 +66,8 @@ const handleRemove = () => {
         <VsButton
             class="vs-guest-selector-row__remove"
             @click.prevent="handleRemove"
-            variant="transparent"
-            icon="close"
+            variant="subtle"
+            icon="vs-icon-control-dismiss"
             icon-size="sm"
             icon-position="left"
             icon-only
@@ -133,7 +133,7 @@ const handleRemove = () => {
         }
 
         &__title {
-            font-weight: $font-weight-bold;
+            font-weight: $vs-font-weight-medium;
             margin-bottom: $spacer-075;
         }
 

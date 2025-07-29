@@ -1,0 +1,65 @@
+props:
+    ## Color roles
+    - name: vs-color-icon-primary
+      value: "{!vs-basalt-90}"
+    - name: vs-color-icon-secondary
+      value: "{!vs-cloud-60}"
+    - name: vs-color-icon-inverse
+      value: "{!vs-snow-00}"
+    - name: vs-color-icon-cta-on-light
+      value: "{!vs-saltire-60}"
+    - name: vs-color-icon-highlight
+      value: "{!vs-bramble-60}"
+    - name: vs-color-icon-success
+      value: "{!vs-color-support-success}"
+    - name: vs-color-icon-warning
+      value: "{!vs-color-support-warning}"
+    - name: vs-color-icon-error
+      value: "{!vs-color-support-error}"
+    - name: vs-color-icon-disabled
+      value: "{!vs-cloud-40}"
+
+    ## Accents
+    - name: vs-color-icon-accent-saltire-30
+      value: "{!vs-saltire-30}"
+
+    ## SkiScotland colours
+    - name: vs-color-icon-ski-easy
+      value: "{!vs-glencoe-50}"
+    - name: vs-color-icon-ski-intermediate
+      value: "{!vs-saltire-70}"
+    - name: vs-color-icon-ski-difficult
+      value: "{!vs-cuillin-60}"
+    - name: vs-color-icon-ski-very-difficult
+      value: "{!vs-cloud-80}" 
+    - name: vs-color-icon-ski-itineraries
+      value: "{!vs-whisky-20}" 
+    - name: vs-color-icon-ski-other
+      value: "{!vs-heather-30}" 
+
+    ## Map accent colours 
+    ## (Deprecated - Do not use)
+    - name: vs-color-icon-accent-loch-ness
+      value: "{!vs-loch-ness}" 
+    - name: vs-color-icon-accent-grey-02
+      value: "{!vs-grey-02}"  
+    - name: vs-color-icon-accent-saltire
+      value: "{!vs-saltire}" 
+    - name: vs-color-icon-accent-bramble
+      value: "{!vs-bramble}"   
+    - name: vs-color-icon-accent-heather
+      value: "{!vs-heather}" 
+    - name: vs-color-icon-accent-whisky
+      value: "{!vs-whisky}"  
+    - name: vs-color-icon-accent-cranachan
+      value: "{!vs-cranachan}"
+    - name: vs-color-icon-accent-buachaille
+      value: "{!vs-buachaille}"
+  
+imports:
+  - ../../primitives/color/color-core.yml
+  - ../../primitives/color/color-primitives.yml
+  - ../../primitives/color/color-support-primitives.yml
+global:
+    type: color
+    category: color-icons

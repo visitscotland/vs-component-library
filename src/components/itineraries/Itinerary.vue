@@ -11,7 +11,7 @@
                 <VsButton
                     class="vs-itinerary__map-toggle-button"
                     @click="toggleShowMap()"
-                    :icon="showMap ? 'list' : 'map'"
+                    :icon="showMap ? 'fa-regular fa-list' : 'fa-regular fa-map'"
                     data-test="vs-itinerary-btn"
                 >
                     {{ showMap ? listViewText : mapViewText }}

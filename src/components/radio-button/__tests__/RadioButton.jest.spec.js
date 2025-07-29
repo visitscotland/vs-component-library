@@ -19,17 +19,17 @@ const factoryMount = (propsData) => mount(VsRadioButton, {
             {
                 text: 'I\'m already here',
                 value: 'noTravel',
-                icon: 'city',
+                icon: 'fa-regular fa-city',
             },
             {
                 text: 'Plane',
                 value: 'plane',
-                icon: 'plane',
+                icon: 'fa-regular fa-plane',
             },
             {
                 text: 'Car (Petrol)',
                 value: 'petrolCar',
-                icon: 'car',
+                icon: 'fa-regular fa-car-side',
             },
         ],
         ...propsData,
