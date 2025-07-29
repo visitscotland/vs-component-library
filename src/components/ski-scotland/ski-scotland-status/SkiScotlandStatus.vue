@@ -391,7 +391,7 @@
                         <VsAccordion>
                             <VsAccordionItem
                                 variant="transparent"
-                                :control-id="'accordion_item_' + level.name"
+                                :control-id="`accordion_item_${level.name}`"
                                 :colour-badge="level.colourToken"
                             >
                                 <template #title>
@@ -404,7 +404,7 @@
                                     </div>
                                 </template>
                                 <VsTable
-                                    :table-caption="level.colour + ' - ' + level.name"
+                                    :table-caption="`${level.colour} - ${level.name}`"
                                     class="vs-ski-scotland-status__run-status-table"
                                 >
                                     <VsTableHead>

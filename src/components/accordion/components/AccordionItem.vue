@@ -23,7 +23,7 @@
                 <div
                     class="vs-accordion-item__card-colour-badge"
                     data-test="vs-accordion-item__card-colour-badge"
-                    :style="'background-color: ' + colourBadge"
+                    :style="`background-color: ${colourBadge}`"
                     v-if="colourBadge"
                 />
                 <!-- @slot Put the title here  -->

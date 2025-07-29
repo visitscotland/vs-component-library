@@ -144,15 +144,18 @@ module.exports = {
     settings: {
         'import/resolver': {
             node: {
+                extensions: [
+                    '.js',
+                    '.ts',
+                    '.vue',
+                ],
             },
             webpack: {
                 config: './build/webpack.conf.js',
             },
-            'import/extensions': [
-                '.js',
-                '.vue',
-                '.ts',
-            ],
+            typescript: {
+
+            },
         },
     },
     overrides: [

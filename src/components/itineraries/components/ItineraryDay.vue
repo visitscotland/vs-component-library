@@ -7,7 +7,7 @@
                 <VsCol>
                     <VsAccordionItem
                         :open-by-default="show"
-                        :control-id="'itinerary-day-' + dayNumber"
+                        :control-id="`itinerary-day-${dayNumber}`"
                         variant="transparent"
                         item-break-point="lg"
                         class="vs-itinerary-day__list-item"
@@ -45,7 +45,7 @@
                             />
                         </template>
                         <div
-                            :id="'dayPanel_' + dayNumber"
+                            :id="`dayPanel_${dayNumber}`"
                             class="vs-itinerary-day__panel"
                         >
                             <div class="vs-itinerary-day__intro-content">

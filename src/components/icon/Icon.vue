@@ -7,7 +7,7 @@
             [`vs-icon--size-${size}`]: true,
             [`vs-icon--sm-size-${smallSize}`]: smallSize,
             [`vs-icon--${formattedName}`]: true,
-            ['icon--' + orientation]: orientation,
+            [`icon--${orientation}`]: orientation,
             [`vs-icon--variant-${variant}`]: variant,
             [`fa-duotone`]: duotone,
         }"
