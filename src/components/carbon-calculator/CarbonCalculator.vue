@@ -103,7 +103,7 @@
                         class="vs-form__submit mt-300"
                         @click="forwardPage()"
                     >
-                        {{ labelsMap['begin'] }}
+                        {{ labelsMap.begin }}
                     </VsButton>
                 </VsCol>
                 <VsCol
@@ -118,7 +118,7 @@
                         v-if="activeStage > 1"
                         @click="backwardPage()"
                     >
-                        {{ labelsMap['previous'] }}
+                        {{ labelsMap.previous }}
                     </VsButton>
 
                     <VsButton
@@ -130,7 +130,7 @@
                         :disabled="activeStage > 0 && !answerSet"
                         @click="forwardPage()"
                     >
-                        {{ labelsMap['next'] }}
+                        {{ labelsMap.next }}
                     </VsButton>
 
                     <VsButton
@@ -141,7 +141,7 @@
                         :disabled="!answerSet"
                         @click="forwardPage()"
                     >
-                        {{ labelsMap['results'] }}
+                        {{ labelsMap.results }}
                     </VsButton>
 
                     <VsButton
@@ -151,14 +151,14 @@
                         v-if="activeStage > formData.stages"
                         @click="restart()"
                     >
-                        {{ labelsMap['restart'] }}
+                        {{ labelsMap.restart }}
                     </VsButton>
                 </VsCol>
             </VsRow>
         </VsContainer>
 
         <VsWarning>
-            {{ labelsMap['noJsMessage'] }}
+            {{ labelsMap.noJsMessage }}
         </VsWarning>
     </div>
 </template>

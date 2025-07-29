@@ -50,7 +50,7 @@
                 <VsCannedSearchProductCard
                     v-for="(prod, index) in products"
                     :key="index"
-                    :slide-index="'' + index"
+                    :slide-index="`${index}`"
                     :img-src="prod.images ? prod.images[0].mediaUrl : ''"
                     :title="prod.name"
                     :detail-link="{

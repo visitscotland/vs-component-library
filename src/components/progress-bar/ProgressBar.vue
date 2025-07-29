@@ -10,7 +10,7 @@
         >
             <BProgressBar
                 :value="currentStep"
-                :aria-labelledBy="'progress-bar-' + compId"
+                :aria-labelledBy="`progress-bar-${compId}`"
             />
         </BProgress>
 
@@ -25,21 +25,21 @@
             >
                 <BProgressBar
                     :value="(index <= currentStep) ? 1 : 0"
-                    :aria-labelledBy="'progress-bar-' + compId"
+                    :aria-labelledBy="`progress-bar-${compId}`"
                 />
             </BProgress>
         </div>
 
         <p
             class="vs-progress-bar__label"
-            :id="'progress-bar-' + compId"
+            :id="`progress-bar-${compId}`"
             v-if="interpolProgressLabel"
         >
             {{ interpolProgressLabel }}
         </p>
         <p
             class="vs-progress-bar__label"
-            :id="'progress-bar-' + compId"
+            :id="`progress-bar-${compId}`"
             v-else
         >
             {{ currentStep }} / {{ max }}

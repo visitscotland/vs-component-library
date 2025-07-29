@@ -4,7 +4,6 @@ import VsAccordionToggle from '@/components/accordion/components/AccordionToggle
 import VsIcon from '@/components/icon/Icon.vue';
 import VsBody from '@/components/body/Body.vue';
 
-
 export default {
     component: VsAccordion,
     title: 'Accordion',

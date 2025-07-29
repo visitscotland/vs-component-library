@@ -2,14 +2,14 @@
     <li class="link-list-item">
         <VsLink
             :href="href"
-            :type="type == 'video' ? 'default' : type"
-            :role="type == 'video' ? 'button' : null"
+            :type="type === 'video' ? 'default' : type"
+            :role="type === 'video' ? 'button' : null"
             @click="emitShowModal"
         >
             <!-- @slot Slot for link list item text -->
             <slot />
             <template
-                v-if="type == 'video' && videoLoaded"
+                v-if="type === 'video' && videoLoaded"
             >
                 | {{ videoDescriptor }} {{ formattedVideoDuration }}
             </template>

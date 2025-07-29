@@ -4,7 +4,7 @@
         level="4"
         heading-style="heading-xxs"
         class="vs-canned-search-sub-heading"
-        :class="lineLimit ? 'vs-canned-search-sub-heading--lines-' + lineLimit : ''"
+        :class="lineLimit ? `vs-canned-search-sub-heading--lines-${lineLimit}` : ''"
         data-test="vs-canned-search-sub-heading"
     >
         {{ subHeading }}
