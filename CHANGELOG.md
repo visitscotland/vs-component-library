@@ -1,3 +1,10 @@
+## [5.0.3](https://github.com/visitscotland/vs-component-library/compare/v5.0.2...v5.0.3) (2025-07-29)
+
+
+### Bug Fixes
+
+* **lint:** address linting issues raised by dependabot update ([0b1ca62](https://github.com/visitscotland/vs-component-library/commit/0b1ca6231b8c57b459d6ce73aea28c413dae3f20))
+
 ## [5.0.2](https://github.com/visitscotland/vs-component-library/compare/v5.0.1...v5.0.2) (2025-07-22)
 
 
