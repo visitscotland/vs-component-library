@@ -1,4 +1,5 @@
 import VsHeroSection from '@/components/hero-section/HeroSection.vue';
+import VsSpotlightSection from '@/components/spotlight-section/SpotlightSection.vue';
 import VsMegalinks from '@/components/megalinks/Megalinks.vue';
 import VsMegalinkSingleImage from '@/components/megalinks/components/megalink-single-image/MegalinkSingleImage.vue';
 import VsMegalinkMultiImage from '@/components/megalinks/components/megalink-multi-image/MegalinkMultiImage.vue';
@@ -66,6 +67,7 @@ const createTemplate = (templateString) => (args) => ({
         VsModuleWrapper,
         VsBreadcrumb,
         VsBreadcrumbItem,
+        VsSpotlightSection,
     },
     setup() {
         const cardList1 = cardLayoutData.cardList1?.cards || [];

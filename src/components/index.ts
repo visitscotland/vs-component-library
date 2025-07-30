@@ -101,6 +101,7 @@ export { default as VsSkipTo } from './skip-to/SkipTo.vue';
 export { default as VsSocialCreditLink } from './social-credit-link/SocialCreditLink.vue';
 export { default as VsSocialShare } from './social-share/SocialShare.vue';
 export { default as VsSocialShareItem } from './social-share/components/SocialShareItem.vue';
+export { default as VsSpotlightSection } from './spotlight-section/SpotlightSection.vue';
 export { default as VsStretchedLinkCard } from './stretched-link-card/StretchedLinkCard.vue';
 export { default as VsStretchedLinkPanel } from './stretched-link-card/components/StretchedLinkPanels.vue';
 export { default as VsStyledList } from './styled-list/StyledList.vue';
