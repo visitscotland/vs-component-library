@@ -8,14 +8,11 @@ export default {
     title: 'SpotlightSection',
     argTypes: {
         compact: {
-            options: [true, false],
-            control: {
-                type: 'radio',
-            },
+            control: 'boolean',
         },
         heading: {
             control: {
-                type: 'input',
+                type: 'text',
             },
         },
 
