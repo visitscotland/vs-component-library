@@ -306,7 +306,7 @@ export default {
                 }
 
                 .card-body {
-                    left: $vs-spacer-0;;
+                    left: $vs-spacer-0;
                     right: auto;
                 }
             }
