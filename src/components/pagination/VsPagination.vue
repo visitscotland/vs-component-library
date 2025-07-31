@@ -249,7 +249,7 @@ watch(() => props.numberOfPages, () => {
         &--active .vs-button {
             background-color: $vs-color-interaction-cta-primary;
             color: $vs-color-text-inverse;
-            border-radius: $border-radius-pill;
+            border-radius: $vs-radius-circular;
             line-height: 1;
             padding: $vs-spacer-050 $vs-spacer-075;
         }

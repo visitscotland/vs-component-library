@@ -466,7 +466,7 @@ export default {
             display: inline-block;
             width: 10px;
             height: 10px;
-            border-radius: 5px;
+            border-radius: $vs-radius-circular;
             background: $vs-color-background-accent-heather-30;
             transform: translateY(2px);
             margin: 0 2px;
@@ -487,7 +487,7 @@ export default {
             &--active {
                 width: 14px;
                 height: 14px;
-                border-radius: 7px;
+                border-radius: $vs-radius-circular;
                 background: $vs-color-interaction-cta-primary;
                 transform: none;
                 cursor: default;

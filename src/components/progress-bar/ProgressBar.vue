@@ -161,7 +161,7 @@ export default {
             width: 100%;
             margin: $vs-spacer-050 $vs-spacer-0 $vs-spacer-050;
             background: $vs-color-background-secondary;
-            border-radius: $vs-spacer-050;
+            border-radius: $vs-radius-circular;
             overflow: hidden;
         }
 

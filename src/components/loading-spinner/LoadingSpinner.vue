@@ -87,7 +87,7 @@ export default {
                 transform: translateX(-50%);
                 width: $vs-spacer-025;
                 height: $vs-spacer-025;
-                border-radius: 50%;
+                border-radius: $vs-radius-circular;
                 background-color: $vs-color-background-highlight;
             }
         }

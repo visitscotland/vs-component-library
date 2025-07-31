@@ -90,12 +90,12 @@ export default {
 
                 &::-webkit-scrollbar-track {
                     background: #DEDBE6;
-                    border-radius: $border-radius-default;
+                    border-radius: $vs-radius-subtle;
                 }
 
                 &::-webkit-scrollbar-thumb {
                     background: #535396;
-                    border-radius: $border-radius-default;
+                    border-radius: $vs-radius-subtle;
                 }
 
                 .vs-card {

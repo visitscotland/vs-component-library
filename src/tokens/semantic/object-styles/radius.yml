@@ -1,0 +1,25 @@
+#
+# RADIUS TOKENS
+# Use these tokens to change border radius size.
+#
+
+props:
+  vs-radius-sharp:
+    value: "{!vs-size-0}"
+  vs-radius-subtle:
+    value: "{!vs-size-025}"
+  vs-radius-gentle:
+    value: "{!vs-size-050}"
+  vs-radius-soft:
+    value: "{!vs-size-075}"
+  vs-radius-extra-soft:
+    value: "{!vs-size-200}"
+  $vs-radius-extra-extra-soft:
+    value: "{!vs-size-400}"
+  vs-radius-circular:
+    value: "1000rem"
+imports:
+  - ../../primitives/size-primitives.yml
+global:
+  type: number
+  category: radius

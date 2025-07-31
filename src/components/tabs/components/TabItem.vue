@@ -110,7 +110,7 @@ export default {
         color: $vs-color-text-primary;
         border-width: 1px;
         border-color: $vs-color-border-primary;
-        border-radius: $border-radius-lg $border-radius-lg $vs-spacer-0 $vs-spacer-0;
+        border-radius: $vs-radius-subtle $vs-radius-subtle $vs-spacer-0 $vs-spacer-0;
         text-wrap: pretty;
         padding: $vs-spacer-075 $vs-spacer-075;
         transition: $duration-base all;

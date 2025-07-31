@@ -1027,7 +1027,7 @@ export default {
 
     &__message-box {
         border: 1px solid $vs-color-border-highlight;
-        border-radius: $border-radius-default;
+        border-radius: $vs-radius-subtle;
         height: 142px;
         width: 200px;
         background: $vs-color-background-inverse;
@@ -1077,7 +1077,7 @@ export default {
             height: 32px;
             font-size: $font-size-4;
             transition: $duration-base all;
-            border-radius: $border-radius-pill;
+            border-radius: $vs-radius-circular;
 
             &:focus {
                 @extend %primary-button-focus;

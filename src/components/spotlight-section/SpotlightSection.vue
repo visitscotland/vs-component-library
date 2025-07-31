@@ -140,7 +140,7 @@ export default {
         position: relative;
         background-color: $vs-color-background-information;
         color: $vs-color-text-inverse;
-        border-radius: 0.75rem;
+        border-radius: $vs-radius-soft;
         background-size: cover;
         background-position: center;
 
@@ -150,7 +150,7 @@ export default {
             width: 100%;
             display: grid;
             place-items: end;
-            border-radius: 0.75rem;
+            border-radius: $vs-radius-soft;
             padding: $vs-spacer-175 $vs-spacer-125;
             z-index: 1;
 
@@ -162,7 +162,7 @@ export default {
                 content: '';
                 position: absolute;
                 inset: 0;
-                border-radius: 0.75rem;
+                border-radius: $vs-radius-soft;
                 background:
                     linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%),
                     linear-gradient(270deg, rgba(0, 0, 0, 0) 30.29%, rgba(0, 0, 0, 0.5) 75%);

@@ -242,7 +242,7 @@ export default {
     .vs-accordion-item__card-colour-badge {
         width: $vs-spacer-075;
         height: $vs-spacer-075;
-        border-radius: $vs-spacer-025;
+        border-radius: $vs-radius-subtle;
         display: inline-block;
         margin-right: $vs-spacer-100;
     }

@@ -94,7 +94,7 @@
 
                 @include media-breakpoint-up(sm) {
                     border: 2px solid $vs-color-border-highlight;
-                    border-radius: $border-radius-pill;
+                    border-radius: $vs-radius-circular;
                     min-width: 80px;
                     text-align: center;
                     font-weight: $vs-font-weight-medium;
@@ -284,7 +284,7 @@
                     &.active{
                         background-color: $vs-color-interaction-cta-primary;
                         color: $vs-color-text-inverse;
-                        border-radius: $border-radius-pill;
+                        border-radius: $vs-radius-circular;
                         line-height: 1;
                         padding: 0.34rem 0.58rem;
                     }
@@ -358,7 +358,7 @@
             border-right-color: transparent;
             border-style: solid;
             border-width: 4px;
-            border-radius: 50%;  
+            border-radius: $vs-radius-circular;  
             box-sizing: border-box;
             display: block;
             margin: $vs-spacer-100 auto;

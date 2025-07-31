@@ -265,7 +265,7 @@ export default {
             width: 100%;
             cursor: pointer;
             height: 50px;
-            border-radius: 0;
+            border-radius: $vs-radius-sharp;
 
             &::after {
                 font-family: "Font Awesome 6 Pro";
