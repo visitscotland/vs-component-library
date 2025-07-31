@@ -149,7 +149,7 @@ export default {
     display: block;
 
     .modal-dialog {
-        margin: $spacer-200 auto;
+        margin: $vs-spacer-200 auto;
         z-index: 1100;
 
         @include media-breakpoint-up(sm) {
@@ -159,10 +159,10 @@ export default {
     }
 
     .modal-body {
-        padding: $spacer-125 $spacer-0;
+        padding: $vs-spacer-125 $vs-spacer-0;
 
         @include media-breakpoint-up(sm) {
-            padding: $spacer-125 $spacer-050;
+            padding: $vs-spacer-125 $vs-spacer-050;
         }
 
         .vs-video {

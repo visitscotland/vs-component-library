@@ -59,7 +59,7 @@ export default {
 <style lang="scss">
     .vs-canned-search-tour-departs {
         font-size: $font-size-4;
-        margin-bottom: $spacer-025;
+        margin-bottom: $vs-spacer-025;
 
         @include truncate-text(2);
 

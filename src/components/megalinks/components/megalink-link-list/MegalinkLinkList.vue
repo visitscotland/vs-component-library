@@ -214,7 +214,7 @@ export default {
 <style lang="scss">
     .vs-megalink-link-list {
         border: none;
-        padding: $spacer-050 0 $spacer-075;
+        padding: $vs-spacer-050 0 $vs-spacer-075;
         position: relative;
         height: 100%;
         width: 100%;
@@ -231,7 +231,7 @@ export default {
         .vs-megalink-link-list__wrapper.card {
             display: flex;
             flex-direction: row;
-            padding: $spacer-050;
+            padding: $vs-spacer-050;
             border: none;
             height: 100%;
             background: transparent;
@@ -249,7 +249,7 @@ export default {
             }
 
             .vs-stretched-link-card__video-button {
-                bottom: $spacer-0;
+                bottom: $vs-spacer-0;
                 z-index: 2;
             }
 
@@ -263,7 +263,7 @@ export default {
                 position: initial !important;
 
                 @include media-breakpoint-up(xl) {
-                    padding-bottom: $spacer-125;
+                    padding-bottom: $vs-spacer-125;
                 }
 
                 @include media-breakpoint-up(sm) {
@@ -275,7 +275,7 @@ export default {
                 width: 50%;
                 max-width: 50%;
                 align-self: flex-start;
-                margin-right: $spacer-100;
+                margin-right: $vs-spacer-100;
 
                 @include media-breakpoint-up(sm) {
                     width: 33%;
@@ -283,7 +283,7 @@ export default {
                 }
 
                 @include media-breakpoint-up(xl) {
-                    padding-bottom: $spacer-0;
+                    padding-bottom: $vs-spacer-0;
                 }
 
                 &--warning-full {
@@ -326,7 +326,7 @@ export default {
             .vs-megalink-link-list__wrapper.card {
 
                 .vs-megalink-link-list__content {
-                    margin: $spacer-050 0 0;
+                    margin: $vs-spacer-050 0 0;
                     display: block;
 
                     p {
@@ -350,9 +350,9 @@ export default {
         }
 
         .vs-stretched-link-panels {
-            width: calc(33% - #{$spacer-050});
+            width: calc(33% - #{$vs-spacer-050});
             right: auto;
-            left: $spacer-050;
+            left: $vs-spacer-050;
             justify-content: flex-end;
 
             &__panel {
@@ -362,7 +362,7 @@ export default {
 
                 &--days {
                     display: flex;
-                    margin-right: $spacer-050;
+                    margin-right: $vs-spacer-050;
                 }
             }
 
@@ -379,7 +379,7 @@ export default {
 
                 &__days {
                     font-size: $font-size-6;
-                    margin-bottom: $spacer-025;
+                    margin-bottom: $vs-spacer-025;
                 }
             }
         }

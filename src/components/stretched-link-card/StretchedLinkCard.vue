@@ -551,7 +551,7 @@ export default {
         }
 
         .card-body{
-            padding: $spacer-050 0;
+            padding: $vs-spacer-050 0;
             width: 100%;
         }
 
@@ -590,11 +590,11 @@ export default {
         .vs-stretched-link-card__category {
             font-size: $font-size-3;
             color: $vs-color-text-tertiary;
-            margin-bottom: $spacer-100;
+            margin-bottom: $vs-spacer-100;
         }
 
         .vs-stretched-link-card__content {
-            margin-top: $spacer-050;
+            margin-top: $vs-spacer-050;
             font-size: $font-size-teaser;
             text-align: left;
 
@@ -605,19 +605,19 @@ export default {
 
         .vs-stretched-link-card__panels {
             position: absolute;
-            top: $spacer-025;
-            right: $spacer-025;
+            top: $vs-spacer-025;
+            right: $vs-spacer-025;
             display: flex;
             flex-direction: row;
 
             @include media-breakpoint-up(sm) {
-                top: $spacer-050;
-                right: $spacer-050;
+                top: $vs-spacer-050;
+                right: $vs-spacer-050;
             }
         }
 
         .vs-stretched-link-card__link {
-            margin: $spacer-100 $spacer-0 $spacer-0;
+            margin: $vs-spacer-100 $vs-spacer-0 $vs-spacer-0;
             color: $vs-color-interaction-link-primary;
             text-decoration: underline;
         }
@@ -629,7 +629,7 @@ export default {
         }
 
         .vs-stretched-link-card__video-btn-text {
-            padding-right: $spacer-025;
+            padding-right: $vs-spacer-025;
         }
 
         .vs-stretched-link-card__full-warning {
@@ -653,7 +653,7 @@ export default {
         }
 
         .vs-stretched-link-card__badges {
-            margin-top: $spacer-050;
+            margin-top: $vs-spacer-050;
         }
     }
 

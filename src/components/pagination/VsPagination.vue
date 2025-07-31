@@ -215,7 +215,7 @@ watch(() => props.numberOfPages, () => {
         display: flex;
         flex-direction: row;
         list-style: none;
-        padding-left: $spacer-0;
+        padding-left: $vs-spacer-0;
 
         @include media-breakpoint-down(md) {
             display: none;
@@ -223,10 +223,10 @@ watch(() => props.numberOfPages, () => {
     }
 
     &__item {
-        margin-right: $spacer-050;
+        margin-right: $vs-spacer-050;
 
         &:first-child {
-            margin-left: $spacer-050;
+            margin-left: $vs-spacer-050;
         }
 
         .vs-button {
@@ -235,7 +235,7 @@ watch(() => props.numberOfPages, () => {
                 $vs-color-text-primary, $vs-color-background-inverse, $vs-color-border-inverse,
                 $vs-color-text-inverse, $vs-color-interaction-cta-primary, $vs-color-border-inverse,
             );
-            padding: $spacer-025 $spacer-075;
+            padding: $vs-spacer-025 $vs-spacer-075;
 
             &:hover {
                 text-decoration: underline;
@@ -251,7 +251,7 @@ watch(() => props.numberOfPages, () => {
             color: $vs-color-text-inverse;
             border-radius: $border-radius-pill;
             line-height: 1;
-            padding: $spacer-050 $spacer-075;
+            padding: $vs-spacer-050 $vs-spacer-075;
         }
 
         &--ellipses {
@@ -263,7 +263,7 @@ watch(() => props.numberOfPages, () => {
     &__prev .vs-button,
     &__next .vs-button {
         border: none;
-        margin-top: $spacer-025;
+        margin-top: $vs-spacer-025;
 
         &.disabled {
             background-color: $vs-color-background-inverse !important;

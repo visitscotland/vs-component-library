@@ -199,7 +199,7 @@ export default {
 
 <style lang="scss">
     .vs-megalinks {
-        padding: $spacer-300 0 $spacer-300;
+        padding: $vs-spacer-300 0 $vs-spacer-300;
 
         // make panels in a row equal height
         .row {
@@ -210,10 +210,10 @@ export default {
         .vs-megalinks__intro {
             width: 100%;
             text-align: center;
-            margin-bottom: $spacer-200;
+            margin-bottom: $vs-spacer-200;
 
             p:first-of-type {
-                margin-top: $spacer-150;
+                margin-top: $vs-spacer-150;
             }
 
             p:last-of-type {
@@ -234,29 +234,29 @@ export default {
             padding-bottom: 0;
 
             .vs-megalinks__button {
-                margin-bottom: $spacer-300;
+                margin-bottom: $vs-spacer-300;
             }
         }
 
         &--link-list {
             .vs-megalinks__button {
-                margin-top: $spacer-200;
+                margin-top: $vs-spacer-200;
             }
         }
 
         @include media-breakpoint-up(lg) {
-            padding: $spacer-600 0 $spacer-600;
+            padding: $vs-spacer-600 0 $vs-spacer-600;
 
             .vs-megalinks__intro {
                 text-align: center;
-                margin-bottom: $spacer-300;
+                margin-bottom: $vs-spacer-300;
             }
 
             &--multi-image {
-                padding-bottom: $spacer-200;
+                padding-bottom: $vs-spacer-200;
 
                 .vs-megalinks__button {
-                    margin-bottom: $spacer-400;
+                    margin-bottom: $vs-spacer-400;
                 }
             }
 

@@ -326,10 +326,10 @@ export default {
             }
 
             .popover-body {
-                padding: $spacer-200 $spacer-050;
+                padding: $vs-spacer-200 $vs-spacer-050;
 
                 @include media-breakpoint-only(sm) {
-                    padding: $spacer-100 $spacer-175 $spacer-200;
+                    padding: $vs-spacer-100 $vs-spacer-175 $vs-spacer-200;
 
                     .row {
                         margin-right: -4px;
@@ -343,15 +343,15 @@ export default {
                 }
 
                 @include media-breakpoint-up(md) {
-                    padding: $spacer-300;
+                    padding: $vs-spacer-300;
                 }
 
                 @include media-breakpoint-up(xl) {
-                    padding: $spacer-300 $spacer-600;
+                    padding: $vs-spacer-300 $vs-spacer-600;
                 }
 
                 h3.vs-heading {
-                    margin-bottom: $spacer-300;
+                    margin-bottom: $vs-spacer-300;
                 }
             }
         }
@@ -364,8 +364,8 @@ export default {
 
         &__close-btn {
             position: absolute;
-            right: $spacer-100;
-            top: $spacer-100;
+            right: $vs-spacer-100;
+            top: $vs-spacer-100;
         }
     }
 

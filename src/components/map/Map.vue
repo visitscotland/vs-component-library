@@ -995,7 +995,7 @@ export default {
 @import "../../styles/_os-branding.scss";
 
 .os-api-branding.logo {
-    margin: $spacer-050;
+    margin: $vs-spacer-050;
 }
 
 .vs-map {
@@ -1035,11 +1035,11 @@ export default {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: $spacer-150;
+        padding: $vs-spacer-150;
     }
 
     &__loading {
-        margin-bottom: $spacer-100;
+        margin-bottom: $vs-spacer-100;
     }
 
     &__message-text {
@@ -1053,7 +1053,7 @@ export default {
     }
 
     .mapboxgl-ctrl-top-right .mapboxgl-ctrl {
-        margin: $spacer-050;
+        margin: $vs-spacer-050;
 
         & > button {
             border: 2px solid $vs-color-interaction-cta-primary;
@@ -1095,7 +1095,7 @@ export default {
             );
 
             &.mapboxgl-ctrl-zoom-in {
-                margin-bottom: $spacer-050;
+                margin-bottom: $vs-spacer-050;
             }
         }
     }
@@ -1165,7 +1165,7 @@ export default {
 
         &-content {
             display: flex;
-            padding: $spacer-050;
+            padding: $vs-spacer-050;
         }
     }
 
@@ -1173,7 +1173,7 @@ export default {
         font-family: $vs-font-family-sans-serif;
         font-size: $font-size-4;
         font-weight: $vs-font-weight-medium;
-        margin-bottom: $spacer-025;
+        margin-bottom: $vs-spacer-025;
     }
 
     &__popup-title {
@@ -1185,7 +1185,7 @@ export default {
 
     &__popup-image {
         width: 105px;
-        margin-right: $spacer-050;
+        margin-right: $vs-spacer-050;
     }
 }
 

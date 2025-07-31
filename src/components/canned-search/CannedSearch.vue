@@ -447,10 +447,10 @@ export default {
     }
 
     .vs-canned-search__buttons {
-        margin-bottom: $spacer-300;
+        margin-bottom: $vs-spacer-300;
 
         .vs-button {
-            margin: $spacer-0 $spacer-050 $spacer-050;
+            margin: $vs-spacer-0 $vs-spacer-050 $vs-spacer-050;
         }
     }
 

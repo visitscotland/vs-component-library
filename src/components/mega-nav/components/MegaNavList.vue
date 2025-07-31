@@ -74,17 +74,17 @@ export default {
     width: 100%;
 
     @include media-breakpoint-up(lg) {
-        margin: 0 $spacer-150 $spacer-100 0;
+        margin: 0 $vs-spacer-150 $vs-spacer-100 0;
         width: 23%;
     }
 
     @include media-breakpoint-up(xl) {
-        margin-right: $spacer-300;
+        margin-right: $vs-spacer-300;
         width: 21.8%;
     }
 
     @include media-breakpoint-up(xxl) {
-        margin-right: $spacer-400;
+        margin-right: $vs-spacer-400;
         width: 21.3%;
     }
 
@@ -99,8 +99,8 @@ export default {
 
     .vs-heading.vs-mega-nav-list__heading {
         display: none;
-        padding: $spacer-025 $spacer-100;
-        margin: 0 0 $spacer-025;
+        padding: $vs-spacer-025 $vs-spacer-100;
+        margin: 0 0 $vs-spacer-025;
         border-bottom: 1px solid $vs-color-border-primary;
 
         @include media-breakpoint-up(lg) {
@@ -112,7 +112,7 @@ export default {
 @include no-js {
     .vs-mega-nav-list {
         width: 100%;
-        margin: 0 $spacer-150 $spacer-100 0;
+        margin: 0 $vs-spacer-150 $vs-spacer-100 0;
 
         @include media-breakpoint-up(sm) {
             width: 50%;

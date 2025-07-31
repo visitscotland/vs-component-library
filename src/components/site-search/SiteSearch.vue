@@ -80,7 +80,7 @@ export default {
     }
 
     &.vs-button.btn-md{
-        padding: $spacer-050;
+        padding: $vs-spacer-050;
     }
 
     @include media-breakpoint-down(xxl) {
@@ -101,11 +101,11 @@ export default {
         height: 48px;
 
         .vs-icon{
-            margin-right: $spacer-0;
+            margin-right: $vs-spacer-0;
         }
 
         &.vs-button.btn-md{
-            padding: $spacer-075;
+            padding: $vs-spacer-075;
         }
 
         span.visually-hidden-xxl-down {
@@ -115,7 +115,7 @@ export default {
 
     @include media-breakpoint-up(xxl) {
         .vs-icon {
-            margin-right: $spacer-050;
+            margin-right: $vs-spacer-050;
         }
     }
 }

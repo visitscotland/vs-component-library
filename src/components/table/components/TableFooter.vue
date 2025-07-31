@@ -32,7 +32,7 @@ export default {
             td{
                 font-size: $font-size-3;
                 color: $vs-color-text-secondary;
-                padding: $spacer-050 $spacer-025;
+                padding: $vs-spacer-050 $vs-spacer-025;
             }
         }
     }

@@ -363,13 +363,13 @@ export default {
 .vs-number-input {
     @include form-element-styles;
     display: inline-block;
-    width: $spacer-400;
+    width: $vs-spacer-400;
     text-align: center;
-    margin-top: $spacer-050;
-    margin-left: $spacer-100;
-    margin-right: $spacer-100;
+    margin-top: $vs-spacer-050;
+    margin-left: $vs-spacer-100;
+    margin-right: $vs-spacer-100;
     font-size: $font-size-lead-md;
-    padding: $spacer-050 $spacer-075;
+    padding: $vs-spacer-050 $vs-spacer-075;
 
     &.form-control-md {
         height: 50px;
@@ -385,7 +385,7 @@ export default {
 
     &__clear-button {
         position: absolute;
-        right: $spacer-125;
+        right: $vs-spacer-125;
         top: 50%;
         transform: translate(0, -50%);
     }
@@ -396,8 +396,8 @@ export default {
     }
 
     &__increment {
-        width: $spacer-175;
-        height: $spacer-175;
+        width: $vs-spacer-175;
+        height: $vs-spacer-175;
     }
 }
 </style>
