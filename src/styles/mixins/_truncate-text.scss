@@ -1,7 +1,7 @@
 @mixin truncate-text($line-count) {
     text-overflow: ellipsis;
     overflow: hidden;
-    display: -webkit-box !important;
+    display: -webkit-box;
     -webkit-box-orient: vertical;
     white-space: normal;
     -webkit-line-clamp: $line-count;

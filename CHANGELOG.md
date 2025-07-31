@@ -1,3 +1,13 @@
+# [5.1.0](https://github.com/visitscotland/vs-component-library/compare/v5.0.3...v5.1.0) (2025-07-30)
+
+
+### Features
+
+* **navigation page:** update navigation page pattern to remove featured card ([f68aae9](https://github.com/visitscotland/vs-component-library/commit/f68aae9a163de376c634c7d63a9fc2d54be2e92c))
+* **spotlight section:** add new spotlight section component to component index ([3fbaf5c](https://github.com/visitscotland/vs-component-library/commit/3fbaf5c5e188c7612aab58dc68af5885028242a1))
+* **spotlight section:** update spotlight section and add to nav page pattern ([b8d45df](https://github.com/visitscotland/vs-component-library/commit/b8d45df5520890783f34c5885810ee8f16c67003))
+* **spotlightsection:** add new spotlight section component ([ba0d6db](https://github.com/visitscotland/vs-component-library/commit/ba0d6db9d8cd373c5264fe0bea2f8b691637a0e4))
+
 ## [5.0.3](https://github.com/visitscotland/vs-component-library/compare/v5.0.2...v5.0.3) (2025-07-29)
 
 
