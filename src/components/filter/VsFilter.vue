@@ -100,7 +100,7 @@ defineExpose({
     &__panel {
         background-color: $vs-color-background-primary;
         border: solid 1px $vs-color-border-secondary;
-        border-radius: $border-radius-default;
+        border-radius: $vs-radius-subtle;
         overflow: auto;
     }
 
@@ -111,9 +111,9 @@ defineExpose({
         display: flex;
         font-size: $font-size-6;
         font-weight: $vs-font-weight-medium;
-        gap: $spacer-050;
-        margin-bottom: $spacer-0;
-        padding: $spacer-075 $spacer-125;
+        gap: $vs-spacer-050;
+        margin-bottom: $vs-spacer-0;
+        padding: $vs-spacer-075 $vs-spacer-125;
     }
 }
 

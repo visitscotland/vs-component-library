@@ -64,7 +64,7 @@ export default {
 .vs-footer-nav-list-item {
     list-style: none;
     font-size: $font-size-3;
-    padding: $spacer-075 $spacer-200;
+    padding: $vs-spacer-075 $vs-spacer-200;
 
     .vs-link {
         &--variant-on-dark {
@@ -82,10 +82,10 @@ export default {
     }
 
     @include media-breakpoint-up(md) {
-        padding: $spacer-050 0;
+        padding: $vs-spacer-050 0;
 
         &:last-child {
-            padding-bottom: $spacer-025;
+            padding-bottom: $vs-spacer-025;
         }
     }
 }

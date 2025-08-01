@@ -49,11 +49,11 @@ export default {
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        padding: $spacer-100 $spacer-075;
+        padding: $vs-spacer-100 $vs-spacer-075;
         min-height: 2.5rem;
 
         @include media-breakpoint-up(lg) {
-            min-height: $spacer-300;
+            min-height: $vs-spacer-300;
         }
     }
 
@@ -66,7 +66,7 @@ export default {
     .vs-alert__content {
         display: flex;
         align-items: center;
-        padding: $spacer-075;
+        padding: $vs-spacer-075;
         background-color: $vs-color-background-information;
         border: 1px solid $vs-color-border-highlight;
         min-height: 100%;

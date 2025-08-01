@@ -291,7 +291,7 @@ export default {
 
     .vs-radio-button {
         width: 100%;
-        margin: -#{$spacer-075} $spacer-0;
+        margin: -#{$vs-spacer-075} $vs-spacer-0;
 
         .vs-radio-button__option {
             display: inline-block;
@@ -299,20 +299,20 @@ export default {
             cursor: pointer;
             box-sizing: border-box;
             background-color: $vs-color-interaction-cta-secondary;
-            padding: $spacer-075 $spacer-0;
+            padding: $vs-spacer-075 $vs-spacer-0;
             width: 100%;
             font-size: $font-size-4;
 
             @include media-breakpoint-up(md) {
-                padding: $spacer-075;
+                padding: $vs-spacer-075;
                 width: 50%;
 
                 &:nth-of-type(odd) {
-                    padding-left: $spacer-0;
+                    padding-left: $vs-spacer-0;
                 }
 
                 &:nth-of-type(even) {
-                    padding-right: $spacer-0;
+                    padding-right: $vs-spacer-0;
                 }
             }
 
@@ -333,25 +333,25 @@ export default {
                 label {
                     width: 100%;
                     transform: translateY(-2px);
-                    padding: $spacer-050 $spacer-100;
+                    padding: $vs-spacer-050 $vs-spacer-100;
                     font-weight: normal;
 
                     span {
                         display: inline-block;
-                        width: calc(100% - #{$spacer-300});
+                        width: calc(100% - #{$vs-spacer-300});
                     }
 
                     &::before {
                         content: "";
                         display: inline-block;
                         vertical-align: middle;
-                        width: $spacer-150;
-                        height: $spacer-150;
+                        width: $vs-spacer-150;
+                        height: $vs-spacer-150;
                         outline: 2px solid $vs-color-interaction-cta-primary;
-                        border-radius: 50%;
+                        border-radius: $vs-radius-circular;
                         vertical-align: baseline;
                         transform: translateY(6px);
-                        margin-right: $spacer-100;
+                        margin-right: $vs-spacer-100;
                         background-color: $vs-color-background-inverse;
                     }
                 }
@@ -388,7 +388,7 @@ export default {
 
                     label {
                         &::before {
-                            border: $spacer-025 solid $vs-color-interaction-cta-subtle-pressed;
+                            border: $vs-spacer-025 solid $vs-color-interaction-cta-subtle-pressed;
                             background-color: $vs-color-interaction-cta-secondary;
                             outline: 2px solid $vs-color-interaction-cta-secondary;
                         }
@@ -432,7 +432,7 @@ export default {
         }
 
         .hint-text {
-            margin-top: $spacer-050;
+            margin-top: $vs-spacer-050;
         }
     }
 </style>

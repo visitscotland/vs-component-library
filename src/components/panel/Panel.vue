@@ -38,22 +38,22 @@ export default {
 .vs-panel.card {
     background-color: $vs-color-background-information;
     border-color: $vs-color-border-primary;
-    padding: $spacer-300 $spacer-100 $spacer-300;
+    padding: $vs-spacer-300 $vs-spacer-100 $vs-spacer-300;
 
     .card-body {
-        padding: $spacer-125;
+        padding: $vs-spacer-125;
     }
 
     @include media-breakpoint-up(md) {
-        padding: $spacer-300 $spacer-200 $spacer-400;
+        padding: $vs-spacer-300 $vs-spacer-200 $vs-spacer-400;
     }
 
     @include media-breakpoint-up(lg) {
-        padding: $spacer-300 $spacer-500 $spacer-400;
+        padding: $vs-spacer-300 $vs-spacer-500 $vs-spacer-400;
     }
 
     @include media-breakpoint-up(xxl) {
-        padding: $spacer-300 $spacer-600 $spacer-400;
+        padding: $vs-spacer-300 $vs-spacer-600 $vs-spacer-400;
     }
 
     .vs-panel__title {

@@ -58,7 +58,7 @@ const props = defineProps({
 
     &--icon {
         .vs-styled-list__list {
-            padding: 0 $spacer-050;
+            padding: 0 $vs-spacer-050;
         }
     }
 
@@ -78,14 +78,14 @@ const props = defineProps({
 
         &__source {
             font-size: $font-size-3;
-            margin-top: $spacer-300;
+            margin-top: $vs-spacer-300;
         }
     }
 
     &--numbered {
         .vs-styled-list__list {
             @include media-breakpoint-up(md) {
-                margin-left: $spacer-200;
+                margin-left: $vs-spacer-200;
             }
         }
     }

@@ -3,7 +3,7 @@
 .cludo-search-results {
     &__search-result-count{
         font-size: $font-size-5;
-        margin-bottom: $spacer-050;
+        margin-bottom: $vs-spacer-050;
 
         @include media-breakpoint-up(md) {
             font-size: $font-size-7;
@@ -15,7 +15,7 @@
     }
 
     &__facets{
-        padding: $spacer-125 0 0;
+        padding: $vs-spacer-125 0 0;
 
         ul.search-filter-container{
             padding: 0;
@@ -25,7 +25,7 @@
         .cludo-facet__header-mobile{
             @extend %button-default-styles;
             width: 100%;
-            padding: $spacer-075 $spacer-200;
+            padding: $vs-spacer-075 $vs-spacer-200;
             border: 2px solid $vs-color-interaction-cta-primary;
 
             @include vs-button-variant(
@@ -41,7 +41,7 @@
                 color: $vs-color-icon-inverse;
                 border: 0;
                 vertical-align: bottom;
-                margin-left: $spacer-025;
+                margin-left: $vs-spacer-025;
             }
 
             &:focus {
@@ -57,7 +57,7 @@
     }
 
     ul.search-filter-container{
-        padding: $spacer-050 0;
+        padding: $vs-spacer-050 0;
         margin: 0.125rem 0 0;
         list-style: none;
         background-color: $vs-color-background-inverse;
@@ -75,7 +75,7 @@
         .facet-list-item{
             @include media-breakpoint-up(sm) {
                 display: inline-block;
-                margin: 0 $spacer-075 $spacer-100 0;
+                margin: 0 $vs-spacer-075 $vs-spacer-100 0;
             }
 
             a{
@@ -85,7 +85,7 @@
                 text-decoration: none;
                 color: $vs-color-text-primary;
                 transition: all .2s;      
-                padding: $spacer-050 $spacer-075;
+                padding: $vs-spacer-050 $vs-spacer-075;
 
                 &:focus {
                     outline: 0px;
@@ -94,11 +94,11 @@
 
                 @include media-breakpoint-up(sm) {
                     border: 2px solid $vs-color-border-highlight;
-                    border-radius: $border-radius-pill;
+                    border-radius: $vs-radius-circular;
                     min-width: 80px;
                     text-align: center;
                     font-weight: $vs-font-weight-medium;
-                    padding: $spacer-025 $spacer-075;
+                    padding: $vs-spacer-025 $vs-spacer-075;
 
                     @include vs-button-variant(
                         $vs-color-text-highlight, $vs-color-background-inverse, $vs-color-border-highlight,
@@ -133,20 +133,20 @@
 
     &__results{
         ul{ 
-            margin: 0 0 $spacer-200;
+            margin: 0 0 $vs-spacer-200;
             padding: 0;
             list-style: none;
 
             @include media-breakpoint-up(md) {
-                margin-bottom: $spacer-300;
+                margin-bottom: $vs-spacer-300;
             }
 
             .search-results-item{
                 position: relative;
-                padding: $spacer-075 0;
+                padding: $vs-spacer-075 0;
 
                 @include media-breakpoint-up(sm) {
-                    padding: $spacer-150 0;
+                    padding: $vs-spacer-150 0;
                 }
 
                 .search-result-card{
@@ -154,7 +154,7 @@
                     flex-direction: row;
                     height: 100%;
                     background: transparent;
-                    padding: $spacer-050;
+                    padding: $vs-spacer-050;
 
                     &:after{
                         content: "";
@@ -168,14 +168,14 @@
                         width: 30%;
                         max-width: 30%;
                         align-self: flex-start;
-                        margin-right: $spacer-200;
+                        margin-right: $vs-spacer-200;
 
                         @include media-breakpoint-up(md) {
                             display: block;
                         }
 
                         @include media-breakpoint-up(lg) {
-                            margin-right: $spacer-300;
+                            margin-right: $vs-spacer-300;
                         }
     
                         img{
@@ -198,11 +198,11 @@
                             line-height: $vs-line-height-heading;
                             font-weight: $vs-font-weight-heading;
                             margin-top: 0;
-                            margin-bottom: $spacer-075;
+                            margin-bottom: $vs-spacer-075;
 
                             @include media-breakpoint-up(xl) {
-                                margin-top: $spacer-100;
-                                margin-bottom: $spacer-150;
+                                margin-top: $vs-spacer-100;
+                                margin-bottom: $vs-spacer-150;
                             }
 
                             &:after {
@@ -219,7 +219,7 @@
                             margin-bottom: 0;
 
                             @include media-breakpoint-up(xl) {
-                                margin-bottom: $spacer-100;
+                                margin-bottom: $vs-spacer-100;
                             }
                         }
     
@@ -256,13 +256,13 @@
         nav{
             text-align: center;
             font-size: $font-size-4;
-            padding-top: $spacer-100;
+            padding-top: $vs-spacer-100;
 
             .Page-counter{
-                margin-bottom: $spacer-050;
+                margin-bottom: $vs-spacer-050;
 
                 span{
-                    margin-right: $spacer-050;
+                    margin-right: $vs-spacer-050;
                 }
 
                 @include media-breakpoint-up(sm) {
@@ -278,13 +278,13 @@
 
                     @include media-breakpoint-up(sm) {
                         display: inline-block;
-                        margin-right: $spacer-050;
+                        margin-right: $vs-spacer-050;
                     }
 
                     &.active{
                         background-color: $vs-color-interaction-cta-primary;
                         color: $vs-color-text-inverse;
-                        border-radius: $border-radius-pill;
+                        border-radius: $vs-radius-circular;
                         line-height: 1;
                         padding: 0.34rem 0.58rem;
                     }
@@ -293,7 +293,7 @@
                         color: $vs-color-text-primary;
                         text-decoration: none;
                         display: block;
-                        padding: $spacer-025 $spacer-075;
+                        padding: $vs-spacer-025 $vs-spacer-075;
 
                         &:hover{
                             text-decoration: underline;
@@ -318,7 +318,7 @@
                         float: right;
 
                         a:after{
-                            margin-left: $spacer-050;
+                            margin-left: $vs-spacer-050;
                         }
                     }
 
@@ -326,7 +326,7 @@
                         float: left;
 
                         a:before{
-                            margin-right: $spacer-050;
+                            margin-right: $vs-spacer-050;
                             transform: rotate(180deg);
                         }
                     }
@@ -358,10 +358,10 @@
             border-right-color: transparent;
             border-style: solid;
             border-width: 4px;
-            border-radius: 50%;  
+            border-radius: $vs-radius-circular;  
             box-sizing: border-box;
             display: block;
-            margin: $spacer-100 auto;
+            margin: $vs-spacer-100 auto;
             animation: spinner 1s linear infinite;
                 
         }

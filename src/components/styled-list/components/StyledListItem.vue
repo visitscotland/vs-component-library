@@ -88,7 +88,7 @@ const props = defineProps({
 <style lang="scss">
     .vs-styled-list--icon
     .vs-styled-list__item {
-        padding-left: $spacer-300;
+        padding-left: $vs-spacer-300;
         position: relative;
 
         &::before {
@@ -97,7 +97,7 @@ const props = defineProps({
             color: $vs-color-icon-accent-saltire-30;
             font-size: $font-size-8;
             position: absolute;
-            top: $spacer-075;
+            top: $vs-spacer-075;
             left: 0;
         }
     }
@@ -105,15 +105,15 @@ const props = defineProps({
     .vs-styled-list--numbered
     .vs-styled-list__item {
         counter-increment: section;
-        padding: $spacer-0 $spacer-0 $spacer-150 $spacer-150;
+        padding: $vs-spacer-0 $vs-spacer-0 $vs-spacer-150 $vs-spacer-150;
         position: relative;
 
         @include media-breakpoint-up(md) {
-            padding: $spacer-0 $spacer-0 $spacer-200 $spacer-200;
+            padding: $vs-spacer-0 $vs-spacer-0 $vs-spacer-200 $vs-spacer-200;
         }
 
         &:last-child {
-            padding-bottom: $spacer-0;
+            padding-bottom: $vs-spacer-0;
         }
 
         &::before {
@@ -121,33 +121,33 @@ const props = defineProps({
             color: $vs-color-text-inverse;
             content: counter(section);
             font-size: $font-size-4;
-            padding: $spacer-025 $spacer-075;
+            padding: $vs-spacer-025 $vs-spacer-075;
             position: absolute;
             right: 100%;
-            top: $spacer-0125;
+            top: $vs-spacer-0125;
 
             @include media-breakpoint-up(md) {
-                padding: $spacer-025 $spacer-175;
+                padding: $vs-spacer-025 $vs-spacer-175;
             }
         }
 
         &::after {
             position: absolute;
             content: '';
-            width: $spacer-025;
+            width: $vs-spacer-025;
             height: 100%;
             background-color: $vs-color-background-accent-heather-80;
             right: 100%;
-            top: $spacer-0125;
+            top: $vs-spacer-0125;
         }
 
         .vs-heading {
-            margin-top: $spacer-0;
+            margin-top: $vs-spacer-0;
         }
     }
 
     .vs-styled-list--image {
-        margin-bottom: $spacer-250;
+        margin-bottom: $vs-spacer-250;
 
         img {
             max-width: 100%;
@@ -156,7 +156,7 @@ const props = defineProps({
 
     .vs-styled-list--image-horizontal
     .vs-styled-list__item {
-        padding: $spacer-0 $spacer-150;
+        padding: $vs-spacer-0 $vs-spacer-150;
 
         img {
             margin: auto;

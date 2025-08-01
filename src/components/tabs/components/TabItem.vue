@@ -65,14 +65,14 @@ export default {
         color: $vs-color-text-primary;
         border-width: 1px;
         border-color: $vs-color-border-primary;
-        padding: $spacer-100 $spacer-075;
+        padding: $vs-spacer-100 $vs-spacer-075;
         transition: $duration-base all;
         transition: all 200ms ease;
         transition-property: background-color, color;
         @include heading-style(heading-xxs, false);
 
         @include media-breakpoint-up(md) {
-            padding: $spacer-125 $spacer-100;
+            padding: $vs-spacer-125 $vs-spacer-100;
         }
 
         &:hover:not(.active) {
@@ -84,11 +84,11 @@ export default {
         &.active {
             position: relative;
             background-color: $vs-color-background-inverse;
-            padding: $spacer-125 $spacer-075;
+            padding: $vs-spacer-125 $vs-spacer-075;
             @include heading-style(heading-xs, false);
 
             @include media-breakpoint-up(md) {
-                padding: $spacer-175 $spacer-125;
+                padding: $vs-spacer-175 $vs-spacer-125;
             }
         }
 
@@ -110,16 +110,16 @@ export default {
         color: $vs-color-text-primary;
         border-width: 1px;
         border-color: $vs-color-border-primary;
-        border-radius: $border-radius-lg $border-radius-lg $spacer-0 $spacer-0;
+        border-radius: $vs-radius-subtle $vs-radius-subtle $vs-spacer-0 $vs-spacer-0;
         text-wrap: pretty;
-        padding: $spacer-075 $spacer-075;
+        padding: $vs-spacer-075 $vs-spacer-075;
         transition: $duration-base all;
         transition: all 200ms ease;
         transition-property: background-color, color;
         @include heading-style(heading-xxs, false);
 
         @include media-breakpoint-up(md) {
-            padding: $spacer-075 $spacer-125;
+            padding: $vs-spacer-075 $vs-spacer-125;
         }
 
         &:hover:not(.active) {
@@ -133,7 +133,7 @@ export default {
             background-color: $vs-color-background-inverse;
 
             @include media-breakpoint-up(md) {
-                padding: $spacer-100 $spacer-125;
+                padding: $vs-spacer-100 $vs-spacer-125;
             }
         }
 

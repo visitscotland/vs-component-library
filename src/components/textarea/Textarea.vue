@@ -293,7 +293,7 @@ export default {
 
 .vs-textarea {
     @include form-element-styles;
-    margin-top: $spacer-050;
+    margin-top: $vs-spacer-050;
 
     &.form-control-md {
         height: 50px;

@@ -128,8 +128,8 @@ export default {
 
 <style lang="scss">
     .vs-canned-search-logos {
-        margin-top: $spacer-300;
-        min-height: $spacer-300;
+        margin-top: $vs-spacer-300;
+        min-height: $vs-spacer-300;
 
         .vs-tooltip {
             z-index: 1;
@@ -137,10 +137,10 @@ export default {
         }
 
         &__logo {
-            max-height: $spacer-300;
+            max-height: $vs-spacer-300;
 
             &:not(:last-child) {
-                padding-right: $spacer-050;
+                padding-right: $vs-spacer-050;
             }
         }
 

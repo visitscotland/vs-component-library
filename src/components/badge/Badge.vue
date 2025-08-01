@@ -49,9 +49,9 @@ export default {
 
 <style lang="scss">
 .vs-badge {
-    margin-right: $spacer-050;
-    padding: $spacer-025 $spacer-050;
-    border-radius: $border-radius-default;
+    margin-right: $vs-spacer-050;
+    padding: $vs-spacer-025 $vs-spacer-050;
+    border-radius: $vs-radius-subtle;
     display: inline-block;
     line-height: 1;
 

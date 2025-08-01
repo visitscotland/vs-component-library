@@ -81,7 +81,7 @@ export default {
 .vs-dropdown {
     .dropdown-toggle {
         @extend %button-default-styles;
-        padding: $spacer-050 $spacer-150;
+        padding: $vs-spacer-050 $vs-spacer-150;
 
         &:hover {
             background-color: $vs-color-interaction-cta-hover;

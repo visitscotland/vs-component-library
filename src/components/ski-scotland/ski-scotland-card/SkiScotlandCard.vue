@@ -581,10 +581,10 @@ export default {
         background: $vs-elevation-surface-raised;
         box-shadow: $vs-elevation-shadow-raised;
         border: none;
-        border-radius: $border_radius_xl;
+        border-radius: $vs-radius-subtle;
         overflow: hidden;
-        margin-bottom: $spacer-300;
-        height: calc(100% - #{$spacer-300});
+        margin-bottom: $vs-spacer-300;
+        height: calc(100% - #{$vs-spacer-300});
 
         .vs-ski-scotland-card__img-container {
             width: 100%;
@@ -607,15 +607,15 @@ export default {
 
         .card-body {
             position: relative;
-            padding: $spacer-100 $spacer-100 $spacer-600;
+            padding: $vs-spacer-100 $vs-spacer-100 $vs-spacer-600;
 
             @include media-breakpoint-up(lg) {
-                padding-bottom: $spacer-400;
+                padding-bottom: $vs-spacer-400;
             }
         }
 
         .vs-heading {
-            margin-top: $spacer-0;
+            margin-top: $vs-spacer-0;
         }
 
         .vs-button {

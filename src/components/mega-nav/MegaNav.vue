@@ -285,17 +285,17 @@ export default {
 
     &__logo {
         display: inline-block;
-        height: calc(#{$spacer-200} + #{$spacer-025});
+        height: calc(#{$vs-spacer-200} + #{$vs-spacer-025});
 
         @include media-breakpoint-up(lg) {
-            height: calc(#{$spacer-200} + #{$spacer-050});
+            height: calc(#{$vs-spacer-200} + #{$vs-spacer-050});
         }
     }
 
     &__logo svg {
         width: 184px;
         vertical-align: top;
-        margin-top: $spacer-025;
+        margin-top: $vs-spacer-025;
     }
 
     .vs-mega-nav__menu {

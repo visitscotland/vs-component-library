@@ -429,7 +429,7 @@ export default {
         &__track {
             flex-wrap: nowrap;
             transition: transform $duration-slowly ease-out;
-            margin-bottom: $spacer-300;
+            margin-bottom: $vs-spacer-300;
         }
 
         &__control {
@@ -457,8 +457,8 @@ export default {
 
             li {
                 display: flex;
-                margin-left: $spacer-025;
-                margin-right: $spacer-025;
+                margin-left: $vs-spacer-025;
+                margin-right: $vs-spacer-025;
             }
         }
 
@@ -466,7 +466,7 @@ export default {
             display: inline-block;
             width: 10px;
             height: 10px;
-            border-radius: 5px;
+            border-radius: $vs-radius-circular;
             background: $vs-color-background-accent-heather-30;
             transform: translateY(2px);
             margin: 0 2px;
@@ -487,7 +487,7 @@ export default {
             &--active {
                 width: 14px;
                 height: 14px;
-                border-radius: 7px;
+                border-radius: $vs-radius-circular;
                 background: $vs-color-interaction-cta-primary;
                 transform: none;
                 cursor: default;
@@ -513,7 +513,7 @@ export default {
         &__mobile-pagination-wrapper {
             display: flex;
             justify-content: center;
-            margin-top: $spacer-200;
+            margin-top: $vs-spacer-200;
 
             @include media-breakpoint-up(sm) {
                 display: none;
@@ -523,7 +523,7 @@ export default {
         &__mobile-pagination {
             background: $vs-color-background-secondary;
             color: $vs-color-text-primary;
-            padding: $spacer-025 $spacer-050;
+            padding: $vs-spacer-025 $vs-spacer-050;
             font-size: $font-size-2;
             font-weight: $vs-font-weight-strong;
             margin: 0;
@@ -548,7 +548,7 @@ export default {
                     width: 100%;
                     max-width: 100%;
                     flex: 0 0 100%;
-                    margin-bottom: $spacer-200;
+                    margin-bottom: $vs-spacer-200;
 
                     @include media-breakpoint-up(md) {
                         width: 50%;

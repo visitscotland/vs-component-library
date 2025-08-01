@@ -100,34 +100,34 @@ export default {
     &__content {
         font-size: $font-size-8;
         font-weight: $vs-font-weight-subtle;
-        margin-bottom: $spacer-100;
+        margin-bottom: $vs-spacer-100;
     }
 
     &__author-name {
         font-weight: $vs-font-weight-medium;
-        margin-bottom: $spacer-0;
+        margin-bottom: $vs-spacer-0;
 
         @include media-breakpoint-up(md) {
-            margin-bottom: $spacer-025;
+            margin-bottom: $vs-spacer-025;
             font-size: $font-size-5;
         }
     }
 
     &__author-title {
-        margin-bottom: $spacer-0;
+        margin-bottom: $vs-spacer-0;
 
         @include media-breakpoint-up(md) {
             font-size: $font-size-5;
         }
 
         &--narrow-margin {
-            margin-bottom: $spacer-175;
+            margin-bottom: $vs-spacer-175;
         }
     }
 
     &__quote-link {
         @include media-breakpoint-up(md){
-            margin-top: $spacer-175;
+            margin-top: $vs-spacer-175;
         }
     }
 
@@ -145,8 +145,8 @@ export default {
 
     &__speech-container {
         display: block;
-        margin-bottom: $spacer-100;
-        margin-right: $spacer-125;
+        margin-bottom: $vs-spacer-100;
+        margin-right: $vs-spacer-125;
         width: 3.5rem;
         height: 2.5rem;
         position: relative;
@@ -161,14 +161,14 @@ export default {
         display: block;
         width: 50%;
         max-width: 8rem;
-        margin-bottom: $spacer-100;
+        margin-bottom: $vs-spacer-100;
 
         img {
             width: 100%;
         }
 
         @include media-breakpoint-up(lg) {
-            margin-right: $spacer-125;
+            margin-right: $vs-spacer-125;
         }
     }
 
@@ -181,7 +181,7 @@ export default {
             @include media-breakpoint-up(sm) {
                 display: inline-block;
                 vertical-align: top;
-                margin-bottom: $spacer-125;
+                margin-bottom: $vs-spacer-125;
             }
         }
 
@@ -199,8 +199,8 @@ export default {
     }
 
     &--with-border {
-        border-left: $spacer-025 solid $vs-color-text-tertiary;
-        padding-left: $spacer-150;
+        border-left: $vs-spacer-025 solid $vs-color-text-tertiary;
+        padding-left: $vs-spacer-150;
     }
 }
 </style>

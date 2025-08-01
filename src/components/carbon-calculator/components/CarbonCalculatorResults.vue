@@ -329,13 +329,13 @@ export default {
 
 <style lang='scss'>
     .vs-carbon-calculator-results__summary {
-        margin-bottom: $spacer-200;
+        margin-bottom: $vs-spacer-200;
     }
 
     .vs-carbon-calculator-results__total {
         font-size: $font-size-10;
         font-weight: $vs-font-weight-medium;
-        margin-right: $spacer-050;
+        margin-right: $vs-spacer-050;
     }
 
     .vs-carbon-calculator-results__comp-img {
@@ -350,10 +350,10 @@ export default {
     .vs-carbon-calculator-results__chart-wrapper {
         display: flex;
         justify-content: center;
-        margin-top: $spacer-150;
+        margin-top: $vs-spacer-150;
 
         @include media-breakpoint-up(md) {
-            margin-top: $spacer-175;
+            margin-top: $vs-spacer-175;
         }
 
         > div {
@@ -374,12 +374,12 @@ export default {
                 position: absolute;
                 top: 50%;
                 text-align: center;
-                left: -#{$spacer-300};
+                left: -#{$vs-spacer-300};
                 transform: translateY(-50%) rotate(-90deg);
 
                 @include media-breakpoint-up(md) {
                     max-width: 7rem;
-                    left: -#{$spacer-600};
+                    left: -#{$vs-spacer-600};
                     transform: translateY(-100%);
                 }
             }
@@ -395,25 +395,25 @@ export default {
     }
 
     .vs-carbon-calculator-results__chart {
-        margin-bottom: $spacer-150;
+        margin-bottom: $vs-spacer-150;
 
         @include media-breakpoint-up(md) {
-            margin-bottom: $spacer-400;
+            margin-bottom: $vs-spacer-400;
         }
     }
 
     .vs-carbon-calculator-results__unicorn {
         box-shadow: $vs-elevation-shadow-raised;
-        padding: $spacer-100;
+        padding: $vs-spacer-100;
         background-color: $vs-color-background-accent-gorse-05;
-        margin-bottom: $spacer-200;
+        margin-bottom: $vs-spacer-200;
 
         .vs-heading {
             margin-top: 0;
         }
 
         .vs-carbon-calculator-results__unicorn-content {
-            margin-bottom: $spacer-0;
+            margin-bottom: $vs-spacer-0;
 
             p:last-of-type{
                 margin-bottom: 0;
@@ -423,12 +423,12 @@ export default {
         .vs-carbon-calculator-results__unicorn-icon-container {
             display: inline-flex;
             vertical-align: top;
-            width: $spacer-300;
+            width: $vs-spacer-300;
         }
 
         .vs-carbon-calculator-results__unicorn-content {
             display: inline-block;
-            width: calc(100% - $spacer-400);
+            width: calc(100% - $vs-spacer-400);
             vertical-align: top;
         }
     }
