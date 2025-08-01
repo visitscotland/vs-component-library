@@ -88,7 +88,7 @@ export default {
     font-size: $font-size-2;
     display: flex;
     align-items: center;
-    min-height: $spacer-200 + $spacer-025;
+    min-height: $vs-spacer-200 + $vs-spacer-025;
 
     &__wrapper {
         position: initial;
@@ -111,7 +111,7 @@ export default {
 @include no-js {
     .vs-global-menu {
         height: auto;
-        margin-bottom: $spacer-100;
+        margin-bottom: $vs-spacer-100;
 
         .dropdown-toggle{
             display: none

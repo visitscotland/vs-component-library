@@ -60,7 +60,7 @@ const filterSectionClasses = computed(() => ({
 
 <style lang="scss">
 .vs-filter-section {
-    padding: $spacer-075 $spacer-125;
+    padding: $vs-spacer-075 $vs-spacer-125;
 
     &:not(:last-child) {
         border-bottom: solid 1px $vs-color-border-secondary;
@@ -68,7 +68,7 @@ const filterSectionClasses = computed(() => ({
 
     &--inline .vs-filter-section__section {
         display: flex;
-        gap: $spacer-100;
+        gap: $vs-spacer-100;
 
         label {
             font-size: $font-size-4;
@@ -77,7 +77,7 @@ const filterSectionClasses = computed(() => ({
 
     &__details[open] {
         .vs-filter-section__summary {
-            margin-bottom: $spacer-075;
+            margin-bottom: $vs-spacer-075;
 
             .vs-icon {
                 transform: scale(1, 1);

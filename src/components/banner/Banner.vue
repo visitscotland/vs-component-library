@@ -145,7 +145,7 @@ export default {
 <style lang="scss">
 .vs-banner {
     background: $vs-color-background-information;
-    padding: $spacer-075 0;
+    padding: $vs-spacer-075 0;
 
     &__icon-wrapper{
         @include media-breakpoint-up(md) {
@@ -175,7 +175,7 @@ export default {
         display: inline-block;
 
         @include media-breakpoint-up(sm) {
-            margin-right: $spacer-075;
+            margin-right: $vs-spacer-075;
 
             &.vs-icon.vs-icon--size-sm {
                 font-size: 24px;
@@ -184,17 +184,17 @@ export default {
     }
 
     &__title.vs-heading {
-        margin-bottom: $spacer-050;
+        margin-bottom: $vs-spacer-050;
 
         .vs-icon {
             vertical-align: bottom;
-            margin-right: $spacer-025;
+            margin-right: $vs-spacer-025;
         }
     }
 
     &__text.vs-body--normal {
         display: inline-block;
-        padding-left: $spacer-025;
+        padding-left: $vs-spacer-025;
 
         @include media-breakpoint-up(sm) {
             padding-left: 0;
@@ -204,7 +204,7 @@ export default {
             display: inline;
 
             &:last-of-type{
-                margin-bottom: $spacer-050;
+                margin-bottom: $vs-spacer-050;
             }
         }
     }

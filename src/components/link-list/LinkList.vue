@@ -65,12 +65,12 @@ export default {
         &__list {
             list-style: none;
             padding: 0;
-            margin-bottom: $spacer-175;
+            margin-bottom: $vs-spacer-175;
         }
 
         &--toc {
             background: $vs-color-background-secondary;
-            padding: $spacer-200;
+            padding: $vs-spacer-200;
             width: 100%;
 
             @include media-breakpoint-up(md) {

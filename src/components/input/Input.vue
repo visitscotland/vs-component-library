@@ -350,7 +350,7 @@ export default {
 
 .vs-input {
     @include form-element-styles;
-    margin-top: $spacer-050;
+    margin-top: $vs-spacer-050;
 
     &.form-control-md {
         height: 50px;
@@ -370,7 +370,7 @@ export default {
 
     &__clear-button {
         position: absolute;
-        right: $spacer-125;
+        right: $vs-spacer-125;
         top: 50%;
         transform: translate(0, -50%);
     }

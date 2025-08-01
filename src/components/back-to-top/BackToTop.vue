@@ -84,11 +84,11 @@ onUnmounted(() => {
 <style lang="scss">
 .vs-back-to-top {
     display: flex;
-    inset-block-end: $spacer-100;
+    inset-block-end: $vs-spacer-100;
     position: sticky;
 
     .vs-button {
-        margin: -$spacer-400 $spacer-100 $spacer-0 auto;
+        margin: -$vs-spacer-400 $vs-spacer-100 $vs-spacer-0 auto;
     }
 }
 

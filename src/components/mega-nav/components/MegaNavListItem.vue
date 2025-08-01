@@ -77,7 +77,7 @@ export default {
     .vs-link--variant-primary{
         text-decoration: none;
         display: block;
-        padding: $spacer-075 $spacer-300;
+        padding: $vs-spacer-075 $vs-spacer-300;
         border: 2px solid $vs-color-background-secondary;
         font-size: $font-size-4;
 
@@ -88,7 +88,7 @@ export default {
         @include media-breakpoint-up(lg) {
             border: 2px solid $vs-color-border-inverse;
             line-height: 1.3;
-            padding: 0.125rem $spacer-100;
+            padding: 0.125rem $vs-spacer-100;
 
             &:hover{
                 border: 2px solid $vs-color-border-inverse;
@@ -161,7 +161,7 @@ export default {
         .vs-link--variant-primary{
             border: 2px solid $vs-color-border-inverse;
             line-height: 1.3;
-            padding: $spacer-025 $spacer-125;
+            padding: $vs-spacer-025 $vs-spacer-125;
         }
 
         &__link{

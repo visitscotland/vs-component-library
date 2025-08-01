@@ -294,8 +294,8 @@ export default {
 
             .vs-toggle-btn {
                 position: absolute;
-                bottom: $spacer-050;
-                right: $spacer-050;
+                bottom: $vs-spacer-050;
+                right: $vs-spacer-050;
 
                 @include media-breakpoint-down(sm) {
                     .fa-icon-colours--white {
@@ -404,7 +404,7 @@ export default {
 
             .vs-caption {
                 &__image-caption {
-                    margin-bottom: $spacer-050;
+                    margin-bottom: $vs-spacer-050;
                 }
 
                 .row {
@@ -430,7 +430,7 @@ export default {
                 &.vs-image-with-caption--show-caption {
                    .vs-image-with-caption__caption-wrapper {
                        display: flex;
-                       margin-top: $spacer-050;
+                       margin-top: $vs-spacer-050;
                    }
                }
             }
@@ -496,8 +496,8 @@ export default {
 
         &--overlapped {
             .vs-toggle-btn {
-                bottom: $spacer-300;
-                right: $spacer-100;
+                bottom: $vs-spacer-300;
+                right: $vs-spacer-100;
             }
         }
 
@@ -512,7 +512,7 @@ export default {
                     aspect-ratio: auto;
 
                     @supports not (aspect-ratio: 3/2) {
-                        padding-bottom: $spacer-0;
+                        padding-bottom: $vs-spacer-0;
                     }
 
                     .vs-toggle-btn {
@@ -563,11 +563,11 @@ export default {
                                 }
 
                                 &__image-caption {
-                                    margin-bottom: $spacer-125;
+                                    margin-bottom: $vs-spacer-125;
                                 }
 
                                 &__caption-info {
-                                    padding: $spacer-075 $spacer-050;
+                                    padding: $vs-spacer-075 $vs-spacer-050;
                                 }
                             }
                         }

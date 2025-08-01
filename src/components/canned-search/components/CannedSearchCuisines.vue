@@ -44,7 +44,7 @@ export default {
     .vs-canned-search-cuisines {
         font-size: $font-size-4;
         font-weight: $vs-font-weight-medium;
-        margin-bottom: $spacer-025;
+        margin-bottom: $vs-spacer-025;
 
         &__cuisine {
             display: block;

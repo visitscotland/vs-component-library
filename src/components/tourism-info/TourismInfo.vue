@@ -90,21 +90,21 @@ export default {
 <style lang="scss">
 .vs-tourism-info {
     &__heading {
-        margin-bottom: $spacer-300;
+        margin-bottom: $vs-spacer-300;
 
         @include media-breakpoint-up(lg) {
-            margin-bottom: $spacer-200;
+            margin-bottom: $vs-spacer-200;
         }
     }
 
     &__logo {
-        height: $spacer-300;
-        margin-bottom: $spacer-200;
+        height: $vs-spacer-300;
+        margin-bottom: $vs-spacer-200;
     }
 
     &__links {
         font-size: $font-size-5;
-        margin-bottom: $spacer-300;
+        margin-bottom: $vs-spacer-300;
     }
 
     &__intro-content {
@@ -133,21 +133,21 @@ export default {
 
     &__quote-block {
         background: $white;
-        padding: $spacer-200 $spacer-200;
+        padding: $vs-spacer-200 $vs-spacer-200;
 
         @include media-breakpoint-up(md) {
-            padding: $spacer-300 $spacer-400;
+            padding: $vs-spacer-300 $vs-spacer-400;
         }
     }
 
     &__links-contained {
-        margin-bottom: $spacer-0;
-        margin-top: $spacer-300;
+        margin-bottom: $vs-spacer-0;
+        margin-top: $vs-spacer-300;
         font-size: $font-size-5;
     }
 
     figure {
-        margin-bottom: $spacer-0;
+        margin-bottom: $vs-spacer-0;
     }
 }
 </style>

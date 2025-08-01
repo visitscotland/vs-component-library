@@ -66,11 +66,11 @@ export default {
 <style lang="scss">
     .vs-card-group.is-grid {
         display: grid;
-        gap: $spacer-125;
+        gap: $vs-spacer-125;
         grid-template-columns: 1fr;
 
         @include media-breakpoint-up(md) {
-            gap: $spacer-175;
+            gap: $vs-spacer-175;
         }
 
         @include media-breakpoint-up(lg) {
@@ -101,7 +101,7 @@ export default {
                 .vs-card {
                     flex: 0 0 266px;
                     scroll-snap-align: start;
-                    margin-bottom: $spacer-150;
+                    margin-bottom: $vs-spacer-150;
 
                     @include media-breakpoint-up(sm) {
                         flex: 0 0 235px;

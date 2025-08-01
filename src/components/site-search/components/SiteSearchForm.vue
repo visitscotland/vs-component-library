@@ -185,34 +185,34 @@ export default {
 .vs-site-search-form {
     background-color: rgba($vs-color-background-secondary, 0.75);
     backdrop-filter: blur(30px);
-    padding: $spacer-125 0;
+    padding: $vs-spacer-125 0;
     position: absolute;
     width: 100%;
     z-index: 1;
 
     @include media-breakpoint-up(lg) {
-        padding: $spacer-200 0;
+        padding: $vs-spacer-200 0;
     }
 
     .cludo-input-form{
         margin: 0;
 
         @include media-breakpoint-up(lg) {
-            margin: $spacer-050 0;
+            margin: $vs-spacer-050 0;
         }
         @include media-breakpoint-up(xl) {
-            margin: $spacer-100 0;
+            margin: $vs-spacer-100 0;
         }
     }
 
     &__label {
         position: absolute;
-        left: $spacer-075;
+        left: $vs-spacer-075;
         top: 50%;
         transform: translate(0, -50%);
 
         @include media-breakpoint-up(lg) {
-            left: $spacer-150;
+            left: $vs-spacer-150;
 
             .vs-icon{
                 font-size: $icon-size-sm;
@@ -223,7 +223,7 @@ export default {
     .vs-input--site-search.form-control {
         font-size: $font-size-body;
         height: 50px;
-        padding: $spacer-075 $spacer-125 $spacer-075 2.5rem;
+        padding: $vs-spacer-075 $vs-spacer-125 $vs-spacer-075 2.5rem;
         margin: 0;
         border-color: $vs-color-border-inverse;
 
@@ -232,7 +232,7 @@ export default {
         }
 
         @include media-breakpoint-up(lg) {
-            padding: $spacer-100 $spacer-100 $spacer-100 $spacer-400;
+            padding: $vs-spacer-100 $vs-spacer-100 $vs-spacer-100 $vs-spacer-400;
             font-size: $font-size-6;
             height: 64px;
         }
@@ -241,12 +241,12 @@ export default {
     &__search-button{
         &.btn-lg{
             height: 50px;
-            padding: $spacer-075 $spacer-050;
+            padding: $vs-spacer-075 $vs-spacer-050;
             font-size: $font-size-3;
 
             @include media-breakpoint-up(lg) {
                 height: 64px;
-                padding: $spacer-075 $spacer-200;
+                padding: $vs-spacer-075 $vs-spacer-200;
                 font-size: $font-size-4;
             }
         }
@@ -258,8 +258,8 @@ export default {
         top: 6px;
 
         @include media-breakpoint-up(xl) {
-            right: $spacer-100;
-            top: $spacer-050;
+            right: $vs-spacer-100;
+            top: $vs-spacer-050;
         }
     }
 }

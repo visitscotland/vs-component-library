@@ -291,10 +291,10 @@ export default {
             grid-row: var(--container-row);
             grid-column: var(--container-col);
             width: var(--content_maxwidth);
-            padding: $spacer-150 0 $spacer-250 0;
+            padding: $vs-spacer-150 0 $vs-spacer-250 0;
 
             @include media-breakpoint-up(lg) {
-                padding: $spacer-300 0;
+                padding: $vs-spacer-300 0;
             }
         }
 
@@ -368,8 +368,8 @@ export default {
 
             .vs-hero-section-video-control {
                 position: absolute;
-                bottom: $spacer-500;
-                right: $spacer-125;
+                bottom: $vs-spacer-500;
+                right: $vs-spacer-125;
             }
 
             .vs-hero-section__text {
@@ -377,7 +377,7 @@ export default {
                 grid-template-columns: 1fr;
                 gap: 0;
                 position: absolute;
-                bottom: $spacer-500;
+                bottom: $vs-spacer-500;
                 width: 70%;
 
                 @include media-breakpoint-up(md) {
@@ -389,7 +389,7 @@ export default {
                     text-wrap: balance;
 
                     @include media-breakpoint-up(lg) {
-                        margin: 0 0 $spacer-150 0;
+                        margin: 0 0 $vs-spacer-150 0;
                     }
                 }
             }
@@ -460,7 +460,7 @@ export default {
 
                 .vs-hero-section__heading.vs-heading {
                     @include media-breakpoint-up(lg) {
-                        margin: 0 0 $spacer-150 0;
+                        margin: 0 0 $vs-spacer-150 0;
                     }
                 }
             }

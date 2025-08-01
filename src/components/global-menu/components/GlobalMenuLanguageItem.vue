@@ -72,7 +72,7 @@ export default {
         }
 
         .dropdown-item {
-            padding: $spacer-075;
+            padding: $vs-spacer-075;
             color: $vs-color-background-inverse;
             text-decoration: none;
 
@@ -95,7 +95,7 @@ export default {
 
         @include media-breakpoint-up(md) {
             width: auto;
-            padding: $spacer-075;
+            padding: $vs-spacer-075;
         }
 
         .dropdown-item {
@@ -109,11 +109,11 @@ export default {
             }
 
             @include media-breakpoint-up(md) {
-                padding: $spacer-025 $spacer-050;
+                padding: $vs-spacer-025 $vs-spacer-050;
             }
 
             @include media-breakpoint-up(lg) {
-                padding: $spacer-025 $spacer-100;
+                padding: $vs-spacer-025 $vs-spacer-100;
             }
         }
     }

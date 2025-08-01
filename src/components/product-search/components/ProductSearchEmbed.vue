@@ -446,7 +446,7 @@ const preSubmitChecks = (e) => {
                 }
 
                 .product-search__in {
-                    margin: 0 $spacer-100;
+                    margin: 0 $vs-spacer-100;
                 }
             }
         }

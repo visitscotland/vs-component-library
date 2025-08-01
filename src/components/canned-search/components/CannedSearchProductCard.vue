@@ -265,7 +265,7 @@ export default {
             transition: box-shadow $duration-slowly;
             border: none;
             position: relative;
-            padding-bottom: $spacer-125;
+            padding-bottom: $vs-spacer-125;
 
             &:hover {
                 .vs-product-card__title a{
@@ -275,7 +275,7 @@ export default {
         }
 
         .card-body {
-            padding: $spacer-025 $spacer-0 $spacer-0;
+            padding: $vs-spacer-025 $vs-spacer-0 $vs-spacer-0;
             min-height: 11.5rem;
 
             &--short {
@@ -323,7 +323,7 @@ export default {
 
         .vs-product-card__title {
             display: flex;
-            margin: $spacer-075 $spacer-0 $spacer-050;
+            margin: $vs-spacer-075 $vs-spacer-0 $vs-spacer-050;
 
             @include media-breakpoint-up(md) {
                 font-size: $vs-font-size-heading-xs;
@@ -334,10 +334,10 @@ export default {
 
         .vs-product-card__description {
             font-size: $font-size-4;
-            height: $spacer-200;
+            height: $vs-spacer-200;
 
             p {
-                margin-bottom: $spacer-025;
+                margin-bottom: $vs-spacer-025;
             }
 
             .vs-product-card__description-inner {

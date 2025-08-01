@@ -77,8 +77,8 @@ export default {
 <style lang="scss">
     .vs-stretched-link-panels {
         position: absolute;
-        right: $spacer-100;
-        top: $spacer-100;
+        right: $vs-spacer-100;
+        top: $vs-spacer-100;
         display: flex;
         flex-direction: row;
 
@@ -86,7 +86,7 @@ export default {
             width: 55px;
             height: 55px;
             background: $vs-color-background-accent-heather-80;
-            margin-left: $spacer-050;
+            margin-left: $vs-spacer-050;
             color: $vs-color-text-inverse;
             display: flex;
             flex-direction: column;
@@ -110,13 +110,13 @@ export default {
             font-family: $vs-font-family-sans-serif;
             font-weight: $vs-font-weight-medium;
             display: block;
-            margin-bottom: $spacer-025;
+            margin-bottom: $vs-spacer-025;
         }
 
         &__icon {
             height: 20px;
             width: auto;
-            margin-bottom: $spacer-025;
+            margin-bottom: $vs-spacer-025;
         }
     }
 </style>

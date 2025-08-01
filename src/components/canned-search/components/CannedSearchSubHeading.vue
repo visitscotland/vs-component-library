@@ -55,8 +55,8 @@ export default {
 <style lang="scss">
     h4.vs-canned-search-sub-heading {
         color: $vs-color-text-tertiary;
-        margin: $spacer-0;
-        margin-bottom: $spacer-075;
+        margin: $vs-spacer-0;
+        margin-bottom: $vs-spacer-075;
 
         @include media-breakpoint-up(md) {
             font-size: $vs-font-size-heading-xxs;

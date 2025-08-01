@@ -185,7 +185,7 @@ export default {
         text-transform: none;
         font-family: $vs-font-family-sans-serif;
         font-weight: $vs-font-weight-medium;
-        padding: $spacer-025;
+        padding: $vs-spacer-025;
         min-height: 88px;
         border-bottom: 1px solid $vs-color-border-primary;
         text-align: left;
@@ -220,12 +220,12 @@ export default {
 
         &__icon,
         &__text {
-            margin-left: $spacer-050;
+            margin-left: $vs-spacer-050;
         }
 
         @include media-breakpoint-up(lg) {
             &__img {
-                margin-right: $spacer-125;
+                margin-right: $vs-spacer-125;
             }
         }
     }

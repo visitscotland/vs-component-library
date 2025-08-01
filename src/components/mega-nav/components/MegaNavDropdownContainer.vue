@@ -133,7 +133,7 @@ export default {
     .vs-mega-nav-dropdown-container {
         &__featured {
             @include media-breakpoint-up(lg) {
-                margin: $spacer-050 $spacer-0 $spacer-125 $spacer-150;
+                margin: $vs-spacer-050 $vs-spacer-0 $vs-spacer-125 $vs-spacer-150;
                 position: absolute;
                 right: 0;
                 top: 0;
@@ -153,7 +153,7 @@ export default {
                 &--bottom {
                     bottom: 0;
                     top: auto;
-                    margin-bottom: $spacer-0;
+                    margin-bottom: $vs-spacer-0;
                 }
 
                 &--left {
@@ -198,7 +198,7 @@ export default {
 
         &__cta-link{
             text-decoration: none;
-            padding: 0.12rem $spacer-125;
+            padding: 0.12rem $vs-spacer-125;
             transition: $duration-base color;
 
             &:hover{
@@ -207,7 +207,7 @@ export default {
         }
 
         &__divider{
-            margin: $spacer-075 0 $spacer-100;
+            margin: $vs-spacer-075 0 $vs-spacer-100;
             border-color: $vs-color-border-primary;
         }
 
@@ -227,15 +227,15 @@ export default {
     .vs-list.vs-list--unstyled {
         .vs-mega-nav-dropdown-container{
             &__divider {
-                margin-bottom: $spacer-100;
+                margin-bottom: $vs-spacer-100;
             }
             &__columns-wrapper{
                 display: block;
                 height: auto;
-                padding-left: $spacer-200;
+                padding-left: $vs-spacer-200;
 
                 @include media-breakpoint-up(lg) {
-                    padding-left: $spacer-400;
+                    padding-left: $vs-spacer-400;
                 }
             }
 
@@ -243,7 +243,7 @@ export default {
                 position: relative;
                 right: auto;
                 width: 100vw;
-                margin: 0 $spacer-150 $spacer-100 (-$spacer-200);
+                margin: 0 $vs-spacer-150 $vs-spacer-100 (-$vs-spacer-200);
 
                 @include media-breakpoint-up(sm) {
                     width: 50%;

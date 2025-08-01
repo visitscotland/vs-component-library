@@ -140,7 +140,7 @@ export default {
             &--error {
                 & > div {
                     outline: 2px solid $vs-color-border-error;
-                    margin-top: $spacer-050;
+                    margin-top: $vs-spacer-050;
                 }
             }
         }

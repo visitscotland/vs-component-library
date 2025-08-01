@@ -152,16 +152,16 @@ export default {
 <style lang="scss">
     .vs-progress-bar {
         .progress-bar {
-            height: $spacer-100;
+            height: $vs-spacer-100;
             background-color: $vs-color-background-highlight;
             transition: width ease-out .5s;
         }
 
         .progress {
             width: 100%;
-            margin: $spacer-050 $spacer-0 $spacer-050;
+            margin: $vs-spacer-050 $vs-spacer-0 $vs-spacer-050;
             background: $vs-color-background-secondary;
-            border-radius: $spacer-050;
+            border-radius: $vs-spacer-050;
             overflow: hidden;
         }
 
@@ -174,7 +174,7 @@ export default {
         &--stepped {
             .vs-progress-bar__stepper {
                 display: flex;
-                gap: $spacer-050;
+                gap: $vs-spacer-050;
             }
 
             .progress {
@@ -184,7 +184,7 @@ export default {
         }
     }
     .vs-progress-bar__label {
-        margin-bottom: $spacer-050;
+        margin-bottom: $vs-spacer-050;
         text-align: left;
         color: $vs-color-text-secondary;
     }

@@ -157,7 +157,7 @@ export default {
         min-width: 100%;
 
         .vs-megalink-single-image__title {
-            margin-bottom: $spacer-200;
+            margin-bottom: $vs-spacer-200;
             margin-top:0;
         }
 
@@ -166,12 +166,12 @@ export default {
             z-index: 10;
             background-color: $vs-elevation-surface-raised;
             box-shadow: $vs-elevation-shadow-raised;
-            margin: $spacer-0 $spacer-075;
-            padding: $spacer-200 $spacer-150;
+            margin: $vs-spacer-0 $vs-spacer-075;
+            padding: $vs-spacer-200 $vs-spacer-150;
             clear: both;
 
             p {
-                margin-bottom: $spacer-100;
+                margin-bottom: $vs-spacer-100;
             }
 
             @include media-breakpoint-up(sm) {
@@ -192,21 +192,21 @@ export default {
         }
 
         .vs-megalink-single-image__link-list-item {
-            margin-top: $spacer-100;
+            margin-top: $vs-spacer-100;
             font-size: $font-size-5;
 
             &:first-of-type {
-                margin-bottom: $spacer-0;
+                margin-bottom: $vs-spacer-0;
             }
         }
 
         .vs-image-with-caption {
             overflow: hidden;
-            margin: 0 -12px (-$spacer-200);
+            margin: 0 -12px (-$vs-spacer-200);
         }
 
         .vs-megalink-single-image__button {
-            margin-top: $spacer-175;
+            margin-top: $vs-spacer-175;
         }
 
         @include media-breakpoint-up(sm) {
@@ -223,7 +223,7 @@ export default {
 
         @include media-breakpoint-up(lg) {
             width: 100%;
-            margin: 0 0 $spacer-500;
+            margin: 0 0 $vs-spacer-500;
             display: flex;
             flex-direction: column;
 
@@ -233,7 +233,7 @@ export default {
 
             .vs-megalink-single-image__content {
                 min-height: 100%;
-                padding: $spacer-300 $spacer-300 $spacer-300 $spacer-300;
+                padding: $vs-spacer-300 $vs-spacer-300 $vs-spacer-300 $vs-spacer-300;
                 margin: 0;
                 background: $vs-color-background-inverse;
             }
@@ -245,7 +245,7 @@ export default {
 
             .vs-image-with-caption {
                 width: 100%;
-                margin: 0 0 calc(var(--negative-margin) - #{$spacer-400});
+                margin: 0 0 calc(var(--negative-margin) - #{$vs-spacer-400});
             }
 
             &--alternate {
@@ -261,7 +261,7 @@ export default {
 
         @include media-breakpoint-up(xl) {
             .vs-megalink-single-image__content {
-                padding: $spacer-300 $spacer-600 $spacer-300 $spacer-300;
+                padding: $vs-spacer-300 $vs-spacer-600 $vs-spacer-300 $vs-spacer-300;
             }
         }
     }

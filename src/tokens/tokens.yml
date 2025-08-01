@@ -13,11 +13,11 @@ imports:
   - ./semantic/typography/font-family.yml
   - ./semantic/typography/line-height.yml
   - ./semantic/typography/letter-spacing.yml
+  - ./semantic/layout/breakpoints.yml
+  - ./semantic/layout/grid-layout.yml
+  - ./semantic/layout/spacing.yml
   - ./icon/icon-size.yml
   - ./icon/icon.yml
-  - ./layout/breakpoints.yml
-  - ./layout/grid-layout.yml
-  - ./layout/spacing.yml
   - ./elevation-shadow.yml
   - ./elevation-surface.yml
   - ./font-size.yml

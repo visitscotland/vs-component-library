@@ -89,7 +89,7 @@ export default {
         );
 
         &.btn-md {
-            padding: $spacer-050 $spacer-025;
+            padding: $vs-spacer-050 $vs-spacer-025;
             width: 44px;
             height: 44px;
         }

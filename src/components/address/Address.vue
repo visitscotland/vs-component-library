@@ -35,7 +35,7 @@ export default {
 
 <style lang="scss">
     .vs-address {
-        padding: $spacer-050 $spacer-0;
+        padding: $vs-spacer-050 $vs-spacer-0;
         display: flex;
 
         span {

@@ -111,12 +111,12 @@ export default {
 
         &__badge {
             position: absolute;
-            padding: $spacer-0 $spacer-050;
+            padding: $vs-spacer-0 $vs-spacer-050;
             text-transform: uppercase;
             max-height: 1.5em;
             text-align: right;
             text-overflow: ellipsis;
-            max-width: calc(100% - #{$spacer-100});
+            max-width: calc(100% - #{$vs-spacer-100});
             overflow: hidden;
             white-space: nowrap;
             font-size: $font-size-3;
@@ -138,37 +138,37 @@ export default {
             }
 
             &--tr {
-                top: $spacer-050;
-                right: $spacer-050;
+                top: $vs-spacer-050;
+                right: $vs-spacer-050;
             }
 
             &--tr2 {
                 top: 2.5em;
-                right: $spacer-050;
+                right: $vs-spacer-050;
             }
 
             &--br {
-                bottom: $spacer-050;
-                right: $spacer-050;
-                padding: $spacer-0 $spacer-100;
+                bottom: $vs-spacer-050;
+                right: $vs-spacer-050;
+                padding: $vs-spacer-0 $vs-spacer-100;
             }
         }
 
         &__multi-badge-holder {
             position: absolute;
             text-align: right;
-            max-width: calc(100% - #{$spacer-100});
+            max-width: calc(100% - #{$vs-spacer-100});
             width: 100%;
             max-height: 1.5em;
             overflow: hidden;
-            top: $spacer-050;
-            right: $spacer-050;
+            top: $vs-spacer-050;
+            right: $vs-spacer-050;
         }
 
         &__multi-badge {
             position: relative;
             display: inline-block;
-            margin-left: $spacer-050;
+            margin-left: $vs-spacer-050;
         }
     }
 

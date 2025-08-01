@@ -90,13 +90,13 @@ export default {
 <style lang="scss" scoped>
 .vs-summary-box-item {
     flex-grow: 1;
-    flex-basis: calc(50% - #{$spacer-100});
-    margin: $spacer-050;
+    flex-basis: calc(50% - #{$vs-spacer-100});
+    margin: $vs-spacer-050;
 
     @include media-breakpoint-up(md) {
         flex-grow: 1;
-        flex-basis: calc(50% - #{$spacer-150});
-        margin: $spacer-075;
+        flex-basis: calc(50% - #{$vs-spacer-150});
+        margin: $vs-spacer-075;
     }
 
     &::after {
@@ -108,11 +108,11 @@ export default {
 }
 
 .vs-summary-box-item__label {
-    top: $spacer-075;
+    top: $vs-spacer-075;
     left: 0;
 
     @include media-breakpoint-up(lg) {
-        top: $spacer-050;
+        top: $vs-spacer-050;
     }
 
     .vs-summary-box-item__label-inner {
@@ -154,7 +154,7 @@ export default {
         flex-basis: 0;
 
         @include media-breakpoint-up(lg) {
-            font-size: $spacer-100;
+            font-size: $vs-spacer-100;
             line-height: 1.3;
         }
     }

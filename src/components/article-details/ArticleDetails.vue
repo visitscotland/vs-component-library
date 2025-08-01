@@ -97,7 +97,7 @@ export default {
 
     &__divider {
         display: none;
-        padding: 0 $spacer-025;
+        padding: 0 $vs-spacer-025;
 
         @include media-breakpoint-up(sm) {
             display: inline;

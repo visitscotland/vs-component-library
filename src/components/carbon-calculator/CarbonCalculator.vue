@@ -826,12 +826,12 @@ export default {
         display: block;
 
         .vs-progress-bar {
-            margin-bottom: $spacer-200;
+            margin-bottom: $vs-spacer-200;
         }
 
         .vs-carbon-calculator__category-heading {
             margin-top: 0;
-            margin-bottom: $spacer-150;
+            margin-bottom: $vs-spacer-150;
         }
     }
 
