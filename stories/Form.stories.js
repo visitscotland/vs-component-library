@@ -77,6 +77,7 @@ export const FEPL = Template.bind({
 FEPL.args = {
     ...base,
     isMarketo: false,
+    submissionType: 'fepl',
     dataUrl: '/fixtures/forms/fepl-form-example.json',
 };
 
@@ -86,6 +87,7 @@ export const HiddenFields = Template.bind({
 HiddenFields.args = {
     ...base,
     isMarketo: false,
+    submissionType: 'breg',
     'hidden-fields': [
         {
             name: 'activity_description',

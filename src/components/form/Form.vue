@@ -218,6 +218,18 @@ export default {
             default: true,
         },
         /**
+         * For non-marketo forms this dictates which data processing layer the form uses - 'breg',
+         * 'fepl', or 'dp'. This adjusts certain behaviour, for example the `exponea.identify()`
+         * tracking is only desirable for breg forms.
+         *
+         * Defaults to breg as it is by far the most common form type, and from within the
+         * freemarker sites we don't currently have access to the information to distinguish them.
+         */
+        submissionType: {
+            type: String,
+            default: 'breg',
+        },
+        /**
          * The target url for the form, if not marketo
          */
         submitUrl: {
@@ -769,7 +781,6 @@ export default {
             myForm.onSuccess(() => {
                 this.submitting = false;
                 this.submitted = true;
-                this.attachEmail();
                 return false;
             });
 
@@ -813,28 +824,30 @@ export default {
             });
         },
         /**
-         * If exponea is present in the window (via gtm with accepted cookies), attach the
-         * current user to the record associated with their email address
+         * If exponea is present in the window (via gtm with accepted cookies), and the form uses
+         * BREG, attach the current user to the record associated with their email address
          */
         attachEmail() {
-            this.formData.fields.forEach((field) => {
-                if (field.type === 'email' && !this.emailFieldName) {
-                    this.emailFieldName = field.name;
-                }
-            });
+            if (this.submissionType && this.submissionType === 'breg') {
+                this.formData.fields.forEach((field) => {
+                    if (field.type === 'email' && !this.emailFieldName) {
+                        this.emailFieldName = field.name;
+                    }
+                });
 
-            if (this.emailFieldName && typeof exponea !== 'undefined') {
-                // eslint-disable-next-line no-undef
-                exponea.identify(
-                    {
-                        email_id: this.form[this.emailFieldName],
-                    },
-                    {
-                    },
-                    () => {},
-                    () => {},
-                    true,
-                );
+                if (this.emailFieldName && typeof exponea !== 'undefined') {
+                    // eslint-disable-next-line no-undef
+                    exponea.identify(
+                        {
+                            email_id: this.form[this.emailFieldName],
+                        },
+                        {
+                        },
+                        () => {},
+                        () => {},
+                        true,
+                    );
+                }
             }
         },
         /**
