@@ -1,3 +1,10 @@
+## [5.1.2](https://github.com/visitscotland/vs-component-library/compare/v5.1.1...v5.1.2) (2025-08-01)
+
+
+### Bug Fixes
+
+* **video:** restore previous videostore timing ([5f61e9c](https://github.com/visitscotland/vs-component-library/commit/5f61e9cd38b38148572391a097a96e174fb92ea7))
+
 ## [5.1.1](https://github.com/visitscotland/vs-component-library/compare/v5.1.0...v5.1.1) (2025-08-01)
 
 
