@@ -273,7 +273,7 @@ export default {
     display: flex;
     align-items: center;
     height: 45px;
-    box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: $vs-elevation-shadow-sticky;
 
     @include media-breakpoint-up(lg) {
         height: 48px;

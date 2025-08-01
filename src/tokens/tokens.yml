@@ -14,6 +14,7 @@ imports:
   - ./semantic/layout/spacing.yml
 
   - ./semantic/object-styles/radius.yml
+  - ./semantic/object-styles/elevation-shadow.yml
 
   - ./semantic/typography/font-size.yml
   - ./semantic/typography/font-weight.yml
@@ -23,8 +24,6 @@ imports:
 
   - ./icon/icon-size.yml
   - ./icon/icon.yml
-
-  - ./elevation-shadow.yml
   - ./elevation-surface.yml
   - ./font-size.yml
   - ./opacity.yml

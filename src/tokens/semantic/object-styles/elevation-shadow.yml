@@ -1,0 +1,12 @@
+props:
+    - name: vs-elevation-shadow-sticky
+      value: "{!vs-shadow-sm}"
+    - name: vs-elevation-shadow-raised
+      value: "{!vs-shadow-md}"
+    - name: vs-elevation-shadow-overlay
+      value: "{!vs-shadow-lg}"
+imports:
+  - ../../primitives/shadow-primitives.yml
+global:
+    type: elevation
+    category: elevation-shadow
