@@ -4,8 +4,6 @@
 #
 
 props:
-    - name: vs-elevation-shadow-sticky
-      value: "{!vs-shadow-sm}"
     - name: vs-elevation-shadow-raised
       value: "{!vs-shadow-md}"
     - name: vs-elevation-shadow-overlay
