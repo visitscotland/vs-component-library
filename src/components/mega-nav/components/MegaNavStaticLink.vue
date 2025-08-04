@@ -83,7 +83,7 @@ export default {
             list-style: none;
             margin: 0;
             padding: $vs-spacer-075 $vs-spacer-125;
-            border-top: 1px solid $vs-color-border-primary;
+            border-top: $vs-border-width-sm solid $vs-color-border-primary;
             font-size: $font-size-5;
         }
 

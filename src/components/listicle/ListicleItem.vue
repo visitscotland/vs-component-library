@@ -154,7 +154,7 @@ export default {
 
                 &:after {
                     content: "";
-                    border-bottom: 1px solid $vs-color-text-inverse;
+                    border-bottom: $vs-border-width-sm solid $vs-color-text-inverse;
                     display: block;
                     margin: $vs-spacer-025 $vs-spacer-100 0;
                     margin-top: $vs-spacer-025;
@@ -194,7 +194,7 @@ export default {
 
     .key-facilities-list {
         &.has-facilities {
-            border-top: 1px solid $vs-color-border-primary;
+            border-top: $vs-border-width-sm solid $vs-color-border-primary;
             padding-top: $vs-spacer-100;
 
             @include media-breakpoint-up(sm) {
@@ -203,7 +203,7 @@ export default {
             }
 
             @include media-breakpoint-up(lg) {
-                border-left: 1px solid $vs-color-border-primary;
+                border-left: $vs-border-width-sm solid $vs-color-border-primary;
             }
 
             .vs-icon-list {
@@ -212,7 +212,7 @@ export default {
                 }
 
                 @include media-breakpoint-up(sm) {
-                    border-top: 1px solid $vs-color-border-primary;
+                    border-top: $vs-border-width-sm solid $vs-color-border-primary;
                     padding-top: $vs-spacer-100;
 
                     .vs-icon-list__item {

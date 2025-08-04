@@ -68,7 +68,7 @@ export default {
         align-items: center;
         padding: $vs-spacer-075;
         background-color: $vs-color-background-information;
-        border: 1px solid $vs-color-border-highlight;
+        border: $vs-border-width-sm solid $vs-color-border-highlight;
         min-height: 100%;
     }
 </style>

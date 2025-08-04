@@ -176,7 +176,7 @@ export default {
 <style lang="scss">
 .vs-social-share-item{
     &__link.vs-link.vs-link--variant-primary{
-        border: 1px solid $vs-color-border-primary;
+        border: $vs-border-width-sm solid $vs-color-border-primary;
         display: block;
         margin-bottom: $vs-spacer-050;
         padding: $vs-spacer-100 $vs-spacer-050;

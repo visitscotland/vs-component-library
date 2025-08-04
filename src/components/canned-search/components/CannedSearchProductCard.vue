@@ -295,7 +295,7 @@ export default {
 
         .vs-product-card__link {
             &:focus {
-                border: 2px solid $vs-color-interaction-focus;
+                border: $vs-border-width-md solid $vs-color-interaction-focus;
             }
         }
 

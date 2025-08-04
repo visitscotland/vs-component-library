@@ -176,12 +176,12 @@ export default {
     &__border {
         position: relative;
         background-color: $vs-color-background-inverse;
-        border: 1px solid $vs-color-border-primary;
+        border: $vs-border-width-sm solid $vs-color-border-primary;
         padding: $vs-spacer-100;
     }
 
     .vs-icon-list {
-        border-top: 1px solid $vs-color-border-primary;
+        border-top: $vs-border-width-sm solid $vs-color-border-primary;
         margin-top: $vs-spacer-100;
 
         .vs-icon-list__title {

@@ -23,7 +23,7 @@
 }
 
 @mixin form-element-styles {
-    border: $vs-color-border-input 1px solid;
+    border: $vs-color-border-input $vs-border-width-sm solid;
 }
 
 @mixin form-error-state {
@@ -45,7 +45,7 @@
 
 @mixin form-checkbox($size, $font-size, $line-height) {
     input[type="checkbox"] {
-        outline: $vs-color-border-input 1px solid;
+        outline: $vs-color-border-input $vs-border-width-sm solid;
         border: none;
         width: $size;
         height: $size;

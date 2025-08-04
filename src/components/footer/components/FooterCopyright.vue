@@ -86,7 +86,7 @@ export default {
 
 <style lang="scss">
 .vs-footer-copyright {
-    border-top: 1px solid $vs-color-border-inverse;
+    border-top: $vs-border-width-sm solid $vs-color-border-inverse;
     padding: $vs-spacer-150 0;
 
     .vs-footer-copyright__logo {

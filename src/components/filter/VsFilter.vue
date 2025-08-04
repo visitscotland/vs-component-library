@@ -99,7 +99,7 @@ defineExpose({
 .vs-filter {
     &__panel {
         background-color: $vs-color-background-primary;
-        border: solid 1px $vs-color-border-secondary;
+        border: solid $vs-border-width-sm $vs-color-border-secondary;
         border-radius: $vs-radius-subtle;
         overflow: auto;
     }
@@ -107,7 +107,7 @@ defineExpose({
     &__legend {
         align-items: baseline;
         background-color: $vs-color-background-secondary;
-        border-bottom:  solid 1px $vs-color-border-secondary;
+        border-bottom:  solid $vs-border-width-sm $vs-color-border-secondary;
         display: flex;
         font-size: $font-size-6;
         font-weight: $vs-font-weight-medium;

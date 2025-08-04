@@ -114,7 +114,7 @@ export default {
     .card-body {
         padding: $vs-spacer-100;
         width: 100%;
-        border-bottom: 1px solid $vs-color-border-primary;
+        border-bottom: $vs-border-width-sm solid $vs-color-border-primary;
     }
 
     .vs-event-card__date {

@@ -9,5 +9,5 @@ props:
   vs-focus-shadow-on-dark:
     value: "0 0 0 2px $vs-color-interaction-focus-on-bold"
 global:
-  type: ...
-  category: box-shadow
+  type: object-styles
+  category: focus-shadow

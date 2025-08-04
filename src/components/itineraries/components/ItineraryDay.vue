@@ -129,7 +129,7 @@ export default {
 
 <style lang="scss">
 .vs-itinerary-day{
-    border-top: 1px solid $vs-color-border-secondary;
+    border-top: $vs-border-width-sm solid $vs-color-border-secondary;
     margin-top: $vs-spacer-300;
 
     @include media-breakpoint-down(sm) {

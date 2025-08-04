@@ -270,7 +270,7 @@ export default {
         }
 
         input[type=checkbox].form-check-input[disabled] {
-            outline: $vs-color-border-disabled 1px solid;
+            outline: $vs-color-border-disabled $vs-border-width-sm solid;
         }
     }
 </style>

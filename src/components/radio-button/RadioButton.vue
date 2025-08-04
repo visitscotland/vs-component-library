@@ -322,7 +322,7 @@ export default {
 
             .form-check {
                 width: 100%;
-                border: 1px solid $vs-color-interaction-cta-primary;
+                border: $vs-border-width-sm solid $vs-color-interaction-cta-primary;
                 height: 3rem;
                 box-sizing: border-box;
                 margin-bottom: 0;
@@ -347,7 +347,7 @@ export default {
                         vertical-align: middle;
                         width: $vs-spacer-150;
                         height: $vs-spacer-150;
-                        outline: 2px solid $vs-color-interaction-cta-primary;
+                        outline: $vs-border-width-md solid $vs-color-interaction-cta-primary;
                         border-radius: $vs-radius-circular;
                         vertical-align: baseline;
                         transform: translateY(6px);
@@ -363,7 +363,7 @@ export default {
 
                     label {
                         &::before {
-                            outline: 2px solid $vs-color-interaction-cta-primary;
+                            outline: $vs-border-width-md solid $vs-color-interaction-cta-primary;
                         }
                     }
                 }
@@ -384,13 +384,13 @@ export default {
                     background-color: $vs-color-interaction-cta-subtle-pressed;
                     border-color: $vs-color-interaction-cta-subtle-pressed;
                     color: $vs-color-text-inverse;
-                    border-width: 2px;
+                    border-width: $vs-border-width-md;
 
                     label {
                         &::before {
                             border: $vs-spacer-025 solid $vs-color-interaction-cta-subtle-pressed;
                             background-color: $vs-color-interaction-cta-secondary;
-                            outline: 2px solid $vs-color-interaction-cta-secondary;
+                            outline: $vs-border-width-md solid $vs-color-interaction-cta-secondary;
                         }
                     }
                 }
@@ -409,7 +409,7 @@ export default {
 
                     label {
                         &::before {
-                            outline: 2px solid $vs-color-interaction-cta-disabled;
+                            outline: $vs-border-width-md solid $vs-color-interaction-cta-disabled;
                         }
                     }
                 }

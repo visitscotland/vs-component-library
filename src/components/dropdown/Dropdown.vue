@@ -124,7 +124,7 @@ export default {
 
     .dropdown-menu {
         li {
-            border-bottom: 1px solid $vs-color-border-primary;
+            border-bottom: $vs-border-width-sm solid $vs-color-border-primary;
 
             &:last-of-type {
                 border-bottom: 0;

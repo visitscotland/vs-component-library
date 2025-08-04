@@ -68,7 +68,7 @@ export default {
     background: $vs-color-background-bold;
 
     .vs-footer__social-menu-wrapper {
-        border-top: 1px solid $vs-color-border-inverse;
+        border-top: $vs-border-width-sm solid $vs-color-border-inverse;
 
         @include media-breakpoint-down(md) {
             .container {

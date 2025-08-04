@@ -66,7 +66,7 @@ export default {
     position: relative;
     list-style-type: none;
     background-color: $vs-color-background-secondary;
-    border-top: 1px solid $vs-color-border-primary;
+    border-top: $vs-border-width-sm solid $vs-color-border-primary;
     margin-bottom: 0;
 
     @include media-breakpoint-up(lg) {
@@ -78,26 +78,26 @@ export default {
         text-decoration: none;
         display: block;
         padding: $vs-spacer-075 $vs-spacer-300;
-        border: 2px solid $vs-color-background-secondary;
+        border: $vs-border-width-md solid $vs-color-background-secondary;
         font-size: $font-size-4;
 
         &:hover{
-            border: 2px solid $vs-color-background-secondary;
+            border: $vs-border-width-md solid $vs-color-background-secondary;
         }
 
         @include media-breakpoint-up(lg) {
-            border: 2px solid $vs-color-border-inverse;
+            border: $vs-border-width-md solid $vs-color-border-inverse;
             line-height: 1.3;
             padding: 0.125rem $vs-spacer-100;
 
             &:hover{
-                border: 2px solid $vs-color-border-inverse;
+                border: $vs-border-width-md solid $vs-color-border-inverse;
             }
         }
 
         &:focus{
             @extend %outline-link-focus;
-            outline-offset: -2px;
+            outline-offset: -$vs-border-width-md;
         }
     }
 
@@ -159,7 +159,7 @@ export default {
         border: 0;
 
         .vs-link--variant-primary{
-            border: 2px solid $vs-color-border-inverse;
+            border: $vs-border-width-md solid $vs-color-border-inverse;
             line-height: 1.3;
             padding: $vs-spacer-025 $vs-spacer-125;
         }

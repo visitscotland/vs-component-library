@@ -64,7 +64,7 @@ export default {
             background-color: $vs-color-background-inverse;
             color: $vs-color-text-primary;
             text-align: left;
-            border: 1px solid $vs-color-border-primary;
+            border: $vs-border-width-sm solid $vs-color-border-primary;
             border-top: 0;
 
             .vs-heading {
@@ -102,7 +102,7 @@ export default {
                 background-color: $vs-color-background-inverse;
                 color: $vs-color-text-primary;
                 text-align: left;
-                border-top: 1px solid $vs-color-border-primary;
+                border-top: $vs-border-width-sm solid $vs-color-border-primary;
             }
         }
 

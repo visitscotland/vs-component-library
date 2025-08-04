@@ -1,3 +1,8 @@
+#
+# ELEVATION SURFACE TOKENS
+# Use these tokens to set a elevation-surface.
+#
+
 props:
     - name: vs-elevation-surface
       value: "{!vs-snow-00}"
@@ -10,5 +15,5 @@ props:
 imports:
   - ./primitives/color/color-primitives.yml
 global:
-    type: elevation
-    category: elevation-surface
+    type: object-styles
+    category: elevation
