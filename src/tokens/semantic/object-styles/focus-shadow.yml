@@ -1,6 +1,6 @@
 #
-# BOX SHADOW TOKENS
-# Use these tokens to set a box-shadow.
+# FOCUS SHADOW TOKENS
+# Use these tokens to set a focus-shadow.
 #
 
 props:
