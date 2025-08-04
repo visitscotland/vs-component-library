@@ -228,7 +228,7 @@ export default {
     .btn.dropdown-toggle {
         position: relative;
         font-weight: $vs-font-weight-regular;
-        border-radius: $vs-radius-sharp;
+        border-radius: $vs-radius-none;
         border: 0;
         height: $vs-spacer-175;
         width: $vs-spacer-175;
