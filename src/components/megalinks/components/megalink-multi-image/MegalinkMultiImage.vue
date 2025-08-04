@@ -204,7 +204,7 @@ export default {
         border: none;
         background: transparent;
         position: relative;
-        margin-bottom: $spacer-200;
+        margin-bottom: $vs-spacer-200;
 
         &:hover {
             .vs-megalink-multi-image-card__title {
@@ -237,20 +237,20 @@ export default {
 
     @include media-breakpoint-up(xl) {
         .vs-megalinks--multi-image .vs-megalinks__links-wrapper{
-            width: calc(100% + #{$spacer-400} + #{$spacer-075});
-            margin-left: -#{$spacer-200};
+            width: calc(100% + #{$vs-spacer-400} + #{$vs-spacer-075});
+            margin-left: -#{$vs-spacer-200};
 
             .vs-megalink-multi-image {
-                padding-left: $spacer-125;
-                padding-right: $spacer-125;
+                padding-left: $vs-spacer-125;
+                padding-right: $vs-spacer-125;
             }
         }
 
         .vs-megalink-multi-image-card.card {
-            margin-bottom: $spacer-500;
+            margin-bottom: $vs-spacer-500;
 
             .card-body {
-                padding-bottom: $spacer-125;
+                padding-bottom: $vs-spacer-125;
             }
         }
 
@@ -274,8 +274,8 @@ export default {
                 background-color: $vs-elevation-surface-raised;
                 width: 40%;
                 right: 0;
-                top: $spacer-400;
-                padding: $spacer-200;
+                top: $vs-spacer-400;
+                padding: $vs-spacer-200;
                 z-index: 10;
                 box-shadow: $vs-elevation-shadow-raised;
             }
@@ -289,8 +289,8 @@ export default {
             }
 
             .vs-stretched-link-panels {
-                left: $spacer-125;
-                top: $spacer-125;
+                left: $vs-spacer-125;
+                top: $vs-spacer-125;
             }
 
             .vs-stretched-link-panels__panel:first-of-type {
@@ -302,11 +302,11 @@ export default {
 
                 .vs-stretched-link-panels {
                     left: auto;
-                    right: $spacer-125;
+                    right: $vs-spacer-125;
                 }
 
                 .card-body {
-                    left: $spacer-0;;
+                    left: $vs-spacer-0;
                     right: auto;
                 }
             }

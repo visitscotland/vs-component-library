@@ -112,7 +112,7 @@ export default {
     .vs-map-with-sidebar-buttons {
         position: sticky;
         bottom: 0;
-        padding: $spacer-100 0;
+        padding: $vs-spacer-100 0;
         width: 100%;
         background: $vs-color-background-inverse;
         text-align: center;
@@ -124,7 +124,7 @@ export default {
         }
 
         @include media-breakpoint-up(lg) {
-            padding: $spacer-100;
+            padding: $vs-spacer-100;
         }
 
         &--filters {
@@ -132,7 +132,7 @@ export default {
             justify-content: space-between;
 
             .vs-button:first-of-type {
-                margin-right: $spacer-100;
+                margin-right: $vs-spacer-100;
             }
         }
     }

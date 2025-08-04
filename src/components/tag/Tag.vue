@@ -44,7 +44,7 @@ export default {
         border-radius: $border-radius-pill;
         transition: background $duration-base;
         text-decoration: none;
-        padding: $spacer-025 $spacer-075;
+        padding: $vs-spacer-025 $vs-spacer-075;
         font-size: $font-size-4;
 
         @include vs-button-variant(

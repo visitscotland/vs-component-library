@@ -165,7 +165,7 @@ export default {
 
     .vs-article-section:first-of-type {
         .vs-heading:first-child {
-            margin-top: $spacer-0;
+            margin-top: $vs-spacer-0;
         }
     }
 

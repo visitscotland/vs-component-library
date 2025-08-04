@@ -34,15 +34,15 @@ export default {
     margin-left: 2.5rem;
 
     @include media-breakpoint-up(sm) {
-        margin-left: $spacer-600;
+        margin-left: $vs-spacer-600;
     }
 
     .btn {
         margin-left: -2.5rem;
         @include media-breakpoint-up(sm) {
-            margin-left: -#{$spacer-100};
+            margin-left: -#{$vs-spacer-100};
             &:first-of-type {
-                margin-top: -#{$spacer-100};
+                margin-top: -#{$vs-spacer-100};
             }
         }
     }

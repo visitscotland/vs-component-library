@@ -54,17 +54,17 @@ export default {
 
 <style lang="scss">
 .vs-list {
-    margin: 0 0 $spacer-125 $spacer-150;
+    margin: 0 0 $vs-spacer-125 $vs-spacer-150;
     padding: 0;
     list-style: none;
 
     li {
-        margin-bottom: $spacer-025;
+        margin-bottom: $vs-spacer-025;
 
         &::before {
             content: "• ";
             padding-right: 0.7rem;
-            margin-left: -$spacer-150;
+            margin-left: -$vs-spacer-150;
             font-size: $font-size-6;
         }
 
@@ -72,8 +72,8 @@ export default {
         ol,
         ul {
             list-style: none;
-            padding-inline-start: $spacer-200;
-            margin: $spacer-100 0 $spacer-125 $spacer-150;
+            padding-inline-start: $vs-spacer-200;
+            margin: $vs-spacer-100 0 $vs-spacer-125 $vs-spacer-150;
         }
 
         ul {
@@ -93,7 +93,7 @@ export default {
                 margin-bottom: 0;
 
                 &::before {
-                    padding-right: $spacer-050;
+                    padding-right: $vs-spacer-050;
                     font-size: inherit;
                     counter-increment: list-counter;
                     content: counter(list-counter, lower-alpha)  ". ";
@@ -103,14 +103,14 @@ export default {
     }
 
     &--ordered {
-        margin: 0 0 $spacer-125 $spacer-150;
+        margin: 0 0 $vs-spacer-125 $vs-spacer-150;
         counter-reset: list-counter;
 
         li {
             margin-bottom: 0;
 
             &::before{
-                padding-right: $spacer-050;
+                padding-right: $vs-spacer-050;
                 font-size: inherit;
                 counter-increment: list-counter;
                 content: counter(list-counter) ". ";

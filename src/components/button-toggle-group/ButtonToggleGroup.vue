@@ -171,9 +171,9 @@ export default {
                 @extend %button-default-styles;
                 color: $vs-color-text-cta-on-light;
                 transition: none;
-                padding-top: $spacer-050;
-                margin-bottom: $spacer-0;
-                padding-bottom: $spacer-050;
+                padding-top: $vs-spacer-050;
+                margin-bottom: $vs-spacer-0;
+                padding-bottom: $vs-spacer-050;
                 display: flex;
                 align-items: center;
 
@@ -186,7 +186,7 @@ export default {
                     display: flex;
                     height: 32px;
                     align-items: center;
-                    padding: 0 $spacer-050;
+                    padding: 0 $vs-spacer-050;
                 }
 
                 &.focus {
@@ -221,7 +221,7 @@ export default {
                 border-bottom-left-radius: $border-radius-pill;
 
                 &:not(:last-child) {
-                    margin-right: -(#{$spacer-100});
+                    margin-right: -(#{$vs-spacer-100});
                 }
             }
 
@@ -231,7 +231,7 @@ export default {
             }
 
             .btn {
-                padding: 0 $spacer-150;
+                padding: 0 $vs-spacer-150;
             }
 
             &:not(:disabled):not(.disabled).active {

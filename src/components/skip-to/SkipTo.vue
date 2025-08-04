@@ -151,13 +151,13 @@ export default {
         position: absolute;
         transform: translateY(-100%);
         top: 0;
-        height: $spacer-300;
+        height: $vs-spacer-300;
         align-items: center;
-        padding: 0 $spacer-050;
+        padding: 0 $vs-spacer-050;
         background-color: $vs-color-background-primary;
 
         &__label {
-            margin-bottom: $spacer-100;
+            margin-bottom: $vs-spacer-100;
         }
 
         &:focus-within {
@@ -166,11 +166,11 @@ export default {
         }
 
         .vs-link {
-            margin-left: $spacer-050;
+            margin-left: $vs-spacer-050;
         }
 
         @include media-breakpoint-up(lg) {
-            height: $spacer-400;
+            height: $vs-spacer-400;
         }
     }
 

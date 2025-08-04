@@ -64,8 +64,8 @@ export default {
 .vs-list.vs-list--unstyled  {
     .vs-footer-social-item {
         display: inline-block;
-        margin-right: $spacer-075;
-        margin-bottom: $spacer-075;
+        margin-right: $vs-spacer-075;
+        margin-bottom: $vs-spacer-075;
 
         .vs-link.vs-link--variant-primary {
             display: block;

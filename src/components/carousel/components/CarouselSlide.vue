@@ -176,7 +176,7 @@ export default {
             flex-shrink: 0;
             opacity: $opacity-50;
             transition: $duration-slowly;
-            padding: $spacer-050;
+            padding: $vs-spacer-050;
             max-width: 100%;
 
             &--active {
@@ -189,7 +189,7 @@ export default {
         }
 
         .card-title {
-            margin-bottom: $spacer-0;
+            margin-bottom: $vs-spacer-0;
         }
 
         .card-body {
@@ -199,20 +199,20 @@ export default {
 
     @include no-js {
         .vs-carousel-slide {
-            margin-bottom: $spacer-050;
+            margin-bottom: $vs-spacer-050;
 
             &::after {
                 content: '';
                 position: absolute;
-                left: $spacer-075;
-                bottom: $spacer-025;
+                left: $vs-spacer-075;
+                bottom: $vs-spacer-025;
                 height: 1px;
                 width: calc(100% - 24px);
                 background: $vs-color-border-primary;
 
                 @include media-breakpoint-up(sm) {
                     width: calc(100% - 40px);
-                    left: $spacer-125;
+                    left: $vs-spacer-125;
                 }
             }
 
@@ -220,7 +220,7 @@ export default {
                 opacity: $opacity-100;
                 display: flex;
                 flex-direction: row;
-                padding: $spacer-050;
+                padding: $vs-spacer-050;
                 border: none;
                 height: 100%;
                 cursor: pointer;
@@ -246,7 +246,7 @@ export default {
                 &__img-container {
                     width: 33%;
                     align-self: flex-start;
-                    margin-right: $spacer-100;
+                    margin-right: $vs-spacer-100;
                 }
 
                 &__title {
@@ -256,7 +256,7 @@ export default {
                 }
 
                 &__category {
-                    margin-bottom: $spacer-050;
+                    margin-bottom: $vs-spacer-050;
                 }
 
                 .card-title {
@@ -278,7 +278,7 @@ export default {
                 .vs-stretched-link-panels {
                     right: auto;
                     left: calc(33% - 4px);
-                    top: $spacer-100;
+                    top: $vs-spacer-100;
                     transform: translateX(-100%);
 
                     &__panel {
@@ -315,7 +315,7 @@ export default {
                     }
 
                     &__content {
-                        margin: $spacer-050 0 0;
+                        margin: $vs-spacer-050 0 0;
                     }
                 }
             }

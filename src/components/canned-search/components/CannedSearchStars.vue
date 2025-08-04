@@ -63,7 +63,7 @@ export default {
 <style lang="scss">
     .vs-canned-search-stars {
         line-height: 1;
-        margin-bottom: $spacer-075;
+        margin-bottom: $vs-spacer-075;
     }
 
     .vs-canned-search-stars__star {
