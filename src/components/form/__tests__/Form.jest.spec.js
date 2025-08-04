@@ -375,7 +375,7 @@ describe('VsForm', () => {
             moxios.uninstall();
         });
 
-        it('should properly define the `emailField` value when attachEmail is called', async() => {
+        it('should properly define the `emailField` value when attachEmail is called, if the submission type is "breg"', async() => {
             const wrapper = factoryMount();
 
             wrapper.vm.attachEmail();
@@ -383,6 +383,18 @@ describe('VsForm', () => {
             await wrapper.vm.$nextTick();
 
             expect(wrapper.vm.emailFieldName).toBe('Email');
+        });
+
+        it('should not define the `emailField` value when attachEmail is called, if the submission type is not "breg"', async() => {
+            const wrapper = factoryMount({
+                submissionType: 'fepl',
+            });
+
+            wrapper.vm.attachEmail();
+
+            await wrapper.vm.$nextTick();
+
+            expect(wrapper.vm.emailFieldName).toBe('');
         });
 
         it('should return an object with the name and a boolean true value for "true"', () => {

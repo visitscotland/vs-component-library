@@ -1,3 +1,17 @@
+## [5.1.2](https://github.com/visitscotland/vs-component-library/compare/v5.1.1...v5.1.2) (2025-08-01)
+
+
+### Bug Fixes
+
+* **video:** restore previous videostore timing ([5f61e9c](https://github.com/visitscotland/vs-component-library/commit/5f61e9cd38b38148572391a097a96e174fb92ea7))
+
+## [5.1.1](https://github.com/visitscotland/vs-component-library/compare/v5.1.0...v5.1.1) (2025-08-01)
+
+
+### Bug Fixes
+
+* **forms:** only invoke exponea.identify() on breg forms ([61b242d](https://github.com/visitscotland/vs-component-library/commit/61b242d0a2fbc0eceab886d7591bce9bf920fe75))
+
 # [5.1.0](https://github.com/visitscotland/vs-component-library/compare/v5.0.3...v5.1.0) (2025-07-30)
 
 
