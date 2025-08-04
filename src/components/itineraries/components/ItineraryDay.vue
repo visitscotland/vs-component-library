@@ -156,7 +156,7 @@ export default {
             padding: 0;
 
             &:focus {
-                box-shadow: $vs-box-shadow-focus;
+                box-shadow: $vs-focus-shadow;
             }
 
             .vs-accordion-toggle__icon {

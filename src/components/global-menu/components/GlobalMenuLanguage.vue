@@ -127,7 +127,7 @@ export default {
         }
 
         &:focus {
-            box-shadow: $vs-box-shadow-focus-on-dark inset;
+            box-shadow: $vs-focus-shadow-on-dark inset;
             background: $vs-color-background-brand;
         }
 

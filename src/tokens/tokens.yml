@@ -15,6 +15,7 @@ imports:
 
   - ./semantic/object-styles/radius.yml
   - ./semantic/object-styles/elevation-shadow.yml
+  - ./semantic/object-styles/focus-shadow.yml
 
   - ./semantic/typography/font-size.yml
   - ./semantic/typography/font-weight.yml
@@ -28,7 +29,6 @@ imports:
   - ./font-size.yml
   - ./opacity.yml
   - ./timing.yml
-  - ./box-shadow.yml
   - ./utility.yml
   - ./themes.yml
 

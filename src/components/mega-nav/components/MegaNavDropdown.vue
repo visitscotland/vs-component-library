@@ -312,7 +312,7 @@ export default {
                     box-shadow: inset 0px 10px 6px -8px rgba(0, 0, 0, 0.16);
 
                     &:focus{
-                        box-shadow: $vs-box-shadow-focus inset;
+                        box-shadow: $vs-focus-shadow inset;
                     }
                 }
             }
@@ -340,7 +340,7 @@ export default {
             }
 
             &:focus {
-                box-shadow: $vs-box-shadow-focus inset;
+                box-shadow: $vs-focus-shadow inset;
 
                 &::after {
                     display: none;
