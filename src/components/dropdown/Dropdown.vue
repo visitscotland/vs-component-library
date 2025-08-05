@@ -140,7 +140,7 @@ export default {
                 &:focus {
                     outline: 0;
                     color: $vs-color-text-cta-on-light;
-                    box-shadow: $vs-box-shadow-focus inset;
+                    box-shadow: $vs-focus-shadow inset;
                 }
             }
         }

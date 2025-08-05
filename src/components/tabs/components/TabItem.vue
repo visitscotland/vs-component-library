@@ -99,7 +99,7 @@ export default {
         }
 
         &:focus-visible {
-            box-shadow: $vs-box-shadow-focus;
+            box-shadow: $vs-focus-shadow;
             outline: none;
         }
     }
@@ -144,7 +144,7 @@ export default {
         }
 
         &:focus-visible {
-            box-shadow: $vs-box-shadow-focus;
+            box-shadow: $vs-focus-shadow;
             outline: none;
         }
     }

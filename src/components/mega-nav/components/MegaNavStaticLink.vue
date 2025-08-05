@@ -71,7 +71,7 @@ export default {
         }
 
         &:focus {
-            box-shadow: $vs-box-shadow-focus inset;
+            box-shadow: inset $vs-focus-shadow;
 
             &::after{
                 display: none;

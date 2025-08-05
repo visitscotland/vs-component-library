@@ -89,7 +89,7 @@
 
                 &:focus {
                     outline: 0px;
-                    box-shadow: $vs-box-shadow-focus inset;
+                    box-shadow: $vs-focus-shadow inset;
                 }
 
                 @include media-breakpoint-up(sm) {
