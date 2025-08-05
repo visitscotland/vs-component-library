@@ -1026,7 +1026,7 @@ export default {
     }
 
     &__message-box {
-        border: 1px solid $vs-color-border-highlight;
+        border: $vs-border-width-sm solid $vs-color-border-highlight;
         border-radius: $vs-radius-tiny;
         height: 142px;
         width: 200px;
@@ -1056,7 +1056,7 @@ export default {
         margin: $vs-spacer-050;
 
         & > button {
-            border: 2px solid $vs-color-interaction-cta-primary;
+            border: $vs-border-width-md solid $vs-color-interaction-cta-primary;
             background-position: center center;
             background-repeat: no-repeat;
             background-size: 1rem 1rem;

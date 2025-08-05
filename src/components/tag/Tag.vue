@@ -40,7 +40,7 @@ export default {
 <style lang="scss">
     .vs-tag.vs-link {
         display: inline-block;
-        border: 2px solid $vs-color-border-highlight;
+        border: $vs-border-width-md solid $vs-color-border-highlight;
         border-radius: $vs-radius-full;
         transition: background $duration-base;
         text-decoration: none;

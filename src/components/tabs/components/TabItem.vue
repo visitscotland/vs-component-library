@@ -63,7 +63,7 @@ export default {
         width: 100%;
         background-color: $vs-color-interaction-cta-subtle-hover;
         color: $vs-color-text-primary;
-        border-width: 1px;
+        border-width: $vs-border-width-sm;
         border-color: $vs-color-border-primary;
         padding: $vs-spacer-100 $vs-spacer-075;
         transition: $duration-base all;
@@ -108,7 +108,7 @@ export default {
         flex-grow: 1;
         background-color: $vs-color-interaction-cta-subtle-hover;
         color: $vs-color-text-primary;
-        border-width: 1px;
+        border-width: $vs-border-width-sm;
         border-color: $vs-color-border-primary;
         border-radius: $vs-radius-tiny $vs-radius-tiny $vs-spacer-0 $vs-spacer-0;
         text-wrap: pretty;

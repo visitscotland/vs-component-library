@@ -139,7 +139,7 @@ export default {
         &__embed {
             &--error {
                 & > div {
-                    outline: 2px solid $vs-color-border-error;
+                    outline: $vs-border-width-md solid $vs-color-border-error;
                     margin-top: $vs-spacer-050;
                 }
             }

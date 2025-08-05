@@ -440,7 +440,7 @@ export default {
                 &__details {
                     max-width: 84%;
                     margin: 0 auto;
-                    border-bottom: $vs-color-border-primary 1px solid;
+                    border-bottom: $vs-color-border-primary $vs-border-width-sm solid;
                 }
             }
 

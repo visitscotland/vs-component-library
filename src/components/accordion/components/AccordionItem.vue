@@ -211,7 +211,7 @@ export default {
     border: 0;
 
     &.vs-accordion-item__responsive {
-        border-top: 1px solid $vs-color-border-primary;
+        border-top: $vs-border-width-sm solid $vs-color-border-primary;
     }
 
     .vs-accordion-item__card-header {

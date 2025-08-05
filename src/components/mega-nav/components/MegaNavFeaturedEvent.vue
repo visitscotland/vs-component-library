@@ -95,7 +95,7 @@ export default {
 
 <style lang="scss">
     .card.vs-mega-nav-featured-event {
-        border-top: 1px solid $vs-color-border-primary;
+        border-top: $vs-border-width-sm solid $vs-color-border-primary;
         margin-bottom: -#{$vs-spacer-050};
 
         @include media-breakpoint-up(lg) {
@@ -104,7 +104,7 @@ export default {
 
         &:focus {
             .vs-stretched-link-card__link {
-                outline: 2px;
+                outline: $vs-border-width-md;
             }
         }
 

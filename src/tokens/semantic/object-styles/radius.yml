@@ -29,5 +29,5 @@ props:
 imports:
   - ../../primitives/size-primitives.yml
 global:
-  type: number
+  type: object-styles
   category: radius

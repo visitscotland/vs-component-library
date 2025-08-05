@@ -56,7 +56,7 @@ export default {
     line-height: 1;
 
     &--default {
-        border: 1px solid $vs-color-border-secondary;
+        border: $vs-border-width-sm solid $vs-color-border-secondary;
         color: $vs-color-text-secondary;
         font-size: $font-size-3;
     }

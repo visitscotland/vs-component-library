@@ -96,14 +96,14 @@ export default {
     &--map-marker {
         .vs-map-marker-icon__marker {
             -webkit-text-stroke-color: $vs-color-border-inverse;
-            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-width: $vs-border-width-sm;
         }
     }
 
     &__marker {
         &--outline {
             -webkit-text-stroke-color: $vs-color-border-inverse;
-            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-width: $vs-border-width-sm;
         }
     }
 

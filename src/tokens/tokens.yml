@@ -17,7 +17,8 @@ imports:
   - ./semantic/object-styles/elevation-shadow.yml
   - ./semantic/object-styles/elevation-surface.yml
   - ./semantic/object-styles/focus-shadow.yml
-
+  - ./semantic/object-styles/border-width.yml
+  
   - ./semantic/typography/font-size.yml
   - ./semantic/typography/font-weight.yml
   - ./semantic/typography/font-family.yml

@@ -180,7 +180,7 @@ export default {
             transform: translate3d(0px, 0px, 0px) !important;
             text-align: center;
             max-height: none;
-            border-top: 1px solid $vs-color-border-inverse;
+            border-top: $vs-border-width-sm solid $vs-color-border-inverse;
             padding: $vs-spacer-075 0;
 
             @include media-breakpoint-up(md) {

@@ -187,7 +187,7 @@ export default {
         font-weight: $vs-font-weight-medium;
         padding: $vs-spacer-025;
         min-height: 88px;
-        border-bottom: 1px solid $vs-color-border-primary;
+        border-bottom: $vs-border-width-sm solid $vs-color-border-primary;
         text-align: left;
 
         &:hover,

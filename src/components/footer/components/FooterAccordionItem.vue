@@ -96,7 +96,7 @@ export default {
 
 <style lang="scss">
 .vs-footer-accordion-item.vs-accordion-item.card {
-    border-bottom: 1px solid $vs-color-border-inverse;
+    border-bottom: $vs-border-width-sm solid $vs-color-border-inverse;
     border-top: 0;
 
       .vs-accordion-item__card-header{
@@ -113,7 +113,7 @@ export default {
      .vs-accordion-item__panel.card-body {
         background-color: $vs-color-background-bold;
         color: $vs-color-text-inverse;
-        border-top: 1px solid $vs-color-border-inverse;
+        border-top: $vs-border-width-sm solid $vs-color-border-inverse;
     }
 
     .vs-accordion-toggle {
@@ -150,7 +150,7 @@ export default {
 
     @include media-breakpoint-up(md) {
         border: 0;
-        border-left: 1px solid $vs-color-border-inverse;
+        border-left: $vs-border-width-sm solid $vs-color-border-inverse;
         padding: 0 $vs-spacer-075;
         background-color: $vs-color-background-bold;
 

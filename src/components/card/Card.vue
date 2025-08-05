@@ -133,7 +133,7 @@ export default {
         }
 
         &--outlined {
-            border: 1px solid $vs-color-border-primary;
+            border: $vs-border-width-sm solid $vs-color-border-primary;
             transition: all $duration-base;
 
             &:hover {

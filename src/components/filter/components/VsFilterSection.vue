@@ -63,7 +63,7 @@ const filterSectionClasses = computed(() => ({
     padding: $vs-spacer-075 $vs-spacer-125;
 
     &:not(:last-child) {
-        border-bottom: solid 1px $vs-color-border-secondary;
+        border-bottom: solid $vs-border-width-sm $vs-color-border-secondary;
     }
 
     &--inline .vs-filter-section__section {

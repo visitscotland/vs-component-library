@@ -110,7 +110,7 @@ export default {
         }
 
         &:focus{
-            outline-offset: -2px;
+            outline-offset: -$vs-border-width-md;
         }
     }
 
@@ -182,7 +182,7 @@ export default {
 
         &:first-of-type > .vs-accordion-item__card-header {
             .vs-accordion-toggle.btn {
-                border-top: 1px solid $vs-color-border-primary;
+                border-top: $vs-border-width-sm solid $vs-color-border-primary;
             }
         }
     }

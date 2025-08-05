@@ -125,7 +125,7 @@ const handleRemove = () => {
 <style lang="scss">
     .vs-guest-selector-row {
         position: relative;
-        border-bottom: 1px solid $vs-color-border-primary;
+        border-bottom: $vs-border-width-sm solid $vs-color-border-primary;
         margin-bottom: $vs-spacer-100;
 
         &:last-of-type{

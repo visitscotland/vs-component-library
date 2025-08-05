@@ -46,7 +46,7 @@ export default {
 
 <style lang="scss">
 .vs-footer-social-menu {
-    border-left: 1px solid $vs-color-border-inverse;
+    border-left: $vs-border-width-sm solid $vs-color-border-inverse;
     background: $vs-color-background-bold;
 
     &__title.vs-heading{

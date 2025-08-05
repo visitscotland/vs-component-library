@@ -208,7 +208,7 @@ export default {
         &--tabbed-focus {
             input:focus {
                 + label span {
-                    border: 2px solid $vs-color-interaction-focus;
+                    border: $vs-border-width-md solid $vs-color-interaction-focus;
                 }
             }
         }

@@ -158,7 +158,7 @@ export default {
         text-align: center;
 
         &:not(:last-child) {
-            border-right: 1px solid $vs-color-border-secondary;
+            border-right: $vs-border-width-sm solid $vs-color-border-secondary;
         }
     }
 </style>

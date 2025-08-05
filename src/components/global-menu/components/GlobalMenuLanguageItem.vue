@@ -68,7 +68,7 @@ export default {
 .vs-dropdown .dropdown-menu {
     .vs-global-menu__languages__item {
         &:not(:last-of-type) {
-            border-bottom: 1px solid $vs-color-border-inverse;
+            border-bottom: $vs-border-width-sm solid $vs-color-border-inverse;
         }
 
         .dropdown-item {

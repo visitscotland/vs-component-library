@@ -70,11 +70,11 @@ export default {
 
 <style lang="scss">
     .card.vs-mega-nav-featured-item {
-        border-top: 1px solid #e0e0e0;
+        border-top: $vs-border-width-sm solid #e0e0e0;
 
         &:focus {
             .vs-stretched-link-card__link {
-                outline: 2px;
+                outline: $vs-border-width-md;
             }
         }
 
