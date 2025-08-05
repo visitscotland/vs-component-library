@@ -210,7 +210,7 @@ export default {
         }
 
         &.vs-button--rounded {
-            border-radius: $border-radius-pill;
+            border-radius: $vs-radius-full;
         }
 
         &.disabled, &:disabled {

@@ -661,7 +661,7 @@ export default {
 
         &__overlay-box {
             border: 1px solid $vs-color-border-highlight;
-            border-radius: $border-radius-default;
+            border-radius: $vs-radius-tiny;
             height: 142px;
             width: 200px;
             background: $vs-color-background-inverse;

@@ -80,10 +80,11 @@ $spacers: (
 /* Borders */
 $border-color: $vs-color-border-primary;
 
-$border-radius: $border-radius-default;
-$border-radius-lg: $border-radius-lg;
-$border-radius-sm: $border-radius-sm;
-$rounded-pill: $border-radius-pill;
+$border-radius: $vs-radius-tiny;
+$border-radius-lg: $vs-radius-medium;
+$border-radius-md: $vs-radius-small;
+$border-radius-sm: $vs-radius-tiny;
+$border-radius-pill: $vs-radius-full;
 
 $input-btn-padding-y-sm: 0.1875rem;
 $btn-padding-x-sm: 1.375rem;

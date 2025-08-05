@@ -100,7 +100,7 @@ defineExpose({
     &__panel {
         background-color: $vs-color-background-primary;
         border: solid 1px $vs-color-border-secondary;
-        border-radius: $border-radius-default;
+        border-radius: $vs-radius-tiny;
         overflow: auto;
     }
 

@@ -107,7 +107,7 @@ export default {
         position: relative;
         display: flex;
         flex-direction: column;
-        border-radius: $border-radius-default;
+        border-radius: $vs-radius-tiny;
 
         &:hover {
             cursor: pointer;
@@ -119,7 +119,7 @@ export default {
 
         &__header {
             overflow: hidden;
-            border-radius: $border-radius-default;
+            border-radius: $vs-radius-tiny;
         }
 
         &__body {

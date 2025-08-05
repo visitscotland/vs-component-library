@@ -158,7 +158,7 @@ export default {
         &--radios {
             background-color: $vs-color-interaction-cta-subtle-hover;
             display: flex;
-            border-radius: $border-radius-pill;
+            border-radius: $vs-radius-full;
             overflow: hidden;
 
             input[type="radio"] {
@@ -217,8 +217,8 @@ export default {
             display: flex;
 
             &:first-child {
-                border-top-left-radius: $border-radius-pill;
-                border-bottom-left-radius: $border-radius-pill;
+                border-top-left-radius: $vs-radius-full;
+                border-bottom-left-radius: $vs-radius-full;
 
                 &:not(:last-child) {
                     margin-right: -(#{$vs-spacer-100});
@@ -226,8 +226,8 @@ export default {
             }
 
             &:last-child {
-                border-top-right-radius: $border-radius-pill;
-                border-bottom-right-radius: $border-radius-pill;
+                border-top-right-radius: $vs-radius-full;
+                border-bottom-right-radius: $vs-radius-full;
             }
 
             .btn {
@@ -237,7 +237,7 @@ export default {
             &:not(:disabled):not(.disabled).active {
                 label {
                     z-index: 2;
-                    border-radius: $border-radius-pill;
+                    border-radius: $vs-radius-full;
                     cursor: default;
 
                     @include vs-button-variant(
