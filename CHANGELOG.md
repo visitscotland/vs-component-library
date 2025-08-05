@@ -1,3 +1,10 @@
+# [5.3.0](https://github.com/visitscotland/vs-component-library/compare/v5.2.0...v5.3.0) (2025-08-05)
+
+
+### Features
+
+* **tokens:** update elevation tokens ([7864b70](https://github.com/visitscotland/vs-component-library/commit/7864b708ee4b6c72f07afc51f7a04cd1e13c4585))
+
 # [5.2.0](https://github.com/visitscotland/vs-component-library/compare/v5.1.2...v5.2.0) (2025-08-05)
 
 
