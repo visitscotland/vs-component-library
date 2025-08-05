@@ -8,7 +8,7 @@ props:
     - name: vs-elevation-surface-overlay
       value: "{!vs-snow-00}"
 imports:
-  - ./primitives/color/color-primitives.yml
+  - ../../primitives/color/color-primitives.yml
 global:
     type: elevation
     category: elevation-surface
