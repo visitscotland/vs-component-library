@@ -581,7 +581,7 @@ export default {
         background: $vs-elevation-surface-raised;
         box-shadow: $vs-elevation-shadow-raised;
         border: none;
-        border-radius: $vs-radius-subtle;
+        border-radius: $vs-radius-tiny;
         overflow: hidden;
         margin-bottom: $vs-spacer-300;
         height: calc(100% - #{$vs-spacer-300});

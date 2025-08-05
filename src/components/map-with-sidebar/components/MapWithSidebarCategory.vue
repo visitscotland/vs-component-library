@@ -139,7 +139,7 @@ export default {
             }
 
             &:focus {
-                box-shadow: $vs-focus-shadow inset;
+                box-shadow: inset $vs-focus-shadow;
                 background: $vs-color-background-inverse;
             }
 

@@ -51,7 +51,7 @@ export default {
 .vs-badge {
     margin-right: $vs-spacer-050;
     padding: $vs-spacer-025 $vs-spacer-050;
-    border-radius: $vs-radius-subtle;
+    border-radius: $vs-radius-tiny;
     display: inline-block;
     line-height: 1;
 
