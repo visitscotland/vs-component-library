@@ -41,7 +41,7 @@ export default {
     .vs-tag.vs-link {
         display: inline-block;
         border: 2px solid $vs-color-border-highlight;
-        border-radius: $vs-radius-circular;
+        border-radius: $vs-radius-full;
         transition: background $duration-base;
         text-decoration: none;
         padding: $vs-spacer-025 $vs-spacer-075;

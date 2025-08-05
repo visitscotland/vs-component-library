@@ -1,3 +1,10 @@
+# [5.2.0](https://github.com/visitscotland/vs-component-library/compare/v5.1.2...v5.2.0) (2025-08-05)
+
+
+### Features
+
+* **border-radius:** refactor border-radius tokens in the system and apply for consistency ([eacccb6](https://github.com/visitscotland/vs-component-library/commit/eacccb6a29ad09fff57b6b3b18188f62153faaa5))
+
 ## [5.1.2](https://github.com/visitscotland/vs-component-library/compare/v5.1.1...v5.1.2) (2025-08-01)
 
 

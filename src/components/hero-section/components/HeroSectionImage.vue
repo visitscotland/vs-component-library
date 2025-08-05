@@ -119,7 +119,7 @@ export default {
 
                 @include media-breakpoint-up(lg) {
                     height: 540px;
-                    border-radius: 0 0 0 $vs-radius-extra-extra-soft;
+                    border-radius: 0 0 0 $vs-radius-huge;
                 }
             }
 

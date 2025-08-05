@@ -348,7 +348,7 @@ export default {
                         width: $vs-spacer-150;
                         height: $vs-spacer-150;
                         outline: 2px solid $vs-color-interaction-cta-primary;
-                        border-radius: $vs-radius-circular;
+                        border-radius: $vs-radius-full;
                         vertical-align: baseline;
                         transform: translateY(6px);
                         margin-right: $vs-spacer-100;
