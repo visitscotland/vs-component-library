@@ -1,3 +1,10 @@
+## [5.3.2](https://github.com/visitscotland/vs-component-library/compare/v5.3.1...v5.3.2) (2025-08-08)
+
+
+### Bug Fixes
+
+* **build:** restore process.getuid shim from before polyfills ([ec9177a](https://github.com/visitscotland/vs-component-library/commit/ec9177ac0d8b95c513b5d29c8efbd528a0671b1c))
+
 ## [5.3.1](https://github.com/visitscotland/vs-component-library/compare/v5.3.0...v5.3.1) (2025-08-08)
 
 
