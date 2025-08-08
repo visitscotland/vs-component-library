@@ -8,12 +8,12 @@ export default defineConfig(({ mode }) => {
 
     return {
         define: {
-            'process.getuid': 'undefined',
             'process.env': JSON.stringify({
                 ICON_KIT_TOKEN: env.ICON_KIT_TOKEN,
                 ICON_API_TOKEN: env.ICON_API_TOKEN,
                 RECAPTCHA_TOKEN: env.RECAPTCHA_TOKEN,
             }),
+            'process.getuid': '() => undefined',
             'process.versions': process.versions,
             'process.platform': `"${process.platform}"`,
         },
