@@ -1,3 +1,10 @@
+## [5.3.5](https://github.com/visitscotland/vs-component-library/compare/v5.3.4...v5.3.5) (2025-08-08)
+
+
+### Bug Fixes
+
+* **build:** restore polyfills temporarily ([a50f1cd](https://github.com/visitscotland/vs-component-library/commit/a50f1cd39be869e2cde1db05a53d5105a339a25b))
+
 ## [5.3.4](https://github.com/visitscotland/vs-component-library/compare/v5.3.3...v5.3.4) (2025-08-08)
 
 
