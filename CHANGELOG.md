@@ -1,3 +1,10 @@
+## [5.3.4](https://github.com/visitscotland/vs-component-library/compare/v5.3.3...v5.3.4) (2025-08-08)
+
+
+### Bug Fixes
+
+* **build:** and again ([04d55c7](https://github.com/visitscotland/vs-component-library/commit/04d55c798f94b03ea9a6e904be31da77a0ec8b34))
+
 ## [5.3.3](https://github.com/visitscotland/vs-component-library/compare/v5.3.2...v5.3.3) (2025-08-08)
 
 
