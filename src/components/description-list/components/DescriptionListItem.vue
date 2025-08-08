@@ -78,8 +78,8 @@ export default {
         }
 
         @include media-breakpoint-down(md) {
-            border-bottom: 1px solid $vs-color-border-primary;
-            margin-bottom: $spacer-050;
+            border-bottom: $vs-border-width-sm solid $vs-color-border-primary;
+            margin-bottom: $vs-spacer-050;
             @include make-col(12);
         }
     }

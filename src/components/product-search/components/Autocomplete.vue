@@ -175,7 +175,7 @@ onMounted(() => {
             cursor: pointer;
             font-size: $font-size-4;
             list-style: none;
-            padding: $spacer-050 $spacer-100;
+            padding: $vs-spacer-050 $vs-spacer-100;
 
             &:hover,
             &--hover {
@@ -187,8 +187,8 @@ onMounted(() => {
 
     .vs-icon {
         position: absolute;
-        top: calc(50% - $spacer-050);
-        right: $spacer-100;
+        top: calc(50% - $vs-spacer-050);
+        right: $vs-spacer-100;
     }
 }
 </style>

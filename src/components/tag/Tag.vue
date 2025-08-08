@@ -40,11 +40,11 @@ export default {
 <style lang="scss">
     .vs-tag.vs-link {
         display: inline-block;
-        border: 2px solid $vs-color-border-highlight;
-        border-radius: $border-radius-pill;
+        border: $vs-border-width-md solid $vs-color-border-highlight;
+        border-radius: $vs-radius-full;
         transition: background $duration-base;
         text-decoration: none;
-        padding: $spacer-025 $spacer-075;
+        padding: $vs-spacer-025 $vs-spacer-075;
         font-size: $font-size-4;
 
         @include vs-button-variant(

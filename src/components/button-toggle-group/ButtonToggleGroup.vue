@@ -158,7 +158,7 @@ export default {
         &--radios {
             background-color: $vs-color-interaction-cta-subtle-hover;
             display: flex;
-            border-radius: $border-radius-pill;
+            border-radius: $vs-radius-full;
             overflow: hidden;
 
             input[type="radio"] {
@@ -171,9 +171,9 @@ export default {
                 @extend %button-default-styles;
                 color: $vs-color-text-cta-on-light;
                 transition: none;
-                padding-top: $spacer-050;
-                margin-bottom: $spacer-0;
-                padding-bottom: $spacer-050;
+                padding-top: $vs-spacer-050;
+                margin-bottom: $vs-spacer-0;
+                padding-bottom: $vs-spacer-050;
                 display: flex;
                 align-items: center;
 
@@ -186,7 +186,7 @@ export default {
                     display: flex;
                     height: 32px;
                     align-items: center;
-                    padding: 0 $spacer-050;
+                    padding: 0 $vs-spacer-050;
                 }
 
                 &.focus {
@@ -208,7 +208,7 @@ export default {
         &--tabbed-focus {
             input:focus {
                 + label span {
-                    border: 2px solid $vs-color-interaction-focus;
+                    border: $vs-border-width-md solid $vs-color-interaction-focus;
                 }
             }
         }
@@ -217,27 +217,27 @@ export default {
             display: flex;
 
             &:first-child {
-                border-top-left-radius: $border-radius-pill;
-                border-bottom-left-radius: $border-radius-pill;
+                border-top-left-radius: $vs-radius-full;
+                border-bottom-left-radius: $vs-radius-full;
 
                 &:not(:last-child) {
-                    margin-right: -(#{$spacer-100});
+                    margin-right: -(#{$vs-spacer-100});
                 }
             }
 
             &:last-child {
-                border-top-right-radius: $border-radius-pill;
-                border-bottom-right-radius: $border-radius-pill;
+                border-top-right-radius: $vs-radius-full;
+                border-bottom-right-radius: $vs-radius-full;
             }
 
             .btn {
-                padding: 0 $spacer-150;
+                padding: 0 $vs-spacer-150;
             }
 
             &:not(:disabled):not(.disabled).active {
                 label {
                     z-index: 2;
-                    border-radius: $border-radius-pill;
+                    border-radius: $vs-radius-full;
                     cursor: default;
 
                     @include vs-button-variant(

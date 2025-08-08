@@ -123,11 +123,11 @@ export default {
 
 <style lang="scss">
     .link-list-item {
-        margin-top: $spacer-100;
+        margin-top: $vs-spacer-100;
         font-size: $font-size-5;
 
         &:first-of-type {
-            margin-bottom: $spacer-0;
+            margin-bottom: $vs-spacer-0;
         }
     }
 </style>

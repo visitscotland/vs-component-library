@@ -112,43 +112,43 @@ export default {
 .card.vs-event-card {
     border: none;
     .card-body {
-        padding: $spacer-100;
+        padding: $vs-spacer-100;
         width: 100%;
-        border-bottom: 1px solid $vs-color-border-primary;
+        border-bottom: $vs-border-width-sm solid $vs-color-border-primary;
     }
 
     .vs-event-card__date {
-        margin: auto $spacer-0;
+        margin: auto $vs-spacer-0;
         font-size: $font-size-6;
         font-weight: $vs-font-weight-medium;
     }
 
     .vs-event-card__heading {
-        margin: $spacer-0;
+        margin: $vs-spacer-0;
     }
 
     .vs-event-card__header {
-        margin: $spacer-050 $spacer-0;
+        margin: $vs-spacer-050 $vs-spacer-0;
     }
 
     .vs-event-card__cta {
-        margin-bottom: $spacer-050;
+        margin-bottom: $vs-spacer-050;
     }
 
     @include media-breakpoint-down(md) {
         .vs-event-card__cta {
-            margin-top: $spacer-150;
+            margin-top: $vs-spacer-150;
         }
     }
 
     @include media-breakpoint-up(md) {
 
         .vs-event-card__header {
-            margin: $spacer-0 $spacer-0 $spacer-0 $spacer-0;
+            margin: $vs-spacer-0 $vs-spacer-0 $vs-spacer-0 $vs-spacer-0;
         }
 
         .vs-event-card__heading {
-            margin: $spacer-050 $spacer-0;
+            margin: $vs-spacer-050 $vs-spacer-0;
         }
 
         .vs-event-card__date {
@@ -157,10 +157,10 @@ export default {
 
         .vs-event-card__cta {
             position: relative;
-            right: $spacer-0;
-            bottom: $spacer-300;
+            right: $vs-spacer-0;
+            bottom: $vs-spacer-300;
             float: right;
-            margin-bottom: -$spacer-300;
+            margin-bottom: -$vs-spacer-300;
         }
     }
 }

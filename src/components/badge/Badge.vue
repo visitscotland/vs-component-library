@@ -49,14 +49,14 @@ export default {
 
 <style lang="scss">
 .vs-badge {
-    margin-right: $spacer-050;
-    padding: $spacer-025 $spacer-050;
-    border-radius: $border-radius-default;
+    margin-right: $vs-spacer-050;
+    padding: $vs-spacer-025 $vs-spacer-050;
+    border-radius: $vs-radius-tiny;
     display: inline-block;
     line-height: 1;
 
     &--default {
-        border: 1px solid $vs-color-border-secondary;
+        border: $vs-border-width-sm solid $vs-color-border-secondary;
         color: $vs-color-text-secondary;
         font-size: $font-size-3;
     }

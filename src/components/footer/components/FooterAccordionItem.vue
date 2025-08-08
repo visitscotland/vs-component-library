@@ -96,7 +96,7 @@ export default {
 
 <style lang="scss">
 .vs-footer-accordion-item.vs-accordion-item.card {
-    border-bottom: 1px solid $vs-color-border-inverse;
+    border-bottom: $vs-border-width-sm solid $vs-color-border-inverse;
     border-top: 0;
 
       .vs-accordion-item__card-header{
@@ -104,7 +104,7 @@ export default {
     }
 
     .vs-accordion-item__title.vs-heading {
-        margin: $spacer-075 0;
+        margin: $vs-spacer-075 0;
         background-color: $vs-color-background-bold;
         color: $vs-color-text-inverse;
         padding: 0;
@@ -113,12 +113,12 @@ export default {
      .vs-accordion-item__panel.card-body {
         background-color: $vs-color-background-bold;
         color: $vs-color-text-inverse;
-        border-top: 1px solid $vs-color-border-inverse;
+        border-top: $vs-border-width-sm solid $vs-color-border-inverse;
     }
 
     .vs-accordion-toggle {
         text-transform: none !important;
-        padding: $spacer-075;
+        padding: $vs-spacer-075;
         font-size: $font-size-4;
         font-weight: $vs-font-weight-medium;
         text-align: left;
@@ -134,28 +134,28 @@ export default {
         }
 
         &:focus {
-            box-shadow: $vs-box-shadow-focus-on-dark inset;
+            box-shadow: $vs-focus-shadow-on-dark inset;
         }
 
          .icon.icon-xs {
-            right: $spacer-075;
+            right: $vs-spacer-075;
         }
     }
 
     @include media-breakpoint-up(sm) {
         .btn.vs-accordion-toggle {
-            padding: $spacer-075 $spacer-150;
+            padding: $vs-spacer-075 $vs-spacer-150;
         }
     }
 
     @include media-breakpoint-up(md) {
         border: 0;
-        border-left: 1px solid $vs-color-border-inverse;
-        padding: 0 $spacer-075;
+        border-left: $vs-border-width-sm solid $vs-color-border-inverse;
+        padding: 0 $vs-spacer-075;
         background-color: $vs-color-background-bold;
 
         .vs-accordion-item__title {
-            margin-top: $spacer-025;
+            margin-top: $vs-spacer-025;
         }
 
         .vs-accordion-item__panel.card-body {

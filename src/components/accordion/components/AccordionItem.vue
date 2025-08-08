@@ -211,7 +211,7 @@ export default {
     border: 0;
 
     &.vs-accordion-item__responsive {
-        border-top: 1px solid $vs-color-border-primary;
+        border-top: $vs-border-width-sm solid $vs-color-border-primary;
     }
 
     .vs-accordion-item__card-header {
@@ -224,31 +224,31 @@ export default {
         text-align: left;
         font-weight: $vs-font-weight-strong;
         font-size: $font-size-6;
-        padding: $spacer-050 $spacer-075;
+        padding: $vs-spacer-050 $vs-spacer-075;
         border: 0;
         margin-bottom: 1px;
         box-shadow: 0px -1px 0px 0px $vs-color-border-primary;
 
         &:focus {
-            box-shadow: $vs-box-shadow-focus inset;
+            box-shadow: $vs-focus-shadow inset;
         }
     }
 
     .vs-accordion-item__title {
-        padding: $spacer-075;
+        padding: $vs-spacer-075;
         margin-bottom: 0;
     }
 
     .vs-accordion-item__card-colour-badge {
-        width: $spacer-075;
-        height: $spacer-075;
-        border-radius: $spacer-025;
+        width: $vs-spacer-075;
+        height: $vs-spacer-075;
+        border-radius: $vs-radius-tiny;
         display: inline-block;
-        margin-right: $spacer-100;
+        margin-right: $vs-spacer-100;
     }
 
     .vs-accordion-item__panel.card-body {
-        padding: 0 0 $spacer-050;
+        padding: 0 0 $vs-spacer-050;
     }
 }
 

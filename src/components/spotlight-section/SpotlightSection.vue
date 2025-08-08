@@ -140,7 +140,7 @@ export default {
         position: relative;
         background-color: $vs-color-background-information;
         color: $vs-color-text-inverse;
-        border-radius: 0.75rem;
+        border-radius: $vs-radius-medium;
         background-size: cover;
         background-position: center;
 
@@ -150,19 +150,19 @@ export default {
             width: 100%;
             display: grid;
             place-items: end;
-            border-radius: 0.75rem;
-            padding: $spacer-175 $spacer-125;
+            border-radius: $vs-radius-medium;
+            padding: $vs-spacer-175 $vs-spacer-125;
             z-index: 1;
 
             @include media-breakpoint-up(sm) {
-                padding: $spacer-250 $spacer-250;
+                padding: $vs-spacer-250 $vs-spacer-250;
             }
 
             &::before {
                 content: '';
                 position: absolute;
                 inset: 0;
-                border-radius: 0.75rem;
+                border-radius: $vs-radius-medium;
                 background:
                     linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%),
                     linear-gradient(270deg, rgba(0, 0, 0, 0) 30.29%, rgba(0, 0, 0, 0.5) 75%);
@@ -182,19 +182,19 @@ export default {
 
         &__heading {
             text-wrap: balance;
-            margin-bottom: $spacer-150;
+            margin-bottom: $vs-spacer-150;
 
             @include media-breakpoint-up(sm) {
                 @include heading-style(heading-m, false);
             }
 
             @include media-breakpoint-up(md) {
-                padding-right: $spacer-300;
+                padding-right: $vs-spacer-300;
                 @include heading-style(heading-l, false);
             }
 
             @include media-breakpoint-up(lg) {
-                padding-right: $spacer-700;
+                padding-right: $vs-spacer-700;
             }
 
             @include media-breakpoint-up(xl) {
@@ -215,23 +215,23 @@ export default {
 
                 @include media-breakpoint-up(md) {
                     min-height: 500px;
-                    padding: $spacer-400 $spacer-300;
+                    padding: $vs-spacer-400 $vs-spacer-300;
                 }
             }
 
             .vs-spotlight-section__heading {
                 @include media-breakpoint-up(sm) {
-                    margin-bottom: $spacer-150;
+                    margin-bottom: $vs-spacer-150;
                 }
             }
 
             .vs-spotlight-section__description {
                 @include media-breakpoint-up(md) {
-                    margin-bottom: $spacer-250;
+                    margin-bottom: $vs-spacer-250;
                     display: block;
                 }
                 @include media-breakpoint-up(xl) {
-                    margin-bottom: $spacer-300;
+                    margin-bottom: $vs-spacer-300;
                 }
             }
         }
@@ -253,7 +253,7 @@ export default {
 
                 @include media-breakpoint-up(lg) {
                     min-height: 276px;
-                    padding: $spacer-400 $spacer-300;
+                    padding: $vs-spacer-400 $vs-spacer-300;
                 }
 
                 @include media-breakpoint-up(xl) {
@@ -266,7 +266,7 @@ export default {
                     margin-bottom: 0;
                 }
                 @include media-breakpoint-up(lg) {
-                    margin-bottom: $spacer-150;
+                    margin-bottom: $vs-spacer-150;
                 }
             }
 

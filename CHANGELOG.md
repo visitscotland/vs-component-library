@@ -1,3 +1,31 @@
+## [5.3.1](https://github.com/visitscotland/vs-component-library/compare/v5.3.0...v5.3.1) (2025-08-08)
+
+
+### Bug Fixes
+
+* **build:** remove node polyfills library from vite build for nuxt 3.16 compatibility ([3d03622](https://github.com/visitscotland/vs-component-library/commit/3d036227f0ea87b4730c17ac2de6ec06efd5263d))
+
+# [5.3.0](https://github.com/visitscotland/vs-component-library/compare/v5.2.0...v5.3.0) (2025-08-05)
+
+
+### Features
+
+* **tokens:** update elevation tokens ([7864b70](https://github.com/visitscotland/vs-component-library/commit/7864b708ee4b6c72f07afc51f7a04cd1e13c4585))
+
+# [5.2.0](https://github.com/visitscotland/vs-component-library/compare/v5.1.2...v5.2.0) (2025-08-05)
+
+
+### Features
+
+* **border-radius:** refactor border-radius tokens in the system and apply for consistency ([eacccb6](https://github.com/visitscotland/vs-component-library/commit/eacccb6a29ad09fff57b6b3b18188f62153faaa5))
+
+## [5.1.2](https://github.com/visitscotland/vs-component-library/compare/v5.1.1...v5.1.2) (2025-08-01)
+
+
+### Bug Fixes
+
+* **video:** restore previous videostore timing ([5f61e9c](https://github.com/visitscotland/vs-component-library/commit/5f61e9cd38b38148572391a097a96e174fb92ea7))
+
 ## [5.1.1](https://github.com/visitscotland/vs-component-library/compare/v5.1.0...v5.1.1) (2025-08-01)
 
 

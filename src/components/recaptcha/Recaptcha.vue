@@ -139,8 +139,8 @@ export default {
         &__embed {
             &--error {
                 & > div {
-                    outline: 2px solid $vs-color-border-error;
-                    margin-top: $spacer-050;
+                    outline: $vs-border-width-md solid $vs-color-border-error;
+                    margin-top: $vs-spacer-050;
                 }
             }
         }

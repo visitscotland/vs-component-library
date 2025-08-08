@@ -115,17 +115,17 @@ export default {
 
 <style lang="scss">
 .vs-listicle-item {
-    margin-bottom: $spacer-300;
+    margin-bottom: $vs-spacer-300;
 
     @include media-breakpoint-up(sm) {
-        margin-bottom: $spacer-500;
+        margin-bottom: $vs-spacer-500;
     }
 
     &__header {
         display: grid;
         grid-template-columns: auto 1fr;
-        column-gap: $spacer-100;
-        margin-bottom: $spacer-075;
+        column-gap: $vs-spacer-100;
+        margin-bottom: $vs-spacer-075;
 
         .count__bg {
             grid-column: 1;
@@ -135,8 +135,8 @@ export default {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: $spacer-300;
-            height: $spacer-300;
+            width: $vs-spacer-300;
+            height: $vs-spacer-300;
 
             @include media-breakpoint-up(md) {
                 height: 67px;
@@ -154,13 +154,13 @@ export default {
 
                 &:after {
                     content: "";
-                    border-bottom: 1px solid $vs-color-text-inverse;
+                    border-bottom: $vs-border-width-sm solid $vs-color-text-inverse;
                     display: block;
-                    margin: $spacer-025 $spacer-100 0;
-                    margin-top: $spacer-025;
+                    margin: $vs-spacer-025 $vs-spacer-100 0;
+                    margin-top: $vs-spacer-025;
 
                     @include media-breakpoint-up(md) {
-                        margin: $spacer-025 $spacer-150 0;
+                        margin: $vs-spacer-025 $vs-spacer-150 0;
                     }
                 }
 
@@ -177,25 +177,25 @@ export default {
     }
 
     &.border {
-        padding: $spacer-100;
+        padding: $vs-spacer-100;
 
         @include media-breakpoint-up(md) {
-            padding: $spacer-200;
+            padding: $vs-spacer-200;
         }
 
         @include media-breakpoint-up(xl) {
-            padding: $spacer-500;
+            padding: $vs-spacer-500;
         }
 
         @include media-breakpoint-up(xxl) {
-            padding: $spacer-600;
+            padding: $vs-spacer-600;
         }
     }
 
     .key-facilities-list {
         &.has-facilities {
-            border-top: 1px solid $vs-color-border-primary;
-            padding-top: $spacer-100;
+            border-top: $vs-border-width-sm solid $vs-color-border-primary;
+            padding-top: $vs-spacer-100;
 
             @include media-breakpoint-up(sm) {
                 border-top: 0;
@@ -203,7 +203,7 @@ export default {
             }
 
             @include media-breakpoint-up(lg) {
-                border-left: 1px solid $vs-color-border-primary;
+                border-left: $vs-border-width-sm solid $vs-color-border-primary;
             }
 
             .vs-icon-list {
@@ -212,8 +212,8 @@ export default {
                 }
 
                 @include media-breakpoint-up(sm) {
-                    border-top: 1px solid $vs-color-border-primary;
-                    padding-top: $spacer-100;
+                    border-top: $vs-border-width-sm solid $vs-color-border-primary;
+                    padding-top: $vs-spacer-100;
 
                     .vs-icon-list__item {
                         width: 90px;
@@ -222,18 +222,18 @@ export default {
 
                 @include media-breakpoint-up(lg) {
                     border-top: 0;
-                    padding: 0 $spacer-050;
+                    padding: 0 $vs-spacer-050;
 
                     .vs-icon-list__item {
                         width: 80px;
                     }
                 }
                 @include media-breakpoint-up(xl) {
-                    padding: 0 $spacer-100;
+                    padding: 0 $vs-spacer-100;
                 }
 
                 @include media-breakpoint-up(xxl) {
-                    padding: 0 $spacer-300;
+                    padding: 0 $vs-spacer-300;
                 }
             }
         }

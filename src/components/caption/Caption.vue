@@ -169,7 +169,7 @@ export default {
         }
         .vs-caption{
             &__image-caption {
-                margin-bottom: $spacer-025;
+                margin-bottom: $vs-spacer-025;
             }
 
             &__map-wrapper {
@@ -186,7 +186,7 @@ export default {
             text-align: left;
         }
         .vs-caption__caption-info {
-            padding: $spacer-050 0;
+            padding: $vs-spacer-050 0;
         }
     }
 
@@ -205,7 +205,7 @@ export default {
 
             .vs-caption{
                 &__image-caption {
-                   margin-bottom: $spacer-200;
+                   margin-bottom: $vs-spacer-200;
                 }
 
                 &__map-wrapper {
@@ -215,7 +215,7 @@ export default {
         }
 
         .vs-caption__caption-info{
-            padding: $spacer-100 0;
+            padding: $vs-spacer-100 0;
         }
     }
 
@@ -230,7 +230,7 @@ export default {
 
     &__image-credit {
         font-weight: $vs-font-weight-subtle;
-        margin-bottom: $spacer-0;
+        margin-bottom: $vs-spacer-0;
     }
 
     @include media-breakpoint-up(md) {
@@ -273,11 +273,11 @@ export default {
                         }
 
                         &__image-caption {
-                            margin-bottom: $spacer-125;
+                            margin-bottom: $vs-spacer-125;
                         }
 
                         &__caption-info{
-                            padding: $spacer-075 $spacer-050;
+                            padding: $vs-spacer-075 $vs-spacer-050;
                         }
                     }
                 }

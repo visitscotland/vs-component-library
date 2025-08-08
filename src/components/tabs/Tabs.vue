@@ -64,7 +64,7 @@ export default {
             background-color: $vs-color-background-inverse;
             color: $vs-color-text-primary;
             text-align: left;
-            border: 1px solid $vs-color-border-primary;
+            border: $vs-border-width-sm solid $vs-color-border-primary;
             border-top: 0;
 
             .vs-heading {
@@ -80,7 +80,7 @@ export default {
 
         .nav-item {
             display: flex;
-            margin: $spacer-0 $spacer-025;
+            margin: $vs-spacer-0 $vs-spacer-025;
             text-wrap: wrap;
             flex-direction: row;
             flex-wrap: nowrap;
@@ -94,7 +94,7 @@ export default {
 
         @include media-breakpoint-up(md) {
             .nav-item {
-                margin: $spacer-0 $spacer-100;
+                margin: $vs-spacer-0 $vs-spacer-100;
                 flex-grow: unset;
             }
 
@@ -102,7 +102,7 @@ export default {
                 background-color: $vs-color-background-inverse;
                 color: $vs-color-text-primary;
                 text-align: left;
-                border-top: 1px solid $vs-color-border-primary;
+                border-top: $vs-border-width-sm solid $vs-color-border-primary;
             }
         }
 
@@ -119,7 +119,7 @@ export default {
         .tab-content > .tab-pane {
             position: relative;
             display: block!important;
-            margin-bottom: $spacer-300;
+            margin-bottom: $vs-spacer-300;
             border: 0;
 
             .vs-heading {

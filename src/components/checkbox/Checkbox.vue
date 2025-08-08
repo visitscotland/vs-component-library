@@ -223,7 +223,7 @@ export default {
         @include form-checkbox(38px, $font-size-6, 2);
 
         input[type="checkbox"] {
-            margin: $spacer-050 $spacer-100 0 0;
+            margin: $vs-spacer-050 $vs-spacer-100 0 0;
         }
 
         .form-check {
@@ -270,7 +270,7 @@ export default {
         }
 
         input[type=checkbox].form-check-input[disabled] {
-            outline: $vs-color-border-disabled 1px solid;
+            outline: $vs-color-border-disabled $vs-border-width-sm solid;
         }
     }
 </style>

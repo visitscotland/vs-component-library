@@ -1,0 +1,42 @@
+#
+# SPACING TOKENS
+# Use these tokens to set padding, margin and position coordinates.
+#
+props:
+  - name: vs-spacer-0
+    value: "{!vs-size-0}"
+  - name: vs-spacer-0125
+    value: "{!vs-size-0125}"
+  - name: vs-spacer-025
+    value: "{!vs-size-025}"
+  - name: vs-spacer-050
+    value: "{!vs-size-050}"
+  - name: vs-spacer-075
+    value: "{!vs-size-075}"
+  - name: vs-spacer-100
+    value: "{!vs-size-100}"
+  - name: vs-spacer-125
+    value: "{!vs-size-125}"
+  - name: vs-spacer-150
+    value: "{!vs-size-150}"
+  - name: vs-spacer-175
+    value: "{!vs-size-175}"
+  - name: vs-spacer-200
+    value: "{!vs-size-200}"
+  - name: vs-spacer-250
+    value: "{!vs-size-250}"
+  - name: vs-spacer-300
+    value: "{!vs-size-300}"
+  - name: vs-spacer-400
+    value: "{!vs-size-400}"
+  - name: vs-spacer-500
+    value: "{!vs-size-500}"
+  - name: vs-spacer-600
+    value: "{!vs-size-600}"
+  - name: vs-spacer-700
+    value: "{!vs-size-700}"
+imports:
+  - ../../primitives/size-primitives.yml
+global:
+  type: number
+  category: spacing

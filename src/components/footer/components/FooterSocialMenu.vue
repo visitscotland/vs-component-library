@@ -46,21 +46,21 @@ export default {
 
 <style lang="scss">
 .vs-footer-social-menu {
-    border-left: 1px solid $vs-color-border-inverse;
+    border-left: $vs-border-width-sm solid $vs-color-border-inverse;
     background: $vs-color-background-bold;
 
     &__title.vs-heading{
         background: $vs-color-background-bold;
         color: $vs-color-text-inverse;
-        margin: 0 $spacer-075;
+        margin: 0 $vs-spacer-075;
 
         @include media-breakpoint-up(sm) {
-            margin: 0 $spacer-150;
+            margin: 0 $vs-spacer-150;
         }
 
         @include media-breakpoint-up(md) {
             margin: 0;
-            padding-top: $spacer-075;
+            padding-top: $vs-spacer-075;
         }
     }
 

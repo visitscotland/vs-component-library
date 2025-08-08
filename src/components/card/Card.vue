@@ -107,7 +107,7 @@ export default {
         position: relative;
         display: flex;
         flex-direction: column;
-        border-radius: $border-radius-default;
+        border-radius: $vs-radius-tiny;
 
         &:hover {
             cursor: pointer;
@@ -119,7 +119,7 @@ export default {
 
         &__header {
             overflow: hidden;
-            border-radius: $border-radius-default;
+            border-radius: $vs-radius-tiny;
         }
 
         &__body {
@@ -133,7 +133,7 @@ export default {
         }
 
         &--outlined {
-            border: 1px solid $vs-color-border-primary;
+            border: $vs-border-width-sm solid $vs-color-border-primary;
             transition: all $duration-base;
 
             &:hover {

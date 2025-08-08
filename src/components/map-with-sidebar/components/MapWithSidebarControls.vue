@@ -105,10 +105,10 @@ export default {
             justify-content: space-around;
             align-items: center;
             min-height: 75px;
-            border-top: $vs-color-border-primary solid 1px;
+            border-top: $vs-color-border-primary solid $vs-border-width-sm;
             background: $vs-color-background-inverse;
-            width: calc(100% + #{$spacer-200});
+            width: calc(100% + #{$vs-spacer-200});
             margin-top: auto;
-            margin-left: -#{$spacer-100};
+            margin-left: -#{$vs-spacer-100};
         }
 </style>

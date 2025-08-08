@@ -59,45 +59,46 @@ $container-max-widths: (
 /* Spacing */
 $spacers: (
     // Utility classes are generated with the corresponding suffixes eg mt-075 = 0.75rem, (replacing mt-3)
-    "0": $spacer-0,
-    "0125": $spacer-0125,
-    "025": $spacer-025,
-    "050": $spacer-050,
-    "075": $spacer-075,
-    "100": $spacer-100,
-    "125": $spacer-125,
-    "150": $spacer-150,
-    "175": $spacer-175,
-    "200": $spacer-200,
-    "250": $spacer-250,
-    "300": $spacer-300,
-    "400": $spacer-400,
-    "500": $spacer-500,
-    "600": $spacer-600,
-    "700": $spacer-700,
+    "0": $vs-spacer-0,
+    "0125": $vs-spacer-0125,
+    "025": $vs-spacer-025,
+    "050": $vs-spacer-050,
+    "075": $vs-spacer-075,
+    "100": $vs-spacer-100,
+    "125": $vs-spacer-125,
+    "150": $vs-spacer-150,
+    "175": $vs-spacer-175,
+    "200": $vs-spacer-200,
+    "250": $vs-spacer-250,
+    "300": $vs-spacer-300,
+    "400": $vs-spacer-400,
+    "500": $vs-spacer-500,
+    "600": $vs-spacer-600,
+    "700": $vs-spacer-700,
 );
 
 /* Borders */
 $border-color: $vs-color-border-primary;
 
-$border-radius: $border-radius-default;
-$border-radius-lg: $border-radius-lg;
-$border-radius-sm: $border-radius-sm;
-$rounded-pill: $border-radius-pill;
+$border-radius: $vs-radius-tiny;
+$border-radius-lg: $vs-radius-medium;
+$border-radius-md: $vs-radius-small;
+$border-radius-sm: $vs-radius-tiny;
+$border-radius-pill: $vs-radius-full;
 
 $input-btn-padding-y-sm: 0.1875rem;
 $btn-padding-x-sm: 1.375rem;
 
-$input-btn-padding-y: $spacer-075;
+$input-btn-padding-y: $vs-spacer-075;
 $btn-padding-x: 2.5rem;
 
-$input-btn-padding-y-lg: $spacer-100;
+$input-btn-padding-y-lg: $vs-spacer-100;
 $btn-padding-x-lg: 3.5rem;
 
 
 /* Breadcrumbs */
-$breadcrumb-padding-y: $spacer-0;
-$breadcrumb-padding-x: $spacer-0;
+$breadcrumb-padding-y: $vs-spacer-0;
+$breadcrumb-padding-x: $vs-spacer-0;
 $breadcrumb-bg: transparent;
 $breadcrumb-divider-color: $vs-color-text-secondary;
 $breadcrumb-active-color: $vs-color-text-secondary;
@@ -107,22 +108,22 @@ $breadcrumb-margin-bottom: 0;
 
 
 /* Dropdowns */
-$dropdown-padding-y: $spacer-0;
+$dropdown-padding-y: $vs-spacer-0;
 $dropdown-border-color: $vs-color-border-primary;
 $dropdown-box-shadow: none;
-$dropdown-item-padding-x: $spacer-050;
-$dropdown-item-padding-y: $spacer-050;
+$dropdown-item-padding-x: $vs-spacer-050;
+$dropdown-item-padding-y: $vs-spacer-050;
 
 
 /* Links */
 $link-decoration: underline;
 
 /* BS5 custom property overrides */
-$card-cap-padding-y: $spacer-075;
-$card-cap-padding-x: $spacer-125;
-$gutter-y: $spacer-100;
-$card-spacer-x: $spacer-125;
-$card-spacer-y: $spacer-125;
+$card-cap-padding-y: $vs-spacer-075;
+$card-cap-padding-x: $vs-spacer-125;
+$gutter-y: $vs-spacer-100;
+$card-spacer-x: $vs-spacer-125;
+$card-spacer-y: $vs-spacer-125;
 $enable-smooth-scroll: false;
 
 

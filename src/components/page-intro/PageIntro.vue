@@ -250,10 +250,10 @@ export default {
 
         > .container {
             background: $vs-color-background-inverse;
-            padding-bottom: $spacer-200;
+            padding-bottom: $vs-spacer-200;
 
             @include media-breakpoint-up(lg) {
-                padding-bottom: $spacer-300;
+                padding-bottom: $vs-spacer-300;
             }
         }
     }
@@ -263,54 +263,54 @@ export default {
 
         .vs-page-intro__fs-mobile-heading-wrapper {
             position: relative;
-            height: $spacer-400;
+            height: $vs-spacer-400;
 
             @include media-breakpoint-up(lg) {
                 display: none;
             }
 
             .breadcrumb {
-                margin-bottom: $spacer-0;
+                margin-bottom: $vs-spacer-0;
             }
         }
 
         .vs-page-intro__share {
             width: auto;
             // Moves the share above the hero image on mobile screens
-            top: calc(-100vh + $spacer-600 + $spacer-050);
+            top: calc(-100vh + $vs-spacer-600 + $vs-spacer-050);
         }
 
         .vs-image-with-caption--hero {
             .vs-image-with-caption__image-wrapper {
                 // 100vh - the height of the nav - the height of the breadcrumb - a little to partially
                 // reveal the header
-                height: calc(100vh - $spacer-400 - $spacer-600 - $spacer-050);
-                width: calc(100% + $spacer-100);
-                margin-left: -#{$spacer-100};
+                height: calc(100vh - $vs-spacer-400 - $vs-spacer-600 - $vs-spacer-050);
+                width: calc(100% + $vs-spacer-100);
+                margin-left: -#{$vs-spacer-100};
             }
 
             .vs-image-with-caption__captions {
-                width: calc(100% + $spacer-100);
+                width: calc(100% + $vs-spacer-100);
             }
         }
 
         .vs-page-intro__wrapper {
-            margin-top: $spacer-050;
+            margin-top: $vs-spacer-050;
         }
 
         .vs-image-with-caption__captions {
-            padding: $spacer-0 $spacer-100;
+            padding: $vs-spacer-0 $vs-spacer-100;
         }
     }
 
     &__share {
         position: absolute;
-        top: $spacer-075;
-        right: $spacer-025;
+        top: $vs-spacer-075;
+        right: $vs-spacer-025;
 
         @include media-breakpoint-up(sm) {
-            top: $spacer-100;
-            right: $spacer-100;
+            top: $vs-spacer-100;
+            right: $vs-spacer-100;
         }
 
         @include media-breakpoint-up(lg) {
@@ -322,7 +322,7 @@ export default {
         .vs-page-intro {
             &__share {
                 @include media-breakpoint-up(lg) {
-                    top: $spacer-400;
+                    top: $vs-spacer-400;
                 }
             }
 
@@ -334,7 +334,7 @@ export default {
         }
 
         .vs-hero {
-            margin-bottom: $spacer-0;
+            margin-bottom: $vs-spacer-0;
 
             .vs-caption {
                 @include media-breakpoint-up(lg) {
@@ -362,7 +362,7 @@ export default {
     }
 
      &__breadcrumb {
-        margin-top: $spacer-075;
+        margin-top: $vs-spacer-075;
     }
 
     &__lower,

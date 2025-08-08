@@ -199,7 +199,7 @@ export default {
 <style lang="scss">
 
 .vs-mega-nav-dropdown {
-    padding: $spacer-050 0 0 $spacer-050;
+    padding: $vs-spacer-050 0 0 $vs-spacer-050;
 
     @include media-breakpoint-up(lg) {
         padding: 0;
@@ -210,7 +210,7 @@ export default {
         height: 26px;
         width: 26px;
         font-size: 0;
-        right: $spacer-075;
+        right: $vs-spacer-075;
         top: -36px;
 
         &:hover {
@@ -220,7 +220,7 @@ export default {
         }
 
         @include media-breakpoint-up(lg) {
-            right: $spacer-025;
+            right: $vs-spacer-025;
             top: -4px;
         }
     }
@@ -228,10 +228,10 @@ export default {
     .btn.dropdown-toggle {
         position: relative;
         font-weight: $vs-font-weight-regular;
-        border-radius: 0;
+        border-radius: $vs-radius-none;
         border: 0;
-        height: $spacer-175;
-        width: $spacer-175;
+        height: $vs-spacer-175;
+        width: $vs-spacer-175;
         font-size: 0;
         padding: .125rem;
 
@@ -254,7 +254,7 @@ export default {
         }
 
         @include media-breakpoint-up(lg) {
-            padding: $spacer-075 $spacer-050;
+            padding: $vs-spacer-075 $vs-spacer-050;
             height: auto;
             width: auto;
             font-size: $font-size-4;
@@ -283,7 +283,7 @@ export default {
         }
 
         @include media-breakpoint-up(xl) {
-            margin: 0 $spacer-075;
+            margin: 0 $vs-spacer-075;
         }
     }
 
@@ -301,7 +301,7 @@ export default {
         transform: translate3d(0px, 45px, 0px) !important;
 
         @include media-breakpoint-up(lg) {
-            padding: $spacer-125 0 $spacer-200;
+            padding: $vs-spacer-125 0 $vs-spacer-200;
             max-height: 595px;
             transform: translate3d(0px, 48px, 0px) !important;
         }
@@ -312,7 +312,7 @@ export default {
                     box-shadow: inset 0px 10px 6px -8px rgba(0, 0, 0, 0.16);
 
                     &:focus{
-                        box-shadow: $vs-box-shadow-focus inset;
+                        box-shadow: $vs-focus-shadow inset;
                     }
                 }
             }
@@ -325,11 +325,11 @@ export default {
 @include no-js {
     .vs-mega-nav-dropdown {
         .btn.dropdown-toggle {
-            padding: $spacer-075 $spacer-050;
+            padding: $vs-spacer-075 $vs-spacer-050;
             height: auto;
             width: auto;
             font-size: $font-size-4;
-            margin-bottom: $spacer-050;
+            margin-bottom: $vs-spacer-050;
 
             @include media-breakpoint-up(lg) {
                 margin-bottom: 0;
@@ -340,7 +340,7 @@ export default {
             }
 
             &:focus {
-                box-shadow: $vs-box-shadow-focus inset;
+                box-shadow: $vs-focus-shadow inset;
 
                 &::after {
                     display: none;

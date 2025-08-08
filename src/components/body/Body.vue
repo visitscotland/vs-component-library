@@ -96,7 +96,7 @@ export default {
             display: inline-block;
             font-family: "Font Awesome 6 Pro";
             content: "\f14c";
-            margin-left: $spacer-025;
+            margin-left: $vs-spacer-025;
             font-size: $font-size-2;
         }
     }

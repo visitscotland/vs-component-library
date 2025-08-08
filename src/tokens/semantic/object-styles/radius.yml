@@ -1,0 +1,33 @@
+#
+# RADIUS TOKENS
+# Use these tokens to change border radius size.
+#
+
+props:
+  vs-radius-none:
+    value: "{!vs-size-0}"
+  vs-radius-tiny:
+    value: "{!vs-size-025}"
+  vs-radius-small:
+    value: "{!vs-size-050}"
+  vs-radius-medium:
+    value: "{!vs-size-075}"
+  vs-radius-large:
+    value: "{!vs-size-100}"
+  vs-radius-large-increased:
+    value: "{!vs-size-125}"
+  vs-radius-extra-large:
+    value: "{!vs-size-175}"
+  vs-radius-extra-large-increased:
+    value: "{!vs-size-200}"
+  vs-radius-extra-extra-large:
+    value: "{!vs-size-300}"
+  vs-radius-huge:
+    value: "{!vs-size-400}"
+  vs-radius-full:
+    value: "1000rem"
+imports:
+  - ../../primitives/size-primitives.yml
+global:
+  type: object-styles
+  category: radius

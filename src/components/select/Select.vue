@@ -265,15 +265,15 @@ export default {
             width: 100%;
             cursor: pointer;
             height: 50px;
-            border-radius: 0;
+            border-radius: $vs-radius-none;
 
             &::after {
                 font-family: "Font Awesome 6 Pro";
                 content: "\f078";
                 display: inline-block;
                 position: absolute;
-                top: calc(50% - #{$spacer-075});
-                right: $spacer-100;
+                top: calc(50% - #{$vs-spacer-075});
+                right: $vs-spacer-100;
                 pointer-events: none;
                 color: $vs-color-icon-cta-on-light;
             }
@@ -285,7 +285,7 @@ export default {
             background-color: $vs-color-background-inverse;
             background-image: none;
             border: none;
-            padding: 0 $spacer-100 0;
+            padding: 0 $vs-spacer-100 0;
             margin: 0;
             width: 100%;
             font-family: inherit;

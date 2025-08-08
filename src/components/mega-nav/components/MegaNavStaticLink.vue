@@ -59,7 +59,7 @@ export default {
         height: auto;
         width: auto;
         font-size: $font-size-4;
-        margin-bottom: $spacer-050;
+        margin-bottom: $vs-spacer-050;
         white-space: nowrap;
 
         @include media-breakpoint-up(lg) {
@@ -71,7 +71,7 @@ export default {
         }
 
         &:focus {
-            box-shadow: $vs-box-shadow-focus inset;
+            box-shadow: inset $vs-focus-shadow;
 
             &::after{
                 display: none;
@@ -82,8 +82,8 @@ export default {
             background: $vs-color-background-inverse;
             list-style: none;
             margin: 0;
-            padding: $spacer-075 $spacer-125;
-            border-top: 1px solid $vs-color-border-primary;
+            padding: $vs-spacer-075 $vs-spacer-125;
+            border-top: $vs-border-width-sm solid $vs-color-border-primary;
             font-size: $font-size-5;
         }
 
@@ -91,11 +91,11 @@ export default {
             position: relative;
             text-decoration: none;
             color: $vs-color-text-primary;
-            padding: $spacer-075 $spacer-050;
-            margin: $spacer-0 $spacer-0;
+            padding: $vs-spacer-075 $vs-spacer-050;
+            margin: $vs-spacer-0 $vs-spacer-0;
 
             @include media-breakpoint-up(xl) {
-                margin: $spacer-0 $spacer-050;
+                margin: $vs-spacer-0 $vs-spacer-050;
             }
 
             &::after {
@@ -103,7 +103,7 @@ export default {
                 position: absolute;
                 display: block;
                 bottom: 0;
-                left: $spacer-025;
+                left: $vs-spacer-025;
                 width: 0;
                 height: 4px;
                 background: $vs-color-interaction-link-primary;
@@ -116,7 +116,7 @@ export default {
                 color: $vs-color-interaction-link-primary;
 
                 &::after {
-                    width: calc(100% - #{$spacer-050});
+                    width: calc(100% - #{$vs-spacer-050});
                 }
             }
         }

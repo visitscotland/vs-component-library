@@ -995,7 +995,7 @@ export default {
 @import "../../styles/_os-branding.scss";
 
 .os-api-branding.logo {
-    margin: $spacer-050;
+    margin: $vs-spacer-050;
 }
 
 .vs-map {
@@ -1026,8 +1026,8 @@ export default {
     }
 
     &__message-box {
-        border: 1px solid $vs-color-border-highlight;
-        border-radius: $border-radius-default;
+        border: $vs-border-width-sm solid $vs-color-border-highlight;
+        border-radius: $vs-radius-tiny;
         height: 142px;
         width: 200px;
         background: $vs-color-background-inverse;
@@ -1035,11 +1035,11 @@ export default {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: $spacer-150;
+        padding: $vs-spacer-150;
     }
 
     &__loading {
-        margin-bottom: $spacer-100;
+        margin-bottom: $vs-spacer-100;
     }
 
     &__message-text {
@@ -1053,10 +1053,10 @@ export default {
     }
 
     .mapboxgl-ctrl-top-right .mapboxgl-ctrl {
-        margin: $spacer-050;
+        margin: $vs-spacer-050;
 
         & > button {
-            border: 2px solid $vs-color-interaction-cta-primary;
+            border: $vs-border-width-md solid $vs-color-interaction-cta-primary;
             background-position: center center;
             background-repeat: no-repeat;
             background-size: 1rem 1rem;
@@ -1077,7 +1077,7 @@ export default {
             height: 32px;
             font-size: $font-size-4;
             transition: $duration-base all;
-            border-radius: $border-radius-pill;
+            border-radius: $vs-radius-full;
 
             &:focus {
                 @extend %primary-button-focus;
@@ -1095,7 +1095,7 @@ export default {
             );
 
             &.mapboxgl-ctrl-zoom-in {
-                margin-bottom: $spacer-050;
+                margin-bottom: $vs-spacer-050;
             }
         }
     }
@@ -1165,7 +1165,7 @@ export default {
 
         &-content {
             display: flex;
-            padding: $spacer-050;
+            padding: $vs-spacer-050;
         }
     }
 
@@ -1173,7 +1173,7 @@ export default {
         font-family: $vs-font-family-sans-serif;
         font-size: $font-size-4;
         font-weight: $vs-font-weight-medium;
-        margin-bottom: $spacer-025;
+        margin-bottom: $vs-spacer-025;
     }
 
     &__popup-title {
@@ -1185,7 +1185,7 @@ export default {
 
     &__popup-image {
         width: 105px;
-        margin-right: $spacer-050;
+        margin-right: $vs-spacer-050;
     }
 }
 

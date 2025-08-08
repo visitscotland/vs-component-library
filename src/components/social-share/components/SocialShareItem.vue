@@ -176,16 +176,16 @@ export default {
 <style lang="scss">
 .vs-social-share-item{
     &__link.vs-link.vs-link--variant-primary{
-        border: 1px solid $vs-color-border-primary;
+        border: $vs-border-width-sm solid $vs-color-border-primary;
         display: block;
-        margin-bottom: $spacer-050;
-        padding: $spacer-100 $spacer-050;
+        margin-bottom: $vs-spacer-050;
+        padding: $vs-spacer-100 $vs-spacer-050;
         text-align: center;
         text-decoration: none;
 
         @include media-breakpoint-up(md) {
-            padding: $spacer-150;
-            margin-bottom: $spacer-150;
+            padding: $vs-spacer-150;
+            margin-bottom: $vs-spacer-150;
         }
 
         &:hover{
@@ -200,7 +200,7 @@ export default {
 
         .vs-icon{
             display: block;
-            margin: 0 auto $spacer-075;
+            margin: 0 auto $vs-spacer-075;
         }
     }
 
@@ -212,10 +212,10 @@ export default {
 @include no-js {
     .vs-social-share-item{
         &__link.vs-link.vs-link--variant-primary{
-            margin-bottom: $spacer-100;
+            margin-bottom: $vs-spacer-100;
 
             @include media-breakpoint-up(sm) {
-                margin-bottom: $spacer-150;
+                margin-bottom: $vs-spacer-150;
             }
 
             @include media-breakpoint-up(md) {
@@ -223,7 +223,7 @@ export default {
             }
 
             @include media-breakpoint-up(md) {
-                padding: $spacer-150 $spacer-050;
+                padding: $vs-spacer-150 $vs-spacer-050;
             }
         }
     }

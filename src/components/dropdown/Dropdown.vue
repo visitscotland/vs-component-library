@@ -81,7 +81,7 @@ export default {
 .vs-dropdown {
     .dropdown-toggle {
         @extend %button-default-styles;
-        padding: $spacer-050 $spacer-150;
+        padding: $vs-spacer-050 $vs-spacer-150;
 
         &:hover {
             background-color: $vs-color-interaction-cta-hover;
@@ -124,7 +124,7 @@ export default {
 
     .dropdown-menu {
         li {
-            border-bottom: 1px solid $vs-color-border-primary;
+            border-bottom: $vs-border-width-sm solid $vs-color-border-primary;
 
             &:last-of-type {
                 border-bottom: 0;
@@ -140,7 +140,7 @@ export default {
                 &:focus {
                     outline: 0;
                     color: $vs-color-text-cta-on-light;
-                    box-shadow: $vs-box-shadow-focus inset;
+                    box-shadow: $vs-focus-shadow inset;
                 }
             }
         }

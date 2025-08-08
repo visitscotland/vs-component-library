@@ -129,25 +129,25 @@ export default {
 
 <style lang="scss">
 .vs-itinerary-stop {
-    margin-bottom: $spacer-300;
+    margin-bottom: $vs-spacer-300;
 
     @include media-breakpoint-up(sm) {
-        margin-bottom: $spacer-600;
+        margin-bottom: $vs-spacer-600;
     }
 
     &:last-of-type {
         margin-bottom: 0;
 
         .vs-itinerary-stop__border {
-            padding-bottom: $spacer-200;
+            padding-bottom: $vs-spacer-200;
         }
     }
 
     &__header {
         display: grid;
         grid-template-columns: auto 1fr;
-        column-gap: $spacer-100;
-        margin-bottom: $spacer-075;
+        column-gap: $vs-spacer-100;
+        margin-bottom: $vs-spacer-075;
 
         .vs-itinerary-stop__marker {
             grid-column: 1;
@@ -176,24 +176,24 @@ export default {
     &__border {
         position: relative;
         background-color: $vs-color-background-inverse;
-        border: 1px solid $vs-color-border-primary;
-        padding: $spacer-100;
+        border: $vs-border-width-sm solid $vs-color-border-primary;
+        padding: $vs-spacer-100;
     }
 
     .vs-icon-list {
-        border-top: 1px solid $vs-color-border-primary;
-        margin-top: $spacer-100;
+        border-top: $vs-border-width-sm solid $vs-color-border-primary;
+        margin-top: $vs-spacer-100;
 
         .vs-icon-list__title {
-            margin-top: $spacer-100;
+            margin-top: $vs-spacer-100;
         }
     }
 
     &__address {
         @include media-breakpoint-up(md) {
-            margin-bottom: -#{$spacer-100};
-            padding: $spacer-100 $spacer-0;
-            margin-right: $spacer-150;
+            margin-bottom: -#{$vs-spacer-100};
+            padding: $vs-spacer-100 $vs-spacer-0;
+            margin-right: $vs-spacer-150;
         }
     }
 
@@ -212,7 +212,7 @@ export default {
 
     &__info {
         @include media-breakpoint-up(md) {
-            padding: $spacer-150 0;
+            padding: $vs-spacer-150 0;
         }
     }
 }

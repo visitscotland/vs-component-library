@@ -95,16 +95,16 @@ export default {
 
 <style lang="scss">
     .card.vs-mega-nav-featured-event {
-        border-top: 1px solid $vs-color-border-primary;
-        margin-bottom: -#{$spacer-050};
+        border-top: $vs-border-width-sm solid $vs-color-border-primary;
+        margin-bottom: -#{$vs-spacer-050};
 
         @include media-breakpoint-up(lg) {
-            margin-bottom: $spacer-0;
+            margin-bottom: $vs-spacer-0;
         }
 
         &:focus {
             .vs-stretched-link-card__link {
-                outline: 2px;
+                outline: $vs-border-width-md;
             }
         }
 
@@ -119,15 +119,15 @@ export default {
             bottom: 0;
             left: 0;
             background: $vs-elevation-surface-raised;
-            padding: $spacer-0 $spacer-0 $spacer-100;
-            border-left: $spacer-025 solid $vs-color-border-highlight;
+            padding: $vs-spacer-0 $vs-spacer-0 $vs-spacer-100;
+            border-left: $vs-spacer-025 solid $vs-color-border-highlight;
 
             @include media-breakpoint-up(md) {
-                padding: $spacer-0;
+                padding: $vs-spacer-0;
             }
 
             @include media-breakpoint-up(lg) {
-                border-left-width: $spacer-0;
+                border-left-width: $vs-spacer-0;
             }
         }
 
@@ -136,19 +136,19 @@ export default {
         }
 
         .vs-stretched-link-card__content {
-            padding: $spacer-0 $spacer-125;
+            padding: $vs-spacer-0 $vs-spacer-125;
 
             @include media-breakpoint-up(lg) {
-                border-left: $spacer-025 solid $vs-color-border-highlight;
+                border-left: $vs-spacer-025 solid $vs-color-border-highlight;
             }
         }
 
         .vs-stretched-link-card__link {
             font-size: $small-font-size;
-            margin-left: $spacer-125;
+            margin-left: $vs-spacer-125;
 
             @include media-breakpoint-up(lg) {
-                margin-left: $spacer-0;
+                margin-left: $vs-spacer-0;
             }
 
             &:hover {
@@ -158,7 +158,7 @@ export default {
 
         .vs-mega-nav-featured-event__date-range {
             color: $vs-color-text-highlight;
-            margin-bottom: $spacer-050;
+            margin-bottom: $vs-spacer-050;
             font-size: $small-font-size;
         }
 
@@ -169,7 +169,7 @@ export default {
         .vs-mega-nav-featured-event__title {
             font-size: $small-font-size;
             font-weight: $vs-font-weight-medium;
-            margin-bottom: $spacer-0;
+            margin-bottom: $vs-spacer-0;
 
             @include truncate-text(2);
         }
@@ -210,7 +210,7 @@ export default {
         }
 
         @include media-breakpoint-up(lg) {
-            padding: $spacer-075;
+            padding: $vs-spacer-075;
             flex-direction: column;
             border-top: none;
 
@@ -220,7 +220,7 @@ export default {
 
             .vs-stretched-link-card__link {
                 align-self: flex-end;
-                padding: $spacer-050;
+                padding: $vs-spacer-050;
             }
         }
     }

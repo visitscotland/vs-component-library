@@ -72,27 +72,27 @@ export default {
 
 <style lang='scss'>
     .vs-carbon-calculator-tip {
-        padding: $spacer-100;
+        padding: $vs-spacer-100;
         background: $vs-color-background-information;
 
         .vs-heading {
-            margin-top: $spacer-0;
+            margin-top: $vs-spacer-0;
         }
     }
 
     .vs-carbon-calculator-tip__content {
-        margin-bottom: $spacer-0;
+        margin-bottom: $vs-spacer-0;
     }
 
     .vs-carbon-calculator-tip__icon-container {
         display: inline-flex;
         vertical-align: top;
-        width: $spacer-300;
+        width: $vs-spacer-300;
     }
 
     .vs-carbon-calculator-tip__content {
         display: inline-block;
-        width: calc(100% - $spacer-400);
+        width: calc(100% - $vs-spacer-400);
         vertical-align: top;
     }
 </style>

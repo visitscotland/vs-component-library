@@ -61,26 +61,26 @@ export default {
     &__quote-wrapper {
         background: $vs-color-background-primary;
         margin-left: -1px;
-        padding: $spacer-200 $spacer-150;
+        padding: $vs-spacer-200 $vs-spacer-150;
 
         @include media-breakpoint-up(md) {
             margin-left: 0;
-            padding: $spacer-200 $spacer-0 $spacer-025;
+            padding: $vs-spacer-200 $vs-spacer-0 $vs-spacer-025;
         }
     }
 
     @include media-breakpoint-up(md) {
         &--right{
             .vs-article-sidebar__quote-wrapper {
-                padding-left: $spacer-0;
-                padding-right: $spacer-125;
+                padding-left: $vs-spacer-0;
+                padding-right: $vs-spacer-125;
             }
         }
 
         &--left{
             .vs-article-sidebar__quote-wrapper {
-                padding-left: $spacer-125;
-                padding-right: $spacer-0;
+                padding-left: $vs-spacer-125;
+                padding-right: $vs-spacer-0;
             }
         }
     }

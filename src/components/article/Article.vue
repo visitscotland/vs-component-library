@@ -152,7 +152,7 @@ export default {
 <style lang="scss">
 .vs-article {
     &__wrapper{
-        border: 1px solid $vs-color-border-primary;
+        border: $vs-border-width-sm solid $vs-color-border-primary;
 
         figure{
             margin-bottom: 0;
@@ -165,7 +165,7 @@ export default {
 
     .vs-article-section:first-of-type {
         .vs-heading:first-child {
-            margin-top: $spacer-0;
+            margin-top: $vs-spacer-0;
         }
     }
 

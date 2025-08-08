@@ -1,0 +1,13 @@
+#
+# BORDER WIDTH TOKENS
+# Use these tokens to set border width.
+#
+
+props:
+    - name: vs-border-width-sm
+      value: "1px"
+    - name: vs-border-width-md
+      value: "2px"
+global:
+    type: object-styles
+    category: border-width

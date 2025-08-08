@@ -99,21 +99,21 @@ defineExpose({
 .vs-filter {
     &__panel {
         background-color: $vs-color-background-primary;
-        border: solid 1px $vs-color-border-secondary;
-        border-radius: $border-radius-default;
+        border: solid $vs-border-width-sm $vs-color-border-secondary;
+        border-radius: $vs-radius-tiny;
         overflow: auto;
     }
 
     &__legend {
         align-items: baseline;
         background-color: $vs-color-background-secondary;
-        border-bottom:  solid 1px $vs-color-border-secondary;
+        border-bottom:  solid $vs-border-width-sm $vs-color-border-secondary;
         display: flex;
         font-size: $font-size-6;
         font-weight: $vs-font-weight-medium;
-        gap: $spacer-050;
-        margin-bottom: $spacer-0;
-        padding: $spacer-075 $spacer-125;
+        gap: $vs-spacer-050;
+        margin-bottom: $vs-spacer-0;
+        padding: $vs-spacer-075 $vs-spacer-125;
     }
 }
 

@@ -583,8 +583,8 @@ export default {
 
 <style lang="scss">
     .vs-map-with-sidebar-panel {
-        padding: $spacer-125 $spacer-075 $spacer-0;
-        border: 1px solid $vs-color-border-primary;
+        padding: $vs-spacer-125 $vs-spacer-075 $vs-spacer-0;
+        border: $vs-border-width-sm solid $vs-color-border-primary;
         height: 100%;
         overflow-y: auto;
         overflow-x: hidden;
@@ -593,33 +593,33 @@ export default {
         justify-content: flex-start;
 
         &--small-padding {
-            padding-top: $spacer-150;
+            padding-top: $vs-spacer-150;
         }
 
         &__heading.vs-heading {
             flex-grow: 1;
-            margin: $spacer-500 $spacer-200 $spacer-0;
+            margin: $vs-spacer-500 $vs-spacer-200 $vs-spacer-0;
         }
 
         &__header-section {
             display: flex;
-            min-height: $spacer-400;
+            min-height: $vs-spacer-400;
             align-items: center;
-            margin-bottom: $spacer-125;
+            margin-bottom: $vs-spacer-125;
 
             &--overlapped {
                 position: absolute;
-                width: calc(100% - #{$spacer-150});
+                width: calc(100% - #{$vs-spacer-150});
             }
 
             @include media-breakpoint-up(lg) {
-                min-height: $spacer-200;
+                min-height: $vs-spacer-200;
             }
         }
 
         &__buttons {
             position: absolute;
-            height: calc(#{$spacer-300} + #{$spacer-050});
+            height: calc(#{$vs-spacer-300} + #{$vs-spacer-050});
             width: calc(100% - 2px);
             top: 1px;
             left: 1px;
@@ -630,16 +630,16 @@ export default {
         &__close,
         &__back {
             position: absolute;
-            top: $spacer-075;
+            top: $vs-spacer-075;
             z-index: 5;
         }
 
         &__back {
-            left: $spacer-075;
+            left: $vs-spacer-075;
         }
 
         &__close {
-            right: $spacer-075;
+            right: $vs-spacer-075;
         }
 
         &__reset {
@@ -660,8 +660,8 @@ export default {
         }
 
         &__overlay-box {
-            border: 1px solid $vs-color-border-highlight;
-            border-radius: $border-radius-default;
+            border: $vs-border-width-sm solid $vs-color-border-highlight;
+            border-radius: $vs-radius-tiny;
             height: 142px;
             width: 200px;
             background: $vs-color-background-inverse;
@@ -669,7 +669,7 @@ export default {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: $spacer-150;
+            padding: $vs-spacer-150;
         }
 
         &__overlay-text {
@@ -681,7 +681,7 @@ export default {
         &__load-more {
             width: 100%;
             flex-shrink: 0;
-            margin: $spacer-100 0;
+            margin: $vs-spacer-100 0;
         }
 
         &__list-container {
@@ -689,8 +689,8 @@ export default {
             overflow-y: scroll;
             overflow-x: visible;
             display: block;
-            margin: -#{$spacer-100} -#{$spacer-100} 0;
-            padding: $spacer-100 $spacer-100 0;
+            margin: -#{$vs-spacer-100} -#{$vs-spacer-100} 0;
+            padding: $vs-spacer-100 $vs-spacer-100 0;
         }
 
         &__bottom-message {
@@ -700,14 +700,14 @@ export default {
             left: 1px;
             font-size: $font-size-4;
             text-align: center;
-            padding: $spacer-100;
+            padding: $vs-spacer-100;
             display: flex;
             justify-content: center;
             // to avoid overlap of scroll bar
             width: calc(100% - 15px);
 
             p {
-                margin-bottom: $spacer-0;
+                margin-bottom: $vs-spacer-0;
                 max-width: 75%;
             }
         }
@@ -717,15 +717,15 @@ export default {
         }
 
         @include media-breakpoint-up(lg) {
-            padding: $spacer-125 $spacer-100 $spacer-0;
+            padding: $vs-spacer-125 $vs-spacer-100 $vs-spacer-0;
             border-right: none;
 
             &__header-section {
                 display: flex;
-                margin-bottom: $spacer-125;
+                margin-bottom: $vs-spacer-125;
 
                 &--with-spacer {
-                    padding-right: $spacer-200;
+                    padding-right: $vs-spacer-200;
                 }
 
                 &--overlapped {
@@ -751,15 +751,15 @@ export default {
             &__message {
                 position: sticky;
                 bottom: -1px;
-                padding: $spacer-100 0;
+                padding: $vs-spacer-100 0;
                 width: 100%;
                 background: $vs-color-background-inverse;
                 text-align: center;
-                margin-bottom: $spacer-0;
+                margin-bottom: $vs-spacer-0;
                 font-size: $font-size-4;
 
                 @include media-breakpoint-up(lg) {
-                    padding: $spacer-100;
+                    padding: $vs-spacer-100;
                 }
             }
         }

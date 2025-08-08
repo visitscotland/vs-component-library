@@ -68,11 +68,11 @@ export default {
 .vs-dropdown .dropdown-menu {
     .vs-global-menu__languages__item {
         &:not(:last-of-type) {
-            border-bottom: 1px solid $vs-color-border-inverse;
+            border-bottom: $vs-border-width-sm solid $vs-color-border-inverse;
         }
 
         .dropdown-item {
-            padding: $spacer-075;
+            padding: $vs-spacer-075;
             color: $vs-color-background-inverse;
             text-decoration: none;
 
@@ -82,7 +82,7 @@ export default {
 
             &:focus {
                 background: $vs-color-background-brand;
-                box-shadow: $vs-box-shadow-focus-on-dark inset;
+                box-shadow: $vs-focus-shadow-on-dark inset;
             }
         }
     }
@@ -95,7 +95,7 @@ export default {
 
         @include media-breakpoint-up(md) {
             width: auto;
-            padding: $spacer-075;
+            padding: $vs-spacer-075;
         }
 
         .dropdown-item {
@@ -109,11 +109,11 @@ export default {
             }
 
             @include media-breakpoint-up(md) {
-                padding: $spacer-025 $spacer-050;
+                padding: $vs-spacer-025 $vs-spacer-050;
             }
 
             @include media-breakpoint-up(lg) {
-                padding: $spacer-025 $spacer-100;
+                padding: $vs-spacer-025 $vs-spacer-100;
             }
         }
     }

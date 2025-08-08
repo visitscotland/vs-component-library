@@ -201,16 +201,16 @@ export default {
             margin-top: -0.05rem;
 
             &--right {
-                margin-left: $spacer-025;
+                margin-left: $vs-spacer-025;
             }
 
             &--left {
-                margin-right: $spacer-025;
+                margin-right: $vs-spacer-025;
             }
         }
 
         &.vs-button--rounded {
-            border-radius: $border-radius-pill;
+            border-radius: $vs-radius-full;
         }
 
         &.disabled, &:disabled {
@@ -265,19 +265,19 @@ export default {
             line-height: 1;
 
             &.btn-sm {
-                padding: $spacer-025 $spacer-025;
+                padding: $vs-spacer-025 $vs-spacer-025;
                 width: 32px;
                 height: 32px;
             }
 
             &.btn-md {
-                padding: $spacer-050 $spacer-025;
+                padding: $vs-spacer-050 $vs-spacer-025;
                 width: 44px;
                 height: 44px;
             }
 
             &.btn-lg {
-                padding: $spacer-050 $spacer-025;
+                padding: $vs-spacer-050 $vs-spacer-025;
                 width: 52px;
                 height: 52px;
             }
@@ -290,15 +290,15 @@ export default {
         /* Button Sizes
         ------------------------------------------ */
         &.btn-sm {
-            padding: $spacer-0125 $spacer-125;
+            padding: $vs-spacer-0125 $vs-spacer-125;
         }
 
         &.btn-md {
-            padding: $spacer-050 $spacer-150;
+            padding: $vs-spacer-050 $vs-spacer-150;
         }
 
         &.btn-lg {
-            padding: $spacer-075 $spacer-175;
+            padding: $vs-spacer-075 $vs-spacer-175;
             font-size: unset;
         }
 

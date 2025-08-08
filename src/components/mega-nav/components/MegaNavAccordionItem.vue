@@ -103,14 +103,14 @@ export default {
         transition: $duration-base color;
         font-size: $font-size-5;
         display: block;
-        padding: $spacer-075 $spacer-200;
+        padding: $vs-spacer-075 $vs-spacer-200;
 
         &:hover{
             color: $vs-color-text-primary;
         }
 
         &:focus{
-            outline-offset: -2px;
+            outline-offset: -$vs-border-width-md;
         }
     }
 
@@ -171,8 +171,8 @@ export default {
         > .vs-accordion-item__card-header{
             .vs-accordion-toggle.btn {
                 font-size: $font-size-6;
-                padding-left: $spacer-125;
-                padding-right: $spacer-125;
+                padding-left: $vs-spacer-125;
+                padding-right: $vs-spacer-125;
 
                 &:active, &:active:focus, &.vs-accordion-toggle--open {
                     background-color: $vs-color-interaction-cta-subtle-hover;
@@ -182,7 +182,7 @@ export default {
 
         &:first-of-type > .vs-accordion-item__card-header {
             .vs-accordion-toggle.btn {
-                border-top: 1px solid $vs-color-border-primary;
+                border-top: $vs-border-width-sm solid $vs-color-border-primary;
             }
         }
     }
@@ -191,8 +191,8 @@ export default {
         > .vs-accordion-item__card-header{
             .vs-accordion-toggle.btn {
                 font-size: $font-size-5;
-                padding-left: $spacer-200;
-                padding-right: $spacer-125;
+                padding-left: $vs-spacer-200;
+                padding-right: $vs-spacer-125;
             }
         }
     }

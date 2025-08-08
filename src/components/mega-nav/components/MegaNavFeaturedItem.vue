@@ -70,11 +70,11 @@ export default {
 
 <style lang="scss">
     .card.vs-mega-nav-featured-item {
-        border-top: 1px solid #e0e0e0;
+        border-top: $vs-border-width-sm solid #e0e0e0;
 
         &:focus {
             .vs-stretched-link-card__link {
-                outline: 2px;
+                outline: $vs-border-width-md;
             }
         }
 
@@ -89,11 +89,11 @@ export default {
             bottom: 0;
             left: 0;
             background: $vs-color-background-primary;
-            padding: $spacer-125 $spacer-075;
+            padding: $vs-spacer-125 $vs-spacer-075;
         }
 
         .card-title {
-            margin-top: $spacer-0;
+            margin-top: $vs-spacer-0;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
@@ -121,7 +121,7 @@ export default {
                 position: initial;
                 width: auto;
                 max-width: 100%;
-                padding: $spacer-200;
+                padding: $vs-spacer-200;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
@@ -140,12 +140,12 @@ export default {
         }
 
         @include media-breakpoint-up(lg) {
-            padding: $spacer-075;
+            padding: $vs-spacer-075;
             flex-direction: column;
             border-top: none;
 
             .card-body {
-                padding: $spacer-125 $spacer-075;
+                padding: $vs-spacer-125 $vs-spacer-075;
             }
 
             .vs-stretched-link-card__img-container {
@@ -154,13 +154,13 @@ export default {
 
             .vs-stretched-link-card__content {
                 display: -webkit-box;
-                margin: $spacer-0;
+                margin: $vs-spacer-0;
                 color: $vs-color-text-primary;
             }
 
             .vs-stretched-link-card__link {
                 align-self: flex-end;
-                padding: $spacer-050;
+                padding: $vs-spacer-050;
             }
         }
     }
@@ -178,7 +178,7 @@ export default {
                     bottom: 0;
                     left: 0;
                     background: #fff;
-                    padding: $spacer-125 $spacer-075;
+                    padding: $vs-spacer-125 $vs-spacer-075;
                 }
 
                 .card-title {

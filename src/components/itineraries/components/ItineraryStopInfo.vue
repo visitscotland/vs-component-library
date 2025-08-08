@@ -402,7 +402,7 @@ export default {
 <style lang="scss">
     .vs-itinerary-stop-info {
         display: flex;
-        margin-top: $spacer-0;
+        margin-top: $vs-spacer-0;
         max-width: 50%;
 
         &__times {
@@ -410,7 +410,7 @@ export default {
         }
 
         @include media-breakpoint-up(md) {
-             margin-top: $spacer-150;
+             margin-top: $vs-spacer-150;
         }
     }
 </style>
