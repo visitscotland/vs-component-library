@@ -9,6 +9,7 @@ export default defineConfig(({ mode }) => {
 
     return {
         define: {
+            'process.getuid': '() => undefined',
             'process.env': JSON.stringify({
                 ICON_KIT_TOKEN: env.ICON_KIT_TOKEN,
                 ICON_API_TOKEN: env.ICON_API_TOKEN,
