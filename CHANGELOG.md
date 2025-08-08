@@ -1,3 +1,10 @@
+## [5.3.1](https://github.com/visitscotland/vs-component-library/compare/v5.3.0...v5.3.1) (2025-08-08)
+
+
+### Bug Fixes
+
+* **build:** remove node polyfills library from vite build for nuxt 3.16 compatibility ([3d03622](https://github.com/visitscotland/vs-component-library/commit/3d036227f0ea87b4730c17ac2de6ec06efd5263d))
+
 # [5.3.0](https://github.com/visitscotland/vs-component-library/compare/v5.2.0...v5.3.0) (2025-08-05)
 
 
