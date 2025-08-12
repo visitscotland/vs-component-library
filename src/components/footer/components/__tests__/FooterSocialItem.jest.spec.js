@@ -25,19 +25,19 @@ describe('VsFooterSocialItem', () => {
 
     describe(':props', () => {
         it(':icon - Should show correct social icon', () => {
-            const icon = wrapper.find('[data-test="vs-footer-social-item__link"').find('vs-icon-stub');
+            const icon = wrapper.find('[data-test="vs-footer-social-item__link"]').find('vs-icon-stub');
 
             expect(icon.attributes('icon')).toBe('fab fa-facebook');
         });
 
         it(':href - Should show the correct social URL on the link', () => {
-            const link = wrapper.find('[data-test="vs-footer-social-item__link"');
+            const link = wrapper.find('[data-test="vs-footer-social-item__link"]');
 
             expect(link.attributes('href')).toBe('https://facebook.com');
         });
 
         it(':ariaLabelOverride - Should set the aria label if override provided', () => {
-            const link = wrapper.find('[data-test="vs-footer-social-item__link"');
+            const link = wrapper.find('[data-test="vs-footer-social-item__link"]');
 
             expect(link.attributes('aria-label')).toBe('Facebook');
         });
