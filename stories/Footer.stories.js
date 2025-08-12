@@ -206,18 +206,22 @@ const Template = (args) => ({
                     <VsFooterSocialItem
                         href="#"
                         icon="fa-brands fa-facebook"
+                        aria-label-override="facebook"
                     />
                     <VsFooterSocialItem
                         href="#"
                         icon="fa-brands fa-x-twitter"
+                        aria-label-override="x"
                     />
                     <VsFooterSocialItem
                         href="#"
                         icon="fa-brands fa-youtube"
+                        aria-label-override="youtube"
                     />
                     <VsFooterSocialItem
                         href="#"
                         icon="fa-brands fa-instagram"
+                        aria-label-override="instagram"
                     />
                 </VsFooterSocialMenu>
             </template>

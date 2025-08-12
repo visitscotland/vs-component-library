@@ -7,7 +7,7 @@
             data-test="vs-footer-social-item__link"
             :href="href"
             type="external"
-            :aria-label="icon"
+            :aria-label="ariaLabelOverride ? ariaLabelOverride : icon"
             data-layer-value="socialMediaExternalLinkDataEvent"
         >
             <VsIcon
@@ -55,6 +55,15 @@ export default {
         icon: {
             type: String,
             required: true,
+        },
+        /**
+         * Overrides the social icon name in the aria label for the component if provided,
+         * allowing specific or localised accessible text when it doesn't match up with the FA
+         * name for the brand.
+         */
+        ariaLabelOverride: {
+            type: String,
+            default: '',
         },
     },
 };
