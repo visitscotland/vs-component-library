@@ -1,3 +1,10 @@
+## [5.3.6](https://github.com/visitscotland/vs-component-library/compare/v5.3.5...v5.3.6) (2025-08-12)
+
+
+### Bug Fixes
+
+* **footer social links:** add aria label override functionality ([5ebc7e5](https://github.com/visitscotland/vs-component-library/commit/5ebc7e5074115f8b2d47cc55536b8a1e868f10bf))
+
 ## [5.3.5](https://github.com/visitscotland/vs-component-library/compare/v5.3.4...v5.3.5) (2025-08-08)
 
 
