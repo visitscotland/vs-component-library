@@ -197,6 +197,14 @@ export default {
             @extend %primary-button-focus;
         }
 
+        &.btn {
+            &:focus-visible {
+                @extend %primary-button-focus;
+
+                border-color: $vs-color-interaction-cta-primary;
+            }
+        }
+
         .vs-icon {
             margin-top: -0.05rem;
 
