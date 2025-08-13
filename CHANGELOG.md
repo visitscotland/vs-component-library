@@ -1,3 +1,10 @@
+## [5.3.7](https://github.com/visitscotland/vs-component-library/compare/v5.3.6...v5.3.7) (2025-08-13)
+
+
+### Bug Fixes
+
+* **buttons:** fix specificity issue with focus states ([e48ec9b](https://github.com/visitscotland/vs-component-library/commit/e48ec9bd7a6b3820ba7d5b25a9ce07ae20db56f3))
+
 ## [5.3.6](https://github.com/visitscotland/vs-component-library/compare/v5.3.5...v5.3.6) (2025-08-12)
 
 
