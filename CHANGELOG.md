@@ -1,3 +1,10 @@
+## [5.3.10](https://github.com/visitscotland/vs-component-library/compare/v5.3.9...v5.3.10) (2025-08-14)
+
+
+### Bug Fixes
+
+* **build:** switch from define to rollup-replace ([daaf944](https://github.com/visitscotland/vs-component-library/commit/daaf9448f63377ff938db026b8a18344e1f6d4a6))
+
 ## [5.3.9](https://github.com/visitscotland/vs-component-library/compare/v5.3.8...v5.3.9) (2025-08-14)
 
 
