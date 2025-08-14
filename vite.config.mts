@@ -15,6 +15,7 @@ export default defineConfig(({ mode }) => {
             }),
             'process.versions': process.versions,
             'process.platform': `"${process.platform}"`,
+            'process.getuid': JSON.stringify(() => undefined),
         },
         css: {
             preprocessorOptions: {
