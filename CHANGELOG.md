@@ -1,3 +1,10 @@
+## [5.3.8](https://github.com/visitscotland/vs-component-library/compare/v5.3.7...v5.3.8) (2025-08-14)
+
+
+### Bug Fixes
+
+* **build:** remove node-polyfills from vite ([4dfcbc2](https://github.com/visitscotland/vs-component-library/commit/4dfcbc2b8605512ac0e3998e309abe23422e3895))
+
 ## [5.3.7](https://github.com/visitscotland/vs-component-library/compare/v5.3.6...v5.3.7) (2025-08-13)
 
 
