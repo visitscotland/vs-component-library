@@ -2,6 +2,7 @@ import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import path from 'path';
 import dts from 'vite-plugin-dts';
+import replace from '@rollup/plugin-replace';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, process.cwd(), '');
@@ -15,7 +16,6 @@ export default defineConfig(({ mode }) => {
             }),
             'process.versions': process.versions,
             'process.platform': `"${process.platform}"`,
-            'process.getuid': JSON.stringify(() => undefined),
         },
         css: {
             preprocessorOptions: {
@@ -58,6 +58,10 @@ export default defineConfig(({ mode }) => {
                     './src/stores/__mocks__/**',
                     './src/utils/__mocks__/**',
                 ],
+            }),
+            replace({
+                'process.getuid': '() => -1',
+                preventAssignment: true,
             }),
         ],
         build: {
