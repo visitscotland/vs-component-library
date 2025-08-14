@@ -1,3 +1,10 @@
+## [5.3.9](https://github.com/visitscotland/vs-component-library/compare/v5.3.8...v5.3.9) (2025-08-14)
+
+
+### Bug Fixes
+
+* **build:** restore polyfill for getuid specifically ([9efdc92](https://github.com/visitscotland/vs-component-library/commit/9efdc920ee437ee51ae5ec809e5cdd4b846db564))
+
 ## [5.3.8](https://github.com/visitscotland/vs-component-library/compare/v5.3.7...v5.3.8) (2025-08-14)
 
 
