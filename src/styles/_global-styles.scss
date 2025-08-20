@@ -31,6 +31,16 @@ hr {
         top: -36px;
     }
 
+    // If the global menu has text content, like a language menu, it is 6 pixels taller than the
+    // default and must be recessed more on scroll.
+    &--has-content {
+        top: -34px;
+
+        @include media-breakpoint-up(md) {
+            top: -42px;
+        }
+    }
+
     // If the skip to bar is focussed, stop trying to hide the global menu as this cuts the skip to
     // in half
     &:has(.vs-skip-to:focus-within) {
