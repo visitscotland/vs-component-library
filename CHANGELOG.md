@@ -1,3 +1,10 @@
+## [5.3.11](https://github.com/visitscotland/vs-component-library/compare/v5.3.10...v5.3.11) (2025-08-20)
+
+
+### Bug Fixes
+
+* **sticky nav:** add option for sticky nav with content ([ca37a7c](https://github.com/visitscotland/vs-component-library/commit/ca37a7c39b6e74aac7ed78848854257e99883ced))
+
 ## [5.3.10](https://github.com/visitscotland/vs-component-library/compare/v5.3.9...v5.3.10) (2025-08-14)
 
 
