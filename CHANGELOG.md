@@ -1,3 +1,10 @@
+## [5.3.12](https://github.com/visitscotland/vs-component-library/compare/v5.3.11...v5.3.12) (2025-08-21)
+
+
+### Bug Fixes
+
+* **search results:** set font weight to ensure icon is visible ([bea3d07](https://github.com/visitscotland/vs-component-library/commit/bea3d07230fdfb71d0fdf1d54f8e25d5e1f4df3c))
+
 ## [5.3.11](https://github.com/visitscotland/vs-component-library/compare/v5.3.10...v5.3.11) (2025-08-20)
 
 
