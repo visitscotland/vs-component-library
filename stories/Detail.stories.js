@@ -2,7 +2,7 @@ import VsDetail from '@/components/detail/Detail.vue';
 
 export default {
     component: VsDetail,
-    title: 'Typography/Detail',
+    title: 'Components/Text & typography/Detail',
     argTypes: {
         size: {
             options: [

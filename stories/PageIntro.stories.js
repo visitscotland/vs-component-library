@@ -29,7 +29,7 @@ import { Default as summaryBoxDefault } from './SummaryBox.stories';
 
 export default {
     component: VsPageIntro,
-    title: 'PageIntro',
+    title: 'Components/To be reviewed/PageIntro',
     argTypes: {
         background: {
             options: [

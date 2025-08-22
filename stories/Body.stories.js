@@ -4,7 +4,7 @@ import VsHeading from '@/components/heading/Heading.vue';
 
 export default {
     component: VsBody,
-    title: 'Typography/Body',
+    title: 'Components/Text & typography/Body',
     argTypes: {
         variant: {
             options: [
@@ -83,7 +83,7 @@ WithRichText.args = {
             More information
         </h3>
         <p>Read on for an overview of walking routes up the mountain, or visit <a href='#'>Walk Highlands</a> for detailed maps, difficulty levels and walking advice.</p>
-        <p>Remember it's never 'easy' to bag a Scottish Munro or Corbett. You'll need a good amount of hillwalking experience, fitness, hill craft and navigation skills using a map and compass, before attempting any Scottish mountains, even more so in winter.</p>
+        <p>Remember it's never 'easy' to bag a Scottish Munro or Corbett. You'll need a good amount of hillwalking experience, fitness, hill craft and Components/Navigation skills using a map and compass, before attempting any Scottish mountains, even more so in winter.</p>
         
         <h4>
             Did you know? 

@@ -19,7 +19,7 @@ const mockGetData = (url) => {
 
 export default {
     component: VsProductSearch,
-    title: 'ProductSearch',
+    title: 'Components/To be reviewed/ProductSearch',
     argTypes: {
         noJsMessage: {
             control: {

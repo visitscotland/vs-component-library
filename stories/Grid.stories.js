@@ -4,7 +4,7 @@ import VsCol from '@/components/grid/Col.vue';
 
 export default {
     component: VsCol,
-    title: 'Grid',
+    title: 'Components/Layout & content structure/Grid',
     argTypes: {
         cols: {
             control: {

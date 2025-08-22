@@ -10,7 +10,7 @@ import {
 
 export default {
     component: VsVideoCaption,
-    title: 'VideoCaption',
+    title: 'Components/To be reviewed/VideoCaption',
     decorators: [() => ({
         template: '<div style="max-width: 500px; margin-top: 4rem;"><story /></div>',
     })],

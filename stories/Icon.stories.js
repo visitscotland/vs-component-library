@@ -2,7 +2,7 @@ import VsIcon from '@/components/icon/Icon.vue';
 
 export default {
     component: VsIcon,
-    title: 'Icon',
+    title: 'Components/Media & data visualisation/Icon',
     argTypes: {
         variant: {
             options: ['default', 'primary', 'inverse', 'disabled', 'tertiary', 'danger', 'warning'],

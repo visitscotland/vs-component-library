@@ -12,7 +12,7 @@ import placesDataDistillery from '@/assets/fixtures/maps/places-data-distillerie
 
 export default {
     component: VsMapWithSidebar,
-    title: 'MapWithSidebar',
+    title: 'Components/To be reviewed/MapWithSidebar',
 };
 
 const Template = (args) => ({

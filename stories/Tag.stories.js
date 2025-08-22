@@ -2,7 +2,7 @@ import VsTag from '@/components/tag/Tag.vue';
 
 export default {
     component: VsTag,
-    title: 'Tag',
+    title: 'Components/Actions & controls/Tag',
 };
 
 const Template = (args) => ({

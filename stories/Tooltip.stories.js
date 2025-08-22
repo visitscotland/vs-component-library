@@ -2,7 +2,7 @@ import VsTooltip from '@/components/tooltip/Tooltip.vue';
 
 export default {
     component: VsTooltip,
-    title: 'Tooltip',
+    title: 'Components/Overlays & popups/Tooltip',
     argTypes: {
         variant: {
             options: [

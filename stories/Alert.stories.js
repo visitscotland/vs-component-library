@@ -2,7 +2,7 @@ import VsAlert from '@/components/alert/Alert.vue';
 
 export default {
     component: VsAlert,
-    title: 'Alert',
+    title: 'Components/Feedback & status/Alert',
     argTypes: {
 
     },

@@ -2,7 +2,7 @@ import VsButton from '@/components/button/Button.vue';
 
 export default {
     component: VsButton,
-    title: 'Button',
+    title: 'Components/Actions & controls/Button',
     argTypes: {
         variant: {
             options: [
