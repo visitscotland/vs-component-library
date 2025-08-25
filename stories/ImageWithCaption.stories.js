@@ -8,7 +8,7 @@ import { VsCol, VsRow } from '@/components/grid';
 
 export default {
     component: VsImageWithCaption,
-    title: 'ImageWithCaption',
+    title: 'Components/Media & data visualisation/ImageWithCaption',
     decorators: [() => ({
         template: '<div style="max-width: 500px;"><story /></div>',
     })],

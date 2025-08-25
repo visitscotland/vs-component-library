@@ -6,7 +6,7 @@ import VsBody from '@/components/body/Body.vue';
 
 export default {
     component: VsCard,
-    title: 'Card',
+    title: 'Components/Layout & content structure/Card',
     argTypes: {
 
     },

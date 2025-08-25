@@ -2,7 +2,7 @@ import VsButtonToggleGroup from '@/components/button-toggle-group/ButtonToggleGr
 
 export default {
     component: VsButtonToggleGroup,
-    title: 'ButtonToggleGroup',
+    title: 'Components/Actions & controls/ButtonToggleGroup',
 };
 
 const Template = (args) => ({

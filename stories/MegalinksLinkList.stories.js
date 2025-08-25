@@ -13,7 +13,7 @@ import {
 
 export default {
     component: VsMegalinks,
-    title: 'MegalinksLinkList',
+    title: 'Components/To be reviewed/MegalinksLinkList',
 };
 
 const Template = (args) => ({

@@ -5,7 +5,7 @@ import { userEvent, within } from 'storybook/test';
 
 export default {
     component: VsSocialShare,
-    title: 'SocialShareButton',
+    title: 'Components/To be reviewed/SocialShareButton',
     decorators: [() => ({
         template: '<story />',
     })],

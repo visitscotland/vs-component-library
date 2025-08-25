@@ -3,7 +3,7 @@ import VsCarouselSlide from '@/components/carousel/components/CarouselSlide.vue'
 
 export default {
     component: VsCarouselSlide,
-    title: 'Carousel',
+    title: 'Components/Media & data visualisation/Carousel',
     argTypes: {
         // Delete if empty
     },

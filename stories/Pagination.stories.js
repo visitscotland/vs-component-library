@@ -2,7 +2,7 @@ import VsPagination from '@/components/pagination/VsPagination.vue';
 
 export default {
     component: VsPagination,
-    title: 'Pagination',
+    title: 'Components/Navigation/Pagination',
 };
 
 const Template = (args) => ({

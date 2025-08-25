@@ -3,7 +3,7 @@ import VsLink from '@/components/link/Link.vue';
 
 export default {
     component: VsBanner,
-    title: 'Banner',
+    title: 'Components/Feedback & status/Banner',
     argTypes: {
         onClick: {
             action: 'hideBanner',

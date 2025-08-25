@@ -2,7 +2,7 @@ import VsProgressBar from '@/components/progress-bar/ProgressBar.vue';
 
 export default {
     component: VsProgressBar,
-    title: 'ProgressBar',
+    title: 'Components/Feedback & status/ProgressBar',
     argTypes: {
 
     },

@@ -3,7 +3,7 @@ import VsIconListItem from '@/components/icon-list/components/IconListItem.vue';
 
 export default {
     component: VsIconList,
-    title: 'IconList',
+    title: 'Components/To be reviewed/IconList',
 };
 
 const Template = (args) => ({

@@ -2,7 +2,7 @@ import VsSkipTo from '@/components/skip-to/SkipTo.vue';
 
 export default {
     component: VsSkipTo,
-    title: 'SkipTo',
+    title: 'Components/Navigation/SkipTo',
     argTypes: {
         skipToText: {
             control: {

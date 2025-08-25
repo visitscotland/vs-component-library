@@ -2,7 +2,7 @@ import VsCaption from '@/components/caption/Caption.vue';
 
 export default {
     component: VsCaption,
-    title: 'Caption',
+    title: 'Components/Text & typography/Caption',
     argTypes: {
         variant: {
             options: [

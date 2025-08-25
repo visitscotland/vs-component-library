@@ -6,7 +6,7 @@ import VsList from '@/components/list/List.vue';
 
 export default {
     component: VsEventCard,
-    title: 'EventCard',
+    title: 'Components/To be reviewed/EventCard',
     decorators: [() => ({
         template: '<div style="max-width:900px;"><story /></div>',
     })],

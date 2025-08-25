@@ -16,7 +16,7 @@ import staticNavExample from '@/assets/fixtures/header/static-nav.json';
 
 export default {
     component: VsMeganav,
-    title: 'MegaNav',
+    title: 'Components/Navigation/MegaNav',
     argTypes: {
         topMenuItemAlign: {
             options: [

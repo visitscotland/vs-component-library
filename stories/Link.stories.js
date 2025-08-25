@@ -2,7 +2,7 @@ import VsLink from '@/components/link/Link.vue';
 
 export default {
     component: VsLink,
-    title: 'Link',
+    title: 'Components/Navigation/Link',
     argTypes: {
         type: {
             options: [

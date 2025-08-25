@@ -5,7 +5,7 @@ export default {
     parameters: {
         layout: 'fullscreen',
     },
-    title: 'SpotlightSection',
+    title: 'Components/Layout & content structure/SpotlightSection',
     argTypes: {
         compact: {
             control: 'boolean',

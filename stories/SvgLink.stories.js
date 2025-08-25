@@ -2,7 +2,7 @@ import VsSvgLink from '@/components/svg-link/SvgLink.vue';
 
 export default {
     component: VsSvgLink,
-    title: 'SvgLink',
+    title: 'Components/To be reviewed/SvgLink',
 };
 
 const Template = (args) => ({
