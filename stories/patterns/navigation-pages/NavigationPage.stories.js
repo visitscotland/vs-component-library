@@ -22,13 +22,13 @@ import VsVideo from '@/components/video/Video.vue';
 import VsModuleWrapper from '@/components/module-wrapper/ModuleWrapper.vue';
 import VsBreadcrumb from '@/components/breadcrumb/Breadcrumb.vue';
 import VsBreadcrumbItem from '@/components/breadcrumb/components/BreadcrumbItem.vue';
+import VsNavigationPage from '@/templates/NavigationPage.vue';
 import cardLayoutData from '@/assets/fixtures/navigation-pages/card-layout-inspirational.json';
 import textCardLayoutData from '@/assets/fixtures/navigation-pages/card-layout-informational.json';
 import infoCardLayoutData from '@/assets/fixtures/navigation-pages/card-layout-informational2.json';
 import VisualImpactTemplate from './templates/visual-impact-pattern';
 import InfoFirstTopTemplate from './templates/info-first-top-pattern';
 import InfoFirstSecondaryTemplate from './templates/info-first-secondary-pattern';
-import VsNavigationPage from '../../../src/templates/NavigationPage.vue';
 
 export default {
     component: VsNavigationPage,
@@ -43,7 +43,7 @@ export default {
 
 const createTemplate = (templateString) => (args) => ({
     components: {
-        VsNavigationPage,
+        NavigationPage: VsNavigationPage,
         VsHeroSection,
         VsMegalinks,
         VsMegalinkSingleImage,

@@ -1,4 +1,5 @@
 import { setup } from '@storybook/vue3-vite';
+import { createBootstrap } from 'bootstrap-vue-next';
 
 import '@/assets/fonts/fonts.scss';
 import '@/styles/core.styles.scss';
@@ -10,6 +11,7 @@ setup(app => {
     app.config.globalProperties.emitter = emitter;
     app.provide('emitter', emitter);
     app.use(pinia());
+    app.use(createBootstrap());
 });
 
 const preview = {
