@@ -1,5 +1,5 @@
 export default `
-    <NavigationPage>
+    <VsNavigationPage>
         <template v-slot:breadcrumb>
             <VsContainer class="mt-075 mt-lg-200">
                 <VsRow>
@@ -225,5 +225,5 @@ export default `
             </VsContainer>
 
         </template>
-    </NavigationPage>
+    </VsNavigationPage>
 `;

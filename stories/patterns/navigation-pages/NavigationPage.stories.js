@@ -43,7 +43,7 @@ export default {
 
 const createTemplate = (templateString) => (args) => ({
     components: {
-        NavigationPage: VsNavigationPage,
+        VsNavigationPage,
         VsHeroSection,
         VsMegalinks,
         VsMegalinkSingleImage,
