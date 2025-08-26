@@ -3,7 +3,7 @@ import placesData from '@/assets/fixtures/maps/places-data.json';
 
 export default {
     component: VsMap,
-    title: 'Map',
+    title: 'Components/Media & data visualisation/Map',
 };
 
 const Template = (args) => ({

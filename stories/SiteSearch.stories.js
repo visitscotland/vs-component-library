@@ -3,7 +3,7 @@ import VsSiteSearchForm from '@/components/site-search/components/SiteSearchForm
 
 export default {
     component: VsSiteSearch,
-    title: 'SiteSearch',
+    title: 'Components/To be reviewed/SiteSearch',
 };
 
 const Template = (args) => ({

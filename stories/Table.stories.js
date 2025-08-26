@@ -9,7 +9,7 @@ import VsHeading from '@/components/heading/Heading.vue';
 
 export default {
     component: VsTable,
-    title: 'Table',
+    title: 'Components/Media & data visualisation/Table',
     argTypes: {
         tableType: {
             options: [

@@ -2,7 +2,7 @@ import VsRadioButton from '@/components/radio-button/RadioButton.vue';
 
 export default {
     component: VsRadioButton,
-    title: 'RadioButton',
+    title: 'Components/Actions & controls/RadioButton',
     argTypes: {
 
     },

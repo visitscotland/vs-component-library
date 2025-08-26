@@ -6,7 +6,7 @@ import VsIcon from '@/components/icon/Icon.vue';
 
 export default {
     component: VsSkiScotlandStatus,
-    title: 'SkiScotlandStatus',
+    title: 'Components/To be reviewed/SkiScotlandStatus',
 };
 
 const Template = (args) => ({

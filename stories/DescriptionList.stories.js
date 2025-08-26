@@ -3,7 +3,7 @@ import VsDescriptionListItem from '@/components/description-list/components/Desc
 
 export default {
     component: VsDescriptionList,
-    title: 'DescriptionList',
+    title: 'Components/To be reviewed/DescriptionList',
 };
 
 const Template = (args) => ({

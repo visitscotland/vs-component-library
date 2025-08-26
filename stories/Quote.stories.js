@@ -4,7 +4,7 @@ import VsQuote from '@/components/quote/Quote.vue';
 
 export default {
     component: VsQuote,
-    title: 'Quote',
+    title: 'Components/Text & typography/Quote',
     argTypes: {
         variant: {
             options: [

@@ -2,7 +2,7 @@ import VsModuleWrapper from '@/components/module-wrapper/ModuleWrapper.vue';
 
 export default {
     component: VsModuleWrapper,
-    title: 'ModuleWrapper',
+    title: 'Components/Layout & content structure/ModuleWrapper',
     argTypes: {
         theme: {
             options: [

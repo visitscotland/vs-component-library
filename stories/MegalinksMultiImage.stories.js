@@ -14,7 +14,7 @@ import {
 
 export default {
     component: VsMegalinks,
-    title: 'MegalinksMultiImage',
+    title: 'Components/To be reviewed/MegalinksMultiImage',
 };
 
 const Template = (args) => ({

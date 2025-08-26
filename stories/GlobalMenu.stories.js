@@ -5,7 +5,7 @@ import VsGlobalMenuLanguageItem from '@/components/global-menu/components/Global
 
 export default {
     component: VsGlobalMenu,
-    title: 'GlobalMenu',
+    title: 'Components/To be reviewed/GlobalMenu',
 };
 
 const Template = (args) => ({

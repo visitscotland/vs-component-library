@@ -12,7 +12,7 @@ import VsFooterCopyright from '@/components/footer/components/FooterCopyright.vu
 
 export default {
     component: VsFooter,
-    title: 'Footer',
+    title: 'Components/To be reviewed/Footer',
 };
 
 const Template = (args) => ({

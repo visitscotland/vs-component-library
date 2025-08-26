@@ -2,7 +2,7 @@ import VsSocialCreditLink from '@/components/social-credit-link/SocialCreditLink
 
 export default {
     component: VsSocialCreditLink,
-    title: 'SocialCreditLink',
+    title: 'Components/To be reviewed/SocialCreditLink',
 };
 
 const Template = (args) => ({

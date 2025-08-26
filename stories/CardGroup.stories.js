@@ -8,7 +8,7 @@ import VsBody from '@/components/body/Body.vue';
 
 export default {
     component: VsCardGroup,
-    title: 'CardGroup',
+    title: 'Components/Layout & content structure/CardGroup',
     argTypes: {
 
     },
