@@ -62,7 +62,7 @@ NoCookies.args = {
 
 NoCookies.decorators = [
     () => {
-        window.bypassCookieChecks = false;
+        window.bypassCookiesRequired = false;
 
         return {
             template: `
@@ -83,7 +83,7 @@ ExtraContent.args = {
 
 ExtraContent.decorators = [
     () => {
-        window.bypassCookieChecks = false;
+        window.bypassCookiesRequired = false;
 
         return {
             template: `

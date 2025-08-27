@@ -30,7 +30,8 @@ const preview = {
     },
     decorators: [
         (story) => {
-            window.bypassCookieChecks = true;
+            window.bypassCookiesRequired = true;
+            window.bypassCookiesLoaded = true;
 
             return {
               components: { story },
