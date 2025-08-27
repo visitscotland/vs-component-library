@@ -2,7 +2,7 @@ import VsLoadingSpinner from '@/components/loading-spinner/LoadingSpinner.vue';
 
 export default {
     component: VsLoadingSpinner,
-    title: 'LoadingSpinner',
+    title: 'Components/Feedback & status/LoadingSpinner',
     argTypes: {
         variant: {
             options: ['light', 'dark'],

@@ -2,7 +2,7 @@ import VsBackToTop from '@/components/back-to-top/BackToTop.vue';
 
 export default {
     component: VsBackToTop,
-    title: 'BackToTop',
+    title: 'Components/Navigation/BackToTop',
 };
 
 const Template = (args) => ({

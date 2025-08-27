@@ -2,7 +2,7 @@ import VsArticleDetails from '@/components/article-details/ArticleDetails.vue';
 
 export default {
     component: VsArticleDetails,
-    title: 'ArticleDetails',
+    title: 'Components/Layout & content structure/ArticleDetails',
     argTypes: {
         articlePublishDate: {
             control: {

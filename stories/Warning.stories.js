@@ -3,7 +3,7 @@ import VsLink from '@/components/link/Link.vue';
 
 export default {
     component: VsWarning,
-    title: 'Warning',
+    title: 'Components/Feedback & status/Warning',
     argTypes: {
         type: {
             options: [

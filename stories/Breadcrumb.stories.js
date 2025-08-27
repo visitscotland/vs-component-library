@@ -3,7 +3,7 @@ import VsBreadcrumbItem from '@/components/breadcrumb/components/BreadcrumbItem.
 
 export default {
     component: VsBreadcrumbItem,
-    title: 'Breadcrumb',
+    title: 'Components/Navigation/Breadcrumb',
 };
 
 const Template = (args) => ({

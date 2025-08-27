@@ -19,7 +19,7 @@ import sampleItinerary from '@/assets/fixtures/itineraries/sample-itinerary.json
 
 export default {
     component: VsItinerary,
-    title: 'Itinerary',
+    title: 'Components/To be reviewed/Itinerary',
 };
 
 const Template = (args) => ({

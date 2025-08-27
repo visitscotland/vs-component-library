@@ -6,7 +6,7 @@ import VsBody from '@/components/body/Body.vue';
 
 export default {
     component: VsAccordion,
-    title: 'Accordion',
+    title: 'Components/Layout & content structure/Accordion',
     argTypes: {
         breakPoint: {
             options: [

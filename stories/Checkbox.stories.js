@@ -4,7 +4,7 @@ import VsCheckbox from '@/components/checkbox/Checkbox.vue';
 
 export default {
     component: VsCheckbox,
-    title: 'Checkbox',
+    title: 'Components/Actions & controls/Checkbox',
     argTypes: {
 
     },

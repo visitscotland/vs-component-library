@@ -2,7 +2,7 @@ import VsImg from '@/components/img/Img.vue';
 
 export default {
     component: VsImg,
-    title: 'Img',
+    title: 'Components/Media & data visualisation/Img',
 };
 
 const Template = (args) => ({

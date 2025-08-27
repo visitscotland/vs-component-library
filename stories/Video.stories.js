@@ -3,7 +3,7 @@ import VsVideoCaption from '@/components/video-caption/VideoCaption.vue';
 
 export default {
     component: VsVideo,
-    title: 'Video',
+    title: 'Components/Media & data visualisation/Video',
     decorators: [() => ({
         template: '<div style="max-width: 520px;"><story /></div>',
     })],

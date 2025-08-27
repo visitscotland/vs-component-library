@@ -2,7 +2,7 @@ import VsNumberInput from '@/components/number-input/NumberInput.vue';
 
 export default {
     component: VsNumberInput,
-    title: 'NumberInput',
+    title: 'Components/Actions & controls/NumberInput',
 };
 
 const Template = (args, required) => ({

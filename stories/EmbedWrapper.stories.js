@@ -2,7 +2,7 @@ import VsEmbedWrapper from '@/components/embed-wrapper/EmbedWrapper.vue';
 
 export default {
     component: VsEmbedWrapper,
-    title: 'EmbedWrapper',
+    title: 'Components/Media & data visualisation/EmbedWrapper',
 };
 
 const Template = (args) => ({

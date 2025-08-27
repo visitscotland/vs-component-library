@@ -2,7 +2,7 @@ import VsSvg from '@/components/svg/Svg.vue';
 
 export default {
     component: VsSvg,
-    title: 'Svg',
+    title: 'Components/Media & data visualisation/Svg',
 };
 
 const Template = (args) => ({

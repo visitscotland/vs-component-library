@@ -4,7 +4,7 @@ import VsBadge from '@/components/badge/Badge.vue';
 
 export default {
     component: VsStretchedLinkCard,
-    title: 'StretchedLinkCard',
+    title: 'Components/To be reviewed/StretchedLinkCard',
     decorators: [() => ({
         template: '<div style="max-width:280px;"><story /></div>',
     })],

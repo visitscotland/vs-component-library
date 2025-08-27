@@ -2,7 +2,7 @@ import VsAddress from '@/components/address/Address.vue';
 
 export default {
     component: VsAddress,
-    title: 'Address',
+    title: 'Components/Layout & content structure/Address',
     argTypes: {
 
     },

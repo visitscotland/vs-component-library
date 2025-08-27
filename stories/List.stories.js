@@ -2,7 +2,7 @@ import VsList from '@/components/list/List.vue';
 
 export default {
     component: VsList,
-    title: 'List',
+    title: 'Components/Text & typography/List',
 };
 
 const Template = (args) => ({

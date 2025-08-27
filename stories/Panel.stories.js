@@ -4,7 +4,7 @@ import VsBody from '@/components/body/Body.vue';
 
 export default {
     component: VsPanel,
-    title: 'Panel',
+    title: 'Components/Layout & content structure/Panel',
 };
 
 const Template = (args) => ({
