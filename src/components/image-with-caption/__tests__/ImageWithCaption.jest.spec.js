@@ -5,6 +5,8 @@ import axe from '@/../test/unit/helpers/axe-helper';
 import { setActivePinia, createPinia } from 'pinia';
 import VsImageWithCaption from '../ImageWithCaption.vue';
 
+jest.mock('@/mixins/verifyCookiesMixin.js');
+
 config.global.renderStubDefaultSlot = true;
 
 const defaultSlotText = 'Image';

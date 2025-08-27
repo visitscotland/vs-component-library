@@ -1,20 +1,16 @@
 const cookieCheckerMixin = {
     data() {
         return {
-            timesRun: 0,
-            cookiesInitStatus: true,
-            mockCookiesExist: true,
+            requiredCookiesAllowed: true,
+            cookieManagerLoaded: true,
         };
     },
     computed: {
-        cookiesSet() {
-            return [];
+        cookiesAllowed() {
+            return this.requiredCookiesAllowed;
         },
-        onetrustActiveGroups() {
-            return [];
-        },
-        requiredCookiesExist() {
-            return this.mockCookiesExist;
+        cookiesLoaded() {
+            return this.cookieManagerLoaded;
         },
     },
 };

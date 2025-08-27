@@ -51,7 +51,7 @@ describe('VsEmbedWrapper', () => {
         it('should render an introduction if there is slot content and cookies have been initialised', async() => {
             const wrapper = factoryShallowMount();
             wrapper.setData({
-                cookiesInitStatus: true,
+                cookieManagerLoaded: true,
             });
             await wrapper.vm.$nextTick();
 
@@ -64,7 +64,7 @@ describe('VsEmbedWrapper', () => {
                 noCookiesRequired: true,
             });
             wrapper.setData({
-                cookiesInitStatus: 'error',
+                cookieManagerLoaded: false,
             });
             await wrapper.vm.$nextTick();
 
@@ -74,7 +74,7 @@ describe('VsEmbedWrapper', () => {
         it('should not render an introduction if cookies have not been initialised', async() => {
             const wrapper = factoryShallowMount();
             wrapper.setData({
-                cookiesInitStatus: 'error',
+                cookieManagerLoaded: false,
             });
             await wrapper.vm.$nextTick();
 
@@ -90,7 +90,7 @@ describe('VsEmbedWrapper', () => {
                 },
                 data() {
                     return {
-                        cookiesInitStatus: true,
+                        cookieManagerLoaded: true,
                     };
                 },
             });
@@ -105,7 +105,7 @@ describe('VsEmbedWrapper', () => {
                 noCookiesRequired: true,
             });
             wrapper.setData({
-                cookiesInitStatus: true,
+                cookieManagerLoaded: true,
             });
             await wrapper.vm.$nextTick();
 
@@ -116,7 +116,7 @@ describe('VsEmbedWrapper', () => {
         it('should apply `d-none` to embedded content if `noCookiesRequired` or `requiredCookiesExist` are false ', async() => {
             const wrapper = factoryShallowMount();
             wrapper.setData({
-                mockCookiesExist: false,
+                requiredCookiesAllowed: false,
             });
             await wrapper.vm.$nextTick();
 
@@ -127,7 +127,7 @@ describe('VsEmbedWrapper', () => {
         it('should display a warning div if cookies have not been accepted', async() => {
             const wrapper = factoryMount();
             await wrapper.setData({
-                mockCookiesExist: false,
+                requiredCookiesAllowed: false,
             });
             await wrapper.vm.$nextTick();
 
@@ -138,7 +138,7 @@ describe('VsEmbedWrapper', () => {
         it('should pass content inserted into the `extraContent` prop to the warning', async() => {
             const wrapper = factoryMount();
             await wrapper.setData({
-                mockCookiesExist: false,
+                requiredCookiesAllowed: false,
             });
             await wrapper.vm.$nextTick();
 
@@ -148,7 +148,7 @@ describe('VsEmbedWrapper', () => {
         it('should display a warning div if cookies have not been initialised', async() => {
             const wrapper = factoryShallowMount();
             wrapper.setData({
-                cookiesInitStatus: 'error',
+                cookieManagerLoaded: false,
             });
             await wrapper.vm.$nextTick();
 
@@ -160,7 +160,7 @@ describe('VsEmbedWrapper', () => {
             const wrapper = factoryMount();
             await wrapper.setData({
                 requiredCookies: [],
-                cookiesInitStatus: true,
+                cookieManagerLoaded: true,
             });
             await wrapper.vm.$nextTick();
 
@@ -174,7 +174,7 @@ describe('VsEmbedWrapper', () => {
                 noCookiesRequired: true,
             });
             wrapper.setData({
-                cookiesInitStatus: 'error',
+                cookieManagerLoaded: false,
             });
             await wrapper.vm.$nextTick();
 
@@ -185,7 +185,7 @@ describe('VsEmbedWrapper', () => {
         it('should set correct warning type to `cookie` if cookies have been initialised', async() => {
             const wrapper = factoryShallowMount();
             wrapper.setData({
-                mockCookiesExist: false,
+                requiredCookiesAllowed: false,
             });
             await wrapper.vm.$nextTick();
 
@@ -196,7 +196,7 @@ describe('VsEmbedWrapper', () => {
         it('should set correct warning type to `normal` if cookies fail to initialise', async() => {
             const wrapper = factoryShallowMount();
             wrapper.setData({
-                cookiesInitStatus: 'error',
+                cookieManagerLoaded: false,
             });
             await wrapper.vm.$nextTick();
 
@@ -209,7 +209,7 @@ describe('VsEmbedWrapper', () => {
         it('renders content inserted into the `embed-intro-copy` slot', async() => {
             const wrapper = factoryShallowMount();
             wrapper.setData({
-                cookiesInitStatus: true,
+                cookieManagerLoaded: true,
             });
             await wrapper.vm.$nextTick();
 
@@ -224,7 +224,7 @@ describe('VsEmbedWrapper', () => {
         it('renders content inserted into the `embedIntroCopyNoCookies` slot', async() => {
             const wrapper = factoryMount();
             wrapper.setData({
-                mockCookiesExist: false,
+                requiredCookiesAllowed: false,
             });
 
             await wrapper.vm.$nextTick();

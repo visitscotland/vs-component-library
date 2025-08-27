@@ -56,7 +56,7 @@
                     ref="videoShow"
                     :rounded="false"
                     @click="emitShowModal"
-                    v-if="videoId && videoLoaded && requiredCookiesExist"
+                    v-if="videoId && videoLoaded && cookiesAllowed"
                 >
                     <span
                         class="vs-stretched-link-card__video-btn-text"
@@ -404,11 +404,10 @@ export default {
         warningClass() {
             let className = '';
 
-            if (this.videoId && (this.jsDisabled || !this.requiredCookiesExist)) {
+            if (this.videoId && (this.jsDisabled || !this.cookiesAllowed)) {
                 className = 'vs-stretched-link-card__img-container--warning ';
 
-                if (this.errorType === 'full' && (this.cookiesInitStatus !== null
-                    || this.jsDisabled)) {
+                if (this.errorType === 'full' && (this.cookiesLoaded || this.jsDisabled)) {
                     className += 'vs-stretched-link-card__img-container--warning-full';
                 }
             }
@@ -417,8 +416,8 @@ export default {
         },
         showCookieWarning() {
             if (this.videoId && !this.jsDisabled
-                && !this.requiredCookiesExist
-                && this.cookiesInitStatus === true) {
+                && !this.cookiesAllowed
+                && this.cookiesLoaded) {
                 return true;
             }
 
@@ -427,7 +426,7 @@ export default {
         showError() {
             if (this.videoId
                 && this.errorMessage !== ''
-                && this.cookiesInitStatus === 'error') {
+                && !this.cookiesLoaded) {
                 return true;
             }
 
@@ -483,7 +482,7 @@ export default {
     },
     methods: {
         emitShowModal() {
-            if (!this.videoId || !this.requiredCookiesExist) {
+            if (!this.videoId || !this.cookiesAllowed) {
                 return;
             }
 
