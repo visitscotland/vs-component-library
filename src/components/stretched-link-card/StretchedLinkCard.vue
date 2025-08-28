@@ -459,7 +459,7 @@ export default {
             };
 
             if (this.type === 'cookie') {
-                attrsObj.class = 'ot-sdk-show-settings vs-warning__cookie-trigger';
+                attrsObj.class = 'vs-warning__cookie-trigger';
             }
 
             if (this.size === 'small') {

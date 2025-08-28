@@ -266,12 +266,6 @@ export default {
                 line-height: 2;
                 margin: -10px 0 0;
             }
-
-            // override OneTrust styles
-            #ot-sdk-btn.ot-sdk-show-settings {
-                color: $vs-color-text-inverse;
-                text-decoration: underline;
-            }
         }
 
         &__button {
