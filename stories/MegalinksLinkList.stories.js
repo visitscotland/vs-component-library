@@ -224,7 +224,7 @@ NoCookies.args = {
 
 NoCookies.decorators = [
     () => {
-        window.bypassCookieChecks = false;
+        window.bypassCookiesRequired = false;
 
         return {
             template: `
@@ -262,7 +262,7 @@ GreyThemeNoCookies.args = {
 
 GreyThemeNoCookies.decorators = [
     () => {
-        window.bypassCookieChecks = false;
+        window.bypassCookiesRequired = false;
 
         return {
             template: `

@@ -6,6 +6,7 @@ config.global.renderStubDefaultSlot = true;
 
 jest.mock('@/stores/video.store.ts');
 jest.mock('@/utils/svg-context');
+jest.mock('@/mixins/verifyCookiesMixin.js');
 
 const videoTitleSlot = 'Video title';
 const buttonText = 'Button text';
@@ -70,6 +71,12 @@ describe('VsVideoCaption', () => {
 
         it('should not show the content if a video has not been loaded', async() => {
             const wrapper = factoryShallowMount();
+
+            wrapper.setData({
+                requiredCookiesAllowed: false,
+            });
+
+            await wrapper.vm.$nextTick();
 
             expect(wrapper.find('.vs-video-caption__title').exists()).toBe(false);
         });

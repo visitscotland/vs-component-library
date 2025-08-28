@@ -8,7 +8,7 @@
             data-test="video-caption-variants"
             class="vs-video-caption"
             :class="`vs-video-caption--${variant}`"
-            v-if="videoLoaded && requiredCookiesExist"
+            v-if="videoLoaded && cookiesAllowed"
             key="video-caption"
         >
             <div
@@ -41,7 +41,7 @@
 
             <div
                 class="vs-video-caption__details"
-                v-if="requiredCookiesExist"
+                v-if="cookiesAllowed"
             >
                 <p class="vs-video-caption__title">
                     <!-- @slot Slot for video title -->
@@ -55,7 +55,7 @@
         </div>
 
         <div
-            v-if="!(videoLoaded && requiredCookiesExist) && showCookieMessage"
+            v-if="!(videoLoaded && cookiesAllowed) && showCookieMessage"
             class="vs-video-caption vs-video-caption--warning"
         >
             <VsWarning
@@ -66,16 +66,6 @@
                 <template #button-text>
                     {{ cookieLinkText }}
                 </template>
-            </VsWarning>
-        </div>
-        <div
-            v-if="!(videoLoaded && requiredCookiesExist) && cookiesInitStatus === 'error'"
-            class="vs-video-caption vs-video-caption--warning"
-        >
-            <VsWarning
-                size="small"
-            >
-                {{ errorMessage }}
             </VsWarning>
         </div>
 
@@ -196,7 +186,7 @@ export default {
             return false;
         },
         showCookieMessage() {
-            if (!this.requiredCookiesExist
+            if (!this.cookiesAllowed
                 && this.noCookiesMessage) {
                 return true;
             }
@@ -275,12 +265,6 @@ export default {
                 font-size: $font-size-4;
                 line-height: 2;
                 margin: -10px 0 0;
-            }
-
-            // override OneTrust styles
-            #ot-sdk-btn.ot-sdk-show-settings {
-                color: $vs-color-text-inverse;
-                text-decoration: underline;
             }
         }
 

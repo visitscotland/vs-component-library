@@ -30,6 +30,7 @@
             variant="primary"
             v-show="$slots['button-text'] && $slots['button-text']()"
             class="vs-warning__button"
+            @click="manageCookies"
         >
             <slot name="button-text" />
         </VsButton>
@@ -95,13 +96,21 @@ export default {
             const attrsObj = {
             };
             if (this.type === 'cookie') {
-                attrsObj.class = 'ot-sdk-show-settings vs-warning__cookie-trigger';
+                attrsObj.class = 'vs-warning__cookie-trigger';
             }
             if (this.size === 'small') {
                 attrsObj.size = 'sm';
             }
 
             return attrsObj;
+        },
+    },
+    methods: {
+        manageCookies() {
+            if (typeof CookieControl !== 'undefined') {
+                // eslint-disable-next-line no-undef
+                CookieControl.open();
+            }
         },
     },
 };

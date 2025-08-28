@@ -328,7 +328,7 @@ NoCookies.args = {
 
 NoCookies.decorators = [
     () => {
-        window.bypassCookieChecks = false;
+        window.bypassCookiesRequired = false;
 
         return {
             template: `
