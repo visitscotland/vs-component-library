@@ -22,14 +22,14 @@ const cookieCheckerMixin = {
     },
     computed: {
         cookiesAllowed() {
-            if (window.bypassCookiesRequired) {
+            if (typeof window !== 'undefined' && window.bypassCookiesRequired) {
                 return true;
             }
 
             return this.requiredCookiesAllowed;
         },
         cookiesLoaded() {
-            if (window.bypassCookiesLoaded) {
+            if (typeof window !== 'undefined' && window.bypassCookiesLoaded) {
                 return true;
             }
 
