@@ -3,6 +3,7 @@
 const cookieCheckerMixin = {
     data() {
         return {
+            requiredCookies: [],
             requiredCookiesAllowed: false,
             cookieManagerLoaded: false,
         };

@@ -113,17 +113,6 @@ describe('VsEmbedWrapper', () => {
             expect(container.classes('d-none')).toBe(false);
         });
 
-        it('should apply `d-none` to embedded content if `noCookiesRequired` or `requiredCookiesExist` are false ', async() => {
-            const wrapper = factoryShallowMount();
-            wrapper.setData({
-                requiredCookiesAllowed: false,
-            });
-            await wrapper.vm.$nextTick();
-
-            const container = wrapper.find('[data-test="vs-embed-wrapper"]').find('.vs-embed-wrapper__container');
-            expect(container.classes('d-none')).toBe(true);
-        });
-
         it('should display a warning div if cookies have not been accepted', async() => {
             const wrapper = factoryMount();
             await wrapper.setData({

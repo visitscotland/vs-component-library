@@ -27,7 +27,7 @@
                 >
                     <div
                         class="vs-embed-wrapper__container"
-                        :class="cookiesAllowed || noCookiesRequired ? '' : 'd-none'"
+                        v-if="cookiesAllowed || noCookiesRequired"
                         key="embeddedContent"
                     >
                         <!--
