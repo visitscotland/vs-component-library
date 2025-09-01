@@ -1,3 +1,10 @@
+## [5.3.13](https://github.com/visitscotland/vs-component-library/compare/v5.3.12...v5.3.13) (2025-09-01)
+
+
+### Bug Fixes
+
+* **vscardgroup:** exports the VsCardGroup component ([85c85ac](https://github.com/visitscotland/vs-component-library/commit/85c85ac173eb1d81f511e7fcc2dc733c20a84a2c))
+
 ## [5.3.12](https://github.com/visitscotland/vs-component-library/compare/v5.3.11...v5.3.12) (2025-08-21)
 
 
