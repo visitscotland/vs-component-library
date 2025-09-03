@@ -1,3 +1,10 @@
+## [5.4.1](https://github.com/visitscotland/vs-component-library/compare/v5.4.0...v5.4.1) (2025-09-03)
+
+
+### Bug Fixes
+
+* **civic:** correct dispatchEvent syntax ([f8ca8b3](https://github.com/visitscotland/vs-component-library/commit/f8ca8b3a2a3aa1bbf274990c1ede3f7c6debadff))
+
 # [5.4.0](https://github.com/visitscotland/vs-component-library/compare/v5.3.13...v5.4.0) (2025-09-03)
 
 
