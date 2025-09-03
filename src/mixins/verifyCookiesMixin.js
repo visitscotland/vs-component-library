@@ -13,9 +13,14 @@ const cookieCheckerMixin = {
             this.cookieManagerLoaded = true;
         },
         cookiesUpdated() {
-            const allowed = this.requiredCookies.every(
-                (category) => CookieControl && CookieControl.getCategoryConsent(category) !== false,
-            );
+            let allowed = false;
+
+            if (typeof CookieControl !== 'undefined') {
+                allowed = this.requiredCookies.every(
+                    (category) => CookieControl
+                        && CookieControl.getCategoryConsent(category) !== false,
+                );
+            }
 
             this.requiredCookiesAllowed = allowed;
         },
@@ -44,7 +49,11 @@ const cookieCheckerMixin = {
             const originalDataLayerPush = window.dataLayer.push;
 
             window.dataLayer.push = (arg) => {
-                originalDataLayerPush.apply(this, arg);
+                if (arg) {
+                    originalDataLayerPush(arg);
+                } else {
+                    originalDataLayerPush();
+                }
 
                 if (arg && arg.event === 'cookie_permission_loaded') {
                     setTimeout(() => {
