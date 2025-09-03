@@ -1,3 +1,10 @@
+## [5.4.2](https://github.com/visitscotland/vs-component-library/compare/v5.4.1...v5.4.2) (2025-09-03)
+
+
+### Bug Fixes
+
+* **civic:** update syntax slightly ([6198280](https://github.com/visitscotland/vs-component-library/commit/6198280a6c9d376430a319117eb39358185c3429))
+
 ## [5.4.1](https://github.com/visitscotland/vs-component-library/compare/v5.4.0...v5.4.1) (2025-09-03)
 
 
