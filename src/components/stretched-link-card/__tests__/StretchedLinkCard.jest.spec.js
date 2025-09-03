@@ -5,6 +5,8 @@ import axe from '@/../test/unit/helpers/axe-helper';
 import { setActivePinia, createPinia } from 'pinia';
 import VsStretchedLinkCard from '../StretchedLinkCard.vue';
 
+jest.mock('@/mixins/verifyCookiesMixin.js');
+
 config.global.renderStubDefaultSlot = true;
 
 const imgUrl = 'https://cimg.visitscotland.com/cms-images/attractions/outlander/claire-standing-stones-craigh-na-dun-outlander';
@@ -129,7 +131,7 @@ describe('VsStretchedLinkCard', () => {
             });
 
             wrapper.setData({
-                cookiesInitStatus: 'error',
+                cookieManagerLoaded: false,
             });
 
             await wrapper.vm.$nextTick();

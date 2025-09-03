@@ -5,7 +5,7 @@
         v-if="!reRendering"
     >
         <div class="vs-video__iframe-wrapper">
-            <div v-if="requiredCookiesExist">
+            <div v-if="cookiesAllowed">
                 <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
                 <VueYoutube
                     :autoplay="0"
@@ -22,15 +22,14 @@
 
             <VsWarning
                 v-if="showError"
-                :type="cookiesInitStatus === true ? 'cookie' : 'normal'"
+                :type="cookiesLoaded === true ? 'cookie' : 'normal'"
                 data-test="vs-video__warning"
                 class="vs-video__warning"
             >
                 {{ warningText }}
 
                 <template
-                    v-if="!requiredCookiesExist
-                        && cookiesInitStatus === true"
+                    v-if="!cookiesAllowed && cookiesLoaded === true"
                     #button-text
                 >
                     {{ cookieBtnText }}
@@ -175,10 +174,8 @@ export default {
     },
     computed: {
         showError() {
-            if ((!this.requiredCookiesExist
-                && this.cookiesInitStatus === true)
-                || this.cookiesInitStatus === 'error'
-                || this.cookiesInitStatus === false) {
+            if ((!this.cookiesAllowed && this.cookiesLoaded === true)
+                || this.cookiesLoaded === false) {
                 return true;
             }
             return false;
@@ -190,11 +187,7 @@ export default {
                 text = this.noJsMessage;
             }
 
-            if (this.cookiesInitStatus === 'error') {
-                text = this.errorMessage;
-            }
-            if (!this.requiredCookiesExist
-                && this.cookiesInitStatus === true) {
+            if (!this.cookiesAllowed && this.cookiesLoaded === true) {
                 text = this.noCookiesMessage;
             }
 

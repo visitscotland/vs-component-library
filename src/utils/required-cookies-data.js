@@ -1,9 +1,11 @@
+/**
+ * 1 = Marketing
+ * 2 = Analytical
+ */
+
 const cookieValues = {
-    youtube: ['C0001', 'C0004'],
-    languageSelector: ['C0001'],
-    embed: ['C0001', 'C0003', 'C0004'],
-    recaptcha: ['C0001'],
-    map: ['C0001'],
+    youtube: [0],
+    embed: [0, 1],
 };
 
 export default cookieValues;

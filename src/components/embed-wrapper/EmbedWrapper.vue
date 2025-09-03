@@ -27,7 +27,7 @@
                 >
                     <div
                         class="vs-embed-wrapper__container"
-                        :class="requiredCookiesExist || noCookiesRequired ? '' : 'd-none'"
+                        v-if="cookiesAllowed || noCookiesRequired"
                         key="embeddedContent"
                     >
                         <!--
@@ -42,7 +42,7 @@
                         key="fallback"
                     >
                         <VsWarning
-                            :type="cookiesInitStatus === true ? 'cookie' : 'normal'"
+                            :type="cookiesLoaded === true ? 'cookie' : 'normal'"
                             class="vs-embed-wrapper__error"
                             data-test="vs-embed-wrapper__error"
                         >
@@ -56,8 +56,8 @@
                             </template>
 
                             <template
-                                v-if="!requiredCookiesExist
-                                    && cookiesInitStatus === true"
+                                v-if="!cookiesAllowed
+                                    && cookiesLoaded === true"
                                 #button-text
                             >
                                 <slot name="embed-button-text" />
@@ -158,9 +158,9 @@ export default {
                 return false;
             };
 
-            if ((!this.requiredCookiesExist
-                && this.cookiesInitStatus === true)
-                || this.cookiesInitStatus === 'error') {
+            if ((!this.cookiesAllowed
+                && this.cookiesLoaded === true)
+                || !this.cookiesLoaded) {
                 return true;
             }
 
@@ -169,12 +169,12 @@ export default {
         warningText() {
             let text = '';
 
-            if (this.cookiesInitStatus === 'error') {
+            if (!this.cookiesLoaded) {
                 text = this.errorText;
             }
 
-            if (!this.requiredCookiesExist
-                && this.cookiesInitStatus === true) {
+            if (!this.cookiesAllowed
+                && this.cookiesLoaded === true) {
                 text = this.noCookieText;
             }
 
