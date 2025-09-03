@@ -48,13 +48,13 @@ const cookieCheckerMixin = {
 
                 if (arg && arg.event === 'cookie_permission_loaded') {
                     setTimeout(() => {
-                        window.dispatchEvent('cookieManagerLoaded');
+                        window.dispatchEvent(new Event('cookieManagerLoaded'));
                     });
                 }
 
                 if (arg && arg.event === 'cookie_permission_changed') {
                     setTimeout(() => {
-                        window.dispatchEvent('cookiesUpdated');
+                        window.dispatchEvent(new Event('cookiesUpdated'));
                     });
                 }
             };
