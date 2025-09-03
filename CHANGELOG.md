@@ -1,3 +1,18 @@
+# [5.4.0](https://github.com/visitscotland/vs-component-library/compare/v5.3.13...v5.4.0) (2025-09-03)
+
+
+### Features
+
+* **civic:** adjust event triggers to account for switch to datalayer ([f2e575c](https://github.com/visitscotland/vs-component-library/commit/f2e575c7b844e27da862037f30e316cdc38a3c1f))
+* **civic:** correct bypass val name in Article story ([8b120e0](https://github.com/visitscotland/vs-component-library/commit/8b120e005e69509ef9aa5c4df9f8f380ab9ee220))
+* **civic:** implement new mixin and integrate with Video ([9b39949](https://github.com/visitscotland/vs-component-library/commit/9b39949d3ecd9cb0d83131aa0e9e2a37ffc0f61a))
+* **civic:** make embed wrapper removal more explicit ([b828426](https://github.com/visitscotland/vs-component-library/commit/b82842628ab98fed4f4c9e447d5a597493543dc9))
+* **civic:** make mixin computeds more ssr safe ([109d667](https://github.com/visitscotland/vs-component-library/commit/109d6676816ba2b87d6fabae4d046a81e93d5b68))
+* **civic:** remove cookie store ([12f1a48](https://github.com/visitscotland/vs-component-library/commit/12f1a489596e89d26d3afc5d3774d55eb675b698))
+* **civic:** remove lingering ot styles and update manage cookies button ([4e0c030](https://github.com/visitscotland/vs-component-library/commit/4e0c030898362d721d5108895576c0e4d90543a9))
+* **civic:** remove redundant VsCookieChecker component ([85490f0](https://github.com/visitscotland/vs-component-library/commit/85490f026e55f618e4b5f7f960a82396248e42ff))
+* **civic:** update all tests to account for new manager ([f3e88af](https://github.com/visitscotland/vs-component-library/commit/f3e88afc3015fb02df1a19091d9dc4c75a92d87b))
+
 ## [5.3.13](https://github.com/visitscotland/vs-component-library/compare/v5.3.12...v5.3.13) (2025-09-01)
 
 
