@@ -1,3 +1,10 @@
+## [5.4.3](https://github.com/visitscotland/vs-component-library/compare/v5.4.2...v5.4.3) (2025-09-05)
+
+
+### Bug Fixes
+
+* **civic:** add option to load script for embed wrapper ([41d022a](https://github.com/visitscotland/vs-component-library/commit/41d022a060513df1366033bcd7ac7a05645d5e7a))
+
 ## [5.4.2](https://github.com/visitscotland/vs-component-library/compare/v5.4.1...v5.4.2) (2025-09-03)
 
 
