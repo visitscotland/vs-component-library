@@ -23,6 +23,10 @@ const cookieCheckerMixin = {
             }
 
             this.requiredCookiesAllowed = allowed;
+
+            if (typeof this.callbackOnUpdated !== 'undefined') {
+                this.callbackOnUpdated();
+            }
         },
     },
     computed: {

@@ -146,6 +146,14 @@ export default {
             type: String,
             default: '',
         },
+        /**
+         * A script that should only be loaded if the user accepts cookies, often necessary
+         * to make the embed work.
+         */
+        embeddedScript: {
+            type: String,
+            default: '',
+        },
     },
     data() {
         return {
@@ -179,6 +187,15 @@ export default {
             }
 
             return text;
+        },
+    },
+    methods: {
+        callbackOnUpdated() {
+            if (this.embeddedScript && this.cookiesLoaded && this.requiredCookiesAllowed) {
+                const script = document.createElement('script');
+                script.src = this.embeddedScript;
+                document.head.appendChild(script);
+            }
         },
     },
 };
