@@ -1,3 +1,10 @@
+# [5.5.0](https://github.com/visitscotland/vs-component-library/compare/v5.4.3...v5.5.0) (2025-09-08)
+
+
+### Features
+
+* **civic:** switch to window. instead of datalayer.push ([f84605d](https://github.com/visitscotland/vs-component-library/commit/f84605d1d34fb30210d94e4bf2b0bdf3ffdf8608))
+
 ## [5.4.3](https://github.com/visitscotland/vs-component-library/compare/v5.4.2...v5.4.3) (2025-09-05)
 
 
