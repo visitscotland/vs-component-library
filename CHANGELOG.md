@@ -1,3 +1,10 @@
+## [5.5.1](https://github.com/visitscotland/vs-component-library/compare/v5.5.0...v5.5.1) (2025-09-08)
+
+
+### Bug Fixes
+
+* **civic:** switch back to datalayer version ([30adbb2](https://github.com/visitscotland/vs-component-library/commit/30adbb2c1f58ae608037c417448f8a1abe512102))
+
 # [5.5.0](https://github.com/visitscotland/vs-component-library/compare/v5.4.3...v5.5.0) (2025-09-08)
 
 
