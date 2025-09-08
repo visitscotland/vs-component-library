@@ -1,3 +1,10 @@
+## [5.5.2](https://github.com/visitscotland/vs-component-library/compare/v5.5.1...v5.5.2) (2025-09-08)
+
+
+### Bug Fixes
+
+* **civic:** stop trying to define datalayer ([b17e620](https://github.com/visitscotland/vs-component-library/commit/b17e620d7b6ddb8f448f8797dc5be3ab34c8f097))
+
 ## [5.5.1](https://github.com/visitscotland/vs-component-library/compare/v5.5.0...v5.5.1) (2025-09-08)
 
 
