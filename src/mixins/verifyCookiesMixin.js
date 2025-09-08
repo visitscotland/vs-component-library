@@ -46,33 +46,19 @@ const cookieCheckerMixin = {
         },
     },
     mounted() {
-        // GTM can't call browser events directly, so we need to listen for events on the datalayer
+        // GTM can't call browser events directly, so we need to listen for window function calls
         // and then latch our code onto those. This should only happen once regardless of how many
         // cookie based components are on each page.
-        if (!window.dataLayerExtended && window.dataLayer) {
-            const originalDataLayerPush = window.dataLayer.push;
-
-            window.dataLayer.push = (arg) => {
-                if (arg) {
-                    originalDataLayerPush(arg);
-                } else {
-                    originalDataLayerPush();
-                }
-
-                if (arg && arg.event === 'cookie_permission_loaded') {
-                    setTimeout(() => {
-                        window.dispatchEvent(new Event('cookieManagerLoaded'));
-                    });
-                }
-
-                if (arg && arg.event === 'cookie_permission_changed') {
-                    setTimeout(() => {
-                        window.dispatchEvent(new Event('cookiesUpdated'));
-                    });
-                }
+        if (!window.civicSetup) {
+            window.cookieManagerLoaded = () => {
+                window.dispatchEvent(new Event('cookieManagerLoaded'));
             };
 
-            window.dataLayerExtended = true;
+            window.cookiesUpdated = () => {
+                window.dispatchEvent(new Event('cookiesUpdated'));
+            };
+
+            window.civicSetup = true;
         }
 
         window.addEventListener('cookieManagerLoaded', () => {
