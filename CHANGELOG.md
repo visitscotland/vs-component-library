@@ -1,3 +1,10 @@
+## [5.5.4](https://github.com/visitscotland/vs-component-library/compare/v5.5.3...v5.5.4) (2025-09-08)
+
+
+### Bug Fixes
+
+* **civic:** test removing specific datalayer handling ([cfe1615](https://github.com/visitscotland/vs-component-library/commit/cfe1615f2c268c1d789fa35895ea4117b994ae08))
+
 ## [5.5.3](https://github.com/visitscotland/vs-component-library/compare/v5.5.2...v5.5.3) (2025-09-08)
 
 
