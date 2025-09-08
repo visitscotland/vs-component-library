@@ -1,3 +1,10 @@
+## [5.5.3](https://github.com/visitscotland/vs-component-library/compare/v5.5.2...v5.5.3) (2025-09-08)
+
+
+### Bug Fixes
+
+* **civic:** remove reference to sop ([c89730c](https://github.com/visitscotland/vs-component-library/commit/c89730c0a775fc9e15687ae0a148e98ba302ab13))
+
 ## [5.5.2](https://github.com/visitscotland/vs-component-library/compare/v5.5.1...v5.5.2) (2025-09-08)
 
 
