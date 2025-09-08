@@ -49,16 +49,7 @@ const cookieCheckerMixin = {
         // GTM can't call browser events directly, so we need to listen for events on the datalayer
         // and then latch our code onto those. This should only happen once regardless of how many
         // cookie based components are on each page.
-        if (!window.dataLayerExtended) {
-            let skipOriginalPush = false;
-
-            if (!window.dataLayer) {
-                skipOriginalPush = true;
-                window.dataLayer = {
-                    push: () => {},
-                };
-            }
-
+        if (!window.dataLayerExtended && window.dataLayer) {
             const originalDataLayerPush = window.dataLayer.push;
 
             window.dataLayer.push = (arg) => {
