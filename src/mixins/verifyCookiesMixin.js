@@ -53,12 +53,10 @@ const cookieCheckerMixin = {
             const originalDataLayerPush = window.dataLayer.push;
 
             window.dataLayer.push = (arg) => {
-                if (!skipOriginalPush) {
-                    if (arg) {
-                        originalDataLayerPush(arg);
-                    } else {
-                        originalDataLayerPush();
-                    }
+                if (arg) {
+                    originalDataLayerPush(arg);
+                } else {
+                    originalDataLayerPush();
                 }
 
                 if (arg && arg.event === 'cookie_permission_loaded') {
