@@ -3,7 +3,7 @@ import VsButton from '@/components/button/Button.vue';
 
 export default {
     component: VsCannedSearch,
-    title: 'CannedSearch',
+    title: 'Components/To be reviewed/CannedSearch',
 };
 
 const Template = (args) => ({

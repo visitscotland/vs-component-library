@@ -6,7 +6,7 @@ import sampleItinerary from '@/assets/fixtures/itineraries/sample-itinerary.json
 
 export default {
     component: VsSummaryBoxList,
-    title: 'SummaryBox',
+    title: 'Components/To be reviewed/SummaryBox',
     argTypes: {
         transportKey: {
             options: [

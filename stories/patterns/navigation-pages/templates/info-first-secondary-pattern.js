@@ -222,6 +222,7 @@ export default `
 
                             <VsModal
                                 modal-id="Nz2iwpqsPlI"
+                                close-btn-text="Close"
                                 :is-video-modal="true"
                             >
                                 <VsRow>
@@ -358,6 +359,7 @@ export default `
 
                                 <VsModal
                                     modal-id="mKfYMgunKmU"
+                                    close-btn-text="Close"
                                     :is-video-modal="true"
                                 >
                                     <VsRow>
@@ -399,6 +401,7 @@ export default `
 
                                 <VsModal
                                     modal-id="MvRTuU9nf6g"
+                                    close-btn-text="Close"
                                     :is-video-modal="true"
                                 >
                                     <VsRow>
@@ -440,6 +443,7 @@ export default `
 
                                 <VsModal
                                     modal-id="U5ETXgcP1jE"
+                                    close-btn-text="Close"
                                     :is-video-modal="true"
                                 >
                                     <VsRow>

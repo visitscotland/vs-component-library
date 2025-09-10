@@ -2,7 +2,7 @@ import VsToggleButton from '@/components/toggle-button/ToggleButton.vue';
 
 export default {
     component: VsToggleButton,
-    title: 'ToggleButton',
+    title: 'Components/Actions & controls/ToggleButton',
 };
 
 const Template = (args) => ({

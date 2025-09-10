@@ -8,7 +8,7 @@ import {
 
 export default {
     component: VsSkiScotlandCard,
-    title: 'SkiScotlandCard',
+    title: 'Components/To be reviewed/SkiScotlandCard',
 };
 
 const Template = (args) => ({

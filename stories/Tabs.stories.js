@@ -4,7 +4,7 @@ import VsTabItem from '@/components/tabs/components/TabItem.vue';
 
 export default {
     component: VsTabs,
-    title: 'Tabs',
+    title: 'Components/Navigation/Tabs',
     decorators: [() => ({
         template: `
             <div class="container">

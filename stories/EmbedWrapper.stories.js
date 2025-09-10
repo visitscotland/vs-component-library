@@ -2,7 +2,7 @@ import VsEmbedWrapper from '@/components/embed-wrapper/EmbedWrapper.vue';
 
 export default {
     component: VsEmbedWrapper,
-    title: 'EmbedWrapper',
+    title: 'Components/Media & data visualisation/EmbedWrapper',
 };
 
 const Template = (args) => ({
@@ -62,7 +62,7 @@ NoCookies.args = {
 
 NoCookies.decorators = [
     () => {
-        window.bypassCookieChecks = false;
+        window.bypassCookiesRequired = false;
 
         return {
             template: `
@@ -83,7 +83,7 @@ ExtraContent.args = {
 
 ExtraContent.decorators = [
     () => {
-        window.bypassCookieChecks = false;
+        window.bypassCookiesRequired = false;
 
         return {
             template: `

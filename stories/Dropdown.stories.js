@@ -5,7 +5,7 @@ import VsIcon from '@/components/icon/Icon.vue';
 
 export default {
     component: VsDropdown,
-    title: 'Dropdown',
+    title: 'Components/Actions & controls/Dropdown',
 };
 
 const Template = (args) => ({

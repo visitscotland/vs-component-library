@@ -7,7 +7,7 @@ import { VsCol, VsRow } from '@/components/grid';
 
 export default {
     component: VsModal,
-    title: 'Modal',
+    title: 'Components/Overlays & popups/Modal',
     argTypes: {
     },
 };
@@ -150,7 +150,7 @@ NoCookies.args = {
 
 NoCookies.decorators = [
     () => {
-        window.bypassCookieChecks = false;
+        window.bypassCookiesRequired = false;
 
         return {
             template: `

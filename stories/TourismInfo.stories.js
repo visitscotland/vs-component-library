@@ -8,7 +8,7 @@ import VsTourismInfo from '@/components/tourism-info/TourismInfo.vue';
 
 export default {
     component: VsTourismInfo,
-    title: 'Tourism Info',
+    title: 'Components/To be reviewed/Tourism Info',
 };
 
 const Template = (args) => ({

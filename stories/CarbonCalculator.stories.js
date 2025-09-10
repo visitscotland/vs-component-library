@@ -6,7 +6,7 @@ import VsCarbonCalculator from '@/components/carbon-calculator/CarbonCalculator.
 
 export default {
     component: VsCarbonCalculator,
-    title: 'CarbonCalculator',
+    title: 'Components/To be reviewed/CarbonCalculator',
     argTypes: {
     },
 };

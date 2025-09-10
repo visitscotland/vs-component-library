@@ -5,7 +5,7 @@ export default {
     parameters: {
         layout: 'fullscreen',
     },
-    title: 'HeroSection',
+    title: 'Components/Media & data visualisation/HeroSection',
     argTypes: {
         inset: {
             options: [true, false],

@@ -5,7 +5,7 @@ import VsTextarea from '@/components/textarea/Textarea.vue';
 
 export default {
     component: VsTextarea,
-    title: 'Textarea',
+    title: 'Components/Actions & controls/Textarea',
 };
 
 const Template = (args) => ({

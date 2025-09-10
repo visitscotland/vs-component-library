@@ -14,7 +14,7 @@ import {
 
 export default {
     component: VsMegalinks,
-    title: 'MegalinksMultiImage',
+    title: 'Components/To be reviewed/MegalinksMultiImage',
 };
 
 const Template = (args) => ({
@@ -321,7 +321,7 @@ NoCookies.args = {
 
 NoCookies.decorators = [
     () => {
-        window.bypassCookieChecks = false;
+        window.bypassCookiesRequired = false;
 
         return {
             template: `
@@ -359,7 +359,7 @@ GreyThemeNoCookies.args = {
 
 GreyThemeNoCookies.decorators = [
     () => {
-        window.bypassCookieChecks = false;
+        window.bypassCookiesRequired = false;
 
         return {
             template: `

@@ -2,7 +2,7 @@ import VsBadge from '@/components/badge/Badge.vue';
 
 export default {
     component: VsBadge,
-    title: 'Badge',
+    title: 'Components/Feedback & status/Badge',
 };
 const Template = (args) => ({
     components: {

@@ -3,6 +3,8 @@ import axe from '@/../test/unit/helpers/axe-helper';
 import { setActivePinia, createPinia } from 'pinia';
 import VsVideo from '../Video.vue';
 
+jest.mock('@/mixins/verifyCookiesMixin.js');
+
 config.global.renderStubDefaultSlot = true;
 
 const videoId = 'C0DPdy98e4c';

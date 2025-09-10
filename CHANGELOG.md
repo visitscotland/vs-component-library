@@ -1,3 +1,81 @@
+## [5.5.4](https://github.com/visitscotland/vs-component-library/compare/v5.5.3...v5.5.4) (2025-09-08)
+
+
+### Bug Fixes
+
+* **civic:** test removing specific datalayer handling ([cfe1615](https://github.com/visitscotland/vs-component-library/commit/cfe1615f2c268c1d789fa35895ea4117b994ae08))
+
+## [5.5.3](https://github.com/visitscotland/vs-component-library/compare/v5.5.2...v5.5.3) (2025-09-08)
+
+
+### Bug Fixes
+
+* **civic:** remove reference to sop ([c89730c](https://github.com/visitscotland/vs-component-library/commit/c89730c0a775fc9e15687ae0a148e98ba302ab13))
+
+## [5.5.2](https://github.com/visitscotland/vs-component-library/compare/v5.5.1...v5.5.2) (2025-09-08)
+
+
+### Bug Fixes
+
+* **civic:** stop trying to define datalayer ([b17e620](https://github.com/visitscotland/vs-component-library/commit/b17e620d7b6ddb8f448f8797dc5be3ab34c8f097))
+
+## [5.5.1](https://github.com/visitscotland/vs-component-library/compare/v5.5.0...v5.5.1) (2025-09-08)
+
+
+### Bug Fixes
+
+* **civic:** switch back to datalayer version ([30adbb2](https://github.com/visitscotland/vs-component-library/commit/30adbb2c1f58ae608037c417448f8a1abe512102))
+
+# [5.5.0](https://github.com/visitscotland/vs-component-library/compare/v5.4.3...v5.5.0) (2025-09-08)
+
+
+### Features
+
+* **civic:** switch to window. instead of datalayer.push ([f84605d](https://github.com/visitscotland/vs-component-library/commit/f84605d1d34fb30210d94e4bf2b0bdf3ffdf8608))
+
+## [5.4.3](https://github.com/visitscotland/vs-component-library/compare/v5.4.2...v5.4.3) (2025-09-05)
+
+
+### Bug Fixes
+
+* **civic:** add option to load script for embed wrapper ([41d022a](https://github.com/visitscotland/vs-component-library/commit/41d022a060513df1366033bcd7ac7a05645d5e7a))
+
+## [5.4.2](https://github.com/visitscotland/vs-component-library/compare/v5.4.1...v5.4.2) (2025-09-03)
+
+
+### Bug Fixes
+
+* **civic:** update syntax slightly ([6198280](https://github.com/visitscotland/vs-component-library/commit/6198280a6c9d376430a319117eb39358185c3429))
+
+## [5.4.1](https://github.com/visitscotland/vs-component-library/compare/v5.4.0...v5.4.1) (2025-09-03)
+
+
+### Bug Fixes
+
+* **civic:** correct dispatchEvent syntax ([f8ca8b3](https://github.com/visitscotland/vs-component-library/commit/f8ca8b3a2a3aa1bbf274990c1ede3f7c6debadff))
+
+# [5.4.0](https://github.com/visitscotland/vs-component-library/compare/v5.3.13...v5.4.0) (2025-09-03)
+
+
+### Features
+
+* **civic:** adjust event triggers to account for switch to datalayer ([f2e575c](https://github.com/visitscotland/vs-component-library/commit/f2e575c7b844e27da862037f30e316cdc38a3c1f))
+* **civic:** correct bypass val name in Article story ([8b120e0](https://github.com/visitscotland/vs-component-library/commit/8b120e005e69509ef9aa5c4df9f8f380ab9ee220))
+* **civic:** implement new mixin and integrate with Video ([9b39949](https://github.com/visitscotland/vs-component-library/commit/9b39949d3ecd9cb0d83131aa0e9e2a37ffc0f61a))
+* **civic:** make embed wrapper removal more explicit ([b828426](https://github.com/visitscotland/vs-component-library/commit/b82842628ab98fed4f4c9e447d5a597493543dc9))
+* **civic:** make mixin computeds more ssr safe ([109d667](https://github.com/visitscotland/vs-component-library/commit/109d6676816ba2b87d6fabae4d046a81e93d5b68))
+* **civic:** remove cookie store ([12f1a48](https://github.com/visitscotland/vs-component-library/commit/12f1a489596e89d26d3afc5d3774d55eb675b698))
+* **civic:** remove lingering ot styles and update manage cookies button ([4e0c030](https://github.com/visitscotland/vs-component-library/commit/4e0c030898362d721d5108895576c0e4d90543a9))
+* **civic:** remove redundant VsCookieChecker component ([85490f0](https://github.com/visitscotland/vs-component-library/commit/85490f026e55f618e4b5f7f960a82396248e42ff))
+* **civic:** update all tests to account for new manager ([f3e88af](https://github.com/visitscotland/vs-component-library/commit/f3e88afc3015fb02df1a19091d9dc4c75a92d87b))
+
+## [5.3.13](https://github.com/visitscotland/vs-component-library/compare/v5.3.12...v5.3.13) (2025-09-01)
+
+
+### Bug Fixes
+
+* **vscardgroup:** exports the VsCardGroup component ([85c85ac](https://github.com/visitscotland/vs-component-library/commit/85c85ac173eb1d81f511e7fcc2dc733c20a84a2c))
+
 ## [5.3.12](https://github.com/visitscotland/vs-component-library/compare/v5.3.11...v5.3.12) (2025-08-21)
 
 

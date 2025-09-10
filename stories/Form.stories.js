@@ -6,7 +6,7 @@ import VsForm from '@/components/form/Form.vue';
 
 export default {
     component: VsForm,
-    title: 'Form',
+    title: 'Components/Actions & controls/Form',
 };
 
 const Template = (args) => ({

@@ -29,7 +29,7 @@ import { Default as summaryBoxDefault } from './SummaryBox.stories';
 
 export default {
     component: VsPageIntro,
-    title: 'PageIntro',
+    title: 'Components/To be reviewed/PageIntro',
     argTypes: {
         background: {
             options: [
@@ -328,7 +328,7 @@ NoCookies.args = {
 
 NoCookies.decorators = [
     () => {
-        window.bypassCookieChecks = false;
+        window.bypassCookiesRequired = false;
 
         return {
             template: `
