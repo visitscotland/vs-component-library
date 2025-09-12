@@ -19,7 +19,7 @@
                     <VsHeading
                         level="2"
                         heading-style="heading-l"
-                        :no-margins="true"
+                        no-margins
                         class="mb-175 mb-lg-0"
                         :id="anchorId"
                     >
@@ -33,7 +33,7 @@
                     lg="8"
                 >
                     <VsBody
-                        v-if="$slots['section-header-lede'] && $slots['section-header-lede']"
+                        v-if="$slots['section-header-lede']"
                         variant="lead"
                     >
                         <!-- @slot Slot to section header lede text -->
@@ -41,7 +41,7 @@
                     </VsBody>
 
                     <div
-                        v-if="$slots['section-header-actions'] && $slots['section-header-actions']"
+                        v-if="$slots['section-header-actions']"
                         class="mt-175"
                         data-test="vs-section-header__actions"
                     >
@@ -93,13 +93,7 @@ export default {
             type: String,
             required: true,
         },
-        /**
-         * lede will be used to set the lede text
-         */
-        lede: {
-            type: String,
-            default: null,
-        },
+
     },
 };
 </script>
