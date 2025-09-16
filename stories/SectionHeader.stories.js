@@ -19,7 +19,9 @@ export default {
             },
         },
         withAction: {
-            control: { type: 'boolean' },
+            control: {
+                type: 'boolean',
+            },
         },
     },
 };
