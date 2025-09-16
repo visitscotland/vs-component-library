@@ -34,7 +34,7 @@ const Template = (args) => ({
     template: `
         <VsSectionHeader v-bind="args">
             <template v-slot:section-header-lede v-if="args.lede">
-                ${args.lede}
+                <div v-html="args.lede" />
             </template>
             <template v-slot:section-header-actions v-if="args.withAction">
                 <VsButton variant="secondary" href="#">
