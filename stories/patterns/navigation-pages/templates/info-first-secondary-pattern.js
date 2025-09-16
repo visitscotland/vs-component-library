@@ -34,160 +34,188 @@ export default `
                 :img-src="args.imgUrl"
                 :img-caption="args.imgCaption"
                 :img-credit="args.imgCredit"
+                inset
             />
         </template>
 
         <template v-slot:content>
+
             <!------------------------------------------------------------
-            NEW SECTION & CARD GROUP - Module wrapper used for new card group heading/intro
-              ------------------------------------------------------------>
-            <VsModuleWrapper>
-                <template v-slot:vs-module-wrapper-heading>
-                    Understand sustainability
-                </template>
-                <template v-slot:vs-module-wrapper-intro>
+            NEW SECTION - Section header + new card group ( 3cards)
+            ------------------------------------------------------------>
+            <VsSectionHeader 
+                class="mt-500 mb-300"
+                heading="Understand sustainability"
+            >
+                <template v-slot:section-header-lede>
                     <p>
                         Scotland's natural beauty, rich heritage, and vibrant communities make it a world-class destination — but with this comes the responsibility to protect it for future generations. As a tourism business, you play a vital role in shaping a more sustainable industry, ensuring visitors enjoy Scotland's wonders while minimising environmental impact and supporting local communities.
                     </p>
                 </template>
+            </VsSectionHeader>
 
-                <VsContainer>
-                    <VsRow>
-                        <VsCol>
-                            <VsCardGroup
-                                scroll-snap
-                                :cards-per-row="3"
-                                class="text-start"
+            <VsContainer>
+                <VsRow>
+                    <VsCol>
+                        <VsCardGroup
+                            scroll-snap
+                            :cards-per-row="3"
+                            class="text-start"
+                        >
+                            <VsCard
+                                v-for="(card, index) in infoCardList1"
+                                :key="'card-1-' + index"
+                                :accent-bar="true"
+                                :fill-color="'vs-color-background-primary'"
+                                card-style="elevated"
                             >
-                                <VsCard
-                                    v-for="(card, index) in infoCardList1"
-                                    :key="'card-1-' + index"
-                                    :accent-bar="true"
-                                    :fill-color="'vs-color-background-primary'"
-                                    card-style="elevated"
-                                >
-                                    <template #vs-card-header>
-                                        <VsBadge
-                                            v-if="card.badgeTitle"
-                                            variant="subtle"
-                                            class="mt-125 mx-075"
+                                <template #vs-card-header>
+                                    <VsBadge
+                                        v-if="card.badgeTitle"
+                                        variant="subtle"
+                                        class="mt-125 mx-075"
+                                    >
+                                        {{ card.badgeTitle }}
+                                    </VsBadge>
+                                </template>
+
+                                <template #vs-card-body>
+                                    <div class="px-125">
+                                        <VsHeading
+                                            level="3"
+                                            heading-style="heading-xs"
                                         >
-                                            {{ card.badgeTitle }}
-                                        </VsBadge>
-                                    </template>
-
-                                    <template #vs-card-body>
-                                        <div class="px-125">
-                                            <VsHeading
-                                                level="3"
-                                                heading-style="heading-xs"
+                                            <VsLink
+                                                :href="card.link"
+                                                class="stretched-link"
+                                                variant="secondary"
                                             >
-                                                <VsLink
-                                                    :href="card.link"
-                                                    class="stretched-link"
-                                                    variant="secondary"
-                                                >
-                                                    {{ card.title }}
-                                                </VsLink>
-                                            </VsHeading>
+                                                {{ card.title }}
+                                            </VsLink>
+                                        </VsHeading>
 
-                                            <VsBody class="mb-150 truncate-3-lines">
-                                                {{ card.description }}
-                                            </VsBody>
-                                        </div>
-                                    </template>
+                                        <VsBody class="mb-150 truncate-3-lines">
+                                            {{ card.description }}
+                                        </VsBody>
+                                    </div>
+                                </template>
 
-                                    <template #vs-card-footer>
-                                        <VsArticleDetails
-                                            v-if="card.metaData"
-                                            class="px-125"
-                                            :article-read-time="card.metaData"
-                                        />
-                                    </template>
-                                </VsCard>
-                            </VsCardGroup>
-                        </VsCol>
-                    </VsRow>
-                </VsContainer>
-            </VsModuleWrapper>
+                                <template #vs-card-footer>
+                                    <VsArticleDetails
+                                        v-if="card.metaData"
+                                        class="px-125"
+                                        :article-read-time="card.metaData"
+                                    />
+                                </template>
+                            </VsCard>
+                        </VsCardGroup>
+                    </VsCol>
+                </VsRow>
+            </VsContainer>
+            <!------------------------------------------------------------
+            SECTION END
+            ------------------------------------------------------------>
 
             <!------------------------------------------------------------
-            NEW SECTION & CARD GROUP - Module wrapper used for new card group heading/intro
-              ------------------------------------------------------------>
-            <VsModuleWrapper theme="grey">
-                <template v-slot:vs-module-wrapper-heading>
-                    How to develop your sustainability journey
-                </template>
+            NEW SECTION - Spotlight section
+            ------------------------------------------------------------>
+            <VsContainer class="mt-500">
+                <VsRow>
+                    <VsCol>
+                        <VsSpotlightSection 
+                            heading="How to measure your climate impact"
+                            description="Measure your emissions with the Climate Impact Guide. See what data to gather, and how to use the insights for a more sustainable business model."
+                            imageSrc="https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/2-dec/gleneagles-hotel-couple"
+                            ctaLink="#"
+                            ctaText="Read the guide"
+                        />
+                    </VsCol>
+                </VsRow>
+            </VsContainer>
+            <!------------------------------------------------------------
+            SECTION END
+            ------------------------------------------------------------>
 
-                <template v-slot:vs-module-wrapper-intro>
+
+            <!------------------------------------------------------------
+            NEW SECTION - Section header + new card group (3 cards)
+            ------------------------------------------------------------>
+            <VsSectionHeader 
+                class="mt-500 mb-300"
+                heading="How to develop your sustainability journey"
+            >
+                <template v-slot:section-header-lede>
                     <p>
                         Step-by-step guidance to help you measure your impact, create an action plan, and make meaningful improvements to your business.
                     </p>
                 </template>
+            </VsSectionHeader>
 
-                <VsContainer>
-                    <VsRow>
-                        <VsCol>
-                            <VsCardGroup
-                                scroll-snap
-                                :cards-per-row="4"
-                                class="text-start mt-150"
+            <VsContainer>
+                <VsRow>
+                    <VsCol>
+                        <VsCardGroup
+                            scroll-snap
+                            :cards-per-row="3"
+                            class="text-start mt-150"
+                        >
+                            <VsCard
+                                v-for="(card, index) in infoCardList2"
+                                :key="'card-2-' + index"
+                                :accent-bar="true"
+                                :fill-color="'vs-color-background-primary'"
+                                card-style="elevated"
                             >
-                                <VsCard
-                                    v-for="(card, index) in infoCardList2"
-                                    :key="'card-2-' + index"
-                                    :accent-bar="true"
-                                    :fill-color="'vs-color-background-primary'"
-                                    card-style="elevated"
-                                >
-                                    <template #vs-card-header>
-                                        <VsBadge
-                                            v-if="card.badgeTitle"
-                                            variant="subtle"
-                                            class="mt-125 mx-075"
+                                <template #vs-card-header>
+                                    <VsBadge
+                                        v-if="card.badgeTitle"
+                                        variant="subtle"
+                                        class="mt-125 mx-075"
+                                    >
+                                        {{ card.badgeTitle }}
+                                    </VsBadge>
+                                </template>
+
+                                <template #vs-card-body>
+                                    <div class="px-125">
+                                        <VsHeading
+                                            level="3"
+                                            heading-style="heading-xs"
                                         >
-                                            {{ card.badgeTitle }}
-                                        </VsBadge>
-                                    </template>
-
-                                    <template #vs-card-body>
-                                        <div class="px-125">
-                                            <VsHeading
-                                                level="3"
-                                                heading-style="heading-xs"
+                                            <VsLink
+                                                :href="card.link"
+                                                class="stretched-link"
+                                                variant="secondary"
                                             >
-                                                <VsLink
-                                                    :href="card.link"
-                                                    class="stretched-link"
-                                                    variant="secondary"
-                                                >
-                                                    {{ card.title }}
-                                                </VsLink>
-                                            </VsHeading>
+                                                {{ card.title }}
+                                            </VsLink>
+                                        </VsHeading>
 
-                                            <VsBody class="mb-150 truncate-3-lines">
-                                                {{ card.description }}
-                                            </VsBody>
-                                        </div>
-                                    </template>
+                                        <VsBody class="mb-150 truncate-3-lines">
+                                            {{ card.description }}
+                                        </VsBody>
+                                    </div>
+                                </template>
 
-                                    <template #vs-card-footer>
-                                        <VsArticleDetails
-                                            v-if="card.metaData"
-                                            class="px-125"
-                                            :article-read-time="card.metaData"
-                                        />
-                                    </template>
-                                </VsCard>
-                            </VsCardGroup>
-                        </VsCol>
-                    </VsRow>
-                </VsContainer>
-            </VsModuleWrapper>
+                                <template #vs-card-footer>
+                                    <VsArticleDetails
+                                        v-if="card.metaData"
+                                        class="px-125"
+                                        :article-read-time="card.metaData"
+                                    />
+                                </template>
+                            </VsCard>
+                        </VsCardGroup>
+                    </VsCol>
+                </VsRow>
+            </VsContainer>
+            <!------------------------------------------------------------
+            SECTION END
+            ------------------------------------------------------------>
 
             
             <!------------------------------------------------------------
-            FEATURED LINK - Module spacing come from the megalinks wrapper
+            MEGALINKS - Video highlight
               ------------------------------------------------------------>
             <VsMegalinks 
                 title="Watch our climate action workbook webinar"
@@ -241,86 +269,110 @@ export default `
                     </VsRow>
                 </VsContainer>
             </VsMegalinks>
-
-
             <!------------------------------------------------------------
-            NEW SECTION & CARD GROUP - Module wrapper used for new card group heading/intro
-              ------------------------------------------------------------>
-            <VsModuleWrapper theme="grey">
-                <template v-slot:vs-module-wrapper-heading>
-                    Guidance for sustainable tourism
-                </template>
-
-                <template v-slot:vs-module-wrapper-intro>
+            SECTION END
+            ------------------------------------------------------------>
+            
+            
+            <!------------------------------------------------------------
+            NEW SECTION - Section header + new card group (3 cards)
+            ------------------------------------------------------------>
+            <VsSectionHeader 
+                class="mb-300"
+                heading="Guidance for sustainable tourism"
+            >
+                <template v-slot:section-header-lede>
                     <p>
                         Explore practical resources, tips, and tools to support long-term sustainability across your tourism operations and promotions.
                     </p>
                 </template>
+            </VsSectionHeader>
 
-                <VsContainer>
-                    <VsRow>
-                        <VsCol>
-                            <VsCardGroup
-                                scroll-snap
-                                :cards-per-row="4"
-                                class="text-start mt-150"
+            <VsContainer>
+                <VsRow>
+                    <VsCol>
+                        <VsCardGroup
+                            scroll-snap
+                            :cards-per-row="3"
+                            class="text-start mt-150"
+                        >
+                            <VsCard
+                                v-for="(card, index) in infoCardList3"
+                                :key="'card-3-' + index"
+                                :accent-bar="true"
+                                :fill-color="'vs-color-background-primary'"
+                                card-style="elevated"
                             >
-                                <VsCard
-                                    v-for="(card, index) in infoCardList3"
-                                    :key="'card-3-' + index"
-                                    :accent-bar="true"
-                                    :fill-color="'vs-color-background-primary'"
-                                    card-style="elevated"
-                                >
-                                    <template #vs-card-header>
-                                        <VsBadge
-                                            v-if="card.badgeTitle"
-                                            variant="subtle"
-                                            class="mt-125 mx-075"
+                                <template #vs-card-header>
+                                    <VsBadge
+                                        v-if="card.badgeTitle"
+                                        variant="subtle"
+                                        class="mt-125 mx-075"
+                                    >
+                                        {{ card.badgeTitle }}
+                                    </VsBadge>
+                                </template>
+
+                                <template #vs-card-body>
+                                    <div class="px-125">
+                                        <VsHeading
+                                            level="3"
+                                            heading-style="heading-xs"
                                         >
-                                            {{ card.badgeTitle }}
-                                        </VsBadge>
-                                    </template>
-
-                                    <template #vs-card-body>
-                                        <div class="px-125">
-                                            <VsHeading
-                                                level="3"
-                                                heading-style="heading-xs"
+                                            <VsLink
+                                                :href="card.link"
+                                                class="stretched-link"
+                                                variant="secondary"
                                             >
-                                                <VsLink
-                                                    :href="card.link"
-                                                    class="stretched-link"
-                                                    variant="secondary"
-                                                >
-                                                    {{ card.title }}
-                                                </VsLink>
-                                            </VsHeading>
+                                                {{ card.title }}
+                                            </VsLink>
+                                        </VsHeading>
 
-                                            <VsBody class="mb-150 truncate-3-lines">
-                                                {{ card.description }}
-                                            </VsBody>
-                                        </div>
-                                    </template>
+                                        <VsBody class="mb-150 truncate-3-lines">
+                                            {{ card.description }}
+                                        </VsBody>
+                                    </div>
+                                </template>
 
-                                    <template #vs-card-footer>
-                                        <VsArticleDetails
-                                            v-if="card.metaData"
-                                            class="px-125"
-                                            :article-read-time="card.metaData"
-                                        />
-                                    </template>
-                                </VsCard>
-                            </VsCardGroup>
-                        </VsCol>
-                    </VsRow>
-                </VsContainer>
-            </VsModuleWrapper>
-
-            
+                                <template #vs-card-footer>
+                                    <VsArticleDetails
+                                        v-if="card.metaData"
+                                        class="px-125"
+                                        :article-read-time="card.metaData"
+                                    />
+                                </template>
+                            </VsCard>
+                        </VsCardGroup>
+                    </VsCol>
+                </VsRow>
+            </VsContainer>
+            <!------------------------------------------------------------
+            SECTION END
+            ------------------------------------------------------------>
 
             <!------------------------------------------------------------
-            MEGALINKS MULTI VIDEO - Module spacing come from the megalinks wrapper
+            NEW SECTION - Spotlight section
+            ------------------------------------------------------------>
+            <VsContainer class="mt-500">
+                <VsRow>
+                    <VsCol>
+                        <VsSpotlightSection 
+                            heading="Carbon emissions calculator methodology statement"
+                            description="Find out more on how our climate action workbook calculates your emissions."
+                            imageSrc="https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/03-mar/inversnaid-waterfall.jpg?size=md"
+                            ctaLink="#"
+                            ctaText="Read the guide"
+                        />
+                    </VsCol>
+                </VsRow>
+            </VsContainer>
+            <!------------------------------------------------------------
+            SECTION END
+            ------------------------------------------------------------>
+
+
+            <!------------------------------------------------------------
+            MEGALINKS MULTI VIDEO
             ------------------------------------------------------------>
             <VsMegalinks 
                 title="Climate action case studies"
@@ -464,77 +516,76 @@ export default `
                 </VsCol>
             </VsMegalinks>
 
-
-
-
             <!------------------------------------------------------------
-            NEW SECTION & CARD GROUP - Module wrapper used for new card group heading/intro
-              ------------------------------------------------------------>
-            <VsModuleWrapper theme="grey">
-                <template v-slot:vs-module-wrapper-heading>
-                    Related pages
-                </template>
+            NEW SECTION - Section header + new card group (4 cards)
+            ------------------------------------------------------------>
+            <VsSectionHeader 
+                class="mb-300"
+                heading="Related pages"
+            >
+            </VsSectionHeader>
 
-                <VsContainer>
-                    <VsRow>
-                        <VsCol>
-                            <VsCardGroup
-                                scroll-snap
-                                :cards-per-row="4"
-                                class="text-start mt-150"
+            <VsContainer class="mb-500">
+                <VsRow>
+                    <VsCol>
+                        <VsCardGroup
+                            scroll-snap
+                            :cards-per-row="4"
+                            class="text-start mt-150"
+                        >
+                            <VsCard
+                                v-for="(card, index) in infoCardList4"
+                                :key="'card-4-' + index"
+                                :accent-bar="true"
+                                :fill-color="'vs-color-background-primary'"
+                                card-style="elevated"
                             >
-                                <VsCard
-                                    v-for="(card, index) in infoCardList4"
-                                    :key="'card-4-' + index"
-                                    :accent-bar="true"
-                                    :fill-color="'vs-color-background-primary'"
-                                    card-style="elevated"
-                                >
-                                    <template #vs-card-header>
-                                        <VsBadge
-                                            v-if="card.badgeTitle"
-                                            variant="subtle"
-                                            class="mt-125 mx-075"
+                                <template #vs-card-header>
+                                    <VsBadge
+                                        v-if="card.badgeTitle"
+                                        variant="subtle"
+                                        class="mt-125 mx-075"
+                                    >
+                                        {{ card.badgeTitle }}
+                                    </VsBadge>
+                                </template>
+
+                                <template #vs-card-body>
+                                    <div class="px-125">
+                                        <VsHeading
+                                            level="3"
+                                            heading-style="heading-xs"
                                         >
-                                            {{ card.badgeTitle }}
-                                        </VsBadge>
-                                    </template>
-
-                                    <template #vs-card-body>
-                                        <div class="px-125">
-                                            <VsHeading
-                                                level="3"
-                                                heading-style="heading-xs"
+                                            <VsLink
+                                                :href="card.link"
+                                                class="stretched-link"
+                                                variant="secondary"
                                             >
-                                                <VsLink
-                                                    :href="card.link"
-                                                    class="stretched-link"
-                                                    variant="secondary"
-                                                >
-                                                    {{ card.title }}
-                                                </VsLink>
-                                            </VsHeading>
+                                                {{ card.title }}
+                                            </VsLink>
+                                        </VsHeading>
 
-                                            <VsBody class="mb-150 truncate-3-lines">
-                                                {{ card.description }}
-                                            </VsBody>
-                                        </div>
-                                    </template>
+                                        <VsBody class="mb-150 truncate-3-lines">
+                                            {{ card.description }}
+                                        </VsBody>
+                                    </div>
+                                </template>
 
-                                    <template #vs-card-footer>
-                                        <VsArticleDetails
-                                            v-if="card.metaData"
-                                            class="px-125"
-                                            :article-read-time="card.metaData"
-                                        />
-                                    </template>
-                                </VsCard>
-                            </VsCardGroup>
-                        </VsCol>
-                    </VsRow>
-                </VsContainer>
-            </VsModuleWrapper>
-
+                                <template #vs-card-footer>
+                                    <VsArticleDetails
+                                        v-if="card.metaData"
+                                        class="px-125"
+                                        :article-read-time="card.metaData"
+                                    />
+                                </template>
+                            </VsCard>
+                        </VsCardGroup>
+                    </VsCol>
+                </VsRow>
+            </VsContainer>
+            <!------------------------------------------------------------
+            SECTION END
+            ------------------------------------------------------------>
         </template>
     </VsNavigationPage>
 `;

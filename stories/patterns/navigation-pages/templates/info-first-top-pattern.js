@@ -35,12 +35,11 @@ export default `
 
         <template v-slot:content>
             <!------------------------------------------------------------
-            FEATURED LINK - Module spacing come from the megalinks wrapper
-              ------------------------------------------------------------>
-
-            <VsContainer>
+            NEW SECTION - Spotlight section
+            ------------------------------------------------------------>
+            <VsContainer class="mt-500">
                 <VsRow>
-                    <VsCol class="mt-500">
+                    <VsCol>
                         <VsSpotlightSection 
                             heading="Support by sector"
                             description="Find tailored advice and case studies for accommodation, active and outdoor, events and festivals, food and drink and visitor attraction sectors."
@@ -48,86 +47,92 @@ export default `
                             ctaLink="#"
                             ctaText="Find sector support"
                         />
-                    </VsCol>                
+                    </VsCol>
                 </VsRow>
             </VsContainer>
+            <!------------------------------------------------------------
+            SECTION END
+            ------------------------------------------------------------>
+
 
             <!------------------------------------------------------------
-            NEW SECTION & CARD GROUP - Module wrapper used for new card group heading/intro
-              ------------------------------------------------------------>
-            <VsModuleWrapper>
-                <template v-slot:vs-module-wrapper-heading>
-                    Advice for each stage of your journey
-                </template>
-                <template v-slot:vs-module-wrapper-intro>
+            NEW SECTION - Section header + new card group ( 3 cards)
+            ------------------------------------------------------------>
+            <VsSectionHeader 
+                class="mt-500 mb-300"
+                heading="Advice for each stage of your journey"
+            >
+                <template v-slot:section-header-lede>
                     <p>Whatever stage you're at - whether you just have an idea, or you've been welcoming customers for over 20 years, there's always room for sustainable growth.</p>
                 </template>
+            </VsSectionHeader>
 
-                <VsContainer>
-                    <VsRow>
-                        <VsCol>
-                            <VsCardGroup
-                                scroll-snap
-                                :cards-per-row="4"
-                                class="text-start"
+            <VsContainer>
+                <VsRow>
+                    <VsCol>
+                        <VsCardGroup
+                            scroll-snap
+                            :cards-per-row="4"
+                            class="text-start"
+                        >
+                            <VsCard
+                                v-for="(card, index) in textCardList1"
+                                :key="'card-1-' + index"
+                                :accent-bar="true"
+                                :fill-color="'vs-color-background-primary'"
+                                card-style="elevated"
                             >
-                                <VsCard
-                                    v-for="(card, index) in textCardList1"
-                                    :key="'card-1-' + index"
-                                    :accent-bar="true"
-                                    :fill-color="'vs-color-background-primary'"
-                                    card-style="elevated"
-                                >
-                                    <template #vs-card-header>
-                                        <VsBadge
-                                            v-if="card.badgeTitle"
-                                            variant="subtle"
-                                            class="mt-125 mx-075"
+                                <template #vs-card-header>
+                                    <VsBadge
+                                        v-if="card.badgeTitle"
+                                        variant="subtle"
+                                        class="mt-125 mx-075"
+                                    >
+                                        {{ card.badgeTitle }}
+                                    </VsBadge>
+                                </template>
+
+                                <template #vs-card-body>
+                                    <div class="px-125">
+                                        <VsHeading
+                                            level="3"
+                                            heading-style="heading-xs"
                                         >
-                                            {{ card.badgeTitle }}
-                                        </VsBadge>
-                                    </template>
-
-                                    <template #vs-card-body>
-                                        <div class="px-125">
-                                            <VsHeading
-                                                level="3"
-                                                heading-style="heading-xs"
+                                            <VsLink
+                                                :href="card.link"
+                                                class="stretched-link"
+                                                variant="secondary"
                                             >
-                                                <VsLink
-                                                    :href="card.link"
-                                                    class="stretched-link"
-                                                    variant="secondary"
-                                                >
-                                                    {{ card.title }}
-                                                </VsLink>
-                                            </VsHeading>
+                                                {{ card.title }}
+                                            </VsLink>
+                                        </VsHeading>
 
-                                            <VsBody class="mb-150 truncate-3-lines">
-                                                {{ card.description }}
-                                            </VsBody>
-                                        </div>
-                                    </template>
+                                        <VsBody class="mb-150 truncate-3-lines">
+                                            {{ card.description }}
+                                        </VsBody>
+                                    </div>
+                                </template>
 
-                                    <template #vs-card-footer>
-                                        <VsArticleDetails
-                                            v-if="card.metaData"
-                                            class="px-125"
-                                            :article-read-time="card.metaData"
-                                        />
-                                    </template>
-                                </VsCard>
-                            </VsCardGroup>
-                        </VsCol>
-                    </VsRow>
-                </VsContainer>
-            </VsModuleWrapper>
-
+                                <template #vs-card-footer>
+                                    <VsArticleDetails
+                                        v-if="card.metaData"
+                                        class="px-125"
+                                        :article-read-time="card.metaData"
+                                    />
+                                </template>
+                            </VsCard>
+                        </VsCardGroup>
+                    </VsCol>
+                </VsRow>
+            </VsContainer>
+            <!------------------------------------------------------------
+            SECTION END
+            ------------------------------------------------------------>
 
             <!------------------------------------------------------------
-            FEATURED LINK - Module spacing come from the megalinks wrapper
-              ------------------------------------------------------------>
-            <VsContainer>
+            NEW SECTION - Spotlight section
+            ------------------------------------------------------------>
+            <VsContainer class="mt-500">
                 <VsRow>
                     <VsCol>
                         <VsSpotlightSection 
@@ -137,82 +142,91 @@ export default `
                             ctaLink="#"
                             ctaText="Explore sustainability"
                         />
-                    </VsCol>                
+                    </VsCol>   
                 </VsRow>
             </VsContainer>
+            <!------------------------------------------------------------
+            SECTION END
+            ------------------------------------------------------------>
 
 
             <!------------------------------------------------------------
-            NEW SECTION & CARD GROUP - Module wrapper used for new card group heading/intro
-              ------------------------------------------------------------>
-            <VsModuleWrapper>
-                <template v-slot:vs-module-wrapper-heading>
-                    Related pages
-                </template>
-
-                <VsContainer>
-                    <VsRow>
-                        <VsCol>
-                            <VsCardGroup
-                                scroll-snap
-                                :cards-per-row="4"
-                                class="text-start mt-150"
-                            >
-                                <VsCard
-                                    v-for="(card, index) in textCardList2"
-                                    :key="'card-1-' + index"
-                                    :accent-bar="true"
-                                    :fill-color="'vs-color-background-primary'"
-                                    card-style="elevated"
-                                >
-                                    <template #vs-card-header>
-                                        <VsBadge
-                                            v-if="card.badgeTitle"
-                                            variant="subtle"
-                                            class="mt-125 mx-075"
-                                        >
-                                            {{ card.badgeTitle }}
-                                        </VsBadge>
-                                    </template>
-
-                                    <template #vs-card-body>
-                                        <div class="px-125">
-                                            <VsHeading
-                                                level="3"
-                                                heading-style="heading-xs"
-                                            >
-                                                <VsLink
-                                                    :href="card.link"
-                                                    class="stretched-link"
-                                                    variant="secondary"
-                                                >
-                                                    {{ card.title }}
-                                                </VsLink>
-                                            </VsHeading>
-
-                                            <VsBody class="mb-150 truncate-3-lines">
-                                                {{ card.description }}
-                                            </VsBody>
-                                        </div>
-                                    </template>
-
-                                    <template #vs-card-footer>
-                                        <VsArticleDetails
-                                            v-if="card.metaData"
-                                            class="px-125"
-                                            :article-read-time="card.metaData"
-                                        />
-                                    </template>
-                                </VsCard>
-                            </VsCardGroup>
-                        </VsCol>
-                    </VsRow>
-                </VsContainer>
-            </VsModuleWrapper>
+            NEW SECTION - Section header + new card group ( 3 cards)
+            ------------------------------------------------------------>
+            <VsSectionHeader 
+                class="mt-500 mb-300"
+                heading="Related pages"
+            >
+            </VsSectionHeader>
 
             <VsContainer>
                 <VsRow>
-                    <VsCol class="mb-500">
+                    <VsCol>
+                        <VsCardGroup
+                            scroll-snap
+                            :cards-per-row="4"
+                            class="text-start mt-150"
+                        >
+                            <VsCard
+                                v-for="(card, index) in textCardList2"
+                                :key="'card-1-' + index"
+                                :accent-bar="true"
+                                :fill-color="'vs-color-background-primary'"
+                                card-style="elevated"
+                            >
+                                <template #vs-card-header>
+                                    <VsBadge
+                                        v-if="card.badgeTitle"
+                                        variant="subtle"
+                                        class="mt-125 mx-075"
+                                    >
+                                        {{ card.badgeTitle }}
+                                    </VsBadge>
+                                </template>
+
+                                <template #vs-card-body>
+                                    <div class="px-125">
+                                        <VsHeading
+                                            level="3"
+                                            heading-style="heading-xs"
+                                        >
+                                            <VsLink
+                                                :href="card.link"
+                                                class="stretched-link"
+                                                variant="secondary"
+                                            >
+                                                {{ card.title }}
+                                            </VsLink>
+                                        </VsHeading>
+
+                                        <VsBody class="mb-150 truncate-3-lines">
+                                            {{ card.description }}
+                                        </VsBody>
+                                    </div>
+                                </template>
+
+                                <template #vs-card-footer>
+                                    <VsArticleDetails
+                                        v-if="card.metaData"
+                                        class="px-125"
+                                        :article-read-time="card.metaData"
+                                    />
+                                </template>
+                            </VsCard>
+                        </VsCardGroup>
+                    </VsCol>
+                </VsRow>
+            </VsContainer>
+            <!------------------------------------------------------------
+            SECTION END
+            ------------------------------------------------------------>
+
+            <!------------------------------------------------------------
+            NEW SECTION - Spotlight section
+            ------------------------------------------------------------>
+            <VsContainer class="mt-500 mb-500">
+                <VsRow>
+                    <VsCol>
                         <VsSpotlightSection 
                             heading="Sign up for the latest advice"
                             description="Get expert tips, case studies, and business advice straight to your inbox with our monthly Business Support newsletter."
@@ -220,10 +234,12 @@ export default `
                             ctaText="Join the newsletter"
                             compact
                         />
-                    </VsCol>                
+                    </VsCol>   
                 </VsRow>
             </VsContainer>
-
+            <!------------------------------------------------------------
+            SECTION END
+            ------------------------------------------------------------>          
         </template>
     </VsNavigationPage>
 `;
