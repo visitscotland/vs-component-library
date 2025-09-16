@@ -54,13 +54,15 @@ const base = {
     heading: 'Explore the lochs and mountains of Scotland',
 };
 
+const ledeHtml = `
+    <p>Northwest Sutherland is a stunning landscape of perfect sandy beaches and sweeping moorland studded with glittering lochans, overlooked by some of Scotland's most remarkable mountains, individual peaks each with great character.</p>
+`;
+
 export const WithLede = Template.bind({
 });
 
 WithLede.args = {
-    lede: `
-        <p>Northwest Sutherland is a stunning landscape of perfect sandy beaches and sweeping moorland studded with glittering lochans, overlooked by some of Scotland's most remarkable mountains, individual peaks each with great character.</p>
-    `,
+    lede: ledeHtml,
     ...base,
 };
 
@@ -76,9 +78,7 @@ export const WithAll = Template.bind({
 });
 
 WithAll.args = {
-    lede: `
-        <p>Northwest Sutherland is a stunning landscape of perfect sandy beaches and sweeping moorland studded with glittering lochans, overlooked by some of Scotland's most remarkable mountains, individual peaks each with great character.</p>
-    `,
+    lede: ledeHtml,
     withAction: true,
     ...base,
 };
@@ -94,9 +94,7 @@ export const StackedMobile = Template.bind({
 });
 
 StackedMobile.args = {
-    lede: `
-        <p>Northwest Sutherland is a stunning landscape of perfect sandy beaches and sweeping moorland studded with glittering lochans, overlooked by some of Scotland's most remarkable mountains, individual peaks each with great character.</p>
-    `,
+    lede: ledeHtml,
     withAction: true,
     ...base,
 };
