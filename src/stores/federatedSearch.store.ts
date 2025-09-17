@@ -1,12 +1,7 @@
 import { ref } from 'vue';
 import { defineStore } from 'pinia';
 import cludoSearch from '@/utils/federated-search/cludo-search';
-
-type CludoCredentials = {
-    apiKey: string;
-    customerId: number;
-    engineId: number;
-};
+import { CludoCredentials } from '@/types/types';
 
 const useFederatedSearchStore = defineStore('federatedSearch', () => {
     const cludoCredentials = ref<CludoCredentials>(undefined);
