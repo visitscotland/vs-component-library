@@ -18,6 +18,11 @@ export default {
                 type: 'text',
             },
         },
+        withAction: {
+            control: {
+                type: 'boolean',
+            },
+        },
     },
 };
 
@@ -34,7 +39,7 @@ const Template = (args) => ({
     template: `
         <VsSectionHeader v-bind="args">
             <template v-slot:section-header-lede v-if="args.lede">
-                ${args.lede}
+                <div v-html="args.lede" />
             </template>
             <template v-slot:section-header-actions v-if="args.withAction">
                 <VsButton variant="secondary" href="#">
@@ -49,13 +54,15 @@ const base = {
     heading: 'Explore the lochs and mountains of Scotland',
 };
 
+const ledeHtml = `
+    <p>Northwest Sutherland is a stunning landscape of perfect sandy beaches and sweeping moorland studded with glittering lochans, overlooked by some of Scotland's most remarkable mountains, individual peaks each with great character.</p>
+`;
+
 export const WithLede = Template.bind({
 });
 
 WithLede.args = {
-    lede: `
-        <p>Northwest Sutherland is a stunning landscape of perfect sandy beaches and sweeping moorland studded with glittering lochans, overlooked by some of Scotland's most remarkable mountains, individual peaks each with great character.</p>
-    `,
+    lede: ledeHtml,
     ...base,
 };
 
@@ -71,9 +78,7 @@ export const WithAll = Template.bind({
 });
 
 WithAll.args = {
-    lede: `
-        <p>Northwest Sutherland is a stunning landscape of perfect sandy beaches and sweeping moorland studded with glittering lochans, overlooked by some of Scotland's most remarkable mountains, individual peaks each with great character.</p>
-    `,
+    lede: ledeHtml,
     withAction: true,
     ...base,
 };
@@ -89,9 +94,7 @@ export const StackedMobile = Template.bind({
 });
 
 StackedMobile.args = {
-    lede: `
-        <p>Northwest Sutherland is a stunning landscape of perfect sandy beaches and sweeping moorland studded with glittering lochans, overlooked by some of Scotland's most remarkable mountains, individual peaks each with great character.</p>
-    `,
+    lede: ledeHtml,
     withAction: true,
     ...base,
 };

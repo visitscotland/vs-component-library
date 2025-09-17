@@ -1,3 +1,11 @@
+# [5.6.0](https://github.com/visitscotland/vs-component-library/compare/v5.5.4...v5.6.0) (2025-09-17)
+
+
+### Features
+
+* **sectionheader:** add new section header component to the library ([132e091](https://github.com/visitscotland/vs-component-library/commit/132e0913d51dcec79d645d89dfe7796dc5907033))
+* **sectionheader:** optimise new section header component code ([044e983](https://github.com/visitscotland/vs-component-library/commit/044e983231b55e2f00e65f42ba9db4c0a52e1ea9))
+
 ## [5.5.4](https://github.com/visitscotland/vs-component-library/compare/v5.5.3...v5.5.4) (2025-09-08)
 
 
