@@ -6,6 +6,7 @@ import { CludoCredentials } from '@/types/types';
 const useFederatedSearchStore = defineStore('federatedSearch', () => {
     const cludoCredentials = ref<CludoCredentials>(undefined);
     const isLoading = ref(false);
+    const results = ref(null);
     const searchTerm = ref('');
 
     async function getSearchResults() {
@@ -17,6 +18,8 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
 
         console.log('Cludo Results:', cludoResults);
 
+        results.value = cludoResults;
+
         isLoading.value = false;
     }
 
@@ -24,6 +27,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         cludoCredentials,
         getSearchResults,
         isLoading,
+        results,
         searchTerm,
     };
 });

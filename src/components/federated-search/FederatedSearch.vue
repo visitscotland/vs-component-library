@@ -58,6 +58,45 @@
         <hr>
 
         <VsLoadingSpinner v-if="federatedSearchStore.isLoading" />
+
+        <div v-if="!federatedSearchStore.isLoading && federatedSearchStore.results">
+            <VsCardGroup
+                :cards-per-row="4"
+                :scroll-snap="true"
+            >
+                <VsCard
+                    v-for="result in federatedSearchStore.results"
+                    :key="result.id"
+                    card-style="elevated"
+                >
+                    <template #vs-card-header>
+                        <VsImg
+                            :src="result.imgSrc"
+                            class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
+                        />
+                    </template>
+
+                    <template #vs-card-body>
+                        <VsHeading
+                            level="3"
+                            heading-style="heading-s"
+                        >
+                            <VsLink
+                                :href="result.url"
+                                class="stretched-link"
+                                variant="secondary"
+                            >
+                                {{ result.title }}
+                            </VsLink>
+                        </VsHeading>
+
+                        <VsBody>
+                            {{ result.description }}
+                        </VsBody>
+                    </template>
+                </VsCard>
+            </VsCardGroup>
+        </div>
     </div>
 </template>
 
@@ -65,8 +104,13 @@
 import { onMounted, ref } from 'vue';
 import {
     VsButton,
+    VsCard,
+    VsCardGroup,
+    VsHeading,
     VsIcon,
+    VsImg,
     VsInput,
+    VsLink,
     VsLoadingSpinner,
 } from '@/components';
 import useFederatedSearchStore from '@/stores/federatedSearch.store';
