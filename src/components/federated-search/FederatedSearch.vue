@@ -3,53 +3,100 @@
     <p>Is loading: {{ federatedSearchStore.isLoading }}</p>
     <p>Search term: {{ federatedSearchStore.searchTerm }}</p>
 
-    <div class="vs-federated-search__search-input d-flex gap-2">
-        <div class="d-flex flex-grow-1 me-100 position-relative">
-            <label
-                for="federated-search"
-                class="vs-federated-search__label"
-            >
-                <span class="visually-hidden">
-                    Search for something
-                </span>
-                <VsIcon
-                    icon="vs-icon-control-search"
-                    size="xs"
+    <div>
+        <div class="vs-federated-search__search-input d-flex gap-2">
+            <div class="d-flex flex-grow-1 me-100 position-relative">
+                <label
+                    for="federated-search"
+                    class="vs-federated-search__label"
+                >
+                    <span class="visually-hidden">
+                        Search for something
+                    </span>
+                    <VsIcon
+                        icon="vs-icon-control-search"
+                        size="xs"
+                    />
+                </label>
+                <VsInput
+                    :auto-complete="false"
+                    class="vs-federated-search__input"
+                    :disabled="federatedSearchStore.isLoading"
+                    field-name="federated-search"
+                    name="searchrequest"
+                    placeholder="What are you looking for?"
+                    type="search"
+                    :value="searchTerm ? searchTerm : ''"
+                    @input="updateSearchTerm"
+                    @keydown.enter="search"
                 />
-            </label>
-            <VsInput
-                class="vs-federated-search__input"
-                name="searchrequest"
-                type="search"
-                field-name="site-search"
-                placeholder="What are you looking for?"
-                :auto-complete="false"
-                :value="searchTerm ? searchTerm : ''"
-                @input="updateSearchTerm"
-                @keydown.enter="search"
-            />
-            <!-- <div
-                v-if="searchSuggestions"
-                class="vs-federated-search__autocomplete"
+                <!-- <div
+                    v-if="searchSuggestions"
+                    class="vs-federated-search__autocomplete"
+                >
+                    <VsList unstyled>
+                        <li
+                            v-for="suggestion in searchSuggestions"
+                            :key="suggestion"
+                            @click="searchFromSuggestion(suggestion)"
+                            @keydown.enter="searchFromSuggestion(suggestion)"
+                        >
+                            {{ suggestion }}
+                        </li>
+                    </VsList>
+                </div> -->
+            </div>
+            <VsButton
+                class="d-none d-lg-block px-200"
+                :disabled="federatedSearchStore.isLoading"
+                @click="search"
             >
-                <VsList unstyled>
-                    <li
-                        v-for="suggestion in searchSuggestions"
-                        :key="suggestion"
-                        @click="searchFromSuggestion(suggestion)"
-                        @keydown.enter="searchFromSuggestion(suggestion)"
-                    >
-                        {{ suggestion }}
-                    </li>
-                </VsList>
-            </div> -->
+                Search
+            </VsButton>
         </div>
-        <VsButton
-            class="d-none d-lg-block px-200"
-            @click="search"
-        >
-            Search
-        </VsButton>
+
+        <hr>
+
+        <VsLoadingSpinner v-if="federatedSearchStore.isLoading" />
+
+        <div v-if="!federatedSearchStore.isLoading && federatedSearchStore.results">
+            <VsCardGroup
+                :cards-per-row="4"
+                :scroll-snap="true"
+            >
+                <VsCard
+                    v-for="result in federatedSearchStore.results"
+                    :key="result.id"
+                    card-style="elevated"
+                >
+                    <template #vs-card-header>
+                        <VsImg
+                            :src="result.imgSrc"
+                            class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
+                        />
+                    </template>
+
+                    <template #vs-card-body>
+                        <VsHeading
+                            level="3"
+                            heading-style="heading-s"
+                        >
+                            <VsLink
+                                :href="result.url"
+                                class="stretched-link"
+                                variant="secondary"
+                            >
+                                {{ result.title }}
+                            </VsLink>
+                        </VsHeading>
+
+                        <VsBody>
+                            {{ result.description }}
+                        </VsBody>
+                    </template>
+                </VsCard>
+            </VsCardGroup>
+        </div>
     </div>
 </template>
 
@@ -57,8 +104,14 @@
 import { onMounted, ref } from 'vue';
 import {
     VsButton,
+    VsCard,
+    VsCardGroup,
+    VsHeading,
     VsIcon,
+    VsImg,
     VsInput,
+    VsLink,
+    VsLoadingSpinner,
 } from '@/components';
 import useFederatedSearchStore from '@/stores/federatedSearch.store';
 
@@ -76,6 +129,13 @@ const props = defineProps({
 
 onMounted(() => {
     federatedSearchStore.cludoCredentials = props.cludoCredentials;
+
+    const params = new URLSearchParams(document.location.search);
+    const paramSearchTerm = params.get('search-term');
+
+    if (paramSearchTerm) {
+        federatedSearchStore.searchTerm = paramSearchTerm;
+    }
 });
 
 const searchTerm = ref('');
@@ -91,7 +151,6 @@ function search() {
     federatedSearchStore.searchTerm = searchTerm.value;
     federatedSearchStore.getSearchResults();
 }
-
 </script>
 
 <style lang="scss">

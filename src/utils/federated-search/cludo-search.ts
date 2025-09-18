@@ -1,11 +1,4 @@
-type FederatedSearchResult = {
-    id: string;
-    title: string;
-    description: string;
-    imgSrc: string;
-    url: string;
-    dataSrc: string;
-};
+import { CludoCredentials, FederatedSearchResult } from '@/types/types';
 
 function cleanData(data: any) {
     const documents = data.TypedDocuments;
@@ -22,7 +15,7 @@ function cleanData(data: any) {
     return results;
 }
 
-async function cludoSearch(searchTerm: string, cludoCredentials) {
+async function cludoSearch(searchTerm: string, cludoCredentials: CludoCredentials) {
     const { apiKey, customerId, engineId } = cludoCredentials;
     const url = `https://api-eu1.cludo.com/api/v3/${customerId}/${engineId}/search`;
     const auth = `${customerId}:${apiKey}`;
