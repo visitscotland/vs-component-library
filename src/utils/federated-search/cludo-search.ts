@@ -15,7 +15,7 @@ function cleanData(data: any) {
     return results;
 }
 
-async function cludoSearch(searchTerm: string, cludoCredentials: CludoCredentials) {
+async function cludoSearch(searchTerm: string, cludoCredentials: CludoCredentials, page: number) {
     const { apiKey, customerId, engineId } = cludoCredentials;
     const url = `https://api-eu1.cludo.com/api/v3/${customerId}/${engineId}/search`;
     const auth = `${customerId}:${apiKey}`;
@@ -28,7 +28,7 @@ async function cludoSearch(searchTerm: string, cludoCredentials: CludoCredential
                 operator: 'or',
                 responseType: 'JsonObject',
                 perPage: 12,
-                page: 1,
+                page,
                 enableFacetFiltering: true,
             }),
             headers: {
@@ -45,7 +45,10 @@ async function cludoSearch(searchTerm: string, cludoCredentials: CludoCredential
 
         const cleanResults = cleanData(results);
 
-        return cleanResults;
+        return {
+            results: cleanResults,
+            totalResults: results.TotalDocument,
+        };
     } catch (error) {
         console.error('Cludo error:', error?.message);
         return [];

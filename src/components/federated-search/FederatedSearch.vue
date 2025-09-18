@@ -1,8 +1,4 @@
 <template>
-    <h1>This is federated search.</h1>
-    <p>Is loading: {{ federatedSearchStore.isLoading }}</p>
-    <p>Search term: {{ federatedSearchStore.searchTerm }}</p>
-
     <div>
         <div class="vs-federated-search__search-input d-flex gap-2">
             <div class="d-flex flex-grow-1 me-100 position-relative">
@@ -55,6 +51,7 @@
             </VsButton>
         </div>
 
+        <!-- TODO: Replace this with the new divider component -->
         <hr>
 
         <VsLoadingSpinner v-if="federatedSearchStore.isLoading" />
@@ -96,13 +93,28 @@
                     </template>
                 </VsCard>
             </VsCardGroup>
+            <VsPagination
+                v-if="federatedSearchStore.results && totalResultsPages > 1"
+                :number-of-pages="totalResultsPages"
+                next-button-label="Next"
+                previous-button-label="Previous"
+                page-label="Page"
+                of-label="of"
+                v-model="federatedSearchStore.currentPage"
+                @page-click="loadPage"
+            />
         </div>
     </div>
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
 import {
+    computed,
+    onMounted,
+    ref,
+} from 'vue';
+import {
+    VsBody,
     VsButton,
     VsCard,
     VsCardGroup,
@@ -112,6 +124,7 @@ import {
     VsInput,
     VsLink,
     VsLoadingSpinner,
+    VsPagination,
 } from '@/components';
 import useFederatedSearchStore from '@/stores/federatedSearch.store';
 
@@ -127,14 +140,22 @@ const props = defineProps({
     },
 });
 
+const totalResultsPages = computed(() => Math.ceil(federatedSearchStore.totalResults / 12));
+
 onMounted(() => {
     federatedSearchStore.cludoCredentials = props.cludoCredentials;
 
     const params = new URLSearchParams(document.location.search);
     const paramSearchTerm = params.get('search-term');
+    const paramPage = parseInt(params.get('page'), 10);
+
+    if (paramPage) {
+        federatedSearchStore.currentPage = paramPage;
+    }
 
     if (paramSearchTerm) {
         federatedSearchStore.searchTerm = paramSearchTerm;
+        federatedSearchStore.getSearchResults();
     }
 });
 
@@ -150,6 +171,21 @@ function search() {
 
     federatedSearchStore.searchTerm = searchTerm.value;
     federatedSearchStore.getSearchResults();
+}
+
+function loadPage(pageNumber) {
+    federatedSearchStore.currentPage = pageNumber;
+
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+    });
+
+    // TODO: Update url params with page number.
+    // const params = new URLSearchParams(document.location.search);
+    // params.set('page', pageNumber);
+    // window.location.search = params;
 }
 </script>
 
