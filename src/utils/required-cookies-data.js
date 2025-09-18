@@ -1,11 +1,16 @@
-/**
- * 0 = Analytical
- * 1 = Marketing
- */
+export const cookieCategories = Object.freeze({
+    analytical: 0,
+    marketing: 1,
+});
 
 const cookieValues = {
-    youtube: [1],
-    embed: [0, 1],
+    youtube: [
+        cookieCategories.marketing,
+    ],
+    embed: [
+        cookieCategories.analytical,
+        cookieCategories.marketing,
+    ],
 };
 
 export default cookieValues;
