@@ -27,13 +27,6 @@
   "infoCardList2": {
     "cards": [
       {
-        "title": "How to measure your climate impact",
-        "description": "Measure your emissions with the Climate Impact Guide. See what data to gather, and how to use the insights for a more sustainable business model.",
-        "link": "#",
-        "badgeTitle": "How-to",
-        "metaData": "6 minute read"
-      },
-      {
         "title": "How to create your climate action plan",
         "description": "Now you have your measurements, create a climate action plan with realistic targets to track your progress with sustainability.",
         "link": "#",
@@ -57,13 +50,6 @@
   },
   "infoCardList3": {
     "cards": [
-      {
-        "title": "Carbon emissions calculator methodology statement",
-        "description": "Find out more on how our climate action workbook calculates your emissions.",
-        "link": "#",
-        "badgeTitle": "Guide",
-        "metaData": "6 minute read"
-      },
       {
         "title": "Long-term sustainability improvements",
         "description": "This guide provides actionable steps that Scottish tourism businesses can take to integrate sustainability into every aspect of their operations.",

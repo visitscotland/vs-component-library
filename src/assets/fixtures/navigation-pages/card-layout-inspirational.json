@@ -76,5 +76,33 @@
         "link": "#"
       }
     ]
+  },
+    "cardList4": {
+    "cards": [
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/06/24/clashnessie-bay-car-road?size=md",
+        "title": "Driving in Scotland - Practical information",
+        "description": "Check out our guide to driving in and around Scotland by car. Including useful FAQs and top tips for a smooth journey.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/12/01/craufurdland-castle-in-east-ayrshire?size=md",
+        "title": "Accommodation in Scotland",
+        "description": "Find the perfect accommodation for your break to Scotland.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2025/06/02/june-header-test.jpg?size=md",
+        "title": "Weather in Scotland",
+        "description": "What's the weather like in Scotland? Find out about weather throughout the year in Scotland.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/01/eilean-donan-castle-sunset?size=md",
+        "title": "Plan your holiday to Scotland",
+        "description": "Our guide gives you the tips you need to make the most of your trip, from where to go to the best time to visit.",
+        "link": "#"
+      }
+    ]
   }
 }

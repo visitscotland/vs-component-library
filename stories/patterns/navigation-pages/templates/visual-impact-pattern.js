@@ -35,130 +35,134 @@ export default `
 
         <template v-slot:content>
             <!------------------------------------------------------------
-            NEW CARD GROUP - This one has no module wrapper so has spacing applied to the card group
-              ------------------------------------------------------------>
-
-             <VsModuleWrapper>
-                <template v-slot:vs-module-wrapper-heading>
-                    Top things to do and experience in Scotland
-                </template>
-
-                <template v-slot:vs-module-wrapper-intro>
+            NEW SECTION - Section header + new card group (4 cards)
+            ------------------------------------------------------------>
+            <VsSectionHeader 
+                class="mt-500 mb-300"
+                heading="Top things to do and experience in Scotland"
+            >
+                <template v-slot:section-header-lede>
                     <p>Explore the top things to do in Scotland, including must-see attractions, exciting experiences, and inspiring ways to enjoy the outdoors.</p>
                 </template>
+            </VsSectionHeader>
 
-                <VsContainer>
-                    <VsRow>
-                        <VsCol>
-                            <VsCardGroup
-                                scroll-snap
-                                :cards-per-row="4"
-                                class="text-start"
+             <VsContainer>
+                <VsRow>
+                    <VsCol>
+                        <VsCardGroup
+                            scroll-snap
+                            :cards-per-row="4"
+                            class="text-start"
+                        >
+                            <VsCard
+                                v-for="(card, index) in cardList1"
+                                :key="'card-list-1-' + index"
                             >
-                                <VsCard
-                                    v-for="(card, index) in cardList1"
-                                    :key="'card-list-1-' + index"
-                                >
-                                    <template #vs-card-header>
-                                        <VsImg
-                                            v-if="card.image"
-                                            :src="card.image"
-                                            class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                                        />
-                                    </template>
+                                <template #vs-card-header>
+                                    <VsImg
+                                        v-if="card.image"
+                                        :src="card.image"
+                                        class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
+                                    />
+                                </template>
 
-                                    <template #vs-card-body>
-                                        <div>
-                                            <VsHeading
-                                                level="3"
-                                                heading-style="heading-xs"
+                                <template #vs-card-body>
+                                    <div>
+                                        <VsHeading
+                                            level="3"
+                                            heading-style="heading-xs"
+                                        >
+                                            <VsLink
+                                                :href="card.link"
+                                                class="stretched-link"
+                                                variant="secondary"
                                             >
-                                                <VsLink
-                                                    :href="card.link"
-                                                    class="stretched-link"
-                                                    variant="secondary"
-                                                >
-                                                    {{ card.title }}
-                                                </VsLink>
-                                            </VsHeading>
+                                                {{ card.title }}
+                                            </VsLink>
+                                        </VsHeading>
 
-                                            <VsBody class="mb-150 truncate-2-lines">
-                                                {{ card.description }}
-                                            </VsBody>
-                                        </div>
-                                    </template>
-                                </VsCard>
-                            </VsCardGroup>
-                        </VsCol>
-                    </VsRow>
-                </VsContainer>
-            </VsModuleWrapper>
-
+                                        <VsBody class="mb-150 truncate-2-lines">
+                                            {{ card.description }}
+                                        </VsBody>
+                                    </div>
+                                </template>
+                            </VsCard>
+                        </VsCardGroup>
+                    </VsCol>
+                </VsRow>
+            </VsContainer>
             <!------------------------------------------------------------
-            NEW SECTION & CARD GROUP - Module wrapper used for new card group heading/intro
-              ------------------------------------------------------------>
-            <VsModuleWrapper theme="grey">
-                <template v-slot:vs-module-wrapper-heading>
-                    Captivating Scottish events
-                </template>
-                <template v-slot:vs-module-wrapper-intro>
+            SECTION END
+            ------------------------------------------------------------>
+
+    
+            <!------------------------------------------------------------
+            NEW SECTION - Section header + new card group ( 3cards)
+            ------------------------------------------------------------>
+            <VsSectionHeader 
+                class="mt-500 mb-300"
+                heading="Captivating Scottish events"
+            >
+                <template v-slot:section-header-lede>
                     <p>Discover new musicians you'll love forever, watch incredible athletes compete for gold or spend some time with the locals at authentic community events. It's a packed calendar all year round!</p>
                 </template>
+            </VsSectionHeader>
 
-                <VsContainer>
-                    <VsRow>
-                        <VsCol>
-                            <VsCardGroup
-                                scroll-snap
-                                :cards-per-row="3"
-                                class="text-start"
-                            >
-                                <VsCard
-                                    v-for="(card, index) in cardList2"
-                                    :key="'card-list-2-' + index"
-                                >
-                                    <template #vs-card-header>
-                                        <VsImg
-                                            v-if="card.image"
-                                            :src="card.image"
-                                            class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                                        />
-                                    </template>
-
-                                    <template #vs-card-body>
-                                        <div>
-                                            <VsHeading
-                                                level="3"
-                                                heading-style="heading-xs"
-                                            >
-                                                <VsLink
-                                                    :href="card.link"
-                                                    class="stretched-link"
-                                                    variant="secondary"
-                                                >
-                                                    {{ card.title }}
-                                                </VsLink>
-                                            </VsHeading>
-
-                                            <VsBody class="mb-150 truncate-2-lines">
-                                                {{ card.description }}
-                                            </VsBody>
-                                        </div>
-                                    </template>
-                                </VsCard>
-                            </VsCardGroup>
-                        </VsCol>
-                    </VsRow>
-                </VsContainer>
-            </VsModuleWrapper>
-
-            <!------------------------------------------------------------
-            FEATURED LINK - Module spacing come from the megalinks wrapper
-              ------------------------------------------------------------>
-            
             <VsContainer>
                 <VsRow>
-                    <VsCol class="my-500">
+                    <VsCol>
+                        <VsCardGroup
+                            scroll-snap
+                            :cards-per-row="3"
+                            class="text-start"
+                        >
+                            <VsCard
+                                v-for="(card, index) in cardList2"
+                                :key="'card-list-2-' + index"
+                            >
+                                <template #vs-card-header>
+                                    <VsImg
+                                        v-if="card.image"
+                                        :src="card.image"
+                                        class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
+                                    />
+                                </template>
+
+                                <template #vs-card-body>
+                                    <div>
+                                        <VsHeading
+                                            level="3"
+                                            heading-style="heading-xs"
+                                        >
+                                            <VsLink
+                                                :href="card.link"
+                                                class="stretched-link"
+                                                variant="secondary"
+                                            >
+                                                {{ card.title }}
+                                            </VsLink>
+                                        </VsHeading>
+
+                                        <VsBody class="mb-150 truncate-2-lines">
+                                            {{ card.description }}
+                                        </VsBody>
+                                    </div>
+                                </template>
+                            </VsCard>
+                        </VsCardGroup>
+                    </VsCol>
+                </VsRow>
+            </VsContainer>
+            <!------------------------------------------------------------
+            SECTION END
+            ------------------------------------------------------------>
+
+            <!------------------------------------------------------------
+            NEW SECTION - Spotlight section
+            ------------------------------------------------------------>
+            <VsContainer class="mt-500">
+                <VsRow>
+                    <VsCol>
                         <VsSpotlightSection 
                             heading="Film & TV locations"
                             description="This country has produced its fair share of top Hollywood names, and there have been a surprising number of movies filmed in Scotland, too."
@@ -169,66 +173,76 @@ export default `
                     </VsCol>
                 </VsRow>
             </VsContainer>
+            <!------------------------------------------------------------
+            SECTION END
+            ------------------------------------------------------------>
+
 
             <!------------------------------------------------------------
-            NEW SECTION & CARD GROUP - Module wrapper used for new card group heading/intro
-              ------------------------------------------------------------>
-            <VsModuleWrapper theme="grey">
-                <template v-slot:vs-module-wrapper-heading>
-                    Magical places to visit
-                </template>
-                <template v-slot:vs-module-wrapper-intro>
+            NEW SECTION - Section header + new card group ( 4 cards)
+            ------------------------------------------------------------>
+            <VsSectionHeader 
+                class="mt-500 mb-300"
+                heading="Magical places to visit"
+            >
+                <template v-slot:section-header-lede>
                     <p>Make new memories at some of our most popular attractions, uncover incredible film locations, or get up and close with Scotland's stunning landscapes and wildlife.</p>
                 </template>
+            </VsSectionHeader>
 
-                <VsContainer>
-                    <VsRow>
-                        <VsCol>
-                            <VsCardGroup
-                                scroll-snap
-                                :cards-per-row="4"
-                                class="text-start"
+            <VsContainer>
+                <VsRow>
+                    <VsCol>
+                        <VsCardGroup
+                            scroll-snap
+                            :cards-per-row="4"
+                            class="text-start"
+                        >
+                            <VsCard
+                                v-for="(card, index) in cardList3"
+                                :key="'card-list-3-' + index"
                             >
-                                <VsCard
-                                    v-for="(card, index) in cardList3"
-                                    :key="'card-list-3-' + index"
-                                >
-                                    <template #vs-card-header>
-                                        <VsImg
-                                            v-if="card.image"
-                                            :src="card.image"
-                                            class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                                        />
-                                    </template>
+                                <template #vs-card-header>
+                                    <VsImg
+                                        v-if="card.image"
+                                        :src="card.image"
+                                        class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
+                                    />
+                                </template>
 
-                                    <template #vs-card-body>
-                                        <div>
-                                            <VsHeading
-                                                level="3"
-                                                heading-style="heading-xs"
+                                <template #vs-card-body>
+                                    <div>
+                                        <VsHeading
+                                            level="3"
+                                            heading-style="heading-xs"
+                                        >
+                                            <VsLink
+                                                :href="card.link"
+                                                class="stretched-link"
+                                                variant="secondary"
                                             >
-                                                <VsLink
-                                                    :href="card.link"
-                                                    class="stretched-link"
-                                                    variant="secondary"
-                                                >
-                                                    {{ card.title }}
-                                                </VsLink>
-                                            </VsHeading>
+                                                {{ card.title }}
+                                            </VsLink>
+                                        </VsHeading>
 
-                                            <VsBody class="mb-150 truncate-2-lines">
-                                                {{ card.description }}
-                                            </VsBody>
-                                        </div>
-                                    </template>
-                                </VsCard>
-                            </VsCardGroup>
-                        </VsCol>
-                    </VsRow>
-                </VsContainer>
-            </VsModuleWrapper>
+                                        <VsBody class="mb-150 truncate-2-lines">
+                                            {{ card.description }}
+                                        </VsBody>
+                                    </div>
+                                </template>
+                            </VsCard>
+                        </VsCardGroup>
+                    </VsCol>
+                </VsRow>
+            </VsContainer>
+            <!------------------------------------------------------------
+            SECTION END
+            ------------------------------------------------------------>
 
 
+            <!------------------------------------------------------------
+            NEW SECTION - Megalinks single image (soon to be deprecated)
+            ------------------------------------------------------------>
             <VsMegalinks
                 title="Days out ideas"
                 variant="single-image"
@@ -287,6 +301,79 @@ export default `
                     </VsMegalinkSingleImage>
                 </VsCol>
             </VsMegalinks>
+            <!------------------------------------------------------------
+            SECTION END
+            ------------------------------------------------------------>
+        
+
+            <!------------------------------------------------------------
+            NEW SECTION - Section header + new card group ( 4 cards)
+            ------------------------------------------------------------>
+            <VsSectionHeader 
+                class="mb-300"
+                heading="Top tips for travelling to Scotland"
+            >
+                <template v-slot:section-header-lede>
+                    <p>Find out everything you need to know before you explore Scotland.</p>
+                </template>
+
+                <template v-slot:section-header-actions>
+                    <VsButton variant="secondary" href="#">
+                        Plan your trip
+                    </VsButton>
+                </template>
+            </VsSectionHeader>
+
+            <VsContainer class="mb-500">
+                <VsRow>
+                    <VsCol>
+                        <VsCardGroup
+                            scroll-snap
+                            :cards-per-row="4"
+                            class="text-start"
+                        >
+                            <VsCard
+                                v-for="(card, index) in cardList4"
+                                :key="'card-list-4-' + index"
+                            >
+                                <template #vs-card-header>
+                                    <VsImg
+                                        v-if="card.image"
+                                        :src="card.image"
+                                        class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
+                                    />
+                                </template>
+
+                                <template #vs-card-body>
+                                    <div>
+                                        <VsHeading
+                                            level="3"
+                                            heading-style="heading-xs"
+                                        >
+                                            <VsLink
+                                                :href="card.link"
+                                                class="stretched-link"
+                                                variant="secondary"
+                                            >
+                                                {{ card.title }}
+                                            </VsLink>
+                                        </VsHeading>
+
+                                        <VsBody class="mb-150 truncate-2-lines">
+                                            {{ card.description }}
+                                        </VsBody>
+                                    </div>
+                                </template>
+                            </VsCard>
+                        </VsCardGroup>
+                    </VsCol>
+                </VsRow>
+            </VsContainer>
+            <!------------------------------------------------------------
+            SECTION END
+            ------------------------------------------------------------>
+
+            
         </template>
     </VsNavigationPage>
 `;
