@@ -1,10 +1,10 @@
 /**
+ * 0 = Analytical
  * 1 = Marketing
- * 2 = Analytical
  */
 
 const cookieValues = {
-    youtube: [0],
+    youtube: [1],
     embed: [0, 1],
 };
 
