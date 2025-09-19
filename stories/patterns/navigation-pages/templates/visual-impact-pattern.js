@@ -49,12 +49,10 @@ export default `
                                 card-style="overlay"
                                 :key="'card-list-overlay-' + index"
                             >
-                                <template #vs-card-body>
-                                </template>
                                 <template #vs-card-footer>
                                     <div class="px-125 pb-125">
                                         <VsHeading
-                                            level="3"
+                                            level="2"
                                             no-margins
                                             heading-style="heading-m"
                                         >

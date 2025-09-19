@@ -43,9 +43,11 @@ export default {
         },
         /**
         * sets the scroll snap behavior
-        * `responsive` - only below xl breakpoint
-        * `always` - on all breakpoints
+        * * `always` - on all breakpoints
+        * `true` - only below xl breakpoint
         * `false` - disabled
+        * note: these props will be updated in future to remove the boolean
+        * and keep only string options which would be a breaking change
         */
         scrollSnap: {
             type: [Boolean, String],

@@ -12,12 +12,10 @@
             </div>
         </template>
 
-        <template v-if="$slots['vs-card-body'] && $slots['vs-card-body']()">
-            <div class="vs-card__body">
-                <!-- @slot Used for the body of the card -->
-                <slot name="vs-card-body" />
-            </div>
-        </template>
+        <div class="vs-card__body">
+            <!-- @slot Used for the body of the card -->
+            <slot name="vs-card-body" />
+        </div>
 
         <template v-if="$slots['vs-card-footer'] && $slots['vs-card-footer']()">
             <div class="vs-card__footer">
@@ -180,16 +178,24 @@ export default {
         }
 
         &--overlay {
-            height: 390px;
+            height: 330px;
             color: $vs-color-text-inverse;
             overflow: hidden;
+
+            @include media-breakpoint-up(md) {
+                height: 470px;
+            }
 
            .vs-card__image {
                 position:absolute;
                 z-index: -1;
 
                 img {
-                    height: 390px;
+                    height: 330px;
+
+                    @include media-breakpoint-up(md) {
+                        height: 470px;
+                    }
                 }
 
                 &::after {

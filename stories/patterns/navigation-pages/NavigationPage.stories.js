@@ -109,8 +109,8 @@ export const VisualImpact = createTemplate(VisualImpactTemplate).bind({
 VisualImpact.args = {
     pageTitle: 'Things to see & do in Scotland',
     pageLede: 'What unique and incredible things do you want to do in Scotland? Let the kids learn new stories in amazing attractions, take your friends to a new festival or spend some time relaxing at stunning nature spots.',
-    imgUrl: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2025/04/16/paisley-abbey-header-new.jpg',
-    imgCaption: 'Paisley Abbey',
+    imgUrl: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2025/09/17/killiecrankie-zip-park.jpg?size=lg',
+    imgCaption: 'The Killiecrankie Zip Park, Perthshire',
     imgCredit: 'VisitScotland',
 };
 
