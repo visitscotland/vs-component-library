@@ -7,21 +7,29 @@
     >
         <template v-if="$slots['vs-card-header'] && $slots['vs-card-header']()">
             <div class="vs-card__header">
+                <!-- @slot Used for the header of the card -->
                 <slot name="vs-card-header" />
             </div>
         </template>
 
         <template v-if="$slots['vs-card-body'] && $slots['vs-card-body']()">
-            <div
-                class="vs-card__body"
-            >
+            <div class="vs-card__body">
+                <!-- @slot Used for the body of the card -->
                 <slot name="vs-card-body" />
             </div>
         </template>
 
         <template v-if="$slots['vs-card-footer'] && $slots['vs-card-footer']()">
             <div class="vs-card__footer">
+                <!-- @slot Used for the footer of the card -->
                 <slot name="vs-card-footer" />
+            </div>
+        </template>
+
+        <template v-if="cardStyle === 'overlay' && $slots['vs-card-image']">
+            <div class="vs-card__image">
+                <!-- @slot Used for the background image in the overlay variant -->
+                <slot name="vs-card-image" />
             </div>
         </template>
     </div>
@@ -42,12 +50,12 @@ export default {
     props: {
         /**
         * The style of the card, this is used to set the border and shadow
-        * `elevated|outlined`
+        * `elevated|outlined|overlay`
         */
         cardStyle: {
             type: String,
             default: null,
-            validator: (value) => value.match(/(elevated|outlined)/),
+            validator: (value) => value.match(/(elevated|outlined|overlay)/),
         },
         /*
         * Accepts semantic token or hex code for the
@@ -167,6 +175,31 @@ export default {
 
                 .vs-card__body {
                     flex-basis: 60%;
+                }
+            }
+        }
+
+        &--overlay {
+            height: 390px;
+            color: $vs-color-text-inverse;
+            overflow: hidden;
+
+           .vs-card__image {
+                position:absolute;
+                z-index: -1;
+
+                img {
+                    height: 390px;
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    inset: 0;
+                    background:
+                        linear-gradient(180deg, rgba(0, 0, 0, 0) 30.29%, rgba(0, 0, 0, 0.5) 75%); // bottom to top
+                    z-index: 0;
+                    border-radius: $vs-radius-tiny;
                 }
             }
         }
