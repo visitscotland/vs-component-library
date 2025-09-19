@@ -37,6 +37,56 @@ export default `
             <!------------------------------------------------------------
             NEW SECTION - Section header + new card group (4 cards)
             ------------------------------------------------------------>
+             <VsContainer class="mt-500">
+                <VsRow>
+                    <VsCol>
+                        <VsCardGroup
+                            scroll-snap="always"
+                            class="text-start"
+                        >
+                            <VsCard
+                                v-for="(card, index) in cardListOverlay"
+                                card-style="overlay"
+                                :key="'card-list-overlay-' + index"
+                            >
+                                <template #vs-card-body>
+                                </template>
+                                <template #vs-card-footer>
+                                    <div class="px-125 pb-125">
+                                        <VsHeading
+                                            level="3"
+                                            no-margins
+                                            heading-style="heading-m"
+                                        >
+                                            <VsLink
+                                                :href="card.contentLinkUrl"
+                                                class="stretched-link text-decoration-none"
+                                                variant="on-dark"
+                                            >
+                                                {{ card.title }}
+                                            </VsLink>
+                                        </VsHeading>
+                                    </div>
+                                </template>
+                                <template v-slot:vs-card-image>
+                                    <VsImg 
+                                        :src="card.image" 
+                                        class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
+                                    />
+                                </template>
+                            </VsCard>
+                        </VsCardGroup>
+                    </VsCol>
+                </VsRow>
+            </VsContainer>
+
+            <!------------------------------------------------------------
+            SECTION END
+            ------------------------------------------------------------>
+            
+            <!------------------------------------------------------------
+            NEW SECTION - Section header + new card group (4 cards)
+            ------------------------------------------------------------>
             <VsSectionHeader 
                 class="mt-500 mb-300"
                 heading="Top things to do and experience in Scotland"

@@ -74,6 +74,7 @@ const createTemplate = (templateString) => (args) => ({
         VsSpotlightSection,
     },
     setup() {
+        const cardListOverlay = cardLayoutData.cardListOverlay?.cards || [];
         const cardList1 = cardLayoutData.cardList1?.cards || [];
         const cardList2 = cardLayoutData.cardList2?.cards || [];
         const cardList3 = cardLayoutData.cardList3?.cards || [];
@@ -87,6 +88,7 @@ const createTemplate = (templateString) => (args) => ({
 
         return {
             args,
+            cardListOverlay,
             cardList1,
             cardList2,
             cardList3,
