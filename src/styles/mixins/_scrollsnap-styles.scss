@@ -4,16 +4,16 @@
     scroll-snap-type: x mandatory;
 
     &::-webkit-scrollbar {
-        height: 6px;
+        height: 4px;
     }
 
     &::-webkit-scrollbar-track {
-        background: #DEDBE6;
+        background: $vs-color-background-secondary;
         border-radius: $vs-radius-tiny;
     }
 
     &::-webkit-scrollbar-thumb {
-        background: #535396;
+        background: $vs-color-interaction-cta-primary;
         border-radius: $vs-radius-tiny;
     }
 

@@ -178,12 +178,16 @@ export default {
         }
 
         &--overlay {
-            height: 330px;
+            height: 250px;
             color: $vs-color-text-inverse;
             overflow: hidden;
 
             @include media-breakpoint-up(md) {
-                height: 470px;
+                height: 330px;
+            }
+
+            @include media-breakpoint-up(xl) {
+                height: 460px;
             }
 
            .vs-card__image {
@@ -191,10 +195,14 @@ export default {
                 z-index: -1;
 
                 img {
-                    height: 330px;
+                    height: 250px;
 
                     @include media-breakpoint-up(md) {
-                        height: 470px;
+                        height: 330px;
+                    }
+
+                    @include media-breakpoint-up(xl) {
+                        height: 460px;
                     }
                 }
 
