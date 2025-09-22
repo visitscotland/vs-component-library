@@ -1,3 +1,11 @@
+## [5.6.1](https://github.com/visitscotland/vs-component-library/compare/v5.6.0...v5.6.1) (2025-09-22)
+
+
+### Bug Fixes
+
+* **civic:** adjust cookie cats post civic scan ([92b9984](https://github.com/visitscotland/vs-component-library/commit/92b99840d24949e3a3514710bd7c8d97c72e2592))
+* **civic:** remove magic numbers ([404c27b](https://github.com/visitscotland/vs-component-library/commit/404c27bfaec5a25f47740c52b5e3628e0158a7a8))
+
 # [5.6.0](https://github.com/visitscotland/vs-component-library/compare/v5.5.4...v5.6.0) (2025-09-17)
 
 
