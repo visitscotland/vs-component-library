@@ -24,7 +24,7 @@
             </div>
         </template>
 
-        <template v-if="cardStyle === 'overlay' && $slots['vs-card-image']">
+        <template v-if="cardStyle === 'overlay' && $slots['vs-card-image'] && $slots['vs-card-image']()">
             <div class="vs-card__image">
                 <!-- @slot Used for the background image in the overlay variant -->
                 <slot name="vs-card-image" />
@@ -188,9 +188,11 @@ export default {
 
            .vs-card__image {
                 position:absolute;
+                inset: 0;
                 z-index: -1;
 
                 img {
+                    width: 100%;
                     height: 330px;
 
                     @include media-breakpoint-up(md) {
