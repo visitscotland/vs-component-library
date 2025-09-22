@@ -178,15 +178,11 @@ export default {
         }
 
         &--overlay {
-            height: 250px;
+            height: 330px;
             color: $vs-color-text-inverse;
             overflow: hidden;
 
             @include media-breakpoint-up(md) {
-                height: 330px;
-            }
-
-            @include media-breakpoint-up(xl) {
                 height: 460px;
             }
 
@@ -195,13 +191,9 @@ export default {
                 z-index: -1;
 
                 img {
-                    height: 250px;
+                    height: 330px;
 
                     @include media-breakpoint-up(md) {
-                        height: 330px;
-                    }
-
-                    @include media-breakpoint-up(xl) {
                         height: 460px;
                     }
                 }
