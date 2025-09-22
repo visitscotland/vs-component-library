@@ -6,6 +6,12 @@
     >
 </template>
 
+<script>
+export default {
+    name: 'VsBadge',
+};
+</script>
+
 <script setup>
 /**
  * Divider used to visually seperate information on the site.
