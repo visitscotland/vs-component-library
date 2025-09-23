@@ -78,7 +78,7 @@ const Template = (args) => ({
             >
                 <div :class="needsPadding() ? 'px-125' : ''">
                     <VsHeading
-                        v-if="args.title"
+                        v-if="args.title && args.cardStyle !== 'overlay'"
                         level="3"
                         heading-style="heading-xs"
                     >
@@ -108,6 +108,28 @@ const Template = (args) => ({
                     v-if="args.metaData"
                     :class="needsPadding() ? 'px-125' : ''"
                     articleReadTime="2 minute read"
+                />
+
+                <div v-if="args.cardStyle === 'overlay'" class="px-125 pb-125">
+                    <VsHeading
+                        level="2"
+                        no-margins
+                        heading-style="heading-m"
+                    >
+                        <VsLink
+                            :href="args.contentLinkUrl"
+                            class="stretched-link text-decoration-none"
+                            variant="on-dark"
+                        >
+                            {{ args.title }}
+                        </VsLink>
+                    </VsHeading>
+                </div>
+            </template>
+            <template v-slot:vs-card-image>
+                <VsImg 
+                    :src="args.overlayImage" 
+                    class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
                 />
             </template>
         </VsCard>
@@ -173,3 +195,12 @@ LinkCardWithIcon.args = {
     icon: true,
 };
 LinkCardWithIcon.globals = greyBackground;
+
+export const CategoryCard = Template.bind({
+});
+CategoryCard.args = {
+    title: 'Food & drink',
+    contentLinkUrl: '#',
+    cardStyle: 'overlay',
+    overlayImage: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/11/05/creel-seafood?size=md',
+};
