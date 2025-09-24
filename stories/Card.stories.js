@@ -1,4 +1,5 @@
 import VsCard from '@/components/card/Card.vue';
+import VsImg from '@/components/img/Img.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsLink from '@/components/link/Link.vue';
 import VsButton from '@/components/button/Button.vue';
@@ -19,6 +20,7 @@ const Template = (args) => ({
         VsLink,
         VsButton,
         VsBody,
+        VsImg,
     },
     setup() {
         const needsPadding = () => args.fillColor
@@ -37,8 +39,7 @@ const Template = (args) => ({
             :contentLink="args.contentLinkUrl"
         >
             <template v-slot:vs-card-header>
-                <p 
-                    v-if="args.header" 
+                <p  v-if="args.header"
                     class="mb-0"
                     :class="needsPadding() ? 'px-125' : ''"
                 >
@@ -46,10 +47,10 @@ const Template = (args) => ({
                 </p>
             </template>
 
-            <template v-slot:vs-card-body v-if="args.body || args.title">
+            <template v-slot:vs-card-body>
                 <div :class="needsPadding() ? 'px-125' : ''">
                     <VsHeading
-                        v-if="args.title"
+                        v-if="args.title && args.cardStyle !== 'overlay'"
                         level="3"
                         heading-style="heading-xs"
                     >
@@ -73,14 +74,36 @@ const Template = (args) => ({
                 </div>
             </template>
 
-            <template v-slot:vs-card-footer>
+            <template v-slot:vs-card-footer v-if="args.footer">
                 <div 
-                    v-if="args.footer"
                     class="mb-100"
                     :class="needsPadding() ? 'd-none d-sm-block px-125' : ''"
                 >
-                    ${args.footer}
+                    <span v-if="args.cardStyle !== 'overlay'">
+                        ${args.footer}
+                    </span>
+
+                    <VsHeading
+                        v-if="args.title && args.cardStyle === 'overlay'"
+                        level="3"
+                        heading-style="heading-xs"
+                    >
+                        <VsLink
+                            :href="args.contentLinkUrl"
+                            class="stretched-link text-decoration-none"
+                            variant="on-dark"
+                        >
+                            ${args.title}
+                        </VsLink>
+                    </VsHeading>
                 </div>
+            </template>
+
+            <template v-slot:vs-card-image v-if="args.image">
+                <VsImg 
+                    :src="args.image"
+                    class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
+                />
             </template>
         </VsCard>
     </div>
@@ -140,6 +163,15 @@ export const AccentBar = Template.bind({
 AccentBar.args = {
     ...filledCardBase,
     accentBar: true,
+};
+
+export const Overlay = Template.bind({
+});
+Overlay.args = {
+    ...cardBase,
+    image: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/11/30/family-outside-the-va-dundee?size=lg',
+    cardStyle: 'overlay',
+    footer: true,
 };
 
 export const WithHeader = Template.bind({

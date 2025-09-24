@@ -1,0 +1,37 @@
+@mixin scrollsnap-styles {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+
+    &::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $vs-color-background-secondary;
+        border-radius: $vs-radius-tiny;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $vs-color-interaction-cta-primary;
+        border-radius: $vs-radius-tiny;
+    }
+
+    .vs-card {
+        flex: 0 0 266px;
+        scroll-snap-align: start;
+        margin-bottom: $vs-spacer-150;
+
+        @include media-breakpoint-up(sm) {
+            flex: 0 0 235px;
+        }
+
+        @include media-breakpoint-up(md) {
+            flex: 0 0 312px;
+        }
+
+        @include media-breakpoint-up(lg) {
+            flex: 0 0 330px;
+        }
+    }
+}
