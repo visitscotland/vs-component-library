@@ -3,20 +3,20 @@
         <template #vs-card-header>
             <div class="vs-fed-card--header">
                 <VsImg
-                    class="vs-fed-card--header__image w-100 rounded-3 object-fit-cover img-zoom-on-hover"
+                    class="vs-fed-card--header__image w-100 rounded-1 object-fit-cover img-zoom-on-hover"
                     use-lazy-loading
                     :src="props.imgSrc"
                 />
                 <div class="vs-fed-card--header__attributes">
                     <VsDetail
                         v-if="props.price"
-                        class="vs-fed-card--header__attribute vs-fed-card--header__attribute-price me-050"
+                        class="vs-fed-card--header__attribute vs-fed-card--header__attribute-price me-050 mb-0"
                     >
                         {{ props.price }}
                     </VsDetail>
                     <VsDetail
                         v-if="props.date"
-                        class="vs-fed-card--header__attribute vs-fed-card--header__attribute-date"
+                        class="vs-fed-card--header__attribute vs-fed-card--header__attribute-date mb-0"
                     >
                         {{ props.date }}
                     </VsDetail>
@@ -97,23 +97,28 @@ import VsIcon from '@/components/icon/Icon.vue';
 import VsDetail from '@/components/detail/Detail.vue';
 
 const props = defineProps({
+    /** Image to be displayed on card */
     imgSrc: {
         type: String,
         required: true,
-        default: 'https://visitscotland.github.io/vs-component-library/images/placeholders/placeholder-img.jpg',
+        default: 'images/placeholders/fallback-img.png',
     },
+    /** Populates the price attribute */
     price: {
         type: String,
         required: false,
     },
+    /** Populates the data attribute */
     date: {
         type: String,
         required: false,
     },
+    /** Card link */
     link: {
         type: String,
         required: false,
     },
+    /** Denotes if link is internal or external */
     linkType: {
         type: String,
         required: false,
@@ -126,7 +131,11 @@ const props = defineProps({
 
 .vs-fed-card {
     &--header {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
         position: relative;
+        height: auto;
 
         &__attribute {
             font-size: $vs-font-size-detail-s;
@@ -139,10 +148,12 @@ const props = defineProps({
         }
 
         &__attributes {
+            display: flex;
+            justify-content: flex-start;
             position: absolute;
-            left: 0;
-            right: 0;
-            top: 155px;
+            bottom: 0px;
+            left: 0px;
+            z-index: 1;
         }
     }
 

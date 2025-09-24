@@ -58,3 +58,14 @@ Event.args = {
     price: 'Free',
     date: '30 Nov 2025',
 };
+
+export const NoImageOrPrice = Template.bind();
+
+NoImageOrPrice.args = {
+    heading: 'Charity Garden Opening - Cambo Gardens',
+    description: 'Best known for snowdrops (mail order February), but exciting throughout the year, this Victorian walled garden features constantly evolving, magnificent herbaceous borders featuring rare and unusual plants, many of which are propagated for sale at Cambo. The garden is renowned too for its tulips and a stunning rose collection. Outside the main garden an inspiring Winter Garden and North American Prairie continue to be developed. Woodland walks to the sea.',
+    link: 'https://scotlandsgardens.org/cambo-house/',
+    linkType: 'EXTERNAL',
+    location: 'Kingsbarns, Fife',
+    date: '24 Sept - 31 Dec 2025',
+};
