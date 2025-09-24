@@ -54,9 +54,10 @@ import {
 } from '@/components/grid';
 
 /**
-* @deprecated: Use new SectionHeader component and
+* @deprecated Use new SectionHeader component and
 * utility-based spacing instead. This component will be
 * removed in a future release.
+* @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/774733832/Module+wrapper+deprecated
 *
 * @displayName Module Wrapper
 */
