@@ -54,13 +54,15 @@ import {
 } from '@/components/grid';
 
 /**
-* Header intro and button wrapper for module content
+* @deprecated: Use new SectionHeader component and
+* utility-based spacing instead. This component will be
+* removed in a future release.
 *
 * @displayName Module Wrapper
 */
 export default {
     name: 'VsModuleWrapper',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsHeading,
