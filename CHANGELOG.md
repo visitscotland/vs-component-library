@@ -1,3 +1,19 @@
+# [5.7.0](https://github.com/visitscotland/vs-component-library/compare/v5.6.1...v5.7.0) (2025-09-24)
+
+
+### Bug Fixes
+
+* **card:** code rabbit suggestion to update slot check and image ([e2ade47](https://github.com/visitscotland/vs-component-library/commit/e2ade473270b7a842dccdd0897d1d62398bb779a))
+
+
+### Features
+
+* **card:** add overlay variant to card component ([a9ee49a](https://github.com/visitscotland/vs-component-library/commit/a9ee49ab931c98bdb3d4c199cb9c1ace3d0249c1))
+* **cardgroup:** update scrollsnap in card group so it can also be applied on desktop ([f08e638](https://github.com/visitscotland/vs-component-library/commit/f08e63833651fb923a0975282df5a19569de310e))
+* **card:** tidy up card overlay on nav pages ([6e3b4ae](https://github.com/visitscotland/vs-component-library/commit/6e3b4ae70909743a1c2127d775757feca2589eca))
+* **card:** update overlay card height ([79bc2fc](https://github.com/visitscotland/vs-component-library/commit/79bc2fc0d3abf994862184e045b1056cde8cf93b))
+* **card:** update styles in overlay card ([e5b5159](https://github.com/visitscotland/vs-component-library/commit/e5b515924ba28d11b783606c53c392aa39f638bc))
+
 ## [5.6.1](https://github.com/visitscotland/vs-component-library/compare/v5.6.0...v5.6.1) (2025-09-22)
 
 
