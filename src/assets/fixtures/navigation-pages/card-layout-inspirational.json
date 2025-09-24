@@ -1,4 +1,38 @@
 {
+  "cardListOverlay": {
+    "cards": [
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/11/30/family-outside-the-va-dundee?size=lg",
+        "title": "Attractions",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/11/05/creel-seafood?size=md",
+        "title": "Food & drink",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2025/05/02/ballastbank-troon-header.jpg?size=md",
+        "title": "Landscapes & nature",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/09/06/the-royal-edinburgh-military-tattoo?size=md",
+        "title": "Events",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/11/05/cairngorms-national-park-1.jpg?size=md",
+        "title": "Outdoor activities",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/05/glen-rosa-arran?size=mds",
+        "title": "Tours, routes & trails",
+        "link": "#"
+      }
+    ]
+  },
   "cardList1": {
     "cards": [
       {

@@ -114,14 +114,21 @@ Grid4.args = {
     cardsPerRow: 4,
 };
 
-export const ScrollSnap = Template.bind({
+export const ScrollSnapAlways = Template.bind({
 });
 
-ScrollSnap.args = {
+ScrollSnapAlways.args = {
+    scrollSnap: 'always',
+};
+
+export const ScrollSnapResponsive = Template.bind({
+});
+
+ScrollSnapResponsive.args = {
     scrollSnap: true,
 };
 
-ScrollSnap.globals = {
+ScrollSnapResponsive.globals = {
     viewport: {
         value: 'mobile1',
     },

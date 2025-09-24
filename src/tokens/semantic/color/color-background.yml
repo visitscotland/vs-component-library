@@ -7,8 +7,6 @@ props:
       value: "{!vs-heather-05}"
     - name: vs-color-background-bold
       value: "{!vs-basalt-90}"
-    - name: vs-color-interaction-cta-subtle
-      value: "transparent"     
     - name: vs-color-background-brand
       value: "{!vs-thistle-70}"
     - name: vs-color-background-inverse

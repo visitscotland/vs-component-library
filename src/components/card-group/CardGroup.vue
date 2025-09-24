@@ -42,11 +42,17 @@ export default {
             validator: (value) => [3, 4].includes(value),
         },
         /**
-        * sets the card group to scroll snap
+        * sets the scroll snap behavior
+        * * `always` - on all breakpoints
+        * `true` - only below xl breakpoint
+        * `false` - disabled
+        * note: these props will be updated in future to remove the boolean
+        * and keep only string options which would be a breaking change
         */
         scrollSnap: {
-            type: Boolean,
+            type: [Boolean, String],
             default: false,
+            validator: (value) => [false, true, 'always'].includes(value),
         },
     },
     computed: {
@@ -54,7 +60,8 @@ export default {
             return [
                 'vs-card-group',
                 {
-                    'is-scroll-snap': this.scrollSnap,
+                    'is-scroll-snap-responsive': this.scrollSnap === true,
+                    'is-scroll-snap-always': this.scrollSnap === 'always',
                     'is-grid': this.variant === 'grid',
                 },
             ];
@@ -77,46 +84,16 @@ export default {
             grid-template-columns: repeat(var(--cards-in-row), 1fr);
         }
 
-        /* Scroll snap for mobile */
+        /* Scroll snap responsive (only below xl) */
         @include media-breakpoint-down(xl) {
-            &.is-scroll-snap {
-                display: flex;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-
-                &::-webkit-scrollbar {
-                    height: 6px;
-                }
-
-                &::-webkit-scrollbar-track {
-                    background: #DEDBE6;
-                    border-radius: $vs-radius-tiny;
-                }
-
-                &::-webkit-scrollbar-thumb {
-                    background: #535396;
-                    border-radius: $vs-radius-tiny;
-                }
-
-                .vs-card {
-                    flex: 0 0 266px;
-                    scroll-snap-align: start;
-                    margin-bottom: $vs-spacer-150;
-
-                    @include media-breakpoint-up(sm) {
-                        flex: 0 0 235px;
-                    }
-
-                    @include media-breakpoint-up(md) {
-                        flex: 0 0 312px;
-                    }
-
-                    @include media-breakpoint-up(lg) {
-                        flex: 0 0 330px;
-                    }
-                }
+            &.is-scroll-snap-responsive {
+                @include scrollsnap-styles;
             }
         }
-    }
 
+        /* Scroll snap always (all breakpoints) */
+        &.is-scroll-snap-always {
+            @include scrollsnap-styles;
+        }
+    }
 </style>
