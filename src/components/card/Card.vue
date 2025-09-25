@@ -61,7 +61,7 @@ export default {
         */
         fillColor: {
             type: String,
-            default: 'vs-color-background-cta-subtle',
+            default: 'vs-color-interaction-cta-subtle',
         },
         /**
         * Adds an accent bar to the left of the card
