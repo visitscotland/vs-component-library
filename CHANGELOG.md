@@ -1,3 +1,10 @@
+# [5.9.0](https://github.com/visitscotland/vs-component-library/compare/v5.8.0...v5.9.0) (2025-09-25)
+
+
+### Features
+
+* **modulewrapper:** mark module wrapper component as deprecated ([b1933df](https://github.com/visitscotland/vs-component-library/commit/b1933df2edbe53feeccc6fe3b88b4dc3fe411dcb))
+
 # [5.8.0](https://github.com/visitscotland/vs-component-library/compare/v5.7.0...v5.8.0) (2025-09-25)
 
 
