@@ -1,3 +1,10 @@
+# [5.8.0](https://github.com/visitscotland/vs-component-library/compare/v5.7.0...v5.8.0) (2025-09-25)
+
+
+### Features
+
+* **card:** update card token background ([3904f06](https://github.com/visitscotland/vs-component-library/commit/3904f06cce2f7ea94ed9d4055e55dab879fb5059))
+
 # [5.7.0](https://github.com/visitscotland/vs-component-library/compare/v5.6.1...v5.7.0) (2025-09-24)
 
 
