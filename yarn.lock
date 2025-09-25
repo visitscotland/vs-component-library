@@ -3659,6 +3659,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/icons@npm:^1.4.0":
+  version: 1.6.0
+  resolution: "@storybook/icons@npm:1.6.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
+  checksum: 10c0/bbec9201a78a730195f9cf377b15856dc414a54d04e30d16c379d062425cc617bfd0d6586ba1716012cfbdab461f0c9693a6a52920f9bd09c7b4291fb116f59c
+  languageName: node
+  linkType: hard
+
 "@storybook/react-dom-shim@npm:9.1.0-alpha.2":
   version: 9.1.0-alpha.2
   resolution: "@storybook/react-dom-shim@npm:9.1.0-alpha.2"
@@ -4501,6 +4511,7 @@ __metadata:
     standard-version: "npm:^9.5.0"
     storybook: "npm:^9.1.0-alpha.2"
     storybook-addon-datalayer-watcher: "npm:^2.0.1"
+    storybook-addon-tag-badges: "npm:^2.0.2"
     style-loader: "npm:^3.3.2"
     svgo-loader: "npm:^4.0.0"
     theo: "npm:^8.1.5"
@@ -17769,6 +17780,17 @@ __metadata:
   peerDependencies:
     storybook: ^9.0.0
   checksum: 10c0/cb846f0b41487c17d832a0beb9b497fd843fe24d69dafc6b20b52ab664f079b3164400dc4c4b9e959ac410d5b3e0337284a9d6174b5479b41017f7383ad28053
+  languageName: node
+  linkType: hard
+
+"storybook-addon-tag-badges@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "storybook-addon-tag-badges@npm:2.0.2"
+  dependencies:
+    "@storybook/icons": "npm:^1.4.0"
+  peerDependencies:
+    storybook: ^9.0.0
+  checksum: 10c0/348856d0507370cc578cdf63d8060e4e80db78cd8fb5dd2dce4f9fd1b3eb66addc76a4b7bb5c2afe60e6c7cf6213d61de11f10ea15c57e82ed9b1689dceedd80
   languageName: node
   linkType: hard
 
