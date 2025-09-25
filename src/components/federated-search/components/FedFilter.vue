@@ -26,15 +26,15 @@
                 :id="`vs-fed-filter--scroll-rail_${variant}`"
             >
                 <VsButton
-                    v-for="(filterCategory, key) in props.filterCategories"
-                    :key
+                    v-for="(filterCategory, index) in props.filterCategories"
+                    :key="index"
                     class="vs-fed-filter--category-button"
                     :icon="variant === 'primary' ? filterCategory.icon : null"
-                    :variant="activeFilter === filterCategory.id ? 'primary' : 'secondary'"
+                    :variant="activeFilter === filterCategory.Key ? 'primary' : 'secondary'"
                     :size="variant === 'secondary' ? 'sm' : 'md'"
-                    @click="$emit('filter-updated', event)"
+                    @click="$emit('filter-updated', filterCategory.Key)"
                 >
-                    {{ filterCategory.label }}
+                    {{ filterCategory.Key }}
                 </VsButton>
             </div>
             <VsButton
@@ -59,11 +59,10 @@
 </template>
 
 <script setup>
-
+// Buttons should be links on homepage!
 import VsButton from '@/components/button/Button.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsWarning from '@/components/warning/Warning.vue';
-import { onMounted } from 'vue';
 
 /**
  * Fed Filter is used in the Federated Search engine.
@@ -83,7 +82,7 @@ const props = defineProps({
     * }
     */
     filterCategories: {
-        type: Object,
+        type: Array,
         required: true,
     },
     /**
@@ -93,7 +92,6 @@ const props = defineProps({
      */
     variant: {
         type: String,
-        required: true,
         default: 'primary',
         validator: (value) => value.match(
             /(primary|secondary)/,
@@ -104,14 +102,13 @@ const props = defineProps({
      */
     activeFilter: {
         type: String,
-        required: false,
+        default: '',
     },
     /**
      * Enables the scroll buttons on fitler
      */
     scrollButtons: {
         type: Boolean,
-        required: false,
         default: false,
     },
     /**
@@ -119,20 +116,11 @@ const props = defineProps({
      */
     jsDisabled: {
         type: Boolean,
-        required: false,
         default: false,
     },
 });
 
 defineEmits(['filter-updated']);
-
-// onMounted(() => {
-//     const scrollRail = document.getElementById(`vs-fed-filter--scroll-rail_${props.variant}`);
-
-//     scrollRail.addEventListener('scroll', (event) => {
-//         console.log(event.target.scrollTop);
-//     });
-// });
 
 /**
  * This is not the best solution by any means
