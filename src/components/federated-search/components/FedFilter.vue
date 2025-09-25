@@ -52,7 +52,7 @@
             v-if="$slots['no-js']"
             class="vs-fed-filter__warning"
         >
-            @slot Message to show when JS is disabled
+            <!-- @slot Message to show when JS is disabled -->
             <slot name="no-js" />
         </VsWarning>
     </div>
@@ -125,14 +125,6 @@ const props = defineProps({
 });
 
 defineEmits(['filter-updated']);
-
-// onMounted(() => {
-//     const scrollRail = document.getElementById(`vs-fed-filter--scroll-rail_${props.variant}`);
-
-//     scrollRail.addEventListener('scroll', (event) => {
-//         console.log(event.target.scrollTop);
-//     });
-// });
 
 /**
  * This is not the best solution by any means
