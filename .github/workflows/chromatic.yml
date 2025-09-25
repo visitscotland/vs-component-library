@@ -5,6 +5,7 @@ name: 'Chromatic'
 
 # Event for the workflow
 on:
+  # Run on PRs into main or cl-release/*
   pull_request:
     types:
       - opened
@@ -13,6 +14,11 @@ on:
     branches:
       - 'main'
       - 'cl-release/**'
+
+  # Run automatically when pushing to main
+  push:
+    branches:
+      - main
 
   # Allows you to run this workflow manually from the Actions tab in the GitHub dashboard
   workflow_dispatch: {}
@@ -27,15 +33,15 @@ jobs:
     runs-on: ubuntu-latest
     # Job steps
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
       - name: Install dependencies
         # 👇 Install dependencies with the same package manager used in the project (replace it as needed), e.g. yarn, npm, pnpm
         run: yarn
         # 👇 Adds Chromatic as a step in the workflow
       - name: Publish to Chromatic
-        uses: chromaui/action@v1
+        uses: chromaui/action@latest
         # Chromatic GitHub Action options
         with:
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          onlyChanged: true
+          onlyChanged: ${{ github.event_name == 'pull_request' }}
