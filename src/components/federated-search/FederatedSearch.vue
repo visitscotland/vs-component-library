@@ -199,6 +199,8 @@ function loadPage(pageNumber) {
         behavior: 'smooth',
     });
 
+    federatedSearchStore.navigateToResultsPage();
+
     // TODO: Update url params with page number.
     // const params = new URLSearchParams(document.location.search);
     // params.set('page', pageNumber);

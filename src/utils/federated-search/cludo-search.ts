@@ -4,11 +4,11 @@ function cleanData(data: any) {
     const documents = data.TypedDocuments;
 
     const results: FederatedSearchResult[] = documents.map((document) => ({
-        id: document.Fields.Id.Value,
-        title: document.Fields.Title.Value,
-        description: document.Fields.Description.Value,
-        imgSrc: document.Fields.Image.Value,
-        url: document.Fields.Url.Value,
+        id: document.Fields.Id.Value || '',
+        title: document.Fields.Title.Value || '',
+        description: document.Fields.Description.Value || '',
+        imgSrc: document.Fields.Image?.Value || '',
+        url: document.Fields.Url.Value || '',
         dataSrc: 'cludo',
     }));
 
@@ -41,10 +41,10 @@ async function cludoSearch(
                 query: searchTerm || '*',
                 operator: 'or',
                 responseType: 'JsonObject',
-                perPage: 12,
+                perPage: 6,
                 page,
                 facets: {
-                    Category: [selectedCategory],
+                    Category: selectedCategory ? [selectedCategory] : null,
                 },
             }),
             headers: {

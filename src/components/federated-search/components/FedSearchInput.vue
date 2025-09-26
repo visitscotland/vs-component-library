@@ -23,7 +23,7 @@
                     placeholder="What are you looking for?"
                     type="search"
                     :value="federatedSearchStore.searchTerm"
-                    @input="updateSearchTerm"
+                    @updated="updateSearchTerm"
                     @keyup.enter="federatedSearchStore.navigateToResultsPage"
                 />
             </div>
@@ -74,11 +74,12 @@ const props = defineProps({
 const federatedSearchStore = useFederatedSearchStore();
 
 function updateSearchTerm(event) {
-    const value = event.target.value;
-    federatedSearchStore.searchTerm = value;
+    federatedSearchStore.currentPage = 1;
+    federatedSearchStore.searchTerm = event.value;
 }
 
 function updateSelectedCategory(category) {
+    federatedSearchStore.currentPage = 1;
     federatedSearchStore.selectedCategory = (federatedSearchStore.selectedCategory !== category)
         ? category
         : '';

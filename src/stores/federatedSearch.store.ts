@@ -5,13 +5,13 @@ import cludoSearch from '@/utils/federated-search/cludo-search';
 import eventSearch from '@/utils/federated-search/event-search';
 
 const useFederatedSearchStore = defineStore('federatedSearch', () => {
-    const cludoCategories = ref([]);
+    const cludoCategories = ref(null);
     const cludoCredentials = ref<CludoCredentials>(undefined);
     const currentPage = ref(1);
     const isLoading = ref(false);
     const results = ref(null);
     const searchTerm = ref('');
-    const selectedCategory = ref('');
+    const selectedCategory = ref(null);
     const totalResults = ref(0);
     const isHomePage = ref(false);
 
@@ -57,6 +57,10 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
 
         if (selectedCategory.value) {
             url.searchParams.set('category', selectedCategory.value);
+        }
+
+        if (currentPage.value && currentPage.value > 1) {
+            url.searchParams.set('page', currentPage.value.toString());
         }
 
         if (!isHomePage.value) {
