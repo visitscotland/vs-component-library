@@ -1,4 +1,4 @@
-import { factoryMount, shallowMount } from '@vue/test-utils';
+import { mount, shallowMount } from '@vue/test-utils';
 import axe from '@/../test/unit/helpers/axe-helper';
 import VsFedFilter from '../FedFilter.vue';
 
@@ -7,6 +7,7 @@ const factoryShallowMount = (propsData) => shallowMount(VsFedFilter, {
     propsData: {
         variant: 'primary',
         scrollButtons: false,
+        wrap: false,
         filterCategories: [
             {
                 id: 'filter1',
@@ -40,6 +41,28 @@ describe('VsFedFilter', () => {
             const scrollRail = wrapper.find('#vs-fed-filter--scroll-rail_secondary');
 
             expect(scrollRail.exists()).toBe(true);
+        });
+
+        it('should render in the wrap style when wrap is true', async() => {
+            const wrapper = factoryShallowMount();
+            await wrapper.setProps({
+                wrap: true,
+            });
+
+            const scrollRail = wrapper.find('.vs-fed-filter--scroll-rail_wrap');
+
+            expect(scrollRail.exists()).toBe(true);
+        });
+
+        it('should not render in the wrap style when wrap is false', async() => {
+            const wrapper = factoryShallowMount();
+            await wrapper.setProps({
+                wrap: false,
+            });
+
+            const scrollRail = wrapper.find('.vs-fed-filter--scroll-rail_wrap');
+
+            expect(scrollRail.exists()).toBe(false);
         });
 
         it('should render in the scroll rail buttons when prop is true', async() => {
@@ -78,9 +101,62 @@ describe('VsFedFilter', () => {
                 activeFilter: 'filter1',
             });
 
-            console.log(wrapper.html());
             const button = wrapper.find('[variant="primary"]');
             expect(button.exists()).toBe(true);
+        });
+    });
+
+    describe(':slots', () => {
+        it('should render text in the header slot', () => {
+            const wrapper = mount(VsFedFilter, {
+                propsData: {
+                    wrap: false,
+                },
+                slots: {
+                    'fed-filter-header': 'Header text',
+                },
+            });
+
+            const header = wrapper.find('[data-test="vs-fed-filter-header"]');
+            expect(header.exists()).toBe(true);
+        });
+
+        it('should not render text in the header slot if it\'s not populated', () => {
+            const wrapper = mount(VsFedFilter, {
+                propsData: {
+                    wrap: false,
+                },
+            });
+
+            const header = wrapper.find('[data-test="vs-fed-filter-header"]');
+            expect(header.exists()).toBe(false);
+        });
+    });
+
+    describe(':emits', () => {
+        it('should emit `filter-updated` when filter is pressed', async() => {
+            const wrapper = mount(VsFedFilter, {
+                propsData: {
+                    wrap: false,
+                    filterCategories: [
+                        {
+                            id: 'nature_outdoor',
+                            label: 'Nature & Outdoor',
+                            icon: 'fa-kit fa-vs-landscape',
+                        },
+                        {
+                            id: 'history_culture',
+                            label: 'History & Culture',
+                            icon: 'fa-regular fa-chess-rook',
+                        },
+                    ],
+                },
+            });
+
+            const dropdown = wrapper.find('[data-test="vs-fed-filter--category-button_nature_outdoor"]');
+            await dropdown.trigger('click');
+
+            expect(wrapper.emitted('filter-updated')).toBeTruthy();
         });
     });
 

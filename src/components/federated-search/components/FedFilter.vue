@@ -5,6 +5,7 @@
             class="mb-075"
             heading-level="4"
             heading-style="heading-xxxs"
+            data-test="vs-fed-filter-header"
         >
             <!-- @slot Heading for the filter -->
             <slot name="fed-filter-header" />
@@ -22,13 +23,14 @@
             </VsButton>
             <div
                 class="vs-fed-filter--scroll-rail"
-                :class="`vs-fed-filter--scroll-rail_${variant}`"
+                :class="filterClasses()"
                 :id="`vs-fed-filter--scroll-rail_${variant}`"
             >
                 <VsButton
                     v-for="(filterCategory, key) in props.filterCategories"
                     :key
                     class="vs-fed-filter--category-button"
+                    :data-test="`vs-fed-filter--category-button_${filterCategory.id}`"
                     :icon="variant === 'primary' ? filterCategory.icon : null"
                     :variant="activeFilter === filterCategory.id ? 'primary' : 'secondary'"
                     :size="variant === 'secondary' ? 'sm' : 'md'"
@@ -48,13 +50,6 @@
                 Scroll right
             </VsButton>
         </div>
-        <VsWarning
-            v-if="$slots['no-js']"
-            class="vs-fed-filter__warning"
-        >
-            <!-- @slot Message to show when JS is disabled -->
-            <slot name="no-js" />
-        </VsWarning>
     </div>
 </template>
 
@@ -62,8 +57,6 @@
 
 import VsButton from '@/components/button/Button.vue';
 import VsHeading from '@/components/heading/Heading.vue';
-import VsWarning from '@/components/warning/Warning.vue';
-import { onMounted } from 'vue';
 
 /**
  * Fed Filter is used in the Federated Search engine.
@@ -99,6 +92,14 @@ const props = defineProps({
             /(primary|secondary)/,
         ),
     },
+    /* Used to determine if the filter will wrap
+     * rather than scroll on desktop or not
+     */
+    wrap: {
+        type: Boolean,
+        required: true,
+        default: false,
+    },
     /**
      * ID of currently active filter
      */
@@ -110,14 +111,6 @@ const props = defineProps({
      * Enables the scroll buttons on fitler
      */
     scrollButtons: {
-        type: Boolean,
-        required: false,
-        default: false,
-    },
-    /**
-     * Tells if JS is disabled
-     */
-    jsDisabled: {
         type: Boolean,
         required: false,
         default: false,
@@ -140,6 +133,13 @@ function scroll(dir) {
     if (dir === 'left') scrollRail?.scrollBy(-300, 0);
     else if (dir === 'right') scrollRail?.scrollBy(300, 0);
 }
+
+function filterClasses() {
+    return [
+        `vs-fed-filter--scroll-rail_${props.variant}`,
+        props.wrap ? 'vs-fed-filter--scroll-rail_wrap' : '',
+    ];
+}
 </script>
 
 <style lang="scss">
@@ -156,11 +156,22 @@ function scroll(dir) {
             align-items: center;
 
             &_primary {
-                gap: $vs-spacer-100;
+                column-gap: $vs-spacer-075;
+                row-gap: $vs-spacer-075
             }
 
             &_secondary {
-                gap: $vs-spacer-050;
+                column-gap: $vs-spacer-050;
+            }
+
+            &_wrap {
+
+                @include media-breakpoint-up(lg) {
+                    overflow-x: none;
+                    scroll-snap-type: none;
+                    flex-wrap: wrap;
+                    row-gap: $vs-spacer-050;
+                }
             }
 
             @media (prefers-reduced-motion: no-preference) {
@@ -184,17 +195,6 @@ function scroll(dir) {
         &--category-button {
             flex: 0 0 content;
             height: min-content;
-            //margin-bottom: $vs-spacer-100;
-        }
-    }
-
-    @include no-js {
-        .vs-fed-filter {
-            display: none;
-        }
-
-        .vs-warning {
-            display: block;
         }
     }
 </style>

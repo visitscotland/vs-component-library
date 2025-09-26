@@ -1,6 +1,4 @@
 import VsFedFilter from '@/components/federated-search/components/FedFilter.vue';
-import VsButton from '@/components/button/Button.vue';
-import VsHeading from '@components/heading/Heading.vue';
 
 export default {
     component: VsFedFilter,
@@ -21,8 +19,6 @@ export default {
 const Template = (args) => ({
     components: {
         VsFedFilter,
-        VsButton,
-        VsHeading,
     },
     setup() {
         return {
@@ -104,6 +100,13 @@ Default.args = {
     ],
 };
 
+export const PrimaryWrap = Template.bind();
+
+PrimaryWrap.args = {
+    ...Default.args,
+    wrap: true,
+};
+
 export const Secondary = Template.bind();
 
 Secondary.args = {
@@ -169,10 +172,4 @@ Secondary.args = {
             label: 'Visual Arts',
         },
     ],
-};
-
-export const NoJavascript = Template.bind();
-NoJavascript.args = {
-    jsDisabled: true,
-    noJsMessage: 'You need Javascript enabled to use this filter',
 };

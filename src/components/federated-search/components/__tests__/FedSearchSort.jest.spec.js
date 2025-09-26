@@ -103,7 +103,6 @@ describe('VsFedSearchSort', () => {
             });
 
             const datePickerFrom = wrapper.find('#vs-fed-search-sort--to-date');
-            console.log(wrapper.html());
             await datePickerFrom.setValue('2025-07-28');
 
             expect(wrapper.emitted('fed-search-sort-to-date-updated')).toBeTruthy();
