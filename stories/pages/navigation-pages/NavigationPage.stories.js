@@ -34,7 +34,7 @@ import InfoFirstSecondaryTemplate from './templates/info-first-secondary-pattern
 
 export default {
     component: VsNavigationPage,
-    title: 'Patterns/NavigationPage',
+    title: 'Pages/NavigationPage',
     argTypes: {
     },
     parameters: {

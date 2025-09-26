@@ -2,7 +2,7 @@ import VsCardLayout from '../../src/templates/CardLayout.vue';
 
 export default {
     component: VsCardLayout,
-    title: 'Patterns/CardLayout',
+    title: 'Patterns/Cards/CardLayout',
     argTypes: {
     },
     parameters: {
