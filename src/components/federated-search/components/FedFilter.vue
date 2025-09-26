@@ -29,13 +29,18 @@
                 <VsButton
                     v-for="(filterCategory, index) in props.filterCategories"
                     :key="index"
+                    v-for="(filterCategory, index) in props.filterCategories"
+                    :key="index"
                     class="vs-fed-filter--category-button"
                     :data-test="`vs-fed-filter--category-button_${filterCategory.id}`"
                     :icon="variant === 'primary' ? filterCategory.icon : null"
                     :variant="activeFilter === filterCategory.Key ? 'primary' : 'secondary'"
+                    :variant="activeFilter === filterCategory.Key ? 'primary' : 'secondary'"
                     :size="variant === 'secondary' ? 'sm' : 'md'"
                     @click="$emit('filter-updated', filterCategory.Key)"
+                    @click="$emit('filter-updated', filterCategory.Key)"
                 >
+                    {{ filterCategory.Key }}
                     {{ filterCategory.Key }}
                 </VsButton>
             </div>
@@ -54,6 +59,7 @@
 </template>
 
 <script setup>
+// Buttons should be links on homepage!
 // Buttons should be links on homepage!
 import VsButton from '@/components/button/Button.vue';
 import VsHeading from '@/components/heading/Heading.vue';
@@ -76,6 +82,7 @@ const props = defineProps({
     * }
     */
     filterCategories: {
+        type: Array,
         type: Array,
         required: true,
     },
@@ -105,6 +112,7 @@ const props = defineProps({
     activeFilter: {
         type: String,
         default: '',
+        default: '',
     },
     /**
      * Enables the scroll buttons on fitler
@@ -118,7 +126,6 @@ const props = defineProps({
      */
     jsDisabled: {
         type: Boolean,
-        required: false,
         default: false,
     },
 });
