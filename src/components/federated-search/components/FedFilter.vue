@@ -52,7 +52,7 @@
             v-if="$slots['no-js']"
             class="vs-fed-filter__warning"
         >
-            @slot Message to show when JS is disabled
+            <!-- @slot Message to show when JS is disabled -->
             <slot name="no-js" />
         </VsWarning>
     </div>

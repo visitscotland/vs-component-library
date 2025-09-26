@@ -6,13 +6,20 @@
             v-if="props.dateFilterVisible"
             class="vs-fed-search-sort--input"
         >
-            <label for="fed-search-sort-from-date"> Visiting from </label>
+            <label
+                v-if="props.fromDateLabel"
+                for="vs-fed-search-sort--from-date"
+                class="vs-fed-search-sort--label"
+                data-test="vs-fed-search-sort--from-date-label"
+            >
+                {{ props.fromDateLabel }}
+            </label>
             <VsInput
-                label="Visiting from"
-                field-name="fed-search-sort-from-date"
+                field-name="vs-fed-search-sort--from-date"
                 :value="new Date().toJSON().slice(0, 10)"
                 type="date"
                 :auto-complete="false"
+                @input="$emit('fed-search-sort-from-date-updated', $event.target.value)"
             />
         </VsCol>
         <VsCol
@@ -21,30 +28,40 @@
             v-if="props.dateFilterVisible"
             class="vs-fed-search-sort--input"
         >
-            <label for="fed-search-sort-to-date"> To </label>
+            <label
+                v-if="props.toDateLabel"
+                for="vs-fed-search-sort--to-date"
+                class="vs-fed-search-sort--label"
+                data-test="vs-fed-search-sort--to-date-label"
+            >
+                {{ props.toDateLabel }}
+            </label>
             <VsInput
-                field-name="fed-search-sort-to-date"
+                field-name="vs-fed-search-sort--to-date"
                 type="date"
+                :auto-complete="false"
+                @input="$emit('fed-search-sort-to-date-updated', $event.target.value)"
             />
         </VsCol>
         <VsCol
             cols="12"
             md="4"
-            class="vs-fed-search-sort--input-wrapper"
+            class="vs-fed-search-sort--dropdown-wrapper"
         >
             <VsDropdown
                 variant="secondary"
+                id="vs-fed-search-sort--dropdown"
                 name="vs-fed-search-sort-dropdown"
-                :text="`Sort by:`"
+                :text="isActive === null ? props.sortLabel : `${props.sortLabel}: ${isActive.label}`"
             >
-                <VsDropdownItem title>
-                    Date
-                </VsDropdownItem>
-                <VsDropdownItem title>
-                    Price
-                </VsDropdownItem>
-                <VsDropdownItem title>
-                    Alphabetically
+                <VsDropdownItem
+                    v-for="(sortOption, key) in sortOptions"
+                    :key
+                    @click="isActive = sortOption, $emit('sort-order-updated', sortOption)"
+                    :active="isActive === sortOption ? true : false"
+                    :data-test="`vs-fed-search-sort--dropdown-item__${sortOption.id}`"
+                >
+                    {{ sortOption.label }}
                 </VsDropdownItem>
             </VsDropdown>
         </VsCol>
@@ -52,26 +69,67 @@
 </template>
 
 <script setup lang="ts">
+
+import { ref } from 'vue';
+
 import VsRow from '@/components/grid/Row.vue';
 import VsCol from '@/components/grid/Col.vue';
 import VsInput from '@/components/input/Input.vue';
 import VsDropdown from '@/components/dropdown/Dropdown.vue';
 import VsDropdownItem from '@/components/dropdown/components/DropdownItem.vue';
 
+const isActive = ref(null);
+
 const props = defineProps({
+    /**
+     * Determines if the date fields are visible
+     */
     dateFilterVisible: {
         type: Boolean,
-        default: true,
+        default: false,
         required: false,
     },
+    /**
+     * Options for the sort dropdown
+     *  {
+     *      id: String,
+     *      label: String,
+     *  },
+     */
+    sortOptions: {
+        type: Object,
+        required: false,
+    },
+    /** Label to be displayed above `from` date field */
+    fromDateLabel: {
+        type: String,
+        required: false,
+    },
+    /** Label to be displated aboce `to` date field */
+    toDateLabel: {
+        type: String,
+        required: false,
+    },
+    /** Label to be displayed on the sort dropdown */
+    sortLabel: {
+        type: String,
+        required: true,
+        default: 'Sort by',
+    },
 });
+
+defineEmits(['fed-search-sort-from-date-updated', 'fed-search-sort-to-date-updated', 'sort-order-updated']);
 
 </script>
 
 <style lang="scss">
 .vs-fed-search-sort{
 
-    &--input-wrapper {
+    &--label {
+        font-weight: $vs-font-weight-regular;
+    }
+
+    &--dropdown-wrapper {
         display: flex;
         align-items: flex-end;
 

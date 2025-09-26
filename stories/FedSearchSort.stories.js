@@ -1,3 +1,4 @@
+import { VsDropdownItem } from '@/components';
 import VsFedSearchSort from '@/components/federated-search/components/FedSearchSort.vue';
 
 export default {
@@ -11,6 +12,7 @@ export default {
 const Template = (args) => ({
     components: {
         VsFedSearchSort,
+        VsDropdownItem,
     },
     setup() {
         return {
@@ -26,4 +28,26 @@ const Template = (args) => ({
 export const Default = Template.bind();
 
 Default.args = {
+    dateFilterVisible: true,
+    sortOptions: [
+        {
+            id: 'relevance',
+            label: 'Relevance',
+        },
+        {
+            id: 'date',
+            label: 'Date',
+        },
+        {
+            id: 'price_asc',
+            label: 'Price Ascending',
+        },
+        {
+            id: 'price_desc',
+            label: 'Price Descending',
+        },
+    ],
+    fromDateLabel: 'Arriving from',
+    toDateLabel: 'To',
+    sortLabel: 'Sort by',
 };
