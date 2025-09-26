@@ -100,14 +100,17 @@ const props = defineProps({
         type: Object,
         required: false,
     },
+    /** Label to be displayed above `from` date field */
     fromDateLabel: {
         type: String,
         required: false,
     },
+    /** Label to be displated aboce `to` date field */
     toDateLabel: {
         type: String,
         required: false,
     },
+    /** Label to be displayed on the sort dropdown */
     sortLabel: {
         type: String,
         required: true,
