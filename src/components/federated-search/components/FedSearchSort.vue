@@ -3,7 +3,7 @@
         <VsCol
             cols="6"
             md="4"
-            v-if="dateFilterVisible"
+            v-if="props.dateFilterVisible"
             class="vs-fed-search-sort--input"
         >
             <label
@@ -25,7 +25,7 @@
         <VsCol
             cols="6"
             md="4"
-            v-if="dateFilterVisible"
+            v-if="props.dateFilterVisible"
             class="vs-fed-search-sort--input"
         >
             <label

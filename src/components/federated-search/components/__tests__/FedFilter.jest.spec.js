@@ -11,7 +11,7 @@ const factoryShallowMount = (propsData) => shallowMount(VsFedFilter, {
         filterCategories: [
             {
                 id: 'filter1',
-                label: 'Filter One',
+                Key: 'Filter One',
                 icon: 'fa-regular fa-star',
             },
         ],
@@ -141,12 +141,12 @@ describe('VsFedFilter', () => {
                     filterCategories: [
                         {
                             id: 'nature_outdoor',
-                            label: 'Nature & Outdoor',
+                            Key: 'Nature & Outdoor',
                             icon: 'fa-kit fa-vs-landscape',
                         },
                         {
                             id: 'history_culture',
-                            label: 'History & Culture',
+                            Key: 'History & Culture',
                             icon: 'fa-regular fa-chess-rook',
                         },
                     ],
