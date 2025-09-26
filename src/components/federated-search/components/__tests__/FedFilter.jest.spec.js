@@ -98,7 +98,7 @@ describe('VsFedFilter', () => {
             const wrapper = factoryShallowMount();
 
             await wrapper.setProps({
-                activeFilter: 'filter1',
+                activeFilter: 'Filter One',
             });
 
             const button = wrapper.find('[variant="primary"]');
