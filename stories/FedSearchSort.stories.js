@@ -47,4 +47,7 @@ Default.args = {
             label: 'Price Descending',
         },
     ],
+    fromDateLabel: 'Arriving from',
+    toDateLabel: 'To',
+    sortLabel: 'Sort by',
 };
