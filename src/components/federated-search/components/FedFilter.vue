@@ -1,15 +1,13 @@
 <template>
     <div class="vs-fed-filter">
-        <VsHeading
-            v-if="$slots['fed-filter-header']"
-            class="mb-075"
-            heading-level="4"
-            heading-style="heading-xxxs"
+        <VsBody
+            v-if="$slots['fed-filter-header'] && $slots['fed-filter-header']()"
+            class="vs-fed-filter--header mb-075"
             data-test="vs-fed-filter-header"
         >
             <!-- @slot Heading for the filter -->
             <slot name="fed-filter-header" />
-        </VsHeading>
+        </VsBody>
         <div class="vs-fed-filter--scroll-container">
             <VsButton
                 v-if="scrollButtons"
@@ -56,7 +54,6 @@
 <script setup>
 // Buttons should be links on homepage!
 import VsButton from '@/components/button/Button.vue';
-import VsHeading from '@/components/heading/Heading.vue';
 
 /**
  * Fed Filter is used in the Federated Search engine.
@@ -149,6 +146,9 @@ function filterClasses() {
 
 <style lang="scss">
     .vs-fed-filter {
+        &--header {
+            font-weight: $vs-font-weight-medium;
+        }
 
         &--scroll-container{
             display: flex;

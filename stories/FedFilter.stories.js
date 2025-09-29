@@ -28,7 +28,12 @@ const Template = (args) => ({
     template: `
         <div>
             <VsFedFilter v-bind="args">
-                <template v-slot:fed-filter-header> {{ args.heading }} </template>
+                <template
+                    v-slot:fed-filter-header
+                    v-if="args.heading"
+                >
+                    {{ args.heading }}
+                </template>
 
                 <template
                     #no-js
