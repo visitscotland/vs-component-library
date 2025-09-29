@@ -1,6 +1,4 @@
 import VsFedFilter from '@/components/federated-search/components/FedFilter.vue';
-import VsButton from '@/components/button/Button.vue';
-import VsHeading from '@components/heading/Heading.vue';
 
 export default {
     component: VsFedFilter,
@@ -21,8 +19,6 @@ export default {
 const Template = (args) => ({
     components: {
         VsFedFilter,
-        VsButton,
-        VsHeading,
     },
     setup() {
         return {
@@ -53,55 +49,62 @@ Default.args = {
     filterCategories: [
         {
             id: 'nature_outdoor',
-            label: 'Nature & Outdoor',
+            Key: 'Nature & Outdoor',
             icon: 'fa-kit fa-vs-landscape',
         },
         {
             id: 'history_culture',
-            label: 'History & Culture',
+            Key: 'History & Culture',
             icon: 'fa-regular fa-chess-rook',
         },
         {
             id: 'family',
-            label: 'Family Friendly',
+            Key: 'Family Friendly',
             icon: 'fa-regular fa-family',
         },
         {
             id: 'active_adventure',
-            label: 'Active & Adventure',
+            Key: 'Active & Adventure',
             icon: 'fa-regular fa-person-hiking',
         },
         {
             id: 'city',
-            label: 'City Breaks',
+            Key: 'City Breaks',
             icon: 'fa-regular fa-city',
         },
         {
             id: 'accom',
-            label: 'Accommodation',
+            Key: 'Accommodation',
             icon: 'fa-regular fa-bed',
         },
         {
             id: 'food_drink',
-            label: 'Food and Drink',
+            Key: 'Food and Drink',
             icon: 'fa-regular fa-utensils',
         },
         {
             id: 'events',
-            label: 'Events and festivals',
+            Key: 'Events and festivals',
             icon: 'fa-regular fa-calendar-range',
         },
         {
             id: 'tours',
-            label: 'Tours',
+            Key: 'Tours',
             icon: 'fa-regular fa-route',
         },
         {
             id: 'travel_info',
-            label: 'Travel information',
+            Key: 'Travel information',
             icon: 'fa-kit fa-vs-icentre-information',
         },
     ],
+};
+
+export const PrimaryWrap = Template.bind();
+
+PrimaryWrap.args = {
+    ...Default.args,
+    wrap: true,
 };
 
 export const Secondary = Template.bind();
@@ -113,66 +116,60 @@ Secondary.args = {
     filterCategories: [
         {
             id: 'books',
-            label: 'Books',
+            Key: 'Books',
             icon: 'fa-regular fa-star',
         },
         {
             id: 'clubs',
-            label: 'Clubs',
+            Key: 'Clubs',
         },
         {
             id: 'comedy',
-            label: 'Comedy',
+            Key: 'Comedy',
         },
         {
             id: 'dance',
-            label: 'Dance',
+            Key: 'Dance',
         },
         {
             id: 'days_out',
-            label: 'Days out',
+            Key: 'Days out',
         },
         {
             id: 'festivals',
-            label: 'Festivals',
+            Key: 'Festivals',
         },
         {
             id: 'films',
-            label: 'Films',
+            Key: 'Films',
         },
         {
             id: 'kids',
-            label: 'Kids',
+            Key: 'Kids',
         },
         {
             id: 'lgbt',
-            label: 'LGBTQIA+',
+            Key: 'LGBTQIA+',
         },
         {
             id: 'music',
-            label: 'Music',
+            Key: 'Music',
         },
         {
             id: 'sport',
-            label: 'Sports',
+            Key: 'Sports',
         },
         {
             id: 'talk_lecture',
-            label: 'Talks & Lectures',
+            Key: 'Talks & Lectures',
         },
         {
             id: 'theatre',
-            label: 'Theatre',
+            Key: 'Theatre',
         },
         {
             id: 'visual_art',
-            label: 'Visual Arts',
+            Key: 'Visual Arts',
         },
     ],
-};
-
-export const NoJavascript = Template.bind();
-NoJavascript.args = {
-    jsDisabled: true,
-    noJsMessage: 'You need Javascript enabled to use this filter',
 };
