@@ -6,7 +6,7 @@ function cleanData(data: any) {
     const results: FederatedSearchResult[] = events.map((event) => ({
         id: event.id,
         title: event.name,
-        description: event.descriptions[0].description,
+        description: event.descriptions[0]?.description || '',
         imgSrc: event.images[0]?.url || '',
         url: event.performances[0]?.url || '',
         dataSrc: 'data-thistle',
@@ -20,7 +20,8 @@ async function eventSearch(searchTerm: string, page: number, selectedCategory: s
     // Only query the event API when the no selected category or the event category
     // is selected.
     if (selectedCategory === 'Events & Festivals' || selectedCategory === '') {
-        const url = `http://3.10.24.15:8080/events/search?query=${searchTerm}`;
+        let url = `http://3.10.24.15:8080/events/search?query=${searchTerm}`;
+        url = page > 1 ? `${url}&page=${page}` : url;
 
         try {
             const response = await fetch(url);

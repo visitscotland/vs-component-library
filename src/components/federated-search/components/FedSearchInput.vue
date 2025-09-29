@@ -37,6 +37,7 @@
         </div>
 
         <VsFedFilter
+            v-if="federatedSearchStore.cludoCategories"
             :active-filter="federatedSearchStore.selectedCategory"
             :filter-categories="federatedSearchStore.cludoCategories"
             @filter-updated="updateSelectedCategory"
@@ -99,7 +100,7 @@ onMounted(() => {
     }
 
     if (params.has('category')) {
-        federatedSearchStore.selectedCategory = params.get('category');
+        federatedSearchStore.selectedCategory = decodeURIComponent(params.get('category'));
     }
 
     if (!params.has('search-term') && !params.has('category')) {
