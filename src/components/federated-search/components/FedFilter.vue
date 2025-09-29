@@ -159,6 +159,7 @@ function filterClasses() {
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             align-items: center;
+            padding: $vs-spacer-025;
 
             &_primary {
                 column-gap: $vs-spacer-075;
