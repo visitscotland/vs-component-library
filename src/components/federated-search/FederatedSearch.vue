@@ -214,46 +214,6 @@ function loadPage(pageNumber) {
 </script>
 
 <style lang="scss">
-.vs-federated-search {
-    &__search-input {
-        position: relative;
-        z-index: 1;
-
-        @include media-breakpoint-up(lg) {
-            padding: $vs-spacer-200 0;
-        }
-    }
-
-    &__label {
-        position: absolute;
-        left: $vs-spacer-075;
-        top: 50%;
-        transform: translate(0, -50%);
-
-        @include media-breakpoint-up(lg) {
-            left: $vs-spacer-150;
-
-            .vs-icon {
-                font-size: $icon-size-sm;
-            }
-        }
-    }
-
-    .vs-input.form-control {
-        font-size: $font-size-body;
-        padding: $vs-spacer-075 $vs-spacer-125 $vs-spacer-075 2.5rem;
-        margin: 0;
-
-        &:focus{
-            @include form-focus-state;
-        }
-
-        @include media-breakpoint-up(lg) {
-            padding: $vs-spacer-100 $vs-spacer-100 $vs-spacer-100 $vs-spacer-400;
-            font-size: $font-size-6;
-            height: 64px;
-        }
-    }
 
 //     &__close-button {
 //         position: absolute;
@@ -265,7 +225,6 @@ function loadPage(pageNumber) {
 //             top: $vs-spacer-050;
 //         }
 //     }
-}
 
 // .autocomplete-suggestions {
 //     background-color: #fff;

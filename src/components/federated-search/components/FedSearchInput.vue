@@ -1,7 +1,7 @@
 <template>
     <div class="vs-fed-search-input">
-        <div class="d-flex">
-            <div class="vs-fed-search__input d-flex flex-grow-1 me-100 position-relative">
+        <div class="vs-fed-search__input">
+            <div class="vs-fed-search__text-input">
                 <!-- search input -->
                 <label
                     for="federated-search"
@@ -195,3 +195,58 @@ function setSelectedCategory(category) {
     navigateToSearchResults();
 }
 </script> -->
+
+<style lang="scss">
+.vs-fed-search-input {
+    .vs-fed-search__input {
+        display: flex;
+        position: relative;
+        z-index: 1;
+        padding: $vs-spacer-100 0;
+
+        @include media-breakpoint-up(lg) {
+            padding: $vs-spacer-200 0;
+        }
+
+        & .vs-fed-search__text-input {
+            flex-grow: 1;
+
+            @include media-breakpoint-up(lg){
+                margin-right: $vs-spacer-100;
+            }
+
+            & label {
+                position: absolute;
+                left: $vs-spacer-075;
+                top: 50%;
+                transform: translate(0, -50%);
+
+                @include media-breakpoint-up(lg) {
+                    left: $vs-spacer-150;
+
+                    .vs-icon {
+                        font-size: $icon-size-sm;
+                    }
+                }
+            }
+        }
+
+        .vs-input.form-control {
+            font-size: $font-size-body;
+            padding: $vs-spacer-075 $vs-spacer-125 $vs-spacer-075 $vs-spacer-250;
+            margin: 0;
+            border-radius: $vs-radius-full;
+
+            &:focus{
+                @include form-focus-state;
+            }
+
+            @include media-breakpoint-up(lg) {
+                padding: $vs-spacer-100 $vs-spacer-100 $vs-spacer-100 $vs-spacer-400;
+                font-size: $font-size-6;
+                height: $vs-spacer-300;
+            }
+        }
+    }
+}
+</style>
