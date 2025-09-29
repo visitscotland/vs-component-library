@@ -93,7 +93,7 @@ describe('VsFedSearchSort', () => {
             const datePickerFrom = wrapper.find('#vs-fed-search-sort--from-date');
             await datePickerFrom.setValue('2025-07-28');
 
-            expect(wrapper.emitted('fed-search-sort-from-date-updated')).toBeTruthy();
+            expect(wrapper.emitted('from-date-updated')).toBeTruthy();
         });
 
         it('should emit when `to date` is visible and the date is changed', async() => {
@@ -105,7 +105,7 @@ describe('VsFedSearchSort', () => {
             const datePickerFrom = wrapper.find('#vs-fed-search-sort--to-date');
             await datePickerFrom.setValue('2025-07-28');
 
-            expect(wrapper.emitted('fed-search-sort-to-date-updated')).toBeTruthy();
+            expect(wrapper.emitted('end-date-updated')).toBeTruthy();
         });
 
         it('should emit when a sort option is clicked', async() => {
