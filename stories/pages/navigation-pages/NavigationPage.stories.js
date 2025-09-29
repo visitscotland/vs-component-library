@@ -40,7 +40,6 @@ export default {
     parameters: {
         layout: 'fullscreen',
     },
-    tags: ['!autodocs'],
 };
 
 const createTemplate = (templateString) => (args) => ({
