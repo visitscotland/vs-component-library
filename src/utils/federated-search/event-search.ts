@@ -15,13 +15,34 @@ function cleanData(data: any) {
     return results;
 }
 
-async function eventSearch(searchTerm: string, page: number, selectedCategory: string) {
-    console.log('events api');
+async function eventSearch(
+    searchTerm: string,
+    page: number,
+    selectedCategory: string,
+    selectedSubCategory: string[],
+    startDate: string,
+    endDate: string,
+    sortBy: any,
+) {
     // Only query the event API when the no selected category or the event category
     // is selected.
     if (selectedCategory === 'Events & Festivals' || selectedCategory === '') {
         let url = `http://3.10.24.15:8080/events/search?query=${searchTerm}`;
         url = page > 1 ? `${url}&page=${page}` : url;
+        // url = startDate !== '' ? `${url}&startDate=${startDate}` : url;
+        // url = endDate !== '' ? `${url}&endDate=${endDate}` : url;
+        // url = sortBy ? `${url&}`
+
+        // Temporary
+        console.log({
+            startDate,
+            endDate,
+            sortBy,
+        });
+
+        selectedSubCategory.forEach((category) => {
+            url += `&category=${category.toLowerCase()}`;
+        });
 
         try {
             const response = await fetch(url);
