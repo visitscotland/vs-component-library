@@ -135,8 +135,8 @@ defineEmits(['filter-updated']);
 function scroll(dir) {
     const scrollRail = document.getElementById(`vs-fed-filter--scroll-rail_${props.variant}`);
 
-    if (dir === 'left') scrollRail?.scrollBy(-300, 0);
-    else if (dir === 'right') scrollRail?.scrollBy(300, 0);
+    if (dir === 'left') scrollRail?.scrollBy(-200, 0);
+    else if (dir === 'right') scrollRail?.scrollBy(200, 0);
 }
 
 function filterClasses() {
@@ -168,10 +168,10 @@ function filterClasses() {
 
             &_secondary {
                 column-gap: $vs-spacer-050;
+                margin-top: $vs-spacer-025;
             }
 
             &_wrap {
-
                 @include media-breakpoint-up(lg) {
                     overflow-x: none;
                     scroll-snap-type: none;
@@ -188,6 +188,7 @@ function filterClasses() {
         &--scroll-button {
             flex: 0 0 max-content;
             aspect-ratio: 1/1;
+            margin-top: 0.25em;
 
             &__left {
                 margin-right: $vs-spacer-050;
