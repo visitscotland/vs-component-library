@@ -73,6 +73,7 @@
                 </VsCard>
             </VsCardGroup>
             <VsPagination
+                class="vs-federated-search--pagination"
                 v-if="federatedSearchStore.results && totalResultsPages > 1"
                 :number-of-pages="totalResultsPages"
                 next-button-label="Next"
@@ -195,4 +196,10 @@ function loadPage(pageNumber) {
 //     left: 3rem;
 //     width: 91%;
 // }
+
+.vs-federated-search {
+    &--pagination {
+        margin: $vs-spacer-200 $vs-spacer-0 $vs-spacer-300 $vs-spacer-0;
+    }
+}
 </style>
