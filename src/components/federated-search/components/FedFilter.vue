@@ -30,7 +30,7 @@
                     class="vs-fed-filter--category-button"
                     :data-test="`vs-fed-filter--category-button_${filterCategory.id}`"
                     :icon="variant === 'primary' ? filterCategory.icon : null"
-                    :variant="activeFilter === filterCategory.Key ? 'primary' : 'secondary'"
+                    :variant="isActive(filterCategory.Key) ? 'primary' : 'secondary'"
                     :size="variant === 'secondary' ? 'sm' : 'md'"
                     @click="$emit('filter-updated', filterCategory.Key)"
                 >
@@ -93,14 +93,13 @@ const props = defineProps({
      */
     wrap: {
         type: Boolean,
-        required: true,
         default: false,
     },
     /**
      * ID of currently active filter
      */
     activeFilter: {
-        type: String,
+        type: String || Array,
         default: '',
     },
     /**
@@ -121,6 +120,17 @@ const props = defineProps({
 
 defineEmits(['filter-updated']);
 
+function isActive(category) {
+    if (typeof props.activeFilter === 'string') {
+        return props.activeFilter === category;
+    }
+
+    if (props.activeFilter && typeof props.activeFilter === 'object') {
+        return props.activeFilter.includes(category);
+    }
+
+    return false;
+}
 /**
  * This is not the best solution by any means
  * There is a better solution that doesn't rely on JS,

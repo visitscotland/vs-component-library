@@ -19,7 +19,7 @@
                 :value="new Date().toJSON().slice(0, 10)"
                 type="date"
                 :auto-complete="false"
-                @input="$emit('fed-search-sort-from-date-updated', $event.target.value)"
+                @input="$emit('from-date-updated', $event.target.value)"
             />
         </VsCol>
         <VsCol
@@ -40,7 +40,7 @@
                 field-name="vs-fed-search-sort--to-date"
                 type="date"
                 :auto-complete="false"
-                @input="$emit('fed-search-sort-to-date-updated', $event.target.value)"
+                @input="$emit('end-date-updated', $event.target.value)"
             />
         </VsCol>
         <VsCol
@@ -69,7 +69,6 @@
 </template>
 
 <script setup lang="ts">
-
 import { ref } from 'vue';
 
 import VsRow from '@/components/grid/Row.vue';
@@ -87,7 +86,6 @@ const props = defineProps({
     dateFilterVisible: {
         type: Boolean,
         default: false,
-        required: false,
     },
     /**
      * Options for the sort dropdown
@@ -98,33 +96,34 @@ const props = defineProps({
      */
     sortOptions: {
         type: Object,
-        required: false,
+        required: true,
     },
     /** Label to be displayed above `from` date field */
     fromDateLabel: {
         type: String,
-        required: false,
+        required: true,
     },
-    /** Label to be displated aboce `to` date field */
+    /** Label to be displayed above `to` date field */
     toDateLabel: {
         type: String,
-        required: false,
+        required: true,
     },
     /** Label to be displayed on the sort dropdown */
     sortLabel: {
         type: String,
         required: true,
-        default: 'Sort by',
     },
 });
 
-defineEmits(['fed-search-sort-from-date-updated', 'fed-search-sort-to-date-updated', 'sort-order-updated']);
-
+defineEmits([
+    'from-date-updated',
+    'end-date-updated',
+    'sort-order-updated',
+]);
 </script>
 
 <style lang="scss">
-.vs-fed-search-sort{
-
+.vs-fed-search-sort {
     &--label {
         font-weight: $vs-font-weight-regular;
     }
@@ -133,17 +132,17 @@ defineEmits(['fed-search-sort-from-date-updated', 'fed-search-sort-to-date-updat
         display: flex;
         align-items: flex-end;
 
-        button{
+        button {
             /*Gives sort dropdown extra height to visually balance
             * with the date-pickers next to it */
             height: 50px;
         }
 
-        @include media-breakpoint-down(sm){
+        @include media-breakpoint-down(sm) {
             display: block;
             margin-top: 1em;
 
-            button{
+            button {
                 width: 100%;
             }
         }

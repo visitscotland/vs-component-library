@@ -12,8 +12,12 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
     const results = ref(null);
     const searchTerm = ref('');
     const selectedCategory = ref(null);
+    const selectedSubCategory = ref([]);
     const totalResults = ref(0);
     const isHomePage = ref(false);
+    const startDate = ref('');
+    const endDate = ref('');
+    const sortBy = ref(undefined);
 
     async function getCludoCategories() {
         const cludoResults = await cludoSearch('*', cludoCredentials.value, 1, '');
@@ -34,6 +38,10 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
             searchTerm.value,
             currentPage.value,
             selectedCategory.value,
+            selectedSubCategory.value,
+            startDate.value,
+            endDate.value,
+            sortBy.value,
         );
 
         console.log('Cludo Results:', cludoResults);
@@ -59,8 +67,24 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
             url.searchParams.set('category', selectedCategory.value);
         }
 
+        if (selectedSubCategory.value.length > 0) {
+            url.searchParams.set('sub-category', encodeURIComponent(selectedSubCategory.value.join(',')));
+        }
+
         if (currentPage.value && currentPage.value > 1) {
             url.searchParams.set('page', currentPage.value.toString());
+        }
+
+        if (startDate.value) {
+            url.searchParams.set('start-date', startDate.value);
+        }
+
+        if (endDate.value) {
+            url.searchParams.set('end-date', endDate.value);
+        }
+
+        if (sortBy.value) {
+            url.searchParams.set('sort-by', sortBy.value.id);
         }
 
         if (!isHomePage.value) {
@@ -107,9 +131,13 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         results,
         searchTerm,
         selectedCategory,
+        selectedSubCategory,
         totalResults,
         navigateToResultsPage,
         isHomePage,
+        startDate,
+        endDate,
+        sortBy,
     };
 });
 

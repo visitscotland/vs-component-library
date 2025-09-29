@@ -5,66 +5,33 @@
     >
         <VsFedSearchInput :cludo-credentials="props.cludoCredentials" />
 
-        <!-- <div class="vs-federated-search__search-input d-flex gap-2"> -->
-        <!-- <div class="vs-federated-search__search-input"> -->
-        <!-- <div class="d-flex flex-grow-1 me-100 position-relative"> -->
-        <!-- <div class="">
-                <label
-                    for="federated-search"
-                    class="vs-federated-search__label"
-                >
-                    <span class="visually-hidden">
-                        Search for something
-                    </span>
-                    <VsIcon
-                        icon="vs-icon-control-search"
-                        size="xs"
-                    />
-                </label>
-                <VsInput
-                    :auto-complete="false"
-                    class="vs-federated-search__input"
-                    :disabled="federatedSearchStore.isLoading"
-                    field-name="federated-search"
-                    name="searchrequest"
-                    placeholder="What are you looking for?"
-                    type="search"
-                    :value="searchTerm ? searchTerm : ''"
-                    @input="updateSearchTerm"
-                    @keydown.enter="search"
-                /> -->
-        <!-- <div
-                    v-if="searchSuggestions"
-                    class="vs-federated-search__autocomplete"
-                >
-                    <VsList unstyled>
-                        <li
-                            v-for="suggestion in searchSuggestions"
-                            :key="suggestion"
-                            @click="searchFromSuggestion(suggestion)"
-                            @keydown.enter="searchFromSuggestion(suggestion)"
-                        >
-                            {{ suggestion }}
-                        </li>
-                    </VsList>
-                </div> -->
-        <!-- </div>
-            <VsButton
-                class="d-none d-lg-block px-200"
-                :disabled="federatedSearchStore.isLoading"
-                @click="search"
-            >
-                Search
-            </VsButton>
-        </div>
-
-        <VsFedFilter
-            :filter-categories="props.filterCategories"
-            @filter-updated="updateSelectedCategory"
-        /> -->
-
-        <!-- TODO: Replace this with the new divider component -->
-        <!-- <hr> -->
+        <VsFedSearchSort
+            :date-filter-visible="true"
+            :sort-options="[
+                {
+                    id: 'relevance',
+                    label: 'Relevance',
+                },
+                {
+                    id: 'date',
+                    label: 'Date',
+                },
+                {
+                    id: 'price_asc',
+                    label: 'Price Ascending',
+                },
+                {
+                    id: 'price_desc',
+                    label: 'Price Descending',
+                },
+            ]"
+            from-date-label="Arriving from"
+            to-date-label="To"
+            sort-label="Sort by"
+            @from-date-updated="updateStartDate"
+            @end-date-updated="updateEndDate"
+            @sort-order-updated="updateSort"
+        />
 
         <VsLoadingSpinner v-if="federatedSearchStore.isLoading" />
 
@@ -135,8 +102,8 @@ import {
     VsPagination,
 } from '@/components';
 import useFederatedSearchStore from '@/stores/federatedSearch.store';
-// import VsFedFilter from './components/FedFilter.vue';
 import VsFedSearchInput from './components/FedSearchInput.vue';
+import VsFedSearchSort from './components/FedSearchSort.vue';
 
 const federatedSearchStore = useFederatedSearchStore();
 
@@ -176,19 +143,20 @@ onMounted(() => {
     }
 });
 
-// const searchTerm = ref('');
+function updateStartDate(date) {
+    federatedSearchStore.startDate = date;
+    federatedSearchStore.navigateToResultsPage();
+}
 
-// function updateSearchTerm(event) {
-//     const target = event.target;
-//     searchTerm.value = target.value;
-// }
+function updateEndDate(date) {
+    federatedSearchStore.endDate = date;
+    federatedSearchStore.navigateToResultsPage();
+}
 
-// function search() {
-//     if (!searchTerm.value) return;
-
-//     federatedSearchStore.searchTerm = searchTerm.value;
-//     federatedSearchStore.getSearchResults();
-// }
+function updateSort(type) {
+    federatedSearchStore.sortBy = type;
+    federatedSearchStore.navigateToResultsPage();
+}
 
 function loadPage(pageNumber) {
     federatedSearchStore.currentPage = pageNumber;
@@ -200,17 +168,7 @@ function loadPage(pageNumber) {
     });
 
     federatedSearchStore.navigateToResultsPage();
-
-    // TODO: Update url params with page number.
-    // const params = new URLSearchParams(document.location.search);
-    // params.set('page', pageNumber);
-    // window.location.search = params;
 }
-
-// function updateSelectedCategory(label) {
-//     federatedSearchStore.selectedCategory = label;
-//     federatedSearchStore.getSearchResults();
-// }
 </script>
 
 <style lang="scss">

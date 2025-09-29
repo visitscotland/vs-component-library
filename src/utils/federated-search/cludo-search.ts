@@ -21,15 +21,6 @@ async function cludoSearch(
     page: number,
     selectedCategory: string,
 ) {
-    // Don't query the Cludo API when the "Events" category is selected.
-    if (selectedCategory === 'Events') {
-        return {
-            results: [],
-            totalResults: 0,
-            categories: [],
-        };
-    }
-
     const { apiKey, customerId, engineId } = cludoCredentials;
     const url = `https://api-eu1.cludo.com/api/v3/${customerId}/${engineId}/search`;
     const auth = `${customerId}:${apiKey}`;

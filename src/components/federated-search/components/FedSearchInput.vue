@@ -40,7 +40,16 @@
             v-if="federatedSearchStore.cludoCategories"
             :active-filter="federatedSearchStore.selectedCategory"
             :filter-categories="federatedSearchStore.cludoCategories"
+            :wrap="true"
             @filter-updated="updateSelectedCategory"
+        />
+
+        <VsFedFilter
+            v-if="federatedSearchStore.selectedCategory === 'Events & Festivals'"
+            :active-filter="federatedSearchStore.selectedSubCategory"
+            class="mt-200"
+            :filter-categories="subFilters"
+            @filter-updated="updateSelectedSubCategory"
         />
 
         <VsDivider />
@@ -72,6 +81,48 @@ const props = defineProps({
     },
 });
 
+const subFilters = [
+    {
+        Key: 'Books',
+    },
+    {
+        Key: 'Clubs',
+    },
+    {
+        Key: 'Comedy',
+    },
+    {
+        Key: 'Dance',
+    },
+    {
+        Key: 'Days out',
+    },
+    {
+        Key: 'Festivals',
+    },
+    {
+        Key: 'Films',
+    },
+    {
+        Key: 'Kids',
+    },
+    {
+        Key: 'LGBTQIA+',
+    },
+    {
+        Key: 'Music',
+    },
+    {
+        Key: 'Sport',
+    },
+    {
+        Key: 'Talks & Lectures',
+    },
+    {
+        Key: 'Theatre',
+    },
+];
+
 const federatedSearchStore = useFederatedSearchStore();
 
 function updateSearchTerm(event) {
@@ -84,6 +135,20 @@ function updateSelectedCategory(category) {
     federatedSearchStore.selectedCategory = (federatedSearchStore.selectedCategory !== category)
         ? category
         : '';
+
+    federatedSearchStore.navigateToResultsPage();
+}
+
+function updateSelectedSubCategory(category) {
+    if (!federatedSearchStore.selectedSubCategory.includes(category)) {
+        federatedSearchStore.selectedSubCategory.push(category);
+    } else {
+        const index = federatedSearchStore.selectedSubCategory.indexOf(category);
+
+        if (index >= 0) {
+            federatedSearchStore.selectedSubCategory.splice(index, 1);
+        }
+    }
 
     federatedSearchStore.navigateToResultsPage();
 }
