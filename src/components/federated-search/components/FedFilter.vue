@@ -1,15 +1,13 @@
 <template>
     <div class="vs-fed-filter">
-        <VsHeading
-            v-if="$slots['fed-filter-header']"
-            class="mb-075"
-            heading-level="4"
-            heading-style="heading-xxxs"
+        <VsBody
+            v-if="$slots['fed-filter-header'] && $slots['fed-filter-header']()"
+            class="vs-fed-filter--header mb-075"
             data-test="vs-fed-filter-header"
         >
             <!-- @slot Heading for the filter -->
             <slot name="fed-filter-header" />
-        </VsHeading>
+        </VsBody>
         <div class="vs-fed-filter--scroll-container">
             <VsButton
                 v-if="scrollButtons"
@@ -56,7 +54,6 @@
 <script setup>
 // Buttons should be links on homepage!
 import VsButton from '@/components/button/Button.vue';
-import VsHeading from '@/components/heading/Heading.vue';
 
 /**
  * Fed Filter is used in the Federated Search engine.
@@ -145,8 +142,8 @@ function isActive(category) {
 function scroll(dir) {
     const scrollRail = document.getElementById(`vs-fed-filter--scroll-rail_${props.variant}`);
 
-    if (dir === 'left') scrollRail?.scrollBy(-300, 0);
-    else if (dir === 'right') scrollRail?.scrollBy(300, 0);
+    if (dir === 'left') scrollRail?.scrollBy(-200, 0);
+    else if (dir === 'right') scrollRail?.scrollBy(200, 0);
 }
 
 function filterClasses() {
@@ -159,6 +156,9 @@ function filterClasses() {
 
 <style lang="scss">
     .vs-fed-filter {
+        &--header {
+            font-weight: $vs-font-weight-medium;
+        }
 
         &--scroll-container{
             display: flex;
@@ -169,6 +169,7 @@ function filterClasses() {
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             align-items: center;
+            padding: $vs-spacer-025;
 
             &_primary {
                 column-gap: $vs-spacer-075;
@@ -177,10 +178,10 @@ function filterClasses() {
 
             &_secondary {
                 column-gap: $vs-spacer-050;
+                margin-top: $vs-spacer-025;
             }
 
             &_wrap {
-
                 @include media-breakpoint-up(lg) {
                     overflow-x: none;
                     scroll-snap-type: none;
@@ -197,6 +198,7 @@ function filterClasses() {
         &--scroll-button {
             flex: 0 0 max-content;
             aspect-ratio: 1/1;
+            margin-top: 0.25em;
 
             &__left {
                 margin-right: $vs-spacer-050;
