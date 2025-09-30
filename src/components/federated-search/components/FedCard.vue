@@ -12,7 +12,7 @@
                         v-if="props.price"
                         class="vs-fed-card--header__attribute vs-fed-card--header__attribute-price me-050 mb-0"
                     >
-                        {{ props.price }}
+                        From £{{ formattedPrice() }}
                     </VsDetail>
                     <VsDetail
                         v-if="props.date"
@@ -71,15 +71,12 @@
                     class="vs-fed-card--footer_link"
                     data-test="vs-fed-card-link"
                 >
-                    <VsLink
-                        class="stretched-link"
-                        :href="props.link"
-                        :type="props.linkType === 'INTERNAL' ? 'internal' : 'external'"
-                        icon-size="xxs"
-                    >
-                        <!-- @slot for link text -->
-                        <slot name="fed-card-link-label" />
-                    </VsLink>
+                    <VsIcon
+                        :icon="linkIconName()"
+                        size="xs"
+                        custom-colour="#A8308C"
+                        class="me-025"
+                    />
                 </div>
             </div>
         </template>
@@ -87,7 +84,6 @@
 </template>
 
 <script setup lang="ts">
-
 import VsCard from '@/components/card/Card.vue';
 import VsImg from '@/components/img/Img.vue';
 import VsHeading from '@/components/heading/Heading.vue';
@@ -126,6 +122,24 @@ const props = defineProps({
 });
 
 const imgFallback = 'images/placeholders/fallback-img.png';
+
+const formattedPrice = () => (props.price.match(/(\.\d)/) ? `${props.price}0` : props.price);
+
+function linkIconName() {
+    let icon = '';
+
+    switch (props.linkType) {
+    case 'EXTERNAL':
+        icon = 'fa-regular fa-square-arrow-up-right';
+        break;
+    case 'INTERNAL':
+        icon = 'fa-regular fa-arrow-right';
+        break;
+    default:
+        icon = '';
+    };
+    return icon;
+}
 </script>
 
 <style lang="scss">

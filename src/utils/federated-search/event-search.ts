@@ -9,6 +9,10 @@ function cleanData(data: any) {
         description: event.descriptions[0]?.description || '',
         imgSrc: event.images[0]?.url || '',
         url: event.performances[0]?.url || '',
+        location: event.place.town,
+        startDate: event.startFormatted,
+        endDate: event.endFormatted,
+        minPrice: event.minPrice?.toString(),
         dataSrc: 'data-thistle',
     }));
 
