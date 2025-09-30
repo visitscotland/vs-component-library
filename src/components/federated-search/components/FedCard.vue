@@ -139,6 +139,10 @@ const imgFallback = 'images/placeholders/fallback-img.png';
 
         & img {
             height: 17.625rem;
+
+            @include media-breakpoint-down(lg) {
+                height: 15rem
+            }
         }
 
         &__attribute {
