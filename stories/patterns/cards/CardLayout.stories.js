@@ -11,7 +11,7 @@ import VsArticleDetails from '@/components/article-details/ArticleDetails.vue';
 import VsBadge from '@/components/badge/Badge.vue';
 
 import visualCardData from '@/assets/fixtures/navigation-pages/visual-impact-cards.json';
-import informationalCardData from '@/assets/fixtures/navigation-pages/information-first-top-cards.json';
+import informationalCardData from '@/assets/fixtures/navigation-pages/information-first-secondary-cards.json';
 
 import SplitLinkGrid3Example from './card-layout-examples/split-link-grid-3';
 import SplitLinkGrid4Example from './card-layout-examples/split-link-grid-4';
