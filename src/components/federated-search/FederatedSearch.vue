@@ -35,37 +35,20 @@
                 :cards-per-row="3"
                 :scroll-snap="true"
             >
-                <VsCard
+                <VsFedCard
                     v-for="result in federatedSearchStore.results"
                     :key="result.id"
-                    card-style="elevated"
+                    :img-src="result.imgSrc"
+                    :link="result.url"
+                    :link-type="result.dataSrc === 'cludo' ? 'INTERNAL' : 'EXTERNAL'"
                 >
-                    <template #vs-card-header>
-                        <VsImg
-                            :src="result.imgSrc"
-                            class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                        />
+                    <template #fed-card-header>
+                        {{ result.title }}
                     </template>
-
-                    <template #vs-card-body>
-                        <VsHeading
-                            level="3"
-                            heading-style="heading-s"
-                        >
-                            <VsLink
-                                :href="result.url"
-                                class="stretched-link"
-                                variant="secondary"
-                            >
-                                {{ result.title }}
-                            </VsLink>
-                        </VsHeading>
-
-                        <VsBody>
-                            {{ result.description }}
-                        </VsBody>
+                    <template #fed-card-description>
+                        {{ result.description }}
                     </template>
-                </VsCard>
+                </VsFedCard>
             </VsCardGroup>
             <VsPagination
                 class="vs-federated-search--pagination"
@@ -88,18 +71,15 @@ import {
     onMounted,
 } from 'vue';
 import {
-    VsBody,
-    VsCard,
     VsCardGroup,
     VsHeading,
-    VsImg,
-    VsLink,
     VsLoadingSpinner,
     VsPagination,
 } from '@/components';
 import useFederatedSearchStore from '@/stores/federatedSearch.store';
 import VsFedSearchInput from './components/FedSearchInput.vue';
 import VsFedSearchSort from './components/FedSearchSort.vue';
+import VsFedCard from './components/FedCard.vue';
 
 const federatedSearchStore = useFederatedSearchStore();
 
