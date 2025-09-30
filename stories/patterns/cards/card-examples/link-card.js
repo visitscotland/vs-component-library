@@ -4,7 +4,7 @@ export default `
         fill-color="vs-color-background-primary"
         accent-bar
     >
-         <template #vs-card-header>
+        <template #vs-card-header>
             <VsBadge 
                 variant="subtle"
                 class="mt-125 mx-075"
