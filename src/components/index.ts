@@ -26,10 +26,12 @@ export { default as VsCarouselSlide } from './carousel/components/CarouselSlide.
 export { default as VsCheckbox } from './checkbox/Checkbox.vue';
 export { default as VsDescriptionList } from './description-list/DescriptionList.vue';
 export { default as VsDescriptionListItem } from './description-list/components/DescriptionListItem.vue';
+export { default as VsDetail } from './detail/Detail.vue';
 export { default as VsDropdown } from './dropdown/Dropdown.vue';
 export { default as VsDropdownItem } from './dropdown/components/DropdownItem.vue';
 export { default as VsEmbedWrapper } from './embed-wrapper/EmbedWrapper.vue';
 export { default as VsEventCard } from './event-card/EventCard.vue';
+export { default as VsFederatedSearch } from './federated-search/FederatedSearch.vue';
 export { default as VsFilter } from './filter/VsFilter.vue';
 export { default as VsFilterSection } from './filter/components/VsFilterSection.vue';
 export { default as VsFooter } from './footer/Footer.vue';

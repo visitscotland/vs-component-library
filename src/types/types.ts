@@ -35,3 +35,18 @@ export type TmsApiDataItem = {
     lat: string;
     lng: string;
 };
+
+export type CludoCredentials = {
+    apiKey: string;
+    customerId: number;
+    engineId: number;
+};
+
+export type FederatedSearchResult = {
+    id: string;
+    title: string;
+    description: string;
+    imgSrc: string;
+    url: string;
+    dataSrc: string;
+};
