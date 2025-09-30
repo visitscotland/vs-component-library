@@ -5,33 +5,45 @@
     >
         <VsFedSearchInput :cludo-credentials="props.cludoCredentials" />
 
-        <VsFedSearchSort
-            :date-filter-visible="true"
-            :sort-options="[
-                {
-                    id: 'relevance',
-                    label: 'Relevance',
-                },
-                {
-                    id: 'date',
-                    label: 'Date',
-                },
-                {
-                    id: 'price_asc',
-                    label: 'Price Ascending',
-                },
-                {
-                    id: 'price_desc',
-                    label: 'Price Descending',
-                },
-            ]"
-            from-date-label="Arriving from"
-            to-date-label="To"
-            sort-label="Sort by"
-            @from-date-updated="updateStartDate"
-            @end-date-updated="updateEndDate"
-            @sort-order-updated="updateSort"
-        />
+        <div class="d-flex justify-content-between">
+            <div>
+                <VsHeading
+                    v-if="federatedSearchStore.results"
+                    heading-style="heading-m"
+                    :level="2"
+                >
+                    Search results ({{ federatedSearchStore.totalResults }})
+                </VsHeading>
+            </div>
+            <VsFedSearchSort
+                v-if="federatedSearchStore.selectedSubCategory === 'Events & Festivals'"
+                :date-filter-visible="true"
+                :sort-options="[
+                    {
+                        id: 'relevance',
+                        label: 'Relevance',
+                    },
+                    {
+                        id: 'date',
+                        label: 'Date',
+                    },
+                    {
+                        id: 'price_asc',
+                        label: 'Price Ascending',
+                    },
+                    {
+                        id: 'price_desc',
+                        label: 'Price Descending',
+                    },
+                ]"
+                from-date-label="Arriving from"
+                to-date-label="To"
+                sort-label="Sort by"
+                @from-date-updated="updateStartDate"
+                @end-date-updated="updateEndDate"
+                @sort-order-updated="updateSort"
+            />
+        </div>
 
         <VsLoadingSpinner v-if="federatedSearchStore.isLoading" />
 
@@ -114,13 +126,6 @@ const props = defineProps({
     */
     cludoCredentials: {
         type: Object,
-        required: true,
-    },
-    /**
-     * Top level filter categories.
-    */
-    filterCategories: {
-        type: Array,
         required: true,
     },
 });
