@@ -106,31 +106,29 @@ const props = defineProps({
     /** Populates the price attribute */
     price: {
         type: String,
-        required: false,
+        default: undefined,
     },
     /** Populates the data attribute */
     date: {
         type: String,
-        required: false,
+        default: undefined,
     },
     /** Card link */
     link: {
         type: String,
-        required: false,
+        default: undefined,
     },
     /** Denotes if link is internal or external */
     linkType: {
         type: String,
-        required: false,
+        default: undefined,
     },
 });
 
 const imgFallback = 'images/placeholders/fallback-img.png';
-
 </script>
 
 <style lang="scss">
-
 .vs-fed-card {
     &--header {
         display: flex;
@@ -190,5 +188,4 @@ const imgFallback = 'images/placeholders/fallback-img.png';
         }
     }
 }
-
 </style>

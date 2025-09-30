@@ -1,28 +1,16 @@
 import VsFederatedSearch from '@/components/federated-search/FederatedSearch.vue';
+import VsContainer from '@/components/grid/Container.vue';
 
 export default {
     component: VsFederatedSearch,
     title: 'Components/Custom components/Federated search',
     argTypes: {
-        breakPoint: {
-            options: [
-                '',
-                'xs',
-                'sm',
-                'md',
-                'lg',
-                'xl',
-                'xxl',
-            ],
-            control: {
-                type: 'select',
-            },
-        },
     },
 };
 
 const Template = (args) => ({
     components: {
+        VsContainer,
         VsFederatedSearch,
     },
     setup() {
@@ -31,13 +19,33 @@ const Template = (args) => ({
         };
     },
     template: `
-        <div :class="args.jsDisabled ? 'no-js' : ''">
-            <VsFederatedSearch/>
-        </div>
+        <VsContainer>
+            <div :class="args.jsDisabled ? 'no-js' : ''">
+                <VsFederatedSearch
+                    :cludo-credentials="args.cludoCredentials"
+                    :sort-options="args.sortOptions"
+                />
+            </div>
+        </VsContainer>
     `,
 });
 
 const base = {
+    cludoCredentials: {
+        apiKey: '',
+        customerId: 0,
+        engineId: 0,
+    },
+    sortOptions: [
+        {
+            id: 'dateAsc',
+            label: 'Date',
+        },
+        {
+            id: 'priceAsc',
+            label: 'Price',
+        },
+    ],
     jsDisabled: false,
 };
 

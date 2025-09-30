@@ -25,6 +25,16 @@ async function cludoSearch(
     const url = `https://api-eu1.cludo.com/api/v3/${customerId}/${engineId}/search`;
     const auth = `${customerId}:${apiKey}`;
 
+    // Don't query the Cludo API when the "Events & Festivals" is selected
+    // as this data only comes from the Events API (DataThistle).
+    if (selectedCategory === 'Events & Festivals') {
+        return {
+            results: [],
+            totalResults: 0,
+            categories: [],
+        };
+    }
+
     try {
         const response = await fetch(url, {
             method: 'POST',

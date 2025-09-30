@@ -29,16 +29,9 @@ async function eventSearch(
     if (selectedCategory === 'Events & Festivals' || selectedCategory === '') {
         let url = `http://3.10.24.15:8080/events/search?query=${searchTerm}`;
         url = page > 1 ? `${url}&page=${page}` : url;
-        // url = startDate !== '' ? `${url}&startDate=${startDate}` : url;
-        // url = endDate !== '' ? `${url}&endDate=${endDate}` : url;
-        // url = sortBy ? `${url&}`
-
-        // Temporary
-        console.log({
-            startDate,
-            endDate,
-            sortBy,
-        });
+        url = startDate !== '' ? `${url}&startDate=${startDate}` : url;
+        url = endDate !== '' ? `${url}&endDate=${endDate}` : url;
+        url = sortBy ? `${url}&sort=${sortBy.id}` : url;
 
         selectedSubCategory.forEach((category) => {
             url += `&category=${category.toLowerCase()}`;

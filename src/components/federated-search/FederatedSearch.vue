@@ -20,26 +20,9 @@
                 </VsDetail>
             </div>
             <VsFedSearchSort
-                v-if="federatedSearchStore.selectedSubCategory === 'Events & Festivals'"
+                v-if="federatedSearchStore.selectedCategory === 'Events & Festivals'"
                 :date-filter-visible="true"
-                :sort-options="[
-                    {
-                        id: 'relevance',
-                        label: 'Relevance',
-                    },
-                    {
-                        id: 'date',
-                        label: 'Date',
-                    },
-                    {
-                        id: 'price_asc',
-                        label: 'Price Ascending',
-                    },
-                    {
-                        id: 'price_desc',
-                        label: 'Price Descending',
-                    },
-                ]"
+                :sort-options="props.sortOptions"
                 from-date-label="Arriving from"
                 to-date-label="To"
                 sort-label="Sort by"
@@ -112,6 +95,18 @@ const props = defineProps({
     */
     cludoCredentials: {
         type: Object,
+        required: true,
+    },
+    /**
+     * Options for sorting the data (e.g date, price) in an object with
+     * an id and label.
+     * {
+     *   id: 'dateAsc',
+     *   label: 'Date',
+     * },
+    */
+    sortOptions: {
+        type: Array,
         required: true,
     },
 });
