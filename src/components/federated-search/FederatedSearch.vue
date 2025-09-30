@@ -4,16 +4,20 @@
         data-test="vs-federated-search"
     >
         <VsFedSearchInput :cludo-credentials="props.cludoCredentials" />
-
-        <div class="d-flex justify-content-between">
+        <VsDivider class="my-200" />
+        <div class="d-flex justify-content-between mb-200">
             <div>
                 <VsHeading
                     v-if="federatedSearchStore.results"
                     heading-style="heading-m"
                     :level="2"
+                    class="my-0"
                 >
-                    Search results ({{ federatedSearchStore.totalResults }})
+                    Search results
                 </VsHeading>
+                <VsDetail>
+                    Showing {{ federatedSearchStore.totalResults }} results
+                </VsDetail>
             </div>
             <VsFedSearchSort
                 v-if="federatedSearchStore.selectedSubCategory === 'Events & Festivals'"
@@ -88,12 +92,9 @@ import {
     onMounted,
 } from 'vue';
 import {
-    VsBody,
-    VsCard,
+    VsDetail,
     VsCardGroup,
     VsHeading,
-    VsImg,
-    VsLink,
     VsLoadingSpinner,
     VsPagination,
 } from '@/components';
@@ -101,6 +102,7 @@ import useFederatedSearchStore from '@/stores/federatedSearch.store';
 import VsFedSearchInput from './components/FedSearchInput.vue';
 import VsFedSearchSort from './components/FedSearchSort.vue';
 import VsFedCard from './components/FedCard.vue';
+import VsDivider from './components/Divider.vue';
 
 const federatedSearchStore = useFederatedSearchStore();
 
@@ -188,7 +190,7 @@ function loadPage(pageNumber) {
 
 .vs-federated-search {
     &--pagination {
-        margin: $vs-spacer-200 $vs-spacer-0 $vs-spacer-300 $vs-spacer-0;
+        margin: $vs-spacer-400 $vs-spacer-0 $vs-spacer-300 $vs-spacer-0;
     }
 }
 </style>

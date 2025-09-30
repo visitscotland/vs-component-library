@@ -51,8 +51,6 @@
             :filter-categories="subFilters"
             @filter-updated="updateSelectedSubCategory"
         />
-
-        <VsDivider />
     </div>
 </template>
 
@@ -64,7 +62,6 @@ import {
     VsIcon,
     VsInput,
 } from '@/components';
-import VsDivider from './Divider.vue';
 import VsFedFilter from './FedFilter.vue';
 
 const props = defineProps({
