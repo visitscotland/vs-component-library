@@ -5,7 +5,7 @@
                 <VsImg
                     class="vs-fed-card--header__image w-100 rounded-1 object-fit-cover img-zoom-on-hover"
                     use-lazy-loading
-                    :src="props.imgSrc"
+                    :src="props.imgSrc || imgFallback"
                 />
                 <div class="vs-fed-card--header__attributes">
                     <VsDetail
@@ -125,6 +125,8 @@ const props = defineProps({
     },
 });
 
+const imgFallback = 'images/placeholders/fallback-img.png';
+
 </script>
 
 <style lang="scss">
@@ -136,6 +138,10 @@ const props = defineProps({
         justify-content: flex-end;
         position: relative;
         height: auto;
+
+        & img {
+            height: 17.625rem;
+        }
 
         &__attribute {
             font-size: $vs-font-size-detail-s;
