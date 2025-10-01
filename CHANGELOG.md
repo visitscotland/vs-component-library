@@ -1,3 +1,10 @@
+## [5.9.2](https://github.com/visitscotland/vs-component-library/compare/v5.9.1...v5.9.2) (2025-10-01)
+
+
+### Bug Fixes
+
+* **cludo:** correct font weight for icon on sort ([41f3969](https://github.com/visitscotland/vs-component-library/commit/41f39699fafdb2501517b430df44cd5bdaa1ed24))
+
 ## [5.9.1](https://github.com/visitscotland/vs-component-library/compare/v5.9.0...v5.9.1) (2025-10-01)
 
 
