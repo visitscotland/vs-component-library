@@ -21,7 +21,13 @@ const Template = (args) => ({
     template: `
         <VsContainer>
             <div :class="args.jsDisabled ? 'no-js' : ''">
-                <VsFederatedSearch v-bind="args" />
+                <VsFederatedSearch
+                    v-bind="args"
+                >
+                    <template #federated-search-no-results>
+                        {{ args.noResultsLabel }}
+                    </template>
+                </VsFederatedSearch>
             </div>
         </VsContainer>
     `,
@@ -80,6 +86,7 @@ const base = {
         },
     ],
     jsDisabled: false,
+    noResultsLabel: 'There are no results, please try again',
 };
 
 export const Default = Template.bind();
