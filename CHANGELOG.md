@@ -1,3 +1,10 @@
+## [5.9.1](https://github.com/visitscotland/vs-component-library/compare/v5.9.0...v5.9.1) (2025-10-01)
+
+
+### Bug Fixes
+
+* **cludo:** improve text centring on pagination active page ([5f663cd](https://github.com/visitscotland/vs-component-library/commit/5f663cd18483e5ed2b0cf5ffa72ccba5bf3e6cad))
+
 # [5.9.0](https://github.com/visitscotland/vs-component-library/compare/v5.8.0...v5.9.0) (2025-09-25)
 
 
