@@ -54,5 +54,24 @@
         "metaData": "7 minute read"
       }
     ]
+  },
+  "textCardList3": {
+    "cards": [
+      {
+        "title": "Start your business",
+        "description": "Essential tools, legal guidance and staff support to launch successfully.",
+        "link": "#"
+      },
+      {
+        "title": "Improve your business",
+        "description": "Deliver quality experiences with customer insights, accessibility and service excellence.",
+        "link": "#"
+      },
+      {
+        "title": "Promote your business",
+        "description": "Boost visibility through engaging content, social media and marketing partnerships.",
+        "link": "#"
+      }
+    ]
   }
 }
