@@ -24,16 +24,34 @@
                     type="search"
                     :value="federatedSearchStore.searchTerm"
                     @updated="updateSearchTerm"
-                    @keyup.enter="federatedSearchStore.navigateToResultsPage"
+                    @keyup.enter="search"
                 />
             </div>
             <VsButton
                 class="d-none d-lg-block px-200"
                 :disabled="federatedSearchStore.isLoading"
-                @click="federatedSearchStore.navigateToResultsPage"
+                @click="search"
             >
                 Search
             </VsButton>
+        </div>
+
+        <div
+            v-if="searchSuggestions"
+            class="vs-fed-search-input--autocomplete"
+        >
+            <VsList unstyled>
+                <li
+                    v-for="suggestion in searchSuggestions"
+                    :key="suggestion"
+                    class="vs-fed-search-input--autocomplete__suggestion"
+                    @click="suggestedSearch(suggestion)"
+                    @keyup.enter="suggestedSearch(suggestion)"
+                    tabindex="0"
+                >
+                    {{ suggestion }}
+                </li>
+            </VsList>
         </div>
 
         <VsFedFilter
@@ -56,12 +74,13 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import useFederatedSearchStore from '@/stores/federatedSearch.store';
 import {
     VsButton,
     VsIcon,
     VsInput,
+    VsList,
 } from '@/components';
 import getEnvValue from '@/utils/get-env-value';
 import VsFedFilter from './FedFilter.vue';
@@ -112,10 +131,29 @@ const props = defineProps({
 });
 
 const federatedSearchStore = useFederatedSearchStore();
+const searchSuggestions = ref();
 
-function updateSearchTerm(event) {
+async function updateSearchTerm(event) {
     federatedSearchStore.currentPage = 1;
     federatedSearchStore.searchTerm = event.value;
+
+    const url = window.location.search;
+    const params = new URLSearchParams(url);
+
+    if (federatedSearchStore.searchTerm && params.get('search-term') !== federatedSearchStore.searchTerm) {
+        searchSuggestions.value = await federatedSearchStore.getAutoComplete();
+    }
+}
+
+function search() {
+    searchSuggestions.value = null;
+    federatedSearchStore.navigateToResultsPage();
+}
+
+function suggestedSearch(query) {
+    federatedSearchStore.searchTerm = query;
+    searchSuggestions.value = null;
+    federatedSearchStore.navigateToResultsPage();
 }
 
 function updateSelectedCategory(category) {
@@ -217,6 +255,37 @@ onMounted(() => {
                 padding: $vs-spacer-100 $vs-spacer-100 $vs-spacer-100 $vs-spacer-400;
                 font-size: $font-size-6;
                 height: $vs-spacer-300;
+            }
+        }
+    }
+
+    &--autocomplete {
+        position: absolute;
+        top: 6em;
+        left: 0;
+        //pushes it the length of the button + then centers under searchbar
+        right: calc(48px + 6.25%);
+        z-index: 10;
+        background-color: $vs-color-background-primary;
+        width: 75%;
+        margin: 0 auto;
+        border: 1px solid $vs-color-border-primary;
+
+        @include media-breakpoint-down(lg) {
+            width: 90%;
+            right: 0;
+        }
+
+        &__suggestion {
+            padding: $vs-spacer-050 $vs-spacer-050;
+            text-decoration: none;
+
+            &:hover {
+                background: $vs-color-interaction-cta-subtle-hover;
+            }
+
+            &:focus{
+                @include form-focus-state;
             }
         }
     }

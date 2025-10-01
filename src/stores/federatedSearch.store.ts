@@ -3,6 +3,7 @@ import { defineStore } from 'pinia';
 import { CludoCredentials } from '@/types/types';
 import cludoSearch from '@/utils/federated-search/cludo-search';
 import eventSearch from '@/utils/federated-search/event-search';
+import cludoAutocomplete from '@/utils/federated-search/cludo-autocomplete';
 
 const useFederatedSearchStore = defineStore('federatedSearch', () => {
     const cludoCategories = ref(null);
@@ -59,6 +60,10 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         isLoading.value = false;
     }
 
+    async function getAutoComplete() {
+        return cludoAutocomplete(searchTerm.value, cludoCredentials.value);
+    }
+
     function navigateToResultsPage() {
         const url = new URL(window.location);
 
@@ -105,6 +110,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         currentPage,
         cludoCredentials,
         eventsApi,
+        getAutoComplete,
         getCludoCategories,
         getSearchResults,
         isLoading,
