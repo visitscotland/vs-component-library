@@ -14,7 +14,7 @@
                 >
                     Search results
                 </VsHeading>
-                <VsDetail>
+                <VsDetail v-if="federatedSearchStore.totalResults !== 0">
                     Showing {{ federatedSearchStore.totalResults }} results
                 </VsDetail>
             </div>
@@ -73,6 +73,14 @@
                 @page-click="loadPage"
             />
         </div>
+        <div
+            v-if="federatedSearchStore.totalResults === 0"
+            class="vs-federated-search--warning"
+        >
+            <VsWarning>
+                <slot name="federated-search-no-results" />
+            </VsWarning>
+        </div>
     </div>
 </template>
 
@@ -80,6 +88,8 @@
 import {
     computed,
     onMounted,
+    onUpdated,
+    ref,
 } from 'vue';
 import {
     VsDetail,
@@ -87,6 +97,7 @@ import {
     VsHeading,
     VsLoadingSpinner,
     VsPagination,
+    VsWarning,
 } from '@/components';
 import useFederatedSearchStore from '@/stores/federatedSearch.store';
 import VsFedSearchInput from './components/FedSearchInput.vue';

@@ -24,7 +24,11 @@ const Template = (args) => ({
                 <VsFederatedSearch
                     :cludo-credentials="args.cludoCredentials"
                     :sort-options="args.sortOptions"
-                />
+                >
+                    <template #federated-search-no-results>
+                        {{ args.noResultsLabel }}
+                    </template>
+                </VsFederatedSearch>
             </div>
         </VsContainer>
     `,
@@ -47,6 +51,7 @@ const base = {
         },
     ],
     jsDisabled: false,
+    noResultsLabel: 'There are no results, please try again',
 };
 
 export const Default = Template.bind();

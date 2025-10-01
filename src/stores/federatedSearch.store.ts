@@ -14,7 +14,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
     const searchTerm = ref('');
     const selectedCategory = ref(null);
     const selectedSubCategory = ref([]);
-    const totalResults = ref(0);
+    const totalResults = ref(undefined);
     const isHomePage = ref(false);
     const startDate = ref('');
     const endDate = ref('');
