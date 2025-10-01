@@ -16,7 +16,6 @@ const factoryMount = (propsData) => mount(VsFedCard, {
         'fed-card-header': 'The Dundee Hooley',
         'fed-card-description': 'Information about the Dundee Hooley',
         'fed-card-location': 'City of Discovery',
-        'fed-card-link-label': 'See more',
     },
 });
 
@@ -78,14 +77,6 @@ describe('VsFedCard', () => {
             const header = wrapper.find('[data-test="vs-fed-card-location"]');
             expect(header.exists()).toBe(true);
             expect(wrapper.html()).toContain('City of Discovery');
-        });
-
-        it('should render the link-text when theres data in the link-text slot', () => {
-            const wrapper = factoryMount();
-
-            const header = wrapper.find('[data-test="vs-fed-card-link"]');
-            expect(header.exists()).toBe(true);
-            expect(wrapper.html()).toContain('See more');
         });
     });
 
