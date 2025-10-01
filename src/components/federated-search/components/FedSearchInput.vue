@@ -45,10 +45,11 @@
         />
 
         <VsFedFilter
-            v-if="federatedSearchStore.selectedCategory === 'Events & Festivals'"
+            v-if="federatedSearchStore.selectedCategory === 'Events & Festivals'
+                && props.subFilters"
             :active-filter="federatedSearchStore.selectedSubCategory"
             class="mt-200"
-            :filter-categories="subFilters"
+            :filter-categories="props.subFilters"
             @filter-updated="updateSelectedSubCategory"
         />
     </div>
@@ -62,63 +63,53 @@ import {
     VsIcon,
     VsInput,
 } from '@/components';
+import getEnvValue from '@/utils/get-env-value';
 import VsFedFilter from './FedFilter.vue';
 
 const props = defineProps({
     /**
-     * API key, Customer ID, and engine ID for Cludo search.
+     * API Key for Cludo.
     */
-    cludoCredentials: {
-        type: Object,
-        required: true,
+    cludoApiKey: {
+        type: String,
+        default: getEnvValue('CLUDO_API_KEY'),
     },
+    /**
+     * Customer ID for Cludo.
+    */
+    cludoCustomerId: {
+        type: Number,
+        default: Number(getEnvValue('CLUDO_CUSTOMER_ID')),
+    },
+    /**
+     * Engine ID for Cludo.
+    */
+    cludoEngineID: {
+        type: Number,
+        default: Number(getEnvValue('CLUDO_ENGINE_ID')),
+    },
+    /**
+     * Used to determine the search and filter buttons actions.
+    */
     isHomePage: {
         type: Boolean,
         default: false,
     },
+    /**
+     * URL of search page.
+    */
+    searchUrl: {
+        type: String,
+        default: undefined,
+    },
+    /**
+     * Array of sub filters to be used in the FedSearchInput component.
+    */
+    subFilters: {
+        type: Array,
+        default: undefined,
+    },
 });
-
-const subFilters = [
-    {
-        Key: 'Books',
-    },
-    {
-        Key: 'Clubs',
-    },
-    {
-        Key: 'Comedy',
-    },
-    {
-        Key: 'Dance',
-    },
-    {
-        Key: 'Days out',
-    },
-    {
-        Key: 'Festivals',
-    },
-    {
-        Key: 'Films',
-    },
-    {
-        Key: 'Kids',
-    },
-    {
-        Key: 'LGBTQIA+',
-    },
-    {
-        Key: 'Music',
-    },
-    {
-        Key: 'Sport',
-    },
-    {
-        Key: 'Talks & Lectures',
-    },
-    {
-        Key: 'Theatre',
-    },
-];
 
 const federatedSearchStore = useFederatedSearchStore();
 
@@ -151,7 +142,11 @@ function updateSelectedSubCategory(category) {
 }
 
 onMounted(() => {
-    federatedSearchStore.cludoCredentials = props.cludoCredentials;
+    federatedSearchStore.cludoCredentials = {
+        apiKey: props.cludoApiKey,
+        customerId: props.cludoCustomerId,
+        engineId: props.cludoEngineID,
+    };
     federatedSearchStore.isHomePage = props.isHomePage;
 
     const url = window.location.search;
@@ -172,91 +167,6 @@ onMounted(() => {
     }
 });
 </script>
-
-<!-- <script setup>
-import { onMounted } from 'vue';
-import useFederatedSearchStore from '@/stores/federatedSearch.store';
-import {
-    VsButton,
-    VsIcon,
-    VsInput,
-} from '@/components';
-import VsDivider from './Divider.vue';
-import VsFedFilter from './FedFilter.vue';
-
-const federatedSearchStore = useFederatedSearchStore();
-
-const props = defineProps({
-    /**
-     * API key, Customer ID, and engine ID for Cludo search.
-    */
-    cludoCredentials: {
-        type: Object,
-        required: true,
-    },
-});
-
-// Search input
-    // Clicking search button navigates to search page
-// Categories
-    // Come from Cludo.
-    // Query Cludo API on mount to get category list.
-// Clicking a category navigates to search page.
-
-onMounted(() => {
-    federatedSearchStore.cludoCredentials = props.cludoCredentials;
-
-    const params = new URLSearchParams(window.location.search);
-    const paramSearchTerm = params.get('search-term');
-    const paramCategory = params.get('category');
-
-    if (!params.has('search-term') && !params.has('category')) {
-        federatedSearchStore.getCludoCategories();
-    } else {
-        federatedSearchStore.searchTerm = params.get('search-term');
-        federatedSearchStore.selectedCategory = params.get('category');
-
-        federatedSearchStore.getSearchResults();
-    }
-
-    // if (!paramSearchTerm && !paramCategory) {
-    //     console.log('get categories');
-    //     federatedSearchStore.getCludoCategories();
-    // } else {
-    //     console.log('query apis');
-    //     searchTerm.value = paramSearchTerm;
-
-    //     federatedSearchStore.searchTerm = paramSearchTerm;
-    //     federatedSearchStore.selectedCategory = paramCategory;
-    //     federatedSearchStore.getSearchResults();
-    // }
-});
-
-function navigateToSearchResults() {
-    // URL of search results page.
-    const url = '.';
-    const params = new URLSearchParams(url.search);
-
-    if (searchTerm.value) {
-        params.set('search-term', searchTerm.value);
-    }
-
-    if (selectedCategory.value) {
-        params.set('category', selectedCategory.value);
-    }
-
-    window.location.href = `${url}/?${params}`;
-    // history.pushState(null, null, `?${params.toString()}`);
-}
-
-function setSelectedCategory(category) {
-    selectedCategory.value = (selectedCategory.value !== category)
-        ? category
-        : '';
-
-    navigateToSearchResults();
-}
-</script> -->
 
 <style lang="scss">
 .vs-fed-search-input {

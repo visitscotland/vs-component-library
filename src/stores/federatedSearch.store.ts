@@ -8,6 +8,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
     const cludoCategories = ref(null);
     const cludoCredentials = ref<CludoCredentials>(undefined);
     const currentPage = ref(1);
+    const eventsApi = ref(undefined);
     const isLoading = ref(false);
     const results = ref(null);
     const searchTerm = ref('');
@@ -18,6 +19,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
     const startDate = ref('');
     const endDate = ref('');
     const sortBy = ref(undefined);
+    const searchUrl = ref(undefined);
 
     async function getCludoCategories() {
         const cludoResults = await cludoSearch('*', cludoCredentials.value, 1, '');
@@ -35,6 +37,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         );
 
         const eventResults = await eventSearch(
+            eventsApi.value,
             searchTerm.value,
             currentPage.value,
             selectedCategory.value,
@@ -92,39 +95,16 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
             window.history.pushState({}, '', url);
             getSearchResults();
         } else {
-            console.log('direct to search-results');
+            const newHref = `./${searchUrl.value}/${url.search}`;
+            window.location.href = newHref;
         }
-        // const newParams = {
-        //     path: '/story/components-custom-components-federated-search--default',
-        // };
-
-        // if (searchTerm.value) {
-        //     newParams['search-term'] = searchTerm.value;
-        // }
-
-        // if (selectedCategory.value) {
-        //     newParams['category'] = selectedCategory.value;
-        // }
-
-        // const params = new URLSearchParams(newParams);
-        // const newHref = (Object.keys(newParams).length === 0)
-        //     ? ''
-        //     : `?${params}`;
-
-        // window.location.href = newHref;
     }
-
-    // // Query the APIs with the new page number when pagination is updated.
-    // watch(currentPage, (newValue, oldValue) => {
-    //     if (newValue !== oldValue) {
-    //         getSearchResults();
-    //     }
-    // });
 
     return {
         cludoCategories,
         currentPage,
         cludoCredentials,
+        eventsApi,
         getCludoCategories,
         getSearchResults,
         isLoading,

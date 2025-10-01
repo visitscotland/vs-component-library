@@ -21,22 +21,15 @@ const Template = (args) => ({
     template: `
         <VsContainer>
             <div :class="args.jsDisabled ? 'no-js' : ''">
-                <VsFedSearchInput
-                    :cludo-credentials="args.cludoCredentials"
-                    :is-home-page="args.isHomePage"
-                />
+                <VsFedSearchInput v-bind="args" />
             </div>
         </VsContainer>
     `,
 });
 
 const base = {
-    cludoCredentials: {
-        apiKey: '',
-        customerId: '',
-        engineId: '',
-    },
-    isHomePage: false,
+    searchUrl: '/site-search-results',
+    isHomePage: true,
     jsDisabled: false,
 };
 

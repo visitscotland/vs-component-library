@@ -100,11 +100,11 @@ const props = defineProps({
      * ID of currently active filter
      */
     activeFilter: {
-        type: String || Array,
+        type: [String, Array],
         default: '',
     },
     /**
-     * Enables the scroll buttons on fitler
+     * Enables the scroll buttons on filter
      */
     scrollButtons: {
         type: Boolean,
