@@ -6,9 +6,8 @@
         <VsFedSearchInput :cludo-credentials="props.cludoCredentials" />
         <VsDivider class="my-200" />
         <div class="d-flex justify-content-between mb-200">
-            <div>
+            <div v-if="federatedSearchStore.results">
                 <VsHeading
-                    v-if="federatedSearchStore.results"
                     heading-style="heading-m"
                     :level="2"
                     class="my-0"
@@ -42,15 +41,23 @@
                 <VsFedCard
                     v-for="result in federatedSearchStore.results"
                     :key="result.id"
+                    :date="setEventDate(result.startDate, result.endDate)"
                     :img-src="result.imgSrc"
                     :link="result.url"
                     :link-type="result.dataSrc === 'cludo' ? 'INTERNAL' : 'EXTERNAL'"
+                    :price="result.minPrice"
                 >
                     <template #fed-card-header>
                         {{ result.title }}
                     </template>
                     <template #fed-card-description>
                         {{ result.description }}
+                    </template>
+                    <template
+                        #fed-card-location
+                        v-if="result.location"
+                    >
+                        {{ result.location }}
                     </template>
                 </VsFedCard>
             </VsCardGroup>
@@ -155,6 +162,12 @@ function loadPage(pageNumber) {
     });
 
     federatedSearchStore.navigateToResultsPage();
+}
+
+function setEventDate(startDate, endDate) {
+    if (startDate === endDate) return startDate;
+
+    return `${startDate} - ${endDate}`;
 }
 </script>
 

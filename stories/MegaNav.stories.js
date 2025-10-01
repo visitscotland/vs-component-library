@@ -364,6 +364,13 @@ NoSearch.args = {
     noSearch: true,
 };
 
+export const SearchLink = Template.bind();
+
+SearchLink.args = {
+    ...base,
+    searchLink: '#',
+};
+
 export const StaticNav = Template.bind({
 });
 
