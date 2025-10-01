@@ -3,10 +3,16 @@
         class="vs-federated-search"
         data-test="vs-federated-search"
     >
-        <VsFedSearchInput :cludo-credentials="props.cludoCredentials" />
+        <VsFedSearchInput
+            :cludo-credentials="props.cludoCredentials"
+            :sub-filters="props.subFilters"
+        />
         <VsDivider class="my-200" />
-        <div class="d-flex justify-content-between mb-200">
-            <div v-if="federatedSearchStore.results">
+        <div
+            v-if="federatedSearchStore.results"
+            class="d-flex justify-content-between mb-200"
+        >
+            <div>
                 <VsHeading
                     heading-style="heading-m"
                     :level="2"
@@ -61,6 +67,7 @@
                     </template>
                 </VsFedCard>
             </VsCardGroup>
+
             <VsPagination
                 class="vs-federated-search--pagination"
                 v-if="federatedSearchStore.results && totalResultsPages > 1"
@@ -100,6 +107,7 @@ import {
     VsWarning,
 } from '@/components';
 import useFederatedSearchStore from '@/stores/federatedSearch.store';
+import getEnvValue from '@/utils/get-env-value';
 import VsFedSearchInput from './components/FedSearchInput.vue';
 import VsFedSearchSort from './components/FedSearchSort.vue';
 import VsFedCard from './components/FedCard.vue';
@@ -109,11 +117,32 @@ const federatedSearchStore = useFederatedSearchStore();
 
 const props = defineProps({
     /**
-     * API key, Customer ID, and engine ID for Cludo search.
+     * API Key for Cludo.
     */
-    cludoCredentials: {
-        type: Object,
-        required: true,
+    cludoApiKey: {
+        type: String,
+        default: getEnvValue('CLUDO_API_KEY'),
+    },
+    /**
+     * Customer ID for Cludo.
+    */
+    cludoCustomerId: {
+        type: Number,
+        default: Number(getEnvValue('CLUDO_CUSTOMER_ID')),
+    },
+    /**
+     * Engine ID for Cludo.
+    */
+    cludoEngineID: {
+        type: Number,
+        default: Number(getEnvValue('CLUDO_ENGINE_ID')),
+    },
+    /**
+     * Base API endpoint for the events API
+    */
+    eventsApi: {
+        type: String,
+        default: getEnvValue('EVENTS_API_URL'),
     },
     /**
      * Options for sorting the data (e.g date, price) in an object with
@@ -127,12 +156,24 @@ const props = defineProps({
         type: Array,
         required: true,
     },
+    /**
+     * Array of sub filters.
+    */
+    subFilters: {
+        type: Array,
+        default: undefined,
+    },
 });
 
 const totalResultsPages = computed(() => Math.ceil(federatedSearchStore.totalResults / 12));
 
 onMounted(() => {
-    federatedSearchStore.cludoCredentials = props.cludoCredentials;
+    federatedSearchStore.cludoCredentials = {
+        apiKey: props.cludoApiKey,
+        customerId: props.cludoCustomerId,
+        engineId: props.cludoEngineID,
+    };
+    federatedSearchStore.eventsApi = props.eventsApi;
 
     const params = new URLSearchParams(document.location.search);
     const paramSearchTerm = params.get('search-term');

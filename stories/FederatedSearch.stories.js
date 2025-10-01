@@ -22,8 +22,7 @@ const Template = (args) => ({
         <VsContainer>
             <div :class="args.jsDisabled ? 'no-js' : ''">
                 <VsFederatedSearch
-                    :cludo-credentials="args.cludoCredentials"
-                    :sort-options="args.sortOptions"
+                    v-bind="args"
                 >
                     <template #federated-search-no-results>
                         {{ args.noResultsLabel }}
@@ -35,11 +34,47 @@ const Template = (args) => ({
 });
 
 const base = {
-    cludoCredentials: {
-        apiKey: '',
-        customerId: 0,
-        engineId: 0,
-    },
+    subFilters: [
+        {
+            Key: 'Books',
+        },
+        {
+            Key: 'Clubs',
+        },
+        {
+            Key: 'Comedy',
+        },
+        {
+            Key: 'Dance',
+        },
+        {
+            Key: 'Days out',
+        },
+        {
+            Key: 'Festivals',
+        },
+        {
+            Key: 'Films',
+        },
+        {
+            Key: 'Kids',
+        },
+        {
+            Key: 'LGBTQIA+',
+        },
+        {
+            Key: 'Music',
+        },
+        {
+            Key: 'Sport',
+        },
+        {
+            Key: 'Talks & Lectures',
+        },
+        {
+            Key: 'Theatre',
+        },
+    ],
     sortOptions: [
         {
             id: 'dateAsc',

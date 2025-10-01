@@ -19,6 +19,9 @@ on:
 
 env:
   RECAPTCHA_TOKEN: ${{ secrets.RECAPTCHA_TOKEN }}
+  CLUDO_API_KEY: ${{ secrets.CLUDO_API_KEY }}
+  CLUDO_CUSTOMER_ID: ${{ secrets.CLUDO_CUSTOMER_ID }}
+  CLUDO_ENGINE_ID: ${{ secrets.CLUDO_ENGINE_ID }}
 
 jobs:
   build:

@@ -20,6 +20,7 @@ function cleanData(data: any) {
 }
 
 async function eventSearch(
+    api: string,
     searchTerm: string,
     page: number,
     selectedCategory: string,
