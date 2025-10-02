@@ -28,6 +28,9 @@ const Template = (args) => ({
                         {{ args.noResultsLabel }}
                     </template>
                 </VsFederatedSearch>
+                <template>
+                    {{ args.noJsText }}
+                </template>
             </div>
         </VsContainer>
     `,
@@ -87,6 +90,7 @@ const base = {
     ],
     jsDisabled: false,
     noResultsLabel: 'There are no results, please try again',
+    noJsText: 'JavaScript needs to be enabled to use the search function',
 };
 
 export const Default = Template.bind();
