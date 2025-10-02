@@ -7,6 +7,7 @@
             <VsFedSearchInput
                 :cludo-credentials="props.cludoCredentials"
                 :sub-filters="props.subFilters"
+                :sub-filter-header="props.subFilterHeader"
             />
             <VsDivider class="my-200" />
             <div
@@ -167,6 +168,13 @@ const props = defineProps({
     */
     subFilters: {
         type: Array,
+        default: undefined,
+    },
+    /**
+     * Subfilter header.
+    */
+    subFilterHeader: {
+        type: String,
         default: undefined,
     },
     /**

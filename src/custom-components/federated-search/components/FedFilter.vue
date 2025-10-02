@@ -2,7 +2,7 @@
     <div class="vs-fed-filter">
         <VsBody
             v-if="$slots['fed-filter-header'] && $slots['fed-filter-header']()"
-            class="vs-fed-filter--header mb-075"
+            class="vs-fed-filter--header mb-025 ms-025"
             data-test="vs-fed-filter-header"
         >
             <!-- @slot Heading for the filter -->

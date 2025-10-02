@@ -77,7 +77,11 @@ const base = {
         {
             Key: 'Theatre',
         },
+        {
+            Key: 'Visual Arts',
+        },
     ],
+    subFilterHeader: 'Refine your search',
     sortOptions: [
         {
             id: 'dateAsc',

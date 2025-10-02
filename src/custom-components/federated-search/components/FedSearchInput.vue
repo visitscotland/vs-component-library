@@ -68,8 +68,13 @@
             :active-filter="federatedSearchStore.selectedSubCategory"
             class="mt-200"
             :filter-categories="props.subFilters"
+            variant="secondary"
             @filter-updated="updateSelectedSubCategory"
-        />
+        >
+            <template #fed-filter-header>
+                {{ subFilterHeader }}
+            </template>
+        </VsFedFilter>
     </div>
 </template>
 
@@ -127,6 +132,13 @@ const props = defineProps({
     subFilters: {
         type: Array,
         default: undefined,
+    },
+    /**
+     * Label for subfilter header.
+    */
+    subFilterHeader: {
+        type: String,
+        default: '',
     },
 });
 
