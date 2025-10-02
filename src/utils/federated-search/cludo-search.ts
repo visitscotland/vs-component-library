@@ -1,4 +1,5 @@
 import { CludoCredentials, FederatedSearchResult } from '@/types/types';
+import useFederatedSearchStore from '@/stores/federatedSearch.store';
 
 function cleanData(data: any) {
     const documents = data.TypedDocuments;
@@ -24,6 +25,8 @@ async function cludoSearch(
     const { apiKey, customerId, engineId } = cludoCredentials;
     const url = `https://api-eu1.cludo.com/api/v3/${customerId}/${engineId}/search`;
     const auth = `${customerId}:${apiKey}`;
+
+    const federatedSearchStore = useFederatedSearchStore();
 
     // Don't query the Cludo API when the "Events & Festivals" is selected
     // as this data only comes from the Events API (DataThistle).
@@ -70,6 +73,7 @@ async function cludoSearch(
         };
     } catch (error) {
         console.error('Cludo error:', error?.message);
+        federatedSearchStore.isLoading = false;
         return [];
     }
 }
