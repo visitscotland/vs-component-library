@@ -14,6 +14,7 @@ import LinkExample from './card-examples/link-card';
 import LinkWithDetailsExample from './card-examples/link-card-with-details';
 import LinkWithIconExample from './card-examples/link-card-with-icon';
 import CategoryExample from './card-examples/category-card';
+import EventExample from './card-examples/event-card';
 
 const components = {
     VsCard,
@@ -64,3 +65,4 @@ export const Link = createStory(LinkExample);
 export const LinkWithDetails = createStory(LinkWithDetailsExample);
 export const LinkWithIcon = createStory(LinkWithIconExample);
 export const Category = createStory(CategoryExample);
+export const Event = createStory(EventExample);
