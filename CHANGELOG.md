@@ -1,3 +1,10 @@
+## [5.10.1](https://github.com/visitscotland/vs-component-library/compare/v5.10.0...v5.10.1) (2025-10-02)
+
+
+### Bug Fixes
+
+* **breadcrumb:** extend fix to smaller phones ([81f4e99](https://github.com/visitscotland/vs-component-library/commit/81f4e995b83bdb8d9817b96e6079cb6a64b65b5c))
+
 # [5.10.0](https://github.com/visitscotland/vs-component-library/compare/v5.9.3...v5.10.0) (2025-10-02)
 
 
