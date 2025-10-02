@@ -217,6 +217,7 @@ async function calculateError() {
     } else if (
         // No Results
         federatedSearchStore.totalResults === 0
+        && !federatedSearchStore.isLoading
     ) {
         isError.value.error = true;
         isError.value.message = props.errorMessages.noResults;
@@ -231,7 +232,7 @@ async function calculateError() {
     } else if (
         // Events API down
         federatedSearchStore.selectedCategory === 'Events & Festivals'
-        && !federatedSearchStore.totalResults
+        && federatedSearchStore.totalResults
         && !federatedSearchStore.isLoading
     ) {
         isError.value.error = true;
