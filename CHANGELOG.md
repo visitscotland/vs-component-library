@@ -1,3 +1,17 @@
+## [5.9.3](https://github.com/visitscotland/vs-component-library/compare/v5.9.2...v5.9.3) (2025-10-02)
+
+
+### Bug Fixes
+
+* **breadcrumb:** adjust breadcrumb sizing for larger share button ([417fe5e](https://github.com/visitscotland/vs-component-library/commit/417fe5e86aee409b0d6ec2686009343ae3ced2b2))
+
+## [5.9.2](https://github.com/visitscotland/vs-component-library/compare/v5.9.1...v5.9.2) (2025-10-01)
+
+
+### Bug Fixes
+
+* **cludo:** correct font weight for icon on sort ([41f3969](https://github.com/visitscotland/vs-component-library/commit/41f39699fafdb2501517b430df44cd5bdaa1ed24))
+
 ## [5.9.1](https://github.com/visitscotland/vs-component-library/compare/v5.9.0...v5.9.1) (2025-10-01)
 
 

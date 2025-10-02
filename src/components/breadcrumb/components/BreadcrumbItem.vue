@@ -95,7 +95,7 @@ export default {
         &:last-child,
         &:nth-last-child(2) {
             display: block;
-            max-width: 75%;
+            max-width: 65%;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
