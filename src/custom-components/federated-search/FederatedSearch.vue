@@ -51,7 +51,7 @@
                         :key="result.id"
                         :date="setEventDate(result.startDate, result.endDate)"
                         :img-src="result.imgSrc"
-                        :link="result.url"
+                        :link="setCardLink(result)"
                         :link-type="result.dataSrc === 'cludo' ? 'INTERNAL' : 'EXTERNAL'"
                         :price="result.minPrice"
                     >
@@ -300,6 +300,22 @@ function setEventDate(startDate, endDate) {
     if (startDate === endDate) return startDate;
 
     return `${startDate} - ${endDate}`;
+}
+
+function setCardLink(result) {
+    if (result.url) {
+        return result.url;
+    }
+
+    if (result.placeUrl) {
+        return result.placeUrl;
+    }
+
+    const dataThistleBase = 'https://www.datathistle.com/event/';
+    const title = result.title
+        .replaceAll(' ', '-')
+        .toLowerCase();
+    return `${dataThistleBase}${result.parentId}-${title}`;
 }
 
 onUpdated(async() => {

@@ -1,5 +1,8 @@
 <template>
-    <VsCard class="vs-fed-card">
+    <VsCard
+        class="vs-fed-card"
+        card-style="elevated"
+    >
         <template #vs-card-header>
             <div class="vs-fed-card--header">
                 <VsImg
@@ -24,32 +27,34 @@
             </div>
         </template>
         <template #vs-card-body>
-            <VsHeading
-                heading-level="4"
-                heading-style="heading-xxs"
-                v-if="$slots['fed-card-header']"
-                data-test="vs-fed-card-header"
-            >
-                <VsLink
-                    class="stretched-link"
-                    :href="props.link"
-                    variant="secondary"
+            <div class="px-125">
+                <VsHeading
+                    heading-level="4"
+                    heading-style="heading-xxs"
+                    v-if="$slots['fed-card-header']"
+                    data-test="vs-fed-card-header"
                 >
-                    <!-- @slot Heading passed to VsCard element -->
-                    <slot name="fed-card-header" />
-                </VsLink>
-            </VsHeading>
-            <VsBody
-                v-if="$slots['fed-card-description']"
-                class="vs-fed-card--body__description truncate-3-lines mt-050"
-                data-test="vs-fed-card-description"
-            >
-                <!-- @slot Slot for description, clamped to 3 lines max-->
-                <slot name="fed-card-description" />
-            </VsBody>
+                    <VsLink
+                        class="stretched-link"
+                        :href="props.link"
+                        variant="secondary"
+                    >
+                        <!-- @slot Heading passed to VsCard element -->
+                        <slot name="fed-card-header" />
+                    </VsLink>
+                </VsHeading>
+                <VsBody
+                    v-if="$slots['fed-card-description']"
+                    class="vs-fed-card--body__description truncate-3-lines mt-050"
+                    data-test="vs-fed-card-description"
+                >
+                    <!-- @slot Slot for description, clamped to 3 lines max-->
+                    <slot name="fed-card-description" />
+                </VsBody>
+            </div>
         </template>
         <template #vs-card-footer>
-            <div class="vs-fed-card--footer mt-100">
+            <div class="vs-fed-card--footer my-100 px-125">
                 <div
                     v-if="$slots['fed-card-location']"
                     class="vs-fed-card--footer__location"
