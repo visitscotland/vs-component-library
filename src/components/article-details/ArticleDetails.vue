@@ -2,7 +2,7 @@
     <div
         class="vs-article-details"
         data-test="vs-article-details"
-        v-if="articleAuthor || articleReadTime || articlePublishDate"
+        v-if="articleAuthor || articleReadTime || articlePublishDate || articleLocation"
     >
         <div
             v-if="articleAuthor"
@@ -12,6 +12,7 @@
         </div>
 
         <div
+            v-if="articleReadTime || articlePublishDate"
             data-test="vs-article-details__date-time"
             :class="!articleAuthor ? 'vs-article-details--highlight' : ''"
             class="mb-150"
@@ -33,6 +34,17 @@
                 >•</span>
                 {{ articlePublishDate }}
             </span>
+        </div>
+
+        <div
+            v-if="articleLocation"
+            class="vs-article-details__location vs-article-details--highlight"
+        >
+            <VsIcon
+                icon="fa-solid fa-location-dot"
+                :variant="iconVariant"
+                class="align-text-top me-050"
+            />{{ articleLocation }}
         </div>
     </div>
 </template>
@@ -73,6 +85,13 @@ export default {
          * How long the article takes to read
          */
         articleReadTime: {
+            type: String,
+            default: null,
+        },
+        /**
+         * Location information
+         */
+        articleLocation: {
             type: String,
             default: null,
         },

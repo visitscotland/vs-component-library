@@ -130,7 +130,7 @@ export default {
 <style lang="scss">
 .vs-img{
     &.img-zoom-on-hover {
-        transition: transform 0.4s cubic-bezier(.73,.86,.4,1.2);
+        transition: transform 0.3s ease-in-out;
     }
 
     &.low-res-img {
