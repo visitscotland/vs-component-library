@@ -5,10 +5,12 @@ function cleanData(data: any) {
 
     const results: FederatedSearchResult[] = events.map((event) => ({
         id: event.id,
+        parentId: event.parentId,
         title: event.name,
         description: event.descriptions[0]?.description || '',
         imgSrc: event.images[0]?.url || '',
         url: event.performances[0]?.url || '',
+        placeUrl: event.place.website,
         location: event.place.town,
         startDate: event.startFormatted,
         endDate: event.endFormatted,
