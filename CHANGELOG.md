@@ -1,3 +1,10 @@
+# [5.10.0](https://github.com/visitscotland/vs-component-library/compare/v5.9.3...v5.10.0) (2025-10-02)
+
+
+### Features
+
+* **codeowners:** add codeowners file ([97867f9](https://github.com/visitscotland/vs-component-library/commit/97867f9fb9a38c26669f05bf423ee10ba63045ba))
+
 ## [5.9.3](https://github.com/visitscotland/vs-component-library/compare/v5.9.2...v5.9.3) (2025-10-02)
 
 
