@@ -14,7 +14,7 @@
                     :class="fullscreenMobile ? 'd-none-md' : ''"
                 >
                     <VsCol
-                        cols="10"
+                        cols="9"
                         :lg="heroIntro ? '8' : ''"
                         :offset-lg="heroIntro ? '1' : ''"
                     >
