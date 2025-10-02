@@ -35,6 +35,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
             cludoCredentials.value,
             currentPage.value,
             selectedCategory.value,
+            cludoCategories.value,
         );
 
         const eventResults = await eventSearch(

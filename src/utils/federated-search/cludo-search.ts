@@ -20,6 +20,7 @@ async function cludoSearch(
     cludoCredentials: CludoCredentials,
     page: number,
     selectedCategory: string,
+    cludoCategories: string[] | null,
 ) {
     const { apiKey, customerId, engineId } = cludoCredentials;
     const url = `https://api-eu1.cludo.com/api/v3/${customerId}/${engineId}/search`;
@@ -27,11 +28,11 @@ async function cludoSearch(
 
     // Don't query the Cludo API when the "Events & Festivals" is selected
     // as this data only comes from the Events API (DataThistle).
-    if (selectedCategory === 'Events & Festivals') {
+    if (selectedCategory === 'Events & Festivals' && cludoCategories) {
         return {
             results: [],
             totalResults: 0,
-            categories: [],
+            categories: cludoCategories,
         };
     }
 
@@ -62,6 +63,14 @@ async function cludoSearch(
         console.log('cludo results', results);
 
         const cleanResults = cleanData(results);
+
+        if (selectedCategory === 'Events & Festivals' && !cludoCategories) {
+            return {
+                results: [],
+                totalResults: 0,
+                categories: results.Facets.Category.Items,
+            };
+        };
 
         return {
             results: cleanResults,
