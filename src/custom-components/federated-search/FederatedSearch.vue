@@ -3,91 +3,100 @@
         class="vs-federated-search"
         data-test="vs-federated-search"
     >
-        <VsFedSearchInput
-            :cludo-credentials="props.cludoCredentials"
-            :sub-filters="props.subFilters"
-        />
-        <VsDivider class="my-200" />
-        <div
-            v-if="federatedSearchStore.results"
-            class="d-flex justify-content-between mb-200"
-        >
-            <div>
-                <VsHeading
-                    heading-style="heading-m"
-                    :level="2"
-                    class="my-0"
-                >
-                    Search results
-                </VsHeading>
-                <VsDetail v-if="federatedSearchStore.totalResults !== 0">
-                    Showing {{ federatedSearchStore.totalResults }} results
-                </VsDetail>
-            </div>
-            <VsFedSearchSort
-                v-if="federatedSearchStore.selectedCategory === 'Events & Festivals'"
-                :date-filter-visible="true"
-                :sort-options="props.sortOptions"
-                from-date-label="Arriving from"
-                to-date-label="To"
-                sort-label="Sort by"
-                @from-date-updated="updateStartDate"
-                @end-date-updated="updateEndDate"
-                @sort-order-updated="updateSort"
+        <div class="vs-federated-search__container">
+            <VsFedSearchInput
+                :cludo-credentials="props.cludoCredentials"
+                :sub-filters="props.subFilters"
+                :sub-filter-header="props.subFilterHeader"
             />
-        </div>
-
-        <VsLoadingSpinner v-if="federatedSearchStore.isLoading" />
-
-        <div v-if="!federatedSearchStore.isLoading && federatedSearchStore.results">
-            <VsCardGroup
-                :cards-per-row="3"
-                :scroll-snap="true"
+            <VsDivider class="my-200" />
+            <div
+                v-if="federatedSearchStore.results"
+                class="d-flex justify-content-between mb-200"
             >
-                <VsFedCard
-                    v-for="result in federatedSearchStore.results"
-                    :key="result.id"
-                    :date="setEventDate(result.startDate, result.endDate)"
-                    :img-src="result.imgSrc"
-                    :link="result.url"
-                    :link-type="result.dataSrc === 'cludo' ? 'INTERNAL' : 'EXTERNAL'"
-                    :price="result.minPrice"
-                >
-                    <template #fed-card-header>
-                        {{ result.title }}
-                    </template>
-                    <template #fed-card-description>
-                        {{ result.description }}
-                    </template>
-                    <template
-                        #fed-card-location
-                        v-if="result.location"
+                <div>
+                    <VsHeading
+                        heading-style="heading-m"
+                        :level="2"
+                        class="my-0"
                     >
-                        {{ result.location }}
-                    </template>
-                </VsFedCard>
-            </VsCardGroup>
+                        Search results
+                    </VsHeading>
+                    <VsDetail v-if="federatedSearchStore.totalResults !== 0">
+                        Showing {{ federatedSearchStore.totalResults }} results
+                    </VsDetail>
+                </div>
+                <VsFedSearchSort
+                    v-if="federatedSearchStore.selectedCategory === 'Events & Festivals'"
+                    :date-filter-visible="true"
+                    :sort-options="props.sortOptions"
+                    from-date-label="Arriving from"
+                    to-date-label="To"
+                    sort-label="Sort by"
+                    @from-date-updated="updateStartDate"
+                    @end-date-updated="updateEndDate"
+                    @sort-order-updated="updateSort"
+                />
+            </div>
 
-            <VsPagination
-                class="vs-federated-search--pagination"
-                v-if="federatedSearchStore.results && totalResultsPages > 1"
-                :number-of-pages="totalResultsPages"
-                next-button-label="Next"
-                previous-button-label="Previous"
-                page-label="Page"
-                of-label="of"
-                v-model="federatedSearchStore.currentPage"
-                @page-click="loadPage"
-            />
+            <VsLoadingSpinner v-if="federatedSearchStore.isLoading" />
+
+            <div v-if="!federatedSearchStore.isLoading && federatedSearchStore.results">
+                <VsCardGroup
+                    :cards-per-row="3"
+                    :scroll-snap="true"
+                >
+                    <VsFedCard
+                        v-for="result in federatedSearchStore.results"
+                        :key="result.id"
+                        :date="setEventDate(result.startDate, result.endDate)"
+                        :img-src="result.imgSrc"
+                        :link="result.url"
+                        :link-type="result.dataSrc === 'cludo' ? 'INTERNAL' : 'EXTERNAL'"
+                        :price="result.minPrice"
+                    >
+                        <template #fed-card-header>
+                            {{ result.title }}
+                        </template>
+                        <template #fed-card-description>
+                            {{ result.description }}
+                        </template>
+                        <template
+                            #fed-card-location
+                            v-if="result.location"
+                        >
+                            {{ result.location }}
+                        </template>
+                    </VsFedCard>
+                </VsCardGroup>
+
+                <VsPagination
+                    class="vs-federated-search--pagination"
+                    v-if="federatedSearchStore.results && totalResultsPages > 1"
+                    :number-of-pages="totalResultsPages"
+                    next-button-label="Next"
+                    previous-button-label="Previous"
+                    page-label="Page"
+                    of-label="of"
+                    v-model="federatedSearchStore.currentPage"
+                    @page-click="loadPage"
+                />
+            </div>
+            <div
+                v-if="federatedSearchStore.totalResults === 0"
+                class="vs-federated-search--warning"
+            >
+                <VsWarning>
+                    <slot name="federated-search-no-results" />
+                </VsWarning>
+            </div>
         </div>
-        <div
-            v-if="federatedSearchStore.totalResults === 0"
-            class="vs-federated-search--warning"
+        <VsWarning
+            data-test="vs-federated-search__error--no-js"
+            class="vs-federated-search__error--no-js"
         >
-            <VsWarning>
-                <slot name="federated-search-no-results" />
-            </VsWarning>
-        </div>
+            {{ noJsText }}
+        </VsWarning>
     </div>
 </template>
 
@@ -160,6 +169,21 @@ const props = defineProps({
     subFilters: {
         type: Array,
         default: undefined,
+    },
+    /**
+     * Subfilter header.
+    */
+    subFilterHeader: {
+        type: String,
+        default: undefined,
+    },
+    /**
+     * Text to be passed into to explain search won't
+     * work without JS
+     */
+    noJsText: {
+        type: String,
+        required: true,
     },
 });
 
@@ -249,6 +273,22 @@ function setEventDate(startDate, endDate) {
 .vs-federated-search {
     &--pagination {
         margin: $vs-spacer-400 $vs-spacer-0 $vs-spacer-300 $vs-spacer-0;
+    }
+
+    &__error--no-js {
+        display: none;
+    }
+}
+
+@include no-js {
+    .vs-federated-search {
+        &__container{
+            display: none;
+        }
+
+        &__error--no-js {
+            display: block;
+        }
     }
 }
 </style>
