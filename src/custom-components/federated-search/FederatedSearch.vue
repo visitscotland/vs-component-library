@@ -83,11 +83,13 @@
                 />
             </div>
             <div
-                v-if="federatedSearchStore.totalResults === 0"
+                v-if="isError.error"
                 class="vs-federated-search--warning"
             >
-                <VsWarning>
-                    <slot name="federated-search-no-results" />
+                <VsWarning
+                    v-if="isError.error"
+                >
+                    {{ isError.message }}
                 </VsWarning>
             </div>
         </div>
@@ -102,8 +104,10 @@
 
 <script setup>
 import {
+    ref,
     computed,
     onMounted,
+    onUpdated,
 } from 'vue';
 import {
     VsDetail,
@@ -121,6 +125,12 @@ import VsFedSearchSort from './components/FedSearchSort.vue';
 import VsFedCard from './components/FedCard.vue';
 
 const federatedSearchStore = useFederatedSearchStore();
+const isError = ref(
+    {
+        message: '',
+        error: false,
+    },
+);
 
 const props = defineProps({
     /**
@@ -185,17 +195,66 @@ const props = defineProps({
         type: String,
         required: true,
     },
+    /**
+     * Object of error messages
+     */
+    errorMessages: {
+        type: Object,
+        required: true,
+    },
 });
 
 const totalResultsPages = computed(() => Math.ceil(federatedSearchStore.totalResults / 12));
 
-onMounted(() => {
+async function calculateError() {
+    if (
+        // Start date is after end date
+        federatedSearchStore.endDate
+        && (federatedSearchStore.startDate > federatedSearchStore.endDate)
+    ) {
+        isError.value.error = true;
+        isError.value.message = props.errorMessages.incorrectDateOrder;
+    } else if (
+        // No Results
+        federatedSearchStore.totalResults === 0
+        && !federatedSearchStore.isLoading
+    ) {
+        isError.value.error = true;
+        isError.value.message = props.errorMessages.noResults;
+    } else if (
+        // Cludo down
+        (federatedSearchStore.searchTerm || federatedSearchStore.selectedCategory)
+        && !federatedSearchStore.totalResults
+        && !federatedSearchStore.isLoading
+    ) {
+        isError.value.error = true;
+        isError.value.message = props.errorMessages.cludoError;
+    } else if (
+        // Events API down
+        federatedSearchStore.selectedCategory === 'Events & Festivals'
+        && federatedSearchStore.totalResults
+        && !federatedSearchStore.isLoading
+    ) {
+        isError.value.error = true;
+        isError.value.message = props.errorMessages.eventError;
+    } else {
+        // No error
+        isError.value.error = false;
+        isError.value.message = '';
+    }
+
+    return 0;
+}
+
+onMounted(async() => {
     federatedSearchStore.cludoCredentials = {
         apiKey: props.cludoApiKey,
         customerId: props.cludoCustomerId,
         engineId: props.cludoEngineID,
     };
     federatedSearchStore.eventsApi = props.eventsApi;
+
+    await calculateError();
 
     const params = new URLSearchParams(document.location.search);
     const paramSearchTerm = params.get('search-term');
@@ -259,6 +318,11 @@ function setCardLink(result) {
         .toLowerCase();
     return `${dataThistleBase}${result.parentId}-${title}`;
 }
+
+onUpdated(async() => {
+    await calculateError();
+});
+
 </script>
 
 <style lang="scss">

@@ -1,4 +1,5 @@
 import { FederatedSearchResult } from '@/types/types';
+import useFederatedSearchStore from '@/stores/federatedSearch.store';
 
 function cleanData(data: any) {
     const events = data.events;
@@ -31,6 +32,7 @@ async function eventSearch(
     endDate: string,
     sortBy: any,
 ) {
+    const federatedSearchStore = useFederatedSearchStore();
     // Only query the event API when the no selected category or the event category
     // is selected.
     if (selectedCategory === 'Events & Festivals' || selectedCategory === '') {
@@ -48,6 +50,7 @@ async function eventSearch(
             const response = await fetch(url);
 
             if (!response.ok) {
+                federatedSearchStore.isLoading = false;
                 throw new Error(`Events response message: ${response.status}`);
             }
 
@@ -67,6 +70,7 @@ async function eventSearch(
                 totalResults: results.totalResults,
             };
         } catch (error) {
+            federatedSearchStore.isLoading = false;
             console.error('Event error:', error?.message);
             return [];
         }
