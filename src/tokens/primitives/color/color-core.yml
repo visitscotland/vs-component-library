@@ -1,18 +1,18 @@
 ## DEPRECATED (Do not use - only used in maps)
 aliases:
   vs-loch-ness:
-    value: "#122B80"
+    value: "black"
   vs-saltire:
-    value: "#1F49D6"
+    value: "red"
   vs-grey-02:
-    value: "#756D94"
+    value: "pink"
   vs-bramble:
-    value: "#A8308C"
+    value: "green"
   vs-heather:
-    value: "#23014A"
+    value: "blue"
   vs-whisky:
-    value: "#F18701"
+    value: "orange"
   vs-cranachan:
-    value: "#FF476F"
+    value: "yellow"
   vs-buachaille:
-    value: "#FFD400"
+    value: "purple"
