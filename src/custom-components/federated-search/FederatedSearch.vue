@@ -106,10 +106,10 @@ import {
 } from '@/components';
 import useFederatedSearchStore from '@/stores/federatedSearch.store';
 import getEnvValue from '@/utils/get-env-value';
+import VsDivider from '@/custom-components/divider/Divider.vue';
 import VsFedSearchInput from './components/FedSearchInput.vue';
 import VsFedSearchSort from './components/FedSearchSort.vue';
 import VsFedCard from './components/FedCard.vue';
-import VsDivider from './components/Divider.vue';
 
 const federatedSearchStore = useFederatedSearchStore();
 

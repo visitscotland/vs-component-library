@@ -1,8 +1,8 @@
-import VsFedFilter from '@/components/federated-search/components/FedFilter.vue';
+import VsFedFilter from '@/custom-components/federated-search/components/FedFilter.vue';
 
 export default {
     component: VsFedFilter,
-    title: 'Components/Custom components/Fed Filter',
+    title: 'Custom components/Fed Filter',
     argTypes: {
         variant: {
             options: [

@@ -1,9 +1,9 @@
 import { VsDropdownItem } from '@/components';
-import VsFedSearchSort from '@/components/federated-search/components/FedSearchSort.vue';
+import VsFedSearchSort from '@/custom-components/federated-search/components/FedSearchSort.vue';
 
 export default {
     component: VsFedSearchSort,
-    title: 'Components/Custom components/Fed Search Sort',
+    title: 'Custom components/Fed Search Sort',
     decorators: [() => ({
         template: '<div style="max-width:600px;"><story /></div>',
     })],

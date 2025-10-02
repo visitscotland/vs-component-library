@@ -1,9 +1,9 @@
-import VsFederatedSearch from '@/components/federated-search/FederatedSearch.vue';
+import VsFederatedSearch from '@/custom-components/federated-search/FederatedSearch.vue';
 import VsContainer from '@/components/grid/Container.vue';
 
 export default {
     component: VsFederatedSearch,
-    title: 'Components/Custom components/Federated search',
+    title: 'Custom components/Federated search',
     argTypes: {
     },
 };

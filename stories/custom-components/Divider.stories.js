@@ -1,8 +1,8 @@
-import VsDivider from '@/components/federated-search/components/Divider.vue';
+import VsDivider from '@/custom-components/divider/Divider.vue';
 
 export default {
     component: VsDivider,
-    title: 'Components/Custom components/Divider',
+    title: 'Custom components/Divider',
     argTypes: {
         variant: {
             options: [

@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import axe from '@/../test/unit/helpers/axe-helper';
-import VsDivider from '../Divider.vue';
+import VsDivider from '../../../divider/Divider.vue';
 
 const factoryShallowMount = (propsData) => shallowMount(VsDivider, {
     propsData: {

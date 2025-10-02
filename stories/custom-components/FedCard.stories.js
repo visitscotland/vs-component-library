@@ -1,8 +1,8 @@
-import VsFedCard from '@/components/federated-search/components/FedCard.vue';
+import VsFedCard from '@/custom-components/federated-search/components/FedCard.vue';
 
 export default {
     component: VsFedCard,
-    title: 'Components/Custom components/Fed Card',
+    title: 'Custom components/Fed Card',
     decorators: [() => ({
         template: '<div style="max-width:272px;"><story /></div>',
     })],

@@ -1,9 +1,9 @@
-import VsFedSearchInput from '@/components/federated-search/components/FedSearchInput.vue';
+import VsFedSearchInput from '@/custom-components/federated-search/components/FedSearchInput.vue';
 import VsContainer from '@/components/grid/Container.vue';
 
 export default {
     component: VsFedSearchInput,
-    title: 'Components/Custom components/Federated search input',
+    title: 'Custom components/Federated search input',
     argTypes: {
     },
 };
