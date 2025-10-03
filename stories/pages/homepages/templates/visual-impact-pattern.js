@@ -1,38 +1,38 @@
 export default `
-    <VsPageHeader menu-type="b2c">
-        <template #breadcrumb>
-            <VsContainer class="mt-075 mt-lg-200">
-                <VsRow>
-                    <VsCol
-                        cols="10"
-                        lg="8"
-                    >
-                        <VsBreadcrumb>
-                            <VsBreadcrumbItem
-                                href="#"
-                                text="Home"
-                            />
-                            <VsBreadcrumbItem
-                                href="#"
-                                text="Things to do"
-                                active
-                            />
-                        </VsBreadcrumb>
-                    </VsCol>
-                </VsRow>
-            </VsContainer>
-        </template>
+<VsPageHeader menu-type="b2c">
+    <template #breadcrumb>
+        <VsContainer class="mt-075 mt-lg-200">
+            <VsRow>
+                <VsCol
+                    cols="10"
+                    lg="8"
+                >
+                    <VsBreadcrumb>
+                        <VsBreadcrumbItem
+                            href="#"
+                            text="Home"
+                        />
+                        <VsBreadcrumbItem
+                            href="#"
+                            text="Things to do"
+                            active
+                        />
+                    </VsBreadcrumb>
+                </VsCol>
+            </VsRow>
+        </VsContainer>
+    </template>
 
-        <template #heroSection>
-            <VsHeroSection
-                heading="Things to see & do in Scotland"
-                lede="What unique and incredible things do you want to do in Scotland? Let the kids learn new stories in amazing attractions, take your friends to a new festival or spend some time relaxing at stunning nature spots."
-                img-src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2025/04/16/paisley-abbey-header-new.jpg"
-                img-caption="Paisley Abbey"
-                img-credit="VisitScotland"
-            />
-        </template>
-    </VsPageHeader>
+    <template #heroSection>
+        <VsHeroSection
+            :heading="args.pageTitle"
+            :lede="args.pageLede"
+            :img-src="args.imgUrl"
+            :img-caption="args.imgCaption"
+            :img-credit="args.imgCredit"
+        />
+    </template>
+</VsPageHeader>
 
     <!------------------------------------------------------------
     NEW SECTION - Section header + new card group (4 cards)
