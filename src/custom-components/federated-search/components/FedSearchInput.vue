@@ -210,6 +210,11 @@ onMounted(() => {
         federatedSearchStore.selectedCategory = decodeURIComponent(params.get('category'));
     }
 
+    if (params.has('sub-category')) {
+        federatedSearchStore.selectedSubCategory.push(decodeURIComponent(params.get('sub-category')));
+        console.log(federatedSearchStore.selectedSubCategory);
+    }
+
     if (!params.has('search-term') && !params.has('category')) {
         federatedSearchStore.getCludoCategories();
     } else {

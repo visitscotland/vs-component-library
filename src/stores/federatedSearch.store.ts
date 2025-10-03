@@ -81,7 +81,6 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         }
 
         if (resetPageNo) {
-            console.log(`resetting page no`)
             currentPage.value = 1;
             url.searchParams.set('page', currentPage.value.toString());
         } else if (currentPage.value && currentPage.value > 1) {
