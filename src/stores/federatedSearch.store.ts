@@ -65,7 +65,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         return cludoAutocomplete(searchTerm.value, cludoCredentials.value);
     }
 
-    function navigateToResultsPage() {
+    function navigateToResultsPage(resetPageNo?: Boolean) {
         const url = new URL(window.location);
 
         if (searchTerm.value) {
@@ -80,7 +80,11 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
             url.searchParams.set('sub-category', encodeURIComponent(selectedSubCategory.value.join(',')));
         }
 
-        if (currentPage.value && currentPage.value > 1) {
+        if (resetPageNo) {
+            console.log(`resetting page no`)
+            currentPage.value = 1;
+            url.searchParams.set('page', currentPage.value.toString());
+        } else if (currentPage.value && currentPage.value > 1) {
             url.searchParams.set('page', currentPage.value.toString());
         }
 

@@ -174,7 +174,7 @@ function updateSelectedCategory(category) {
         ? category
         : '';
 
-    federatedSearchStore.navigateToResultsPage();
+    federatedSearchStore.navigateToResultsPage(true);
 }
 
 function updateSelectedSubCategory(category) {
@@ -188,7 +188,7 @@ function updateSelectedSubCategory(category) {
         }
     }
 
-    federatedSearchStore.navigateToResultsPage();
+    federatedSearchStore.navigateToResultsPage(true);
 }
 
 onMounted(() => {
