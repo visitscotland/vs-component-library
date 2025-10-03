@@ -128,7 +128,7 @@ const props = defineProps({
 
 const imgFallback = 'images/placeholders/fallback-img.png';
 
-const formattedPrice = () => (props.price.match(/(\.\d)/) ? `${props.price}0` : props.price);
+const formattedPrice = () => (props.price.match(/\b\d+\.\d\b/) ? `${props.price}0` : props.price);
 
 function linkIconName() {
     let icon = '';
