@@ -58,15 +58,6 @@ async function eventSearch(
 
             const results = await response.json();
 
-            console.log('Events', results);
-            console.log('Events clean', cleanData(results));
-
-            // const cleanResults = cleanData(results);
-
-            // return {
-            //     results: cleanResults,
-            //     totalResults: results.TotalDocument,
-            // };
             return {
                 results: cleanData(results),
                 totalResults: results.totalResults,
@@ -75,7 +66,10 @@ async function eventSearch(
             federatedSearchStore.isLoading = false;
             federatedSearchStore.eventsApiError = true;
             console.error('Event error:', error?.message);
-            return [];
+            return {
+                results: [],
+                totalResults: 0,
+            };
         }
     } else {
         return {
