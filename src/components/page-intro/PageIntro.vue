@@ -14,7 +14,7 @@
                     :class="fullscreenMobile ? 'd-none-md' : ''"
                 >
                     <VsCol
-                        cols="10"
+                        cols="9"
                         :lg="heroIntro ? '8' : ''"
                         :offset-lg="heroIntro ? '1' : ''"
                     >
@@ -41,7 +41,7 @@
                     :class="fullscreenMobile ? 'd-none d-lg-flex' : ''"
                 >
                     <VsCol
-                        cols="10"
+                        cols="9"
                         :lg="heroIntro ? '8' : ''"
                         :offset-lg="heroIntro ? '1' : ''"
                     >
@@ -271,6 +271,7 @@ export default {
 
             .breadcrumb {
                 margin-bottom: $vs-spacer-0;
+                flex-wrap: nowrap;
             }
         }
 

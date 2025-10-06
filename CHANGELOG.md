@@ -1,3 +1,38 @@
+## [5.10.1](https://github.com/visitscotland/vs-component-library/compare/v5.10.0...v5.10.1) (2025-10-02)
+
+
+### Bug Fixes
+
+* **breadcrumb:** extend fix to smaller phones ([81f4e99](https://github.com/visitscotland/vs-component-library/commit/81f4e995b83bdb8d9817b96e6079cb6a64b65b5c))
+
+# [5.10.0](https://github.com/visitscotland/vs-component-library/compare/v5.9.3...v5.10.0) (2025-10-02)
+
+
+### Features
+
+* **codeowners:** add codeowners file ([97867f9](https://github.com/visitscotland/vs-component-library/commit/97867f9fb9a38c26669f05bf423ee10ba63045ba))
+
+## [5.9.3](https://github.com/visitscotland/vs-component-library/compare/v5.9.2...v5.9.3) (2025-10-02)
+
+
+### Bug Fixes
+
+* **breadcrumb:** adjust breadcrumb sizing for larger share button ([417fe5e](https://github.com/visitscotland/vs-component-library/commit/417fe5e86aee409b0d6ec2686009343ae3ced2b2))
+
+## [5.9.2](https://github.com/visitscotland/vs-component-library/compare/v5.9.1...v5.9.2) (2025-10-01)
+
+
+### Bug Fixes
+
+* **cludo:** correct font weight for icon on sort ([41f3969](https://github.com/visitscotland/vs-component-library/commit/41f39699fafdb2501517b430df44cd5bdaa1ed24))
+
+## [5.9.1](https://github.com/visitscotland/vs-component-library/compare/v5.9.0...v5.9.1) (2025-10-01)
+
+
+### Bug Fixes
+
+* **cludo:** improve text centring on pagination active page ([5f663cd](https://github.com/visitscotland/vs-component-library/commit/5f663cd18483e5ed2b0cf5ffa72ccba5bf3e6cad))
+
 # [5.9.0](https://github.com/visitscotland/vs-component-library/compare/v5.8.0...v5.9.0) (2025-09-25)
 
 
