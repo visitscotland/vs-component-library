@@ -55,9 +55,9 @@
                 :text="isActive === null ? props.sortLabel : `${props.sortLabel}: ${isActive.label}`"
             >
                 <VsDropdownItem
-                    v-for="(sortOption, key) in sortOptions"
-                    :key
-                    @click="isActive = sortOption, $emit('sort-order-updated', sortOption)"
+                    v-for="(sortOption, index) in sortOptions"
+                    :key="index"
+                    @click="sortUpdated(sortOption)"
                     :active="isActive === sortOption ? true : false"
                     :data-test="`vs-fed-search-sort--dropdown-item__${sortOption.id}`"
                 >
@@ -95,7 +95,7 @@ const props = defineProps({
      *  },
      */
     sortOptions: {
-        type: Object,
+        type: Array,
         required: true,
     },
     /** Label to be displayed above `from` date field */
@@ -115,11 +115,16 @@ const props = defineProps({
     },
 });
 
-defineEmits([
+const emit = defineEmits([
     'from-date-updated',
     'end-date-updated',
     'sort-order-updated',
 ]);
+
+function sortUpdated(sortOption) {
+    isActive.value = sortOption;
+    emit('sort-order-updated', sortOption);
+}
 </script>
 
 <style lang="scss">

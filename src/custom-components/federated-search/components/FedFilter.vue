@@ -22,7 +22,7 @@
             <div
                 class="vs-fed-filter--scroll-rail"
                 :class="filterClasses()"
-                :id="`vs-fed-filter--scroll-rail_${variant}`"
+                :id="`vs-fed-filter--scroll-rail_${props.variant}`"
             >
                 <VsButton
                     v-for="(filterCategory, index) in props.filterCategories"
