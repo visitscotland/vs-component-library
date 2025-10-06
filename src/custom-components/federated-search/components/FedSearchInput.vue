@@ -199,6 +199,8 @@ onMounted(() => {
     };
     federatedSearchStore.isHomePage = props.isHomePage;
 
+    federatedSearchStore.getCludoCategories();
+
     const url = window.location.search;
     const params = new URLSearchParams(url);
 
@@ -215,9 +217,7 @@ onMounted(() => {
         console.log(federatedSearchStore.selectedSubCategory);
     }
 
-    if (!params.has('search-term') && !params.has('category')) {
-        federatedSearchStore.getCludoCategories();
-    } else {
+    if (params.has('search-term') && params.has('category')) {
         federatedSearchStore.getSearchResults();
     }
 });
