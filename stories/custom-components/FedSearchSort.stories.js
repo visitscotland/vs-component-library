@@ -1,4 +1,3 @@
-import { VsDropdownItem } from '@/components';
 import VsFedSearchSort from '@/custom-components/federated-search/components/FedSearchSort.vue';
 
 export default {
@@ -12,7 +11,6 @@ export default {
 const Template = (args) => ({
     components: {
         VsFedSearchSort,
-        VsDropdownItem,
     },
     setup() {
         return {
@@ -20,8 +18,7 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsFedSearchSort v-bind="args">
-        </VsFedSearchSort>
+        <VsFedSearchSort v-bind="args" />
     `,
 });
 
