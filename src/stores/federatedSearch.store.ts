@@ -10,6 +10,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
     const cludoCredentials = ref<CludoCredentials>(undefined);
     const currentPage = ref(1);
     const eventsApi = ref(undefined);
+    const eventsApiError = ref(false);
     const isLoading = ref(false);
     const results = ref(null);
     const searchTerm = ref('');
@@ -114,6 +115,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         currentPage,
         cludoCredentials,
         eventsApi,
+        eventsApiError,
         getAutoComplete,
         getCludoCategories,
         getSearchResults,

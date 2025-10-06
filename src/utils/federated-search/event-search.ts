@@ -33,6 +33,7 @@ async function eventSearch(
     sortBy: any,
 ) {
     const federatedSearchStore = useFederatedSearchStore();
+    federatedSearchStore.eventsApiError = false;
     // Only query the event API when the no selected category or the event category
     // is selected.
     if (selectedCategory === 'Events & Festivals' || selectedCategory === '') {
@@ -51,6 +52,7 @@ async function eventSearch(
 
             if (!response.ok) {
                 federatedSearchStore.isLoading = false;
+                federatedSearchStore.eventsApiError = true;
                 throw new Error(`Events response message: ${response.status}`);
             }
 
@@ -71,6 +73,7 @@ async function eventSearch(
             };
         } catch (error) {
             federatedSearchStore.isLoading = false;
+            federatedSearchStore.eventsApiError = true;
             console.error('Event error:', error?.message);
             return [];
         }
