@@ -101,12 +101,11 @@ const props = defineProps({
     /** Image to be displayed on card */
     imgSrc: {
         type: String,
-        required: true,
         default: 'images/placeholders/fallback-img.png',
     },
     /** Populates the price attribute */
     price: {
-        type: String,
+        type: [String, Number],
         default: undefined,
     },
     /** Populates the data attribute */
@@ -160,7 +159,7 @@ function linkIconName() {
             height: 17.625rem;
 
             @include media-breakpoint-down(lg) {
-                height: 15rem
+                height: 15rem;
             }
         }
 
