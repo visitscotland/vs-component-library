@@ -5,7 +5,9 @@
     >
         <div class="vs-federated-search__container">
             <VsFedSearchInput
-                :cludo-credentials="props.cludoCredentials"
+                :cludoa-api-key="props.cludoApiKey"
+                :cludo-customer-id="props.cludoCustomerId"
+                :cludo-engine-id="props.cludoEngineID"
                 :sub-filters="props.subFilters"
                 :sub-filter-header="props.subFilterHeader"
             />
@@ -261,17 +263,19 @@ onMounted(async() => {
 
     await calculateError();
 
-    const params = new URLSearchParams(document.location.search);
-    const paramSearchTerm = params.get('search-term');
-    const paramPage = parseInt(params.get('page'), 10);
+    if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+        const params = new URLSearchParams(document.location.search);
+        const paramSearchTerm = params.get('search-term');
+        const paramPage = parseInt(params.get('page'), 10);
 
-    if (paramPage) {
-        federatedSearchStore.currentPage = paramPage;
-    }
+        if (paramPage) {
+            federatedSearchStore.currentPage = paramPage;
+        }
 
-    if (paramSearchTerm) {
-        federatedSearchStore.searchTerm = paramSearchTerm;
-        federatedSearchStore.getSearchResults();
+        if (paramSearchTerm) {
+            federatedSearchStore.searchTerm = paramSearchTerm;
+            federatedSearchStore.getSearchResults();
+        }
     }
 });
 
@@ -293,11 +297,13 @@ function updateSort(type) {
 function loadPage(pageNumber) {
     federatedSearchStore.currentPage = pageNumber;
 
-    window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: 'smooth',
-    });
+    if (typeof window !== 'undefined') {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth',
+        });
+    }
 
     federatedSearchStore.navigateToResultsPage();
 }
