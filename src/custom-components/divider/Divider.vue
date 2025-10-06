@@ -8,13 +8,13 @@
 
 <script>
 export default {
-    name: 'VsBadge',
+    name: 'VsDivider',
 };
 </script>
 
 <script setup>
 /**
- * Divider used to visually seperate information on the site.
+ * Divider used to visually separate information on the site.
  *
  * @displayName Divider
  */
