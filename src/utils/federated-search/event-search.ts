@@ -35,7 +35,7 @@ async function eventSearch(
     const federatedSearchStore = useFederatedSearchStore();
     // Only query the event API when the no selected category or the event category
     // is selected.
-    if (selectedCategory === 'Events & Festivals' || selectedCategory === '') {
+    if (selectedCategory === 'Events & Festivals' || !selectedCategory) {
         let url = `${api}?query=${searchTerm}`;
         url = page > 1 ? `${url}&page=${page}` : url;
         url = startDate !== '' ? `${url}&startDate=${startDate}` : url;
