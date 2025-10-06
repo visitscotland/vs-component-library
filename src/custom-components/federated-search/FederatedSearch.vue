@@ -41,7 +41,11 @@
 
             <VsLoadingSpinner v-if="federatedSearchStore.isLoading" />
 
-            <div v-if="!federatedSearchStore.isLoading && federatedSearchStore.results">
+            <div
+                v-if="!federatedSearchStore.isLoading
+                    && federatedSearchStore.results
+                    && !federatedSearchStore.eventsApiError"
+            >
                 <VsCardGroup
                     :cards-per-row="3"
                     :scroll-snap="true"
@@ -215,28 +219,29 @@ async function calculateError() {
         isError.value.error = true;
         isError.value.message = props.errorMessages.incorrectDateOrder;
     } else if (
-        // No Results
-        federatedSearchStore.totalResults === 0
+        // Events API down
+        federatedSearchStore.selectedCategory === 'Events & Festivals'
+        && federatedSearchStore.eventsApiError
         && !federatedSearchStore.isLoading
     ) {
         isError.value.error = true;
-        isError.value.message = props.errorMessages.noResults;
+        isError.value.message = props.errorMessages.eventError;
     } else if (
         // Cludo down
         (federatedSearchStore.searchTerm || federatedSearchStore.selectedCategory)
+        && federatedSearchStore.selectedCategory !== 'Events & Festivals'
         && !federatedSearchStore.totalResults
         && !federatedSearchStore.isLoading
     ) {
         isError.value.error = true;
         isError.value.message = props.errorMessages.cludoError;
     } else if (
-        // Events API down
-        federatedSearchStore.selectedCategory === 'Events & Festivals'
-        && federatedSearchStore.totalResults
+        // No Results
+        federatedSearchStore.totalResults === 0
         && !federatedSearchStore.isLoading
     ) {
         isError.value.error = true;
-        isError.value.message = props.errorMessages.eventError;
+        isError.value.message = props.errorMessages.noResults;
     } else {
         // No error
         isError.value.error = false;

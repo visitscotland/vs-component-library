@@ -97,7 +97,7 @@ const base = {
         noResults: 'There are no results, please try again',
         incorrectDateOrder: 'The start date is after the end date, please change this and try again.',
         cludoError: 'There was a problem retrieving the search results, please try again later',
-        eventError: 'There was a problem retrieving the event results, please try again later, or alternativley visit <a href="https://www.datathistle.com/events/">Data Thistle</a>',
+        eventError: 'There was a problem retrieving the event results, please try again later.',
     },
     noResultsLabel: 'There are no results, please try again',
     noJsText: 'JavaScript needs to be enabled to use the search function',

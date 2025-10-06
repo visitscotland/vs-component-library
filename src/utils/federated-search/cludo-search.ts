@@ -28,6 +28,7 @@ async function cludoSearch(
     const auth = `${customerId}:${apiKey}`;
 
     const federatedSearchStore = useFederatedSearchStore();
+    federatedSearchStore.eventsApiError = false;
 
     // Don't query the Cludo API when the "Events & Festivals" is selected
     // as this data only comes from the Events API (DataThistle).
