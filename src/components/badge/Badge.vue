@@ -28,12 +28,12 @@ export default {
     props: {
         /**
         * Variant of the badge
-        * @values default, subtle
+        * @values default, subtle, information
         */
         variant: {
             type: String,
             default: 'default',
-            validator: (value) => value.match(/(default|subtle)/),
+            validator: (value) => value.match(/(default|subtle|information)/),
         },
     },
     computed: {
@@ -51,12 +51,12 @@ export default {
 .vs-badge {
     margin-right: $vs-spacer-050;
     padding: $vs-spacer-025 $vs-spacer-050;
-    border-radius: $vs-radius-tiny;
     display: inline-block;
     line-height: 1;
 
     &--default {
         border: $vs-border-width-sm solid $vs-color-border-secondary;
+        border-radius: $vs-radius-tiny;
         color: $vs-color-text-secondary;
         font-size: $font-size-3;
     }
@@ -66,6 +66,12 @@ export default {
         color: $vs-color-text-highlight;
         font-size: $font-size-4;
         font-weight: $vs-font-weight-strong;
+    }
+
+    &--information {
+        background: $vs-color-background-information;
+        font-size: $vs-font-size-detail-s;
+        line-height: $vs-line-height-detail;
     }
 
 }

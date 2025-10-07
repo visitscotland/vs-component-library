@@ -12,6 +12,7 @@
         </div>
 
         <div
+            v-if="articleReadTime || articlePublishDate"
             data-test="vs-article-details__date-time"
             :class="!articleAuthor ? 'vs-article-details--highlight' : ''"
             class="mb-150"

@@ -4,6 +4,7 @@ import VsImg from '@/components/img/Img.vue';
 import VsLink from '@/components/link/Link.vue';
 import VsButton from '@/components/button/Button.vue';
 import VsBody from '@/components/body/Body.vue';
+import VsDetail from '@/components/detail/Detail.vue';
 import VsArticleDetails from '@/components/article-details/ArticleDetails.vue';
 import VsBadge from '@/components/badge/Badge.vue';
 import VsIcon from '@/components/icon/Icon.vue';
@@ -14,6 +15,7 @@ import LinkExample from './card-examples/link-card';
 import LinkWithDetailsExample from './card-examples/link-card-with-details';
 import LinkWithIconExample from './card-examples/link-card-with-icon';
 import CategoryExample from './card-examples/category-card';
+import EventExample from './card-examples/event-card';
 
 const components = {
     VsCard,
@@ -25,6 +27,7 @@ const components = {
     VsArticleDetails,
     VsBadge,
     VsIcon,
+    VsDetail,
 };
 
 const decorators = {
@@ -64,3 +67,4 @@ export const Link = createStory(LinkExample);
 export const LinkWithDetails = createStory(LinkWithDetailsExample);
 export const LinkWithIcon = createStory(LinkWithIconExample);
 export const Category = createStory(CategoryExample);
+export const Event = createStory(EventExample);
