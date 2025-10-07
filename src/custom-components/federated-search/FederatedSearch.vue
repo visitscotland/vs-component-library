@@ -60,6 +60,7 @@
                         :link="setCardLink(result)"
                         :link-type="result.dataSrc === 'cludo' ? 'INTERNAL' : 'EXTERNAL'"
                         :price="result.minPrice"
+                        fromText="From"
                     >
                         <template #fed-card-header>
                             {{ result.title }}

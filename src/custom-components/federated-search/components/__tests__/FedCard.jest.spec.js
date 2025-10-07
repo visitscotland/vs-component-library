@@ -28,7 +28,7 @@ describe('VsFedCard', () => {
     it('should render the img', () => {
         const wrapper = factoryMount();
 
-        const img = wrapper.find('.vs-fed-card--header__image');
+        const img = wrapper.find('[data-test="vs-fed-card__header--image"]');
         expect(img.exists()).toBe(true);
     });
 
@@ -39,7 +39,7 @@ describe('VsFedCard', () => {
                 price: '£10',
             });
 
-            const price = wrapper.find('.vs-fed-card--header__attribute-price');
+            const price = wrapper.find('[data-test="vs-fed-card__header--attribute-price"');
             expect(price.exists()).toBe(true);
         });
 
@@ -49,7 +49,7 @@ describe('VsFedCard', () => {
                 date: '1 Sept 25',
             });
 
-            const date = wrapper.find('.vs-fed-card--header__attribute-date');
+            const date = wrapper.find('[data-test="vs-fed-card__header--attribute-date"]');
             expect(date.exists()).toBe(true);
         });
     });

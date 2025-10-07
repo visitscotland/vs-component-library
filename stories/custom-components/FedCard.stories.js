@@ -44,6 +44,7 @@ Default.args = {
     linkType: 'EXTERNAL',
     imgSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/08/23/tentsmuir-forest?size=lg',
     location: 'Fife',
+    fromText: 'From',
 };
 
 export const Event = Template.bind();
