@@ -6,7 +6,7 @@ export default `
                     src="./fixtures/megalinks/ashton-lane-wide.jpg"
                     class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
                 />
-                <div class="position-absolute bottom-0 start-0">
+                <div class="position-absolute bottom-0 start-0 d-flex gap-2">
                     <VsBadge
                         variant="information"
                         class="rounded-top-end rounded-bottom-start"
@@ -16,7 +16,7 @@ export default `
 
                     <VsBadge 
                         variant="information"
-                        class="me-2 rounded-top"
+                        class="rounded-top"
                     >
                         25 Oct 2025
                     </VsBadge>
@@ -58,7 +58,6 @@ export default `
                         Scotland
                     </VsDetail>
                 </div>
-
 
                 <VsIcon 
                     icon="vs-icon-control-external-link"
