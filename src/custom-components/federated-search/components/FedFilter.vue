@@ -31,9 +31,9 @@
                     :key="index"
                     class="vs-fed-filter__category-button"
                     :data-test="`vs-fed-filter__category-button--${filterCategory.id}`"
-                    :icon="variant === 'primary' ? filterCategory.icon : null"
+                    :icon="props.variant === 'primary' ? filterCategory.icon : null"
                     :variant="isActive(filterCategory.Key) ? 'primary' : 'secondary'"
-                    :size="variant === 'secondary' ? 'sm' : 'md'"
+                    :size="props.variant === 'secondary' ? 'sm' : 'md'"
                     @click="$emit('filter-updated', filterCategory.Key)"
                 >
                     {{ filterCategory.Key }}
