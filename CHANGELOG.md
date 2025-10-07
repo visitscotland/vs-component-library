@@ -1,3 +1,13 @@
+# [5.11.0](https://github.com/visitscotland/vs-component-library/compare/v5.10.1...v5.11.0) (2025-10-07)
+
+
+### Features
+
+* **articledetails:** remove article detail changes and use detail instead ([8c9d79c](https://github.com/visitscotland/vs-component-library/commit/8c9d79cd6f82e64496b9b75fb947fa976d8469c9))
+* **articledetails:** update article details and badge variants for use in event card ([ae2ff53](https://github.com/visitscotland/vs-component-library/commit/ae2ff5305e79ffe05b629795df2e519f2b6781dc))
+* **event card:** fix badge layout ([85c22e3](https://github.com/visitscotland/vs-component-library/commit/85c22e3978b4f5f00ed32ad4ffffd816ef76ff10))
+* **eventcard:** adds event card pattern to storybook ([3e067e6](https://github.com/visitscotland/vs-component-library/commit/3e067e657c7628ae7794f088a098d14568e4b3c5))
+
 ## [5.10.1](https://github.com/visitscotland/vs-component-library/compare/v5.10.0...v5.10.1) (2025-10-02)
 
 

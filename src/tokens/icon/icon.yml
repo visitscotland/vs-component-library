@@ -24,7 +24,9 @@ props:
   vs-icon-control-play:
     value: "fa-regular fa-play"
   vs-icon-control-pause:
-    value: "fa-regular fa-pause"  
+    value: "fa-regular fa-pause"
+  vs-icon-control-external-link:
+    value: "fa-regular fa-square-arrow-up-right"  
 
   ## Feedback Icons
   vs-icon-feedback-information:
