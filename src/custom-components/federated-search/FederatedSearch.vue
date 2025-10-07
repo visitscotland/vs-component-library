@@ -250,8 +250,6 @@ async function calculateError() {
         isError.value.error = false;
         isError.value.message = '';
     }
-
-    return 0;
 }
 
 onMounted(async() => {
