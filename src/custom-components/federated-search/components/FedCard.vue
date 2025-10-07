@@ -136,11 +136,16 @@ const props = defineProps({
 
 const imgFallback = 'images/placeholders/fallback-img.png';
 
-const formattedPrice = computed(() => (props.price.toString().match(/\b\d+\.\d\b/) ? `£${props.price}0` : `£${props.price}`));
+const formattedPrice = computed(() => {
+    if (props.price === null) return '';
+
+    const priceStr = props.price.toString();
+
+    return priceStr.match(/\b\d+\.\d\b/) ? `£${props.price}0` : `£${props.price}`;
+});
 
 const linkIconName = computed(() => {
     let icon = '';
-
     switch (props.linkType) {
     case 'EXTERNAL':
         icon = 'fa-regular fa-square-arrow-up-right';
@@ -150,7 +155,7 @@ const linkIconName = computed(() => {
         break;
     default:
         icon = '';
-    };
+    }
     return icon;
 });
 

@@ -61,7 +61,7 @@
                         </VsSiteSearch>
 
                         <VsButton
-                            v-if="searchLink"
+                            v-if="!noSearch && searchLink"
                             :animate="false"
                             class="vs-site-search"
                             :href="searchLink"

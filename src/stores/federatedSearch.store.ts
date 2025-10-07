@@ -7,7 +7,7 @@ import cludoAutocomplete from '@/utils/federated-search/cludo-autocomplete';
 
 const useFederatedSearchStore = defineStore('federatedSearch', () => {
     const cludoCategories = ref(null);
-    const cludoCredentials = ref<CludoCredentials>(undefined);
+    const cludoCredentials = ref<CludoCredentials | undefined>(undefined);
     const cludoError = ref(false);
     const currentPage = ref(1);
     const eventsApi = ref(undefined);
@@ -73,7 +73,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         }
 
         if (selectedCategory.value) {
-            url.searchParams.set('category', selectedCategory.value);
+            url.searchParams.set('category', encodeURIComponent(selectedCategory.value));
         }
 
         if (selectedSubCategory.value.length > 0) {

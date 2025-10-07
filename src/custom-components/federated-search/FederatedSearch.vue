@@ -213,7 +213,7 @@ const props = defineProps({
 
 const totalResultsPages = computed(() => Math.ceil(federatedSearchStore.totalResults / 12));
 
-async function calculateError() {
+function calculateError() {
     if (
         // Start date is after end date
         federatedSearchStore.endDate
@@ -252,7 +252,7 @@ async function calculateError() {
     }
 }
 
-onMounted(async() => {
+onMounted(() => {
     federatedSearchStore.cludoCredentials = {
         apiKey: props.cludoApiKey,
         customerId: props.cludoCustomerId,
@@ -260,7 +260,7 @@ onMounted(async() => {
     };
     federatedSearchStore.eventsApi = props.eventsApi;
 
-    await calculateError();
+    calculateError();
 
     if (typeof window !== 'undefined' && typeof document !== 'undefined') {
         const params = new URLSearchParams(document.location.search);
@@ -331,37 +331,12 @@ function setCardLink(result) {
     return `${dataThistleBase}${result.parentId}-${title}`;
 }
 
-onUpdated(async() => {
-    await calculateError();
+onUpdated(() => {
+    calculateError();
 });
-
 </script>
 
 <style lang="scss">
-
-//     &__close-button {
-//         position: absolute;
-//         right: 8px;
-//         top: 6px;
-
-//         @include media-breakpoint-up(xl) {
-//             right: $vs-spacer-100;
-//             top: $vs-spacer-050;
-//         }
-//     }
-
-// .autocomplete-suggestions {
-//     background-color: #fff;
-//     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.30), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-//     cursor: pointer;
-//     margin-top: 0.5rem;
-//     padding: 1rem;
-//     position: absolute;
-//     top: 3rem;
-//     left: 3rem;
-//     width: 91%;
-// }
-
 .vs-federated-search {
     &--pagination {
         margin: $vs-spacer-400 $vs-spacer-0 $vs-spacer-300 $vs-spacer-0;

@@ -97,7 +97,11 @@ async function cludoSearch(
     } catch (error) {
         federatedSearchStore.cludoError = true;
         federatedSearchStore.isLoading = false;
-        return [];
+        return {
+            results: [],
+            totalResults: 0,
+            categories: [],
+        };
     }
 }
 
