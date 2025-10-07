@@ -31,6 +31,17 @@ async function cludoSearch(
     federatedSearchStore.eventsApiError = false;
     federatedSearchStore.cludoError = false;
 
+    // If no Cludo Credentials passed, show error message instead.
+    if (!cludoCredentials) {
+        federatedSearchStore.cludoError = true;
+        federatedSearchStore.isLoading = false;
+        return {
+            results: [],
+            totalResults: 0,
+            categories: [],
+        };
+    }
+
     // Don't query the Cludo API when the "Events & Festivals" is selected
     // as this data only comes from the Events API (DataThistle).
     if (selectedCategory === 'Events & Festivals' && cludoCategories) {
