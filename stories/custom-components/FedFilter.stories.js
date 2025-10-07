@@ -34,13 +34,6 @@ const Template = (args) => ({
                 >
                     {{ args.heading }}
                 </template>
-
-                <template
-                    #no-js
-                    v-if="args.jsDisabled"
-                >
-                    {{ args.noJsMessage }}
-                </template>
             </VsFedFilter>
         </div>
     `,
