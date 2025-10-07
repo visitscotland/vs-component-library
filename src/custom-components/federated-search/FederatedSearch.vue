@@ -5,9 +5,9 @@
     >
         <div class="vs-federated-search__container">
             <VsFedSearchInput
-                :cludoa-api-key="props.cludoApiKey"
+                :cludo-api-key="props.cludoApiKey"
                 :cludo-customer-id="props.cludoCustomerId"
-                :cludo-engine-id="props.cludoEngineID"
+                :cludo-engine-id="props.cludoEngineId"
                 :sub-filters="props.subFilters"
                 :sub-filter-header="props.subFilterHeader"
             />
@@ -156,7 +156,7 @@ const props = defineProps({
     /**
      * Engine ID for Cludo.
     */
-    cludoEngineID: {
+    cludoEngineId: {
         type: Number,
         default: Number(getEnvValue('CLUDO_ENGINE_ID')),
     },
@@ -257,7 +257,7 @@ onMounted(async() => {
     federatedSearchStore.cludoCredentials = {
         apiKey: props.cludoApiKey,
         customerId: props.cludoCustomerId,
-        engineId: props.cludoEngineID,
+        engineId: props.cludoEngineId,
     };
     federatedSearchStore.eventsApi = props.eventsApi;
 

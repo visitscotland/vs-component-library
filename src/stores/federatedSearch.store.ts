@@ -66,7 +66,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         return cludoAutocomplete(searchTerm.value, cludoCredentials.value);
     }
 
-    function navigateToResultsPage(resetPageNo?: Boolean) {
+    function navigateToResultsPage(resetPageNo?: boolean) {
         const url = new URL(window.location);
 
         if (searchTerm.value) {
