@@ -18,8 +18,8 @@ describe('VsFedSearchSort', () => {
     it('should not by default render the date pickers', async() => {
         const wrapper = factoryMount();
 
-        const datePickerFrom = wrapper.find('#vs-fed-search-sort--from-date');
-        const datePickerTo = wrapper.find('#vs-fed-search-sort--to-date');
+        const datePickerFrom = wrapper.find('#vs-fed-search-sort__from-date');
+        const datePickerTo = wrapper.find('#vs-fed-search-sort__to-date');
 
         expect(datePickerFrom.exists()).toBe(false);
         expect(datePickerTo.exists()).toBe(false);
@@ -28,7 +28,7 @@ describe('VsFedSearchSort', () => {
     it('should render the sort dropdown', async() => {
         const wrapper = factoryMount();
 
-        const sortDropdown = wrapper.find('#vs-fed-search-sort--dropdown');
+        const sortDropdown = wrapper.find('#vs-fed-search-sort__dropdown');
 
         expect(sortDropdown.exists()).toBe(true);
     });
@@ -40,8 +40,8 @@ describe('VsFedSearchSort', () => {
                 dateFilterVisible: true,
             });
 
-            const datePickerFrom = wrapper.find('#vs-fed-search-sort--from-date');
-            const datePickerTo = wrapper.find('#vs-fed-search-sort--to-date');
+            const datePickerFrom = wrapper.find('#vs-fed-search-sort__from-date');
+            const datePickerTo = wrapper.find('#vs-fed-search-sort__to-date');
 
             expect(datePickerFrom.exists()).toBe(true);
             expect(datePickerTo.exists()).toBe(true);
@@ -54,7 +54,7 @@ describe('VsFedSearchSort', () => {
                 fromDateLabel: 'From',
             });
 
-            const datePickerLabel = wrapper.find('[data-test="vs-fed-search-sort--from-date-label"]');
+            const datePickerLabel = wrapper.find('[data-test="vs-fed-search-sort__from-date-label"]');
 
             expect(datePickerLabel.exists()).toBe(true);
         });
@@ -66,7 +66,7 @@ describe('VsFedSearchSort', () => {
                 toDateLabel: 'to',
             });
 
-            const datePickerLabel = wrapper.find('[data-test="vs-fed-search-sort--to-date-label"]');
+            const datePickerLabel = wrapper.find('[data-test="vs-fed-search-sort__to-date-label"]');
 
             expect(datePickerLabel.exists()).toBe(true);
         });
@@ -78,7 +78,7 @@ describe('VsFedSearchSort', () => {
                 sortLabel: 'ThisIsTheSortingOption',
             });
 
-            const sortLabel = wrapper.find('#vs-fed-search-sort--dropdown');
+            const sortLabel = wrapper.find('#vs-fed-search-sort__dropdown');
             expect(sortLabel.text()).toBe('ThisIsTheSortingOption');
         });
     });
@@ -90,7 +90,7 @@ describe('VsFedSearchSort', () => {
                 dateFilterVisible: true,
             });
 
-            const datePickerFrom = wrapper.find('#vs-fed-search-sort--from-date');
+            const datePickerFrom = wrapper.find('#vs-fed-search-sort__from-date');
             await datePickerFrom.setValue('2025-07-28');
 
             expect(wrapper.emitted('from-date-updated')).toBeTruthy();
@@ -102,7 +102,7 @@ describe('VsFedSearchSort', () => {
                 dateFilterVisible: true,
             });
 
-            const datePickerFrom = wrapper.find('#vs-fed-search-sort--to-date');
+            const datePickerFrom = wrapper.find('#vs-fed-search-sort__to-date');
             await datePickerFrom.setValue('2025-07-28');
 
             expect(wrapper.emitted('end-date-updated')).toBeTruthy();
@@ -123,10 +123,10 @@ describe('VsFedSearchSort', () => {
                 ],
             });
 
-            const dropdown = wrapper.find('#vs-fed-search-sort--dropdown');
+            const dropdown = wrapper.find('#vs-fed-search-sort__dropdown');
             await dropdown.trigger('click');
 
-            const dropdownItem = wrapper.find('[data-test="vs-fed-search-sort--dropdown-item__date"]');
+            const dropdownItem = wrapper.find('[data-test="vs-fed-search-sort__dropdown-item--date"]');
             expect(dropdownItem.exists()).toBe(true);
             await dropdownItem.trigger('click');
 

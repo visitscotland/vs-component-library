@@ -29,6 +29,18 @@ async function cludoSearch(
 
     const federatedSearchStore = useFederatedSearchStore();
     federatedSearchStore.eventsApiError = false;
+    federatedSearchStore.cludoError = false;
+
+    // If no Cludo Credentials passed, show error message instead.
+    if (!cludoCredentials) {
+        federatedSearchStore.cludoError = true;
+        federatedSearchStore.isLoading = false;
+        return {
+            results: [],
+            totalResults: 0,
+            categories: [],
+        };
+    }
 
     // Don't query the Cludo API when the "Events & Festivals" is selected
     // as this data only comes from the Events API (DataThistle).
@@ -60,11 +72,12 @@ async function cludoSearch(
         });
 
         if (!response.ok) {
+            federatedSearchStore.cludoError = true;
+            federatedSearchStore.isLoading = false;
             throw new Error(`Cludo response message: ${response.status}`);
         }
 
         const results = await response.json();
-        console.log('cludo results', results);
 
         const cleanResults = cleanData(results);
 
@@ -82,7 +95,7 @@ async function cludoSearch(
             categories: results.Facets.Category.Items,
         };
     } catch (error) {
-        console.error('Cludo error:', error?.message);
+        federatedSearchStore.cludoError = true;
         federatedSearchStore.isLoading = false;
         return [];
     }

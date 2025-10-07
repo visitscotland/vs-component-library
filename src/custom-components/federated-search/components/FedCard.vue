@@ -4,22 +4,25 @@
         card-style="elevated"
     >
         <template #vs-card-header>
-            <div class="vs-fed-card--header">
+            <div class="vs-fed-card__header">
                 <VsImg
-                    class="vs-fed-card--header__image w-100 rounded-1 object-fit-cover img-zoom-on-hover"
+                    class="w-100 rounded-1 object-fit-cover img-zoom-on-hover"
+                    data-test="vs-fed-card__header--image"
                     use-lazy-loading
                     :src="props.imgSrc || imgFallback"
                 />
-                <div class="vs-fed-card--header__attributes">
+                <div class="vs-fed-card__header--attributes">
                     <VsDetail
                         v-if="props.price"
-                        class="vs-fed-card--header__attribute vs-fed-card--header__attribute-price me-050 mb-0"
+                        class="vs-fed-card__header--attribute me-050 mb-0"
+                        data-test="vs-fed-card__header--attribute-price"
                     >
-                        From £{{ formattedPrice() }}
+                        {{ props.fromText }} {{ formattedPrice }}
                     </VsDetail>
                     <VsDetail
                         v-if="props.date"
-                        class="vs-fed-card--header__attribute vs-fed-card--header__attribute-date mb-0"
+                        class="vs-fed-card__header--attribute mb-0"
+                        data-test="vs-fed-card__header--attribute-date"
                     >
                         {{ props.date }}
                     </VsDetail>
@@ -45,7 +48,7 @@
                 </VsHeading>
                 <VsBody
                     v-if="$slots['fed-card-description']"
-                    class="vs-fed-card--body__description truncate-3-lines mt-050"
+                    class="vs-fed-card__body--description truncate-3-lines mt-050"
                     data-test="vs-fed-card-description"
                 >
                     <!-- @slot Slot for description, clamped to 3 lines max-->
@@ -54,30 +57,30 @@
             </div>
         </template>
         <template #vs-card-footer>
-            <div class="vs-fed-card--footer my-100 px-125">
+            <div class="vs-fed-card__footer my-100 px-125">
                 <div
                     v-if="$slots['fed-card-location']"
-                    class="vs-fed-card--footer__location"
+                    class="vs-fed-card__footer--location"
                     data-test="vs-fed-card-location"
                 >
                     <VsIcon
                         icon="fa-solid fa-location-dot"
                         size="xs"
-                        custom-colour="#A8308C"
+                        variant="highlight"
                         class="me-025"
                     />
-                    <VsDetail class="vs-fed-card--footer__location-detail">
+                    <VsDetail class="vs-fed-card__footer--location-detail">
                         <!-- @slot for location -->
                         <slot name="fed-card-location" />
                     </VsDetail>
                 </div>
                 <div
                     v-if="props.link"
-                    class="vs-fed-card--footer_link"
+                    class="vs-fed-card__footer--link"
                     data-test="vs-fed-card-link"
                 >
                     <VsIcon
-                        :icon="linkIconName()"
+                        :icon="linkIconName"
                         size="xs"
                         custom-colour="#A8308C"
                         class="me-025"
@@ -89,6 +92,7 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
 import VsCard from '@/components/card/Card.vue';
 import VsImg from '@/components/img/Img.vue';
 import VsHeading from '@/components/heading/Heading.vue';
@@ -123,13 +127,18 @@ const props = defineProps({
         type: String,
         default: undefined,
     },
+    /** Populates the text for 'From' on event card */
+    fromText: {
+        type: String,
+        default: undefined,
+    },
 });
 
 const imgFallback = 'images/placeholders/fallback-img.png';
 
-const formattedPrice = () => (props.price.match(/\b\d+\.\d\b/) ? `${props.price}0` : props.price);
+const formattedPrice = computed(() => (props.price.toString().match(/\b\d+\.\d\b/) ? `£${props.price}0` : `£${props.price}`));
 
-function linkIconName() {
+const linkIconName = computed(() => {
     let icon = '';
 
     switch (props.linkType) {
@@ -143,12 +152,13 @@ function linkIconName() {
         icon = '';
     };
     return icon;
-}
+});
+
 </script>
 
 <style lang="scss">
 .vs-fed-card {
-    &--header {
+    &__header {
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
@@ -163,17 +173,17 @@ function linkIconName() {
             }
         }
 
-        &__attribute {
+        &--attribute {
             font-size: $vs-font-size-detail-s;
             background: $vs-color-background-information;
             border: none;
-            border-radius: $vs-radius-tiny $vs-radius-tiny 0 0;
+            border-radius: $vs-radius-tiny $vs-radius-tiny $vs-radius-none $vs-radius-none;
             padding: $vs-spacer-0125 $vs-spacer-075;
             color: $vs-color-text-primary;
             display: inline;
         }
 
-        &__attributes {
+        &--attributes {
             display: flex;
             justify-content: flex-start;
             position: absolute;
@@ -183,26 +193,26 @@ function linkIconName() {
         }
     }
 
-    &--body {
-        &__description {
+    &__body {
+        &--description {
             font-size: $vs-font-size-body-s;
             color: $vs-color-text-secondary;
         }
     }
 
-    &--footer {
+    &__footer {
         display: flex;
         justify-content: space-between;
         font-size: $vs-font-size-detail-s;
 
-        &__location-detail {
+        &--location-detail {
             color: $vs-color-text-tertiary;
             display: inline;
             flex-grow: 1;
             font-size: inherit;
         }
 
-        &_link {
+        &--link {
             flex-grow: 1;
             justify-content: flex-end;
             font-size: inherit;

@@ -34,13 +34,6 @@ const Template = (args) => ({
                 >
                     {{ args.heading }}
                 </template>
-
-                <template
-                    #no-js
-                    v-if="args.jsDisabled"
-                >
-                    {{ args.noJsMessage }}
-                </template>
             </VsFedFilter>
         </div>
     `,
@@ -51,6 +44,8 @@ export const Default = Template.bind();
 Default.args = {
     variant: 'primary',
     scrollButtons: false,
+    scrollLeftText: 'Scroll left',
+    scrollRightText: 'Scroll right',
     filterCategories: [
         {
             id: 'nature_outdoor',

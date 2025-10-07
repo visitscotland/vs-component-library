@@ -60,6 +60,7 @@
                         :link="setCardLink(result)"
                         :link-type="result.dataSrc === 'cludo' ? 'INTERNAL' : 'EXTERNAL'"
                         :price="result.minPrice"
+                        fromText="From"
                     >
                         <template #fed-card-header>
                             {{ result.title }}
@@ -232,7 +233,7 @@ async function calculateError() {
         // Cludo down
         (federatedSearchStore.searchTerm || federatedSearchStore.selectedCategory)
         && federatedSearchStore.selectedCategory !== 'Events & Festivals'
-        && !federatedSearchStore.totalResults
+        && federatedSearchStore.cludoError
         && !federatedSearchStore.isLoading
     ) {
         isError.value.error = true;
@@ -249,8 +250,6 @@ async function calculateError() {
         isError.value.error = false;
         isError.value.message = '';
     }
-
-    return 0;
 }
 
 onMounted(async() => {
@@ -324,9 +323,11 @@ function setCardLink(result) {
     }
 
     const dataThistleBase = 'https://www.datathistle.com/event/';
-    const title = result.title
-        .replaceAll(' ', '-')
-        .toLowerCase();
+    const title = encodeURIComponent(
+        result.title
+            .replaceAll(' ', '-')
+            .toLowerCase(),
+    );
     return `${dataThistleBase}${result.parentId}-${title}`;
 }
 
