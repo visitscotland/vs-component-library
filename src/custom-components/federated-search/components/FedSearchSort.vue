@@ -4,21 +4,20 @@
             cols="6"
             md="4"
             v-if="props.dateFilterVisible"
-            class="vs-fed-search-sort--input"
         >
             <label
                 v-if="props.fromDateLabel"
-                for="vs-fed-search-sort--from-date"
-                class="vs-fed-search-sort--label"
-                data-test="vs-fed-search-sort--from-date-label"
+                for="vs-fed-search-sort__from-date"
+                class="vs-fed-search-sort__label"
+                data-test="vs-fed-search-sort__from-date-label"
             >
                 {{ props.fromDateLabel }}
             </label>
             <VsInput
-                field-name="vs-fed-search-sort--from-date"
+                field-name="vs-fed-search-sort__from-date"
                 :value="new Date().toJSON().slice(0, 10)"
                 type="date"
-                :auto-complete="false"
+                auto-complete="off"
                 @input="$emit('from-date-updated', $event.target.value)"
             />
         </VsCol>
@@ -26,32 +25,31 @@
             cols="6"
             md="4"
             v-if="props.dateFilterVisible"
-            class="vs-fed-search-sort--input"
         >
             <label
                 v-if="props.toDateLabel"
-                for="vs-fed-search-sort--to-date"
-                class="vs-fed-search-sort--label"
-                data-test="vs-fed-search-sort--to-date-label"
+                for="vs-fed-search-sort__to-date"
+                class="vs-fed-search-sort__label"
+                data-test="vs-fed-search-sort__to-date-label"
             >
                 {{ props.toDateLabel }}
             </label>
             <VsInput
-                field-name="vs-fed-search-sort--to-date"
+                field-name="vs-fed-search-sort__to-date"
                 type="date"
-                :auto-complete="false"
+                auto-complete="off"
                 @input="$emit('end-date-updated', $event.target.value)"
             />
         </VsCol>
         <VsCol
             cols="12"
             md="4"
-            class="vs-fed-search-sort--dropdown-wrapper"
+            class="vs-fed-search-sort__dropdown-wrapper"
         >
             <VsDropdown
                 variant="secondary"
-                id="vs-fed-search-sort--dropdown"
-                name="vs-fed-search-sort-dropdown"
+                id="vs-fed-search-sort__dropdown"
+                name="vs-fed-search-sort__dropdown"
                 :text="isActive === null ? props.sortLabel : `${props.sortLabel}: ${isActive.label}`"
             >
                 <VsDropdownItem
@@ -59,7 +57,7 @@
                     :key="index"
                     @click="sortUpdated(sortOption)"
                     :active="isActive === sortOption ? true : false"
-                    :data-test="`vs-fed-search-sort--dropdown-item__${sortOption.id}`"
+                    :data-test="`vs-fed-search-sort__dropdown-item--${sortOption.id}`"
                 >
                     {{ sortOption.label }}
                 </VsDropdownItem>
@@ -129,12 +127,12 @@ function sortUpdated(sortOption) {
 
 <style lang="scss">
 .vs-fed-search-sort {
-    &--label {
+    &__label {
         font-weight: $vs-font-weight-regular;
     }
 
-    &--dropdown-wrapper {
-        display: flex;
+    &__dropdown-wrapper {
+    display: flex;
         align-items: flex-end;
 
         button {
@@ -145,7 +143,7 @@ function sortUpdated(sortOption) {
 
         @include media-breakpoint-down(sm) {
             display: block;
-            margin-top: 1em;
+            margin-top: $vs-spacer-100;
 
             button {
                 width: 100%;
