@@ -2,33 +2,35 @@
     <div class="vs-fed-filter">
         <VsBody
             v-if="$slots['fed-filter-header'] && $slots['fed-filter-header']()"
-            class="vs-fed-filter--header mb-025 ms-025"
-            data-test="vs-fed-filter-header"
+            class="vs-fed-filter__header mb-025 ms-025"
+            data-test="vs-fed-filter__header"
         >
             <!-- @slot Heading for the filter -->
             <slot name="fed-filter-header" />
         </VsBody>
-        <div class="vs-fed-filter--scroll-container">
+        <div class="vs-fed-filter__scroll-container">
             <VsButton
                 v-if="scrollButtons"
                 variant="secondary"
                 icon="fa-regular fa-chevron-left"
                 icon-only
-                class="vs-fed-filter--scroll-button vs-fed-filter--scroll-button__left"
+                class="vs-fed-filter__scroll-button me-050"
+                data-test="vs-fed-filter__scroll-button--left"
                 @click="scroll('left')"
             >
-                Scroll left
+                {{ props.scrollLeftText }}
             </VsButton>
             <div
-                class="vs-fed-filter--scroll-rail"
+                class="vs-fed-filter__scroll-rail"
                 :class="filterClasses()"
-                :id="`vs-fed-filter--scroll-rail_${props.variant}`"
+                :id="`vs-fed-filter__scroll-rail--${props.variant}`"
+                ref="scrollRail"
             >
                 <VsButton
                     v-for="(filterCategory, index) in props.filterCategories"
                     :key="index"
-                    class="vs-fed-filter--category-button"
-                    :data-test="`vs-fed-filter--category-button_${filterCategory.id}`"
+                    class="vs-fed-filter__category-button"
+                    :data-test="`vs-fed-filter__category-button--${filterCategory.id}`"
                     :icon="variant === 'primary' ? filterCategory.icon : null"
                     :variant="isActive(filterCategory.Key) ? 'primary' : 'secondary'"
                     :size="variant === 'secondary' ? 'sm' : 'md'"
@@ -42,16 +44,18 @@
                 variant="secondary"
                 icon="fa-regular fa-chevron-right"
                 icon-only
-                class="vs-fed-filter--scroll-button vs-fed-filter--scroll-button__right"
+                class="vs-fed-filter__scroll-button ms-050"
+                data-test="vs-fed-filter__scroll-button--right"
                 @click="scroll('right')"
             >
-                Scroll right
+                {{ props.scrollRightText }}
             </VsButton>
         </div>
     </div>
 </template>
 
 <script setup>
+import { ref } from 'vue';
 // Buttons should be links on homepage!
 import VsButton from '@/components/button/Button.vue';
 import VsBody from '@/components/body/Body.vue';
@@ -111,13 +115,23 @@ const props = defineProps({
         default: false,
     },
     /**
-     * Tells if JS is disabled
+     * Translated label for the scroll left button
      */
-    jsDisabled: {
-        type: Boolean,
-        default: false,
+    scrollLeftText: {
+        type: String,
+        default: '',
+    },
+    /**
+     * Translated label for the scroll right button
+     */
+    scrollRightText: {
+        type: String,
+        default: '',
     },
 });
+
+// Defines the scoll rail from the Template
+const scrollRail = ref(null);
 
 defineEmits(['filter-updated']);
 
@@ -141,50 +155,50 @@ function isActive(category) {
  * https://developer.mozilla.org/en-US/docs/Web/CSS/::scroll-button
 */
 function scroll(dir) {
-    const scrollRail = document.getElementById(`vs-fed-filter--scroll-rail_${props.variant}`);
-
-    if (dir === 'left') scrollRail?.scrollBy(-200, 0);
-    else if (dir === 'right') scrollRail?.scrollBy(200, 0);
+    if (dir === 'left') scrollRail.value?.scrollBy(-200, 0);
+    else if (dir === 'right') scrollRail.value?.scrollBy(200, 0);
 }
 
 function filterClasses() {
     return [
-        `vs-fed-filter--scroll-rail_${props.variant}`,
-        props.wrap ? 'vs-fed-filter--scroll-rail_wrap' : '',
+        `vs-fed-filter__scroll-rail--${props.variant}`,
+        props.wrap ? 'vs-fed-filter__scroll-rail--wrap' : '',
     ];
 }
 </script>
 
 <style lang="scss">
     .vs-fed-filter {
-        &--header {
+        &__header {
             font-weight: $vs-font-weight-medium;
         }
 
-        &--scroll-container{
+        &__scroll-container{
             display: flex;
         }
 
-        &--scroll-rail {
+        &__scroll-rail {
             display: flex;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             align-items: center;
             padding: $vs-spacer-025;
 
-            &_primary {
+            @extend %vs-scrollbar;
+
+            &--primary {
                 column-gap: $vs-spacer-075;
                 row-gap: $vs-spacer-075
             }
 
-            &_secondary {
+            &--secondary {
                 column-gap: $vs-spacer-050;
                 margin-top: $vs-spacer-025;
             }
 
-            &_wrap {
+            &--wrap {
                 @include media-breakpoint-up(lg) {
-                    overflow-x: none;
+                    overflow-x: hidden;
                     scroll-snap-type: none;
                     flex-wrap: wrap;
                     row-gap: $vs-spacer-050;
@@ -196,21 +210,13 @@ function filterClasses() {
             }
         }
 
-        &--scroll-button {
+        &__scroll-button {
             flex: 0 0 max-content;
             aspect-ratio: 1/1;
-            margin-top: 0.25em;
-
-            &__left {
-                margin-right: $vs-spacer-050;
-            }
-
-            &__right {
-                margin-left: $vs-spacer-050;
-            }
+            margin-top: $vs-spacer-025;
         }
 
-        &--category-button {
+        &__category-button {
             flex: 0 0 content;
             height: min-content;
         }

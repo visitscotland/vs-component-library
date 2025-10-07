@@ -69,6 +69,8 @@ export default {
         gap: $vs-spacer-125;
         grid-template-columns: 1fr;
 
+        @extend %vs-scrollbar;
+
         @include media-breakpoint-up(md) {
             gap: $vs-spacer-175;
         }
@@ -83,20 +85,6 @@ export default {
                 display: flex;
                 overflow-x: auto;
                 scroll-snap-type: x mandatory;
-
-                &::-webkit-scrollbar {
-                    height: 6px;
-                }
-
-                &::-webkit-scrollbar-track {
-                    background: #DEDBE6;
-                    border-radius: $vs-radius-tiny;
-                }
-
-                &::-webkit-scrollbar-thumb {
-                    background: #535396;
-                    border-radius: $vs-radius-tiny;
-                }
 
                 .vs-card {
                     flex: 0 0 266px;

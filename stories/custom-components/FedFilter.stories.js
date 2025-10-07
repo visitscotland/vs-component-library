@@ -51,6 +51,8 @@ export const Default = Template.bind();
 Default.args = {
     variant: 'primary',
     scrollButtons: false,
+    scrollLeftText: 'Scroll left',
+    scrollRightText: 'Scroll right',
     filterCategories: [
         {
             id: 'nature_outdoor',

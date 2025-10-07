@@ -26,7 +26,7 @@ describe('VsFedFilter', () => {
 
     it('should render the scroll rail', () => {
         const wrapper = factoryShallowMount();
-        const scrollRail = wrapper.find('#vs-fed-filter--scroll-rail_primary');
+        const scrollRail = wrapper.find('#vs-fed-filter__scroll-rail--primary');
 
         expect(scrollRail.exists()).toBe(true);
     });
@@ -38,7 +38,7 @@ describe('VsFedFilter', () => {
                 variant: 'secondary',
             });
 
-            const scrollRail = wrapper.find('#vs-fed-filter--scroll-rail_secondary');
+            const scrollRail = wrapper.find('#vs-fed-filter__scroll-rail--secondary');
 
             expect(scrollRail.exists()).toBe(true);
         });
@@ -49,7 +49,7 @@ describe('VsFedFilter', () => {
                 wrap: true,
             });
 
-            const scrollRail = wrapper.find('.vs-fed-filter--scroll-rail_wrap');
+            const scrollRail = wrapper.find('.vs-fed-filter__scroll-rail--wrap');
 
             expect(scrollRail.exists()).toBe(true);
         });
@@ -60,7 +60,7 @@ describe('VsFedFilter', () => {
                 wrap: false,
             });
 
-            const scrollRail = wrapper.find('.vs-fed-filter--scroll-rail_wrap');
+            const scrollRail = wrapper.find('.vs-fed-filter__scroll-rail--wrap');
 
             expect(scrollRail.exists()).toBe(false);
         });
@@ -71,8 +71,8 @@ describe('VsFedFilter', () => {
                 scrollButtons: true,
             });
 
-            const btnLeft = wrapper.find('.vs-fed-filter--scroll-button__left');
-            const btnRight = wrapper.find('.vs-fed-filter--scroll-button__right');
+            const btnLeft = wrapper.find('[data-test="vs-fed-filter__scroll-button--left"]');
+            const btnRight = wrapper.find('[data-test="vs-fed-filter__scroll-button--right"]');
 
             expect(btnLeft.exists()).toBe(true);
             expect(btnRight.exists()).toBe(true);
@@ -117,7 +117,7 @@ describe('VsFedFilter', () => {
                 },
             });
 
-            const header = wrapper.find('[data-test="vs-fed-filter-header"]');
+            const header = wrapper.find('[data-test="vs-fed-filter__header"]');
             expect(header.exists()).toBe(true);
         });
 
@@ -128,7 +128,7 @@ describe('VsFedFilter', () => {
                 },
             });
 
-            const header = wrapper.find('[data-test="vs-fed-filter-header"]');
+            const header = wrapper.find('[data-test="vs-fed-filter__header"]');
             expect(header.exists()).toBe(false);
         });
     });
@@ -153,7 +153,7 @@ describe('VsFedFilter', () => {
                 },
             });
 
-            const dropdown = wrapper.find('[data-test="vs-fed-filter--category-button_nature_outdoor"]');
+            const dropdown = wrapper.find('[data-test="vs-fed-filter__category-button--nature_outdoor"]');
             await dropdown.trigger('click');
 
             expect(wrapper.emitted('filter-updated')).toBeTruthy();

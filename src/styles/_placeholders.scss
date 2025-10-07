@@ -62,3 +62,23 @@ LINK STYLES
 %outline-link-focus-dark {
     outline: $vs-border-width-md solid $vs-color-interaction-focus-on-bold;
 }
+
+/***************
+SCROLL BAR STYLES
+****************/
+
+%vs-scrollbar{
+    &::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #DEDBE6;
+        border-radius: $vs-radius-tiny;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #535396;
+        border-radius: $vs-radius-tiny;
+    }
+}
