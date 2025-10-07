@@ -323,9 +323,11 @@ function setCardLink(result) {
     }
 
     const dataThistleBase = 'https://www.datathistle.com/event/';
-    const title = result.title
-        .replaceAll(' ', '-')
-        .toLowerCase();
+    const title = encodeURIComponent(
+        result.title
+            .replaceAll(' ', '-')
+            .toLowerCase()
+    );
     return `${dataThistleBase}${result.parentId}-${title}`;
 }
 
