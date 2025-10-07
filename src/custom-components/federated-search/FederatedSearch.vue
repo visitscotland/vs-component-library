@@ -5,7 +5,7 @@
     >
         <div class="vs-federated-search__container">
             <VsFedSearchInput
-                :cludoa-api-key="props.cludoApiKey"
+                :cludo-api-key="props.cludoApiKey"
                 :cludo-customer-id="props.cludoCustomerId"
                 :cludo-engine-id="props.cludoEngineID"
                 :sub-filters="props.subFilters"
