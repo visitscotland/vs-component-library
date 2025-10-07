@@ -4,6 +4,7 @@ import VsImg from '@/components/img/Img.vue';
 import VsLink from '@/components/link/Link.vue';
 import VsButton from '@/components/button/Button.vue';
 import VsBody from '@/components/body/Body.vue';
+import VsDetail from '@/components/detail/Detail.vue';
 import VsArticleDetails from '@/components/article-details/ArticleDetails.vue';
 import VsBadge from '@/components/badge/Badge.vue';
 import VsIcon from '@/components/icon/Icon.vue';
@@ -26,6 +27,7 @@ const components = {
     VsArticleDetails,
     VsBadge,
     VsIcon,
+    VsDetail,
 };
 
 const decorators = {

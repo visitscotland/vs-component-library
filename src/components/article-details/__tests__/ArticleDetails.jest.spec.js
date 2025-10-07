@@ -6,7 +6,6 @@ const testData = {
     author: 'Sarah Henderson',
     date: 'May 10, 2023',
     readTime: '2 minute read',
-    location: 'Edinburgh, Scotland',
 };
 
 const factoryShallowMount = (propsData) => shallowMount(VsArticleDetails, {
@@ -89,24 +88,6 @@ describe('VsArticleDetails', () => {
             });
             const timeElement = wrapper.find('[data-test=vs-article-details__date-time]');
             expect(timeElement.classes()).not.toContain('vs-article-details--highlight');
-        });
-
-        it('should display location when passed `articleLocation` prop', () => {
-            wrapper = factoryShallowMount({
-                articleLocation: testData.location,
-            });
-            const locationElement = wrapper
-                .find('[data-test=vs-article-details]')
-                .find('.vs-article-details__location');
-            expect(locationElement.exists()).toBe(true);
-            expect(locationElement.text()).toContain(testData.location);
-        });
-
-        it('does not display location section when `articleLocation` is not provided', () => {
-            const locationElement = wrapper
-                .find('[data-test=vs-article-details]')
-                .find('.vs-article-details__location');
-            expect(locationElement.exists()).toBe(false);
         });
     });
 

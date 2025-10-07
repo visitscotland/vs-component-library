@@ -47,9 +47,18 @@ export default `
 
         <template #vs-card-footer>
             <div class="d-flex justify-content-between align-items-end">
-                <VsArticleDetails
-                    article-location="Scotland"
-                />
+                <div class="d-flex align-items-center">
+                    <VsIcon
+                        icon="fa-solid fa-location-dot"
+                        variant="highlight"
+                        class="me-050"
+                        size="sm"
+                    />
+                    <VsDetail no-margins color="tertiary">
+                        Scotland
+                    </VsDetail>
+                </div>
+
 
                 <VsIcon 
                     icon="vs-icon-control-external-link"
