@@ -89,9 +89,7 @@ const props = defineProps({
     variant: {
         type: String,
         default: 'primary',
-        validator: (value) => value.match(
-            /(primary|secondary)/,
-        ),
+        validator: (value) => /^(primary|secondary)$/.test(value),
     },
     /* Used to determine if the filter will wrap
      * rather than scroll on desktop or not

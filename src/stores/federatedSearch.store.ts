@@ -8,6 +8,7 @@ import cludoAutocomplete from '@/utils/federated-search/cludo-autocomplete';
 const useFederatedSearchStore = defineStore('federatedSearch', () => {
     const cludoCategories = ref(null);
     const cludoCredentials = ref<CludoCredentials>(undefined);
+    const cludoError = ref(false);
     const currentPage = ref(1);
     const eventsApi = ref(undefined);
     const eventsApiError = ref(false);
@@ -49,8 +50,6 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
             endDate.value,
             sortBy.value,
         );
-
-        console.log('Cludo Results:', cludoResults);
 
         results.value = [...cludoResults.results, ...eventResults.results];
         totalResults.value = cludoResults.totalResults + eventResults.totalResults;
@@ -114,6 +113,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         cludoCategories,
         currentPage,
         cludoCredentials,
+        cludoError,
         eventsApi,
         eventsApiError,
         getAutoComplete,

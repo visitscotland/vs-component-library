@@ -233,7 +233,7 @@ async function calculateError() {
         // Cludo down
         (federatedSearchStore.searchTerm || federatedSearchStore.selectedCategory)
         && federatedSearchStore.selectedCategory !== 'Events & Festivals'
-        && !federatedSearchStore.totalResults
+        && federatedSearchStore.cludoError
         && !federatedSearchStore.isLoading
     ) {
         isError.value.error = true;

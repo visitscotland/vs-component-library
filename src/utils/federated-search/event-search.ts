@@ -34,6 +34,7 @@ async function eventSearch(
 ) {
     const federatedSearchStore = useFederatedSearchStore();
     federatedSearchStore.eventsApiError = false;
+    federatedSearchStore.cludoError = false;
     // Only query the event API when the no selected category or the event category
     // is selected.
     if (selectedCategory === 'Events & Festivals' || !selectedCategory) {
@@ -65,7 +66,6 @@ async function eventSearch(
         } catch (error) {
             federatedSearchStore.isLoading = false;
             federatedSearchStore.eventsApiError = true;
-            console.error('Event error:', error?.message);
             return {
                 results: [],
                 totalResults: 0,
