@@ -52,29 +52,88 @@
                     :cards-per-row="3"
                     :scroll-snap="true"
                 >
-                    <VsFedCard
+                    <VsCard
                         v-for="result in federatedSearchStore.results"
                         :key="result.id"
-                        :date="setEventDate(result.startDate, result.endDate)"
-                        :img-src="result.imgSrc"
-                        :link="setCardLink(result)"
-                        :link-type="result.dataSrc === 'cludo' ? 'INTERNAL' : 'EXTERNAL'"
-                        :price="result.minPrice"
-                        fromText="From"
                     >
-                        <template #fed-card-header>
-                            {{ result.title }}
+                        <template #vs-card-header>
+                            <div class="position-relative">
+                                <VsImg
+                                    :src="result.imgSrc || './images/placeholders/fallback-img.png'"
+                                    class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
+                                />
+                                <div class="position-absolute bottom-0 start-0 d-flex gap-2">
+                                    <VsBadge
+                                        v-if="result.minPrice"
+                                        variant="information"
+                                        class="rounded-top-end rounded-bottom-start"
+                                    >
+                                        {{ props.fromText }} {{ formattedPrice(result.minPrice) }}
+                                    </VsBadge>
+
+                                    <VsBadge
+                                        v-if="result.startDate"
+                                        variant="information"
+                                        class="rounded-top"
+                                    >
+                                        {{ setEventDate(result.startDate, result.endDate) }}
+                                    </VsBadge>
+                                </div>
+                            </div>
                         </template>
-                        <template #fed-card-description>
-                            {{ result.description }}
+
+                        <template #vs-card-body>
+                            <VsHeading
+                                level="3"
+                                heading-style="heading-xs"
+                            >
+                                <VsLink
+                                    :href="setCardLink(result)"
+                                    class="stretched-link"
+                                    variant="secondary"
+                                >
+                                    {{ result.title }}
+                                </VsLink>
+                            </VsHeading>
+
+                            <VsBody>
+                                <p class="truncate-3-lines">
+                                    {{ result.description }}
+                                </p>
+                            </VsBody>
                         </template>
-                        <template
-                            #fed-card-location
-                            v-if="result.location"
-                        >
-                            {{ result.location }}
+
+                        <template #vs-card-footer>
+                            <div class="d-flex justify-content-end align-items-end mt-050">
+                                <div
+                                    class="d-flex align-items-start flex-grow-1"
+                                    v-if="result.location"
+                                >
+                                    <VsIcon
+                                        icon="fa-solid fa-location-dot"
+                                        variant="highlight"
+                                        class="me-050"
+                                        size="sm"
+                                    />
+                                    <VsDetail
+                                        no-margins
+                                        color="tertiary"
+                                    >
+                                        {{ result.location }}
+                                    </VsDetail>
+                                </div>
+
+                                <div>
+                                    <VsIcon
+                                        class="flex-grow-1 align-items-end me-050"
+                                        :icon="result.dataSrc === 'cludo' ? 'fa-regular fa-arrow-right' : 'vs-icon-control-external-link'"
+                                        variant="highlight"
+                                        size="sm"
+                                    />
+                                </div>
+                            </div>
                         </template>
-                    </VsFedCard>
+                    </VsCard>
                 </VsCardGroup>
 
                 <VsPagination
@@ -117,9 +176,14 @@ import {
     onUpdated,
 } from 'vue';
 import {
+    VsBadge,
     VsDetail,
+    VsCard,
     VsCardGroup,
     VsHeading,
+    VsIcon,
+    VsImg,
+    VsLink,
     VsLoadingSpinner,
     VsPagination,
     VsWarning,
@@ -129,7 +193,6 @@ import getEnvValue from '@/utils/get-env-value';
 import VsDivider from '@/custom-components/divider/Divider.vue';
 import VsFedSearchInput from './components/FedSearchInput.vue';
 import VsFedSearchSort from './components/FedSearchSort.vue';
-import VsFedCard from './components/FedCard.vue';
 
 const federatedSearchStore = useFederatedSearchStore();
 const isError = ref(
@@ -208,6 +271,13 @@ const props = defineProps({
     errorMessages: {
         type: Object,
         required: true,
+    },
+    /**
+     * Label for the 'From' text on each event card
+     */
+    fromText: {
+        type: String,
+        default: 'From',
     },
 });
 
@@ -312,6 +382,14 @@ function setEventDate(startDate, endDate) {
 
     return `${startDate} - ${endDate}`;
 }
+
+function formattedPrice(price) {
+    if (price === null) return '';
+
+    const priceStr = price;
+
+    return priceStr.match(/\b\d+\.\d\b/) ? `£${price}0` : `£${price}`;
+};
 
 function setCardLink(result) {
     if (result.url) {
