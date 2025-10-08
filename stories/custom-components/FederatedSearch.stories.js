@@ -39,46 +39,56 @@ const Template = (args) => ({
 const base = {
     subFilters: [
         {
-            Key: 'Books',
+            Key: 'books',
+            Label: 'Books',
         },
         {
-            Key: 'Clubs',
+            Key: 'clubs',
+            Label: 'Clubs',
         },
         {
-            Key: 'Comedy',
+            Key: 'comedy',
+            Label: 'Comedy',
         },
         {
-            Key: 'Dance',
+            Key: 'dance',
+            Label: 'Dance',
         },
         {
-            Key: 'Days out',
+            Key: 'days out',
+            Label: 'Days out',
         },
         {
-            Key: 'Festivals',
+            Key: 'festival',
+            Label: 'Festivals',
         },
         {
-            Key: 'Films',
+            Key: 'film',
+            Label: 'Film',
         },
         {
-            Key: 'Kids',
+            Key: 'kids',
+            Label: 'Family',
         },
         {
-            Key: 'LGBTQIA+',
+            Key: 'lgbt',
+            Label: 'LGBTQIA+',
         },
         {
-            Key: 'Music',
+            Key: 'music',
+            Label: 'Music',
         },
         {
-            Key: 'Sport',
+            Key: 'sport',
+            Label: 'Sport',
         },
         {
-            Key: 'Talks & Lectures',
+            Key: 'theatre',
+            Label: 'Theatre',
         },
         {
-            Key: 'Theatre',
-        },
-        {
-            Key: 'Visual Arts',
+            Key: 'visual art',
+            Label: 'Visual Arts',
         },
     ],
     subFilterHeader: 'Refine your search',
