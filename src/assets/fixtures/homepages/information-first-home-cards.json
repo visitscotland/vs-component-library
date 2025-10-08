@@ -1,0 +1,100 @@
+{
+  "infoCardList1": {
+    "cards": [
+      {
+        "title": "Your guide to net zero and sustainability",
+        "description": "Learn all about sustainability and understand key terms with these FAQs, and find training courses to expand your knowledge further.",
+        "link": "#",
+        "badgeTitle": "Article",
+        "metaData": "8 minute read"
+      },
+      {
+        "title": "Net zero legislation",
+        "description": "Explore how Scotland's net zero legislation transforms tourism, covering carbon budgets, energy efficiency, low-carbon transport & waste management.",
+        "link": "#",
+        "badgeTitle": "Guide",
+        "metaData": "5 minute read"
+      },
+      {
+        "title": "Sustainability glossary",
+        "description": "Find a list of explanations for key terms, phrases and important sustainable initiatives.",
+        "link": "#",
+        "badgeTitle": "Article",
+        "metaData": "8 minute read"
+      }
+    ]
+  },
+  "infoCardList2": {
+    "cards": [
+      {
+        "title": "How to create your climate action plan",
+        "description": "Now you have your measurements, create a climate action plan with realistic targets to track your progress with sustainability.",
+        "link": "#",
+        "badgeTitle": "How-to",
+        "metaData": "6 minute read"
+      },
+      {
+        "title": "How to make sustainable improvements",
+        "description": "Discover practical short and medium strategies for Scottish businesses to reduce carbon footprints, cut costs, and drive sustainability.",
+        "link": "#",
+        "badgeTitle": "How-to",
+        "metaData": "7 minute read"
+      },
+      {
+        "title": "Medium-term sustainability improvements",
+        "description": "Now you've audited your business in energy, travel and fixtures, it’s time to start making improvements and make plans for longer-term developments.",
+        "link": "#",
+        "badgeTitle": "How-to"
+      }
+    ]
+  },
+  "infoCardList3": {
+    "cards": [
+      {
+        "title": "Long-term sustainability improvements",
+        "description": "This guide provides actionable steps that Scottish tourism businesses can take to integrate sustainability into every aspect of their operations.",
+        "link": "#",
+        "badgeTitle": "Article",
+        "metaData": "6 minute read"
+      },
+      {
+        "title": "Promoting responsible tourism",
+        "description": "Promote Scotland online responsibly with sustainable activities, off-season stays, and eco-friendly travel benefiting communities and businesses.",
+        "link": "#",
+        "badgeTitle": "Article",
+        "metaData": "5 minute read"
+      },
+      {
+        "title": "Environmentally responsible events",
+        "description": "Find tips and resources to help your event on its environmental sustainability journey.",
+        "link": "#",
+        "badgeTitle": "Article",
+        "metaData": "5 minute read"
+      }
+    ]
+  },
+  "infoCardList4": {
+    "cards": [
+      {
+        "title": "Support by sector",
+        "description": "Find tailored advice and case studies for accommodation, active and outdoor, events and festivals, food and drink and visitor attraction sectors.",
+        "link": "#"
+      },
+      {
+        "title": "Food and drink",
+        "description": "Find tailored advice for businesses setting up a food and drink experience, or looking to improve and grow an existing business.",
+        "link": "#"
+      },
+      {
+        "title": "Accommodation",
+        "description": "Find tailored advice and case studies for the accommodation, self-catering, hotels, small serviced and camping and caravan sectors.",
+        "link": "#"
+      },
+      {
+        "title": "Visitor attractions",
+        "description": "Find advice, support and suggestions for the visitor experiences sector covering everything from small community-run museums to hands-on experiences.",
+        "link": "#"
+      }
+    ]
+  }
+}

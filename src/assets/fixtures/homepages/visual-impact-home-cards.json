@@ -1,0 +1,114 @@
+{
+  "cardListOverlay": {
+    "cards": [
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/11/30/family-outside-the-va-dundee?size=lg",
+        "title": "Places to go",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/11/05/creel-seafood?size=md",
+        "title": "Things to do",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2025/05/02/ballastbank-troon-header.jpg?size=md",
+        "title": "Accommodation",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/09/06/the-royal-edinburgh-military-tattoo?size=md",
+        "title": "Travel & planning ",
+        "link": "#"
+      }
+    ]
+  },
+  "cardList1": {
+    "cards": [
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/06/24/clashnessie-bay-car-road?size=lg",
+        "title": "Driving in Scotland - Practical information",
+        "description": "Check out our guide to driving in and around Scotland by car. Including useful FAQs and top tips for a smooth journey.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2025/06/02/june-header-test.jpg?size=lg",
+        "title": "Weather in Scotland",
+        "description": "What's the weather like in Scotland? Find out about weather throughout the year in Scotland.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2023/01/26/passport?size=lg",
+        "title": "Passports, visas & customs",
+        "description": "Coming from overseas? Check the passport and visa requirements for visiting Scotland.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/01/eilean-donan-castle-sunset?size=lg",
+        "title": "Plan your holiday to Scotland",
+        "description": "Our guide gives you the tips you need to make the most of your trip, from where to go to the best time to visit.",
+        "link": "#"
+      }
+    ]
+  },
+  "cardList2": {
+    "cards": [
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/08/kinnoull-hill-and-tower?size=lg",
+        "title": "7 Easy hill walks with amazing views",
+        "description": "Discover 7 small hill walks suitable for beginners, from Kinnoull Hill to Corstorphine Hill. Get information on time, distances and more.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2023/10/06/mercat-tours-underground-vaults?size=lg",
+        "title": "Ghosts in Scotland: fact or fiction?",
+        "description": "Join us on a series of spooky tours in Scotland.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/08/16/balgone-estate?size=lg",
+        "title": "9 Farm shops & foodie experiences to enjoy in autumn ",
+        "description": "Discover farm shops in Scotland with foodie farm experiences to enjoy this autumn!",
+        "link": "#"
+      }
+    ]
+  },
+  "eventCardList": {
+    "cards": [
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/wsimgs/Events/0D33812993A568F16C1EE80859567FEEEEAC4151.jpg",
+        "title": "Halloween Family Fun Day Rave",
+        "description": "It's that time again to plan you the costumes and dress up at Scotlands biggest family fun day! It's time for another massive 1994 HALLOWEEN 'TRICK OR TREAT?' PARTY.",
+        "link": "#",
+        "location": "The Classic Grand, Glasgow",
+        "date": "01 Nov 2025"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/wsimgs/Events/3B9E32EB782E63096711608F3DAD4E7B42A1B5AA.jpg[ToFit1200x800]",
+        "title": "Underground whisky tasting in Edinburgh",
+        "description": "Step underground for an unforgettable 90-minute whisky tasting that brings together history, storytelling, and exceptional Scotch whisky.",
+        "link": "#",
+        "location": "The Lost Close, Edinburgh",
+        "date": "From 08 Oct 2025",
+        "price": "From £35"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/wsimgs/Events/B8568C14485C04340B025856FD5E3001D027C6B4.jpg[ToFit1200x800]",
+        "title": "Halloween Stories and Crafts",
+        "description": "Join us for a fun Halloween morning! We will start with a special Halloween Bookbug session, followed by Halloween activities and crafts.",
+        "link": "#",
+        "location": "Loch Leven Library, Kinross",
+        "date": "25 Oct 2025",
+        "price": "Free"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/wsimgs/Events/8ABB0A400756F615141D625921203C40E4743EC4.jpg[ToFit1200x800]",
+        "title": "The Mythical Mystery Hunt",
+        "description": "As you explore our historic places this Halloween, will you bump into a giant, or come face-to-face with a faery?",
+        "link": "#",
+        "location": "Blackness Castle",
+        "date": "From 20 Oct 2025"
+      }
+    ]
+  }
+}
