@@ -57,9 +57,10 @@
                         :key="result.id"
                     >
                         <template #vs-card-header>
-                            <div class="position-relative">
+                            <div class="position-relative vs-federated-search__image">
                                 <VsImg
-                                    :src="result.imgSrc || './images/placeholders/fallback-img.png'"
+                                    v-if="result.imgSrc"
+                                    :src="result.imgSrc"
                                     class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
                                 />
                                 <div class="position-absolute bottom-0 start-0 d-flex gap-2">
@@ -416,6 +417,14 @@ onUpdated(() => {
 
 <style lang="scss">
 .vs-federated-search {
+    &__image {
+        max-height: 270px;
+        aspect-ratio: 3/2;
+        background: url('./images/placeholders/fallback-img.png') no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
     &--pagination {
         margin: $vs-spacer-400 $vs-spacer-0 $vs-spacer-300 $vs-spacer-0;
     }
