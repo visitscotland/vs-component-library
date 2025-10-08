@@ -17,6 +17,7 @@
                 class="vs-fed-filter__scroll-button me-050"
                 data-test="vs-fed-filter__scroll-button--left"
                 @click="scroll('left')"
+                :aria-label="props.scrollLeftText"
             >
                 {{ props.scrollLeftText }}
             </VsButton>
@@ -47,6 +48,7 @@
                 class="vs-fed-filter__scroll-button ms-050"
                 data-test="vs-fed-filter__scroll-button--right"
                 @click="scroll('right')"
+                :aria-label="props.scrollRightText"
             >
                 {{ props.scrollRightText }}
             </VsButton>
