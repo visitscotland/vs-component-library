@@ -23,7 +23,7 @@ async function cludoAutocomplete(
         });
 
         if (!response.ok) {
-            throw new Error(`Autocomple search error ${response.status}`);
+            throw new Error(`Autocomplete search error ${response.status}`);
         }
 
         return await response.json();

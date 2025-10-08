@@ -92,7 +92,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, reactive } from 'vue';
+import { computed } from 'vue';
 import VsCard from '@/components/card/Card.vue';
 import VsImg from '@/components/img/Img.vue';
 import VsHeading from '@/components/heading/Heading.vue';
@@ -137,12 +137,15 @@ const props = defineProps({
 const imgFallback = 'images/placeholders/fallback-img.png';
 
 const formattedPrice = computed(() => {
-    return props.price.toString().match(/\b\d+\.\d\b/) ? `£${props.price}0` : `£${props.price}`
-})
+    if (props.price === null) return '';
+
+    const priceStr = props.price.toString();
+
+    return priceStr.match(/\b\d+\.\d\b/) ? `£${props.price}0` : `£${props.price}`;
+});
 
 const linkIconName = computed(() => {
     let icon = '';
-
     switch (props.linkType) {
     case 'EXTERNAL':
         icon = 'fa-regular fa-square-arrow-up-right';
@@ -152,7 +155,7 @@ const linkIconName = computed(() => {
         break;
     default:
         icon = '';
-    };
+    }
     return icon;
 });
 

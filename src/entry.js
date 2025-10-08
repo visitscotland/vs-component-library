@@ -14,6 +14,7 @@ const componentPaths = [
     './src/components/modules/**/*.vue',
     './src/components/templates/**/*.vue',
     './src/components/examples/**/*.vue',
+    './src/custom-components/**/*.vue',
 ];
 
 const storePattern = './src/components/**/*.store.js';

@@ -108,7 +108,7 @@ const props = defineProps({
     /**
      * Engine ID for Cludo.
     */
-    cludoEngineID: {
+    cludoEngineId: {
         type: Number,
         default: Number(getEnvValue('CLUDO_ENGINE_ID')),
     },
@@ -209,7 +209,7 @@ onMounted(() => {
     federatedSearchStore.cludoCredentials = {
         apiKey: props.cludoApiKey,
         customerId: props.cludoCustomerId,
-        engineId: props.cludoEngineID,
+        engineId: props.cludoEngineId,
     };
     federatedSearchStore.isHomePage = props.isHomePage;
 
@@ -230,7 +230,7 @@ onMounted(() => {
         federatedSearchStore.selectedSubCategory.push(decodeURIComponent(params.get('sub-category')));
     }
 
-    if (params.has('search-term') && params.has('category')) {
+    if (params.has('search-term') || params.has('category')) {
         federatedSearchStore.getSearchResults();
     }
 });
