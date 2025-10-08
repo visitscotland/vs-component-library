@@ -40,28 +40,26 @@ describe('VsCardGroup', () => {
             expect(wrapper.attributes('style')).toContain('--cards-in-row: 3');
         });
 
-        it('should apply is-scroll-snap class when scrollSnap is true', () => {
+        it('should apply is-scroll-snap-responsive class when scrollSnap is true', () => {
             const wrapper = factoryShallowMount({
                 scrollSnap: true,
             });
-            expect(wrapper.classes()).toContain('is-scroll-snap');
+            expect(wrapper.classes()).toContain('is-scroll-snap-responsive');
         });
 
-        it('should not apply is-scroll-snap class when scrollSnap is false', () => {
+        it('should apply is-scroll-snap-always class when scrollSnap is "always"', () => {
+            const wrapper = factoryShallowMount({
+                scrollSnap: 'always',
+            });
+            expect(wrapper.classes()).toContain('is-scroll-snap-always');
+        });
+
+        it('should not apply scroll snap classes when scrollSnap is false', () => {
             const wrapper = factoryShallowMount({
                 scrollSnap: false,
             });
-            expect(wrapper.classes()).not.toContain('is-scroll-snap');
-        });
-
-        it('should generate correct cardGroupClasses based on props', () => {
-            const wrapper = factoryShallowMount({
-                scrollSnap: true,
-            });
-
-            expect(wrapper.classes()).toContain('vs-card-group');
-            expect(wrapper.classes()).toContain('is-grid');
-            expect(wrapper.classes()).toContain('is-scroll-snap');
+            expect(wrapper.classes()).not.toContain('is-scroll-snap-responsive');
+            expect(wrapper.classes()).not.toContain('is-scroll-snap-always');
         });
     });
 

@@ -13,6 +13,7 @@ const config: StorybookConfig = {
     "@storybook/addon-a11y",
     '@storybook/addon-docs',
     'storybook-addon-datalayer-watcher',
+    'storybook-addon-tag-badges',
   ],
   framework: {
     name: '@storybook/vue3-vite',

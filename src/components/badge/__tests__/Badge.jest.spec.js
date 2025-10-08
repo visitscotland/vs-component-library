@@ -35,6 +35,16 @@ describe('VsBanner', () => {
             expect(wrapper.classes()).toContain('vs-badge--subtle');
             expect(wrapper.classes()).toContain('vs-badge');
         });
+
+        it('applies information variant class when variant prop is information', async() => {
+            wrapper.setProps({
+                variant: 'information',
+            });
+            await wrapper.vm.$nextTick();
+
+            expect(wrapper.classes()).toContain('vs-badge--information');
+            expect(wrapper.classes()).toContain('vs-badge');
+        });
     });
 
     describe(':slots', () => {

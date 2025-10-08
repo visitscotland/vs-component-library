@@ -1,3 +1,94 @@
+# [5.11.0](https://github.com/visitscotland/vs-component-library/compare/v5.10.1...v5.11.0) (2025-10-07)
+
+
+### Features
+
+* **articledetails:** remove article detail changes and use detail instead ([8c9d79c](https://github.com/visitscotland/vs-component-library/commit/8c9d79cd6f82e64496b9b75fb947fa976d8469c9))
+* **articledetails:** update article details and badge variants for use in event card ([ae2ff53](https://github.com/visitscotland/vs-component-library/commit/ae2ff5305e79ffe05b629795df2e519f2b6781dc))
+* **event card:** fix badge layout ([85c22e3](https://github.com/visitscotland/vs-component-library/commit/85c22e3978b4f5f00ed32ad4ffffd816ef76ff10))
+* **eventcard:** adds event card pattern to storybook ([3e067e6](https://github.com/visitscotland/vs-component-library/commit/3e067e657c7628ae7794f088a098d14568e4b3c5))
+
+## [5.10.1](https://github.com/visitscotland/vs-component-library/compare/v5.10.0...v5.10.1) (2025-10-02)
+
+
+### Bug Fixes
+
+* **breadcrumb:** extend fix to smaller phones ([81f4e99](https://github.com/visitscotland/vs-component-library/commit/81f4e995b83bdb8d9817b96e6079cb6a64b65b5c))
+
+# [5.10.0](https://github.com/visitscotland/vs-component-library/compare/v5.9.3...v5.10.0) (2025-10-02)
+
+
+### Features
+
+* **codeowners:** add codeowners file ([97867f9](https://github.com/visitscotland/vs-component-library/commit/97867f9fb9a38c26669f05bf423ee10ba63045ba))
+
+## [5.9.3](https://github.com/visitscotland/vs-component-library/compare/v5.9.2...v5.9.3) (2025-10-02)
+
+
+### Bug Fixes
+
+* **breadcrumb:** adjust breadcrumb sizing for larger share button ([417fe5e](https://github.com/visitscotland/vs-component-library/commit/417fe5e86aee409b0d6ec2686009343ae3ced2b2))
+
+## [5.9.2](https://github.com/visitscotland/vs-component-library/compare/v5.9.1...v5.9.2) (2025-10-01)
+
+
+### Bug Fixes
+
+* **cludo:** correct font weight for icon on sort ([41f3969](https://github.com/visitscotland/vs-component-library/commit/41f39699fafdb2501517b430df44cd5bdaa1ed24))
+
+## [5.9.1](https://github.com/visitscotland/vs-component-library/compare/v5.9.0...v5.9.1) (2025-10-01)
+
+
+### Bug Fixes
+
+* **cludo:** improve text centring on pagination active page ([5f663cd](https://github.com/visitscotland/vs-component-library/commit/5f663cd18483e5ed2b0cf5ffa72ccba5bf3e6cad))
+
+# [5.9.0](https://github.com/visitscotland/vs-component-library/compare/v5.8.0...v5.9.0) (2025-09-25)
+
+
+### Features
+
+* **modulewrapper:** mark module wrapper component as deprecated ([b1933df](https://github.com/visitscotland/vs-component-library/commit/b1933df2edbe53feeccc6fe3b88b4dc3fe411dcb))
+
+# [5.8.0](https://github.com/visitscotland/vs-component-library/compare/v5.7.0...v5.8.0) (2025-09-25)
+
+
+### Features
+
+* **card:** update card token background ([3904f06](https://github.com/visitscotland/vs-component-library/commit/3904f06cce2f7ea94ed9d4055e55dab879fb5059))
+
+# [5.7.0](https://github.com/visitscotland/vs-component-library/compare/v5.6.1...v5.7.0) (2025-09-24)
+
+
+### Bug Fixes
+
+* **card:** code rabbit suggestion to update slot check and image ([e2ade47](https://github.com/visitscotland/vs-component-library/commit/e2ade473270b7a842dccdd0897d1d62398bb779a))
+
+
+### Features
+
+* **card:** add overlay variant to card component ([a9ee49a](https://github.com/visitscotland/vs-component-library/commit/a9ee49ab931c98bdb3d4c199cb9c1ace3d0249c1))
+* **cardgroup:** update scrollsnap in card group so it can also be applied on desktop ([f08e638](https://github.com/visitscotland/vs-component-library/commit/f08e63833651fb923a0975282df5a19569de310e))
+* **card:** tidy up card overlay on nav pages ([6e3b4ae](https://github.com/visitscotland/vs-component-library/commit/6e3b4ae70909743a1c2127d775757feca2589eca))
+* **card:** update overlay card height ([79bc2fc](https://github.com/visitscotland/vs-component-library/commit/79bc2fc0d3abf994862184e045b1056cde8cf93b))
+* **card:** update styles in overlay card ([e5b5159](https://github.com/visitscotland/vs-component-library/commit/e5b515924ba28d11b783606c53c392aa39f638bc))
+
+## [5.6.1](https://github.com/visitscotland/vs-component-library/compare/v5.6.0...v5.6.1) (2025-09-22)
+
+
+### Bug Fixes
+
+* **civic:** adjust cookie cats post civic scan ([92b9984](https://github.com/visitscotland/vs-component-library/commit/92b99840d24949e3a3514710bd7c8d97c72e2592))
+* **civic:** remove magic numbers ([404c27b](https://github.com/visitscotland/vs-component-library/commit/404c27bfaec5a25f47740c52b5e3628e0158a7a8))
+
+# [5.6.0](https://github.com/visitscotland/vs-component-library/compare/v5.5.4...v5.6.0) (2025-09-17)
+
+
+### Features
+
+* **sectionheader:** add new section header component to the library ([132e091](https://github.com/visitscotland/vs-component-library/commit/132e0913d51dcec79d645d89dfe7796dc5907033))
+* **sectionheader:** optimise new section header component code ([044e983](https://github.com/visitscotland/vs-component-library/commit/044e983231b55e2f00e65f42ba9db4c0a52e1ea9))
+
 ## [5.5.4](https://github.com/visitscotland/vs-component-library/compare/v5.5.3...v5.5.4) (2025-09-08)
 
 

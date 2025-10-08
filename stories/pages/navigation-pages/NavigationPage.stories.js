@@ -15,30 +15,31 @@ import VsHeading from '@/components/heading/Heading.vue';
 import VsImg from '@/components/img/Img.vue';
 import VsLink from '@/components/link/Link.vue';
 import VsBody from '@/components/body/Body.vue';
+import VsButton from '@/components/button/Button.vue';
 import VsArticleDetails from '@/components/article-details/ArticleDetails.vue';
 import VsBadge from '@/components/badge/Badge.vue';
 import VsModal from '@/components/modal/Modal.vue';
 import VsVideo from '@/components/video/Video.vue';
+import VsSectionHeader from '@/components/section-header/SectionHeader.vue';
 import VsModuleWrapper from '@/components/module-wrapper/ModuleWrapper.vue';
 import VsBreadcrumb from '@/components/breadcrumb/Breadcrumb.vue';
 import VsBreadcrumbItem from '@/components/breadcrumb/components/BreadcrumbItem.vue';
 import VsNavigationPage from '@/templates/NavigationPage.vue';
-import cardLayoutData from '@/assets/fixtures/navigation-pages/card-layout-inspirational.json';
-import textCardLayoutData from '@/assets/fixtures/navigation-pages/card-layout-informational.json';
-import infoCardLayoutData from '@/assets/fixtures/navigation-pages/card-layout-informational2.json';
+import cardLayoutData from '@/assets/fixtures/navigation-pages/visual-impact-cards.json';
+import textCardLayoutData from '@/assets/fixtures/navigation-pages/information-first-top-cards.json';
+import infoCardLayoutData from '@/assets/fixtures/navigation-pages/information-first-secondary-cards.json';
 import VisualImpactTemplate from './templates/visual-impact-pattern';
 import InfoFirstTopTemplate from './templates/info-first-top-pattern';
 import InfoFirstSecondaryTemplate from './templates/info-first-secondary-pattern';
 
 export default {
     component: VsNavigationPage,
-    title: 'Patterns/NavigationPage',
+    title: 'Pages/NavigationPage',
     argTypes: {
     },
     parameters: {
         layout: 'fullscreen',
     },
-    tags: ['!autodocs'],
 };
 
 const createTemplate = (templateString) => (args) => ({
@@ -61,18 +62,22 @@ const createTemplate = (templateString) => (args) => ({
         VsModal,
         VsVideo,
         VsLink,
+        VsButton,
         VsBody,
         VsArticleDetails,
         VsBadge,
         VsModuleWrapper,
+        VsSectionHeader,
         VsBreadcrumb,
         VsBreadcrumbItem,
         VsSpotlightSection,
     },
     setup() {
+        const cardListOverlay = cardLayoutData.cardListOverlay?.cards || [];
         const cardList1 = cardLayoutData.cardList1?.cards || [];
         const cardList2 = cardLayoutData.cardList2?.cards || [];
         const cardList3 = cardLayoutData.cardList3?.cards || [];
+        const cardList4 = cardLayoutData.cardList4?.cards || [];
         const textCardList1 = textCardLayoutData.textCardList1?.cards || [];
         const textCardList2 = textCardLayoutData.textCardList2?.cards || [];
         const infoCardList1 = infoCardLayoutData.infoCardList1?.cards || [];
@@ -82,9 +87,11 @@ const createTemplate = (templateString) => (args) => ({
 
         return {
             args,
+            cardListOverlay,
             cardList1,
             cardList2,
             cardList3,
+            cardList4,
             textCardList1,
             textCardList2,
             infoCardList1,
@@ -118,4 +125,7 @@ export const InfoFirstSecondary = createTemplate(InfoFirstSecondaryTemplate).bin
 InfoFirstSecondary.args = {
     pageTitle: 'Sustainability',
     pageLede: 'Sustainably grow your tourism or events business with actionable green strategies.',
+    imgUrl: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/12/06/suidhe-viewpoint?size=lg',
+    imgCaption: 'Suidhe Viewpoint',
+    imgCredit: 'VisitScotland',
 };

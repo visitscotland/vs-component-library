@@ -20,6 +20,8 @@ props:
       value: "{!vs-saltire-10}"
     - name: vs-color-interaction-cta-subtle-pressed
       value: "{!vs-saltire-50}"
+    - name: vs-color-interaction-cta-subtle
+      value: "transparent"
 
     ## Link  
     - name: vs-color-interaction-link-primary
