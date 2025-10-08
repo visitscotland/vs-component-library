@@ -182,7 +182,7 @@ function filterClasses() {
             align-items: center;
             padding: $vs-spacer-025;
 
-            @extend %vs-scrollbar;
+            @include scrollsnap-styles;
 
             &--primary {
                 column-gap: $vs-spacer-075;

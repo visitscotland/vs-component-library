@@ -76,8 +76,6 @@ export default {
         gap: $vs-spacer-125;
         grid-template-columns: 1fr;
 
-        @extend %vs-scrollbar;
-
         @include media-breakpoint-up(md) {
             gap: $vs-spacer-175;
         }
