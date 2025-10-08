@@ -91,17 +91,6 @@ const base = {
             Label: 'Visual Arts',
         },
     ],
-    subFilterHeader: 'Refine your search',
-    sortOptions: [
-        {
-            id: 'dateAsc',
-            label: 'Date',
-        },
-        {
-            id: 'priceAsc',
-            label: 'Price',
-        },
-    ],
     jsDisabled: false,
     errorMessages: {
         noResults: 'There are no results, please try again',
@@ -110,7 +99,34 @@ const base = {
         eventError: 'There was a problem retrieving the event results, please try again later.',
     },
     noResultsLabel: 'There are no results, please try again',
-    noJsText: 'JavaScript needs to be enabled to use the search function',
+    fromText: 'From',
+    paginationLabels: {
+        nextButtonLabel: 'Bob',
+        previousButtonLabel: 'Previous',
+        pageLabel: 'Page',
+        ofLabel: 'of',
+    },
+    searchLabels: {
+        refine: 'Refine your search',
+        search: 'Search',
+        searchLabel: 'What are you looking for?',
+        noJs: 'JavaScript needs to be enabled to see search result. You can turn this on in your browser settings.',
+    },
+    sortLabels: {
+        dateFrom: 'From',
+        dateTo: 'To',
+        sort: 'Sort by',
+        sortOptions: [
+            {
+                key: 'dateAsc',
+                label: 'Date',
+            },
+            {
+                key: 'priceAsc',
+                label: 'Price',
+            },
+        ],
+    },
 };
 
 export const Default = Template.bind();

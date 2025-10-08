@@ -20,7 +20,7 @@
                     class="vs-federated-search__input w-100"
                     field-name="federated-search"
                     name="searchrequest"
-                    placeholder="What are you looking for?"
+                    :placeholder="props.labels.searchLabel"
                     type="search"
                     :value="federatedSearchStore.searchTerm"
                     @updated="updateSearchTerm"
@@ -32,7 +32,7 @@
                 :disabled="federatedSearchStore.isLoading"
                 @click="search"
             >
-                Search
+                {{ props.labels.search }}
             </VsButton>
         </div>
 
@@ -74,7 +74,7 @@
             @filter-updated="updateSelectedSubCategory"
         >
             <template #fed-filter-header>
-                {{ subFilterHeader }}
+                {{ props.labels.refine }}
             </template>
         </VsFedFilter>
     </div>
@@ -136,11 +136,11 @@ const props = defineProps({
         default: undefined,
     },
     /**
-     * Label for subfilter header.
+     * Labels for the component.
     */
-    subFilterHeader: {
-        type: String,
-        default: '',
+    labels: {
+        type: Object,
+        required: true,
     },
 });
 

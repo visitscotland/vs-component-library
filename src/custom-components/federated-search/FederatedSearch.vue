@@ -9,7 +9,7 @@
                 :cludo-customer-id="props.cludoCustomerId"
                 :cludo-engine-id="props.cludoEngineId"
                 :sub-filters="props.subFilters"
-                :sub-filter-header="props.subFilterHeader"
+                :labels="props.searchLabels"
             />
             <VsDivider class="my-200" />
             <div
@@ -31,10 +31,10 @@
                 <VsFedSearchSort
                     v-if="federatedSearchStore.selectedCategory === 'Events & Festivals'"
                     :date-filter-visible="true"
-                    :sort-options="props.sortOptions"
-                    from-date-label="Arriving from"
-                    to-date-label="To"
-                    sort-label="Sort by"
+                    :sort-options="props.sortLabels.sortOptions"
+                    :from-date-label="props.sortLabels.dateFrom"
+                    :to-date-label="props.sortLabels.dateTo"
+                    :sort-label="props.sortLabels.sort"
                     @from-date-updated="updateStartDate"
                     @end-date-updated="updateEndDate"
                     @sort-order-updated="updateSort"
@@ -141,10 +141,10 @@
                     class="vs-federated-search--pagination"
                     v-if="federatedSearchStore.results && totalResultsPages > 1"
                     :number-of-pages="totalResultsPages"
-                    next-button-label="Next"
-                    previous-button-label="Previous"
-                    page-label="Page"
-                    of-label="of"
+                    :next-button-label="props.paginationLabels.nextButtonLabel"
+                    :previous-button-label="props.paginationLabels.previousButtonLabel"
+                    :page-label="props.paginationLabels.pageLabel"
+                    :of-label="props.paginationLabels.ofLabel"
                     v-model="federatedSearchStore.currentPage"
                     @page-click="loadPage"
                 />
@@ -164,7 +164,7 @@
             data-test="vs-federated-search__error--no-js"
             class="vs-federated-search__error--no-js"
         >
-            {{ noJsText }}
+            {{ props.searchLabels.noJs }}
         </VsWarning>
     </div>
 </template>
@@ -178,6 +178,7 @@ import {
 } from 'vue';
 import {
     VsBadge,
+    VsBody,
     VsDetail,
     VsCard,
     VsCardGroup,
@@ -233,38 +234,11 @@ const props = defineProps({
         default: getEnvValue('EVENTS_API_URL'),
     },
     /**
-     * Options for sorting the data (e.g date, price) in an object with
-     * an id and label.
-     * {
-     *   id: 'dateAsc',
-     *   label: 'Date',
-     * },
-    */
-    sortOptions: {
-        type: Array,
-        required: true,
-    },
-    /**
      * Array of sub filters.
     */
     subFilters: {
         type: Array,
         default: undefined,
-    },
-    /**
-     * Subfilter header.
-    */
-    subFilterHeader: {
-        type: String,
-        default: undefined,
-    },
-    /**
-     * Text to be passed into to explain search won't
-     * work without JS
-     */
-    noJsText: {
-        type: String,
-        required: true,
     },
     /**
      * Object of error messages
@@ -278,7 +252,28 @@ const props = defineProps({
      */
     fromText: {
         type: String,
-        default: 'From',
+        default: '',
+    },
+    /**
+     * Labels for the pagination component
+     */
+    paginationLabels: {
+        type: Object,
+        required: true,
+    },
+    /**
+     * Labels for the search component
+     */
+    searchLabels: {
+        type: Object,
+        required: true,
+    },
+    /**
+     * Labels for the sort component.
+     */
+    sortLabels: {
+        type: Object,
+        required: true,
     },
 });
 
@@ -420,7 +415,7 @@ onUpdated(() => {
     &__image {
         max-height: 270px;
         aspect-ratio: 3/2;
-        background: url('./images/placeholders/fallback-img.png') no-repeat;
+        // background: url('./images/placeholders/fallback-img.png') no-repeat;
         background-size: cover;
         background-position: center;
     }

@@ -17,7 +17,7 @@
                 field-name="vs-fed-search-sort__from-date"
                 :value="new Date().toJSON().slice(0, 10)"
                 type="date"
-                auto-complete="off"
+                :auto-complete="false"
                 @input="$emit('from-date-updated', $event.target.value)"
             />
         </VsCol>
@@ -37,7 +37,7 @@
             <VsInput
                 field-name="vs-fed-search-sort__to-date"
                 type="date"
-                auto-complete="off"
+                :auto-complete="false"
                 @input="$emit('end-date-updated', $event.target.value)"
             />
         </VsCol>
@@ -57,7 +57,7 @@
                     :key="index"
                     @click="sortUpdated(sortOption)"
                     :active="isActive === sortOption ? true : false"
-                    :data-test="`vs-fed-search-sort__dropdown-item--${sortOption.id}`"
+                    :data-test="`vs-fed-search-sort__dropdown-item--${sortOption.key}`"
                 >
                     {{ sortOption.label }}
                 </VsDropdownItem>

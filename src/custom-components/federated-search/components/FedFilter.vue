@@ -58,7 +58,6 @@
 
 <script setup>
 import { ref } from 'vue';
-// Buttons should be links on homepage!
 import VsButton from '@/components/button/Button.vue';
 import VsBody from '@/components/body/Body.vue';
 
