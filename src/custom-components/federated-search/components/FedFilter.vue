@@ -36,7 +36,7 @@
                     :size="props.variant === 'secondary' ? 'sm' : 'md'"
                     @click="$emit('filter-updated', filterCategory.Key)"
                 >
-                    {{ filterCategory.Key }}
+                    {{ filterCategory.Label || filterCategory.Key }}
                 </VsButton>
             </div>
             <VsButton
