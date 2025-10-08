@@ -70,10 +70,14 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
 
         if (searchTerm.value) {
             url.searchParams.set('search-term', searchTerm.value);
+        } else {
+            url.searchParams.delete('search-term');
         }
 
         if (selectedCategory.value) {
             url.searchParams.set('category', selectedCategory.value);
+        } else {
+            url.searchParams.delete('category');
         }
 
         if (selectedSubCategory.value.length > 0) {
@@ -85,18 +89,26 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
             url.searchParams.set('page', currentPage.value.toString());
         } else if (currentPage.value && currentPage.value > 1) {
             url.searchParams.set('page', currentPage.value.toString());
+        } else {
+            url.searchParams.delete('page');
         }
 
         if (startDate.value) {
             url.searchParams.set('start-date', startDate.value);
+        } else {
+            url.searchParams.delete('start-date');
         }
 
         if (endDate.value) {
             url.searchParams.set('end-date', endDate.value);
+        } else {
+            url.searchParams.delete('end-date');
         }
 
         if (sortBy.value) {
             url.searchParams.set('sort-by', sortBy.value.id);
+        } else {
+            url.searchParams.delete('sort-by');
         }
 
         if (!isHomePage.value) {

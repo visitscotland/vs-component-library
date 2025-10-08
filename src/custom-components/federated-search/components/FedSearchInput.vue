@@ -169,7 +169,21 @@ function suggestedSearch(query) {
 }
 
 function updateSelectedCategory(category) {
+    const url = new URL(window.location);
+
+    // Reset to page 1
+    url.searchParams.delete('page');
     federatedSearchStore.currentPage = 1;
+
+    // Reset dates
+    url.searchParams.delete('start-date');
+    url.searchParams.delete('end-date');
+    federatedSearchStore.startDate = '';
+    federatedSearchStore.endDate = '';
+
+    // Reset sort options
+    federatedSearchStore.sortBy = undefined;
+
     federatedSearchStore.selectedCategory = (federatedSearchStore.selectedCategory !== category)
         ? category
         : '';

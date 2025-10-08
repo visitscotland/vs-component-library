@@ -280,17 +280,17 @@ onMounted(async() => {
 
 function updateStartDate(date) {
     federatedSearchStore.startDate = date;
-    federatedSearchStore.navigateToResultsPage();
+    federatedSearchStore.navigateToResultsPage(true);
 }
 
 function updateEndDate(date) {
     federatedSearchStore.endDate = date;
-    federatedSearchStore.navigateToResultsPage();
+    federatedSearchStore.navigateToResultsPage(true);
 }
 
 function updateSort(type) {
     federatedSearchStore.sortBy = type;
-    federatedSearchStore.navigateToResultsPage();
+    federatedSearchStore.navigateToResultsPage(true);
 }
 
 function loadPage(pageNumber) {
