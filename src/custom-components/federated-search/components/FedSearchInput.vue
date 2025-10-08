@@ -36,22 +36,24 @@
             </VsButton>
         </div>
 
-        <div
-            v-if="searchSuggestions"
-            class="vs-fed-search-input--autocomplete"
-        >
-            <VsList unstyled>
-                <li
-                    v-for="suggestion in searchSuggestions"
-                    :key="suggestion"
-                    class="vs-fed-search-input--autocomplete__suggestion"
-                    @click="suggestedSearch(suggestion)"
-                    @keyup.enter="suggestedSearch(suggestion)"
-                    tabindex="0"
-                >
-                    {{ suggestion }}
-                </li>
-            </VsList>
+        <div class="position-relative">
+            <div
+                v-if="searchSuggestions"
+                class="vs-fed-search-input--autocomplete"
+            >
+                <VsList unstyled>
+                    <li
+                        v-for="suggestion in searchSuggestions"
+                        :key="suggestion"
+                        class="vs-fed-search-input--autocomplete__suggestion"
+                        @click="suggestedSearch(suggestion)"
+                        @keyup.enter="suggestedSearch(suggestion)"
+                        tabindex="0"
+                    >
+                        {{ suggestion }}
+                    </li>
+                </VsList>
+            </div>
         </div>
 
         <VsFedFilter
@@ -291,18 +293,14 @@ onMounted(() => {
 
     &--autocomplete {
         position: absolute;
-        top: 6em;
-        left: 0;
-        //pushes it the length of the button + then centers under searchbar
-        right: calc(48px + 6.25%);
         z-index: 10;
         background-color: $vs-color-background-primary;
-        width: 75%;
+        width: 90%;
         margin: 0 auto;
         border: 1px solid $vs-color-border-primary;
 
         @include media-breakpoint-down(lg) {
-            width: 90%;
+            width: 100%;
             right: 0;
         }
 
