@@ -55,10 +55,23 @@
                         <VsSiteSearch
                             @toggle-action="toggleSearch"
                             :is-showing="showSearch"
-                            v-if="!noSearch"
+                            v-if="!noSearch && !searchLink"
                         >
                             {{ searchButtonText }}
                         </VsSiteSearch>
+
+                        <VsButton
+                            v-if="!noSearch && searchLink"
+                            :animate="false"
+                            class="vs-site-search"
+                            :href="searchLink"
+                            icon="vs-icon-control-search"
+                            id="site-search-btn"
+                            size="md"
+                            :rounded="false"
+                        >
+                            {{ searchButtonText }}
+                        </VsButton>
 
                         <div
                             class="vs-mega-nav__menu-mobile d-lg-none"
@@ -205,6 +218,13 @@ export default {
         noSearch: {
             type: Boolean,
             default: false,
+        },
+        /**
+         * If set, link to search page rather than opening search form.
+         */
+        searchLink: {
+            type: String,
+            default: undefined,
         },
         /**
          * Indicates whether the nav contains static links rather than dropdowns. If true some
