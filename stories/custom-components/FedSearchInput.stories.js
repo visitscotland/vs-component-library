@@ -29,6 +29,9 @@ const Template = (args) => ({
 
 const base = {
     searchUrl: '/site-search-results',
+    labels: {
+        searchLabel: 'What are you looking for?',
+    },
     isHomePage: true,
     jsDisabled: false,
 };
