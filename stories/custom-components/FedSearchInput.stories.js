@@ -30,6 +30,7 @@ const Template = (args) => ({
 const base = {
     searchUrl: '/site-search-results',
     labels: {
+        searchButton: 'Search',
         searchLabel: 'What are you looking for?',
     },
     isHomePage: true,
