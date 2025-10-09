@@ -110,6 +110,9 @@ const base = {
         refine: 'Refine your search',
         search: 'Search',
         searchLabel: 'What are you looking for?',
+        searchResults: 'Search results',
+        resultsFirst: 'Showing',
+        resultsSecond: 'results',
         noJs: 'JavaScript needs to be enabled to see search result. You can turn this on in your browser settings.',
     },
     sortLabels: {

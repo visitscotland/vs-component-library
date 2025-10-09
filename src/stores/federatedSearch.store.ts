@@ -106,7 +106,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         }
 
         if (sortBy.value) {
-            url.searchParams.set('sort-by', sortBy.value.id);
+            url.searchParams.set('sort-by', sortBy.value.key);
         } else {
             url.searchParams.delete('sort-by');
         }

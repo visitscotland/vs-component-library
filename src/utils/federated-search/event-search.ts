@@ -42,7 +42,7 @@ async function eventSearch(
         url = page > 1 ? `${url}&page=${page}` : url;
         url = startDate !== '' ? `${url}&startDate=${startDate}` : url;
         url = endDate !== '' ? `${url}&endDate=${endDate}` : url;
-        url = sortBy ? `${url}&sort=${sortBy.id}` : url;
+        url = sortBy ? `${url}&sort=${sortBy.key}` : url;
 
         selectedSubCategory.forEach((category) => {
             url += `&category=${category.toLowerCase()}`;
