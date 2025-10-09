@@ -57,10 +57,9 @@
                         :key="result.id"
                     >
                         <template #vs-card-header>
-                            <div class="position-relative vs-federated-search__image">
+                            <div class="position-relative">
                                 <VsImg
-                                    v-if="result.imgSrc"
-                                    :src="result.imgSrc"
+                                    :src="result.imgSrc || fallbackImg"
                                     class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
                                 />
                                 <div class="position-absolute bottom-0 start-0 d-flex gap-2">
@@ -203,6 +202,8 @@ const isError = ref(
         error: false,
     },
 );
+
+const fallbackImg = 'https://static.visitscotland.com/img/fallback-img.png';
 
 const props = defineProps({
     /**
@@ -412,13 +413,6 @@ onUpdated(() => {
 
 <style lang="scss">
 .vs-federated-search {
-    &__image {
-        max-height: 270px;
-        aspect-ratio: 3/2;
-        // background: url('./images/placeholders/fallback-img.png') no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
 
     &--pagination {
         margin: $vs-spacer-400 $vs-spacer-0 $vs-spacer-300 $vs-spacer-0;

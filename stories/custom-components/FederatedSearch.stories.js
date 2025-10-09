@@ -101,7 +101,7 @@ const base = {
     noResultsLabel: 'There are no results, please try again',
     fromText: 'From',
     paginationLabels: {
-        nextButtonLabel: 'Bob',
+        nextButtonLabel: 'Next',
         previousButtonLabel: 'Previous',
         pageLabel: 'Page',
         ofLabel: 'of',
