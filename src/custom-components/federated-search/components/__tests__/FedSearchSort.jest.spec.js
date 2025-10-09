@@ -5,6 +5,8 @@ import VsFedSearchSort from '../FedSearchSort.vue';
 const factoryMount = (propsData) => mount(VsFedSearchSort, {
     ...propsData,
     propsData: {
+        fromDateLabel: 'From',
+        toDateLabel: 'To',
         sortLabel: 'Sort by',
     },
 });

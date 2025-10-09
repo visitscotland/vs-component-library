@@ -57,7 +57,7 @@
                     :key="index"
                     @click="sortUpdated(sortOption)"
                     :active="isActive === sortOption ? true : false"
-                    :data-test="`vs-fed-search-sort__dropdown-item--${sortOption.key}`"
+                    :data-test="`vs-fed-search-sort__dropdown-item--${sortOption.id}`"
                 >
                     {{ sortOption.label }}
                 </VsDropdownItem>
