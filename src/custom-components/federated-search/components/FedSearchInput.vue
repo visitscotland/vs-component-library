@@ -32,7 +32,7 @@
                 :disabled="federatedSearchStore.isLoading"
                 @click="search"
             >
-                {{ props.labels.searchButton }}
+                {{ props.labels.search }}
             </VsButton>
         </div>
 
