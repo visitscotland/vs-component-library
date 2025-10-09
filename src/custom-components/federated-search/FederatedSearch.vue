@@ -22,10 +22,12 @@
                         :level="2"
                         class="my-0"
                     >
-                        Search results
+                        {{ props.searchLabels.searchResults }}
                     </VsHeading>
                     <VsDetail v-if="federatedSearchStore.totalResults !== 0">
-                        Showing {{ federatedSearchStore.totalResults }} results
+                        {{ props.searchLabels.resultsFirst }}
+                        {{ federatedSearchStore.totalResults }}
+                        {{ props.searchLabels.resultsSecond }}
                     </VsDetail>
                 </div>
                 <VsFedSearchSort
