@@ -1,3 +1,10 @@
+## [5.12.3](https://github.com/visitscotland/vs-component-library/compare/v5.12.2...v5.12.3) (2025-10-14)
+
+
+### Bug Fixes
+
+* **buttons:** adjust specificity again ([f230a9d](https://github.com/visitscotland/vs-component-library/commit/f230a9d6c51a87317b6812c4a952047507366b26))
+
 ## [5.12.2](https://github.com/visitscotland/vs-component-library/compare/v5.12.1...v5.12.2) (2025-10-14)
 
 
