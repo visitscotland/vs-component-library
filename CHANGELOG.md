@@ -1,3 +1,10 @@
+## [5.12.2](https://github.com/visitscotland/vs-component-library/compare/v5.12.1...v5.12.2) (2025-10-14)
+
+
+### Bug Fixes
+
+* **buttons:** adjust to use css var ([c317ebb](https://github.com/visitscotland/vs-component-library/commit/c317ebb5eb1bd7340b93ee024e7f570bf47c11c0))
+
 ## [5.12.1](https://github.com/visitscotland/vs-component-library/compare/v5.12.0...v5.12.1) (2025-10-14)
 
 
