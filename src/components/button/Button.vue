@@ -191,9 +191,7 @@ export default {
 
 <style lang="scss">
     .vs-button {
-        &.btn {
-            @extend %button-default-styles;
-        }
+        @extend %button-default-styles;
 
         &:focus {
             @extend %primary-button-focus;

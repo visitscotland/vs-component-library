@@ -26,6 +26,7 @@ BUTTON STYLES
 
 %button-default-styles {
     font-weight: $vs-font-weight-medium;
+    --bs-btn-font-weight: #{$vs-font-weight-medium};
     transition: $transition-base;
     text-decoration: none;
     position: relative;
