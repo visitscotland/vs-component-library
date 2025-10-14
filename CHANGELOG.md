@@ -1,3 +1,10 @@
+## [5.12.1](https://github.com/visitscotland/vs-component-library/compare/v5.12.0...v5.12.1) (2025-10-14)
+
+
+### Bug Fixes
+
+* **buttons:** increase specificity of button default styles to avoid conflict with bootstrap ([3f42834](https://github.com/visitscotland/vs-component-library/commit/3f4283476d9cd45c688738a5c801c40a8b9a2202))
+
 # [5.12.0](https://github.com/visitscotland/vs-component-library/compare/v5.11.0...v5.12.0) (2025-10-09)
 
 
