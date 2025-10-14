@@ -1,3 +1,10 @@
+## [5.12.4](https://github.com/visitscotland/vs-component-library/compare/v5.12.3...v5.12.4) (2025-10-14)
+
+
+### Bug Fixes
+
+* **build:** temporarily remove custom components from vite config ([d9cbf6d](https://github.com/visitscotland/vs-component-library/commit/d9cbf6d3e8a8982282988494873a05ad22b6d361))
+
 ## [5.12.3](https://github.com/visitscotland/vs-component-library/compare/v5.12.2...v5.12.3) (2025-10-14)
 
 
