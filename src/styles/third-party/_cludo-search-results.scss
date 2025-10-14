@@ -24,6 +24,8 @@
 
         .cludo-facet__header-mobile{
             @extend %button-default-styles;
+            @extend %button-default-font-weight;
+
             width: 100%;
             padding: $vs-spacer-075 $vs-spacer-200;
             border: $vs-border-width-md solid $vs-color-interaction-cta-primary;

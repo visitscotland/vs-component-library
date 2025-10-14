@@ -169,6 +169,8 @@ export default {
 
             label.btn-secondary {
                 @extend %button-default-styles;
+                @extend %button-default-font-weight;
+
                 color: $vs-color-text-cta-on-light;
                 transition: none;
                 padding-top: $vs-spacer-050;
