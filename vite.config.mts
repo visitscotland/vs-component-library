@@ -13,6 +13,10 @@ export default defineConfig(({ mode }) => {
                 ICON_KIT_TOKEN: env.ICON_KIT_TOKEN,
                 ICON_API_TOKEN: env.ICON_API_TOKEN,
                 RECAPTCHA_TOKEN: env.RECAPTCHA_TOKEN,
+                EVENTS_API_URL: env.EVENTS_API_URL,
+                CLUDO_API_KEY: env.CLUDO_API_KEY,
+                CLUDO_CUSTOMER_ID: env.CLUDO_CUSTOMER_ID,
+                CLUDO_ENGINE_ID: env.CLUDO_ENGINE_ID,
             }),
             'process.versions': process.versions,
             'process.platform': `"${process.platform}"`,
@@ -43,6 +47,7 @@ export default defineConfig(({ mode }) => {
                 outDir: './dist/components',
                 include: [
                     './src/components',
+                    // './src/custom-components',
                     './src/directives',
                     './src/mixins',
                     './src/stores',

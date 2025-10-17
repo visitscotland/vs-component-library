@@ -25,13 +25,16 @@ BUTTON STYLES
 ***************/
 
 %button-default-styles {
-    font-weight: $vs-font-weight-medium;
     transition: $transition-base;
     text-decoration: none;
     position: relative;
     overflow: hidden;
     border-width: $vs-border-width-md;
     line-height: $line-height-base;
+}
+
+%button-default-font-weight {
+    font-weight: $vs-font-weight-medium;
 }
 
 %primary-button-focus {

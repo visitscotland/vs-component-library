@@ -81,6 +81,8 @@ export default {
 .vs-dropdown {
     .dropdown-toggle {
         @extend %button-default-styles;
+        @extend %button-default-font-weight;
+
         padding: $vs-spacer-050 $vs-spacer-150;
 
         &:hover {
