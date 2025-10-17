@@ -3,3 +3,4 @@
 /* Export elements */
 export { default as VsFederatedSearch } from './federated-search/FederatedSearch.vue';
 export { default as VsFederatedSearchInput } from './federated-search/components/FedSearchInput.vue';
+export { default as VsGoogleMapsPlacesUi } from './google-maps/GoogleMapsPlacesUi.vue';

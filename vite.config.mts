@@ -17,6 +17,7 @@ export default defineConfig(({ mode }) => {
                 CLUDO_API_KEY: env.CLUDO_API_KEY,
                 CLUDO_CUSTOMER_ID: env.CLUDO_CUSTOMER_ID,
                 CLUDO_ENGINE_ID: env.CLUDO_ENGINE_ID,
+                GOOGLE_MAPS_API_KEY: env.GOOGLE_MAPS_API_KEY,
             }),
             'process.versions': process.versions,
             'process.platform': `"${process.platform}"`,

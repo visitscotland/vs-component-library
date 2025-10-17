@@ -24,6 +24,7 @@
   "license": "MIT",
   "scripts": {
     "storybook": "yarn theo && storybook dev -p 6006",
+    "storybook:host": "yarn theo && storybook dev -h 127.0.0.1 -p 6006",
     "build-storybook": "yarn theo && storybook build",
     "build": "yarn theo && npm-run-all build:library build:ssr third-party build:vite-no-theo",
     "build:dev": "yarn theo && npm-run-all build:library:dev build:ssr:dev third-party",
@@ -85,6 +86,7 @@
     "@storybook/addon-docs": "9.1.0-alpha.2",
     "@storybook/addon-links": "^9.1.0-alpha.2",
     "@storybook/vue3-vite": "^9.1.0-alpha.2",
+    "@types/google.maps": "^3.58.1",
     "@typescript-eslint/eslint-plugin": "^8.38.0",
     "@typescript-eslint/parser": "^8.38.0",
     "@vitejs/plugin-vue": "^5.0.4",
