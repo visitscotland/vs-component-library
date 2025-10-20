@@ -88,6 +88,7 @@
                             :bounds-data="regionBounds"
                             :reset-zoom="resetZoom"
                             :show-marker-popups="false"
+                            :load-branding-immediately="loadBrandingImmediately"
                         >
                             <template #map-loading-text>
                                 <!-- @slot Message to show when map is loading  -->
@@ -314,6 +315,13 @@ export default {
         panelMessage: {
             type: String,
             default: null,
+        },
+        /**
+         * Load branding immediately, bypass certain onLoaded timings when using Nuxt SSR
+         */
+        loadBrandingImmediately: {
+            type: Boolean,
+            default: false,
         },
     },
     data() {

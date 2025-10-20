@@ -180,6 +180,13 @@ export default {
             type: Boolean,
             default: true,
         },
+        /**
+         * Load branding immediately, bypass certain onLoaded timings when using Nuxt SSR
+         */
+        loadBrandingImmediately: {
+            type: Boolean,
+            default: false,
+        },
     },
     emits: [
         'map-ready',
@@ -334,13 +341,20 @@ export default {
         window.addEventListener('resize', this.onResize);
 
         /**
-         * Initialise branding options when DOM loads
+         * Branding options should be initialised after the DOM loads. Depending on how components
+         * are lazy loaded this may happen before or after this component is mounted
          */
-        window.addEventListener('DOMContentLoaded', () => {
+        if (this.loadBrandingImmediately) {
             osBranding.init({
                 div: this.mapId,
             });
-        });
+        } else {
+            window.addEventListener('DOMContentLoaded', () => {
+                osBranding.init({
+                    div: this.mapId,
+                });
+            });
+        }
     },
     methods: {
         /**
