@@ -1,3 +1,11 @@
+## [5.12.5](https://github.com/visitscotland/vs-component-library/compare/v5.12.4...v5.12.5) (2025-10-20)
+
+
+### Bug Fixes
+
+* **map:** allow immediately loading of OS branding for Nuxt sites ([2b68259](https://github.com/visitscotland/vs-component-library/commit/2b682599ab980e2df59333f31d4aa52ac563abd3))
+* **maps:** adjust docs comments to clarify ([f7c4a13](https://github.com/visitscotland/vs-component-library/commit/f7c4a13958a1a2a3ce74d781187ba075bfc99be7))
+
 ## [5.12.4](https://github.com/visitscotland/vs-component-library/compare/v5.12.3...v5.12.4) (2025-10-14)
 
 
