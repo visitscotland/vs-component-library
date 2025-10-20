@@ -287,78 +287,140 @@ export default `
     SECTION END
     ------------------------------------------------------------>
 
-
     <!------------------------------------------------------------
-    NEW SECTION - Megalinks single image (soon to be deprecated)
+    NEW SECTION - Section header + new card group ( 3 cards)
     ------------------------------------------------------------>
-    <VsMegalinks
-        title="Days out ideas"
-        variant="single-image"
+    <VsSectionHeader 
+        class="mt-500 mb-300"
+        heading="Plan your trip"
     >
-        <template #vs-megalinks-intro>
+        <template v-slot:section-header-lede>
             <p>
-                Embark on a fascinating tour or follow an itinerary to learn more as you explore, or enjoy the great outdoors on foot, two wheels or make a splash in our lochs and coastal spots.
+                Choose from inspiring tours and itineraries to help you make the most of your time in Scotland — whether it's a road trip, city break or scenic adventure.
             </p>
         </template>
+    </VsSectionHeader>
 
-        <VsCol cols="12">
-            <VsMegalinkSingleImage
-                title="Tours & itineraries"
-            >
-                <template #vs-single-image>
-                    <VsImageWithCaption
-                        mobile-overlap
-                        image-src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/01/cawdor-castle-and-gardens"
+    <VsContainer>
+        <VsRow>
+            <VsCol>
+                <VsCardGroup
+                    scroll-snap
+                    :cards-per-row="3"
+                    class="text-start"
+                >
+                    <VsCard
+                        v-for="(card, index) in cardList5"
+                        :key="'card-list-5-' + index"
                     >
-                        <template #img-caption>
-                            <VsCaption text-align="right">
-                                <template #caption>
-                                    Cawdor Castle and Gardens
-                                </template>
-
-                                <template #credit>
-                                    © VisitScotland / Kenny Lam
-                                </template>
-                            </VsCaption>
+                        <template #vs-card-header>
+                            <VsImg
+                                v-if="card.image"
+                                :src="card.image"
+                                class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
+                            />
                         </template>
-                    </VsImageWithCaption>
-                </template>
-                <template #vs-single-image-content>
-                    <p>
-                        Our tour guides know the best and most interesting info on Scotland so sit back and enjoy these moments!
-                    </p>
-                </template>
-                <template #vs-single-image-links>
-                    <VsLinkListItem href="#">
-                        Harry Potter film and book locations itinerary
-                    </VsLinkListItem>
-                    <VsLinkListItem href="#">
-                        Edinburgh in 3 days - 72-hour itinerary
-                    </VsLinkListItem>
-                    <VsLinkListItem href="#">
-                        Highland castles itinerary
-                    </VsLinkListItem>
-                    <VsLinkListItem href="#">
-                        Tours of Scotland
-                    </VsLinkListItem>
-                </template>
 
-                <template v-slot:vs-single-image-button-text>
-                    See all itineraries
-                </template>
-            </VsMegalinkSingleImage>
-        </VsCol>
-    </VsMegalinks>
+                        <template #vs-card-body>
+                            <div>
+                                <VsHeading
+                                    level="3"
+                                    heading-style="heading-xs"
+                                >
+                                    <VsLink
+                                        :href="card.link"
+                                        class="stretched-link"
+                                        variant="secondary"
+                                    >
+                                        {{ card.title }}
+                                    </VsLink>
+                                </VsHeading>
+
+                                <VsBody class="mb-150 truncate-2-lines">
+                                    {{ card.description }}
+                                </VsBody>
+                            </div>
+                        </template>
+                    </VsCard>
+                </VsCardGroup>
+            </VsCol>
+        </VsRow>
+    </VsContainer>
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
+
+    
+    <!------------------------------------------------------------
+    NEW SECTION - Section header + new card group ( 4 cards)
+    ------------------------------------------------------------>
+    <VsSectionHeader 
+        class="mt-500 mb-400"
+        heading="Make the most of your visit"
+    >
+        <template v-slot:section-header-lede>
+            <p>
+                Sample Scotland's delicious local food and drink, shopping, and find the best passes and offers to make your trip even more rewarding.
+            </p>
+        </template>
+    </VsSectionHeader>
+
+    <VsContainer>
+        <VsRow>
+            <VsCol>
+                <VsCardGroup
+                    scroll-snap
+                    :cards-per-row="4"
+                    class="text-start"
+                >
+                    <VsCard
+                        v-for="(card, index) in cardList6"
+                        :key="'card-list-6-' + index"
+                    >
+                        <template #vs-card-header>
+                            <VsImg
+                                v-if="card.image"
+                                :src="card.image"
+                                class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
+                            />
+                        </template>
+
+                        <template #vs-card-body>
+                            <div>
+                                <VsHeading
+                                    level="3"
+                                    heading-style="heading-xs"
+                                >
+                                    <VsLink
+                                        :href="card.link"
+                                        class="stretched-link"
+                                        variant="secondary"
+                                    >
+                                        {{ card.title }}
+                                    </VsLink>
+                                </VsHeading>
+
+                                <VsBody class="mb-150 truncate-2-lines">
+                                    {{ card.description }}
+                                </VsBody>
+                            </div>
+                        </template>
+                    </VsCard>
+                </VsCardGroup>
+            </VsCol>
+        </VsRow>
+    </VsContainer>
+    <!------------------------------------------------------------
+    SECTION END
+    ------------------------------------------------------------>
+
 
 
     <!------------------------------------------------------------
     NEW SECTION - Section header + new card group ( 4 cards)
     ------------------------------------------------------------>
     <VsSectionHeader 
-        class="mb-300"
+        class="mt-500 mb-300"
         heading="Top tips for travelling to Scotland"
     >
         <template v-slot:section-header-lede>

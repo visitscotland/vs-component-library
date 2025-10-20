@@ -7,11 +7,7 @@ import {
 } from '@/components/grid';
 import VsSpotlightSection from '@/components/spotlight-section/SpotlightSection.vue';
 import VsMegalinks from '@/components/megalinks/Megalinks.vue';
-import VsMegalinkSingleImage from '@/components/megalinks/components/megalink-single-image/MegalinkSingleImage.vue';
 import VsMegalinkMultiImage from '@/components/megalinks/components/megalink-multi-image/MegalinkMultiImage.vue';
-import VsLinkListItem from '@/components/link-list/components/LinkListItem.vue';
-import VsImageWithCaption from '@/components/image-with-caption/ImageWithCaption.vue';
-import VsCaption from '@/components/caption/Caption.vue';
 import VsCardGroup from '@/components/card-group/CardGroup.vue';
 import VsCard from '@/components/card/Card.vue';
 import VsHeading from '@/components/heading/Heading.vue';
@@ -53,11 +49,7 @@ const components = {
     VsArticleDetails,
     VsBadge,
     VsMegalinks,
-    VsMegalinkSingleImage,
     VsMegalinkMultiImage,
-    VsLinkListItem,
-    VsImageWithCaption,
-    VsCaption,
     VsModal,
     VsVideo,
 };
@@ -72,6 +64,8 @@ const createStory = (template) => ({
             const cardList2 = cardLayoutData.cardList2?.cards || [];
             const cardList3 = cardLayoutData.cardList3?.cards || [];
             const cardList4 = cardLayoutData.cardList4?.cards || [];
+            const cardList5 = cardLayoutData.cardList5?.cards || [];
+            const cardList6 = cardLayoutData.cardList6?.cards || [];
             const textCardList1 = textCardLayoutData.textCardList1?.cards || [];
             const textCardList2 = textCardLayoutData.textCardList2?.cards || [];
             const infoCardList1 = infoCardLayoutData.infoCardList1?.cards || [];
@@ -85,6 +79,8 @@ const createStory = (template) => ({
                 cardList2,
                 cardList3,
                 cardList4,
+                cardList5,
+                cardList6,
                 textCardList1,
                 textCardList2,
                 infoCardList1,

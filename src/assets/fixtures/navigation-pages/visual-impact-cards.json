@@ -111,7 +111,7 @@
       }
     ]
   },
-    "cardList4": {
+  "cardList4": {
     "cards": [
       {
         "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/06/24/clashnessie-bay-car-road?size=md",
@@ -135,6 +135,56 @@
         "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/01/eilean-donan-castle-sunset?size=md",
         "title": "Plan your holiday to Scotland",
         "description": "Our guide gives you the tips you need to make the most of your trip, from where to go to the best time to visit.",
+        "link": "#"
+      }
+    ]
+  },
+  "cardList5": {
+    "cards": [
+      {
+        "image": "https://d1km7u9ubck4j.cloudfront.net/production-upgrade-2024/da584e093bf34c7006902e2d64c1c4a6/conversions/63ece54049c10-HD.jpg",
+        "title": "Tours of Scotland",
+        "description": "Uncover fascinating stories of famous Scots, get up close with curious wildlife or try out a new activity on one of our rivers. Tours are a brilliant way to see Scotland in a new way.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/08/10/mull-of-galloway-lighthouse?size=lg",
+        "title": "Scotland trip itineraries",
+        "description": "We've lined up an array of itineraries to help you get planning your ideal Scotland trip, be that a day in the capital, a week's island-hopping, or a three-day tour of Highland castles.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/25/edinburgh-city-sightseeing-bus?size=lg",
+        "title": "Day trips & days out in Scotland",
+        "description": "There are hundreds of tours, day trip ideas, itineraries and more than you can use to create an exciting weekend break, or even a spontaneous last-minute day out.",
+        "link": "#"
+      }
+    ]
+  },
+  "cardList6": {
+    "cards": [
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2023/04/06/salisbury-crags?size=lg",
+        "title": "Affordable and budget-friendly holidays in Scotland",
+        "description": "Find out how to have a cheap holiday in Scotland with our top budget tips. From free attractions to budget accommodation for your holiday, we’ll help you get the best value out of your Scottish break.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/11/05/creel-seafood?size=lg",
+        "title": "Scottish food & drink",
+        "description": "Taste and see why Scottish food and drink is famous all over the world.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2025/09/25/japanese-garden.jpg?size=lg",
+        "title": "Passes & offers for holidays, attractions & travel in Scotland",
+        "description": "Scotland can offer great value for money all year round. Here’s our one-stop shop for great offers, deals and passes that can make trip planning easy and save your money throughout the seasons.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/11/30/victoria-street-in-edinburgh?size=lg",
+        "title": "Shopping in Scotland",
+        "description": "Find information about shopping in Scotland, with details about the very best local food and drink, stylish boutiques, shops and arts and craft outlets.",
         "link": "#"
       }
     ]
