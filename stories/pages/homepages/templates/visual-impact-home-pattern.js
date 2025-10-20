@@ -4,7 +4,7 @@ export default `
             <VsHeroSection
                 heading="Scotland, <br/>it's good for the soul"
                 lede="Where history meets breathtaking beauty, and every visit feels like home."
-                img-src="fixtures/hero/images/lavendar-fields.jpg"
+                img-src="fixtures/hero/images/lavendar-fields.png"
                 video-src="fixtures/hero/video/lavendar-fields.mp4"
                 video-btn-text="Play/pause background video"
                 video-playing-status="Playing"
@@ -45,7 +45,7 @@ export default `
                                     heading-style="heading-m"
                                 >
                                     <VsLink
-                                        :href="card.contentLinkUrl"
+                                        :href="card.link"
                                         class="stretched-link text-decoration-none"
                                         variant="on-dark"
                                     >
