@@ -181,7 +181,9 @@ export default {
             default: true,
         },
         /**
-         * Load branding immediately, bypass certain onLoaded timings when using Nuxt SSR
+         * If true the map branding will load immediately after the component is mounted. This
+         * should be set to true if the map is loaded asynchronously after page creation, as in
+         * most uses cases of the /maps entry.
          */
         loadBrandingImmediately: {
             type: Boolean,
