@@ -72,6 +72,70 @@ export default `
 
 
     <!------------------------------------------------------------
+    NEW SECTION - Section header + search
+    ------------------------------------------------------------>
+    <VsSectionHeader 
+        class="mt-500 mb-300"
+        heading="Discover unique experiences in Scotland"
+    >
+        <template v-slot:section-header-lede>
+            <p>
+                Discover hidden gems, plan your perfect trip, or find exactly what you need—from scenic hikes and cosy cottages to local events and cultural experiences. Start exploring now!
+            </p>
+        </template>
+    </VsSectionHeader>
+
+    <VsContainer>
+        <VsRow>
+            <VsCol>
+                <VsFederatedSearch
+                    :error-messages="{
+                        noResults: 'There are no results, please try again',
+                        incorrectDateOrder: 'The start date is after the end date, please change this and try again.',
+                        cludoError: 'There was a problem retrieving the search results, please try again later',
+                        eventError: 'There was a problem retrieving the event results, please try again later.',
+                    }"
+                    no-results-label="There are no results, please try again"
+                    from-text="From"
+                    :pagination-labels="{
+                        nextButtonLabel: 'Next',
+                        previousButtonLabel: 'Previous',
+                        pageLabel: 'Page',
+                        ofLabel: 'of',
+                    }"
+                    :search-labels="{
+                        refine: 'Refine your search',
+                        search: 'Search',
+                        searchLabel: 'What are you looking for?',
+                        searchResults: 'Search results',
+                        resultsFirst: 'Showing',
+                        resultsSecond: 'results',
+                        noJs: 'JavaScript needs to be enabled to see search result. You can turn this on in your browser settings.',
+                    }"
+                    :sort-labels="{
+                        dateFrom: 'From',
+                        dateTo: 'To',
+                        sort: 'Sort by',
+                        sortOptions: [
+                            {
+                                key: 'dateAsc',
+                                label: 'Date',
+                            },
+                            {
+                                key: 'priceAsc',
+                                label: 'Price',
+                            },
+                        ],
+                    }"
+                />
+        </VsRow>
+    </VsContainer>
+    <!------------------------------------------------------------
+    SECTION END
+    ------------------------------------------------------------>
+
+
+    <!------------------------------------------------------------
     NEW SECTION - Spotlight section
     ------------------------------------------------------------>
     <VsContainer class="mt-500">
@@ -93,7 +157,7 @@ export default `
 
     
     <!------------------------------------------------------------
-    NEW SECTION - Section header + new card group (4 cards)
+    NEW SECTION - Section header + map
     ------------------------------------------------------------>
     <VsSectionHeader 
         class="mt-500 mb-300"

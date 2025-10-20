@@ -1,99 +1,114 @@
 {
+  "cardListInfoOverlay": {
+    "cards": [
+      {
+        "image": "https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/14-feb/the-scandinavian-bakery.jpg?size=md",
+        "title": "Advice & support",
+        "link": "#"
+      },
+      {
+        "image": "https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/1-sep/falkirk-wheel.jpg",
+        "title": "Training & events",
+        "link": "#"
+      },
+      {
+        "image": "https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/16-dec/woman-business-laptop-outdoors?size=sm",
+        "title": "Contact us",
+        "link": "#"
+      }
+    ]
+  },
   "infoCardList1": {
     "cards": [
       {
-        "title": "Your guide to net zero and sustainability",
-        "description": "Learn all about sustainability and understand key terms with these FAQs, and find training courses to expand your knowledge further.",
+        "title": "Manage your website",
+        "description": "Find out what makes a good accessible website including key pages and booking systems, and how you can develop and improve this digital channel.",
         "link": "#",
-        "badgeTitle": "Article",
-        "metaData": "8 minute read"
+        "image": "https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/20-jan/79303-lochend-chalets-large.jpg?size=md"
       },
       {
-        "title": "Net zero legislation",
-        "description": "Explore how Scotland's net zero legislation transforms tourism, covering carbon budgets, energy efficiency, low-carbon transport & waste management.",
+        "title": "Improve your website user experience",
+        "description": "Find out how creating a good user experience (UX) can positively impact your business and get tips on improving your website's UX and accessibility.",
         "link": "#",
-        "badgeTitle": "Guide",
-        "metaData": "5 minute read"
+        "image": "https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/16-dec/woman-laptop-business-indoors"
       },
       {
-        "title": "Sustainability glossary",
-        "description": "Find a list of explanations for key terms, phrases and important sustainable initiatives.",
+        "title": "Manage your social media accounts",
+        "description": "Find out how to use social media to share information about your business and inspire people to come and visit you.",
         "link": "#",
-        "badgeTitle": "Article",
-        "metaData": "8 minute read"
+        "image": "https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/7-apr/south-ronaldsay-mobile-image?size=md"
+      },
+      {
+        "title": "Search engine optimisation guide",
+        "description": "Find out what search engine optimisation is and how to improve it on your tourism or event website.",
+        "link": "#",
+        "image": "https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/17-feb/rosslyn-chapel-tablet.jpg?size=md"
       }
     ]
   },
   "infoCardList2": {
     "cards": [
       {
-        "title": "How to create your climate action plan",
-        "description": "Now you have your measurements, create a climate action plan with realistic targets to track your progress with sustainability.",
+        "title": "VisitScotland Business Essentials: Bitesize Webinars",
+        "description": "A series of short webinars to help your business with topics like search engine optimisation, travel distribution and user experience..",
         "link": "#",
-        "badgeTitle": "How-to",
-        "metaData": "6 minute read"
+        "image": "https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/31-mar/tablet-social-media?size=sm"
       },
       {
-        "title": "How to make sustainable improvements",
-        "description": "Discover practical short and medium strategies for Scottish businesses to reduce carbon footprints, cut costs, and drive sustainability.",
+        "title": "Working with OTAs - visitor experience case study videos",
+        "description": "Discover how five different visitor experience businesses have benefited from working with online travel agents and using online booking systems.",
         "link": "#",
-        "badgeTitle": "How-to",
-        "metaData": "7 minute read"
+        "image": "https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/screenshots/mary-kings-close---text-right.jpg?size=sm"
       },
       {
-        "title": "Medium-term sustainability improvements",
-        "description": "Now you've audited your business in energy, travel and fixtures, it’s time to start making improvements and make plans for longer-term developments.",
+        "title": "Tourism and events partner updates",
+        "description": "Keep up-to-date with news in the tourism and events industry with key information and opportunities available to your business.",
         "link": "#",
-        "badgeTitle": "How-to"
+        "image": "https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/12-mar/scottish-thistle-awards?size=md"
       }
     ]
   },
-  "infoCardList3": {
+   "eventCardInfoList": {
     "cards": [
       {
-        "title": "Long-term sustainability improvements",
-        "description": "This guide provides actionable steps that Scottish tourism businesses can take to integrate sustainability into every aspect of their operations.",
+        "image": "https://foodanddrink.scot/media/fjpf4mbj/cover-craftingyourtasteofplace_opt.jpg?rxy=0.5023716326037779,0.5859027229210289&width=815&height=275&v=1dc23cb49a62230",
+        "title": "Using Food Tourism to Power Scotland’s Culinary Identity",
+        "description": "Join Erik Wolf - Executive Director of the World Food Travel Association - for a one-hour webinar exploring how food tourism can help your region stand out and thrive. Learn to turn local food culture into authentic visitor experiences that benefit businesses and communities alike.",
         "link": "#",
-        "badgeTitle": "Article",
-        "metaData": "6 minute read"
+        "location": "Online",
+        "date": "From 22 Oct 2025",
+        "price": "Free",
+        "type": "Training"
       },
       {
-        "title": "Promoting responsible tourism",
-        "description": "Promote Scotland online responsibly with sustainable activities, off-season stays, and eco-friendly travel benefiting communities and businesses.",
+        "image": "../../images/placeholders/fallback-img.png",
+        "title": "East Lothian Business Month: How to Grow Your Business Through the Travel Trade",
+        "description": "As part of East Lothian Business Month from 1st - 31st October, Visit East Lothian are hosting a workshop designed for tourism and hospitality businesses in East Lothian, with no previous experience with the travel trade.",
         "link": "#",
-        "badgeTitle": "Article",
-        "metaData": "5 minute read"
+        "location": "North Berwick",
+        "date": "22 Oct 2025",
+        "price": "Free",
+        "type": "Training"
       },
       {
-        "title": "Environmentally responsible events",
-        "description": "Find tips and resources to help your event on its environmental sustainability journey.",
+        "image": "../../images/placeholders/fallback-img.png",
+        "title": "VisitScotland bitesize webinars: creating added value experiences",
+        "description": "Explore how thoughtful enhancements can generate greater returns through travel distribution. Unpack what added value really means, highlight ways to elevate your existing product, and show how to present experiences that appeal to partners and high-yield visitors.",
         "link": "#",
-        "badgeTitle": "Article",
-        "metaData": "5 minute read"
-      }
-    ]
-  },
-  "infoCardList4": {
-    "cards": [
-      {
-        "title": "Support by sector",
-        "description": "Find tailored advice and case studies for accommodation, active and outdoor, events and festivals, food and drink and visitor attraction sectors.",
-        "link": "#"
+        "location": "Online",
+        "date": "30 Oct 2025",
+        "price": "Free",
+        "type": "Training"
       },
       {
-        "title": "Food and drink",
-        "description": "Find tailored advice for businesses setting up a food and drink experience, or looking to improve and grow an existing business.",
-        "link": "#"
-      },
-      {
-        "title": "Accommodation",
-        "description": "Find tailored advice and case studies for the accommodation, self-catering, hotels, small serviced and camping and caravan sectors.",
-        "link": "#"
-      },
-      {
-        "title": "Visitor attractions",
-        "description": "Find advice, support and suggestions for the visitor experiences sector covering everything from small community-run museums to hands-on experiences.",
-        "link": "#"
+        "image": "../../images/placeholders/fallback-img.png",
+        "title": "Adventure Together: On the Road - Scotland",
+        "description": "Organised adventure platform TourRadar are calling on tour operators and guides to join their marketing partnerships team for meaningful connections and invaluable networking opportunities. Plus, get insights into booking trends, and discover strategies and tools to grow your organized adventures business.",
+        "link": "#",
+        "location": "Edinburgh",
+        "date": "31 Oct 2025",
+        "price": "Free",
+        "type": "Industry"
       }
     ]
   }
