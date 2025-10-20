@@ -116,7 +116,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
             window.history.pushState({}, '', url);
             getSearchResults();
         } else {
-            const newHref = `./${searchUrl.value}/${url.search}`;
+            const newHref = `${searchUrl.value}/${url.search}`;
             window.location.href = newHref;
         }
     }
@@ -134,6 +134,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         isLoading,
         results,
         searchTerm,
+        searchUrl,
         selectedCategory,
         selectedSubCategory,
         totalResults,

@@ -215,6 +215,10 @@ onMounted(() => {
     };
     federatedSearchStore.isHomePage = props.isHomePage;
 
+    if (props.searchUrl) {
+        federatedSearchStore.searchUrl = props.searchUrl;
+    }
+
     federatedSearchStore.getCludoCategories();
 
     const url = window.location.search;
