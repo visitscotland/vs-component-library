@@ -57,7 +57,7 @@ export default `
                                     heading-style="heading-m"
                                 >
                                     <VsLink
-                                        :href="card.contentLinkUrl"
+                                        :href="card.link"
                                         class="stretched-link text-decoration-none"
                                         variant="on-dark"
                                     >

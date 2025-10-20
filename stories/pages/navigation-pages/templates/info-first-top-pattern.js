@@ -74,7 +74,7 @@ export default `
                 >
                     <VsCard
                         v-for="(card, index) in textCardList1"
-                        :key="'card-1-' + index"
+                        :key="'text-card-list-1-' + index"
                         :accent-bar="true"
                         :fill-color="'vs-color-background-primary'"
                         card-style="elevated"
@@ -166,7 +166,7 @@ export default `
                 >
                     <VsCard
                         v-for="(card, index) in textCardList2"
-                        :key="'card-1-' + index"
+                        :key="'text-card-list-2-' + index"
                         :accent-bar="true"
                         :fill-color="'vs-color-background-primary'"
                         card-style="elevated"

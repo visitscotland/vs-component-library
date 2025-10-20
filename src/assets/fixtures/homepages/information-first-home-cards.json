@@ -50,7 +50,7 @@
     "cards": [
       {
         "title": "VisitScotland Business Essentials: Bitesize Webinars",
-        "description": "A series of short webinars to help your business with topics like search engine optimisation, travel distribution and user experience..",
+        "description": "A series of short webinars to help your business with topics like search engine optimisation, travel distribution and user experience.",
         "link": "#",
         "image": "https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/31-mar/tablet-social-media?size=sm"
       },
@@ -81,7 +81,7 @@
         "type": "Training"
       },
       {
-        "image": "../../images/placeholders/fallback-img.png",
+        "image": "/images/placeholders/fallback-img.png",
         "title": "East Lothian Business Month: How to Grow Your Business Through the Travel Trade",
         "description": "As part of East Lothian Business Month from 1st - 31st October, Visit East Lothian are hosting a workshop designed for tourism and hospitality businesses in East Lothian, with no previous experience with the travel trade.",
         "link": "#",
@@ -91,7 +91,7 @@
         "type": "Training"
       },
       {
-        "image": "../../images/placeholders/fallback-img.png",
+        "image": "/images/placeholders/fallback-img.png",
         "title": "VisitScotland bitesize webinars: creating added value experiences",
         "description": "Explore how thoughtful enhancements can generate greater returns through travel distribution. Unpack what added value really means, highlight ways to elevate your existing product, and show how to present experiences that appeal to partners and high-yield visitors.",
         "link": "#",
@@ -101,7 +101,7 @@
         "type": "Training"
       },
       {
-        "image": "../../images/placeholders/fallback-img.png",
+        "image": "/images/placeholders/fallback-img.png",
         "title": "Adventure Together: On the Road - Scotland",
         "description": "Organised adventure platform TourRadar are calling on tour operators and guides to join their marketing partnerships team for meaningful connections and invaluable networking opportunities. Plus, get insights into booking trends, and discover strategies and tools to grow your organized adventures business.",
         "link": "#",

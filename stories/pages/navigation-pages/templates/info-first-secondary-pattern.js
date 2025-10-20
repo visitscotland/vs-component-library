@@ -255,7 +255,7 @@ export default `
                                     class="mb-200"
                                     no-js-message="You need Javascript enabled"
                                     no-cookies-message="You need cookies enabled"
-                                    cookie-btn-text="Cookie button"
+                                    cookie-btn-text="Enable cookies to play video"
                                 />
                             </VsCol>
                         </VsRow>
