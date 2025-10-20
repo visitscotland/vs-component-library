@@ -1,17 +1,15 @@
-import VsGoogleMapsPlacesUi from '@/custom-components/google-maps/GoogleMapsPlacesUi.vue';
-import VsContainer from '@/components/grid/Container.vue';
+import VsMainMap from '@/custom-components/maps/MainMap.vue';
 
 export default {
-    component: VsGoogleMapsPlacesUi,
-    title: 'Custom components/Google Maps Places UI Kit',
+    component: VsMainMap,
+    title: 'Custom components/Main Map',
     argTypes: {
     },
 };
 
 const Template = (args) => ({
     components: {
-        VsContainer,
-        VsGoogleMapsPlacesUi,
+        VsMainMap,
     },
     setup() {
         return {
@@ -19,7 +17,7 @@ const Template = (args) => ({
         };
     },
     template: `
-            <VsGoogleMapsPlacesUi v-bind="args" />
+            <VsMainMap v-bind="args" />
     `,
 });
 
