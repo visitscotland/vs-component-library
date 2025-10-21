@@ -1961,6 +1961,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@googlemaps/js-api-loader@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@googlemaps/js-api-loader@npm:2.0.1"
+  dependencies:
+    "@types/google.maps": "npm:^3.53.1"
+  checksum: 10c0/fa1146881762021ebe5021c6be03c5f5fd85557caa5360c590de00502c08f6a2b75bf3352ce767dd8437bedbf469131f088a9e598bce83c2a829b6a207e3be60
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.13.0":
   version: 0.13.0
   resolution: "@humanwhocodes/config-array@npm:0.13.0"
@@ -3887,7 +3896,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/google.maps@npm:^3.58.1":
+"@types/google.maps@npm:^3.53.1, @types/google.maps@npm:^3.58.1":
   version: 3.58.1
   resolution: "@types/google.maps@npm:3.58.1"
   checksum: 10c0/0247c61d2aeb216d04ab9392602ef41d58328c6336ed4e9a4e9e69834002e82c116a34def2bf4ceb31c4292f14899815058da4bb8d803147295c6b47c1162621
@@ -4451,6 +4460,7 @@ __metadata:
     "@babel/preset-env": "npm:^7.23.2"
     "@babel/preset-react": "npm:7.12.13"
     "@chromatic-com/storybook": "npm:^4.0.0-next.16"
+    "@googlemaps/js-api-loader": "npm:^2.0.1"
     "@mapbox/geojson-extent": "npm:^1.0.1"
     "@originjs/vite-plugin-require-context": "npm:^1.0.9"
     "@pinia/testing": "npm:^0.1.3"

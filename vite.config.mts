@@ -43,7 +43,13 @@ export default defineConfig(({ mode }) => {
             ],
         },
         plugins: [
-            vue(),
+            vue({
+                template: {
+                    compilerOptions: {
+                        isCustomElement: (tag) => ['gmp-map', 'gmp-advanced-marker'].includes(tag),
+                    },
+                },
+            }),
             dts({
                 outDir: './dist/components',
                 include: [
