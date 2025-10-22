@@ -15,7 +15,7 @@
         </div>
         <VsFedFilter 
             :filterCategories="mapFilters"
-            @filter-updated="searchByCategory"
+            @filter-updated="searchPlaces"
         />
         <VsButton 
                 icon="fa-kit fa-vs-coo"
@@ -65,7 +65,6 @@
 
 <script setup lang="ts">
 import {
-    computed,
     type PropType,
     onMounted,
     ref,
@@ -203,10 +202,7 @@ onMounted(async() => {
             };
 
             if (mapContainer) {
-                console.log(mapContainer);
                 gMap = new google.maps.Map(mapContainer, mapOptions);
-                console.log(gMap);
-                console.log(gMap.getCenter());
             } else {
                 throw new Error('Init error, mapContainer undefined');
             }
@@ -243,10 +239,6 @@ function searchPlaces(category?) {
 
 }
 
-function searchByCategory(category){
-    searchPlaces(category);
-}
-
 async function addMarkers() {
     const { AdvancedMarkerElement } = await google.maps.importLibrary('marker') as google.maps.MarkerLibrary;
     const { LatLngBounds } = await google.maps.importLibrary('core') as google.maps.CoreLibrary;
@@ -268,8 +260,6 @@ async function addMarkers() {
                 position: place.location,
                 title: place.displayName,
             })
-
-            console.log(marker.map);
 
             marker.addEventListener('gmp-placeclick', (event) => {
                 handlePlaceClick(place, marker);
