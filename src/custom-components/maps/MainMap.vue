@@ -17,6 +17,14 @@
             :filterCategories="mapFilters"
             @filter-updated="searchByCategory"
         />
+        <VsButton 
+                icon="fa-kit fa-vs-coo"
+                variant="tertiary"
+                icon-only
+                @click="resetMap"
+            >
+                Reset Map
+            </VsButton>
     </div>
 
     <div class="map-wrapper">
@@ -257,13 +265,15 @@ async function addMarkers() {
     }
 }
 
-function clearExistingMarkers() {
+function resetMap() {
     for(const marker in markers) {
         if(markers[marker]) {
             markers[marker].map = null;
         }
     }
     markers = {};
+    gMap.setCenter(props.center);
+    gMap.setZoom(props.zoom);
 }
 
 function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerElement) {
