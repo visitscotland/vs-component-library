@@ -184,6 +184,13 @@ onMounted(async() => {
         } catch (error) {
             console.error('Maps init error', error.message);
         }
+
+        //Handles click events in the Places UI Kit search panel
+        placeSearch.addEventListener('gmp-select', ({ place }) => {
+            if(markers[place.id]){
+                handlePlaceClick(place, markers[place.id]);
+            }
+        })
     };
 
     // Init map
