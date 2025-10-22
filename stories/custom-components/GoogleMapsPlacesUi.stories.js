@@ -17,7 +17,7 @@ const Template = (args) => ({
         };
     },
     template: `
-            <VsMainMap v-bind="args" />
+        <VsMainMap v-bind="args" />
     `,
 });
 
@@ -27,7 +27,7 @@ const base = {
         lng: -3.18416,
     },
     zoom: 12,
-    radius: 50000,
+    radius: 5000,
 };
 
 export const Default = Template.bind();

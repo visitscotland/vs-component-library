@@ -228,6 +228,7 @@ onMounted(async() => {
 
 function searchPlaces(category?) {
     const bounds = gMap.getBounds();
+    clearExistingMarkers();
 
     if (category) {
         placeSearchQuery.maxResultCount = 10;
@@ -298,6 +299,15 @@ function resetMap() {
     markers = {};
     gMap.setCenter(props.center);
     gMap.setZoom(props.zoom);
+}
+
+function clearExistingMarkers() {
+    for(const marker in markers) {
+        if(markers[marker]) {
+            markers[marker].map = null;
+        }
+    }
+    markers = {};
 }
 
 function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerElement) {
