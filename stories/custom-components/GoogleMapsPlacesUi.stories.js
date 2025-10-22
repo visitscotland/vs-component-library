@@ -27,6 +27,7 @@ const base = {
         lng: -3.18416,
     },
     zoom: 12,
+    radius: 50000,
 };
 
 export const Default = Template.bind();

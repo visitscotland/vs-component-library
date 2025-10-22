@@ -88,10 +88,17 @@ import {
 } from '@googlemaps/js-api-loader';
 
 const props = defineProps({
+    /**
+     * Override for API Key, otherwise it'll be retrived
+     * from environment variables
+     */
     apiKey: {
         type: String,
         default: getEnvValue('GOOGLE_MAPS_API_KEY'),
     },
+    /**
+     * Center point of map.
+     */
     center: {
         type: Object as PropType<LatLngObject>,
         default: {
@@ -100,9 +107,23 @@ const props = defineProps({
         },
         required: true,
     },
+    /**
+     * Zoom level.
+     * ~12 Good for big cities, ~13 for smaller cities. 
+     * 6-7 for whole of Scotland
+     */
     zoom: {
         type: Number,
         default: 12,
+    },
+    /** 
+     * Radius (in meters) to search from center point.
+     * Default 1000m (1km)
+     * Maximum Value 50000m (50km)
+     */
+    radius: {
+        type: Number,
+        default: 1000,
     }
 })
 
@@ -210,7 +231,10 @@ function searchPlaces(category?) {
 
     if (category) {
         placeSearchQuery.maxResultCount = 10;
-        placeSearchQuery.locationRestriction = {center: props.center, radius: 1000};
+        placeSearchQuery.locationRestriction = {
+            center: props.center, 
+            radius: props.radius
+        };
         placeSearchQuery.includedTypes = [category];
 
         placeSearch.addEventListener('gmp-load', addMarkers, {once: true});
