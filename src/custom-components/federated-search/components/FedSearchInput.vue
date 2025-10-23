@@ -186,6 +186,9 @@ function updateSelectedCategory(category) {
     // Reset sort options
     federatedSearchStore.sortBy = undefined;
 
+    // Reset sub category
+    federatedSearchStore.selectedSubCategory = [];
+
     federatedSearchStore.selectedCategory = (federatedSearchStore.selectedCategory !== category)
         ? category
         : '';

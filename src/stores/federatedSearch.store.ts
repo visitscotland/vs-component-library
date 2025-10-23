@@ -82,6 +82,8 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
 
         if (selectedSubCategory.value.length > 0) {
             url.searchParams.set('sub-category', encodeURIComponent(selectedSubCategory.value.join(',')));
+        } else {
+            url.searchParams.delete('sub-category');
         }
 
         if (resetPageNo) {
