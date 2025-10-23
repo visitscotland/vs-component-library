@@ -12,6 +12,19 @@
                 :labels="props.searchLabels"
             />
             <VsDivider class="my-200" />
+            <template
+                v-for="(category, index) in federatedSearchStore.cludoCategories"
+                :key="index"
+            >
+                <div
+                    v-show="federatedSearchStore.selectedCategory === category.Key"
+                    class="mb-200"
+                >
+                    <slot
+                        :name="`federated-search__spotlight-${category.Key}`"
+                    />
+                </div>
+            </template>
             <div
                 v-if="federatedSearchStore.results"
                 class="d-flex justify-content-between mb-200"
