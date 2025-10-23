@@ -2,21 +2,32 @@
     <div class="map-controls d-flex">
         <div class="search d-flex me-200">
             <VsInput
-                field-name="vs-map-search"
+                field-name="vs-map-search-input"
                 type="text"
                 placeholder="What are you looking for?"
+                @keyup.enter="searchByText"
+                :autocomplete="`none`"
             />
             <VsButton 
                 icon="vs-icon-control-search"
                 icon-only
+                @click="searchByText"
             >
                 Search
             </VsButton>
         </div>
-        <VsFedFilter 
-            :filterCategories="mapFilters"
-            @filter-updated="searchPlaces"
-        />
+        <div class="d-inline-flex">
+            <VsButton
+                v-for="filter in mapFilters"
+                :key="filter.id"
+                :icon="filter.icon"
+                :variant="selectedCategories.has(filter.id) ? 'primary' : 'secondary'"
+                @click.prevent="selectCategory(filter.id)"
+
+            >
+                {{ filter.label }}
+            </VsButton>
+        </div>
         <VsButton 
                 icon="fa-kit fa-vs-coo"
                 variant="tertiary"
@@ -32,31 +43,30 @@
             id="vs-map"
             map-id="vs-map"
             ref="vsMap"
-            style="width: 100%; height: 100%;"            
         ></div>
     </div>
 
     <VsContainer class="mt-100">
         <VsRow>
-            <VsCol cols="6">
+            <VsCol cols="12" md="6">
                 <Suspense>
                     <div id="search-container">
                         <gmp-place-search id="placeSearch" orientation="vertical" selectable>
                             <gmp-place-all-content></gmp-place-all-content>
-                            <gmp-place-nearby-search-request id="placeSearchQuery"
-                            ></gmp-place-nearby-search-request>
+                            <gmp-place-text-search-request id="placeSearchQuery">
+                            </gmp-place-text-search-request>
                         </gmp-place-search> 
                     </div>
                 </Suspense>
             </VsCol>
-            <VsCol cols="6">
+            <VsCol cols="12" md="6">
                 <Suspense>
                     <div id="detail-container">
-                            <gmp-place-details id="placeDetails">
-                                <gmp-place-details-place-request id="placeRequest"></gmp-place-details-place-request>
-                                <gmp-place-all-content></gmp-place-all-content>
-                            </gmp-place-details>
-                        </div>
+                        <gmp-place-details id="placeDetails" >
+                            <gmp-place-details-place-request id="placeRequest"></gmp-place-details-place-request>
+                            <gmp-place-all-content></gmp-place-all-content>
+                        </gmp-place-details>
+                    </div>
                 </Suspense>
             </VsCol>
         </VsRow>
@@ -78,13 +88,13 @@ import {
     VsInput,
     VsRow,
 } from '@/components';
-import VsFedFilter from '../federated-search/components/FedFilter.vue';
 import { LatLngObject } from '@/types/types';
 
 import { 
     importLibrary,
     setOptions, 
 } from '@googlemaps/js-api-loader';
+import filter from '@/components/filter';
 
 const props = defineProps({
     /**
@@ -138,8 +148,11 @@ let placeSearchQuery: HTMLElement | null;
 let detailContainer: HTMLElement | null;
 let placeDetails: HTMLElement | null;
 let placeRequest: any | null;
+let searchInput: HTMLElement;
 
 let markers = {};
+let selectedCategories = ref(new Set());
+let includedTypes = ref(new Set());
 const MAX_ZOOM: number = 17;
 
 /* Used our own type that mimicks google.maps.LatLng to create
@@ -148,25 +161,53 @@ const MAX_ZOOM: number = 17;
 */
 //const initCenter = computed(() => `${props.center.lat}, ${props.center.lng}`);
 
-const mapFilters = [
-    {
+const mapFilters = {
+    accommodation: {
         id: 'accommodation',
-        Key: 'hotel',
+        label: 'Accommodation',
+        types: [
+            'lodging', 'cottage', 'private_guest_room', 'farmstay', 'guest_house', 
+            'hostel', 'bed_and_breakfast', 'campground', 'camping_cabin', 
+            'mobile_home_park', 'rv_park', 'hotel', 'inn', 'motel', 'resort_hotel',
+        ],
+        icon: 'fa-regular fa-bed'
     },
-    {
+    food_drink: {
         id: 'food_drink',
-        Key: 'restaurant'
+        label: 'Food & Drink',
+        types: [
+            'restaurant',
+        ],
+        icon: 'fa-regular fa-cutlery',
     },
-    {
-        id: 'garden',
-        Key: 'garden'
+    things_to_do: {
+        id: 'things_to_do',
+        label: 'Things to do',
+        types: [
+            'national_park', 'beach', 'hiking_area', 'garden', 'botianical_garden',
+            'wildlife_park', 'wildlife_refuge', 'park', 'museum', 'art_gallery', 
+            'historical_place', 'monument', 'sculpture', 'cultural_landmark',
+            'church', 'aquarium', 'zoo', 'amusement_park', 'concert_hall',
+            'performing_arts_theatre', 'planetarium', 'movie_theatre', 'comedy_club',
+            'night_club', 'bowling_alley', 'roller_coaster', 'skateboard_park', 
+            'ice_sktating_rink', 'adventure_sports_center', 'cycling_park', 'ski_resort',
+        ],
+        icon: 'fa-kit fa-vs-landscape',
     },
-];
+    travel_info: {
+        id: 'travel_info',
+        label: 'Travel Information',
+        types: [
+
+        ],
+        icon: 'fa-regular fa-circle-info',
+    },
+};
 
 onMounted(async() => {
     setOptions({
         key: props.apiKey,
-        v: "weekly",
+        v: "quarterly",
         libraries: ['maps', 'places', 'marker', 'core']
     });
 
@@ -174,10 +215,11 @@ onMounted(async() => {
     mapContainer = document.getElementById('vs-map');
     searchContainer = document.getElementById('search-container');
     placeSearch = document.getElementById('placeSearch');
-    placeSearchQuery = document.getElementById('placeSearchQuery');
+    placeSearchQuery = document.querySelector('gmp-place-text-search-request');
     detailContainer = document.getElementById('detail-container');
     placeDetails = document.getElementById('placeDetails');
     placeRequest = document.getElementById('placeRequest');
+    searchInput = document.getElementById('vs-map-search-input');
 
     try{
         await importLibrary('maps') as google.maps.MapsLibrary;
@@ -212,7 +254,7 @@ onMounted(async() => {
 
         //Handles click events in the Places UI Kit search panel
         placeSearch.addEventListener('gmp-select', ({ place }) => {
-            if(markers[place.id]){
+            if(markers[place.id]){ 
                 handlePlaceClick(place, markers[place.id]);
             }
         })
@@ -222,21 +264,64 @@ onMounted(async() => {
     await initMap();
 })
 
-function searchPlaces(category?) {
-    const bounds = gMap.getBounds();
+function selectCategory(category) {
+    if (selectedCategories.value.has(category)) {
+        selectedCategories.value.delete(category);
+        mapFilters[category].types.forEach(type => includedTypes.value.delete(type));
+    } else {
+        selectedCategories.value.add(category);
+        mapFilters[category].types.forEach(type => includedTypes.value.add(type));
+    }
+}
+
+function searchByText() {
+    const query: String = searchInput.value.trim();
+    
+    // Don't search if no query
+    if (!query) {
+        return;
+    }
+    
+    console.log(`searching for ${query}`)
+    console.log(`current center: ${gMap.getCenter()}`)
+    
     clearExistingMarkers();
 
-    if (category) {
-        placeSearchQuery.maxResultCount = 10;
-        placeSearchQuery.locationRestriction = {
-            center: props.center, 
-            radius: props.radius
-        };
-        placeSearchQuery.includedTypes = [category];
+    placeSearchQuery.textQuery = query;
 
-        placeSearch.addEventListener('gmp-load', addMarkers, {once: true});
-    }
+    // Get the center of the map, as it may have changed
+    const mapCenter = gMap.getCenter();
+    
+    /**
+     * Offsetting the bounds of the search by the radius,
+     * accounting for the curvature of the earth. 
+     */
+    const latOffset = props.radius / 111000;
+    const latInRadians = mapCenter.lat() * (Math.PI / 180);
+    const lngDegreeDistance = 111 * Math.cos(latInRadians);
+    const lngOffset = props.radius / (lngDegreeDistance * 1000);
+    
+    const bounds = {
+        north: mapCenter.lat() + latOffset,
+        south: mapCenter.lat() - latOffset,
+        east: mapCenter.lng() + lngOffset,
+        west: mapCenter.lng() - lngOffset
+    };
+    
+    placeSearchQuery.locationRestriction = bounds;
+    
+    //Intended Behaviour
+    console.log([Array.from(includedTypes.value)]);
+    placeSearchQuery.includedTypes = [Array.from(includedTypes.value)];
 
+    //Playaround hardcoding it
+    //placeSearchQuery.includedTypes = ['hotel', 'hostel', 'bed_and_breakfast'];
+    //placeSearchQuery.useStrictTypeFiltering = true;
+    //placeSearchQuery.includedType = 'lodging';
+
+    placeSearchQuery.maxResultCount = 20;
+
+    placeSearch.addEventListener('gmp-load', addMarkers, {once: true});
 }
 
 async function addMarkers() {
@@ -287,6 +372,8 @@ function resetMap() {
         }
     }
     markers = {};
+    searchInput.innerText = null;
+    selectedCategories.value = new Set();
     gMap.setCenter(props.center);
     gMap.setZoom(props.zoom);
 }
@@ -314,7 +401,7 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
 </script>
 
 <style lang="scss">
-.map-wrapper{
+.map-wrapper, #vs-map {
     height: 40em;
     width: 100%;
 }

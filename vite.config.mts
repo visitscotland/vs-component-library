@@ -46,7 +46,20 @@ export default defineConfig(({ mode }) => {
             vue({
                 template: {
                     compilerOptions: {
-                        isCustomElement: (tag) => ['gmp-map', 'gmp-advanced-marker'].includes(tag),
+                        /**
+                         * Custom Google Maps Places UI Kit components
+                         * listed here to stop errors in console.
+                         */
+                        isCustomElement: (tag) => [
+                            'gmp-map',
+                            'gmp-advanced-marker',
+                            'gmp-place-search',
+                            'gmp-place-search-all-content',
+                            'gmp-place-text-search-request',
+                            'gmp-place-details',
+                            'gmp-place-details-place-request',
+                            'gmp-place-all-content',
+                        ].includes(tag),
                     },
                 },
             }),
