@@ -127,8 +127,8 @@
 
                                 <div>
                                     <VsIcon
-                                        class="flex-grow-1 align-items-end me-050"
-                                        :icon="result.dataSrc === 'cludo' ? 'fa-regular fa-arrow-right' : 'vs-icon-control-external-link'"
+                                        v-if="result.dataSrc === 'data-thistle'"
+                                        icon="vs-icon-control-external-link"
                                         variant="highlight"
                                         size="sm"
                                     />
