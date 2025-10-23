@@ -1,7 +1,7 @@
 // os-api-branding.js v0.2.0
 // https://github.com/OrdnanceSurvey/os-api-branding
 
-let scriptTag = '';
+let scriptTag = null;
 
 // to avoid errors in SSR where window.document doesn't exist
 if (typeof window !== 'undefined') {
@@ -24,12 +24,14 @@ const osBranding = {
      * Add the API logo and copyright statement.
      */
     init(obj) {
-        if (scriptTag !== '') {
-            this.options.div = scriptTag.getAttribute('data-div') || this.options.div;
-            this.options.logo = scriptTag.getAttribute('data-logo') || this.options.logo;
-            this.options.statement = scriptTag.getAttribute('data-statement') || this.options.statement;
-            this.options.prefix = scriptTag.getAttribute('data-prefix') || this.options.prefix;
-            this.options.suffix = scriptTag.getAttribute('data-suffix') || this.options.suffix;
+        if (typeof window !== 'undefined') {
+            if (scriptTag) {
+                this.options.div = scriptTag.getAttribute('data-div') || this.options.div;
+                this.options.logo = scriptTag.getAttribute('data-logo') || this.options.logo;
+                this.options.statement = scriptTag.getAttribute('data-statement') || this.options.statement;
+                this.options.prefix = scriptTag.getAttribute('data-prefix') || this.options.prefix;
+                this.options.suffix = scriptTag.getAttribute('data-suffix') || this.options.suffix;
+            }
 
             // eslint-disable-next-line
             obj = (typeof obj !== 'undefined') ? obj : {

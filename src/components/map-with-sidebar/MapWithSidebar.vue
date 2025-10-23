@@ -88,6 +88,7 @@
                             :bounds-data="regionBounds"
                             :reset-zoom="resetZoom"
                             :show-marker-popups="false"
+                            :load-branding-immediately="loadBrandingImmediately"
                         >
                             <template #map-loading-text>
                                 <!-- @slot Message to show when map is loading  -->
@@ -314,6 +315,15 @@ export default {
         panelMessage: {
             type: String,
             default: null,
+        },
+        /**
+         * If true the map branding will load immediately after the component is mounted. This
+         * should be set to true if the map is loaded asynchronously after page creation, as in
+         * most uses cases of the /maps entry.
+         */
+        loadBrandingImmediately: {
+            type: Boolean,
+            default: false,
         },
     },
     data() {

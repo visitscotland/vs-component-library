@@ -93,7 +93,7 @@ export const VideoHeader = createTemplate(VideoHeaderTemplate).bind({
 VideoHeader.args = {
     pageTitle: 'Scotland, <br/>it\'s good for the soul',
     pageLede: 'Where history meets breathtaking beauty, and every visit feels like home.',
-    imgUrl: 'fixtures/hero/images/lavendar-fields.jpg',
+    imgUrl: 'fixtures/hero/images/lavendar-fields.png',
     imgCaption: 'Sunset at Lochan na h-Achlaise on Rannoch Moor',
     imgCredit: 'VisitScotland / Kenny Lam',
 };

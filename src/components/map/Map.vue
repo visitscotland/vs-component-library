@@ -180,6 +180,15 @@ export default {
             type: Boolean,
             default: true,
         },
+        /**
+         * If true the map branding will load immediately after the component is mounted. This
+         * should be set to true if the map is loaded asynchronously after page creation, as in
+         * most uses cases of the /maps entry.
+         */
+        loadBrandingImmediately: {
+            type: Boolean,
+            default: false,
+        },
     },
     emits: [
         'map-ready',
@@ -334,13 +343,20 @@ export default {
         window.addEventListener('resize', this.onResize);
 
         /**
-         * Initialise branding options when DOM loads
+         * Branding options should be initialised after the DOM loads. Depending on how components
+         * are lazy loaded this may happen before or after this component is mounted
          */
-        window.addEventListener('DOMContentLoaded', () => {
+        if (this.loadBrandingImmediately) {
             osBranding.init({
                 div: this.mapId,
             });
-        });
+        } else {
+            window.addEventListener('DOMContentLoaded', () => {
+                osBranding.init({
+                    div: this.mapId,
+                });
+            });
+        }
     },
     methods: {
         /**
