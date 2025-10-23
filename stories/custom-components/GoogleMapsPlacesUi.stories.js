@@ -5,6 +5,9 @@ export default {
     title: 'Custom components/Main Map',
     argTypes: {
     },
+    parameters: {
+        layout: 'fullscreen',
+    },
 };
 
 const Template = (args) => ({

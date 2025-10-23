@@ -1,5 +1,5 @@
 <template>
-    <div class="map-controls d-flex">
+    <!-- <div class="map-controls d-flex">
         <div class="search d-flex me-200">
             <VsInput
                 field-name="vs-map-search-input"
@@ -36,7 +36,30 @@
             >
                 Reset Map
             </VsButton>
-    </div>
+    </div> -->
+
+    <VsMapSidebar
+        :query="query"
+        @search-input-changed="searchByText"
+        @reset-map="resetMap"
+    >
+        <template #vs-map-sidebar-search-results>
+            <Suspense>
+                    <div id="search-container">
+                        <gmp-place-search
+                            id="placeSearch"
+                            orientation="vertical"
+                            selectable
+                            style="display: none"
+                        >
+                            <gmp-place-all-content></gmp-place-all-content>
+                            <gmp-place-text-search-request id="placeSearchQuery">
+                            </gmp-place-text-search-request>
+                        </gmp-place-search> 
+                    </div>
+            </Suspense>
+        </template>
+    </VsMapSidebar>
 
     <div class="map-wrapper">
         <div 
@@ -46,18 +69,10 @@
         ></div>
     </div>
 
-    <VsContainer class="mt-100">
+    <!-- <VsContainer class="mt-100">
         <VsRow>
             <VsCol cols="12" md="6">
-                <Suspense>
-                    <div id="search-container">
-                        <gmp-place-search id="placeSearch" orientation="vertical" selectable>
-                            <gmp-place-all-content></gmp-place-all-content>
-                            <gmp-place-text-search-request id="placeSearchQuery">
-                            </gmp-place-text-search-request>
-                        </gmp-place-search> 
-                    </div>
-                </Suspense>
+                
             </VsCol>
             <VsCol cols="12" md="6">
                 <Suspense>
@@ -70,12 +85,13 @@
                 </Suspense>
             </VsCol>
         </VsRow>
-    </VsContainer>
+    </VsContainer> -->
 </template>
 
 <script setup lang="ts">
 import {
     type PropType,
+    nextTick,
     onMounted,
     ref,
 } from 'vue';
@@ -89,6 +105,7 @@ import {
     VsRow,
 } from '@/components';
 import { LatLngObject } from '@/types/types';
+import VsMapSidebar from './components/MapSidebar.vue';
 
 import { 
     importLibrary,
@@ -154,6 +171,7 @@ let markers = {};
 let selectedCategories = ref(new Set());
 let includedTypes = ref(new Set());
 const MAX_ZOOM: number = 17;
+const query = ref<string>();
 
 /* Used our own type that mimicks google.maps.LatLng to create
 /  the lat-lng for the map's initial load, as the google types
@@ -274,20 +292,23 @@ function selectCategory(category) {
     }
 }
 
-function searchByText() {
-    const query: String = searchInput.value.trim();
-    
+function understandSearchByText() {
+    console.log(searchInput);
+}
+
+async function searchByText() {
+    query.value = searchInput.value.trim();
     // Don't search if no query
-    if (!query) {
+    if (!query.value) {
         return;
     }
-    
-    console.log(`searching for ${query}`)
+
+    console.log(`searching for ${query.value}`)
     console.log(`current center: ${gMap.getCenter()}`)
     
     clearExistingMarkers();
 
-    placeSearchQuery.textQuery = query;
+    placeSearchQuery.textQuery = query.value;
 
     // Get the center of the map, as it may have changed
     const mapCenter = gMap.getCenter();
@@ -320,6 +341,8 @@ function searchByText() {
     //placeSearchQuery.includedType = 'lodging';
 
     placeSearchQuery.maxResultCount = 20;
+
+    placeSearch.style.display = 'block';
 
     placeSearch.addEventListener('gmp-load', addMarkers, {once: true});
 }
@@ -372,8 +395,10 @@ function resetMap() {
         }
     }
     markers = {};
-    searchInput.innerText = null;
+    searchInput.value = '';
+    query.value = null;
     selectedCategories.value = new Set();
+    placeSearch.style.display = 'none';
     gMap.setCenter(props.center);
     gMap.setZoom(props.zoom);
 }
@@ -402,7 +427,7 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
 
 <style lang="scss">
 .map-wrapper, #vs-map {
-    height: 40em;
+    height: 100vh;
     width: 100%;
 }
 </style>
