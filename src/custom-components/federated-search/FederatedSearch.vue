@@ -50,10 +50,7 @@
                     && federatedSearchStore.results
                     && !federatedSearchStore.eventsApiError"
             >
-                <VsCardGroup
-                    :cards-per-row="3"
-                    :scroll-snap="true"
-                >
+                <VsCardGroup :cards-per-row="3">
                     <VsCard
                         v-for="result in federatedSearchStore.results"
                         :key="result.id"
