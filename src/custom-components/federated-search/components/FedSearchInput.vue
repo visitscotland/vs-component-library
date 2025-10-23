@@ -186,8 +186,14 @@ function updateSelectedCategory(category) {
     // Reset sort options
     federatedSearchStore.sortBy = undefined;
 
-    federatedSearchStore.selectedCategory = (federatedSearchStore.selectedCategory !== category)
-        ? category
+    federatedSearchStore.selectedCategory = (federatedSearchStore.selectedCategory
+        !== category.Label)
+        ? category.Label
+        : '';
+
+    federatedSearchStore.selectedCategoryKey = (federatedSearchStore.selectedCategoryKey
+        !== category.Key)
+        ? category.Key
         : '';
 
     federatedSearchStore.navigateToResultsPage(true);
@@ -214,8 +220,6 @@ onMounted(() => {
         engineId: props.cludoEngineId,
     };
     federatedSearchStore.isHomePage = props.isHomePage;
-
-    federatedSearchStore.getCludoCategories();
 
     const url = window.location.search;
     const params = new URLSearchParams(url);

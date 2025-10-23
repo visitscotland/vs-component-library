@@ -30,7 +30,7 @@ const Template = (args) => ({
                         {{ args.noResultsLabel }}
                     </template>
                     <template
-                        #federated-search__spotlight-Accommodation
+                        #federated-search__spotlight-accommodation
                         v-if="args.showAccommodationSpotlight"
                     >
                         <VsSpotlightSection
@@ -43,7 +43,7 @@ const Template = (args) => ({
                         />
                     </template>
                     <template
-                        #federated-search__spotlight-Tours
+                        #federated-search__spotlight-tours
                         v-if="args.showToursSpotlight"
                     >
                         <VsSpotlightSection
@@ -65,6 +65,52 @@ const Template = (args) => ({
 });
 
 const base = {
+    cludoCategories: [
+        {
+            Key: 'accommodation',
+            Label: 'Accommodation',
+        },
+        {
+            Key: 'active-adventure',
+            Label: 'Active & Adventure',
+        },
+        {
+            Key: 'city-break',
+            Label: 'City Break',
+        },
+        {
+            Key: 'culture-history',
+            Label: 'Culture & History',
+        },
+        {
+            Key: 'events-festivals',
+            Label: 'Events & Festivals',
+        },
+        {
+            Key: 'family-friendly',
+            Label: 'Family Friendly',
+        },
+        {
+            Key: 'food-drink',
+            Label: 'Food & Drink',
+        },
+        {
+            Key: 'nature-outdoors',
+            Label: 'Nature & Outdoors',
+        },
+        {
+            Key: 'other',
+            Label: 'Other',
+        },
+        {
+            Key: 'tours',
+            Label: 'Tours',
+        },
+        {
+            Key: 'travel-information',
+            Label: 'Travel Information',
+        },
+    ],
     subFilters: [
         {
             Key: 'books',

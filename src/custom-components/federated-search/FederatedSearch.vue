@@ -17,7 +17,7 @@
                 :key="index"
             >
                 <div
-                    v-show="federatedSearchStore.selectedCategory === category.Key"
+                    v-show="federatedSearchStore.selectedCategoryKey === category.Key"
                     class="mb-200"
                 >
                     <slot
@@ -250,6 +250,13 @@ const props = defineProps({
         default: getEnvValue('EVENTS_API_URL'),
     },
     /**
+     * Array of cludo categories.
+    */
+    cludoCategories: {
+        type: Array,
+        default: undefined,
+    },
+    /**
      * Array of sub filters.
     */
     subFilters: {
@@ -341,6 +348,7 @@ onMounted(() => {
         engineId: props.cludoEngineId,
     };
     federatedSearchStore.eventsApi = props.eventsApi;
+    federatedSearchStore.cludoCategories = props.cludoCategories;
 
     calculateError();
 
