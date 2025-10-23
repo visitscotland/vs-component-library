@@ -1,3 +1,10 @@
+# [5.13.0](https://github.com/visitscotland/vs-component-library/compare/v5.12.5...v5.13.0) (2025-10-23)
+
+
+### Features
+
+* **federated search:** implement optional spotlight for search categories ([e8f4122](https://github.com/visitscotland/vs-component-library/commit/e8f41221bf54eb3a92d23aa2aa14f75d65af36ba))
+
 ## [5.12.5](https://github.com/visitscotland/vs-component-library/compare/v5.12.4...v5.12.5) (2025-10-20)
 
 
