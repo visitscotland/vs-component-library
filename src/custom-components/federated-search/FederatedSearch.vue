@@ -414,6 +414,10 @@ onUpdated(() => {
 .vs-federated-search {
     &__pagination {
         margin: $vs-spacer-400 $vs-spacer-0 $vs-spacer-300 $vs-spacer-0;
+
+        @include media-breakpoint-down(lg) {
+            margin: $vs-spacer-100 $vs-spacer-0 $vs-spacer-200 $vs-spacer-0;
+        }
     }
 
     &__error--no-js {
