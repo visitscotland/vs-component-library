@@ -190,11 +190,12 @@ let includedTypes = ref(new Set());
 const MAX_ZOOM: number = 17;
 const query = ref<string>();
 
-/* Used our own type that mimicks google.maps.LatLng to create
-/  the lat-lng for the map's initial load, as the google types
-/  haven't loaded and blocks the render of the map
-*/
-//const initCenter = computed(() => `${props.center.lat}, ${props.center.lng}`);
+const SCOTLAND_BOUNDS = {
+    north: 60.86500,
+    south: 54.62185,
+    west: -8.65100,
+    east: -0.71000,
+}
 
 const mapFilters = {
     accommodation: {
@@ -275,7 +276,15 @@ onMounted(async() => {
                     lng: props.center.lng,
                 },
                 zoom: 12,
-                mapId: 'vs-practice-map',
+                mapId: 'vs-map',
+                restriction: {
+                    latLngBounds: SCOTLAND_BOUNDS,
+                },
+                zoomControl: true,
+                fullscreenControl: false,
+                mapTypeControl: false,
+                cameraControl: false,
+                streetViewControl: false,
             };
 
             if (mapContainer) {
