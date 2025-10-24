@@ -39,13 +39,13 @@
         <div class="position-relative">
             <div
                 v-if="searchSuggestions"
-                class="vs-fed-search-input--autocomplete"
+                class="vs-fed-search-input__autocomplete"
             >
                 <VsList unstyled>
                     <li
                         v-for="suggestion in searchSuggestions"
                         :key="suggestion"
-                        class="vs-fed-search-input--autocomplete__suggestion"
+                        class="vs-fed-search-input__autocomplete__suggestion"
                         @click="suggestedSearch(suggestion)"
                         @keyup.enter="suggestedSearch(suggestion)"
                         tabindex="0"
@@ -294,7 +294,7 @@ onMounted(() => {
         }
     }
 
-    &--autocomplete {
+    &__autocomplete {
         position: absolute;
         z-index: 10;
         background-color: $vs-color-background-primary;

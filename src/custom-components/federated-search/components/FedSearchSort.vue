@@ -141,7 +141,7 @@ function sortUpdated(sortOption) {
             height: 50px;
         }
 
-        @include media-breakpoint-down(sm) {
+        @include media-breakpoint-down(md) {
             display: block;
             margin-top: $vs-spacer-100;
 
