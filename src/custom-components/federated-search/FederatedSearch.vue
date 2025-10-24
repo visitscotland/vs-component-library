@@ -189,6 +189,7 @@ import {
     computed,
     onMounted,
     onUpdated,
+    provide,
 } from 'vue';
 import {
     VsBadge,
@@ -299,6 +300,8 @@ const props = defineProps({
         required: true,
     },
 });
+
+provide('cludoCategories', props.cludoCategories);
 
 const totalResultsPages = computed(() => Math.ceil(federatedSearchStore.totalResults / 12));
 

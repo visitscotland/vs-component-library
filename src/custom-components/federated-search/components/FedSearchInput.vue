@@ -57,9 +57,9 @@
         </div>
 
         <VsFedFilter
-            v-if="federatedSearchStore.cludoCategories"
+            v-if="cludoCategories"
             :active-filter="federatedSearchStore.selectedCategory"
-            :filter-categories="federatedSearchStore.cludoCategories"
+            :filter-categories="cludoCategories"
             :wrap="true"
             @filter-updated="updateSelectedCategory"
         />
@@ -81,7 +81,9 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
+import {
+    onMounted, ref, inject,
+} from 'vue';
 import useFederatedSearchStore from '@/stores/federatedSearch.store';
 import {
     VsButton,
@@ -146,6 +148,8 @@ const props = defineProps({
 
 const federatedSearchStore = useFederatedSearchStore();
 const searchSuggestions = ref();
+
+const cludoCategories = inject('cludoCategories');
 
 async function updateSearchTerm(event) {
     federatedSearchStore.currentPage = 1;
