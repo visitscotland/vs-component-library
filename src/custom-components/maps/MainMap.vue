@@ -356,7 +356,7 @@ async function searchByText() {
     };
     
     placeSearchQuery.locationRestriction = bounds;
-    
+
     //Intended Behaviour
     console.log([Array.from(includedTypes.value)]);
     placeSearchQuery.includedTypes = [Array.from(includedTypes.value)];
@@ -386,12 +386,13 @@ async function addMarkers() {
             // Custom styling for marker
             const markerIcon = document.createElement('div');
             markerIcon.className = 'vs-map-marker';
-            markerIcon.innerHTML = `★`;
+            markerIcon.innerHTML = `<i class="fa-solid fa-location-dot"></i>`;
 
             // Add `content: markerIcon` to enable custom markers
             let marker = new AdvancedMarkerElement({
                 map: gMap,
                 position: place.location,
+                content: markerIcon,
                 title: place.displayName,
             })
 
@@ -468,6 +469,25 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
     &--wrapper, #vs-map{
         height: 100vh;
         width: 100%;
+    }
+
+    .vs-map-marker {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2em;
+        height: 2em;
+        background-color: $vs-color-icon-cta-on-light;
+        border-radius: 50%;
+        border: 0.125em solid $vs-color-icon-inverse;
+        box-shadow: $vs-elevation-shadow-raised;;
+        transition: transform 0.1s ease-in-out;
+        font-size: 1.5em;
+        color: $vs-color-icon-inverse;
+
+        &:hover{
+            transform: scale(1.25);
+        }
     }
 }
 </style>
