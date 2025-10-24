@@ -11,7 +11,8 @@ const factoryShallowMount = (propsData) => shallowMount(VsFedFilter, {
         filterCategories: [
             {
                 id: 'filter1',
-                Key: 'Filter One',
+                Key: 'filter-one',
+                Label: 'Filter One',
                 icon: 'fa-regular fa-star',
             },
         ],
@@ -111,6 +112,7 @@ describe('VsFedFilter', () => {
             const wrapper = mount(VsFedFilter, {
                 propsData: {
                     wrap: false,
+                    filterCategories: [],
                 },
                 slots: {
                     'fed-filter-header': 'Header text',
@@ -125,6 +127,7 @@ describe('VsFedFilter', () => {
             const wrapper = mount(VsFedFilter, {
                 propsData: {
                     wrap: false,
+                    filterCategories: [],
                 },
             });
 

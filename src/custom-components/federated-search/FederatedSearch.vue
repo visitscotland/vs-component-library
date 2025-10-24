@@ -17,7 +17,7 @@
                 :key="index"
             >
                 <div
-                    v-show="federatedSearchStore.selectedCategory === category.Key"
+                    v-show="federatedSearchStore.selectedCategoryKey === category.Key"
                     class="mb-200"
                 >
                     <slot
@@ -189,6 +189,7 @@ import {
     computed,
     onMounted,
     onUpdated,
+    provide,
 } from 'vue';
 import {
     VsBadge,
@@ -250,6 +251,13 @@ const props = defineProps({
         default: getEnvValue('EVENTS_API_URL'),
     },
     /**
+     * Array of cludo categories.
+    */
+    cludoCategories: {
+        type: Array,
+        default: undefined,
+    },
+    /**
      * Array of sub filters.
     */
     subFilters: {
@@ -292,6 +300,8 @@ const props = defineProps({
         required: true,
     },
 });
+
+provide('cludoCategories', props.cludoCategories);
 
 const totalResultsPages = computed(() => Math.ceil(federatedSearchStore.totalResults / 12));
 
@@ -341,6 +351,7 @@ onMounted(() => {
         engineId: props.cludoEngineId,
     };
     federatedSearchStore.eventsApi = props.eventsApi;
+    federatedSearchStore.cludoCategories = props.cludoCategories;
 
     calculateError();
 

@@ -127,6 +127,52 @@ export default `
                             },
                         ],
                     }"
+                    :cludoCategories="[
+                        {
+                            Key: 'accommodation',
+                            Label: 'Accommodation',
+                        },
+                        {
+                            Key: 'active-adventure',
+                            Label: 'Active & Adventure',
+                        },
+                        {
+                            Key: 'city-break',
+                            Label: 'City Break',
+                        },
+                        {
+                            Key: 'culture-history',
+                            Label: 'Culture & History',
+                        },
+                        {
+                            Key: 'events-festivals',
+                            Label: 'Events & Festivals',
+                        },
+                        {
+                            Key: 'family-friendly',
+                            Label: 'Family Friendly',
+                        },
+                        {
+                            Key: 'food-drink',
+                            Label: 'Food & Drink',
+                        },
+                        {
+                            Key: 'nature-outdoors',
+                            Label: 'Nature & Outdoors',
+                        },
+                        {
+                            Key: 'other',
+                            Label: 'Other',
+                        },
+                        {
+                            Key: 'tours',
+                            Label: 'Tours',
+                        },
+                        {
+                            Key: 'travel-information',
+                            Label: 'Travel Information',
+                        },
+                    ]"
                 />
             </VsCol>
         </VsRow>
