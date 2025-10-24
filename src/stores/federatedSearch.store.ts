@@ -33,14 +33,14 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
             cludoCredentials.value,
             currentPage.value,
             selectedCategory.value,
-            cludoCategories.value,
+            selectedCategoryKey.value,
         );
 
         const eventResults = await eventSearch(
             eventsApi.value,
             searchTerm.value,
             currentPage.value,
-            selectedCategory.value,
+            selectedCategoryKey.value,
             selectedSubCategory.value,
             startDate.value,
             endDate.value,
@@ -49,10 +49,6 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
 
         results.value = [...cludoResults.results, ...eventResults.results];
         totalResults.value = cludoResults.totalResults + eventResults.totalResults;
-
-        if (!cludoCategories.value) {
-            cludoCategories.value = cludoResults.categories;
-        }
 
         isLoading.value = false;
     }
