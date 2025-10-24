@@ -1,68 +1,46 @@
 <template>
-    <!-- <div class="map-controls d-flex">
-        <div class="search d-flex me-200">
-            <VsInput
-                field-name="vs-map-search-input"
-                type="text"
-                placeholder="What are you looking for?"
-                @keyup.enter="searchByText"
-                :autocomplete="`none`"
-            />
-            <VsButton 
-                icon="vs-icon-control-search"
-                icon-only
-                @click="searchByText"
-            >
-                Search
-            </VsButton>
-        </div>
-        <div class="d-inline-flex">
-            <VsButton
-                v-for="filter in mapFilters"
-                :key="filter.id"
-                :icon="filter.icon"
-                :variant="selectedCategories.has(filter.id) ? 'primary' : 'secondary'"
-                @click.prevent="selectCategory(filter.id)"
-
-            >
-                {{ filter.label }}
-            </VsButton>
-        </div>
-        <VsButton 
-                icon="fa-kit fa-vs-coo"
-                variant="tertiary"
-                icon-only
-                @click="resetMap"
-            >
-                Reset Map
-            </VsButton>
-    </div> -->
     <div class="vs-map">
-        <VsMapSidebar
-            :query="query"
-            @search-input-changed="searchByText"
-            @reset-map="resetMap"
-        >
-            <template #vs-map-sidebar-search-results>
-                <Suspense>
-                        <div id="search-container">
-                            <gmp-place-search
-                                id="placeSearch"
-                                orientation="vertical"
-                                selectable
-                                style="display: none"
-                            >
-                                <gmp-place-all-content></gmp-place-all-content>
-                                <gmp-place-text-search-request id="placeSearchQuery">
-                                </gmp-place-text-search-request>
-                                <gmp-place-attribution light-scheme-color="black" dark-scheme-color="grey"></gmp-place-attribution>
-                            </gmp-place-search> 
-                        </div>
-                </Suspense>
-            </template>
-        </VsMapSidebar>
+        <div class="vs-map__controls">
+            <VsMapSidebar
+                :query="query"
+                @search-input-changed="searchByText"
+                @reset-map="resetMap"
+            >
+                <template #vs-map-sidebar-search-results>
+                    <Suspense>
+                            <div id="search-container">
+                                <gmp-place-search
+                                    id="placeSearch"
+                                    orientation="vertical"
+                                    selectable
+                                    style="display: none"
+                                >
+                                    <gmp-place-all-content></gmp-place-all-content>
+                                    <gmp-place-text-search-request id="placeSearchQuery">
+                                    </gmp-place-text-search-request>
+                                    <gmp-place-attribution light-scheme-color="black" dark-scheme-color="grey"></gmp-place-attribution>
+                                </gmp-place-search> 
+                            </div>
+                    </Suspense>
+                </template>
+            </VsMapSidebar>
+            <div class="vs-map__filter-controls">
+                <VsButton
+                    v-for="filter in mapFilters"
+                    :key="filter.id"
+                    class="vs-map__filter-controls-button"
+                    :icon="filter.icon"
+                    :variant="selectedCategories.has(filter.id) ? 'primary' : 'secondary'"
+                    @click.prevent="selectCategory(filter.id)"
+
+                >
+                    {{ filter.label }}
+                </VsButton>
+            </div>
+        </div>
+        
     
-        <div class="vs-map-wrapper">
+        <div class="vs-map__wrapper">
             <div 
                 id="vs-map"
                 map-id="vs-map"
@@ -466,9 +444,44 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
     --gmp-mat-color-outline-decorative: #E9E9E9; //$vs-color-border-primary;
     --gmp-mat-font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; //$vs-font-family-sans-serif;
 
-    &--wrapper, #vs-map{
+    &__wrapper, #vs-map{
         height: 100vh;
         width: 100%;
+    }
+
+    &__controls {
+        position: absolute;
+        top: 1em;
+        left: 1em;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+
+        @include media-breakpoint-up(md) {
+            flex-direction: row;
+        }
+    }
+
+    &__filter-controls{
+        display: flex;
+        flex-direction: row;
+        align-items: start;
+        gap: $vs-spacer-050;
+        width: 100vw;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        margin: $vs-spacer-075 $vs-spacer-0 $vs-spacer-0 $vs-spacer-0;
+        padding: $vs-spacer-025 $vs-spacer-0;
+
+        @include scrollsnap-styles;
+
+        @include media-breakpoint-up(md) {
+            margin: $vs-spacer-0 $vs-spacer-0 $vs-spacer-0 $vs-spacer-100;
+        }
+
+        &-button {
+            flex: 0 0 max-content;
+        }
     }
 
     .vs-map-marker {

@@ -84,10 +84,10 @@ defineEmits(['search-input-changed', 'reset-map']);
 .vs-map-sidebar {
     width: 23.3rem;
     background: $vs-color-background-primary;
-    position: absolute;
-    top: 1em;
-    left: 1em;
-    z-index: 100;
+    //position: absolute;
+    //top: 1em;
+    //left: 1em;
+    //z-index: 100;
     border-radius: $vs-radius-large;
     box-shadow: $vs-elevation-shadow-raised;
     //overflow-y: auto;
