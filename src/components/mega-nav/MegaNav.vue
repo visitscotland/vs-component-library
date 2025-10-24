@@ -67,10 +67,11 @@
                             :href="searchLink"
                             icon="vs-icon-control-search"
                             id="site-search-btn"
-                            size="md"
                             :rounded="false"
                         >
-                            {{ searchButtonText }}
+                            <span class="visually-hidden-xxl-down">
+                                {{ searchButtonText }}
+                            </span>
                         </VsButton>
 
                         <div
