@@ -17,7 +17,17 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsMapSidebar v-bind="args" />
+        <VsMapSidebar v-bind="args">
+            <template #vs-map-sidebar-search-results v-if="args.query">
+                <div style="
+                    background: rgb(227, 252, 252); 
+                    padding: 15em 5em;
+                    text-align: center"
+                >
+                    <span>SLOT FOR PLACES UI KIT</span>
+                </div>
+            </template>
+        </VsMapSidebar>
     `,
 });
 

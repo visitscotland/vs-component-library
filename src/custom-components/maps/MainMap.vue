@@ -37,55 +37,72 @@
                 Reset Map
             </VsButton>
     </div> -->
-
-    <VsMapSidebar
-        :query="query"
-        @search-input-changed="searchByText"
-        @reset-map="resetMap"
-    >
-        <template #vs-map-sidebar-search-results>
-            <Suspense>
-                    <div id="search-container">
-                        <gmp-place-search
-                            id="placeSearch"
-                            orientation="vertical"
-                            selectable
-                            style="display: none"
-                        >
-                            <gmp-place-all-content></gmp-place-all-content>
-                            <gmp-place-text-search-request id="placeSearchQuery">
-                            </gmp-place-text-search-request>
-                        </gmp-place-search> 
-                    </div>
-            </Suspense>
-        </template>
-    </VsMapSidebar>
-
-    <div class="map-wrapper">
-        <div 
-            id="vs-map"
-            map-id="vs-map"
-            ref="vsMap"
-        ></div>
-    </div>
-
-    <!-- <VsContainer class="mt-100">
-        <VsRow>
-            <VsCol cols="12" md="6">
-                
-            </VsCol>
-            <VsCol cols="12" md="6">
+    <div class="vs-map">
+        <VsMapSidebar
+            :query="query"
+            @search-input-changed="searchByText"
+            @reset-map="resetMap"
+        >
+            <template #vs-map-sidebar-search-results>
                 <Suspense>
-                    <div id="detail-container">
-                        <gmp-place-details id="placeDetails" >
-                            <gmp-place-details-place-request id="placeRequest"></gmp-place-details-place-request>
-                            <gmp-place-all-content></gmp-place-all-content>
-                        </gmp-place-details>
-                    </div>
+                        <div id="search-container">
+                            <gmp-place-search
+                                id="placeSearch"
+                                orientation="vertical"
+                                selectable
+                                style="display: none"
+                            >
+                                <gmp-place-all-content></gmp-place-all-content>
+                                <gmp-place-text-search-request id="placeSearchQuery">
+                                </gmp-place-text-search-request>
+                                <gmp-place-attribution light-scheme-color="black" dark-scheme-color="grey"></gmp-place-attribution>
+                            </gmp-place-search> 
+                        </div>
                 </Suspense>
-            </VsCol>
-        </VsRow>
-    </VsContainer> -->
+            </template>
+        </VsMapSidebar>
+    
+        <div class="vs-map-wrapper">
+            <div 
+                id="vs-map"
+                map-id="vs-map"
+                ref="vsMap"
+            ></div>
+        </div>
+    
+        <VsContainer class="mt-100">
+            <VsRow>
+                <VsCol cols="12" md="6">
+                    
+                </VsCol>
+                <VsCol cols="12" md="6">
+                    <Suspense>
+                        <div id="detail-container">
+                            <gmp-place-details id="placeDetails" >
+                                <gmp-place-details-place-request id="placeRequest"></gmp-place-details-place-request>
+                                <gmp-place-content-config>
+                                    <gmp-place-address></gmp-place-address>
+                                    <gmp-place-rating></gmp-place-rating>
+                                    <gmp-place-type></gmp-place-type>
+                                    <gmp-place-price></gmp-place-price>
+                                    <gmp-place-accessible-entrance-icon></gmp-place-accessible-entrance-icon>
+                                    <gmp-place-opening-hours></gmp-place-opening-hours>
+                                    <gmp-place-website></gmp-place-website>
+                                    <gmp-place-phone-number></gmp-place-phone-number>
+                                    <gmp-place-summary></gmp-place-summary>
+                                    <gmp-place-type-specific-highlights></gmp-place-type-specific-highlights>
+                                    <gmp-place-reviews></gmp-place-reviews>
+                                    <gmp-place-feature-list></gmp-place-feature-list>
+                                    <gmp-place-media lightbox-preferred></gmp-place-media>
+                                    <gmp-place-attribution light-scheme-color="black"></gmp-place-attribution>
+                                </gmp-place-content-config>
+                            </gmp-place-details>
+                        </div>
+                    </Suspense>
+                </VsCol>
+            </VsRow>
+        </VsContainer>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -426,8 +443,22 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
 </script>
 
 <style lang="scss">
-.map-wrapper, #vs-map {
-    height: 100vh;
-    width: 100%;
+.vs-map {
+    //Google Maps Places UI Kit Custom Styling 
+    //semantic tokens don't seem to work with it
+    --gmp-mat-color-surface: #fff //$vs-color-background-primary;
+    --gmp-mat-color-on-surface: #200F2E; //$vs-color-text-primary;
+    --gmp-mat-color-on-surface-variant: #606060; //$vs-color-text-secondary;
+    --gmp-mat-color-primary: #1F49D6; //$vs-color-text-cta-on-light;
+    --gmp-mat-color-negative: #940F2C; //$vs-color-text-error;
+    --gmp-mat-color-positive: #03AA46; //$vs-color-text-success;
+    --gmp-mat-color-info: #A8308C; //$vs-color-icon-highlight;
+    --gmp-mat-color-outline-decorative: #E9E9E9; //$vs-color-border-primary;
+    --gmp-mat-font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; //$vs-font-family-sans-serif;
+
+    &--wrapper, #vs-map{
+        height: 100vh;
+        width: 100%;
+    }
 }
 </style>

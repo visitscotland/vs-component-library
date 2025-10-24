@@ -26,10 +26,10 @@ const Template = (args) => ({
 
 const base = {
     center: {
-        lat: 55.95201,
-        lng: -3.18416,
+        lat: 56.46,
+        lng: -2.97,
     },
-    zoom: 12,
+    zoom: 14,
     radius: 5000,
 };
 
