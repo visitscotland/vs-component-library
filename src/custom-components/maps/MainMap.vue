@@ -456,12 +456,13 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
         z-index: 100;
         display: flex;
         flex-direction: column;
-
+        pointer-events: none;
+        
         @include media-breakpoint-up(md) {
             flex-direction: row;
         }
     }
-
+    
     &__filter-controls{
         display: flex;
         flex-direction: row;
@@ -472,7 +473,7 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
         scroll-snap-type: x mandatory;
         margin: $vs-spacer-075 $vs-spacer-0 $vs-spacer-0 $vs-spacer-0;
         padding: $vs-spacer-025 $vs-spacer-0;
-
+        
         @include scrollsnap-styles;
 
         @include media-breakpoint-up(md) {
@@ -481,6 +482,7 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
 
         &-button {
             flex: 0 0 max-content;
+            pointer-events: auto;
         }
     }
 
