@@ -81,7 +81,7 @@ const createStory = (template) => ({
 });
 
 export default {
-    title: 'Pages/HomePage',
+    title: 'Pages/Home',
 };
 
 export const VisualImpact = {
