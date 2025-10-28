@@ -35,7 +35,7 @@
             <VsLink
                 href="#"
                 class="d-block"
-                v-if="$props.query"
+                v-if="$props.query || $props.selectedCategories.size >= 1"
                 @click.prevent="$emit('reset-map')"
                 @keyup.enter.prevent="$emit('reset-map')"
             >
@@ -45,9 +45,9 @@
                 <VsHeading
                     level="3"
                     heading-style="heading-xxxs"
-                    v-if="$props.query"
+                    v-if="$props.query || $props.selectedCategories.size >= 1"
                 >
-                    Search results for "{{ $props.query }}"
+                    Search results for "{{ $props.query || Array.from($props.selectedCategories).join(',') }}"
                 </VsHeading>
                 <div class="vs-map-sidebar__google-maps-container mt-075">
                     <!-- @Slot to contain Google Maps Places
@@ -58,7 +58,7 @@
         </div>
         <div
             class="vs-map-sidebar__footer"
-            v-if="$props.query"
+            v-if="$props.query || $props.selectedCategories.size >= 1"
         >
             <hr class="vs-map-sidebar__swipe-tab" />
         </div>
@@ -66,7 +66,12 @@
 </template>
 
 <script setup lang="ts">
-import { VsButton, VsHeading, VsInput, VsLink } from '@/components';
+import {
+    VsButton,
+    VsHeading,
+    VsInput,
+    VsLink,
+} from '@/components';
 
 import { defineEmits } from 'vue';
 
@@ -74,6 +79,10 @@ const props = defineProps({
     query: {
         type: String,
         default: '',
+    },
+    selectedCategories: {
+        type: Set,
+        default: new Set(),
     },
 });
 
@@ -92,6 +101,7 @@ defineEmits(['search-input-changed', 'reset-map']);
         margin: 0;
         border-radius: $vs-radius-small 0 0 $vs-radius-small;
         border-right: none;
+        height: 52px;
     }
 
     &__search-button {
@@ -105,7 +115,7 @@ defineEmits(['search-input-changed', 'reset-map']);
         border-radius: $vs-radius-large;
     }
 
-    hr {
+    &__swipe-tab {
         width: 3em;
         height: 1px;
         border: $vs-color-border-highlight solid 0.15em;

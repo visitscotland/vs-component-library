@@ -29,7 +29,7 @@ const base = {
         lat: 56.46,
         lng: -2.97,
     },
-    zoom: 14,
+    zoom: 7,
     radius: 5000,
 };
 

@@ -3,20 +3,34 @@
         <div class="vs-map__controls">
             <VsMapSidebar
                 :query="query"
+                :selectedCategories="selectedCategories"
                 @search-input-changed="searchByText"
-                @reset-map="resetMap"
+                @reset-map="resetMap(true)"
             >
                 <template #vs-map-sidebar-search-results>
                     <Suspense>
                             <div id="search-container">
                                 <gmp-place-search
-                                    id="placeSearch"
+                                    id="nearbySearch"
                                     orientation="vertical"
+                                    attributionPosition="BOTTOM"
                                     selectable
                                     style="display: none"
                                 >
                                     <gmp-place-all-content></gmp-place-all-content>
-                                    <gmp-place-text-search-request id="placeSearchQuery">
+                                    <gmp-place-nearby-search-request id="nearbySearchQuery">
+                                    </gmp-place-nearby-search-request>
+                                    <gmp-place-attribution light-scheme-color="black" dark-scheme-color="grey"></gmp-place-attribution>
+                                </gmp-place-search> 
+                                <gmp-place-search
+                                    id="textSearch"
+                                    orientation="vertical"
+                                    attributionPosition="BOTTOM"
+                                    selectable
+                                    style="display: none"
+                                >
+                                    <gmp-place-all-content></gmp-place-all-content>
+                                    <gmp-place-text-search-request id="textSearchQuery">
                                     </gmp-place-text-search-request>
                                     <gmp-place-attribution light-scheme-color="black" dark-scheme-color="grey"></gmp-place-attribution>
                                 </gmp-place-search> 
@@ -24,7 +38,10 @@
                     </Suspense>
                 </template>
             </VsMapSidebar>
-            <div class="vs-map__filter-controls">
+            <div
+                class="vs-map__filter-controls"
+                v-if="currentZoom > CATEGORY_VISIBLE_ZOOM"
+            >
                 <VsButton
                     v-for="filter in mapFilters"
                     :key="filter.id"
@@ -86,7 +103,6 @@
 <script setup lang="ts">
 import {
     type PropType,
-    nextTick,
     onMounted,
     ref,
 } from 'vue';
@@ -135,7 +151,7 @@ const props = defineProps({
      */
     zoom: {
         type: Number,
-        default: 12,
+        default: 6,
     },
     /** 
      * Radius (in meters) to search from center point.
@@ -153,20 +169,27 @@ let vsMap = ref(null);
 
 let gMap: google.maps.Map;
 
-let mapContainer: HTMLElement | null;
-let searchContainer: HTMLElement | null;
+let mapContainer: any | null;
+let searchContainer: any | null;
 let placeSearch: any;
-let placeSearchQuery: HTMLElement | null;
-let detailContainer: HTMLElement | null;
-let placeDetails: HTMLElement | null;
+let nearbySearch: any;
+let textSearch: any;
+let textSearchQuery: any | null;
+let nearbySearchQuery: any | null;
+let detailContainer: any | null;
+let placeDetails: any | null;
 let placeRequest: any | null;
-let searchInput: HTMLElement;
+let searchInput: any;
 
 let markers = {};
 let selectedCategories = ref(new Set());
 let includedTypes = ref(new Set());
-const MAX_ZOOM: number = 17;
+const currentZoom = ref<number>(props.zoom);
+const MAX_ZOOM: number = 19;
+const CATEGORY_VISIBLE_ZOOM: number = 9;
+const NUMBER_OF_RESULTS: number = 20;
 const query = ref<string>();
+const currentSearch = ref<string>();
 
 const SCOTLAND_BOUNDS = {
     north: 60.86500,
@@ -212,7 +235,7 @@ const mapFilters = {
         id: 'travel_info',
         label: 'Travel Information',
         types: [
-
+            'ev_charger',
         ],
         icon: 'fa-regular fa-circle-info',
     },
@@ -222,14 +245,15 @@ onMounted(async() => {
     setOptions({
         key: props.apiKey,
         v: "quarterly",
-        libraries: ['maps', 'places', 'marker', 'core']
+        libraries: ['maps', 'places', 'marker', 'core', 'geometry'],
     });
 
-    //mapContainer = document.querySelector('gmp-map');
     mapContainer = document.getElementById('vs-map');
     searchContainer = document.getElementById('search-container');
-    placeSearch = document.getElementById('placeSearch');
-    placeSearchQuery = document.querySelector('gmp-place-text-search-request');
+    nearbySearch = document.getElementById('nearbySearch');
+    textSearch = document.getElementById('textSearch');
+    textSearchQuery = document.querySelector('gmp-place-text-search-request');
+    nearbySearchQuery = document.querySelector('gmp-place-nearby-search-request');
     detailContainer = document.getElementById('detail-container');
     placeDetails = document.getElementById('placeDetails');
     placeRequest = document.getElementById('placeRequest');
@@ -240,10 +264,9 @@ onMounted(async() => {
         await importLibrary('places') as google.maps.PlacesLibrary;
         await importLibrary('marker') as google.maps.MarkerLibrary;
         await importLibrary('core') as google.maps.CoreLibrary;
-
-        await customElements.whenDefined('gmp-map');
+        await importLibrary('geometry') as google.maps.GeometryLibrary;
     } catch (error) {
-        console.error('Google Maps Library load error')
+        console.error('Google Maps Library load error');
     }
 
     async function initMap(): Promise<void> {
@@ -253,7 +276,7 @@ onMounted(async() => {
                     lat: props.center.lat,
                     lng: props.center.lng,
                 },
-                zoom: 12,
+                zoom: props.zoom,
                 mapId: 'vs-map',
                 restriction: {
                     latLngBounds: SCOTLAND_BOUNDS,
@@ -274,8 +297,20 @@ onMounted(async() => {
             console.error('Maps init error', error.message);
         }
 
+        //Listens to the zoom level
+        gMap.addListener('zoom_changed', (event) => {
+            currentZoom.value = gMap.getZoom();
+            console.log(currentZoom.value);
+        })
+
         //Handles click events in the Places UI Kit search panel
-        placeSearch.addEventListener('gmp-select', ({ place }) => {
+        textSearch.addEventListener('gmp-select', ({ place }) => {
+            if(markers[place.id]){ 
+                handlePlaceClick(place, markers[place.id]);
+            }
+        })
+        
+        nearbySearch.addEventListener('gmp-select', ({ place }) => {
             if(markers[place.id]){ 
                 handlePlaceClick(place, markers[place.id]);
             }
@@ -287,20 +322,50 @@ onMounted(async() => {
 })
 
 function selectCategory(category) {
+    console.log(category);
     if (selectedCategories.value.has(category)) {
         selectedCategories.value.delete(category);
         mapFilters[category].types.forEach(type => includedTypes.value.delete(type));
     } else {
         selectedCategories.value.add(category);
         mapFilters[category].types.forEach(type => includedTypes.value.add(type));
+        searchInput.value = mapFilters[category].label;
+        searchByCategory();
     }
 }
 
-function understandSearchByText() {
-    console.log(searchInput);
+async function searchByCategory() {
+    resetMap();
+    resetTextQuery();
+
+    currentSearch.value = 'nearby';
+
+    
+
+    const bounds = gMap.getBounds();
+    const center = gMap.getCenter();
+    const ne = bounds.getNorthEast();
+    const sw = bounds.getSouthWest();
+    const diameter = google.maps.geometry.spherical.computeDistanceBetween(ne, sw);
+    const cappedRadius= Math.min((diameter/2), 50000);
+    
+    nearbySearchQuery.includedTypes = Array.from(includedTypes.value);
+    nearbySearchQuery.maxResultCount = NUMBER_OF_RESULTS;
+    nearbySearchQuery.locationRestriction = {
+        center: gMap.getCenter(),
+        radius: cappedRadius,
+    };
+
+    nearbySearch.style.display = 'block';
+    nearbySearch.addEventListener('gmp-load', addMarkers, {once: true});
 }
 
 async function searchByText() {
+    resetMap();
+    resetCategories();
+
+    currentSearch.value = 'text';
+
     query.value = searchInput.value.trim();
     // Don't search if no query
     if (!query.value) {
@@ -309,57 +374,55 @@ async function searchByText() {
 
     console.log(`searching for ${query.value}`)
     console.log(`current center: ${gMap.getCenter()}`)
-    
-    clearExistingMarkers();
 
-    placeSearchQuery.textQuery = query.value;
+    textSearchQuery.textQuery = query.value;
 
     // Get the center of the map, as it may have changed
     const mapCenter = gMap.getCenter();
+
+    // /**
+    //  * Offsetting the bounds of the search by the radius,
+    //  * accounting for the curvature of the earth. 
+    //  */
+    // const latOffset = props.radius / 111000;
+    // const latInRadians = mapCenter.lat() * (Math.PI / 180);
+    // const lngDegreeDistance = 111 * Math.cos(latInRadians);
+    // const lngOffset = props.radius / (lngDegreeDistance * 1000);
     
-    /**
-     * Offsetting the bounds of the search by the radius,
-     * accounting for the curvature of the earth. 
-     */
-    const latOffset = props.radius / 111000;
-    const latInRadians = mapCenter.lat() * (Math.PI / 180);
-    const lngDegreeDistance = 111 * Math.cos(latInRadians);
-    const lngOffset = props.radius / (lngDegreeDistance * 1000);
+    // const bounds = {
+    //     north: mapCenter.lat() + latOffset,
+    //     south: mapCenter.lat() - latOffset,
+    //     east: mapCenter.lng() + lngOffset,
+    //     west: mapCenter.lng() - lngOffset
+    // };
     
-    const bounds = {
-        north: mapCenter.lat() + latOffset,
-        south: mapCenter.lat() - latOffset,
-        east: mapCenter.lng() + lngOffset,
-        west: mapCenter.lng() - lngOffset
-    };
-    
-    placeSearchQuery.locationRestriction = bounds;
+    textSearchQuery.locationRestriction = gMap.getBounds();
+    textSearchQuery.maxResultCount = NUMBER_OF_RESULTS;
 
-    //Intended Behaviour
-    console.log([Array.from(includedTypes.value)]);
-    placeSearchQuery.includedTypes = [Array.from(includedTypes.value)];
+    textSearch.style.display = 'block';
 
-    //Playaround hardcoding it
-    //placeSearchQuery.includedTypes = ['hotel', 'hostel', 'bed_and_breakfast'];
-    //placeSearchQuery.useStrictTypeFiltering = true;
-    //placeSearchQuery.includedType = 'lodging';
-
-    placeSearchQuery.maxResultCount = 20;
-
-    placeSearch.style.display = 'block';
-
-    placeSearch.addEventListener('gmp-load', addMarkers, {once: true});
+    textSearch.addEventListener('gmp-load', addMarkers, {once: true});
 }
 
 async function addMarkers() {
     const { AdvancedMarkerElement } = await google.maps.importLibrary('marker') as google.maps.MarkerLibrary;
     const { LatLngBounds } = await google.maps.importLibrary('core') as google.maps.CoreLibrary;
 
-    const bounds = new LatLngBounds();
-    placeSearch.style.display = 'block';
+    const searchRequest = ref();
 
-    if (placeSearch.places && placeSearch.places.length > 0) {
-        placeSearch.places.forEach((place) => {
+    if (currentSearch.value === 'nearby') {
+        searchRequest.value = document.getElementById('nearbySearch');
+    } else if (currentSearch.value === 'text') {
+        searchRequest.value = textSearch;
+    } else {
+        throw new Error('Unrecognised Search type');
+    }
+
+    const bounds = new LatLngBounds();
+    searchRequest.value.style.display = 'block';
+
+    if (searchRequest.value.places && searchRequest.value.places.length > 0) {
+        searchRequest.value.places.forEach((place) => {
 
             // Custom styling for marker
             const markerIcon = document.createElement('div');
@@ -384,28 +447,43 @@ async function addMarkers() {
 
             marker.metadata = { id: place.id };
             markers[place.id] = marker;
-            bounds.extend(place.location);            
+            bounds.extend(place.location);
+            console.log(bounds);
         });
     }
 
-    if (placeSearch.places.length > 0) {
+    if (searchRequest.value.places.length > 1) {
         gMap.fitBounds(bounds);
+    } else if (searchRequest.value.places.length < 2){
+        console.log(`Place1 viewport`, searchRequest.value.places[0].viewport)
+        gMap.fitBounds(searchRequest.value.places[0].viewport);
     }
 }
 
-function resetMap() {
-    for(const marker in markers) {
-        if(markers[marker]) {
-            markers[marker].map = null;
-        }
+function resetMap(hardReset?: boolean) {
+    clearExistingMarkers();
+    currentSearch.value = '';
+    nearbySearch.style.display = 'none';
+    textSearch.style.display = 'none';
+    if (hardReset) {
+        resetTextQuery();
+        resetCategories();
     }
-    markers = {};
-    searchInput.value = '';
+}
+
+function resetTextQuery(){
     query.value = null;
-    selectedCategories.value = new Set();
-    placeSearch.style.display = 'none';
+    searchInput.value = '';
+}
+
+function resetLocation() {
     gMap.setCenter(props.center);
-    gMap.setZoom(props.zoom);
+    gMap.setZoom(props.zoom); 
+}
+
+function resetCategories() {
+    selectedCategories.value = new Set();
+    includedTypes.value = new Set();
 }
 
 function clearExistingMarkers() {

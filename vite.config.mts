@@ -56,6 +56,7 @@ export default defineConfig(({ mode }) => {
                             'gmp-place-search',
                             'gmp-place-search-all-content',
                             'gmp-place-text-search-request',
+                            'gmp-place-nearby-search-request',
                             'gmp-place-details',
                             'gmp-place-details-place-request',
                             'gmp-place-all-content',
