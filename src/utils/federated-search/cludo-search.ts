@@ -60,7 +60,7 @@ async function cludoSearch(
                 perPage: 6,
                 page,
                 facets: {
-                    Category: selectedCategory ? [selectedCategory] : null,
+                    Category: selectedCategoryKey ? [selectedCategoryKey] : null,
                 },
             }),
             headers: {
