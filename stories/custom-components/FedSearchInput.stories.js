@@ -36,7 +36,7 @@ const Template = (args) => ({
                     Label: 'Culture & History',
                 },
                 {
-                    Key: 'events-festivals',
+                    Key: 'events',
                     Label: 'Events & Festivals',
                 },
                 {

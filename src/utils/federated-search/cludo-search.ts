@@ -43,7 +43,7 @@ async function cludoSearch(
 
     // Don't query the Cludo API when the "Events & Festivals" is selected
     // as this data only comes from the Events API (DataThistle).
-    if (selectedCategoryKey === 'events-festivals') {
+    if (selectedCategoryKey === 'events') {
         return {
             results: [],
             totalResults: 0,

@@ -37,7 +37,7 @@ async function eventSearch(
     federatedSearchStore.cludoError = false;
     // Only query the event API when the no selected category or the event category
     // is selected.
-    if (selectedCategoryKey === 'events-festivals' || !selectedCategoryKey) {
+    if (selectedCategoryKey === 'events' || !selectedCategoryKey) {
         let url = `${api}?query=${searchTerm}`;
         url = page > 1 ? `${url}&page=${page}` : url;
         url = startDate !== '' ? `${url}&startDate=${startDate}` : url;
