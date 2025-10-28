@@ -1,3 +1,19 @@
+# [5.14.0](https://github.com/visitscotland/vs-component-library/compare/v5.13.0...v5.14.0) (2025-10-28)
+
+
+### Bug Fixes
+
+* **federated search:** adjust tests for new filter logic ([51a4978](https://github.com/visitscotland/vs-component-library/commit/51a49787c3e5bd8e94c37d0d552005acdd75f333))
+* **federated search:** change conditionals to use category key instead of the label ([82069ef](https://github.com/visitscotland/vs-component-library/commit/82069ef131e3c0b6307213d1843065763d9d6ade))
+* **federated search:** chromatic skip sort date input so new Date() isn't a change every day ([485d3e7](https://github.com/visitscotland/vs-component-library/commit/485d3e7870714ceeda73f48185af1bd30a7397d2))
+* **federated search:** restore categories in home page story ([9ae540e](https://github.com/visitscotland/vs-component-library/commit/9ae540e98ef728b75db22b89889b4824b349b1d0))
+
+
+### Features
+
+* **federated search:** retrieve categories from the CMS as a prop rather than Cludo ([fe6ec13](https://github.com/visitscotland/vs-component-library/commit/fe6ec13f3fa40c08917179e13fe88970818dd667))
+* **federated search:** switch to provide/inject for categories ([82a8962](https://github.com/visitscotland/vs-component-library/commit/82a89625fe015bda3be3a0c4308f1a25d34a1106))
+
 # [5.13.0](https://github.com/visitscotland/vs-component-library/compare/v5.12.5...v5.13.0) (2025-10-23)
 
 
