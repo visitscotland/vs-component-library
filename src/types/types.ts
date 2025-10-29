@@ -50,8 +50,3 @@ export type FederatedSearchResult = {
     url: string;
     dataSrc: string;
 };
-
-export type FederatedSearchCategory = {
-    Key: string;
-    Label: string;
-};

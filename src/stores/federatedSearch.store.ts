@@ -18,6 +18,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
     const selectedCategory = ref(null);
     const selectedCategoryKey = ref(null);
     const selectedSubCategory = ref([]);
+    const selectedSubCategoryKey = ref([]);
     const totalResults = ref(undefined);
     const isHomePage = ref(false);
     const startDate = ref('');
@@ -41,7 +42,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
             searchTerm.value,
             currentPage.value,
             selectedCategoryKey.value,
-            selectedSubCategory.value,
+            selectedSubCategoryKey.value,
             startDate.value,
             endDate.value,
             sortBy.value,
@@ -72,8 +73,8 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
             url.searchParams.delete('category');
         }
 
-        if (selectedSubCategory.value.length > 0) {
-            url.searchParams.set('sub-category', encodeURIComponent(selectedSubCategory.value.join(',')));
+        if (selectedSubCategoryKey.value.length > 0) {
+            url.searchParams.set('sub-category', encodeURIComponent(selectedSubCategoryKey.value.join(',')));
         } else {
             url.searchParams.delete('sub-category');
         }
@@ -130,6 +131,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         selectedCategory,
         selectedCategoryKey,
         selectedSubCategory,
+        selectedSubCategoryKey,
         totalResults,
         navigateToResultsPage,
         isHomePage,
