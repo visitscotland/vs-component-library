@@ -49,9 +49,8 @@
                         @click="suggestedSearch(suggestion)"
                         @keyup.enter="suggestedSearch(suggestion)"
                         tabindex="0"
-                    >
-                        {{ suggestion }}
-                    </li>
+                        v-html="highlightAutocompleteSuggestion(suggestion)"
+                    />
                 </VsList>
             </div>
         </div>
@@ -157,6 +156,10 @@ async function updateSearchTerm(event) {
     if (federatedSearchStore.searchTerm && params.get('search-term') !== federatedSearchStore.searchTerm) {
         searchSuggestions.value = await federatedSearchStore.getAutoComplete();
     }
+
+    if (!event.value) {
+        searchSuggestions.value = null;
+    }
 }
 
 function search() {
@@ -168,6 +171,11 @@ function suggestedSearch(query) {
     federatedSearchStore.searchTerm = query;
     searchSuggestions.value = null;
     federatedSearchStore.navigateToResultsPage();
+}
+
+function highlightAutocompleteSuggestion(suggestion) {
+    const reg = new RegExp(`(^|\\s)(${federatedSearchStore.searchTerm})(|$)`, 'gi');
+    return suggestion.replace(reg, '$1<strong>$2</strong>$3');
 }
 
 function updateSelectedCategory(category) {
