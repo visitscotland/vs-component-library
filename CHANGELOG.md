@@ -1,3 +1,10 @@
+## [5.14.2](https://github.com/visitscotland/vs-component-library/compare/v5.14.1...v5.14.2) (2025-10-28)
+
+
+### Bug Fixes
+
+* **federated search:** swap to searching categories by key ([4d7648c](https://github.com/visitscotland/vs-component-library/commit/4d7648cb17d4822bf823ab903cce6dbaf8e3250a))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
