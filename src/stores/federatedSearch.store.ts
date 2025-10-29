@@ -16,6 +16,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
     const results = ref(null);
     const searchTerm = ref('');
     const selectedCategory = ref(null);
+    const selectedCategoryKey = ref(null);
     const selectedSubCategory = ref([]);
     const totalResults = ref(undefined);
     const isHomePage = ref(false);
@@ -23,11 +24,6 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
     const endDate = ref('');
     const sortBy = ref(undefined);
     const searchUrl = ref(undefined);
-
-    async function getCludoCategories() {
-        const cludoResults = await cludoSearch('*', cludoCredentials.value, 1, '');
-        cludoCategories.value = cludoResults.categories;
-    }
 
     async function getSearchResults() {
         isLoading.value = true;
@@ -37,14 +33,14 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
             cludoCredentials.value,
             currentPage.value,
             selectedCategory.value,
-            cludoCategories.value,
+            selectedCategoryKey.value,
         );
 
         const eventResults = await eventSearch(
             eventsApi.value,
             searchTerm.value,
             currentPage.value,
-            selectedCategory.value,
+            selectedCategoryKey.value,
             selectedSubCategory.value,
             startDate.value,
             endDate.value,
@@ -53,10 +49,6 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
 
         results.value = [...cludoResults.results, ...eventResults.results];
         totalResults.value = cludoResults.totalResults + eventResults.totalResults;
-
-        if (!cludoCategories.value) {
-            cludoCategories.value = cludoResults.categories;
-        }
 
         isLoading.value = false;
     }
@@ -74,8 +66,8 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
             url.searchParams.delete('search-term');
         }
 
-        if (selectedCategory.value) {
-            url.searchParams.set('category', encodeURIComponent(selectedCategory.value));
+        if (selectedCategoryKey.value) {
+            url.searchParams.set('category', encodeURIComponent(selectedCategoryKey.value));
         } else {
             url.searchParams.delete('category');
         }
@@ -131,12 +123,12 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         eventsApi,
         eventsApiError,
         getAutoComplete,
-        getCludoCategories,
         getSearchResults,
         isLoading,
         results,
         searchTerm,
         selectedCategory,
+        selectedCategoryKey,
         selectedSubCategory,
         totalResults,
         navigateToResultsPage,

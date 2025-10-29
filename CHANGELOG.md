@@ -1,3 +1,47 @@
+## [5.14.2](https://github.com/visitscotland/vs-component-library/compare/v5.14.1...v5.14.2) (2025-10-28)
+
+
+### Bug Fixes
+
+* **federated search:** swap to searching categories by key ([4d7648c](https://github.com/visitscotland/vs-component-library/commit/4d7648cb17d4822bf823ab903cce6dbaf8e3250a))
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [5.14.1](https://github.com/visitscotland/vs-component-library/compare/v5.14.0...v5.14.1) (2025-10-28)
+
+# [5.14.0](https://github.com/visitscotland/vs-component-library/compare/v5.13.0...v5.14.0) (2025-10-28)
+
+
+### Bug Fixes
+
+* **federated search:** adjust tests for new filter logic ([51a4978](https://github.com/visitscotland/vs-component-library/commit/51a49787c3e5bd8e94c37d0d552005acdd75f333))
+* **federated search:** change conditionals to use category key instead of the label ([82069ef](https://github.com/visitscotland/vs-component-library/commit/82069ef131e3c0b6307213d1843065763d9d6ade))
+* **federated search:** chromatic skip sort date input so new Date() isn't a change every day ([485d3e7](https://github.com/visitscotland/vs-component-library/commit/485d3e7870714ceeda73f48185af1bd30a7397d2))
+* **federated search:** restore categories in home page story ([9ae540e](https://github.com/visitscotland/vs-component-library/commit/9ae540e98ef728b75db22b89889b4824b349b1d0))
+
+
+### Features
+
+* **federated search:** retrieve categories from the CMS as a prop rather than Cludo ([fe6ec13](https://github.com/visitscotland/vs-component-library/commit/fe6ec13f3fa40c08917179e13fe88970818dd667))
+* **federated search:** switch to provide/inject for categories ([82a8962](https://github.com/visitscotland/vs-component-library/commit/82a89625fe015bda3be3a0c4308f1a25d34a1106))
+
+# [5.13.0](https://github.com/visitscotland/vs-component-library/compare/v5.12.5...v5.13.0) (2025-10-23)
+
+
+### Features
+
+* **federated search:** implement optional spotlight for search categories ([e8f4122](https://github.com/visitscotland/vs-component-library/commit/e8f41221bf54eb3a92d23aa2aa14f75d65af36ba))
+
+## [5.12.5](https://github.com/visitscotland/vs-component-library/compare/v5.12.4...v5.12.5) (2025-10-20)
+
+
+### Bug Fixes
+
+* **map:** allow immediately loading of OS branding for Nuxt sites ([2b68259](https://github.com/visitscotland/vs-component-library/commit/2b682599ab980e2df59333f31d4aa52ac563abd3))
+* **maps:** adjust docs comments to clarify ([f7c4a13](https://github.com/visitscotland/vs-component-library/commit/f7c4a13958a1a2a3ce74d781187ba075bfc99be7))
+
 ## [5.12.4](https://github.com/visitscotland/vs-component-library/compare/v5.12.3...v5.12.4) (2025-10-14)
 
 
