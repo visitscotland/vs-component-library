@@ -49,17 +49,16 @@
                         @click="suggestedSearch(suggestion)"
                         @keyup.enter="suggestedSearch(suggestion)"
                         tabindex="0"
-                    >
-                        {{ suggestion }}
-                    </li>
+                        v-html="highlightAutocompleteSuggestion(suggestion)"
+                    />
                 </VsList>
             </div>
         </div>
 
         <VsFedFilter
-            v-if="federatedSearchStore.cludoCategories"
+            v-if="cludoCategories"
             :active-filter="federatedSearchStore.selectedCategory"
-            :filter-categories="federatedSearchStore.cludoCategories"
+            :filter-categories="cludoCategories"
             :wrap="true"
             @filter-updated="updateSelectedCategory"
         />
@@ -81,7 +80,9 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
+import {
+    onMounted, ref, inject,
+} from 'vue';
 import useFederatedSearchStore from '@/stores/federatedSearch.store';
 import {
     VsButton,
@@ -147,6 +148,8 @@ const props = defineProps({
 const federatedSearchStore = useFederatedSearchStore();
 const searchSuggestions = ref();
 
+const cludoCategories = inject('cludoCategories');
+
 async function updateSearchTerm(event) {
     federatedSearchStore.currentPage = 1;
     federatedSearchStore.searchTerm = event.value;
@@ -156,6 +159,10 @@ async function updateSearchTerm(event) {
 
     if (federatedSearchStore.searchTerm && params.get('search-term') !== federatedSearchStore.searchTerm) {
         searchSuggestions.value = await federatedSearchStore.getAutoComplete();
+    }
+
+    if (!event.value) {
+        searchSuggestions.value = null;
     }
 }
 
@@ -168,6 +175,11 @@ function suggestedSearch(query) {
     federatedSearchStore.searchTerm = query;
     searchSuggestions.value = null;
     federatedSearchStore.navigateToResultsPage();
+}
+
+function highlightAutocompleteSuggestion(suggestion) {
+    const reg = new RegExp(`(^|\\s)(${federatedSearchStore.searchTerm})(|$)`, 'gi');
+    return suggestion.replace(reg, '$1<strong>$2</strong>$3');
 }
 
 function updateSelectedCategory(category) {
@@ -189,8 +201,14 @@ function updateSelectedCategory(category) {
     // Reset sub category
     federatedSearchStore.selectedSubCategory = [];
 
-    federatedSearchStore.selectedCategory = (federatedSearchStore.selectedCategory !== category)
-        ? category
+    federatedSearchStore.selectedCategory = (federatedSearchStore.selectedCategory
+        !== category.Label)
+        ? category.Label
+        : '';
+
+    federatedSearchStore.selectedCategoryKey = (federatedSearchStore.selectedCategoryKey
+        !== category.Key)
+        ? category.Key
         : '';
 
     federatedSearchStore.navigateToResultsPage(true);
@@ -217,8 +235,6 @@ onMounted(() => {
         engineId: props.cludoEngineId,
     };
     federatedSearchStore.isHomePage = props.isHomePage;
-
-    federatedSearchStore.getCludoCategories();
 
     const url = window.location.search;
     const params = new URLSearchParams(url);

@@ -19,6 +19,7 @@
                 type="date"
                 :auto-complete="false"
                 @input="$emit('from-date-updated', $event.target.value)"
+                data-chromatic="ignore"
             />
         </VsCol>
         <VsCol

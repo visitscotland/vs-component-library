@@ -63,7 +63,7 @@ export const WithVideo = Template.bind({
 WithVideo.args = {
     heading: 'Scotland, <br/>it\'s good for the soul',
     lede: 'Where history meets breathtaking beauty, and every visit feels like home.',
-    imgSrc: 'fixtures/hero/images/lavendar-fields.jpg',
+    imgSrc: 'fixtures/hero/images/lavendar-fields.png',
     videoSrc: 'fixtures/hero/video/lavendar-fields.mp4',
     videoBtnText: 'Play/pause background video',
     videoPlayingStatus: 'Playing',
