@@ -65,7 +65,7 @@
         />
 
         <VsFedFilter
-            v-if="federatedSearchStore.selectedCategory === 'Events & Festivals'
+            v-if="federatedSearchStore.selectedCategoryKey === 'events'
                 && props.subFilters"
             :active-filter="federatedSearchStore.selectedSubCategory"
             class="mt-200"

@@ -44,7 +44,7 @@
                     </VsDetail>
                 </div>
                 <VsFedSearchSort
-                    v-if="federatedSearchStore.selectedCategory === 'Events & Festivals'"
+                    v-if="federatedSearchStore.selectedCategoryKey === 'events'"
                     :date-filter-visible="true"
                     :sort-options="props.sortLabels.sortOptions"
                     :from-date-label="props.sortLabels.dateFrom"
@@ -334,7 +334,7 @@ function calculateError() {
         isError.value.message = props.errorMessages.incorrectDateOrder;
     } else if (
         // Events API down
-        federatedSearchStore.selectedCategory === 'Events & Festivals'
+        federatedSearchStore.selectedCategoryKey === 'events'
         && federatedSearchStore.eventsApiError
         && !federatedSearchStore.isLoading
     ) {
@@ -343,7 +343,7 @@ function calculateError() {
     } else if (
         // Cludo down
         (federatedSearchStore.searchTerm || federatedSearchStore.selectedCategory)
-        && federatedSearchStore.selectedCategory !== 'Events & Festivals'
+        && federatedSearchStore.selectedCategoryKey !== 'events'
         && federatedSearchStore.cludoError
         && !federatedSearchStore.isLoading
     ) {
