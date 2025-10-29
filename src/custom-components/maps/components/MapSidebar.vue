@@ -1,13 +1,25 @@
 <template>
-    <div class="vs-map-sidebar px-125">
-        <div class="vs-map-sidebar__header">
+    <div
+        class="vs-map-sidebar px-125"
+        ref="vsMapSidebar"
+    >
+        <div class="vs-map-sidebar__header d-flex">
             <VsHeading
                 level="2"
                 heading-style="heading-xxs"
-                class="mb-100"
+                class="mb-100 flex-grow-1"
             >
                 Discover your Scotland
             </VsHeading>
+            <VsButton
+                variant="tertiary"
+                icon="vs-icon-control-dismiss"
+                icon-only
+                class="vs-map-sidebar__sidebar-control vs-map-siderbar__sidebar-control--dismiss"
+                @click="toggleSidebar"
+            >
+                Close sidebar
+            </VsButton>
         </div>
         <div class="vs-map-sidebar__content">
             <div class="vs-map-sidebar__input d-flex mb-050">
@@ -60,9 +72,19 @@
             class="vs-map-sidebar__footer"
             v-if="$props.query || $props.selectedCategories.size >= 1"
         >
-            <hr class="vs-map-sidebar__swipe-tab" />
+            <hr class="vs-map-sidebar__swipe-tab">
         </div>
     </div>
+    <VsButton
+        v-if="vsMapSidebarControlOpenVisible"
+        class="vs-map-sidebar__sidebar-control vs-map-sidebar__sidebar-control--open"
+        size="sm"
+        icon="fa-regular fa-sliders"
+        icon-only
+        @click="toggleSidebar"
+    >
+        Open Sidebar
+    </VsButton>
 </template>
 
 <script setup lang="ts">
@@ -73,7 +95,10 @@ import {
     VsLink,
 } from '@/components';
 
-import { defineEmits } from 'vue';
+import { defineExpose, ref } from 'vue';
+
+const vsMapSidebar = ref < HTMLElement > (null);
+const vsMapSidebarControlOpenVisible = ref<Boolean>(null);
 
 const props = defineProps({
     query: {
@@ -87,6 +112,23 @@ const props = defineProps({
 });
 
 defineEmits(['search-input-changed', 'reset-map']);
+
+function toggleSidebar() {
+    if (vsMapSidebar.value.classList.contains('d-none')) {
+        // Opens Sidebar
+        vsMapSidebar.value.classList.remove('d-none');
+        vsMapSidebar.value.classList.add('d-block');
+
+        // Removes sidebar toggle button
+        vsMapSidebarControlOpenVisible.value = false;
+    } else {
+        // Closes Sidebar
+        vsMapSidebar.value.classList.add('d-none');
+
+        // Adds sidebar toggle button
+        vsMapSidebarControlOpenVisible.value = true;
+    }
+}
 </script>
 
 <style lang="scss">
@@ -121,6 +163,16 @@ defineEmits(['search-input-changed', 'reset-map']);
         border: $vs-color-border-highlight solid 0.15em;
         border-radius: $vs-radius-full;
         margin: 1em auto;
+    }
+
+    &__sidebar-control {
+        @include media-breakpoint-up(md) {
+            display: none;
+        }
+
+        &--open {
+            pointer-events: auto;
+        }
     }
 }
 </style>
