@@ -38,3 +38,19 @@ Subtle.args = {
     ...base,
     variant: 'subtle',
 };
+
+export const Information = Template.bind({
+});
+
+Information.args = {
+    ...base,
+    variant: 'information',
+};
+
+export const Highlight = Template.bind({
+});
+
+Highlight.args = {
+    ...base,
+    variant: 'highlight',
+};

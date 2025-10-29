@@ -17,6 +17,7 @@ function cleanData(data: any) {
         endDate: event.endFormatted,
         minPrice: event.minPrice?.toString(),
         dataSrc: 'data-thistle',
+        categoryCard: event.categoryCard || '',
     }));
 
     return results;

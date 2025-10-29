@@ -11,6 +11,7 @@ function cleanData(data: any) {
         imgSrc: document.Fields.Image?.Value || '',
         url: document.Fields.Url.Value || '',
         dataSrc: 'cludo',
+        categoryCard: document.Fields.categoryCard.Value || '',
     }));
 
     return results;

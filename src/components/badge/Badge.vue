@@ -28,12 +28,12 @@ export default {
     props: {
         /**
         * Variant of the badge
-        * @values default, subtle, information
+        * @values default, subtle, information, highlight
         */
         variant: {
             type: String,
             default: 'default',
-            validator: (value) => value.match(/(default|subtle|information)/),
+            validator: (value) => value.match(/(default|subtle|information|highlight)/),
         },
     },
     computed: {
@@ -70,6 +70,13 @@ export default {
 
     &--information {
         background: $vs-color-background-information;
+        font-size: $vs-font-size-detail-s;
+        line-height: $vs-line-height-detail;
+    }
+
+    &--highlight {
+        background: $vs-color-background-highlight;
+        color: $vs-color-text-inverse;
         font-size: $vs-font-size-detail-s;
         line-height: $vs-line-height-detail;
     }

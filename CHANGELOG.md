@@ -1,3 +1,10 @@
+# [5.15.0](https://github.com/visitscotland/vs-component-library/compare/v5.14.2...v5.15.0) (2025-10-29)
+
+
+### Features
+
+* **badge:** implement highlight badge style ([7e166c4](https://github.com/visitscotland/vs-component-library/commit/7e166c4d73f5b0aedff91044f7baa854320e9d48))
+
 ## [5.14.2](https://github.com/visitscotland/vs-component-library/compare/v5.14.1...v5.14.2) (2025-10-28)
 
 
