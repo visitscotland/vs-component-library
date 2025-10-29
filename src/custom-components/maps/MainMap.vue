@@ -62,41 +62,36 @@
                 id="vs-map"
                 map-id="vs-map"
                 ref="vsMap"
-            ></div>
+            >
+            </div>
+            <Suspense>
+                <div id="detail-container">
+                        <gmp-place-details
+                            attributionPosition="BOTTOM"
+                            id="placeDetails"
+                            style="display: none"
+                        >
+                            <gmp-place-details-place-request id="placeRequest"></gmp-place-details-place-request>
+                            <gmp-place-content-config>
+                                <gmp-place-address></gmp-place-address>
+                                <gmp-place-rating></gmp-place-rating>
+                                <gmp-place-type></gmp-place-type>
+                                <gmp-place-price></gmp-place-price>
+                                <gmp-place-accessible-entrance-icon></gmp-place-accessible-entrance-icon>
+                                <gmp-place-opening-hours></gmp-place-opening-hours>
+                                <gmp-place-website></gmp-place-website>
+                                <gmp-place-phone-number></gmp-place-phone-number>
+                                <gmp-place-summary></gmp-place-summary>
+                                <gmp-place-type-specific-highlights></gmp-place-type-specific-highlights>
+                                <gmp-place-reviews></gmp-place-reviews>
+                                <gmp-place-feature-list></gmp-place-feature-list>
+                                <gmp-place-media lightbox-preferred></gmp-place-media>
+                                <gmp-place-attribution light-scheme-color="black"></gmp-place-attribution>
+                            </gmp-place-content-config>
+                        </gmp-place-details>
+                    </div>
+            </Suspense>
         </div>
-    
-        <VsContainer class="mt-100">
-            <VsRow>
-                <VsCol cols="12" md="6">
-                    
-                </VsCol>
-                <VsCol cols="12" md="6">
-                    <Suspense>
-                        <div id="detail-container">
-                            <gmp-place-details id="placeDetails" >
-                                <gmp-place-details-place-request id="placeRequest"></gmp-place-details-place-request>
-                                <gmp-place-content-config>
-                                    <gmp-place-address></gmp-place-address>
-                                    <gmp-place-rating></gmp-place-rating>
-                                    <gmp-place-type></gmp-place-type>
-                                    <gmp-place-price></gmp-place-price>
-                                    <gmp-place-accessible-entrance-icon></gmp-place-accessible-entrance-icon>
-                                    <gmp-place-opening-hours></gmp-place-opening-hours>
-                                    <gmp-place-website></gmp-place-website>
-                                    <gmp-place-phone-number></gmp-place-phone-number>
-                                    <gmp-place-summary></gmp-place-summary>
-                                    <gmp-place-type-specific-highlights></gmp-place-type-specific-highlights>
-                                    <gmp-place-reviews></gmp-place-reviews>
-                                    <gmp-place-feature-list></gmp-place-feature-list>
-                                    <gmp-place-media lightbox-preferred></gmp-place-media>
-                                    <gmp-place-attribution light-scheme-color="black"></gmp-place-attribution>
-                                </gmp-place-content-config>
-                            </gmp-place-details>
-                        </div>
-                    </Suspense>
-                </VsCol>
-            </VsRow>
-        </VsContainer>
     </div>
 </template>
 
@@ -171,7 +166,6 @@ let gMap: google.maps.Map;
 
 let mapContainer: any | null;
 let searchContainer: any | null;
-let placeSearch: any;
 let nearbySearch: any;
 let textSearch: any;
 let textSearchQuery: any | null;
@@ -180,6 +174,7 @@ let detailContainer: any | null;
 let placeDetails: any | null;
 let placeRequest: any | null;
 let searchInput: any;
+let infoWindow: any;
 
 let markers = {};
 let selectedCategories = ref(new Set());
@@ -255,7 +250,7 @@ onMounted(async() => {
     textSearchQuery = document.querySelector('gmp-place-text-search-request');
     nearbySearchQuery = document.querySelector('gmp-place-nearby-search-request');
     detailContainer = document.getElementById('detail-container');
-    placeDetails = document.getElementById('placeDetails');
+    placeDetails = document.querySelector('gmp-place-details');
     placeRequest = document.getElementById('placeRequest');
     searchInput = document.getElementById('vs-map-search-input');
 
@@ -297,24 +292,28 @@ onMounted(async() => {
             console.error('Maps init error', error.message);
         }
 
+        //Registers the infoWindow that the placeDetail element lives
+        infoWindow = new google.maps.InfoWindow();
+
         //Listens to the zoom level
         gMap.addListener('zoom_changed', (event) => {
             currentZoom.value = gMap.getZoom();
-            console.log(currentZoom.value);
         })
 
-        //Handles click events in the Places UI Kit search panel
-        textSearch.addEventListener('gmp-select', ({ place }) => {
-            if(markers[place.id]){ 
-                handlePlaceClick(place, markers[place.id]);
-            }
-        })
-        
+        //Handles click events in the Places UI Kit search panel for
+        //both nearby and text searches.
         nearbySearch.addEventListener('gmp-select', ({ place }) => {
             if(markers[place.id]){ 
                 handlePlaceClick(place, markers[place.id]);
             }
-        })
+        });
+
+        textSearch.addEventListener('gmp-select', ({ place }) => {
+            if(markers[place.id]){ 
+                handlePlaceClick(place, markers[place.id]);
+            }
+        });
+        
     };
 
     // Init map
@@ -322,10 +321,13 @@ onMounted(async() => {
 })
 
 function selectCategory(category) {
-    console.log(category);
     if (selectedCategories.value.has(category)) {
         selectedCategories.value.delete(category);
         mapFilters[category].types.forEach(type => includedTypes.value.delete(type));
+        if (selectedCategories.value.size === 0) {
+            resetMap();
+            resetCategories();
+        }
     } else {
         selectedCategories.value.add(category);
         mapFilters[category].types.forEach(type => includedTypes.value.add(type));
@@ -339,8 +341,6 @@ async function searchByCategory() {
     resetTextQuery();
 
     currentSearch.value = 'nearby';
-
-    
 
     const bounds = gMap.getBounds();
     const center = gMap.getCenter();
@@ -371,9 +371,6 @@ async function searchByText() {
     if (!query.value) {
         return;
     }
-
-    console.log(`searching for ${query.value}`)
-    console.log(`current center: ${gMap.getCenter()}`)
 
     textSearchQuery.textQuery = query.value;
 
@@ -411,7 +408,7 @@ async function addMarkers() {
     const searchRequest = ref();
 
     if (currentSearch.value === 'nearby') {
-        searchRequest.value = document.getElementById('nearbySearch');
+        searchRequest.value = nearbySearch;
     } else if (currentSearch.value === 'text') {
         searchRequest.value = textSearch;
     } else {
@@ -448,14 +445,12 @@ async function addMarkers() {
             marker.metadata = { id: place.id };
             markers[place.id] = marker;
             bounds.extend(place.location);
-            console.log(bounds);
         });
     }
 
     if (searchRequest.value.places.length > 1) {
         gMap.fitBounds(bounds);
-    } else if (searchRequest.value.places.length < 2){
-        console.log(`Place1 viewport`, searchRequest.value.places[0].viewport)
+    } else if (searchRequest.value.places.length === 1){
         gMap.fitBounds(searchRequest.value.places[0].viewport);
     }
 }
@@ -465,9 +460,13 @@ function resetMap(hardReset?: boolean) {
     currentSearch.value = '';
     nearbySearch.style.display = 'none';
     textSearch.style.display = 'none';
+    if(infoWindow && infoWindow.close) {
+        infoWindow.close();
+    }
     if (hardReset) {
         resetTextQuery();
         resetCategories();
+        resetLocation();
     }
 }
 
@@ -496,10 +495,37 @@ function clearExistingMarkers() {
 }
 
 function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerElement) {
-    placeRequest = document.getElementById('placeRequest');
+
+    if (infoWindow.isOpen) {
+        infoWindow.close();
+    }
+
     placeRequest.place = place;
 
-    gMap.fitBounds(place.viewport, {top: 200, right: 450});
+    let activeDetailElement = placeDetails;
+
+    activeDetailElement.style.display = 'block';
+
+    activeDetailElement.style.width = '20em';
+    activeDetailElement.style.height = '32em';
+    activeDetailElement.style.maxHeight = '32em';
+    activeDetailElement.style.overflowY = 'auto';
+    activeDetailElement.style.overflowX = 'hidden';
+    activeDetailElement.style.boxSizing = 'border-box';
+
+
+    infoWindow.setOptions({
+        content: activeDetailElement,
+        maxWidth: 460,
+        pixelOffset: null,
+    });
+
+    infoWindow.open({
+        anchor: marker,
+        map: gMap
+    });
+
+    gMap.fitBounds(place.viewport, {top: 200, right: 150});
     google.maps.event.addListenerOnce(gMap, 'idle', () => {
         if(gMap.getZoom() > MAX_ZOOM) {
             gMap.setZoom(MAX_ZOOM);
