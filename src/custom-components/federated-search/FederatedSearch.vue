@@ -27,7 +27,7 @@
             </template>
             <div
                 v-if="federatedSearchStore.results"
-                class="d-flex justify-content-between mb-200"
+                class="vs-federated-search__results"
             >
                 <div>
                     <VsHeading
@@ -149,7 +149,7 @@
                 </VsCardGroup>
 
                 <VsPagination
-                    class="vs-federated-search--pagination"
+                    class="vs-federated-search__pagination"
                     v-if="federatedSearchStore.results && totalResultsPages > 1"
                     :number-of-pages="totalResultsPages"
                     :next-button-label="props.paginationLabels.nextButtonLabel"
@@ -162,7 +162,7 @@
             </div>
             <div
                 v-if="isError.error"
-                class="vs-federated-search--warning"
+                class="vs-federated-search__warning"
             >
                 <VsWarning
                     v-if="isError.error"
@@ -436,19 +436,33 @@ onUpdated(() => {
 
 <style lang="scss">
 .vs-federated-search {
-
-    &--pagination {
+    &__pagination {
         margin: $vs-spacer-400 $vs-spacer-0 $vs-spacer-300 $vs-spacer-0;
+
+        @include media-breakpoint-down(lg) {
+            margin: $vs-spacer-100 $vs-spacer-0 $vs-spacer-200 $vs-spacer-0;
+        }
     }
 
     &__error--no-js {
         display: none;
     }
+
+    &__results {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: $vs-spacer-200;
+
+        @include media-breakpoint-down(lg) {
+            flex-direction: column;
+            gap: $vs-spacer-200;
+        }
+    }
 }
 
 @include no-js {
     .vs-federated-search {
-        &__container{
+        &__container {
             display: none;
         }
 
