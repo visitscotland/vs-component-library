@@ -204,6 +204,16 @@ const base = {
             },
         ],
     },
+    cardCategoryLabels: {
+        about: 'About us',
+        accommodation: 'Accommodation',
+        article: 'Article',
+        destination: 'Destination',
+        event: 'Event',
+        itinerary: 'Itinerary',
+        tours: 'Tour',
+        travel: 'Travel',
+    },
     showAccommodationSpotlight: false,
     showToursSpotlight: false,
 };

@@ -94,6 +94,17 @@
                                         {{ setEventDate(result.startDate, result.endDate) }}
                                     </VsBadge>
                                 </div>
+                                <div class="position-absolute bottom-0 end-0 d-flex">
+                                    <VsBadge
+                                        v-if="
+                                            result.categoryCard
+                                                && cardCategoryLabels[result.categoryCard]"
+                                        variant="highlight"
+                                        class="rounded-top-start rounded-bottom-start mx-0"
+                                    >
+                                        {{ cardCategoryLabels[result.categoryCard] }}
+                                    </VsBadge>
+                                </div>
                             </div>
                         </template>
 
@@ -298,6 +309,14 @@ const props = defineProps({
     sortLabels: {
         type: Object,
         required: true,
+    },
+    /**
+     * Labels for the card category badge.
+     */
+    cardCategoryLabels: {
+        type: Object,
+        required: true,
+        default: () => {},
     },
 });
 
