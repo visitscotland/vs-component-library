@@ -67,7 +67,6 @@
             <Suspense>
                 <div id="detail-container">
                         <gmp-place-details
-                            attributionPosition="BOTTOM"
                             id="placeDetails"
                             style="display: none"
                         >
@@ -89,6 +88,14 @@
                                 <gmp-place-attribution light-scheme-color="black"></gmp-place-attribution>
                             </gmp-place-content-config>
                         </gmp-place-details>
+                        <gmp-place-details-compact
+                            id="placeDetailsCompact"
+                            orientation="horizontal"
+                            style="display: none;"    
+                        >
+                            <gmp-place-details-place-request id="compactPlaceRequest"></gmp-place-details-place-request> 
+                            <gmp-place-all-content></gmp-place-all-content>
+                        </gmp-place-details-compact> 
                     </div>
             </Suspense>
         </div>
@@ -160,8 +167,6 @@ const props = defineProps({
 })
 
 // Map Object, HTMLElements & Global Variables
-let vsMap = ref(null);
-
 let gMap: google.maps.Map;
 
 let mapContainer: any | null;
@@ -172,7 +177,9 @@ let textSearchQuery: any | null;
 let nearbySearchQuery: any | null;
 let detailContainer: any | null;
 let placeDetails: any | null;
+let placeDetailsCompact: any | null;
 let placeRequest: any | null;
+let compactPlaceRequest: any | null;
 let searchInput: any;
 let infoWindow: any;
 
@@ -251,7 +258,9 @@ onMounted(async() => {
     nearbySearchQuery = document.querySelector('gmp-place-nearby-search-request');
     detailContainer = document.getElementById('detail-container');
     placeDetails = document.querySelector('gmp-place-details');
+    placeDetailsCompact = document.querySelector('gmp-place-details-compact');
     placeRequest = document.getElementById('placeRequest');
+    compactPlaceRequest = document.getElementById('compactPlaceRequest');
     searchInput = document.getElementById('vs-map-search-input');
 
     try{
@@ -501,18 +510,28 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
     }
 
     placeRequest.place = place;
+    compactPlaceRequest.place = place;
 
-    let activeDetailElement = placeDetails;
+    let activeDetailElement;
 
+    //Medium breakpoint (this can't be done in CSS unfortunatley)
+    const isMobile = window.innerWidth <= 768;
+
+    if (!isMobile) {
+        placeDetails.style.width = '20em';
+        placeDetails.style.height = '32em';
+        activeDetailElement = placeDetails;
+    } else {
+        placeDetailsCompact.style.width = '15em';
+        placeDetailsCompact.style.height = '20em';
+        activeDetailElement = placeDetailsCompact;
+    }
+    
     activeDetailElement.style.display = 'block';
-
-    activeDetailElement.style.width = '20em';
-    activeDetailElement.style.height = '32em';
-    activeDetailElement.style.maxHeight = '32em';
     activeDetailElement.style.overflowY = 'auto';
     activeDetailElement.style.overflowX = 'hidden';
     activeDetailElement.style.boxSizing = 'border-box';
-
+    activeDetailElement.style.maxHeight = '32em';
 
     infoWindow.setOptions({
         content: activeDetailElement,
