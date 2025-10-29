@@ -28,7 +28,7 @@
                 ref="scrollRail"
             >
                 <VsButton
-                    v-for="(filterCategory, index) in props.filterCategories"
+                    v-for="(filterCategory, index) in sortedCategories"
                     :key="index"
                     class="vs-fed-filter__category-button"
                     :data-test="`vs-fed-filter__category-button--${filterCategory.id}`"
@@ -57,7 +57,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import VsButton from '@/components/button/Button.vue';
 import VsBody from '@/components/body/Body.vue';
 
@@ -164,6 +164,25 @@ function filterClasses() {
         props.wrap ? 'vs-fed-filter__scroll-rail--wrap' : '',
     ];
 }
+
+const sortedCategories = computed(() => {
+    const sortedArr = [...props.filterCategories];
+
+    return sortedArr.sort((a, b) => {
+        const aValue = (a.Label || a.Key || '').toLowerCase();
+        const bValue = (b.Label || b.Key || '').toLowerCase();
+
+        if (aValue < bValue) {
+            return -1;
+        }
+        if (aValue > bValue) {
+            return 1;
+        }
+
+        return 0;
+    });
+});
+
 </script>
 
 <style lang="scss">
