@@ -1,4 +1,4 @@
-import { FederatedSearchResult } from '@/types/types';
+import type { FederatedSearchResult } from '@/types/types';
 import useFederatedSearchStore from '@/stores/federatedSearch.store';
 
 function cleanData(data: any) {
@@ -28,7 +28,7 @@ async function eventSearch(
     searchTerm: string,
     page: number,
     selectedCategoryKey: string,
-    selectedSubCategory: string[],
+    selectedSubCategoryKey: string[],
     startDate: string,
     endDate: string,
     sortBy: any,
@@ -45,8 +45,8 @@ async function eventSearch(
         url = endDate !== '' ? `${url}&endDate=${endDate}` : url;
         url = sortBy ? `${url}&sort=${sortBy.key}` : url;
 
-        selectedSubCategory.forEach((category) => {
-            url += `&category=${category.toLowerCase()}`;
+        selectedSubCategoryKey.forEach((category) => {
+            url += `&category=${category}`;
         });
 
         try {
