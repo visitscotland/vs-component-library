@@ -17,6 +17,7 @@ function cleanData(data: any) {
         endDate: event.endFormatted,
         minPrice: event.minPrice?.toString(),
         dataSrc: 'data-thistle',
+        categoryCard: event.categoryCard || '',
     }));
 
     return results;
@@ -26,7 +27,7 @@ async function eventSearch(
     api: string,
     searchTerm: string,
     page: number,
-    selectedCategory: string,
+    selectedCategoryKey: string,
     selectedSubCategory: string[],
     startDate: string,
     endDate: string,
@@ -37,7 +38,7 @@ async function eventSearch(
     federatedSearchStore.cludoError = false;
     // Only query the event API when the no selected category or the event category
     // is selected.
-    if (selectedCategory === 'Events & Festivals' || !selectedCategory) {
+    if (selectedCategoryKey === 'events' || !selectedCategoryKey) {
         let url = `${api}?query=${searchTerm}`;
         url = page > 1 ? `${url}&page=${page}` : url;
         url = startDate !== '' ? `${url}&startDate=${startDate}` : url;

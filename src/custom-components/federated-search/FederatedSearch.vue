@@ -12,6 +12,19 @@
                 :labels="props.searchLabels"
             />
             <VsDivider class="my-200" />
+            <template
+                v-for="(category, index) in federatedSearchStore.cludoCategories"
+                :key="index"
+            >
+                <div
+                    v-show="federatedSearchStore.selectedCategoryKey === category.Key"
+                    class="mb-200"
+                >
+                    <slot
+                        :name="`federated-search__spotlight-${category.Key}`"
+                    />
+                </div>
+            </template>
             <div
                 v-if="federatedSearchStore.results"
                 class="d-flex justify-content-between mb-200"
@@ -31,7 +44,7 @@
                     </VsDetail>
                 </div>
                 <VsFedSearchSort
-                    v-if="federatedSearchStore.selectedCategory === 'Events & Festivals'"
+                    v-if="federatedSearchStore.selectedCategoryKey === 'events'"
                     :date-filter-visible="true"
                     :sort-options="props.sortLabels.sortOptions"
                     :from-date-label="props.sortLabels.dateFrom"
@@ -79,6 +92,17 @@
                                         class="rounded-top"
                                     >
                                         {{ setEventDate(result.startDate, result.endDate) }}
+                                    </VsBadge>
+                                </div>
+                                <div class="position-absolute bottom-0 end-0 d-flex">
+                                    <VsBadge
+                                        v-if="
+                                            result.categoryCard
+                                                && cardCategoryLabels[result.categoryCard]"
+                                        variant="highlight"
+                                        class="rounded-top-start rounded-bottom-start mx-0"
+                                    >
+                                        {{ cardCategoryLabels[result.categoryCard] }}
                                     </VsBadge>
                                 </div>
                             </div>
@@ -176,6 +200,7 @@ import {
     computed,
     onMounted,
     onUpdated,
+    provide,
 } from 'vue';
 import {
     VsBadge,
@@ -237,6 +262,13 @@ const props = defineProps({
         default: getEnvValue('EVENTS_API_URL'),
     },
     /**
+     * Array of cludo categories.
+    */
+    cludoCategories: {
+        type: Array,
+        default: undefined,
+    },
+    /**
      * Array of sub filters.
     */
     subFilters: {
@@ -278,7 +310,17 @@ const props = defineProps({
         type: Object,
         required: true,
     },
+    /**
+     * Labels for the card category badge.
+     */
+    cardCategoryLabels: {
+        type: Object,
+        required: true,
+        default: () => {},
+    },
 });
+
+provide('cludoCategories', props.cludoCategories);
 
 const totalResultsPages = computed(() => Math.ceil(federatedSearchStore.totalResults / 12));
 
@@ -292,7 +334,7 @@ function calculateError() {
         isError.value.message = props.errorMessages.incorrectDateOrder;
     } else if (
         // Events API down
-        federatedSearchStore.selectedCategory === 'Events & Festivals'
+        federatedSearchStore.selectedCategoryKey === 'events'
         && federatedSearchStore.eventsApiError
         && !federatedSearchStore.isLoading
     ) {
@@ -301,7 +343,7 @@ function calculateError() {
     } else if (
         // Cludo down
         (federatedSearchStore.searchTerm || federatedSearchStore.selectedCategory)
-        && federatedSearchStore.selectedCategory !== 'Events & Festivals'
+        && federatedSearchStore.selectedCategoryKey !== 'events'
         && federatedSearchStore.cludoError
         && !federatedSearchStore.isLoading
     ) {
@@ -328,6 +370,7 @@ onMounted(() => {
         engineId: props.cludoEngineId,
     };
     federatedSearchStore.eventsApi = props.eventsApi;
+    federatedSearchStore.cludoCategories = props.cludoCategories;
 
     calculateError();
 

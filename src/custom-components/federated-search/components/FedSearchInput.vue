@@ -57,15 +57,15 @@
         </div>
 
         <VsFedFilter
-            v-if="federatedSearchStore.cludoCategories"
+            v-if="cludoCategories"
             :active-filter="federatedSearchStore.selectedCategory"
-            :filter-categories="federatedSearchStore.cludoCategories"
+            :filter-categories="cludoCategories"
             :wrap="true"
             @filter-updated="updateSelectedCategory"
         />
 
         <VsFedFilter
-            v-if="federatedSearchStore.selectedCategory === 'Events & Festivals'
+            v-if="federatedSearchStore.selectedCategoryKey === 'events'
                 && props.subFilters"
             :active-filter="federatedSearchStore.selectedSubCategory"
             class="mt-200"
@@ -81,7 +81,9 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
+import {
+    onMounted, ref, inject,
+} from 'vue';
 import useFederatedSearchStore from '@/stores/federatedSearch.store';
 import {
     VsButton,
@@ -147,6 +149,8 @@ const props = defineProps({
 const federatedSearchStore = useFederatedSearchStore();
 const searchSuggestions = ref();
 
+const cludoCategories = inject('cludoCategories');
+
 async function updateSearchTerm(event) {
     federatedSearchStore.currentPage = 1;
     federatedSearchStore.searchTerm = event.value;
@@ -186,8 +190,14 @@ function updateSelectedCategory(category) {
     // Reset sort options
     federatedSearchStore.sortBy = undefined;
 
-    federatedSearchStore.selectedCategory = (federatedSearchStore.selectedCategory !== category)
-        ? category
+    federatedSearchStore.selectedCategory = (federatedSearchStore.selectedCategory
+        !== category.Label)
+        ? category.Label
+        : '';
+
+    federatedSearchStore.selectedCategoryKey = (federatedSearchStore.selectedCategoryKey
+        !== category.Key)
+        ? category.Key
         : '';
 
     federatedSearchStore.navigateToResultsPage(true);
@@ -214,8 +224,6 @@ onMounted(() => {
         engineId: props.cludoEngineId,
     };
     federatedSearchStore.isHomePage = props.isHomePage;
-
-    federatedSearchStore.getCludoCategories();
 
     const url = window.location.search;
     const params = new URLSearchParams(url);
