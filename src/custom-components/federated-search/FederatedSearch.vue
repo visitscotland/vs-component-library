@@ -89,7 +89,7 @@
                                     <VsBadge
                                         v-if="result.startDate"
                                         variant="information"
-                                        class="rounded-top"
+                                        class="rounded-top-end rounded-top-start"
                                     >
                                         {{ setEventDate(result.startDate, result.endDate) }}
                                     </VsBadge>
