@@ -16,7 +16,7 @@ export default `
 
                     <VsBadge 
                         variant="information"
-                        class="rounded-top"
+                        class="rounded-top-end rounded-top-start"
                     >
                         25 Oct 2025
                     </VsBadge>
