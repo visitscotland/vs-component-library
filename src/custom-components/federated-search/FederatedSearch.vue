@@ -322,7 +322,24 @@ const props = defineProps({
 
 provide('cludoCategories', props.cludoCategories);
 
-const totalResultsPages = computed(() => Math.ceil(federatedSearchStore.totalResults / 12));
+// Calculate the total number of pages for pagination.
+const totalResultsPages = computed(() => {
+    let pageCount;
+
+    if (!federatedSearchStore.selectedCategoryKey) {
+        pageCount = (
+            federatedSearchStore.totalResultsCludo >= federatedSearchStore.totalResultsEvents
+        )
+            ? Math.ceil(federatedSearchStore.totalResultsCludo / 6)
+            : Math.ceil(federatedSearchStore.totalResultsEvents / 6);
+    } else if (federatedSearchStore.selectedCategoryKey !== 'events') {
+        pageCount = Math.ceil(federatedSearchStore.totalResultsCludo / 12);
+    } else if (federatedSearchStore.selectedCategoryKey === 'events') {
+        pageCount = Math.ceil(federatedSearchStore.totalResultsEvents / 12);
+    }
+
+    return pageCount;
+});
 
 function calculateError() {
     if (

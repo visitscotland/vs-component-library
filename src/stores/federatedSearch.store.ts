@@ -19,6 +19,8 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
     const selectedCategoryKey = ref(null);
     const selectedSubCategory = ref([]);
     const totalResults = ref(undefined);
+    const totalResultsCludo = ref(undefined);
+    const totalResultsEvents = ref(undefined);
     const isHomePage = ref(false);
     const startDate = ref('');
     const endDate = ref('');
@@ -48,6 +50,9 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         );
 
         results.value = [...cludoResults.results, ...eventResults.results];
+
+        totalResultsCludo.value = cludoResults.totalResults;
+        totalResultsEvents.value = eventResults.totalResults;
         totalResults.value = cludoResults.totalResults + eventResults.totalResults;
 
         isLoading.value = false;
@@ -129,6 +134,8 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         selectedCategoryKey,
         selectedSubCategory,
         totalResults,
+        totalResultsCludo,
+        totalResultsEvents,
         navigateToResultsPage,
         isHomePage,
         startDate,
