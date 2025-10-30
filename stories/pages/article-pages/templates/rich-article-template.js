@@ -51,8 +51,6 @@ export default `
             <!-- First col: Section heading -->
             <VsCol
                 cols="12"
-                sm="7"
-                md="6"
                 lg="4"
             >
                 <VsHeading
@@ -68,8 +66,6 @@ export default `
             <!-- Second col: Section content -->
             <VsCol
                 cols="12"
-                sm="5"
-                md="6"
                 lg="8"
             >
                 <VsBody>
@@ -135,8 +131,6 @@ export default `
             <!-- First col: Section heading -->
             <VsCol
                 cols="12"
-                sm="7"
-                md="6"
                 lg="4"
             >
                 <VsHeading
@@ -152,8 +146,6 @@ export default `
             <!-- Second col: Section content -->
             <VsCol
                 cols="12"
-                sm="5"
-                md="6"
                 lg="8"
             >
                 <VsBody>
@@ -192,8 +184,6 @@ export default `
             <!-- First col: Section heading -->
             <VsCol
                 cols="12"
-                sm="7"
-                md="6"
                 lg="4"
             >
                 <VsHeading
@@ -209,8 +199,6 @@ export default `
             <!-- Second col: Section content -->
             <VsCol
                 cols="12"
-                sm="5"
-                md="6"
                 lg="8"
             >
                 <VsBody>
@@ -264,8 +252,6 @@ export default `
             <!-- First col: Section heading -->
             <VsCol
                 cols="12"
-                sm="7"
-                md="6"
                 lg="4"
             >
                 <VsHeading
@@ -281,8 +267,6 @@ export default `
             <!-- Second col: Section content -->
             <VsCol
                 cols="12"
-                sm="5"
-                md="6"
                 lg="8"
             >
                 <VsBody>
