@@ -1,6 +1,7 @@
 <template>
     <div
         class="vs-map-sidebar px-125"
+        :class="googleMapStore.sidebarOpen ? 'd-block' : 'd-none'"
         ref="vsMapSidebar"
     >
         <div class="vs-map-sidebar__header d-flex">
@@ -16,7 +17,7 @@
                 icon="vs-icon-control-dismiss"
                 icon-only
                 class="vs-map-sidebar__sidebar-control vs-map-siderbar__sidebar-control--dismiss"
-                @click="toggleSidebar"
+                @click="googleMapStore.sidebarOpen = false"
             >
                 Close sidebar
             </VsButton>
@@ -76,12 +77,12 @@
         </div>
     </div>
     <VsButton
-        v-if="vsMapSidebarControlOpenVisible"
         class="vs-map-sidebar__sidebar-control vs-map-sidebar__sidebar-control--open"
+        :class="googleMapStore.sidebarOpen ? 'd-none' : 'd-block'"
         size="sm"
         icon="fa-regular fa-sliders"
         icon-only
-        @click="toggleSidebar"
+        @click="googleMapStore.sidebarOpen = true"
     >
         Open Sidebar
     </VsButton>
@@ -95,10 +96,9 @@ import {
     VsLink,
 } from '@/components';
 
-import { defineExpose, ref } from 'vue';
+import useGoogleMapStore from '@/stores/mainMap.store';
 
-const vsMapSidebar = ref < HTMLElement > (null);
-const vsMapSidebarControlOpenVisible = ref<Boolean>(null);
+const googleMapStore = useGoogleMapStore();
 
 const props = defineProps({
     query: {
@@ -112,23 +112,6 @@ const props = defineProps({
 });
 
 defineEmits(['search-input-changed', 'reset-map']);
-
-function toggleSidebar() {
-    if (vsMapSidebar.value.classList.contains('d-none')) {
-        // Opens Sidebar
-        vsMapSidebar.value.classList.remove('d-none');
-        vsMapSidebar.value.classList.add('d-block');
-
-        // Removes sidebar toggle button
-        vsMapSidebarControlOpenVisible.value = false;
-    } else {
-        // Closes Sidebar
-        vsMapSidebar.value.classList.add('d-none');
-
-        // Adds sidebar toggle button
-        vsMapSidebarControlOpenVisible.value = true;
-    }
-}
 </script>
 
 <style lang="scss">
