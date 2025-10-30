@@ -214,6 +214,7 @@ function updateSelectedCategory(category) {
     federatedSearchStore.sortBy = undefined;
 
     // Reset sub category
+    federatedSearchStore.selectedSubCategory = [];
     federatedSearchStore.selectedSubCategoryKey = [];
 
     federatedSearchStore.selectedCategory = (federatedSearchStore.selectedCategory
@@ -237,6 +238,7 @@ function updateSelectedSubCategoryKey(category) {
         const index = federatedSearchStore.selectedSubCategoryKey.indexOf(category.Key);
 
         if (index >= 0) {
+            federatedSearchStore.selectedSubCategory.splice(index, 1);
             federatedSearchStore.selectedSubCategoryKey.splice(index, 1);
         }
     }
