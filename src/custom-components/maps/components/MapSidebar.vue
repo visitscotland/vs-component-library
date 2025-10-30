@@ -56,9 +56,10 @@
             </VsLink>
             <div class="vs-map-sidebar__search-results">
                 <VsHeading
+                    v-if="$props.query || $props.selectedCategories.size >= 1"
                     level="3"
                     heading-style="heading-xxxs"
-                    v-if="$props.query || $props.selectedCategories.size >= 1"
+                    data-test="vs-map-sidebar__search-result-query"
                 >
                     Search results for "{{ $props.query || Array.from($props.selectedCategories).join(',') }}"
                 </VsHeading>
@@ -89,12 +90,10 @@
 </template>
 
 <script setup lang="ts">
-import {
-    VsButton,
-    VsHeading,
-    VsInput,
-    VsLink,
-} from '@/components';
+import VsButton from '@/components/button/Button.vue';
+import VsLink from '@/components/link/Link.vue';
+import VsHeading from '@/components/heading/Heading.vue';
+import VsInput from '@/components/input/Input.vue';
 
 import useGoogleMapStore from '@/stores/mainMap.store';
 
