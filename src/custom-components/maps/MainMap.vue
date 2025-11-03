@@ -7,6 +7,23 @@
                 @search-input-changed="searchByText"
                 @reset-map="resetMap(true)"
             >
+                <template
+                    #vs-map-sidebar-sub-filters
+                    v-if="selectedCategories"
+                >
+                    <div class="vs-map-sidebar__sub-filters">
+                        <!-- <VsButton
+                            v-for="(subFilter, key) in categories[Array.from(selectedCategories)[0]].subCategories"
+                            :key
+                            variant="secondary"
+                            size="sm"
+                            @click="selectSubCategory(Array.from(selectedCategories)[0], subFilter.id)"
+                        >
+                            {{ subFilter.label }}
+                        </VsButton> -->
+                    </div>
+                </template>
+
                 <template #vs-map-sidebar-search-results>
                     <Suspense>
                             <div id="search-container">
@@ -43,11 +60,11 @@
                 v-if="currentZoom > CATEGORY_VISIBLE_ZOOM"
             >
                 <VsButton
-                    v-for="filter in mapFilters"
+                    v-for="filter in categories"
                     :key="filter.id"
                     class="vs-map__filter-controls-button"
                     :icon="filter.icon"
-                    :variant="selectedCategories.has(filter.id) ? 'primary' : 'secondary'"
+                    :variant="selectedCategories === filter.id ? 'primary' : 'secondary'"
                     @click.prevent="selectCategory(filter.id)"
 
                 >
@@ -112,7 +129,6 @@ import {
     VsButton,
     VsCol,
     VsContainer,
-    VsInput,
     VsRow,
 } from '@/components';
 import { LatLngObject } from '@/types/types';
@@ -122,7 +138,6 @@ import {
     importLibrary,
     setOptions, 
 } from '@googlemaps/js-api-loader';
-import filter from '@/components/filter';
 
 const props = defineProps({
     /**
@@ -161,6 +176,13 @@ const props = defineProps({
     radius: {
         type: Number,
         default: 1000,
+    },
+    /**
+     * JSON object of categories and their types
+     */
+    categories: {
+        type: Object,
+        default: () => {},
     }
 })
 
@@ -182,7 +204,7 @@ let placeRequest: any | null;
 let searchInput: any;
 
 let markers = {};
-let selectedCategories = ref(new Set());
+let selectedCategories = ref();
 let includedTypes = ref(new Set());
 const currentZoom = ref<number>(props.zoom);
 const MAX_ZOOM: number = 19;
@@ -198,48 +220,7 @@ const SCOTLAND_BOUNDS = {
     east: -0.71000,
 }
 
-const mapFilters = {
-    accommodation: {
-        id: 'accommodation',
-        label: 'Accommodation',
-        types: [
-            'lodging', 'cottage', 'private_guest_room', 'farmstay', 'guest_house', 
-            'hostel', 'bed_and_breakfast', 'campground', 'camping_cabin', 
-            'mobile_home_park', 'rv_park', 'hotel', 'inn', 'motel', 'resort_hotel',
-        ],
-        icon: 'fa-regular fa-bed'
-    },
-    food_drink: {
-        id: 'food_drink',
-        label: 'Food & Drink',
-        types: [
-            'restaurant',
-        ],
-        icon: 'fa-regular fa-cutlery',
-    },
-    things_to_do: {
-        id: 'things_to_do',
-        label: 'Things to do',
-        types: [
-            'national_park', 'beach', 'hiking_area', 'garden', 'botianical_garden',
-            'wildlife_park', 'wildlife_refuge', 'park', 'museum', 'art_gallery', 
-            'historical_place', 'monument', 'sculpture', 'cultural_landmark',
-            'church', 'aquarium', 'zoo', 'amusement_park', 'concert_hall',
-            'performing_arts_theatre', 'planetarium', 'movie_theatre', 'comedy_club',
-            'night_club', 'bowling_alley', 'roller_coaster', 'skateboard_park', 
-            'ice_sktating_rink', 'adventure_sports_center', 'cycling_park', 'ski_resort',
-        ],
-        icon: 'fa-kit fa-vs-landscape',
-    },
-    travel_info: {
-        id: 'travel_info',
-        label: 'Travel Information',
-        types: [
-            'ev_charger',
-        ],
-        icon: 'fa-regular fa-circle-info',
-    },
-};
+const categories = props.categories;
 
 onMounted(async() => {
     setOptions({
@@ -322,16 +303,29 @@ onMounted(async() => {
 })
 
 function selectCategory(category) {
-    console.log(category);
-    if (selectedCategories.value.has(category)) {
-        selectedCategories.value.delete(category);
-        mapFilters[category].types.forEach(type => includedTypes.value.delete(type));
-    } else {
-        selectedCategories.value.add(category);
-        mapFilters[category].types.forEach(type => includedTypes.value.add(type));
-        searchInput.value = mapFilters[category].label;
-        searchByCategory();
-    }
+    // console.log(category);
+    // if (selectedCategories.value.has(category)) {
+    //     selectedCategories.value.delete(category);
+    //     mapFilters[category].types.forEach(type => includedTypes.value.delete(type));
+    // } else {
+    //     selectedCategories.value.add(category);
+    //     mapFilters[category].types.forEach(type => includedTypes.value.add(type));
+    //     searchInput.value = mapFilters[category].label;
+    //     searchByCategory();
+    // }
+
+    selectedCategories.value = category;
+    Object.values(categories[category].subCategories).forEach(subCategory => includedTypes.value.add(subCategory.type));
+
+    searchByCategory();
+
+    console.log(includedTypes.value);
+    console.log(Array.from(includedTypes.value));
+}
+
+function selectSubCategory(parent, category) {
+    console.log(`Parent: ${parent}, Subcategory: ${category}`);
+
 }
 
 async function searchByCategory() {
@@ -340,16 +334,14 @@ async function searchByCategory() {
 
     currentSearch.value = 'nearby';
 
-    
-
     const bounds = gMap.getBounds();
     const center = gMap.getCenter();
     const ne = bounds.getNorthEast();
     const sw = bounds.getSouthWest();
     const diameter = google.maps.geometry.spherical.computeDistanceBetween(ne, sw);
     const cappedRadius= Math.min((diameter/2), 50000);
-    
-    nearbySearchQuery.includedTypes = Array.from(includedTypes.value);
+
+    nearbySearchQuery.includedTypes = Array.from(includedTypes.value).flat();
     nearbySearchQuery.maxResultCount = NUMBER_OF_RESULTS;
     nearbySearchQuery.locationRestriction = {
         center: gMap.getCenter(),
@@ -482,7 +474,7 @@ function resetLocation() {
 }
 
 function resetCategories() {
-    selectedCategories.value = new Set();
+    selectedCategories.value = undefined;
     includedTypes.value = new Set();
 }
 

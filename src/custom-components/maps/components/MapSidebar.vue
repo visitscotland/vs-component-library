@@ -35,19 +35,33 @@
             <VsLink
                 href="#"
                 class="d-block"
-                v-if="$props.query || $props.selectedCategories.size >= 1"
+                v-if="$props.query || $props.selectedCategories"
                 @click.prevent="$emit('reset-map')"
                 @keyup.enter.prevent="$emit('reset-map')"
             >
                 Clear all
             </VsLink>
+            <div
+                v-if="$slots['vs-map-sidebar-sub-filters'] && $slots['vs-map-sidebar-sub-filters']()"
+                class="vs-map-sidebar__sub-filters-wrapper"
+            >
+                <VsDetail
+                    class="vs-map-sidebar__sub-filter-header"
+                    size="small"
+                    color="secondary"
+                >
+                    Filter your results
+                </VsDetail>
+                <!-- @Slot for sub filters to be added to sidebar -->
+                <slot name="vs-map-sidebar-sub-filters" />
+            </div>
             <div class="vs-map-sidebar__search-results">
                 <VsHeading
                     level="3"
                     heading-style="heading-xxxs"
-                    v-if="$props.query || $props.selectedCategories.size >= 1"
+                    v-if="$props.query || $props.selectedCategories"
                 >
-                    Search results for "{{ $props.query || Array.from($props.selectedCategories).join(',') }}"
+                    Search results for "{{ $props.query || $props.selectedCategories }}"
                 </VsHeading>
                 <div class="vs-map-sidebar__google-maps-container mt-075">
                     <!-- @Slot to contain Google Maps Places
@@ -68,6 +82,7 @@
 <script setup lang="ts">
 import {
     VsButton,
+    VsDetail,
     VsHeading,
     VsInput,
     VsLink,
@@ -81,8 +96,8 @@ const props = defineProps({
         default: '',
     },
     selectedCategories: {
-        type: Set,
-        default: new Set(),
+        type: String,
+        default: '',
     },
 });
 
@@ -96,6 +111,7 @@ defineEmits(['search-input-changed', 'reset-map']);
     border-radius: $vs-radius-large;
     box-shadow: $vs-elevation-shadow-raised;
     pointer-events: auto;
+    max-height: 90vh;
 
     &__input input {
         margin: 0;
@@ -109,8 +125,16 @@ defineEmits(['search-input-changed', 'reset-map']);
         border-radius: 0 $vs-radius-small $vs-radius-small 0;
     }
 
+    &__sub-filters {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        column-gap: 0.25em;
+        row-gap: 0.25em;
+    }
+
     &__google-maps-container {
-        max-height: 60vh;
+        max-height: 20em;
         overflow-y: auto;
         border-radius: $vs-radius-large;
     }
