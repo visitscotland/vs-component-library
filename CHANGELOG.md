@@ -1,3 +1,10 @@
+## [5.15.1](https://github.com/visitscotland/vs-component-library/compare/v5.15.0...v5.15.1) (2025-11-04)
+
+
+### Bug Fixes
+
+* **cookie control:** make consent check more resilient to race conditions ([db6c3ef](https://github.com/visitscotland/vs-component-library/commit/db6c3ef6093109aefc21fcb491b39a5532990883))
+
 # [5.15.0](https://github.com/visitscotland/vs-component-library/compare/v5.14.2...v5.15.0) (2025-10-29)
 
 
