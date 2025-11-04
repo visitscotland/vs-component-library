@@ -33,7 +33,7 @@
                     class="vs-fed-filter__category-button"
                     :data-test="`vs-fed-filter__category-button--${filterCategory.id}`"
                     :icon="props.variant === 'primary' ? filterCategory.icon : null"
-                    :variant="isActive(filterCategory.Label) ? 'primary' : 'secondary'"
+                    :variant="isActive(filterCategory.Key) ? 'primary' : 'secondary'"
                     :size="props.variant === 'secondary' ? 'sm' : 'md'"
                     @click="$emit('filter-updated', filterCategory)"
                 >
