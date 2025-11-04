@@ -10,7 +10,6 @@ const factoryShallowMount = (propsData) => shallowMount(VsFedFilter, {
         wrap: false,
         filterCategories: [
             {
-                id: 'filter1',
                 Key: 'filter-one',
                 Label: 'Filter One',
                 icon: 'fa-regular fa-star',
@@ -99,7 +98,7 @@ describe('VsFedFilter', () => {
             const wrapper = factoryShallowMount();
 
             await wrapper.setProps({
-                activeFilter: 'Filter One',
+                activeFilter: 'filter-one',
             });
 
             const button = wrapper.find('[variant="primary"]');

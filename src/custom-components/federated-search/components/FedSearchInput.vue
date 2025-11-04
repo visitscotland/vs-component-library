@@ -39,26 +39,25 @@
         <div class="position-relative">
             <div
                 v-if="searchSuggestions"
-                class="vs-fed-search-input--autocomplete"
+                class="vs-fed-search-input__autocomplete"
             >
                 <VsList unstyled>
                     <li
                         v-for="suggestion in searchSuggestions"
                         :key="suggestion"
-                        class="vs-fed-search-input--autocomplete__suggestion"
+                        class="vs-fed-search-input__autocomplete__suggestion"
                         @click="suggestedSearch(suggestion)"
                         @keyup.enter="suggestedSearch(suggestion)"
                         tabindex="0"
-                    >
-                        {{ suggestion }}
-                    </li>
+                        v-html="highlightAutocompleteSuggestion(suggestion)"
+                    />
                 </VsList>
             </div>
         </div>
 
         <VsFedFilter
             v-if="cludoCategories"
-            :active-filter="federatedSearchStore.selectedCategory"
+            :active-filter="federatedSearchStore.selectedCategoryKey"
             :filter-categories="cludoCategories"
             :wrap="true"
             @filter-updated="updateSelectedCategory"
@@ -67,11 +66,11 @@
         <VsFedFilter
             v-if="federatedSearchStore.selectedCategoryKey === 'events'
                 && props.subFilters"
-            :active-filter="federatedSearchStore.selectedSubCategory"
+            :active-filter="federatedSearchStore.selectedSubCategoryKey"
             class="mt-200"
             :filter-categories="props.subFilters"
             variant="secondary"
-            @filter-updated="updateSelectedSubCategory"
+            @filter-updated="updateSelectedSubCategoryKey"
         >
             <template #fed-filter-header>
                 {{ props.labels.refine }}
@@ -153,13 +152,17 @@ const cludoCategories = inject('cludoCategories');
 
 async function updateSearchTerm(event) {
     federatedSearchStore.currentPage = 1;
-    federatedSearchStore.searchTerm = event.value;
+    federatedSearchStore.searchTerm = event.value.trim();
 
     const url = window.location.search;
     const params = new URLSearchParams(url);
 
     if (federatedSearchStore.searchTerm && params.get('search-term') !== federatedSearchStore.searchTerm) {
         searchSuggestions.value = await federatedSearchStore.getAutoComplete();
+    }
+
+    if (!federatedSearchStore.searchTerm) {
+        searchSuggestions.value = null;
     }
 }
 
@@ -172,6 +175,26 @@ function suggestedSearch(query) {
     federatedSearchStore.searchTerm = query;
     searchSuggestions.value = null;
     federatedSearchStore.navigateToResultsPage();
+}
+
+function escapeRegExp(str) {
+    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function escapeHtml(str) {
+    return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+function highlightAutocompleteSuggestion(suggestion) {
+    const term = (federatedSearchStore.searchTerm || '').trim();
+    if (!term) return escapeHtml(suggestion);
+    const reg = new RegExp(`(${escapeRegExp(term)})`, 'gi');
+    return escapeHtml(suggestion).replace(reg, '<strong>$1</strong>');
 }
 
 function updateSelectedCategory(category) {
@@ -190,6 +213,10 @@ function updateSelectedCategory(category) {
     // Reset sort options
     federatedSearchStore.sortBy = undefined;
 
+    // Reset sub category
+    federatedSearchStore.selectedSubCategory = [];
+    federatedSearchStore.selectedSubCategoryKey = [];
+
     federatedSearchStore.selectedCategory = (federatedSearchStore.selectedCategory
         !== category.Label)
         ? category.Label
@@ -203,14 +230,16 @@ function updateSelectedCategory(category) {
     federatedSearchStore.navigateToResultsPage(true);
 }
 
-function updateSelectedSubCategory(category) {
-    if (!federatedSearchStore.selectedSubCategory.includes(category)) {
-        federatedSearchStore.selectedSubCategory.push(category);
+function updateSelectedSubCategoryKey(category) {
+    if (!federatedSearchStore.selectedSubCategoryKey.includes(category.Key)) {
+        federatedSearchStore.selectedSubCategory.push(category.Label);
+        federatedSearchStore.selectedSubCategoryKey.push(category.Key);
     } else {
-        const index = federatedSearchStore.selectedSubCategory.indexOf(category);
+        const index = federatedSearchStore.selectedSubCategoryKey.indexOf(category.Key);
 
         if (index >= 0) {
             federatedSearchStore.selectedSubCategory.splice(index, 1);
+            federatedSearchStore.selectedSubCategoryKey.splice(index, 1);
         }
     }
 
@@ -233,11 +262,14 @@ onMounted(() => {
     }
 
     if (params.has('category')) {
-        federatedSearchStore.selectedCategory = decodeURIComponent(params.get('category'));
+        federatedSearchStore.selectedCategoryKey = decodeURIComponent(params.get('category'));
     }
 
     if (params.has('sub-category')) {
-        federatedSearchStore.selectedSubCategory.push(decodeURIComponent(params.get('sub-category')));
+        const subCategories = decodeURIComponent(params.get('sub-category')).split(',');
+        subCategories.forEach((subCategory) => (
+            federatedSearchStore.selectedSubCategoryKey.push(subCategory)
+        ));
     }
 
     if (params.has('search-term') || params.has('category')) {
@@ -299,7 +331,7 @@ onMounted(() => {
         }
     }
 
-    &--autocomplete {
+    &__autocomplete {
         position: absolute;
         z-index: 10;
         background-color: $vs-color-background-primary;
