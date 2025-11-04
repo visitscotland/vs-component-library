@@ -58,7 +58,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
     }
 
     function navigateToResultsPage(resetPageNo?: boolean) {
-        const url = new URL(window.location);
+        const url = new URL(window.location.href);
 
         if (searchTerm.value) {
             url.searchParams.set('search-term', searchTerm.value);
