@@ -60,6 +60,9 @@
 import { ref, computed } from 'vue';
 import VsButton from '@/components/button/Button.vue';
 import VsBody from '@/components/body/Body.vue';
+import useFederatedSearchStore from '@/stores/federatedSearch.store';
+
+const federatedSearchStore = useFederatedSearchStore();
 
 /**
  * Fed Filter is used in the Federated Search engine.
@@ -157,6 +160,10 @@ function scroll(dir) {
     if (dir === 'left') scrollRail.value?.scrollBy(-200, 0);
     else if (dir === 'right') scrollRail.value?.scrollBy(200, 0);
 }
+
+federatedSearchStore.resetScroll = () => {
+    scrollRail.value?.scrollTo(0, 0);
+};
 
 function filterClasses() {
     return [
