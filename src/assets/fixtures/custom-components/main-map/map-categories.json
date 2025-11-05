@@ -3,49 +3,49 @@
         "label": "Accommodation",
         "id": "accommodation",
         "icon": "fa-regular fa-bed",
-        "subCategories": {
-            "self_catering": {
+        "subCategory": [
+            {
                 "label": "Self Catering",
-                "id": "self_catering",
+                "id": "self-catering",
                 "type": [
                     "cottage", "private_guest_room", "farmstay", "guest_house",
                     "hostel", "lodging"
                 ]
             },
-            "bed_breakfast": {
+            {
                 "label": "Bed and Breakfast",
-                "id": "bed_breakfast",
+                "id": "bed-breakfast",
                 "type": [
                     "bed_and_breakfast"
                 ]
             },
-            "caravan_camping": {
+            {
                 "label": "Caravan & Camping",
-                "id": "caravan_camping",
+                "id": "caravan-camping",
                 "type": [
                     "campground", "camping_cabin", "mobile_home_park", "rv_park"
                 ]
             },
-            "hotel": {
+            {
                 "label": "Hotel",
                 "id": "hotel",
                 "type": [
                     "hotel", "inn", "motel", "resort_hotel"
                 ]
             },
-            "farmstay": {
+            {
                 "label": "Farmstay",
                 "id": "farmstay",
                 "type": ["farmstay"]
             }
-        }
+        ]
     },
-    "food_drink": {
+    "food-drink": {
         "label": "Food & Drink",
-        "id": "food_drink",
+        "id": "food-drink",
         "icon": "fa-regular fa-cutlery",
-        "subCategories": {
-            "restaurant": {
+        "subCategory": [
+            {
                 "label": "Restaurants",
                 "id": "restaurant",
                 "type": [
@@ -63,7 +63,7 @@
                     "vegan_restaurant", "vegetarian_restaurant", "vietnamese_restaurant"
                 ]
             },
-            "cafe": {
+            {
                 "label": "Cafes",
                 "id": "cafe",
                 "type": [
@@ -73,37 +73,37 @@
                     "tea_house"
                 ]
             },
-            "bar_pub": {
+            {
                 "label": "Bars & Pubs",
-                "id": "bar_pub",
+                "id": "bar-pub",
                 "type": [
                     "bar", "bar_and_grill", "pub", "wine_bar"
                 ]
             }
-        }
+        ]
     },
-    "things_to_do": {
+    "things-to-do": {
         "label": "Things to do",
-        "id": "things_to_do",
+        "id": "things-to-do",
         "icon": "fa-kit fa-vs-landscape",
-        "subCategories": {
-            "nature_outdoors": {
+        "subCategory": [
+            {
                 "label": "Nature & Outdoors",
-                "id": "nature_outdoors",
+                "id": "nature-outdoors",
                 "type": [
                     "national_park", "beach", "hiking_area", "garden", "botanical_garden",
                     "wildlife_park", "wildlife_refuge", "park"
                 ]
             },
-            "culture_history": {
+            {
                 "label": "Culture_History",
-                "id": "culture_history",
+                "id": "culture-history",
                 "type": [
                     "museum", "art_gallery", "historical_place", "monument", "sculpture", 
                     "cultural_landmark", "church"
                 ]
             },
-            "entertainment": {
+            {
                 "label": "Entertainment",
                 "id": "entertainment",
                 "type": [
@@ -112,16 +112,16 @@
                     "bowling_alley", "roller_coaster"
                 ]
             },
-            "active_adventure": {
+            {
                 "label": "Active & Adventure",
-                "id": "active_adventure",
+                "id": "active-adventure",
                 "type": [
                     "skateboard_park", "ice_sktating_rink", "adventure_sports_center", 
                     "cycling_park", "ski_resort", "golf_course", "sports_complex", "stadium", 
                     "fishing_pond", "fishing_charter", "fitness_center", "gym"
                 ]
             },
-            "shopping": {
+            {
                 "label": "Shopping",
                 "id": "shopping",
                 "type": [
@@ -129,28 +129,28 @@
                     "market", "jewelry_store"
                 ]
             },
-            "health_wellness": {
+            {
                 "label": "Health & Wellness",
-                "id": "health_wellness",
+                "id": "health-wellness",
                 "type": [
                     "spa", "wellness_center", "massage", "yoga_studio"
                 ]
             },
-            "tours": {
+            {
                 "label": "Tours",
                 "id": "tours",
                 "type": [
                     "tour_agency", "travel_agency"
                 ]
             }
-        }
+        ]
     },
-    "travel_info": {
+    "travel-info": {
         "label": "Travel Information",
-        "id": "travel_info",
+        "id": "travel-info",
         "icon": "fa-regular fa-circle-info",
-        "subCategories": {
-            "transport": {
+        "subCategory": [
+            {
                 "label": "Transport",
                 "id": "transport",
                 "type": [
@@ -159,20 +159,20 @@
                     "subway_station", "taxi_stand", "train_station"
                 ]
             },
-            "ev_charging": {
+            {
                 "label": "Charging Points",
-                "id": "ev_charging",
+                "id": "ev-charging",
                 "type": [
-                    "electric_vehicle_charging_point"
+                    "electric_vehicle_charging_station"
                 ]
             },
-            "facilities": {
+            {
                 "label": "Facilities",
                 "id": "facilities",
                 "type": [
                     "park_and_ride", "parking", "public_bathroom", "visitor_center", "atm"
                 ]
             }
-        }
+        ]
     }
 }

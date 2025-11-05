@@ -1,5 +1,6 @@
 import VsMainMap from '@/custom-components/maps/MainMap.vue';
 import mapCategories from '@/assets/fixtures/custom-components/main-map/map-categories.json';
+import mapCategoryLabels from '@/assets/fixtures/custom-components/main-map/map-labels.json';
 
 
 export default {
@@ -34,6 +35,7 @@ const base = {
     zoom: 7,
     radius: 5000,
     categories: mapCategories,
+    categoryLabels: mapCategoryLabels,
 };
 
 export const Default = Template.bind();

@@ -3,24 +3,24 @@
         <div class="vs-map__controls">
             <VsMapSidebar
                 :query="query"
-                :selectedCategories="selectedCategories"
+                :selectedCategories="selectedTopLevelCategory"
                 @search-input-changed="searchByText"
                 @reset-map="resetMap(true)"
             >
                 <template
                     #vs-map-sidebar-sub-filters
-                    v-if="selectedCategories"
+                    v-if="selectedTopLevelCategory"
                 >
                     <div class="vs-map-sidebar__sub-filters">
-                        <!-- <VsButton
-                            v-for="(subFilter, key) in categories[Array.from(selectedCategories)[0]].subCategories"
+                        <VsButton
+                            v-for="(subCategory, key) in selectedCategory.subCategory"
                             :key
-                            variant="secondary"
+                            :variant="selectedSubCategories.has(subCategory.id) ? 'primary' : 'secondary'"
                             size="sm"
-                            @click="selectSubCategory(Array.from(selectedCategories)[0], subFilter.id)"
+                            @click="searchBySubCategory(subCategory.id)"
                         >
-                            {{ subFilter.label }}
-                        </VsButton> -->
+                            {{ subCategory.label }}
+                        </VsButton>
                     </div>
                 </template>
 
@@ -60,11 +60,11 @@
                 v-if="currentZoom > CATEGORY_VISIBLE_ZOOM"
             >
                 <VsButton
-                    v-for="filter in categories"
+                    v-for="filter in categoryData"
                     :key="filter.id"
                     class="vs-map__filter-controls-button"
                     :icon="filter.icon"
-                    :variant="selectedCategories === filter.id ? 'primary' : 'secondary'"
+                    :variant="selectedTopLevelCategory === filter.id ? 'primary' : 'secondary'"
                     @click.prevent="selectCategory(filter.id)"
 
                 >
@@ -183,7 +183,12 @@ const props = defineProps({
     categories: {
         type: Object,
         default: () => {},
-    }
+    },
+    /**JSON object for the category labeks (from CMS taxinomies) */
+    categoryLabels: {
+        type: Object,
+        default: () => {}
+    },
 })
 
 // Map Object, HTMLElements & Global Variables
@@ -204,8 +209,11 @@ let placeRequest: any | null;
 let searchInput: any;
 
 let markers = {};
-let selectedCategories = ref();
-let includedTypes = ref(new Set());
+const selectedTopLevelCategory = ref();
+const selectedSubCategories = ref(new Set());
+const selectedCategory = ref();
+const includedTopLevelTypes = ref(new Set());
+const includedSubTypes = ref(new Set());
 const currentZoom = ref<number>(props.zoom);
 const MAX_ZOOM: number = 19;
 const CATEGORY_VISIBLE_ZOOM: number = 9;
@@ -220,7 +228,8 @@ const SCOTLAND_BOUNDS = {
     east: -0.71000,
 }
 
-const categories = props.categories;
+const categoryData = props.categories;
+const categoryLabelData = props.categoryLabels;
 
 onMounted(async() => {
     setOptions({
@@ -302,33 +311,57 @@ onMounted(async() => {
     await initMap();
 })
 
-function selectCategory(category) {
-    // console.log(category);
-    // if (selectedCategories.value.has(category)) {
-    //     selectedCategories.value.delete(category);
-    //     mapFilters[category].types.forEach(type => includedTypes.value.delete(type));
-    // } else {
-    //     selectedCategories.value.add(category);
-    //     mapFilters[category].types.forEach(type => includedTypes.value.add(type));
-    //     searchInput.value = mapFilters[category].label;
-    //     searchByCategory();
-    // }
-
-    selectedCategories.value = category;
-    Object.values(categories[category].subCategories).forEach(subCategory => includedTypes.value.add(subCategory.type));
-
-    searchByCategory();
-
-    console.log(includedTypes.value);
-    console.log(Array.from(includedTypes.value));
+function selectCategory(categoryId) {
+    if (selectedTopLevelCategory.value === undefined) {
+        selectedTopLevelCategory.value = categoryId;
+    
+        // Retrives all the values in each subcategory and adds it to
+        // `includedTopLevelTypes` set, which should handle duplication.
+        Object.values(categoryData[categoryId].subCategory).forEach(
+            subCategory => includedTopLevelTypes.value.add(subCategory.type)
+        );
+    
+        selectedCategory.value = categoryData[categoryId];
+        
+        searchByCategory(Array.from(includedTopLevelTypes.value).flat());
+    } else if (selectedTopLevelCategory !== categoryId) {
+        
+    } else {
+        resetMap(true);
+    } 
 }
 
-function selectSubCategory(parent, category) {
-    console.log(`Parent: ${parent}, Subcategory: ${category}`);
+function searchBySubCategory(subCategoryId){
+    console.log(subCategoryId)
 
+    if (selectedSubCategories.value.has(subCategoryId)) {
+        // Delete if already in selectedSubCategories
+        selectedSubCategories.value.delete(subCategoryId);
+        // Iterate through each subcategory to find the selected subcategory
+        Object.values(categoryData[selectedTopLevelCategory.value].subCategory).forEach(subCat => {
+            if (subCat.id === subCategoryId) {
+                // Iterate through the array of types and delete them from the includedSubTypes set
+                subCat.type.forEach(type => includedSubTypes.value.delete(type));
+            }
+        })
+
+        searchByCategory(Array.from(includedSubTypes.value).flat());
+    } else {
+        // Add if not already in selectedSubCategories
+        selectedSubCategories.value.add(subCategoryId);
+        // Iterate through each subcategory to find the selected subcategory
+        Object.values(categoryData[selectedTopLevelCategory.value].subCategory).forEach(subCat => {
+            if (subCat.id === subCategoryId) {
+                // Iterate through the array of types adding them to the includedSubTypes set
+                subCat.type.forEach(type => includedSubTypes.value.add(type));
+            }
+        })
+
+        searchByCategory(Array.from(includedSubTypes.value).flat());
+    }
 }
 
-async function searchByCategory() {
+async function searchByCategory(includedTypes) {
     resetMap();
     resetTextQuery();
 
@@ -341,7 +374,7 @@ async function searchByCategory() {
     const diameter = google.maps.geometry.spherical.computeDistanceBetween(ne, sw);
     const cappedRadius= Math.min((diameter/2), 50000);
 
-    nearbySearchQuery.includedTypes = Array.from(includedTypes.value).flat();
+    nearbySearchQuery.includedTypes = includedTypes;
     nearbySearchQuery.maxResultCount = NUMBER_OF_RESULTS;
     nearbySearchQuery.locationRestriction = {
         center: gMap.getCenter(),
@@ -371,22 +404,6 @@ async function searchByText() {
 
     // Get the center of the map, as it may have changed
     const mapCenter = gMap.getCenter();
-
-    // /**
-    //  * Offsetting the bounds of the search by the radius,
-    //  * accounting for the curvature of the earth. 
-    //  */
-    // const latOffset = props.radius / 111000;
-    // const latInRadians = mapCenter.lat() * (Math.PI / 180);
-    // const lngDegreeDistance = 111 * Math.cos(latInRadians);
-    // const lngOffset = props.radius / (lngDegreeDistance * 1000);
-    
-    // const bounds = {
-    //     north: mapCenter.lat() + latOffset,
-    //     south: mapCenter.lat() - latOffset,
-    //     east: mapCenter.lng() + lngOffset,
-    //     west: mapCenter.lng() - lngOffset
-    // };
     
     textSearchQuery.locationRestriction = gMap.getBounds();
     textSearchQuery.maxResultCount = NUMBER_OF_RESULTS;
@@ -403,11 +420,11 @@ async function addMarkers() {
     const searchRequest = ref();
 
     if (currentSearch.value === 'nearby') {
-        searchRequest.value = document.getElementById('nearbySearch');
+        searchRequest.value = nearbySearch;
     } else if (currentSearch.value === 'text') {
         searchRequest.value = textSearch;
     } else {
-        throw new Error('Unrecognised Search type');
+        console.error('Unrecognised Search type');
     }
 
     const bounds = new LatLngBounds();
@@ -458,6 +475,7 @@ function resetMap(hardReset?: boolean) {
     nearbySearch.style.display = 'none';
     textSearch.style.display = 'none';
     if (hardReset) {
+        // A `hard reset` will remove all text and categories
         resetTextQuery();
         resetCategories();
     }
@@ -474,8 +492,10 @@ function resetLocation() {
 }
 
 function resetCategories() {
-    selectedCategories.value = undefined;
-    includedTypes.value = new Set();
+    selectedTopLevelCategory.value = undefined;
+    selectedSubCategories.value = new Set();
+    includedTopLevelTypes.value = new Set();
+    includedSubTypes.value = new Set();
 }
 
 function clearExistingMarkers() {

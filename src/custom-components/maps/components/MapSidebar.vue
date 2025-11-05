@@ -72,7 +72,7 @@
         </div>
         <div
             class="vs-map-sidebar__footer"
-            v-if="$props.query || $props.selectedCategories.size >= 1"
+            v-if="$props.query || $props.selectedCategories"
         >
             <hr class="vs-map-sidebar__swipe-tab" />
         </div>
