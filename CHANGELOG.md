@@ -1,3 +1,10 @@
+## [5.15.3](https://github.com/visitscotland/vs-component-library/compare/v5.15.2...v5.15.3) (2025-11-05)
+
+
+### Bug Fixes
+
+* **event:** fix badge rounded corners in event card with rounded utilities ([86cf8d8](https://github.com/visitscotland/vs-component-library/commit/86cf8d8bdc9c2f3cc640076a52db46b45721cd36))
+
 ## [5.15.2](https://github.com/visitscotland/vs-component-library/compare/v5.15.1...v5.15.2) (2025-11-04)
 
 
