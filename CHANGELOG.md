@@ -1,3 +1,26 @@
+## [5.15.2](https://github.com/visitscotland/vs-component-library/compare/v5.15.1...v5.15.2) (2025-11-04)
+
+
+### Bug Fixes
+
+* **event-search-ts:** update subcategories to use key ([df081a9](https://github.com/visitscotland/vs-component-library/commit/df081a962b4cec2af6fa88dba677879b36d74f30))
+* **fed search input:** make sure sub category and sub category key are aligned ([c42e90c](https://github.com/visitscotland/vs-component-library/commit/c42e90c586e0de5dbb2a504e2d5f9f4a168c6d15))
+* **federated search input:** clear sub category when category changes ([3c9e8d0](https://github.com/visitscotland/vs-component-library/commit/3c9e8d0e8af05f269fc8b1d3c176de90d82fda15))
+* **federated search input:** highlight search term in search suggestions ([fa0f5dc](https://github.com/visitscotland/vs-component-library/commit/fa0f5dcc9901c4b8d12901ef9785289dd3717fc5))
+* **federated search:** reduce white space on mobile ([414dcea](https://github.com/visitscotland/vs-component-library/commit/414dcea18b72a67f42ccf81687b2c6e69c997428))
+* **federated search:** remove internal link icon ([e4fb3c4](https://github.com/visitscotland/vs-component-library/commit/e4fb3c462fd45a038dca6eceea674ee9862e73b3))
+* **federated search:** remove scroll snap from cardgrid ([a0e3b94](https://github.com/visitscotland/vs-component-library/commit/a0e3b94c60aeb3a04ff7b1a3f5da15df10272c10))
+* **federated search:** sort not wrapping on mobile ([a9cc50b](https://github.com/visitscotland/vs-component-library/commit/a9cc50b02a83f0d2ea81bb05be2a63516dc87d55))
+* **federated search:** update sub categories to mirror categories ([6b290b7](https://github.com/visitscotland/vs-component-library/commit/6b290b733208722fec824a11a138d8c31e5a637f))
+* **mega nav:** hide search link button text on mobile ([fbf54c0](https://github.com/visitscotland/vs-component-library/commit/fbf54c07e24b780a6cd67558151e34ce4e4cdfa8))
+
+## [5.15.1](https://github.com/visitscotland/vs-component-library/compare/v5.15.0...v5.15.1) (2025-11-04)
+
+
+### Bug Fixes
+
+* **cookie control:** make consent check more resilient to race conditions ([db6c3ef](https://github.com/visitscotland/vs-component-library/commit/db6c3ef6093109aefc21fcb491b39a5532990883))
+
 # [5.15.0](https://github.com/visitscotland/vs-component-library/compare/v5.14.2...v5.15.0) (2025-10-29)
 
 
