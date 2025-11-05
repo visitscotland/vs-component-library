@@ -13,11 +13,11 @@
                 >
                     <div class="vs-map-sidebar__sub-filters">
                         <VsButton
-                            v-for="(subCategory, key) in selectedCategory.subCategory"
+                            v-for="(subCategory, key) in categoryLabelData[categoryKey].subCategory"
                             :key
                             :variant="selectedSubCategories.has(subCategory.id) ? 'primary' : 'secondary'"
                             size="sm"
-                            @click="searchBySubCategory(subCategory.id)"
+                            @click="searchBySubCategory(subCategory.id, key)"
                         >
                             {{ subCategory.label }}
                         </VsButton>
@@ -60,14 +60,14 @@
                 v-if="currentZoom > CATEGORY_VISIBLE_ZOOM"
             >
                 <VsButton
-                    v-for="filter in categoryData"
-                    :key="filter.id"
+                    v-for="(category, key) in categoryLabelData"
+                    :key
                     class="vs-map__filter-controls-button"
-                    :icon="filter.icon"
-                    :variant="selectedTopLevelCategory === filter.id ? 'primary' : 'secondary'"
-                    @click.prevent="selectCategory(filter.id)"
+                    :icon="categoryData[category.id].icon"
+                    :variant="selectedTopLevelCategory === category.id ? 'primary' : 'secondary'"
+                    @click.prevent="selectCategory(category.id, key)"
                 >
-                    {{ filter.label }}
+                    {{ category.label }}
                 </VsButton>
             </div>
         </div>
@@ -213,6 +213,8 @@ const selectedSubCategories = ref(new Set());
 const selectedCategory = ref();
 const includedTopLevelTypes = ref(new Set());
 const includedSubTypes = ref(new Set());
+const categoryKey = ref();
+const subCategoryKey = ref();
 const currentZoom = ref<number>(props.zoom);
 const MAX_ZOOM: number = 19;
 const CATEGORY_VISIBLE_ZOOM: number = 9;
@@ -310,7 +312,7 @@ onMounted(async() => {
     await initMap();
 })
 
-function selectCategory(categoryId) {
+function selectCategory(categoryId, key) {
     if (selectedTopLevelCategory.value === undefined) {
         selectedTopLevelCategory.value = categoryId;
     
@@ -321,9 +323,11 @@ function selectCategory(categoryId) {
         );
     
         selectedCategory.value = categoryData[categoryId];
+        categoryKey.value = key;
 
         searchByCategory(Array.from(includedTopLevelTypes.value).flat());
-        searchInput.value = categoryId;
+        query.value = categoryLabelData[categoryKey.value].label;
+        searchInput.value = query.value;
     } else if (selectedTopLevelCategory !== categoryId) {
         
     } else {
@@ -331,8 +335,8 @@ function selectCategory(categoryId) {
     } 
 }
 
-function searchBySubCategory(subCategoryId){
-    console.log(subCategoryId)
+function searchBySubCategory(subCategoryId, key){
+    subCategoryKey.value = key;
 
     if (selectedSubCategories.value.has(subCategoryId)) {
         // Delete if already in selectedSubCategories
@@ -358,7 +362,6 @@ function searchBySubCategory(subCategoryId){
         })
 
         searchByCategory(Array.from(includedSubTypes.value).flat());
-        searchInput.value = subCategoryId;
     }
 }
 
@@ -369,7 +372,6 @@ async function searchByCategory(includedTypes) {
     currentSearch.value = 'nearby';
 
     const bounds = gMap.getBounds();
-    const center = gMap.getCenter();
     const ne = bounds.getNorthEast();
     const sw = bounds.getSouthWest();
     const diameter = google.maps.geometry.spherical.computeDistanceBetween(ne, sw);
@@ -497,6 +499,8 @@ function resetCategories() {
     selectedSubCategories.value = new Set();
     includedTopLevelTypes.value = new Set();
     includedSubTypes.value = new Set();
+    categoryKey.value = undefined;
+    subCategoryKey.value = undefined;
 }
 
 function clearExistingMarkers() {
@@ -518,6 +522,23 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
             gMap.setZoom(MAX_ZOOM);
         }
     })
+}
+
+function getLabel(categoryID){
+
+    //console.log(categoryLabelData);
+
+    // categoryLabelData.forEach(category => {
+    //     console.log(category);
+    //     if (category.id === categoryID) {
+    //         return category.label;
+    //     }
+    // })
+
+    for (let i: number = 0; i < categoryLabelData.length; i++){
+        console.log(categoryLabelData[i].id);
+    }
+
 }
 </script>
 

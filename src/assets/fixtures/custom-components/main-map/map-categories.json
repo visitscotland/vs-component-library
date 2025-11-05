@@ -1,11 +1,9 @@
 {
     "accommodation": {
-        "label": "Accommodation",
         "id": "accommodation",
         "icon": "fa-regular fa-bed",
         "subCategory": [
             {
-                "label": "Self Catering",
                 "id": "self-catering",
                 "type": [
                     "cottage", "private_guest_room", "farmstay", "guest_house",
@@ -13,40 +11,34 @@
                 ]
             },
             {
-                "label": "Bed and Breakfast",
                 "id": "bed-breakfast",
                 "type": [
                     "bed_and_breakfast"
                 ]
             },
             {
-                "label": "Caravan & Camping",
                 "id": "caravan-camping",
                 "type": [
                     "campground", "camping_cabin", "mobile_home_park", "rv_park"
                 ]
             },
             {
-                "label": "Hotel",
                 "id": "hotel",
                 "type": [
                     "hotel", "inn", "motel", "resort_hotel"
                 ]
             },
             {
-                "label": "Farmstay",
                 "id": "farmstay",
                 "type": ["farmstay"]
             }
         ]
     },
     "food-drink": {
-        "label": "Food & Drink",
         "id": "food-drink",
         "icon": "fa-regular fa-cutlery",
         "subCategory": [
             {
-                "label": "Restaurants",
                 "id": "restaurant",
                 "type": [
                     "afghani_restaurant", "african_restaurant", "american_restaurant",
@@ -64,7 +56,6 @@
                 ]
             },
             {
-                "label": "Cafes",
                 "id": "cafe",
                 "type": [
                     "bagel_shop", "cafe", "cafeteria", "candy_store", "coffee_shop",
@@ -74,7 +65,6 @@
                 ]
             },
             {
-                "label": "Bars & Pubs",
                 "id": "bar-pub",
                 "type": [
                     "bar", "bar_and_grill", "pub", "wine_bar"
@@ -83,12 +73,10 @@
         ]
     },
     "things-to-do": {
-        "label": "Things to do",
         "id": "things-to-do",
         "icon": "fa-kit fa-vs-landscape",
         "subCategory": [
             {
-                "label": "Nature & Outdoors",
                 "id": "nature-outdoors",
                 "type": [
                     "national_park", "beach", "hiking_area", "garden", "botanical_garden",
@@ -96,7 +84,6 @@
                 ]
             },
             {
-                "label": "Culture_History",
                 "id": "culture-history",
                 "type": [
                     "museum", "art_gallery", "historical_place", "monument", "sculpture", 
@@ -104,7 +91,6 @@
                 ]
             },
             {
-                "label": "Entertainment",
                 "id": "entertainment",
                 "type": [
                     "aquarium", "zoo", "amusement_park", "concert_hall", "performing_arts_theatre", 
@@ -113,7 +99,6 @@
                 ]
             },
             {
-                "label": "Active & Adventure",
                 "id": "active-adventure",
                 "type": [
                     "skateboard_park", "ice_sktating_rink", "adventure_sports_center", 
@@ -122,7 +107,6 @@
                 ]
             },
             {
-                "label": "Shopping",
                 "id": "shopping",
                 "type": [
                     "shopping_mall", "gift_shop", "book_store", "clothing_store", "department_store", 
@@ -130,14 +114,12 @@
                 ]
             },
             {
-                "label": "Health & Wellness",
                 "id": "health-wellness",
                 "type": [
                     "spa", "wellness_center", "massage", "yoga_studio"
                 ]
             },
             {
-                "label": "Tours",
                 "id": "tours",
                 "type": [
                     "tour_agency", "travel_agency"
@@ -145,13 +127,11 @@
             }
         ]
     },
-    "travel-info": {
-        "label": "Travel Information",
-        "id": "travel-info",
+    "travel-information": {
+        "id": "travel-information",
         "icon": "fa-regular fa-circle-info",
         "subCategory": [
             {
-                "label": "Transport",
                 "id": "transport",
                 "type": [
                     "airport", "airstrip", "bus_station", "bus_stop", "car_rental",
@@ -160,14 +140,12 @@
                 ]
             },
             {
-                "label": "Charging Points",
                 "id": "ev-charging",
                 "type": [
                     "electric_vehicle_charging_station"
                 ]
             },
             {
-                "label": "Facilities",
                 "id": "facilities",
                 "type": [
                     "park_and_ride", "parking", "public_bathroom", "visitor_center", "atm"
