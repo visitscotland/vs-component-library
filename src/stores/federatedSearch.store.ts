@@ -25,7 +25,6 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
     const endDate = ref('');
     const sortBy = ref(undefined);
     const searchUrl = ref(undefined);
-    const resetScroll = ref(undefined);
 
     async function getSearchResults() {
         isLoading.value = true;
@@ -53,8 +52,6 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         totalResults.value = cludoResults.totalResults + eventResults.totalResults;
 
         isLoading.value = false;
-
-        resetScroll.value?.();
     }
 
     async function getAutoComplete() {
@@ -141,7 +138,6 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         startDate,
         endDate,
         sortBy,
-        resetScroll,
     };
 });
 

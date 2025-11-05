@@ -60,9 +60,6 @@
 import { ref, computed } from 'vue';
 import VsButton from '@/components/button/Button.vue';
 import VsBody from '@/components/body/Body.vue';
-import useFederatedSearchStore from '@/stores/federatedSearch.store';
-
-const federatedSearchStore = useFederatedSearchStore();
 
 /**
  * Fed Filter is used in the Federated Search engine.
@@ -132,7 +129,7 @@ const props = defineProps({
     },
 });
 
-// Defines the scoll rail from the Template
+// Defines the scroll rail from the Template
 const scrollRail = ref(null);
 
 defineEmits(['filter-updated']);
@@ -161,9 +158,13 @@ function scroll(dir) {
     else if (dir === 'right') scrollRail.value?.scrollBy(200, 0);
 }
 
-federatedSearchStore.resetScroll = () => {
+function resetScroll() {
     scrollRail.value?.scrollTo(0, 0);
-};
+}
+
+defineExpose({
+    resetScroll,
+});
 
 function filterClasses() {
     return [

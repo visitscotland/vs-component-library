@@ -29,7 +29,7 @@
             </div>
             <VsButton
                 class="d-none d-lg-block px-200"
-                :disabled="federatedSearchStore.isLoading"
+                :disabled="isLoading"
                 @click="search"
             >
                 {{ props.labels.search }}
@@ -59,6 +59,7 @@
             v-if="cludoCategories"
             :active-filter="federatedSearchStore.selectedCategoryKey"
             :filter-categories="cludoCategories"
+            ref="categoryFilter"
             :wrap="true"
             @filter-updated="updateSelectedCategory"
         />
@@ -69,6 +70,7 @@
             :active-filter="federatedSearchStore.selectedSubCategoryKey"
             class="mt-200"
             :filter-categories="props.subFilters"
+            ref="subCategoryFilter"
             variant="secondary"
             @filter-updated="updateSelectedSubCategoryKey"
         >
@@ -81,8 +83,9 @@
 
 <script setup>
 import {
-    onMounted, ref, inject,
+    onMounted, ref, inject, watch,
 } from 'vue';
+import { storeToRefs } from 'pinia';
 import useFederatedSearchStore from '@/stores/federatedSearch.store';
 import {
     VsButton,
@@ -146,7 +149,11 @@ const props = defineProps({
 });
 
 const federatedSearchStore = useFederatedSearchStore();
+const { isLoading } = storeToRefs(federatedSearchStore);
 const searchSuggestions = ref();
+
+const categoryFilter = ref(null);
+const subCategoryFilter = ref(null);
 
 const cludoCategories = inject('cludoCategories');
 
@@ -274,6 +281,14 @@ onMounted(() => {
 
     if (params.has('search-term') || params.has('category')) {
         federatedSearchStore.getSearchResults();
+    }
+});
+
+// Reset the filter scroll when a search has run (isLoading is set from true to false).
+watch(isLoading, (newValue) => {
+    if (!newValue) {
+        categoryFilter.value?.resetScroll();
+        subCategoryFilter.value?.resetScroll();
     }
 });
 </script>
