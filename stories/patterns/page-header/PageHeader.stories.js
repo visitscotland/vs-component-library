@@ -25,7 +25,7 @@ import SplitHeaderTemplate from './templates/split-header';
 
 export default {
     component: VsPageHeader,
-    title: 'Patterns/PageHeader',
+    title: 'Patterns/Page Header',
     argTypes: {
     },
     parameters: {
