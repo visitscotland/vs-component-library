@@ -313,26 +313,22 @@ onMounted(async() => {
 })
 
 function selectCategory(categoryId, key) {
-    if (selectedTopLevelCategory.value === undefined) {
-        selectedTopLevelCategory.value = categoryId;
+    resetCategories();
     
-        // Retrives all the values in each subcategory and adds it to
-        // `includedTopLevelTypes` set, which should handle duplication.
-        Object.values(categoryData[categoryId].subCategory).forEach(
-            subCategory => includedTopLevelTypes.value.add(subCategory.type)
-        );
+    selectedTopLevelCategory.value = categoryId;
     
-        selectedCategory.value = categoryData[categoryId];
-        categoryKey.value = key;
+    // Retrives all the values in each subcategory and adds it to
+    // `includedTopLevelTypes` set, which should handle duplication.
+    Object.values(categoryData[categoryId].subCategory).forEach(
+        subCategory => includedTopLevelTypes.value.add(subCategory.type)
+    );
+    
+    selectedCategory.value = categoryData[categoryId];
+    categoryKey.value = key;
 
-        searchByCategory(Array.from(includedTopLevelTypes.value).flat());
-        query.value = categoryLabelData[categoryKey.value].label;
-        searchInput.value = query.value;
-    } else if (selectedTopLevelCategory !== categoryId) {
-        
-    } else {
-        resetMap(true);
-    } 
+    searchByCategory(Array.from(includedTopLevelTypes.value).flat());
+    query.value = categoryLabelData[categoryKey.value].label;
+    searchInput.value = query.value;
 }
 
 function searchBySubCategory(subCategoryId, key){
@@ -349,7 +345,13 @@ function searchBySubCategory(subCategoryId, key){
             }
         })
 
-        searchByCategory(Array.from(includedSubTypes.value).flat());
+        if(selectedSubCategories.value.size === 0){
+            //If the last subCategory is removed, revert to a top-level search
+            selectCategory(selectedTopLevelCategory.value, categoryKey.value);
+        } else {
+            searchByCategory(Array.from(includedSubTypes.value).flat());
+        }
+
     } else {
         // Add if not already in selectedSubCategories
         selectedSubCategories.value.add(subCategoryId);
@@ -362,6 +364,7 @@ function searchBySubCategory(subCategoryId, key){
         })
 
         searchByCategory(Array.from(includedSubTypes.value).flat());
+        query.value = categoryLabelData[categoryKey.value].subCategory[subCategoryKey.value].label
     }
 }
 
