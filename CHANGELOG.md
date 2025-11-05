@@ -1,3 +1,10 @@
+## [5.15.4](https://github.com/visitscotland/vs-component-library/compare/v5.15.3...v5.15.4) (2025-11-05)
+
+
+### Bug Fixes
+
+* **federated search:** adjust how pagination is calculated ([dfaf6b9](https://github.com/visitscotland/vs-component-library/commit/dfaf6b9367a5bb0f95f1f10566da7f6394097bc0))
+
 ## [5.15.3](https://github.com/visitscotland/vs-component-library/compare/v5.15.2...v5.15.3) (2025-11-05)
 
 
