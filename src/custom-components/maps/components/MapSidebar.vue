@@ -131,6 +131,21 @@ defineEmits(['search-input-changed', 'reset-map']);
         flex-wrap: wrap;
         column-gap: 0.25em;
         row-gap: 0.25em;
+
+        @include media-breakpoint-down(md) {
+            width: 100%;
+            flex-wrap: nowrap;
+            overflow-x: scroll;
+            scroll-snap-type: mandatory x;
+            align-items: start;
+            @include scrollsnap-styles;
+            column-gap: $vs-spacer-050;
+            padding: $vs-spacer-025 $vs-spacer-025 $vs-spacer-050 $vs-spacer-025 ;
+        }
+
+        button {
+            flex: 0 0 max-content;
+        }
     }
 
     &__google-maps-container {

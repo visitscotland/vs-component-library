@@ -66,7 +66,6 @@
                     :icon="filter.icon"
                     :variant="selectedTopLevelCategory === filter.id ? 'primary' : 'secondary'"
                     @click.prevent="selectCategory(filter.id)"
-
                 >
                     {{ filter.label }}
                 </VsButton>
@@ -322,8 +321,9 @@ function selectCategory(categoryId) {
         );
     
         selectedCategory.value = categoryData[categoryId];
-        
+
         searchByCategory(Array.from(includedTopLevelTypes.value).flat());
+        searchInput.value = categoryId;
     } else if (selectedTopLevelCategory !== categoryId) {
         
     } else {
@@ -358,6 +358,7 @@ function searchBySubCategory(subCategoryId){
         })
 
         searchByCategory(Array.from(includedSubTypes.value).flat());
+        searchInput.value = subCategoryId;
     }
 }
 
