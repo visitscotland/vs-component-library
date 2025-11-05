@@ -44,6 +44,7 @@ async function eventSearch(
         url = startDate !== '' ? `${url}&startDate=${startDate}` : url;
         url = endDate !== '' ? `${url}&endDate=${endDate}` : url;
         url = sortBy ? `${url}&sort=${sortBy.key}` : url;
+        url = selectedCategoryKey === 'events' ? `${url}&pageSize=12` : `${url}&pageSize=6`;
 
         selectedSubCategoryKey.forEach((category) => {
             url += `&category=${category}`;
