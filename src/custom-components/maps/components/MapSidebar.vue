@@ -6,11 +6,12 @@
     >
         <div class="vs-map-sidebar__header d-flex">
             <VsHeading
-                level="2"
+                level="1"
                 heading-style="heading-xxs"
-                class="mb-100 flex-grow-1"
+                class="flex-grow-1"
+                v-if="props.headerLabel"
             >
-                Discover your Scotland
+                {{ props.headerLabel }}
             </VsHeading>
             <VsButton
                 variant="tertiary"
@@ -19,17 +20,17 @@
                 class="vs-map-sidebar__sidebar-control vs-map-siderbar__sidebar-control--dismiss"
                 @click="googleMapStore.sidebarOpen = false"
             >
-                Close sidebar
+                {{ props.closeSidebarButtonLabel }}
             </VsButton>
         </div>
         <div class="vs-map-sidebar__content">
-            <div class="vs-map-sidebar__input d-flex mb-050">
+            <div class="vs-map-sidebar__input d-flex mt-100 mb-050">
                 <VsInput
                     type="text"
                     autocomplete="false"
                     field-name="vs-map-search-input"
                     ref="vs-search-input"
-                    placeholder="Type in a keyword"
+                    :placeholder="props.inputPlaceholderLabel"
                     class="vs-map-sidebar__input flex-grow-1"
                     @keyup.enter.prevent="$emit('search-input-changed')"
                 />
@@ -42,7 +43,7 @@
                     @click.prevent="$emit('search-input-changed')"
                     @keyup.enter.prevent="$emit('search-input-changed')"
                 >
-                    Search
+                    {{ props.searchButtonLabel }}
                 </VsButton>
             </div>
             <VsLink
@@ -52,7 +53,7 @@
                 @click.prevent="$emit('reset-map')"
                 @keyup.enter.prevent="$emit('reset-map')"
             >
-                Clear all
+                {{ props.clearMapLabel }}
             </VsLink>
             <div class="vs-map-sidebar__search-results">
                 <VsHeading
@@ -61,7 +62,7 @@
                     heading-style="heading-xxxs"
                     data-test="vs-map-sidebar__search-result-query"
                 >
-                    Search results for "{{ $props.query || Array.from($props.selectedCategories).join(',') }}"
+                    {{ props.searchResultsLabel }} "{{ $props.query || Array.from($props.selectedCategories).join(',') }}"
                 </VsHeading>
                 <div class="vs-map-sidebar__google-maps-container mt-075">
                     <!-- @Slot to contain Google Maps Places
@@ -85,7 +86,7 @@
         icon-only
         @click="googleMapStore.sidebarOpen = true"
     >
-        Open Sidebar
+        {{ props.openSidebarButtonLabel }}
     </VsButton>
 </template>
 
@@ -107,6 +108,34 @@ const props = defineProps({
     selectedCategories: {
         type: Set,
         default: new Set(),
+    },
+    headerLabel: {
+        type: String,
+        default: '',
+    },
+    closeSidebarButtonLabel: {
+        type: String,
+        default: '',
+    },
+    inputPlaceholderLabel: {
+        type: String,
+        default: '',
+    },
+    searchButtonLabel: {
+        type: String,
+        default: '',
+    },
+    clearMapLabel: {
+        type: String,
+        default: '',
+    },
+    searchResultsLabel: {
+        type: String,
+        default: '',
+    },
+    openSidebarButtonLabel: {
+        type: String,
+        default: '',
     },
 });
 
