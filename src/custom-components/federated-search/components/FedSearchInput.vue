@@ -272,6 +272,10 @@ onMounted(() => {
         ));
     }
 
+    if (params.has('category') && params.get('category') === 'events' && params.has('sort-by')) {
+        federatedSearchStore.sortBy = params.get('sort-by');
+    }
+
     if (params.has('search-term') || params.has('category')) {
         federatedSearchStore.getSearchResults();
     }

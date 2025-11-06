@@ -64,7 +64,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
     }
 
     function navigateToResultsPage(resetPageNo?: boolean) {
-        const url = new URL(window.location);
+        const url = new URL(window.location.href);
 
         if (searchTerm.value) {
             url.searchParams.set('search-term', searchTerm.value);
@@ -106,7 +106,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         }
 
         if (sortBy.value) {
-            url.searchParams.set('sort-by', sortBy.value.key);
+            url.searchParams.set('sort-by', sortBy.value);
         } else {
             url.searchParams.delete('sort-by');
         }
