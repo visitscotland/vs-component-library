@@ -80,7 +80,7 @@ export default `
                         <div class="d-flex align-items-center">
                             <VsIcon
                                 icon="fa-regular fa-calendar-range"
-                                variant="secondary"
+                                variant="tertiary"
                                 class="me-050"
                                 size="sm"
                             />
@@ -94,7 +94,7 @@ export default `
 
                             <VsIcon
                                 icon="fa-regular fa-taxi"
-                                variant="secondary"
+                                variant="tertiary"
                                 class="me-050"
                                 size="sm"
                             />
@@ -108,7 +108,7 @@ export default `
 
                             <VsIcon
                                 icon="fa-regular fa-route"
-                                variant="secondary"
+                                variant="tertiary"
                                 class="me-050"
                                 size="sm"
                             />
@@ -122,7 +122,7 @@ export default `
 
                             <VsIcon
                                 icon="fa-regular fa-binoculars"
-                                variant="secondary"
+                                variant="tertiary"
                                 class="me-050"
                                 size="sm"
                             />
