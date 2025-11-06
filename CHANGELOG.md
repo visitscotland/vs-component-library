@@ -1,3 +1,11 @@
+# [5.16.0](https://github.com/visitscotland/vs-component-library/compare/v5.15.4...v5.16.0) (2025-11-06)
+
+
+### Features
+
+* **panel:** update panel variants and styles ([071f39a](https://github.com/visitscotland/vs-component-library/commit/071f39a8e3e0f21795b5b650f0fcb6b1f89b6962))
+* **panel:** update ternary check in panel component ([a60c8ff](https://github.com/visitscotland/vs-component-library/commit/a60c8ff3323315ff2efba9fe51e2fa58e690dcc7))
+
 ## [5.15.4](https://github.com/visitscotland/vs-component-library/compare/v5.15.3...v5.15.4) (2025-11-05)
 
 
