@@ -32,6 +32,7 @@ async function eventSearch(
     startDate: string,
     endDate: string,
     sortBy: any,
+    siteLanguage: string,
 ) {
     const federatedSearchStore = useFederatedSearchStore();
     federatedSearchStore.eventsApiError = false;
@@ -39,7 +40,7 @@ async function eventSearch(
     // Only query the event API when the no selected category or the event category
     // is selected.
     if (selectedCategoryKey === 'events' || !selectedCategoryKey) {
-        let url = `${api}?query=${searchTerm}`;
+        let url = `${api}?query=${searchTerm}&lang=${siteLanguage}`;
         url = page > 1 ? `${url}&page=${page}` : url;
         url = startDate !== '' ? `${url}&startDate=${startDate}` : url;
         url = endDate !== '' ? `${url}&endDate=${endDate}` : url;
