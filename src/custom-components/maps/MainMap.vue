@@ -510,9 +510,6 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
     }
 
     placeRequest.place = place;
-    compactPlaceRequest.place = place;
-
-    let activeDetailElement;
 
     //Medium breakpoint (this can't be done in CSS unfortunatley)
     const isMobile = window.innerWidth <= 768;
@@ -520,22 +517,20 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
     if (!isMobile) {
         placeDetails.style.width = '20em';
         placeDetails.style.height = '32em';
-        activeDetailElement = placeDetails;
     } else {
-        placeDetailsCompact.style.width = '15em';
-        placeDetailsCompact.style.height = '20em';
-        activeDetailElement = placeDetailsCompact;
+        placeDetails.style.width = '85vw';
+        placeDetails.style.height = '32em'; 
     }
     
-    activeDetailElement.style.display = 'block';
-    activeDetailElement.style.overflowY = 'auto';
-    activeDetailElement.style.overflowX = 'hidden';
-    activeDetailElement.style.boxSizing = 'border-box';
-    activeDetailElement.style.maxHeight = '32em';
+    placeDetails.style.display = 'block';
+    placeDetails.style.overflowY = 'auto';
+    placeDetails.style.overflowX = 'hidden';
+    placeDetails.style.boxSizing = 'border-box';
+    placeDetails.style.maxHeight = '32em';
 
     infoWindow.setOptions({
-        content: activeDetailElement,
-        maxWidth: 460,
+        content: placeDetails,
+        maxWidth: '25em',
         pixelOffset: null,
     });
 
