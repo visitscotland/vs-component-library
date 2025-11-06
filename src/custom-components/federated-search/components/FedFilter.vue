@@ -31,8 +31,8 @@
                     v-for="(filterCategory, index) in sortedCategories"
                     :key="index"
                     class="vs-fed-filter__category-button"
-                    :data-test="`vs-fed-filter__category-button--${filterCategory.id}`"
-                    :icon="props.variant === 'primary' ? filterCategory.icon : null"
+                    :data-test="`vs-fed-filter__category-button--${filterCategory.Key}`"
+                    :icon="props.variant === 'primary' ? setFilterIcon(filterCategory.Key) : null"
                     :variant="isActive(filterCategory.Key) ? 'primary' : 'secondary'"
                     :size="props.variant === 'secondary' ? 'sm' : 'md'"
                     @click="$emit('filter-updated', filterCategory)"
@@ -183,6 +183,50 @@ const sortedCategories = computed(() => {
     });
 });
 
+function setFilterIcon(key) {
+    let icon;
+
+    switch (key) {
+    case 'accommodation':
+        icon = 'fa-regular fa-bed';
+        break;
+    case 'active-adventure':
+        icon = 'fa-kit fa-vs-landscape';
+        break;
+    case 'city-break':
+        icon = 'fa-regular fa-city';
+        break;
+    case 'culture-history':
+        icon = 'fa-regular fa-chess-rook';
+        break;
+    case 'events':
+        icon = 'fa-regular fa-calendar-range';
+        break;
+    case 'family-friendly':
+        icon = 'fa-regular fa-family';
+        break;
+    case 'food-drink':
+        icon = 'fa-regular fa-utensils';
+        break;
+    case 'nature-outdoors':
+        icon = 'fa-regular fa-leaf';
+        break;
+    case 'tours':
+        icon = 'fa-regular fa-binoculars';
+        break;
+    case 'travel-information':
+        icon = 'fa-regular fa-circle-info';
+        break;
+    case 'wellness':
+        icon = 'fa-regular fa-spa';
+        break;
+    default:
+        icon = null;
+        break;
+    }
+
+    return icon;
+}
 </script>
 
 <style lang="scss">
@@ -191,7 +235,7 @@ const sortedCategories = computed(() => {
             font-weight: $vs-font-weight-medium;
         }
 
-        &__scroll-container{
+        &__scroll-container {
             display: flex;
         }
 
