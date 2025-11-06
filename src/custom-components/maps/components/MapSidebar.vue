@@ -1,13 +1,26 @@
 <template>
-    <div class="vs-map-sidebar px-125">
-        <div class="vs-map-sidebar__header">
+    <div
+        class="vs-map-sidebar px-125"
+        :class="googleMapStore.sidebarOpen ? 'd-block' : 'd-none'"
+        ref="vsMapSidebar"
+    >
+        <div class="vs-map-sidebar__header d-flex">
             <VsHeading
                 level="2"
                 heading-style="heading-xxs"
-                class="mb-100"
+                class="mb-100 flex-grow-1"
             >
                 Discover your Scotland
             </VsHeading>
+            <VsButton
+                variant="tertiary"
+                icon="vs-icon-control-dismiss"
+                icon-only
+                class="vs-map-sidebar__sidebar-control vs-map-siderbar__sidebar-control--dismiss"
+                @click="googleMapStore.sidebarOpen = false"
+            >
+                Close sidebar
+            </VsButton>
         </div>
         <div class="vs-map-sidebar__content">
             <div class="vs-map-sidebar__input d-flex mb-050">
@@ -43,9 +56,10 @@
             </VsLink>
             <div class="vs-map-sidebar__search-results">
                 <VsHeading
+                    v-if="$props.query || $props.selectedCategories.size >= 1"
                     level="3"
                     heading-style="heading-xxxs"
-                    v-if="$props.query || $props.selectedCategories.size >= 1"
+                    data-test="vs-map-sidebar__search-result-query"
                 >
                     Search results for "{{ $props.query || Array.from($props.selectedCategories).join(',') }}"
                 </VsHeading>
@@ -60,20 +74,30 @@
             class="vs-map-sidebar__footer"
             v-if="$props.query || $props.selectedCategories.size >= 1"
         >
-            <hr class="vs-map-sidebar__swipe-tab" />
+            <hr class="vs-map-sidebar__swipe-tab">
         </div>
     </div>
+    <VsButton
+        class="vs-map-sidebar__sidebar-control vs-map-sidebar__sidebar-control--open"
+        :class="googleMapStore.sidebarOpen ? 'd-none' : 'd-block'"
+        size="sm"
+        icon="fa-regular fa-sliders"
+        icon-only
+        @click="googleMapStore.sidebarOpen = true"
+    >
+        Open Sidebar
+    </VsButton>
 </template>
 
 <script setup lang="ts">
-import {
-    VsButton,
-    VsHeading,
-    VsInput,
-    VsLink,
-} from '@/components';
+import VsButton from '@/components/button/Button.vue';
+import VsLink from '@/components/link/Link.vue';
+import VsHeading from '@/components/heading/Heading.vue';
+import VsInput from '@/components/input/Input.vue';
 
-import { defineEmits } from 'vue';
+import useGoogleMapStore from '@/stores/mainMap.store';
+
+const googleMapStore = useGoogleMapStore();
 
 const props = defineProps({
     query: {
@@ -121,6 +145,16 @@ defineEmits(['search-input-changed', 'reset-map']);
         border: $vs-color-border-highlight solid 0.15em;
         border-radius: $vs-radius-full;
         margin: 1em auto;
+    }
+
+    &__sidebar-control {
+        @include media-breakpoint-up(md) {
+            display: none;
+        }
+
+        &--open {
+            pointer-events: auto;
+        }
     }
 }
 </style>

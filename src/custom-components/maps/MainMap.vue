@@ -40,7 +40,7 @@
             </VsMapSidebar>
             <div
                 class="vs-map__filter-controls"
-                v-if="currentZoom > CATEGORY_VISIBLE_ZOOM"
+                v-if="(currentZoom > CATEGORY_VISIBLE_ZOOM) && googleMapStore.sidebarOpen"
             >
                 <VsButton
                     v-for="filter in mapFilters"
@@ -111,12 +111,12 @@ import {
 } from '@/components';
 import { LatLngObject } from '@/types/types';
 import VsMapSidebar from './components/MapSidebar.vue';
+import useGoogleMapStore from '@/stores/mainMap.store';
 
 import { 
     importLibrary,
     setOptions, 
 } from '@googlemaps/js-api-loader';
-import filter from '@/components/filter';
 
 const props = defineProps({
     /**
@@ -182,6 +182,8 @@ const CATEGORY_VISIBLE_ZOOM: number = 9;
 const NUMBER_OF_RESULTS: number = 20;
 const query = ref<string>();
 const currentSearch = ref<string>();
+
+const googleMapStore = useGoogleMapStore();
 
 const SCOTLAND_BOUNDS = {
     north: 60.86500,
