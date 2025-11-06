@@ -26,38 +26,38 @@
 
                 <template #vs-map-sidebar-search-results>
                     <Suspense>
-                            <div id="search-container">
-                                <gmp-place-search
-                                    id="nearbySearch"
-                                    orientation="vertical"
-                                    attributionPosition="BOTTOM"
-                                    selectable
-                                    style="display: none"
-                                >
-                                    <gmp-place-all-content></gmp-place-all-content>
-                                    <gmp-place-nearby-search-request id="nearbySearchQuery">
-                                    </gmp-place-nearby-search-request>
-                                    <gmp-place-attribution light-scheme-color="black" dark-scheme-color="grey"></gmp-place-attribution>
-                                </gmp-place-search> 
-                                <gmp-place-search
-                                    id="textSearch"
-                                    orientation="vertical"
-                                    attributionPosition="BOTTOM"
-                                    selectable
-                                    style="display: none"
-                                >
-                                    <gmp-place-all-content></gmp-place-all-content>
-                                    <gmp-place-text-search-request id="textSearchQuery">
-                                    </gmp-place-text-search-request>
-                                    <gmp-place-attribution light-scheme-color="black" dark-scheme-color="grey"></gmp-place-attribution>
-                                </gmp-place-search> 
-                            </div>
+                        <div id="search-container">
+                            <gmp-place-search
+                                id="nearbySearch"
+                                orientation="vertical"
+                                attributionPosition="BOTTOM"
+                                selectable
+                                style="display: none"
+                            >
+                                <gmp-place-all-content></gmp-place-all-content>
+                                <gmp-place-nearby-search-request id="nearbySearchQuery">
+                                </gmp-place-nearby-search-request>
+                                <gmp-place-attribution light-scheme-color="black" dark-scheme-color="grey"></gmp-place-attribution>
+                            </gmp-place-search> 
+                            <gmp-place-search
+                                id="textSearch"
+                                orientation="vertical"
+                                attributionPosition="BOTTOM"
+                                selectable
+                                style="display: none"
+                            >
+                                <gmp-place-all-content></gmp-place-all-content>
+                                <gmp-place-text-search-request id="textSearchQuery">
+                                </gmp-place-text-search-request>
+                                <gmp-place-attribution light-scheme-color="black" dark-scheme-color="grey"></gmp-place-attribution>
+                            </gmp-place-search> 
+                        </div>
                     </Suspense>
                 </template>
             </VsMapSidebar>
             <div
                 class="vs-map__filter-controls"
-                v-if="currentZoom > CATEGORY_VISIBLE_ZOOM"
+                v-if="(currentZoom > CATEGORY_VISIBLE_ZOOM) && googleMapStore.sidebarOpen"
             >
                 <VsButton
                     v-for="(category, key) in categoryLabelData"
@@ -78,41 +78,35 @@
                 id="vs-map"
                 map-id="vs-map"
                 ref="vsMap"
-            ></div>
+            >
+            </div>
+            <Suspense>
+                <div id="detail-container">
+                        <gmp-place-details
+                            id="placeDetails"
+                            style="display: none"
+                        >
+                            <gmp-place-details-place-request id="placeRequest"></gmp-place-details-place-request>
+                            <gmp-place-content-config>
+                                <gmp-place-address></gmp-place-address>
+                                <gmp-place-rating></gmp-place-rating>
+                                <gmp-place-type></gmp-place-type>
+                                <gmp-place-price></gmp-place-price>
+                                <gmp-place-accessible-entrance-icon></gmp-place-accessible-entrance-icon>
+                                <gmp-place-opening-hours></gmp-place-opening-hours>
+                                <gmp-place-website></gmp-place-website>
+                                <gmp-place-phone-number></gmp-place-phone-number>
+                                <gmp-place-summary></gmp-place-summary>
+                                <gmp-place-type-specific-highlights></gmp-place-type-specific-highlights>
+                                <gmp-place-reviews></gmp-place-reviews>
+                                <gmp-place-feature-list></gmp-place-feature-list>
+                                <gmp-place-media lightbox-preferred></gmp-place-media>
+                                <gmp-place-attribution light-scheme-color="black"></gmp-place-attribution>
+                            </gmp-place-content-config>
+                        </gmp-place-details>
+                    </div>
+            </Suspense>
         </div>
-    
-        <VsContainer class="mt-100">
-            <VsRow>
-                <VsCol cols="12" md="6">
-                    
-                </VsCol>
-                <VsCol cols="12" md="6">
-                    <Suspense>
-                        <div id="detail-container">
-                            <gmp-place-details id="placeDetails" >
-                                <gmp-place-details-place-request id="placeRequest"></gmp-place-details-place-request>
-                                <gmp-place-content-config>
-                                    <gmp-place-address></gmp-place-address>
-                                    <gmp-place-rating></gmp-place-rating>
-                                    <gmp-place-type></gmp-place-type>
-                                    <gmp-place-price></gmp-place-price>
-                                    <gmp-place-accessible-entrance-icon></gmp-place-accessible-entrance-icon>
-                                    <gmp-place-opening-hours></gmp-place-opening-hours>
-                                    <gmp-place-website></gmp-place-website>
-                                    <gmp-place-phone-number></gmp-place-phone-number>
-                                    <gmp-place-summary></gmp-place-summary>
-                                    <gmp-place-type-specific-highlights></gmp-place-type-specific-highlights>
-                                    <gmp-place-reviews></gmp-place-reviews>
-                                    <gmp-place-feature-list></gmp-place-feature-list>
-                                    <gmp-place-media lightbox-preferred></gmp-place-media>
-                                    <gmp-place-attribution light-scheme-color="black"></gmp-place-attribution>
-                                </gmp-place-content-config>
-                            </gmp-place-details>
-                        </div>
-                    </Suspense>
-                </VsCol>
-            </VsRow>
-        </VsContainer>
     </div>
 </template>
 
@@ -132,6 +126,7 @@ import {
 } from '@/components';
 import { LatLngObject } from '@/types/types';
 import VsMapSidebar from './components/MapSidebar.vue';
+import useGoogleMapStore from '@/stores/mainMap.store';
 
 import { 
     importLibrary,
@@ -191,13 +186,10 @@ const props = defineProps({
 })
 
 // Map Object, HTMLElements & Global Variables
-let vsMap = ref(null);
-
 let gMap: google.maps.Map;
 
 let mapContainer: any | null;
 let searchContainer: any | null;
-let placeSearch: any;
 let nearbySearch: any;
 let textSearch: any;
 let textSearchQuery: any | null;
@@ -206,6 +198,7 @@ let detailContainer: any | null;
 let placeDetails: any | null;
 let placeRequest: any | null;
 let searchInput: any;
+let infoWindow: any;
 
 let markers = {};
 const selectedTopLevelCategory = ref();
@@ -221,6 +214,8 @@ const CATEGORY_VISIBLE_ZOOM: number = 9;
 const NUMBER_OF_RESULTS: number = 20;
 const query = ref<string>();
 const currentSearch = ref<string>();
+
+const googleMapStore = useGoogleMapStore();
 
 const SCOTLAND_BOUNDS = {
     north: 60.86500,
@@ -246,7 +241,7 @@ onMounted(async() => {
     textSearchQuery = document.querySelector('gmp-place-text-search-request');
     nearbySearchQuery = document.querySelector('gmp-place-nearby-search-request');
     detailContainer = document.getElementById('detail-container');
-    placeDetails = document.getElementById('placeDetails');
+    placeDetails = document.querySelector('gmp-place-details');
     placeRequest = document.getElementById('placeRequest');
     searchInput = document.getElementById('vs-map-search-input');
 
@@ -288,24 +283,28 @@ onMounted(async() => {
             console.error('Maps init error', error.message);
         }
 
+        //Registers the infoWindow that the placeDetail element lives
+        infoWindow = new google.maps.InfoWindow();
+
         //Listens to the zoom level
         gMap.addListener('zoom_changed', (event) => {
             currentZoom.value = gMap.getZoom();
-            console.log(currentZoom.value);
         })
 
-        //Handles click events in the Places UI Kit search panel
-        textSearch.addEventListener('gmp-select', ({ place }) => {
-            if(markers[place.id]){ 
-                handlePlaceClick(place, markers[place.id]);
-            }
-        })
-        
+        //Handles click events in the Places UI Kit search panel for
+        //both nearby and text searches.
         nearbySearch.addEventListener('gmp-select', ({ place }) => {
             if(markers[place.id]){ 
                 handlePlaceClick(place, markers[place.id]);
             }
-        })
+        });
+
+        textSearch.addEventListener('gmp-select', ({ place }) => {
+            if(markers[place.id]){ 
+                handlePlaceClick(place, markers[place.id]);
+            }
+        });
+        
     };
 
     // Init map
@@ -403,9 +402,6 @@ async function searchByText() {
         return;
     }
 
-    console.log(`searching for ${query.value}`)
-    console.log(`current center: ${gMap.getCenter()}`)
-
     textSearchQuery.textQuery = query.value;
 
     // Get the center of the map, as it may have changed
@@ -463,14 +459,12 @@ async function addMarkers() {
             marker.metadata = { id: place.id };
             markers[place.id] = marker;
             bounds.extend(place.location);
-            console.log(bounds);
         });
     }
 
     if (searchRequest.value.places.length > 1) {
         gMap.fitBounds(bounds);
-    } else if (searchRequest.value.places.length < 2){
-        console.log(`Place1 viewport`, searchRequest.value.places[0].viewport)
+    } else if (searchRequest.value.places.length === 1){
         gMap.fitBounds(searchRequest.value.places[0].viewport);
     }
 }
@@ -480,10 +474,14 @@ function resetMap(hardReset?: boolean) {
     currentSearch.value = '';
     nearbySearch.style.display = 'none';
     textSearch.style.display = 'none';
+    if(infoWindow && infoWindow.close) {
+        infoWindow.close();
+    }
     if (hardReset) {
         // A `hard reset` will remove all text and categories
         resetTextQuery();
         resetCategories();
+        resetLocation();
     }
 }
 
@@ -516,10 +514,42 @@ function clearExistingMarkers() {
 }
 
 function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerElement) {
-    placeRequest = document.getElementById('placeRequest');
+
+    if (infoWindow.isOpen) {
+        infoWindow.close();
+    }
+
     placeRequest.place = place;
 
-    gMap.fitBounds(place.viewport, {top: 200, right: 450});
+    //Medium breakpoint (this can't be done in CSS unfortunatley)
+    const isMobile = window.innerWidth <= 768;
+
+    if (!isMobile) {
+        placeDetails.style.width = '20em';
+        placeDetails.style.height = '32em';
+    } else {
+        placeDetails.style.width = '85vw';
+        placeDetails.style.height = '32em'; 
+    }
+    
+    placeDetails.style.display = 'block';
+    placeDetails.style.overflowY = 'auto';
+    placeDetails.style.overflowX = 'hidden';
+    placeDetails.style.boxSizing = 'border-box';
+    placeDetails.style.maxHeight = '32em';
+
+    infoWindow.setOptions({
+        content: placeDetails,
+        maxWidth: '25em',
+        pixelOffset: null,
+    });
+
+    infoWindow.open({
+        anchor: marker,
+        map: gMap
+    });
+
+    gMap.fitBounds(place.viewport, {top: 200, right: 150});
     google.maps.event.addListenerOnce(gMap, 'idle', () => {
         if(gMap.getZoom() > MAX_ZOOM) {
             gMap.setZoom(MAX_ZOOM);
