@@ -9,32 +9,32 @@
             >
                 <template #vs-map-sidebar-search-results>
                     <Suspense>
-                            <div id="search-container">
-                                <gmp-place-search
-                                    id="nearbySearch"
-                                    orientation="vertical"
-                                    attributionPosition="BOTTOM"
-                                    selectable
-                                    style="display: none"
-                                >
-                                    <gmp-place-all-content></gmp-place-all-content>
-                                    <gmp-place-nearby-search-request id="nearbySearchQuery">
-                                    </gmp-place-nearby-search-request>
-                                    <gmp-place-attribution light-scheme-color="black" dark-scheme-color="grey"></gmp-place-attribution>
-                                </gmp-place-search> 
-                                <gmp-place-search
-                                    id="textSearch"
-                                    orientation="vertical"
-                                    attributionPosition="BOTTOM"
-                                    selectable
-                                    style="display: none"
-                                >
-                                    <gmp-place-all-content></gmp-place-all-content>
-                                    <gmp-place-text-search-request id="textSearchQuery">
-                                    </gmp-place-text-search-request>
-                                    <gmp-place-attribution light-scheme-color="black" dark-scheme-color="grey"></gmp-place-attribution>
-                                </gmp-place-search> 
-                            </div>
+                        <div id="search-container">
+                            <gmp-place-search
+                                id="nearbySearch"
+                                orientation="vertical"
+                                attributionPosition="BOTTOM"
+                                selectable
+                                style="display: none"
+                            >
+                                <gmp-place-all-content></gmp-place-all-content>
+                                <gmp-place-nearby-search-request id="nearbySearchQuery">
+                                </gmp-place-nearby-search-request>
+                                <gmp-place-attribution light-scheme-color="black" dark-scheme-color="grey"></gmp-place-attribution>
+                            </gmp-place-search> 
+                            <gmp-place-search
+                                id="textSearch"
+                                orientation="vertical"
+                                attributionPosition="BOTTOM"
+                                selectable
+                                style="display: none"
+                            >
+                                <gmp-place-all-content></gmp-place-all-content>
+                                <gmp-place-text-search-request id="textSearchQuery">
+                                </gmp-place-text-search-request>
+                                <gmp-place-attribution light-scheme-color="black" dark-scheme-color="grey"></gmp-place-attribution>
+                            </gmp-place-search> 
+                        </div>
                     </Suspense>
                 </template>
             </VsMapSidebar>
