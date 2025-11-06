@@ -88,14 +88,6 @@
                                 <gmp-place-attribution light-scheme-color="black"></gmp-place-attribution>
                             </gmp-place-content-config>
                         </gmp-place-details>
-                        <gmp-place-details-compact
-                            id="placeDetailsCompact"
-                            orientation="horizontal"
-                            style="display: none;"    
-                        >
-                            <gmp-place-details-place-request id="compactPlaceRequest"></gmp-place-details-place-request> 
-                            <gmp-place-all-content></gmp-place-all-content>
-                        </gmp-place-details-compact> 
                     </div>
             </Suspense>
         </div>
@@ -177,9 +169,7 @@ let textSearchQuery: any | null;
 let nearbySearchQuery: any | null;
 let detailContainer: any | null;
 let placeDetails: any | null;
-let placeDetailsCompact: any | null;
 let placeRequest: any | null;
-let compactPlaceRequest: any | null;
 let searchInput: any;
 let infoWindow: any;
 
@@ -258,9 +248,7 @@ onMounted(async() => {
     nearbySearchQuery = document.querySelector('gmp-place-nearby-search-request');
     detailContainer = document.getElementById('detail-container');
     placeDetails = document.querySelector('gmp-place-details');
-    placeDetailsCompact = document.querySelector('gmp-place-details-compact');
     placeRequest = document.getElementById('placeRequest');
-    compactPlaceRequest = document.getElementById('compactPlaceRequest');
     searchInput = document.getElementById('vs-map-search-input');
 
     try{
