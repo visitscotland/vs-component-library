@@ -59,6 +59,7 @@ Espanol.args = {
         searchResults: 'Resultados de la búsqueda para ',
         openSidebarButton: 'Abrir barra lateral',
     },
+    languageCode: 'es',
 };
 
 export const NoJavascript = Template.bind();
