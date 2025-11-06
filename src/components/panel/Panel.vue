@@ -38,9 +38,7 @@ export default {
     },
     computed: {
         panelClasses() {
-            return [
-                this.variant ? `vs-panel--${this.variant}` : '',
-            ];
+            return `vs-panel--${this.variant}`;
         },
     },
 };
