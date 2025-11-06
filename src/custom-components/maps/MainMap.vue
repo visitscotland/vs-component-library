@@ -556,23 +556,6 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
         }
     })
 }
-
-function getLabel(categoryID){
-
-    //console.log(categoryLabelData);
-
-    // categoryLabelData.forEach(category => {
-    //     console.log(category);
-    //     if (category.id === categoryID) {
-    //         return category.label;
-    //     }
-    // })
-
-    for (let i: number = 0; i < categoryLabelData.length; i++){
-        console.log(categoryLabelData[i].id);
-    }
-
-}
 </script>
 
 <style lang="scss">
