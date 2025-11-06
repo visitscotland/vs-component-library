@@ -20,7 +20,9 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsMainMap v-bind="args" />
+        <div :class="args.jsDisabled ? 'no-js' : ''">
+            <VsMainMap v-bind="args" />
+        </div>
     `,
 });
 
@@ -31,6 +33,10 @@ const base = {
     },
     zoom: 7,
     radius: 5000,
+    jsDisabled: false,
+    noJsMessage: 'JavaScript is required to use the map. Enable JavaScript then reload the page to use the map.',
+    noCookiesMessage: 'Cookies are requried to use the map',
+    cookieBtnText: 'Manage cookies',
 };
 
 export const Default = Template.bind();
