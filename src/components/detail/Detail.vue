@@ -1,11 +1,22 @@
 <template>
     <p :class="detailClasses">
-        <!-- @slot Default slot for detail text content -->
-        <slot />
+        <VsIcon
+            v-if="icon"
+            class="me-050 flex-shrink-0"
+            :icon="icon"
+            size="sm"
+            :variant="iconVariant"
+        />
+        <span>
+            <!-- @slot Default slot for detail text content -->
+            <slot />
+        </span>
     </p>
 </template>
 
 <script>
+import VsIcon from '@/components/icon/Icon.vue';
+
 /**
  * The detail component is used for supplementary information or
  * extra information in a hierarchy of content.
@@ -16,6 +27,9 @@ export default {
     name: 'VsDetail',
     status: 'prototype',
     release: '0.0.1',
+    components: {
+        VsIcon,
+    },
     props: {
         /**
          * The font size
@@ -43,6 +57,21 @@ export default {
             type: Boolean,
             default: false,
         },
+        /**
+         * The name of the icon to display alongside the detail text.
+         */
+        icon: {
+            type: String,
+            default: '',
+        },
+        /**
+         * Color variant of the icon displayed alongside the detail text.
+         */
+        iconVariant: {
+            type: String,
+            default: 'primary',
+            validator: (value) => value.match(/(primary|secondary|tertiary|cta|inverse|disabled|highlight|error|warning|success)/),
+        },
     },
     computed: {
         detailClasses() {
@@ -50,6 +79,7 @@ export default {
                 'vs-detail',
                 `vs-detail--${this.size}`,
                 `vs-detail--${this.color}`,
+                ...(this.icon ? ['d-flex', 'align-items-center'] : []),
                 ...(this.noMargins ? [] : ['vs-detail--with-margins']),
             ];
         },

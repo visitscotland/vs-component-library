@@ -48,6 +48,49 @@ describe('VsDetail', () => {
 
             expect(wrapper.classes()).not.toContain('vs-detail--with-margins');
         });
+
+        it('should render an icon when icon prop is provided', () => {
+            const wrapper = factoryShallowMount({
+                icon: 'fa-regular fa-calendar',
+            });
+
+            const icon = wrapper.findComponent({ name: 'VsIcon' });
+            expect(icon.exists()).toBe(true);
+            expect(icon.props('icon')).toBe('fa-regular fa-calendar');
+        });
+
+        it('should not render an icon when icon prop is not provided', () => {
+            const wrapper = factoryShallowMount();
+
+            const icon = wrapper.findComponent({ name: 'VsIcon' });
+            expect(icon.exists()).toBe(false);
+        });
+
+        it('should pass iconVariant prop to the icon component', () => {
+            const wrapper = factoryShallowMount({
+                icon: 'fa-regular fa-calendar',
+                iconVariant: 'tertiary',
+            });
+
+            const icon = wrapper.findComponent({ name: 'VsIcon' });
+            expect(icon.props('variant')).toBe('tertiary');
+        });
+
+        it('should add flex classes when icon is present', () => {
+            const wrapper = factoryShallowMount({
+                icon: 'fa-regular fa-calendar',
+            });
+
+            expect(wrapper.classes()).toContain('d-flex');
+            expect(wrapper.classes()).toContain('align-items-center');
+        });
+
+        it('should not add flex classes when icon is not present', () => {
+            const wrapper = factoryShallowMount();
+
+            expect(wrapper.classes()).not.toContain('d-flex');
+            expect(wrapper.classes()).not.toContain('align-items-center');
+        });
     });
 
     describe('slots:', () => {
