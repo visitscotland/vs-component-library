@@ -17,6 +17,7 @@ import VsDetail from '@/components/detail/Detail.vue';
 import VsLink from '@/components/link/Link.vue';
 import VsCardGroup from '@/components/card-group/CardGroup.vue';
 import VsCard from '@/components/card/Card.vue';
+import VsSpotlightSection from '@/components/spotlight-section/SpotlightSection.vue';
 
 import cardLayoutData from '@/assets/fixtures/navigation-pages/visual-impact-cards.json';
 import ItineraryTemplate from './templates/itinerary-template';
@@ -41,6 +42,7 @@ const components = {
     VsLink,
     VsCardGroup,
     VsCard,
+    VsSpotlightSection,
 };
 
 const createStory = (template) => ({
