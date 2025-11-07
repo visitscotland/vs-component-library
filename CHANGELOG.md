@@ -1,3 +1,11 @@
+## [5.16.1](https://github.com/visitscotland/vs-component-library/compare/v5.16.0...v5.16.1) (2025-11-06)
+
+
+### Bug Fixes
+
+* **federated search:** remove 'other' category from stories ([c9af77b](https://github.com/visitscotland/vs-component-library/commit/c9af77b4dd1cd1c32c43334459ca698b4ae6ec05))
+* **fedfilter:** add icons to buttons when primary variant ([a7a2258](https://github.com/visitscotland/vs-component-library/commit/a7a2258e88cc5b601601009fd6e6a340d240559f))
+
 # [5.16.0](https://github.com/visitscotland/vs-component-library/compare/v5.15.4...v5.16.0) (2025-11-06)
 
 
