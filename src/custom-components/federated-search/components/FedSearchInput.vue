@@ -276,6 +276,14 @@ onMounted(() => {
         federatedSearchStore.sortBy = params.get('sort-by');
     }
 
+    if (params.has('start-date')) {
+        federatedSearchStore.startDate = params.get('start-date');
+    }
+
+    if (params.has('end-date')) {
+        federatedSearchStore.endDate = params.get('end-date');
+    }
+
     if (params.has('search-term') || params.has('category')) {
         federatedSearchStore.getSearchResults();
     }

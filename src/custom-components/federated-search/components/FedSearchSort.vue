@@ -15,7 +15,7 @@
             </label>
             <VsInput
                 field-name="vs-fed-search-sort__from-date"
-                :value="new Date().toJSON().slice(0, 10)"
+                :value="federatedSearchStore.startDate || new Date().toJSON().slice(0, 10)"
                 type="date"
                 :auto-complete="false"
                 @input="$emit('from-date-updated', $event.target.value)"
@@ -40,6 +40,7 @@
                 type="date"
                 :auto-complete="false"
                 @input="$emit('end-date-updated', $event.target.value)"
+                :value="federatedSearchStore.endDate || ''"
             />
         </VsCol>
         <VsCol
