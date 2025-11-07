@@ -54,5 +54,16 @@ export const NoCookies = Template.bind();
 
 NoCookies.args = {
     ...base,
-    cookiesDisabled: true,
 };
+
+NoCookies.decorators = [
+    () => {
+        window.bypassCookiesRequired = false;
+
+        return {
+            template: `
+                <story/>
+            `,
+        };
+    },
+];

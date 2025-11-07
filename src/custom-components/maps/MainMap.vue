@@ -96,8 +96,8 @@
             </div>
         </div>
         
-        <!-- <VsWarning
-            :type="cookieCheckerMixin.cookiesLoaded === true ? 'cookie' : 'normal'"
+        <VsWarning
+            type="cookie"
             v-if="showError"
             class="vs-map__warning vs-map__warning--no-cookies"
             data-test="vs-map__warning--no-cookies"
@@ -105,13 +105,13 @@
             {{ props.noCookiesMessage }}
 
             <template
-                v-if="!cookieCheckerMixin.cookiesAllowed
-                    && cookieCheckerMixin.cookiesLoaded === true"
+                v-if="!cookiesAllowed
+                    && cookiesLoaded === true"
                 #button-text
             >
                 {{ props.cookieBtnText }}
             </template>
-        </VsWarning> -->
+        </VsWarning>
 
         <VsWarning
             data-test="vs-map__warning--no-js"
@@ -215,7 +215,10 @@ const props = defineProps({
     },
 });
 
+// showError computed prop determines if an error message needs 
+// to be shown. Logic defined below in onBeforeMount()
 let showError;
+const { cookiesAllowed, cookiesLoaded } = cookieCheckerMixin;
 
 // Map Object, HTMLElements & Global Variables
 let gMap: google.maps.Map;
@@ -296,20 +299,18 @@ const mapFilters = {
 
 onBeforeMount(() => {
     showError = computed(() => {
-        // if (
-        //     (!cookiesAllowed && cookiesLoaded === true)
-        //     || !cookiesLoaded
-        // ) {
-        //     console.log(cookiesAllowed);
-        //     console.log(cookiesLoaded);
-        //     return true;
-        // }
+        if (
+            (!cookiesAllowed && cookiesLoaded === true)
+            || !cookiesLoaded
+        ) {
+            console.log(cookiesAllowed);
+            console.log(cookiesLoaded);
+            return true;
+        }
 
         if (props.jsDisabled === true) {
-            console.log(props.jsDisabled)
             return true;
         } else {
-            console.log(false);
             return false;
         }
     })
