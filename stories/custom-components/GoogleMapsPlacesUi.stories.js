@@ -49,3 +49,10 @@ NoJavascript.args = {
     ...base,
     jsDisabled: true,
 };
+
+export const NoCookies = Template.bind();
+
+NoCookies.args = {
+    ...base,
+    cookiesDisabled: true,
+};

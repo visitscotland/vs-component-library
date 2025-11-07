@@ -2,7 +2,7 @@
     <div class="vs-map">
         <div
             class="vs-map__container"
-            v-if="!props.jsDisabled"
+            v-if="!showError"
         >
             <div class="vs-map__controls">
                 <VsMapSidebar
@@ -96,10 +96,26 @@
             </div>
         </div>
         
+        <!-- <VsWarning
+            :type="cookieCheckerMixin.cookiesLoaded === true ? 'cookie' : 'normal'"
+            v-if="showError"
+            class="vs-map__warning vs-map__warning--no-cookies"
+            data-test="vs-map__warning--no-cookies"
+        >
+            {{ props.noCookiesMessage }}
+
+            <template
+                v-if="!cookieCheckerMixin.cookiesAllowed
+                    && cookieCheckerMixin.cookiesLoaded === true"
+                #button-text
+            >
+                {{ props.cookieBtnText }}
+            </template>
+        </VsWarning> -->
 
         <VsWarning
-            data-test="vs-video__warning--no-js"
-            class="vs-vide o__warning vs-video__warning--no-js"
+            data-test="vs-map__warning--no-js"
+            class="vs-map__warning vs-map__warning--no-js"
         >
             {{ noJsMessage }}
         </VsWarning>
@@ -108,7 +124,9 @@
 
 <script setup lang="ts">
 import {
+    computed,
     type PropType,
+    onBeforeMount,
     onMounted,
     ref,
 } from 'vue';
@@ -121,13 +139,12 @@ import {
 import { LatLngObject } from '@/types/types';
 import VsMapSidebar from './components/MapSidebar.vue';
 import useGoogleMapStore from '@/stores/mainMap.store';
+import cookieCheckerMixin from '../../mixins/verifyCookiesMixin.js';
 
 import { 
     importLibrary,
     setOptions, 
 } from '@googlemaps/js-api-loader';
-
-import jsIsDisabled from '@/utils/js-is-disabled';
 
 const props = defineProps({
     /**
@@ -182,7 +199,23 @@ const props = defineProps({
         default: '',
         required: true
     },
-})
+    /**
+     * Message to display when Cookies disabled
+     */
+    noCookiesMessage: {
+        type: String,
+        required: true,
+    },
+    /**
+     * Text for Cookies button that will open Cookie Manager
+     */
+    cookieBtnText: {
+        type: String,
+        required: true,
+    },
+});
+
+let showError;
 
 // Map Object, HTMLElements & Global Variables
 let gMap: google.maps.Map;
@@ -261,12 +294,46 @@ const mapFilters = {
     },
 };
 
+onBeforeMount(() => {
+    showError = computed(() => {
+        // if (
+        //     (!cookiesAllowed && cookiesLoaded === true)
+        //     || !cookiesLoaded
+        // ) {
+        //     console.log(cookiesAllowed);
+        //     console.log(cookiesLoaded);
+        //     return true;
+        // }
+
+        if (props.jsDisabled === true) {
+            console.log(props.jsDisabled)
+            return true;
+        } else {
+            console.log(false);
+            return false;
+        }
+    })
+});
+
 onMounted(async() => {
-    setOptions({
-        key: props.apiKey,
-        v: "quarterly",
-        libraries: ['maps', 'places', 'marker', 'core', 'geometry'],
-    });
+
+    if(!showError.value){
+        setOptions({
+            key: props.apiKey,
+            v: "quarterly",
+            libraries: ['maps', 'places', 'marker', 'core', 'geometry'],
+        });
+
+        try{
+            await importLibrary('maps') as google.maps.MapsLibrary;
+            await importLibrary('places') as google.maps.PlacesLibrary;
+            await importLibrary('marker') as google.maps.MarkerLibrary;
+            await importLibrary('core') as google.maps.CoreLibrary;
+            await importLibrary('geometry') as google.maps.GeometryLibrary;
+        } catch (error) {
+            console.error('Google Maps Library load error');
+        }
+    }
 
     mapContainer = document.getElementById('vs-map');
     searchContainer = document.getElementById('search-container');
@@ -278,16 +345,6 @@ onMounted(async() => {
     placeDetails = document.querySelector('gmp-place-details');
     placeRequest = document.getElementById('placeRequest');
     searchInput = document.getElementById('vs-map-search-input');
-
-    try{
-        await importLibrary('maps') as google.maps.MapsLibrary;
-        await importLibrary('places') as google.maps.PlacesLibrary;
-        await importLibrary('marker') as google.maps.MarkerLibrary;
-        await importLibrary('core') as google.maps.CoreLibrary;
-        await importLibrary('geometry') as google.maps.GeometryLibrary;
-    } catch (error) {
-        console.error('Google Maps Library load error');
-    }
 
     async function initMap(): Promise<void> {
         try {
@@ -341,8 +398,8 @@ onMounted(async() => {
         
     };
 
-    // Init map if JS is enabled
-    if (!props.jsDisabled){
+    // Init map if no error
+    if (!showError.value){
         await initMap();
     }
 })
@@ -622,6 +679,10 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
         }
     }
 
+    &__warning {
+        display: none;
+    }
+
     .vs-map-marker {
         display: flex;
         align-items: center;
@@ -649,9 +710,15 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
             display: none;
         }
 
-        &__warning--no-js {
+        &__warning {
+            display: none;
+            
+            &--no-js {
             display: block;
         }
+        }
+
+        
     }
 }
 </style>
