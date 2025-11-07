@@ -140,7 +140,7 @@ export default {
                     'vs-button--is-animating': this.isAnimating,
                     'vs-button--rounded': this.rounded,
                     'vs-button--icon-only': this.iconOnly,
-                    'button-flex': this.icon && !this.iconOnly,
+
                     'vs-button--flex-reverse': this.iconPosition === 'right',
                 },
             ];
@@ -212,8 +212,8 @@ export default {
         }
 
         .vs-icon {
-            margin-top: -0.05rem;
-
+            vertical-align: middle;
+            margin-top: -0.15rem;
             &--right {
                 margin-left: $vs-spacer-025;
             }
@@ -355,9 +355,6 @@ export default {
             }
         }
 
-        &.button-flex,
-        &.button-flex {
-            display: flex;
-        }
+
     }
 </style>
