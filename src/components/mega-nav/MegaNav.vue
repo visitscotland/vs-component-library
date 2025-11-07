@@ -36,7 +36,7 @@
                     <VsCol
                         cols="4"
                         md="6"
-                        :lg="noSearch ? 9 : 7"
+                        :lg="noSearch ? 7 : 5"
                         class="vs-mega-nav__menu d-none d-lg-block"
                     >
                         <VsMegaNavTopMenu>
@@ -49,9 +49,32 @@
                     <VsCol
                         cols="4"
                         md="8"
-                        lg="2"
+                        lg="4"
                         class="justify-content-end align-items-center position-static d-flex h-100"
                     >
+                        <VsButton
+                            variant="tertiary"
+                            icon="fa-regular fa-map"
+                            icon-only
+                            size="md"
+                            :rounded="false"
+                            :href="mapLink"
+                            class="vs-mega-nav__map-button d-none d-sm-flex d-md-flex d-lg-flex d-xl-none"
+                        >
+                            {{ mapButtonText }}
+                        </VsButton>
+
+                        <VsButton
+                            variant="tertiary"
+                            icon="fa-regular fa-map"
+                            :href="mapLink"
+                            size="md"
+                            :rounded="false"
+                            class="vs-mega-nav__map-button d-none d-sm-none d-md-none d-lg-none d-xl-flex"
+                        >
+                            {{ mapButtonText }}
+                        </VsButton>
+
                         <VsSiteSearch
                             @toggle-action="toggleSearch"
                             :is-showing="showSearch"
@@ -212,6 +235,13 @@ export default {
             default: 'Close search form',
         },
         /**
+         * Text that displays on the map button
+         * */
+        mapButtonText: {
+            type: String,
+            default: 'Map of Scotland',
+        },
+        /**
          * If true, completely remove the search button from the nav
          * to render search inaccessible
          */
@@ -223,6 +253,11 @@ export default {
          * If set, link to search page rather than opening search form.
          */
         searchLink: {
+            type: String,
+            default: undefined,
+        },
+        /** If set, link to Explore Map */
+        mapLink: {
             type: String,
             default: undefined,
         },
