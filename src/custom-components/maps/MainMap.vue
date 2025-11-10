@@ -93,21 +93,6 @@
                             </gmp-place-details>
                         </div>
                 </Suspense>
-            </VsMapSidebar>
-            <div
-                class="vs-map__filter-controls"
-                v-if="(currentZoom > CATEGORY_VISIBLE_ZOOM) && googleMapStore.sidebarOpen"
-            >
-                <VsButton
-                    v-for="(category, key) in categoryLabelData"
-                    :key
-                    class="vs-map__filter-controls-button"
-                    :icon="categoryData[category.id].icon"
-                    :variant="selectedTopLevelCategory === category.id ? 'primary' : 'secondary'"
-                    @click.prevent="selectCategory(category.id, key)"
-                >
-                    {{ category.label }}
-                </VsButton>
             </div>
         </div>
         
@@ -150,9 +135,6 @@ import getEnvValue from '@/utils/get-env-value';
 import {
     VsButton,
     VsWarning,
-    VsCol,
-    VsContainer,
-    VsRow,
 } from '@/components';
 import { LatLngObject } from '@/types/types';
 import VsMapSidebar from './components/MapSidebar.vue';
@@ -237,8 +219,6 @@ const props = defineProps({
 // to be shown. Logic defined below in onBeforeMount()
 let showError;
 const errType = ref(undefined);
-     
-})
 
 // Map Object, HTMLElements & Global Variables
 let gMap: google.maps.Map;
@@ -256,13 +236,8 @@ let searchInput: any;
 let infoWindow: any;
 
 let markers = {};
-const selectedTopLevelCategory = ref();
-const selectedSubCategories = ref(new Set());
-const selectedCategory = ref();
-const includedTopLevelTypes = ref(new Set());
-const includedSubTypes = ref(new Set());
-const categoryKey = ref();
-const subCategoryKey = ref();
+let selectedCategories = ref(new Set());
+let includedTypes = ref(new Set());
 const currentZoom = ref<number>(props.zoom);
 const MAX_ZOOM: number = 19;
 const CATEGORY_VISIBLE_ZOOM: number = 9;
@@ -279,8 +254,48 @@ const SCOTLAND_BOUNDS = {
     east: -0.71000,
 }
 
-const categoryData = props.categories;
-const categoryLabelData = props.categoryLabels;
+const mapFilters = {
+    accommodation: {
+        id: 'accommodation',
+        label: 'Accommodation',
+        types: [
+            'lodging', 'cottage', 'private_guest_room', 'farmstay', 'guest_house', 
+            'hostel', 'bed_and_breakfast', 'campground', 'camping_cabin', 
+            'mobile_home_park', 'rv_park', 'hotel', 'inn', 'motel', 'resort_hotel',
+        ],
+        icon: 'fa-regular fa-bed'
+    },
+    food_drink: {
+        id: 'food_drink',
+        label: 'Food & Drink',
+        types: [
+            'restaurant',
+        ],
+        icon: 'fa-regular fa-cutlery',
+    },
+    things_to_do: {
+        id: 'things_to_do',
+        label: 'Things to do',
+        types: [
+            'national_park', 'beach', 'hiking_area', 'garden', 'botianical_garden',
+            'wildlife_park', 'wildlife_refuge', 'park', 'museum', 'art_gallery', 
+            'historical_place', 'monument', 'sculpture', 'cultural_landmark',
+            'church', 'aquarium', 'zoo', 'amusement_park', 'concert_hall',
+            'performing_arts_theatre', 'planetarium', 'movie_theatre', 'comedy_club',
+            'night_club', 'bowling_alley', 'roller_coaster', 'skateboard_park', 
+            'ice_sktating_rink', 'adventure_sports_center', 'cycling_park', 'ski_resort',
+        ],
+        icon: 'fa-kit fa-vs-landscape',
+    },
+    travel_info: {
+        id: 'travel_info',
+        label: 'Travel Information',
+        types: [
+            'ev_charger',
+        ],
+        icon: 'fa-regular fa-circle-info',
+    },
+};
 
 onBeforeMount(() => {
     const cookieCheck = cookieCheckerComposable();
@@ -392,75 +407,36 @@ onMounted(async() => {
     }
 })
 
-function selectCategory(categoryId, key) {
-    resetCategories();
-    
-    selectedTopLevelCategory.value = categoryId;
-    
-    // Retrives all the values in each subcategory and adds it to
-    // `includedTopLevelTypes` set, which should handle duplication.
-    Object.values(categoryData[categoryId].subCategory).forEach(
-        subCategory => includedTopLevelTypes.value.add(subCategory.type)
-    );
-    
-    selectedCategory.value = categoryData[categoryId];
-    categoryKey.value = key;
-
-    searchByCategory(Array.from(includedTopLevelTypes.value).flat());
-    query.value = categoryLabelData[categoryKey.value].label;
-    searchInput.value = query.value;
-}
-
-function searchBySubCategory(subCategoryId, key){
-    subCategoryKey.value = key;
-
-    if (selectedSubCategories.value.has(subCategoryId)) {
-        // Delete if already in selectedSubCategories
-        selectedSubCategories.value.delete(subCategoryId);
-        // Iterate through each subcategory to find the selected subcategory
-        Object.values(categoryData[selectedTopLevelCategory.value].subCategory).forEach(subCat => {
-            if (subCat.id === subCategoryId) {
-                // Iterate through the array of types and delete them from the includedSubTypes set
-                subCat.type.forEach(type => includedSubTypes.value.delete(type));
-            }
-        })
-
-        if(selectedSubCategories.value.size === 0){
-            //If the last subCategory is removed, revert to a top-level search
-            selectCategory(selectedTopLevelCategory.value, categoryKey.value);
-        } else {
-            searchByCategory(Array.from(includedSubTypes.value).flat());
+function selectCategory(category) {
+    if (selectedCategories.value.has(category)) {
+        selectedCategories.value.delete(category);
+        mapFilters[category].types.forEach(type => includedTypes.value.delete(type));
+        if (selectedCategories.value.size === 0) {
+            resetMap();
+            resetCategories();
         }
-
     } else {
-        // Add if not already in selectedSubCategories
-        selectedSubCategories.value.add(subCategoryId);
-        // Iterate through each subcategory to find the selected subcategory
-        Object.values(categoryData[selectedTopLevelCategory.value].subCategory).forEach(subCat => {
-            if (subCat.id === subCategoryId) {
-                // Iterate through the array of types adding them to the includedSubTypes set
-                subCat.type.forEach(type => includedSubTypes.value.add(type));
-            }
-        })
-
-        searchByCategory(Array.from(includedSubTypes.value).flat());
-        query.value = categoryLabelData[categoryKey.value].subCategory[subCategoryKey.value].label
+        selectedCategories.value.add(category);
+        mapFilters[category].types.forEach(type => includedTypes.value.add(type));
+        searchInput.value = mapFilters[category].label;
+        searchByCategory();
     }
 }
 
-async function searchByCategory(includedTypes) {
+async function searchByCategory() {
     resetMap();
     resetTextQuery();
 
     currentSearch.value = 'nearby';
 
     const bounds = gMap.getBounds();
+    const center = gMap.getCenter();
     const ne = bounds.getNorthEast();
     const sw = bounds.getSouthWest();
     const diameter = google.maps.geometry.spherical.computeDistanceBetween(ne, sw);
     const cappedRadius= Math.min((diameter/2), 50000);
-
-    nearbySearchQuery.includedTypes = includedTypes;
+    
+    nearbySearchQuery.includedTypes = Array.from(includedTypes.value);
     nearbySearchQuery.maxResultCount = NUMBER_OF_RESULTS;
     nearbySearchQuery.locationRestriction = {
         center: gMap.getCenter(),
@@ -487,6 +463,22 @@ async function searchByText() {
 
     // Get the center of the map, as it may have changed
     const mapCenter = gMap.getCenter();
+
+    // /**
+    //  * Offsetting the bounds of the search by the radius,
+    //  * accounting for the curvature of the earth. 
+    //  */
+    // const latOffset = props.radius / 111000;
+    // const latInRadians = mapCenter.lat() * (Math.PI / 180);
+    // const lngDegreeDistance = 111 * Math.cos(latInRadians);
+    // const lngOffset = props.radius / (lngDegreeDistance * 1000);
+    
+    // const bounds = {
+    //     north: mapCenter.lat() + latOffset,
+    //     south: mapCenter.lat() - latOffset,
+    //     east: mapCenter.lng() + lngOffset,
+    //     west: mapCenter.lng() - lngOffset
+    // };
     
     textSearchQuery.locationRestriction = gMap.getBounds();
     textSearchQuery.maxResultCount = NUMBER_OF_RESULTS;
@@ -507,7 +499,7 @@ async function addMarkers() {
     } else if (currentSearch.value === 'text') {
         searchRequest.value = textSearch;
     } else {
-        console.error('Unrecognised Search type');
+        throw new Error('Unrecognised Search type');
     }
 
     const bounds = new LatLngBounds();
@@ -559,7 +551,6 @@ function resetMap(hardReset?: boolean) {
         infoWindow.close();
     }
     if (hardReset) {
-        // A `hard reset` will remove all text and categories
         resetTextQuery();
         resetCategories();
         resetLocation();
@@ -577,12 +568,8 @@ function resetLocation() {
 }
 
 function resetCategories() {
-    selectedTopLevelCategory.value = undefined;
-    selectedSubCategories.value = new Set();
-    includedTopLevelTypes.value = new Set();
-    includedSubTypes.value = new Set();
-    categoryKey.value = undefined;
-    subCategoryKey.value = undefined;
+    selectedCategories.value = new Set();
+    includedTypes.value = new Set();
 }
 
 function clearExistingMarkers() {
