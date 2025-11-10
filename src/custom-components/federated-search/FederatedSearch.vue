@@ -63,7 +63,10 @@
                     && federatedSearchStore.results
                     && !federatedSearchStore.eventsApiError"
             >
-                <VsCardGroup :cards-per-row="3">
+                <VsCardGroup
+                    :cards-per-row="3"
+                    :class="federatedSearchStore.results && totalResultsPages <= 1 ? 'mb-300' : null"
+                >
                     <VsCard
                         v-for="result in federatedSearchStore.results"
                         :key="result.id"
