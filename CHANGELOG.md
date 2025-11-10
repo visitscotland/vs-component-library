@@ -1,3 +1,26 @@
+## [5.16.4](https://github.com/visitscotland/vs-component-library/compare/v5.16.3...v5.16.4) (2025-11-10)
+
+
+### Bug Fixes
+
+* **federated search:** card text not breaking causes some cards to be too big ([e0d25e6](https://github.com/visitscotland/vs-component-library/commit/e0d25e609ee5a8e46bd4323ef4425685693d4912))
+
+## [5.16.3](https://github.com/visitscotland/vs-component-library/compare/v5.16.2...v5.16.3) (2025-11-10)
+
+
+### Bug Fixes
+
+* **federated search:** missing language parameter ([8f431fb](https://github.com/visitscotland/vs-component-library/commit/8f431fb7e652cf99417697059ec3966f57355a21))
+
+## [5.16.2](https://github.com/visitscotland/vs-component-library/compare/v5.16.1...v5.16.2) (2025-11-10)
+
+
+### Bug Fixes
+
+* **federated search:** add margin bottom when no pagination shown ([1821605](https://github.com/visitscotland/vs-component-library/commit/1821605a918e829c3f4803842d336f70c77f31e7))
+* **federated search:** apply sort by when it appears in the URL ([5324a9a](https://github.com/visitscotland/vs-component-library/commit/5324a9aa5d5c07696384e64c8e8b9565ec81e639))
+* **federated search:** apply start and end date when they appear in the URL ([5d19db9](https://github.com/visitscotland/vs-component-library/commit/5d19db921ed8294791beb557465248f8ba2ed6bc))
+
 ## [5.16.1](https://github.com/visitscotland/vs-component-library/compare/v5.16.0...v5.16.1) (2025-11-06)
 
 
