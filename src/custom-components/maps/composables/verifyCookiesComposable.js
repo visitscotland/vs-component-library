@@ -38,8 +38,7 @@ const cookieCheckerComposable = () => {
 
         if (typeof CookieControl !== 'undefined') {
             allowed = requiredCookies.value.every(
-                (category) => CookieControl
-                    && CookieControl.getCategoryConsent(category) !== false,
+                (category) => CookieControl.getCategoryConsent(category) === true,
             );
         };
 
