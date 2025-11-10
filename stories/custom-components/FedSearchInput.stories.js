@@ -52,10 +52,6 @@ const Template = (args) => ({
                     Label: 'Nature & Outdoors',
                 },
                 {
-                    Key: 'other',
-                    Label: 'Other',
-                },
-                {
                     Key: 'tours',
                     Label: 'Tours',
                 },

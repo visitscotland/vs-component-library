@@ -1,3 +1,20 @@
+## [5.16.2](https://github.com/visitscotland/vs-component-library/compare/v5.16.1...v5.16.2) (2025-11-10)
+
+
+### Bug Fixes
+
+* **federated search:** add margin bottom when no pagination shown ([1821605](https://github.com/visitscotland/vs-component-library/commit/1821605a918e829c3f4803842d336f70c77f31e7))
+* **federated search:** apply sort by when it appears in the URL ([5324a9a](https://github.com/visitscotland/vs-component-library/commit/5324a9aa5d5c07696384e64c8e8b9565ec81e639))
+* **federated search:** apply start and end date when they appear in the URL ([5d19db9](https://github.com/visitscotland/vs-component-library/commit/5d19db921ed8294791beb557465248f8ba2ed6bc))
+
+## [5.16.1](https://github.com/visitscotland/vs-component-library/compare/v5.16.0...v5.16.1) (2025-11-06)
+
+
+### Bug Fixes
+
+* **federated search:** remove 'other' category from stories ([c9af77b](https://github.com/visitscotland/vs-component-library/commit/c9af77b4dd1cd1c32c43334459ca698b4ae6ec05))
+* **fedfilter:** add icons to buttons when primary variant ([a7a2258](https://github.com/visitscotland/vs-component-library/commit/a7a2258e88cc5b601601009fd6e6a340d240559f))
+
 # [5.16.0](https://github.com/visitscotland/vs-component-library/compare/v5.15.4...v5.16.0) (2025-11-06)
 
 

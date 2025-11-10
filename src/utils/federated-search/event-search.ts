@@ -31,7 +31,7 @@ async function eventSearch(
     selectedSubCategoryKey: string[],
     startDate: string,
     endDate: string,
-    sortBy: any,
+    sortBy: string,
     siteLanguage: string,
 ) {
     const federatedSearchStore = useFederatedSearchStore();
@@ -44,7 +44,7 @@ async function eventSearch(
         url = page > 1 ? `${url}&page=${page}` : url;
         url = startDate !== '' ? `${url}&startDate=${startDate}` : url;
         url = endDate !== '' ? `${url}&endDate=${endDate}` : url;
-        url = sortBy ? `${url}&sort=${sortBy.key}` : url;
+        url = sortBy ? `${url}&sort=${sortBy}` : url;
         url = selectedCategoryKey === 'events' ? `${url}&pageSize=12` : `${url}&pageSize=6`;
 
         selectedSubCategoryKey.forEach((category) => {
