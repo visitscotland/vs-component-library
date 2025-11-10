@@ -10,7 +10,7 @@
                 :close-sidebar-button-label="props.labels.closeSidebarBtn"
                 :input-placeholder-label="props.labels.inputPlaceholder"
                 :search-button-label="props.labels.searchButton"
-                :clear-map-label="props.labels.clearMap",
+                :clear-map-label="props.labels.clearMap"
                 :search-results-label="props.labels.searchResults"
                 :open-sidebar-button-label="props.labels.openSidebarButton"
             >

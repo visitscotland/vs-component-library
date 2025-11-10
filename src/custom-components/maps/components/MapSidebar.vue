@@ -101,38 +101,47 @@ import useGoogleMapStore from '@/stores/mainMap.store';
 const googleMapStore = useGoogleMapStore();
 
 const props = defineProps({
+    /** Text query from Map Search */
     query: {
         type: String,
         default: '',
     },
+    /** Selected Top Level Category */
     selectedCategories: {
         type: Set,
         default: new Set(),
     },
+    /** Label for the sidebar header */
     headerLabel: {
         type: String,
         default: '',
     },
+    /** Label for the close sidebar button */
     closeSidebarButtonLabel: {
         type: String,
         default: '',
     },
+    /** Label for the input placeholder text */
     inputPlaceholderLabel: {
         type: String,
         default: '',
     },
+    /** Label for the search button */
     searchButtonLabel: {
         type: String,
         default: '',
     },
+    /** Label for the clear map link */
     clearMapLabel: {
         type: String,
         default: '',
     },
+    /** Label for the search results text */
     searchResultsLabel: {
         type: String,
         default: '',
     },
+    /** Label for the open sidebar button */
     openSidebarButtonLabel: {
         type: String,
         default: '',
