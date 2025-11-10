@@ -146,7 +146,6 @@ import {
     importLibrary,
     setOptions, 
 } from '@googlemaps/js-api-loader';
-import { l } from 'vite/dist/node/types.d-aGj9QkWt';
 
 const props = defineProps({
     /**
@@ -198,7 +197,6 @@ const props = defineProps({
      */
     noJsMessage: {
         type: String,
-        default: '',
         required: true
     },
     /**
