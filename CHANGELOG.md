@@ -1,3 +1,10 @@
+## [5.16.3](https://github.com/visitscotland/vs-component-library/compare/v5.16.2...v5.16.3) (2025-11-10)
+
+
+### Bug Fixes
+
+* **federated search:** missing language parameter ([8f431fb](https://github.com/visitscotland/vs-component-library/commit/8f431fb7e652cf99417697059ec3966f57355a21))
+
 ## [5.16.2](https://github.com/visitscotland/vs-component-library/compare/v5.16.1...v5.16.2) (2025-11-10)
 
 
