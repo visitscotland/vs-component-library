@@ -3,10 +3,27 @@
         <div class="vs-map__controls">
             <VsMapSidebar
                 :query="query"
-                :selectedCategories="selectedCategories"
+                :selectedCategories="selectedTopLevelCategory"
                 @search-input-changed="searchByText"
                 @reset-map="resetMap(true)"
             >
+                <template
+                    #vs-map-sidebar-sub-filters
+                    v-if="selectedTopLevelCategory"
+                >
+                    <div class="vs-map-sidebar__sub-filters">
+                        <VsButton
+                            v-for="(subCategory, key) in categoryLabelData[categoryKey].subCategory"
+                            :key
+                            :variant="selectedSubCategories.has(subCategory.id) ? 'primary' : 'secondary'"
+                            size="sm"
+                            @click="searchBySubCategory(subCategory.id, key)"
+                        >
+                            {{ subCategory.label }}
+                        </VsButton>
+                    </div>
+                </template>
+
                 <template #vs-map-sidebar-search-results>
                     <Suspense>
                         <div id="search-container">
@@ -43,15 +60,14 @@
                 v-if="(currentZoom > CATEGORY_VISIBLE_ZOOM) && googleMapStore.sidebarOpen"
             >
                 <VsButton
-                    v-for="filter in mapFilters"
-                    :key="filter.id"
+                    v-for="(category, key) in categoryLabelData"
+                    :key
                     class="vs-map__filter-controls-button"
-                    :icon="filter.icon"
-                    :variant="selectedCategories.has(filter.id) ? 'primary' : 'secondary'"
-                    @click.prevent="selectCategory(filter.id)"
-
+                    :icon="categoryData[category.id].icon"
+                    :variant="selectedTopLevelCategory === category.id ? 'primary' : 'secondary'"
+                    @click.prevent="selectCategory(category.id, key)"
                 >
-                    {{ filter.label }}
+                    {{ category.label }}
                 </VsButton>
             </div>
         </div>
@@ -106,7 +122,6 @@ import {
     VsButton,
     VsCol,
     VsContainer,
-    VsInput,
     VsRow,
 } from '@/components';
 import { LatLngObject } from '@/types/types';
@@ -155,7 +170,19 @@ const props = defineProps({
     radius: {
         type: Number,
         default: 1000,
-    }
+    },
+    /**
+     * JSON object of categories and their types
+     */
+    categories: {
+        type: Object,
+        default: () => {},
+    },
+    /**JSON object for the category labeks (from CMS taxinomies) */
+    categoryLabels: {
+        type: Object,
+        default: () => {}
+    },
 })
 
 // Map Object, HTMLElements & Global Variables
@@ -174,8 +201,13 @@ let searchInput: any;
 let infoWindow: any;
 
 let markers = {};
-let selectedCategories = ref(new Set());
-let includedTypes = ref(new Set());
+const selectedTopLevelCategory = ref();
+const selectedSubCategories = ref(new Set());
+const selectedCategory = ref();
+const includedTopLevelTypes = ref(new Set());
+const includedSubTypes = ref(new Set());
+const categoryKey = ref();
+const subCategoryKey = ref();
 const currentZoom = ref<number>(props.zoom);
 const MAX_ZOOM: number = 19;
 const CATEGORY_VISIBLE_ZOOM: number = 9;
@@ -192,48 +224,8 @@ const SCOTLAND_BOUNDS = {
     east: -0.71000,
 }
 
-const mapFilters = {
-    accommodation: {
-        id: 'accommodation',
-        label: 'Accommodation',
-        types: [
-            'lodging', 'cottage', 'private_guest_room', 'farmstay', 'guest_house', 
-            'hostel', 'bed_and_breakfast', 'campground', 'camping_cabin', 
-            'mobile_home_park', 'rv_park', 'hotel', 'inn', 'motel', 'resort_hotel',
-        ],
-        icon: 'fa-regular fa-bed'
-    },
-    food_drink: {
-        id: 'food_drink',
-        label: 'Food & Drink',
-        types: [
-            'restaurant',
-        ],
-        icon: 'fa-regular fa-cutlery',
-    },
-    things_to_do: {
-        id: 'things_to_do',
-        label: 'Things to do',
-        types: [
-            'national_park', 'beach', 'hiking_area', 'garden', 'botianical_garden',
-            'wildlife_park', 'wildlife_refuge', 'park', 'museum', 'art_gallery', 
-            'historical_place', 'monument', 'sculpture', 'cultural_landmark',
-            'church', 'aquarium', 'zoo', 'amusement_park', 'concert_hall',
-            'performing_arts_theatre', 'planetarium', 'movie_theatre', 'comedy_club',
-            'night_club', 'bowling_alley', 'roller_coaster', 'skateboard_park', 
-            'ice_sktating_rink', 'adventure_sports_center', 'cycling_park', 'ski_resort',
-        ],
-        icon: 'fa-kit fa-vs-landscape',
-    },
-    travel_info: {
-        id: 'travel_info',
-        label: 'Travel Information',
-        types: [
-            'ev_charger',
-        ],
-        icon: 'fa-regular fa-circle-info',
-    },
-};
+const categoryData = props.categories;
+const categoryLabelData = props.categoryLabels;
 
 onMounted(async() => {
     setOptions({
@@ -319,36 +311,75 @@ onMounted(async() => {
     await initMap();
 })
 
-function selectCategory(category) {
-    if (selectedCategories.value.has(category)) {
-        selectedCategories.value.delete(category);
-        mapFilters[category].types.forEach(type => includedTypes.value.delete(type));
-        if (selectedCategories.value.size === 0) {
-            resetMap();
-            resetCategories();
+function selectCategory(categoryId, key) {
+    resetCategories();
+    
+    selectedTopLevelCategory.value = categoryId;
+    
+    // Retrives all the values in each subcategory and adds it to
+    // `includedTopLevelTypes` set, which should handle duplication.
+    Object.values(categoryData[categoryId].subCategory).forEach(
+        subCategory => includedTopLevelTypes.value.add(subCategory.type)
+    );
+    
+    selectedCategory.value = categoryData[categoryId];
+    categoryKey.value = key;
+
+    searchByCategory(Array.from(includedTopLevelTypes.value).flat());
+    query.value = categoryLabelData[categoryKey.value].label;
+    searchInput.value = query.value;
+}
+
+function searchBySubCategory(subCategoryId, key){
+    subCategoryKey.value = key;
+
+    if (selectedSubCategories.value.has(subCategoryId)) {
+        // Delete if already in selectedSubCategories
+        selectedSubCategories.value.delete(subCategoryId);
+        // Iterate through each subcategory to find the selected subcategory
+        Object.values(categoryData[selectedTopLevelCategory.value].subCategory).forEach(subCat => {
+            if (subCat.id === subCategoryId) {
+                // Iterate through the array of types and delete them from the includedSubTypes set
+                subCat.type.forEach(type => includedSubTypes.value.delete(type));
+            }
+        })
+
+        if(selectedSubCategories.value.size === 0){
+            //If the last subCategory is removed, revert to a top-level search
+            selectCategory(selectedTopLevelCategory.value, categoryKey.value);
+        } else {
+            searchByCategory(Array.from(includedSubTypes.value).flat());
         }
+
     } else {
-        selectedCategories.value.add(category);
-        mapFilters[category].types.forEach(type => includedTypes.value.add(type));
-        searchInput.value = mapFilters[category].label;
-        searchByCategory();
+        // Add if not already in selectedSubCategories
+        selectedSubCategories.value.add(subCategoryId);
+        // Iterate through each subcategory to find the selected subcategory
+        Object.values(categoryData[selectedTopLevelCategory.value].subCategory).forEach(subCat => {
+            if (subCat.id === subCategoryId) {
+                // Iterate through the array of types adding them to the includedSubTypes set
+                subCat.type.forEach(type => includedSubTypes.value.add(type));
+            }
+        })
+
+        searchByCategory(Array.from(includedSubTypes.value).flat());
+        query.value = categoryLabelData[categoryKey.value].subCategory[subCategoryKey.value].label
     }
 }
 
-async function searchByCategory() {
+async function searchByCategory(includedTypes) {
     resetMap();
     resetTextQuery();
 
     currentSearch.value = 'nearby';
 
     const bounds = gMap.getBounds();
-    const center = gMap.getCenter();
     const ne = bounds.getNorthEast();
     const sw = bounds.getSouthWest();
     const diameter = google.maps.geometry.spherical.computeDistanceBetween(ne, sw);
     const cappedRadius= Math.min((diameter/2), 50000);
-    
-    nearbySearchQuery.includedTypes = Array.from(includedTypes.value);
+
+    nearbySearchQuery.includedTypes = includedTypes;
     nearbySearchQuery.maxResultCount = NUMBER_OF_RESULTS;
     nearbySearchQuery.locationRestriction = {
         center: gMap.getCenter(),
@@ -375,22 +406,6 @@ async function searchByText() {
 
     // Get the center of the map, as it may have changed
     const mapCenter = gMap.getCenter();
-
-    // /**
-    //  * Offsetting the bounds of the search by the radius,
-    //  * accounting for the curvature of the earth. 
-    //  */
-    // const latOffset = props.radius / 111000;
-    // const latInRadians = mapCenter.lat() * (Math.PI / 180);
-    // const lngDegreeDistance = 111 * Math.cos(latInRadians);
-    // const lngOffset = props.radius / (lngDegreeDistance * 1000);
-    
-    // const bounds = {
-    //     north: mapCenter.lat() + latOffset,
-    //     south: mapCenter.lat() - latOffset,
-    //     east: mapCenter.lng() + lngOffset,
-    //     west: mapCenter.lng() - lngOffset
-    // };
     
     textSearchQuery.locationRestriction = gMap.getBounds();
     textSearchQuery.maxResultCount = NUMBER_OF_RESULTS;
@@ -411,7 +426,7 @@ async function addMarkers() {
     } else if (currentSearch.value === 'text') {
         searchRequest.value = textSearch;
     } else {
-        throw new Error('Unrecognised Search type');
+        console.error('Unrecognised Search type');
     }
 
     const bounds = new LatLngBounds();
@@ -463,6 +478,7 @@ function resetMap(hardReset?: boolean) {
         infoWindow.close();
     }
     if (hardReset) {
+        // A `hard reset` will remove all text and categories
         resetTextQuery();
         resetCategories();
         resetLocation();
@@ -480,8 +496,12 @@ function resetLocation() {
 }
 
 function resetCategories() {
-    selectedCategories.value = new Set();
-    includedTypes.value = new Set();
+    selectedTopLevelCategory.value = undefined;
+    selectedSubCategories.value = new Set();
+    includedTopLevelTypes.value = new Set();
+    includedSubTypes.value = new Set();
+    categoryKey.value = undefined;
+    subCategoryKey.value = undefined;
 }
 
 function clearExistingMarkers() {
