@@ -75,11 +75,11 @@ export default {
     height: 45px;
     align-items: center;
 
-    .vs-icon{
+    .vs-icon {
         margin-right: 0;
     }
 
-    &.vs-button.btn-md{
+    &.vs-button.btn-md {
         padding: $vs-spacer-050;
     }
 
@@ -104,7 +104,7 @@ export default {
             margin-right: $vs-spacer-0;
         }
 
-        &.vs-button.btn-md{
+        &.vs-button.btn-md {
             padding: $vs-spacer-075;
         }
 

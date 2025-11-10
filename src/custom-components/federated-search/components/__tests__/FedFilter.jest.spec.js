@@ -2,6 +2,9 @@ import { mount, shallowMount } from '@vue/test-utils';
 import axe from '@/../test/unit/helpers/axe-helper';
 import VsFedFilter from '../FedFilter.vue';
 
+const filterCategoryKey = 'accommodation';
+const filterCategoryLabel = 'Accommodation';
+
 const factoryShallowMount = (propsData) => shallowMount(VsFedFilter, {
     ...propsData,
     propsData: {
@@ -10,9 +13,8 @@ const factoryShallowMount = (propsData) => shallowMount(VsFedFilter, {
         wrap: false,
         filterCategories: [
             {
-                id: 'filter1',
-                Key: 'Filter One',
-                icon: 'fa-regular fa-star',
+                Key: filterCategoryKey,
+                Label: filterCategoryLabel,
             },
         ],
     },
@@ -80,7 +82,7 @@ describe('VsFedFilter', () => {
 
         it('should render an icon on the button when filter is primary and prop is passed', async() => {
             const wrapper = factoryShallowMount();
-            const icon = wrapper.find('[icon="fa-regular fa-star"]');
+            const icon = wrapper.find('[icon="fa-regular fa-bed"]');
             expect(icon.exists()).toBe(true);
         });
 
@@ -90,7 +92,7 @@ describe('VsFedFilter', () => {
             await wrapper.setProps({
                 variant: 'secondary',
             });
-            const icon = wrapper.find('[icon="fa-regular fa-star"]');
+            const icon = wrapper.find('[icon="fa-regular fa-bed"]');
             expect(icon.exists()).toBe(false);
         });
 
@@ -98,7 +100,7 @@ describe('VsFedFilter', () => {
             const wrapper = factoryShallowMount();
 
             await wrapper.setProps({
-                activeFilter: 'Filter One',
+                activeFilter: filterCategoryKey,
             });
 
             const button = wrapper.find('[variant="primary"]');
@@ -111,6 +113,7 @@ describe('VsFedFilter', () => {
             const wrapper = mount(VsFedFilter, {
                 propsData: {
                     wrap: false,
+                    filterCategories: [],
                 },
                 slots: {
                     'fed-filter-header': 'Header text',
@@ -125,6 +128,7 @@ describe('VsFedFilter', () => {
             const wrapper = mount(VsFedFilter, {
                 propsData: {
                     wrap: false,
+                    filterCategories: [],
                 },
             });
 
@@ -140,20 +144,18 @@ describe('VsFedFilter', () => {
                     wrap: false,
                     filterCategories: [
                         {
-                            id: 'nature_outdoor',
-                            Key: 'Nature & Outdoor',
-                            icon: 'fa-kit fa-vs-landscape',
+                            Key: 'nature-outdoor',
+                            Label: 'Nature & Outdoor',
                         },
                         {
-                            id: 'history_culture',
-                            Key: 'History & Culture',
-                            icon: 'fa-regular fa-chess-rook',
+                            Key: 'history-culture',
+                            Label: 'History & Culture',
                         },
                     ],
                 },
             });
 
-            const dropdown = wrapper.find('[data-test="vs-fed-filter__category-button--nature_outdoor"]');
+            const dropdown = wrapper.find('[data-test="vs-fed-filter__category-button--nature-outdoor"]');
             await dropdown.trigger('click');
 
             expect(wrapper.emitted('filter-updated')).toBeTruthy();

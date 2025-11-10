@@ -1,3 +1,130 @@
+## [5.16.4](https://github.com/visitscotland/vs-component-library/compare/v5.16.3...v5.16.4) (2025-11-10)
+
+
+### Bug Fixes
+
+* **federated search:** card text not breaking causes some cards to be too big ([e0d25e6](https://github.com/visitscotland/vs-component-library/commit/e0d25e609ee5a8e46bd4323ef4425685693d4912))
+
+## [5.16.3](https://github.com/visitscotland/vs-component-library/compare/v5.16.2...v5.16.3) (2025-11-10)
+
+
+### Bug Fixes
+
+* **federated search:** missing language parameter ([8f431fb](https://github.com/visitscotland/vs-component-library/commit/8f431fb7e652cf99417697059ec3966f57355a21))
+
+## [5.16.2](https://github.com/visitscotland/vs-component-library/compare/v5.16.1...v5.16.2) (2025-11-10)
+
+
+### Bug Fixes
+
+* **federated search:** add margin bottom when no pagination shown ([1821605](https://github.com/visitscotland/vs-component-library/commit/1821605a918e829c3f4803842d336f70c77f31e7))
+* **federated search:** apply sort by when it appears in the URL ([5324a9a](https://github.com/visitscotland/vs-component-library/commit/5324a9aa5d5c07696384e64c8e8b9565ec81e639))
+* **federated search:** apply start and end date when they appear in the URL ([5d19db9](https://github.com/visitscotland/vs-component-library/commit/5d19db921ed8294791beb557465248f8ba2ed6bc))
+
+## [5.16.1](https://github.com/visitscotland/vs-component-library/compare/v5.16.0...v5.16.1) (2025-11-06)
+
+
+### Bug Fixes
+
+* **federated search:** remove 'other' category from stories ([c9af77b](https://github.com/visitscotland/vs-component-library/commit/c9af77b4dd1cd1c32c43334459ca698b4ae6ec05))
+* **fedfilter:** add icons to buttons when primary variant ([a7a2258](https://github.com/visitscotland/vs-component-library/commit/a7a2258e88cc5b601601009fd6e6a340d240559f))
+
+# [5.16.0](https://github.com/visitscotland/vs-component-library/compare/v5.15.4...v5.16.0) (2025-11-06)
+
+
+### Features
+
+* **panel:** update panel variants and styles ([071f39a](https://github.com/visitscotland/vs-component-library/commit/071f39a8e3e0f21795b5b650f0fcb6b1f89b6962))
+* **panel:** update ternary check in panel component ([a60c8ff](https://github.com/visitscotland/vs-component-library/commit/a60c8ff3323315ff2efba9fe51e2fa58e690dcc7))
+
+## [5.15.4](https://github.com/visitscotland/vs-component-library/compare/v5.15.3...v5.15.4) (2025-11-05)
+
+
+### Bug Fixes
+
+* **federated search:** adjust how pagination is calculated ([dfaf6b9](https://github.com/visitscotland/vs-component-library/commit/dfaf6b9367a5bb0f95f1f10566da7f6394097bc0))
+
+## [5.15.3](https://github.com/visitscotland/vs-component-library/compare/v5.15.2...v5.15.3) (2025-11-05)
+
+
+### Bug Fixes
+
+* **event:** fix badge rounded corners in event card with rounded utilities ([86cf8d8](https://github.com/visitscotland/vs-component-library/commit/86cf8d8bdc9c2f3cc640076a52db46b45721cd36))
+
+## [5.15.2](https://github.com/visitscotland/vs-component-library/compare/v5.15.1...v5.15.2) (2025-11-04)
+
+
+### Bug Fixes
+
+* **event-search-ts:** update subcategories to use key ([df081a9](https://github.com/visitscotland/vs-component-library/commit/df081a962b4cec2af6fa88dba677879b36d74f30))
+* **fed search input:** make sure sub category and sub category key are aligned ([c42e90c](https://github.com/visitscotland/vs-component-library/commit/c42e90c586e0de5dbb2a504e2d5f9f4a168c6d15))
+* **federated search input:** clear sub category when category changes ([3c9e8d0](https://github.com/visitscotland/vs-component-library/commit/3c9e8d0e8af05f269fc8b1d3c176de90d82fda15))
+* **federated search input:** highlight search term in search suggestions ([fa0f5dc](https://github.com/visitscotland/vs-component-library/commit/fa0f5dcc9901c4b8d12901ef9785289dd3717fc5))
+* **federated search:** reduce white space on mobile ([414dcea](https://github.com/visitscotland/vs-component-library/commit/414dcea18b72a67f42ccf81687b2c6e69c997428))
+* **federated search:** remove internal link icon ([e4fb3c4](https://github.com/visitscotland/vs-component-library/commit/e4fb3c462fd45a038dca6eceea674ee9862e73b3))
+* **federated search:** remove scroll snap from cardgrid ([a0e3b94](https://github.com/visitscotland/vs-component-library/commit/a0e3b94c60aeb3a04ff7b1a3f5da15df10272c10))
+* **federated search:** sort not wrapping on mobile ([a9cc50b](https://github.com/visitscotland/vs-component-library/commit/a9cc50b02a83f0d2ea81bb05be2a63516dc87d55))
+* **federated search:** update sub categories to mirror categories ([6b290b7](https://github.com/visitscotland/vs-component-library/commit/6b290b733208722fec824a11a138d8c31e5a637f))
+* **mega nav:** hide search link button text on mobile ([fbf54c0](https://github.com/visitscotland/vs-component-library/commit/fbf54c07e24b780a6cd67558151e34ce4e4cdfa8))
+
+## [5.15.1](https://github.com/visitscotland/vs-component-library/compare/v5.15.0...v5.15.1) (2025-11-04)
+
+
+### Bug Fixes
+
+* **cookie control:** make consent check more resilient to race conditions ([db6c3ef](https://github.com/visitscotland/vs-component-library/commit/db6c3ef6093109aefc21fcb491b39a5532990883))
+
+# [5.15.0](https://github.com/visitscotland/vs-component-library/compare/v5.14.2...v5.15.0) (2025-10-29)
+
+
+### Features
+
+* **badge:** implement highlight badge style ([7e166c4](https://github.com/visitscotland/vs-component-library/commit/7e166c4d73f5b0aedff91044f7baa854320e9d48))
+
+## [5.14.2](https://github.com/visitscotland/vs-component-library/compare/v5.14.1...v5.14.2) (2025-10-28)
+
+
+### Bug Fixes
+
+* **federated search:** swap to searching categories by key ([4d7648c](https://github.com/visitscotland/vs-component-library/commit/4d7648cb17d4822bf823ab903cce6dbaf8e3250a))
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [5.14.1](https://github.com/visitscotland/vs-component-library/compare/v5.14.0...v5.14.1) (2025-10-28)
+
+# [5.14.0](https://github.com/visitscotland/vs-component-library/compare/v5.13.0...v5.14.0) (2025-10-28)
+
+
+### Bug Fixes
+
+* **federated search:** adjust tests for new filter logic ([51a4978](https://github.com/visitscotland/vs-component-library/commit/51a49787c3e5bd8e94c37d0d552005acdd75f333))
+* **federated search:** change conditionals to use category key instead of the label ([82069ef](https://github.com/visitscotland/vs-component-library/commit/82069ef131e3c0b6307213d1843065763d9d6ade))
+* **federated search:** chromatic skip sort date input so new Date() isn't a change every day ([485d3e7](https://github.com/visitscotland/vs-component-library/commit/485d3e7870714ceeda73f48185af1bd30a7397d2))
+* **federated search:** restore categories in home page story ([9ae540e](https://github.com/visitscotland/vs-component-library/commit/9ae540e98ef728b75db22b89889b4824b349b1d0))
+
+
+### Features
+
+* **federated search:** retrieve categories from the CMS as a prop rather than Cludo ([fe6ec13](https://github.com/visitscotland/vs-component-library/commit/fe6ec13f3fa40c08917179e13fe88970818dd667))
+* **federated search:** switch to provide/inject for categories ([82a8962](https://github.com/visitscotland/vs-component-library/commit/82a89625fe015bda3be3a0c4308f1a25d34a1106))
+
+# [5.13.0](https://github.com/visitscotland/vs-component-library/compare/v5.12.5...v5.13.0) (2025-10-23)
+
+
+### Features
+
+* **federated search:** implement optional spotlight for search categories ([e8f4122](https://github.com/visitscotland/vs-component-library/commit/e8f41221bf54eb3a92d23aa2aa14f75d65af36ba))
+
+## [5.12.5](https://github.com/visitscotland/vs-component-library/compare/v5.12.4...v5.12.5) (2025-10-20)
+
+
+### Bug Fixes
+
+* **map:** allow immediately loading of OS branding for Nuxt sites ([2b68259](https://github.com/visitscotland/vs-component-library/commit/2b682599ab980e2df59333f31d4aa52ac563abd3))
+* **maps:** adjust docs comments to clarify ([f7c4a13](https://github.com/visitscotland/vs-component-library/commit/f7c4a13958a1a2a3ce74d781187ba075bfc99be7))
+
 ## [5.12.4](https://github.com/visitscotland/vs-component-library/compare/v5.12.3...v5.12.4) (2025-10-14)
 
 

@@ -59,6 +59,7 @@ export default {
     .vs-loading-spinner {
         width: $vs-spacer-125;
         height: $vs-spacer-125;
+        overflow: hidden;
         position: relative;
         animation-name: spin;
         animation-duration: 3000ms;

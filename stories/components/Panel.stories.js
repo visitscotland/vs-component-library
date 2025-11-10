@@ -20,12 +20,15 @@ const Template = (args) => ({
     },
     template: `
         <VsPanel v-bind="args">
-            <template v-if="${'vs-panel-title' in args}" v-slot:vs-panel-title>
-                <VsHeading level="3" heading-style="heading-m">
+            <template v-if="${'default' in args}">
+                <VsHeading 
+                    level="3" 
+                    heading-style="heading-m"
+                    no-margins
+                    class="mb-050"
+                >
                     ${args['vs-panel-title']}
                 </VsHeading>
-            </template>
-            <template v-if="${'default' in args}">
                 <VsBody>
                     ${args.default}
                 </VsBody>
@@ -44,7 +47,15 @@ const base = {
     'vs-panel-title': 'Summary',
 };
 
-export const Default = Template.bind({
+export const Secondary = Template.bind({
 });
 
-Default.args = base;
+Secondary.args = base;
+
+export const Information = Template.bind({
+});
+
+Information.args = {
+    ...base,
+    variant: 'information',
+};

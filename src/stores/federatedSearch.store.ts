@@ -16,18 +16,18 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
     const results = ref(null);
     const searchTerm = ref('');
     const selectedCategory = ref(null);
+    const selectedCategoryKey = ref(null);
     const selectedSubCategory = ref([]);
+    const selectedSubCategoryKey = ref([]);
     const totalResults = ref(undefined);
+    const totalResultsCludo = ref(undefined);
+    const totalResultsEvents = ref(undefined);
     const isHomePage = ref(false);
     const startDate = ref('');
     const endDate = ref('');
     const sortBy = ref(undefined);
     const searchUrl = ref(undefined);
-
-    async function getCludoCategories() {
-        const cludoResults = await cludoSearch('*', cludoCredentials.value, 1, '');
-        cludoCategories.value = cludoResults.categories;
-    }
+    const siteLanguage = ref(undefined);
 
     async function getSearchResults() {
         isLoading.value = true;
@@ -37,26 +37,26 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
             cludoCredentials.value,
             currentPage.value,
             selectedCategory.value,
-            cludoCategories.value,
+            selectedCategoryKey.value,
         );
 
         const eventResults = await eventSearch(
             eventsApi.value,
             searchTerm.value,
             currentPage.value,
-            selectedCategory.value,
-            selectedSubCategory.value,
+            selectedCategoryKey.value,
+            selectedSubCategoryKey.value,
             startDate.value,
             endDate.value,
             sortBy.value,
+            siteLanguage.value,
         );
 
         results.value = [...cludoResults.results, ...eventResults.results];
-        totalResults.value = cludoResults.totalResults + eventResults.totalResults;
 
-        if (!cludoCategories.value) {
-            cludoCategories.value = cludoResults.categories;
-        }
+        totalResultsCludo.value = cludoResults.totalResults;
+        totalResultsEvents.value = eventResults.totalResults;
+        totalResults.value = cludoResults.totalResults + eventResults.totalResults;
 
         isLoading.value = false;
     }
@@ -66,7 +66,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
     }
 
     function navigateToResultsPage(resetPageNo?: boolean) {
-        const url = new URL(window.location);
+        const url = new URL(window.location.href);
 
         if (searchTerm.value) {
             url.searchParams.set('search-term', searchTerm.value);
@@ -74,14 +74,16 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
             url.searchParams.delete('search-term');
         }
 
-        if (selectedCategory.value) {
-            url.searchParams.set('category', encodeURIComponent(selectedCategory.value));
+        if (selectedCategoryKey.value) {
+            url.searchParams.set('category', encodeURIComponent(selectedCategoryKey.value));
         } else {
             url.searchParams.delete('category');
         }
 
-        if (selectedSubCategory.value.length > 0) {
-            url.searchParams.set('sub-category', encodeURIComponent(selectedSubCategory.value.join(',')));
+        if (selectedSubCategoryKey.value.length > 0) {
+            url.searchParams.set('sub-category', encodeURIComponent(selectedSubCategoryKey.value.join(',')));
+        } else {
+            url.searchParams.delete('sub-category');
         }
 
         if (resetPageNo) {
@@ -106,7 +108,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         }
 
         if (sortBy.value) {
-            url.searchParams.set('sort-by', sortBy.value.key);
+            url.searchParams.set('sort-by', sortBy.value);
         } else {
             url.searchParams.delete('sort-by');
         }
@@ -129,20 +131,24 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         eventsApi,
         eventsApiError,
         getAutoComplete,
-        getCludoCategories,
         getSearchResults,
         isLoading,
         results,
         searchTerm,
         searchUrl,
         selectedCategory,
+        selectedCategoryKey,
         selectedSubCategory,
+        selectedSubCategoryKey,
         totalResults,
+        totalResultsCludo,
+        totalResultsEvents,
         navigateToResultsPage,
         isHomePage,
         startDate,
         endDate,
         sortBy,
+        siteLanguage,
     };
 });
 

@@ -12,9 +12,22 @@
                 :labels="props.searchLabels"
             />
             <VsDivider class="my-200" />
+            <template
+                v-for="(category, index) in federatedSearchStore.cludoCategories"
+                :key="index"
+            >
+                <div
+                    v-show="federatedSearchStore.selectedCategoryKey === category.Key"
+                    class="mb-200"
+                >
+                    <slot
+                        :name="`federated-search__spotlight-${category.Key}`"
+                    />
+                </div>
+            </template>
             <div
                 v-if="federatedSearchStore.results"
-                class="d-flex justify-content-between mb-200"
+                class="vs-federated-search__results"
             >
                 <div>
                     <VsHeading
@@ -31,7 +44,7 @@
                     </VsDetail>
                 </div>
                 <VsFedSearchSort
-                    v-if="federatedSearchStore.selectedCategory === 'Events & Festivals'"
+                    v-if="federatedSearchStore.selectedCategoryKey === 'events'"
                     :date-filter-visible="true"
                     :sort-options="props.sortLabels.sortOptions"
                     :from-date-label="props.sortLabels.dateFrom"
@@ -52,7 +65,7 @@
             >
                 <VsCardGroup
                     :cards-per-row="3"
-                    :scroll-snap="true"
+                    :class="federatedSearchStore.results && totalResultsPages <= 1 ? 'mb-300' : null"
                 >
                     <VsCard
                         v-for="result in federatedSearchStore.results"
@@ -76,9 +89,20 @@
                                     <VsBadge
                                         v-if="result.startDate"
                                         variant="information"
-                                        class="rounded-top"
+                                        class="rounded-top-end rounded-top-start"
                                     >
                                         {{ setEventDate(result.startDate, result.endDate) }}
+                                    </VsBadge>
+                                </div>
+                                <div class="position-absolute bottom-0 end-0 d-flex">
+                                    <VsBadge
+                                        v-if="
+                                            result.categoryCard
+                                                && cardCategoryLabels[result.categoryCard]"
+                                        variant="highlight"
+                                        class="rounded-top-start rounded-bottom-start mx-0"
+                                    >
+                                        {{ cardCategoryLabels[result.categoryCard] }}
                                     </VsBadge>
                                 </div>
                             </div>
@@ -99,7 +123,7 @@
                             </VsHeading>
 
                             <VsBody>
-                                <p class="truncate-3-lines">
+                                <p class="truncate-3-lines text-break">
                                     {{ result.description }}
                                 </p>
                             </VsBody>
@@ -127,8 +151,8 @@
 
                                 <div>
                                     <VsIcon
-                                        class="flex-grow-1 align-items-end me-050"
-                                        :icon="result.dataSrc === 'cludo' ? 'fa-regular fa-arrow-right' : 'vs-icon-control-external-link'"
+                                        v-if="result.dataSrc === 'data-thistle'"
+                                        icon="vs-icon-control-external-link"
                                         variant="highlight"
                                         size="sm"
                                     />
@@ -139,7 +163,7 @@
                 </VsCardGroup>
 
                 <VsPagination
-                    class="vs-federated-search--pagination"
+                    class="vs-federated-search__pagination"
                     v-if="federatedSearchStore.results && totalResultsPages > 1"
                     :number-of-pages="totalResultsPages"
                     :next-button-label="props.paginationLabels.nextButtonLabel"
@@ -152,7 +176,7 @@
             </div>
             <div
                 v-if="isError.error"
-                class="vs-federated-search--warning"
+                class="vs-federated-search__warning"
             >
                 <VsWarning
                     v-if="isError.error"
@@ -176,6 +200,7 @@ import {
     computed,
     onMounted,
     onUpdated,
+    provide,
 } from 'vue';
 import {
     VsBadge,
@@ -237,6 +262,13 @@ const props = defineProps({
         default: getEnvValue('EVENTS_API_URL'),
     },
     /**
+     * Array of cludo categories.
+    */
+    cludoCategories: {
+        type: Array,
+        default: undefined,
+    },
+    /**
      * Array of sub filters.
     */
     subFilters: {
@@ -278,9 +310,46 @@ const props = defineProps({
         type: Object,
         required: true,
     },
+    /**
+     * Labels for the card category badge.
+     */
+    cardCategoryLabels: {
+        type: Object,
+        required: true,
+        default: () => {},
+    },
+    /**
+     * Site language used for the Events API.
+     */
+    siteLanguage: {
+        type: String,
+        default: 'en',
+        validator: (value) => value.match(
+            /(en|es|it|de|nl|fr)/,
+        ),
+    },
 });
 
-const totalResultsPages = computed(() => Math.ceil(federatedSearchStore.totalResults / 12));
+provide('cludoCategories', props.cludoCategories);
+
+// Calculate the total number of pages for pagination.
+const totalResultsPages = computed(() => {
+    let pageCount;
+
+    if (!federatedSearchStore.selectedCategoryKey) {
+        pageCount = (
+            federatedSearchStore.totalResultsCludo >= federatedSearchStore.totalResultsEvents
+        )
+            ? Math.ceil(federatedSearchStore.totalResultsCludo / 6)
+            : Math.ceil(federatedSearchStore.totalResultsEvents / 6);
+    } else if (federatedSearchStore.selectedCategoryKey !== 'events') {
+        pageCount = Math.ceil(federatedSearchStore.totalResultsCludo / 12);
+    } else if (federatedSearchStore.selectedCategoryKey === 'events') {
+        pageCount = Math.ceil(federatedSearchStore.totalResultsEvents / 12);
+    }
+
+    return pageCount;
+});
 
 function calculateError() {
     if (
@@ -292,7 +361,7 @@ function calculateError() {
         isError.value.message = props.errorMessages.incorrectDateOrder;
     } else if (
         // Events API down
-        federatedSearchStore.selectedCategory === 'Events & Festivals'
+        federatedSearchStore.selectedCategoryKey === 'events'
         && federatedSearchStore.eventsApiError
         && !federatedSearchStore.isLoading
     ) {
@@ -301,7 +370,7 @@ function calculateError() {
     } else if (
         // Cludo down
         (federatedSearchStore.searchTerm || federatedSearchStore.selectedCategory)
-        && federatedSearchStore.selectedCategory !== 'Events & Festivals'
+        && federatedSearchStore.selectedCategoryKey !== 'events'
         && federatedSearchStore.cludoError
         && !federatedSearchStore.isLoading
     ) {
@@ -328,6 +397,8 @@ onMounted(() => {
         engineId: props.cludoEngineId,
     };
     federatedSearchStore.eventsApi = props.eventsApi;
+    federatedSearchStore.cludoCategories = props.cludoCategories;
+    federatedSearchStore.siteLanguage = props.siteLanguage;
 
     calculateError();
 
@@ -415,19 +486,33 @@ onUpdated(() => {
 
 <style lang="scss">
 .vs-federated-search {
-
-    &--pagination {
+    &__pagination {
         margin: $vs-spacer-400 $vs-spacer-0 $vs-spacer-300 $vs-spacer-0;
+
+        @include media-breakpoint-down(lg) {
+            margin: $vs-spacer-100 $vs-spacer-0 $vs-spacer-200 $vs-spacer-0;
+        }
     }
 
     &__error--no-js {
         display: none;
     }
+
+    &__results {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: $vs-spacer-200;
+
+        @include media-breakpoint-down(lg) {
+            flex-direction: column;
+            gap: $vs-spacer-200;
+        }
+    }
 }
 
 @include no-js {
     .vs-federated-search {
-        &__container{
+        &__container {
             display: none;
         }
 
