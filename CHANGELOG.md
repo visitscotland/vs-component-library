@@ -1,3 +1,10 @@
+## [5.16.4](https://github.com/visitscotland/vs-component-library/compare/v5.16.3...v5.16.4) (2025-11-10)
+
+
+### Bug Fixes
+
+* **federated search:** card text not breaking causes some cards to be too big ([e0d25e6](https://github.com/visitscotland/vs-component-library/commit/e0d25e609ee5a8e46bd4323ef4425685693d4912))
+
 ## [5.16.3](https://github.com/visitscotland/vs-component-library/compare/v5.16.2...v5.16.3) (2025-11-10)
 
 
