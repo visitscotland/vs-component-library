@@ -1,4 +1,7 @@
 import VsMainMap from '@/custom-components/maps/MainMap.vue';
+import mapCategories from '@/assets/fixtures/custom-components/main-map/map-categories.json';
+import mapCategoryLabels from '@/assets/fixtures/custom-components/main-map/map-labels.json';
+
 
 export default {
     component: VsMainMap,
@@ -37,6 +40,8 @@ const base = {
     noJsMessage: 'JavaScript is required to use the map. Enable JavaScript then reload the page to use the map.',
     noCookiesMessage: 'Cookies are requried to use the map',
     cookieBtnText: 'Manage cookies',
+    categories: mapCategories,
+    categoryLabels: mapCategoryLabels,
 };
 
 export const Default = Template.bind();
