@@ -2,7 +2,7 @@
     <div class="vs-map">
         <div
             class="vs-map__container"
-            v-if="!showError"
+            :class="!showError ? 'd-block' : 'd-none'"
         >
             <div class="vs-map__controls">
                 <VsMapSidebar
@@ -97,16 +97,15 @@
         </div>
         
         <VsWarning
+            v-if="showError && errType === 'noCookie'"
             type="cookie"
-            v-if="showError"
-            class="vs-map__warning vs-map__warning--no-cookies"
+            class="vs-map__error vs-map__error--no-cookies"
+            :class="showError ? 'd-block' : 'd-none'"
             data-test="vs-map__warning--no-cookies"
         >
             {{ props.noCookiesMessage }}
 
             <template
-                v-if="!cookiesAllowed
-                    && cookiesLoaded === true"
                 #button-text
             >
                 {{ props.cookieBtnText }}
@@ -114,6 +113,7 @@
         </VsWarning>
 
         <VsWarning
+            v-if="showError && errType === 'noJS'"
             data-test="vs-map__warning--no-js"
             class="vs-map__warning vs-map__warning--no-js"
         >
@@ -139,12 +139,14 @@ import {
 import { LatLngObject } from '@/types/types';
 import VsMapSidebar from './components/MapSidebar.vue';
 import useGoogleMapStore from '@/stores/mainMap.store';
-import cookieCheckerMixin from '../../mixins/verifyCookiesMixin.js';
+import cookieCheckerComposable  from './composables/verifyCookiesComposable';
+import cookieValues from '@/utils/required-cookies-data';
 
 import { 
     importLibrary,
     setOptions, 
 } from '@googlemaps/js-api-loader';
+import { l } from 'vite/dist/node/types.d-aGj9QkWt';
 
 const props = defineProps({
     /**
@@ -218,7 +220,7 @@ const props = defineProps({
 // showError computed prop determines if an error message needs 
 // to be shown. Logic defined below in onBeforeMount()
 let showError;
-const { cookiesAllowed, cookiesLoaded } = cookieCheckerMixin;
+const errType = ref(undefined);
 
 // Map Object, HTMLElements & Global Variables
 let gMap: google.maps.Map;
@@ -298,27 +300,29 @@ const mapFilters = {
 };
 
 onBeforeMount(() => {
+    const cookieCheck = cookieCheckerComposable();
+    cookieCheck.requiredCookies.value = cookieValues.google_maps;
+
     showError = computed(() => {
-        if (
-            (!cookiesAllowed && cookiesLoaded === true)
-            || !cookiesLoaded
-        ) {
-            console.log(cookiesAllowed);
-            console.log(cookiesLoaded);
+        if (props.jsDisabled === true) {
+            errType.value = 'noJS';
             return true;
         }
 
-        if (props.jsDisabled === true) {
+        if (
+            (!cookieCheck.cookiesAllowed.value && cookieCheck.cookiesLoaded.value === true)
+            || !cookieCheck.cookiesLoaded.value
+        ) {
+            errType.value = 'noCookie';
             return true;
-        } else {
-            return false;
         }
-    })
+
+        return false;
+    });
 });
 
 onMounted(async() => {
-
-    if(!showError.value){
+    if(showError.value === false){
         setOptions({
             key: props.apiKey,
             v: "quarterly",
@@ -400,7 +404,7 @@ onMounted(async() => {
     };
 
     // Init map if no error
-    if (!showError.value){
+    if (showError.value === false){
         await initMap();
     }
 })
@@ -715,11 +719,9 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
             display: none;
             
             &--no-js {
-            display: block;
-        }
-        }
-
-        
+                display: block;
+            }
+        }        
     }
 }
 </style>

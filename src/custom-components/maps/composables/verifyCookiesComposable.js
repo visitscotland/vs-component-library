@@ -16,9 +16,7 @@ const cookieCheckerComposable = () => {
             return true;
         };
 
-        return {
-            requiredCookiesAllowed,
-        };
+        return requiredCookiesAllowed.value;
     });
 
     const cookiesLoaded = computed(() => {
@@ -46,10 +44,6 @@ const cookieCheckerComposable = () => {
         };
 
         requiredCookiesAllowed.value = allowed;
-
-        if (typeof callbackOnUpdated !== 'undefined') {
-            callbackOnUpdated();
-        }
     }
 
     onMounted(() => {
@@ -63,6 +57,7 @@ const cookieCheckerComposable = () => {
     });
 
     return {
+        requiredCookies,
         cookiesAllowed,
         cookiesLoaded,
     };
