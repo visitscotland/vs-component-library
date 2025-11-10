@@ -318,6 +318,16 @@ const props = defineProps({
         required: true,
         default: () => {},
     },
+    /**
+     * Site language used for the Events API.
+     */
+    siteLanguage: {
+        type: String,
+        default: 'en',
+        validator: (value) => value.match(
+            /(en|es|it|de|nl|fr)/,
+        ),
+    },
 });
 
 provide('cludoCategories', props.cludoCategories);
@@ -388,6 +398,7 @@ onMounted(() => {
     };
     federatedSearchStore.eventsApi = props.eventsApi;
     federatedSearchStore.cludoCategories = props.cludoCategories;
+    federatedSearchStore.siteLanguage = props.siteLanguage;
 
     calculateError();
 

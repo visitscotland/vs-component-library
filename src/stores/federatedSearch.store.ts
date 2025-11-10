@@ -27,6 +27,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
     const endDate = ref('');
     const sortBy = ref(undefined);
     const searchUrl = ref(undefined);
+    const siteLanguage = ref(undefined);
 
     async function getSearchResults() {
         isLoading.value = true;
@@ -48,6 +49,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
             startDate.value,
             endDate.value,
             sortBy.value,
+            siteLanguage.value,
         );
 
         results.value = [...cludoResults.results, ...eventResults.results];
@@ -145,6 +147,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         startDate,
         endDate,
         sortBy,
+        siteLanguage,
     };
 });
 
