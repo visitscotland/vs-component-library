@@ -63,7 +63,10 @@
                     && federatedSearchStore.results
                     && !federatedSearchStore.eventsApiError"
             >
-                <VsCardGroup :cards-per-row="3">
+                <VsCardGroup
+                    :cards-per-row="3"
+                    :class="federatedSearchStore.results && totalResultsPages <= 1 ? 'mb-300' : null"
+                >
                     <VsCard
                         v-for="result in federatedSearchStore.results"
                         :key="result.id"
@@ -120,7 +123,7 @@
                             </VsHeading>
 
                             <VsBody>
-                                <p class="truncate-3-lines">
+                                <p class="truncate-3-lines text-break">
                                     {{ result.description }}
                                 </p>
                             </VsBody>
@@ -315,6 +318,16 @@ const props = defineProps({
         required: true,
         default: () => {},
     },
+    /**
+     * Site language used for the Events API.
+     */
+    siteLanguage: {
+        type: String,
+        default: 'en',
+        validator: (value) => value.match(
+            /(en|es|it|de|nl|fr)/,
+        ),
+    },
 });
 
 provide('cludoCategories', props.cludoCategories);
@@ -385,6 +398,7 @@ onMounted(() => {
     };
     federatedSearchStore.eventsApi = props.eventsApi;
     federatedSearchStore.cludoCategories = props.cludoCategories;
+    federatedSearchStore.siteLanguage = props.siteLanguage;
 
     calculateError();
 

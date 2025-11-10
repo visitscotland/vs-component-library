@@ -27,6 +27,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
     const endDate = ref('');
     const sortBy = ref(undefined);
     const searchUrl = ref(undefined);
+    const siteLanguage = ref(undefined);
 
     async function getSearchResults() {
         isLoading.value = true;
@@ -48,6 +49,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
             startDate.value,
             endDate.value,
             sortBy.value,
+            siteLanguage.value,
         );
 
         results.value = [...cludoResults.results, ...eventResults.results];
@@ -64,7 +66,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
     }
 
     function navigateToResultsPage(resetPageNo?: boolean) {
-        const url = new URL(window.location);
+        const url = new URL(window.location.href);
 
         if (searchTerm.value) {
             url.searchParams.set('search-term', searchTerm.value);
@@ -106,7 +108,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         }
 
         if (sortBy.value) {
-            url.searchParams.set('sort-by', sortBy.value.key);
+            url.searchParams.set('sort-by', sortBy.value);
         } else {
             url.searchParams.delete('sort-by');
         }
@@ -145,6 +147,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         startDate,
         endDate,
         sortBy,
+        siteLanguage,
     };
 });
 
