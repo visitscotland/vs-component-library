@@ -123,7 +123,7 @@
                             </VsHeading>
 
                             <VsBody>
-                                <p class="truncate-3-lines">
+                                <p class="truncate-3-lines text-break">
                                     {{ result.description }}
                                 </p>
                             </VsBody>
