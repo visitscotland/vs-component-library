@@ -291,8 +291,6 @@ const base = {
     'mega-nav-accordion-items': '',
     jsDisabled: false,
     dropdownNav: true,
-    mapLink: '#',
-    mapButtonText: 'Map of Scotland',
 };
 
 export const Default = Template.bind({
@@ -382,6 +380,15 @@ StaticNav.args = {
     noSearch: true,
     isStatic: true,
 };
+
+export const WithMapLink = Template.bind({
+});
+
+WithMapLink.args = {
+    ...base,
+    mapLink: '#',
+    mapButtonText: 'Map of Scotland',
+}
 
 export const NoJavascript = Template.bind({
 });

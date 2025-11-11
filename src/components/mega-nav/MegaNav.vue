@@ -53,6 +53,7 @@
                         class="justify-content-end align-items-center position-static d-flex h-100"
                     >
                         <VsButton
+                            v-if="mapButtonText && mapLink"
                             variant="tertiary"
                             icon="fa-regular fa-map"
                             icon-only
@@ -65,6 +66,7 @@
                         </VsButton>
 
                         <VsButton
+                            v-if="mapButtonText && mapLink"
                             variant="tertiary"
                             icon="fa-regular fa-map"
                             :href="mapLink"
