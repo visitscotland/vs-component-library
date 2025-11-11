@@ -7,6 +7,13 @@
                 <VsMapSidebar
                     :query="query"
                     :selectedCategories="selectedTopLevelCategory"
+                    :header-label="props.labels.heading"
+                    :close-sidebar-button-label="props.labels.closeSidebarBtn"
+                    :input-placeholder-label="props.labels.inputPlaceholder"
+                    :search-button-label="props.labels.searchButton"
+                    :clear-map-label="props.labels.clearMap"
+                    :search-results-label="props.labels.searchResults"
+                    :open-sidebar-button-label="props.labels.openSidebarButton"
                     @search-input-changed="searchByText"
                     @reset-map="resetMap(true)"
                 >
@@ -200,6 +207,19 @@ const props = defineProps({
         type: Number,
         default: 1000,
     },
+    /** Object of labels for the Maps UI */
+    labels: {
+        type: Object,
+        default: () => {},
+    },
+    /** 2 Letter language code to display Google Maps UI with */
+    languageCode: {
+        type: String,
+        default: 'en',
+        validator: (value) => value.match(
+            /(en|es|it|de|nl|fr)/,
+        ),
+    },
     /**
      * JSON object of categories and their types
      */
@@ -316,6 +336,8 @@ onMounted(async() => {
             key: props.apiKey,
             v: "quarterly",
             libraries: ['maps', 'places', 'marker', 'core', 'geometry'],
+        region: 'GB',
+        language: props.languageCode,
         });
 
         try{
