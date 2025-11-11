@@ -74,12 +74,12 @@
         <path
             id="region-arran"
             d="M51.7287 220.725L49.1875 231.015C49.1875 231.015 54.9712 233.435 55.1709 233.168C55.3732 232.898 61.1542 222.611 60.9546 222.543C60.755 222.476 51.7287 220.728 51.7287 220.728V220.725Z"
-            :class="{ 'is-highlighted': isHighlighted('arran') }"
+            :class="{ 'is-highlighted': isHighlighted('arranayr') }"
         />
         <path
             id="region-ayrshire"
             d="M61.3483 207.458L60.9653 218.253L66.8434 223.663L56.8945 246.364L82.3684 227.947L61.3483 207.458Z"
-            :class="{ 'is-highlighted': isHighlighted('ayrshire') }"
+            :class="{ 'is-highlighted': isHighlighted('arranayr') }"
         />
         <path
             id="region-argyll"
@@ -97,13 +97,13 @@ export default {
          * Array of region IDs to highlight,
          * `borders|dumfries|highlands|outerhebs|shetland|
          * orkney|edinburgh|glasgow|fife|dundee|aberdeen|
-         * perth|lomond|arran|ayrshire|argyll`
+         * perth|lomond|arranayr|argyll`
          */
         highlightedRegions: {
             type: Array,
             default: () => [],
             validator: (value) => value.every(
-                (region) => /^(borders|dumfries|highlands|outerhebs|shetland|orkney|edinburgh|glasgow|fife|dundee|aberdeen|perth|lomond|arran|ayrshire|argyll)$/.test(region),
+                (region) => /^(borders|dumfries|highlands|outerhebs|shetland|orkney|edinburgh|glasgow|fife|dundee|aberdeen|perth|lomond|arranayr|argyll)$/.test(region),
             ),
         },
     },

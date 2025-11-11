@@ -20,7 +20,7 @@ describe('VsIllustratedMap', () => {
         const wrapper = factoryShallowMount();
         const paths = wrapper.findAll('path');
 
-        expect(paths).toHaveLength(16);
+        expect(paths).toHaveLength(15);
     });
 
     describe(':props', () => {
