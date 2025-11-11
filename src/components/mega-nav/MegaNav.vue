@@ -15,7 +15,7 @@
                 >
                     <!-- Logo Link -->
                     <VsCol
-                        cols="8"
+                        cols="7"
                         md="4"
                         lg="3"
                     >
@@ -36,7 +36,7 @@
                     <VsCol
                         cols="4"
                         md="6"
-                        :lg="noSearch ? 9 : 7"
+                        :lg="noSearch ? 7 : 5"
                         class="vs-mega-nav__menu d-none d-lg-block"
                     >
                         <VsMegaNavTopMenu>
@@ -47,11 +47,36 @@
 
                     <!-- Mobile Toggle and Menu -->
                     <VsCol
-                        cols="4"
+                        cols="5"
                         md="8"
-                        lg="2"
+                        lg="4"
                         class="justify-content-end align-items-center position-static d-flex h-100"
                     >
+                        <VsButton
+                            v-if="mapButtonText && mapLink"
+                            variant="tertiary"
+                            icon="fa-regular fa-map"
+                            icon-only
+                            size="md"
+                            :rounded="false"
+                            :href="mapLink"
+                            class="vs-mega-nav__map-button d-flex d-xs-flex d-sm-flex d-md-flex d-lg-flex d-xl-none"
+                        >
+                            {{ mapButtonText }}
+                        </VsButton>
+
+                        <VsButton
+                            v-if="mapButtonText && mapLink"
+                            variant="tertiary"
+                            icon="fa-regular fa-map"
+                            :href="mapLink"
+                            size="md"
+                            :rounded="false"
+                            class="vs-mega-nav__map-button d-none d-xs-none d-sm-none d-md-none d-lg-none d-xl-flex"
+                        >
+                            {{ mapButtonText }}
+                        </VsButton>
+
                         <VsSiteSearch
                             @toggle-action="toggleSearch"
                             :is-showing="showSearch"
@@ -212,6 +237,13 @@ export default {
             default: 'Close search form',
         },
         /**
+         * Text that displays on the map button
+         * */
+        mapButtonText: {
+            type: String,
+            default: 'Map of Scotland',
+        },
+        /**
          * If true, completely remove the search button from the nav
          * to render search inaccessible
          */
@@ -223,6 +255,11 @@ export default {
          * If set, link to search page rather than opening search form.
          */
         searchLink: {
+            type: String,
+            default: undefined,
+        },
+        /** If set, link to Explore Map */
+        mapLink: {
             type: String,
             default: undefined,
         },
@@ -332,6 +369,24 @@ export default {
 
     &__mobile-menu {
         display: none
+    }
+
+    &__map-button {
+        color: $vs-color-text-highlight;
+
+        .vs-icon--variant-primary {
+            color: $vs-color-icon-highlight;
+        }
+
+        &:hover {
+            .vs-icon--variant-primary {
+                color: $vs-color-icon-primary;
+            }
+        }
+
+        .vs-button__text {
+            font-weight: $vs-font-weight-regular;
+        }
     }
 }
 
