@@ -1,5 +1,11 @@
 /* eslint-disable no-undef */
 
+/**
+ * Functionality of this mixin is currently duplicated as a composable
+ * in src/custom-components/maps/main-map/componsables/verifyCookiesComposable.
+ * Any changes here, need to be made there too.
+ */
+
 const cookieCheckerMixin = {
     data() {
         return {
