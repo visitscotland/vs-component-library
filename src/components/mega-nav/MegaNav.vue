@@ -15,7 +15,7 @@
                 >
                     <!-- Logo Link -->
                     <VsCol
-                        cols="8"
+                        cols="7"
                         md="4"
                         lg="3"
                     >
@@ -47,7 +47,7 @@
 
                     <!-- Mobile Toggle and Menu -->
                     <VsCol
-                        cols="4"
+                        cols="5"
                         md="8"
                         lg="4"
                         class="justify-content-end align-items-center position-static d-flex h-100"
@@ -60,7 +60,7 @@
                             size="md"
                             :rounded="false"
                             :href="mapLink"
-                            class="vs-mega-nav__map-button d-none d-sm-flex d-md-flex d-lg-flex d-xl-none"
+                            class="vs-mega-nav__map-button d-flex d-xs-flex d-sm-flex d-md-flex d-lg-flex d-xl-none"
                         >
                             {{ mapButtonText }}
                         </VsButton>
@@ -72,7 +72,7 @@
                             :href="mapLink"
                             size="md"
                             :rounded="false"
-                            class="vs-mega-nav__map-button d-none d-sm-none d-md-none d-lg-none d-xl-flex"
+                            class="vs-mega-nav__map-button d-none d-xs-none d-sm-none d-md-none d-lg-none d-xl-flex"
                         >
                             {{ mapButtonText }}
                         </VsButton>
@@ -369,6 +369,24 @@ export default {
 
     &__mobile-menu {
         display: none
+    }
+
+    &__map-button {
+        color: $vs-color-text-highlight;
+
+        .vs-icon--variant-primary {
+            color: $vs-color-icon-highlight;
+        }
+
+        &:hover {
+            .vs-icon--variant-primary {
+                color: $vs-color-icon-primary;
+            }
+        }
+
+        .vs-button__text {
+            font-weight: $vs-font-weight-regular;
+        }
     }
 }
 
