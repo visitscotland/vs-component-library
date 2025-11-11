@@ -80,7 +80,7 @@ export default `
                         href="#"
                         icon="fa-regular fa-binoculars"
                     >
-                        View full itinerary
+                        View on Google Maps
                     </VsButton>
 
                     <VsButton
@@ -196,51 +196,23 @@ export default `
                 lg="8"
             >
                 <!------- Itinerary day intro ------->
-                <div class="mb-400">
-                    <VsBody class="mb-175">
-                        <p>
-                            Edinburgh, Scotland's historic capital city, is bound to leave an impression on you. You could easily spend weeks discovering its many fantastic attractions, hidden gems and vibrant cultural scene. Today's stops will give you a real feel for this beautiful city's unique character, fascinating past and unbridled charm.
-                        </p>
-                    </VsBody>                                    
-
-                    <div class="d-flex flex-wrap column-gap-300 row-gap-150 align-items-end">
-                        <VsDetail
-                            no-margins 
-                            color="secondary"
-                            icon="fa-regular fa-calendar-range"
-                            icon-variant="secondary"
-                        >
-                            2 hours
-                        </VsDetail>
-
-                        <VsDetail
-                            no-margins 
-                            color="secondary"
-                            icon="fa-regular fa-taxi"
-                            icon-variant="secondary"
-                        >
-                            Walk or bus
-                        </VsDetail>
-
-                        <VsDetail
-                            no-margins 
-                            color="secondary"
-                            icon="fa-regular fa-route"
-                            icon-variant="secondary"
-                        >
-                            70 miles (112km)
-                        </VsDetail>
-                    </div>
-                </div>
-
+                <VsBody class="mb-400">
+                    <p>
+                        Edinburgh, Scotland's historic capital city, is bound to leave an impression on you. You could easily spend weeks discovering its many fantastic attractions, hidden gems and vibrant cultural scene. Today's stops will give you a real feel for this beautiful city's unique character, fascinating past and unbridled charm.
+                    </p>
+                </VsBody>       
 
                 <!------- New structured content block: Itinerary stop ------->
                 <div class="mb-400">
                     <VsImg
                         src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2023/08/28/edinburgh-castle?size=lg"
                         use-lazy-loading
-                        class="rounded-2 w-100 mb-175"
+                        class="rounded-2 w-100"
                     />
+                    <VsCaption theme="subtle" class="mb-175">
+                        <template v-slot:caption>Caption</template>
+                        <template v-slot:credit>Credit</template>
+                    </VsCaption>
 
                     <!------- Content block header -------> 
                     <VsRow class="mb-125">
@@ -337,74 +309,6 @@ export default `
                             See in Google maps
                         </VsButton>
                     </div>
-                </div>
-
-                <!------- Travel between panel  ------->
-                <div class="d-flex flex-column align-items-center gap-100 mb-400">
-                    <VsImg src="fixtures/itineraries/images/itinerary-step.jpg" aria-hidden="true" />
-                    <VsPanel class="w-100">
-                        <VsContainer>
-                            <VsRow class="mb-150">
-                                <VsCol
-                                    cols="12"
-                                    md="8"
-                                >
-                                    <VsHeading 
-                                        heading-style="heading-xs" 
-                                        level="3"
-                                        no-margins
-                                    >
-                                        Travel between
-                                    </VsHeading>
-
-                                    <VsDetail size="small">
-                                        Scotland's Capital - Fife & St Andrews
-                                    </VsDetail>
-                                </VsCol>
-                            </VsRow> 
-                            <VsRow>
-                                <VsCol>
-                                    <div class="d-flex flex-wrap column-gap-300 row-gap-150 align-items-end mb-175">
-                                        <VsDetail
-                                            no-margins 
-                                            color="tertiary"
-                                            icon="fa-regular fa-calendar-range"
-                                            icon-variant="tertiary"
-                                        >
-                                            2 hours
-                                        </VsDetail>
-
-                                        <VsDetail
-                                            no-margins 
-                                            color="tertiary"
-                                            icon="fa-regular fa-taxi"
-                                            icon-variant="tertiary"
-                                        >
-                                            Walk or public transport
-                                        </VsDetail>
-
-                                        <VsDetail
-                                            no-margins 
-                                            color="tertiary"
-                                            icon="fa-regular fa-route"
-                                            icon-variant="tertiary"
-                                        >
-                                            20 miles (25km)
-                                        </VsDetail>   
-                                    </div>
-
-                                    <VsButton
-                                        href="#"
-                                        variant="secondary"
-                                        icon="fa-regular fa-map"
-                                    >
-                                        See in Google itinerary
-                                    </VsButton>
-                                </VsCol>
-                            </VsRow> 
-                        </VsContainer>
-                    </VsPanel>
-                    <VsImg src="fixtures/itineraries/images/itinerary-step.jpg" aria-hidden="true" />
                 </div>
 
 
@@ -610,42 +514,11 @@ export default `
                 lg="8"
             >
                 <!------- Itinerary day intro ------->
-                <div class="mb-400">
-                    <VsBody class="mb-175">
-                        <p>
-                            Leave Edinburgh and venture out into the Kingdom of Fife, taking the Queensferry Crossing. Look out for the remarkable structure of the Forth Bridge, a UNESCO World Heritage Site, and the Forth Road Bridge. Follow the brown signs for the Fife Coastal Route to take in the sparkling coastline and the picturesque villages of the East Neuk.
-                        </p>
-                    </VsBody>
-
-                    <div class="d-flex flex-wrap column-gap-300 row-gap-150 align-items-end mb-400">
-                        <VsDetail
-                            no-margins 
-                            color="secondary"
-                            icon="fa-regular fa-calendar-range"
-                            icon-variant="secondary"
-                        >
-                            2 hours
-                        </VsDetail>
-
-                        <VsDetail
-                            no-margins 
-                            color="secondary"
-                            icon="fa-regular fa-taxi"
-                            icon-variant="secondary"
-                        >
-                            Walk or bus
-                        </VsDetail>
-
-                        <VsDetail
-                            no-margins 
-                            color="secondary"
-                            icon="fa-regular fa-route"
-                            icon-variant="secondary"
-                        >
-                            70 miles (112km)
-                        </VsDetail>
-                    </div>
-                </div>
+                <VsBody class="mb-400">
+                    <p>
+                        Leave Edinburgh and venture out into the Kingdom of Fife, taking the Queensferry Crossing. Look out for the remarkable structure of the Forth Bridge, a UNESCO World Heritage Site, and the Forth Road Bridge. Follow the brown signs for the Fife Coastal Route to take in the sparkling coastline and the picturesque villages of the East Neuk.
+                    </p>
+                </VsBody>
                 
                 <!------- New structured content block: Itinerary stop ------->
                 <div class="mb-400">
@@ -870,42 +743,11 @@ export default `
                 lg="8"
             >
                 <!------- Itinerary day intro ------->
-                <div class="mb-400">
-                    <VsBody class="mb-175">
-                        <p>
-                            On the third day of your trip, it's time to discover the unique offerings of Dundee, Scotland's fourth largest city. A UNESCO City of Design, Dundee is a thriving, compact place full of exciting developments and has a vibrant cultural scene. It also has a fascinating and varied history that includes textiles manufacturing, polar exploration, journalism… and marmalade!
-                        </p>
-                    </VsBody>
-
-                    <div class="d-flex flex-wrap column-gap-300 row-gap-150 align-items-end mb-400">
-                        <VsDetail
-                            no-margins 
-                            color="secondary"
-                            icon="fa-regular fa-calendar-range"
-                            icon-variant="secondary"
-                        >
-                            2 hours
-                        </VsDetail>
-
-                        <VsDetail
-                            no-margins 
-                            color="secondary"
-                            icon="fa-regular fa-taxi"
-                            icon-variant="secondary"
-                        >
-                            Walk or bus
-                        </VsDetail>
-
-                        <VsDetail
-                            no-margins 
-                            color="secondary"
-                            icon="fa-regular fa-route"
-                            icon-variant="secondary"
-                        >
-                            70 miles (112km)
-                        </VsDetail>
-                    </div>
-                </div>
+                <VsBody class="mb-400">
+                    <p>
+                        On the third day of your trip, it's time to discover the unique offerings of Dundee, Scotland's fourth largest city. A UNESCO City of Design, Dundee is a thriving, compact place full of exciting developments and has a vibrant cultural scene. It also has a fascinating and varied history that includes textiles manufacturing, polar exploration, journalism… and marmalade!
+                    </p>
+                </VsBody>
                 
                 <!------- New structured content block: Itinerary stop ------->
                 <div class="mb-400">
