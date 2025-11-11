@@ -1,118 +1,147 @@
 <template>
     <div class="vs-map">
-        <div class="vs-map__controls">
-            <VsMapSidebar
-                :query="query"
-                :selectedCategories="selectedTopLevelCategory"
-                @search-input-changed="searchByText"
-                @reset-map="resetMap(true)"
-            >
-                <template
-                    #vs-map-sidebar-sub-filters
-                    v-if="selectedTopLevelCategory"
+        <div class="vs-map__container"
+            :class="!showError ? 'd-block' : 'd-none'"
+        >
+            <div class="vs-map__controls">
+                <VsMapSidebar
+                    :query="query"
+                    :selectedCategories="selectedTopLevelCategory"
+                    @search-input-changed="searchByText"
+                    @reset-map="resetMap(true)"
                 >
-                    <div class="vs-map-sidebar__sub-filters">
-                        <VsButton
-                            v-for="(subCategory, key) in categoryLabelData[categoryKey].subCategory"
-                            :key
-                            :variant="selectedSubCategories.has(subCategory.id) ? 'primary' : 'secondary'"
-                            size="sm"
-                            @click="searchBySubCategory(subCategory.id, key)"
-                        >
-                            {{ subCategory.label }}
-                        </VsButton>
-                    </div>
-                </template>
-
-                <template #vs-map-sidebar-search-results>
-                    <Suspense>
-                        <div id="search-container">
-                            <gmp-place-search
-                                id="nearbySearch"
-                                orientation="vertical"
-                                attributionPosition="BOTTOM"
-                                selectable
-                                style="display: none"
+                    <template
+                        #vs-map-sidebar-sub-filters
+                        v-if="selectedTopLevelCategory"
+                    >
+                        <div class="vs-map-sidebar__sub-filters">
+                            <VsButton
+                                v-for="(subCategory, key) in categoryLabelData[categoryKey].subCategory"
+                                :key
+                                :variant="selectedSubCategories.has(subCategory.id) ? 'primary' : 'secondary'"
+                                size="sm"
+                                @click="searchBySubCategory(subCategory.id, key)"
                             >
-                                <gmp-place-all-content></gmp-place-all-content>
-                                <gmp-place-nearby-search-request id="nearbySearchQuery">
-                                </gmp-place-nearby-search-request>
-                                <gmp-place-attribution light-scheme-color="black" dark-scheme-color="grey"></gmp-place-attribution>
-                            </gmp-place-search> 
-                            <gmp-place-search
-                                id="textSearch"
-                                orientation="vertical"
-                                attributionPosition="BOTTOM"
-                                selectable
-                                style="display: none"
-                            >
-                                <gmp-place-all-content></gmp-place-all-content>
-                                <gmp-place-text-search-request id="textSearchQuery">
-                                </gmp-place-text-search-request>
-                                <gmp-place-attribution light-scheme-color="black" dark-scheme-color="grey"></gmp-place-attribution>
-                            </gmp-place-search> 
+                                {{ subCategory.label }}
+                            </VsButton>
                         </div>
-                    </Suspense>
-                </template>
-            </VsMapSidebar>
-            <div
-                class="vs-map__filter-controls"
-                v-if="(currentZoom > CATEGORY_VISIBLE_ZOOM) && googleMapStore.sidebarOpen"
-            >
-                <VsButton
-                    v-for="(category, key) in categoryLabelData"
-                    :key
-                    class="vs-map__filter-controls-button"
-                    :icon="categoryData[category.id].icon"
-                    :variant="selectedTopLevelCategory === category.id ? 'primary' : 'secondary'"
-                    @click.prevent="selectCategory(category.id, key)"
-                >
-                    {{ category.label }}
-                </VsButton>
-            </div>
-        </div>
-        
+                    </template>
     
-        <div class="vs-map__wrapper">
-            <div 
-                id="vs-map"
-                map-id="vs-map"
-                ref="vsMap"
-            >
+                    <template #vs-map-sidebar-search-results>
+                        <Suspense>
+                            <div id="search-container">
+                                <gmp-place-search
+                                    id="nearbySearch"
+                                    orientation="vertical"
+                                    attributionPosition="BOTTOM"
+                                    selectable
+                                    style="display: none"
+                                >
+                                    <gmp-place-all-content></gmp-place-all-content>
+                                    <gmp-place-nearby-search-request id="nearbySearchQuery">
+                                    </gmp-place-nearby-search-request>
+                                    <gmp-place-attribution light-scheme-color="black" dark-scheme-color="grey"></gmp-place-attribution>
+                                </gmp-place-search> 
+                                <gmp-place-search
+                                    id="textSearch"
+                                    orientation="vertical"
+                                    attributionPosition="BOTTOM"
+                                    selectable
+                                    style="display: none"
+                                >
+                                    <gmp-place-all-content></gmp-place-all-content>
+                                    <gmp-place-text-search-request id="textSearchQuery">
+                                    </gmp-place-text-search-request>
+                                    <gmp-place-attribution light-scheme-color="black" dark-scheme-color="grey"></gmp-place-attribution>
+                                </gmp-place-search> 
+                            </div>
+                        </Suspense>
+                    </template>
+                </VsMapSidebar>
+                <div
+                    class="vs-map__filter-controls"
+                    v-if="(currentZoom > CATEGORY_VISIBLE_ZOOM) && googleMapStore.sidebarOpen"
+                >
+                    <VsButton
+                        v-for="(category, key) in categoryLabelData"
+                        :key
+                        class="vs-map__filter-controls-button"
+                        :icon="categoryData[category.id].icon"
+                        :variant="selectedTopLevelCategory === category.id ? 'primary' : 'secondary'"
+                        @click.prevent="selectCategory(category.id, key)"
+                    >
+                        {{ category.label }}
+                    </VsButton>
+                </div>
             </div>
-            <Suspense>
-                <div id="detail-container">
-                        <gmp-place-details
-                            id="placeDetails"
-                            style="display: none"
-                        >
-                            <gmp-place-details-place-request id="placeRequest"></gmp-place-details-place-request>
-                            <gmp-place-content-config>
-                                <gmp-place-address></gmp-place-address>
-                                <gmp-place-rating></gmp-place-rating>
-                                <gmp-place-type></gmp-place-type>
-                                <gmp-place-price></gmp-place-price>
-                                <gmp-place-accessible-entrance-icon></gmp-place-accessible-entrance-icon>
-                                <gmp-place-opening-hours></gmp-place-opening-hours>
-                                <gmp-place-website></gmp-place-website>
-                                <gmp-place-phone-number></gmp-place-phone-number>
-                                <gmp-place-summary></gmp-place-summary>
-                                <gmp-place-type-specific-highlights></gmp-place-type-specific-highlights>
-                                <gmp-place-reviews></gmp-place-reviews>
-                                <gmp-place-feature-list></gmp-place-feature-list>
-                                <gmp-place-media lightbox-preferred></gmp-place-media>
-                                <gmp-place-attribution light-scheme-color="black"></gmp-place-attribution>
-                            </gmp-place-content-config>
-                        </gmp-place-details>
-                    </div>
-            </Suspense>
+            
+        
+            <div class="vs-map__wrapper">
+                <div 
+                    id="vs-map"
+                    map-id="vs-map"
+                    ref="vsMap"
+                >
+                </div>
+                <Suspense>
+                    <div id="detail-container">
+                            <gmp-place-details
+                                id="placeDetails"
+                                style="display: none"
+                            >
+                                <gmp-place-details-place-request id="placeRequest"></gmp-place-details-place-request>
+                                <gmp-place-content-config>
+                                    <gmp-place-address></gmp-place-address>
+                                    <gmp-place-rating></gmp-place-rating>
+                                    <gmp-place-type></gmp-place-type>
+                                    <gmp-place-price></gmp-place-price>
+                                    <gmp-place-accessible-entrance-icon></gmp-place-accessible-entrance-icon>
+                                    <gmp-place-opening-hours></gmp-place-opening-hours>
+                                    <gmp-place-website></gmp-place-website>
+                                    <gmp-place-phone-number></gmp-place-phone-number>
+                                    <gmp-place-summary></gmp-place-summary>
+                                    <gmp-place-type-specific-highlights></gmp-place-type-specific-highlights>
+                                    <gmp-place-reviews></gmp-place-reviews>
+                                    <gmp-place-feature-list></gmp-place-feature-list>
+                                    <gmp-place-media lightbox-preferred></gmp-place-media>
+                                    <gmp-place-attribution light-scheme-color="black"></gmp-place-attribution>
+                                </gmp-place-content-config>
+                            </gmp-place-details>
+                        </div>
+                </Suspense>
+            </div>
         </div>
+        <VsWarning
+            v-if="showError && errType === 'noCookie'"
+            type="cookie"
+            class="vs-map__error vs-map__error--no-cookies"
+            :class="showError ? 'd-block' : 'd-none'"
+            data-test="vs-map__warning--no-cookies"
+        >
+            {{ props.noCookiesMessage }}
+
+            <template
+                #button-text
+            >
+                {{ props.cookieBtnText }}
+            </template>
+        </VsWarning>
+
+        <VsWarning
+            v-if="showError && errType === 'noJS'"
+            data-test="vs-map__warning--no-js"
+            class="vs-map__warning vs-map__warning--no-js"
+        >
+            {{ noJsMessage }}
+        </VsWarning>
     </div>
 </template>
 
 <script setup lang="ts">
 import {
+    computed,
     type PropType,
+    onBeforeMount,
     onMounted,
     ref,
 } from 'vue';
@@ -120,13 +149,13 @@ import getEnvValue from '@/utils/get-env-value';
 
 import {
     VsButton,
-    VsCol,
-    VsContainer,
-    VsRow,
+    VsWarning,
 } from '@/components';
 import { LatLngObject } from '@/types/types';
 import VsMapSidebar from './components/MapSidebar.vue';
 import useGoogleMapStore from '@/stores/mainMap.store';
+import cookieCheckerComposable from './composables/verifyCookiesComposable';
+import cookieValues from '@/utils/required-cookies-data';
 
 import { 
     importLibrary,
@@ -183,7 +212,35 @@ const props = defineProps({
         type: Object,
         default: () => {}
     },
-})
+    /**
+     * Tells if JS is Disabled
+     */
+    jsDisabled: {
+        type: Boolean,
+        required: true,
+    },
+    /** 
+     * Message to display when JavaScript is disabled
+     */
+    noJsMessage: {
+        type: String,
+        required: true
+    },
+    /**
+     * Message to display when Cookies disabled
+     */
+    noCookiesMessage: {
+        type: String,
+        required: true,
+    },
+    /**
+     * Text for Cookies button that will open Cookie Manager
+     */
+    cookieBtnText: {
+        type: String,
+        required: true,
+    },
+});
 
 // Map Object, HTMLElements & Global Variables
 let gMap: google.maps.Map;
@@ -217,6 +274,9 @@ const currentSearch = ref<string>();
 
 const googleMapStore = useGoogleMapStore();
 
+let showError;
+const errType = ref(undefined);
+
 const SCOTLAND_BOUNDS = {
     north: 60.86500,
     south: 54.62185,
@@ -227,12 +287,47 @@ const SCOTLAND_BOUNDS = {
 const categoryData = props.categories;
 const categoryLabelData = props.categoryLabels;
 
-onMounted(async() => {
-    setOptions({
-        key: props.apiKey,
-        v: "quarterly",
-        libraries: ['maps', 'places', 'marker', 'core', 'geometry'],
+onBeforeMount(() => {
+    const cookieCheck = cookieCheckerComposable();
+    cookieCheck.requiredCookies.value = cookieValues.google_maps;
+
+    showError = computed(() => {
+        if (props.jsDisabled === true) {
+            errType.value = 'noJS';
+            return true;
+        }
+
+        if (
+            (!cookieCheck.cookiesAllowed.value && cookieCheck.cookiesLoaded.value === true)
+            || !cookieCheck.cookiesLoaded.value
+        ) {
+            errType.value = 'noCookie';
+            return true;
+        }
+
+        return false;
     });
+})
+
+onMounted(async() => {
+    // Only load Google Maps libraries if no error
+    if (showError.value === false) {
+        setOptions({
+            key: props.apiKey,
+            v: "quarterly",
+            libraries: ['maps', 'places', 'marker', 'core', 'geometry'],
+        });
+
+        try{
+            await importLibrary('maps') as google.maps.MapsLibrary;
+            await importLibrary('places') as google.maps.PlacesLibrary;
+            await importLibrary('marker') as google.maps.MarkerLibrary;
+            await importLibrary('core') as google.maps.CoreLibrary;
+            await importLibrary('geometry') as google.maps.GeometryLibrary;
+        } catch (error) {
+            console.error('Google Maps Library load error');
+        }
+    };
 
     mapContainer = document.getElementById('vs-map');
     searchContainer = document.getElementById('search-container');
@@ -244,16 +339,6 @@ onMounted(async() => {
     placeDetails = document.querySelector('gmp-place-details');
     placeRequest = document.getElementById('placeRequest');
     searchInput = document.getElementById('vs-map-search-input');
-
-    try{
-        await importLibrary('maps') as google.maps.MapsLibrary;
-        await importLibrary('places') as google.maps.PlacesLibrary;
-        await importLibrary('marker') as google.maps.MarkerLibrary;
-        await importLibrary('core') as google.maps.CoreLibrary;
-        await importLibrary('geometry') as google.maps.GeometryLibrary;
-    } catch (error) {
-        console.error('Google Maps Library load error');
-    }
 
     async function initMap(): Promise<void> {
         try {
@@ -307,8 +392,10 @@ onMounted(async() => {
         
     };
 
-    // Init map
-    await initMap();
+    // Init map if no error
+    if (showError.value === false){
+        await initMap();
+    }
 })
 
 function selectCategory(categoryId, key) {
@@ -614,6 +701,10 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
         }
     }
 
+    &__warning {
+        display: none;
+    }
+
     .vs-map-marker {
         display: flex;
         align-items: center;
@@ -631,6 +722,23 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
         &:hover{
             transform: scale(1.25);
         }
+    }
+}
+
+@include no-js {
+    .vs-map {
+
+        &__container {
+            display: none;
+        }
+
+        &__warning {
+            display: none;
+            
+            &--no-js {
+                display: block;
+            }
+        }        
     }
 }
 </style>
