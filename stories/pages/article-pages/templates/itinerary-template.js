@@ -207,12 +207,8 @@ export default `
                     <VsImg
                         src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2023/08/28/edinburgh-castle?size=lg"
                         use-lazy-loading
-                        class="rounded-2 w-100"
+                        class="rounded-2 w-100 mb-175"
                     />
-                    <VsCaption theme="subtle" class="mb-175">
-                        <template v-slot:caption>Caption</template>
-                        <template v-slot:credit>Credit</template>
-                    </VsCaption>
 
                     <!------- Content block header -------> 
                     <VsRow class="mb-125">
