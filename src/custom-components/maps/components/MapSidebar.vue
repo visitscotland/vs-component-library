@@ -49,20 +49,34 @@
             <VsLink
                 href="#"
                 class="d-block"
-                v-if="$props.query || $props.selectedCategories.size >= 1"
+                v-if="$props.query || $props.selectedCategories"
                 @click.prevent="$emit('reset-map')"
                 @keyup.enter.prevent="$emit('reset-map')"
             >
                 {{ props.clearMapLabel }}
             </VsLink>
+            <div
+                v-if="$slots['vs-map-sidebar-sub-filters'] && $slots['vs-map-sidebar-sub-filters']()"
+                class="vs-map-sidebar__sub-filters-wrapper"
+            >
+                <VsDetail
+                    class="vs-map-sidebar__sub-filter-header"
+                    size="small"
+                    color="secondary"
+                >
+                    Filter your results
+                </VsDetail>
+                <!-- @Slot for sub filters to be added to sidebar -->
+                <slot name="vs-map-sidebar-sub-filters" />
+            </div>
             <div class="vs-map-sidebar__search-results">
                 <VsHeading
-                    v-if="$props.query || $props.selectedCategories.size >= 1"
-                    level="3"
+                    level="2"
                     heading-style="heading-xxxs"
+                    v-if="$props.query || $props.selectedCategories"
                     data-test="vs-map-sidebar__search-result-query"
                 >
-                    {{ props.searchResultsLabel }} "{{ $props.query || Array.from($props.selectedCategories).join(',') }}"
+                    {{ props.searchResultsLabel }} "{{ $props.query || $props.selectedCategories }}"
                 </VsHeading>
                 <div class="vs-map-sidebar__google-maps-container mt-075">
                     <!-- @Slot to contain Google Maps Places
@@ -73,7 +87,7 @@
         </div>
         <div
             class="vs-map-sidebar__footer"
-            v-if="$props.query || $props.selectedCategories.size >= 1"
+            v-if="$props.query || $props.selectedCategories"
         >
             <hr class="vs-map-sidebar__swipe-tab">
         </div>
@@ -108,8 +122,8 @@ const props = defineProps({
     },
     /** Selected Top Level Category */
     selectedCategories: {
-        type: Set,
-        default: new Set(),
+        type: String,
+        default: '',
     },
     /** Label for the sidebar header */
     headerLabel: {
@@ -158,6 +172,7 @@ defineEmits(['search-input-changed', 'reset-map']);
     border-radius: $vs-radius-large;
     box-shadow: $vs-elevation-shadow-raised;
     pointer-events: auto;
+    max-height: 90vh;
 
     &__input input {
         margin: 0;
@@ -171,8 +186,31 @@ defineEmits(['search-input-changed', 'reset-map']);
         border-radius: 0 $vs-radius-small $vs-radius-small 0;
     }
 
+    &__sub-filters {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        column-gap: 0.25em;
+        row-gap: 0.25em;
+
+        @include media-breakpoint-down(md) {
+            width: 100%;
+            flex-wrap: nowrap;
+            overflow-x: scroll;
+            scroll-snap-type: mandatory x;
+            align-items: start;
+            @include scrollsnap-styles;
+            column-gap: $vs-spacer-050;
+            padding: $vs-spacer-025 $vs-spacer-025 $vs-spacer-050 $vs-spacer-025 ;
+        }
+
+        button {
+            flex: 0 0 max-content;
+        }
+    }
+
     &__google-maps-container {
-        max-height: 60vh;
+        max-height: 20em;
         overflow-y: auto;
         border-radius: $vs-radius-large;
     }
