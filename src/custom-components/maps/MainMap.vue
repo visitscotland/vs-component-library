@@ -546,8 +546,12 @@ async function addMarkers() {
 
             // Custom styling for marker
             const markerIcon = document.createElement('div');
-            markerIcon.className = 'vs-map-marker';
-            markerIcon.innerHTML = `<i class="fa-solid fa-location-dot"></i>`;
+            markerIcon.classList.add('vs-map-marker');
+
+            const icon = document.createElement('i');
+            icon.classList.add('fa-solid', 'fa-location-dot');
+
+            markerIcon.appendChild(icon);
 
             // Add `content: markerIcon` to enable custom markers
             let marker = new AdvancedMarkerElement({
