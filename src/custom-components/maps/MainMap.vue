@@ -180,14 +180,14 @@ const props = defineProps({
     },
     /**
      * Center point of map.
+     * Defaults to what is considered the center of Scotland
      */
     center: {
         type: Object as PropType<LatLngObject>,
         default: {
-            lat: 0,
-            lng: 0,
+            lat: 56.490153,
+            lng: 4.10959,
         },
-        required: true,
     },
     /**
      * Zoom level.
@@ -298,10 +298,10 @@ let showError;
 const errType = ref(undefined);
 
 const SCOTLAND_BOUNDS = {
-    north: 60.86500,
+    north: 61.86500,
     south: 54.62185,
     west: -8.65100,
-    east: -0.71000,
+    east: 0.71000,
 }
 
 const categoryData = props.categories;
@@ -541,7 +541,7 @@ async function addMarkers() {
     const bounds = new LatLngBounds();
     searchRequest.value.style.display = 'block';
 
-    if (searchRequest.value.places && searchRequest.value.places.length > 0) {
+    if (searchRequest.value.places) {
         searchRequest.value.places.forEach((place) => {
 
             // Custom styling for marker
@@ -555,7 +555,7 @@ async function addMarkers() {
                 position: place.location,
                 content: markerIcon,
                 title: place.displayName,
-            })
+            });
 
             marker.addEventListener('gmp-placeclick', (event) => {
                 handlePlaceClick(place, marker);
@@ -568,13 +568,20 @@ async function addMarkers() {
             marker.metadata = { id: place.id };
             markers[place.id] = marker;
             bounds.extend(place.location);
-        });
-    }
-
-    if (searchRequest.value.places.length > 1) {
-        gMap.fitBounds(bounds);
-    } else if (searchRequest.value.places.length === 1){
-        gMap.fitBounds(searchRequest.value.places[0].viewport);
+            if (searchRequest.value.places.length === 1) {
+                gMap.setCenter(
+                    {
+                        lat: place.location.lat(), 
+                        lng: place.location.lng(),
+                    }
+                );
+                gMap.setZoom(14);
+                gMap.fitBounds(place.viewport);
+            } else {
+                gMap.setCenter(bounds.getCenter());
+                gMap.fitBounds(bounds);
+            }
+        });        
     }
 }
 
