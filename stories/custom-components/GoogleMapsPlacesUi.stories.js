@@ -33,7 +33,7 @@ const base = {
         lat: 56.46,
         lng: -2.97,
     },
-    zoom: 7,
+    zoom: 6,
     radius: 5000,
     categories: mapCategories,
     categoryLabels: mapCategoryLabels,
