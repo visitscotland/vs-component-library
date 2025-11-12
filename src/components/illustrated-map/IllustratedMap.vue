@@ -4,7 +4,9 @@
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 147 259"
         fill="none"
+        :aria-label="ariaLabel"
     >
+        <title>{{ title }}</title>
         <!-- Each path uses dynamic class binding -->
         <path
             id="region-borders"
@@ -106,6 +108,20 @@ export default {
                 (region) => /^(borders|dumfries|highlands|outerhebs|shetland|orkney|edinburgh|glasgow|fife|dundee|aberdeen|perth|lomond|arranayr|argyll)$/.test(region),
             ),
         },
+        /**
+         * ARIA label for the map
+         */
+        ariaLabel: {
+            type: String,
+            default: () => 'Illustrated map of Scotland showing regions',
+        },
+        /**
+         * Title for the map
+         */
+        title: {
+            type: String,
+            default: () => 'Map of Scotland',
+        },
     },
 
     methods: {
@@ -126,7 +142,7 @@ export default {
         }
 
         .is-highlighted {
-            fill: var(--vs-color-highlight, #23014A);
+            fill: #23014A;
         }
     }
 </style>

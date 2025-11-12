@@ -20,7 +20,7 @@ describe('VsIllustratedMap', () => {
         const wrapper = factoryShallowMount();
         const paths = wrapper.findAll('path');
 
-        expect(paths).toHaveLength(15);
+        expect(paths).toHaveLength(16);
     });
 
     describe(':props', () => {
@@ -47,6 +47,38 @@ describe('VsIllustratedMap', () => {
             paths.forEach((path) => {
                 expect(path.classes('is-highlighted')).toBe(false);
             });
+        });
+
+        it('should render default aria-label', () => {
+            const wrapper = factoryShallowMount();
+            const svg = wrapper.find('svg');
+
+            expect(svg.attributes('aria-label')).toBe('Illustrated map of Scotland showing regions');
+        });
+
+        it('should render custom aria-label', () => {
+            const wrapper = factoryShallowMount({
+                ariaLabel: 'Custom map description',
+            });
+            const svg = wrapper.find('svg');
+
+            expect(svg.attributes('aria-label')).toBe('Custom map description');
+        });
+
+        it('should render default title', () => {
+            const wrapper = factoryShallowMount();
+            const title = wrapper.find('title');
+
+            expect(title.text()).toBe('Map of Scotland');
+        });
+
+        it('should render custom title', () => {
+            const wrapper = factoryShallowMount({
+                title: 'Custom Map Title',
+            });
+            const title = wrapper.find('title');
+
+            expect(title.text()).toBe('Custom Map Title');
         });
     });
 
