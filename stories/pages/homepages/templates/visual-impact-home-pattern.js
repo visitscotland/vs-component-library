@@ -127,7 +127,7 @@ export default `
                             },
                         ],
                     }"
-                    :cludoCategories="[
+                    :filters="[
                         {
                             Key: 'accommodation',
                             Label: 'Accommodation',
