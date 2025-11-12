@@ -1,3 +1,15 @@
+# [5.18.0](https://github.com/visitscotland/vs-component-library/compare/v5.17.0...v5.18.0) (2025-11-12)
+
+
+### Features
+
+* **illustrated map:** add illustrated map component ([08239d3](https://github.com/visitscotland/vs-component-library/commit/08239d372840e8859257a7500a41fa38898b65bd))
+* **illustrated map:** added aria label for svg ([929814a](https://github.com/visitscotland/vs-component-library/commit/929814a14a81c36c6433bc79fc42af2925ffc790))
+* **illustrated map:** update map to have width prop and add to itinerary example ([6f06d51](https://github.com/visitscotland/vs-component-library/commit/6f06d51894e14d89e952b8b3c8fcd264f84cb46f))
+* **illustrated map:** update map to highlight both ayr and arran ([a29d609](https://github.com/visitscotland/vs-component-library/commit/a29d609e2d04d6e16600fa4d7061e5e1adb19e8d))
+* **illustrated map:** update width prop to null as default ([f869f4d](https://github.com/visitscotland/vs-component-library/commit/f869f4da4b46adb26a5354624ab945f6c72af4a2))
+* **map:** add map to itinerary page ([19d056f](https://github.com/visitscotland/vs-component-library/commit/19d056f4c1f355f6184c685b97f0bb8bb97bc388))
+
 # [5.17.0](https://github.com/visitscotland/vs-component-library/compare/v5.16.4...v5.17.0) (2025-11-12)
 
 
