@@ -17,7 +17,7 @@ import VsLink from '@/components/link/Link.vue';
 import VsCardGroup from '@/components/card-group/CardGroup.vue';
 import VsCard from '@/components/card/Card.vue';
 import VsSpotlightSection from '@/components/spotlight-section/SpotlightSection.vue';
-
+import VsIllustratedMap from '@/components/illustrated-map/IllustratedMap.vue';
 import cardLayoutData from '@/assets/fixtures/navigation-pages/visual-impact-cards.json';
 
 import RichArticleTemplate from './templates/rich-article-template';
@@ -44,6 +44,7 @@ const components = {
     VsCardGroup,
     VsCard,
     VsSpotlightSection,
+    VsIllustratedMap,
 };
 
 const createStory = (template) => ({

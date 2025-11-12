@@ -5,6 +5,7 @@
         viewBox="0 0 147 259"
         fill="none"
         :aria-label="ariaLabel"
+        :width="width"
     >
         <title>{{ title }}</title>
         <!-- Each path uses dynamic class binding -->
@@ -122,8 +123,14 @@ export default {
             type: String,
             default: () => 'Map of Scotland',
         },
+        /**
+         * The width attribute of the SVG
+         */
+        width: {
+            type: String,
+            default: '',
+        },
     },
-
     methods: {
         isHighlighted(regionId) {
             return this.highlightedRegions.includes(regionId);
@@ -134,7 +141,6 @@ export default {
 
 <style lang="scss" scoped>
     .vs-illustrated-map {
-        width: 100%;
         height: auto;
 
         path {

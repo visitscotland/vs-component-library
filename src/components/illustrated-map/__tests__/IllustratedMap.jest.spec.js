@@ -80,6 +80,22 @@ describe('VsIllustratedMap', () => {
 
             expect(title.text()).toBe('Custom Map Title');
         });
+
+        it('should not render width attribute when not provided', () => {
+            const wrapper = factoryShallowMount();
+            const svg = wrapper.find('svg');
+
+            expect(svg.attributes('width')).toBeUndefined();
+        });
+
+        it('should render width as string', () => {
+            const wrapper = factoryShallowMount({
+                width: '300px',
+            });
+            const svg = wrapper.find('svg');
+
+            expect(svg.attributes('width')).toBe('300px');
+        });
     });
 
     describe(':accessibility', () => {
