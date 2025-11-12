@@ -96,7 +96,7 @@ export default `
                 <VsPanel>
                     <VsContainer>
                         <VsRow class="align-items-center">
-                            <VsCol cols="12" md="8" class="mb-300 mb-md-0">
+                            <VsCol cols="12" md="9" class="mb-175 mb-md-0">
                                 <VsHeading 
                                     heading-style="heading-xs" 
                                     level="3"
@@ -153,11 +153,11 @@ export default `
                                     </VsDetail>
                                 </div>
                             </VsCol>
-                            <VsCol cols="12" md="4">
-                                <VsImg 
-                                    src="fixtures/itineraries/images/illustrated-map.svg"
-                                    alt="Illustrated map of Scotland"
-                                    class="mx-auto"
+                            <VsCol cols="12" md="3">
+                                <VsIllustratedMap
+                                    width="145px"
+                                    class="d-block mx-auto"
+                                    :highlighted-regions="['edinburgh', 'fife', 'dundee']"
                                 />
                             </VsCol>
                         </VsRow>
