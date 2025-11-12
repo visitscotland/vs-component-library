@@ -1,3 +1,14 @@
+# [5.17.0](https://github.com/visitscotland/vs-component-library/compare/v5.16.4...v5.17.0) (2025-11-12)
+
+
+### Features
+
+* **article:** remove travel between from itinerary ([c493e64](https://github.com/visitscotland/vs-component-library/commit/c493e6425e1ade6080804e82ca6a6a14f0d32deb))
+* **detail:** adds icon prop to detail component ([bd03572](https://github.com/visitscotland/vs-component-library/commit/bd03572dc18cdc38e38c937cf648902d2ba25fae))
+* **detail:** update icon size in detail ([6eff8f8](https://github.com/visitscotland/vs-component-library/commit/6eff8f8254f3cb559dbaa31aeedc9b0c41a25784))
+* **icon:** add new tertiary variant to icon component ([56561a5](https://github.com/visitscotland/vs-component-library/commit/56561a547bc60ec311e2d1f57288f6e7c1bdc19c))
+* **itinerary:** remove caption from itinerary ([f0718ba](https://github.com/visitscotland/vs-component-library/commit/f0718ba4a052da41515f2467e3f35edc334f153b))
+
 ## [5.16.4](https://github.com/visitscotland/vs-component-library/compare/v5.16.3...v5.16.4) (2025-11-10)
 
 
