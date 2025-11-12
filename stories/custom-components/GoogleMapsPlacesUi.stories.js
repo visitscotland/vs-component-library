@@ -30,10 +30,10 @@ const Template = (args) => ({
 
 const base = {
     center: {
-        lat: 56.46,
-        lng: -2.97,
+        lat: 56.490153,
+        lng: 4.10959,
     },
-    zoom: 7,
+    zoom: 6,
     radius: 5000,
     categories: mapCategories,
     categoryLabels: mapCategoryLabels,
