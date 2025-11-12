@@ -192,7 +192,7 @@ const props = defineProps({
     /**
      * Zoom level.
      * ~12 Good for big cities, ~13 for smaller cities. 
-     * 6-7 for whole of Scotland
+     * 6 for whole of Scotland
      */
     zoom: {
         type: Number,
