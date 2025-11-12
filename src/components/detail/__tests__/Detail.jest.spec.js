@@ -54,7 +54,9 @@ describe('VsDetail', () => {
                 icon: 'fa-regular fa-calendar',
             });
 
-            const icon = wrapper.findComponent({ name: 'VsIcon' });
+            const icon = wrapper.findComponent({
+                name: 'VsIcon',
+            });
             expect(icon.exists()).toBe(true);
             expect(icon.props('icon')).toBe('fa-regular fa-calendar');
         });
@@ -62,7 +64,9 @@ describe('VsDetail', () => {
         it('should not render an icon when icon prop is not provided', () => {
             const wrapper = factoryShallowMount();
 
-            const icon = wrapper.findComponent({ name: 'VsIcon' });
+            const icon = wrapper.findComponent({
+                name: 'VsIcon',
+            });
             expect(icon.exists()).toBe(false);
         });
 
@@ -72,7 +76,9 @@ describe('VsDetail', () => {
                 iconVariant: 'tertiary',
             });
 
-            const icon = wrapper.findComponent({ name: 'VsIcon' });
+            const icon = wrapper.findComponent({
+                name: 'VsIcon',
+            });
             expect(icon.props('variant')).toBe('tertiary');
         });
 
@@ -82,14 +88,36 @@ describe('VsDetail', () => {
             });
 
             expect(wrapper.classes()).toContain('d-flex');
-            expect(wrapper.classes()).toContain('align-items-center');
+            expect(wrapper.classes()).toContain('align-items-baseline');
         });
 
         it('should not add flex classes when icon is not present', () => {
             const wrapper = factoryShallowMount();
 
             expect(wrapper.classes()).not.toContain('d-flex');
-            expect(wrapper.classes()).not.toContain('align-items-center');
+            expect(wrapper.classes()).not.toContain('align-items-baseline');
+        });
+
+        it('should pass correct icon size based on detail size', () => {
+            const wrapperSmall = factoryShallowMount({
+                icon: 'fa-regular fa-calendar',
+                size: 'small',
+            });
+
+            const wrapperMedium = factoryShallowMount({
+                icon: 'fa-regular fa-calendar',
+                size: 'medium',
+            });
+
+            const iconSmall = wrapperSmall.findComponent({
+                name: 'VsIcon',
+            });
+            const iconMedium = wrapperMedium.findComponent({
+                name: 'VsIcon',
+            });
+
+            expect(iconSmall.props('size')).toBe('xxs');
+            expect(iconMedium.props('size')).toBe('xs');
         });
     });
 

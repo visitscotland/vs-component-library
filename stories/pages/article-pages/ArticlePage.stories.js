@@ -10,7 +10,6 @@ import VsImg from '@/components/img/Img.vue';
 import VsBody from '@/components/body/Body.vue';
 import VsButton from '@/components/button/Button.vue';
 import VsSectionHeader from '@/components/section-header/SectionHeader.vue';
-import VsTooltip from '@/components/tooltip/Tooltip.vue';
 import VsPanel from '@/components/panel/Panel.vue';
 import VsIcon from '@/components/icon/Icon.vue';
 import VsDetail from '@/components/detail/Detail.vue';
@@ -38,7 +37,6 @@ const components = {
     VsImg,
     VsBody,
     VsButton,
-    VsTooltip,
     VsPanel,
     VsIcon,
     VsDetail,

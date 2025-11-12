@@ -354,7 +354,5 @@ export default {
                 animation: bubble 500ms ease-in-out;
             }
         }
-
-
     }
 </style>

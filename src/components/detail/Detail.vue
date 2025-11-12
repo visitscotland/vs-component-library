@@ -4,7 +4,7 @@
             v-if="icon"
             class="me-050 flex-shrink-0"
             :icon="icon"
-            size="sm"
+            :size="iconSize"
             :variant="iconVariant"
         />
         <span>
@@ -79,9 +79,12 @@ export default {
                 'vs-detail',
                 `vs-detail--${this.size}`,
                 `vs-detail--${this.color}`,
-                ...(this.icon ? ['d-flex', 'align-items-center'] : []),
+                ...(this.icon ? ['d-flex', 'align-items-baseline'] : []),
                 ...(this.noMargins ? [] : ['vs-detail--with-margins']),
             ];
+        },
+        iconSize() {
+            return this.size === 'small' ? 'xxs' : 'xs';
         },
     },
 };
@@ -101,6 +104,10 @@ export default {
         font-size: $vs-font-size-detail-s;
 
         @include media-breakpoint-up(md) {
+            .vs-icon {
+                font-size: $icon-size-xs;
+            }
+
             font-size: $vs-font-size-detail-m;
         }
     }
