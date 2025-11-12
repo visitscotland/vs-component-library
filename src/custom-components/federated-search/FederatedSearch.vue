@@ -8,12 +8,13 @@
                 :cludo-api-key="props.cludoApiKey"
                 :cludo-customer-id="props.cludoCustomerId"
                 :cludo-engine-id="props.cludoEngineId"
+                :filters="props.filters"
                 :sub-filters="props.subFilters"
                 :labels="props.searchLabels"
             />
             <VsDivider class="my-200" />
             <template
-                v-for="(category, index) in federatedSearchStore.cludoCategories"
+                v-for="(category, index) in federatedSearchStore.filters"
                 :key="index"
             >
                 <div
@@ -200,7 +201,6 @@ import {
     computed,
     onMounted,
     onUpdated,
-    provide,
 } from 'vue';
 import {
     VsBadge,
@@ -262,9 +262,9 @@ const props = defineProps({
         default: getEnvValue('EVENTS_API_URL'),
     },
     /**
-     * Array of cludo categories.
+     * Array of filters.
     */
-    cludoCategories: {
+    filters: {
         type: Array,
         default: undefined,
     },
@@ -329,8 +329,6 @@ const props = defineProps({
         ),
     },
 });
-
-provide('cludoCategories', props.cludoCategories);
 
 // Calculate the total number of pages for pagination.
 const totalResultsPages = computed(() => {
@@ -397,7 +395,7 @@ onMounted(() => {
         engineId: props.cludoEngineId,
     };
     federatedSearchStore.eventsApi = props.eventsApi;
-    federatedSearchStore.cludoCategories = props.cludoCategories;
+    federatedSearchStore.filters = props.filters;
     federatedSearchStore.siteLanguage = props.siteLanguage;
 
     calculateError();

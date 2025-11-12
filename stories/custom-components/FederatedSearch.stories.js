@@ -65,7 +65,7 @@ const Template = (args) => ({
 });
 
 const base = {
-    cludoCategories: [
+    filters: [
         {
             Key: 'accommodation',
             Label: 'Accommodation',
