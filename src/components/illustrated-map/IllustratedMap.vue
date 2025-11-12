@@ -128,7 +128,7 @@ export default {
          */
         width: {
             type: String,
-            default: '',
+            default: null,
         },
     },
     methods: {
