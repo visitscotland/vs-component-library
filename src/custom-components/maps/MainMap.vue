@@ -638,7 +638,8 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
         placeDetails.style.height = '32em';
     } else {
         placeDetails.style.width = '85vw';
-        placeDetails.style.height = '32em'; 
+        placeDetails.style.height = '32em';
+        googleMapStore.sidebarOpen = false;
     }
     
     placeDetails.style.display = 'block';
