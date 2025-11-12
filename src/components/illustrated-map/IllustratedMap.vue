@@ -94,7 +94,7 @@
 
 <script>
 export default {
-    name: 'VsMapScotland',
+    name: 'VsIllustratedMap',
     props: {
         /**
          * Array of region IDs to highlight,
