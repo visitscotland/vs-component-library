@@ -167,31 +167,35 @@ defineEmits(['search-input-changed', 'reset-map']);
 
 <style lang="scss">
 .vs-map-sidebar {
-    width: 23.3rem;
+    width: 90vw;
     background: $vs-color-background-primary;
     border-radius: $vs-radius-large;
     box-shadow: $vs-elevation-shadow-raised;
     pointer-events: auto;
     max-height: 90vh;
 
+    @include media-breakpoint-up (sm) {
+        width: 23.3rem;
+    }
+
     &__input input {
-        margin: 0;
-        border-radius: $vs-radius-small 0 0 $vs-radius-small;
+        margin: $vs-spacer-0;
+        border-radius: $vs-radius-small $vs-radius-none $vs-radius-none $vs-radius-small;
         border-right: none;
         height: 52px;
     }
 
     &__search-button {
         flex-grow: 0.125;
-        border-radius: 0 $vs-radius-small $vs-radius-small 0;
+        border-radius: $vs-radius-none $vs-radius-small $vs-radius-small $vs-radius-none;
     }
 
     &__sub-filters {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        column-gap: 0.25em;
-        row-gap: 0.25em;
+        column-gap: $vs-spacer-025;
+        row-gap: $vs-spacer-025;
 
         @include media-breakpoint-down(md) {
             width: 100%;
@@ -216,11 +220,11 @@ defineEmits(['search-input-changed', 'reset-map']);
     }
 
     &__swipe-tab {
-        width: 3em;
-        height: 1px;
+        width: $vs-spacer-300;
+        height: $vs-border-width-sm;
         border: $vs-color-border-highlight solid 0.15em;
         border-radius: $vs-radius-full;
-        margin: 1em auto;
+        margin: $vs-spacer-100 auto;
     }
 
     &__sidebar-control {
