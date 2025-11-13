@@ -1,3 +1,12 @@
+## [5.18.1](https://github.com/visitscotland/vs-component-library/compare/v5.18.0...v5.18.1) (2025-11-13)
+
+
+### Bug Fixes
+
+* **fed search input:** set filter items as props rather than injecting them ([1ad07c9](https://github.com/visitscotland/vs-component-library/commit/1ad07c9dc5f2e12bf8048ff3f278f20ba4720bb1))
+* **federated search:** set search url when its added as a prop ([137ab58](https://github.com/visitscotland/vs-component-library/commit/137ab5857e35ca09f0d4a6e24b0448779e3a0839))
+* **home pattern:** update prop name ([e21b59b](https://github.com/visitscotland/vs-component-library/commit/e21b59b963854f6ef75b58e31220abff129c618d))
+
 # [5.18.0](https://github.com/visitscotland/vs-component-library/compare/v5.17.0...v5.18.0) (2025-11-12)
 
 
