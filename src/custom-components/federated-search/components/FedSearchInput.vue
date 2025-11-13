@@ -56,9 +56,9 @@
         </div>
 
         <VsFedFilter
-            v-if="cludoCategories"
+            v-if="props.filters"
             :active-filter="federatedSearchStore.selectedCategoryKey"
-            :filter-categories="cludoCategories"
+            :filter-categories="props.filters"
             :wrap="true"
             @filter-updated="updateSelectedCategory"
         />
@@ -80,9 +80,7 @@
 </template>
 
 <script setup>
-import {
-    onMounted, ref, inject,
-} from 'vue';
+import { onMounted, ref } from 'vue';
 import useFederatedSearchStore from '@/stores/federatedSearch.store';
 import {
     VsButton,
@@ -130,6 +128,13 @@ const props = defineProps({
         default: undefined,
     },
     /**
+     * Array of filters to be used in the FedSearchInput component.
+    */
+    filters: {
+        type: Array,
+        default: undefined,
+    },
+    /**
      * Array of sub filters to be used in the FedSearchInput component.
     */
     subFilters: {
@@ -147,8 +152,6 @@ const props = defineProps({
 
 const federatedSearchStore = useFederatedSearchStore();
 const searchSuggestions = ref();
-
-const cludoCategories = inject('cludoCategories');
 
 async function updateSearchTerm(event) {
     federatedSearchStore.currentPage = 1;
@@ -253,6 +256,10 @@ onMounted(() => {
         engineId: props.cludoEngineId,
     };
     federatedSearchStore.isHomePage = props.isHomePage;
+
+    if (props.searchUrl) {
+        federatedSearchStore.searchUrl = props.searchUrl;
+    }
 
     const url = window.location.search;
     const params = new URLSearchParams(url);
