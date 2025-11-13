@@ -11,6 +11,10 @@ const cookieValues = {
         cookieCategories.analytical,
         cookieCategories.marketing,
     ],
+    google_maps: [
+        cookieCategories.analytical,
+        cookieCategories.marketing,
+    ],
 };
 
 export default cookieValues;

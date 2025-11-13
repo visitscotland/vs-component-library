@@ -50,3 +50,8 @@ export type FederatedSearchResult = {
     url: string;
     dataSrc: string;
 };
+
+export type LatLngObject = {
+    lat: number;
+    lng: number;
+};
