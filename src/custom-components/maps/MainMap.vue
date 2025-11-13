@@ -743,8 +743,8 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 2em;
-        height: 2em;
+        width: $vs-spacer-200;
+        height: $vs-spacer-200;
         background-color: $vs-color-icon-cta-on-light;
         border-radius: 50%;
         border: 0.125em solid $vs-color-icon-inverse;
