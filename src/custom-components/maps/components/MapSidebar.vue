@@ -167,12 +167,16 @@ defineEmits(['search-input-changed', 'reset-map']);
 
 <style lang="scss">
 .vs-map-sidebar {
-    width: 23.3rem;
+    width: 90vw;
     background: $vs-color-background-primary;
     border-radius: $vs-radius-large;
     box-shadow: $vs-elevation-shadow-raised;
     pointer-events: auto;
     max-height: 90vh;
+
+    @include media-breakpoint-up (sm) {
+        width: 23.3rem;
+    }
 
     &__input input {
         margin: 0;
