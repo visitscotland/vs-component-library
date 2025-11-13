@@ -4,6 +4,8 @@ props:
       value: "{!vs-basalt-90}"
     - name: vs-color-icon-secondary
       value: "{!vs-cloud-60}"
+    - name: vs-color-icon-tertiary
+      value: "{!vs-heather-60}"
     - name: vs-color-icon-inverse
       value: "{!vs-snow-00}"
     - name: vs-color-icon-cta-on-light

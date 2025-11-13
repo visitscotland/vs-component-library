@@ -1,3 +1,88 @@
+## [5.18.1](https://github.com/visitscotland/vs-component-library/compare/v5.18.0...v5.18.1) (2025-11-13)
+
+
+### Bug Fixes
+
+* **fed search input:** set filter items as props rather than injecting them ([1ad07c9](https://github.com/visitscotland/vs-component-library/commit/1ad07c9dc5f2e12bf8048ff3f278f20ba4720bb1))
+* **federated search:** set search url when its added as a prop ([137ab58](https://github.com/visitscotland/vs-component-library/commit/137ab5857e35ca09f0d4a6e24b0448779e3a0839))
+* **home pattern:** update prop name ([e21b59b](https://github.com/visitscotland/vs-component-library/commit/e21b59b963854f6ef75b58e31220abff129c618d))
+
+# [5.18.0](https://github.com/visitscotland/vs-component-library/compare/v5.17.0...v5.18.0) (2025-11-12)
+
+
+### Features
+
+* **illustrated map:** add illustrated map component ([08239d3](https://github.com/visitscotland/vs-component-library/commit/08239d372840e8859257a7500a41fa38898b65bd))
+* **illustrated map:** added aria label for svg ([929814a](https://github.com/visitscotland/vs-component-library/commit/929814a14a81c36c6433bc79fc42af2925ffc790))
+* **illustrated map:** update map to have width prop and add to itinerary example ([6f06d51](https://github.com/visitscotland/vs-component-library/commit/6f06d51894e14d89e952b8b3c8fcd264f84cb46f))
+* **illustrated map:** update map to highlight both ayr and arran ([a29d609](https://github.com/visitscotland/vs-component-library/commit/a29d609e2d04d6e16600fa4d7061e5e1adb19e8d))
+* **illustrated map:** update width prop to null as default ([f869f4d](https://github.com/visitscotland/vs-component-library/commit/f869f4da4b46adb26a5354624ab945f6c72af4a2))
+* **map:** add map to itinerary page ([19d056f](https://github.com/visitscotland/vs-component-library/commit/19d056f4c1f355f6184c685b97f0bb8bb97bc388))
+
+# [5.17.0](https://github.com/visitscotland/vs-component-library/compare/v5.16.4...v5.17.0) (2025-11-12)
+
+
+### Features
+
+* **article:** remove travel between from itinerary ([c493e64](https://github.com/visitscotland/vs-component-library/commit/c493e6425e1ade6080804e82ca6a6a14f0d32deb))
+* **detail:** adds icon prop to detail component ([bd03572](https://github.com/visitscotland/vs-component-library/commit/bd03572dc18cdc38e38c937cf648902d2ba25fae))
+* **detail:** update icon size in detail ([6eff8f8](https://github.com/visitscotland/vs-component-library/commit/6eff8f8254f3cb559dbaa31aeedc9b0c41a25784))
+* **icon:** add new tertiary variant to icon component ([56561a5](https://github.com/visitscotland/vs-component-library/commit/56561a547bc60ec311e2d1f57288f6e7c1bdc19c))
+* **itinerary:** remove caption from itinerary ([f0718ba](https://github.com/visitscotland/vs-component-library/commit/f0718ba4a052da41515f2467e3f35edc334f153b))
+
+## [5.16.4](https://github.com/visitscotland/vs-component-library/compare/v5.16.3...v5.16.4) (2025-11-10)
+
+
+### Bug Fixes
+
+* **federated search:** card text not breaking causes some cards to be too big ([e0d25e6](https://github.com/visitscotland/vs-component-library/commit/e0d25e609ee5a8e46bd4323ef4425685693d4912))
+
+## [5.16.3](https://github.com/visitscotland/vs-component-library/compare/v5.16.2...v5.16.3) (2025-11-10)
+
+
+### Bug Fixes
+
+* **federated search:** missing language parameter ([8f431fb](https://github.com/visitscotland/vs-component-library/commit/8f431fb7e652cf99417697059ec3966f57355a21))
+
+## [5.16.2](https://github.com/visitscotland/vs-component-library/compare/v5.16.1...v5.16.2) (2025-11-10)
+
+
+### Bug Fixes
+
+* **federated search:** add margin bottom when no pagination shown ([1821605](https://github.com/visitscotland/vs-component-library/commit/1821605a918e829c3f4803842d336f70c77f31e7))
+* **federated search:** apply sort by when it appears in the URL ([5324a9a](https://github.com/visitscotland/vs-component-library/commit/5324a9aa5d5c07696384e64c8e8b9565ec81e639))
+* **federated search:** apply start and end date when they appear in the URL ([5d19db9](https://github.com/visitscotland/vs-component-library/commit/5d19db921ed8294791beb557465248f8ba2ed6bc))
+
+## [5.16.1](https://github.com/visitscotland/vs-component-library/compare/v5.16.0...v5.16.1) (2025-11-06)
+
+
+### Bug Fixes
+
+* **federated search:** remove 'other' category from stories ([c9af77b](https://github.com/visitscotland/vs-component-library/commit/c9af77b4dd1cd1c32c43334459ca698b4ae6ec05))
+* **fedfilter:** add icons to buttons when primary variant ([a7a2258](https://github.com/visitscotland/vs-component-library/commit/a7a2258e88cc5b601601009fd6e6a340d240559f))
+
+# [5.16.0](https://github.com/visitscotland/vs-component-library/compare/v5.15.4...v5.16.0) (2025-11-06)
+
+
+### Features
+
+* **panel:** update panel variants and styles ([071f39a](https://github.com/visitscotland/vs-component-library/commit/071f39a8e3e0f21795b5b650f0fcb6b1f89b6962))
+* **panel:** update ternary check in panel component ([a60c8ff](https://github.com/visitscotland/vs-component-library/commit/a60c8ff3323315ff2efba9fe51e2fa58e690dcc7))
+
+## [5.15.4](https://github.com/visitscotland/vs-component-library/compare/v5.15.3...v5.15.4) (2025-11-05)
+
+
+### Bug Fixes
+
+* **federated search:** adjust how pagination is calculated ([dfaf6b9](https://github.com/visitscotland/vs-component-library/commit/dfaf6b9367a5bb0f95f1f10566da7f6394097bc0))
+
+## [5.15.3](https://github.com/visitscotland/vs-component-library/compare/v5.15.2...v5.15.3) (2025-11-05)
+
+
+### Bug Fixes
+
+* **event:** fix badge rounded corners in event card with rounded utilities ([86cf8d8](https://github.com/visitscotland/vs-component-library/commit/86cf8d8bdc9c2f3cc640076a52db46b45721cd36))
+
 ## [5.15.2](https://github.com/visitscotland/vs-component-library/compare/v5.15.1...v5.15.2) (2025-11-04)
 
 

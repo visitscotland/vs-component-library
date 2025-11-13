@@ -86,3 +86,13 @@ NoMargins.args = {
     ...base,
     noMargins: true,
 };
+
+export const WithIcon = Template.bind({
+});
+
+WithIcon.args = {
+    ...base,
+    icon: 'fa-regular fa-binoculars',
+    color: 'tertiary',
+    iconVariant: 'tertiary',
+};

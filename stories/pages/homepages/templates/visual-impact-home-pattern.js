@@ -127,7 +127,7 @@ export default `
                             },
                         ],
                     }"
-                    :cludoCategories="[
+                    :filters="[
                         {
                             Key: 'accommodation',
                             Label: 'Accommodation',
@@ -416,7 +416,7 @@ export default `
                                     <VsBadge
                                         v-if="card.date"
                                         variant="information"
-                                        class="rounded-top"
+                                        class="rounded-top-end rounded-top-start"
                                     >
                                         {{ card.date }}
                                     </VsBadge>

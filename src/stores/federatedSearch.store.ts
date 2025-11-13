@@ -6,7 +6,7 @@ import eventSearch from '@/utils/federated-search/event-search';
 import cludoAutocomplete from '@/utils/federated-search/cludo-autocomplete';
 
 const useFederatedSearchStore = defineStore('federatedSearch', () => {
-    const cludoCategories = ref(null);
+    const filters = ref(null);
     const cludoCredentials = ref<CludoCredentials | undefined>(undefined);
     const cludoError = ref(false);
     const currentPage = ref(1);
@@ -20,11 +20,14 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
     const selectedSubCategory = ref([]);
     const selectedSubCategoryKey = ref([]);
     const totalResults = ref(undefined);
+    const totalResultsCludo = ref(undefined);
+    const totalResultsEvents = ref(undefined);
     const isHomePage = ref(false);
     const startDate = ref('');
     const endDate = ref('');
     const sortBy = ref(undefined);
     const searchUrl = ref(undefined);
+    const siteLanguage = ref(undefined);
 
     async function getSearchResults() {
         isLoading.value = true;
@@ -46,9 +49,13 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
             startDate.value,
             endDate.value,
             sortBy.value,
+            siteLanguage.value,
         );
 
         results.value = [...cludoResults.results, ...eventResults.results];
+
+        totalResultsCludo.value = cludoResults.totalResults;
+        totalResultsEvents.value = eventResults.totalResults;
         totalResults.value = cludoResults.totalResults + eventResults.totalResults;
 
         isLoading.value = false;
@@ -101,7 +108,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         }
 
         if (sortBy.value) {
-            url.searchParams.set('sort-by', sortBy.value.key);
+            url.searchParams.set('sort-by', sortBy.value);
         } else {
             url.searchParams.delete('sort-by');
         }
@@ -111,13 +118,13 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
             window.history.pushState({}, '', url);
             getSearchResults();
         } else {
-            const newHref = `./${searchUrl.value}/${url.search}`;
+            const newHref = `${searchUrl.value}/${url.search}`;
             window.location.href = newHref;
         }
     }
 
     return {
-        cludoCategories,
+        filters,
         currentPage,
         cludoCredentials,
         cludoError,
@@ -128,16 +135,20 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         isLoading,
         results,
         searchTerm,
+        searchUrl,
         selectedCategory,
         selectedCategoryKey,
         selectedSubCategory,
         selectedSubCategoryKey,
         totalResults,
+        totalResultsCludo,
+        totalResultsEvents,
         navigateToResultsPage,
         isHomePage,
         startDate,
         endDate,
         sortBy,
+        siteLanguage,
     };
 });
 

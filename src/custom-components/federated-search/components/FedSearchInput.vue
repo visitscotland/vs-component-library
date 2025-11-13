@@ -56,9 +56,9 @@
         </div>
 
         <VsFedFilter
-            v-if="cludoCategories"
+            v-if="props.filters"
             :active-filter="federatedSearchStore.selectedCategoryKey"
-            :filter-categories="cludoCategories"
+            :filter-categories="props.filters"
             ref="categoryFilter"
             :wrap="true"
             @filter-updated="updateSelectedCategory"
@@ -83,7 +83,7 @@
 
 <script setup>
 import {
-    onMounted, ref, inject, watch,
+    onMounted, ref, watch,
 } from 'vue';
 import { storeToRefs } from 'pinia';
 import useFederatedSearchStore from '@/stores/federatedSearch.store';
@@ -133,6 +133,13 @@ const props = defineProps({
         default: undefined,
     },
     /**
+     * Array of filters to be used in the FedSearchInput component.
+    */
+    filters: {
+        type: Array,
+        default: undefined,
+    },
+    /**
      * Array of sub filters to be used in the FedSearchInput component.
     */
     subFilters: {
@@ -154,8 +161,6 @@ const searchSuggestions = ref();
 
 const categoryFilter = ref(null);
 const subCategoryFilter = ref(null);
-
-const cludoCategories = inject('cludoCategories');
 
 async function updateSearchTerm(event) {
     federatedSearchStore.currentPage = 1;
@@ -261,6 +266,10 @@ onMounted(() => {
     };
     federatedSearchStore.isHomePage = props.isHomePage;
 
+    if (props.searchUrl) {
+        federatedSearchStore.searchUrl = props.searchUrl;
+    }
+
     const url = window.location.search;
     const params = new URLSearchParams(url);
 
@@ -277,6 +286,18 @@ onMounted(() => {
         subCategories.forEach((subCategory) => (
             federatedSearchStore.selectedSubCategoryKey.push(subCategory)
         ));
+    }
+
+    if (params.has('category') && params.get('category') === 'events' && params.has('sort-by')) {
+        federatedSearchStore.sortBy = params.get('sort-by');
+    }
+
+    if (params.has('start-date')) {
+        federatedSearchStore.startDate = params.get('start-date');
+    }
+
+    if (params.has('end-date')) {
+        federatedSearchStore.endDate = params.get('end-date');
     }
 
     if (params.has('search-term') || params.has('category')) {

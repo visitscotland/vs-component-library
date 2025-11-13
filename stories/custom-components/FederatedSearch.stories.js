@@ -65,7 +65,7 @@ const Template = (args) => ({
 });
 
 const base = {
-    cludoCategories: [
+    filters: [
         {
             Key: 'accommodation',
             Label: 'Accommodation',
@@ -97,10 +97,6 @@ const base = {
         {
             Key: 'nature-outdoors',
             Label: 'Nature & Outdoors',
-        },
-        {
-            Key: 'other',
-            Label: 'Other',
         },
         {
             Key: 'tours',
