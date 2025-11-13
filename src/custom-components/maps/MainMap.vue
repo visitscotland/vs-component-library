@@ -700,8 +700,8 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
 
     &__controls {
         position: absolute;
-        top: 1em;
-        left: 1em;
+        top: $vs-spacer-100;
+        left: $vs-spacer-100;
         z-index: 100;
         display: flex;
         flex-direction: column;
