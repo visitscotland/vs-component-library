@@ -706,6 +706,9 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
         display: flex;
         flex-direction: column;
         pointer-events: none;
+        flex-grow: 1;
+        min-width: 0;
+        width: calc(100vw - $vs-spacer-100);
         
         @include media-breakpoint-up(md) {
             flex-direction: row;
@@ -715,23 +718,38 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
     &__filter-controls{
         display: flex;
         flex-direction: row;
-        align-items: start;
+        align-items: flex-start;
         gap: $vs-spacer-050;
-        width: 100vw;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        margin: $vs-spacer-075 $vs-spacer-0 $vs-spacer-0 $vs-spacer-0;
-        padding: $vs-spacer-025 $vs-spacer-0;
+        flex: 1;
+        height: fit-content;
+        width: calc(100vw - $vs-spacer-100);
+        margin: $vs-spacer-050 $vs-spacer-0;
+        padding: $vs-spacer-025 $vs-spacer-025;
         
         @include scrollsnap-styles;
 
+        &::-webkit-scrollbar-track {
+            margin: $vs-spacer-0 $vs-spacer-100 $vs-spacer-0 $vs-spacer-0;
+        }
+
         @include media-breakpoint-up(md) {
-            margin: $vs-spacer-0 $vs-spacer-0 $vs-spacer-0 $vs-spacer-100;
+            width: fit-content;
+            overflow-x: auto;
+            margin: $vs-spacer-075 $vs-spacer-0 $vs-spacer-0 $vs-spacer-100;
+        }
+
+        @include media-breakpoint-up(lg) {
+            flex: 0 1 max-content;
+            width: auto;
         }
 
         &-button {
-            flex: 0 0 max-content;
+            flex: 1 0 max-content;
             pointer-events: auto;
+
+            &:last-child {
+                margin-right: $vs-spacer-025;
+            }
         }
     }
 
