@@ -724,7 +724,7 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
         height: fit-content;
         width: calc(100vw - $vs-spacer-100);
         margin: $vs-spacer-050 $vs-spacer-0;
-        padding: $vs-spacer-025 $vs-spacer-025;
+        padding: $vs-spacer-025 $vs-spacer-025 $vs-spacer-050 $vs-spacer-025;
         
         @include scrollsnap-styles;
 
