@@ -28,6 +28,75 @@ describe('VsMapSidebar', () => {
     });
 
     describe(':props', () => {
+        it('should accept a headerLabel prop and render the header', async() => {
+            const wrapper = factoryMount();
+
+            await wrapper.setProps({
+                headerLabel: 'Discover Scotland on a Map',
+            });
+
+            const header = wrapper.find('[data-test="vs-map-sidebar__heading"');
+            expect(header.exists()).toBe(true);
+
+            expect(header.text()).toBe('Discover Scotland on a Map');
+        });
+
+        it('should accept a closeSidebarButtonLabel prop and render the text in the button', async() => {
+            const wrapper = factoryMount();
+
+            await wrapper.setProps({
+                closeSidebarButtonLabel: 'Close the sidebar',
+            });
+
+            const closeSidebarBtn = wrapper.find('[data-test="vs-map-siderbar__sidebar-control--dismiss"]');
+            expect(closeSidebarBtn.exists()).toBe(true);
+
+            expect(closeSidebarBtn.text()).toBe('Close the sidebar');
+        });
+
+        it('should accept a placeholder prop and render the placeholder in the input field', async() => {
+            const wrapper = factoryMount();
+
+            await wrapper.setProps({
+                inputPlaceholderLabel: 'Search Scotland by Text',
+            });
+
+            const input = wrapper.find('[data-test="vs-map-search-input"]');
+            expect(input.exists()).toBe(true);
+
+            const inputPlaceholder = wrapper.find('[placeholder="Search Scotland by Text"]');
+            expect(inputPlaceholder.exists()).toBe(true);
+        });
+
+        it('should accept a searchButtonLabel prop and render the text in the button', async() => {
+            const wrapper = factoryMount();
+
+            await wrapper.setProps({
+                searchButtonLabel: 'Buscar',
+            });
+
+            const searchBtn = wrapper.find('[data-test="vs-map-sidebar__search-button"]');
+            expect(searchBtn.exists()).toBe(true);
+
+            expect(searchBtn.text()).toBe('Buscar');
+        });
+
+        it('should accept a clearMapLabel prop and render the text in the button', async() => {
+            const wrapper = factoryMount();
+
+            await wrapper.setProps({
+                query: 'Dundee',
+                clearMapLabel: 'Reset map',
+            });
+
+            const resetMapBtn = wrapper.find('[data-test="vs-map-sidebar__reset-map"]');
+            expect(resetMapBtn.exists()).toBe(true);
+
+            expect(resetMapBtn.element.tagName).toBe('A');
+
+            expect(resetMapBtn.text()).toBe('Reset map');
+        });
+
         it('should accept a query prop and render it in the searched for field', async() => {
             const wrapper = factoryMount();
 
@@ -37,6 +106,19 @@ describe('VsMapSidebar', () => {
 
             const searchOutput = wrapper.find('[data-test="vs-map-sidebar__search-result-query"');
             expect(searchOutput.exists()).toBe(true);
+        });
+
+        it('should accept a openSidebarButtonLabel prop and render the text in the button', async() => {
+            const wrapper = factoryMount();
+
+            await wrapper.setProps({
+                openSidebarButtonLabel: 'Open the sidebar',
+            });
+
+            const openSidebarBtn = wrapper.find('[data-test="vs-map-sidebar__sidebar-control--open"]');
+            expect(openSidebarBtn.exists()).toBe(true);
+
+            expect(openSidebarBtn.text()).toBe('Open the sidebar');
         });
     });
 

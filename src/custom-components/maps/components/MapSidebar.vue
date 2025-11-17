@@ -11,6 +11,7 @@
                 heading-style="heading-xxs"
                 class="flex-grow-1"
                 id="vs-map-sidebar__heading"
+                data-test="vs-map-sidebar__heading"
                 aria-hidden="true"
             >
                 {{ props.headerLabel }}
@@ -20,6 +21,7 @@
                 icon="vs-icon-control-dismiss"
                 icon-only
                 class="vs-map-sidebar__sidebar-control vs-map-siderbar__sidebar-control--dismiss"
+                data-test="vs-map-siderbar__sidebar-control--dismiss"
                 @click="googleMapStore.sidebarOpen = false"
             >
                 {{ props.closeSidebarButtonLabel }}
@@ -37,6 +39,7 @@
                     type="text"
                     autocomplete="false"
                     field-name="vs-map-search-input"
+                    data-test="vs-map-search-input"
                     ref="vs-search-input"
                     :placeholder="props.inputPlaceholderLabel"
                     class="vs-map-sidebar__input flex-grow-1"
@@ -45,6 +48,7 @@
                 />
                 <VsButton
                     class="vs-map-sidebar__search-button"
+                    data-test="vs-map-sidebar__search-button"
                     icon="vs-icon-control-search"
                     icon-only
                     :rounded="false"
@@ -58,6 +62,7 @@
             <VsLink
                 href="#"
                 class="d-block"
+                data-test="vs-map-sidebar__reset-map"
                 v-if="$props.query || $props.selectedCategories"
                 @click.prevent="$emit('reset-map')"
                 @keyup.enter.prevent="$emit('reset-map')"
@@ -103,6 +108,7 @@
     </div>
     <VsButton
         class="vs-map-sidebar__sidebar-control vs-map-sidebar__sidebar-control--open"
+        data-test="vs-map-sidebar__sidebar-control--open"
         :class="googleMapStore.sidebarOpen ? 'd-none' : 'd-block'"
         size="sm"
         icon="fa-regular fa-sliders"
