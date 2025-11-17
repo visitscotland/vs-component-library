@@ -13,6 +13,10 @@ const factoryMount = (propsData) => mount(VsMapSidebar, {
         searchResultsLabel: 'Showing results for: ',
         openSidebarButtonLabel: 'Open Sidebar',
     },
+    slots: {
+        'vs-map-sidebar-sub-filters': '<div data-test="sub-categories">Sub Categories go here</div>',
+        'vs-map-sidebar-search-results': '<div data-test="places-ui-kit">Places UI Kit go here</div>',
+    },
 });
 
 describe('VsMapSidebar', () => {
@@ -33,6 +37,30 @@ describe('VsMapSidebar', () => {
 
             const searchOutput = wrapper.find('[data-test="vs-map-sidebar__search-result-query"');
             expect(searchOutput.exists()).toBe(true);
+        });
+    });
+
+    describe(':slots', () => {
+        it('should render the slot for the subcategories when `selectedCategories` is passed', async() => {
+            const wrapper = factoryMount();
+
+            await wrapper.setProps({
+                selectedCategories: 'accommodation',
+            });
+
+            const subCatSlot = wrapper.find('[data-test="sub-categories"');
+            expect(subCatSlot.exists()).toBe(true);
+        });
+
+        it('should render the slot for the places ui kit when `query` is present', async() => {
+            const wrapper = factoryMount();
+
+            await wrapper.setProps({
+                query: 'Aberdeen',
+            });
+
+            const subCatSlot = wrapper.find('[data-test="places-ui-kit"');
+            expect(subCatSlot.exists()).toBe(true);
         });
     });
 
