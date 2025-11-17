@@ -4,6 +4,15 @@ import VsMapSidebar from '../MapSidebar.vue';
 
 const factoryMount = (propsData) => mount(VsMapSidebar, {
     ...propsData,
+    propsData: {
+        headerLabel: 'Discover your Scotland',
+        closeSidebarButtonLabel: 'Close Sidebar',
+        inputPlaceHolderLabel: 'Type in your keyword',
+        searchButtonLabel: 'Search',
+        clearMapLabel: 'Clear Map',
+        searchResultsLabel: 'Showing results for: ',
+        openSidebarButtonLabel: 'Open Sidebar',
+    },
 });
 
 describe('VsMapSidebar', () => {

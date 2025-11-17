@@ -6,10 +6,12 @@
     >
         <div class="vs-map-sidebar__header d-flex">
             <VsHeading
+                v-if="props.headerLabel"
                 level="1"
                 heading-style="heading-xxs"
                 class="flex-grow-1"
-                v-if="props.headerLabel"
+                id="vs-map-sidebar__heading"
+                aria-hidden="true"
             >
                 {{ props.headerLabel }}
             </VsHeading>
@@ -25,6 +27,12 @@
         </div>
         <div class="vs-map-sidebar__content">
             <div class="vs-map-sidebar__input d-flex mt-100 mb-050">
+                <label
+                    for="vs-map-search-input"
+                    class="visually-hidden"
+                >
+                    {{ props.headerLabel }}
+                </label>
                 <VsInput
                     type="text"
                     autocomplete="false"
@@ -32,6 +40,7 @@
                     ref="vs-search-input"
                     :placeholder="props.inputPlaceholderLabel"
                     class="vs-map-sidebar__input flex-grow-1"
+                    aria-describedby="vs-map-sidebar__heading"
                     @keyup.enter.prevent="$emit('search-input-changed')"
                 />
                 <VsButton
