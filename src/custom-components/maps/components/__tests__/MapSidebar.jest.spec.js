@@ -146,6 +146,39 @@ describe('VsMapSidebar', () => {
         });
     });
 
+    describe.only(':sidebar-logic', () => {
+        it('should be able to close and reopen the sidebar', async() => {
+            const wrapper = factoryMount();
+
+            const closeSidebarBtn = wrapper.find('[data-test="vs-map-siderbar__sidebar-control--dismiss"]');
+            const sidebar = wrapper.find('[data-test="vs-map-sidebar"]');
+            const openSidebarBtn = wrapper.find('[data-test="vs-map-sidebar__sidebar-control--open"]');
+
+            // Sidebar and control buttons exist
+            expect(closeSidebarBtn.exists()).toBe(true);
+            expect(sidebar.exists()).toBe(true);
+            expect(openSidebarBtn.exists()).toBe(true);
+
+            // Initial state where the sidebar is open
+            expect(sidebar.classes()).toContain('d-block');
+            expect(openSidebarBtn.classes()).toContain('d-none');
+
+            // Click close button
+            await closeSidebarBtn.trigger('click');
+
+            // New state where the sidebar should now be closed (display: none)
+            expect(sidebar.classes()).toContain('d-none');
+            expect(openSidebarBtn.classes()).toContain('d-block');
+
+            // Click open button
+            await openSidebarBtn.trigger('click');
+
+            // New state where the sidebar should now be closed (display: none)
+            expect(sidebar.classes()).toContain('d-block');
+            expect(openSidebarBtn.classes()).toContain('d-none');
+        });
+    });
+
     describe(':accessibility', () => {
         it('should not have aXe accessibility issues', async() => {
             const wrapper = factoryMount();

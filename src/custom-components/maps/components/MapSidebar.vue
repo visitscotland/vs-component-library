@@ -1,6 +1,7 @@
 <template>
     <div
         class="vs-map-sidebar px-125"
+        data-test="vs-map-sidebar"
         :class="googleMapStore.sidebarOpen ? 'd-block' : 'd-none'"
         ref="vsMapSidebar"
     >
