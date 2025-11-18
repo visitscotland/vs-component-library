@@ -764,7 +764,7 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
         width: $vs-spacer-200;
         height: $vs-spacer-200;
         background-color: $vs-color-icon-cta-on-light;
-        border-radius: 50%;
+        border-radius: $vs-radius-large;
         border: 0.125em solid $vs-color-icon-inverse;
         box-shadow: $vs-elevation-shadow-raised;;
         transition: transform 0.1s ease-in-out;
