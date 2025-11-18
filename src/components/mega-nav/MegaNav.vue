@@ -61,6 +61,7 @@
                             :rounded="false"
                             :href="mapLink"
                             class="vs-mega-nav__map-button d-flex d-xs-flex d-sm-flex d-md-flex d-lg-flex d-xl-none"
+                            data-test="vs-mega-nav__map-button"
                         >
                             {{ mapButtonText }}
                         </VsButton>
@@ -73,6 +74,7 @@
                             size="md"
                             :rounded="false"
                             class="vs-mega-nav__map-button d-none d-xs-none d-sm-none d-md-none d-lg-none d-xl-flex"
+                            data-test="vs-mega-nav__map-button"
                         >
                             {{ mapButtonText }}
                         </VsButton>
@@ -241,7 +243,7 @@ export default {
          * */
         mapButtonText: {
             type: String,
-            default: 'Map of Scotland',
+            default: undefined,
         },
         /**
          * If true, completely remove the search button from the nav
