@@ -454,11 +454,34 @@ function searchBySubCategory(subCategoryId, key){
             }
         })
 
+        let selCat = [];
+
+        selectedSubCategories.value.forEach((catId) => {
+            // Iterate through the category label data to find corresponding category
+            categoryLabelData.forEach((category) => {
+                if (category.id === selectedTopLevelCategory.value) {
+                    selCat = category;
+                }
+            });
+            
+            // Iterate through the subCategories to find the correct one, and then again to find the label
+            Object.values(selCat).forEach((subCat) => {
+                Object.values(subCat).forEach((subCat) => {
+                    if(subCategoryId === subCat.id){
+                        queryStr.value.delete(subCat.label);
+                    }
+                });
+            });
+        });
+
         if(selectedSubCategories.value.size === 0){
-            //If the last subCategory is removed, revert to a top-level search
+            //If the last subCategory is removed, reset queryString and revert to a top-level search
+            queryStr.value = new Set();
             selectCategory(selectedTopLevelCategory.value, categoryKey.value);
         } else {
             searchByCategory(Array.from(includedSubTypes.value).flat());
+            query.value = Array.from(queryStr.value).join(', ')
+            searchInput.value = query.value;
         }
 
     } else {
@@ -473,7 +496,6 @@ function searchBySubCategory(subCategoryId, key){
         })
 
         searchByCategory(Array.from(includedSubTypes.value).flat());
-        //query.value = categoryLabelData[categoryKey.value].subCategory[subCategoryKey.value].label
 
         let selCat = [];
 
@@ -496,6 +518,7 @@ function searchBySubCategory(subCategoryId, key){
 
             // Add to the query value.
             query.value = Array.from(queryStr.value).join(', ')
+            searchInput.value = query.value;
         });
     }
 }
@@ -644,6 +667,7 @@ function resetCategories() {
     selectedSubCategories.value = new Set();
     includedTopLevelTypes.value = new Set();
     includedSubTypes.value = new Set();
+    queryStr.value = new Set();
     categoryKey.value = undefined;
     subCategoryKey.value = undefined;
 }
