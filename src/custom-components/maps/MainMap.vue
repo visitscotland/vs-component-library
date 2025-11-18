@@ -290,6 +290,7 @@ const MAX_ZOOM: number = 19;
 const CATEGORY_VISIBLE_ZOOM: number = 12;
 const NUMBER_OF_RESULTS: number = 20;
 const query = ref<string>();
+const queryStr = ref(new Set());
 const currentSearch = ref<string>();
 
 const googleMapStore = useGoogleMapStore();
@@ -439,6 +440,31 @@ function selectCategory(categoryId, key) {
     searchInput.value = query.value;
 }
 
+function searchSubCategoriesForLabel(selectedSubcategory, subCategoryId) {
+    const selCat = ref([]);
+    const selSubCatLabel = ref();
+
+    selectedSubcategory.forEach((catId) => {
+        // Iterate through the category label data to find corresponding category
+        categoryLabelData.forEach((category) => {
+            if (category.id === selectedTopLevelCategory.value) {
+                selCat.value = category;
+            }
+        });
+
+        // Iterate through the subCategories to find the correct one, and then again to find the label
+        Object.values(selCat.value).forEach((subCat) => {
+            Object.values(subCat).forEach((subCat) => {
+                if (subCategoryId === subCat.id) {
+                    selSubCatLabel.value = subCat.label;
+                }
+            });
+        });
+    });
+
+    return selSubCatLabel;
+}
+
 function searchBySubCategory(subCategoryId, key){
     subCategoryKey.value = key;
 
@@ -453,11 +479,17 @@ function searchBySubCategory(subCategoryId, key){
             }
         })
 
+        //Remove subCategory labels to the queryString to show on UI
+        queryStr.value.delete(searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value);
+
         if(selectedSubCategories.value.size === 0){
-            //If the last subCategory is removed, revert to a top-level search
+            //If the last subCategory is removed, reset queryString and revert to a top-level search
+            queryStr.value = new Set();
             selectCategory(selectedTopLevelCategory.value, categoryKey.value);
         } else {
             searchByCategory(Array.from(includedSubTypes.value).flat());
+            query.value = Array.from(queryStr.value).join(', ')
+            searchInput.value = query.value;
         }
 
     } else {
@@ -472,7 +504,13 @@ function searchBySubCategory(subCategoryId, key){
         })
 
         searchByCategory(Array.from(includedSubTypes.value).flat());
-        query.value = categoryLabelData[categoryKey.value].subCategory[subCategoryKey.value].label
+        
+        //Add subCategory labels to the queryString to show on UI
+        queryStr.value.add(searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value);
+
+        // Add to the query value.
+        query.value = Array.from(queryStr.value).join(', ')
+        searchInput.value = query.value;
     }
 }
 
@@ -620,6 +658,7 @@ function resetCategories() {
     selectedSubCategories.value = new Set();
     includedTopLevelTypes.value = new Set();
     includedSubTypes.value = new Set();
+    queryStr.value = new Set();
     categoryKey.value = undefined;
     subCategoryKey.value = undefined;
 }
