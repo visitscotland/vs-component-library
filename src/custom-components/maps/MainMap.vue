@@ -180,14 +180,14 @@ const props = defineProps({
     },
     /**
      * Center point of map.
+     * Defaults to what is considered the center of Scotland
      */
     center: {
         type: Object as PropType<LatLngObject>,
         default: {
-            lat: 0,
-            lng: 0,
+            lat: 56.490153,
+            lng: 4.10959,
         },
-        required: true,
     },
     /**
      * Zoom level.
@@ -290,6 +290,7 @@ const MAX_ZOOM: number = 19;
 const CATEGORY_VISIBLE_ZOOM: number = 12;
 const NUMBER_OF_RESULTS: number = 20;
 const query = ref<string>();
+const queryStr = ref(new Set());
 const currentSearch = ref<string>();
 
 const googleMapStore = useGoogleMapStore();
@@ -298,10 +299,10 @@ let showError;
 const errType = ref(undefined);
 
 const SCOTLAND_BOUNDS = {
-    north: 60.86500,
+    north: 61.86500,
     south: 54.62185,
     west: -8.65100,
-    east: -0.71000,
+    east: 0.71000,
 }
 
 const categoryData = props.categories;
@@ -439,6 +440,31 @@ function selectCategory(categoryId, key) {
     searchInput.value = query.value;
 }
 
+function searchSubCategoriesForLabel(selectedSubcategory, subCategoryId) {
+    const selCat = ref([]);
+    const selSubCatLabel = ref();
+
+    selectedSubcategory.forEach((catId) => {
+        // Iterate through the category label data to find corresponding category
+        categoryLabelData.forEach((category) => {
+            if (category.id === selectedTopLevelCategory.value) {
+                selCat.value = category;
+            }
+        });
+
+        // Iterate through the subCategories to find the correct one, and then again to find the label
+        Object.values(selCat.value).forEach((subCat) => {
+            Object.values(subCat).forEach((subCat) => {
+                if (subCategoryId === subCat.id) {
+                    selSubCatLabel.value = subCat.label;
+                }
+            });
+        });
+    });
+
+    return selSubCatLabel;
+}
+
 function searchBySubCategory(subCategoryId, key){
     subCategoryKey.value = key;
 
@@ -453,11 +479,17 @@ function searchBySubCategory(subCategoryId, key){
             }
         })
 
+        //Remove subCategory labels to the queryString to show on UI
+        queryStr.value.delete(searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value);
+
         if(selectedSubCategories.value.size === 0){
-            //If the last subCategory is removed, revert to a top-level search
+            //If the last subCategory is removed, reset queryString and revert to a top-level search
+            queryStr.value = new Set();
             selectCategory(selectedTopLevelCategory.value, categoryKey.value);
         } else {
             searchByCategory(Array.from(includedSubTypes.value).flat());
+            query.value = Array.from(queryStr.value).join(', ')
+            searchInput.value = query.value;
         }
 
     } else {
@@ -472,7 +504,13 @@ function searchBySubCategory(subCategoryId, key){
         })
 
         searchByCategory(Array.from(includedSubTypes.value).flat());
-        query.value = categoryLabelData[categoryKey.value].subCategory[subCategoryKey.value].label
+        
+        //Add subCategory labels to the queryString to show on UI
+        queryStr.value.add(searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value);
+
+        // Add to the query value.
+        query.value = Array.from(queryStr.value).join(', ')
+        searchInput.value = query.value;
     }
 }
 
@@ -541,13 +579,17 @@ async function addMarkers() {
     const bounds = new LatLngBounds();
     searchRequest.value.style.display = 'block';
 
-    if (searchRequest.value.places && searchRequest.value.places.length > 0) {
+    if (searchRequest.value.places) {
         searchRequest.value.places.forEach((place) => {
 
             // Custom styling for marker
             const markerIcon = document.createElement('div');
-            markerIcon.className = 'vs-map-marker';
-            markerIcon.innerHTML = `<i class="fa-solid fa-location-dot"></i>`;
+            markerIcon.classList.add('vs-map-marker');
+
+            const icon = document.createElement('i');
+            icon.classList.add('fa-solid', 'fa-location-dot');
+
+            markerIcon.appendChild(icon);
 
             // Add `content: markerIcon` to enable custom markers
             let marker = new AdvancedMarkerElement({
@@ -555,7 +597,7 @@ async function addMarkers() {
                 position: place.location,
                 content: markerIcon,
                 title: place.displayName,
-            })
+            });
 
             marker.addEventListener('gmp-placeclick', (event) => {
                 handlePlaceClick(place, marker);
@@ -568,13 +610,20 @@ async function addMarkers() {
             marker.metadata = { id: place.id };
             markers[place.id] = marker;
             bounds.extend(place.location);
-        });
-    }
-
-    if (searchRequest.value.places.length > 1) {
-        gMap.fitBounds(bounds);
-    } else if (searchRequest.value.places.length === 1){
-        gMap.fitBounds(searchRequest.value.places[0].viewport);
+            if (searchRequest.value.places.length === 1) {
+                gMap.setCenter(
+                    {
+                        lat: place.location.lat(), 
+                        lng: place.location.lng(),
+                    }
+                );
+                gMap.setZoom(14);
+                gMap.fitBounds(place.viewport);
+            } else {
+                gMap.setCenter(bounds.getCenter());
+                gMap.fitBounds(bounds);
+            }
+        });        
     }
 }
 
@@ -609,6 +658,7 @@ function resetCategories() {
     selectedSubCategories.value = new Set();
     includedTopLevelTypes.value = new Set();
     includedSubTypes.value = new Set();
+    queryStr.value = new Set();
     categoryKey.value = undefined;
     subCategoryKey.value = undefined;
 }
@@ -638,7 +688,8 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
         placeDetails.style.height = '32em';
     } else {
         placeDetails.style.width = '85vw';
-        placeDetails.style.height = '32em'; 
+        placeDetails.style.height = '32em';
+        googleMapStore.sidebarOpen = false;
     }
     
     placeDetails.style.display = 'block';
@@ -688,12 +739,15 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
 
     &__controls {
         position: absolute;
-        top: 1em;
-        left: 1em;
+        top: $vs-spacer-100;
+        left: $vs-spacer-100;
         z-index: 100;
         display: flex;
         flex-direction: column;
         pointer-events: none;
+        flex-grow: 1;
+        min-width: 0;
+        width: calc(100vw - $vs-spacer-100);
         
         @include media-breakpoint-up(md) {
             flex-direction: row;
@@ -703,23 +757,38 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
     &__filter-controls{
         display: flex;
         flex-direction: row;
-        align-items: start;
+        align-items: flex-start;
         gap: $vs-spacer-050;
-        width: 100vw;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        margin: $vs-spacer-075 $vs-spacer-0 $vs-spacer-0 $vs-spacer-0;
-        padding: $vs-spacer-025 $vs-spacer-0;
+        flex: 1;
+        height: fit-content;
+        width: calc(100vw - $vs-spacer-100);
+        margin: $vs-spacer-050 $vs-spacer-0;
+        padding: $vs-spacer-025 $vs-spacer-025 $vs-spacer-050 $vs-spacer-025;
         
         @include scrollsnap-styles;
 
+        &::-webkit-scrollbar-track {
+            margin: $vs-spacer-0 $vs-spacer-100 $vs-spacer-0 $vs-spacer-0;
+        }
+
         @include media-breakpoint-up(md) {
-            margin: $vs-spacer-0 $vs-spacer-0 $vs-spacer-0 $vs-spacer-100;
+            width: fit-content;
+            overflow-x: auto;
+            margin: $vs-spacer-075 $vs-spacer-0 $vs-spacer-0 $vs-spacer-100;
+        }
+
+        @include media-breakpoint-up(lg) {
+            flex: 0 1 max-content;
+            width: auto;
         }
 
         &-button {
-            flex: 0 0 max-content;
+            flex: 1 0 max-content;
             pointer-events: auto;
+
+            &:last-child {
+                margin-right: $vs-spacer-025;
+            }
         }
     }
 
@@ -731,10 +800,10 @@ function handlePlaceClick(place: any, marker: google.maps.marker.AdvancedMarkerE
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 2em;
-        height: 2em;
+        width: $vs-spacer-200;
+        height: $vs-spacer-200;
         background-color: $vs-color-icon-cta-on-light;
-        border-radius: 50%;
+        border-radius: $vs-radius-large;
         border: 0.125em solid $vs-color-icon-inverse;
         box-shadow: $vs-elevation-shadow-raised;;
         transition: transform 0.1s ease-in-out;

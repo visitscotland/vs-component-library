@@ -58,10 +58,8 @@
             {
                 "id": "cafe",
                 "type": [
-                    "bagel_shop", "cafe", "cafeteria", "candy_store", "coffee_shop",
-                    "confectionery", "deli", "dessert_shop", "diner", "dog_cafe", "cat_cafe",
-                    "donut_shop", "food_court", "ice_cream_shop", "juice_shop", "sandwich_shop",
-                    "tea_house"
+                    "bagel_shop", "cafe", "coffee_shop","deli", "dessert_shop", "dog_cafe",
+                    "ice_cream_shop", "sandwich_shop", "tea_house"
                 ]
             },
             {
@@ -93,15 +91,14 @@
             {
                 "id": "entertainment",
                 "type": [
-                    "aquarium", "zoo", "amusement_park", "concert_hall", "performing_arts_theatre", 
-                    "planetarium", "movie_theatre", "comedy_club", "night_club", 
-                    "bowling_alley", "roller_coaster"
+                    "aquarium", "zoo", "amusement_park", "concert_hall", "performing_arts_theater", 
+                    "planetarium", "movie_theater", "comedy_club", "bowling_alley", "roller_coaster"
                 ]
             },
             {
                 "id": "active-adventure",
                 "type": [
-                    "skateboard_park", "ice_sktating_rink", "adventure_sports_center", 
+                    "skateboard_park", "ice_skating_rink", "adventure_sports_center", 
                     "cycling_park", "ski_resort", "golf_course", "sports_complex", "stadium", 
                     "fishing_pond", "fishing_charter", "fitness_center", "gym"
                 ]
