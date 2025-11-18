@@ -177,7 +177,7 @@
             </div>
             <div
                 v-if="isError.error"
-                class="vs-federated-search__warning"
+                class="vs-federated-search__warning mb-300"
             >
                 <VsWarning
                     v-if="isError.error"
@@ -188,7 +188,7 @@
         </div>
         <VsWarning
             data-test="vs-federated-search__error--no-js"
-            class="vs-federated-search__error--no-js"
+            class="vs-federated-search__error--no-js mb-300"
         >
             {{ props.searchLabels.noJs }}
         </VsWarning>
