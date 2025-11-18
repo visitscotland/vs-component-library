@@ -1,3 +1,10 @@
+## [5.18.2](https://github.com/visitscotland/vs-component-library/compare/v5.18.1...v5.18.2) (2025-11-13)
+
+
+### Bug Fixes
+
+* **federated search:** reset filters scroll when search fired ([ab8e690](https://github.com/visitscotland/vs-component-library/commit/ab8e690092a5584979ad3210bd3108cecef8f60f))
+
 ## [5.18.1](https://github.com/visitscotland/vs-component-library/compare/v5.18.0...v5.18.1) (2025-11-13)
 
 
