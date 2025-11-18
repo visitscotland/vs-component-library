@@ -290,6 +290,7 @@ const MAX_ZOOM: number = 19;
 const CATEGORY_VISIBLE_ZOOM: number = 12;
 const NUMBER_OF_RESULTS: number = 20;
 const query = ref<string>();
+const queryStr = ref(new Set());
 const currentSearch = ref<string>();
 
 const googleMapStore = useGoogleMapStore();
@@ -472,7 +473,30 @@ function searchBySubCategory(subCategoryId, key){
         })
 
         searchByCategory(Array.from(includedSubTypes.value).flat());
-        query.value = categoryLabelData[categoryKey.value].subCategory[subCategoryKey.value].label
+        //query.value = categoryLabelData[categoryKey.value].subCategory[subCategoryKey.value].label
+
+        let selCat = [];
+
+        selectedSubCategories.value.forEach((catId) => {
+            // Iterate through the category label data to find corresponding category
+            categoryLabelData.forEach((category) => {
+                if (category.id === selectedTopLevelCategory.value) {
+                    selCat = category;
+                }
+            });
+            
+            // Iterate through the subCategories to find the correct one, and then again to find the label
+            Object.values(selCat).forEach((subCat) => {
+                Object.values(subCat).forEach((subCat) => {
+                    if(subCategoryId === subCat.id){
+                        queryStr.value.add(subCat.label);
+                    }
+                });
+            });
+
+            // Add to the query value.
+            query.value = Array.from(queryStr.value).join(', ')
+        });
     }
 }
 
