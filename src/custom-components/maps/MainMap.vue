@@ -441,19 +441,19 @@ function selectCategory(categoryId, key) {
 }
 
 function searchSubCategoriesForLabel(selectedSubcategory, subCategoryId) {
-    let selCat = [];
+    const selCat = ref([]);
     const selSubCatLabel = ref();
 
     selectedSubcategory.forEach((catId) => {
         // Iterate through the category label data to find corresponding category
         categoryLabelData.forEach((category) => {
             if (category.id === selectedTopLevelCategory.value) {
-                selCat = category;
+                selCat.value = category;
             }
         });
 
         // Iterate through the subCategories to find the correct one, and then again to find the label
-        Object.values(selCat).forEach((subCat) => {
+        Object.values(selCat.value).forEach((subCat) => {
             Object.values(subCat).forEach((subCat) => {
                 if (subCategoryId === subCat.id) {
                     selSubCatLabel.value = subCat.label;
