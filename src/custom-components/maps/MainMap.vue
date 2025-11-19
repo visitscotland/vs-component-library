@@ -266,15 +266,15 @@ const props = defineProps({
 // Map Object, HTMLElements & Global Variables
 let gMap: google.maps.Map;
 
-let mapContainer: any | null;
-let searchContainer: any | null;
+let mapContainer: any;
+let searchContainer: any;
 let nearbySearch: any;
 let textSearch: any;
-let textSearchQuery: any | null;
-let nearbySearchQuery: any | null;
-let detailContainer: any | null;
-let placeDetails: any | null;
-let placeRequest: any | null;
+let textSearchQuery: any;
+let nearbySearchQuery: any;
+let detailContainer: any;
+let placeDetails: any;
+let placeRequest: any;
 let searchInput: any;
 let infoWindow: any;
 
@@ -338,8 +338,8 @@ onMounted(async() => {
             key: props.apiKey,
             v: "quarterly",
             libraries: ['maps', 'places', 'marker', 'core', 'geometry'],
-        region: 'GB',
-        language: props.languageCode,
+            region: 'GB',
+            language: props.languageCode,
         });
 
         try{
