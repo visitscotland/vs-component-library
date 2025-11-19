@@ -15,10 +15,11 @@
             </label>
             <VsInput
                 field-name="vs-fed-search-sort__from-date"
-                :value="new Date().toJSON().slice(0, 10)"
+                :value="federatedSearchStore.startDate || new Date().toJSON().slice(0, 10)"
                 type="date"
                 :auto-complete="false"
                 @input="$emit('from-date-updated', $event.target.value)"
+                data-chromatic="ignore"
             />
         </VsCol>
         <VsCol
@@ -39,6 +40,7 @@
                 type="date"
                 :auto-complete="false"
                 @input="$emit('end-date-updated', $event.target.value)"
+                :value="federatedSearchStore.endDate || ''"
             />
         </VsCol>
         <VsCol
@@ -50,14 +52,14 @@
                 variant="secondary"
                 id="vs-fed-search-sort__dropdown"
                 name="vs-fed-search-sort__dropdown"
-                :text="isActive === null ? props.sortLabel : `${props.sortLabel}: ${isActive.label}`"
+                :text="federatedSearchStore.sortBy ? `${props.sortLabel}: ${activeOption.label}` : props.sortLabel"
             >
                 <VsDropdownItem
                     v-for="(sortOption, index) in sortOptions"
                     :key="index"
-                    @click="sortUpdated(sortOption)"
-                    :active="isActive === sortOption ? true : false"
-                    :data-test="`vs-fed-search-sort__dropdown-item--${sortOption.id}`"
+                    @click="$emit('sort-order-updated', sortOption.key);"
+                    :active="federatedSearchStore.sortBy === sortOption.key"
+                    :data-test="`vs-fed-search-sort__dropdown-item--${sortOption.key}`"
                 >
                     {{ sortOption.label }}
                 </VsDropdownItem>
@@ -66,16 +68,17 @@
     </VsRow>
 </template>
 
-<script setup lang="ts">
-import { ref } from 'vue';
+<script setup>
+import { computed } from 'vue';
 
 import VsRow from '@/components/grid/Row.vue';
 import VsCol from '@/components/grid/Col.vue';
 import VsInput from '@/components/input/Input.vue';
 import VsDropdown from '@/components/dropdown/Dropdown.vue';
 import VsDropdownItem from '@/components/dropdown/components/DropdownItem.vue';
+import useFederatedSearchStore from '@/stores/federatedSearch.store';
 
-const isActive = ref(null);
+const federatedSearchStore = useFederatedSearchStore();
 
 const props = defineProps({
     /**
@@ -113,16 +116,15 @@ const props = defineProps({
     },
 });
 
-const emit = defineEmits([
+defineEmits([
     'from-date-updated',
     'end-date-updated',
     'sort-order-updated',
 ]);
 
-function sortUpdated(sortOption) {
-    isActive.value = sortOption;
-    emit('sort-order-updated', sortOption);
-}
+const activeOption = computed(() => (
+    props.sortOptions.find((option) => option.key === federatedSearchStore.sortBy)
+));
 </script>
 
 <style lang="scss">
@@ -141,7 +143,7 @@ function sortUpdated(sortOption) {
             height: 50px;
         }
 
-        @include media-breakpoint-down(sm) {
+        @include media-breakpoint-down(md) {
             display: block;
             margin-top: $vs-spacer-100;
 

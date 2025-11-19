@@ -1,23 +1,18 @@
 <template>
-    <BCard
+    <div
         class="vs-panel"
-        :class="[$slots['vs-panel__title'] ? '' : 'pt-400']"
+        data-test="vs-panel"
+        :class="panelClasses"
     >
-        <template #header>
-            <!-- @slot Contains an optional title for the panel  -->
-            <slot name="vs-panel-title" />
-        </template>
+        <!-- @slot ⚠️ Deprecated. Use the default slot instead.  -->
+        <slot name="vs-panel-title" />
 
-        <div class="vs-panel__text">
-            <!-- @slot Default slot containing main body text -->
-            <slot />
-        </div>
-    </BCard>
+        <!-- @slot Default slot containing panel content -->
+        <slot />
+    </div>
 </template>
 
 <script>
-import { BCard } from 'bootstrap-vue-next';
-
 /**
  * The panel component is a container
  * that helps to emphasise content.
@@ -28,39 +23,45 @@ export default {
     name: 'VsPanel',
     status: 'prototype',
     release: '0.0.1',
-    components: {
-        BCard,
+    props: {
+        /**
+         * The panel variant style.
+         * `secondary|information`
+         */
+        variant: {
+            type: String,
+            default: 'secondary',
+            validator: (value) => value.match(
+                /(secondary|information)/,
+            ),
+        },
+    },
+    computed: {
+        panelClasses() {
+            return `vs-panel--${this.variant}`;
+        },
     },
 };
 </script>
 
 <style lang="scss">
-.vs-panel.card {
-    background-color: $vs-color-background-information;
-    border-color: $vs-color-border-primary;
-    padding: $vs-spacer-300 $vs-spacer-100 $vs-spacer-300;
+.vs-panel {
+    padding: $vs-spacer-175;
+    border-radius: $vs-radius-medium;
 
-    .card-body {
-        padding: $vs-spacer-125;
+    &--secondary {
+        background-color: $vs-color-background-secondary;
     }
 
-    @include media-breakpoint-up(md) {
-        padding: $vs-spacer-300 $vs-spacer-200 $vs-spacer-400;
+    &--information {
+        background-color: $vs-color-background-information;
     }
 
-    @include media-breakpoint-up(lg) {
-        padding: $vs-spacer-300 $vs-spacer-500 $vs-spacer-400;
-    }
-
-    @include media-breakpoint-up(xxl) {
-        padding: $vs-spacer-300 $vs-spacer-600 $vs-spacer-400;
-    }
-
+    // To be removed in future versions
     .vs-panel__title {
         display: block;
         text-align: center;
     }
-
     .card-header {
         text-align: center;
         background: none;

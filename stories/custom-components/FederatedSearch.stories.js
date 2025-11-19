@@ -1,5 +1,6 @@
 import VsFederatedSearch from '@/custom-components/federated-search/FederatedSearch.vue';
 import VsContainer from '@/components/grid/Container.vue';
+import VsSpotlightSection from '@/components/spotlight-section/SpotlightSection.vue';
 
 export default {
     component: VsFederatedSearch,
@@ -12,6 +13,7 @@ const Template = (args) => ({
     components: {
         VsContainer,
         VsFederatedSearch,
+        VsSpotlightSection,
     },
     setup() {
         return {
@@ -27,6 +29,32 @@ const Template = (args) => ({
                     <template #federated-search-no-results>
                         {{ args.noResultsLabel }}
                     </template>
+                    <template
+                        #federated-search__spotlight-accommodation
+                        v-if="args.showAccommodationSpotlight"
+                    >
+                        <VsSpotlightSection
+                            :compact="true"
+                            heading="Find your accommodation"
+                            imageSrc="fixtures/spotlight-section/kinnoul-hill.jpg"
+                            description="Explore our map to find the perfect place to stay."
+                            ctaLink="#"
+                            ctaText="Explore our map"
+                        />
+                    </template>
+                    <template
+                        #federated-search__spotlight-tours
+                        v-if="args.showToursSpotlight"
+                    >
+                        <VsSpotlightSection
+                            :compact="true"
+                            heading="Explore our tours"
+                            imageSrc="fixtures/spotlight-section/kinnoul-hill.jpg"
+                            description="Discover tours inspiration to see more of Scotland."
+                            ctaLink="#"
+                            ctaText="Browse tours"
+                        />
+                    </template>
                 </VsFederatedSearch>
                 <template>
                     {{ args.noJsText }}
@@ -37,6 +65,48 @@ const Template = (args) => ({
 });
 
 const base = {
+    filters: [
+        {
+            Key: 'accommodation',
+            Label: 'Accommodation',
+        },
+        {
+            Key: 'active-adventure',
+            Label: 'Active & Adventure',
+        },
+        {
+            Key: 'city-break',
+            Label: 'City Break',
+        },
+        {
+            Key: 'culture-history',
+            Label: 'Culture & History',
+        },
+        {
+            Key: 'events',
+            Label: 'Events & Festivals',
+        },
+        {
+            Key: 'family-friendly',
+            Label: 'Family Friendly',
+        },
+        {
+            Key: 'food-drink',
+            Label: 'Food & Drink',
+        },
+        {
+            Key: 'nature-outdoors',
+            Label: 'Nature & Outdoors',
+        },
+        {
+            Key: 'tours',
+            Label: 'Tours',
+        },
+        {
+            Key: 'travel-information',
+            Label: 'Travel Information',
+        },
+    ],
     subFilters: [
         {
             Key: 'books',
@@ -130,11 +200,31 @@ const base = {
             },
         ],
     },
+    cardCategoryLabels: {
+        about: 'About us',
+        accommodation: 'Accommodation',
+        article: 'Article',
+        destination: 'Destination',
+        event: 'Event',
+        itinerary: 'Itinerary',
+        tours: 'Tour',
+        travel: 'Travel',
+    },
+    showAccommodationSpotlight: false,
+    showToursSpotlight: false,
 };
 
 export const Default = Template.bind();
 
 Default.args = base;
+
+export const WithSpotlights = Template.bind();
+
+WithSpotlights.args = {
+    ...base,
+    showAccommodationSpotlight: true,
+    showToursSpotlight: true,
+};
 
 export const NoJavascript = Template.bind();
 

@@ -5,7 +5,7 @@ export default {
     title: 'Components/Media & data visualisation/Icon',
     argTypes: {
         variant: {
-            options: ['default', 'primary', 'inverse', 'disabled', 'tertiary', 'danger', 'warning'],
+            options: ['primary', 'secondary', 'tertiary', 'cta', 'inverse', 'highlight', 'disabled', 'error', 'warning', 'success'],
             control: {
                 type: 'radio',
             },
@@ -105,6 +105,10 @@ Colour.args = {
         {
             classes: 'fa-regular fa-user',
             variant: 'secondary',
+        },
+        {
+            classes: 'fa-regular fa-user',
+            variant: 'tertiary',
         },
         {
             classes: 'fa-regular fa-user',

@@ -29,7 +29,7 @@
             </div>
             <VsButton
                 class="d-none d-lg-block px-200"
-                :disabled="federatedSearchStore.isLoading"
+                :disabled="isLoading"
                 @click="search"
             >
                 {{ props.labels.search }}
@@ -39,39 +39,40 @@
         <div class="position-relative">
             <div
                 v-if="searchSuggestions"
-                class="vs-fed-search-input--autocomplete"
+                class="vs-fed-search-input__autocomplete"
             >
                 <VsList unstyled>
                     <li
                         v-for="suggestion in searchSuggestions"
                         :key="suggestion"
-                        class="vs-fed-search-input--autocomplete__suggestion"
+                        class="vs-fed-search-input__autocomplete__suggestion"
                         @click="suggestedSearch(suggestion)"
                         @keyup.enter="suggestedSearch(suggestion)"
                         tabindex="0"
-                    >
-                        {{ suggestion }}
-                    </li>
+                        v-html="highlightAutocompleteSuggestion(suggestion)"
+                    />
                 </VsList>
             </div>
         </div>
 
         <VsFedFilter
-            v-if="federatedSearchStore.cludoCategories"
-            :active-filter="federatedSearchStore.selectedCategory"
-            :filter-categories="federatedSearchStore.cludoCategories"
+            v-if="props.filters"
+            :active-filter="federatedSearchStore.selectedCategoryKey"
+            :filter-categories="props.filters"
+            ref="categoryFilter"
             :wrap="true"
             @filter-updated="updateSelectedCategory"
         />
 
         <VsFedFilter
-            v-if="federatedSearchStore.selectedCategory === 'Events & Festivals'
+            v-if="federatedSearchStore.selectedCategoryKey === 'events'
                 && props.subFilters"
-            :active-filter="federatedSearchStore.selectedSubCategory"
+            :active-filter="federatedSearchStore.selectedSubCategoryKey"
             class="mt-200"
             :filter-categories="props.subFilters"
+            ref="subCategoryFilter"
             variant="secondary"
-            @filter-updated="updateSelectedSubCategory"
+            @filter-updated="updateSelectedSubCategoryKey"
         >
             <template #fed-filter-header>
                 {{ props.labels.refine }}
@@ -81,7 +82,10 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
+import {
+    onMounted, ref, watch,
+} from 'vue';
+import { storeToRefs } from 'pinia';
 import useFederatedSearchStore from '@/stores/federatedSearch.store';
 import {
     VsButton,
@@ -129,6 +133,13 @@ const props = defineProps({
         default: undefined,
     },
     /**
+     * Array of filters to be used in the FedSearchInput component.
+    */
+    filters: {
+        type: Array,
+        default: undefined,
+    },
+    /**
      * Array of sub filters to be used in the FedSearchInput component.
     */
     subFilters: {
@@ -145,17 +156,25 @@ const props = defineProps({
 });
 
 const federatedSearchStore = useFederatedSearchStore();
+const { isLoading } = storeToRefs(federatedSearchStore);
 const searchSuggestions = ref();
+
+const categoryFilter = ref(null);
+const subCategoryFilter = ref(null);
 
 async function updateSearchTerm(event) {
     federatedSearchStore.currentPage = 1;
-    federatedSearchStore.searchTerm = event.value;
+    federatedSearchStore.searchTerm = event.value.trim();
 
     const url = window.location.search;
     const params = new URLSearchParams(url);
 
     if (federatedSearchStore.searchTerm && params.get('search-term') !== federatedSearchStore.searchTerm) {
         searchSuggestions.value = await federatedSearchStore.getAutoComplete();
+    }
+
+    if (!federatedSearchStore.searchTerm) {
+        searchSuggestions.value = null;
     }
 }
 
@@ -168,6 +187,26 @@ function suggestedSearch(query) {
     federatedSearchStore.searchTerm = query;
     searchSuggestions.value = null;
     federatedSearchStore.navigateToResultsPage();
+}
+
+function escapeRegExp(str) {
+    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function escapeHtml(str) {
+    return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+function highlightAutocompleteSuggestion(suggestion) {
+    const term = (federatedSearchStore.searchTerm || '').trim();
+    if (!term) return escapeHtml(suggestion);
+    const reg = new RegExp(`(${escapeRegExp(term)})`, 'gi');
+    return escapeHtml(suggestion).replace(reg, '<strong>$1</strong>');
 }
 
 function updateSelectedCategory(category) {
@@ -186,21 +225,33 @@ function updateSelectedCategory(category) {
     // Reset sort options
     federatedSearchStore.sortBy = undefined;
 
-    federatedSearchStore.selectedCategory = (federatedSearchStore.selectedCategory !== category)
-        ? category
+    // Reset sub category
+    federatedSearchStore.selectedSubCategory = [];
+    federatedSearchStore.selectedSubCategoryKey = [];
+
+    federatedSearchStore.selectedCategory = (federatedSearchStore.selectedCategory
+        !== category.Label)
+        ? category.Label
+        : '';
+
+    federatedSearchStore.selectedCategoryKey = (federatedSearchStore.selectedCategoryKey
+        !== category.Key)
+        ? category.Key
         : '';
 
     federatedSearchStore.navigateToResultsPage(true);
 }
 
-function updateSelectedSubCategory(category) {
-    if (!federatedSearchStore.selectedSubCategory.includes(category)) {
-        federatedSearchStore.selectedSubCategory.push(category);
+function updateSelectedSubCategoryKey(category) {
+    if (!federatedSearchStore.selectedSubCategoryKey.includes(category.Key)) {
+        federatedSearchStore.selectedSubCategory.push(category.Label);
+        federatedSearchStore.selectedSubCategoryKey.push(category.Key);
     } else {
-        const index = federatedSearchStore.selectedSubCategory.indexOf(category);
+        const index = federatedSearchStore.selectedSubCategoryKey.indexOf(category.Key);
 
         if (index >= 0) {
             federatedSearchStore.selectedSubCategory.splice(index, 1);
+            federatedSearchStore.selectedSubCategoryKey.splice(index, 1);
         }
     }
 
@@ -215,7 +266,9 @@ onMounted(() => {
     };
     federatedSearchStore.isHomePage = props.isHomePage;
 
-    federatedSearchStore.getCludoCategories();
+    if (props.searchUrl) {
+        federatedSearchStore.searchUrl = props.searchUrl;
+    }
 
     const url = window.location.search;
     const params = new URLSearchParams(url);
@@ -225,15 +278,38 @@ onMounted(() => {
     }
 
     if (params.has('category')) {
-        federatedSearchStore.selectedCategory = decodeURIComponent(params.get('category'));
+        federatedSearchStore.selectedCategoryKey = decodeURIComponent(params.get('category'));
     }
 
     if (params.has('sub-category')) {
-        federatedSearchStore.selectedSubCategory.push(decodeURIComponent(params.get('sub-category')));
+        const subCategories = decodeURIComponent(params.get('sub-category')).split(',');
+        subCategories.forEach((subCategory) => (
+            federatedSearchStore.selectedSubCategoryKey.push(subCategory)
+        ));
+    }
+
+    if (params.has('category') && params.get('category') === 'events' && params.has('sort-by')) {
+        federatedSearchStore.sortBy = params.get('sort-by');
+    }
+
+    if (params.has('start-date')) {
+        federatedSearchStore.startDate = params.get('start-date');
+    }
+
+    if (params.has('end-date')) {
+        federatedSearchStore.endDate = params.get('end-date');
     }
 
     if (params.has('search-term') || params.has('category')) {
         federatedSearchStore.getSearchResults();
+    }
+});
+
+// Reset the filter scroll when a search has run (isLoading is set from true to false).
+watch(isLoading, (newValue) => {
+    if (!newValue) {
+        categoryFilter.value?.resetScroll();
+        subCategoryFilter.value?.resetScroll();
     }
 });
 </script>
@@ -291,7 +367,7 @@ onMounted(() => {
         }
     }
 
-    &--autocomplete {
+    &__autocomplete {
         position: absolute;
         z-index: 10;
         background-color: $vs-color-background-primary;

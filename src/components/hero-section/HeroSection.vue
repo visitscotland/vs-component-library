@@ -320,10 +320,6 @@ export default {
                 grid-template-columns: 1.5fr 0.75fr;
             }
 
-            @include media-breakpoint-up(xxl) {
-                gap: 12rem;
-            }
-
             .vs-hero-section__heading.vs-heading {
                 color: $vs-color-text-brand;
 
