@@ -58,7 +58,7 @@
             {
                 "id": "cafes",
                 "type": [
-                    "bagel_shop", "cafe", "coffee_shop","deli", "dessert_shop", "dog_cafe",
+                    "bagel_shop", "cafe", "coffee_shop", "deli", "dessert_shop", "dog_cafe",
                     "ice_cream_shop", "sandwich_shop", "tea_house"
                 ]
             },
@@ -84,7 +84,7 @@
             {
                 "id": "culture-history",
                 "type": [
-                    "museum", "art_gallery", "historical_place", "monument", "sculpture", 
+                    "museum", "art_gallery", "historical_place", "monument", "sculpture",
                     "cultural_landmark", "church"
                 ]
             },
