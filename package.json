@@ -47,7 +47,7 @@
     "third-party": "webpack --config ./build/third-party.webpack.conf.js",
     "commit": "cz",
     "prepare": "husky install",
-    "prepack": "yarn && yarn build",
+    "prepack": "yarn build:ssr",
     "release:patch": "standard-version --release-as patch",
     "release:minor": "standard-version --release-as minor",
     "release:major": "standard-version --release-as major"
@@ -165,6 +165,7 @@
     "axios": "^1.4.0",
     "bootstrap-vue-next": "^0.17.0",
     "glob": "^8.1.0",
+    "global": "^4.4.0",
     "lodash": "^4.17.21",
     "mapbox-gl": "^1.11.1",
     "mitt": "^3.0.0",
@@ -180,7 +181,8 @@
     "vuelidate": "^0.7.7",
     "vuex": "^4.1.0",
     "webpack-merge": "^5.1.4",
-    "webpack-node-externals": "^3.0.0"
+    "webpack-node-externals": "^3.0.0",
+    "yalc": "^1.0.0-pre.53"
   },
   "peerDependencies": {
     "@popperjs/core": "*",
