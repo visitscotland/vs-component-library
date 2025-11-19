@@ -388,7 +388,7 @@ WithMapLink.args = {
     ...base,
     mapLink: '#',
     mapButtonText: 'Map of Scotland',
-}
+};
 
 export const NoJavascript = Template.bind({
 });

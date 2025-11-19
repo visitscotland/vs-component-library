@@ -46,6 +46,7 @@ const base = {
     inputPlaceHolderLabel: 'Type in your keyword',
     searchButtonLabel: 'Search',
     clearMapLabel: 'Clear Map',
+    subFilterHeaderLabel: 'Refine your results',
     searchResultsLabel: 'Showing results for: ',
     openSidebarButtonLabel: 'Open Sidebar',
 };

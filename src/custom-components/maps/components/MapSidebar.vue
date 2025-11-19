@@ -38,7 +38,7 @@
                 </label>
                 <VsInput
                     type="text"
-                    autocomplete="false"
+                    autocomplete="off"
                     field-name="vs-map-search-input"
                     data-test="vs-map-search-input"
                     ref="vs-search-input"
@@ -79,7 +79,7 @@
                     size="small"
                     color="secondary"
                 >
-                    Filter your results
+                    {{ props.subFilterHeaderLabel }}
                 </VsDetail>
                 <!-- @Slot for sub filters to be added to sidebar -->
                 <slot name="vs-map-sidebar-sub-filters" />
@@ -91,7 +91,7 @@
                     v-if="$props.query || $props.selectedCategories"
                     data-test="vs-map-sidebar__search-result-query"
                 >
-                    {{ props.searchResultsLabel }} "{{ $props.query || $props.selectedCategories }}"
+                    {{ props.searchResultsLabel }} "{{ props.query || props.selectedCategories }}"
                 </VsHeading>
                 <div class="vs-map-sidebar__google-maps-container mt-075">
                     <!-- @Slot to contain Google Maps Places
@@ -122,6 +122,7 @@
 
 <script setup lang="ts">
 import VsButton from '@/components/button/Button.vue';
+import VsDetail from '@/components/detail/Detail.vue';
 import VsLink from '@/components/link/Link.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsInput from '@/components/input/Input.vue';
@@ -163,6 +164,11 @@ const props = defineProps({
     },
     /** Label for the clear map link */
     clearMapLabel: {
+        type: String,
+        default: '',
+    },
+    /* Label for subfilter header */
+    subFilterHeaderLabel: {
         type: String,
         default: '',
     },

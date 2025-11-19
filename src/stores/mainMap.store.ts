@@ -2,7 +2,7 @@ import { ref } from 'vue';
 import { defineStore } from 'pinia';
 
 const useGoogleMapStore = defineStore('googleMap', () => {
-    const sidebarOpen = ref<Boolean>(true);
+    const sidebarOpen = ref<boolean>(true);
 
     return {
         sidebarOpen,
