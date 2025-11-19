@@ -7,7 +7,7 @@ const factoryMount = (propsData) => mount(VsMapSidebar, {
     propsData: {
         headerLabel: 'Discover your Scotland',
         closeSidebarButtonLabel: 'Close Sidebar',
-        inputPlaceHolderLabel: 'Type in your keyword',
+        inputPlaceholderLabel: 'Type in your keyword',
         searchButtonLabel: 'Search',
         clearMapLabel: 'Clear Map',
         searchResultsLabel: 'Showing results for: ',
@@ -146,7 +146,7 @@ describe('VsMapSidebar', () => {
         });
     });
 
-    describe.only(':sidebar-logic', () => {
+    describe(':sidebar-logic', () => {
         it('should be able to close and reopen the sidebar', async() => {
             const wrapper = factoryMount();
 
