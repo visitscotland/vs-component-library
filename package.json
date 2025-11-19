@@ -47,7 +47,7 @@
     "third-party": "webpack --config ./build/third-party.webpack.conf.js",
     "commit": "cz",
     "prepare": "husky install",
-    "prepack": "yarn build:ssr",
+    "prepack": "yarn & yarn build",
     "release:patch": "standard-version --release-as patch",
     "release:minor": "standard-version --release-as minor",
     "release:major": "standard-version --release-as major"
