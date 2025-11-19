@@ -10,11 +10,11 @@ const factoryMount = (propsData) => mount(VsFedSearchSort, {
         sortLabel: 'Sort by',
         sortOptions: [
             {
-                id: 'date',
+                key: 'date',
                 label: 'Date',
             },
             {
-                id: 'price',
+                key: 'price',
                 label: 'Price',
             },
         ],

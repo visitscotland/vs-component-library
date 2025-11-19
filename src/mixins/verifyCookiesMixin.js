@@ -24,7 +24,7 @@ const cookieCheckerMixin = {
             if (typeof CookieControl !== 'undefined') {
                 allowed = this.requiredCookies.every(
                     (category) => CookieControl
-                        && CookieControl.getCategoryConsent(category) !== false,
+                        && CookieControl.getCategoryConsent(category) === true,
                 );
             }
 

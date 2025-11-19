@@ -83,7 +83,7 @@ export default defineConfig(({ mode }) => {
                 outDir: './dist/components',
                 include: [
                     './src/components',
-                    // './src/custom-components',
+                    './src/custom-components',
                     './src/directives',
                     './src/mixins',
                     './src/stores',

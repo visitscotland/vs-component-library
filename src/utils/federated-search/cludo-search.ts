@@ -11,6 +11,7 @@ function cleanData(data: any) {
         imgSrc: document.Fields.Image?.Value || '',
         url: document.Fields.Url.Value || '',
         dataSrc: 'cludo',
+        categoryCard: document.Fields.categoryCard.Value || '',
     }));
 
     return results;
@@ -21,7 +22,7 @@ async function cludoSearch(
     cludoCredentials: CludoCredentials,
     page: number,
     selectedCategory: string,
-    cludoCategories: string[] | null,
+    selectedCategoryKey: string,
 ) {
     const { apiKey, customerId, engineId } = cludoCredentials;
     const url = `https://api-eu1.cludo.com/api/v3/${customerId}/${engineId}/search`;
@@ -38,17 +39,15 @@ async function cludoSearch(
         return {
             results: [],
             totalResults: 0,
-            categories: [],
         };
     }
 
     // Don't query the Cludo API when the "Events & Festivals" is selected
     // as this data only comes from the Events API (DataThistle).
-    if (selectedCategory === 'Events & Festivals' && cludoCategories) {
+    if (selectedCategoryKey === 'events') {
         return {
             results: [],
             totalResults: 0,
-            categories: cludoCategories,
         };
     }
 
@@ -59,10 +58,10 @@ async function cludoSearch(
                 query: searchTerm || '*',
                 operator: 'or',
                 responseType: 'JsonObject',
-                perPage: 6,
+                perPage: selectedCategoryKey ? 12 : 6,
                 page,
                 facets: {
-                    Category: selectedCategory ? [selectedCategory] : null,
+                    Category: selectedCategoryKey ? [selectedCategoryKey] : null,
                 },
             }),
             headers: {
@@ -81,18 +80,9 @@ async function cludoSearch(
 
         const cleanResults = cleanData(results);
 
-        if (selectedCategory === 'Events & Festivals' && !cludoCategories) {
-            return {
-                results: [],
-                totalResults: 0,
-                categories: results.Facets.Category.Items,
-            };
-        };
-
         return {
             results: cleanResults,
             totalResults: results.TotalDocument,
-            categories: results.Facets.Category.Items,
         };
     } catch (error) {
         federatedSearchStore.cludoError = true;
@@ -100,7 +90,6 @@ async function cludoSearch(
         return {
             results: [],
             totalResults: 0,
-            categories: [],
         };
     }
 }

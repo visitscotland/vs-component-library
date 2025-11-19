@@ -28,14 +28,14 @@
                 ref="scrollRail"
             >
                 <VsButton
-                    v-for="(filterCategory, index) in props.filterCategories"
+                    v-for="(filterCategory, index) in sortedCategories"
                     :key="index"
                     class="vs-fed-filter__category-button"
-                    :data-test="`vs-fed-filter__category-button--${filterCategory.id}`"
-                    :icon="props.variant === 'primary' ? filterCategory.icon : null"
+                    :data-test="`vs-fed-filter__category-button--${filterCategory.Key}`"
+                    :icon="props.variant === 'primary' ? setFilterIcon(filterCategory.Key) : null"
                     :variant="isActive(filterCategory.Key) ? 'primary' : 'secondary'"
                     :size="props.variant === 'secondary' ? 'sm' : 'md'"
-                    @click="$emit('filter-updated', filterCategory.Key)"
+                    @click="$emit('filter-updated', filterCategory)"
                 >
                     {{ filterCategory.Label || filterCategory.Key }}
                 </VsButton>
@@ -57,7 +57,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import VsButton from '@/components/button/Button.vue';
 import VsBody from '@/components/body/Body.vue';
 
@@ -129,7 +129,7 @@ const props = defineProps({
     },
 });
 
-// Defines the scoll rail from the Template
+// Defines the scroll rail from the Template
 const scrollRail = ref(null);
 
 defineEmits(['filter-updated']);
@@ -158,11 +158,82 @@ function scroll(dir) {
     else if (dir === 'right') scrollRail.value?.scrollBy(200, 0);
 }
 
+function resetScroll() {
+    scrollRail.value?.scrollTo(0, 0);
+}
+
+defineExpose({
+    resetScroll,
+});
+
 function filterClasses() {
     return [
         `vs-fed-filter__scroll-rail--${props.variant}`,
         props.wrap ? 'vs-fed-filter__scroll-rail--wrap' : '',
     ];
+}
+
+const sortedCategories = computed(() => {
+    const sortedArr = [...props.filterCategories];
+
+    return sortedArr.sort((a, b) => {
+        const aValue = (a.Label || a.Key || '').toLowerCase();
+        const bValue = (b.Label || b.Key || '').toLowerCase();
+
+        if (aValue < bValue) {
+            return -1;
+        }
+        if (aValue > bValue) {
+            return 1;
+        }
+
+        return 0;
+    });
+});
+
+function setFilterIcon(key) {
+    let icon;
+
+    switch (key) {
+    case 'accommodation':
+        icon = 'fa-regular fa-bed';
+        break;
+    case 'active-adventure':
+        icon = 'fa-kit fa-vs-landscape';
+        break;
+    case 'city-break':
+        icon = 'fa-regular fa-city';
+        break;
+    case 'culture-history':
+        icon = 'fa-regular fa-chess-rook';
+        break;
+    case 'events':
+        icon = 'fa-regular fa-calendar-range';
+        break;
+    case 'family-friendly':
+        icon = 'fa-regular fa-family';
+        break;
+    case 'food-drink':
+        icon = 'fa-regular fa-utensils';
+        break;
+    case 'nature-outdoors':
+        icon = 'fa-regular fa-leaf';
+        break;
+    case 'tours':
+        icon = 'fa-regular fa-binoculars';
+        break;
+    case 'travel-information':
+        icon = 'fa-regular fa-circle-info';
+        break;
+    case 'wellness':
+        icon = 'fa-regular fa-spa';
+        break;
+    default:
+        icon = null;
+        break;
+    }
+
+    return icon;
 }
 </script>
 
@@ -172,7 +243,7 @@ function filterClasses() {
             font-weight: $vs-font-weight-medium;
         }
 
-        &__scroll-container{
+        &__scroll-container {
             display: flex;
         }
 
