@@ -39,7 +39,7 @@
         "icon": "fa-regular fa-cutlery",
         "subCategory": [
             {
-                "id": "restaurant",
+                "id": "restaurants",
                 "type": [
                     "afghani_restaurant", "african_restaurant", "american_restaurant",
                     "asian_restaurant", "barbecue_restaurant", "brazilian_restaurant",
@@ -56,14 +56,14 @@
                 ]
             },
             {
-                "id": "cafe",
+                "id": "cafes",
                 "type": [
                     "bagel_shop", "cafe", "coffee_shop","deli", "dessert_shop", "dog_cafe",
                     "ice_cream_shop", "sandwich_shop", "tea_house"
                 ]
             },
             {
-                "id": "bar-pub",
+                "id": "bars-pubs",
                 "type": [
                     "bar", "bar_and_grill", "pub", "wine_bar"
                 ]
@@ -137,7 +137,7 @@
                 ]
             },
             {
-                "id": "ev-charging",
+                "id": "charging-points",
                 "type": [
                     "electric_vehicle_charging_station"
                 ]
