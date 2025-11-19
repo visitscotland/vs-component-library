@@ -57,7 +57,6 @@ export default {
     @include media-breakpoint-down(sm) {
         .container {
             max-width: 100%;
-            padding: 0 4px;
         }
     }
 
