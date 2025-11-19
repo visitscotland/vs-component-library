@@ -12,6 +12,7 @@
                     :input-placeholder-label="props.labels.inputPlaceholder"
                     :search-button-label="props.labels.searchButton"
                     :clear-map-label="props.labels.clearMap"
+                    :sub-filter-header-label="props.labels.subFilterHeader"
                     :search-results-label="props.labels.searchResults"
                     :open-sidebar-button-label="props.labels.openSidebarButton"
                     @search-input-changed="searchByText"
