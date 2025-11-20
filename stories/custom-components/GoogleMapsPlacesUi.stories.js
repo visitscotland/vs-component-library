@@ -1,5 +1,4 @@
 import VsMainMap from '@/custom-components/maps/MainMap.vue';
-import mapCategories from '@/assets/fixtures/custom-components/main-map/map-categories.json';
 import mapCategoryLabels from '@/assets/fixtures/custom-components/main-map/map-labels.json';
 
 export default {
@@ -35,7 +34,7 @@ const base = {
     },
     zoom: 6,
     radius: 5000,
-    categories: mapCategories,
+    categoriesLocation: 'https://static.visitscotland.com/maps-resources/main-map/map-categories.json',
     categoryLabels: mapCategoryLabels,
     jsDisabled: false,
     noJsMessage: 'JavaScript is required to use the map. Enable JavaScript then reload the page to use the map.',

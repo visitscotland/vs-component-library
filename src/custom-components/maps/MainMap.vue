@@ -193,6 +193,8 @@ import {
     setOptions,
 } from '@googlemaps/js-api-loader';
 
+import axios from 'axios';
+
 import {
     VsButton,
     VsWarning,
@@ -254,11 +256,11 @@ const props = defineProps({
         ),
     },
     /**
-     * JSON object of categories and their types
+     * URL location of the categories JSON file (from static server)
      */
-    categories: {
-        type: Object,
-        default: () => {},
+    categoriesLocation: {
+        type: String,
+        default: '',
     },
     /** JSON object for the category labeks (from CMS taxinomies) */
     categoryLabels: {
@@ -339,7 +341,8 @@ const SCOTLAND_BOUNDS = {
     east: 0.71000,
 };
 
-const categoryData = props.categories;
+let categoryData = {
+};
 const categoryLabelData = props.categoryLabels;
 
 onBeforeMount(() => {
@@ -365,6 +368,20 @@ onBeforeMount(() => {
 });
 
 onMounted(async() => {
+    /**
+     * Called on component created. Loads the json file located at this.categories which
+     * contains all of the category and subcategory mapping information from the static
+     * server.
+     */
+
+    if (props.categoriesLocation) {
+        axios.get(props.categoriesLocation)
+            .then((response) => {
+                categoryData = response.data;
+            })
+            .catch(() => {});
+    }
+
     // Only load Google Maps libraries if no error
     if (showError.value === false) {
         setOptions({
