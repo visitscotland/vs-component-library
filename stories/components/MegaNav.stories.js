@@ -381,6 +381,15 @@ StaticNav.args = {
     isStatic: true,
 };
 
+export const WithMapLink = Template.bind({
+});
+
+WithMapLink.args = {
+    ...base,
+    mapLink: '#',
+    mapButtonText: 'Map of Scotland',
+};
+
 export const NoJavascript = Template.bind({
 });
 

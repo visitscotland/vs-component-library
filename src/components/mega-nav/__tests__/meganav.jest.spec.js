@@ -106,6 +106,35 @@ describe('VsMegaNav', () => {
 
             expect(siteSearchStub.exists()).toBe(false);
         });
+
+        it('should not initially render a map button if no props are set for it', () => {
+            const wrapper = factoryMount();
+
+            const mapBtn = wrapper.find('[data-test="vs-mega-nav__map-button"]');
+
+            expect(mapBtn.exists()).toBe(false);
+        });
+
+        it('should not render a map button if only one prop is set for it', () => {
+            const wrapper = factoryMount({
+                mapLink: '#',
+            });
+
+            const mapBtn = wrapper.find('[data-test="vs-mega-nav__map-button"]');
+
+            expect(mapBtn.exists()).toBe(false);
+        });
+
+        it('should render a map button if props are set for it', () => {
+            const wrapper = factoryMount({
+                mapLink: '#',
+                mapButtonText: 'Map',
+            });
+
+            const mapBtn = wrapper.find('[data-test="vs-mega-nav__map-button"]');
+
+            expect(mapBtn.exists()).toBe(true);
+        });
     });
 
     describe(':slots', () => {
