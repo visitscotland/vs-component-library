@@ -29,7 +29,8 @@ props:
   max_container_width_xxl:
     value: "1320px"
 
-  # use with CSS grids
+  # use with CSS grids - value is slightly less than 
+  # max container width to allow for padding
   grid_container_width_sm:
     value: "516px"
   grid_container_width_md:
