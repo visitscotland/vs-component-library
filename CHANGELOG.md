@@ -1,3 +1,53 @@
+# [5.19.0](https://github.com/visitscotland/vs-component-library/compare/v5.18.3...v5.19.0) (2025-11-20)
+
+
+### Bug Fixes
+
+* **map-categories.json:** updates category id's where they had typos ([b56f393](https://github.com/visitscotland/vs-component-library/commit/b56f39365604d9c03fff81aa2b76bca739d4d642))
+* **package.json:** reverts changes to prepack command to ensure proper building ([f43a308](https://github.com/visitscotland/vs-component-library/commit/f43a308d978d4bf30f7f520b38acbae76f37dca0))
+* **vite.config:** adds place detail compact element to vite custom elements to suppress console warn ([0fbcf88](https://github.com/visitscotland/vs-component-library/commit/0fbcf88a1b697da6c1df0b495fe5add2476bb501))
+* **vsmainmap:** ensures focus state is still visible ([713f08e](https://github.com/visitscotland/vs-component-library/commit/713f08e4986520cd08ddc0ac29b07a88d94a1873))
+* **vsmainmap:** fix for sidebar positioning ([8f996fd](https://github.com/visitscotland/vs-component-library/commit/8f996fd832a89a418d7ac3adf8272c948a7d095e))
+* **vsmainmap:** fixes category labelling in the searched for string when deleting ([4ddcaf6](https://github.com/visitscotland/vs-component-library/commit/4ddcaf61be2a832c3e444ce7aeba7c67a70afc9d))
+* **vsmainmap:** fixes click through bug when search is carried out ([d94f66e](https://github.com/visitscotland/vs-component-library/commit/d94f66e9b4dc8727e17fe294568b77d2848b1522))
+* **vsmainmap:** fixes filter_controls container overflowing off screen (lg) & neatens up on mobile ([deb6459](https://github.com/visitscotland/vs-component-library/commit/deb6459958fcaf90fbb1df360a77447d38199a9b))
+* **vsmainmap:** fixes Google Maps attribution not working on dark theme browsers ([98582b6](https://github.com/visitscotland/vs-component-library/commit/98582b64919c4d5596b04f0717695dce3741bb2b))
+* **vsmainmap:** fixes Initial Zoom level being too high ([2b9aa4a](https://github.com/visitscotland/vs-component-library/commit/2b9aa4a79e08a5224f9d99a920d09f0421048d3e))
+* **vsmainmap:** fixes sub categories on the search results string when adding ([9e901af](https://github.com/visitscotland/vs-component-library/commit/9e901af6207ffe74c9cd7e5a1613c8c6e76a7812))
+* **vsmainmap:** fixes the viewport when only result returned ([a878b94](https://github.com/visitscotland/vs-component-library/commit/a878b94390b965068649e69ab61b9b5b70dddb17))
+* **vsmainmap:** fixes typos in the things to do categories ([b7f5bab](https://github.com/visitscotland/vs-component-library/commit/b7f5babec458e340d3e75fb70a89d3b5f5380429))
+* **vsmainmap:** removes includedTypes from F&D and Things to Do to fit under GMap constraints ([34c09e8](https://github.com/visitscotland/vs-component-library/commit/34c09e858fded8b7eb8b988f35c46283baa50120))
+* **vsmapsidebar:** fixes a hardcoded label, and unresolved component ([0ada292](https://github.com/visitscotland/vs-component-library/commit/0ada29242e237ace5cf949a8ca1b55d181bc8867))
+* **vsmapsidebar:** fixes sidebar responsiveness issues on mobile ([3e46869](https://github.com/visitscotland/vs-component-library/commit/3e4686915585bf19a0247d6236a51f7370fe1194))
+* **vsmapsidebar:** fixes sidebar staying open after selecting search result on mobile ([80f6b7d](https://github.com/visitscotland/vs-component-library/commit/80f6b7d99ebdb75c947ae37a5e6edc13de3d1487))
+* **vsmeganav:** fixes new map button label overflowing content by making icon only & updates style ([1157c67](https://github.com/visitscotland/vs-component-library/commit/1157c675d907d0d43f030d201cc62717921f6a2e))
+
+
+### Features
+
+* **googlemaps:** adds a base custom Google Maps component, story & secrets for API key ([2a913ae](https://github.com/visitscotland/vs-component-library/commit/2a913aeed393a60459c75e92b948da8459c7e89d))
+* **vsmainmap:** adds back in category buttons and styles based on design ([5b720e8](https://github.com/visitscotland/vs-component-library/commit/5b720e891d3f0fdec779e367c8e851922c1bd9c1))
+* **vsmainmap:** adds beahviour to revert to top level search when all sub categories are unselected ([64893b3](https://github.com/visitscotland/vs-component-library/commit/64893b31806666d76eccfb81525d05825db7ae93))
+* **vsmainmap:** adds click events to search panel to load details ([28feb80](https://github.com/visitscotland/vs-component-library/commit/28feb8090b32f7dff25c3f219ba31be788650e68))
+* **vsmainmap:** adds custom markers ([a5b77c8](https://github.com/visitscotland/vs-component-library/commit/a5b77c80999b84161f235852a577f2a1e4972a72))
+* **vsmainmap:** adds labels and region coding to MainMap ([79357ed](https://github.com/visitscotland/vs-component-library/commit/79357ed48c6a6267a923780aa27d333f5d4678b7))
+* **vsmainmap:** adds markers to map when performing a PlaceSearch search ([789b188](https://github.com/visitscotland/vs-component-library/commit/789b1885a950d1cf8583c999a4a79955eee468ac))
+* **vsmainmap:** adds nearby and text searches based on input category or text query ([c360d5e](https://github.com/visitscotland/vs-component-library/commit/c360d5ecd0281bc882b1a4a384458557c1d6b864))
+* **vsmainmap:** adds NoCookies & NoJS functionality to map component ([4091604](https://github.com/visitscotland/vs-component-library/commit/40916042560c7db874475de9e75422a104251023))
+* **vsmainmap:** adds text based search and category button ([1433942](https://github.com/visitscotland/vs-component-library/commit/1433942a2c9bdb2668ed417750caf69091b92ee7))
+* **vsmainmap:** adds the infoWindow details view ([bf3e5ac](https://github.com/visitscotland/vs-component-library/commit/bf3e5ac63c9b19196e8afebcead8672675b8c14c))
+* **vsmainmap:** adds the subcategories and their functionality ([8103fa2](https://github.com/visitscotland/vs-component-library/commit/8103fa21662fa5bb1fcc9a7501937a7ec50b2bc2))
+* **vsmainmap:** implements compact detail view for mobile devices ([201f0cd](https://github.com/visitscotland/vs-component-library/commit/201f0cd62ce79597afb64a9aed382f4324891254))
+* **vsmainmap:** mobile implementation of scrollsnap for subfilters and adds query to search bar ([73b83fc](https://github.com/visitscotland/vs-component-library/commit/73b83fc283c1e27ab87aead82e8ae8879ddeaa01))
+* **vsmainmap:** removes markers when a new search starts ([3954918](https://github.com/visitscotland/vs-component-library/commit/3954918ae0ea1853e922701df617ab438f76f593))
+* **vsmainmap:** reset map function ([7c60628](https://github.com/visitscotland/vs-component-library/commit/7c60628ffaf06b2faf61b8102c576ef59784d6f1))
+* **vsmainmap:** uses external labels on categories and removes them from map-categories.json ([a5a17d1](https://github.com/visitscotland/vs-component-library/commit/a5a17d1047c06fb4930347abd567d65e596a640b))
+* **vsmapsidebar:** adds a button to collapse and open sidebar on mobile view ([682cccd](https://github.com/visitscotland/vs-component-library/commit/682cccd747a7b6612985b413492cda2095fbb801))
+* **vsmapsidebar:** adds new map sidebar for Google Maps, and styles it and base map to fit designs ([150844d](https://github.com/visitscotland/vs-component-library/commit/150844d7b2ccb164f36d17c07d1cfa9c92786bed))
+* **vsmapsidebar:** moves sidebar view logic to store ([566bd01](https://github.com/visitscotland/vs-component-library/commit/566bd01e257c5331541e894640fbe76f3b083eae))
+* **vsmeganav:** adds new "map of scotland" button to meganav ([be4b258](https://github.com/visitscotland/vs-component-library/commit/be4b25897d601c17888ccc96c68f85595e2a877d))
+* **vsmeganav:** update the map button to align with design and ensure its visable on mobile ([d694252](https://github.com/visitscotland/vs-component-library/commit/d694252c0b1a97525f1151b415faae95c6c55e02))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
