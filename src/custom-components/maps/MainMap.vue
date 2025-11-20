@@ -321,7 +321,7 @@ const categoryKey = ref();
 const subCategoryKey = ref();
 const currentZoom = ref(props.zoom);
 const MAX_ZOOM = 19;
-const CATEGORY_VISIBLE_ZOOM = 12;
+const CATEGORY_VISIBLE_ZOOM = 11;
 const NUMBER_OF_RESULTS = 20;
 const query = ref();
 const queryStr = ref(new Set());
@@ -686,18 +686,12 @@ function resetMap(hardReset) {
         // A `hard reset` will remove all text and categories
         resetTextQuery();
         resetCategories();
-        resetLocation();
     }
 }
 
 function resetTextQuery() {
     query.value = null;
     searchInput.value = '';
-}
-
-function resetLocation() {
-    gMap.setCenter(props.center);
-    gMap.setZoom(props.zoom);
 }
 
 function resetCategories() {
