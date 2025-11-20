@@ -784,6 +784,10 @@ function handlePlaceClick(place, marker) {
     --gmp-mat-color-outline-decorative: #E9E9E9; //$vs-color-border-primary;
     --gmp-mat-font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; //$vs-font-family-sans-serif;
 
+    &__container {
+        position: relative;
+    }
+
     &__wrapper, #vs-map{
         height: 100vh;
         width: 100%;
