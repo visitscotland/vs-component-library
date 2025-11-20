@@ -24,10 +24,16 @@ export default `
         </template>
 
         <template #heroSection>
-            <VsHeroSection
-                heading="Advice and Support"
-                lede="Check out our how to articles and case studies on everything from digital channels to travel distribution."
-            />
+            <VsContainer>
+                <VsRow>
+                    <VsCol>
+                        <VsHeroSection
+                            heading="Advice and Support"
+                            lede="Check out our how to articles and case studies on everything from digital channels to travel distribution."
+                        />
+                    </VsCol>
+                </VsRow>
+            </VsContainer>
         </template>
     </VsPageHeader>
 
