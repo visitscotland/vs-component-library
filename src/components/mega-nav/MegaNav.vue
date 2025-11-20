@@ -54,26 +54,13 @@
                     >
                         <VsButton
                             v-if="mapButtonText && mapLink"
-                            variant="tertiary"
+                            variant="subtle"
                             icon="fa-regular fa-map"
                             icon-only
                             size="md"
                             :rounded="false"
                             :href="mapLink"
-                            class="vs-mega-nav__map-button d-flex d-xs-flex d-sm-flex d-md-flex d-lg-flex d-xl-none"
-                            data-test="vs-mega-nav__map-button"
-                        >
-                            {{ mapButtonText }}
-                        </VsButton>
-
-                        <VsButton
-                            v-if="mapButtonText && mapLink"
-                            variant="tertiary"
-                            icon="fa-regular fa-map"
-                            :href="mapLink"
-                            size="md"
-                            :rounded="false"
-                            class="vs-mega-nav__map-button d-none d-xs-none d-sm-none d-md-none d-lg-none d-xl-flex"
+                            class="vs-mega-nav__map-button d-flex"
                             data-test="vs-mega-nav__map-button"
                         >
                             {{ mapButtonText }}
@@ -372,24 +359,6 @@ export default {
 
     &__mobile-menu {
         display: none
-    }
-
-    &__map-button {
-        color: $vs-color-text-highlight;
-
-        .vs-icon--variant-primary {
-            color: $vs-color-icon-highlight;
-        }
-
-        &:hover {
-            .vs-icon--variant-primary {
-                color: $vs-color-icon-primary;
-            }
-        }
-
-        .vs-button__text {
-            font-weight: $vs-font-weight-regular;
-        }
     }
 }
 
