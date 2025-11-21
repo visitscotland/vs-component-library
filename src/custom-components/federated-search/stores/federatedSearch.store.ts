@@ -70,7 +70,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
             search_query: searchTerm.value,
             query_input: queryInput.value,
             results_count: totalResults.value,
-            search_usage_index: searchInSessionCount,
+            search_usage_index: searchInSessionCount.value,
             search_type: searchInSessionCount.value === 1 ? 'initial' : 'follow-up',
         });
 
