@@ -195,13 +195,14 @@ function autoSuggestAnalytics(suggestion) {
         search_usage_index: federatedSearchStore.searchInSessionCount,
         results_count: federatedSearchStore.totalResults,
         click_text: suggestion,
+        query_input: federatedSearchStore.queryInput,
     });
 }
 
 function suggestedSearch(query) {
     federatedSearchStore.searchTerm = query;
     searchSuggestions.value = null;
-    federatedSearchStore.navigateToResultsPage();
+    federatedSearchStore.navigateToResultsPage(false, true);
     autoSuggestAnalytics(query);
 }
 

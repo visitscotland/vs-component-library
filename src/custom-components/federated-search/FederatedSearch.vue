@@ -422,6 +422,11 @@ onMounted(() => {
             federatedSearchStore.searchTerm = paramSearchTerm;
             federatedSearchStore.getSearchResults();
         }
+
+        window.onbeforeunload = () => {
+            // eslint-disable-next-line no-use-before-define
+            pageCloseAnalytics();
+        };
     }
 });
 
@@ -507,6 +512,7 @@ function eventClickAnalytics(result) {
             : '',
         search_usage_index: federatedSearchStore.searchInSessionCount,
         results_count: federatedSearchStore.totalResults,
+        query_input: federatedSearchStore.queryInput,
     });
 }
 
@@ -517,6 +523,17 @@ function paginationClickAnalytics(isForward) {
         page_number: federatedSearchStore.currentPage,
         page_navigation_direction: isForward ? 'forward' : 'back',
         search_usage_index: federatedSearchStore.searchInSessionCount,
+        results_count: federatedSearchStore.totalResults,
+        query_input: federatedSearchStore.queryInput,
+    });
+}
+
+function pageCloseAnalytics() {
+    dataLayerHelper.createDataLayerObject('siteSearchCloseEvent', {
+        search_query: federatedSearchStore.searchTerm,
+        search_usage_index: federatedSearchStore.searchInSessionCount,
+        query_input: federatedSearchStore.queryInput,
+        page_number: federatedSearchStore.currentPage,
         results_count: federatedSearchStore.totalResults,
     });
 }

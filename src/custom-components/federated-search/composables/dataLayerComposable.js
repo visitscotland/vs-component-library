@@ -157,8 +157,6 @@ export default function dataLayerComposable() {
         default:
         }
 
-        console.log(dataLayerData);
-
         if (dataLayerData) {
             pushToDataLayer(dataLayerData);
         }

@@ -31,6 +31,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
     const searchUrl = ref(undefined);
     const siteLanguage = ref(undefined);
     const searchInSessionCount = ref(0);
+    const queryInput = ref('');
 
     async function getSearchResults() {
         isLoading.value = true;
@@ -67,7 +68,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
 
         dataLayerHelper.createDataLayerObject('siteSearchUsageEvent', {
             search_query: searchTerm.value,
-            query_input: '',
+            query_input: queryInput.value,
             results_count: totalResults.value,
             search_usage_index: searchInSessionCount,
             search_type: searchInSessionCount.value === 1 ? 'initial' : 'follow-up',
@@ -80,8 +81,14 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         return cludoAutocomplete(searchTerm.value, cludoCredentials.value);
     }
 
-    function navigateToResultsPage(resetPageNo?: boolean) {
+    function navigateToResultsPage(resetPageNo?: boolean, fromAutosuggest?: boolean) {
         const url = new URL(window.location.href);
+
+        if (fromAutosuggest) {
+            queryInput.value = 'Autosuggestion';
+        } else {
+            queryInput.value = 'User input';
+        }
 
         if (searchTerm.value) {
             url.searchParams.set('search-term', searchTerm.value);
@@ -165,6 +172,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         sortBy,
         siteLanguage,
         searchInSessionCount,
+        queryInput,
     };
 });
 
