@@ -116,6 +116,7 @@
                             >
                                 <VsLink
                                     :href="setCardLink(result)"
+                                    @click="eventClickAnalytics(result)"
                                     class="stretched-link"
                                     variant="secondary"
                                 >
@@ -440,6 +441,12 @@ function updateSort(type) {
 }
 
 function loadPage(pageNumber) {
+    let paginatingForward = false;
+
+    if (pageNumber > federatedSearchStore.currentPage) {
+        paginatingForward = true;
+    }
+
     federatedSearchStore.currentPage = pageNumber;
 
     if (typeof window !== 'undefined') {
@@ -451,6 +458,9 @@ function loadPage(pageNumber) {
     }
 
     federatedSearchStore.navigateToResultsPage();
+
+    // eslint-disable-next-line no-use-before-define
+    paginationClickAnalytics(paginatingForward);
 }
 
 function setEventDate(startDate, endDate) {
@@ -483,6 +493,32 @@ function setCardLink(result) {
             .toLowerCase(),
     );
     return `${dataThistleBase}${result.parentId}-${title}`;
+}
+
+function eventClickAnalytics(result) {
+    dataLayerHelper.createDataLayerObject('siteSearchClickEvent', {
+        interaction_type: 'search_link_click',
+        search_query: federatedSearchStore.searchTerm,
+        page_number: federatedSearchStore.currentPage,
+        click_text: result.title,
+        click_url: setCardLink(result),
+        click_category: result.categoryCard && props.cardCategoryLabels[result.categoryCard]
+            ? props.cardCategoryLabels[result.categoryCard]
+            : '',
+        search_usage_index: federatedSearchStore.searchInSessionCount,
+        results_count: federatedSearchStore.totalResults,
+    });
+}
+
+function paginationClickAnalytics(isForward) {
+    dataLayerHelper.createDataLayerObject('siteSearchClickEvent', {
+        interaction_type: 'search_link_click',
+        search_query: federatedSearchStore.searchTerm,
+        page_number: federatedSearchStore.currentPage,
+        page_navigation_direction: isForward ? 'forward' : 'back',
+        search_usage_index: federatedSearchStore.searchInSessionCount,
+        results_count: federatedSearchStore.totalResults,
+    });
 }
 
 onUpdated(() => {

@@ -96,6 +96,10 @@ import {
 import getEnvValue from '@/utils/get-env-value';
 import VsFedFilter from './FedFilter.vue';
 
+import dataLayerComposable from '../composables/dataLayerComposable';
+
+const dataLayerHelper = dataLayerComposable();
+
 const props = defineProps({
     /**
      * API Key for Cludo.
@@ -183,10 +187,22 @@ function search() {
     federatedSearchStore.navigateToResultsPage();
 }
 
+function autoSuggestAnalytics(suggestion) {
+    dataLayerHelper.createDataLayerObject('siteSearchClickEvent', {
+        interaction_type: 'search_autosuggest',
+        search_query: federatedSearchStore.searchTerm,
+        page_number: federatedSearchStore.currentPage,
+        search_usage_index: federatedSearchStore.searchInSessionCount,
+        results_count: federatedSearchStore.totalResults,
+        click_text: suggestion,
+    });
+}
+
 function suggestedSearch(query) {
     federatedSearchStore.searchTerm = query;
     searchSuggestions.value = null;
     federatedSearchStore.navigateToResultsPage();
+    autoSuggestAnalytics(query);
 }
 
 function escapeRegExp(str) {
@@ -207,6 +223,17 @@ function highlightAutocompleteSuggestion(suggestion) {
     if (!term) return escapeHtml(suggestion);
     const reg = new RegExp(`(${escapeRegExp(term)})`, 'gi');
     return escapeHtml(suggestion).replace(reg, '<strong>$1</strong>');
+}
+
+function categoryClickAnalytics(category) {
+    dataLayerHelper.createDataLayerObject('siteSearchClickEvent', {
+        interaction_type: 'facet_click',
+        search_query: federatedSearchStore.searchTerm,
+        page_number: federatedSearchStore.currentPage,
+        search_usage_index: federatedSearchStore.searchInSessionCount,
+        results_count: federatedSearchStore.totalResults,
+        click_text: category.Label || category.Key,
+    });
 }
 
 function updateSelectedCategory(category) {
@@ -240,6 +267,8 @@ function updateSelectedCategory(category) {
         : '';
 
     federatedSearchStore.navigateToResultsPage(true);
+
+    categoryClickAnalytics(category);
 }
 
 function updateSelectedSubCategoryKey(category) {
@@ -256,6 +285,8 @@ function updateSelectedSubCategoryKey(category) {
     }
 
     federatedSearchStore.navigateToResultsPage(true);
+
+    categoryClickAnalytics(category);
 }
 
 onMounted(() => {

@@ -164,6 +164,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         endDate,
         sortBy,
         siteLanguage,
+        searchInSessionCount,
     };
 });
 
