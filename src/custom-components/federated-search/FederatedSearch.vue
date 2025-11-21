@@ -116,6 +116,7 @@
                             >
                                 <VsLink
                                     :href="setCardLink(result)"
+                                    @click="eventClickAnalytics(result)"
                                     class="stretched-link"
                                     variant="secondary"
                                 >
@@ -216,11 +217,15 @@ import {
     VsPagination,
     VsWarning,
 } from '@/components';
-import useFederatedSearchStore from '@/stores/federatedSearch.store';
 import getEnvValue from '@/utils/get-env-value';
 import VsDivider from '@/custom-components/divider/Divider.vue';
+import useFederatedSearchStore from '@/custom-components/federated-search/stores/federatedSearch.store';
 import VsFedSearchInput from './components/FedSearchInput.vue';
 import VsFedSearchSort from './components/FedSearchSort.vue';
+
+import dataLayerComposable from './composables/dataLayerComposable';
+
+const dataLayerHelper = dataLayerComposable();
 
 const federatedSearchStore = useFederatedSearchStore();
 const isError = ref(
@@ -389,6 +394,10 @@ function calculateError() {
 }
 
 onMounted(() => {
+    dataLayerHelper.createDataLayerObject('siteSearchOpenEvent', {
+        referrer_page: document.referrer,
+    });
+
     federatedSearchStore.cludoCredentials = {
         apiKey: props.cludoApiKey,
         customerId: props.cludoCustomerId,
@@ -413,6 +422,11 @@ onMounted(() => {
             federatedSearchStore.searchTerm = paramSearchTerm;
             federatedSearchStore.getSearchResults();
         }
+
+        window.onbeforeunload = () => {
+            // eslint-disable-next-line no-use-before-define
+            pageCloseAnalytics();
+        };
     }
 });
 
@@ -432,6 +446,12 @@ function updateSort(type) {
 }
 
 function loadPage(pageNumber) {
+    let paginatingForward = false;
+
+    if (pageNumber > federatedSearchStore.currentPage) {
+        paginatingForward = true;
+    }
+
     federatedSearchStore.currentPage = pageNumber;
 
     if (typeof window !== 'undefined') {
@@ -443,6 +463,9 @@ function loadPage(pageNumber) {
     }
 
     federatedSearchStore.navigateToResultsPage();
+
+    // eslint-disable-next-line no-use-before-define
+    paginationClickAnalytics(paginatingForward);
 }
 
 function setEventDate(startDate, endDate) {
@@ -475,6 +498,44 @@ function setCardLink(result) {
             .toLowerCase(),
     );
     return `${dataThistleBase}${result.parentId}-${title}`;
+}
+
+function eventClickAnalytics(result) {
+    dataLayerHelper.createDataLayerObject('siteSearchClickEvent', {
+        interaction_type: 'search_link_click',
+        search_query: federatedSearchStore.searchTerm,
+        page_number: federatedSearchStore.currentPage,
+        click_text: result.title,
+        click_url: setCardLink(result),
+        click_category: result.categoryCard && props.cardCategoryLabels[result.categoryCard]
+            ? props.cardCategoryLabels[result.categoryCard]
+            : '',
+        search_usage_index: federatedSearchStore.searchInSessionCount,
+        results_count: federatedSearchStore.totalResults,
+        query_input: federatedSearchStore.queryInput,
+    });
+}
+
+function paginationClickAnalytics(isForward) {
+    dataLayerHelper.createDataLayerObject('siteSearchClickEvent', {
+        interaction_type: 'search_link_click',
+        search_query: federatedSearchStore.searchTerm,
+        page_number: federatedSearchStore.currentPage,
+        page_navigation_direction: isForward ? 'forward' : 'back',
+        search_usage_index: federatedSearchStore.searchInSessionCount,
+        results_count: federatedSearchStore.totalResults,
+        query_input: federatedSearchStore.queryInput,
+    });
+}
+
+function pageCloseAnalytics() {
+    dataLayerHelper.createDataLayerObject('siteSearchCloseEvent', {
+        search_query: federatedSearchStore.searchTerm,
+        search_usage_index: federatedSearchStore.searchInSessionCount,
+        query_input: federatedSearchStore.queryInput,
+        page_number: federatedSearchStore.currentPage,
+        results_count: federatedSearchStore.totalResults,
+    });
 }
 
 onUpdated(() => {

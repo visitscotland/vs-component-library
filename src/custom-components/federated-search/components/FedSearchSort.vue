@@ -76,7 +76,7 @@ import VsCol from '@/components/grid/Col.vue';
 import VsInput from '@/components/input/Input.vue';
 import VsDropdown from '@/components/dropdown/Dropdown.vue';
 import VsDropdownItem from '@/components/dropdown/components/DropdownItem.vue';
-import useFederatedSearchStore from '@/stores/federatedSearch.store';
+import useFederatedSearchStore from '@/custom-components/federated-search/stores/federatedSearch.store';
 
 const federatedSearchStore = useFederatedSearchStore();
 

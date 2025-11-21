@@ -1,5 +1,5 @@
 import { CludoCredentials, FederatedSearchResult } from '@/types/types';
-import useFederatedSearchStore from '@/stores/federatedSearch.store';
+import useFederatedSearchStore from '@/custom-components/federated-search/stores/federatedSearch.store';
 
 function cleanData(data: any) {
     const documents = data.TypedDocuments;
