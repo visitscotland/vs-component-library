@@ -22,6 +22,10 @@ import {
     cmsReferralTemplate,
     accordionOpenTemplate,
     tabClickTemplate,
+    siteSearchOpenTemplate,
+    siteSearchUsageTemplate,
+    siteSearchClickTemplate,
+    siteSearchCloseTemplate,
 } from '../utils/data-layer-templates';
 
 /**
@@ -367,6 +371,75 @@ const dataLayerMixin = {
 
                 fullTemplate = this.compileFullTemplate(templateValues);
                 dataLayerData = this.templateFiller(tabClickTemplate, fullTemplate);
+
+                break;
+
+            case 'siteSearchOpenEvent':
+                eventName = 'site_search_open';
+
+                templateValues = {
+                    event: eventName,
+                    referrer_page: event.referrer_page,
+                };
+
+                fullTemplate = this.compileFullTemplate(templateValues);
+                dataLayerData = this.templateFiller(siteSearchOpenTemplate, fullTemplate);
+
+                break;
+
+            case 'siteSearchUsageEvent':
+                eventName = 'site_search_event';
+
+                templateValues = {
+                    event: eventName,
+                    search_query: event.search_query,
+                    query_input: event.query_input,
+                    results_count: event.results_count,
+                    search_usage_index: event.search_usage_index,
+                    search_type: event.search_type,
+                };
+
+                fullTemplate = this.compileFullTemplate(templateValues);
+                dataLayerData = this.templateFiller(siteSearchUsageTemplate, fullTemplate);
+
+                break;
+
+            case 'siteSearchClickEvent':
+                eventName = 'site_search_click';
+
+                templateValues = {
+                    event: eventName,
+                    interaction_type: event.interaction_type,
+                    search_query: event.search_query,
+                    query_input: event.query_input,
+                    page_number: event.page_number,
+                    page_navigation_direction: event.page_navigation_direction,
+                    click_text: event.click_text,
+                    click_url: event.click_url,
+                    click_category: event.click_category,
+                    search_usage_index: event.search_usage_index,
+                    results_count: event.results_count,
+                };
+
+                fullTemplate = this.compileFullTemplate(templateValues);
+                dataLayerData = this.templateFiller(siteSearchClickTemplate, fullTemplate);
+
+                break;
+
+            case 'siteSearchCloseEvent':
+                eventName = 'site_search_close';
+
+                templateValues = {
+                    event: eventName,
+                    search_usage_index: event.search_usage_index,
+                    search_query: event.search_query,
+                    query_input: event.query_input,
+                    page_number: event.page_number,
+                    results_count: event.results_count,
+                };
+
+                fullTemplate = this.compileFullTemplate(templateValues);
+                dataLayerData = this.templateFiller(siteSearchCloseTemplate, fullTemplate);
 
                 break;
 
