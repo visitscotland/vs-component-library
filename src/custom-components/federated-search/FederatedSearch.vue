@@ -222,6 +222,8 @@ import VsDivider from '@/custom-components/divider/Divider.vue';
 import VsFedSearchInput from './components/FedSearchInput.vue';
 import VsFedSearchSort from './components/FedSearchSort.vue';
 
+import dataLayerComposable from './composables/dataLayerComposable';
+
 const federatedSearchStore = useFederatedSearchStore();
 const isError = ref(
     {
@@ -389,6 +391,12 @@ function calculateError() {
 }
 
 onMounted(() => {
+    const dataLayerHelper = dataLayerComposable();
+
+    dataLayerHelper.createDataLayerObject('siteSearchOpenEvent', {
+        referrer_page: document.referrer,
+    });
+
     federatedSearchStore.cludoCredentials = {
         apiKey: props.cludoApiKey,
         customerId: props.cludoCustomerId,
