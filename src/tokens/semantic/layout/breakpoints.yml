@@ -27,9 +27,10 @@ props:
   max_container_width_xl:
     value: "1140px"
   max_container_width_xxl:
-    value: "1340px"
+    value: "1320px"
 
-  # use with CSS grids
+  # use with CSS grids - value is slightly less than 
+  # max container width to allow for padding
   grid_container_width_sm:
     value: "516px"
   grid_container_width_md:
@@ -39,7 +40,7 @@ props:
   grid_container_width_xl:
     value: "1116px"
   grid_container_width_xxl:
-    value: "1316px"
+    value: "1296px"
 global:
   type: number
   category: breakpoints

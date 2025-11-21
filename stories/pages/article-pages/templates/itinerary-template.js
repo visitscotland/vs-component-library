@@ -32,14 +32,20 @@ export default `
         </template>
 
         <template #heroSection>
-            <VsHeroSection
-                heading="A Week of Whisky, Walks & Wonders in East Scotland"
-                lede="Want a real flavour of Scotland? Coastlines and castles, beaches and breweries, cathedrals and cashmere, whisky and walks; all this lies ahead of you (and much more)."
-                img-src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/12/dunnottar-castle?size=lg"
-                img-caption="Dunnottar Castle"
-                img-credit="VisitScotland"
-                inset
-            />
+            <VsContainer>
+                <VsRow>
+                    <VsCol>
+                        <VsHeroSection
+                            heading="A Week of Whisky, Walks & Wonders in East Scotland"
+                            lede="Want a real flavour of Scotland? Coastlines and castles, beaches and breweries, cathedrals and cashmere, whisky and walks; all this lies ahead of you (and much more)."
+                            img-src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/12/dunnottar-castle?size=lg"
+                            img-caption="Dunnottar Castle"
+                            img-credit="VisitScotland"
+                            inset
+                        />
+                      </VsCol>
+                </VsRow>
+            </VsContainer>  
         </template>
     </VsPageHeader>
 

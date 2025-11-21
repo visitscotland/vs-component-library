@@ -28,10 +28,16 @@ export default `
         </template>
 
         <template v-slot:heroSection>
-            <VsHeroSection
-                :heading="args.pageTitle"
-                :lede="args.pageLede"
-            />
+            <VsContainer>
+                <VsRow>
+                    <VsCol>
+                        <VsHeroSection
+                            :heading="args.pageTitle"
+                            :lede="args.pageLede"
+                        />
+                    </VsCol>
+                </VsRow>
+            </VsContainer>
         </template>
     </VsPageHeader>
 
