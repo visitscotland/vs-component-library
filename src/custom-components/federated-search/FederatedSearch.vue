@@ -216,13 +216,15 @@ import {
     VsPagination,
     VsWarning,
 } from '@/components';
-import useFederatedSearchStore from '@/stores/federatedSearch.store';
 import getEnvValue from '@/utils/get-env-value';
 import VsDivider from '@/custom-components/divider/Divider.vue';
+import useFederatedSearchStore from '@/custom-components/federated-search/stores/federatedSearch.store';
 import VsFedSearchInput from './components/FedSearchInput.vue';
 import VsFedSearchSort from './components/FedSearchSort.vue';
 
 import dataLayerComposable from './composables/dataLayerComposable';
+
+const dataLayerHelper = dataLayerComposable();
 
 const federatedSearchStore = useFederatedSearchStore();
 const isError = ref(
@@ -391,8 +393,6 @@ function calculateError() {
 }
 
 onMounted(() => {
-    const dataLayerHelper = dataLayerComposable();
-
     dataLayerHelper.createDataLayerObject('siteSearchOpenEvent', {
         referrer_page: document.referrer,
     });

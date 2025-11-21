@@ -86,7 +86,7 @@ import {
     onMounted, ref, watch,
 } from 'vue';
 import { storeToRefs } from 'pinia';
-import useFederatedSearchStore from '@/stores/federatedSearch.store';
+import useFederatedSearchStore from '@/custom-components/federated-search/stores/federatedSearch.store';
 import {
     VsButton,
     VsIcon,
