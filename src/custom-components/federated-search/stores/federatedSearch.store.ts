@@ -1,9 +1,11 @@
 import { ref } from 'vue';
 import { defineStore } from 'pinia';
 import { CludoCredentials } from '@/types/types';
-import cludoSearch from '@/utils/federated-search/cludo-search';
-import eventSearch from '@/utils/federated-search/event-search';
-import cludoAutocomplete from '@/utils/federated-search/cludo-autocomplete';
+import cludoSearch from '@/custom-components/federated-search/utils/cludo-search';
+import eventSearch from '@/custom-components/federated-search/utils/event-search';
+import cludoAutocomplete from '@/custom-components/federated-search/utils/cludo-autocomplete';
+
+import dataLayerComposable from '../composables/dataLayerComposable';
 
 const useFederatedSearchStore = defineStore('federatedSearch', () => {
     const filters = ref(null);
@@ -28,9 +30,13 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
     const sortBy = ref(undefined);
     const searchUrl = ref(undefined);
     const siteLanguage = ref(undefined);
+    const searchInSessionCount = ref(0);
+    const queryInput = ref('');
 
     async function getSearchResults() {
         isLoading.value = true;
+
+        searchInSessionCount.value += 1;
 
         const cludoResults = await cludoSearch(
             searchTerm.value,
@@ -58,6 +64,16 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         totalResultsEvents.value = eventResults.totalResults;
         totalResults.value = cludoResults.totalResults + eventResults.totalResults;
 
+        const dataLayerHelper = dataLayerComposable();
+
+        dataLayerHelper.createDataLayerObject('siteSearchUsageEvent', {
+            search_query: searchTerm.value,
+            query_input: queryInput.value,
+            results_count: totalResults.value,
+            search_usage_index: searchInSessionCount.value,
+            search_type: searchInSessionCount.value === 1 ? 'initial' : 'follow-up',
+        });
+
         isLoading.value = false;
     }
 
@@ -65,8 +81,14 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         return cludoAutocomplete(searchTerm.value, cludoCredentials.value);
     }
 
-    function navigateToResultsPage(resetPageNo?: boolean) {
+    function navigateToResultsPage(resetPageNo?: boolean, fromAutosuggest?: boolean) {
         const url = new URL(window.location.href);
+
+        if (fromAutosuggest) {
+            queryInput.value = 'Autosuggestion';
+        } else {
+            queryInput.value = 'User input';
+        }
 
         if (searchTerm.value) {
             url.searchParams.set('search-term', searchTerm.value);
@@ -149,6 +171,8 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         endDate,
         sortBy,
         siteLanguage,
+        searchInSessionCount,
+        queryInput,
     };
 });
 
