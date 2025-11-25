@@ -245,7 +245,7 @@ export default {
         }
 
         @include media-breakpoint-up(xxl) {
-            max-width: 1340px;
+            max-width: 1320px;
         }
 
         > .container {
