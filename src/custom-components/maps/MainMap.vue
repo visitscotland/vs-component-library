@@ -658,7 +658,7 @@ async function addMarkers() {
                 map: gMap,
                 position: place.location,
                 content: markerIcon,
-                title: place.displayName,
+                title: 'Map pin',
             });
 
             marker.addEventListener('gmp-placeclick', () => {
