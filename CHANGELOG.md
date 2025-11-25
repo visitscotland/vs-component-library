@@ -1,3 +1,16 @@
+# [5.20.0](https://github.com/visitscotland/vs-component-library/compare/v5.19.1...v5.20.0) (2025-11-25)
+
+
+### Bug Fixes
+
+* **grid:** removing custom row css to stick to bootstrap grid ([e831ef4](https://github.com/visitscotland/vs-component-library/commit/e831ef4ebfa3667b8d822572c316c618fa088a94))
+
+
+### Features
+
+* **grid:** update max-container width to match bootstraps grid ([523150b](https://github.com/visitscotland/vs-component-library/commit/523150b085182fa194a4e10acb3fd7442ae2d8a9))
+* **page-intro:** update page-intro to use new max container width ([830a1e2](https://github.com/visitscotland/vs-component-library/commit/830a1e2e5106b3b9eaecdb7fde4fe4306fa3942f))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
