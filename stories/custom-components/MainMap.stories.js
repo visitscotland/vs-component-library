@@ -34,11 +34,11 @@ const base = {
     },
     zoom: 6,
     radius: 5000,
-    categoriesLocation: 'https://static.visitscotland.com/maps-resources/main-map/map-categories.json',
+    categoriesLocation: './fixtures/custom-components/main-map/map-categories.json',
     categoryLabels: mapCategoryLabels,
     jsDisabled: false,
     noJsMessage: 'JavaScript is required to use the map. Enable JavaScript then reload the page to use the map.',
-    noCookiesMessage: 'Cookies are requried to use the map',
+    noCookiesMessage: 'Cookies are required to use the map',
     cookieBtnText: 'Manage cookies',
     labels: {
         heading: 'Discover your Scotland',
