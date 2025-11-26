@@ -1,3 +1,10 @@
+## [5.20.1](https://github.com/visitscotland/vs-component-library/compare/v5.20.0...v5.20.1) (2025-11-26)
+
+
+### Bug Fixes
+
+* **main map:** set map pin title ([5c9e9fb](https://github.com/visitscotland/vs-component-library/commit/5c9e9fb6d2a811751e2c6ec82c487c62018ea8c2))
+
 # [5.20.0](https://github.com/visitscotland/vs-component-library/compare/v5.19.1...v5.20.0) (2025-11-25)
 
 
