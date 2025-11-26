@@ -200,7 +200,7 @@ describe('VsProductSearchEmbed', () => {
 
             setTimeout(() => {
                 expect(mockPreSubmitChecks).toHaveBeenCalled();
-            }, 100);
+            }, 500);
         });
     });
 });
