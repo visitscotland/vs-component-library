@@ -69,7 +69,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         return cludoAutocomplete(searchTerm.value, cludoCredentials.value);
     }
 
-    function navigateToResultsPage(resetPageNo?: boolean, fromAutosuggest?: boolean) {
+    async function navigateToResultsPage(resetPageNo?: boolean, fromAutosuggest?: boolean) {
         const url = new URL(window.location.href);
 
         if (fromAutosuggest) {
@@ -126,7 +126,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         if (!isHomePage.value) {
             // eslint-disable-next-line object-curly-newline
             window.history.pushState({}, '', url);
-            getSearchResults();
+            await getSearchResults();
         } else {
             const newHref = `${searchUrl.value}/${url.search}`;
             window.location.href = newHref;

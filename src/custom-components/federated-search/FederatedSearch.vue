@@ -335,7 +335,7 @@ const props = defineProps({
     },
 });
 
-let eventHasBeenClicked = false;
+const eventHasBeenClicked = ref(false);
 
 // Calculate the total number of pages for pagination.
 const totalResultsPages = computed(() => {
@@ -503,7 +503,7 @@ function setCardLink(result) {
 }
 
 function eventClickAnalytics(result) {
-    eventHasBeenClicked = true;
+    eventHasBeenClicked.value = true;
 
     dataLayerHelper.createDataLayerObject('siteSearchClickEvent', {
         interaction_type: 'search_link_click',
@@ -534,7 +534,7 @@ function paginationClickAnalytics(isForward) {
 
 function pageCloseAnalytics() {
     // This event should only be fired if the user is leaving search without clicking a result.
-    if (eventHasBeenClicked) return;
+    if (eventHasBeenClicked.value) return;
 
     dataLayerHelper.createDataLayerObject('siteSearchCloseEvent', {
         search_query: federatedSearchStore.searchTerm,
