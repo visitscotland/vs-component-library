@@ -335,6 +335,8 @@ const props = defineProps({
     },
 });
 
+let eventHasBeenClicked = false;
+
 // Calculate the total number of pages for pagination.
 const totalResultsPages = computed(() => {
     let pageCount;
@@ -501,6 +503,8 @@ function setCardLink(result) {
 }
 
 function eventClickAnalytics(result) {
+    eventHasBeenClicked = true;
+
     dataLayerHelper.createDataLayerObject('siteSearchClickEvent', {
         interaction_type: 'search_link_click',
         search_query: federatedSearchStore.searchTerm,
@@ -529,6 +533,9 @@ function paginationClickAnalytics(isForward) {
 }
 
 function pageCloseAnalytics() {
+    // This event should only be fired if the user is leaving search without clicking a result.
+    if (eventHasBeenClicked) return;
+
     dataLayerHelper.createDataLayerObject('siteSearchCloseEvent', {
         search_query: federatedSearchStore.searchTerm,
         search_usage_index: federatedSearchStore.searchInSessionCount,
