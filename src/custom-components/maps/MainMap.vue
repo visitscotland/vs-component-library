@@ -421,7 +421,10 @@ onMounted(async() => {
                     lat: props.center.lat,
                     lng: props.center.lng,
                 },
+                // eslint-disable-next-line no-undef
+                renderingType: google.maps.RenderingType.VECTOR,
                 zoom: props.zoom,
+                isFractionalZoomEnabled: true,
                 mapId: 'vs-map',
                 restriction: {
                     latLngBounds: SCOTLAND_BOUNDS,
