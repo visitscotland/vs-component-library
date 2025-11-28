@@ -123,13 +123,6 @@ const props = defineProps({
         default: Number(getEnvValue('CLUDO_ENGINE_ID')),
     },
     /**
-     * Used to determine the search and filter buttons actions.
-    */
-    isHomePage: {
-        type: Boolean,
-        default: false,
-    },
-    /**
      * URL of search page.
     */
     searchUrl: {
@@ -296,7 +289,6 @@ onMounted(() => {
         customerId: props.cludoCustomerId,
         engineId: props.cludoEngineId,
     };
-    federatedSearchStore.isHomePage = props.isHomePage;
 
     if (props.searchUrl) {
         federatedSearchStore.searchUrl = props.searchUrl;
