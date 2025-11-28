@@ -5,8 +5,6 @@ import cludoSearch from '@/custom-components/federated-search/utils/cludo-search
 import eventSearch from '@/custom-components/federated-search/utils/event-search';
 import cludoAutocomplete from '@/custom-components/federated-search/utils/cludo-autocomplete';
 
-import dataLayerComposable from '../composables/dataLayerComposable';
-
 const useFederatedSearchStore = defineStore('federatedSearch', () => {
     const filters = ref(null);
     const cludoCredentials = ref<CludoCredentials | undefined>(undefined);
@@ -64,16 +62,6 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         totalResultsEvents.value = eventResults.totalResults;
         totalResults.value = cludoResults.totalResults + eventResults.totalResults;
 
-        const dataLayerHelper = dataLayerComposable();
-
-        dataLayerHelper.createDataLayerObject('siteSearchUsageEvent', {
-            search_query: searchTerm.value,
-            query_input: queryInput.value,
-            results_count: totalResults.value,
-            search_usage_index: searchInSessionCount.value,
-            search_type: searchInSessionCount.value === 1 ? 'initial' : 'follow-up',
-        });
-
         isLoading.value = false;
     }
 
@@ -81,7 +69,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         return cludoAutocomplete(searchTerm.value, cludoCredentials.value);
     }
 
-    function navigateToResultsPage(resetPageNo?: boolean, fromAutosuggest?: boolean) {
+    async function navigateToResultsPage(resetPageNo?: boolean, fromAutosuggest?: boolean) {
         const url = new URL(window.location.href);
 
         if (fromAutosuggest) {
@@ -138,7 +126,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         if (!isHomePage.value) {
             // eslint-disable-next-line object-curly-newline
             window.history.pushState({}, '', url);
-            getSearchResults();
+            await getSearchResults();
         } else {
             const newHref = `${searchUrl.value}/${url.search}`;
             window.location.href = newHref;
