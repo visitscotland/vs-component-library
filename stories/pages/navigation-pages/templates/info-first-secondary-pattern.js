@@ -24,14 +24,20 @@ export default `
         </template>
 
         <template #heroSection>
-            <VsHeroSection
-                heading="Sustainability"
-                lede="Sustainably grow your tourism or events business with actionable green strategies."
-                img-src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/12/06/suidhe-viewpoint?size=lg"
-                img-caption="Suidhe Viewpoint"
-                img-credit="VisitScotland"
-                inset
-            />
+            <VsContainer>
+                <VsRow>
+                    <VsCol>
+                        <VsHeroSection
+                            heading="Sustainability"
+                            lede="Sustainably grow your tourism or events business with actionable green strategies."
+                            img-src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/12/06/suidhe-viewpoint?size=lg"
+                            img-caption="Suidhe Viewpoint"
+                            img-credit="VisitScotland"
+                            inset
+                        />
+                    </VsCol>
+                </VsRow>
+            </VsContainer>
         </template>
     </VsPageHeader>
 

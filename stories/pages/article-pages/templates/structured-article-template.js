@@ -24,14 +24,20 @@ export default `
         </template>
 
         <template #heroSection>
-            <VsHeroSection
-                heading="7 Easy hill walks with amazing views"
-                lede="Here are some Scotland's smaller sized hills you can fit into a day or afternoon, all measuring approximately 500 m and under."
-                img-src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/08/kinnoull-hill-and-tower?size=lg"
-                img-caption="Kinnoull Hill and Tower"
-                img-credit="© VisitScotland / Kenny Lam"
-                inset
-            />
+            <VsContainer>
+                <VsRow>
+                    <VsCol>
+                        <VsHeroSection
+                            heading="7 Easy hill walks with amazing views"
+                            lede="Here are some Scotland's smaller sized hills you can fit into a day or afternoon, all measuring approximately 500 m and under."
+                            img-src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/08/kinnoull-hill-and-tower?size=lg"
+                            img-caption="Kinnoull Hill and Tower"
+                            img-credit="© VisitScotland / Kenny Lam"
+                            inset
+                        />
+                    </VsCol>
+                </VsRow>
+            </VsContainer>
         </template>
     </VsPageHeader>
 

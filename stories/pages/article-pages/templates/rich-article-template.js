@@ -32,14 +32,20 @@ export default `
         </template>
 
         <template #heroSection>
-            <VsHeroSection
-                heading="Highland Games in Scotland"
-                lede="Highland games have been a part of Scotland's culture for hundreds of years and are just as popular today as they've ever been. "
-                img-src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/13/pipe-band-marching-at-the-ballater-highland-games.jpg?size=md"
-                img-caption="Pipe band marching at Ballater Highland Games"
-                img-credit="© VisitScotland / David N Anderson"
-                inset
-            />
+            <VsContainer>
+                <VsRow>
+                    <VsCol>
+                        <VsHeroSection
+                            heading="Highland Games in Scotland"
+                            lede="Highland games have been a part of Scotland's culture for hundreds of years and are just as popular today as they've ever been. "
+                            img-src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/13/pipe-band-marching-at-the-ballater-highland-games.jpg?size=md"
+                            img-caption="Pipe band marching at Ballater Highland Games"
+                            img-credit="© VisitScotland / David N Anderson"
+                            inset
+                        />
+                    </VsCol>
+                </VsRow>
+            </VsContainer>
         </template>
     </VsPageHeader>
 

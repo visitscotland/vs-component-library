@@ -21,18 +21,3 @@ export default {
     release: '0.0.1',
 };
 </script>
-
-<style lang="scss">
-// Setting gutter width for XS
-@media (max-width: map-get($grid-breakpoints, sm)){
-    .row:not(.g-0) {
-        margin-right: -4px;
-        margin-left: -4px;
-    }
-    .row:not(.g-0) > .col,
-    .row:not(.g-0) > [class*="col-"] {
-        padding-right: 4px;
-        padding-left: 4px;
-    }
-}
-</style>
