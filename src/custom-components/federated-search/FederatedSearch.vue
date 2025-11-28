@@ -427,6 +427,8 @@ onMounted(() => {
             // eslint-disable-next-line no-use-before-define
             pageCloseAnalytics();
         };
+
+        federatedSearchStore.navigateToResultsPage();
     }
 });
 
