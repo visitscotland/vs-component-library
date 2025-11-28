@@ -185,6 +185,14 @@ async function updateSearchTerm(event) {
 function search() {
     searchSuggestions.value = null;
     federatedSearchStore.navigateToResultsPage();
+
+    dataLayerHelper.createDataLayerObject('siteSearchUsageEvent', {
+        search_query: federatedSearchStore.searchTerm,
+        query_input: federatedSearchStore.queryInput,
+        results_count: federatedSearchStore.totalResults,
+        search_usage_index: federatedSearchStore.searchInSessionCount,
+        search_type: federatedSearchStore.searchInSessionCount === 1 ? 'initial' : 'follow-up',
+    });
 }
 
 function autoSuggestAnalytics(suggestion) {
