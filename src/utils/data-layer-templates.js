@@ -375,6 +375,7 @@ const siteSearchUsageTemplate = [
     'results_count',
     'search_usage_index',
     'search_type',
+    'interaction_type',
 ];
 
 const siteSearchClickTemplate = [

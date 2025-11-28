@@ -116,6 +116,7 @@ export default function dataLayerComposable() {
                 results_count: event.results_count,
                 search_usage_index: event.search_usage_index,
                 search_type: event.search_type,
+                interaction_type: 'search_input',
             };
             fullTemplate = compileFullTemplate(templateValues);
             dataLayerData = templateFiller(siteSearchUsageTemplate, fullTemplate);
