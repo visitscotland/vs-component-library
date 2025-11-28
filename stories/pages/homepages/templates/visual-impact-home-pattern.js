@@ -173,6 +173,7 @@ export default `
                             Label: 'Travel Information',
                         },
                     ]"
+                    :is-home-page="true"
                 />
             </VsCol>
         </VsRow>
