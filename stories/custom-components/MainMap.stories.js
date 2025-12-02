@@ -28,6 +28,7 @@ const Template = (args) => ({
 });
 
 const base = {
+    mapId: '80fe83bd0f6b4f3f24adc270',
     center: {
         lat: 56.490153,
         lng: 4.10959,
