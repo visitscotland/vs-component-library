@@ -203,6 +203,9 @@ import useGoogleMapStore from '@/stores/mainMap.store';
 import cookieValues from '@/utils/required-cookies-data';
 import VsMapSidebar from './components/MapSidebar.vue';
 import cookieCheckerComposable from './composables/verifyCookiesComposable';
+import dataLayerComposable from './composables/dataLayerComposable';
+
+const dataLayerHelper = dataLayerComposable();
 
 const props = defineProps({
     /**
@@ -466,6 +469,8 @@ onMounted(async() => {
             }
         });
     };
+
+    googleMapStore.firstInteraction = false;
 
     // Init map if no error
     if (showError.value === false) {
@@ -778,6 +783,22 @@ function handlePlaceClick(place, marker) {
             gMap.setZoom(MAX_ZOOM);
         }
     });
+
+    checkFirstInteraction('place_click');
+}
+
+function checkFirstInteraction(interactionType) {
+    if (!googleMapStore.firstInteraction) {
+        const timeNow = Date.now();
+        const timeToFirstInteraction = timeNow - googleMapStore.timeMounted;
+
+        dataLayerHelper.createDataLayerObject('googleMapTimeToFirstInteractionEvent', {
+            time_to_first_interaction_ms: timeToFirstInteraction,
+            first_interaction_type: interactionType,
+        });
+
+        googleMapStore.firstInteraction = true;
+    }
 }
 </script>
 
