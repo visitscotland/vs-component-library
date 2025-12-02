@@ -422,8 +422,9 @@ onMounted(() => {
 
         if (paramSearchTerm) {
             federatedSearchStore.searchTerm = paramSearchTerm;
-            federatedSearchStore.getSearchResults();
         }
+
+        federatedSearchStore.getSearchResults();
 
         window.onbeforeunload = () => {
             // eslint-disable-next-line no-use-before-define
