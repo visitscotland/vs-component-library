@@ -194,10 +194,16 @@ defineEmits(['search-input-changed', 'reset-map']);
     border-radius: $vs-radius-large;
     box-shadow: $vs-elevation-shadow-raised;
     pointer-events: auto;
-    max-height: 90vh;
+    max-height: 87.5vh;
+    overflow-y: auto;
 
     @include media-breakpoint-up (sm) {
         width: 23.3rem;
+    }
+
+    &__content{
+        display: flex;
+        flex-direction: column;
     }
 
     &__input input {
@@ -205,6 +211,7 @@ defineEmits(['search-input-changed', 'reset-map']);
         border-radius: $vs-radius-small $vs-radius-none $vs-radius-none $vs-radius-small;
         border-right: none;
         height: 52px;
+        flex: 0 1;
     }
 
     &__search-button {
@@ -218,6 +225,7 @@ defineEmits(['search-input-changed', 'reset-map']);
         flex-wrap: wrap;
         column-gap: $vs-spacer-025;
         row-gap: $vs-spacer-025;
+        flex: 0 1;
 
         @include media-breakpoint-down(md) {
             width: 100%;
@@ -235,8 +243,15 @@ defineEmits(['search-input-changed', 'reset-map']);
         }
     }
 
+    &__search-results {
+        flex: 1 0 max-content;
+
+        gmp-place-search {
+            max-height: clamp(275px, 20em, 50vh);
+        }
+    }
+
     &__google-maps-container {
-        max-height: 20em;
         overflow-y: auto;
         border-radius: $vs-radius-large;
     }
