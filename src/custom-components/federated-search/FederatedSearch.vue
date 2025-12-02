@@ -11,7 +11,6 @@
                 :filters="props.filters"
                 :sub-filters="props.subFilters"
                 :labels="props.searchLabels"
-                :is-home-page="props.isHomePage"
             />
             <VsDivider class="my-200" />
             <template
@@ -334,13 +333,6 @@ const props = defineProps({
             /(en|es|it|de|nl|fr)/,
         ),
     },
-    /**
-     * Used to determine the search and filter buttons actions.
-    */
-    isHomePage: {
-        type: Boolean,
-        default: false,
-    },
 });
 
 // Calculate the total number of pages for pagination.
@@ -414,7 +406,6 @@ onMounted(() => {
     federatedSearchStore.eventsApi = props.eventsApi;
     federatedSearchStore.filters = props.filters;
     federatedSearchStore.siteLanguage = props.siteLanguage;
-    federatedSearchStore.isHomePage = props.isHomePage;
 
     calculateError();
 
@@ -429,10 +420,9 @@ onMounted(() => {
 
         if (paramSearchTerm) {
             federatedSearchStore.searchTerm = paramSearchTerm;
-            federatedSearchStore.getSearchResults();
-        } else if (!federatedSearchStore.isHomePage) {
-            federatedSearchStore.getSearchResults();
         }
+
+        federatedSearchStore.getSearchResults();
 
         window.onbeforeunload = () => {
             // eslint-disable-next-line no-use-before-define

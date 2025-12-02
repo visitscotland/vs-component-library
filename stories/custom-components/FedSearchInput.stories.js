@@ -75,6 +75,7 @@ const base = {
             Label: 'Travel Information',
         },
     ],
+    isHomePage: true,
     jsDisabled: false,
 };
 

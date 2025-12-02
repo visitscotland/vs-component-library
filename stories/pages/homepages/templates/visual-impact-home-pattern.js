@@ -88,44 +88,11 @@ export default `
     <VsContainer>
         <VsRow>
             <VsCol>
-                <VsFederatedSearch
-                    :error-messages="{
-                        noResults: 'There are no results, please try again',
-                        incorrectDateOrder: 'The start date is after the end date, please change this and try again.',
-                        cludoError: 'There was a problem retrieving the search results, please try again later',
-                        eventError: 'There was a problem retrieving the event results, please try again later.',
-                    }"
-                    no-results-label="There are no results, please try again"
-                    from-text="From"
-                    :pagination-labels="{
-                        nextButtonLabel: 'Next',
-                        previousButtonLabel: 'Previous',
-                        pageLabel: 'Page',
-                        ofLabel: 'of',
-                    }"
-                    :search-labels="{
-                        refine: 'Refine your search',
+                <VsFedSearchInput
+                    search-url="/site-search-results"
+                    :labels="{
                         search: 'Search',
                         searchLabel: 'What are you looking for?',
-                        searchResults: 'Search results',
-                        resultsFirst: 'Showing',
-                        resultsSecond: 'results',
-                        noJs: 'JavaScript needs to be enabled to see search result. You can turn this on in your browser settings.',
-                    }"
-                    :sort-labels="{
-                        dateFrom: 'From',
-                        dateTo: 'To',
-                        sort: 'Sort by',
-                        sortOptions: [
-                            {
-                                key: 'dateAsc',
-                                label: 'Date',
-                            },
-                            {
-                                key: 'priceAsc',
-                                label: 'Price',
-                            },
-                        ],
                     }"
                     :filters="[
                         {
@@ -159,10 +126,6 @@ export default `
                         {
                             Key: 'nature-outdoors',
                             Label: 'Nature & Outdoors',
-                        },
-                        {
-                            Key: 'other',
-                            Label: 'Other',
                         },
                         {
                             Key: 'tours',

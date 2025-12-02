@@ -14,7 +14,7 @@ import VsBody from '@/components/body/Body.vue';
 import VsBadge from '@/components/badge/Badge.vue';
 import VsIcon from '@/components/icon/Icon.vue';
 import VsSectionHeader from '@/components/section-header/SectionHeader.vue';
-import VsFederatedSearch from '@/custom-components/federated-search/FederatedSearch.vue';
+import VsFedSearchInput from '@/custom-components/federated-search/components/FedSearchInput.vue';
 import VsFedFilter from '@/custom-components/federated-search/components/FedFilter.vue';
 
 import cardLayoutData from '@/assets/fixtures/homepages/visual-impact-home-cards.json';
@@ -40,7 +40,7 @@ const components = {
     VsBody,
     VsBadge,
     VsIcon,
-    VsFederatedSearch,
+    VsFedSearchInput,
     VsFedFilter,
 };
 
