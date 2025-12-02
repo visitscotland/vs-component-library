@@ -493,10 +493,10 @@ onMounted(async() => {
 
 function shadeMapAreas(zoomedIn) {
     const shadedAreaStyleOptions = {
-        strokeColor: '#756D94',
+        strokeColor: '#A3A3CC',
         strokeOpacity: 1,
         strokeWeight: 1,
-        fillColor: '#756D94',
+        fillColor: '#A3A3CC',
         fillOpacity: 0.5,
     };
 
