@@ -64,6 +64,7 @@
                 v-if="!federatedSearchStore.isLoading
                     && federatedSearchStore.results
                     && !federatedSearchStore.eventsApiError"
+                data-chromatic="ignore"
             >
                 <VsCardGroup
                     :cards-per-row="3"
