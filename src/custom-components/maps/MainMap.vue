@@ -471,6 +471,8 @@ onMounted(async() => {
     };
 
     googleMapStore.firstInteraction = false;
+    googleMapStore.searchesCount = 0;
+    googleMapStore.filterUsesCount = 0;
 
     // Init map if no error
     if (showError.value === false) {
@@ -584,6 +586,8 @@ async function searchByCategory(includedTypes) {
     resetMap();
     resetTextQuery();
 
+    googleMapStore.filterUsesCount += 1;
+
     currentSearch.value = 'nearby';
 
     const bounds = gMap.getBounds();
@@ -601,7 +605,27 @@ async function searchByCategory(includedTypes) {
     };
 
     nearbySearch.style.display = 'block';
-    nearbySearch.addEventListener('gmp-load', addMarkers, {
+    nearbySearch.addEventListener('gmp-load', () => {
+        addMarkers();
+
+        let filterType = 'main';
+        let filterSelection = selectedTopLevelCategory.value;
+
+        if (selectedSubCategories.value.size) {
+            filterType = 'sub';
+            filterSelection = Array.from(selectedSubCategories.value).join(', ');
+        }
+
+        dataLayerHelper.createDataLayerObject('googleMapFilterEvent', {
+            filter_type: filterType,
+            search_map_location: gMap.getCenter().toString(),
+            filter_selection: filterSelection,
+            results_count: nearbySearch.places.length,
+            filter_usage_index: googleMapStore.filterUsesCount,
+        });
+
+        checkFirstInteraction('map_filter');
+    }, {
         once: true,
     });
 }
@@ -609,6 +633,8 @@ async function searchByCategory(includedTypes) {
 async function searchByText() {
     resetMap();
     resetCategories();
+
+    googleMapStore.searchesCount += 1;
 
     currentSearch.value = 'text';
 
@@ -625,7 +651,18 @@ async function searchByText() {
 
     textSearch.style.display = 'block';
 
-    textSearch.addEventListener('gmp-load', addMarkers, {
+    textSearch.addEventListener('gmp-load', () => {
+        addMarkers();
+
+        dataLayerHelper.createDataLayerObject('googleMapSearchEvent', {
+            search_query: query.value,
+            search_map_location: gMap.getCenter().toString(),
+            search_results_count: textSearch.places.length,
+            search_usage_index: googleMapStore.searchesCount,
+        });
+
+        checkFirstInteraction('map_search');
+    }, {
         once: true,
     });
 }
