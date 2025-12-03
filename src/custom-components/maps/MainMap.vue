@@ -696,6 +696,9 @@ function resetMap(hardReset) {
     currentSearch.value = '';
     nearbySearch.style.display = 'none';
     textSearch.style.display = 'none';
+
+    textSearchQuery.textQuery = null;
+
     if (infoWindow && infoWindow.close) {
         infoWindow.close();
     }
