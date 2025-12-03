@@ -29,6 +29,7 @@
             <div
                 v-if="federatedSearchStore.results"
                 class="vs-federated-search__results"
+                data-chromatic="ignore"
             >
                 <div>
                     <VsHeading
@@ -63,6 +64,7 @@
                 v-if="!federatedSearchStore.isLoading
                     && federatedSearchStore.results
                     && !federatedSearchStore.eventsApiError"
+                data-chromatic="ignore"
             >
                 <VsCardGroup
                     :cards-per-row="3"
