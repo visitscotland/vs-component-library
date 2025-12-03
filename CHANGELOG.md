@@ -1,3 +1,10 @@
+## [5.20.4](https://github.com/visitscotland/vs-component-library/compare/v5.20.3...v5.20.4) (2025-12-03)
+
+
+### Bug Fixes
+
+* **main map:** clear text search query to ensure a fresh search each time ([2331e39](https://github.com/visitscotland/vs-component-library/commit/2331e39d953a21f83e975bcaee92cbc2c3d72cda))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
