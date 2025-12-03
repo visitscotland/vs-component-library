@@ -214,6 +214,14 @@ const props = defineProps({
         default: getEnvValue('GOOGLE_MAPS_API_KEY'),
     },
     /**
+     * MapId set in the Google Maps Platform console
+     * for this paricular map (enables/disable GMP features)
+     */
+    mapId: {
+        type: String,
+        default: 'vs-map',
+    },
+    /**
      * Center point of map.
      * Defaults to what is considered the center of Scotland
      */
@@ -425,7 +433,7 @@ onMounted(async() => {
                 renderingType: google.maps.RenderingType.VECTOR,
                 zoom: props.zoom,
                 isFractionalZoomEnabled: true,
-                mapId: 'vs-map',
+                mapId: props.mapId,
                 restriction: {
                     latLngBounds: SCOTLAND_BOUNDS,
                 },
@@ -450,9 +458,16 @@ onMounted(async() => {
         // eslint-disable-next-line no-undef
         infoWindow = new google.maps.InfoWindow();
 
+        shadeMapAreas();
+
         // Listens to the zoom level
         gMap.addListener('zoom_changed', () => {
             currentZoom.value = gMap.getZoom();
+            if (currentZoom.value < CATEGORY_VISIBLE_ZOOM) {
+                shadeMapAreas();
+            } else {
+                shadeMapAreas(true);
+            }
         });
 
         // Handles click events in the Places UI Kit search panel for
@@ -475,6 +490,73 @@ onMounted(async() => {
         await initMap();
     }
 });
+
+function shadeMapAreas(zoomedIn) {
+    const shadedAreaStyleOptions = {
+        strokeColor: '#A3A3CC',
+        strokeOpacity: 1,
+        strokeWeight: 1,
+        fillColor: '#A3A3CC',
+        fillOpacity: 0.5,
+    };
+
+    // Google Maps Place types for countries and Admin Level 1
+    // areas that could possibly be in the viewport.
+    const fullShadedPlaces = [
+        'ChIJ39UebIqp0EcRqI4tMyWV4fQ', // England
+        'ChIJdZmmmcoQXkgR2OO3bu8o5fc', // Northern Ireland
+        'ChIJ-ydAXOS6WUgRCPTbzjQSfM8', // Republic of Ireland
+        'ChIJ7Q8cbLY0ZEgRouilirxxux4', // Wales
+        'ChIJ1YEuRDCFY0gRDeDw8bxbAuo', // Isle of Man
+        'ChIJv-VNj0VoEkYRK9BkuJ07sKE', // Norway
+        'ChIJ-1-U7rYnS0YRzZLgw9BDh1I', // Denmark
+        'ChIJ8fA1bTmyXEYRYm-tjaLruCI', // Sweden
+        'ChIJ6_ktdpMVvEgRJBv3ZEgxsD8', // Faroe Islands
+        'ChIJa76xwh5ymkcRW-WRjmtd6HU', // Germany
+        'ChIJu-SH28MJxkcRnwq9_851obM', // Netherlands
+        'ChIJuwtkpGSZAEcR6lXMScpzdQk', // Poland
+        'ChIJl5fz7WR9wUcR8g_mObTy60c', // Belgium
+        'ChIJMVd4MymgVA0R99lHx5Y__Ws', // France
+    ];
+
+    const zoomedInShadedPlaces = [
+        'ChIJ39UebIqp0EcRqI4tMyWV4fQ', // England
+        'ChIJdZmmmcoQXkgR2OO3bu8o5fc', // Northern Ireland
+    ];
+
+    // eslint-disable-next-line no-undef
+    const countryLayer = gMap.getFeatureLayer(google.maps.FeatureType.COUNTRY);
+    // eslint-disable-next-line no-undef
+    const adminArea1Layer = gMap.getFeatureLayer(google.maps.FeatureType.ADMINISTRATIVE_AREA_LEVEL_1);
+
+    if (zoomedIn) {
+        countryLayer.style = null;
+        adminArea1Layer.style = null;
+
+        // eslint-disable-next-line consistent-return
+        adminArea1Layer.style = (options) => {
+            if (zoomedInShadedPlaces.includes(options.feature.placeId)) {
+                return shadedAreaStyleOptions;
+            }
+        };
+    } else {
+        // These two functions iterate through shadedPlaces to find
+        // the corresponding place types on the map and shades them
+        // eslint-disable-next-line consistent-return
+        countryLayer.style = (options) => {
+            if (fullShadedPlaces.includes(options.feature.placeId)) {
+                return shadedAreaStyleOptions;
+            }
+        };
+
+        // eslint-disable-next-line consistent-return
+        adminArea1Layer.style = (options) => {
+            if (fullShadedPlaces.includes(options.feature.placeId)) {
+                return shadedAreaStyleOptions;
+            }
+        };
+    }
+}
 
 function selectCategory(categoryId, key) {
     resetCategories();
