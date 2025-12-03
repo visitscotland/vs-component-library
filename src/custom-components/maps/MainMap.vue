@@ -317,6 +317,9 @@ let infoWindow;
 
 let markers = {
 };
+
+let visibleMarkerCount;
+
 const selectedTopLevelCategory = ref();
 const selectedSubCategories = ref(new Set());
 const selectedCategory = ref();
@@ -450,9 +453,25 @@ onMounted(async() => {
         // eslint-disable-next-line no-undef
         infoWindow = new google.maps.InfoWindow();
 
+        infoWindow.addListener('closeclick', () => {
+            mapInteractionEvent('card_close', placeRequest.place);
+        });
+
         // Listens to the zoom level
         gMap.addListener('zoom_changed', () => {
-            currentZoom.value = gMap.getZoom();
+            const newZoom = gMap.getZoom();
+
+            if (newZoom > currentZoom.value) {
+                mapInteractionEvent('zoom_in');
+            } else {
+                mapInteractionEvent('zoom_out');
+            }
+
+            currentZoom.value = newZoom;
+        });
+
+        gMap.addListener('idle', () => {
+            visibleMarkerCount = getVisibleMarkerCount();
         });
 
         // Handles click events in the Places UI Kit search panel for
@@ -745,6 +764,7 @@ function resetMap(hardReset) {
         // A `hard reset` will remove all text and categories
         resetTextQuery();
         resetCategories();
+        mapInteractionEvent('clear_all');
     }
 }
 
@@ -777,6 +797,7 @@ function clearExistingMarkers() {
 function handlePlaceClick(place, marker) {
     if (infoWindow.isOpen) {
         infoWindow.close();
+        mapInteractionEvent('card_close', placeRequest.place);
     }
 
     placeRequest.place = place;
@@ -819,10 +840,39 @@ function handlePlaceClick(place, marker) {
         if (gMap.getZoom() > MAX_ZOOM) {
             gMap.setZoom(MAX_ZOOM);
         }
+
+        mapInteractionEvent('card_open', place);
+    });
+}
+
+async function mapInteractionEvent(interactionType, place) {
+    let cardName = '';
+    let cardRating = '';
+
+    if (place) {
+        await place.fetchFields({
+            fields: [
+                'displayName',
+                'rating',
+            ],
+        });
+
+        cardName = place.displayName;
+        cardRating = place.rating;
+    }
+
+    dataLayerHelper.createDataLayerObject('googleMapInteractionEvent', {
+        interaction_type: interactionType,
+        search_query: searchInput.value.trim(),
+        map_location: gMap.getCenter().toString(),
+        visible_attractions_count: visibleMarkerCount,
+        card_attraction_name: cardName,
+        card_attraction_rating: cardRating,
+        interaction_timestamp_ms: Date.now(),
     });
 
-    checkFirstInteraction('place_click');
-}
+    checkFirstInteraction(interactionType);
+};
 
 function checkFirstInteraction(interactionType) {
     if (!googleMapStore.firstInteraction) {
@@ -836,6 +886,28 @@ function checkFirstInteraction(interactionType) {
 
         googleMapStore.firstInteraction = true;
     }
+}
+
+function getVisibleMarkerCount() {
+    const bounds = gMap.getBounds();
+
+    if (!bounds) {
+        return 0;
+    }
+
+    let visibleCount = 0;
+
+    for (let x = 0; x < Object.keys(markers).length; x++) {
+        const marker = markers[Object.keys(markers)[x]];
+
+        const position = marker.position;
+
+        if (bounds.contains(position)) {
+            visibleCount += 1;
+        }
+    }
+
+    return visibleCount;
 }
 </script>
 
