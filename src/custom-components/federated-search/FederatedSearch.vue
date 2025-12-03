@@ -29,6 +29,7 @@
             <div
                 v-if="federatedSearchStore.results"
                 class="vs-federated-search__results"
+                data-chromatic="ignore"
             >
                 <div>
                     <VsHeading
