@@ -500,25 +500,28 @@ function shadeMapAreas(zoomedIn) {
         fillOpacity: 0.5,
     };
 
-    // Google Maps Place types for countries and Admin Level 1 areas.
+    // Google Maps Place types for countries and Admin Level 1
+    // areas that could possibly be in the viewport.
     const fullShadedPlaces = [
-        'ChIJ39UebIqp0EcRqI4tMyWV4fQ',
-        'ChIJdZmmmcoQXkgR2OO3bu8o5fc',
-        'ChIJ-ydAXOS6WUgRCPTbzjQSfM8',
-        'ChIJ7Q8cbLY0ZEgRouilirxxux4',
-        'ChIJ1YEuRDCFY0gRDeDw8bxbAuo',
-        'ChIJv-VNj0VoEkYRK9BkuJ07sKE',
-        'ChIJ-1-U7rYnS0YRzZLgw9BDh1I',
-        'ChIJ8fA1bTmyXEYRYm-tjaLruCI',
-        'ChIJ6_ktdpMVvEgRJBv3ZEgxsD8',
-        'ChIJa76xwh5ymkcRW-WRjmtd6HU',
-        'ChIJu-SH28MJxkcRnwq9_851obM',
-        'ChIJuwtkpGSZAEcR6lXMScpzdQk',
+        'ChIJ39UebIqp0EcRqI4tMyWV4fQ', // England
+        'ChIJdZmmmcoQXkgR2OO3bu8o5fc', // Northern Ireland
+        'ChIJ-ydAXOS6WUgRCPTbzjQSfM8', // Republic of Ireland
+        'ChIJ7Q8cbLY0ZEgRouilirxxux4', // Wales
+        'ChIJ1YEuRDCFY0gRDeDw8bxbAuo', // Isle of Man
+        'ChIJv-VNj0VoEkYRK9BkuJ07sKE', // Norway
+        'ChIJ-1-U7rYnS0YRzZLgw9BDh1I', // Denmark
+        'ChIJ8fA1bTmyXEYRYm-tjaLruCI', // Sweden
+        'ChIJ6_ktdpMVvEgRJBv3ZEgxsD8', // Faroe Islands
+        'ChIJa76xwh5ymkcRW-WRjmtd6HU', // Germany
+        'ChIJu-SH28MJxkcRnwq9_851obM', // Netherlands
+        'ChIJuwtkpGSZAEcR6lXMScpzdQk', // Poland
+        'ChIJl5fz7WR9wUcR8g_mObTy60c', // Belgium
+        'ChIJMVd4MymgVA0R99lHx5Y__Ws', // France
     ];
 
     const zoomedInShadedPlaces = [
-        'ChIJ39UebIqp0EcRqI4tMyWV4fQ',
-        'ChIJdZmmmcoQXkgR2OO3bu8o5fc',
+        'ChIJ39UebIqp0EcRqI4tMyWV4fQ', // England
+        'ChIJdZmmmcoQXkgR2OO3bu8o5fc', // Northern Ireland
     ];
 
     // eslint-disable-next-line no-undef
