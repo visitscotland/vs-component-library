@@ -209,7 +209,7 @@ const dataLayerHelper = dataLayerComposable();
 
 const props = defineProps({
     /**
-     * Override for API Key, otherwise it'll be retrived
+     * Override for API Key, otherwise it'll be retrieved
      * from environment variables
      */
     apiKey: {
@@ -265,7 +265,7 @@ const props = defineProps({
         type: String,
         default: '',
     },
-    /** JSON object for the category labeks (from CMS taxinomies) */
+    /** JSON object for the category labels (from CMS taxonomies) */
     categoryLabels: {
         type: Object,
         default: () => {},
@@ -504,7 +504,7 @@ function selectCategory(categoryId, key) {
 
     selectedTopLevelCategory.value = categoryId;
 
-    // Retrives all the values in each subcategory and adds it to
+    // Retrieves all the values in each subcategory and adds it to
     // `includedTopLevelTypes` set, which should handle duplication.
     Object.values(categoryData[categoryId].subCategory).forEach(
         (subCategory) => includedTopLevelTypes.value.add(subCategory.type),
@@ -805,7 +805,7 @@ function handlePlaceClick(place, marker) {
 
     placeRequest.place = place;
 
-    // Medium breakpoint (this can't be done in CSS unfortunatley)
+    // Medium breakpoint (this can't be done in CSS unfortunately)
     const isMobile = window.innerWidth <= 768;
 
     if (!isMobile) {
@@ -932,8 +932,8 @@ function getVisibleMarkerCount() {
         position: relative;
     }
 
-    &__wrapper, #vs-map{
-        height: 100vh;
+    &__wrapper, #vs-map {
+        height: 90vh;
         width: 100%;
     }
 
@@ -954,7 +954,7 @@ function getVisibleMarkerCount() {
         }
     }
 
-    &__filter-controls{
+    &__filter-controls {
         display: flex;
         flex-direction: row;
         align-items: flex-start;
@@ -1010,7 +1010,7 @@ function getVisibleMarkerCount() {
         font-size: 1.5em;
         color: $vs-color-icon-inverse;
 
-        &:hover{
+        &:hover {
             transform: scale(1.25);
         }
     }
