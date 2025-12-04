@@ -28,13 +28,15 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
     const sortBy = ref(undefined);
     const searchUrl = ref(undefined);
     const siteLanguage = ref(undefined);
-    const searchInSessionCount = ref(0);
+    const searchInSessionCount = ref(-1);
     const queryInput = ref('');
 
-    async function getSearchResults() {
+    async function getSearchResults(isAutoSearch = false) {
         isLoading.value = true;
 
-        searchInSessionCount.value += 1;
+        if (!isAutoSearch) {
+            searchInSessionCount.value += 1;
+        }
 
         const cludoResults = await cludoSearch(
             searchTerm.value,

@@ -397,7 +397,7 @@ function calculateError() {
     }
 }
 
-onMounted(() => {
+onMounted(async() => {
     dataLayerHelper.createDataLayerObject('siteSearchOpenEvent', {
         referrer_page: document.referrer,
     });
@@ -414,6 +414,11 @@ onMounted(() => {
     calculateError();
 
     if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+        window.onbeforeunload = () => {
+            // eslint-disable-next-line no-use-before-define
+            pageCloseAnalytics();
+        };
+
         const params = new URLSearchParams(document.location.search);
         const paramSearchTerm = params.get('search-term');
         const paramPage = parseInt(params.get('page'), 10);
@@ -426,12 +431,18 @@ onMounted(() => {
             federatedSearchStore.searchTerm = paramSearchTerm;
         }
 
-        federatedSearchStore.getSearchResults();
+        await federatedSearchStore.getSearchResults();
 
-        window.onbeforeunload = () => {
-            // eslint-disable-next-line no-use-before-define
-            pageCloseAnalytics();
-        };
+        if (paramSearchTerm) {
+            dataLayerHelper.createDataLayerObject('siteSearchUsageEvent', {
+                search_query: federatedSearchStore.searchTerm,
+                query_input: federatedSearchStore.queryInput,
+                results_count: federatedSearchStore.totalResults,
+                search_usage_index: federatedSearchStore.searchInSessionCount,
+                search_type: 'initial',
+                search_origin: 'home_page',
+            });
+        }
     }
 });
 

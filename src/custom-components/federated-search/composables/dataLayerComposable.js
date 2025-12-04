@@ -116,6 +116,7 @@ export default function dataLayerComposable() {
                 results_count: event.results_count,
                 search_usage_index: event.search_usage_index,
                 search_type: event.search_type,
+                search_origin: event.search_origin || 'results_page',
                 interaction_type: 'search_input',
             };
             fullTemplate = compileFullTemplate(templateValues);
