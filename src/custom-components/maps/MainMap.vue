@@ -607,7 +607,15 @@ function searchSubCategoriesForLabel(selectedSubcategory, subCategoryId) {
 function searchBySubCategory(subCategoryId, key) {
     subCategoryKey.value = key;
 
-    if (selectedSubCategories.value.has(subCategoryId)) {
+    if (subCategoryId === 'self-catering') {
+        resetTextQuery();
+        selectedSubCategories.value = new Set();
+        selectedSubCategories.value.add(subCategoryId);
+        query.value = searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value;
+        resetCategories();
+        searchInput.value = query.value;
+        searchByText();
+    } else if (selectedSubCategories.value.has(subCategoryId)) {
         // Delete if already in selectedSubCategories
         selectedSubCategories.value.delete(subCategoryId);
         // Iterate through each subcategory to find the selected subcategory
@@ -781,6 +789,9 @@ function resetMap(hardReset) {
     currentSearch.value = '';
     nearbySearch.style.display = 'none';
     textSearch.style.display = 'none';
+
+    textSearchQuery.textQuery = null;
+
     if (infoWindow && infoWindow.close) {
         infoWindow.close();
     }

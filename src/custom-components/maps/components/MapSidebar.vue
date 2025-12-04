@@ -245,15 +245,12 @@ defineEmits(['search-input-changed', 'reset-map']);
 
     &__search-results {
         flex: 1 0 max-content;
-
-        gmp-place-search {
-            max-height: clamp(275px, 20em, 50vh);
-        }
     }
 
     &__google-maps-container {
-        overflow-y: auto;
         border-radius: $vs-radius-large;
+        max-height: clamp(275px, 20em, 50vh);
+        overflow-y: scroll;
     }
 
     &__swipe-tab {
