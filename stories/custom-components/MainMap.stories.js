@@ -33,7 +33,7 @@ const base = {
         lat: 56.490153,
         lng: 4.10959,
     },
-    zoom: 7,
+    zoom: 6,
     radius: 5000,
     categoriesLocation: './fixtures/custom-components/main-map/map-categories.json',
     categoryLabels: mapCategoryLabels,
