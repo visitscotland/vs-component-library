@@ -91,6 +91,14 @@
                                 </gmp-place-search>
                             </div>
                         </Suspense>
+                        <VsAlert
+                            id="vs-map__no-results-alert"
+                            v-if="noResults"
+                            class="mt-075 mb-150"
+                            size="small"
+                        >
+                            {{ noResultsMessage }}
+                        </VsAlert>
                     </template>
                 </VsMapSidebar>
                 <div
@@ -196,6 +204,7 @@ import {
 import axios from 'axios';
 
 import {
+    VsAlert,
     VsButton,
     VsWarning,
 } from '@/components';
@@ -303,6 +312,13 @@ const props = defineProps({
         type: String,
         required: true,
     },
+    /**
+     * Message to display when there are no results available
+     */
+    noResultsMessage: {
+        type: String,
+        required: true,
+    },
 });
 
 // Map Object, HTMLElements & Global Variables
@@ -338,6 +354,8 @@ const queryStr = ref(new Set());
 const currentSearch = ref();
 
 const googleMapStore = useGoogleMapStore();
+
+const noResults = ref(false);
 
 let showError;
 const errType = ref(undefined);
@@ -663,6 +681,7 @@ function searchBySubCategory(subCategoryId, key) {
 async function searchByCategory(includedTypes) {
     resetMap();
     resetTextQuery();
+    noResults.value = false;
 
     currentSearch.value = 'nearby';
 
@@ -671,7 +690,7 @@ async function searchByCategory(includedTypes) {
     const sw = bounds.getSouthWest();
     // eslint-disable-next-line no-undef
     const diameter = google.maps.geometry.spherical.computeDistanceBetween(ne, sw);
-    const cappedRadius = Math.min((diameter / 2), 50000);
+    const cappedRadius = Math.min((diameter / 2), 25000);
 
     nearbySearchQuery.includedTypes = includedTypes;
     nearbySearchQuery.maxResultCount = NUMBER_OF_RESULTS;
@@ -689,6 +708,7 @@ async function searchByCategory(includedTypes) {
 async function searchByText() {
     resetMap();
     resetCategories();
+    noResults.value = false;
 
     currentSearch.value = 'text';
 
@@ -724,8 +744,14 @@ async function addMarkers() {
         console.error('Unrecognised Search type');
     }
 
+    if (searchRequest.value.places.length === 0) {
+        noResults.value = true;
+        searchRequest.value.style.display = 'none';
+    } else {
+        searchRequest.value.style.display = 'block';
+    }
+
     const bounds = new LatLngBounds();
-    searchRequest.value.style.display = 'block';
 
     if (searchRequest.value.places) {
         searchRequest.value.places.forEach((place) => {
@@ -784,6 +810,7 @@ function resetMap(hardReset) {
     if (infoWindow && infoWindow.close) {
         infoWindow.close();
     }
+    noResults.value = false;
     if (hardReset) {
         // A `hard reset` will remove all text and categories
         resetTextQuery();
