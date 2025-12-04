@@ -97,7 +97,7 @@
                             class="mt-075 mb-150"
                             size="small"
                         >
-                            We couldn’t find anything here. Try zooming out to explore more locations.
+                            {{ noResultsMessage }}
                         </VsAlert>
                     </template>
                 </VsMapSidebar>
@@ -309,6 +309,13 @@ const props = defineProps({
      * Text for Cookies button that will open Cookie Manager
      */
     cookieBtnText: {
+        type: String,
+        required: true,
+    },
+    /**
+     * Message to display when there are no results available
+     */
+    noResultsMessage: {
         type: String,
         required: true,
     },
