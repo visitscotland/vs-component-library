@@ -419,18 +419,6 @@ const googleMapFilterInteractionTemplate = [
     'filter_usage_index',
 ];
 
-const googleMapClickTemplate = [
-    'event',
-    'click_origin',
-    'attraction_name',
-    'attraction_rating',
-    'attraction_category',
-    'search_map_location',
-    'click_text',
-    'click_url',
-    'search_result_position',
-];
-
 const googleMapTimeToFirstInteractionTemplate = [
     'event',
     'time_to_first_interaction_ms',
@@ -476,7 +464,6 @@ export {
     siteSearchCloseTemplate,
     googleMapSearchTemplate,
     googleMapFilterInteractionTemplate,
-    googleMapClickTemplate,
     googleMapTimeToFirstInteractionTemplate,
     googleMapInteractionTemplate,
 };

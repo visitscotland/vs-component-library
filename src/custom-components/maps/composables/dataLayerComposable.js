@@ -5,7 +5,6 @@ import checkVendorLibrary from '@/utils/check-vendor-library';
 import {
     googleMapSearchTemplate,
     googleMapFilterInteractionTemplate,
-    googleMapClickTemplate,
     googleMapTimeToFirstInteractionTemplate,
     googleMapInteractionTemplate,
 } from '@/utils/data-layer-templates';
@@ -125,24 +124,6 @@ export default function dataLayerComposable() {
 
             fullTemplate = compileFullTemplate(templateValues);
             dataLayerData = templateFiller(googleMapFilterInteractionTemplate, fullTemplate);
-            break;
-
-        case 'googleMapClickEvent':
-            eventName = 'map_click_to_google_maps';
-            templateValues = {
-                event: eventName,
-                click_origin: event.click_origin,
-                attraction_name: event.attraction_name,
-                attraction_rating: event.attraction_rating,
-                attraction_category: event.attraction_category,
-                search_map_location: event.search_map_location,
-                click_text: event.click_text,
-                click_url: event.click_url,
-                search_result_position: event.search_result_position,
-            };
-
-            fullTemplate = compileFullTemplate(templateValues);
-            dataLayerData = templateFiller(googleMapClickTemplate, fullTemplate);
             break;
 
         case 'googleMapTimeToFirstInteractionEvent':
