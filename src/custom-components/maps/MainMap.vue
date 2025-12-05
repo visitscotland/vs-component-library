@@ -459,15 +459,7 @@ onMounted(async() => {
 
         // Listens to the zoom level
         gMap.addListener('zoom_changed', () => {
-            const newZoom = gMap.getZoom();
-
-            if (newZoom > currentZoom.value) {
-                mapInteractionEvent('zoom_in');
-            } else {
-                mapInteractionEvent('zoom_out');
-            }
-
-            currentZoom.value = newZoom;
+            currentZoom.value = gMap.getZoom();
         });
 
         gMap.addListener('idle', () => {
