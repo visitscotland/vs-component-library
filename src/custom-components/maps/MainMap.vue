@@ -963,17 +963,20 @@ function handlePlaceClick(place, marker) {
 async function mapInteractionEvent(interactionType, place) {
     let cardName = '';
     let cardRating = '';
+    let cardUrl = '';
 
     if (place) {
         await place.fetchFields({
             fields: [
                 'displayName',
                 'rating',
+                'websiteURI',
             ],
         });
 
         cardName = place.displayName;
         cardRating = place.rating;
+        cardUrl = place.websiteURI;
     }
 
     dataLayerHelper.createDataLayerObject('googleMapInteractionEvent', {
@@ -983,6 +986,7 @@ async function mapInteractionEvent(interactionType, place) {
         visible_attractions_count: visibleMarkerCount,
         card_attraction_name: cardName,
         card_attraction_rating: cardRating,
+        card_attraction_url: cardUrl,
         interaction_timestamp_ms: Date.now(),
     });
 
