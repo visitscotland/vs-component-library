@@ -1,3 +1,10 @@
+## [5.20.7](https://github.com/visitscotland/vs-component-library/compare/v5.20.6...v5.20.7) (2025-12-04)
+
+
+### Bug Fixes
+
+* **main map:** reduce map height so that the controls appear above the fold ([642907d](https://github.com/visitscotland/vs-component-library/commit/642907db5d4349e98ce095f34c8272ac23daad5c))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
