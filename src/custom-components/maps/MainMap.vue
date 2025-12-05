@@ -485,7 +485,7 @@ onMounted(async() => {
         infoWindow.addListener('closeclick', () => {
             mapInteractionEvent('card_close', placeRequest.place);
         });
-      
+
         shadeMapAreas();
 
         // Listens to the zoom level
@@ -562,7 +562,7 @@ function shadeMapAreas(zoomedIn) {
 
     // eslint-disable-next-line no-undef
     const countryLayer = gMap.getFeatureLayer(google.maps.FeatureType.COUNTRY);
-    // eslint-disable-next-line no-undef
+    // eslint-disable-next-line no-undef, vue/max-len
     const adminArea1Layer = gMap.getFeatureLayer(google.maps.FeatureType.ADMINISTRATIVE_AREA_LEVEL_1);
 
     if (zoomedIn) {
