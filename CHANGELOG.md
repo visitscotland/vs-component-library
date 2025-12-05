@@ -1,3 +1,10 @@
+## [5.21.2](https://github.com/visitscotland/vs-component-library/compare/v5.21.1...v5.21.2) (2025-12-05)
+
+
+### Bug Fixes
+
+* **maps:** remove maps click through template ([754c912](https://github.com/visitscotland/vs-component-library/commit/754c9128216fe702baabab63875c04100a2e44b0))
+
 ## [5.21.1](https://github.com/visitscotland/vs-component-library/compare/v5.21.0...v5.21.1) (2025-12-05)
 
 
