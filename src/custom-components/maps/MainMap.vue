@@ -91,6 +91,14 @@
                                 </gmp-place-search>
                             </div>
                         </Suspense>
+                        <VsAlert
+                            id="vs-map__no-results-alert"
+                            v-if="noResults"
+                            class="mt-075 mb-150"
+                            size="small"
+                        >
+                            {{ noResultsMessage }}
+                        </VsAlert>
                     </template>
                 </VsMapSidebar>
                 <div
@@ -196,6 +204,7 @@ import {
 import axios from 'axios';
 
 import {
+    VsAlert,
     VsButton,
     VsWarning,
 } from '@/components';
@@ -215,6 +224,14 @@ const props = defineProps({
     apiKey: {
         type: String,
         default: getEnvValue('GOOGLE_MAPS_API_KEY'),
+    },
+    /**
+     * MapId set in the Google Maps Platform console
+     * for this paricular map (enables/disable GMP features)
+     */
+    mapId: {
+        type: String,
+        default: 'vs-map',
     },
     /**
      * Center point of map.
@@ -298,6 +315,13 @@ const props = defineProps({
         type: String,
         required: true,
     },
+    /**
+     * Message to display when there are no results available
+     */
+    noResultsMessage: {
+        type: String,
+        required: true,
+    },
 });
 
 // Map Object, HTMLElements & Global Variables
@@ -336,6 +360,8 @@ const queryStr = ref(new Set());
 const currentSearch = ref();
 
 const googleMapStore = useGoogleMapStore();
+
+const noResults = ref(false);
 
 let showError;
 const errType = ref(undefined);
@@ -427,8 +453,11 @@ onMounted(async() => {
                     lat: props.center.lat,
                     lng: props.center.lng,
                 },
+                // eslint-disable-next-line no-undef
+                renderingType: google.maps.RenderingType.VECTOR,
                 zoom: props.zoom,
-                mapId: 'vs-map',
+                isFractionalZoomEnabled: true,
+                mapId: props.mapId,
                 restriction: {
                     latLngBounds: SCOTLAND_BOUNDS,
                 },
@@ -456,10 +485,17 @@ onMounted(async() => {
         infoWindow.addListener('closeclick', () => {
             mapInteractionEvent('card_close', placeRequest.place);
         });
+      
+        shadeMapAreas();
 
         // Listens to the zoom level
         gMap.addListener('zoom_changed', () => {
             currentZoom.value = gMap.getZoom();
+            if (currentZoom.value < CATEGORY_VISIBLE_ZOOM) {
+                shadeMapAreas();
+            } else {
+                shadeMapAreas(true);
+            }
         });
 
         gMap.addListener('idle', () => {
@@ -490,6 +526,73 @@ onMounted(async() => {
         await initMap();
     }
 });
+
+function shadeMapAreas(zoomedIn) {
+    const shadedAreaStyleOptions = {
+        strokeColor: '#A3A3CC',
+        strokeOpacity: 1,
+        strokeWeight: 1,
+        fillColor: '#A3A3CC',
+        fillOpacity: 0.5,
+    };
+
+    // Google Maps Place types for countries and Admin Level 1
+    // areas that could possibly be in the viewport.
+    const fullShadedPlaces = [
+        'ChIJ39UebIqp0EcRqI4tMyWV4fQ', // England
+        'ChIJdZmmmcoQXkgR2OO3bu8o5fc', // Northern Ireland
+        'ChIJ-ydAXOS6WUgRCPTbzjQSfM8', // Republic of Ireland
+        'ChIJ7Q8cbLY0ZEgRouilirxxux4', // Wales
+        'ChIJ1YEuRDCFY0gRDeDw8bxbAuo', // Isle of Man
+        'ChIJv-VNj0VoEkYRK9BkuJ07sKE', // Norway
+        'ChIJ-1-U7rYnS0YRzZLgw9BDh1I', // Denmark
+        'ChIJ8fA1bTmyXEYRYm-tjaLruCI', // Sweden
+        'ChIJ6_ktdpMVvEgRJBv3ZEgxsD8', // Faroe Islands
+        'ChIJa76xwh5ymkcRW-WRjmtd6HU', // Germany
+        'ChIJu-SH28MJxkcRnwq9_851obM', // Netherlands
+        'ChIJuwtkpGSZAEcR6lXMScpzdQk', // Poland
+        'ChIJl5fz7WR9wUcR8g_mObTy60c', // Belgium
+        'ChIJMVd4MymgVA0R99lHx5Y__Ws', // France
+    ];
+
+    const zoomedInShadedPlaces = [
+        'ChIJ39UebIqp0EcRqI4tMyWV4fQ', // England
+        'ChIJdZmmmcoQXkgR2OO3bu8o5fc', // Northern Ireland
+    ];
+
+    // eslint-disable-next-line no-undef
+    const countryLayer = gMap.getFeatureLayer(google.maps.FeatureType.COUNTRY);
+    // eslint-disable-next-line no-undef
+    const adminArea1Layer = gMap.getFeatureLayer(google.maps.FeatureType.ADMINISTRATIVE_AREA_LEVEL_1);
+
+    if (zoomedIn) {
+        countryLayer.style = null;
+        adminArea1Layer.style = null;
+
+        // eslint-disable-next-line consistent-return
+        adminArea1Layer.style = (options) => {
+            if (zoomedInShadedPlaces.includes(options.feature.placeId)) {
+                return shadedAreaStyleOptions;
+            }
+        };
+    } else {
+        // These two functions iterate through shadedPlaces to find
+        // the corresponding place types on the map and shades them
+        // eslint-disable-next-line consistent-return
+        countryLayer.style = (options) => {
+            if (fullShadedPlaces.includes(options.feature.placeId)) {
+                return shadedAreaStyleOptions;
+            }
+        };
+
+        // eslint-disable-next-line consistent-return
+        adminArea1Layer.style = (options) => {
+            if (fullShadedPlaces.includes(options.feature.placeId)) {
+                return shadedAreaStyleOptions;
+            }
+        };
+    }
+}
 
 function selectCategory(categoryId, key) {
     resetCategories();
@@ -540,7 +643,15 @@ function searchSubCategoriesForLabel(selectedSubcategory, subCategoryId) {
 function searchBySubCategory(subCategoryId, key) {
     subCategoryKey.value = key;
 
-    if (selectedSubCategories.value.has(subCategoryId)) {
+    if (subCategoryId === 'self-catering') {
+        resetTextQuery();
+        selectedSubCategories.value = new Set();
+        selectedSubCategories.value.add(subCategoryId);
+        query.value = searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value;
+        resetCategories();
+        searchInput.value = query.value;
+        searchByText();
+    } else if (selectedSubCategories.value.has(subCategoryId)) {
         // Delete if already in selectedSubCategories
         selectedSubCategories.value.delete(subCategoryId);
         // Iterate through each subcategory to find the selected subcategory
@@ -596,6 +707,7 @@ function searchBySubCategory(subCategoryId, key) {
 async function searchByCategory(includedTypes) {
     resetMap();
     resetTextQuery();
+    noResults.value = false;
 
     googleMapStore.filterUsesCount += 1;
 
@@ -606,7 +718,7 @@ async function searchByCategory(includedTypes) {
     const sw = bounds.getSouthWest();
     // eslint-disable-next-line no-undef
     const diameter = google.maps.geometry.spherical.computeDistanceBetween(ne, sw);
-    const cappedRadius = Math.min((diameter / 2), 50000);
+    const cappedRadius = Math.min((diameter / 2), 25000);
 
     nearbySearchQuery.includedTypes = includedTypes;
     nearbySearchQuery.maxResultCount = NUMBER_OF_RESULTS;
@@ -644,6 +756,7 @@ async function searchByCategory(includedTypes) {
 async function searchByText() {
     resetMap();
     resetCategories();
+    noResults.value = false;
 
     googleMapStore.searchesCount += 1;
 
@@ -692,8 +805,14 @@ async function addMarkers() {
         console.error('Unrecognised Search type');
     }
 
+    if (searchRequest.value.places.length === 0) {
+        noResults.value = true;
+        searchRequest.value.style.display = 'none';
+    } else {
+        searchRequest.value.style.display = 'block';
+    }
+
     const bounds = new LatLngBounds();
-    searchRequest.value.style.display = 'block';
 
     if (searchRequest.value.places) {
         searchRequest.value.places.forEach((place) => {
@@ -755,6 +874,7 @@ function resetMap(hardReset) {
     if (infoWindow && infoWindow.close) {
         infoWindow.close();
     }
+    noResults.value = false;
     if (hardReset) {
         // A `hard reset` will remove all text and categories
         resetTextQuery();
