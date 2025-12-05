@@ -1,3 +1,20 @@
+# [5.21.0](https://github.com/visitscotland/vs-component-library/compare/v5.20.8...v5.21.0) (2025-12-05)
+
+
+### Bug Fixes
+
+* **vsmainmap:** fixes the inital zoom level being too close in and not showing all of the country ([c6629c4](https://github.com/visitscotland/vs-component-library/commit/c6629c428cb6afda7bd06fc98b3538fe05c57713))
+* **vsmapsidebar:** fixes behaviour where gmp-place-search elements overflows over sidebar ([fd1699b](https://github.com/visitscotland/vs-component-library/commit/fd1699bd01484ecb1237dfa2fb87750b12dc7663))
+
+
+### Features
+
+* **vsmainmap:** adds base in to allow for VS no results message rather than google's one ([80dd400](https://github.com/visitscotland/vs-component-library/commit/80dd40031090d2e7fa3200171e411c57cf7c64bd))
+* **vsmainmap:** adds in the ability to shade map by Google Place ID and sets inital shaded area ([c43704c](https://github.com/visitscotland/vs-component-library/commit/c43704c35200ccfbc5b0e5e8112c43e002e7fa52))
+* **vsmainmap:** adds in the bypass of the self catering subcategory to do a text search instead ([2566eed](https://github.com/visitscotland/vs-component-library/commit/2566eed50bd156a3d2736d40778eeb107ba69f9b))
+* **vsmainmap:** adds in the labels for the new no results label ([d35c95e](https://github.com/visitscotland/vs-component-library/commit/d35c95e22360e2b7fa23c1c04a430f8d2a3e9087))
+* **vsmainmap:** change map rendering mode to vector from raster ([626cf09](https://github.com/visitscotland/vs-component-library/commit/626cf0917986f9d5cb239da4fcdb6dd99b4c7aca))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
