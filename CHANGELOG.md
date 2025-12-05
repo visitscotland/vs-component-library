@@ -1,3 +1,9 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [5.20.8](https://github.com/visitscotland/vs-component-library/compare/v5.20.7...v5.20.8) (2025-12-05)
+
 ## [5.20.7](https://github.com/visitscotland/vs-component-library/compare/v5.20.6...v5.20.7) (2025-12-04)
 
 
