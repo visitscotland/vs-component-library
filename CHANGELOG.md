@@ -1,3 +1,10 @@
+## [5.21.1](https://github.com/visitscotland/vs-component-library/compare/v5.21.0...v5.21.1) (2025-12-05)
+
+
+### Bug Fixes
+
+* **vsmainmap:** fixes issues causing build failure on gMap Soft Launch branch changes ([da439fb](https://github.com/visitscotland/vs-component-library/commit/da439fbccf6685d3967ca606bcc3fc902b5941ba))
+
 # [5.21.0](https://github.com/visitscotland/vs-component-library/compare/v5.20.8...v5.21.0) (2025-12-05)
 
 
