@@ -375,6 +375,8 @@ const siteSearchUsageTemplate = [
     'results_count',
     'search_usage_index',
     'search_type',
+    'interaction_type',
+    'search_origin',
 ];
 
 const siteSearchClickTemplate = [
@@ -398,6 +400,52 @@ const siteSearchCloseTemplate = [
     'query_input',
     'page_number',
     'results_count',
+];
+
+const googleMapSearchTemplate = [
+    'event',
+    'search_query',
+    'search_map_location',
+    'search_results_count',
+    'search_usage_index',
+];
+
+const googleMapFilterInteractionTemplate = [
+    'event',
+    'filter_type',
+    'search_map_location',
+    'filter_selection',
+    'results_count',
+    'filter_usage_index',
+];
+
+const googleMapClickTemplate = [
+    'event',
+    'click_origin',
+    'attraction_name',
+    'attraction_rating',
+    'attraction_category',
+    'search_map_location',
+    'click_text',
+    'click_url',
+    'search_result_position',
+];
+
+const googleMapTimeToFirstInteractionTemplate = [
+    'event',
+    'time_to_first_interaction_ms',
+    'first_interaction_type',
+];
+
+const googleMapInteractionTemplate = [
+    'event',
+    'interaction_type',
+    'search_query',
+    'map_location',
+    'visible_attractions_count',
+    'card_attraction_name',
+    'card_attraction_rating',
+    'interaction_timestamp_ms',
 ];
 
 export {
@@ -425,4 +473,9 @@ export {
     siteSearchUsageTemplate,
     siteSearchClickTemplate,
     siteSearchCloseTemplate,
+    googleMapSearchTemplate,
+    googleMapFilterInteractionTemplate,
+    googleMapClickTemplate,
+    googleMapTimeToFirstInteractionTemplate,
+    googleMapInteractionTemplate,
 };

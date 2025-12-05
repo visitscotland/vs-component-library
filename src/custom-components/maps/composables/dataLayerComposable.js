@@ -3,10 +3,11 @@ import useDataLayerStore from '@/stores/dataLayer.store';
 import checkVendorLibrary from '@/utils/check-vendor-library';
 
 import {
-    siteSearchOpenTemplate,
-    siteSearchUsageTemplate,
-    siteSearchClickTemplate,
-    siteSearchCloseTemplate,
+    googleMapSearchTemplate,
+    googleMapFilterInteractionTemplate,
+    googleMapClickTemplate,
+    googleMapTimeToFirstInteractionTemplate,
+    googleMapInteractionTemplate,
 } from '@/utils/data-layer-templates';
 
 /**
@@ -97,63 +98,80 @@ export default function dataLayerComposable() {
         let dataLayerData;
 
         switch (type) {
-        case 'siteSearchOpenEvent':
-            eventName = 'site_search_open';
-            templateValues = {
-                event: eventName,
-                referrer_page: event.referrer_page,
-            };
-            fullTemplate = compileFullTemplate(templateValues);
-            dataLayerData = templateFiller(siteSearchOpenTemplate, fullTemplate);
-            break;
-
-        case 'siteSearchUsageEvent':
-            eventName = 'site_search_event';
+        case 'googleMapSearchEvent':
+            eventName = 'map_search';
             templateValues = {
                 event: eventName,
                 search_query: event.search_query,
-                query_input: event.query_input,
-                results_count: event.results_count,
+                search_map_location: event.search_map_location,
+                search_results_count: event.search_results_count,
                 search_usage_index: event.search_usage_index,
-                search_type: event.search_type,
-                search_origin: event.search_origin || 'results_page',
-                interaction_type: 'search_input',
             };
+
             fullTemplate = compileFullTemplate(templateValues);
-            dataLayerData = templateFiller(siteSearchUsageTemplate, fullTemplate);
+            dataLayerData = templateFiller(googleMapSearchTemplate, fullTemplate);
             break;
 
-        case 'siteSearchClickEvent':
-            eventName = 'site_search_click';
+        case 'googleMapFilterEvent':
+            eventName = 'map_filter_interaction';
+            templateValues = {
+                event: eventName,
+                filter_type: event.filter_type,
+                search_map_location: event.search_map_location,
+                filter_selection: event.filter_selection,
+                results_count: event.results_count,
+                filter_usage_index: event.filter_usage_index,
+            };
+
+            fullTemplate = compileFullTemplate(templateValues);
+            dataLayerData = templateFiller(googleMapFilterInteractionTemplate, fullTemplate);
+            break;
+
+        case 'googleMapClickEvent':
+            eventName = 'map_click_to_google_maps';
+            templateValues = {
+                event: eventName,
+                click_origin: event.click_origin,
+                attraction_name: event.attraction_name,
+                attraction_rating: event.attraction_rating,
+                attraction_category: event.attraction_category,
+                search_map_location: event.search_map_location,
+                click_text: event.click_text,
+                click_url: event.click_url,
+                search_result_position: event.search_result_position,
+            };
+
+            fullTemplate = compileFullTemplate(templateValues);
+            dataLayerData = templateFiller(googleMapClickTemplate, fullTemplate);
+            break;
+
+        case 'googleMapTimeToFirstInteractionEvent':
+            eventName = 'map_time_to_first_interaction';
+            templateValues = {
+                event: eventName,
+                time_to_first_interaction_ms: event.time_to_first_interaction_ms,
+                first_interaction_type: event.first_interaction_type,
+            };
+
+            fullTemplate = compileFullTemplate(templateValues);
+            dataLayerData = templateFiller(googleMapTimeToFirstInteractionTemplate, fullTemplate);
+            break;
+
+        case 'googleMapInteractionEvent':
+            eventName = 'map_interaction_click';
             templateValues = {
                 event: eventName,
                 interaction_type: event.interaction_type,
                 search_query: event.search_query,
-                query_input: event.query_input,
-                page_number: event.page_number,
-                page_navigation_direction: event.page_navigation_direction,
-                click_text: event.click_text,
-                click_url: event.click_url,
-                click_category: event.click_category,
-                search_usage_index: event.search_usage_index,
-                results_count: event.results_count,
+                map_location: event.map_location,
+                visible_attractions_count: event.visible_attractions_count,
+                card_attraction_name: event.card_attraction_name,
+                card_attraction_rating: event.card_attraction_rating,
+                interaction_timestamp_ms: event.interaction_timestamp_ms,
             };
-            fullTemplate = compileFullTemplate(templateValues);
-            dataLayerData = templateFiller(siteSearchClickTemplate, fullTemplate);
-            break;
 
-        case 'siteSearchCloseEvent':
-            eventName = 'site_search_close';
-            templateValues = {
-                event: eventName,
-                search_usage_index: event.search_usage_index,
-                search_query: event.search_query,
-                query_input: event.query_input,
-                page_number: event.page_number,
-                results_count: event.results_count,
-            };
             fullTemplate = compileFullTemplate(templateValues);
-            dataLayerData = templateFiller(siteSearchCloseTemplate, fullTemplate);
+            dataLayerData = templateFiller(googleMapInteractionTemplate, fullTemplate);
             break;
 
         default:

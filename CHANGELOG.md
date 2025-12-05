@@ -1,3 +1,39 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [5.20.8](https://github.com/visitscotland/vs-component-library/compare/v5.20.7...v5.20.8) (2025-12-05)
+
+## [5.20.7](https://github.com/visitscotland/vs-component-library/compare/v5.20.6...v5.20.7) (2025-12-04)
+
+
+### Bug Fixes
+
+* **main map:** reduce map height so that the controls appear above the fold ([642907d](https://github.com/visitscotland/vs-component-library/commit/642907db5d4349e98ce095f34c8272ac23daad5c))
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [5.20.6](https://github.com/visitscotland/vs-component-library/compare/v5.20.5...v5.20.6) (2025-12-04)
+
+### [5.20.5](https://github.com/visitscotland/vs-component-library/compare/v5.20.4...v5.20.5) (2025-12-03)
+
+## [5.20.4](https://github.com/visitscotland/vs-component-library/compare/v5.20.3...v5.20.4) (2025-12-03)
+
+
+### Bug Fixes
+
+* **main map:** clear text search query to ensure a fresh search each time ([2331e39](https://github.com/visitscotland/vs-component-library/commit/2331e39d953a21f83e975bcaee92cbc2c3d72cda))
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [5.20.3](https://github.com/visitscotland/vs-component-library/compare/v5.20.2...v5.20.3) (2025-12-02)
+
+### [5.20.2](https://github.com/visitscotland/vs-component-library/compare/v5.20.1...v5.20.2) (2025-12-02)
+
 ## [5.20.1](https://github.com/visitscotland/vs-component-library/compare/v5.20.0...v5.20.1) (2025-11-26)
 
 

@@ -29,6 +29,7 @@
             <div
                 v-if="federatedSearchStore.results"
                 class="vs-federated-search__results"
+                data-chromatic="ignore"
             >
                 <div>
                     <VsHeading
@@ -63,6 +64,7 @@
                 v-if="!federatedSearchStore.isLoading
                     && federatedSearchStore.results
                     && !federatedSearchStore.eventsApiError"
+                data-chromatic="ignore"
             >
                 <VsCardGroup
                     :cards-per-row="3"
@@ -335,6 +337,8 @@ const props = defineProps({
     },
 });
 
+const eventHasBeenClicked = ref(false);
+
 // Calculate the total number of pages for pagination.
 const totalResultsPages = computed(() => {
     let pageCount;
@@ -393,7 +397,7 @@ function calculateError() {
     }
 }
 
-onMounted(() => {
+onMounted(async() => {
     dataLayerHelper.createDataLayerObject('siteSearchOpenEvent', {
         referrer_page: document.referrer,
     });
@@ -410,6 +414,11 @@ onMounted(() => {
     calculateError();
 
     if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+        window.onbeforeunload = () => {
+            // eslint-disable-next-line no-use-before-define
+            pageCloseAnalytics();
+        };
+
         const params = new URLSearchParams(document.location.search);
         const paramSearchTerm = params.get('search-term');
         const paramPage = parseInt(params.get('page'), 10);
@@ -420,13 +429,20 @@ onMounted(() => {
 
         if (paramSearchTerm) {
             federatedSearchStore.searchTerm = paramSearchTerm;
-            federatedSearchStore.getSearchResults();
         }
 
-        window.onbeforeunload = () => {
-            // eslint-disable-next-line no-use-before-define
-            pageCloseAnalytics();
-        };
+        await federatedSearchStore.getSearchResults();
+
+        if (paramSearchTerm) {
+            dataLayerHelper.createDataLayerObject('siteSearchUsageEvent', {
+                search_query: federatedSearchStore.searchTerm,
+                query_input: federatedSearchStore.queryInput,
+                results_count: federatedSearchStore.totalResults,
+                search_usage_index: federatedSearchStore.searchInSessionCount,
+                search_type: 'initial',
+                search_origin: 'home_page',
+            });
+        }
     }
 });
 
@@ -501,6 +517,8 @@ function setCardLink(result) {
 }
 
 function eventClickAnalytics(result) {
+    eventHasBeenClicked.value = true;
+
     dataLayerHelper.createDataLayerObject('siteSearchClickEvent', {
         interaction_type: 'search_link_click',
         search_query: federatedSearchStore.searchTerm,
@@ -529,6 +547,9 @@ function paginationClickAnalytics(isForward) {
 }
 
 function pageCloseAnalytics() {
+    // This event should only be fired if the user is leaving search without clicking a result.
+    if (eventHasBeenClicked.value) return;
+
     dataLayerHelper.createDataLayerObject('siteSearchCloseEvent', {
         search_query: federatedSearchStore.searchTerm,
         search_usage_index: federatedSearchStore.searchInSessionCount,

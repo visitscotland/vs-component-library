@@ -212,10 +212,13 @@ import useGoogleMapStore from '@/stores/mainMap.store';
 import cookieValues from '@/utils/required-cookies-data';
 import VsMapSidebar from './components/MapSidebar.vue';
 import cookieCheckerComposable from './composables/verifyCookiesComposable';
+import dataLayerComposable from './composables/dataLayerComposable';
+
+const dataLayerHelper = dataLayerComposable();
 
 const props = defineProps({
     /**
-     * Override for API Key, otherwise it'll be retrived
+     * Override for API Key, otherwise it'll be retrieved
      * from environment variables
      */
     apiKey: {
@@ -279,7 +282,7 @@ const props = defineProps({
         type: String,
         default: '',
     },
-    /** JSON object for the category labeks (from CMS taxinomies) */
+    /** JSON object for the category labels (from CMS taxonomies) */
     categoryLabels: {
         type: Object,
         default: () => {},
@@ -338,6 +341,9 @@ let infoWindow;
 
 let markers = {
 };
+
+let visibleMarkerCount;
+
 const selectedTopLevelCategory = ref();
 const selectedSubCategories = ref(new Set());
 const selectedCategory = ref();
@@ -476,6 +482,10 @@ onMounted(async() => {
         // eslint-disable-next-line no-undef
         infoWindow = new google.maps.InfoWindow();
 
+        infoWindow.addListener('closeclick', () => {
+            mapInteractionEvent('card_close', placeRequest.place);
+        });
+      
         shadeMapAreas();
 
         // Listens to the zoom level
@@ -486,6 +496,10 @@ onMounted(async() => {
             } else {
                 shadeMapAreas(true);
             }
+        });
+
+        gMap.addListener('idle', () => {
+            visibleMarkerCount = getVisibleMarkerCount();
         });
 
         // Handles click events in the Places UI Kit search panel for
@@ -502,6 +516,10 @@ onMounted(async() => {
             }
         });
     };
+
+    googleMapStore.firstInteraction = false;
+    googleMapStore.searchesCount = 0;
+    googleMapStore.filterUsesCount = 0;
 
     // Init map if no error
     if (showError.value === false) {
@@ -581,7 +599,7 @@ function selectCategory(categoryId, key) {
 
     selectedTopLevelCategory.value = categoryId;
 
-    // Retrives all the values in each subcategory and adds it to
+    // Retrieves all the values in each subcategory and adds it to
     // `includedTopLevelTypes` set, which should handle duplication.
     Object.values(categoryData[categoryId].subCategory).forEach(
         (subCategory) => includedTopLevelTypes.value.add(subCategory.type),
@@ -691,6 +709,8 @@ async function searchByCategory(includedTypes) {
     resetTextQuery();
     noResults.value = false;
 
+    googleMapStore.filterUsesCount += 1;
+
     currentSearch.value = 'nearby';
 
     const bounds = gMap.getBounds();
@@ -708,7 +728,27 @@ async function searchByCategory(includedTypes) {
     };
 
     nearbySearch.style.display = 'block';
-    nearbySearch.addEventListener('gmp-load', addMarkers, {
+    nearbySearch.addEventListener('gmp-load', () => {
+        addMarkers();
+
+        let filterType = 'main';
+        let filterSelection = selectedTopLevelCategory.value;
+
+        if (selectedSubCategories.value.size) {
+            filterType = 'sub';
+            filterSelection = Array.from(selectedSubCategories.value).join(', ');
+        }
+
+        dataLayerHelper.createDataLayerObject('googleMapFilterEvent', {
+            filter_type: filterType,
+            search_map_location: gMap.getCenter().toString(),
+            filter_selection: filterSelection,
+            results_count: nearbySearch.places.length,
+            filter_usage_index: googleMapStore.filterUsesCount,
+        });
+
+        checkFirstInteraction('map_filter');
+    }, {
         once: true,
     });
 }
@@ -717,6 +757,8 @@ async function searchByText() {
     resetMap();
     resetCategories();
     noResults.value = false;
+
+    googleMapStore.searchesCount += 1;
 
     currentSearch.value = 'text';
 
@@ -733,7 +775,18 @@ async function searchByText() {
 
     textSearch.style.display = 'block';
 
-    textSearch.addEventListener('gmp-load', addMarkers, {
+    textSearch.addEventListener('gmp-load', () => {
+        addMarkers();
+
+        dataLayerHelper.createDataLayerObject('googleMapSearchEvent', {
+            search_query: query.value,
+            search_map_location: gMap.getCenter().toString(),
+            search_results_count: textSearch.places.length,
+            search_usage_index: googleMapStore.searchesCount,
+        });
+
+        checkFirstInteraction('map_search');
+    }, {
         once: true,
     });
 }
@@ -826,6 +879,7 @@ function resetMap(hardReset) {
         // A `hard reset` will remove all text and categories
         resetTextQuery();
         resetCategories();
+        mapInteractionEvent('clear_all');
     }
 }
 
@@ -858,11 +912,12 @@ function clearExistingMarkers() {
 function handlePlaceClick(place, marker) {
     if (infoWindow.isOpen) {
         infoWindow.close();
+        mapInteractionEvent('card_close', placeRequest.place);
     }
 
     placeRequest.place = place;
 
-    // Medium breakpoint (this can't be done in CSS unfortunatley)
+    // Medium breakpoint (this can't be done in CSS unfortunately)
     const isMobile = window.innerWidth <= 768;
 
     if (!isMobile) {
@@ -900,7 +955,74 @@ function handlePlaceClick(place, marker) {
         if (gMap.getZoom() > MAX_ZOOM) {
             gMap.setZoom(MAX_ZOOM);
         }
+
+        mapInteractionEvent('card_open', place);
     });
+}
+
+async function mapInteractionEvent(interactionType, place) {
+    let cardName = '';
+    let cardRating = '';
+
+    if (place) {
+        await place.fetchFields({
+            fields: [
+                'displayName',
+                'rating',
+            ],
+        });
+
+        cardName = place.displayName;
+        cardRating = place.rating;
+    }
+
+    dataLayerHelper.createDataLayerObject('googleMapInteractionEvent', {
+        interaction_type: interactionType,
+        search_query: searchInput.value.trim(),
+        map_location: gMap.getCenter().toString(),
+        visible_attractions_count: visibleMarkerCount,
+        card_attraction_name: cardName,
+        card_attraction_rating: cardRating,
+        interaction_timestamp_ms: Date.now(),
+    });
+
+    checkFirstInteraction(interactionType);
+};
+
+function checkFirstInteraction(interactionType) {
+    if (!googleMapStore.firstInteraction) {
+        const timeNow = Date.now();
+        const timeToFirstInteraction = timeNow - googleMapStore.timeMounted;
+
+        dataLayerHelper.createDataLayerObject('googleMapTimeToFirstInteractionEvent', {
+            time_to_first_interaction_ms: timeToFirstInteraction,
+            first_interaction_type: interactionType,
+        });
+
+        googleMapStore.firstInteraction = true;
+    }
+}
+
+function getVisibleMarkerCount() {
+    const bounds = gMap.getBounds();
+
+    if (!bounds) {
+        return 0;
+    }
+
+    let visibleCount = 0;
+
+    for (let x = 0; x < Object.keys(markers).length; x++) {
+        const marker = markers[Object.keys(markers)[x]];
+
+        const position = marker.position;
+
+        if (bounds.contains(position)) {
+            visibleCount += 1;
+        }
+    }
+
+    return visibleCount;
 }
 </script>
 
@@ -922,8 +1044,8 @@ function handlePlaceClick(place, marker) {
         position: relative;
     }
 
-    &__wrapper, #vs-map{
-        height: 100vh;
+    &__wrapper, #vs-map {
+        height: 90vh;
         width: 100%;
     }
 
@@ -944,7 +1066,7 @@ function handlePlaceClick(place, marker) {
         }
     }
 
-    &__filter-controls{
+    &__filter-controls {
         display: flex;
         flex-direction: row;
         align-items: flex-start;
@@ -1000,7 +1122,7 @@ function handlePlaceClick(place, marker) {
         font-size: 1.5em;
         color: $vs-color-icon-inverse;
 
-        &:hover{
+        &:hover {
             transform: scale(1.25);
         }
     }

@@ -182,9 +182,17 @@ async function updateSearchTerm(event) {
     }
 }
 
-function search() {
+async function search() {
     searchSuggestions.value = null;
-    federatedSearchStore.navigateToResultsPage();
+    await federatedSearchStore.navigateToResultsPage();
+
+    dataLayerHelper.createDataLayerObject('siteSearchUsageEvent', {
+        search_query: federatedSearchStore.searchTerm,
+        query_input: federatedSearchStore.queryInput,
+        results_count: federatedSearchStore.totalResults,
+        search_usage_index: federatedSearchStore.searchInSessionCount,
+        search_type: federatedSearchStore.searchInSessionCount === 1 ? 'initial' : 'follow-up',
+    });
 }
 
 function autoSuggestAnalytics(suggestion) {
@@ -237,7 +245,7 @@ function categoryClickAnalytics(category) {
     });
 }
 
-function updateSelectedCategory(category) {
+async function updateSelectedCategory(category) {
     const url = new URL(window.location);
 
     // Reset to page 1
@@ -267,7 +275,7 @@ function updateSelectedCategory(category) {
         ? category.Key
         : '';
 
-    federatedSearchStore.navigateToResultsPage(true);
+    await federatedSearchStore.navigateToResultsPage(true);
 
     categoryClickAnalytics(category);
 }
