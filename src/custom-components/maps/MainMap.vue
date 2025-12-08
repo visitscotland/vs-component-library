@@ -234,6 +234,16 @@ const props = defineProps({
         default: 'vs-map',
     },
     /**
+     * Rendering Type for the Map.
+     * True = Vector Map, otherwise fallback to Raster
+     * Vector Map enables support (with correct MapID) for advanced features like shading
+     * Raster Maps are available for full compatibility across devices.
+     */
+    mapTypeVector: {
+        type: Boolean,
+        default: false,
+    },
+    /**
      * Center point of map.
      * Defaults to what is considered the center of Scotland
      */
@@ -453,8 +463,11 @@ onMounted(async() => {
                     lat: props.center.lat,
                     lng: props.center.lng,
                 },
-                // eslint-disable-next-line no-undef
-                renderingType: google.maps.RenderingType.VECTOR,
+                renderingType: props.mapTypeVector
+                    // eslint-disable-next-line no-undef
+                    ? google.maps.RenderingType.VECTOR
+                    // eslint-disable-next-line no-undef
+                    : google.maps.RenderingType.RASTER,
                 zoom: props.zoom,
                 isFractionalZoomEnabled: true,
                 mapId: props.mapId,
