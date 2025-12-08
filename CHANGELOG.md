@@ -1,3 +1,10 @@
+# [5.22.0](https://github.com/visitscotland/vs-component-library/compare/v5.21.2...v5.22.0) (2025-12-08)
+
+
+### Features
+
+* **vsmainmap:** adds a toggle for vector maps so rendering mode can be changed easily ([2bb1b41](https://github.com/visitscotland/vs-component-library/commit/2bb1b4139b3f0a0283eaf2aaf562b9b7928dad61))
+
 ## [5.21.2](https://github.com/visitscotland/vs-component-library/compare/v5.21.1...v5.21.2) (2025-12-05)
 
 
