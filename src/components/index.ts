@@ -54,6 +54,7 @@ export { default as VsIcon } from './icon/Icon.vue';
 export { default as VsIconList } from './icon-list/IconList.vue';
 export { default as VsIconListItem } from './icon-list/components/IconListItem.vue';
 export { default as VsImageWithCaption } from './image-with-caption/ImageWithCaption.vue';
+export { default as VsIllustratedMap } from './illustrated-map/IllustratedMap.vue';
 export { default as VsImg } from './img/Img.vue';
 export { default as VsInput } from './input/Input.vue';
 export { default as VsItinerary } from './itineraries/Itinerary.vue';
