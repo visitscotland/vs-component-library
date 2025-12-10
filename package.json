@@ -19,7 +19,9 @@
     "./maps": {
       "import": "./dist/components/vs-component-library-maps.mjs"
     },
-    "./style.css": "./dist/components/style.css"
+    "./style.css": "./dist/components/style.css",
+    "./cludo-search-results.css": "./dist/client/styles/third-party/_cludo-search-results.css",
+    "./cludo-autocomplete.css": "./dist/client/styles/third-party/_cludo-autocomplete.css"
   },
   "license": "MIT",
   "scripts": {
