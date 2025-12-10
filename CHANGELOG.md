@@ -1,3 +1,10 @@
+# [5.23.0](https://github.com/visitscotland/vs-component-library/compare/v5.22.0...v5.23.0) (2025-12-10)
+
+
+### Features
+
+* **build:** add access to cludo styles for nuxt build ([1259441](https://github.com/visitscotland/vs-component-library/commit/1259441e105f3dc0883e34853e28ab61411e5c4b))
+
 # [5.22.0](https://github.com/visitscotland/vs-component-library/compare/v5.21.2...v5.22.0) (2025-12-08)
 
 
