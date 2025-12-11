@@ -566,6 +566,16 @@ function shadeMapAreas(zoomedIn) {
         'ChIJuwtkpGSZAEcR6lXMScpzdQk', // Poland
         'ChIJl5fz7WR9wUcR8g_mObTy60c', // Belgium
         'ChIJMVd4MymgVA0R99lHx5Y__Ws', // France
+        'ChIJ_ZqKe2cw6UYREPzyaM3PAAA', // Latvia
+        'ChIJE74zDxSU3UYRubpdpdNUCvM', // Lithuania
+        'ChIJ4wsuREWc40YRewI60MRYJR4', // Kaliningrad
+        'ChIJ_UuggpyUkkYRwyW0T7qf6kA', // Estonia
+        'ChIJ3fYyS9_KgUYREKh1PNZGAQA', // Finland
+        'ChIJQ2Dro1Ir0kgRmkXB5TQEim8', // Iceland
+        'ChIJFXfA47sNok4RGOIUAYOdzzQ', // Greenland
+        'ChIJI9HkgQm_ikYR8i7GR23fEbY', // Countryside, Åland
+        'ChIJUXXYvLMei0YR7zdFQUIM8bA', // Archipelago, Åland
+        'ChIJRyEhyrlFlUcR75LTAvZg22Q', // Luxembourg
     ];
 
     const zoomedInShadedPlaces = [
