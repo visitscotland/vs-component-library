@@ -581,6 +581,8 @@ function shadeMapAreas(zoomedIn) {
     const zoomedInShadedPlaces = [
         'ChIJ39UebIqp0EcRqI4tMyWV4fQ', // England
         'ChIJdZmmmcoQXkgR2OO3bu8o5fc', // Northern Ireland
+        'ChIJ-ydAXOS6WUgRCPTbzjQSfM8', // Republic of Ireland
+        'ChIJ6_ktdpMVvEgRJBv3ZEgxsD8', // Faroe Islands
     ];
 
     // eslint-disable-next-line no-undef
@@ -591,6 +593,13 @@ function shadeMapAreas(zoomedIn) {
     if (zoomedIn) {
         countryLayer.style = null;
         adminArea1Layer.style = null;
+
+        // eslint-disable-next-line consistent-return
+        countryLayer.style = (options) => {
+            if (zoomedInShadedPlaces.includes(options.feature.placeId)) {
+                return shadedAreaStyleOptions;
+            }
+        };
 
         // eslint-disable-next-line consistent-return
         adminArea1Layer.style = (options) => {
