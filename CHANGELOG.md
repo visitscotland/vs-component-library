@@ -1,3 +1,14 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [5.23.1](https://github.com/visitscotland/vs-component-library/compare/v5.23.0...v5.23.1) (2025-12-11)
+
+
+### 🔖 Others
+
+* **components index.ts:** add export statement for illustrated map ([44ccaa3](https://github.com/visitscotland/vs-component-library/commit/44ccaa391e219bac43ea5733a86f486d0c8ab6f4))
+
 # [5.23.0](https://github.com/visitscotland/vs-component-library/compare/v5.22.0...v5.23.0) (2025-12-10)
 
 
