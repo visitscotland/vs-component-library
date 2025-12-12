@@ -1,21 +1,11 @@
 import { config, shallowMount } from '@vue/test-utils';
 import axe from '@/../test/unit/helpers/axe-helper';
+import { setActivePinia, createPinia } from 'pinia';
 import VsMediaCaption from '../MediaCaption.vue';
 
 config.global.renderStubDefaultSlot = true;
 
-const mockVideoStore = {
-    videos: {
-        'test-video': {
-            videoDurationMsg: '2:30',
-        },
-    },
-};
-
-jest.mock('@/stores/video.store', () => ({
-    __esModule: true,
-    default: () => mockVideoStore,
-}));
+jest.mock('@/stores/video.store.ts');
 
 const factoryShallowMount = (propsData, slots) => shallowMount(VsMediaCaption, {
     propsData: {
@@ -25,6 +15,18 @@ const factoryShallowMount = (propsData, slots) => shallowMount(VsMediaCaption, {
         ...slots,
     },
 });
+
+const factoryShallowMountWithStore = (propsData, slots) => {
+    setActivePinia(createPinia());
+    return shallowMount(VsMediaCaption, {
+        propsData: {
+            ...propsData,
+        },
+        slots: {
+            ...slots,
+        },
+    });
+};
 
 describe('VsMediaCaption', () => {
     it('should render a div with correct class and data-test attribute', () => {
@@ -77,17 +79,17 @@ describe('VsMediaCaption', () => {
 
     describe(':props', () => {
         it('should display video duration when videoId is provided', () => {
-            const wrapper = factoryShallowMount({
-                videoId: 'test-video',
+            const wrapper = factoryShallowMountWithStore({
+                videoId: '123456',
             });
 
-            const creditElement = wrapper.find('.vs-media-caption__image-credit');
-            expect(creditElement.exists()).toBe(true);
-            expect(creditElement.text()).toBe('2:30');
+            const durationText = wrapper.find('.vs-media-caption__image-credit');
+
+            expect(durationText.text()).toBe('1 minute video');
         });
 
         it('should not display video duration when videoId has no details', () => {
-            const wrapper = factoryShallowMount({
+            const wrapper = factoryShallowMountWithStore({
                 videoId: 'non-existent-video',
             });
 
