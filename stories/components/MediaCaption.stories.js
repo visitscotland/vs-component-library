@@ -54,5 +54,5 @@ export const WithVideoDuration = Template.bind({
 });
 WithVideoDuration.args = {
     videoId: 'h9bQwcndGfo',
-    caption: 'Only in Scotland: Why Scotland Needs You',
+    caption: 'A promotional film inviting viewers to rediscover Scotland\'s landscapes and culture.',
 };
