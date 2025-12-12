@@ -7,23 +7,23 @@ config.global.renderStubDefaultSlot = true;
 
 jest.mock('@/stores/video.store.ts');
 
-const factoryShallowMount = (propsData, slots) => shallowMount(VsMediaCaption, {
-    propsData: {
-        ...propsData,
-    },
-    slots: {
-        ...slots,
-    },
+const factoryShallowMount = (propsData = {
+}, slots = {
+}) => shallowMount(VsMediaCaption, {
+    propsData,
+    slots,
 });
 
-const factoryShallowMountWithStore = (propsData, slots) => {
-    setActivePinia(createPinia());
+const factoryShallowMountWithStore = (propsData = {
+}, slots = {
+}) => {
+    const pinia = createPinia();
+    setActivePinia(pinia);
     return shallowMount(VsMediaCaption, {
-        propsData: {
-            ...propsData,
-        },
-        slots: {
-            ...slots,
+        propsData,
+        slots,
+        global: {
+            plugins: [pinia],
         },
     });
 };
@@ -94,7 +94,7 @@ describe('VsMediaCaption', () => {
             });
 
             const creditElement = wrapper.find('.vs-media-caption__image-credit');
-            expect(creditElement.text()).toBe('');
+            expect(creditElement.exists()).toBe(false);
         });
     });
 
