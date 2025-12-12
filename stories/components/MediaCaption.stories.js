@@ -6,7 +6,7 @@ export default {
     component: VsMediaCaption,
     title: 'Components/Media & data visualisation/MediaCaption',
     decorators: [
-        () => {
+        (story) => {
             // Mock the store
             const pinia = createPinia();
             setActivePinia(pinia);
@@ -19,8 +19,17 @@ export default {
             };
 
             return {
+                setup() {
+                    return {
+                        story,
+                    };
+                },
                 template: '<story />',
-                pinia,
+                created() {
+                    if (this.$root && this.$root.$app) {
+                        this.$root.$app.use(pinia);
+                    }
+                },
             };
         },
     ],
@@ -50,9 +59,28 @@ Default.args = {
     credit: '© VisitScotland / Cutmedia',
 };
 
+export const CaptionOnly = Template.bind({
+});
+CaptionOnly.args = {
+    caption: 'Driving along the Solway Firth',
+};
+
+export const CreditOnly = Template.bind({
+});
+CreditOnly.args = {
+    credit: '© VisitScotland / Cutmedia',
+};
+
 export const WithVideoDuration = Template.bind({
 });
 WithVideoDuration.args = {
-    videoId: 'h9bQwcndGfo',
     caption: 'A promotional film inviting viewers to rediscover Scotland\'s landscapes and culture.',
+    videoId: 'h9bQwcndGfo',
+};
+
+export const InvalidVideoId = Template.bind({
+});
+InvalidVideoId.args = {
+    caption: 'A promotional film inviting viewers to rediscover Scotland\'s landscapes and culture.',
+    videoId: 'non-existent-id',
 };

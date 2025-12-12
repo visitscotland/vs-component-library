@@ -16,7 +16,7 @@
 
                     <p
                         class="vs-media-caption__image-credit"
-                        v-if="!!$slots.credit || videoId"
+                        v-if="!!$slots.credit || (videoId && videoDetails?.videoDurationMsg)"
                     >
                         <span v-if="videoId && videoDetails?.videoDurationMsg">
                             {{ videoDetails.videoDurationMsg }}
@@ -75,7 +75,7 @@ export default {
     },
     computed: {
         videoDetails() {
-            return this.videoStore.videos[this.videoId];
+            return this.videoStore?.videos?.[this.videoId];
         },
     },
 };
