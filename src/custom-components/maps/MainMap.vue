@@ -1112,6 +1112,7 @@ function getVisibleMarkerCount() {
         width: calc(100vw - $vs-spacer-100);
         margin: $vs-spacer-050 $vs-spacer-0;
         padding: $vs-spacer-025 $vs-spacer-025 $vs-spacer-050 $vs-spacer-025;
+        pointer-events: all;
 
         @include scrollsnap-styles;
 
