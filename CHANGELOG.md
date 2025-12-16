@@ -1,3 +1,10 @@
+# [5.24.0](https://github.com/visitscotland/vs-component-library/compare/v5.23.1...v5.24.0) (2025-12-15)
+
+
+### Features
+
+* **mediacaption:** add new MediaCaption component ([c170429](https://github.com/visitscotland/vs-component-library/commit/c170429231f2335234795257b53b0f195f836e97))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
