@@ -1,3 +1,13 @@
+# [5.26.0](https://github.com/visitscotland/vs-component-library/compare/v5.25.0...v5.26.0) (2025-12-17)
+
+
+### Features
+
+* **caption:** marking caption and video caption as deprecated ([f034670](https://github.com/visitscotland/vs-component-library/commit/f034670705ec2c8492e5094404f802746a5f6a92))
+* **hero:** ensuring the hero split variant has right aligned caption ([d8be1e1](https://github.com/visitscotland/vs-component-library/commit/d8be1e15102e034fb171758b04350d72d3123e32))
+* **herosection:** update hero section to use new media caption component ([45ceb4c](https://github.com/visitscotland/vs-component-library/commit/45ceb4c9bc1474ff4dbf6075e91ffd670224e2c1))
+* **media caption:** add new right align prop for media caption ([676df44](https://github.com/visitscotland/vs-component-library/commit/676df44ceb45a98f21a2acdb1fbfd34b8c18fb97))
+
 # [5.25.0](https://github.com/visitscotland/vs-component-library/compare/v5.24.0...v5.25.0) (2025-12-17)
 
 
