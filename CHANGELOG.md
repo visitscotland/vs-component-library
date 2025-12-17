@@ -1,3 +1,10 @@
+# [5.25.0](https://github.com/visitscotland/vs-component-library/compare/v5.24.0...v5.25.0) (2025-12-17)
+
+
+### Features
+
+* **media patterns:** creating new media patterns with new media caption ([99946dc](https://github.com/visitscotland/vs-component-library/commit/99946dc4c59d1aca0e4a0190bbe2a3f20d642e96))
+
 # [5.24.0](https://github.com/visitscotland/vs-component-library/compare/v5.23.1...v5.24.0) (2025-12-15)
 
 
