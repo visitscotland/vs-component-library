@@ -13,6 +13,7 @@
         <VsMediaCaption
             v-if="imgCaption || imgCredit"
             data-test="vs-hero-section-image__caption"
+            :right-align="split"
         >
             <template
                 v-if="!split"
