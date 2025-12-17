@@ -67,9 +67,9 @@ export default {
             type: String,
             default: '',
         },
-        /*
-        * Align the caption text to the right
-        */
+        /**
+         * Align the caption text to the right
+         */
         rightAlign: {
             type: Boolean,
             default: false,
