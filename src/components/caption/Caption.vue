@@ -58,13 +58,16 @@ import designTokens from '@/assets/tokens/tokens.json';
 import VsCaptionImageMap from './components/CaptionImageMap.vue';
 
 /**
- * Captions are used to briefly describe an image or other media such as a video.
+ * @deprecated Use new MediaCaption component instead.
+ * This component will be removed in a future release.
+ *
+ * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/941457411/Caption+deprecated
  *
  * @displayName Caption
  */
 export default {
     name: 'VsCaption',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsRow,

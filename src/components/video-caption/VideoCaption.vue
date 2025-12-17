@@ -96,13 +96,16 @@ import requiredCookiesData from '../../utils/required-cookies-data';
 const cookieValues = requiredCookiesData.youtube;
 
 /**
- * Caption to be used for opening a video
+ * @deprecated Use new MediaCaption component instead.
+ * This component will be removed in a future release.
+ *
+ * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/941981697/Video+caption+deprecated
  *
  * @displayName Video Caption
  */
 export default {
     name: 'VsVideoCaption',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsButton,
