@@ -96,6 +96,22 @@ describe('VsMediaCaption', () => {
             const creditElement = wrapper.find('.vs-media-caption__image-credit');
             expect(creditElement.exists()).toBe(false);
         });
+
+        it('should not apply text-end class when rightAlign is false', () => {
+            const wrapper = factoryShallowMount({
+                rightAlign: false,
+            });
+
+            expect(wrapper.classes()).not.toContain('text-end');
+        });
+
+        it('should apply text-end class when rightAlign is true', () => {
+            const wrapper = factoryShallowMount({
+                rightAlign: true,
+            });
+
+            expect(wrapper.classes()).toContain('text-end');
+        });
     });
 
     describe(':accessibility', () => {

@@ -10,11 +10,10 @@
             :alt="imgAlt"
         />
 
-        <VsCaption
+        <VsMediaCaption
             v-if="imgCaption || imgCredit"
-            class="p-0"
-            theme="subtle"
             data-test="vs-hero-section-image__caption"
+            :right-align="split"
         >
             <template
                 v-if="!split"
@@ -25,12 +24,12 @@
             <template #credit>
                 {{ imgCredit }}
             </template>
-        </VsCaption>
+        </VsMediaCaption>
     </div>
 </template>
 
 <script>
-import VsCaption from '@/components/caption/Caption.vue';
+import VsMediaCaption from '@/components/media-caption/MediaCaption.vue';
 import VsImg from '@/components/img/Img.vue';
 
 /**
@@ -44,7 +43,7 @@ export default {
     status: 'prototype',
     release: '0.0.1',
     components: {
-        VsCaption,
+        VsMediaCaption,
         VsImg,
     },
     props: {

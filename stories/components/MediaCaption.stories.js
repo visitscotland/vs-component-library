@@ -71,6 +71,14 @@ CreditOnly.args = {
     credit: '© VisitScotland / Cutmedia',
 };
 
+export const RightAligned = Template.bind({
+});
+RightAligned.args = {
+    caption: 'Driving along the Solway Firth',
+    credit: '© VisitScotland / Cutmedia',
+    rightAlign: true,
+};
+
 export const WithVideoDuration = Template.bind({
 });
 WithVideoDuration.args = {

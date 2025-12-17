@@ -1,19 +1,11 @@
 import VsHeroSection from '@/components/hero-section/HeroSection.vue';
-import VsMegalinks from '@/components/megalinks/Megalinks.vue';
-import VsMegalinkSingleImage from '@/components/megalinks/components/megalink-single-image/MegalinkSingleImage.vue';
 import VsLinkList from '@/components/link-list/LinkList.vue';
 import VsLinkListItem from '@/components/link-list/components/LinkListItem.vue';
-import VsImageWithCaption from '@/components/image-with-caption/ImageWithCaption.vue';
-import VsCaption from '@/components/caption/Caption.vue';
 import {
     VsCol, VsRow, VsContainer,
 } from '@/components/grid';
-import VsHeading from '@/components/heading/Heading.vue';
 import VsArticleDetails from '@/components/article-details/ArticleDetails.vue';
 import VsPageIntro from '@/components/page-intro/PageIntro.vue';
-import VsArticle from '@/components/article/Article.vue';
-import VsArticleSidebar from '@/components/article/components/ArticleSidebar.vue';
-import VsArticleSection from '@/components/article/components/ArticleSection.vue';
 import VsBreadcrumb from '@/components/breadcrumb/Breadcrumb.vue';
 import VsBreadcrumbItem from '@/components/breadcrumb/components/BreadcrumbItem.vue';
 import VsPageHeader from '../../../src/templates/PageHeader.vue';
@@ -38,21 +30,13 @@ const createTemplate = (templateString) => (args) => ({
     components: {
         VsPageHeader,
         VsHeroSection,
-        VsMegalinks,
-        VsMegalinkSingleImage,
         VsLinkListItem,
         VsLinkList,
-        VsImageWithCaption,
-        VsCaption,
         VsCol,
         VsContainer,
         VsRow,
-        VsHeading,
         VsArticleDetails,
         VsPageIntro,
-        VsArticle,
-        VsArticleSidebar,
-        VsArticleSection,
         VsBreadcrumb,
         VsBreadcrumbItem,
     },

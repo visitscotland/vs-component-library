@@ -2,6 +2,7 @@
     <div
         data-test="vs-media-caption"
         class="vs-media-caption"
+        :class="captionClasses"
     >
         <VsContainer>
             <VsRow>
@@ -66,6 +67,13 @@ export default {
             type: String,
             default: '',
         },
+        /**
+         * Align the caption text to the right
+         */
+        rightAlign: {
+            type: Boolean,
+            default: false,
+        },
     },
     setup() {
         const videoStore = useVideoStore();
@@ -76,6 +84,13 @@ export default {
     computed: {
         videoDetails() {
             return this.videoStore?.videos?.[this.videoId];
+        },
+        captionClasses() {
+            return [
+                {
+                    'text-end': this.rightAlign,
+                },
+            ];
         },
     },
 };
