@@ -74,12 +74,13 @@ CreditOnly.args = {
 export const WithVideoDuration = Template.bind({
 });
 WithVideoDuration.args = {
-    caption: 'A promotional film inviting viewers to rediscover Scotland’s landscapes and culture.',
+    caption: 'A promotional film inviting viewers to rediscover Scotland\'s landscapes and culture.',
     videoId: 'h9bQwcndGfo',
 };
+
 export const InvalidVideoId = Template.bind({
 });
 InvalidVideoId.args = {
-    caption: 'A promotional film inviting viewers to rediscover Scotland’s landscapes and culture.',
+    caption: 'A promotional film inviting viewers to rediscover Scotland\'s landscapes and culture.',
     videoId: 'non-existent-id',
 };

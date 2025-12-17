@@ -92,6 +92,10 @@ export default {
         margin: 0 auto;
     }
 
+    p {
+        margin: 0;
+    }
+
     @include media-breakpoint-up(sm) {
         display: block;
         width: 100%;

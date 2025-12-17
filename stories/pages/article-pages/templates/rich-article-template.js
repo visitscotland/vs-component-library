@@ -82,8 +82,13 @@ export default `
                     <VsImg
                         src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/13/caber-toss?size=lg"
                         use-lazy-loading
-                        class="rounded-2 w-100 my-175"
+                        class="rounded-2 w-100 mt-175"
                     />
+                    <VsMediaCaption class="mb-100">
+                        <template #caption>
+                            Caber toss demonstration
+                        </template>
+                    </VsMediaCaption>
 
                      <VsHeading 
                         heading-style="heading-s" 
@@ -158,8 +163,13 @@ export default `
                     <VsImg
                         src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/13/ballater-highland-games?size=md"
                         use-lazy-loading
-                        class="rounded-2 w-100 mb-175"
+                        class="rounded-2 w-100"
                     />
+                    <VsMediaCaption class="mb-100">
+                        <template #caption>
+                            Ballater Highland Games
+                        </template>
+                    </VsMediaCaption>
                     <p>
                         Every Highland games event in Scotland has a unique character and tradition and many are held in simply stunning locations. Make new friends with the locals and other visitors as you enjoy our Scottish hospitality and watch a gripping spectacle of champions, with dancing, music and more.
                     </p>
@@ -224,8 +234,16 @@ export default `
                     <VsImg
                         src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/13/nairn-highland-games?size=md"
                         use-lazy-loading
-                        class="rounded-2 w-100 my-175"
+                        class="rounded-2 w-100 mt-175"
                     />
+                    <VsMediaCaption class="mb-100">
+                        <template #caption>
+                            Nairn Highland Games
+                        </template>
+                        <template #credit>
+                            © Iain Fairweather
+                        </template>
+                    </VsMediaCaption>
 
                     <VsHeading 
                         heading-style="heading-s" 
@@ -283,8 +301,13 @@ export default `
                     <VsImg
                         src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/13/tug-of-war?size=lg"
                         use-lazy-loading
-                        class="rounded-2 w-100 my-175"
+                        class="rounded-2 w-100 mt-175"
                     />
+                    <VsMediaCaption class="mb-100">
+                        <template #caption>
+                            Tug o' war
+                        </template>
+                    </VsMediaCaption>
 
                     <VsHeading 
                         heading-style="heading-s" 
@@ -332,12 +355,6 @@ export default `
                         For many, one of the most memorable sights of the Highland games is the massed bands, when hundreds of pipers and drummers from different groups come together to play and march in unison. Look out for the solo piping competitions, where competitors play in a range of styles, including the Pibroch, which is considered the classical music of the bagpipe. Pibrochs tend to be slow, stately and complex.
                     </p>
 
-                    <VsImg
-                        src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/13/highland-dancing?size=md"
-                        use-lazy-loading
-                        class="rounded-2 w-100 my-175"
-                    />
-
                     <VsHeading 
                         heading-style="heading-s" 
                         level="3"
@@ -346,7 +363,14 @@ export default `
                     </VsHeading>
                     <p>
                         Dancers give dazzling displays of fancy footwork in Scottish dances, such as the sword dance and the famous Highland Fling. Competing for titles both individually and in groups, their colourful outfits and infectious energy will leave you in high spirits. The Cowal Highland Gathering is renowned for the quality of its Highland dancing, drawing in the best performers from around the globe as they compete in the Scottish and World Championships.
-                    </p>                    
+                    </p>
+
+                    
+                    <VsImg
+                        src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/13/highland-dancing?size=md"
+                        use-lazy-loading
+                         class="rounded-2 w-100 my-175"
+                    />
 
                     <VsHeading 
                         heading-style="heading-s" 
