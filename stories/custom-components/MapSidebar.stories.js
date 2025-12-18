@@ -43,6 +43,7 @@ const Template = (args) => ({
 const base = {
     headerLabel: 'Discover your Scotland',
     closeSidebarButtonLabel: 'Close Sidebar',
+    searchBarAriaLabel: 'Search the map',
     inputPlaceHolderLabel: 'Type in your keyword',
     searchButtonLabel: 'Search',
     clearMapLabel: 'Clear Map',
