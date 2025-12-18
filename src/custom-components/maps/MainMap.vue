@@ -362,7 +362,7 @@ const includedSubTypes = ref(new Set());
 const categoryKey = ref();
 const subCategoryKey = ref();
 const currentZoom = ref(props.zoom);
-const MAX_ZOOM = 19;
+const MAX_ZOOM = 17;
 const CATEGORY_VISIBLE_ZOOM = 11;
 const NUMBER_OF_RESULTS = 20;
 const query = ref();
@@ -978,10 +978,8 @@ function handlePlaceClick(place, marker) {
         map: gMap,
     });
 
-    gMap.fitBounds(place.viewport, {
-        top: 200,
-        right: 150,
-    });
+    gMap.fitBounds(place.viewport);
+
     // eslint-disable-next-line no-undef
     google.maps.event.addListenerOnce(gMap, 'idle', () => {
         if (gMap.getZoom() > MAX_ZOOM) {
@@ -990,6 +988,8 @@ function handlePlaceClick(place, marker) {
 
         mapInteractionEvent('card_open', place);
     });
+
+    gMap.setCenter(place.location);
 }
 
 async function mapInteractionEvent(interactionType, place) {
