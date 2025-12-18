@@ -230,10 +230,9 @@ defineEmits(['search-input-changed', 'reset-map']);
         @include media-breakpoint-down(md) {
             width: 100%;
             flex-wrap: nowrap;
-            overflow-x: scroll;
-            scroll-snap-type: mandatory x;
             align-items: start;
             @include scrollsnap-styles;
+            pointer-events: all;
             column-gap: $vs-spacer-050;
             padding: $vs-spacer-025 $vs-spacer-025 $vs-spacer-050 $vs-spacer-025 ;
         }
