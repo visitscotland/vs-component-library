@@ -46,6 +46,7 @@ const base = {
     labels: {
         heading: 'Discover your Scotland',
         closeSidebarBtn: 'Close Sidebar',
+        searchBarAriaLabel: 'Search the map',
         inputPlaceholder: 'Type in your keyword',
         searchButton: 'Search',
         clearMap: 'Clear all',
@@ -67,6 +68,7 @@ Espanol.args = {
     labels: {
         heading: 'Descubre tu Escocia',
         closeSidebarBtn: 'Cerrar barra lateral',
+        searchBarAriaLabel: 'Buscar en el mapa',
         inputPlaceholder: 'Escribe tu palabra clave',
         searchButton: 'Buscar',
         clearMap: 'Borrar mapa',

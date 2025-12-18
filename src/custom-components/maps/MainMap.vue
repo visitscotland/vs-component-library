@@ -12,6 +12,7 @@
                     :selected-categories="selectedTopLevelCategory"
                     :header-label="props.labels.heading"
                     :close-sidebar-button-label="props.labels.closeSidebarBtn"
+                    :search-bar-aria-label="props.labels.searchBarAriaLabel"
                     :input-placeholder-label="props.labels.inputPlaceholder"
                     :search-button-label="props.labels.searchButton"
                     :clear-map-label="props.labels.clearMap"
