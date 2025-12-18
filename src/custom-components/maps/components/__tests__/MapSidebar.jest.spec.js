@@ -7,6 +7,7 @@ const factoryMount = (propsData) => mount(VsMapSidebar, {
     propsData: {
         headerLabel: 'Discover your Scotland',
         closeSidebarButtonLabel: 'Close Sidebar',
+        searchBarAriaLabel: 'Search the map',
         inputPlaceholderLabel: 'Type in your keyword',
         searchButtonLabel: 'Search',
         clearMapLabel: 'Clear Map',
@@ -183,6 +184,16 @@ describe('VsMapSidebar', () => {
         it('should not have aXe accessibility issues', async() => {
             const wrapper = factoryMount();
             expect(await axe(wrapper.html())).toHaveNoViolations();
+        });
+
+        it('should accept and render an aria label for the search bar', () => {
+            const wrapper = factoryMount();
+
+            const searchBar = wrapper.find('[data-test="vs-map-search-input"]');
+            expect(searchBar.exists()).toBe(true);
+
+            const searchBarAriaLabel = wrapper.find('[aria-label="Search the map"]');
+            expect(searchBarAriaLabel.exists()).toBe(true);
         });
     });
 });
