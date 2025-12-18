@@ -97,7 +97,15 @@
                             class="mt-075 mb-150"
                             size="small"
                         >
-                            {{ noResultsMessage }}
+                            <span>
+                                {{ noResultsMessage }}
+                                <VsLink
+                                    href="#"
+                                    @click.prevent="resetMap(true, true)"
+                                >
+                                    {{ resetMapNoResultsMessage }}
+                                </VsLink>
+                            </span>
                         </VsAlert>
                     </template>
                 </VsMapSidebar>
@@ -207,6 +215,7 @@ import {
     VsAlert,
     VsButton,
     VsWarning,
+    VsLink,
 } from '@/components';
 import useGoogleMapStore from '@/stores/mainMap.store';
 import cookieValues from '@/utils/required-cookies-data';
@@ -329,6 +338,10 @@ const props = defineProps({
      * Message to display when there are no results available
      */
     noResultsMessage: {
+        type: String,
+        required: true,
+    },
+    resetMapNoResultsMessage: {
         type: String,
         required: true,
     },
@@ -895,7 +908,7 @@ async function addMarkers() {
     }
 }
 
-function resetMap(hardReset) {
+function resetMap(hardReset, resetLocation) {
     clearExistingMarkers();
     currentSearch.value = '';
     nearbySearch.style.display = 'none';
@@ -912,6 +925,11 @@ function resetMap(hardReset) {
         resetTextQuery();
         resetCategories();
         mapInteractionEvent('clear_all');
+    }
+    if (resetLocation) {
+        gMap.setCenter(props.center);
+        gMap.setZoom(props.zoom);
+        mapInteractionEvent('reset_map');
     }
 }
 
