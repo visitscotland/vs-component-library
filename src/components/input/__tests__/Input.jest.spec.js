@@ -125,13 +125,17 @@ describe('VsInput', () => {
 
         it('should have an aria label property on the input when the aria label is populated', async() => {
             wrapper.setProps({
-                name: 'test-input',
                 ariaLabel: 'This is an input',
             });
 
             await wrapper.vm.$nextTick();
 
+            expect(wrapper.find('.vs-input').attributes('aria-label')).toBeTruthy();
             expect(wrapper.find('.vs-input').attributes('aria-label')).toBe('This is an input');
+        });
+
+        it('should not have an aria label property on the input when the aria label is populated', async() => {
+            expect(wrapper.find('.vs-input').attributes('aria-label')).toBeFalsy();
         });
     });
 

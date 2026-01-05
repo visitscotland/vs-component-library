@@ -68,6 +68,14 @@ HintText.args = {
     placeholder: 'e.g john.smith@gmail.com',
 };
 
+export const AriaLabel = Template.bind({
+});
+
+AriaLabel.args = {
+    ...base,
+    ariaLabel: 'Enter your email',
+};
+
 export const Required = Template.bind({
 });
 

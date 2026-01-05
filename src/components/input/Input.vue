@@ -40,7 +40,7 @@
             :autocomplete="autocompleteValue(fieldName)"
             :v="inputVal"
             :aria-invalid="(v$.inputVal && v$.inputVal.$anyError) || invalid"
-            :aria-label="ariaLabel"
+            :aria-label="ariaLabel ? ariaLabel : null"
             :aria-describedby="ariaDescription"
             :maxlength="validationRules.maxLength ? validationRules.maxLength : null"
             :minlength="validationRules.minLength ? validationRules.minLength : null"
