@@ -1,3 +1,22 @@
+# [5.27.0](https://github.com/visitscotland/vs-component-library/compare/v5.26.0...v5.27.0) (2026-01-05)
+
+
+### Bug Fixes
+
+* **vsinput:** fixes aria label being on all inputs regardless of whether or not they had one ([282b47e](https://github.com/visitscotland/vs-component-library/commit/282b47ee346d05a90ff130982fb6ff38a1c1124e))
+* **vsinput:** passes aria-label down to input element rather than it sitting on input component div ([683960e](https://github.com/visitscotland/vs-component-library/commit/683960eba3cb6e104215dee69ac89f9524dfffb2))
+* **vsmainmap:** adds more shaded areas when zoomed in ([a68588a](https://github.com/visitscotland/vs-component-library/commit/a68588a8b808837ee8beaa549cf8ee19d3b0edbb))
+* **vsmainmap:** adds pointer events to filters for iOS compatibility ([d78703c](https://github.com/visitscotland/vs-component-library/commit/d78703ca82b8ddc7c88470509687d346aec81d88))
+* **vsmainmap:** fixes poor accessibility in the sidebar by adding new aria label for search box ([bf2f373](https://github.com/visitscotland/vs-component-library/commit/bf2f373d275cb504dd9b30528e7f199b22f6a323))
+* **vsmainmap:** recenters the map after pin click to ensure info window is visible ([a0cd470](https://github.com/visitscotland/vs-component-library/commit/a0cd4709207c8ac15cd0be5cfcaa16c8a970ff96))
+* **vsmainmap:** updates to the shading areas that include more of Europe ([5a5feab](https://github.com/visitscotland/vs-component-library/commit/5a5feabc5fbf4368542906c4c5ff3156e696c88e))
+* **vsmapsidebar:** fix missing prop causing sidebar component to fail a11y tests when run standalone ([0da6636](https://github.com/visitscotland/vs-component-library/commit/0da66363496aaa30b4dff117248f1bde64ab8aaf))
+
+
+### Features
+
+* **vsmainmap:** adds in prop for and adds reset map link to no results message ([de408d1](https://github.com/visitscotland/vs-component-library/commit/de408d1675c10c739db6ab5cf218911ad2fd0023))
+
 # [5.26.0](https://github.com/visitscotland/vs-component-library/compare/v5.25.0...v5.26.0) (2025-12-17)
 
 
