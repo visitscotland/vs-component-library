@@ -39,7 +39,8 @@ const base = {
     categoriesLocation: './fixtures/custom-components/main-map/map-categories.json',
     categoryLabels: mapCategoryLabels,
     jsDisabled: false,
-    noResultsMessage: 'We couldn’t find anything here. Try zooming out to explore more locations.',
+    noResultsMessage: 'We couldn\'t find anything here.',
+    resetMapNoResultsMessage: 'Reset the map to explore more locations.',
     noJsMessage: 'JavaScript is required to use the map. Enable JavaScript then reload the page to use the map.',
     noCookiesMessage: 'Cookies are required to use the map',
     cookieBtnText: 'Manage cookies',
@@ -64,7 +65,8 @@ export const Espanol = Template.bind();
 
 Espanol.args = {
     ...base,
-    noResultsMessage: 'No encontramos nada aquí. Intenta alejar la imagen para explorar más ubicaciones.',
+    noResultsMessage: 'No pudimos encontrar nada aquí.',
+    resetMapNoResultsMessage: 'Restablezca el mapa para explorar más ubicaciones.',
     labels: {
         heading: 'Descubre tu Escocia',
         closeSidebarBtn: 'Cerrar barra lateral',
