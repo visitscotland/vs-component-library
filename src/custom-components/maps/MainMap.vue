@@ -12,6 +12,7 @@
                     :selected-categories="selectedTopLevelCategory"
                     :header-label="props.labels.heading"
                     :close-sidebar-button-label="props.labels.closeSidebarBtn"
+                    :search-bar-aria-label="props.labels.searchBarAriaLabel"
                     :input-placeholder-label="props.labels.inputPlaceholder"
                     :search-button-label="props.labels.searchButton"
                     :clear-map-label="props.labels.clearMap"
@@ -97,7 +98,15 @@
                             class="mt-075 mb-150"
                             size="small"
                         >
-                            {{ noResultsMessage }}
+                            <span>
+                                {{ noResultsMessage }}
+                                <VsLink
+                                    href="#"
+                                    @click.prevent="resetMap(true, true)"
+                                >
+                                    {{ resetMapNoResultsMessage }}
+                                </VsLink>
+                            </span>
                         </VsAlert>
                     </template>
                 </VsMapSidebar>
@@ -207,6 +216,7 @@ import {
     VsAlert,
     VsButton,
     VsWarning,
+    VsLink,
 } from '@/components';
 import useGoogleMapStore from '@/stores/mainMap.store';
 import cookieValues from '@/utils/required-cookies-data';
@@ -332,6 +342,10 @@ const props = defineProps({
         type: String,
         required: true,
     },
+    resetMapNoResultsMessage: {
+        type: String,
+        required: true,
+    },
 });
 
 // Map Object, HTMLElements & Global Variables
@@ -362,7 +376,7 @@ const includedSubTypes = ref(new Set());
 const categoryKey = ref();
 const subCategoryKey = ref();
 const currentZoom = ref(props.zoom);
-const MAX_ZOOM = 19;
+const MAX_ZOOM = 17;
 const CATEGORY_VISIBLE_ZOOM = 11;
 const NUMBER_OF_RESULTS = 20;
 const query = ref();
@@ -566,11 +580,23 @@ function shadeMapAreas(zoomedIn) {
         'ChIJuwtkpGSZAEcR6lXMScpzdQk', // Poland
         'ChIJl5fz7WR9wUcR8g_mObTy60c', // Belgium
         'ChIJMVd4MymgVA0R99lHx5Y__Ws', // France
+        'ChIJ_ZqKe2cw6UYREPzyaM3PAAA', // Latvia
+        'ChIJE74zDxSU3UYRubpdpdNUCvM', // Lithuania
+        'ChIJ4wsuREWc40YRewI60MRYJR4', // Kaliningrad
+        'ChIJ_UuggpyUkkYRwyW0T7qf6kA', // Estonia
+        'ChIJ3fYyS9_KgUYREKh1PNZGAQA', // Finland
+        'ChIJQ2Dro1Ir0kgRmkXB5TQEim8', // Iceland
+        'ChIJFXfA47sNok4RGOIUAYOdzzQ', // Greenland
+        'ChIJI9HkgQm_ikYR8i7GR23fEbY', // Countryside, Åland
+        'ChIJUXXYvLMei0YR7zdFQUIM8bA', // Archipelago, Åland
+        'ChIJRyEhyrlFlUcR75LTAvZg22Q', // Luxembourg
     ];
 
     const zoomedInShadedPlaces = [
         'ChIJ39UebIqp0EcRqI4tMyWV4fQ', // England
         'ChIJdZmmmcoQXkgR2OO3bu8o5fc', // Northern Ireland
+        'ChIJ-ydAXOS6WUgRCPTbzjQSfM8', // Republic of Ireland
+        'ChIJ6_ktdpMVvEgRJBv3ZEgxsD8', // Faroe Islands
     ];
 
     // eslint-disable-next-line no-undef
@@ -581,6 +607,13 @@ function shadeMapAreas(zoomedIn) {
     if (zoomedIn) {
         countryLayer.style = null;
         adminArea1Layer.style = null;
+
+        // eslint-disable-next-line consistent-return
+        countryLayer.style = (options) => {
+            if (zoomedInShadedPlaces.includes(options.feature.placeId)) {
+                return shadedAreaStyleOptions;
+            }
+        };
 
         // eslint-disable-next-line consistent-return
         adminArea1Layer.style = (options) => {
@@ -876,7 +909,7 @@ async function addMarkers() {
     }
 }
 
-function resetMap(hardReset) {
+function resetMap(hardReset, resetLocation) {
     clearExistingMarkers();
     currentSearch.value = '';
     nearbySearch.style.display = 'none';
@@ -893,6 +926,11 @@ function resetMap(hardReset) {
         resetTextQuery();
         resetCategories();
         mapInteractionEvent('clear_all');
+    }
+    if (resetLocation) {
+        gMap.setCenter(props.center);
+        gMap.setZoom(props.zoom);
+        mapInteractionEvent('reset_map');
     }
 }
 
@@ -959,10 +997,8 @@ function handlePlaceClick(place, marker) {
         map: gMap,
     });
 
-    gMap.fitBounds(place.viewport, {
-        top: 200,
-        right: 150,
-    });
+    gMap.fitBounds(place.viewport);
+
     // eslint-disable-next-line no-undef
     google.maps.event.addListenerOnce(gMap, 'idle', () => {
         if (gMap.getZoom() > MAX_ZOOM) {
@@ -971,6 +1007,8 @@ function handlePlaceClick(place, marker) {
 
         mapInteractionEvent('card_open', place);
     });
+
+    gMap.setCenter(place.location);
 }
 
 async function mapInteractionEvent(interactionType, place) {
@@ -1093,6 +1131,7 @@ function getVisibleMarkerCount() {
         width: calc(100vw - $vs-spacer-100);
         margin: $vs-spacer-050 $vs-spacer-0;
         padding: $vs-spacer-025 $vs-spacer-025 $vs-spacer-050 $vs-spacer-025;
+        pointer-events: all;
 
         @include scrollsnap-styles;
 

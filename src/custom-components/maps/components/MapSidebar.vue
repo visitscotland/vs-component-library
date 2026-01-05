@@ -13,7 +13,6 @@
                 class="flex-grow-1"
                 id="vs-map-sidebar__heading"
                 data-test="vs-map-sidebar__heading"
-                aria-hidden="true"
             >
                 {{ props.headerLabel }}
             </VsHeading>
@@ -30,12 +29,6 @@
         </div>
         <div class="vs-map-sidebar__content">
             <div class="vs-map-sidebar__input d-flex mt-100 mb-050">
-                <label
-                    for="vs-map-search-input"
-                    class="visually-hidden"
-                >
-                    {{ props.headerLabel }}
-                </label>
                 <VsInput
                     type="text"
                     autocomplete="off"
@@ -44,7 +37,7 @@
                     ref="vs-search-input"
                     :placeholder="props.inputPlaceholderLabel"
                     class="vs-map-sidebar__input flex-grow-1"
-                    aria-describedby="vs-map-sidebar__heading"
+                    :aria-label="props.searchBarAriaLabel"
                     @keyup.enter.prevent="$emit('search-input-changed')"
                 />
                 <VsButton
@@ -152,6 +145,11 @@ const props = defineProps({
         type: String,
         default: '',
     },
+    /** ARIA Label for the input */
+    searchBarAriaLabel: {
+        type: String,
+        default: '',
+    },
     /** Label for the input placeholder text */
     inputPlaceholderLabel: {
         type: String,
@@ -230,10 +228,9 @@ defineEmits(['search-input-changed', 'reset-map']);
         @include media-breakpoint-down(md) {
             width: 100%;
             flex-wrap: nowrap;
-            overflow-x: scroll;
-            scroll-snap-type: mandatory x;
             align-items: start;
             @include scrollsnap-styles;
+            pointer-events: all;
             column-gap: $vs-spacer-050;
             padding: $vs-spacer-025 $vs-spacer-025 $vs-spacer-050 $vs-spacer-025 ;
         }
