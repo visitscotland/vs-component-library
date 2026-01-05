@@ -40,6 +40,7 @@
             :autocomplete="autocompleteValue(fieldName)"
             :v="inputVal"
             :aria-invalid="(v$.inputVal && v$.inputVal.$anyError) || invalid"
+            :aria-label="ariaLabel"
             :aria-describedby="ariaDescription"
             :maxlength="validationRules.maxLength ? validationRules.maxLength : null"
             :minlength="validationRules.minLength ? validationRules.minLength : null"
@@ -139,6 +140,14 @@ export default {
         invalid: {
             type: Boolean,
             default: false,
+        },
+        /**
+         * AriaLabel to be passed through to the input
+         * element, rather than sitting on top level div
+         */
+        ariaLabel: {
+            type: String,
+            default: '',
         },
         /**
         * Option to disable the input
