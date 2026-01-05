@@ -134,7 +134,7 @@ describe('VsInput', () => {
             expect(wrapper.find('.vs-input').attributes('aria-label')).toBe('This is an input');
         });
 
-        it('should not have an aria label property on the input when the aria label is populated', async() => {
+        it('should not have an aria label property on the input when the aria label is not populated', async() => {
             expect(wrapper.find('.vs-input').attributes('aria-label')).toBeFalsy();
         });
     });
