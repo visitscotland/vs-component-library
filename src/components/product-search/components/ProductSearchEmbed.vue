@@ -75,7 +75,7 @@
                                 value="10"
                             >
 
-                            <div v-if="selectedProd === 'even' || selectedProd === 'acco'">
+                            <div v-if="selectedProd === 'even'">
                                 <DateRange
                                     :start-label="getLabelText('startdate', 'Start Date', 'dates')"
                                     :end-label="getLabelText('enddate', 'End Date', 'dates')"
@@ -97,12 +97,6 @@
                                         name="name"
                                     />
                                 </div>
-
-                                <GuestSelector
-                                    v-if="selectedProd === 'acco'"
-                                    :availability="true"
-                                    id="guest-selector"
-                                />
 
                                 <div v-if="selectedProd === 'acco'">
                                     <input
