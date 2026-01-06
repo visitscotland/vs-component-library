@@ -100,12 +100,12 @@
                         >
                             <span>
                                 {{ noResultsMessage }}
-                                <VsLink
+                                <a
                                     href="#"
                                     @click.prevent="resetMap(true, true)"
                                 >
                                     {{ resetMapNoResultsMessage }}
-                                </VsLink>
+                                </a>
                             </span>
                         </VsAlert>
                     </template>
@@ -216,7 +216,6 @@ import {
     VsAlert,
     VsButton,
     VsWarning,
-    VsLink,
 } from '@/components';
 import useGoogleMapStore from '@/stores/mainMap.store';
 import cookieValues from '@/utils/required-cookies-data';
