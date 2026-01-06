@@ -98,13 +98,13 @@
                                     />
                                 </div>
 
-                                <div v-if="selectedProd === 'acco'">
-                                    <input
-                                        hidden="true"
-                                        name="avail"
-                                        :value="availSearch"
-                                    />
-                                </div>
+                            </div>
+                            <div v-if="selectedProd === 'acco'">
+                                <input
+                                    hidden="true"
+                                    name="avail"
+                                    value="off"
+                                />
                             </div>
                         </div>
 
@@ -190,7 +190,6 @@ import VsLoadingSpinner from '@/components/loading-spinner/LoadingSpinner.vue';
 import VsSelect from '@/components/select/Select.vue';
 import VsInput from '@/components/input/Input.vue';
 import Autocomplete from './Autocomplete.vue';
-import GuestSelector from './GuestSelector.vue';
 import DateRange from './DateRange.vue';
 import VsButton from '@/components/button/Button.vue';
 
