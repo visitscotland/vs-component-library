@@ -432,6 +432,7 @@ const googleMapInteractionTemplate = [
     'map_location',
     'visible_attractions_count',
     'card_attraction_name',
+    'card_attraction_category',
     'card_attraction_rating',
     'card_attraction_url',
     'interaction_timestamp_ms',
