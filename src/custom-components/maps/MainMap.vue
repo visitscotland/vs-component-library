@@ -1015,11 +1015,13 @@ async function mapInteractionEvent(interactionType, place) {
     let cardName = '';
     let cardRating = '';
     let cardUrl = '';
+    let cardPrimaryType = '';
 
     if (place) {
         await place.fetchFields({
             fields: [
                 'displayName',
+                'primaryType',
                 'rating',
                 'websiteURI',
             ],
@@ -1028,6 +1030,7 @@ async function mapInteractionEvent(interactionType, place) {
         cardName = place.displayName;
         cardRating = place.rating;
         cardUrl = place.websiteURI;
+        cardPrimaryType = place.primaryType;
     }
 
     dataLayerHelper.createDataLayerObject('googleMapInteractionEvent', {
@@ -1036,6 +1039,7 @@ async function mapInteractionEvent(interactionType, place) {
         map_location: gMap.getCenter().toString(),
         visible_attractions_count: visibleMarkerCount,
         card_attraction_name: cardName,
+        card_attraction_category: cardPrimaryType,
         card_attraction_rating: cardRating,
         card_attraction_url: cardUrl,
         interaction_timestamp_ms: Date.now(),
