@@ -75,7 +75,7 @@
                                 value="10"
                             >
 
-                            <div v-if="selectedProd === 'even' || selectedProd === 'acco'">
+                            <div v-if="selectedProd === 'even'">
                                 <DateRange
                                     :start-label="getLabelText('startdate', 'Start Date', 'dates')"
                                     :end-label="getLabelText('enddate', 'End Date', 'dates')"
@@ -98,19 +98,13 @@
                                     />
                                 </div>
 
-                                <GuestSelector
-                                    v-if="selectedProd === 'acco'"
-                                    :availability="true"
-                                    id="guest-selector"
+                            </div>
+                            <div v-if="selectedProd === 'acco'">
+                                <input
+                                    hidden="true"
+                                    name="avail"
+                                    value="off"
                                 />
-
-                                <div v-if="selectedProd === 'acco'">
-                                    <input
-                                        hidden="true"
-                                        name="avail"
-                                        :value="availSearch"
-                                    />
-                                </div>
                             </div>
                         </div>
 
@@ -196,7 +190,6 @@ import VsLoadingSpinner from '@/components/loading-spinner/LoadingSpinner.vue';
 import VsSelect from '@/components/select/Select.vue';
 import VsInput from '@/components/input/Input.vue';
 import Autocomplete from './Autocomplete.vue';
-import GuestSelector from './GuestSelector.vue';
 import DateRange from './DateRange.vue';
 import VsButton from '@/components/button/Button.vue';
 

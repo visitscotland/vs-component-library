@@ -100,8 +100,8 @@ describe('VsProductSearchEmbed', () => {
 
             expect(productTypeSelect.exists()).toBe(true);
             expect(wrapper.find('#search-location').exists()).toBe(true);
-            expect(wrapper.find('[data-test="vs-date-range"]').exists()).toBe(true);
-            expect(wrapper.find('[data-test="vs-guest-selector"]').exists()).toBe(true);
+            expect(wrapper.find('[data-test="vs-date-range"]').exists()).toBe(false);
+            expect(wrapper.find('[data-test="vs-guest-selector"]').exists()).toBe(false);
             // fix guest-selector not having a proper label
             // expect(await axe(wrapper.html())).toHaveNoViolations();
         });
