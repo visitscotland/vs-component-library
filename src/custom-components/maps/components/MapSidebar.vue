@@ -53,7 +53,7 @@
                     {{ props.searchButtonLabel }}
                 </VsButton>
             </div>
-            <VsLink
+            <a
                 href="#"
                 class="d-block"
                 data-test="vs-map-sidebar__reset-map"
@@ -62,7 +62,7 @@
                 @keyup.enter.prevent="$emit('reset-map')"
             >
                 {{ props.clearMapLabel }}
-            </VsLink>
+            </a>
             <div
                 v-if="$slots['vs-map-sidebar-sub-filters'] && $slots['vs-map-sidebar-sub-filters']()"
                 class="vs-map-sidebar__sub-filters-wrapper"
@@ -116,7 +116,6 @@
 <script setup lang="ts">
 import VsButton from '@/components/button/Button.vue';
 import VsDetail from '@/components/detail/Detail.vue';
-import VsLink from '@/components/link/Link.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsInput from '@/components/input/Input.vue';
 
