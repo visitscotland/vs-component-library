@@ -1,3 +1,15 @@
+# [5.28.0](https://github.com/visitscotland/vs-component-library/compare/v5.27.0...v5.28.0) (2026-01-07)
+
+
+### Bug Fixes
+
+* **product search:** remove unused import ([c8489e0](https://github.com/visitscotland/vs-component-library/commit/c8489e057dfbccb7d46aabbbd09dca6f646f1bd7))
+
+
+### Features
+
+* **product search:** remove fields when accommodation is selected ([5b5e406](https://github.com/visitscotland/vs-component-library/commit/5b5e4067c14b219fa60a9b22a0116145c30179fb))
+
 # [5.27.0](https://github.com/visitscotland/vs-component-library/compare/v5.26.0...v5.27.0) (2026-01-05)
 
 
