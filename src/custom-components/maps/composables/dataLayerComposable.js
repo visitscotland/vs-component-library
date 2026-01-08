@@ -147,6 +147,7 @@ export default function dataLayerComposable() {
                 map_location: event.map_location,
                 visible_attractions_count: event.visible_attractions_count,
                 card_attraction_name: event.card_attraction_name,
+                card_attraction_category: event.card_attraction_category,
                 card_attraction_url: event.card_attraction_url,
                 card_attraction_rating: event.card_attraction_rating,
                 interaction_timestamp_ms: event.interaction_timestamp_ms,

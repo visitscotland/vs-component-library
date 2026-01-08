@@ -100,12 +100,12 @@
                         >
                             <span>
                                 {{ noResultsMessage }}
-                                <VsLink
+                                <a
                                     href="#"
                                     @click.prevent="resetMap(true, true)"
                                 >
                                     {{ resetMapNoResultsMessage }}
-                                </VsLink>
+                                </a>
                             </span>
                         </VsAlert>
                     </template>
@@ -216,7 +216,6 @@ import {
     VsAlert,
     VsButton,
     VsWarning,
-    VsLink,
 } from '@/components';
 import useGoogleMapStore from '@/stores/mainMap.store';
 import cookieValues from '@/utils/required-cookies-data';
@@ -1015,11 +1014,13 @@ async function mapInteractionEvent(interactionType, place) {
     let cardName = '';
     let cardRating = '';
     let cardUrl = '';
+    let cardPrimaryType = '';
 
     if (place) {
         await place.fetchFields({
             fields: [
                 'displayName',
+                'primaryType',
                 'rating',
                 'websiteURI',
             ],
@@ -1028,6 +1029,7 @@ async function mapInteractionEvent(interactionType, place) {
         cardName = place.displayName;
         cardRating = place.rating;
         cardUrl = place.websiteURI;
+        cardPrimaryType = place.primaryType;
     }
 
     dataLayerHelper.createDataLayerObject('googleMapInteractionEvent', {
@@ -1036,6 +1038,7 @@ async function mapInteractionEvent(interactionType, place) {
         map_location: gMap.getCenter().toString(),
         visible_attractions_count: visibleMarkerCount,
         card_attraction_name: cardName,
+        card_attraction_category: cardPrimaryType,
         card_attraction_rating: cardRating,
         card_attraction_url: cardUrl,
         interaction_timestamp_ms: Date.now(),
