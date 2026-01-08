@@ -1,3 +1,18 @@
+# [5.29.0](https://github.com/visitscotland/vs-component-library/compare/v5.28.0...v5.29.0) (2026-01-08)
+
+
+### Bug Fixes
+
+* **datalayermixin:** adds new attraction category googleMapInteractionTemplate to dataLayerTemplates ([7186140](https://github.com/visitscotland/vs-component-library/commit/71861405a0817344a14eda5c1c57d6dbf831a06d))
+* **vsmainmap:** fixes dataLayerPush on clearing map ([bf749c2](https://github.com/visitscotland/vs-component-library/commit/bf749c2e551cd004ea47d35fd556416810e3e20e))
+* **vsmainmap:** fixes missed field in dataLayerComposable causing failure to populate data in event ([9cb2556](https://github.com/visitscotland/vs-component-library/commit/9cb25568ebf30ff4b1c4e1c202853ff20a64de29))
+* **vsmapsidebar:** fixes clear all button dataLayer internal-link event ([e528c8a](https://github.com/visitscotland/vs-component-library/commit/e528c8a4cd09d61ec6e5c44964d20ab0851d784c))
+
+
+### Features
+
+* **vsmainmap:** adds primaryType/category to data layer mapInteractionEvent ([87e804f](https://github.com/visitscotland/vs-component-library/commit/87e804fd776217bbe03e0156efed759ecbe4cb48))
+
 # [5.28.0](https://github.com/visitscotland/vs-component-library/compare/v5.27.0...v5.28.0) (2026-01-07)
 
 
