@@ -492,6 +492,7 @@ onMounted(async() => {
                 mapTypeControl: false,
                 cameraControl: false,
                 streetViewControl: false,
+                gestureHandling: 'greedy',
             };
 
             if (mapContainer) {
