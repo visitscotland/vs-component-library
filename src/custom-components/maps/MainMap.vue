@@ -1088,7 +1088,7 @@ function getVisibleMarkerCount() {
 .vs-map {
     //Google Maps Places UI Kit Custom Styling
     //semantic tokens don't seem to work with it
-    --gmp-mat-color-surface: #fff //$vs-color-background-primary;
+    --gmp-mat-color-surface: #fff; //$vs-color-background-primary;
     --gmp-mat-color-on-surface: #200F2E; //$vs-color-text-primary;
     --gmp-mat-color-on-surface-variant: #606060; //$vs-color-text-secondary;
     --gmp-mat-color-primary: #1F49D6; //$vs-color-text-cta-on-light;
@@ -1097,6 +1097,10 @@ function getVisibleMarkerCount() {
     --gmp-mat-color-info: #A8308C; //$vs-color-icon-highlight;
     --gmp-mat-color-outline-decorative: #E9E9E9; //$vs-color-border-primary;
     --gmp-mat-font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; //$vs-font-family-sans-serif;
+
+    gmp-place-search, gmp-place-details {
+        color-scheme: only light;
+    }
 
     &__container {
         position: relative;
