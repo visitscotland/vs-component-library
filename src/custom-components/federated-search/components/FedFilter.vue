@@ -10,7 +10,7 @@
         </VsBody>
         <div class="vs-fed-filter__scroll-container">
             <VsButton
-                v-if="scrollButtons"
+                v-if="showLeftButton"
                 variant="secondary"
                 icon="fa-regular fa-chevron-left"
                 icon-only
@@ -18,6 +18,7 @@
                 data-test="vs-fed-filter__scroll-button--left"
                 @click="scroll('left')"
                 :aria-label="props.scrollLeftText"
+                ref="leftButton"
             >
                 {{ props.scrollLeftText }}
             </VsButton>
@@ -26,6 +27,7 @@
                 :class="filterClasses()"
                 :id="`vs-fed-filter__scroll-rail--${props.variant}`"
                 ref="scrollRail"
+                @scroll="updateArrows"
             >
                 <VsButton
                     v-for="(filterCategory, index) in sortedCategories"
@@ -41,7 +43,7 @@
                 </VsButton>
             </div>
             <VsButton
-                v-if="scrollButtons"
+                v-if="showRightButton"
                 variant="secondary"
                 icon="fa-regular fa-chevron-right"
                 icon-only
@@ -49,6 +51,7 @@
                 data-test="vs-fed-filter__scroll-button--right"
                 @click="scroll('right')"
                 :aria-label="props.scrollRightText"
+                ref="rightButton"
             >
                 {{ props.scrollRightText }}
             </VsButton>
@@ -57,7 +60,11 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import {
+    ref,
+    computed,
+    onMounted,
+} from 'vue';
 import VsButton from '@/components/button/Button.vue';
 import VsBody from '@/components/body/Body.vue';
 
@@ -131,8 +138,24 @@ const props = defineProps({
 
 // Defines the scroll rail from the Template
 const scrollRail = ref(null);
+const leftButton = ref(null);
+const rightButton = ref(null);
+const hasOverflow = ref(false);
+const showLeftButton = ref(false);
+const showRightButton = ref(false);
 
 defineEmits(['filter-updated']);
+
+// TODO: position buttons absolutely to avoid layout shift.
+// TODO: test on desktop/tablet/mobile.
+// TODO: make sure arrows only show when scrollButtons = true.
+function updateArrows() {
+    const maxScroll = scrollRail.value.scrollWidth - scrollRail.value.clientWidth;
+    hasOverflow.value = maxScroll > 0;
+
+    showLeftButton.value = hasOverflow.value && scrollRail.value.scrollLeft > 0;
+    showRightButton.value = hasOverflow.value && scrollRail.value.scrollLeft < maxScroll;
+};
 
 function isActive(category) {
     if (typeof props.activeFilter === 'string') {
@@ -149,7 +172,7 @@ function isActive(category) {
  * This is not the best solution by any means
  * There is a better solution that doesn't rely on JS,
  * but is not stable across all browsers yet.
- * We should look to implent it, if we chose to keep it,
+ * We should look to implement it, if we chose to keep it,
  * when it does become stable on Safari & Firefox.
  * https://developer.mozilla.org/en-US/docs/Web/CSS/::scroll-button
 */
@@ -235,6 +258,10 @@ function setFilterIcon(key) {
 
     return icon;
 }
+
+onMounted(() => {
+    updateArrows();
+});
 </script>
 
 <style lang="scss">
