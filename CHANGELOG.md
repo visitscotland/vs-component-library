@@ -1,3 +1,11 @@
+## [5.29.1](https://github.com/visitscotland/vs-component-library/compare/v5.29.0...v5.29.1) (2026-01-12)
+
+
+### Bug Fixes
+
+* **vsmainmap:** fix disclaimer transparent background & forces light color scheme on gMap components ([609a202](https://github.com/visitscotland/vs-component-library/commit/609a202a2bd9d477460b757a97c8cf828fd10eb4))
+* **vsmainmap:** fixes map gesture handling behaviour to "greedy" to capture user input more easily ([248a2d9](https://github.com/visitscotland/vs-component-library/commit/248a2d94304036cc49f7dcc2318bb79df6c0ca34))
+
 # [5.29.0](https://github.com/visitscotland/vs-component-library/compare/v5.28.0...v5.29.0) (2026-01-08)
 
 
