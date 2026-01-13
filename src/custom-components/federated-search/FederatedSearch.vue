@@ -341,7 +341,7 @@ const props = defineProps({
     cludoApiOperator: {
         type: String,
         default: 'or',
-        validator: (value) => value.match(/and|or/),
+        validator: (value) => ['and', 'or'].includes(value),
     },
 });
 
