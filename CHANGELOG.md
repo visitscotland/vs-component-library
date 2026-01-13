@@ -1,3 +1,16 @@
+# [5.30.0](https://github.com/visitscotland/vs-component-library/compare/v5.29.1...v5.30.0) (2026-01-13)
+
+
+### Bug Fixes
+
+* **fed filter:** fix typo ([982f9df](https://github.com/visitscotland/vs-component-library/commit/982f9df26fab812a4bf451dc0f6323f84390d184))
+* **federated search:** get params before starting the search ([878e673](https://github.com/visitscotland/vs-component-library/commit/878e67346ebe053864527dd1566432e3ed1e653b))
+
+
+### Features
+
+* **federated search:** add new events api parameters ([3c2e514](https://github.com/visitscotland/vs-component-library/commit/3c2e514a9d839d19097f92d456ec4317c6095d6b))
+
 ## [5.29.1](https://github.com/visitscotland/vs-component-library/compare/v5.29.0...v5.29.1) (2026-01-12)
 
 
