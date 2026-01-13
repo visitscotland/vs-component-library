@@ -23,6 +23,7 @@ async function cludoSearch(
     page: number,
     selectedCategory: string,
     selectedCategoryKey: string,
+    apiOperator: string,
 ) {
     const { apiKey, customerId, engineId } = cludoCredentials;
     const url = `https://api-eu1.cludo.com/api/v3/${customerId}/${engineId}/search`;
@@ -56,7 +57,7 @@ async function cludoSearch(
             method: 'POST',
             body: JSON.stringify({
                 query: searchTerm || '*',
-                operator: 'or',
+                operator: apiOperator,
                 responseType: 'JsonObject',
                 perPage: selectedCategoryKey ? 12 : 6,
                 page,

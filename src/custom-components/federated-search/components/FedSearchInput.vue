@@ -36,7 +36,10 @@
             </VsButton>
         </div>
 
-        <div class="position-relative">
+        <div
+            v-if="searchSuggestions && searchSuggestions.length > 0"
+            class="position-relative"
+        >
             <div
                 v-if="searchSuggestions"
                 class="vs-fed-search-input__autocomplete"
@@ -342,6 +345,22 @@ onMounted(() => {
 
     if (params.has('search-term') || params.has('category')) {
         federatedSearchStore.getSearchResults();
+    }
+
+    if (params.has('postcode')) {
+        federatedSearchStore.postcode = params.get('postcode');
+    }
+
+    if (params.has('location')) {
+        federatedSearchStore.location = params.get('location');
+    }
+
+    if (params.has('radius')) {
+        federatedSearchStore.radius = params.get('radius');
+    }
+
+    if (params.has('postcodeareas')) {
+        federatedSearchStore.postcodeareas = params.get('postcodeareas');
     }
 });
 
