@@ -59,7 +59,7 @@ async function cludoSearch(
                 query: searchTerm || '*',
                 operator: apiOperator,
                 responseType: 'JsonObject',
-                perPage: selectedCategoryKey ? 12 : 6,
+                perPage: 6,
                 page,
                 facets: {
                     Category: selectedCategoryKey ? [selectedCategoryKey] : null,
