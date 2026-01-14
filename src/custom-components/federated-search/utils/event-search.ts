@@ -33,6 +33,10 @@ async function eventSearch(
     endDate: string,
     sortBy: string,
     siteLanguage: string,
+    postcode: string,
+    location: string,
+    radius: number,
+    postcodeareas: string,
 ) {
     const federatedSearchStore = useFederatedSearchStore();
     federatedSearchStore.eventsApiError = false;
@@ -46,6 +50,10 @@ async function eventSearch(
         url = endDate !== '' ? `${url}&endDate=${endDate}` : url;
         url = sortBy ? `${url}&sort=${sortBy}` : url;
         url = selectedCategoryKey === 'events' ? `${url}&pageSize=12` : `${url}&pageSize=6`;
+        url = postcode ? `${url}&postcode=${postcode}` : url;
+        url = location ? `${url}&location=${location}` : url;
+        url = radius ? `${url}&radius=${radius}` : url;
+        url = postcodeareas ? `${url}&postcodeareas=${postcodeareas}` : url;
 
         selectedSubCategoryKey.forEach((category) => {
             url += `&category=${category}`;
