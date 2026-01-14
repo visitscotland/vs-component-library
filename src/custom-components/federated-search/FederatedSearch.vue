@@ -335,6 +335,14 @@ const props = defineProps({
             /(en|es|it|de|nl|fr)/,
         ),
     },
+    /**
+     * Operator for the Cludo API query.
+     */
+    cludoApiOperator: {
+        type: String,
+        default: 'or',
+        validator: (value) => ['and', 'or'].includes(value),
+    },
 });
 
 const eventHasBeenClicked = ref(false);
@@ -408,6 +416,7 @@ onMounted(async() => {
     federatedSearchStore.eventsApi = props.eventsApi;
     federatedSearchStore.filters = props.filters;
     federatedSearchStore.siteLanguage = props.siteLanguage;
+    federatedSearchStore.cludoApiOperator = props.cludoApiOperator;
 
     calculateError();
 

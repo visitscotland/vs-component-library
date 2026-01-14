@@ -30,6 +30,11 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
     const siteLanguage = ref(undefined);
     const searchInSessionCount = ref(-1);
     const queryInput = ref('');
+    const postcode = ref('');
+    const location = ref('');
+    const radius = ref(0);
+    const postcodeareas = ref('');
+    const cludoApiOperator = ref('or');
 
     async function getSearchResults(isAutoSearch = false) {
         isLoading.value = true;
@@ -44,6 +49,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
             currentPage.value,
             selectedCategory.value,
             selectedCategoryKey.value,
+            cludoApiOperator.value,
         );
 
         const eventResults = await eventSearch(
@@ -56,6 +62,10 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
             endDate.value,
             sortBy.value,
             siteLanguage.value,
+            postcode.value,
+            location.value,
+            radius.value,
+            postcodeareas.value,
         );
 
         results.value = [...cludoResults.results, ...eventResults.results];
@@ -163,6 +173,11 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
         siteLanguage,
         searchInSessionCount,
         queryInput,
+        postcode,
+        location,
+        radius,
+        postcodeareas,
+        cludoApiOperator,
     };
 });
 
