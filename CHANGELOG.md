@@ -1,3 +1,11 @@
+## [5.30.1](https://github.com/visitscotland/vs-component-library/compare/v5.30.0...v5.30.1) (2026-01-16)
+
+
+### Bug Fixes
+
+* **map:** remove double semi colon ([9eb17e8](https://github.com/visitscotland/vs-component-library/commit/9eb17e83bfdee25c15cec7e3194b61002107a0cb))
+* **maps:** make main map marker styles more specific ([816bdd4](https://github.com/visitscotland/vs-component-library/commit/816bdd4fe9d19b1186fd81893d41c468eecdfe94))
+
 # [5.30.0](https://github.com/visitscotland/vs-component-library/compare/v5.29.1...v5.30.0) (2026-01-13)
 
 
