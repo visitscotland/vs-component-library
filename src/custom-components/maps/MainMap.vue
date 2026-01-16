@@ -98,7 +98,7 @@
                                         size="sm"
                                         href="#"
                                         icon="fa-regular fa-circle-info"
-                                        @click="emitter.emit('showModal', 'map-disclaimer')"
+                                        @click.prevent="emitter.emit('showModal', 'map-disclaimer')"
                                         ref="btnShow"
                                     >
                                         {{ disclaimerLabels.button }}
@@ -412,7 +412,7 @@ let markers = {
 };
 
 let visibleMarkerCount;
-const countReturnedResults = ref();
+const countReturnedResults = ref(0);
 
 const selectedTopLevelCategory = ref();
 const selectedSubCategories = ref(new Set());
