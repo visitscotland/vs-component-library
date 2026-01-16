@@ -93,9 +93,7 @@
                                 <div class="vs-map__disclaimer">
                                     <VsButton
                                         class="vs-map__disclaimer-btn"
-                                        v-if="currentSearch
-                                            || selectedTopLevelCategory
-                                            || selectedSubCategories.size > 0"
+                                        v-if="countReturnedResults > 0"
                                         variant="tertiary"
                                         size="sm"
                                         href="#"
@@ -414,6 +412,7 @@ let markers = {
 };
 
 let visibleMarkerCount;
+const countReturnedResults = ref();
 
 const selectedTopLevelCategory = ref();
 const selectedSubCategories = ref(new Set());
@@ -909,6 +908,7 @@ async function addMarkers() {
     const bounds = new LatLngBounds();
 
     if (searchRequest.value.places) {
+        countReturnedResults.value = searchRequest.value.places.length;
         searchRequest.value.places.forEach((place) => {
             // Custom styling for marker
             const markerIcon = document.createElement('div');
@@ -968,6 +968,8 @@ function resetMap(hardReset, resetLocation) {
     if (infoWindow && infoWindow.close) {
         infoWindow.close();
     }
+
+    countReturnedResults.value = 0;
     noResults.value = false;
     if (hardReset) {
         // A `hard reset` will remove all text and categories
