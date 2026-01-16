@@ -244,7 +244,6 @@ defineEmits(['search-input-changed', 'reset-map']);
     }
 
     &__google-maps-container {
-        border-radius: $vs-radius-large;
         max-height: clamp(275px, 20em, 50vh);
         overflow-y: scroll;
     }
