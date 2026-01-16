@@ -1074,7 +1074,7 @@ function getVisibleMarkerCount() {
             background-color: $vs-color-icon-cta-on-light;
             border-radius: $vs-radius-large;
             border: 0.125em solid $vs-color-icon-inverse;
-            box-shadow: $vs-elevation-shadow-raised;;
+            box-shadow: $vs-elevation-shadow-raised;
             transition: transform 0.1s ease-in-out;
             font-size: 1.5em;
             color: $vs-color-icon-inverse;
