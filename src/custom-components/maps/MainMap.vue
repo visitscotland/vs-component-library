@@ -1064,6 +1064,25 @@ function getVisibleMarkerCount() {
     &__wrapper, #vs-map {
         height: 90vh;
         width: 100%;
+
+        .vs-map-marker {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: $vs-spacer-200;
+            height: $vs-spacer-200;
+            background-color: $vs-color-icon-cta-on-light;
+            border-radius: $vs-radius-large;
+            border: 0.125em solid $vs-color-icon-inverse;
+            box-shadow: $vs-elevation-shadow-raised;;
+            transition: transform 0.1s ease-in-out;
+            font-size: 1.5em;
+            color: $vs-color-icon-inverse;
+
+            &:hover {
+                transform: scale(1.25);
+            }
+        }
     }
 
     &__controls {
@@ -1123,25 +1142,6 @@ function getVisibleMarkerCount() {
 
     &__warning {
         display: none;
-    }
-
-    .vs-map-marker {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: $vs-spacer-200;
-        height: $vs-spacer-200;
-        background-color: $vs-color-icon-cta-on-light;
-        border-radius: $vs-radius-large;
-        border: 0.125em solid $vs-color-icon-inverse;
-        box-shadow: $vs-elevation-shadow-raised;;
-        transition: transform 0.1s ease-in-out;
-        font-size: 1.5em;
-        color: $vs-color-icon-inverse;
-
-        &:hover {
-            transform: scale(1.25);
-        }
     }
 }
 
