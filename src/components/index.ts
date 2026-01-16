@@ -70,6 +70,7 @@ export { default as VsLinkListItem } from './link-list/components/LinkListItem.v
 export { default as VsListicleItem } from './listicle/ListicleItem.vue';
 export { default as VsLoadingSpinner } from './loading-spinner/LoadingSpinner.vue';
 export { default as VsForm } from './form/Form.vue';
+export { default as VsMediaCaption } from './media-caption/MediaCaption.vue';
 export { default as VsMeganav } from './mega-nav/MegaNav.vue';
 export { default as VsMegaNavDropdownContainer } from './mega-nav/components/MegaNavDropdownContainer.vue';
 export { default as VsMegaNavList } from './mega-nav/components/MegaNavList.vue';
