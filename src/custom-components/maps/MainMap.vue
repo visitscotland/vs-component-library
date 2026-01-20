@@ -371,6 +371,7 @@ const selectedTopLevelCategory = ref();
 const selectedSubCategories = ref(new Set());
 const selectedCategory = ref();
 const includedTopLevelTypes = ref(new Set());
+const excludedTopLevelTypes = ref(new Set());
 const includedSubTypes = ref(new Set());
 const excludedSubTypes = ref(new Set());
 const categoryKey = ref();
@@ -664,7 +665,10 @@ function selectCategory(categoryId, key) {
     // Retrieves all the values in each subcategory and adds it to
     // `includedTopLevelTypes` set, which should handle duplication.
     Object.values(categoryData[categoryId].subCategory).forEach(
-        (subCategory) => includedTopLevelTypes.value.add(subCategory.includedType),
+        (subCategory) => {
+            includedTopLevelTypes.value.add(subCategory.includedType);
+            excludedTopLevelTypes.value.add(subCategory.excludedType);
+        },
     );
 
     selectedCategory.value = categoryData[categoryId];
@@ -990,7 +994,9 @@ function resetCategories() {
     selectedTopLevelCategory.value = undefined;
     selectedSubCategories.value = new Set();
     includedTopLevelTypes.value = new Set();
+    excludedTopLevelTypes.value = new Set();
     includedSubTypes.value = new Set();
+    excludedSubTypes.value = new Set();
     queryStr.value = new Set();
     categoryKey.value = undefined;
     subCategoryKey.value = undefined;
