@@ -1,3 +1,10 @@
+# [5.31.0](https://github.com/visitscotland/vs-component-library/compare/v5.30.1...v5.31.0) (2026-01-20)
+
+
+### Features
+
+* **federated search:** change filtering behaviour ([6768e38](https://github.com/visitscotland/vs-component-library/commit/6768e386b0baf18d8899d54310d7797bae19f9e2))
+
 ## [5.30.1](https://github.com/visitscotland/vs-component-library/compare/v5.30.0...v5.30.1) (2026-01-16)
 
 
