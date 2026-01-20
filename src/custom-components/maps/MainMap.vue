@@ -372,6 +372,7 @@ const selectedSubCategories = ref(new Set());
 const selectedCategory = ref();
 const includedTopLevelTypes = ref(new Set());
 const includedSubTypes = ref(new Set());
+const excludedSubTypes = ref(new Set());
 const categoryKey = ref();
 const subCategoryKey = ref();
 const currentZoom = ref(props.zoom);
@@ -381,6 +382,21 @@ const NUMBER_OF_RESULTS = 20;
 const query = ref();
 const queryStr = ref(new Set());
 const currentSearch = ref();
+
+const subCategoryTypeMap = computed(() => {
+    const map = new Map();
+
+    const subCategories = categoryData[selectedTopLevelCategory.value].subCategory;
+
+    Object.values(subCategories).forEach((subCat) => {
+        map.set(subCat.id, {
+            includedTypes: subCat.includedType,
+            excludedTypes: subCat.excludedType,
+        });
+    });
+
+    return map;
+});
 
 const googleMapStore = useGoogleMapStore();
 
@@ -648,7 +664,7 @@ function selectCategory(categoryId, key) {
     // Retrieves all the values in each subcategory and adds it to
     // `includedTopLevelTypes` set, which should handle duplication.
     Object.values(categoryData[categoryId].subCategory).forEach(
-        (subCategory) => includedTopLevelTypes.value.add(subCategory.type),
+        (subCategory) => includedTopLevelTypes.value.add(subCategory.includedType),
     );
 
     selectedCategory.value = categoryData[categoryId];
@@ -686,6 +702,33 @@ function searchSubCategoriesForLabel(selectedSubcategory, subCategoryId) {
     return selSubCatLabel;
 }
 
+function updateSubCategoryTypes(
+    subCategoryId,
+    {
+        includeTypes = false,
+        excludeTypes = false,
+        removeIncludedTypes = false,
+        removeExcludedTypes = false,
+    } = {
+    },
+) {
+    const types = subCategoryTypeMap.value.get(subCategoryId);
+
+    if (includeTypes) {
+        types.includedTypes.forEach((includedType) => {
+            if (includeTypes) includedSubTypes.value.add(includedType);
+            if (removeIncludedTypes) includedSubTypes.value.delete(includedType);
+        });
+    }
+
+    if (excludeTypes || removeExcludedTypes) {
+        types.excludedTypes.forEach((excludedType) => {
+            if (excludeTypes) excludedSubTypes.value.add(excludedType);
+            if (removeExcludedTypes) excludedSubTypes.value.delete(excludedType);
+        });
+    }
+}
+
 function searchBySubCategory(subCategoryId, key) {
     subCategoryKey.value = key;
 
@@ -701,14 +744,10 @@ function searchBySubCategory(subCategoryId, key) {
         // Delete if already in selectedSubCategories
         selectedSubCategories.value.delete(subCategoryId);
         // Iterate through each subcategory to find the selected subcategory
-        Object.values(categoryData[selectedTopLevelCategory.value].subCategory)
-            .forEach((subCat) => {
-                if (subCat.id === subCategoryId) {
-                    // Iterate through the array of types and delete
-                    // them from the includedSubTypes set
-                    subCat.type.forEach((type) => includedSubTypes.value.delete(type));
-                }
-            });
+        updateSubCategoryTypes(subCategoryId, {
+            removeIncludedTypes: true,
+            removeExcludedTypes: true,
+        });
 
         // Remove subCategory labels to the queryString to show on UI
         queryStr.value.delete(
@@ -721,7 +760,10 @@ function searchBySubCategory(subCategoryId, key) {
             queryStr.value = new Set();
             selectCategory(selectedTopLevelCategory.value, categoryKey.value);
         } else {
-            searchByCategory(Array.from(includedSubTypes.value).flat());
+            searchByCategory({
+                includedTypes: Array.from(includedSubTypes.value).flat(),
+                excludedTypes: Array.from(excludedSubTypes.value).flat(),
+            });
             query.value = Array.from(queryStr.value).join(', ');
             searchInput.value = query.value;
         }
@@ -729,15 +771,15 @@ function searchBySubCategory(subCategoryId, key) {
         // Add if not already in selectedSubCategories
         selectedSubCategories.value.add(subCategoryId);
         // Iterate through each subcategory to find the selected subcategory
-        Object.values(categoryData[selectedTopLevelCategory.value].subCategory)
-            .forEach((subCat) => {
-                if (subCat.id === subCategoryId) {
-                    // Iterate through the array of types adding them to the includedSubTypes set
-                    subCat.type.forEach((type) => includedSubTypes.value.add(type));
-                }
-            });
+        updateSubCategoryTypes(subCategoryId, {
+            includeTypes: true,
+            excludeTypes: true,
+        });
 
-        searchByCategory(Array.from(includedSubTypes.value).flat());
+        searchByCategory({
+            includedTypes: Array.from(includedSubTypes.value).flat(),
+            excludedTypes: Array.from(excludedSubTypes.value).flat(),
+        });
 
         // Add subCategory labels to the queryString to show on UI
         queryStr.value.add(
@@ -750,7 +792,11 @@ function searchBySubCategory(subCategoryId, key) {
     }
 }
 
-async function searchByCategory(includedTypes) {
+async function searchByCategory({
+    includedTypes = [],
+    excludedTypes = [],
+} = {
+}) {
     resetMap();
     resetTextQuery();
     noResults.value = false;
@@ -767,6 +813,7 @@ async function searchByCategory(includedTypes) {
     const cappedRadius = Math.min((diameter / 2), 25000);
 
     nearbySearchQuery.includedTypes = includedTypes;
+    nearbySearchQuery.excludedTypes = excludedTypes ?? [];
     nearbySearchQuery.maxResultCount = NUMBER_OF_RESULTS;
     nearbySearchQuery.locationRestriction = {
         center: gMap.getCenter(),
