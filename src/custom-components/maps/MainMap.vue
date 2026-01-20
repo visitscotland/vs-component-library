@@ -722,7 +722,7 @@ function updateSubCategoryTypes(
     }
 
     if (excludeTypes || removeExcludedTypes) {
-        types.excludedTypes.forEach((excludedType) => {
+        types.excludedTypes?.forEach((excludedType) => {
             if (excludeTypes) excludedSubTypes.value.add(excludedType);
             if (removeExcludedTypes) excludedSubTypes.value.delete(excludedType);
         });
