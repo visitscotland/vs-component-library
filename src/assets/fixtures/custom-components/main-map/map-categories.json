@@ -2,6 +2,9 @@
     "accommodation": {
         "id": "accommodation",
         "icon": "fa-regular fa-bed",
+        "excludedType": [
+            "supermarket"
+        ],
         "subCategory": [
             {
                 "id": "self-catering",
@@ -80,6 +83,9 @@
     "things-to-do": {
         "id": "things-to-do",
         "icon": "fa-kit fa-vs-landscape",
+        "excludedType": [
+            "supermarket", "hotel"
+        ],
         "subCategory": [
             {
                 "id": "nature-outdoors",

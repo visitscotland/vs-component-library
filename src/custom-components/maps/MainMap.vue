@@ -665,16 +665,24 @@ function selectCategory(categoryId, key) {
     // Retrieves all the values in each subcategory and adds it to
     // `includedTopLevelTypes` set, which should handle duplication.
     Object.values(categoryData[categoryId].subCategory).forEach(
-        (subCategory) => {
-            includedTopLevelTypes.value.add(subCategory.includedType);
-            excludedTopLevelTypes.value.add(subCategory.excludedType);
-        },
+        (subCategory) => includedTopLevelTypes.value.add(subCategory.includedType),
+    );
+
+    Object.values(
+        categoryData[categoryId].excludedType
+            ?? {
+            },
+    ).forEach(
+        (excludedType) => excludedTopLevelTypes.value.add(excludedType),
     );
 
     selectedCategory.value = categoryData[categoryId];
     categoryKey.value = key;
 
-    searchByCategory(Array.from(includedTopLevelTypes.value).flat());
+    searchByCategory({
+        includedTypes: Array.from(includedTopLevelTypes.value).flat(),
+        excludedTypes: Array.from(excludedTopLevelTypes.value).flat(),
+    });
     query.value = categoryLabelData[categoryKey.value].label;
     searchInput.value = query.value;
 }
