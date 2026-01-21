@@ -1,3 +1,12 @@
+## [5.31.1](https://github.com/visitscotland/vs-component-library/compare/v5.31.0...v5.31.1) (2026-01-21)
+
+
+### Bug Fixes
+
+* **buttons:** adjust specificity ([bbfe2e2](https://github.com/visitscotland/vs-component-library/commit/bbfe2e2f548a11cf2ca358b3d71587c2868ccd97))
+* **buttons:** increase specificity of button styles ([a2917d1](https://github.com/visitscotland/vs-component-library/commit/a2917d1f0c9ed370b0e3ac633a1cf479d591ee70))
+* **buttons:** remove redundant btn selector ([c611c07](https://github.com/visitscotland/vs-component-library/commit/c611c0796f2fc540cbe22f29ec4a8621cfe4b7a4))
+
 # [5.31.0](https://github.com/visitscotland/vs-component-library/compare/v5.30.1...v5.31.0) (2026-01-20)
 
 
