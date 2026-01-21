@@ -44,6 +44,12 @@ const base = {
     noJsMessage: 'JavaScript is required to use the map. Enable JavaScript then reload the page to use the map.',
     noCookiesMessage: 'Cookies are required to use the map',
     cookieBtnText: 'Manage cookies',
+    disclaimerLabels: {
+        button: 'About these results',
+        heading: 'About these results',
+        body: 'Map search results are provided by Google. VisitScotland accepts no responsibility for any error or misrepresentation contained in search results. Search results are provided for your information only and are not endorsed by VisitScotland.',
+        closeModal: 'close',
+    },
     labels: {
         heading: 'Discover your Scotland',
         closeSidebarBtn: 'Close Sidebar',

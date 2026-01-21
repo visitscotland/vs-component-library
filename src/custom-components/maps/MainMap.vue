@@ -90,6 +90,42 @@
                                         ></gmp-place-attribution>
                                     </gmp-place-content-config>
                                 </gmp-place-search>
+                                <div class="vs-map__disclaimer">
+                                    <VsButton
+                                        class="vs-map__disclaimer-btn"
+                                        v-if="countReturnedResults > 0"
+                                        variant="tertiary"
+                                        size="sm"
+                                        href="#"
+                                        icon="fa-regular fa-circle-info"
+                                        @click.prevent="emitter.emit('showModal', 'map-disclaimer')"
+                                        ref="btnShow"
+                                    >
+                                        {{ disclaimerLabels.button }}
+                                    </VsButton>
+                                    <VsModal
+                                        modal-id="map-disclaimer"
+                                        :close-btn-text="disclaimerLabels.closeModal"
+                                    >
+                                        <VsRow class="px-200">
+                                            <VsCol
+                                                cols="12"
+                                                md="9"
+                                                lg="8"
+                                            >
+                                                <VsHeading
+                                                    heading-style="heading-xxs"
+                                                    level="2"
+                                                >
+                                                    {{ disclaimerLabels.heading }}
+                                                </VsHeading>
+                                                <VsBody>
+                                                    {{ disclaimerLabels.body }}
+                                                </VsBody>
+                                            </VsCol>
+                                        </VsRow>
+                                    </VsModal>
+                                </div>
                             </div>
                         </Suspense>
                         <VsAlert
@@ -214,7 +250,12 @@ import axios from 'axios';
 
 import {
     VsAlert,
+    VsBody,
     VsButton,
+    VsCol,
+    VsHeading,
+    VsModal,
+    VsRow,
     VsWarning,
 } from '@/components';
 import useGoogleMapStore from '@/stores/mainMap.store';
@@ -306,6 +347,11 @@ const props = defineProps({
         type: Object,
         default: () => {},
     },
+    /** Object containing the strings for legal disclaimer modal */
+    disclaimerLabels: {
+        type: Object,
+        default: () => {},
+    },
     /**
      * Tells if JS is Disabled
      */
@@ -366,6 +412,7 @@ let markers = {
 };
 
 let visibleMarkerCount;
+const countReturnedResults = ref(0);
 
 const selectedTopLevelCategory = ref();
 const selectedSubCategories = ref(new Set());
@@ -861,6 +908,7 @@ async function addMarkers() {
     const bounds = new LatLngBounds();
 
     if (searchRequest.value.places) {
+        countReturnedResults.value = searchRequest.value.places.length;
         searchRequest.value.places.forEach((place) => {
             // Custom styling for marker
             const markerIcon = document.createElement('div');
@@ -920,6 +968,8 @@ function resetMap(hardReset, resetLocation) {
     if (infoWindow && infoWindow.close) {
         infoWindow.close();
     }
+
+    countReturnedResults.value = 0;
     noResults.value = false;
     if (hardReset) {
         // A `hard reset` will remove all text and categories
@@ -989,7 +1039,6 @@ function handlePlaceClick(place, marker) {
     infoWindow.setOptions({
         content: placeDetails,
         maxWidth: '25em',
-        pixelOffset: null,
     });
 
     infoWindow.open({
@@ -1184,6 +1233,15 @@ function getVisibleMarkerCount() {
             &:last-child {
                 margin-right: $vs-spacer-025;
             }
+        }
+    }
+
+    &__disclaimer {
+        display: flex;
+        flex-direction: row-reverse;
+
+        &-btn{
+            margin: $vs-spacer-050;
         }
     }
 
