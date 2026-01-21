@@ -190,14 +190,9 @@ export default {
 </script>
 
 <style lang="scss">
-    .vs-button {
+    .btn.vs-button {
         @extend %button-default-styles;
-
-        // Specificity on font weight must be greater to overcome default .btn styles when loaded
-        // in Nuxt sites.
-        &.btn {
-            @extend %button-default-font-weight;
-        }
+        @extend %button-default-font-weight;
 
         &:focus {
             @extend %primary-button-focus;
