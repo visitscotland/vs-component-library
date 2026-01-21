@@ -190,18 +190,24 @@ export default {
 </script>
 
 <style lang="scss">
-    .btn.vs-button {
-        @extend %button-default-styles;
-        @extend %button-default-font-weight;
+    .vs-button {
+        // Specificity on base styles must be greater to overcome default
+        // .btn styles when loaded in Nuxt sites.
+        &.btn {
+            @extend %button-default-styles;
+            @extend %button-default-font-weight;
+        }
 
         &:focus {
             @extend %primary-button-focus;
         }
 
-        &:focus-visible {
-            @extend %primary-button-focus;
+        &.btn {
+            &:focus-visible {
+                @extend %primary-button-focus;
 
-            border-color: $vs-color-interaction-cta-primary;
+                border-color: $vs-color-interaction-cta-primary;
+            }
         }
 
         .vs-icon {
