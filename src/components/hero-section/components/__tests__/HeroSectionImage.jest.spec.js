@@ -43,7 +43,7 @@ describe('VsHeroSectionImage', () => {
 
         it('does not render a caption if no `caption` or `credit` is passed', async() => {
             const wrapper = factoryShallowMount();
-            const heroImgCaption = wrapper.find('vs-caption-stub');
+            const heroImgCaption = wrapper.find('vs-media-caption-stub');
 
             expect(heroImgCaption.exists()).toBe(false);
         });
@@ -54,7 +54,7 @@ describe('VsHeroSectionImage', () => {
                 imgCaption: heroCaption,
             });
 
-            const heroImgCaption = wrapper.find('vs-caption-stub');
+            const heroImgCaption = wrapper.find('vs-media-caption-stub');
             expect(heroImgCaption.exists()).toBe(true);
         });
 
@@ -64,7 +64,7 @@ describe('VsHeroSectionImage', () => {
                 imgCredit: heroCredit,
             });
 
-            const heroImgCaption = wrapper.find('vs-caption-stub');
+            const heroImgCaption = wrapper.find('vs-media-caption-stub');
             expect(heroImgCaption.exists()).toBe(true);
         });
 
@@ -75,6 +75,30 @@ describe('VsHeroSectionImage', () => {
             });
 
             expect(wrapper.classes('vs-hero-section-image--split')).toBe(true);
+        });
+
+        it('should pass right-align as false when split is false', () => {
+            const wrapper = factoryShallowMount({
+                split: false,
+                imgCredit: 'Test credit',
+            });
+
+            const mediaCaption = wrapper.findComponent({
+                name: 'VsMediaCaption',
+            });
+            expect(mediaCaption.props('rightAlign')).toBe(false);
+        });
+
+        it('should pass right-align as true when split is true', () => {
+            const wrapper = factoryShallowMount({
+                split: true,
+                imgCredit: 'Test credit',
+            });
+
+            const mediaCaption = wrapper.findComponent({
+                name: 'VsMediaCaption',
+            });
+            expect(mediaCaption.props('rightAlign')).toBe(true);
         });
     });
 

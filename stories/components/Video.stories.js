@@ -1,5 +1,4 @@
 import VsVideo from '@/components/video/Video.vue';
-import VsVideoCaption from '@/components/video-caption/VideoCaption.vue';
 
 export default {
     component: VsVideo,
@@ -12,7 +11,6 @@ export default {
 const Template = (args) => ({
     components: {
         VsVideo,
-        VsVideoCaption,
     },
     setup() {
         return {
@@ -20,16 +18,8 @@ const Template = (args) => ({
         };
     },
     template: `
-        <div
-            :class="args.jsDisabled ? 'no-js' : ''"
-        >
+        <div :class="args.jsDisabled ? 'no-js' : ''">
             <VsVideo v-bind="args"></VsVideo>
-
-            <VsVideoCaption :videoId="args.videoId" v-if="${'video-title' in args}">
-                <template v-slot:video-title>
-                    ${args['video-title']}
-                </template>
-            </VsVideoCaption>
         </div>
     `,
 });
@@ -46,12 +36,6 @@ const base = {
 export const Default = Template.bind();
 Default.args = {
     ...base,
-};
-
-export const WithCaption = Template.bind();
-WithCaption.args = {
-    ...base,
-    'video-title': 'Only in Scotland: Why Scotland Needs You',
 };
 
 export const NoCookies = Template.bind();

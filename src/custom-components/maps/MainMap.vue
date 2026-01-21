@@ -12,6 +12,7 @@
                     :selected-categories="selectedTopLevelCategory"
                     :header-label="props.labels.heading"
                     :close-sidebar-button-label="props.labels.closeSidebarBtn"
+                    :search-bar-aria-label="props.labels.searchBarAriaLabel"
                     :input-placeholder-label="props.labels.inputPlaceholder"
                     :search-button-label="props.labels.searchButton"
                     :clear-map-label="props.labels.clearMap"
@@ -97,7 +98,15 @@
                             class="mt-075 mb-150"
                             size="small"
                         >
-                            {{ noResultsMessage }}
+                            <span>
+                                {{ noResultsMessage }}
+                                <a
+                                    href="#"
+                                    @click.prevent="resetMap(true, true)"
+                                >
+                                    {{ resetMapNoResultsMessage }}
+                                </a>
+                            </span>
                         </VsAlert>
                     </template>
                 </VsMapSidebar>
@@ -332,6 +341,10 @@ const props = defineProps({
         type: String,
         required: true,
     },
+    resetMapNoResultsMessage: {
+        type: String,
+        required: true,
+    },
 });
 
 // Map Object, HTMLElements & Global Variables
@@ -362,7 +375,7 @@ const includedSubTypes = ref(new Set());
 const categoryKey = ref();
 const subCategoryKey = ref();
 const currentZoom = ref(props.zoom);
-const MAX_ZOOM = 19;
+const MAX_ZOOM = 17;
 const CATEGORY_VISIBLE_ZOOM = 11;
 const NUMBER_OF_RESULTS = 20;
 const query = ref();
@@ -479,6 +492,7 @@ onMounted(async() => {
                 mapTypeControl: false,
                 cameraControl: false,
                 streetViewControl: false,
+                gestureHandling: 'greedy',
             };
 
             if (mapContainer) {
@@ -566,11 +580,23 @@ function shadeMapAreas(zoomedIn) {
         'ChIJuwtkpGSZAEcR6lXMScpzdQk', // Poland
         'ChIJl5fz7WR9wUcR8g_mObTy60c', // Belgium
         'ChIJMVd4MymgVA0R99lHx5Y__Ws', // France
+        'ChIJ_ZqKe2cw6UYREPzyaM3PAAA', // Latvia
+        'ChIJE74zDxSU3UYRubpdpdNUCvM', // Lithuania
+        'ChIJ4wsuREWc40YRewI60MRYJR4', // Kaliningrad
+        'ChIJ_UuggpyUkkYRwyW0T7qf6kA', // Estonia
+        'ChIJ3fYyS9_KgUYREKh1PNZGAQA', // Finland
+        'ChIJQ2Dro1Ir0kgRmkXB5TQEim8', // Iceland
+        'ChIJFXfA47sNok4RGOIUAYOdzzQ', // Greenland
+        'ChIJI9HkgQm_ikYR8i7GR23fEbY', // Countryside, Åland
+        'ChIJUXXYvLMei0YR7zdFQUIM8bA', // Archipelago, Åland
+        'ChIJRyEhyrlFlUcR75LTAvZg22Q', // Luxembourg
     ];
 
     const zoomedInShadedPlaces = [
         'ChIJ39UebIqp0EcRqI4tMyWV4fQ', // England
         'ChIJdZmmmcoQXkgR2OO3bu8o5fc', // Northern Ireland
+        'ChIJ-ydAXOS6WUgRCPTbzjQSfM8', // Republic of Ireland
+        'ChIJ6_ktdpMVvEgRJBv3ZEgxsD8', // Faroe Islands
     ];
 
     // eslint-disable-next-line no-undef
@@ -581,6 +607,13 @@ function shadeMapAreas(zoomedIn) {
     if (zoomedIn) {
         countryLayer.style = null;
         adminArea1Layer.style = null;
+
+        // eslint-disable-next-line consistent-return
+        countryLayer.style = (options) => {
+            if (zoomedInShadedPlaces.includes(options.feature.placeId)) {
+                return shadedAreaStyleOptions;
+            }
+        };
 
         // eslint-disable-next-line consistent-return
         adminArea1Layer.style = (options) => {
@@ -876,7 +909,7 @@ async function addMarkers() {
     }
 }
 
-function resetMap(hardReset) {
+function resetMap(hardReset, resetLocation) {
     clearExistingMarkers();
     currentSearch.value = '';
     nearbySearch.style.display = 'none';
@@ -893,6 +926,11 @@ function resetMap(hardReset) {
         resetTextQuery();
         resetCategories();
         mapInteractionEvent('clear_all');
+    }
+    if (resetLocation) {
+        gMap.setCenter(props.center);
+        gMap.setZoom(props.zoom);
+        mapInteractionEvent('reset_map');
     }
 }
 
@@ -959,10 +997,8 @@ function handlePlaceClick(place, marker) {
         map: gMap,
     });
 
-    gMap.fitBounds(place.viewport, {
-        top: 200,
-        right: 150,
-    });
+    gMap.fitBounds(place.viewport);
+
     // eslint-disable-next-line no-undef
     google.maps.event.addListenerOnce(gMap, 'idle', () => {
         if (gMap.getZoom() > MAX_ZOOM) {
@@ -971,17 +1007,21 @@ function handlePlaceClick(place, marker) {
 
         mapInteractionEvent('card_open', place);
     });
+
+    gMap.setCenter(place.location);
 }
 
 async function mapInteractionEvent(interactionType, place) {
     let cardName = '';
     let cardRating = '';
     let cardUrl = '';
+    let cardPrimaryType = '';
 
     if (place) {
         await place.fetchFields({
             fields: [
                 'displayName',
+                'primaryType',
                 'rating',
                 'websiteURI',
             ],
@@ -990,6 +1030,7 @@ async function mapInteractionEvent(interactionType, place) {
         cardName = place.displayName;
         cardRating = place.rating;
         cardUrl = place.websiteURI;
+        cardPrimaryType = place.primaryType;
     }
 
     dataLayerHelper.createDataLayerObject('googleMapInteractionEvent', {
@@ -998,6 +1039,7 @@ async function mapInteractionEvent(interactionType, place) {
         map_location: gMap.getCenter().toString(),
         visible_attractions_count: visibleMarkerCount,
         card_attraction_name: cardName,
+        card_attraction_category: cardPrimaryType,
         card_attraction_rating: cardRating,
         card_attraction_url: cardUrl,
         interaction_timestamp_ms: Date.now(),
@@ -1047,7 +1089,7 @@ function getVisibleMarkerCount() {
 .vs-map {
     //Google Maps Places UI Kit Custom Styling
     //semantic tokens don't seem to work with it
-    --gmp-mat-color-surface: #fff //$vs-color-background-primary;
+    --gmp-mat-color-surface: #fff; //$vs-color-background-primary;
     --gmp-mat-color-on-surface: #200F2E; //$vs-color-text-primary;
     --gmp-mat-color-on-surface-variant: #606060; //$vs-color-text-secondary;
     --gmp-mat-color-primary: #1F49D6; //$vs-color-text-cta-on-light;
@@ -1057,6 +1099,10 @@ function getVisibleMarkerCount() {
     --gmp-mat-color-outline-decorative: #E9E9E9; //$vs-color-border-primary;
     --gmp-mat-font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; //$vs-font-family-sans-serif;
 
+    gmp-place-search, gmp-place-details {
+        color-scheme: only light;
+    }
+
     &__container {
         position: relative;
     }
@@ -1064,6 +1110,25 @@ function getVisibleMarkerCount() {
     &__wrapper, #vs-map {
         height: 90vh;
         width: 100%;
+
+        .vs-map-marker {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: $vs-spacer-200;
+            height: $vs-spacer-200;
+            background-color: $vs-color-icon-cta-on-light;
+            border-radius: $vs-radius-large;
+            border: 0.125em solid $vs-color-icon-inverse;
+            box-shadow: $vs-elevation-shadow-raised;
+            transition: transform 0.1s ease-in-out;
+            font-size: 1.5em;
+            color: $vs-color-icon-inverse;
+
+            &:hover {
+                transform: scale(1.25);
+            }
+        }
     }
 
     &__controls {
@@ -1093,6 +1158,7 @@ function getVisibleMarkerCount() {
         width: calc(100vw - $vs-spacer-100);
         margin: $vs-spacer-050 $vs-spacer-0;
         padding: $vs-spacer-025 $vs-spacer-025 $vs-spacer-050 $vs-spacer-025;
+        pointer-events: all;
 
         @include scrollsnap-styles;
 
@@ -1123,25 +1189,6 @@ function getVisibleMarkerCount() {
 
     &__warning {
         display: none;
-    }
-
-    .vs-map-marker {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: $vs-spacer-200;
-        height: $vs-spacer-200;
-        background-color: $vs-color-icon-cta-on-light;
-        border-radius: $vs-radius-large;
-        border: 0.125em solid $vs-color-icon-inverse;
-        box-shadow: $vs-elevation-shadow-raised;;
-        transition: transform 0.1s ease-in-out;
-        font-size: 1.5em;
-        color: $vs-color-icon-inverse;
-
-        &:hover {
-            transform: scale(1.25);
-        }
     }
 }
 

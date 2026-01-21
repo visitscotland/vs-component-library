@@ -54,6 +54,7 @@ export { default as VsIcon } from './icon/Icon.vue';
 export { default as VsIconList } from './icon-list/IconList.vue';
 export { default as VsIconListItem } from './icon-list/components/IconListItem.vue';
 export { default as VsImageWithCaption } from './image-with-caption/ImageWithCaption.vue';
+export { default as VsIllustratedMap } from './illustrated-map/IllustratedMap.vue';
 export { default as VsImg } from './img/Img.vue';
 export { default as VsInput } from './input/Input.vue';
 export { default as VsItinerary } from './itineraries/Itinerary.vue';
@@ -69,6 +70,7 @@ export { default as VsLinkListItem } from './link-list/components/LinkListItem.v
 export { default as VsListicleItem } from './listicle/ListicleItem.vue';
 export { default as VsLoadingSpinner } from './loading-spinner/LoadingSpinner.vue';
 export { default as VsForm } from './form/Form.vue';
+export { default as VsMediaCaption } from './media-caption/MediaCaption.vue';
 export { default as VsMeganav } from './mega-nav/MegaNav.vue';
 export { default as VsMegaNavDropdownContainer } from './mega-nav/components/MegaNavDropdownContainer.vue';
 export { default as VsMegaNavList } from './mega-nav/components/MegaNavList.vue';

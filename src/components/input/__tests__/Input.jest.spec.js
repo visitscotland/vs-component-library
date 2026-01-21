@@ -122,6 +122,21 @@ describe('VsInput', () => {
 
             expect(wrapper.find('[data-test="input-clear-button"]').text()).toBe('clear text');
         });
+
+        it('should have an aria label property on the input when the aria label is populated', async() => {
+            wrapper.setProps({
+                ariaLabel: 'This is an input',
+            });
+
+            await wrapper.vm.$nextTick();
+
+            expect(wrapper.find('.vs-input').attributes('aria-label')).toBeTruthy();
+            expect(wrapper.find('.vs-input').attributes('aria-label')).toBe('This is an input');
+        });
+
+        it('should not have an aria label property on the input when the aria label is not populated', async() => {
+            expect(wrapper.find('.vs-input').attributes('aria-label')).toBeFalsy();
+        });
     });
 
     describe(':computed', () => {
