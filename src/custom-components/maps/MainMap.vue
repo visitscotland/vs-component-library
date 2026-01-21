@@ -787,6 +787,16 @@ function searchBySubCategory(subCategoryId, key) {
             includeTypes: true,
             excludeTypes: true,
         });
+        includedSubTypes.value.forEach((subCategory) => {
+            if (excludedSubTypes.value.has(subCategory)) {
+                excludedSubTypes.value.delete(subCategory);
+            }
+        });
+
+        // @TO-DO include the excluded types again once a subcategory is taken away
+
+        console.log('includedTypes: ', includedSubTypes.value);
+        console.log('excludedTypes: ', excludedSubTypes.value);
 
         searchByCategory({
             includedTypes: Array.from(includedSubTypes.value).flat(),

@@ -16,6 +16,9 @@
                 "id": "bed-breakfast",
                 "includedType": [
                     "bed_and_breakfast", "guest_house"
+                ],
+                "excludedType": [
+                    "hotel", "hostel", "motel", "inn"
                 ]
             },
             {
@@ -28,6 +31,9 @@
                 "id": "hotel",
                 "includedType": [
                     "hotel", "inn", "motel", "resort_hotel", "extended_stay_hotel"
+                ],
+                "excludedType": [
+                    "bed_and_breakfast", "farmstay", "hostel", "guest_house"
                 ]
             },
             {
@@ -40,6 +46,9 @@
                 "id": "hostel",
                 "includedType": [
                     "hostel"
+                ],
+                "excludedType": [
+                    "hotel", "motel", "bed_and_breakfast", "guest_house", "inn"
                 ]
             }
         ]
@@ -47,6 +56,9 @@
     "food-drink": {
         "id": "food-drink",
         "icon": "fa-regular fa-cutlery",
+        "excludedType": [
+            "shopping_mall", "movie_theater", "bowling_alley", "supermarket"
+        ],
         "subCategory": [
             {
                 "id": "restaurants",
@@ -70,12 +82,19 @@
                 "includedType": [
                     "bagel_shop", "cafe", "coffee_shop", "deli", "dessert_shop", "dog_cafe",
                     "ice_cream_shop", "sandwich_shop", "tea_house"
+                ],
+                "excludedType": [
+                    "restaurant", "bar_and_grill", "pub", "supermarket", "movie_theater",
+                    "amusement_center"
                 ]
             },
             {
                 "id": "bars-pubs",
                 "includedType": [
                     "bar", "bar_and_grill", "pub", "wine_bar"
+                ],
+                "excludedType": [
+                    "restaurant", "movie_theater", "bowling_alley", "event_venue"
                 ]
             }
         ]
@@ -123,7 +142,8 @@
                     "market", "jewelry_store"
                 ],
                 "excludedType": [
-                    "supermarket", "cell_phone_store", "grocery_store", "warehouse_store", "auto_parts_store"
+                    "supermarket", "cell_phone_store", "grocery_store", "warehouse_store", "auto_parts_store",
+                    "convenience_store", "discount_store", "hardware_store"
                 ]
             },
             {
