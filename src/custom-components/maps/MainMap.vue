@@ -977,7 +977,7 @@ function clearExistingMarkers() {
     };
 }
 
-function handlePlaceClick(place, marker) {
+function handlePlaceClick(place) {
     if (infoWindow.isOpen) {
         infoWindow.close();
         mapInteractionEvent('card_close', placeRequest.place);
@@ -1006,11 +1006,12 @@ function handlePlaceClick(place, marker) {
     infoWindow.setOptions({
         content: placeDetails,
         maxWidth: '25em',
-        pixelOffset: null,
+        position: place.location,
+        // eslint-disable-next-line no-undef
+        pixelOffset: new google.maps.Size(0, -32),
     });
 
     infoWindow.open({
-        anchor: marker,
         map: gMap,
     });
 
@@ -1127,6 +1128,11 @@ function getVisibleMarkerCount() {
     &__wrapper, #vs-map {
         height: 90vh;
         width: 100%;
+
+        gmp-advanced-marker {
+            width: $vs-spacer-200;
+            height: $vs-spacer-200;
+        }
 
         .vs-map-marker {
             display: flex;
