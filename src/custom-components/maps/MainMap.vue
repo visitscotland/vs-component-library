@@ -400,6 +400,8 @@ let categoryData = {
 };
 const categoryLabelData = props.categoryLabels;
 
+let currentSearchId = 0;
+
 onBeforeMount(() => {
     const cookieCheck = cookieCheckerComposable();
     cookieCheck.requiredCookies.value = cookieValues.google_maps;
@@ -753,6 +755,11 @@ function searchBySubCategory(subCategoryId, key) {
 async function searchByCategory(includedTypes) {
     resetMap();
     resetTextQuery();
+
+    currentSearchId += 1;
+
+    const searchId = currentSearchId;
+
     noResults.value = false;
 
     googleMapStore.filterUsesCount += 1;
@@ -775,7 +782,9 @@ async function searchByCategory(includedTypes) {
 
     nearbySearch.style.display = 'block';
     nearbySearch.addEventListener('gmp-load', () => {
-        addMarkers();
+        if (searchId !== currentSearchId) return;
+
+        addMarkers(searchId);
 
         let filterType = 'main';
         let filterSelection = selectedTopLevelCategory.value;
@@ -804,6 +813,10 @@ async function searchByText() {
     resetCategories();
     noResults.value = false;
 
+    currentSearchId += 1;
+
+    const searchId = currentSearchId;
+
     googleMapStore.searchesCount += 1;
 
     currentSearch.value = 'text';
@@ -822,7 +835,9 @@ async function searchByText() {
     textSearch.style.display = 'block';
 
     textSearch.addEventListener('gmp-load', () => {
-        addMarkers();
+        if (searchId !== currentSearchId) return;
+
+        addMarkers(searchId);
 
         dataLayerHelper.createDataLayerObject('googleMapSearchEvent', {
             search_query: query.value,
@@ -837,9 +852,11 @@ async function searchByText() {
     });
 }
 
-async function addMarkers() {
+async function addMarkers(searchId) {
     const { AdvancedMarkerElement } = await importLibrary('marker');
     const { LatLngBounds } = await importLibrary('core');
+
+    if (searchId !== currentSearchId) return;
 
     const searchRequest = ref();
 
