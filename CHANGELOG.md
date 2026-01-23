@@ -1,3 +1,11 @@
+## [5.31.2](https://github.com/visitscotland/vs-component-library/compare/v5.31.1...v5.31.2) (2026-01-23)
+
+
+### Bug Fixes
+
+* **map:** prevent multiple searches adding markers at the same time ([62e9b52](https://github.com/visitscotland/vs-component-library/commit/62e9b52175ebaf3902f84f62c96380c06f44208c))
+* **maps:** make info window positioning explicit for nuxt bug ([b8f389e](https://github.com/visitscotland/vs-component-library/commit/b8f389eab46bf9a7dd9c6513d58ccea77e0285fb))
+
 ## [5.31.1](https://github.com/visitscotland/vs-component-library/compare/v5.31.0...v5.31.1) (2026-01-21)
 
 
