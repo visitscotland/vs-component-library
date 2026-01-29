@@ -1,0 +1,155 @@
+{
+    "cities": {
+        "0": {
+            "label": "Edinburgh",
+            "placeId": "ChIJIyaYpQC4h0gRJxfnfHsU8mQ",
+            "location": {
+                "lat": 55.953252,
+                "lng": -3.1882669999999997
+            },
+            "viewport": {
+                "low": {
+                    "lat": 55.890422843555093,
+                    "lng": -3.3631647000000013
+                },
+                "high": {
+                    "lat": 55.991993856634572,
+                    "lng": -3.0776587689889685
+                }
+            },
+            "imgSrc": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/09/03/edinburgh-skyline?size=sm"
+        },
+        "1": {
+            "label": "Glasgow",
+            "placeId": "ChIJ685WIFYViEgRHlHvBbiD5nE",
+            "location": {
+                "lat": 55.861670399999994,
+                "lng": -4.2583345
+            },
+            "viewport": {
+                "low": {
+                    "lat": 55.781279085932326,
+                    "lng": -4.3932003050548678
+                },
+                "high": {
+                    "lat": 55.929641114892526,
+                    "lng": -4.0717167259209441
+                }
+            },
+            "imgSrc": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/20/the-riverside-museum?size=sm"
+        },
+        "2": {
+            "label": "Aberdeen",
+            "placeId": "ChIJSXXXH0wFhEgRcsT0XNoFu-g",
+            "location": {
+                "lat": 57.149889099999996,
+                "lng": -2.0937528
+            },
+            "viewport": {
+                "low": {
+                    "lat": 57.104151835738648,
+                    "lng": -2.205892568006512
+                },
+                "high": {
+                    "lat": 57.195650664805505,
+                    "lng": -2.0441627421559954
+                }
+            },
+            "imgSrc": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/04/26/marischal-college?size=sm"
+        },
+        "3": {
+            "label": "Dundee",
+            "placeId": "ChIJ05xjq0RBhkgRKuVLOB475JQ",
+            "location": {
+                "lat": 56.462018,
+                "lng": -2.9707209999999997
+            },
+            "viewport": {
+                "low": {
+                    "lat": 56.443603721432147,
+                    "lng": -3.0980245540908427
+                },
+                "high": {
+                    "lat": 56.505596952485696,
+                    "lng": -2.8356418963024561
+                }
+            },
+            "imgSrc": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/06/20/dundee-law?size=sm"
+        },
+        "4": {
+            "label": "Inverness",
+            "placeId": "ChIJK94XLVtxj0gRPcQ-LtEJQ2I",
+            "location": {
+                "lat": 57.477773,
+                "lng": -4.224721
+            },
+            "viewport": {
+                "low": {
+                    "lat": 57.439880586894574,
+                    "lng": -4.2704222879806233
+                },
+                "high": {
+                    "lat": 57.496111969859861,
+                    "lng": -4.1732931687952481
+                }
+            },
+            "imgSrc": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/12/07/inverness-cathedral?size=sm"
+        },
+        "5": {
+            "label": "Stirling",
+            "placeId": "ChIJMXhDPNdXiEgRrXbVAjcf8Ps",
+            "location": {
+                "lat": 56.1165227,
+                "lng": -3.9369028999999998
+            },
+            "viewport": {
+                "low": {
+                    "lat": 56.091872376096333,
+                    "lng": -3.9750002169327887
+                },
+                "high": {
+                    "lat": 56.14553824223696,
+                    "lng": -3.9043965899349731
+                }
+            },
+            "imgSrc": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/09/03/stirling-castle?size=sm"
+        },
+        "6": {
+            "label": "Dunfermline",
+            "placeId": "ChIJHwzVgSzMh0gRzt496KFQHVQ",
+            "location": {
+                "lat": 56.071741,
+                "lng": -3.4521509999999997
+            },
+            "viewport": {
+                "low": {
+                    "lat": 56.044808978608685,
+                    "lng": -3.4894470049335293
+                },
+                "high": {
+                    "lat": 56.087072725999256,
+                    "lng": -3.3876014839421895
+                }
+            },
+            "imgSrc": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/09/11/dunfermline?size=sm"
+        },
+        "7": {
+            "label": "Perth",
+            "location": {
+                "lat": 56.394994,
+                "lng": -3.430838
+            },
+            "viewport": {
+                "low": {
+                    "lat": 56.356531369915707,
+                    "lng": -3.5070932508599739
+                },
+                "high": {
+                    "lat": 56.424430124577128,
+                    "lng": -3.3914109382171467
+                }
+            },
+            "imgSrc": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/09/03/perth-city?size=sm"
+        }
+    }
+}

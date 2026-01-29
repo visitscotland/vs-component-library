@@ -17,7 +17,7 @@
                 {{ props.headerLabel }}
             </VsHeading>
             <VsButton
-                variant="tertiary"
+                variant="subtle"
                 icon="vs-icon-control-dismiss"
                 icon-only
                 class="vs-map-sidebar__sidebar-control vs-map-siderbar__sidebar-control--dismiss"
@@ -27,7 +27,10 @@
                 {{ props.closeSidebarButtonLabel }}
             </VsButton>
         </div>
-        <div class="vs-map-sidebar__content">
+        <div
+            class="vs-map-sidebar__content"
+            v-if="searchBox"
+        >
             <div class="vs-map-sidebar__input d-flex mt-100 mb-050">
                 <VsInput
                     type="text"
@@ -94,6 +97,12 @@
             </div>
         </div>
         <div
+            class="vs-map-sidebar__other-content"
+            v-if="$slots['vs-map-sidebar-other-content'] && $slots['vs-map-sidebar-other-content']()"
+        >
+            <slot name="vs-map-sidebar-other-content" />
+        </div>
+        <div
             class="vs-map-sidebar__footer"
             v-if="$props.query || $props.selectedCategories"
         >
@@ -133,6 +142,11 @@ const props = defineProps({
     selectedCategories: {
         type: String,
         default: '',
+    },
+    /** searchBox boolean determines if input should show */
+    searchBox: {
+        type: Boolean,
+        default: false,
     },
     /** Label for the sidebar header */
     headerLabel: {
@@ -214,6 +228,10 @@ defineEmits(['search-input-changed', 'reset-map']);
     &__search-button {
         flex-grow: 0.125;
         border-radius: $vs-radius-none $vs-radius-small $vs-radius-small $vs-radius-none;
+    }
+
+    &__other-content {
+        position:sticky;
     }
 
     &__sub-filters {

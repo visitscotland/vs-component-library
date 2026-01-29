@@ -7,109 +7,168 @@
             :class="!showError ? 'd-block' : 'd-none'"
         >
             <div class="vs-map__controls">
-                <VsMapSidebar
-                    :query="query"
-                    :selected-categories="selectedTopLevelCategory"
-                    :header-label="props.labels.heading"
-                    :close-sidebar-button-label="props.labels.closeSidebarBtn"
-                    :search-bar-aria-label="props.labels.searchBarAriaLabel"
-                    :input-placeholder-label="props.labels.inputPlaceholder"
-                    :search-button-label="props.labels.searchButton"
-                    :clear-map-label="props.labels.clearMap"
-                    :sub-filter-header-label="props.labels.subFilterHeader"
-                    :search-results-label="props.labels.searchResults"
-                    :open-sidebar-button-label="props.labels.openSidebarButton"
-                    @search-input-changed="searchByText"
-                    @reset-map="resetMap(true)"
-                >
-                    <template
-                        #vs-map-sidebar-sub-filters
-                        v-if="selectedTopLevelCategory"
+                <div class="vs-map__controls-sidebar-container">
+                    <VsMapSidebar
+                        :query="query"
+                        :selected-categories="selectedTopLevelCategory"
+                        search-box
+                        :header-label="props.labels.heading"
+                        :close-sidebar-button-label="props.labels.closeSidebarBtn"
+                        :search-bar-aria-label="props.labels.searchBarAriaLabel"
+                        :input-placeholder-label="props.labels.inputPlaceholder"
+                        :search-button-label="props.labels.searchButton"
+                        :clear-map-label="props.labels.clearMap"
+                        :sub-filter-header-label="props.labels.subFilterHeader"
+                        :search-results-label="props.labels.searchResults"
+                        :open-sidebar-button-label="props.labels.openSidebarButton"
+                        @search-input-changed="searchByText"
+                        @reset-map="resetMap(true)"
                     >
-                        <div class="vs-map-sidebar__sub-filters">
-                            <VsButton
-                                v-for="
-                                    (subCategory, key) in
-                                        categoryLabelData[categoryKey].subCategory"
-                                :key
-                                :variant="selectedSubCategories.has(subCategory.id) ? 'primary' : 'secondary'"
-                                size="sm"
-                                @click="searchBySubCategory(subCategory.id, key)"
-                            >
-                                {{ subCategory.label }}
-                            </VsButton>
-                        </div>
-                    </template>
-
-                    <template #vs-map-sidebar-search-results>
-                        <Suspense>
-                            <div id="search-container">
-                                <gmp-place-search
-                                    id="nearbySearch"
-                                    orientation="vertical"
-                                    selectable
-                                    style="display: none"
-                                >
-                                    <gmp-place-nearby-search-request id="nearbySearchQuery">
-                                    </gmp-place-nearby-search-request>
-                                    <gmp-place-content-config>
-                                        <gmp-place-address></gmp-place-address>
-                                        <gmp-place-rating></gmp-place-rating>
-                                        <gmp-place-type></gmp-place-type>
-                                        <gmp-place-price></gmp-place-price>
-                                        <gmp-place-accessible-entrance-icon>
-                                        </gmp-place-accessible-entrance-icon>
-                                        <gmp-place-opening-hours></gmp-place-opening-hours>
-                                        <gmp-place-reviews></gmp-place-reviews>
-                                        <gmp-place-attribution
-                                            light-scheme-color="gray"
-                                            dark-scheme-color="gray"
-                                        ></gmp-place-attribution>
-                                    </gmp-place-content-config>
-                                </gmp-place-search>
-                                <gmp-place-search
-                                    id="textSearch"
-                                    orientation="vertical"
-                                    selectable
-                                    style="display: none"
-                                >
-                                    <gmp-place-text-search-request id="textSearchQuery">
-                                    </gmp-place-text-search-request>
-                                    <gmp-place-content-config>
-                                        <gmp-place-address></gmp-place-address>
-                                        <gmp-place-rating></gmp-place-rating>
-                                        <gmp-place-type></gmp-place-type>
-                                        <gmp-place-price></gmp-place-price>
-                                        <gmp-place-accessible-entrance-icon>
-                                        </gmp-place-accessible-entrance-icon>
-                                        <gmp-place-opening-hours></gmp-place-opening-hours>
-                                        <gmp-place-reviews></gmp-place-reviews>
-                                        <gmp-place-attribution
-                                            light-scheme-color="gray"
-                                            dark-scheme-color="gray"
-                                        ></gmp-place-attribution>
-                                    </gmp-place-content-config>
-                                </gmp-place-search>
-                            </div>
-                        </Suspense>
-                        <VsAlert
-                            id="vs-map__no-results-alert"
-                            v-if="noResults"
-                            class="mt-075 mb-150"
-                            size="small"
+                        <template
+                            #vs-map-sidebar-sub-filters
+                            v-if="selectedTopLevelCategory"
                         >
-                            <span>
-                                {{ noResultsMessage }}
-                                <a
-                                    href="#"
-                                    @click.prevent="resetMap(true, true)"
+                            <div class="vs-map-sidebar__sub-filters">
+                                <VsButton
+                                    v-for="
+                                        (subCategory, key) in
+                                            categoryLabelData[categoryKey].subCategory"
+                                    :key
+                                    :variant="selectedSubCategories.has(subCategory.id) ? 'primary' : 'secondary'"
+                                    size="sm"
+                                    @click="searchBySubCategory(subCategory.id, key)"
                                 >
-                                    {{ resetMapNoResultsMessage }}
-                                </a>
-                            </span>
-                        </VsAlert>
-                    </template>
-                </VsMapSidebar>
+                                    {{ subCategory.label }}
+                                </VsButton>
+                            </div>
+                        </template>
+
+                        <template #vs-map-sidebar-search-results>
+                            <Suspense>
+                                <div id="search-container">
+                                    <gmp-place-search
+                                        id="nearbySearch"
+                                        orientation="vertical"
+                                        selectable
+                                        style="display: none"
+                                    >
+                                        <gmp-place-nearby-search-request id="nearbySearchQuery">
+                                        </gmp-place-nearby-search-request>
+                                        <gmp-place-content-config>
+                                            <gmp-place-address></gmp-place-address>
+                                            <gmp-place-rating></gmp-place-rating>
+                                            <gmp-place-type></gmp-place-type>
+                                            <gmp-place-price></gmp-place-price>
+                                            <gmp-place-accessible-entrance-icon>
+                                            </gmp-place-accessible-entrance-icon>
+                                            <gmp-place-opening-hours></gmp-place-opening-hours>
+                                            <gmp-place-reviews></gmp-place-reviews>
+                                            <gmp-place-attribution
+                                                light-scheme-color="gray"
+                                                dark-scheme-color="gray"
+                                            ></gmp-place-attribution>
+                                        </gmp-place-content-config>
+                                    </gmp-place-search>
+                                    <gmp-place-search
+                                        id="textSearch"
+                                        orientation="vertical"
+                                        selectable
+                                        style="display: none"
+                                    >
+                                        <gmp-place-text-search-request id="textSearchQuery">
+                                        </gmp-place-text-search-request>
+                                        <gmp-place-content-config>
+                                            <gmp-place-address></gmp-place-address>
+                                            <gmp-place-rating></gmp-place-rating>
+                                            <gmp-place-type></gmp-place-type>
+                                            <gmp-place-price></gmp-place-price>
+                                            <gmp-place-accessible-entrance-icon>
+                                            </gmp-place-accessible-entrance-icon>
+                                            <gmp-place-opening-hours></gmp-place-opening-hours>
+                                            <gmp-place-reviews></gmp-place-reviews>
+                                            <gmp-place-attribution
+                                                light-scheme-color="gray"
+                                                dark-scheme-color="gray"
+                                            ></gmp-place-attribution>
+                                        </gmp-place-content-config>
+                                    </gmp-place-search>
+                                </div>
+                            </Suspense>
+                            <VsAlert
+                                id="vs-map__no-results-alert"
+                                v-if="noResults"
+                                class="mt-075 mb-150"
+                                size="small"
+                            >
+                                <span>
+                                    {{ noResultsMessage }}
+                                    <a
+                                        href="#"
+                                        @click.prevent="resetMap(true, true)"
+                                    >
+                                        {{ resetMapNoResultsMessage }}
+                                    </a>
+                                </span>
+                            </VsAlert>
+                        </template>
+                    </VsMapSidebar>
+                    <VsMapSidebar
+                        v-if="!selectedCategory || !query "
+                    >
+                        <template #vs-map-sidebar-other-content>
+                            <VsHeading
+                                level="2"
+                                heading-style="heading-xxs"
+                                class="mb-100"
+                            >
+                                Discover our cities
+                            </VsHeading>
+                            <VsCardGroup
+                                cards-per-row="3"
+                                scroll-snap="always"
+                                class="mb-050"
+                                style="column-gap: 0.5em;"
+                            >
+                                <VsCard
+                                    v-for="(place, key) in featuredPlaces.cities"
+                                    :key
+                                    card-style="overlay"
+                                    style="height: 10em; flex: 0 0 8em;"
+                                >
+                                    <template #vs-card-footer>
+                                        <div class="px-125 pb-125">
+                                            <VsHeading
+                                                level="3"
+                                                no-margins
+                                                heading-style="heading-xxxs"
+                                            >
+                                                <VsLink
+                                                    href="#"
+                                                    class="stretched-link text-decoration-none"
+                                                    variant="on-dark"
+                                                    style="text-decoration: none;"
+                                                    @click.prevent="featuredPlaceClick(place)"
+                                                >
+                                                    {{place.label}}
+                                                </VsLink>
+                                            </VsHeading>
+                                        </div>
+                                    </template>
+                                    <template
+                                        #vs-card-image
+                                        v-if="place.imgSrc"
+                                    >
+                                        <VsImg
+                                            :src="place.imgSrc"
+                                            class="w-100 rounded-1 object-fit-cover img-zoom-on-hover"
+                                            style="height: 10em;"
+                                        />
+                                    </template>
+                                </VsCard>
+                            </VsCardGroup>
+                        </template>
+                    </VsMapSidebar>
+                </div>
                 <div
                     class="vs-map__filter-controls"
                     v-if="(currentZoom >= CATEGORY_VISIBLE_ZOOM) && googleMapStore.sidebarOpen"
@@ -215,6 +274,11 @@ import axios from 'axios';
 import {
     VsAlert,
     VsButton,
+    VsCard,
+    VsCardGroup,
+    VsHeading,
+    VsImg,
+    VsLink,
     VsWarning,
 } from '@/components';
 import useGoogleMapStore from '@/stores/mainMap.store';
@@ -303,6 +367,11 @@ const props = defineProps({
     },
     /** JSON object for the category labels (from CMS taxonomies) */
     categoryLabels: {
+        type: Object,
+        default: () => {},
+    },
+    /** JSON object for the category labels (from CMS taxonomies) */
+    featuredPlaces: {
         type: Object,
         default: () => {},
     },
@@ -1029,6 +1098,27 @@ function handlePlaceClick(place) {
     gMap.setCenter(place.location);
 }
 
+function featuredPlaceClick(event) {
+    console.log(event);
+
+    gMap.fitBounds(
+        // eslint-disable-next-line no-undef
+        new google.maps.LatLngBounds(
+            // eslint-disable-next-line no-undef
+            new google.maps.LatLng(event.viewport.low.lat, event.viewport.low.lng),
+            // eslint-disable-next-line no-undef
+            new google.maps.LatLng(event.viewport.high.lat, event.viewport.high.lng),
+        ),
+    );
+
+    gMap.setCenter(
+        // eslint-disable-next-line no-undef
+        new google.maps.LatLng(event.location.lat, event.location.lng),
+    );
+
+    selectCategory('things-to-do', 2);
+}
+
 async function mapInteractionEvent(interactionType, place) {
     let cardName = '';
     let cardRating = '';
@@ -1168,6 +1258,12 @@ function getVisibleMarkerCount() {
 
         @include media-breakpoint-up(md) {
             flex-direction: row;
+        }
+
+        &-sidebar-container {
+            display: flex;
+            flex-direction: column;
+            row-gap: $vs-spacer-100;
         }
     }
 
