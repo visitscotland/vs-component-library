@@ -9,7 +9,7 @@ const useGoogleMapStore = defineStore('googleMap', () => {
     const searchesCount = ref<number>(0);
     const filterUsesCount = ref<number>(0);
     const isLoading = ref(false);
-    const searchTermCheckEndpoint = 'https://v86py8n18d.execute-apis.us-east-1.amazonaws.com/develop/checkTerm';
+    const searchTermCheckEndpoint = 'https://v86py8n18d.execute-api.us-east-1.amazonaws.com/develop/checkTerm';
 
     async function checkSearchTerm(searchTerm: String) {
         try {
