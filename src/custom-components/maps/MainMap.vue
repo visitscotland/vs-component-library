@@ -19,7 +19,7 @@
                     :sub-filter-header-label="props.labels.subFilterHeader"
                     :search-results-label="props.labels.searchResults"
                     :open-sidebar-button-label="props.labels.openSidebarButton"
-                    @search-input-changed="searchByText"
+                    @search-input-changed="textSearchHandler"
                     @reset-map="resetMap(true)"
                 >
                     <template
@@ -92,6 +92,7 @@
                                 </gmp-place-search>
                             </div>
                         </Suspense>
+                        <VsLoadingSpinner v-if="googleMapStore.isLoading" />
                         <VsAlert
                             id="vs-map__no-results-alert"
                             v-if="noResults"
@@ -100,6 +101,22 @@
                         >
                             <span>
                                 {{ noResultsMessage }}
+                                <a
+                                    href="#"
+                                    @click.prevent="resetMap(true, true)"
+                                >
+                                    {{ resetMapNoResultsMessage }}
+                                </a>
+                            </span>
+                        </VsAlert>
+                        <VsAlert
+                            id="vs-map__generic-error-alert"
+                            v-if="isGenericError"
+                            class="mt-075 mb-150"
+                            size="small"
+                        >
+                            <span>
+                                {{ genericErrorMessage }}
                                 <a
                                     href="#"
                                     @click.prevent="resetMap(true, true)"
@@ -215,6 +232,7 @@ import axios from 'axios';
 import {
     VsAlert,
     VsButton,
+    VsLoadingSpinner,
     VsWarning,
 } from '@/components';
 import useGoogleMapStore from '@/stores/mainMap.store';
@@ -345,6 +363,10 @@ const props = defineProps({
         type: String,
         required: true,
     },
+    genericErrorMessage: {
+        type: String,
+        required: true,
+    },
 });
 
 // Map Object, HTMLElements & Global Variables
@@ -388,6 +410,7 @@ const noResults = ref(false);
 
 let showError;
 const errType = ref(undefined);
+const isGenericError = ref(false);
 
 const SCOTLAND_BOUNDS = {
     north: 61.86500,
@@ -698,7 +721,7 @@ function searchBySubCategory(subCategoryId, key) {
         query.value = searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value;
         resetCategories();
         searchInput.value = query.value;
-        searchByText();
+        textSearchHandler();
     } else if (selectedSubCategories.value.has(subCategoryId)) {
         // Delete if already in selectedSubCategories
         selectedSubCategories.value.delete(subCategoryId);
@@ -808,15 +831,12 @@ async function searchByCategory(includedTypes) {
     });
 }
 
-async function searchByText() {
+async function textSearchHandler() {
     resetMap();
     resetCategories();
     noResults.value = false;
 
     currentSearchId += 1;
-
-    const searchId = currentSearchId;
-
     googleMapStore.searchesCount += 1;
 
     currentSearch.value = 'text';
@@ -826,6 +846,20 @@ async function searchByText() {
     if (!query.value) {
         return;
     }
+
+    const checkSearchTerm = await googleMapStore.checkSearchTerm(query.value);
+
+    if (checkSearchTerm.isExcluded) {
+        noResults.value = true;
+    } else if (checkSearchTerm.hasError) {
+        isGenericError.value = true;
+    } else {
+        searchByText();
+    }
+}
+
+async function searchByText() {
+    const searchId = currentSearchId;
 
     textSearchQuery.textQuery = query.value;
 
@@ -938,6 +972,8 @@ function resetMap(hardReset, resetLocation) {
         infoWindow.close();
     }
     noResults.value = false;
+    isGenericError.value = false;
+
     if (hardReset) {
         // A `hard reset` will remove all text and categories
         resetTextQuery();
