@@ -10,11 +10,11 @@
         </VsBody>
         <div class="vs-fed-filter__scroll-container">
             <VsButton
-                v-if="showLeftButton"
+                v-if="showLeftButton && !wrap"
                 variant="secondary"
                 icon="fa-regular fa-chevron-left"
                 icon-only
-                class="vs-fed-filter__scroll-button me-050"
+                class="vs-fed-filter__scroll-button vs-fed-filter__scroll-button--left me-050"
                 data-test="vs-fed-filter__scroll-button--left"
                 @click="scroll('left')"
                 :aria-label="props.scrollLeftText"
@@ -43,11 +43,11 @@
                 </VsButton>
             </div>
             <VsButton
-                v-if="showRightButton"
+                v-if="showRightButton && !wrap"
                 variant="secondary"
                 icon="fa-regular fa-chevron-right"
                 icon-only
-                class="vs-fed-filter__scroll-button ms-050"
+                class="vs-fed-filter__scroll-button vs-fed-filter__scroll-button--right ms-050"
                 data-test="vs-fed-filter__scroll-button--right"
                 @click="scroll('right')"
                 :aria-label="props.scrollRightText"
@@ -272,6 +272,7 @@ onMounted(() => {
 
         &__scroll-container {
             display: flex;
+            position: relative;
         }
 
         &__scroll-rail {
@@ -300,6 +301,14 @@ onMounted(() => {
                     flex-wrap: wrap;
                     row-gap: $vs-spacer-050;
                 }
+
+                .vs-fed-filter__category-button {
+                    margin-bottom: 0;
+
+                     @include media-breakpoint-down(lg) {
+                        margin-bottom: $vs-spacer-100;
+                     }
+                }
             }
 
             @media (prefers-reduced-motion: no-preference) {
@@ -308,14 +317,21 @@ onMounted(() => {
         }
 
         &__scroll-button {
+            position: absolute;
             flex: 0 0 max-content;
             aspect-ratio: 1/1;
             margin-top: $vs-spacer-025;
+            z-index: 2;
+
+            &--right {
+                right: 0;
+            }
         }
 
         &__category-button {
             flex: 0 0 content;
             height: min-content;
+            margin-bottom: $vs-spacer-100;
         }
     }
 </style>

@@ -60,7 +60,7 @@
             :active-filter="federatedSearchStore.selectedCategoryKey"
             :filter-categories="props.filters"
             ref="categoryFilter"
-            :wrap="true"
+            wrap
             @filter-updated="updateSelectedCategory"
         />
 
