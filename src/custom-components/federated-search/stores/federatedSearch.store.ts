@@ -140,7 +140,7 @@ const useFederatedSearchStore = defineStore('federatedSearch', () => {
             window.history.pushState({}, '', url);
             await getSearchResults();
         } else {
-            const newHref = `${searchUrl.value}/${url.search}`;
+            const newHref = `${searchUrl.value}${url.search}`;
             window.location.href = newHref;
         }
     }

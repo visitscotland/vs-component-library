@@ -28,7 +28,7 @@ const Template = (args) => ({
 });
 
 const base = {
-    searchUrl: '/site-search-results',
+    searchUrl: '/site-search-results/',
     labels: {
         search: 'Search',
         searchLabel: 'What are you looking for?',
