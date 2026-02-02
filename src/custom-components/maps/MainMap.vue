@@ -113,7 +113,7 @@
                         </template>
                     </VsMapSidebar>
                     <VsMapSidebar
-                        v-if="!selectedCategory || !query "
+                        v-if="!selectedCategory || !query"
                     >
                         <template #vs-map-sidebar-other-content>
                             <VsHeading
@@ -126,14 +126,13 @@
                             <VsCardGroup
                                 cards-per-row="3"
                                 scroll-snap="always"
-                                class="mb-050"
-                                style="column-gap: 0.5em;"
+                                class="mb-100 vs-map__controls-featured-places-card-group"
                             >
                                 <VsCard
                                     v-for="(place, key) in featuredPlaces.cities"
                                     :key
                                     card-style="overlay"
-                                    style="height: 10em; flex: 0 0 8em;"
+                                    class="vs-map__controls-featured-places-card"
                                 >
                                     <template #vs-card-footer>
                                         <div class="px-125 pb-125">
@@ -146,10 +145,9 @@
                                                     href="#"
                                                     class="stretched-link text-decoration-none"
                                                     variant="on-dark"
-                                                    style="text-decoration: none;"
                                                     @click.prevent="featuredPlaceClick(place)"
                                                 >
-                                                    {{place.label}}
+                                                    {{ place.label }}
                                                 </VsLink>
                                             </VsHeading>
                                         </div>
@@ -160,8 +158,7 @@
                                     >
                                         <VsImg
                                             :src="place.imgSrc"
-                                            class="w-100 rounded-1 object-fit-cover img-zoom-on-hover"
-                                            style="height: 10em;"
+                                            class="vs-map__controls-featured-places-img w-100 rounded-1 object-fit-cover img-zoom-on-hover"
                                         />
                                     </template>
                                 </VsCard>
@@ -171,7 +168,10 @@
                 </div>
                 <div
                     class="vs-map__filter-controls"
-                    v-if="(currentZoom >= CATEGORY_VISIBLE_ZOOM) && googleMapStore.sidebarOpen"
+                    v-if="
+                        ((currentZoom >= CATEGORY_VISIBLE_ZOOM) || categoriesVisible)
+                            && googleMapStore.sidebarOpen
+                    "
                 >
                     <VsButton
                         v-for="(category, key) in categoryLabelData"
@@ -375,6 +375,10 @@ const props = defineProps({
         type: Object,
         default: () => {},
     },
+    featuredPlacesHeader: {
+        type: String,
+        default: '',
+    },
     /**
      * Tells if JS is Disabled
      */
@@ -446,6 +450,7 @@ const subCategoryKey = ref();
 const currentZoom = ref(props.zoom);
 const MAX_ZOOM = 17;
 const CATEGORY_VISIBLE_ZOOM = 11;
+const categoriesVisible = ref(false);
 const NUMBER_OF_RESULTS = 20;
 const query = ref();
 const queryStr = ref(new Set());
@@ -461,8 +466,8 @@ const errType = ref(undefined);
 const SCOTLAND_BOUNDS = {
     north: 61.86500,
     south: 54.62185,
-    west: -8.65100,
-    east: 0.71000,
+    west: -12.65100,
+    east: 3.71000,
 };
 
 let categoryData = {
@@ -991,6 +996,10 @@ async function addMarkers(searchId) {
                 gMap.setCenter(bounds.getCenter());
                 gMap.fitBounds(bounds);
             }
+
+            if (window.innerWidth <= 768) {
+                googleMapStore.sidebarOpen = false;
+            }
         });
     }
 }
@@ -1011,6 +1020,7 @@ function resetMap(hardReset, resetLocation) {
         // A `hard reset` will remove all text and categories
         resetTextQuery();
         resetCategories();
+        categoriesVisible.value = false;
         mapInteractionEvent('clear_all');
     }
     if (resetLocation) {
@@ -1117,6 +1127,7 @@ function featuredPlaceClick(event) {
     );
 
     selectCategory('things-to-do', 2);
+    categoriesVisible.value = true;
 }
 
 async function mapInteractionEvent(interactionType, place) {
@@ -1264,6 +1275,21 @@ function getVisibleMarkerCount() {
             display: flex;
             flex-direction: column;
             row-gap: $vs-spacer-100;
+        }
+
+        &-featured-places {
+            &-card-group {
+                column-gap: $vs-spacer-050!important;
+            }
+
+            &-card {
+                height: 10em;
+                flex: 0 0 8.5em!important;
+            }
+
+            &-img {
+                height: 10em!important;
+            }
         }
     }
 

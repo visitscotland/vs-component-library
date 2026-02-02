@@ -23,6 +23,7 @@
                 class="vs-map-sidebar__sidebar-control vs-map-siderbar__sidebar-control--dismiss"
                 data-test="vs-map-siderbar__sidebar-control--dismiss"
                 @click="googleMapStore.sidebarOpen = false"
+                v-if="searchBox"
             >
                 {{ props.closeSidebarButtonLabel }}
             </VsButton>
@@ -117,6 +118,7 @@
         icon="fa-regular fa-sliders"
         icon-only
         @click="googleMapStore.sidebarOpen = true"
+        v-if="searchBox"
     >
         {{ props.openSidebarButtonLabel }}
     </VsButton>

@@ -151,5 +151,486 @@
             },
             "imgSrc": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/09/03/perth-city?size=sm"
         }
+    },
+    "regions": {
+        "0": {
+            "label": "Aberdeenshire",
+            "placeId": "ChIJ1deuZ9h_g0gRB-LNSfT9NVA",
+            "location": {
+                "lat": 57.162142900000006,
+                "lng": -2.7194167
+            },
+            "viewport": {
+                "low": {
+                    "lat": 56.747139670797964,
+                    "lng": -3.8016479302394033
+                },
+                "high": {
+                    "lat": 57.701204467578968,
+                    "lng": -1.7663192482884387
+                }
+            },
+            "imgSrc": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/09/09/dunnottar-castle?size=sm"
+        },
+        "1": {
+            "label": "Argyll & Bute",
+            "placeId": "ChIJ_14lA-YtikgRsLBCBhpoDAM",
+            "location": {
+                "lat": 56.370046300000006,
+                "lng": -5.0318965
+            },
+            "viewport": {
+                "low": {
+                    "lat": 55.274479863658705,
+                    "lng":  -7.1124578119646964
+                },
+                "high": {
+                    "lat": 56.704578159704319,
+                    "lng": -4.5598515918519125
+                }
+            },
+            "imgSrc": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/09/03/lower-killeyan?size=sm"
+        },
+        "2": {
+            "label": "Ayrshire",
+            "placeId": "ChIJqb4soPh4YkgR8WXQeMHu8f4",
+            "location": {
+                "lat": 55.3649698,
+                "lng": -4.6679959
+            },
+            "viewport": {
+                "low": {
+                    "lat": 54.997644329270926,
+                    "lng": -5.3978615905389091
+                },
+                "high": {
+                    "lat": 55.892613727968026,
+                    "lng": -3.95705688283888
+                }
+            },
+            "imgSrc": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/04/26/greenan-castle?size=sm"
+        },
+        "3": {
+            "label": "Dumfries & Galloway",
+            "placeId": "ChIJNb41SxLKYkgRqoCDQGd-en0",
+            "location": {
+                "lat": 55.1642024,
+                "lng": -3.8831396
+            },
+            "viewport": {
+                "low": {
+                    "lat": 54.63323814656345,
+                    "lng": -5.187437266897609
+                },
+                "high": {
+                    "lat": 55.464050230871685,
+                    "lng": -2.85733374622431
+                }
+            },
+            "imgSrc": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2023/01/17/crawick-multiverse?size=sm"
+        },
+        "4": {
+            "label": "Dundee & Angus",
+            "placeId": "ChIJG0UKe3kqhEgRsxEd27rxlSg",
+            "location": {
+                "lat": 56.7969965,
+                "lng": -2.9206818
+            },
+            "viewport": {
+                "low": {
+                    "lat": 56.463805411975585,
+                    "lng": -3.4070218760339341 
+                },
+                "high": {
+                    "lat": 56.986816381350884,
+                    "lng": -2.4245621054961428
+                }
+            },
+            "imgSrc": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/04/17/corrie-fee?size=sm"
+        },
+        "5": {
+            "label": "Kingdom of Fife",
+            "placeId": "ChIJGfnLttUwhkgRPBsRigOAVnY",
+            "location": {
+                "lat": 56.208207800000004,
+                "lng": -3.1495175000000004
+            },
+            "viewport": {
+                "low": {
+                    "lat": 56.005831889728867,
+                    "lng": -3.7394066997041047
+                },
+                "high": {
+                    "lat": 56.453263360353695,
+                    "lng": -2.5446681885293265
+                }
+            },
+            "imgSrc": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2023/01/17/north-queensferry?size=sm"
+        },
+        "6": {
+            "label": "Perthshire",
+            "placeId": "ChIJFysl40uiiEgRwLBCBhpoDAM",
+            "location": {
+                "lat": 56.5917369,
+                "lng": -3.8557348
+            },
+            "viewport": {
+                "low": {
+                    "lat": 56.132421065371133,
+                    "lng": -4.7204445817634619
+                },
+                "high": {
+                    "lat": 56.948633195973294,
+                    "lng": -3.0519807649372237
+                }
+            },
+            "imgSrc": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/08/21/birks-of-aberfeldy?size=sm"
+        },
+        "7": {
+            "label": "Moray & Speyside",
+            "placeId": "ChIJYchqHiUMhUgRiqJTVJBl-eU",
+            "location": {
+                "lat": 57.511548,
+                "lng": -3.2483773
+            },
+            "viewport": {
+                "low": {
+                    "lat": 57.068453809801206,
+                    "lng": -3.7623067436684123
+                },
+                "high": {
+                    "lat": 57.730676425231557,
+                    "lng": -2.6498224828243488
+                }
+            },
+            "imgSrc": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/09/01/elgin-cathedral?size=sm"
+        },
+        "9": {
+            "label": "Scottish Borders",
+            "placeId": "ChIJ-WTiG7WGh0gR8LJCBhpoDAM",
+            "location": {
+                "lat": 55.548569699999994,
+                "lng": -2.7861388
+            },
+            "viewport": {
+                "low": {
+                    "lat": 55.108255660217175,
+                    "lng": -3.539803015743122
+                },
+                "high": {
+                    "lat": 55.946016213095291,
+                    "lng": -2.0343911087114037
+                }
+            },
+            "imgSrc": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/08/31/abbotsford-garden-flowers?size=sm"
+        },
+        "10": {
+            "label": "The Scottish Highlands",
+            "placeId": "ChIJpQfhl1Nxj0gRON4nZCLq93M",
+            "location": {
+                "lat": 57.3596139,
+                "lng": -5.0992763
+            },
+            "viewport": {
+                "low": {
+                    "lat": 56.497176752708768,
+                    "lng": -6.7897027332843471
+                },
+                "high": {
+                    "lat": 58.696898256325532,
+                    "lng": -3.0239423738418019
+                }
+            },
+            "imgSrc": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/09/09/glen-affric?size=sm"
+        },
+        "11": {
+            "label": "Stirling & Forth Valley",
+            "placeId": "ChIJvcYk6pRiiEgRU8UgjtzDpV4",
+            "location": {
+                "lat": 56.21056,
+                "lng": -4.5182471
+            },
+            "viewport": {
+                "low": {
+                    "lat": 55.957228156175155,
+                    "lng": -4.8544951798240659
+                },
+                "high": {
+                    "lat": 56.547102484630166,
+                    "lng": -3.7979063744721193
+                }
+            },
+            "imgSrc": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/09/03/lake-of-menteith?size=sm"
+        }
+    },
+    "islands": {
+        "0": {
+            "label": "Arran",
+            "placeId": "ChIJ8TSdR-DviUgRIqT2yMHVamw",
+            "location": {
+                "lat": 55.5806165,
+                "lng": -5.2108573
+            },
+            "viewport": {
+                "low": {
+                    "lat": 55.433838500558586,
+                    "lng": -5.3977987649782664
+                },
+                "high": {
+                    "lat": 55.721259643479137,
+                    "lng": -5.0792919597913651
+                }
+            },
+            "imgSrc": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2023/03/07/kildonan-beach-arran?size=sm"
+        },
+        "1": {
+            "label": "Islay",
+            "placeId": "ChIJF-BMBb5cikgRFVvd7UP-k3Y",
+            "location": {
+                "lat": 55.7362535,
+                "lng": -6.177067
+            },
+            "viewport": {
+                "low": {
+                    "lat": 55.57894101204451,
+                    "lng": -6.5253684072602285
+                },
+                "high": {
+                    "lat": 55.938503196069668,
+                    "lng": -6.0198083197516938
+                }
+            },
+            "imgSrc": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/12/07/port-charlotte-on-isle-of-islay?size=sm"
+        },
+        "2": {
+            "label": "Mull",
+            "placeId": "ChIJkzZd9RDDi0gRLwRNd0RozBw",
+            "location": {
+                "lat": 56.439198399999995,
+                "lng": -6.000887
+            },
+            "viewport": {
+                "low": {
+                    "lat": 56.2640844573143,
+                    "lng": -6.3856975827290636
+                },
+                "high": {
+                    "lat": 56.656878735732519,
+                    "lng": -5.6457896163059855
+                }
+            },
+            "imgSrc": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/04/26/tobermory?size=sm"
+        },
+        "3": {
+            "label": "Orkney",
+            "placeId": "ChIJG8AfMGIBm0gRqbB3ALi_z2s",
+            "location": {
+                "lat": 59.03629,
+                "lng": -2.8970293000000003
+            },
+            "viewport": {
+                "low": {
+                    "lat": 58.569235899999995,
+                    "lng": -4.349013
+                },
+                "high": {
+                    "lat": 59.5033441,
+                    "lng": -1.4450456
+                }
+            },
+            "imgSrc": "https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2024/09/20/ring-of-brodgar.jpg?size=sm"
+        },
+        "4": {
+            "label": "Outer Hebridies",
+            "placeId": "ChIJZWkCw-twjUgRWd7FND7XoSI",
+            "location": {
+                "lat": 58.2436089,
+                "lng": -6.6672018999999993
+            },
+            "viewport": {
+                "low": {
+                    "lat": 56.778113949046045,
+                    "lng": -7.650007234132234
+                },
+                "high": {
+                    "lat": 59.134158990161339,
+                    "lng": -5.8103512173807852
+                }
+            },
+            "imgSrc": "https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2024/08/21/baleshare-beach?size=sm"
+        },
+        "5": {
+            "label": "Shetland",
+            "placeId": "ChIJz8MDaGgUnEgRf1XLFSWaY9M",
+            "location": {
+                "lat": 60.3213009,
+                "lng": -1.2219259999999998
+            },
+            "viewport": {
+                "low": {
+                    "lat": 59.506885411577187,
+                    "lng": -2.1174505611619976
+                },
+                "high": {
+                    "lat": 60.860751481448247,
+                    "lng": -0.72467506133883319
+                }
+            },
+            "imgSrc": "https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2024/06/20/eshaness.jpg?size=sm"
+        },
+        "6": {
+            "label": "Isle of Skye",
+            "placeId": "ChIJ_8G9YSIxjEgRGGLI6W81XFg",
+            "location": {
+                "lat": 57.2736278,
+                "lng": -6.2155022
+            },
+            "viewport": {
+                "low": {
+                    "lat": 57.017660430958948,
+                    "lng": -6.7885197936951993
+                },
+                "high": {
+                    "lat": 57.708279449688348,
+                    "lng": -5.64753700045089
+                }
+            },
+            "imgSrc": "https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2024/09/03/talisker-bay?size=sm"
+        }
+    },
+    "towns": {
+        "0": {
+            "label": "Ayr",
+            "placeId": "ChIJhV6xcNBwYkgR4LVCBhpoDAU",
+            "location": {
+                "lat": 55.458563999999996,
+                "lng": -4.6291790000000006
+            },
+            "viewport": {
+                "low": {
+                    "lat": 55.424214919231432,
+                    "lng": -4.6677211027569214
+                },
+                "high": {
+                    "lat": 55.484847428668289,
+                    "lng": -4.5776051943140148
+                }
+            },
+            "imgSrc": "https://www.visitscotland.com/wsimgs/00066804%20Ayr%20town_521613653.jpg"
+        },
+        "1": {
+            "label": "Aviemore",
+            "placeId": "ChIJYdwLblnxhUgRA3Kb1RzR3TM",
+            "location": {
+                "lat": 57.2005355,
+                "lng": -3.8281798000000005
+            },
+            "viewport": {
+                "low": {
+                    "lat": 57.181162904189463,
+                    "lng": -3.8381817682043096
+                },
+                "high": {
+                    "lat": 57.207531980434716,
+                    "lng": -3.8105881378736597
+                }
+            },
+            "imgSrc": "https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2024/05/23/aviemore-aerial-shot.jpg?size=sm"
+        },
+        "2": {
+            "label": "Fort William",
+            "placeId": "ChIJGwMcNyMziUgRIUhUCOM-oM0",
+            "location": {
+                "lat": 56.819817000000008,
+                "lng": -5.105218
+            },
+            "viewport": {
+                "low": {
+                    "lat": 56.804334950717106,
+                    "lng": -5.13079947019061
+                },
+                "high": {
+                    "lat": 56.82953014040519,
+                    "lng": -5.0756682847025205
+                }
+            },
+            "imgSrc": "https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2024/09/09/buachaille-etive-mor?size=sm"
+        },
+        "3": {
+            "label": "Glencoe",
+            "placeId": "ChIJdbMpe-owiUgR5zIXwvPg3NE",
+            "location": {
+                "lat": 56.682559899999994,
+                "lng": -5.1022713
+            },
+            "viewport": {
+                "low": {
+                    "lat": 56.679116375709661,
+                    "lng": -5.1133797504580354
+                },
+                "high": {
+                    "lat": 56.685652261245153,
+                    "lng": -5.0916226048481015
+                }
+            },
+            "imgSrc": "https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2023/02/17/pass-of-glencoe.jpg?size=sm"
+        },
+        "4": {
+            "label": "John o' Groats",
+            "placeId": "ChIJw1K-uCLfmkgRdMW19Tfb-IY",
+            "location": {
+                "lat": 58.6373368,
+                "lng": -3.0688997
+            },
+            "viewport": {
+                "low": {
+                    "lat": 58.624471084787025,
+                    "lng": -3.0930229319232496
+                },
+                "high": {
+                    "lat": 58.6488687854261,
+                    "lng": -3.0373628687497205
+                }
+            },
+            "imgSrc": "https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2023/05/12/john-o-groats-signpost?size=sm"
+        },
+        "5": {
+            "label": "Pitlochry",
+            "placeId": "ChIJsWvnVZEChkgRfkAQNCkRloA",
+            "location": {
+                "lat": 56.704361,
+                "lng": -3.729711
+            },
+            "viewport": {
+                "low": {
+                    "lat": 56.6948874930943,
+                    "lng": -3.7513403125881752
+                },
+                "high": {
+                    "lat": 56.715349336502236,
+                    "lng": -3.7126802600899822
+                }
+            },
+            "imgSrc": "https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2024/08/05/loch-faskally-bridge-in-autumn.jpg?size=sm"
+        },
+        "6": {
+            "label": "St Andrews",
+            "placeId": "ChIJ-_kSGZhQhkgR8KlcwJ75JlU",
+            "location": {
+                "lat": 56.3397753,
+                "lng": -2.7967214
+            },
+            "viewport": {
+                "low": {
+                    "lat": 56.326528689084483,
+                    "lng": -2.8381012193268957
+                },
+                "high": {
+                    "lat": 56.346536851654065,
+                    "lng": -2.7774513972169541
+                }
+            },
+            "imgSrc": "https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2022/12/07/st-andrews-east-beach?size=sm"
+        }
     }
 }
