@@ -714,6 +714,14 @@ function searchSubCategoriesForLabel(selectedSubcategory, subCategoryId) {
     return selSubCatLabel;
 }
 
+function checkForConflictingPlaceTypes() {
+    includedSubTypes.value.forEach((subCategory) => {
+        if (excludedSubTypes.value.has(subCategory)) {
+            excludedSubTypes.value.delete(subCategory);
+        }
+    });
+};
+
 function updateSubCategoryTypes(
     subCategoryId,
     {
@@ -755,11 +763,26 @@ function searchBySubCategory(subCategoryId, key) {
     } else if (selectedSubCategories.value.has(subCategoryId)) {
         // Delete if already in selectedSubCategories
         selectedSubCategories.value.delete(subCategoryId);
-        // Iterate through each subcategory to find the selected subcategory
-        updateSubCategoryTypes(subCategoryId, {
-            removeIncludedTypes: true,
-            removeExcludedTypes: true,
+
+        // Reset subcategories
+        includedSubTypes.value = new Set();
+        excludedSubTypes.value = new Set();
+
+        // Add in all remaining types again, to account for any
+        // conflicting duplicate types that had been removed
+        selectedSubCategories.value.forEach((subCatId) => {
+            updateSubCategoryTypes(subCatId, {
+                includeTypes: true,
+                excludeTypes: true,
+            });
         });
+
+        checkForConflictingPlaceTypes();
+
+        // CONSOLE LOG STATEMENTS INCLUDED FOR TESTING
+        // TO BE REMOVED ONCED TESTING COMPLETE AND PR APPROVED
+        console.log('includedTypes: ', includedSubTypes.value);
+        console.log('excludedTypes: ', excludedSubTypes.value);
 
         // Remove subCategory labels to the queryString to show on UI
         queryStr.value.delete(
@@ -787,14 +810,11 @@ function searchBySubCategory(subCategoryId, key) {
             includeTypes: true,
             excludeTypes: true,
         });
-        includedSubTypes.value.forEach((subCategory) => {
-            if (excludedSubTypes.value.has(subCategory)) {
-                excludedSubTypes.value.delete(subCategory);
-            }
-        });
 
-        // @TO-DO include the excluded types again once a subcategory is taken away
+        checkForConflictingPlaceTypes();
 
+        // CONSOLE LOG STATEMENTS INCLUDED FOR TESTING
+        // TO BE REMOVED ONCED TESTING COMPLETE AND PR APPROVED
         console.log('includedTypes: ', includedSubTypes.value);
         console.log('excludedTypes: ', excludedSubTypes.value);
 
