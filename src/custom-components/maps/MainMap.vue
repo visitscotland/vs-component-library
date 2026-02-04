@@ -390,10 +390,10 @@ let showError;
 const errType = ref(undefined);
 
 const SCOTLAND_BOUNDS = {
-    north: 61.86500,
-    south: 54.62185,
-    west: -8.65100,
-    east: 0.71000,
+    north: 60.8,
+    south: 54.8,
+    west: -8.5,
+    east: -0.7,
 };
 
 let categoryData = {
@@ -500,6 +500,7 @@ onMounted(async() => {
             if (mapContainer) {
                 // eslint-disable-next-line no-undef
                 gMap = new google.maps.Map(mapContainer, mapOptions);
+                gMap.fitBounds(SCOTLAND_BOUNDS);
             } else {
                 throw new Error('Init error, mapContainer undefined');
             }
@@ -947,6 +948,7 @@ function resetMap(hardReset, resetLocation) {
     if (resetLocation) {
         gMap.setCenter(props.center);
         gMap.setZoom(props.zoom);
+        gMap.fitBounds(SCOTLAND_BOUNDS);
         mapInteractionEvent('reset_map');
     }
 }
