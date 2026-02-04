@@ -1,0 +1,235 @@
+[    
+    {
+        "title": "Who we are",
+        "cta": "All Who we are",
+        "href": "#",
+        "isExternal": false,
+        "isActive": false,
+        "trackingId": "nav.link.test-tracking-id",
+        "dropdownNav": [
+            {
+                "title": "Cities",
+                "cta": "null",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": "nav.link.test-tracking-id"
+            },
+            {
+                "title": "Islands",
+                "cta": "null",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": "nav.link.test-tracking-id"
+            },
+            {
+                "title": "TV & Film locations",
+                "cta": "null",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": "nav.link.test-tracking-id"
+            },
+            {
+                "title": "National parks",
+                "cta": "null",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": "nav.link.test-tracking-id"
+            },
+            {
+                "title": "World heritage sites & UNESCO",
+                "cta": "null",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": "nav.link.test-tracking-id"
+            }
+        ]
+    },
+    {
+        "title": "What we do",
+        "cta": "All what we do",
+        "href": "#",
+        "isExternal": false,
+        "isActive": false,
+        "trackingId": "nav.link.test-tracking-id",
+        "dropdownNav": [
+            {
+                "title": "Attractions",
+                "cta": "null",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": null            
+            },
+            {
+                "title": "Day trips",
+                "cta": "null",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": null
+            },
+            {
+                "title": "Tours",
+                "cta": "null",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": null
+            },
+            {
+                "title": "Culture & history",
+                "cta": "null",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": null
+            },
+            {
+                "title": "Food & drink",
+                "cta": "null",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": null
+            },
+            {
+                "title": "Events & festivals",
+                "cta": "null",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": null
+            },
+            {
+                "title": "Nature & outdoor",
+                "cta": "null",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": null
+            },
+            {
+                "title": "Adventure",
+                "cta": "null",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": null
+            }
+        ]
+    },
+    {
+        "title": "Research and insights",
+        "cta": "All research and insights",
+        "href": "#",
+        "isExternal": false,
+        "isActive": false,
+        "trackingId": "nav.link.test-tracking-id",
+        "dropdownNav": [
+            {
+                "title": "Travel to Scotland",
+                "cta": "null",
+                "href": "#",
+                "trackingId": "nav.link.test-tracking-id"
+            },
+            {
+                "title": "Travel in Scotland",
+                "cta": "null",
+                "href": "#",
+                "trackingId": "nav.link.test-tracking-id"
+            },
+            {
+                "title": "Itineraries",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": "nav.link.test-tracking-id"
+            },
+            {
+                "title": "When to visit",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": "nav.link.test-tracking-id"
+            },
+            {
+                "title": "Travel information",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": "nav.link.test-tracking-id"
+            },
+            {
+                "title": "Holiday types",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": "nav.link.test-tracking-id"
+            }
+        ]
+    },
+    {
+        "title": "Tourism and events industry",
+        "cta": "All tourism and events industry",
+        "href": "#",
+        "isExternal": false,
+        "isActive": false,
+        "trackingId": "nav.link.test-tracking-id",
+        "dropdownNav": [
+            {
+                "title": "Travel to Scotland",
+                "cta": "null",
+                "href": "#",
+                "trackingId": "nav.link.test-tracking-id"
+            },
+            {
+                "title": "Travel in Scotland",
+                "cta": "null",
+                "href": "#",
+                "trackingId": "nav.link.test-tracking-id"
+            },
+            {
+                "title": "Itineraries",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": "nav.link.test-tracking-id"
+            },
+            {
+                "title": "When to visit",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": "nav.link.test-tracking-id"
+            },
+            {
+                "title": "Travel information",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": "nav.link.test-tracking-id"
+            },
+            {
+                "title": "Holiday types",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": "nav.link.test-tracking-id",
+                "isHighlight": true
+            }
+        ]
+    },
+    {
+        "title": "News",
+        "cta": "null",
+        "href": "#",
+        "isExternal": false,
+        "isActive": false,
+        "trackingId": "nav.link.test-tracking-id"
+    }
+]

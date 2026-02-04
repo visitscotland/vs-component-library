@@ -1,0 +1,184 @@
+[
+    {
+        "title": "Places to Go",
+        "cta": "All places to go",
+        "href": "https://www.visitscotland.com/destinations",
+        "isExternal": false,
+        "isActive": false,
+        "trackingId": "nav.link.test-tracking-id",
+        "dropdownNav": [
+            {
+                "title": "Cities",
+                "cta": "null",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": "nav.link.test-tracking-id"
+            },
+            {
+                "title": "Islands",
+                "cta": "null",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": "nav.link.test-tracking-id"
+            },
+            {
+                "title": "TV & Film locations",
+                "cta": "null",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": "nav.link.test-tracking-id"
+            },
+            {
+                "title": "National parks",
+                "cta": "null",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": "nav.link.test-tracking-id"
+            },
+            {
+                "title": "World heritage sites & UNESCO",
+                "cta": "null",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": "nav.link.test-tracking-id"
+            }
+        ]
+    },
+    {
+        "title": "Things to do",
+        "cta": "All things to do",
+        "href": "https://www.visitscotland.com/see-do",
+        "isExternal": false,
+        "isActive": false,
+        "trackingId": "nav.link.test-tracking-id",
+        "dropdownNav": [
+            {
+                "title": "Attractions",
+                "cta": "null",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": null            
+            },
+            {
+                "title": "Day trips",
+                "cta": "null",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": null
+            },
+            {
+                "title": "Tours",
+                "cta": "null",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": null
+            },
+            {
+                "title": "Culture & history",
+                "cta": "null",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": null
+            },
+            {
+                "title": "Food & drink",
+                "cta": "null",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": null
+            },
+            {
+                "title": "Events & festivals",
+                "cta": "null",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": null
+            },
+            {
+                "title": "Nature & outdoor",
+                "cta": "null",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": null
+            },
+            {
+                "title": "Adventure",
+                "cta": "null",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": null
+            }
+        ]
+    },
+    {
+        "title": "Plan your trip",
+        "cta": "All trip planning",
+        "href": "https://www.visitscotland.com/travel",
+        "isExternal": false,
+        "isActive": false,
+        "trackingId": "nav.link.test-tracking-id",
+        "dropdownNav": [
+            {
+                "title": "Travel to Scotland",
+                "cta": "null",
+                "href": "#",
+                "trackingId": "nav.link.test-tracking-id"
+            },
+            {
+                "title": "Travel in Scotland",
+                "cta": "null",
+                "href": "#",
+                "trackingId": "nav.link.test-tracking-id"
+            },
+            {
+                "title": "Itineraries",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": "nav.link.test-tracking-id"
+            },
+            {
+                "title": "When to visit",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": "nav.link.test-tracking-id"
+            },
+            {
+                "title": "Travel information",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": "nav.link.test-tracking-id"
+            },
+            {
+                "title": "Holiday types",
+                "href": "#",
+                "isExternal": false,
+                "isActive": false,
+                "trackingId": "nav.link.test-tracking-id"
+            }
+        ]
+    },
+    {
+        "title": "Map of Scotland",
+        "cta": "null",
+        "href": "#",
+        "isExternal": false,
+        "isActive": false,
+        "trackingId": "nav.link.test-tracking-id"
+    }
+]
