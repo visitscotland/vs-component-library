@@ -30,6 +30,8 @@
         <template v-else>
             <VsButton
                 :href="contentData.properties.link.link"
+                :icon="contentData.properties.link.type === 'EXTERNAL' ? 'fa-regular fa-square-arrow-up-right' : ''"
+                icon-position="right"
                 data-test="vs-map-with-sidebar-buttons__discover"
                 class="mb-050"
             >
@@ -119,7 +121,7 @@ export default {
         box-shadow: 0px -5px 10px 0px $vs-color-background-inverse;
 
         .vs-button{
-            display: block;
+            display: flex;
             width: 100%;
         }
 

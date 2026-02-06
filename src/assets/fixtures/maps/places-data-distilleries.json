@@ -12,7 +12,7 @@
             "link": {
                 "label": "Discover A Wee Taste of Edinburgh",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -33,7 +33,7 @@
             "link": {
                 "label": "Discover Aberlour Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -54,7 +54,7 @@
             "link": {
                 "label": "Discover Annandale Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -75,7 +75,7 @@
             "link": {
                 "label": "Discover Arbikie Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -96,7 +96,7 @@
             "link": {
                 "label": "Discover Ardbeg Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -117,7 +117,7 @@
             "link": {
                 "label": "Discover Ardnahoe Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -138,7 +138,7 @@
             "link": {
                 "label": "Discover Ardnamurchan Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -159,7 +159,7 @@
             "link": {
                 "label": "Discover Auchentoshan Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -180,7 +180,7 @@
             "link": {
                 "label": "Discover Balblair Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -201,7 +201,7 @@
             "link": {
                 "label": "Discover Ben Nevis Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -222,7 +222,7 @@
             "link": {
                 "label": "Discover Benriach Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -243,7 +243,7 @@
             "link": {
                 "label": "Discover Benromach Distillery And Visitor's Centre",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -264,7 +264,7 @@
             "link": {
                 "label": "Discover Bladnoch Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -285,7 +285,7 @@
             "link": {
                 "label": "Discover Blair Athol Distillery & Visitors Centre",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -306,7 +306,7 @@
             "link": {
                 "label": "Discover Bowmore Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -327,7 +327,7 @@
             "link": {
                 "label": "Discover Bruichladdich Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -348,7 +348,7 @@
             "link": {
                 "label": "Discover Campbeltown Heritage Centre",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -369,7 +369,7 @@
             "link": {
                 "label": "Discover Caol Ila Distillery Visitor Centre",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -390,7 +390,7 @@
             "link": {
                 "label": "Discover Cardhu Distillery & Visitors Centre",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -411,7 +411,7 @@
             "link": {
                 "label": "Discover Clynelish Distillery & Visitors Centre",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -432,7 +432,7 @@
             "link": {
                 "label": "Discover Cragganmore Distillery & Visitor Centre",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -453,7 +453,7 @@
             "link": {
                 "label": "Discover Dallas Dhu Historic Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -474,7 +474,7 @@
             "link": {
                 "label": "Discover Dalwhinnie Distillery Visitor Centre & Whisky Shop",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -495,7 +495,7 @@
             "link": {
                 "label": "Discover Deanston Distillery and Visitor Centre",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -516,7 +516,7 @@
             "link": {
                 "label": "Discover Dewar's Aberfeldy Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -537,7 +537,7 @@
             "link": {
                 "label": "Discover Eden Mill St Andrews Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -558,7 +558,7 @@
             "link": {
                 "label": "Discover European Bartender School",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -579,7 +579,7 @@
             "link": {
                 "label": "Discover Fettercairn Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -600,7 +600,7 @@
             "link": {
                 "label": "Discover Glen Garioch Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -621,7 +621,7 @@
             "link": {
                 "label": "Discover Glen Grant Distillery and Garden",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -642,7 +642,7 @@
             "link": {
                 "label": "Discover Glen Moray Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -663,7 +663,7 @@
             "link": {
                 "label": "Discover Glen Scotia",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -684,7 +684,7 @@
             "link": {
                 "label": "Discover Glendronach Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -705,7 +705,7 @@
             "link": {
                 "label": "Discover Glenfarclas Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -726,7 +726,7 @@
             "link": {
                 "label": "Discover Glenglassaugh Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -747,7 +747,7 @@
             "link": {
                 "label": "Discover Glengoyne Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -768,7 +768,7 @@
             "link": {
                 "label": "Discover Glenkinchie Distillery & Visitor Centre",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -789,7 +789,7 @@
             "link": {
                 "label": "Discover Glenmorangie Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -810,7 +810,7 @@
             "link": {
                 "label": "Discover Hebridean Whisky Trail - Isle of Harris Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -831,7 +831,7 @@
             "link": {
                 "label": "Discover Hebridean Whisky Trail - Isle of Raasay Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -852,7 +852,7 @@
             "link": {
                 "label": "Discover Hebridean Whisky Trail - Jura Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -873,7 +873,7 @@
             "link": {
                 "label": "Discover Hebridean Whisky Trail - North Uist Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -894,7 +894,7 @@
             "link": {
                 "label": "Discover Hebridean Whisky Trail - Talisker Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -915,7 +915,7 @@
             "link": {
                 "label": "Discover Hebridean Whisky Trail - Torabhaig Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -936,7 +936,7 @@
             "link": {
                 "label": "Discover Highland Park Distillery And Visitor Centre",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -957,7 +957,7 @@
             "link": {
                 "label": "Discover Holyrood Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -978,7 +978,7 @@
             "link": {
                 "label": "Discover Isle of Jura Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -999,7 +999,7 @@
             "link": {
                 "label": "Discover Isle of Raasay Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1020,7 +1020,7 @@
             "link": {
                 "label": "Discover Johnnie Walker Princes Street",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1041,7 +1041,7 @@
             "link": {
                 "label": "Discover Kilchoman Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1062,7 +1062,7 @@
             "link": {
                 "label": "Discover Kingsbarns Distillery and Visitor Centre",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1083,7 +1083,7 @@
             "link": {
                 "label": "Discover Lagavulin Distillery Visitor Centre",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1104,7 +1104,7 @@
             "link": {
                 "label": "Discover Lagg Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1125,7 +1125,7 @@
             "link": {
                 "label": "Discover Laphroaig Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1146,7 +1146,7 @@
             "link": {
                 "label": "Discover Lind & Lime Gin Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1167,7 +1167,7 @@
             "link": {
                 "label": "Discover Lochranza Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1188,7 +1188,7 @@
             "link": {
                 "label": "Discover Nc’nean Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1209,7 +1209,7 @@
             "link": {
                 "label": "Discover Oban Distillery & Visitor Centre",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1230,7 +1230,7 @@
             "link": {
                 "label": "Discover Pulteney Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1251,7 +1251,7 @@
             "link": {
                 "label": "Discover Royal Lochnagar Distillery & Visitors Centre",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1272,7 +1272,7 @@
             "link": {
                 "label": "Discover Scapa Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1293,7 +1293,7 @@
             "link": {
                 "label": "Discover Scotch Whisky Experience - Visitor Attraction",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1314,7 +1314,7 @@
             "link": {
                 "label": "Discover Speyburn Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1335,7 +1335,7 @@
             "link": {
                 "label": "Discover Springbank Whisky Distillers",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1356,7 +1356,7 @@
             "link": {
                 "label": "Discover Strathisla Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1377,7 +1377,7 @@
             "link": {
                 "label": "Discover Talisker Distillery & Visitors Centre",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1398,7 +1398,7 @@
             "link": {
                 "label": "Discover The Balvenie Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1419,7 +1419,7 @@
             "link": {
                 "label": "Discover The Borders Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1440,7 +1440,7 @@
             "link": {
                 "label": "Discover The Botanist Gin",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1461,7 +1461,7 @@
             "link": {
                 "label": "Discover The Clydeside Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1482,7 +1482,7 @@
             "link": {
                 "label": "Discover The Dram Queen",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1503,7 +1503,7 @@
             "link": {
                 "label": "Discover The GlenAllachie Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1524,7 +1524,7 @@
             "link": {
                 "label": "Discover The Glenlivet Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1545,7 +1545,7 @@
             "link": {
                 "label": "Discover The Glenturret Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1566,7 +1566,7 @@
             "link": {
                 "label": "Discover The Macallan Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1587,7 +1587,7 @@
             "link": {
                 "label": "Discover The Singleton of Glen Ord Distillery, Visitor Centre & Whisky Shop",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1608,7 +1608,7 @@
             "link": {
                 "label": "Discover Tobermory Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1629,7 +1629,7 @@
             "link": {
                 "label": "Discover Tomatin Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1650,7 +1650,7 @@
             "link": {
                 "label": "Discover Torabhaig Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1671,7 +1671,7 @@
             "link": {
                 "label": "Discover Tullibardine Distillery & Visitor Centre",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
@@ -1692,7 +1692,7 @@
             "link": {
                 "label": "Discover Uile-bheist Brewery & Distillery",
                 "link": "#",
-                "type": "INTERNAL"
+                "type": "EXTERNAL"
             }
         },
         "geometry": {
