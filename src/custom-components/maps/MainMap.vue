@@ -668,21 +668,38 @@ function selectCategory(categoryId, key) {
         (subCategory) => includedTopLevelTypes.value.add(subCategory.includedType),
     );
 
-    Object.values(
-        categoryData[categoryId].excludedType
-            ?? {
-            },
-    ).forEach(
-        (excludedType) => excludedTopLevelTypes.value.add(excludedType),
+    Object.values(categoryData[categoryId].subCategory).forEach(
+        (subCategory) => {
+            if (subCategory.excludedType) {
+                excludedTopLevelTypes.value.add(subCategory.excludedType);
+            }
+        },
     );
+
+    // Flattens multiple sets back down into one
+    includedTopLevelTypes.value = new Set(Array.from(includedTopLevelTypes.value).flat());
+    excludedTopLevelTypes.value = new Set(Array.from(excludedTopLevelTypes.value).flat());
+
+    // Checks if there are conflicting types and removes from exluded if already in included
+    includedTopLevelTypes.value.forEach((type) => {
+        console.log('Included: ', type);
+        if (excludedTopLevelTypes.value.has(type)) {
+            console.log('Excluded: ', type);
+            excludedTopLevelTypes.value.delete(type);
+        }
+    });
 
     selectedCategory.value = categoryData[categoryId];
     categoryKey.value = key;
 
     searchByCategory({
-        includedTypes: Array.from(includedTopLevelTypes.value).flat(),
-        excludedTypes: Array.from(excludedTopLevelTypes.value).flat(),
+        includedTypes: Array.from(includedTopLevelTypes.value),
+        excludedTypes: Array.from(excludedTopLevelTypes.value),
     });
+
+    console.log(includedTopLevelTypes.value);
+    console.log(excludedTopLevelTypes.value);
+
     query.value = categoryLabelData[categoryKey.value].label;
     searchInput.value = query.value;
 }

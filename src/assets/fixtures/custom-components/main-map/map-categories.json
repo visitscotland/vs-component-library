@@ -2,9 +2,6 @@
     "accommodation": {
         "id": "accommodation",
         "icon": "fa-regular fa-bed",
-        "excludedType": [
-            "supermarket"
-        ],
         "subCategory": [
             {
                 "id": "self-catering",
@@ -56,9 +53,6 @@
     "food-drink": {
         "id": "food-drink",
         "icon": "fa-regular fa-cutlery",
-        "excludedType": [
-            "shopping_mall", "movie_theater", "bowling_alley", "supermarket"
-        ],
         "subCategory": [
             {
                 "id": "restaurants",
@@ -102,9 +96,6 @@
     "things-to-do": {
         "id": "things-to-do",
         "icon": "fa-kit fa-vs-landscape",
-        "excludedType": [
-            "supermarket", "hotel"
-        ],
         "subCategory": [
             {
                 "id": "nature-outdoors",
@@ -150,6 +141,9 @@
                 "id": "health-wellness",
                 "includedType": [
                     "spa", "wellness_center", "massage", "yoga_studio"
+                ],
+                "excludedType": [
+                    "shopping_mall"
                 ]
             },
             {
