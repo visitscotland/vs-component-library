@@ -1,3 +1,21 @@
+# [5.32.0](https://github.com/visitscotland/vs-component-library/compare/v5.31.2...v5.32.0) (2026-02-09)
+
+
+### Bug Fixes
+
+* **main map:** use fitBounds() to set initial zoom level ([68af165](https://github.com/visitscotland/vs-component-library/commit/68af165ad234ab0d585570d029212ef9b4547002))
+* **vsmainmap:** adds in missing null check on excludedTypes in updateSubCategoryTypes function ([af4ba14](https://github.com/visitscotland/vs-component-library/commit/af4ba14c19175cd993a5f1ba887ba173048196e0))
+
+
+### Features
+
+* **vsmainmap:** adds a toplevel excludedTypes list and applies that to TLC searches ([f9ea293](https://github.com/visitscotland/vs-component-library/commit/f9ea2938500768b58c2ca12ecc5eddc38061ab94))
+* **vsmainmap:** adds excluded types to the top level categories ([f842694](https://github.com/visitscotland/vs-component-library/commit/f842694767c226c3a6a63aa099fc6ec403f36807))
+* **vsmainmap:** begin to work out conflicting place types when multiple subcategories are selected ([06ce482](https://github.com/visitscotland/vs-component-library/commit/06ce482b3ed503989c0dfbf8b5706604d2477f1a))
+* **vsmainmap:** rechecks all subcategory types to ensure none missing when the subCat changes ([3453dc4](https://github.com/visitscotland/vs-component-library/commit/3453dc4d4154ac0fb4e39c4a0bd63f1e5994d9b2))
+* **vsmainmap:** refactors subCategory type inclusion to a map and adds excludedTypes to subCategory ([ef5e172](https://github.com/visitscotland/vs-component-library/commit/ef5e1727ba3a524edbf08c421eff31b63f5f7183))
+* **vsmainmap:** top level categories' excluded types are now consitituent of sub categories' exc ty ([3240b0a](https://github.com/visitscotland/vs-component-library/commit/3240b0a9a2c0d49bbd7d6dcb8e9e720525815d36))
+
 ## [5.31.2](https://github.com/visitscotland/vs-component-library/compare/v5.31.1...v5.31.2) (2026-01-23)
 
 
