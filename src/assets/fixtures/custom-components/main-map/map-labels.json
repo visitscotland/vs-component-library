@@ -22,6 +22,10 @@
             {
                 "id": "farmstay",
                 "label": "Farmstay"
+            },
+            {
+                "id": "hostel",
+                "label": "Hostel"
             }
         ]
     },
@@ -35,7 +39,7 @@
             },
             {
                 "id": "cafes",
-                "label": "Cafes"
+                "label": "Cafés"
             },
             {
                 "id": "bars-pubs",
