@@ -682,9 +682,7 @@ function selectCategory(categoryId, key) {
 
     // Checks if there are conflicting types and removes from exluded if already in included
     includedTopLevelTypes.value.forEach((type) => {
-        console.log('Included: ', type);
         if (excludedTopLevelTypes.value.has(type)) {
-            console.log('Excluded: ', type);
             excludedTopLevelTypes.value.delete(type);
         }
     });
@@ -696,9 +694,6 @@ function selectCategory(categoryId, key) {
         includedTypes: Array.from(includedTopLevelTypes.value),
         excludedTypes: Array.from(excludedTopLevelTypes.value),
     });
-
-    console.log(includedTopLevelTypes.value);
-    console.log(excludedTopLevelTypes.value);
 
     query.value = categoryLabelData[categoryKey.value].label;
     searchInput.value = query.value;
@@ -796,11 +791,6 @@ function searchBySubCategory(subCategoryId, key) {
 
         checkForConflictingPlaceTypes();
 
-        // CONSOLE LOG STATEMENTS INCLUDED FOR TESTING
-        // TO BE REMOVED ONCED TESTING COMPLETE AND PR APPROVED
-        console.log('includedTypes: ', includedSubTypes.value);
-        console.log('excludedTypes: ', excludedSubTypes.value);
-
         // Remove subCategory labels to the queryString to show on UI
         queryStr.value.delete(
             searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value,
@@ -829,11 +819,6 @@ function searchBySubCategory(subCategoryId, key) {
         });
 
         checkForConflictingPlaceTypes();
-
-        // CONSOLE LOG STATEMENTS INCLUDED FOR TESTING
-        // TO BE REMOVED ONCED TESTING COMPLETE AND PR APPROVED
-        console.log('includedTypes: ', includedSubTypes.value);
-        console.log('excludedTypes: ', excludedSubTypes.value);
 
         searchByCategory({
             includedTypes: Array.from(includedSubTypes.value).flat(),
