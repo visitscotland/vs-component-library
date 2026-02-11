@@ -1,3 +1,12 @@
+## [5.32.1](https://github.com/visitscotland/vs-component-library/compare/v5.32.0...v5.32.1) (2026-02-11)
+
+
+### Bug Fixes
+
+* **vsmainmap:** appends Scotland to every search to increase focus on Scotland for locationBias ([9f5da7e](https://github.com/visitscotland/vs-component-library/commit/9f5da7ea5813b59200e8135e1408629dbe587c31))
+* **vsmainmap:** fix for locationBias and self-catering bug ([98206ed](https://github.com/visitscotland/vs-component-library/commit/98206edc19ea6eb0c07415cf713981e160460259))
+* **vsmainmap:** fix to the text search on Google Maps after break ([618d773](https://github.com/visitscotland/vs-component-library/commit/618d7736591725d37ee48554cd6baf401b714b61))
+
 # [5.32.0](https://github.com/visitscotland/vs-component-library/compare/v5.31.2...v5.32.0) (2026-02-09)
 
 
