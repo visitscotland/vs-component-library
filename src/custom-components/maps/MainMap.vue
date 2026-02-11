@@ -19,6 +19,7 @@
                     :sub-filter-header-label="props.labels.subFilterHeader"
                     :search-results-label="props.labels.searchResults"
                     :open-sidebar-button-label="props.labels.openSidebarButton"
+                    :featured-places="featuredPlacesData"
                     @search-input-changed="searchByText"
                     @reset-map="resetMap(true)"
                 >
@@ -301,6 +302,13 @@ const props = defineProps({
         type: String,
         default: '',
     },
+    /**
+     * URL location of the featured places JSON file (from static server)
+     */
+    featuredPlacesLocation: {
+        type: String,
+        default: '',
+    },
     /** JSON object for the category labels (from CMS taxonomies) */
     categoryLabels: {
         type: Object,
@@ -415,6 +423,8 @@ const SCOTLAND_BOUNDS = {
 
 let categoryData = {
 };
+let featuredPlacesData = {
+};
 const categoryLabelData = props.categoryLabels;
 
 let currentSearchId = 0;
@@ -452,6 +462,14 @@ onMounted(async() => {
         axios.get(props.categoriesLocation)
             .then((response) => {
                 categoryData = response.data;
+            })
+            .catch(() => {});
+    }
+
+    if (props.featuredPlacesLocation) {
+        axios.get(props.featuredPlacesLocation)
+            .then((response) => {
+                featuredPlacesData = response.data;
             })
             .catch(() => {});
     }

@@ -37,6 +37,7 @@ const base = {
     zoom: 6,
     radius: 5000,
     categoriesLocation: './fixtures/custom-components/main-map/map-categories.json',
+    featuredPlacesLocation: './fixtures/custom-components/main-map/map-featured-places.json',
     categoryLabels: mapCategoryLabels,
     jsDisabled: false,
     noResultsMessage: 'We couldn\'t find anything here.',

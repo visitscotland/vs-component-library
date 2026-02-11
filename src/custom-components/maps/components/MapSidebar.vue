@@ -92,6 +92,10 @@
                     <slot name="vs-map-sidebar-search-results" />
                 </div>
             </div>
+            <VsMapFeaturedLocation
+                :featured-places="featuredPlaces"
+                class="mb-100"
+            />
         </div>
         <div
             class="vs-map-sidebar__footer"
@@ -120,6 +124,7 @@ import VsHeading from '@/components/heading/Heading.vue';
 import VsInput from '@/components/input/Input.vue';
 
 import useGoogleMapStore from '@/stores/mainMap.store';
+import VsMapFeaturedLocation from './MapFeaturedLocation.vue';
 
 const googleMapStore = useGoogleMapStore();
 
@@ -178,6 +183,11 @@ const props = defineProps({
     openSidebarButtonLabel: {
         type: String,
         default: '',
+    },
+    /** JSON data file for featured places */
+    featuredPlaces: {
+        type: Object,
+        default: () => {},
     },
 });
 
