@@ -920,7 +920,12 @@ async function searchByText() {
         return;
     }
 
-    textSearchQuery.textQuery = `${query.value} Scotland`;
+    // Temp fix for self catering accom -- this is not permanent
+    if (query.value === 'self-catering accommodation') {
+        textSearchQuery.textQuery = query.value;
+    } else {
+        textSearchQuery.textQuery = `${query.value} Scotland`;
+    }
 
     textSearchQuery.locationBias = gMap.getCenter();
     textSearchQuery.maxResultCount = NUMBER_OF_RESULTS;
