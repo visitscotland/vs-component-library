@@ -771,10 +771,11 @@ function searchBySubCategory(subCategoryId, key) {
         resetTextQuery();
         selectedSubCategories.value = new Set();
         selectedSubCategories.value.add(subCategoryId);
-        query.value = searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value;
+        query.value = 'self-catering accommodation';
         resetCategories();
         searchInput.value = query.value;
         searchByText();
+        searchInput.value = 'Self Catering';
     } else if (selectedSubCategories.value.has(subCategoryId)) {
         // Delete if already in selectedSubCategories
         selectedSubCategories.value.delete(subCategoryId);
@@ -921,7 +922,7 @@ async function searchByText() {
 
     textSearchQuery.textQuery = query.value;
 
-    textSearchQuery.locationRestriction = gMap.getBounds();
+    textSearchQuery.locationBias = gMap.getCenter();
     textSearchQuery.maxResultCount = NUMBER_OF_RESULTS;
 
     textSearch.style.display = 'block';
