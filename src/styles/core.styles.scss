@@ -20,6 +20,7 @@
 @import "./utilities.scss";
 @import "./third-party/font-awesome";
 
+@import "bootstrap-vue-next/dist/bootstrap-vue-next.css";
 
 /* Bootstrap components */
 @import "bootstrap/scss/breadcrumb";
@@ -39,5 +40,4 @@
 @import "bootstrap/scss/pagination";
 @import "bootstrap/scss/popover";
 @import "bootstrap/scss/tables";
-
-@import "bootstrap-vue-next/dist/bootstrap-vue-next.css";
+@import "bootstrap/scss/offcanvas";

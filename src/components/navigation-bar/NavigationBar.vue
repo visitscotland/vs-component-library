@@ -37,6 +37,26 @@
                     >
                         Search
                     </VsButton>
+                    <div
+                        class="vs-navigation-bar__menu-mobile d-lg-none"
+                        id="vs-navigation-bar__menu-mobile"
+                        data-test="vs-navigation-bar-mobile-container"
+                    >
+                        <VsButton
+                            class="vs-navigation-bar__mobile-menu-toggle p-0"
+                            icon-only
+                            :icon="isOpen ? 'vs-icon-control-dismiss' : 'vs-icon-control-menu'"
+                            variant="subtle"
+                            @click="menuToggle()"
+                            ref="toggleButton"
+                            :rounded="false"
+                            aria-haspopup="true"
+                        >
+                            Toggle menu
+                        </VsButton>
+
+                        <VsNavigationBarMobileMenu />
+                    </div>
                 </VsCol>
             </VsRow>
         </VsContainer>
@@ -49,6 +69,7 @@ import {
 } from '@/components/grid';
 import VsButton from '@/components/button/Button.vue';
 import clickOutside from '@/directives/click-outside';
+import VsNavigationBarMobileMenu from '@/components/navigation-bar/components/NavigationBarMobileMenu.vue';
 import dataLayerMixin from '../../mixins/dataLayerMixin';
 
 /**
@@ -66,6 +87,7 @@ export default {
         VsRow,
         VsContainer,
         VsButton,
+        VsNavigationBarMobileMenu,
     },
     directives: {
         clickOutside,
@@ -137,6 +159,30 @@ export default {
         isStatic: {
             type: Boolean,
             default: false,
+        },
+    },
+    data() {
+        return {
+            isOpen: false,
+        };
+    },
+    methods: {
+        /**
+         * Toggles dropdown menu property
+         * @returns {Boolean} true if menu is open
+        */
+        menuToggle() {
+            this.isOpen = !this.isOpen;
+        },
+        /**
+         * Closes the menu as long as the open button hasn't just been clicked
+         */
+        closeMenu(event) {
+            const mobileNavContainer = document.getElementsByClassName('vs-mega-nav__menu-mobile')[0];
+
+            if (this.isOpen && !mobileNavContainer.contains(event.target)) {
+                this.isOpen = false;
+            }
         },
     },
 };

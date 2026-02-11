@@ -7,6 +7,11 @@ import VsNavigationBarDropdown from '@/components/navigation-bar/components/Navi
 import VsNavigationBarHighlight from '@/components/navigation-bar/components/NavigationBarHighlight.vue';
 import VsSvgLink from '@/components/svg-link/SvgLink.vue';
 
+import VsAccordion from '@/components/accordion/Accordion.vue';
+import VsMegaNavAccordionItem from '@/components/mega-nav/components/MegaNavAccordionItem.vue';
+import VsMegaNavList from '@/components/mega-nav/components/MegaNavList.vue';
+import VsMegaNavListItem from '@/components/mega-nav/components/MegaNavListItem.vue';
+
 import designTokens from '@/assets/tokens/tokens.json';
 import mainNavExample from '@/assets/fixtures/header/main-nav.json';
 import b2cNavExample from '@/assets/fixtures/header/b2c-nav.json';
@@ -27,6 +32,10 @@ const Template = (args) => ({
         VsNavigationBarDropdown,
         VsNavigationBarHighlight,
         VsSvgLink,
+        VsAccordion,
+        VsMegaNavAccordionItem,
+        VsMegaNavList,
+        VsMegaNavListItem,
     },
     setup() {
         return {
@@ -88,6 +97,56 @@ const Template = (args) => ({
  
                         </template>
                     </VsNavigationBarMenu>
+                </template>
+
+                <template #navigation-bar-accordion-items>
+                    <VsAccordion>
+                        <VsMegaNavAccordionItem
+                            v-for="(item, mobileItemIndex) in b2bNavExample"
+                            :index="mobileItemIndex"
+                            :title="item.title"
+                            level="1"
+                            :control-id="mobileItemIndex.toString()"
+                            :cta-link="item.href"
+                            :cta-text="item.cta"
+                            :data-testid="'mobile-inspiration-link'"
+                        >
+                            <VsMegaNavAccordionItem
+                                v-for="(subHeading, subHeadingIndex) in item.dropdownNav"
+                                :index="subHeadingIndex"
+                                :title="subHeading.title"
+                                level="2"
+                                :control-id="subHeadingIndex.toString()"
+                            >
+                                <VsMegaNavList>
+                                    <template
+                                        v-slot:nav-list-items
+                                    >
+                                        <VsMegaNavListItem
+                                            v-for="(navLink, navLinkIndex)
+                                                in subHeading.dropdownNav"
+                                            :key="navLinkIndex"
+                                            :href="navLink.href"
+                                        >
+                                            {{ navLink.title }}
+                                        </VsMegaNavListItem>
+                                    </template>
+
+                                    <template
+                                        v-slot:nav-heading-cta-link
+                                    >
+                                        <VsMegaNavListItem
+                                            v-if="subHeading.href && subHeading.cta"
+                                            :href="subHeading.href"
+                                            subheading-link
+                                        >
+                                            {{ subHeading.cta }}
+                                        </VsMegaNavListItem>
+                                    </template>
+                                </VsMegaNavList>
+                            </VsMegaNavAccordionItem>
+                        </VsMegaNavAccordionItem>
+                    </VsAccordion>
                 </template>
 
             </VsNavigationBar>
