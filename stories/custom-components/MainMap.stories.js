@@ -32,7 +32,7 @@ const base = {
     mapTypeVector: true,
     center: {
         lat: 56.490153,
-        lng: 4.10959,
+        lng: -4.10959,
     },
     zoom: 6,
     radius: 5000,

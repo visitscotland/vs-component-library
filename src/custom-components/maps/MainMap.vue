@@ -260,7 +260,7 @@ const props = defineProps({
         type: Object,
         default: () => ({
             lat: 56.490153,
-            lng: 4.10959,
+            lng: -4.10959,
         }),
     },
     /**
@@ -771,10 +771,11 @@ function searchBySubCategory(subCategoryId, key) {
         resetTextQuery();
         selectedSubCategories.value = new Set();
         selectedSubCategories.value.add(subCategoryId);
-        query.value = searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value;
+        query.value = 'self-catering accommodation';
         resetCategories();
         searchInput.value = query.value;
         searchByText();
+        searchInput.value = 'Self Catering';
     } else if (selectedSubCategories.value.has(subCategoryId)) {
         // Delete if already in selectedSubCategories
         selectedSubCategories.value.delete(subCategoryId);
@@ -919,9 +920,14 @@ async function searchByText() {
         return;
     }
 
-    textSearchQuery.textQuery = query.value;
+    // Temp fix for self catering accom -- this is not permanent
+    if (query.value === 'self-catering accommodation') {
+        textSearchQuery.textQuery = query.value;
+    } else {
+        textSearchQuery.textQuery = `${query.value} Scotland`;
+    }
 
-    textSearchQuery.locationRestriction = gMap.getBounds();
+    textSearchQuery.locationBias = gMap.getCenter();
     textSearchQuery.maxResultCount = NUMBER_OF_RESULTS;
 
     textSearch.style.display = 'block';
