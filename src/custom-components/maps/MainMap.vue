@@ -260,7 +260,7 @@ const props = defineProps({
         type: Object,
         default: () => ({
             lat: 56.490153,
-            lng: 4.10959,
+            lng: -4.10959,
         }),
     },
     /**
@@ -920,7 +920,7 @@ async function searchByText() {
         return;
     }
 
-    textSearchQuery.textQuery = query.value;
+    textSearchQuery.textQuery = `${query.value} Scotland`;
 
     textSearchQuery.locationBias = gMap.getCenter();
     textSearchQuery.maxResultCount = NUMBER_OF_RESULTS;
