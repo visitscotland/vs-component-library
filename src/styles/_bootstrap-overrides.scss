@@ -2,7 +2,7 @@
 $enable-rounded: false;
 $enable-shadows: false;
 $enable-gradients: false;
-$enable-transitions: false;
+$enable-transitions: true;
 $enable-dark-mode: false;
 $enable-negative-margins: true;
 
@@ -16,6 +16,7 @@ $theme-colors: (
     info: $vs-color-background-information,
     warning: $vs-color-background-warning,
     danger: $vs-color-background-error,
+    dark: $vs-color-background-bold,
 );
 
 /* body text */
