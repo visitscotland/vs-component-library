@@ -4,7 +4,7 @@
     <div class="vs-map">
         <div
             class="vs-map__container"
-            :class="!showError ? 'd-block' : 'd-none'"
+            :class="showError ? 'd-none' : ''"
         >
             <div class="vs-map__controls">
                 <VsMapSidebar
@@ -184,9 +184,8 @@
         </VsWarning>
 
         <VsWarning
-            v-if="showError && errType === 'noJS'"
-            data-test="vs-map__warning--no-js"
             class="vs-map__warning vs-map__warning--no-js"
+            data-test="vs-map__warning--no-js"
         >
             {{ noJsMessage }}
         </VsWarning>
@@ -307,13 +306,6 @@ const props = defineProps({
         default: () => {},
     },
     /**
-     * Tells if JS is Disabled
-     */
-    jsDisabled: {
-        type: Boolean,
-        required: true,
-    },
-    /**
      * Message to display when JavaScript is disabled
      */
     noJsMessage: {
@@ -424,11 +416,6 @@ onBeforeMount(() => {
     cookieCheck.requiredCookies.value = cookieValues.google_maps;
 
     showError = computed(() => {
-        if (props.jsDisabled === true) {
-            errType.value = 'noJS';
-            return true;
-        }
-
         if (
             (!cookieCheck.cookiesAllowed.value && cookieCheck.cookiesLoaded.value === true)
             || !cookieCheck.cookiesLoaded.value
@@ -1318,7 +1305,6 @@ function getVisibleMarkerCount() {
 
 @include no-js {
     .vs-map {
-
         &__container {
             display: none;
         }
