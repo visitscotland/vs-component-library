@@ -1,4 +1,7 @@
 import VsNavigationBar from '@/components/navigation-bar/NavigationBar.vue';
+import VsNavigationBarSidebar from '@/components/navigation-bar/components/NavigationBarSidebar.vue';
+import VsNavigationBarSidebarToggle from '@/components/navigation-bar/components/NavigationBarSidebarToggle.vue';
+
 import VsSvgLink from '@/components/svg-link/SvgLink.vue';
 
 import designTokens from '@/assets/tokens/tokens.json';
@@ -11,6 +14,8 @@ export default {
 const Template = (args) => ({
     components: {
         VsNavigationBar,
+        VsNavigationBarSidebar,
+        VsNavigationBarSidebarToggle,
         VsSvgLink,
     },
     setup() {
@@ -19,7 +24,7 @@ const Template = (args) => ({
         };
     },
     template: `   
-        <VsNavigationBar v-bind="args">
+        <VsNavigationBar>
 
             <template #logo-link>
                 <VsSvgLink

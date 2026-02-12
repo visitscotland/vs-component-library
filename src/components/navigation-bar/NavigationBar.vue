@@ -28,16 +28,28 @@
                 >
                     <!-- @slot For navigation bar utility items  -->
                     <slot name="navigation-bar-utilities" />
+
+                    <VsNavigationBarSidebarToggle
+                        @sidebar-toggle="onSidebarToggle"
+                        sidebar-toggle-alt-text="Toggle navigation sidebar"
+                    />
                 </VsCol>
             </VsRow>
         </VsContainer>
     </header>
+
+    <VsNavigationSidebar
+        :show="sidebarOpen"
+        @update:show="sidebarOpen = $event"
+    />
 </template>
 
 <script>
 import {
     VsCol, VsRow, VsContainer,
 } from '@/components/grid';
+import VsNavigationBarSidebarToggle from '@/components/navigation-bar/components/NavigationBarSidebarToggle.vue';
+import VsNavigationSidebar from '@/components/navigation-bar/components/NavigationBarSidebar.vue';
 /**
  *  The Navigation Bar component includes main VS logo and slots for
  *  top menu items on desktop and dropdown toggle with menu items for mobile
@@ -52,6 +64,18 @@ export default {
         VsCol,
         VsRow,
         VsContainer,
+        VsNavigationBarSidebarToggle,
+        VsNavigationSidebar,
+    },
+    data() {
+        return {
+            sidebarOpen: false,
+        };
+    },
+    methods: {
+        onSidebarToggle() {
+            this.sidebarOpen = true;
+        },
     },
 };
 </script>
