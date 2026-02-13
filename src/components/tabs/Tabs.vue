@@ -71,6 +71,12 @@ export default {
                 display: none;
             }
         }
+
+        .nav-tabs {
+            .nav-link {
+                font-weight: $vs-font-weight-heading;
+            }
+        }
     }
 
     .vs-tabs--no-container {

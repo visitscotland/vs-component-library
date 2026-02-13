@@ -148,8 +148,4 @@ export default {
             outline: none;
         }
     }
-
-    .nav-tabs .nav-link {
-        font-weight: $vs-font-weight-heading;
-    }
 </style>
