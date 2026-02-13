@@ -1,3 +1,11 @@
+## [5.32.5](https://github.com/visitscotland/vs-component-library/compare/v5.32.4...v5.32.5) (2026-02-13)
+
+
+### Bug Fixes
+
+* **main map:** no-js message not showing on product site ([0cf00f4](https://github.com/visitscotland/vs-component-library/commit/0cf00f400ba613f4e4ffc2e3ac3496c6921ce93b))
+* **main map:** remove width from control container as its not needed ([89b0379](https://github.com/visitscotland/vs-component-library/commit/89b0379f2d847b7bb251d058e236076d6bf1a97c))
+
 ## [5.32.4](https://github.com/visitscotland/vs-component-library/compare/v5.32.3...v5.32.4) (2026-02-13)
 
 
