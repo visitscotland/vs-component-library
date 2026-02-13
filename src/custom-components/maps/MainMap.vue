@@ -112,7 +112,9 @@
                 </VsMapSidebar>
                 <div
                     class="vs-map__filter-controls"
-                    v-if="(currentZoom >= CATEGORY_VISIBLE_ZOOM) && googleMapStore.sidebarOpen"
+                    v-if="(currentZoom >= CATEGORY_VISIBLE_ZOOM)
+                        && googleMapStore.sidebarOpen
+                        && Object.keys(categoryData).length > 0"
                 >
                     <VsButton
                         v-for="(category, key) in categoryLabelData"
