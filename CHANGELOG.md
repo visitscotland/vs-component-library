@@ -1,3 +1,10 @@
+## [5.32.4](https://github.com/visitscotland/vs-component-library/compare/v5.32.3...v5.32.4) (2026-02-13)
+
+
+### Bug Fixes
+
+* **tabs:** move font weight styling to more appropriate place ([aba4275](https://github.com/visitscotland/vs-component-library/commit/aba427519c41366ef7cd5167d3be1acdb5d374a6))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
