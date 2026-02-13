@@ -1252,7 +1252,6 @@ function getVisibleMarkerCount() {
         pointer-events: none;
         flex-grow: 1;
         min-width: 0;
-        width: calc(100vw - $vs-spacer-100);
 
         @include media-breakpoint-up(md) {
             flex-direction: row;
