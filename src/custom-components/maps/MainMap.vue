@@ -760,11 +760,10 @@ function searchBySubCategory(subCategoryId, key) {
         resetTextQuery();
         selectedSubCategories.value = new Set();
         selectedSubCategories.value.add(subCategoryId);
-        query.value = 'self-catering accommodation';
+        query.value = searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value;
         resetCategories();
         searchInput.value = query.value;
         searchByText();
-        searchInput.value = 'Self Catering';
     } else if (selectedSubCategories.value.has(subCategoryId)) {
         // Delete if already in selectedSubCategories
         selectedSubCategories.value.delete(subCategoryId);
@@ -909,14 +908,9 @@ async function searchByText() {
         return;
     }
 
-    // Temp fix for self catering accom -- this is not permanent
-    if (query.value === 'self-catering accommodation') {
-        textSearchQuery.textQuery = query.value;
-    } else {
-        textSearchQuery.textQuery = `${query.value} Scotland`;
-    }
+    textSearchQuery.textQuery = query.value;
 
-    textSearchQuery.locationBias = gMap.getCenter();
+    textSearchQuery.locationRestriction = gMap.getBounds();
     textSearchQuery.maxResultCount = NUMBER_OF_RESULTS;
 
     textSearch.style.display = 'block';
