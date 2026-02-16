@@ -1,3 +1,10 @@
+## [5.32.8](https://github.com/visitscotland/vs-component-library/compare/v5.32.7...v5.32.8) (2026-02-16)
+
+
+### Bug Fixes
+
+* **main map:** prevent zooming when result clicked ([781b250](https://github.com/visitscotland/vs-component-library/commit/781b2508ae11b9dc464a47baadd1c6b6431f8a88))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
