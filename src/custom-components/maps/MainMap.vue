@@ -4,7 +4,7 @@
     <div class="vs-map">
         <div
             class="vs-map__container"
-            :class="!showError ? 'd-block' : 'd-none'"
+            :class="showError ? 'd-none' : ''"
         >
             <div class="vs-map__controls">
                 <VsMapSidebar
@@ -112,7 +112,9 @@
                 </VsMapSidebar>
                 <div
                     class="vs-map__filter-controls"
-                    v-if="(currentZoom >= CATEGORY_VISIBLE_ZOOM) && googleMapStore.sidebarOpen"
+                    v-if="(currentZoom >= CATEGORY_VISIBLE_ZOOM)
+                        && googleMapStore.sidebarOpen
+                        && Object.keys(categoryData).length > 0"
                 >
                     <VsButton
                         v-for="(category, key) in categoryLabelData"
@@ -184,9 +186,8 @@
         </VsWarning>
 
         <VsWarning
-            v-if="showError && errType === 'noJS'"
-            data-test="vs-map__warning--no-js"
             class="vs-map__warning vs-map__warning--no-js"
+            data-test="vs-map__warning--no-js"
         >
             {{ noJsMessage }}
         </VsWarning>
@@ -307,13 +308,6 @@ const props = defineProps({
         default: () => {},
     },
     /**
-     * Tells if JS is Disabled
-     */
-    jsDisabled: {
-        type: Boolean,
-        required: true,
-    },
-    /**
      * Message to display when JavaScript is disabled
      */
     noJsMessage: {
@@ -424,11 +418,6 @@ onBeforeMount(() => {
     cookieCheck.requiredCookies.value = cookieValues.google_maps;
 
     showError = computed(() => {
-        if (props.jsDisabled === true) {
-            errType.value = 'noJS';
-            return true;
-        }
-
         if (
             (!cookieCheck.cookiesAllowed.value && cookieCheck.cookiesLoaded.value === true)
             || !cookieCheck.cookiesLoaded.value
@@ -771,11 +760,10 @@ function searchBySubCategory(subCategoryId, key) {
         resetTextQuery();
         selectedSubCategories.value = new Set();
         selectedSubCategories.value.add(subCategoryId);
-        query.value = 'self-catering accommodation';
+        query.value = searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value;
         resetCategories();
         searchInput.value = query.value;
         searchByText();
-        searchInput.value = 'Self Catering';
     } else if (selectedSubCategories.value.has(subCategoryId)) {
         // Delete if already in selectedSubCategories
         selectedSubCategories.value.delete(subCategoryId);
@@ -920,14 +908,9 @@ async function searchByText() {
         return;
     }
 
-    // Temp fix for self catering accom -- this is not permanent
-    if (query.value === 'self-catering accommodation') {
-        textSearchQuery.textQuery = query.value;
-    } else {
-        textSearchQuery.textQuery = `${query.value} Scotland`;
-    }
+    textSearchQuery.textQuery = query.value;
 
-    textSearchQuery.locationBias = gMap.getCenter();
+    textSearchQuery.locationRestriction = gMap.getBounds();
     textSearchQuery.maxResultCount = NUMBER_OF_RESULTS;
 
     textSearch.style.display = 'block';
@@ -1116,8 +1099,6 @@ function handlePlaceClick(place) {
         map: gMap,
     });
 
-    gMap.fitBounds(place.viewport);
-
     // eslint-disable-next-line no-undef
     google.maps.event.addListenerOnce(gMap, 'idle', () => {
         if (gMap.getZoom() > MAX_ZOOM) {
@@ -1265,7 +1246,6 @@ function getVisibleMarkerCount() {
         pointer-events: none;
         flex-grow: 1;
         min-width: 0;
-        width: calc(100vw - $vs-spacer-100);
 
         @include media-breakpoint-up(md) {
             flex-direction: row;
@@ -1318,7 +1298,6 @@ function getVisibleMarkerCount() {
 
 @include no-js {
     .vs-map {
-
         &__container {
             display: none;
         }
