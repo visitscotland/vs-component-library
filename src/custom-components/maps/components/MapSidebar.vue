@@ -17,7 +17,7 @@
                 {{ props.headerLabel }}
             </VsHeading>
             <VsButton
-                variant="tertiary"
+                variant="subtle"
                 icon="vs-icon-control-dismiss"
                 icon-only
                 class="vs-map-sidebar__sidebar-control vs-map-siderbar__sidebar-control--dismiss"

@@ -1,3 +1,11 @@
+## [5.32.6](https://github.com/visitscotland/vs-component-library/compare/v5.32.5...v5.32.6) (2026-02-13)
+
+
+### Bug Fixes
+
+* **main map:** only show categories when they are available ([bdb93b6](https://github.com/visitscotland/vs-component-library/commit/bdb93b644a7d7127fea780259dce57f930f85103))
+* **main map:** properly check if object is empty ([48a52f8](https://github.com/visitscotland/vs-component-library/commit/48a52f88d1edb71e0cfe7b572df7de2dff6c9adf))
+
 ## [5.32.5](https://github.com/visitscotland/vs-component-library/compare/v5.32.4...v5.32.5) (2026-02-13)
 
 
