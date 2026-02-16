@@ -1,9 +1,5 @@
 import VsNavigationBar from '@/components/navigation-bar/NavigationBar.vue';
-import VsNavigationBarSidebar from '@/components/navigation-bar/components/NavigationBarSidebar.vue';
-import VsNavigationBarSidebarToggle from '@/components/navigation-bar/components/NavigationBarSidebarToggle.vue';
-
 import VsSvgLink from '@/components/svg-link/SvgLink.vue';
-
 import designTokens from '@/assets/tokens/tokens.json';
 
 export default {
@@ -14,8 +10,6 @@ export default {
 const Template = (args) => ({
     components: {
         VsNavigationBar,
-        VsNavigationBarSidebar,
-        VsNavigationBarSidebarToggle,
         VsSvgLink,
     },
     setup() {
@@ -24,8 +18,11 @@ const Template = (args) => ({
         };
     },
     template: `   
-        <VsNavigationBar>
-
+        <VsNavigationBar 
+            :menu-aria-label="args.menuAriaLabel"
+            :sidebar-close-label="args.sidebarCloseLabel"
+            :sidebar-open-label="args.sidebarOpenLabel"
+        >
             <template #logo-link>
                 <VsSvgLink
                     :linkAltText="args.svgAltText"
@@ -41,14 +38,23 @@ const Template = (args) => ({
             </template>
 
             <template #navigation-bar-utilities>
-                Utility items here
             </template>
 
+            <template #sidebar-body>
+                Sidebar content here
+            </template>
+
+            <template #sidebar-footer>
+                Sidebar footer content here
+            </template>
         </VsNavigationBar>
     `,
 });
 
 const base = {
+    menuAriaLabel: 'Main navigation menu',
+    sidebarCloseLabel: 'Close navigation menu',
+    sidebarOpenLabel: 'Open navigation menu',
     svgAltText: 'VisitScotland Home',
     svgColor: designTokens['vs-color-background-brand'],
     svgHref: '#',
@@ -58,5 +64,4 @@ const base = {
 
 export const Default = Template.bind({
 });
-
 Default.args = base;

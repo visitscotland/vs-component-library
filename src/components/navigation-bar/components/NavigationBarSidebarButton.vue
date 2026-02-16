@@ -4,11 +4,10 @@
         icon-only
         icon="vs-icon-control-menu"
         variant="subtle"
-        @click="sidebarToggle()"
-        ref="toggleButton"
+        @click="sidebarOpen()"
         aria-haspopup="true"
     >
-        {{ sidebarToggleAltText }}
+        {{ sidebarOpenLabel }}
     </VsButton>
 </template>
 
@@ -16,34 +15,32 @@
 import VsButton from '@/components/button/Button.vue';
 
 /**
- *  Navigation bar sidebar toggle button to open the sidebar on small screens
+ *  Navigation bar sidebar button to open the sidebar
  *
- * @displayName Navigation Bar Sidebar Toggle
+ * @displayName Navigation Bar Sidebar Button
  */
 export default {
-    name: 'VsNavigationBarSidebarToggle',
+    name: 'VsNavigationBarSidebarButton',
     status: 'prototype',
     release: '0.1.0',
     components: {
         VsButton,
     },
     props: {
-        sidebarToggleAltText: {
+        /* The aria-label for the sidebar open button,
+         * required for accessibility
+         */
+        sidebarOpenLabel: {
             type: String,
             required: true,
         },
     },
-    emits: ['sidebar-toggle'],
+    emits: ['sidebar-open'],
     methods: {
-        /** * Emit event to open sidebar when toggle button is clicked */
-        sidebarToggle() {
-            this.$emit('sidebar-toggle', true);
+        /** * Emit event to open sidebar when button is clicked */
+        sidebarOpen() {
+            this.$emit('sidebar-open', true);
         },
     },
-
 };
 </script>
-
-<style lang="scss">
-
-</style>

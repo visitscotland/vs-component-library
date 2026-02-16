@@ -7,31 +7,25 @@
             fluid="lg"
             class="h-100"
         >
-            <VsRow
-                class="align-items-center h-100"
-            >
-                <!-- Logo Link -->
+            <VsRow class="align-items-center h-100">
                 <VsCol class="col-auto">
+                    <!-- @slot For logo link  -->
                     <slot name="logo-link" />
                 </VsCol>
 
-                <!-- Desktop Top Menu Toggles -->
-                <VsCol
-                    class="d-none d-lg-block flex-grow-1"
-                >
+                <VsCol class="d-none d-lg-block flex-grow-1">
                     <!-- @slot For navigation bar menu  -->
                     <slot name="navigation-bar-menu" />
                 </VsCol>
 
-                <VsCol
-                    class="d-flex justify-content-end align-items-center col-auto"
-                >
+                <VsCol class="d-flex justify-content-end align-items-center col col-lg-auto">
                     <!-- @slot For navigation bar utility items  -->
                     <slot name="navigation-bar-utilities" />
 
-                    <VsNavigationBarSidebarToggle
-                        @sidebar-toggle="onSidebarToggle"
-                        sidebar-toggle-alt-text="Toggle navigation sidebar"
+                    <VsNavigationBarSidebarButton
+                        class="d-lg-none"
+                        @sidebar-open="onSidebarOpen"
+                        :sidebar-open-label="sidebarOpenLabel"
                     />
                 </VsCol>
             </VsRow>
@@ -41,18 +35,29 @@
     <VsNavigationSidebar
         :show="sidebarOpen"
         @update:show="sidebarOpen = $event"
-    />
+        :menu-aria-label="menuAriaLabel"
+        :sidebar-close-label="sidebarCloseLabel"
+    >
+        <!-- @slot For sidebar body content  -->
+        <slot name="sidebar-body" />
+
+        <template #sidebar-footer>
+            <!-- @slot For sidebar footer content  -->
+            <slot name="sidebar-footer" />
+        </template>
+    </VsNavigationSidebar>
 </template>
 
 <script>
 import {
     VsCol, VsRow, VsContainer,
 } from '@/components/grid';
-import VsNavigationBarSidebarToggle from '@/components/navigation-bar/components/NavigationBarSidebarToggle.vue';
+import VsNavigationBarSidebarButton from '@/components/navigation-bar/components/NavigationBarSidebarButton.vue';
 import VsNavigationSidebar from '@/components/navigation-bar/components/NavigationBarSidebar.vue';
+
 /**
- *  The Navigation Bar component includes main VS logo and slots for
- *  top menu items on desktop and dropdown toggle with menu items for mobile
+ *  The Navigation Bar component includes slots for logo link,
+ *  navigation menu, utility items, and a sidebar for mobile navigation.
  *
  * @displayName Navigation Bar
  */
@@ -64,8 +69,33 @@ export default {
         VsCol,
         VsRow,
         VsContainer,
-        VsNavigationBarSidebarToggle,
+        VsNavigationBarSidebarButton,
         VsNavigationSidebar,
+    },
+    props: {
+        /**
+         * The aria-label for the sidebar menu,
+         * required for accessibility
+         */
+        menuAriaLabel: {
+            type: String,
+            required: true,
+        },
+        /**
+         * The aria-label for the sidebar close button,
+         * required for accessibility
+         */
+        sidebarCloseLabel: {
+            type: String,
+            required: true,
+        },
+        /* The aria-label for the sidebar open button,
+         * required for accessibility
+         */
+        sidebarOpenLabel: {
+            type: String,
+            required: true,
+        },
     },
     data() {
         return {
@@ -73,7 +103,8 @@ export default {
         };
     },
     methods: {
-        onSidebarToggle() {
+        // Emit event to open the sidebar
+        onSidebarOpen() {
             this.sidebarOpen = true;
         },
     },
@@ -86,6 +117,6 @@ export default {
         z-index: 2;
         display: flex;
         align-items: center;
-        background-color: white;
+        background-color: $vs-color-background-inverse;
     }
 </style>
