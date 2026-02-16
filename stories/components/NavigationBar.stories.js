@@ -1,3 +1,4 @@
+import { userEvent } from 'storybook/test';
 import VsNavigationBar from '@/components/navigation-bar/NavigationBar.vue';
 import VsSvgLink from '@/components/svg-link/SvgLink.vue';
 import designTokens from '@/assets/tokens/tokens.json';
@@ -5,6 +6,9 @@ import designTokens from '@/assets/tokens/tokens.json';
 export default {
     component: VsNavigationBar,
     title: 'Components/Navigation/NavigationBar',
+    parameters: {
+        layout: 'fullscreen',
+    },
 };
 
 const Template = (args) => ({
@@ -65,3 +69,31 @@ const base = {
 export const Default = Template.bind({
 });
 Default.args = base;
+
+export const MobileNavigation = Template.bind({
+});
+
+MobileNavigation.args = base;
+
+MobileNavigation.globals = {
+    viewport: {
+        value: 'mobile1',
+    },
+};
+
+export const MobileSidebarOpen = Template.bind({
+});
+
+MobileSidebarOpen.args = base;
+
+MobileSidebarOpen.globals = {
+    viewport: {
+        value: 'mobile1',
+    },
+};
+
+MobileSidebarOpen.play = async({ canvasElement }) => {
+    const sidebarButton = canvasElement.querySelector('.vs-navigation-bar-sidebar-button');
+
+    await userEvent.click(sidebarButton);
+};
