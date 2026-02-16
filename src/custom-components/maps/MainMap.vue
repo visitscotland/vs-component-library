@@ -1099,8 +1099,6 @@ function handlePlaceClick(place) {
         map: gMap,
     });
 
-    gMap.fitBounds(place.viewport);
-
     // eslint-disable-next-line no-undef
     google.maps.event.addListenerOnce(gMap, 'idle', () => {
         if (gMap.getZoom() > MAX_ZOOM) {
