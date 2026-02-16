@@ -1,20 +1,4 @@
 <template>
-    <!-- <VsCard>
-        <template #vs-card-header>
-            <VsImg
-                :src="place.imgSrc"
-                :use-lazy-loading="false"
-            />
-        </template>
-        <template #vs-card-body>
-            <VsHeading
-                heading-style="heading-xxxs"
-                level="3"
-            >
-                {{ place.label }}
-            </VsHeading>
-        </template>
-    </VsCard> -->
     <VsCard
         card-style="overlay"
         class="vs-map__controls-featured-place-card"
@@ -25,11 +9,13 @@
                     level="3"
                     no-margins
                     heading-style="heading-xxxs"
+                    class="vs-map__controls-featured-place-card-heading"
                 >
                     <VsLink
                         href="#"
                         class="stretched-link text-decoration-none"
                         variant="on-dark"
+                        @click="console.log(place.label, 'clicked!')"
                     >
                         {{ props.place.label }}
                     </VsLink>
@@ -42,6 +28,7 @@
         >
             <VsImg
                 :src="place.imgSrc"
+                :use-lazy-loading="false"
                 class="vs-map__controls-featured-place-img w-100 rounded-1 object-fit-cover img-zoom-on-hover"
             />
         </template>
@@ -53,6 +40,7 @@ import {
     VsCard,
     VsHeading,
     VsImg,
+    VsLink,
 } from '@/components';
 
 const props = defineProps({
@@ -67,9 +55,21 @@ const props = defineProps({
 <style lang="scss">
     .vs-map__controls {
         &-featured-place {
-            flex: 0 0 8.5em;
             &-card {
                 height: 10em;
+                flex: 0 0 9.25em!important;
+
+                &-heading {
+                    z-index: 2;
+                    position: relative;
+                }
+                .vs-card__image {
+                    z-index: 1;
+
+                    & img {
+                        height: 10em;
+                    }
+                }
             }
         }
     }

@@ -14,9 +14,8 @@
                 />
                 <span class="category-title">{{ featuredPlaceTitles[key].label }}</span>
             </template>
-            <div class="vs-map-featured-location__accordion-content p-075">
+            <div class="vs-map__controls-featured-place-accordion-content p-075">
                 <VsCardGroup
-                    cards-per-row="3"
                     scroll-snap="always"
                 >
                     <VsMapFeaturedLocationItem
@@ -27,17 +26,6 @@
                 </VsCardGroup>
             </div>
         </VsAccordionItem>
-        <!-- <VsCard>
-            <template #vs-card-body>
-                <p v-for="(location, locKey) in featuredCategory" :key="locKey">
-                    {{ location.label }}
-                </p>
-            </template>
-        </VsCard> -->
-        <!-- <VsMapFeaturedLocationItem
-            v-for="(location, locKey) in featuredCategory"
-            :key="locKey"
-        /> -->
     </VsAccordion>
 </template>
 
@@ -81,5 +69,14 @@ const featuredPlaceTitles = {
 <style lang="scss">
     .category-title {
         text-transform: capitalize;
+    }
+
+    .vs-map__controls-featured-place {
+        &-accordion-content {
+            .vs-card-group {
+                column-gap: $vs-spacer-050;
+            }
+        }
+
     }
 </style>
