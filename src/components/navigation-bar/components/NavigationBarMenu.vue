@@ -31,8 +31,8 @@ export default {
         margin: 0;
         padding: 0;
         display: flex;
+        gap: $vs-spacer-075;
         align-items: center;
-        justify-content: center;
         height: 100%;
         width: 100%;
     }
