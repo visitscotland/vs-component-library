@@ -2,6 +2,7 @@
     <VsCard
         card-style="overlay"
         class="vs-map__controls-featured-place-card"
+        @click="featuredPlaceClick(place)"
     >
         <template #vs-card-footer>
             <div class="px-125 pb-125">
@@ -15,7 +16,7 @@
                         href="#"
                         class="stretched-link text-decoration-none"
                         variant="on-dark"
-                        @click="console.log(place.label, 'clicked!')"
+                        @keypress.enter.prevent="featuredPlaceClick(place)"
                     >
                         {{ props.place.label }}
                     </VsLink>
@@ -36,6 +37,7 @@
 </template>
 
 <script setup>
+import { inject } from 'vue';
 import {
     VsCard,
     VsHeading,
@@ -49,6 +51,12 @@ const props = defineProps({
         default: () => {},
     },
 });
+
+const onFeaturedLocationClick = inject('onFeaturedLocationClick');
+
+function featuredPlaceClick(place) {
+    onFeaturedLocationClick(place);
+}
 
 </script>
 

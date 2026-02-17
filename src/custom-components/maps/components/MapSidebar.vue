@@ -95,6 +95,7 @@
             <VsMapFeaturedLocation
                 :featured-places="featuredPlaces"
                 class="mb-100"
+                :class="($props.query || $props.selectedCategories) ? 'd-none' : 'd-block'"
             />
         </div>
         <div

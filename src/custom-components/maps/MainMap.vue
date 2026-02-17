@@ -113,7 +113,10 @@
                 </VsMapSidebar>
                 <div
                     class="vs-map__filter-controls"
-                    v-if="(currentZoom >= CATEGORY_VISIBLE_ZOOM) && googleMapStore.sidebarOpen"
+                    v-if="
+                        (currentZoom >= CATEGORY_VISIBLE_ZOOM || categoriesVisible)
+                            && googleMapStore.sidebarOpen
+                    "
                 >
                     <VsButton
                         v-for="(category, key) in categoryLabelData"
@@ -202,6 +205,7 @@ import {
     computed,
     onBeforeMount,
     onMounted,
+    provide,
     ref,
 } from 'vue';
 import getEnvValue from '@/utils/get-env-value';
@@ -355,6 +359,8 @@ const props = defineProps({
     },
 });
 
+provide('onFeaturedLocationClick', handleFeaturedLocationClick);
+
 // Map Object, HTMLElements & Global Variables
 let gMap;
 
@@ -387,6 +393,7 @@ const subCategoryKey = ref();
 const currentZoom = ref(props.zoom);
 const MAX_ZOOM = 17;
 const CATEGORY_VISIBLE_ZOOM = 11;
+const categoriesVisible = ref(false);
 const NUMBER_OF_RESULTS = 20;
 const query = ref();
 const queryStr = ref(new Set());
@@ -1044,6 +1051,8 @@ function resetMap(hardReset, resetLocation) {
 
     textSearchQuery.textQuery = null;
 
+    categoriesVisible.value = false;
+
     if (infoWindow && infoWindow.close) {
         infoWindow.close();
     }
@@ -1213,6 +1222,26 @@ function getVisibleMarkerCount() {
     }
 
     return visibleCount;
+}
+
+function handleFeaturedLocationClick(place) {
+    gMap.fitBounds(
+        // eslint-disable-next-line no-undef
+        new google.maps.LatLngBounds(
+            // eslint-disable-next-line no-undef
+            new google.maps.LatLng(place.viewport.low.lat, place.viewport.low.lng),
+            // eslint-disable-next-line no-undef
+            new google.maps.LatLng(place.viewport.high.lat, place.viewport.high.lng),
+        ),
+    );
+
+    gMap.setCenter(
+        // eslint-disable-next-line no-undef
+        new google.maps.LatLng(place.location.lat, place.location.lng),
+    );
+
+    selectCategory('things-to-do', 2);
+    categoriesVisible.value = true;
 }
 </script>
 

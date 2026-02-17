@@ -11,6 +11,7 @@
                     variant="highlight"
                     size="sm"
                     class="me-025 fa-fw"
+                    custom-colour="#200F2E"
                 />
                 <span class="category-title">{{ featuredPlaceTitles[key].label }}</span>
             </template>
