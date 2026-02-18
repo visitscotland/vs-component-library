@@ -414,8 +414,8 @@ const customLabelMarkers = [
             lng: -3.1,
         },
         title: 'Orkney',
-        maxZoom: 8,
-        minZoom: 6,
+        maxZoom: 7.9,
+        minZoom: 1,
     },
 ];
 
