@@ -407,6 +407,18 @@ const SCOTLAND_BOUNDS = {
     east: -0.7,
 };
 
+const customLabelMarkers = [
+    {
+        position: {
+            lat: 58.9,
+            lng: -3.1,
+        },
+        title: 'Orkney',
+        maxZoom: 8,
+        minZoom: 6,
+    },
+];
+
 let categoryData = {
 };
 const categoryLabelData = props.categoryLabels;
@@ -514,6 +526,8 @@ onMounted(async() => {
             console.error('Maps init error', error.message);
         }
 
+        addCustomLabelMarkers();
+
         // Registers the infoWindow that the placeDetail element lives
         // eslint-disable-next-line no-undef
         infoWindow = new google.maps.InfoWindow();
@@ -531,6 +545,18 @@ onMounted(async() => {
                 shadeMapAreas();
             } else {
                 shadeMapAreas(true);
+            }
+
+            // Show / hide custom label markers at specified zoom levels.
+            for (let i = 0; i < Object.keys(customLabelMarkers).length; i++) {
+                const { position, maxZoom, minZoom, title } = customLabelMarkers[i];
+
+                if (markers[title]) {
+                    markers[title].position = (currentZoom.value < maxZoom
+                        && currentZoom.value > minZoom)
+                        ? position
+                        : null;
+                }
             }
         });
 
@@ -562,6 +588,40 @@ onMounted(async() => {
         await initMap();
     }
 });
+
+/**
+ * Add custom label markers for areas of Scotland where the label doesn't
+ * appear when the map is zoomed out. E.g. Orkney.
+ */
+async function addCustomLabelMarkers() {
+    const { AdvancedMarkerElement } = await importLibrary('marker');
+
+    customLabelMarkers.forEach((customLabelMarker) => {
+        const markerLabel = document.createElement('div');
+        markerLabel.className = 'custom-label-marker';
+        markerLabel.innerHTML = `
+            <div class="custom-label-marker__dot"></div>
+            <div class="custom-label-marker__text">${customLabelMarker.title}</div>
+        `;
+
+        // Set the position based on the current zoom level.
+        const position = (currentZoom.value < customLabelMarker.maxZoom
+            && currentZoom.value > customLabelMarker.minZoom)
+            ? customLabelMarker.position
+            : null;
+
+        const marker = new AdvancedMarkerElement({
+            map: gMap,
+            position,
+            content: markerLabel,
+            title: customLabelMarker.title,
+            anchorTop: '0%',
+            anchorLeft: '0%',
+        });
+
+        markers[customLabelMarker.title] = marker;
+    });
+}
 
 function shadeMapAreas(zoomedIn) {
     const shadedAreaStyleOptions = {
@@ -1005,6 +1065,8 @@ async function addMarkers(searchId) {
             }
         });
     }
+
+    addCustomLabelMarkers();
 }
 
 function resetMap(hardReset, resetLocation) {
@@ -1059,6 +1121,8 @@ function clearExistingMarkers() {
     }
     markers = {
     };
+
+    addCustomLabelMarkers();
 }
 
 function handlePlaceClick(place) {
@@ -1175,6 +1239,10 @@ function getVisibleMarkerCount() {
         const marker = markers[Object.keys(markers)[x]];
 
         const position = marker.position;
+
+        // Don't count the marker if it's a custom label marker.
+        const isCustomLabelMarker = customLabelMarkers.findIndex((el) => el.title === marker.title);
+        if (isCustomLabelMarker || !position) break;
 
         if (bounds.contains(position)) {
             visibleCount += 1;
@@ -1293,6 +1361,39 @@ function getVisibleMarkerCount() {
 
     &__warning {
         display: none;
+    }
+
+    // CSS to match Google maps labels.
+    .custom-label-marker {
+        &__text {
+            border-radius: 2px;
+            background: transparent;
+            color: #202124;
+            font-family: Roboto, Arial, sans-serif;
+            font-weight: 500;
+            padding: 2px 4px;
+            position: relative;
+            white-space: nowrap;
+
+            /* Google-style subtle halo */
+            text-shadow:
+                -1px -1px 0 $vs-color-text-inverse,
+                1px -1px 0 $vs-color-text-inverse,
+                -1px  1px 0 $vs-color-text-inverse,
+                1px  1px 0 $vs-color-text-inverse;
+
+            &::before {
+                background-color: $vs-color-background-primary;
+                border-radius: 1000rem;
+                box-shadow: 0 0 0 1px #202124;
+                content: '';
+                height: 3px;
+                position: absolute;
+                top: 5px;
+                left: -5px;
+                width: 3px;
+            }
+        }
     }
 }
 
