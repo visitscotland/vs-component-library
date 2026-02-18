@@ -1,3 +1,37 @@
+## [5.32.8](https://github.com/visitscotland/vs-component-library/compare/v5.32.7...v5.32.8) (2026-02-16)
+
+
+### Bug Fixes
+
+* **main map:** prevent zooming when result clicked ([781b250](https://github.com/visitscotland/vs-component-library/commit/781b2508ae11b9dc464a47baadd1c6b6431f8a88))
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [5.32.7](https://github.com/visitscotland/vs-component-library/compare/v5.32.6...v5.32.7) (2026-02-16)
+
+
+### ⏪ Revertions
+
+* **vsmainmap:** reverts temp fix to map component during Google Maps outage ([77aee83](https://github.com/visitscotland/vs-component-library/commit/77aee83346a7ba7105b6891d3e704a98ee11c884))
+
+## [5.32.6](https://github.com/visitscotland/vs-component-library/compare/v5.32.5...v5.32.6) (2026-02-13)
+
+
+### Bug Fixes
+
+* **main map:** only show categories when they are available ([bdb93b6](https://github.com/visitscotland/vs-component-library/commit/bdb93b644a7d7127fea780259dce57f930f85103))
+* **main map:** properly check if object is empty ([48a52f8](https://github.com/visitscotland/vs-component-library/commit/48a52f88d1edb71e0cfe7b572df7de2dff6c9adf))
+
+## [5.32.5](https://github.com/visitscotland/vs-component-library/compare/v5.32.4...v5.32.5) (2026-02-13)
+
+
+### Bug Fixes
+
+* **main map:** no-js message not showing on product site ([0cf00f4](https://github.com/visitscotland/vs-component-library/commit/0cf00f400ba613f4e4ffc2e3ac3496c6921ce93b))
+* **main map:** remove width from control container as its not needed ([89b0379](https://github.com/visitscotland/vs-component-library/commit/89b0379f2d847b7bb251d058e236076d6bf1a97c))
+
 ## [5.32.4](https://github.com/visitscotland/vs-component-library/compare/v5.32.3...v5.32.4) (2026-02-13)
 
 
