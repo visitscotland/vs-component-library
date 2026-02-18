@@ -202,6 +202,24 @@ describe('VsForm', () => {
         expect(conditionalField.exists()).toBe(false);
     });
 
+    it('should render the recaptcha component if the `usesRecaptcha` prop is true', () => {
+        const wrapper = factoryShallowMount({
+            usesRecaptcha: true,
+        });
+
+        const recaptcha = wrapper.find('vs-recaptcha-stub');
+        expect(recaptcha.exists()).toBe(true);
+    });
+
+    it('should not render the recaptcha component if the `usesRecaptcha` prop is false', () => {
+        const wrapper = factoryShallowMount({
+            usesRecaptcha: false,
+        });
+
+        const recaptcha = wrapper.find('vs-recaptcha-stub');
+        expect(recaptcha.exists()).toBe(false);
+    });
+
     describe(':slots', () => {
         it('should render the `submitting` slot', async() => {
             const wrapper = factoryShallowMount();
