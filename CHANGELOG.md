@@ -1,3 +1,10 @@
+# [5.33.0](https://github.com/visitscotland/vs-component-library/compare/v5.32.8...v5.33.0) (2026-02-18)
+
+
+### Features
+
+* **fa-solid-900 web fonts:** add fa-solid fa-heart ([ec40397](https://github.com/visitscotland/vs-component-library/commit/ec40397c98d3078bea52fdd2358f2c6585dc8fd0))
+
 ## [5.32.8](https://github.com/visitscotland/vs-component-library/compare/v5.32.7...v5.32.8) (2026-02-16)
 
 
