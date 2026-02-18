@@ -1,11 +1,14 @@
+import { userEvent } from 'storybook/test';
 import VsNavigationBar from '@/components/navigation-bar/NavigationBar.vue';
 import VsSvgLink from '@/components/svg-link/SvgLink.vue';
-
 import designTokens from '@/assets/tokens/tokens.json';
 
 export default {
     component: VsNavigationBar,
     title: 'Components/Navigation/NavigationBar',
+    parameters: {
+        layout: 'fullscreen',
+    },
 };
 
 const Template = (args) => ({
@@ -19,8 +22,11 @@ const Template = (args) => ({
         };
     },
     template: `   
-        <VsNavigationBar v-bind="args">
-
+        <VsNavigationBar 
+            :menu-aria-label="args.menuAriaLabel"
+            :sidebar-close-label="args.sidebarCloseLabel"
+            :sidebar-open-label="args.sidebarOpenLabel"
+        >
             <template #logo-link>
                 <VsSvgLink
                     :linkAltText="args.svgAltText"
@@ -36,14 +42,23 @@ const Template = (args) => ({
             </template>
 
             <template #navigation-bar-utilities>
-                Utility items here
             </template>
 
+            <template #sidebar-body>
+                Sidebar content here
+            </template>
+
+            <template #sidebar-footer>
+                Sidebar footer content here
+            </template>
         </VsNavigationBar>
     `,
 });
 
 const base = {
+    menuAriaLabel: 'Main navigation menu',
+    sidebarCloseLabel: 'Close navigation menu',
+    sidebarOpenLabel: 'Open navigation menu',
     svgAltText: 'VisitScotland Home',
     svgColor: designTokens['vs-color-background-brand'],
     svgHref: '#',
@@ -53,5 +68,32 @@ const base = {
 
 export const Default = Template.bind({
 });
-
 Default.args = base;
+
+export const MobileNavigation = Template.bind({
+});
+
+MobileNavigation.args = base;
+
+MobileNavigation.globals = {
+    viewport: {
+        value: 'mobile1',
+    },
+};
+
+export const MobileSidebarOpen = Template.bind({
+});
+
+MobileSidebarOpen.args = base;
+
+MobileSidebarOpen.globals = {
+    viewport: {
+        value: 'mobile1',
+    },
+};
+
+MobileSidebarOpen.play = async({ canvasElement }) => {
+    const sidebarButton = canvasElement.querySelector('.vs-navigation-bar-sidebar-button');
+
+    await userEvent.click(sidebarButton);
+};
