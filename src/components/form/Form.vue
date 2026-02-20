@@ -116,6 +116,7 @@
                 <slot name="hidden-fields" />
 
                 <VsRecaptcha
+                    v-if="usesRecaptcha"
                     @verified="onRecaptchaVerify"
                     :site-key="recaptchaKey"
                     :invalid="!recaptchaVerified && showErrorMessage"
@@ -242,6 +243,17 @@ export default {
         dataUrl: {
             type: String,
             required: true,
+        },
+        /**
+         * If set to false, remove the recaptcha from the form and don't check it when verifying a
+         * submission.
+         *
+         * This is necessary for in person forms which won't be available on the web, and which can
+         * be submitted many times from one device.
+         */
+        usesRecaptcha: {
+            type: Boolean,
+            default: true,
         },
         /**
          * Recaptcha site key string
@@ -706,7 +718,7 @@ export default {
                 return value.validation && value.validation.required;
             }
 
-            if (!this.isTest) {
+            if (this.usesRecaptcha && !this.isTest) {
                 this.onRecaptchaVerify();
             }
 
@@ -748,7 +760,7 @@ export default {
                 this.formIsInvalid = true;
             }
 
-            if (!this.formIsInvalid && this.recaptchaVerified) {
+            if (!this.formIsInvalid && (this.recaptchaVerified || !this.usesRecaptcha)) {
                 if (this.isMarketo) {
                     this.marketoSubmit();
                 } else {
