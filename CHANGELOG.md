@@ -1,3 +1,10 @@
+# [5.34.0](https://github.com/visitscotland/vs-component-library/compare/v5.33.0...v5.34.0) (2026-02-20)
+
+
+### Features
+
+* **forms:** make recaptcha optional for in person event forms ([87fbf18](https://github.com/visitscotland/vs-component-library/commit/87fbf18a740e64ac453ffe0fa5b650b6ff80c12a))
+
 # [5.33.0](https://github.com/visitscotland/vs-component-library/compare/v5.32.8...v5.33.0) (2026-02-18)
 
 
