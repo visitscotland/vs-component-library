@@ -355,7 +355,9 @@ export default {
                 width: 100%;
                 height: 100%;
                 transition: opacity 1s;
-                background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 40%, rgba(0, 0, 0, 0.40) 100%);
+                background: linear-gradient(0deg, rgba(0, 0, 0, 0.00) 50.48%, rgba(0, 0, 0, 0.30) 89.9%),
+                            linear-gradient(180deg, rgba(0, 0, 0, 0.00) 39.5%, rgba(0, 0, 0, 0.85) 100%);
+
             }
         }
 
