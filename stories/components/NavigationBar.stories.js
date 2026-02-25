@@ -41,6 +41,8 @@ const Template = (args) => ({
             :menu-aria-label="args.menuAriaLabel"
             :sidebar-close-label="args.sidebarCloseLabel"
             :sidebar-open-label="args.sidebarOpenLabel"
+            :background="args.background"
+            sidebar-breakpoint="lg"
         >
             <template #logo-link>
                 <VsSvgLink
@@ -156,4 +158,18 @@ MobileSidebarOpen.play = async({ canvasElement }) => {
     const sidebarButton = canvasElement.querySelector('.vs-navigation-bar-sidebar-button');
 
     await userEvent.click(sidebarButton);
+};
+
+export const SubtleNavigationBar = Template.bind({
+});
+
+SubtleNavigationBar.args = {
+    ...base,
+    background: 'inverse',
+};
+
+SubtleNavigationBar.globals = {
+    backgrounds: {
+        value: 'dark',
+    },
 };

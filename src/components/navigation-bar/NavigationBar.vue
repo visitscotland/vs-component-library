@@ -1,6 +1,7 @@
 <template>
     <header
         class="vs-navigation-bar"
+        :class="`vs-navigation-bar--${background}`"
         data-test="vs-navigation-bar"
     >
         <VsContainer
@@ -79,6 +80,12 @@ export default {
         VsNavigationBarSidebarButton,
         VsNavigationSidebar,
     },
+    provide() {
+        // Provide navbar background to all descendants
+        return {
+            navbarBackground: this.background,
+        };
+    },
     props: {
         /**
          * The breakpoint at which the sidebar should be used
@@ -88,6 +95,15 @@ export default {
             type: String,
             default: 'md',
             validator: (value) => value.match(/(xs|sm|md|lg|xl)/),
+        },
+        /**
+         * The background style of the navigation bar,
+         * which can be 'default' or 'inverse'.
+         */
+        background: {
+            type: String,
+            default: 'default',
+            validator: (value) => value.match(/(default|inverse)/),
         },
         /**
          * The aria-label for the sidebar menu,
@@ -166,6 +182,41 @@ export default {
         z-index: 2;
         display: flex;
         align-items: center;
-        background-color: $vs-color-background-inverse;
+
+        //  // Default surface context
+        // --vs-surface-foreground: var(--vs-color-text-primary);
+        // --vs-surface-background: $vs-color-background-primary;
+
+        // background-color: var(--vs-surface-background);
+        // color: var(--vs-surface-foreground);
+
+        // &--inverse {
+        //     --vs-surface-foreground: var(--vs-color-text-inverse);
+        //     --vs-surface-background: transparent;
+
+        //     .btn.dropdown-toggle {
+        //         color: var(--vs-surface-foreground, $vs-color-text-inverse);
+
+        //         &::after {
+        //             color: var(--vs-surface-foreground, $vs-color-text-inverse);
+        //         }
+        //     }
+
+        //     &:hover,
+        //     &:focus-within {
+        //         --vs-surface-foreground: var(--vs-color-text-primary);
+        //         --vs-surface-background: #fff;
+
+        //         transition: .2s all;
+
+        //         .btn.dropdown-toggle {
+        //             color: var(--vs-color-text-primary);
+
+        //             &::after {
+        //                 color: var(--vs-color-text-primary);
+        //             }
+        //         }
+        //     }
+        // }
     }
 </style>

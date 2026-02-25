@@ -6,6 +6,7 @@
     >
         <BDropdown
             variant="subtle"
+            :class="buttonClasses"
             ref="dropdown"
             @show="dataLayerSubmit($event)"
         >
@@ -43,6 +44,15 @@ export default {
     mixins: [
         dataLayerMixin,
     ],
+    inject: ['navbarBackground'],
+    computed: {
+        buttonClasses() {
+            if (this.navbarBackground === 'inverse') {
+                return 'vs-button--navbar-inverse';
+            }
+            return '';
+        },
+    },
     methods: {
         /**
          * Submit event to dataLayer for tracking
@@ -68,6 +78,25 @@ export default {
 
 <style lang="scss">
 .vs-navigation-bar-menu-dropdown {
+
+        .vs-button--navbar-inverse {
+            .btn.dropdown-toggle{
+                color: $vs-color-text-inverse;
+
+                &::after {
+                    color: $vs-color-text-inverse;
+                }
+
+                &:hover,
+                &:focus {
+                    color: $vs-color-text-primary; // invert when hovered/focused
+
+                    &::after {
+                        color: $vs-color-text-primary;
+                    }
+                }
+            }
+        }
 
     .btn.dropdown-toggle {
         position: relative;
