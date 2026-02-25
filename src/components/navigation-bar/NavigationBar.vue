@@ -13,17 +13,24 @@
                     <slot name="logo-link" />
                 </VsCol>
 
-                <VsCol class="d-none d-lg-block flex-grow-1">
+                <VsCol
+                    :class="menuClasses"
+                    data-test="vs-navigation-bar__menu"
+                >
                     <!-- @slot For navigation bar menu  -->
                     <slot name="navigation-bar-menu" />
                 </VsCol>
 
-                <VsCol class="d-flex justify-content-end align-items-center col col-lg-auto">
+                <VsCol
+                    :class="utilityClasses"
+                    data-test="vs-navigation-bar__utilities"
+                >
                     <!-- @slot For navigation bar utility items  -->
                     <slot name="navigation-bar-utilities" />
 
                     <VsNavigationBarSidebarButton
-                        class="d-lg-none"
+                        :class="sidebarButtonClasses"
+                        data-test="vs-navigation-bar__sidebar-button"
                         @sidebar-open="onSidebarOpen"
                         :sidebar-open-label="sidebarOpenLabel"
                     />
@@ -74,6 +81,15 @@ export default {
     },
     props: {
         /**
+         * The breakpoint at which the sidebar should be used
+         * instead of the regular navigation menu.
+         */
+        sidebarBreakpoint: {
+            type: String,
+            default: 'md',
+            validator: (value) => value.match(/(xs|sm|md|lg|xl)/),
+        },
+        /**
          * The aria-label for the sidebar menu,
          * required for accessibility
          */
@@ -101,6 +117,29 @@ export default {
         return {
             sidebarOpen: false,
         };
+    },
+    computed: {
+        breakpointMap() {
+            return {
+                xs: 'sm',
+                sm: 'md',
+                md: 'lg',
+                lg: 'xl',
+                xl: 'xxl',
+            };
+        },
+        menuBreakpoint() {
+            return this.breakpointMap[this.sidebarBreakpoint] || 'lg';
+        },
+        menuClasses() {
+            return `d-none d-${this.menuBreakpoint}-block flex-grow-1`;
+        },
+        sidebarButtonClasses() {
+            return `d-${this.menuBreakpoint}-none`;
+        },
+        utilityClasses() {
+            return `d-flex justify-content-end align-items-center col col-${this.menuBreakpoint}-auto`;
+        },
     },
     methods: {
         // Emit event to open the sidebar

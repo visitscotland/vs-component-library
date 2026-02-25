@@ -74,6 +74,59 @@ describe('VsNavigationBar', () => {
             });
             expect(sidebarButton.props('sidebarOpenLabel')).toBe(testLabel);
         });
+
+        it('sidebarBreakpoint: defaults to md and applies lg classes', () => {
+            const wrapper = factoryShallowMount();
+            const menuCol = wrapper.find('[data-test=vs-navigation-bar__menu]');
+            expect(menuCol.classes()).toContain('d-lg-block');
+        });
+
+        it('sidebarBreakpoint: accepts sm and applies md classes', () => {
+            const wrapper = factoryShallowMount({
+                sidebarBreakpoint: 'sm',
+            });
+            const menuCol = wrapper.find('[data-test=vs-navigation-bar__menu]');
+            expect(menuCol.classes()).toContain('d-md-block');
+        });
+    });
+
+    describe(':computed', () => {
+        it('applies correct menu classes for sm breakpoint', () => {
+            const wrapper = factoryShallowMount({
+                sidebarBreakpoint: 'sm',
+            });
+            const menuCol = wrapper.find('[data-test=vs-navigation-bar__menu]');
+            expect(menuCol.classes()).toContain('d-none');
+            expect(menuCol.classes()).toContain('d-md-block');
+            expect(menuCol.classes()).toContain('flex-grow-1');
+        });
+
+        it('applies correct menu classes for md breakpoint', () => {
+            const wrapper = factoryShallowMount({
+                sidebarBreakpoint: 'md',
+            });
+            const menuCol = wrapper.find('[data-test=vs-navigation-bar__menu]');
+            expect(menuCol.classes()).toContain('d-none');
+            expect(menuCol.classes()).toContain('d-lg-block');
+        });
+
+        it('applies correct sidebar button classes for md breakpoint', () => {
+            const wrapper = factoryShallowMount({
+                sidebarBreakpoint: 'md',
+            });
+            const button = wrapper.findComponent({
+                name: 'VsNavigationBarSidebarButton',
+            });
+            expect(button.classes()).toContain('d-lg-none');
+        });
+
+        it('applies correct utility column classes for md breakpoint', () => {
+            const wrapper = factoryShallowMount({
+                sidebarBreakpoint: 'md',
+            });
+            const utilityCol = wrapper.find('[data-test=vs-navigation-bar__utilities]');
+            expect(utilityCol.classes()).toContain('col-lg-auto');
+        });
     });
 
     describe(':methods', () => {

@@ -4,6 +4,7 @@ import VsNavigationBarMenu from '@/components/navigation-bar/components/Navigati
 import VsNavigationBarMenuDropdown from '@/components/navigation-bar/components/NavigationBarMenuDropdown.vue';
 import VsNavigationBarMenuItem from '@/components/navigation-bar/components/NavigationBarMenuItem.vue';
 import VsLink from '@/components/link/Link.vue';
+import VsButton from '@/components/button/Button.vue';
 
 import VsSvgLink from '@/components/svg-link/SvgLink.vue';
 import designTokens from '@/assets/tokens/tokens.json';
@@ -26,6 +27,7 @@ const Template = (args) => ({
         VsNavigationBarMenuDropdown,
         VsNavigationBarMenuItem,
         VsLink,
+        VsButton,
     },
     setup() {
         return {
@@ -92,6 +94,13 @@ const Template = (args) => ({
             </template>
 
             <template #navigation-bar-utilities>
+                <VsButton
+                    icon="vs-icon-control-search"
+                    variant="secondary"
+                    size="sm"
+                >
+                    Search
+                </VsButton>
             </template>
 
             <template #sidebar-body>
