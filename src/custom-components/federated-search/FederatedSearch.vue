@@ -220,7 +220,7 @@ import {
     VsWarning,
 } from '@/components';
 import getEnvValue from '@/utils/get-env-value';
-import VsDivider from '@/custom-components/divider/Divider.vue';
+import VsDivider from '@/components/divider/Divider.vue';
 import useFederatedSearchStore from '@/custom-components/federated-search/stores/federatedSearch.store';
 import VsFedSearchInput from './components/FedSearchInput.vue';
 import VsFedSearchSort from './components/FedSearchSort.vue';
