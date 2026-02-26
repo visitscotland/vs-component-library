@@ -1,8 +1,8 @@
-import VsDivider from '@/custom-components/divider/Divider.vue';
+import VsDivider from '@/components/divider/Divider.vue';
 
 export default {
     component: VsDivider,
-    title: 'Custom components/Divider',
+    title: 'Components/Layout & content structure/Divider',
     argTypes: {
         variant: {
             options: [

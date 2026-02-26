@@ -96,8 +96,7 @@ export default {
 
 <style lang="scss">
 .vs-footer-accordion-item.vs-accordion-item.card {
-    border-bottom: $vs-border-width-sm solid $vs-color-border-inverse;
-    border-top: 0;
+    background-color: transparent;
 
       .vs-accordion-item__card-header{
         background-color: $vs-color-background-bold;
@@ -162,6 +161,10 @@ export default {
             padding: 0;
             background-color: $vs-color-background-bold;
             border-top: 0;
+        }
+
+        .vs-divider {
+            display: none !important;
         }
     }
 }
