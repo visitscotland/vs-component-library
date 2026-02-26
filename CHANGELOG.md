@@ -1,3 +1,17 @@
+# [5.34.0](https://github.com/visitscotland/vs-component-library/compare/v5.33.0...v5.34.0) (2026-02-20)
+
+
+### Features
+
+* **forms:** make recaptcha optional for in person event forms ([87fbf18](https://github.com/visitscotland/vs-component-library/commit/87fbf18a740e64ac453ffe0fa5b650b6ff80c12a))
+
+# [5.33.0](https://github.com/visitscotland/vs-component-library/compare/v5.32.8...v5.33.0) (2026-02-18)
+
+
+### Features
+
+* **fa-solid-900 web fonts:** add fa-solid fa-heart ([ec40397](https://github.com/visitscotland/vs-component-library/commit/ec40397c98d3078bea52fdd2358f2c6585dc8fd0))
+
 ## [5.32.8](https://github.com/visitscotland/vs-component-library/compare/v5.32.7...v5.32.8) (2026-02-16)
 
 
