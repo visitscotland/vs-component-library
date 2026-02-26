@@ -335,6 +335,14 @@ const props = defineProps({
             /(en|es|it|de|nl|fr)/,
         ),
     },
+    /**
+     * Operator for the Cludo API query.
+     */
+    cludoApiOperator: {
+        type: String,
+        default: 'or',
+        validator: (value) => ['and', 'or'].includes(value),
+    },
 });
 
 const eventHasBeenClicked = ref(false);
@@ -343,16 +351,14 @@ const eventHasBeenClicked = ref(false);
 const totalResultsPages = computed(() => {
     let pageCount;
 
-    if (!federatedSearchStore.selectedCategoryKey) {
+    if (federatedSearchStore.selectedCategoryKey === 'events') {
+        pageCount = Math.ceil(federatedSearchStore.totalResultsEvents / 12);
+    } else {
         pageCount = (
             federatedSearchStore.totalResultsCludo >= federatedSearchStore.totalResultsEvents
         )
             ? Math.ceil(federatedSearchStore.totalResultsCludo / 6)
             : Math.ceil(federatedSearchStore.totalResultsEvents / 6);
-    } else if (federatedSearchStore.selectedCategoryKey !== 'events') {
-        pageCount = Math.ceil(federatedSearchStore.totalResultsCludo / 12);
-    } else if (federatedSearchStore.selectedCategoryKey === 'events') {
-        pageCount = Math.ceil(federatedSearchStore.totalResultsEvents / 12);
     }
 
     return pageCount;
@@ -410,6 +416,7 @@ onMounted(async() => {
     federatedSearchStore.eventsApi = props.eventsApi;
     federatedSearchStore.filters = props.filters;
     federatedSearchStore.siteLanguage = props.siteLanguage;
+    federatedSearchStore.cludoApiOperator = props.cludoApiOperator;
 
     calculateError();
 

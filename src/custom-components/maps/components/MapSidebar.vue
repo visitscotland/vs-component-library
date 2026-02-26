@@ -13,12 +13,11 @@
                 class="flex-grow-1"
                 id="vs-map-sidebar__heading"
                 data-test="vs-map-sidebar__heading"
-                aria-hidden="true"
             >
                 {{ props.headerLabel }}
             </VsHeading>
             <VsButton
-                variant="tertiary"
+                variant="subtle"
                 icon="vs-icon-control-dismiss"
                 icon-only
                 class="vs-map-sidebar__sidebar-control vs-map-siderbar__sidebar-control--dismiss"
@@ -30,12 +29,6 @@
         </div>
         <div class="vs-map-sidebar__content">
             <div class="vs-map-sidebar__input d-flex mt-100 mb-050">
-                <label
-                    for="vs-map-search-input"
-                    class="visually-hidden"
-                >
-                    {{ props.headerLabel }}
-                </label>
                 <VsInput
                     type="text"
                     autocomplete="off"
@@ -44,7 +37,7 @@
                     ref="vs-search-input"
                     :placeholder="props.inputPlaceholderLabel"
                     class="vs-map-sidebar__input flex-grow-1"
-                    aria-describedby="vs-map-sidebar__heading"
+                    :aria-label="props.searchBarAriaLabel"
                     @keyup.enter.prevent="$emit('search-input-changed')"
                 />
                 <VsButton
@@ -60,7 +53,7 @@
                     {{ props.searchButtonLabel }}
                 </VsButton>
             </div>
-            <VsLink
+            <a
                 href="#"
                 class="d-block"
                 data-test="vs-map-sidebar__reset-map"
@@ -69,7 +62,7 @@
                 @keyup.enter.prevent="$emit('reset-map')"
             >
                 {{ props.clearMapLabel }}
-            </VsLink>
+            </a>
             <div
                 v-if="$slots['vs-map-sidebar-sub-filters'] && $slots['vs-map-sidebar-sub-filters']()"
                 class="vs-map-sidebar__sub-filters-wrapper"
@@ -123,7 +116,6 @@
 <script setup lang="ts">
 import VsButton from '@/components/button/Button.vue';
 import VsDetail from '@/components/detail/Detail.vue';
-import VsLink from '@/components/link/Link.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsInput from '@/components/input/Input.vue';
 
@@ -149,6 +141,11 @@ const props = defineProps({
     },
     /** Label for the close sidebar button */
     closeSidebarButtonLabel: {
+        type: String,
+        default: '',
+    },
+    /** ARIA Label for the input */
+    searchBarAriaLabel: {
         type: String,
         default: '',
     },
@@ -230,10 +227,9 @@ defineEmits(['search-input-changed', 'reset-map']);
         @include media-breakpoint-down(md) {
             width: 100%;
             flex-wrap: nowrap;
-            overflow-x: scroll;
-            scroll-snap-type: mandatory x;
             align-items: start;
             @include scrollsnap-styles;
+            pointer-events: all;
             column-gap: $vs-spacer-050;
             padding: $vs-spacer-025 $vs-spacer-025 $vs-spacer-050 $vs-spacer-025 ;
         }

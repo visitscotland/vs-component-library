@@ -4,7 +4,7 @@
     <div class="vs-map">
         <div
             class="vs-map__container"
-            :class="!showError ? 'd-block' : 'd-none'"
+            :class="showError ? 'd-none' : ''"
         >
             <div class="vs-map__controls">
                 <VsMapSidebar
@@ -12,6 +12,7 @@
                     :selected-categories="selectedTopLevelCategory"
                     :header-label="props.labels.heading"
                     :close-sidebar-button-label="props.labels.closeSidebarBtn"
+                    :search-bar-aria-label="props.labels.searchBarAriaLabel"
                     :input-placeholder-label="props.labels.inputPlaceholder"
                     :search-button-label="props.labels.searchButton"
                     :clear-map-label="props.labels.clearMap"
@@ -97,13 +98,23 @@
                             class="mt-075 mb-150"
                             size="small"
                         >
-                            {{ noResultsMessage }}
+                            <span>
+                                {{ noResultsMessage }}
+                                <a
+                                    href="#"
+                                    @click.prevent="resetMap(true, true)"
+                                >
+                                    {{ resetMapNoResultsMessage }}
+                                </a>
+                            </span>
                         </VsAlert>
                     </template>
                 </VsMapSidebar>
                 <div
                     class="vs-map__filter-controls"
-                    v-if="(currentZoom >= CATEGORY_VISIBLE_ZOOM) && googleMapStore.sidebarOpen"
+                    v-if="(currentZoom >= CATEGORY_VISIBLE_ZOOM)
+                        && googleMapStore.sidebarOpen
+                        && Object.keys(categoryData).length > 0"
                 >
                     <VsButton
                         v-for="(category, key) in categoryLabelData"
@@ -175,9 +186,8 @@
         </VsWarning>
 
         <VsWarning
-            v-if="showError && errType === 'noJS'"
-            data-test="vs-map__warning--no-js"
             class="vs-map__warning vs-map__warning--no-js"
+            data-test="vs-map__warning--no-js"
         >
             {{ noJsMessage }}
         </VsWarning>
@@ -251,7 +261,7 @@ const props = defineProps({
         type: Object,
         default: () => ({
             lat: 56.490153,
-            lng: 4.10959,
+            lng: -4.10959,
         }),
     },
     /**
@@ -298,13 +308,6 @@ const props = defineProps({
         default: () => {},
     },
     /**
-     * Tells if JS is Disabled
-     */
-    jsDisabled: {
-        type: Boolean,
-        required: true,
-    },
-    /**
      * Message to display when JavaScript is disabled
      */
     noJsMessage: {
@@ -329,6 +332,10 @@ const props = defineProps({
      * Message to display when there are no results available
      */
     noResultsMessage: {
+        type: String,
+        required: true,
+    },
+    resetMapNoResultsMessage: {
         type: String,
         required: true,
     },
@@ -358,16 +365,33 @@ const selectedTopLevelCategory = ref();
 const selectedSubCategories = ref(new Set());
 const selectedCategory = ref();
 const includedTopLevelTypes = ref(new Set());
+const excludedTopLevelTypes = ref(new Set());
 const includedSubTypes = ref(new Set());
+const excludedSubTypes = ref(new Set());
 const categoryKey = ref();
 const subCategoryKey = ref();
 const currentZoom = ref(props.zoom);
-const MAX_ZOOM = 19;
+const MAX_ZOOM = 17;
 const CATEGORY_VISIBLE_ZOOM = 11;
 const NUMBER_OF_RESULTS = 20;
 const query = ref();
 const queryStr = ref(new Set());
 const currentSearch = ref();
+
+const subCategoryTypeMap = computed(() => {
+    const map = new Map();
+
+    const subCategories = categoryData[selectedTopLevelCategory.value].subCategory;
+
+    Object.values(subCategories).forEach((subCat) => {
+        map.set(subCat.id, {
+            includedTypes: subCat.includedType,
+            excludedTypes: subCat.excludedType,
+        });
+    });
+
+    return map;
+});
 
 const googleMapStore = useGoogleMapStore();
 
@@ -377,26 +401,23 @@ let showError;
 const errType = ref(undefined);
 
 const SCOTLAND_BOUNDS = {
-    north: 61.86500,
-    south: 54.62185,
-    west: -8.65100,
-    east: 0.71000,
+    north: 60.8,
+    south: 54.8,
+    west: -8.5,
+    east: -0.7,
 };
 
 let categoryData = {
 };
 const categoryLabelData = props.categoryLabels;
 
+let currentSearchId = 0;
+
 onBeforeMount(() => {
     const cookieCheck = cookieCheckerComposable();
     cookieCheck.requiredCookies.value = cookieValues.google_maps;
 
     showError = computed(() => {
-        if (props.jsDisabled === true) {
-            errType.value = 'noJS';
-            return true;
-        }
-
         if (
             (!cookieCheck.cookiesAllowed.value && cookieCheck.cookiesLoaded.value === true)
             || !cookieCheck.cookiesLoaded.value
@@ -479,11 +500,13 @@ onMounted(async() => {
                 mapTypeControl: false,
                 cameraControl: false,
                 streetViewControl: false,
+                gestureHandling: 'greedy',
             };
 
             if (mapContainer) {
                 // eslint-disable-next-line no-undef
                 gMap = new google.maps.Map(mapContainer, mapOptions);
+                gMap.fitBounds(SCOTLAND_BOUNDS);
             } else {
                 throw new Error('Init error, mapContainer undefined');
             }
@@ -566,11 +589,23 @@ function shadeMapAreas(zoomedIn) {
         'ChIJuwtkpGSZAEcR6lXMScpzdQk', // Poland
         'ChIJl5fz7WR9wUcR8g_mObTy60c', // Belgium
         'ChIJMVd4MymgVA0R99lHx5Y__Ws', // France
+        'ChIJ_ZqKe2cw6UYREPzyaM3PAAA', // Latvia
+        'ChIJE74zDxSU3UYRubpdpdNUCvM', // Lithuania
+        'ChIJ4wsuREWc40YRewI60MRYJR4', // Kaliningrad
+        'ChIJ_UuggpyUkkYRwyW0T7qf6kA', // Estonia
+        'ChIJ3fYyS9_KgUYREKh1PNZGAQA', // Finland
+        'ChIJQ2Dro1Ir0kgRmkXB5TQEim8', // Iceland
+        'ChIJFXfA47sNok4RGOIUAYOdzzQ', // Greenland
+        'ChIJI9HkgQm_ikYR8i7GR23fEbY', // Countryside, Åland
+        'ChIJUXXYvLMei0YR7zdFQUIM8bA', // Archipelago, Åland
+        'ChIJRyEhyrlFlUcR75LTAvZg22Q', // Luxembourg
     ];
 
     const zoomedInShadedPlaces = [
         'ChIJ39UebIqp0EcRqI4tMyWV4fQ', // England
         'ChIJdZmmmcoQXkgR2OO3bu8o5fc', // Northern Ireland
+        'ChIJ-ydAXOS6WUgRCPTbzjQSfM8', // Republic of Ireland
+        'ChIJ6_ktdpMVvEgRJBv3ZEgxsD8', // Faroe Islands
     ];
 
     // eslint-disable-next-line no-undef
@@ -581,6 +616,13 @@ function shadeMapAreas(zoomedIn) {
     if (zoomedIn) {
         countryLayer.style = null;
         adminArea1Layer.style = null;
+
+        // eslint-disable-next-line consistent-return
+        countryLayer.style = (options) => {
+            if (zoomedInShadedPlaces.includes(options.feature.placeId)) {
+                return shadedAreaStyleOptions;
+            }
+        };
 
         // eslint-disable-next-line consistent-return
         adminArea1Layer.style = (options) => {
@@ -615,13 +657,36 @@ function selectCategory(categoryId, key) {
     // Retrieves all the values in each subcategory and adds it to
     // `includedTopLevelTypes` set, which should handle duplication.
     Object.values(categoryData[categoryId].subCategory).forEach(
-        (subCategory) => includedTopLevelTypes.value.add(subCategory.type),
+        (subCategory) => includedTopLevelTypes.value.add(subCategory.includedType),
     );
+
+    Object.values(categoryData[categoryId].subCategory).forEach(
+        (subCategory) => {
+            if (subCategory.excludedType) {
+                excludedTopLevelTypes.value.add(subCategory.excludedType);
+            }
+        },
+    );
+
+    // Flattens multiple sets back down into one
+    includedTopLevelTypes.value = new Set(Array.from(includedTopLevelTypes.value).flat());
+    excludedTopLevelTypes.value = new Set(Array.from(excludedTopLevelTypes.value).flat());
+
+    // Checks if there are conflicting types and removes from exluded if already in included
+    includedTopLevelTypes.value.forEach((type) => {
+        if (excludedTopLevelTypes.value.has(type)) {
+            excludedTopLevelTypes.value.delete(type);
+        }
+    });
 
     selectedCategory.value = categoryData[categoryId];
     categoryKey.value = key;
 
-    searchByCategory(Array.from(includedTopLevelTypes.value).flat());
+    searchByCategory({
+        includedTypes: Array.from(includedTopLevelTypes.value),
+        excludedTypes: Array.from(excludedTopLevelTypes.value),
+    });
+
     query.value = categoryLabelData[categoryKey.value].label;
     searchInput.value = query.value;
 }
@@ -653,6 +718,41 @@ function searchSubCategoriesForLabel(selectedSubcategory, subCategoryId) {
     return selSubCatLabel;
 }
 
+function checkForConflictingPlaceTypes() {
+    includedSubTypes.value.forEach((subCategory) => {
+        if (excludedSubTypes.value.has(subCategory)) {
+            excludedSubTypes.value.delete(subCategory);
+        }
+    });
+};
+
+function updateSubCategoryTypes(
+    subCategoryId,
+    {
+        includeTypes = false,
+        excludeTypes = false,
+        removeIncludedTypes = false,
+        removeExcludedTypes = false,
+    } = {
+    },
+) {
+    const types = subCategoryTypeMap.value.get(subCategoryId);
+
+    if (includeTypes) {
+        types.includedTypes.forEach((includedType) => {
+            if (includeTypes) includedSubTypes.value.add(includedType);
+            if (removeIncludedTypes) includedSubTypes.value.delete(includedType);
+        });
+    }
+
+    if (excludeTypes || removeExcludedTypes) {
+        types.excludedTypes?.forEach((excludedType) => {
+            if (excludeTypes) excludedSubTypes.value.add(excludedType);
+            if (removeExcludedTypes) excludedSubTypes.value.delete(excludedType);
+        });
+    }
+}
+
 function searchBySubCategory(subCategoryId, key) {
     subCategoryKey.value = key;
 
@@ -667,15 +767,21 @@ function searchBySubCategory(subCategoryId, key) {
     } else if (selectedSubCategories.value.has(subCategoryId)) {
         // Delete if already in selectedSubCategories
         selectedSubCategories.value.delete(subCategoryId);
-        // Iterate through each subcategory to find the selected subcategory
-        Object.values(categoryData[selectedTopLevelCategory.value].subCategory)
-            .forEach((subCat) => {
-                if (subCat.id === subCategoryId) {
-                    // Iterate through the array of types and delete
-                    // them from the includedSubTypes set
-                    subCat.type.forEach((type) => includedSubTypes.value.delete(type));
-                }
+
+        // Reset subcategories
+        includedSubTypes.value = new Set();
+        excludedSubTypes.value = new Set();
+
+        // Add in all remaining types again, to account for any
+        // conflicting duplicate types that had been removed
+        selectedSubCategories.value.forEach((subCatId) => {
+            updateSubCategoryTypes(subCatId, {
+                includeTypes: true,
+                excludeTypes: true,
             });
+        });
+
+        checkForConflictingPlaceTypes();
 
         // Remove subCategory labels to the queryString to show on UI
         queryStr.value.delete(
@@ -688,7 +794,10 @@ function searchBySubCategory(subCategoryId, key) {
             queryStr.value = new Set();
             selectCategory(selectedTopLevelCategory.value, categoryKey.value);
         } else {
-            searchByCategory(Array.from(includedSubTypes.value).flat());
+            searchByCategory({
+                includedTypes: Array.from(includedSubTypes.value).flat(),
+                excludedTypes: Array.from(excludedSubTypes.value).flat(),
+            });
             query.value = Array.from(queryStr.value).join(', ');
             searchInput.value = query.value;
         }
@@ -696,15 +805,17 @@ function searchBySubCategory(subCategoryId, key) {
         // Add if not already in selectedSubCategories
         selectedSubCategories.value.add(subCategoryId);
         // Iterate through each subcategory to find the selected subcategory
-        Object.values(categoryData[selectedTopLevelCategory.value].subCategory)
-            .forEach((subCat) => {
-                if (subCat.id === subCategoryId) {
-                    // Iterate through the array of types adding them to the includedSubTypes set
-                    subCat.type.forEach((type) => includedSubTypes.value.add(type));
-                }
-            });
+        updateSubCategoryTypes(subCategoryId, {
+            includeTypes: true,
+            excludeTypes: true,
+        });
 
-        searchByCategory(Array.from(includedSubTypes.value).flat());
+        checkForConflictingPlaceTypes();
+
+        searchByCategory({
+            includedTypes: Array.from(includedSubTypes.value).flat(),
+            excludedTypes: Array.from(excludedSubTypes.value).flat(),
+        });
 
         // Add subCategory labels to the queryString to show on UI
         queryStr.value.add(
@@ -717,9 +828,18 @@ function searchBySubCategory(subCategoryId, key) {
     }
 }
 
-async function searchByCategory(includedTypes) {
+async function searchByCategory({
+    includedTypes = [],
+    excludedTypes = [],
+} = {
+}) {
     resetMap();
     resetTextQuery();
+
+    currentSearchId += 1;
+
+    const searchId = currentSearchId;
+
     noResults.value = false;
 
     googleMapStore.filterUsesCount += 1;
@@ -734,6 +854,7 @@ async function searchByCategory(includedTypes) {
     const cappedRadius = Math.min((diameter / 2), 25000);
 
     nearbySearchQuery.includedTypes = includedTypes;
+    nearbySearchQuery.excludedTypes = excludedTypes ?? [];
     nearbySearchQuery.maxResultCount = NUMBER_OF_RESULTS;
     nearbySearchQuery.locationRestriction = {
         center: gMap.getCenter(),
@@ -742,7 +863,9 @@ async function searchByCategory(includedTypes) {
 
     nearbySearch.style.display = 'block';
     nearbySearch.addEventListener('gmp-load', () => {
-        addMarkers();
+        if (searchId !== currentSearchId) return;
+
+        addMarkers(searchId);
 
         let filterType = 'main';
         let filterSelection = selectedTopLevelCategory.value;
@@ -771,6 +894,10 @@ async function searchByText() {
     resetCategories();
     noResults.value = false;
 
+    currentSearchId += 1;
+
+    const searchId = currentSearchId;
+
     googleMapStore.searchesCount += 1;
 
     currentSearch.value = 'text';
@@ -789,7 +916,9 @@ async function searchByText() {
     textSearch.style.display = 'block';
 
     textSearch.addEventListener('gmp-load', () => {
-        addMarkers();
+        if (searchId !== currentSearchId) return;
+
+        addMarkers(searchId);
 
         dataLayerHelper.createDataLayerObject('googleMapSearchEvent', {
             search_query: query.value,
@@ -804,9 +933,11 @@ async function searchByText() {
     });
 }
 
-async function addMarkers() {
+async function addMarkers(searchId) {
     const { AdvancedMarkerElement } = await importLibrary('marker');
     const { LatLngBounds } = await importLibrary('core');
+
+    if (searchId !== currentSearchId) return;
 
     const searchRequest = ref();
 
@@ -876,7 +1007,7 @@ async function addMarkers() {
     }
 }
 
-function resetMap(hardReset) {
+function resetMap(hardReset, resetLocation) {
     clearExistingMarkers();
     currentSearch.value = '';
     nearbySearch.style.display = 'none';
@@ -894,6 +1025,12 @@ function resetMap(hardReset) {
         resetCategories();
         mapInteractionEvent('clear_all');
     }
+    if (resetLocation) {
+        gMap.setCenter(props.center);
+        gMap.setZoom(props.zoom);
+        gMap.fitBounds(SCOTLAND_BOUNDS);
+        mapInteractionEvent('reset_map');
+    }
 }
 
 function resetTextQuery() {
@@ -905,7 +1042,9 @@ function resetCategories() {
     selectedTopLevelCategory.value = undefined;
     selectedSubCategories.value = new Set();
     includedTopLevelTypes.value = new Set();
+    excludedTopLevelTypes.value = new Set();
     includedSubTypes.value = new Set();
+    excludedSubTypes.value = new Set();
     queryStr.value = new Set();
     categoryKey.value = undefined;
     subCategoryKey.value = undefined;
@@ -922,7 +1061,7 @@ function clearExistingMarkers() {
     };
 }
 
-function handlePlaceClick(place, marker) {
+function handlePlaceClick(place) {
     if (infoWindow.isOpen) {
         infoWindow.close();
         mapInteractionEvent('card_close', placeRequest.place);
@@ -951,18 +1090,15 @@ function handlePlaceClick(place, marker) {
     infoWindow.setOptions({
         content: placeDetails,
         maxWidth: '25em',
-        pixelOffset: null,
+        position: place.location,
+        // eslint-disable-next-line no-undef
+        pixelOffset: new google.maps.Size(0, -32),
     });
 
     infoWindow.open({
-        anchor: marker,
         map: gMap,
     });
 
-    gMap.fitBounds(place.viewport, {
-        top: 200,
-        right: 150,
-    });
     // eslint-disable-next-line no-undef
     google.maps.event.addListenerOnce(gMap, 'idle', () => {
         if (gMap.getZoom() > MAX_ZOOM) {
@@ -971,17 +1107,21 @@ function handlePlaceClick(place, marker) {
 
         mapInteractionEvent('card_open', place);
     });
+
+    gMap.setCenter(place.location);
 }
 
 async function mapInteractionEvent(interactionType, place) {
     let cardName = '';
     let cardRating = '';
     let cardUrl = '';
+    let cardPrimaryType = '';
 
     if (place) {
         await place.fetchFields({
             fields: [
                 'displayName',
+                'primaryType',
                 'rating',
                 'websiteURI',
             ],
@@ -990,6 +1130,7 @@ async function mapInteractionEvent(interactionType, place) {
         cardName = place.displayName;
         cardRating = place.rating;
         cardUrl = place.websiteURI;
+        cardPrimaryType = place.primaryType;
     }
 
     dataLayerHelper.createDataLayerObject('googleMapInteractionEvent', {
@@ -998,6 +1139,7 @@ async function mapInteractionEvent(interactionType, place) {
         map_location: gMap.getCenter().toString(),
         visible_attractions_count: visibleMarkerCount,
         card_attraction_name: cardName,
+        card_attraction_category: cardPrimaryType,
         card_attraction_rating: cardRating,
         card_attraction_url: cardUrl,
         interaction_timestamp_ms: Date.now(),
@@ -1047,7 +1189,7 @@ function getVisibleMarkerCount() {
 .vs-map {
     //Google Maps Places UI Kit Custom Styling
     //semantic tokens don't seem to work with it
-    --gmp-mat-color-surface: #fff //$vs-color-background-primary;
+    --gmp-mat-color-surface: #fff; //$vs-color-background-primary;
     --gmp-mat-color-on-surface: #200F2E; //$vs-color-text-primary;
     --gmp-mat-color-on-surface-variant: #606060; //$vs-color-text-secondary;
     --gmp-mat-color-primary: #1F49D6; //$vs-color-text-cta-on-light;
@@ -1057,6 +1199,10 @@ function getVisibleMarkerCount() {
     --gmp-mat-color-outline-decorative: #E9E9E9; //$vs-color-border-primary;
     --gmp-mat-font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; //$vs-font-family-sans-serif;
 
+    gmp-place-search, gmp-place-details {
+        color-scheme: only light;
+    }
+
     &__container {
         position: relative;
     }
@@ -1064,6 +1210,30 @@ function getVisibleMarkerCount() {
     &__wrapper, #vs-map {
         height: 90vh;
         width: 100%;
+
+        gmp-advanced-marker {
+            width: $vs-spacer-200;
+            height: $vs-spacer-200;
+        }
+
+        .vs-map-marker {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: $vs-spacer-200;
+            height: $vs-spacer-200;
+            background-color: $vs-color-icon-cta-on-light;
+            border-radius: $vs-radius-large;
+            border: 0.125em solid $vs-color-icon-inverse;
+            box-shadow: $vs-elevation-shadow-raised;
+            transition: transform 0.1s ease-in-out;
+            font-size: 1.5em;
+            color: $vs-color-icon-inverse;
+
+            &:hover {
+                transform: scale(1.25);
+            }
+        }
     }
 
     &__controls {
@@ -1076,7 +1246,6 @@ function getVisibleMarkerCount() {
         pointer-events: none;
         flex-grow: 1;
         min-width: 0;
-        width: calc(100vw - $vs-spacer-100);
 
         @include media-breakpoint-up(md) {
             flex-direction: row;
@@ -1093,6 +1262,7 @@ function getVisibleMarkerCount() {
         width: calc(100vw - $vs-spacer-100);
         margin: $vs-spacer-050 $vs-spacer-0;
         padding: $vs-spacer-025 $vs-spacer-025 $vs-spacer-050 $vs-spacer-025;
+        pointer-events: all;
 
         @include scrollsnap-styles;
 
@@ -1124,30 +1294,10 @@ function getVisibleMarkerCount() {
     &__warning {
         display: none;
     }
-
-    .vs-map-marker {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: $vs-spacer-200;
-        height: $vs-spacer-200;
-        background-color: $vs-color-icon-cta-on-light;
-        border-radius: $vs-radius-large;
-        border: 0.125em solid $vs-color-icon-inverse;
-        box-shadow: $vs-elevation-shadow-raised;;
-        transition: transform 0.1s ease-in-out;
-        font-size: 1.5em;
-        color: $vs-color-icon-inverse;
-
-        &:hover {
-            transform: scale(1.25);
-        }
-    }
 }
 
 @include no-js {
     .vs-map {
-
         &__container {
             display: none;
         }

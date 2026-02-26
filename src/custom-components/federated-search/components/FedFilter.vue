@@ -149,7 +149,7 @@ function isActive(category) {
  * This is not the best solution by any means
  * There is a better solution that doesn't rely on JS,
  * but is not stable across all browsers yet.
- * We should look to implent it, if we chose to keep it,
+ * We should look to implement it, if we chose to keep it,
  * when it does become stable on Safari & Firefox.
  * https://developer.mozilla.org/en-US/docs/Web/CSS/::scroll-button
 */

@@ -5,36 +5,47 @@
         "subCategory": [
             {
                 "id": "self-catering",
-                "type": [
+                "includedType": [
                     "cottage"
                 ]
             },
             {
                 "id": "bed-breakfast",
-                "type": [
-                    "bed_and_breakfast", "private_guest_room", "guest_house"
+                "includedType": [
+                    "bed_and_breakfast", "guest_house"
+                ],
+                "excludedType": [
+                    "hotel", "hostel", "motel", "inn"
                 ]
             },
             {
                 "id": "caravan-camping",
-                "type": [
+                "includedType": [
                     "campground", "camping_cabin", "mobile_home_park", "rv_park"
                 ]
             },
             {
                 "id": "hotel",
-                "type": [
+                "includedType": [
                     "hotel", "inn", "motel", "resort_hotel", "extended_stay_hotel"
+                ],
+                "excludedType": [
+                    "bed_and_breakfast", "farmstay", "hostel", "guest_house"
                 ]
             },
             {
                 "id": "farmstay",
-                "type": ["farmstay"]
+                "includedType": [
+                    "farmstay"
+                ]
             },
             {
                 "id": "hostel",
-                "type": [
+                "includedType": [
                     "hostel"
+                ],
+                "excludedType": [
+                    "hotel", "motel", "bed_and_breakfast", "guest_house", "inn"
                 ]
             }
         ]
@@ -45,7 +56,7 @@
         "subCategory": [
             {
                 "id": "restaurants",
-                "type": [
+                "includedType": [
                     "afghani_restaurant", "african_restaurant", "american_restaurant",
                     "asian_restaurant", "barbecue_restaurant", "brazilian_restaurant",
                     "breakfast_restaurant", "brunch_restaurant", "buffet_restaurant",
@@ -62,15 +73,22 @@
             },
             {
                 "id": "cafes",
-                "type": [
+                "includedType": [
                     "bagel_shop", "cafe", "coffee_shop", "deli", "dessert_shop", "dog_cafe",
                     "ice_cream_shop", "sandwich_shop", "tea_house"
+                ],
+                "excludedType": [
+                    "restaurant", "bar_and_grill", "pub", "supermarket", "movie_theater",
+                    "amusement_center"
                 ]
             },
             {
                 "id": "bars-pubs",
-                "type": [
+                "includedType": [
                     "bar", "bar_and_grill", "pub", "wine_bar"
+                ],
+                "excludedType": [
+                    "restaurant", "movie_theater", "bowling_alley", "event_venue"
                 ]
             }
         ]
@@ -81,28 +99,28 @@
         "subCategory": [
             {
                 "id": "nature-outdoors",
-                "type": [
+                "includedType": [
                     "national_park", "beach", "hiking_area", "garden", "botanical_garden",
                     "wildlife_park", "wildlife_refuge", "park"
                 ]
             },
             {
                 "id": "culture-history",
-                "type": [
+                "includedType": [
                     "museum", "art_gallery", "historical_place", "monument", "sculpture",
                     "cultural_landmark", "church"
                 ]
             },
             {
                 "id": "entertainment",
-                "type": [
+                "includedType": [
                     "aquarium", "zoo", "amusement_park", "concert_hall", "performing_arts_theater", 
                     "planetarium", "movie_theater", "comedy_club", "bowling_alley", "roller_coaster"
                 ]
             },
             {
                 "id": "active-adventure",
-                "type": [
+                "includedType": [
                     "skateboard_park", "ice_skating_rink", "adventure_sports_center", 
                     "cycling_park", "ski_resort", "golf_course", "sports_complex", "stadium", 
                     "fishing_pond", "fishing_charter", "fitness_center", "gym"
@@ -110,20 +128,27 @@
             },
             {
                 "id": "shopping",
-                "type": [
+                "includedType": [
                     "shopping_mall", "gift_shop", "book_store", "clothing_store", "department_store", 
                     "market", "jewelry_store"
+                ],
+                "excludedType": [
+                    "supermarket", "cell_phone_store", "grocery_store", "warehouse_store", "auto_parts_store",
+                    "convenience_store", "discount_store", "hardware_store"
                 ]
             },
             {
                 "id": "health-wellness",
-                "type": [
+                "includedType": [
                     "spa", "wellness_center", "massage", "yoga_studio"
+                ],
+                "excludedType": [
+                    "shopping_mall"
                 ]
             },
             {
                 "id": "tours",
-                "type": [
+                "includedType": [
                     "tour_agency", "travel_agency"
                 ]
             }
@@ -135,7 +160,7 @@
         "subCategory": [
             {
                 "id": "transport",
-                "type": [
+                "includedType": [
                     "airport", "airstrip", "bus_station", "bus_stop", "car_rental",
                     "ferry_terminal", "heliport", "international_airport", "light_rail_station",
                     "subway_station", "taxi_stand", "train_station"
@@ -143,13 +168,13 @@
             },
             {
                 "id": "charging-points",
-                "type": [
+                "includedType": [
                     "electric_vehicle_charging_station"
                 ]
             },
             {
                 "id": "facilities",
-                "type": [
+                "includedType": [
                     "park_and_ride", "parking", "public_bathroom", "visitor_center", "atm"
                 ]
             }

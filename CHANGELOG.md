@@ -1,3 +1,192 @@
+# [5.34.0](https://github.com/visitscotland/vs-component-library/compare/v5.33.0...v5.34.0) (2026-02-20)
+
+
+### Features
+
+* **forms:** make recaptcha optional for in person event forms ([87fbf18](https://github.com/visitscotland/vs-component-library/commit/87fbf18a740e64ac453ffe0fa5b650b6ff80c12a))
+
+# [5.33.0](https://github.com/visitscotland/vs-component-library/compare/v5.32.8...v5.33.0) (2026-02-18)
+
+
+### Features
+
+* **fa-solid-900 web fonts:** add fa-solid fa-heart ([ec40397](https://github.com/visitscotland/vs-component-library/commit/ec40397c98d3078bea52fdd2358f2c6585dc8fd0))
+
+## [5.32.8](https://github.com/visitscotland/vs-component-library/compare/v5.32.7...v5.32.8) (2026-02-16)
+
+
+### Bug Fixes
+
+* **main map:** prevent zooming when result clicked ([781b250](https://github.com/visitscotland/vs-component-library/commit/781b2508ae11b9dc464a47baadd1c6b6431f8a88))
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [5.32.7](https://github.com/visitscotland/vs-component-library/compare/v5.32.6...v5.32.7) (2026-02-16)
+
+
+### ⏪ Revertions
+
+* **vsmainmap:** reverts temp fix to map component during Google Maps outage ([77aee83](https://github.com/visitscotland/vs-component-library/commit/77aee83346a7ba7105b6891d3e704a98ee11c884))
+
+## [5.32.6](https://github.com/visitscotland/vs-component-library/compare/v5.32.5...v5.32.6) (2026-02-13)
+
+
+### Bug Fixes
+
+* **main map:** only show categories when they are available ([bdb93b6](https://github.com/visitscotland/vs-component-library/commit/bdb93b644a7d7127fea780259dce57f930f85103))
+* **main map:** properly check if object is empty ([48a52f8](https://github.com/visitscotland/vs-component-library/commit/48a52f88d1edb71e0cfe7b572df7de2dff6c9adf))
+
+## [5.32.5](https://github.com/visitscotland/vs-component-library/compare/v5.32.4...v5.32.5) (2026-02-13)
+
+
+### Bug Fixes
+
+* **main map:** no-js message not showing on product site ([0cf00f4](https://github.com/visitscotland/vs-component-library/commit/0cf00f400ba613f4e4ffc2e3ac3496c6921ce93b))
+* **main map:** remove width from control container as its not needed ([89b0379](https://github.com/visitscotland/vs-component-library/commit/89b0379f2d847b7bb251d058e236076d6bf1a97c))
+
+## [5.32.4](https://github.com/visitscotland/vs-component-library/compare/v5.32.3...v5.32.4) (2026-02-13)
+
+
+### Bug Fixes
+
+* **tabs:** move font weight styling to more appropriate place ([aba4275](https://github.com/visitscotland/vs-component-library/commit/aba427519c41366ef7cd5167d3be1acdb5d374a6))
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [5.32.3](https://github.com/visitscotland/vs-component-library/compare/v5.32.2...v5.32.3) (2026-02-13)
+
+### [5.32.2](https://github.com/visitscotland/vs-component-library/compare/v5.32.1...v5.32.2) (2026-02-11)
+
+## [5.32.1](https://github.com/visitscotland/vs-component-library/compare/v5.32.0...v5.32.1) (2026-02-11)
+
+
+### Bug Fixes
+
+* **vsmainmap:** appends Scotland to every search to increase focus on Scotland for locationBias ([9f5da7e](https://github.com/visitscotland/vs-component-library/commit/9f5da7ea5813b59200e8135e1408629dbe587c31))
+* **vsmainmap:** fix for locationBias and self-catering bug ([98206ed](https://github.com/visitscotland/vs-component-library/commit/98206edc19ea6eb0c07415cf713981e160460259))
+* **vsmainmap:** fix to the text search on Google Maps after break ([618d773](https://github.com/visitscotland/vs-component-library/commit/618d7736591725d37ee48554cd6baf401b714b61))
+
+# [5.32.0](https://github.com/visitscotland/vs-component-library/compare/v5.31.2...v5.32.0) (2026-02-09)
+
+
+### Bug Fixes
+
+* **main map:** use fitBounds() to set initial zoom level ([68af165](https://github.com/visitscotland/vs-component-library/commit/68af165ad234ab0d585570d029212ef9b4547002))
+* **vsmainmap:** adds in missing null check on excludedTypes in updateSubCategoryTypes function ([af4ba14](https://github.com/visitscotland/vs-component-library/commit/af4ba14c19175cd993a5f1ba887ba173048196e0))
+
+
+### Features
+
+* **vsmainmap:** adds a toplevel excludedTypes list and applies that to TLC searches ([f9ea293](https://github.com/visitscotland/vs-component-library/commit/f9ea2938500768b58c2ca12ecc5eddc38061ab94))
+* **vsmainmap:** adds excluded types to the top level categories ([f842694](https://github.com/visitscotland/vs-component-library/commit/f842694767c226c3a6a63aa099fc6ec403f36807))
+* **vsmainmap:** begin to work out conflicting place types when multiple subcategories are selected ([06ce482](https://github.com/visitscotland/vs-component-library/commit/06ce482b3ed503989c0dfbf8b5706604d2477f1a))
+* **vsmainmap:** rechecks all subcategory types to ensure none missing when the subCat changes ([3453dc4](https://github.com/visitscotland/vs-component-library/commit/3453dc4d4154ac0fb4e39c4a0bd63f1e5994d9b2))
+* **vsmainmap:** refactors subCategory type inclusion to a map and adds excludedTypes to subCategory ([ef5e172](https://github.com/visitscotland/vs-component-library/commit/ef5e1727ba3a524edbf08c421eff31b63f5f7183))
+* **vsmainmap:** top level categories' excluded types are now consitituent of sub categories' exc ty ([3240b0a](https://github.com/visitscotland/vs-component-library/commit/3240b0a9a2c0d49bbd7d6dcb8e9e720525815d36))
+
+## [5.31.2](https://github.com/visitscotland/vs-component-library/compare/v5.31.1...v5.31.2) (2026-01-23)
+
+
+### Bug Fixes
+
+* **map:** prevent multiple searches adding markers at the same time ([62e9b52](https://github.com/visitscotland/vs-component-library/commit/62e9b52175ebaf3902f84f62c96380c06f44208c))
+* **maps:** make info window positioning explicit for nuxt bug ([b8f389e](https://github.com/visitscotland/vs-component-library/commit/b8f389eab46bf9a7dd9c6513d58ccea77e0285fb))
+
+## [5.31.1](https://github.com/visitscotland/vs-component-library/compare/v5.31.0...v5.31.1) (2026-01-21)
+
+
+### Bug Fixes
+
+* **buttons:** adjust specificity ([bbfe2e2](https://github.com/visitscotland/vs-component-library/commit/bbfe2e2f548a11cf2ca358b3d71587c2868ccd97))
+* **buttons:** increase specificity of button styles ([a2917d1](https://github.com/visitscotland/vs-component-library/commit/a2917d1f0c9ed370b0e3ac633a1cf479d591ee70))
+* **buttons:** remove redundant btn selector ([c611c07](https://github.com/visitscotland/vs-component-library/commit/c611c0796f2fc540cbe22f29ec4a8621cfe4b7a4))
+
+# [5.31.0](https://github.com/visitscotland/vs-component-library/compare/v5.30.1...v5.31.0) (2026-01-20)
+
+
+### Features
+
+* **federated search:** change filtering behaviour ([6768e38](https://github.com/visitscotland/vs-component-library/commit/6768e386b0baf18d8899d54310d7797bae19f9e2))
+
+## [5.30.1](https://github.com/visitscotland/vs-component-library/compare/v5.30.0...v5.30.1) (2026-01-16)
+
+
+### Bug Fixes
+
+* **map:** remove double semi colon ([9eb17e8](https://github.com/visitscotland/vs-component-library/commit/9eb17e83bfdee25c15cec7e3194b61002107a0cb))
+* **maps:** make main map marker styles more specific ([816bdd4](https://github.com/visitscotland/vs-component-library/commit/816bdd4fe9d19b1186fd81893d41c468eecdfe94))
+
+# [5.30.0](https://github.com/visitscotland/vs-component-library/compare/v5.29.1...v5.30.0) (2026-01-13)
+
+
+### Bug Fixes
+
+* **fed filter:** fix typo ([982f9df](https://github.com/visitscotland/vs-component-library/commit/982f9df26fab812a4bf451dc0f6323f84390d184))
+* **federated search:** get params before starting the search ([878e673](https://github.com/visitscotland/vs-component-library/commit/878e67346ebe053864527dd1566432e3ed1e653b))
+
+
+### Features
+
+* **federated search:** add new events api parameters ([3c2e514](https://github.com/visitscotland/vs-component-library/commit/3c2e514a9d839d19097f92d456ec4317c6095d6b))
+
+## [5.29.1](https://github.com/visitscotland/vs-component-library/compare/v5.29.0...v5.29.1) (2026-01-12)
+
+
+### Bug Fixes
+
+* **vsmainmap:** fix disclaimer transparent background & forces light color scheme on gMap components ([609a202](https://github.com/visitscotland/vs-component-library/commit/609a202a2bd9d477460b757a97c8cf828fd10eb4))
+* **vsmainmap:** fixes map gesture handling behaviour to "greedy" to capture user input more easily ([248a2d9](https://github.com/visitscotland/vs-component-library/commit/248a2d94304036cc49f7dcc2318bb79df6c0ca34))
+
+# [5.29.0](https://github.com/visitscotland/vs-component-library/compare/v5.28.0...v5.29.0) (2026-01-08)
+
+
+### Bug Fixes
+
+* **datalayermixin:** adds new attraction category googleMapInteractionTemplate to dataLayerTemplates ([7186140](https://github.com/visitscotland/vs-component-library/commit/71861405a0817344a14eda5c1c57d6dbf831a06d))
+* **vsmainmap:** fixes dataLayerPush on clearing map ([bf749c2](https://github.com/visitscotland/vs-component-library/commit/bf749c2e551cd004ea47d35fd556416810e3e20e))
+* **vsmainmap:** fixes missed field in dataLayerComposable causing failure to populate data in event ([9cb2556](https://github.com/visitscotland/vs-component-library/commit/9cb25568ebf30ff4b1c4e1c202853ff20a64de29))
+* **vsmapsidebar:** fixes clear all button dataLayer internal-link event ([e528c8a](https://github.com/visitscotland/vs-component-library/commit/e528c8a4cd09d61ec6e5c44964d20ab0851d784c))
+
+
+### Features
+
+* **vsmainmap:** adds primaryType/category to data layer mapInteractionEvent ([87e804f](https://github.com/visitscotland/vs-component-library/commit/87e804fd776217bbe03e0156efed759ecbe4cb48))
+
+# [5.28.0](https://github.com/visitscotland/vs-component-library/compare/v5.27.0...v5.28.0) (2026-01-07)
+
+
+### Bug Fixes
+
+* **product search:** remove unused import ([c8489e0](https://github.com/visitscotland/vs-component-library/commit/c8489e057dfbccb7d46aabbbd09dca6f646f1bd7))
+
+
+### Features
+
+* **product search:** remove fields when accommodation is selected ([5b5e406](https://github.com/visitscotland/vs-component-library/commit/5b5e4067c14b219fa60a9b22a0116145c30179fb))
+
+# [5.27.0](https://github.com/visitscotland/vs-component-library/compare/v5.26.0...v5.27.0) (2026-01-05)
+
+
+### Bug Fixes
+
+* **vsinput:** fixes aria label being on all inputs regardless of whether or not they had one ([282b47e](https://github.com/visitscotland/vs-component-library/commit/282b47ee346d05a90ff130982fb6ff38a1c1124e))
+* **vsinput:** passes aria-label down to input element rather than it sitting on input component div ([683960e](https://github.com/visitscotland/vs-component-library/commit/683960eba3cb6e104215dee69ac89f9524dfffb2))
+* **vsmainmap:** adds more shaded areas when zoomed in ([a68588a](https://github.com/visitscotland/vs-component-library/commit/a68588a8b808837ee8beaa549cf8ee19d3b0edbb))
+* **vsmainmap:** adds pointer events to filters for iOS compatibility ([d78703c](https://github.com/visitscotland/vs-component-library/commit/d78703ca82b8ddc7c88470509687d346aec81d88))
+* **vsmainmap:** fixes poor accessibility in the sidebar by adding new aria label for search box ([bf2f373](https://github.com/visitscotland/vs-component-library/commit/bf2f373d275cb504dd9b30528e7f199b22f6a323))
+* **vsmainmap:** recenters the map after pin click to ensure info window is visible ([a0cd470](https://github.com/visitscotland/vs-component-library/commit/a0cd4709207c8ac15cd0be5cfcaa16c8a970ff96))
+* **vsmainmap:** updates to the shading areas that include more of Europe ([5a5feab](https://github.com/visitscotland/vs-component-library/commit/5a5feabc5fbf4368542906c4c5ff3156e696c88e))
+* **vsmapsidebar:** fix missing prop causing sidebar component to fail a11y tests when run standalone ([0da6636](https://github.com/visitscotland/vs-component-library/commit/0da66363496aaa30b4dff117248f1bde64ab8aaf))
+
+
+### Features
+
+* **vsmainmap:** adds in prop for and adds reset map link to no results message ([de408d1](https://github.com/visitscotland/vs-component-library/commit/de408d1675c10c739db6ab5cf218911ad2fd0023))
+
 # [5.26.0](https://github.com/visitscotland/vs-component-library/compare/v5.25.0...v5.26.0) (2025-12-17)
 
 

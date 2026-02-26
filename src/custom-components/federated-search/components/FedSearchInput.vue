@@ -36,11 +36,11 @@
             </VsButton>
         </div>
 
-        <div class="position-relative">
-            <div
-                v-if="searchSuggestions"
-                class="vs-fed-search-input__autocomplete"
-            >
+        <div
+            v-if="searchSuggestions && searchSuggestions.length > 0"
+            class="position-relative"
+        >
+            <div class="vs-fed-search-input__autocomplete">
                 <VsList unstyled>
                     <li
                         v-for="suggestion in searchSuggestions"
@@ -338,6 +338,22 @@ onMounted(() => {
 
     if (params.has('end-date')) {
         federatedSearchStore.endDate = params.get('end-date');
+    }
+
+    if (params.has('postcode')) {
+        federatedSearchStore.postcode = params.get('postcode');
+    }
+
+    if (params.has('location')) {
+        federatedSearchStore.location = params.get('location');
+    }
+
+    if (params.has('radius')) {
+        federatedSearchStore.radius = params.get('radius');
+    }
+
+    if (params.has('postcodeareas')) {
+        federatedSearchStore.postcodeareas = params.get('postcodeareas');
     }
 
     if (params.has('search-term') || params.has('category')) {
