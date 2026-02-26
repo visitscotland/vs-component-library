@@ -2,7 +2,7 @@
     <BCard
         no-body
         class="vs-accordion-item"
-        :class="[$attrs.class, breakPoint ? 'vs-accordion-item__responsive' : '']"
+        :class="breakPoint ? 'vs-accordion-item__responsive' : ''"
         data-test="vs-accordion__item"
     >
         <BCardHeader
