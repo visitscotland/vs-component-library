@@ -2,7 +2,7 @@
     <BCard
         no-body
         class="vs-accordion-item"
-        :class="breakPoint ? 'vs-accordion-item__responsive' : ''"
+        :class="[$attrs.class, breakPoint ? 'vs-accordion-item__responsive' : '']"
         data-test="vs-accordion__item"
     >
         <BCardHeader
@@ -34,7 +34,7 @@
                     <slot name="icon-open">
                         <VsIcon
                             icon="vs-icon-control-collapse"
-                            size="sm"
+                            size="xs"
                         />
                     </slot>
                 </template>
@@ -43,7 +43,7 @@
                     <slot name="icon-closed">
                         <VsIcon
                             icon="vs-icon-control-expand"
-                            size="sm"
+                            size="xs"
                         />
                     </slot>
                 </template>
@@ -71,6 +71,8 @@
             <!-- @slot The default slot is the content for the accordion  -->
             <slot />
         </BCardBody>
+
+        <VsDivider class="my-025" />
     </BCard>
 </template>
 
@@ -78,6 +80,7 @@
 import VsAccordionToggle from '@/components/accordion/components/AccordionToggle.vue';
 import VsIcon from '@/components/icon/Icon.vue';
 import VsHeading from '@/components/heading/Heading.vue';
+import VsDivider from '@/components/divider/Divider.vue';
 
 import dataLayerMixin from '@/mixins/dataLayerMixin';
 
@@ -106,6 +109,7 @@ export default {
         BCardHeader,
         BCardBody,
         VsHeading,
+        VsDivider,
     },
     mixins: [
         dataLayerMixin,
@@ -210,28 +214,10 @@ export default {
 .vs-accordion-item.card {
     border: 0;
 
-    &.vs-accordion-item__responsive {
-        border-top: $vs-border-width-sm solid $vs-color-border-primary;
-    }
-
     .vs-accordion-item__card-header {
         padding: 0;
         border: 0;
         background-color: transparent;
-    }
-
-    .vs-accordion-toggle {
-        text-align: left;
-        font-weight: $vs-font-weight-strong;
-        font-size: $font-size-6;
-        padding: $vs-spacer-050 $vs-spacer-075;
-        border: 0;
-        margin-bottom: 1px;
-        box-shadow: 0px -1px 0px 0px $vs-color-border-primary;
-
-        &:focus {
-            box-shadow: $vs-focus-shadow inset;
-        }
     }
 
     .vs-accordion-item__title {
