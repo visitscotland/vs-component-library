@@ -1,3 +1,16 @@
+# [5.35.0](https://github.com/visitscotland/vs-component-library/compare/v5.34.0...v5.35.0) (2026-03-03)
+
+
+### Bug Fixes
+
+* **accordion:** remove attrs from accordion item ([777e163](https://github.com/visitscotland/vs-component-library/commit/777e163333217b149c5d1926f2853409f9346f9b))
+
+
+### Features
+
+* **accordion:** update accordion styles to new design ([88f8d01](https://github.com/visitscotland/vs-component-library/commit/88f8d01b2b7419cd8a07bab8aea8f752f18c28a4))
+* **divider:** move divider from custom components to components folder ([fca565c](https://github.com/visitscotland/vs-component-library/commit/fca565cd2beec387bd0c3e412b27d708cb738214))
+
 # [5.34.0](https://github.com/visitscotland/vs-component-library/compare/v5.33.0...v5.34.0) (2026-02-20)
 
 
