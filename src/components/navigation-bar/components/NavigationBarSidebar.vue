@@ -21,6 +21,7 @@
                 icon-only
                 icon="vs-icon-control-dismiss"
                 variant="subtle"
+                size="sm"
                 @click="sidebarClose"
             >
                 {{ sidebarCloseLabel }}
@@ -31,7 +32,7 @@
         <slot />
 
         <template #footer>
-            <div class="d-flex align-items-center p-100">
+            <div class="d-flex align-items-center p-100 pb-300">
                 <!-- @slot For sidebar footer content  -->
                 <slot name="sidebar-footer" />
             </div>
