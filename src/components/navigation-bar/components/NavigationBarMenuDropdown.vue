@@ -1,13 +1,13 @@
 <template>
     <li
-        class="vs-navigation-bar-menu-dropdown"
+        :class="menuDropdownClasses"
         data-test="vs-navigation-bar-menu-dropdown"
         role="menuitem"
     >
         <BDropdown
             variant="subtle"
             ref="dropdown"
-            @show="dataLayerSubmit($event)"
+            @show="dataLayerSubmit"
         >
             <template #button-content>
                 <!-- @slot For dropdown toggle button content  -->
@@ -43,21 +43,39 @@ export default {
     mixins: [
         dataLayerMixin,
     ],
+    props: {
+        /** Applies subtle dropdown styling to the button,
+         * intended for use in utilities section of the nav
+         */
+        subtle: {
+            type: Boolean,
+            default: false,
+        },
+    },
+    computed: {
+        menuDropdownClasses() {
+            return [
+                this.subtle ? 'vs-navigation-bar-menu-dropdown--subtle' : '',
+                'vs-navigation-bar-menu-dropdown',
+            ];
+        },
+    },
     methods: {
         /**
          * Submit event to dataLayer for tracking
          */
         dataLayerSubmit() {
-            if (this.$slots['button-content']()[1] && this.$slots['button-content']()[1].children[0]) {
-                const btnText = this.$slots['button-content']()[1].children[0].children;
-                const clickEvent = {
-                    target: {
-                        text: btnText,
-                    },
-                };
+            const btnText = this.$refs.dropdown?.$el?.querySelector('.dropdown-toggle')?.innerText?.trim() || '';
+            if (btnText) {
                 this.createDataLayerObject(
                     'menuNavigationDataEvent',
-                    clickEvent,
+                    {
+                        target: {
+                            text: btnText,
+                            innerText: btnText,
+                            closest: () => null,
+                        },
+                    },
                     null,
                 );
             }
@@ -69,12 +87,45 @@ export default {
 <style lang="scss">
 .vs-navigation-bar-menu-dropdown {
 
+    &.vs-navigation-bar-menu-dropdown--subtle {
+        .btn.dropdown-toggle {
+            @extend %button-default-styles;
+            padding: $vs-spacer-0125 $vs-spacer-250 $vs-spacer-0125 $vs-spacer-125;
+
+            @include vs-button-variant(
+                $vs-color-text-cta-on-light, $vs-color-interaction-cta-subtle, $vs-color-interaction-cta-subtle,
+                $vs-color-text-cta-on-light, $vs-color-interaction-cta-subtle-hover, $vs-color-interaction-cta-subtle-hover,
+                $vs-color-text-inverse, $vs-color-interaction-cta-subtle-pressed, $vs-color-interaction-cta-subtle-pressed,
+            );
+
+            &::after {
+                color: $vs-color-text-cta-on-light;
+            }
+
+            &:active, &:active:focus, &.show {
+                color: $vs-color-text-inverse;
+                background-color: $vs-color-interaction-cta-subtle-pressed;
+
+                &:hover {
+                    border-color: $vs-color-interaction-cta-subtle-pressed;
+                }
+
+                &::after {
+                    color: $vs-color-text-inverse;
+                    content: "\f077";
+                }
+                .vs-icon {
+                    color: $vs-color-text-inverse;
+                }
+            }
+        }
+    }
+
     .btn.dropdown-toggle {
         position: relative;
         font-weight: $vs-font-weight-medium;
         line-height: 1.3;
         border-radius: $vs-radius-full;
-        border: 0;
         padding: $vs-spacer-075 $vs-spacer-250 $vs-spacer-075 $vs-spacer-100;
         transition: background-color $duration-base;
         white-space: normal;
@@ -122,7 +173,7 @@ export default {
         margin-left: -$vs-spacer-075;
         box-shadow: $vs-elevation-shadow-overlay;
         padding: $vs-spacer-075;
-        min-width: 260px!important;
+        min-width: 180px!important;
     }
 
     &__content {
