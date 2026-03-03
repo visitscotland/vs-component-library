@@ -58,7 +58,7 @@ const Template = (args) => ({
                         <VsIcon
                             v-if="accordionItem.icon"
                             :icon="accordionItem.icon"
-                            size="sm"
+                            size="xs"
                             class="me-025 fa-fw"
                         />
                         {{ accordionItem.title }}

@@ -71,6 +71,8 @@ export default {
         border-top: $vs-border-width-sm solid $vs-color-border-inverse;
 
         @include media-breakpoint-down(md) {
+            border-top: 0;
+
             .container {
                 max-width: 100%;
                 padding: 0;

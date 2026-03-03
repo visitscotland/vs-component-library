@@ -54,5 +54,6 @@ export default {
         width: 100%;
         max-height: 100vh;
         overflow-y: scroll;
+        margin-top: $vs-spacer-050;
     }
 </style>
