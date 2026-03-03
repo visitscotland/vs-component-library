@@ -1,7 +1,4 @@
 import { userEvent } from 'storybook/test';
-import {
-    ref, onMounted, onBeforeUnmount,
-} from 'vue';
 import VsNavigationBar from '@/components/navigation-bar/NavigationBar.vue';
 import VsNavigationBarMenu from '@/components/navigation-bar/components/NavigationBarMenu.vue';
 import VsNavigationBarMenuDropdown from '@/components/navigation-bar/components/NavigationBarMenuDropdown.vue';

@@ -114,6 +114,7 @@ export default {
                     color: $vs-color-text-inverse;
                     content: "\f077";
                 }
+
                 .vs-icon {
                     color: $vs-color-text-inverse;
                 }
