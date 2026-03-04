@@ -172,13 +172,5 @@
                 "trackingId": "nav.link.test-tracking-id"
             }
         ]
-    },
-    {
-        "title": "Map of Scotland",
-        "cta": "null",
-        "href": "#",
-        "isExternal": false,
-        "isActive": false,
-        "trackingId": "nav.link.test-tracking-id"
     }
 ]

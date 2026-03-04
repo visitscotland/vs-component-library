@@ -1,7 +1,17 @@
 import { userEvent } from 'storybook/test';
 import VsNavigationBar from '@/components/navigation-bar/NavigationBar.vue';
+import VsNavigationBarMenu from '@/components/navigation-bar/components/NavigationBarMenu.vue';
+import VsNavigationBarMenuDropdown from '@/components/navigation-bar/components/NavigationBarMenuDropdown.vue';
+import VsNavigationBarMenuItem from '@/components/navigation-bar/components/NavigationBarMenuItem.vue';
+import VsLink from '@/components/link/Link.vue';
+import VsIcon from '@/components/icon/Icon.vue';
+import VsButton from '@/components/button/Button.vue';
+import VsList from '@/components/list/List.vue';
+
 import VsSvgLink from '@/components/svg-link/SvgLink.vue';
 import designTokens from '@/assets/tokens/tokens.json';
+import b2cNavExample from '@/assets/fixtures/navigation-bar/b2c-nav.json';
+import b2bNavExample from '@/assets/fixtures/navigation-bar/b2b-nav.json';
 
 export default {
     component: VsNavigationBar,
@@ -15,10 +25,19 @@ const Template = (args) => ({
     components: {
         VsNavigationBar,
         VsSvgLink,
+        VsNavigationBarMenu,
+        VsNavigationBarMenuDropdown,
+        VsNavigationBarMenuItem,
+        VsLink,
+        VsIcon,
+        VsButton,
+        VsList,
     },
     setup() {
         return {
             args,
+            b2bNavExample,
+            b2cNavExample,
         };
     },
     template: `   
@@ -34,14 +53,92 @@ const Template = (args) => ({
                     :svgFill="args.svgColor"
                     :svgPath="args.svgPath"
                     :svgWidth="args.svgWidth"
+                    :svgHeight="args.svgHeight"
                 />
             </template>
 
             <template #navigation-bar-menu>
-                Menu items here
+                <VsNavigationBarMenu>
+                    <template v-for="(item, index) in b2cNavExample" :key="index">
+
+                        <VsNavigationBarMenuDropdown v-if="item.dropdownNav">
+                            <template #button-content>
+                                {{ item.title }}
+                            </template>
+
+                            <VsNavigationBarMenuItem 
+                                v-for="(dropdownItem, dropdownIndex) in item.dropdownNav" 
+                                :key="dropdownIndex"
+                                :href="dropdownItem.href"
+                            >
+                                {{ dropdownItem.title }}
+                            </VsNavigationBarMenuItem>
+
+                            <li class="my-075 mx-100">
+                                <VsLink 
+                                    v-if="item.cta" 
+                                    :href="item.href"
+                                    type="internal"
+                                >
+                                    {{ item.cta }}
+                                </VsLink>
+                            </li>
+                        </VsNavigationBarMenuDropdown>
+
+                        <VsNavigationBarMenuItem 
+                            v-else
+                            mainMenuItem
+                            :href="item.href"
+                        >
+                            {{ item.title }}
+                        </VsNavigationBarMenuItem>
+                    </template>
+                </VsNavigationBarMenu>
             </template>
 
             <template #navigation-bar-utilities>
+                <li>
+                    <VsButton 
+                        variant="subtle"
+                        size="sm"
+                        icon="vs-icon-control-search"
+                    >
+                        Search
+                    </VsButton>
+                </li>
+                <li class="d-none d-lg-block">
+                    <VsButton 
+                        variant="subtle"
+                        size="sm"
+                        icon="fa-regular fa-map"
+                        href="#"
+                    > 
+                        Map
+                    </VsButton>
+                </li>
+                <VsNavigationBarMenuDropdown 
+                    subtle 
+                    class="d-none d-lg-block"
+                >
+                    <template #button-content>
+                        <VsIcon
+                            icon="fa-regular fa-globe"
+                            size="xs"
+                            class="me-025"
+                        ></VsIcon>
+                        EN
+                    </template>
+
+                    <VsNavigationBarMenuItem href="#">
+                        English
+                    </VsNavigationBarMenuItem>
+                    <VsNavigationBarMenuItem href="#">
+                        Spanish
+                    </VsNavigationBarMenuItem>
+                    <VsNavigationBarMenuItem href="#">
+                        French
+                    </VsNavigationBarMenuItem>
+                </VsNavigationBarMenuDropdown>
             </template>
 
             <template #sidebar-body>
@@ -49,7 +146,41 @@ const Template = (args) => ({
             </template>
 
             <template #sidebar-footer>
-                Sidebar footer content here
+                <VsList
+                    unstyled
+                    class="d-flex gap-075"
+                >
+                    <li>
+                        <VsButton 
+                            variant="subtle"
+                            size="sm"
+                            icon="fa-regular fa-map"
+                            href="#"
+                        > 
+                            Map
+                        </VsButton>
+                    </li>
+                    <VsNavigationBarMenuDropdown subtle>
+                        <template #button-content>
+                            <VsIcon
+                                icon="fa-regular fa-globe"
+                                size="xs"
+                                class="me-025"
+                            ></VsIcon>
+                            EN
+                        </template>
+
+                        <VsNavigationBarMenuItem href="#">
+                            English
+                        </VsNavigationBarMenuItem>
+                        <VsNavigationBarMenuItem href="#">
+                            Spanish
+                        </VsNavigationBarMenuItem>
+                        <VsNavigationBarMenuItem href="#">
+                            French
+                        </VsNavigationBarMenuItem>
+                    </VsNavigationBarMenuDropdown>
+                </VsList>
             </template>
         </VsNavigationBar>
     `,
@@ -63,7 +194,8 @@ const base = {
     svgColor: designTokens['vs-color-background-brand'],
     svgHref: '#',
     svgPath: 'visitscotland-logo',
-    svgWidth: '184px',
+    svgWidth: '167px',
+    svgHeight: '28px',
 };
 
 export const Default = Template.bind({

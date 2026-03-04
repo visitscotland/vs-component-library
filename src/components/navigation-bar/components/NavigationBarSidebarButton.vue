@@ -6,6 +6,7 @@
         variant="subtle"
         @click="sidebarOpen()"
         aria-haspopup="true"
+        size="sm"
     >
         {{ sidebarOpenLabel }}
     </VsButton>
