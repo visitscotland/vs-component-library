@@ -25,10 +25,7 @@
                     :class="utilityClasses"
                     data-test="vs-navigation-bar__utilities"
                 >
-                    <VsList
-                        unstyled
-                        class="d-flex gap-075"
-                    >
+                    <ul class="d-flex gap-075">
                         <!-- @slot For navigation bar utility items  -->
                         <slot name="navigation-bar-utilities" />
 
@@ -40,7 +37,7 @@
                                 :sidebar-open-label="sidebarOpenLabel"
                             />
                         </li>
-                    </VsList>
+                    </ul>
                 </VsCol>
             </VsRow>
         </VsContainer>
@@ -68,7 +65,6 @@ import {
 } from '@/components/grid';
 import VsNavigationBarSidebarButton from '@/components/navigation-bar/components/NavigationBarSidebarButton.vue';
 import VsNavigationSidebar from '@/components/navigation-bar/components/NavigationBarSidebar.vue';
-import VsList from '@/components/list/List.vue';
 
 /**
  *  The Navigation Bar component includes slots for logo link,
@@ -86,7 +82,6 @@ export default {
         VsContainer,
         VsNavigationBarSidebarButton,
         VsNavigationSidebar,
-        VsList,
     },
     props: {
         /**

@@ -6,7 +6,9 @@ import VsNavigationBarMenuItem from '@/components/navigation-bar/components/Navi
 import VsLink from '@/components/link/Link.vue';
 import VsIcon from '@/components/icon/Icon.vue';
 import VsButton from '@/components/button/Button.vue';
-import VsList from '@/components/list/List.vue';
+import VsAccordion from '@/components/accordion/Accordion.vue';
+import VsAccordionItem from '@/components/accordion/components/AccordionItem.vue';
+import VsAccordionToggle from '@/components/accordion/components/AccordionToggle.vue';
 
 import VsSvgLink from '@/components/svg-link/SvgLink.vue';
 import designTokens from '@/assets/tokens/tokens.json';
@@ -31,7 +33,9 @@ const Template = (args) => ({
         VsLink,
         VsIcon,
         VsButton,
-        VsList,
+        VsAccordion,
+        VsAccordionItem,
+        VsAccordionToggle,
     },
     setup() {
         return {
@@ -59,7 +63,7 @@ const Template = (args) => ({
 
             <template #navigation-bar-menu>
                 <VsNavigationBarMenu>
-                    <template v-for="(item, index) in b2cNavExample" :key="index">
+                    <template v-for="(item, index) in b2bNavExample" :key="index">
 
                         <VsNavigationBarMenuDropdown v-if="item.dropdownNav">
                             <template #button-content>
@@ -79,6 +83,7 @@ const Template = (args) => ({
                                     v-if="item.cta" 
                                     :href="item.href"
                                     type="internal"
+                                    no-visited-styles
                                 >
                                     {{ item.cta }}
                                 </VsLink>
@@ -87,7 +92,7 @@ const Template = (args) => ({
 
                         <VsNavigationBarMenuItem 
                             v-else
-                            mainMenuItem
+                            main-menu-item
                             :href="item.href"
                         >
                             {{ item.title }}
@@ -99,18 +104,19 @@ const Template = (args) => ({
             <template #navigation-bar-utilities>
                 <li>
                     <VsButton 
-                        variant="subtle"
+                        variant="secondary"
                         size="sm"
                         icon="vs-icon-control-search"
                     >
                         Search
                     </VsButton>
                 </li>
-                <li class="d-none d-lg-block">
+                <li class="d-none d-md-block">
                     <VsButton 
                         variant="subtle"
                         size="sm"
                         icon="fa-regular fa-map"
+                        icon-only
                         href="#"
                     > 
                         Map
@@ -118,14 +124,9 @@ const Template = (args) => ({
                 </li>
                 <VsNavigationBarMenuDropdown 
                     subtle 
-                    class="d-none d-lg-block"
+                    class="d-none d-md-block"
                 >
                     <template #button-content>
-                        <VsIcon
-                            icon="fa-regular fa-globe"
-                            size="xs"
-                            class="me-025"
-                        ></VsIcon>
                         EN
                     </template>
 
@@ -142,25 +143,68 @@ const Template = (args) => ({
             </template>
 
             <template #sidebar-body>
-                Sidebar content here
+
+                <VsAccordion>
+                    <ul>
+                        <template v-for="(mobileItem, mobileItemIndex) in b2bNavExample" :key="mobileItemIndex">
+                            <li v-if="mobileItem.dropdownNav">
+                                <VsAccordionItem 
+                                    :control-id="mobileItemIndex.toString()"
+                                >
+                                    <template v-slot:title>
+                                        {{ mobileItem.title }}
+                                    </template>
+
+                                    <ul>
+                                        <VsNavigationBarMenuItem
+                                            v-for="(mobileDropdownItem, mobileDropdownIndex) in mobileItem.dropdownNav" 
+                                            :key="mobileDropdownIndex"
+                                            :href="mobileDropdownItem.href"
+                                        >
+                                            {{ mobileDropdownItem.title }}
+                                        </VsNavigationBarMenuItem>
+
+                                        <li class="my-075 mx-100">
+                                            <VsLink 
+                                                v-if="mobileItem.cta" 
+                                                :href="mobileItem.href"
+                                                type="internal"
+                                                no-visited-styles
+                                            >
+                                                {{ mobileItem.cta }}
+                                            </VsLink>
+                                        </li>
+                                    </ul>
+                                </VsAccordionItem>
+                            </li>
+
+                            <VsNavigationBarMenuItem
+                                v-else
+                                main-menu-item
+                                :href="mobileItem.href"
+                            >
+                                {{ mobileItem.title }}
+                            </VsNavigationBarMenuItem>
+                        </template>
+                    </ul>
+                </VsAccordion>
             </template>
 
             <template #sidebar-footer>
-                <VsList
-                    unstyled
-                    class="d-flex gap-075"
-                >
+                <ul class="d-flex gap-075">
                     <li>
                         <VsButton 
                             variant="subtle"
                             size="sm"
                             icon="fa-regular fa-map"
                             href="#"
+                            icon-only
+                            class="d-block d-md-none"
                         > 
                             Map
                         </VsButton>
                     </li>
-                    <VsNavigationBarMenuDropdown subtle>
+                    <VsNavigationBarMenuDropdown subtle class="d-block d-md-none">
                         <template #button-content>
                             <VsIcon
                                 icon="fa-regular fa-globe"
@@ -180,7 +224,7 @@ const Template = (args) => ({
                             French
                         </VsNavigationBarMenuItem>
                     </VsNavigationBarMenuDropdown>
-                </VsList>
+                </ul>
             </template>
         </VsNavigationBar>
     `,

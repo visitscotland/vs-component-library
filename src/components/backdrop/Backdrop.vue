@@ -81,7 +81,7 @@ export default {
         width: 100%;
         height: 100%;
         pointer-events: auto;
-        background: color-mix(in srgb, $vs-color-background-bold 80%, transparent);
+        background: color-mix(in srgb, $vs-color-background-accent-heather-80 80%, transparent);
         backdrop-filter: blur(2px);
     }
 

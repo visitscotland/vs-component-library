@@ -86,48 +86,12 @@ export default {
 
 <style lang="scss">
 .vs-navigation-bar-menu-dropdown {
-
-    &.vs-navigation-bar-menu-dropdown--subtle {
-        .btn.dropdown-toggle {
-            @extend %button-default-styles;
-            padding: $vs-spacer-0125 $vs-spacer-250 $vs-spacer-0125 $vs-spacer-125;
-
-            @include vs-button-variant(
-                $vs-color-text-cta-on-light, $vs-color-interaction-cta-subtle, $vs-color-interaction-cta-subtle,
-                $vs-color-text-cta-on-light, $vs-color-interaction-cta-subtle-hover, $vs-color-interaction-cta-subtle-hover,
-                $vs-color-text-inverse, $vs-color-interaction-cta-subtle-pressed, $vs-color-interaction-cta-subtle-pressed,
-            );
-
-            &::after {
-                color: $vs-color-text-cta-on-light;
-            }
-
-            &:active, &:active:focus, &.show {
-                color: $vs-color-text-inverse;
-                background-color: $vs-color-interaction-cta-subtle-pressed;
-
-                &:hover {
-                    border-color: $vs-color-interaction-cta-subtle-pressed;
-                }
-
-                &::after {
-                    color: $vs-color-text-inverse;
-                    content: "\f077";
-                }
-
-                .vs-icon {
-                    color: $vs-color-text-inverse;
-                }
-            }
-        }
-    }
-
     .btn.dropdown-toggle {
         position: relative;
         font-weight: $vs-font-weight-medium;
         line-height: 1.3;
         border-radius: $vs-radius-full;
-        padding: $vs-spacer-075 $vs-spacer-250 $vs-spacer-075 $vs-spacer-100;
+        padding: $vs-spacer-075 $vs-spacer-225 $vs-spacer-075 $vs-spacer-100;
         transition: background-color $duration-base;
         white-space: normal;
         text-align: left;
@@ -167,6 +131,32 @@ export default {
         }
     }
 
+    &.vs-navigation-bar-menu-dropdown--subtle
+    .btn.dropdown-toggle {
+        @extend %button-default-styles;
+        padding: $vs-spacer-0125 $vs-spacer-225 $vs-spacer-0125 $vs-spacer-125;
+
+        @include vs-button-variant(
+            $vs-color-text-cta-on-light, $vs-color-interaction-cta-subtle, $vs-color-interaction-cta-subtle,
+            $vs-color-text-cta-on-light, $vs-color-interaction-cta-subtle-hover, $vs-color-interaction-cta-subtle-hover,
+            $vs-color-text-inverse, $vs-color-interaction-cta-subtle-pressed, $vs-color-interaction-cta-subtle-pressed,
+        );
+
+        &::after {
+            color: $vs-color-text-cta-on-light;
+        }
+
+        &:active, &:active:focus, &.show {
+            &:hover {
+                border-color: $vs-color-interaction-cta-subtle-pressed;
+            }
+
+            .vs-icon {
+                color: $vs-color-text-inverse;
+            }
+        }
+    }
+
     .dropdown-menu {
         border-radius: $vs-radius-small;
         border: 0;
@@ -180,6 +170,7 @@ export default {
     &__content {
         display: flex;
     }
+
     &__main {
         flex: 1;
     }
