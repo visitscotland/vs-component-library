@@ -81,6 +81,14 @@ FEPL.args = {
     dataUrl: '/fixtures/forms/fepl-form-example.json',
 };
 
+export const NoRecaptcha = Template.bind({
+});
+
+NoRecaptcha.args = {
+    ...base,
+    usesRecaptcha: false,
+};
+
 export const HiddenFields = Template.bind({
 });
 

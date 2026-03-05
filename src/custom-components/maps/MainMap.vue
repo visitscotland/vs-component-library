@@ -4,7 +4,7 @@
     <div class="vs-map">
         <div
             class="vs-map__container"
-            :class="!showError ? 'd-block' : 'd-none'"
+            :class="showError ? 'd-none' : ''"
         >
             <div class="vs-map__controls">
                 <VsMapSidebar
@@ -115,7 +115,7 @@
                     v-if="
                         (currentZoom >= CATEGORY_VISIBLE_ZOOM || categoriesVisible)
                             && googleMapStore.sidebarOpen
-                    "
+                            && Object.keys(categoryData).length > 0"
                 >
                     <template
                         v-for="(category, key) in categoryLabelData"
@@ -190,9 +190,8 @@
         </VsWarning>
 
         <VsWarning
-            v-if="showError && errType === 'noJS'"
-            data-test="vs-map__warning--no-js"
             class="vs-map__warning vs-map__warning--no-js"
+            data-test="vs-map__warning--no-js"
         >
             {{ noJsMessage }}
         </VsWarning>
@@ -267,7 +266,7 @@ const props = defineProps({
         type: Object,
         default: () => ({
             lat: 56.490153,
-            lng: 4.10959,
+            lng: -4.10959,
         }),
     },
     /**
@@ -453,11 +452,6 @@ onBeforeMount(() => {
     cookieCheck.requiredCookies.value = cookieValues.google_maps;
 
     showError = computed(() => {
-        if (props.jsDisabled === true) {
-            errType.value = 'noJS';
-            return true;
-        }
-
         if (
             (!cookieCheck.cookiesAllowed.value && cookieCheck.cookiesLoaded.value === true)
             || !cookieCheck.cookiesLoaded.value
@@ -1141,8 +1135,6 @@ function handlePlaceClick(place) {
         map: gMap,
     });
 
-    gMap.fitBounds(place.viewport);
-
     // eslint-disable-next-line no-undef
     google.maps.event.addListenerOnce(gMap, 'idle', () => {
         if (gMap.getZoom() > MAX_ZOOM) {
@@ -1319,7 +1311,6 @@ function handleFeaturedLocationClick(place) {
         pointer-events: none;
         flex-grow: 1;
         min-width: 0;
-        width: calc(100vw - $vs-spacer-100);
 
         @include media-breakpoint-up(md) {
             flex-direction: row;
@@ -1372,7 +1363,6 @@ function handleFeaturedLocationClick(place) {
 
 @include no-js {
     .vs-map {
-
         &__container {
             display: none;
         }

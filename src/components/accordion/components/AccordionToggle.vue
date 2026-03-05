@@ -3,9 +3,9 @@
         :animate="false"
         :aria-expanded="visible ? 'true' : 'false'"
         aria-haspopup="true"
-        @click="triggerToggle"
+        @click="$emit('toggle-panel')"
         class="vs-accordion-toggle clearfix"
-        :class="visible ? 'vs-accordion-toggle--open' : ''"
+        :class="{ 'vs-accordion-toggle--open': visible }"
         :variant="variant"
         :rounded="false"
     >
@@ -61,11 +61,6 @@ export default {
         },
     },
     emits: ['toggle-panel'],
-    methods: {
-        triggerToggle() {
-            this.$emit('toggle-panel');
-        },
-    },
 };
 </script>
 
@@ -74,9 +69,43 @@ export default {
     display: flex;
     width: 100%;
     color: $vs-color-text-primary;
+    text-align: left;
+    font-weight: $vs-font-weight-medium;
+    font-size: $vs-font-size-heading-xxs;
+    padding: $vs-spacer-100 $vs-spacer-075;
+    line-height: $vs-line-height-heading;
+    border: 0;
+    margin-bottom: 1px;
+    border-radius: $vs-radius-small;
 
-    .btn-content {
-        width: 100%;
+    &:focus {
+        box-shadow: $vs-focus-shadow inset;
+    }
+
+    &:hover,
+    &:active {
+        .vs-accordion-toggle__icon,
+        .vs-accordion-toggle__text {
+            .vs-icon {
+                color: $vs-color-icon-cta-on-light;
+            }
+        }
+    }
+
+    &:active {
+        .vs-accordion-toggle__icon,
+        .vs-accordion-toggle__text {
+            .vs-icon {
+                color: $vs-color-icon-inverse;
+            }
+        }
+    }
+
+    .vs-accordion-toggle__icon,
+    .vs-accordion-toggle__text {
+        .vs-icon {
+            color: $vs-color-icon-primary;
+        }
     }
 
     .vs-button__text {
