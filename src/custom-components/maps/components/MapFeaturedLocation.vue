@@ -1,29 +1,31 @@
 <template>
-    <VsAccordion>
+    <VsAccordion v-if="categories && places">
         <VsAccordionItem
-            v-for="(featuredCategory, key) in props.featuredPlaces"
-            :key
-            :open-by-default="key === 'cities'"
+            v-for="(category, index) in categories"
+            :key="index"
+            :control-id="category.id"
+            :open-by-default="category.id === 'cities'"
         >
             <template #title>
                 <VsIcon
-                    :icon="featuredPlaceTitles[key].icon"
-                    variant="highlight"
-                    size="sm"
                     class="me-025 fa-fw"
                     custom-colour="#200F2E"
+                    :icon="setIcon(category.id)"
+                    size="sm"
+                    variant="highlight"
                 />
-                <span class="category-title">{{ featuredPlaceTitles[key].label }}</span>
+                <span class="category-title">{{ category.label }}</span>
             </template>
+
             <div class="vs-map__controls-featured-place-accordion-content p-075">
-                <VsCardGroup
-                    scroll-snap="always"
-                >
-                    <VsMapFeaturedLocationItem
-                        v-for="(location, locKey) in featuredCategory"
-                        :key="locKey"
-                        :place="location"
-                    />
+                <VsCardGroup scroll-snap="always">
+                    <template v-for="place in places">
+                        <VsMapFeaturedLocationItem
+                            v-if="place.properties.category.id === category.id"
+                            :key="place.properties.id"
+                            :place="place"
+                        />
+                    </template>
                 </VsCardGroup>
             </div>
         </VsAccordionItem>
@@ -31,6 +33,7 @@
 </template>
 
 <script setup>
+import { inject } from 'vue';
 import {
     VsAccordion,
     VsAccordionItem,
@@ -39,32 +42,22 @@ import {
 } from '@/components';
 import VsMapFeaturedLocationItem from './MapFeaturedLocationItem.vue';
 
-const props = defineProps({
-    /** JSON data file for featured places */
-    featuredPlaces: {
-        type: Object,
-        default: () => {},
-    },
-});
+const { categories, places } = inject('featuredPlaces');
 
-const featuredPlaceTitles = {
-    cities: {
-        label: 'Cities',
-        icon: 'fa-regular fa-city',
-    },
-    regions: {
-        label: 'Regions',
-        icon: 'fa-regular fa-map-location-dot',
-    },
-    islands: {
-        label: 'Islands',
-        icon: 'fa-regular fa-island-tropical',
-    },
-    towns: {
-        label: 'Towns',
-        icon: 'fa-kit fa-vs-landscape',
-    },
-};
+function setIcon(id) {
+    switch (id) {
+    case 'cities':
+        return 'fa-regular fa-city';
+    case 'regions':
+        return 'fa-regular fa-map-location-dot';
+    case 'islands':
+        return 'fa-regular fa-island-tropical';
+    case 'towns':
+        return 'fa-kit fa-vs-landscape';
+    default:
+        return null;
+    };
+}
 </script>
 
 <style lang="scss">

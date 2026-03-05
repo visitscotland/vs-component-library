@@ -19,7 +19,6 @@
                     :sub-filter-header-label="props.labels.subFilterHeader"
                     :search-results-label="props.labels.searchResults"
                     :open-sidebar-button-label="props.labels.openSidebarButton"
-                    :featured-places="featuredPlacesData"
                     @search-input-changed="searchByText"
                     @reset-map="resetMap(true)"
                 >
@@ -118,16 +117,19 @@
                             && googleMapStore.sidebarOpen
                     "
                 >
-                    <VsButton
+                    <template
                         v-for="(category, key) in categoryLabelData"
-                        :key
-                        class="vs-map__filter-controls-button"
-                        :icon="categoryData[category.id].icon"
-                        :variant="selectedTopLevelCategory === category.id ? 'primary' : 'secondary'"
-                        @click.prevent="selectCategory(category.id, key)"
+                        :key="key"
                     >
-                        {{ category.label }}
-                    </VsButton>
+                        <VsButton
+                            v-if="!category.cmsData"
+                            class="vs-map__filter-controls-button"
+                            :variant="selectedTopLevelCategory === category.id ? 'primary' : 'secondary'"
+                            @click.prevent="selectCategory(category.id, key)"
+                        >
+                            {{ category.label }}
+                        </VsButton>
+                    </template>
                 </div>
             </div>
 
@@ -306,17 +308,17 @@ const props = defineProps({
         type: String,
         default: '',
     },
-    /**
-     * URL location of the featured places JSON file (from static server)
-     */
-    featuredPlacesLocation: {
-        type: String,
-        default: '',
-    },
     /** JSON object for the category labels (from CMS taxonomies) */
     categoryLabels: {
         type: Object,
         default: () => {},
+    },
+    /**
+     * Suggested destinations for the user to choose from rather than
+     * using the text or nearby searches. */
+    featuredPlaces: {
+        type: Object,
+        default: undefined,
     },
     /**
      * Tells if JS is Disabled
@@ -357,6 +359,18 @@ const props = defineProps({
         type: String,
         required: true,
     },
+});
+
+/**
+ * Set the featured destination categories and content from the CMS data.
+ * Then provide it to the sub components.
+ */
+const featuredCategories = props.categoryLabels.find((category) => category.id === 'destinations');
+const featuredSubcategories = featuredCategories.subCategory;
+
+provide('featuredPlaces', {
+    categories: featuredSubcategories,
+    places: props.featuredPlaces,
 });
 
 provide('onFeaturedLocationClick', handleFeaturedLocationClick);
@@ -430,8 +444,6 @@ const SCOTLAND_BOUNDS = {
 
 let categoryData = {
 };
-let featuredPlacesData = {
-};
 const categoryLabelData = props.categoryLabels;
 
 let currentSearchId = 0;
@@ -469,14 +481,6 @@ onMounted(async() => {
         axios.get(props.categoriesLocation)
             .then((response) => {
                 categoryData = response.data;
-            })
-            .catch(() => {});
-    }
-
-    if (props.featuredPlacesLocation) {
-        axios.get(props.featuredPlacesLocation)
-            .then((response) => {
-                featuredPlacesData = response.data;
             })
             .catch(() => {});
     }
@@ -1229,15 +1233,24 @@ function handleFeaturedLocationClick(place) {
         // eslint-disable-next-line no-undef
         new google.maps.LatLngBounds(
             // eslint-disable-next-line no-undef
-            new google.maps.LatLng(place.viewport.low.lat, place.viewport.low.lng),
+            new google.maps.LatLng(
+                place.properties.viewport.low.latitude,
+                place.properties.viewport.low.longitude,
+            ),
             // eslint-disable-next-line no-undef
-            new google.maps.LatLng(place.viewport.high.lat, place.viewport.high.lng),
+            new google.maps.LatLng(
+                place.properties.viewport.high.latitude,
+                place.properties.viewport.high.longitude,
+            ),
         ),
     );
 
     gMap.setCenter(
         // eslint-disable-next-line no-undef
-        new google.maps.LatLng(place.location.lat, place.location.lng),
+        new google.maps.LatLng(
+            place.properties.locationCentre.latitude,
+            place.properties.locationCentre.longitude,
+        ),
     );
 
     selectCategory('things-to-do', 2);

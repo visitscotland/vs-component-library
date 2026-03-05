@@ -17,11 +17,11 @@
                 {{ props.headerLabel }}
             </VsHeading>
             <VsButton
-                variant="tertiary"
-                icon="vs-icon-control-dismiss"
-                icon-only
                 class="vs-map-sidebar__sidebar-control vs-map-siderbar__sidebar-control--dismiss"
                 data-test="vs-map-siderbar__sidebar-control--dismiss"
+                icon="vs-icon-control-dismiss"
+                icon-only
+                variant="subtle"
                 @click="googleMapStore.sidebarOpen = false"
             >
                 {{ props.closeSidebarButtonLabel }}
@@ -93,7 +93,6 @@
                 </div>
             </div>
             <VsMapFeaturedLocation
-                :featured-places="featuredPlaces"
                 class="mb-100"
                 :class="($props.query || $props.selectedCategories) ? 'd-none' : 'd-block'"
             />
@@ -184,11 +183,6 @@ const props = defineProps({
     openSidebarButtonLabel: {
         type: String,
         default: '',
-    },
-    /** JSON data file for featured places */
-    featuredPlaces: {
-        type: Object,
-        default: () => {},
     },
 });
 

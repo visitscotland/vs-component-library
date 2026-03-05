@@ -2,35 +2,35 @@
     <VsCard
         card-style="overlay"
         class="vs-map__controls-featured-place-card"
-        @click="featuredPlaceClick(place)"
+        @click="featuredPlaceClick(props.place)"
     >
         <template #vs-card-footer>
             <div class="px-125 pb-125">
                 <VsHeading
-                    level="3"
-                    no-margins
-                    heading-style="heading-xxxs"
                     class="vs-map__controls-featured-place-card-heading"
+                    heading-style="heading-xxxs"
+                    level="2"
+                    no-margins
                 >
                     <VsLink
-                        href="#"
                         class="stretched-link text-decoration-none"
+                        href="#"
                         variant="on-dark"
-                        @keypress.enter.prevent="featuredPlaceClick(place)"
+                        @keypress.enter.prevent="featuredPlaceClick(props.place)"
                     >
-                        {{ props.place.label }}
+                        {{ props.place.properties.title }}
                     </VsLink>
                 </VsHeading>
             </div>
         </template>
         <template
+            v-if="props.place.properties.image"
             #vs-card-image
-            v-if="place.imgSrc"
         >
             <VsImg
-                :src="place.imgSrc"
-                :use-lazy-loading="false"
                 class="vs-map__controls-featured-place-img w-100 rounded-1 object-fit-cover img-zoom-on-hover"
+                :src="props.place.properties.image"
+                :use-lazy-loading="false"
             />
         </template>
     </VsCard>
@@ -57,27 +57,22 @@ const onFeaturedLocationClick = inject('onFeaturedLocationClick');
 function featuredPlaceClick(place) {
     onFeaturedLocationClick(place);
 }
-
 </script>
 
 <style lang="scss">
-    .vs-map__controls {
-        &-featured-place {
-            &-card {
+    .vs-map__controls-featured-place-card {
+        height: 10em;
+        flex: 0 0 9.25em!important;
+
+        &-heading {
+            z-index: 2;
+            position: relative;
+        }
+        .vs-card__image {
+            z-index: 1;
+
+            & img {
                 height: 10em;
-                flex: 0 0 9.25em!important;
-
-                &-heading {
-                    z-index: 2;
-                    position: relative;
-                }
-                .vs-card__image {
-                    z-index: 1;
-
-                    & img {
-                        height: 10em;
-                    }
-                }
             }
         }
     }
