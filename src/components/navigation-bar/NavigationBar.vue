@@ -25,15 +25,21 @@
                     :class="utilityClasses"
                     data-test="vs-navigation-bar__utilities"
                 >
-                    <!-- @slot For navigation bar utility items  -->
-                    <slot name="navigation-bar-utilities" />
+                    <nav :aria-label="utilityMenuAriaLabel">
+                        <ul class="d-flex gap-075">
+                            <!-- @slot For navigation bar utility items  -->
+                            <slot name="navigation-bar-utilities" />
 
-                    <VsNavigationBarSidebarButton
-                        :class="sidebarButtonClasses"
-                        data-test="vs-navigation-bar__sidebar-button"
-                        @sidebar-open="onSidebarOpen"
-                        :sidebar-open-label="sidebarOpenLabel"
-                    />
+                            <li>
+                                <VsNavigationBarSidebarButton
+                                    :class="sidebarButtonClasses"
+                                    data-test="vs-navigation-bar__sidebar-button"
+                                    @sidebar-open="onSidebarOpen"
+                                    :sidebar-open-label="sidebarOpenLabel"
+                                />
+                            </li>
+                        </ul>
+                    </nav>
                 </VsCol>
             </VsRow>
         </VsContainer>

@@ -1,9 +1,6 @@
 <template>
     <a
-        class="vs-link"
-        :class="[
-            `vs-link--variant-${variant}`,
-        ]"
+        :class="linkClasses"
         :href="href"
         target="_self"
         :download="type === 'download' ? 'true' : null"
@@ -95,8 +92,22 @@ export default {
             type: String,
             default: null,
         },
+        /**
+         * Turn off visited styles for links e.g. in main navigation
+         */
+        noVisitedStyles: {
+            type: Boolean,
+            default: false,
+        },
     },
     computed: {
+        linkClasses() {
+            return [
+                `vs-link--variant-${this.variant}`,
+                this.noVisitedStyles ? 'vs-link--no-visited-styles' : '',
+                'vs-link',
+            ];
+        },
         variantClass() {
             return `vs-link--variant-${this.variant}`;
         },
@@ -188,7 +199,7 @@ export default {
             color: $vs-color-interaction-link-active;
         }
 
-        &:visited {
+        &:visited:not(.vs-link--no-visited-styles) {
             color: $vs-color-interaction-link-visited;
         }
     }
