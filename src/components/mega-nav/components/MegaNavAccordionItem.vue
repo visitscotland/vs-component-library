@@ -98,6 +98,11 @@ export default {
 
 <style lang="scss">
 .vs-mega-nav-accordion-item {
+
+    .btn.vs-button.vs-accordion-toggle {
+        border-radius: 0;
+    }
+
     &__cta-link{
         text-decoration: none;
         transition: $duration-base color;
@@ -179,21 +184,20 @@ export default {
                 }
             }
         }
-
-        &:first-of-type > .vs-accordion-item__card-header {
-            .vs-accordion-toggle.btn {
-                border-top: $vs-border-width-sm solid $vs-color-border-primary;
-            }
-        }
     }
 
-    &--level-2{
-        > .vs-accordion-item__card-header{
+    &--level-2 {
+        > .vs-accordion-item__card-header {
             .vs-accordion-toggle.btn {
                 font-size: $font-size-5;
                 padding-left: $vs-spacer-200;
                 padding-right: $vs-spacer-125;
+                box-shadow: 0px -1px 0px 0px $vs-color-border-primary;
             }
+        }
+
+        .vs-divider {
+            display: none;
         }
     }
 }
