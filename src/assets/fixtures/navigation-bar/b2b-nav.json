@@ -124,6 +124,14 @@
         ]
     },
     {
+        "title": "News",
+        "cta": "null",
+        "href": "#",
+        "isExternal": false,
+        "isActive": false,
+        "trackingId": "nav.link.test-tracking-id"
+    },
+    {
         "title": "Research and insights",
         "cta": "All research and insights",
         "href": "#",
@@ -223,13 +231,5 @@
                 "isHighlight": true
             }
         ]
-    },
-    {
-        "title": "News",
-        "cta": "null",
-        "href": "#",
-        "isExternal": false,
-        "isActive": false,
-        "trackingId": "nav.link.test-tracking-id"
     }
 ]

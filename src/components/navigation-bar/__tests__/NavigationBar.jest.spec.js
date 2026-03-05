@@ -7,7 +7,7 @@ import VsNavigationBar from '../NavigationBar.vue';
 config.global.renderStubDefaultSlot = true;
 
 const defaultProps = {
-    menuAriaLabel: 'Main navigation menu',
+    utilityMenuAriaLabel: 'Main navigation menu',
     sidebarCloseLabel: 'Close navigation menu',
     sidebarOpenLabel: 'Open navigation menu',
 };
@@ -39,16 +39,14 @@ describe('VsNavigationBar', () => {
     });
 
     describe(':props', () => {
-        it('should accept and pass menuAriaLabel to VsNavigationSidebar', () => {
+        it('should accept and pass utilityMenuAriaLabel to VsNavigationSidebar', () => {
             const testLabel = 'Test menu label';
             const wrapper = factoryShallowMount({
-                menuAriaLabel: testLabel,
+                utilityMenuAriaLabel: testLabel,
             });
-            const sidebar = wrapper.findComponent({
-                name: 'VsNavigationSidebar',
-            });
+            const utilityMenu = wrapper.find('[data-test=vs-navigation-bar__utilities] nav');
 
-            expect(sidebar.props('menuAriaLabel')).toBe(testLabel);
+            expect(utilityMenu.attributes('aria-label')).toBe(testLabel);
         });
 
         it('should accept and pass sidebarCloseLabel to VsNavigationSidebar', () => {
@@ -232,15 +230,6 @@ describe('VsNavigationBar', () => {
         it('should not have aXe accessibility issues', async() => {
             const wrapper = factoryMount();
             expect(await axe(wrapper.html())).toHaveNoViolations();
-        });
-
-        it('should require menuAriaLabel prop for accessibility', () => {
-            const wrapper = factoryShallowMount();
-            const sidebar = wrapper.findComponent({
-                name: 'VsNavigationSidebar',
-            });
-
-            expect(sidebar.props('menuAriaLabel')).toBeDefined();
         });
 
         it('should require sidebarCloseLabel prop for accessibility', () => {

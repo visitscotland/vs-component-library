@@ -2,7 +2,6 @@
     <li
         :class="menuDropdownClasses"
         data-test="vs-navigation-bar-menu-dropdown"
-        role="menuitem"
     >
         <BDropdown
             variant="subtle"
@@ -14,12 +13,8 @@
                 <slot name="button-content" />
             </template>
 
-            <div class="vs-navigation-bar-menu-dropdown__content">
-                <div class="vs-navigation-bar-menu-dropdown__main">
-                    <!-- @slot Default slot for dropdown menu content  -->
-                    <slot />
-                </div>
-            </div>
+            <!-- @slot Default slot for dropdown menu content  -->
+            <slot />
         </BDropdown>
     </li>
 </template>
@@ -165,14 +160,6 @@ export default {
         box-shadow: $vs-elevation-shadow-overlay;
         padding: $vs-spacer-075;
         min-width: 180px!important;
-    }
-
-    &__content {
-        display: flex;
-    }
-
-    &__main {
-        flex: 1;
     }
 }
 </style>

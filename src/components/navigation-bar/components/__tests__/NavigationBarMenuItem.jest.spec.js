@@ -13,36 +13,42 @@ describe('VsNavigationBarMenuItem', () => {
         const wrapper = factoryShallowMount();
         expect(wrapper.element.tagName).toBe('LI');
         expect(wrapper.classes()).toContain('vs-navigation-bar-menu-item');
-        expect(wrapper.find('a').exists()).toBe(true);
+        expect(wrapper.find('[data-test=vs-navigation-bar-menu-item] .vs-navigation-bar-menu-item__link').exists()).toBe(true);
     });
 
     describe(':props', () => {
         it('href: defaults to #', () => {
             const wrapper = factoryShallowMount();
-            expect(wrapper.find('a').attributes('href')).toBe('#');
+            expect(wrapper.find('[data-test=vs-navigation-bar-menu-item] .vs-navigation-bar-menu-item__link').attributes('href')).toBe('#');
         });
 
         it('href: applies custom href', () => {
             const wrapper = factoryShallowMount({
                 href: '/test',
             });
-            expect(wrapper.find('a').attributes('href')).toBe('/test');
+            expect(wrapper.find('[data-test=vs-navigation-bar-menu-item] .vs-navigation-bar-menu-item__link').attributes('href')).toBe('/test');
         });
 
-        it('mainMenuItem: defaults to false and applies secondary class', () => {
+        it('variant: defaults to secondary-menu-item', () => {
             const wrapper = factoryShallowMount();
-            const link = wrapper.find('a');
-            expect(link.classes()).toContain('vs-navigation-bar-menu-item__link--level-secondary');
-            expect(link.classes()).not.toContain('vs-navigation-bar-menu-item__link--level-primary');
+            const link = wrapper.find('[data-test=vs-navigation-bar-menu-item] .vs-navigation-bar-menu-item__link');
+            expect(link.classes()).toContain('vs-navigation-bar-menu-item__link--secondary-menu-item');
         });
 
-        it('mainMenuItem: applies primary class when true', () => {
+        it('variant: applies primary-menu-item class', () => {
             const wrapper = factoryShallowMount({
-                mainMenuItem: true,
+                variant: 'primary-menu-item',
             });
-            const link = wrapper.find('a');
-            expect(link.classes()).toContain('vs-navigation-bar-menu-item__link--level-primary');
-            expect(link.classes()).not.toContain('vs-navigation-bar-menu-item__link--level-secondary');
+            const link = wrapper.find('[data-test=vs-navigation-bar-menu-item] .vs-navigation-bar-menu-item__link');
+            expect(link.classes()).toContain('vs-navigation-bar-menu-item__link--primary-menu-item');
+        });
+
+        it('variant: applies primary-sidebar-item class', () => {
+            const wrapper = factoryShallowMount({
+                variant: 'primary-sidebar-item',
+            });
+            const link = wrapper.find('[data-test=vs-navigation-bar-menu-item] .vs-navigation-bar-menu-item__link');
+            expect(link.classes()).toContain('vs-navigation-bar-menu-item__link--primary-sidebar-item');
         });
     });
 
@@ -50,15 +56,6 @@ describe('VsNavigationBarMenuItem', () => {
         it('renders default slot content', () => {
             const wrapper = factoryShallowMount();
             expect(wrapper.text()).toBe('Menu Item');
-        });
-    });
-
-    describe(':attributes', () => {
-        it('applies correct role and data-layer-value', () => {
-            const wrapper = factoryShallowMount();
-            const link = wrapper.find('a');
-            expect(link.attributes('role')).toBe('menuitem');
-            expect(link.attributes('data-layer-value')).toBe('menuNavigationDataEvent');
         });
     });
 });

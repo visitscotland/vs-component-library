@@ -1,9 +1,11 @@
 <template>
-    <li class="vs-navigation-bar-menu-item">
+    <li
+        class="vs-navigation-bar-menu-item"
+        data-test="vs-navigation-bar-menu-item"
+    >
         <a
             :class="menuItemLinkClasses"
             :href="href"
-            role="menuitem"
             data-layer-value="menuNavigationDataEvent"
         >
             <!-- @slot Default slot for nav link content  -->
@@ -31,19 +33,20 @@ export default {
             default: '#',
         },
         /**
-         * The level of the menu item, which determines the styling.
+         * The variant of the menu item, which determines the styling of the link.
          * Primary level items are typically top-level links in the nav,
          * while secondary level items are typically found in dropdowns or submenus
          */
-        mainMenuItem: {
-            type: Boolean,
-            default: false,
+        variant: {
+            type: String,
+            default: 'secondary-menu-item',
+            validator: (value) => value.match(/(primary-menu-item|primary-sidebar-item|secondary-menu-item)/),
         },
     },
     computed: {
         menuItemLinkClasses() {
             return [
-                `vs-navigation-bar-menu-item__link--level-${this.mainMenuItem ? 'primary' : 'secondary'}`,
+                `vs-navigation-bar-menu-item__link--${this.variant}`,
                 'vs-navigation-bar-menu-item__link',
             ];
         },
@@ -81,10 +84,26 @@ export default {
                 outline: 0;
             }
 
-            &--level-primary {
-                &.vs-navigation-bar-menu-item__link--variant-default {
-                    font-weight: $vs-font-weight-medium;
-                    border-radius: $vs-radius-full;
+            &--primary-menu-item,
+            &--primary-sidebar-item {
+                font-weight: $vs-font-weight-medium;
+            }
+
+            &--primary-menu-item {
+                border-radius: $vs-radius-full;
+            }
+
+            &--primary-sidebar-item {
+                font-size: $vs-font-size-heading-xxs;
+                padding: $vs-spacer-100 $vs-spacer-075;
+                line-height: $vs-line-height-heading;
+
+                &:hover {
+                    color: $vs-color-icon-cta-on-light;
+                }
+
+                &:active {
+                    color: $vs-color-icon-inverse;
                 }
             }
         }
