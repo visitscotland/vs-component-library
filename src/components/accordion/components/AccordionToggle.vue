@@ -118,6 +118,7 @@ export default {
     }
 
     .vs-accordion-toggle__icon {
+        margin-left: $vs-spacer-050;
         align-self: center;
     }
 }

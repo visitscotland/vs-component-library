@@ -14,9 +14,8 @@
                 id="sidebar-title"
                 class="visually-hidden"
             >
-                {{ menuAriaLabel }}
+                {{ sidebarTitle }}
             </h2>
-
             <VsButton
                 icon-only
                 icon="vs-icon-control-dismiss"
@@ -32,10 +31,8 @@
         <slot />
 
         <template #footer>
-            <div class="d-flex align-items-center p-100 pb-300">
-                <!-- @slot For sidebar footer content  -->
-                <slot name="sidebar-footer" />
-            </div>
+            <!-- @slot For sidebar footer content  -->
+            <slot name="sidebar-footer" />
         </template>
 
         <template #backdrop>
@@ -75,9 +72,10 @@ export default {
             default: false,
         },
         /**
-         * The aria-label for the sidebar menu, required for accessibility
+         * The sidebar title, required for accessibility
+         * and is visually hidden
          */
-        menuAriaLabel: {
+        sidebarTitle: {
             type: String,
             required: true,
         },

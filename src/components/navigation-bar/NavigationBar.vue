@@ -48,7 +48,6 @@
     <VsNavigationSidebar
         :show="sidebarOpen"
         @update:show="sidebarOpen = $event"
-        :menu-aria-label="menuAriaLabel"
         :sidebar-close-label="sidebarCloseLabel"
     >
         <!-- @slot For sidebar body content  -->
@@ -96,10 +95,10 @@ export default {
             validator: (value) => value.match(/(xs|sm|md|lg|xl)/),
         },
         /**
-         * The aria-label for the sidebar menu,
+         * The aria-label for the utility menu,
          * required for accessibility
          */
-        menuAriaLabel: {
+        utilityMenuAriaLabel: {
             type: String,
             required: true,
         },
@@ -168,10 +167,11 @@ export default {
 <style lang="scss">
     .vs-navigation-bar {
         position: static;
-        height: 80px;
+        min-height: 80px;
         z-index: 2;
         display: flex;
         align-items: center;
         background-color: $vs-color-background-inverse;
+        box-shadow: $vs-elevation-shadow-overlay;
     }
 </style>

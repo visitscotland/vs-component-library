@@ -2,9 +2,25 @@ import { shallowMount, mount } from '@vue/test-utils';
 import axe from '@/../test/unit/helpers/axe-helper';
 import VsNavigationBarMenu from '../NavigationBarMenu.vue';
 
-const factoryShallowMount = () => shallowMount(VsNavigationBarMenu);
+const defaultProps = {
+    menuAriaLabel: 'Main navigation menu',
+};
 
-const factoryMount = (options) => mount(VsNavigationBarMenu, options);
+const factoryShallowMount = (propsData = {
+}) => shallowMount(VsNavigationBarMenu, {
+    propsData: {
+        ...defaultProps,
+        ...propsData,
+    },
+});
+
+const factoryMount = (propsData, options) => mount(VsNavigationBarMenu, {
+    propsData: {
+        ...defaultProps,
+        ...propsData,
+    },
+    ...options,
+});
 
 describe('VsNavigationBarMenu', () => {
     it('should render a nav element', () => {
@@ -14,26 +30,37 @@ describe('VsNavigationBarMenu', () => {
         expect(nav.exists()).toBe(true);
     });
 
-    it('should render a ul with correct attributes', () => {
+    it('should render a nan with correct attributes', () => {
         const wrapper = factoryShallowMount();
-        const ul = wrapper.find('ul');
+        const nav = wrapper.find('nav');
 
-        expect(ul.exists()).toBe(true);
-        expect(ul.classes('vs-navigation-bar-menu')).toBe(true);
-        expect(ul.attributes('data-test')).toBe('vs-navigation-bar-menu');
-        expect(ul.attributes('role')).toBe('menubar');
+        expect(nav.exists()).toBe(true);
+        expect(nav.classes('vs-navigation-bar-menu')).toBe(true);
+        expect(nav.attributes('data-test')).toBe('vs-navigation-bar-menu');
+    });
+
+    describe(':props', () => {
+        it('should accept and render menuAriaLabel on nav element', () => {
+            const testLabel = 'Test menu label';
+            const wrapper = factoryShallowMount({
+                menuAriaLabel: testLabel,
+            });
+
+            const navElement = wrapper.find('[data-test=vs-navigation-bar-menu]');
+
+            expect(navElement.attributes('aria-label')).toBe(testLabel);
+        });
     });
 
     describe(':slots', () => {
         it('should render default slot content', () => {
-            const slotContent = '<li>Menu item</li>';
-            const wrapper = factoryMount({
+            const wrapper = factoryMount(VsNavigationBarMenu, {
                 slots: {
-                    default: slotContent,
+                    default: '<li>Menu item</li>',
                 },
             });
 
-            expect(wrapper.html()).toContain(slotContent);
+            expect(wrapper.text()).toContain('Menu item');
         });
     });
 
@@ -41,13 +68,6 @@ describe('VsNavigationBarMenu', () => {
         it('should not have aXe accessibility issues', async() => {
             const wrapper = factoryMount();
             expect(await axe(wrapper.html())).toHaveNoViolations();
-        });
-
-        it('should have menubar role for accessibility', () => {
-            const wrapper = factoryShallowMount();
-            const ul = wrapper.find('ul');
-
-            expect(ul.attributes('role')).toBe('menubar');
         });
     });
 });

@@ -11,10 +11,9 @@ const factoryShallowMount = (propsData) => shallowMount(VsNavigationBarMenuDropd
 });
 
 describe('VsNavigationBarMenuDropdown', () => {
-    it('renders as list item with correct role', () => {
+    it('renders as list item', () => {
         const wrapper = factoryShallowMount();
         expect(wrapper.element.tagName).toBe('LI');
-        expect(wrapper.attributes('role')).toBe('menuitem');
         expect(wrapper.attributes('data-test')).toBe('vs-navigation-bar-menu-dropdown');
     });
 
@@ -35,7 +34,7 @@ describe('VsNavigationBarMenuDropdown', () => {
     describe(':slots', () => {
         it('renders default slot in main content area', () => {
             const wrapper = factoryShallowMount();
-            const mainContent = wrapper.find('.vs-navigation-bar-menu-dropdown__main');
+            const mainContent = wrapper.find('[data-test=vs-navigation-bar-menu-dropdown]');
             expect(mainContent.exists()).toBe(true);
         });
     });

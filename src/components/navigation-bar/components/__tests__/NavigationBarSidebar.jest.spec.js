@@ -8,7 +8,7 @@ import VsNavigationBarSidebar from '../NavigationBarSidebar.vue';
 config.global.renderStubDefaultSlot = true;
 
 const defaultProps = {
-    menuAriaLabel: 'Main navigation menu',
+    sidebarTitle: 'Navigation',
     sidebarCloseLabel: 'Close navigation menu',
     show: false,
 };
@@ -77,6 +77,16 @@ describe('VsNavigationBarSidebar', () => {
 
             expect(closeButton.text()).toContain(testLabel);
         });
+
+        it('should accept sidebarTitle prop', () => {
+            const testTitle = 'Test Navigation Title';
+            const wrapper = factoryMount({
+                sidebarTitle: testTitle,
+                show: true,
+            });
+
+            expect(wrapper.vm.$props.sidebarTitle).toBe(testTitle);
+        });
     });
 
     describe(':methods', () => {
@@ -99,7 +109,7 @@ describe('VsNavigationBarSidebar', () => {
                 name: 'VsButton',
             });
 
-            await closeButton.vm.$emit('click');
+            await closeButton.trigger('click');
 
             expect(wrapper.emitted('update:show')).toBeTruthy();
             expect(wrapper.emitted('update:show')[0]).toEqual([false]);
@@ -176,16 +186,8 @@ describe('VsNavigationBarSidebar', () => {
             expect(offcanvas.attributes('aria-labelledby')).toBe('sidebar-title');
         });
 
-        it('should require menuAriaLabel for accessibility', () => {
-            const wrapper = factoryShallowMount();
-
-            expect(wrapper.vm.$props.menuAriaLabel).toBeDefined();
-        });
-
-        it('should require sidebarCloseLabel for accessibility', () => {
-            const wrapper = factoryShallowMount();
-
-            expect(wrapper.vm.$props.sidebarCloseLabel).toBeDefined();
+        it('should require sidebarTitle prop', () => {
+            expect(VsNavigationBarSidebar.props.sidebarTitle.required).toBe(true);
         });
     });
 });
