@@ -17,11 +17,11 @@
                 {{ props.headerLabel }}
             </VsHeading>
             <VsButton
-                variant="subtle"
-                icon="vs-icon-control-dismiss"
-                icon-only
                 class="vs-map-sidebar__sidebar-control vs-map-siderbar__sidebar-control--dismiss"
                 data-test="vs-map-siderbar__sidebar-control--dismiss"
+                icon="vs-icon-control-dismiss"
+                icon-only
+                variant="subtle"
                 @click="googleMapStore.sidebarOpen = false"
             >
                 {{ props.closeSidebarButtonLabel }}
@@ -92,6 +92,10 @@
                     <slot name="vs-map-sidebar-search-results" />
                 </div>
             </div>
+            <VsMapFeaturedLocation
+                class="mb-100"
+                :class="($props.query || $props.selectedCategories) ? 'd-none' : 'd-block'"
+            />
         </div>
         <div
             class="vs-map-sidebar__footer"
@@ -120,6 +124,7 @@ import VsHeading from '@/components/heading/Heading.vue';
 import VsInput from '@/components/input/Input.vue';
 
 import useGoogleMapStore from '@/stores/mainMap.store';
+import VsMapFeaturedLocation from './MapFeaturedLocation.vue';
 
 const googleMapStore = useGoogleMapStore();
 

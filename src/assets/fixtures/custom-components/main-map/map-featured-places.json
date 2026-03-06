@@ -1,0 +1,584 @@
+[       
+    {
+        "type": "feature",
+        "properties": {
+            "id": "a74c09b1-f2b6-48b6-9ac7-0de4fc6636c4",
+            "title": "Aberdeen",
+            "description": "Get the lowdown on Aberdeen, Scotland's city in the north east.",
+            "category": {
+                "id": "cities",
+                "label": "Cities"
+            },
+            "image": "https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2024/04/26/marischal-college",
+            "link": {
+                "label": "Discover Aberdeen",
+                "link": "/resourceapi/places-to-go/aberdeen",
+                "type": "INTERNAL"
+            },
+            "placeId": "ChIJSXXXH0wFhEgRcsT0XNoFu-g",
+            "viewport": {
+                "low": {
+                    "latitude": 57.104151835738648,
+                    "longitude": -2.205892568006512
+                },
+                "high": {
+                    "latitude": 57.195650664805505,
+                    "longitude": -2.0441627421559954
+                }
+            },
+            "locationCentre": {
+                "latitude": 57.149889099999996,
+                "longitude": -2.0937528
+            }
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-2.1929625, 57.14448125]
+        }
+    },
+    {
+        "type": "feature",
+        "properties": {
+            "id": "7302c3e9-56e4-4689-a913-9977e45cfa37",
+            "title": "Dundee",
+            "description": "Discover a gem of a city in Dundee, the UK's first UNESCO City of Design.",
+            "category": {
+                "id": "cities",
+                "label": "Cities"
+            },
+            "image": "https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2024/06/20/dundee-law",
+            "link": {
+                "label": "Discover Dundee",
+                "link": "/resourceapi/places-to-go/dundee",
+                "type": "INTERNAL"
+            },
+            "placeId": "ChIJ05xjq0RBhkgRKuVLOB475JQ",
+            "viewport": {
+                "low": {
+                    "latitude": 56.443603721432147,
+                    "longitude": -3.0980245540908427
+                },
+                "high": {
+                    "latitude": 56.505596952485696,
+                    "longitude": -2.8356418963024561
+                }
+            },
+            "locationCentre": {
+                "latitude": 56.462018,
+                "longitude": -2.9707209999999997
+            }
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-2.89102666666667, 56.4685866666667]
+        }
+    },
+    {
+        "type": "feature",
+        "properties": {
+            "id": "cf94befa-548f-4131-9738-4c7d5ec839b0",
+            "title": "Dunfermline",
+            "description": "Dunfermline is Scotland's newest city, and sits in the east of Scotland.",
+            "category": {
+                "id": "cities",
+                "label": "Cities"
+            },
+            "image": "https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2024/09/11/dunfermline",
+            "link": {
+                "label": "Discover Dunfermline",
+                "link": "/resourceapi/places-to-go/dunfermline",
+                "type": "INTERNAL"
+            },
+            "placeId": "ChIJHwzVgSzMh0gRzt496KFQHVQ",
+            "viewport": {
+                "low": {
+                    "latitude": 56.044808978608685,
+                    "longitude": -3.4894470049335293
+                },
+                "high": {
+                    "latitude": 56.087072725999256,
+                    "longitude": -3.3876014839421895
+                }
+            },
+            "locationCentre": {
+                "latitude": 56.071741,
+                "longitude": -3.4521509999999997
+            }
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-3.44984, 56.07277]
+        }
+    },
+    {
+        "type": "feature",
+        "properties": {
+            "id": "af10c61f-4f4d-412d-ab7a-267834ee4201",
+            "title": "Edinburgh",
+            "description": "Edinburgh city teaser",
+            "category": {
+                "id": "cities",
+                "label": "Cities"
+            },
+            "image": "https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2024/09/03/edinburgh-skyline",
+            "link": {
+                "label": "Discover Edinburgh",
+                "link": "/site/resourceapi/sandbox/pages/destination/edinburgh",
+                "type": "INTERNAL"
+            },
+            "placeId": "ChIJIyaYpQC4h0gRJxfnfHsU8mQ",
+            "viewport": {
+                "low": {
+                    "latitude": 55.8871156615719,
+                    "longitude": -3.34402565597901
+                },
+                "high": {
+                    "latitude": 55.9932750479708,
+                    "longitude": -3.05859588909888
+                }
+            },
+            "locationCentre": {
+                "latitude": 55.9401953547714,
+                "longitude": -3.20131077253895
+            }
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-3.285255, 55.953578]
+        }
+    },
+    {
+        "type": "feature",
+        "properties": {
+            "id": "29fa7a62-7854-4cc7-a624-e9365f3452ac",
+            "title": "Glasgow",
+            "description": "Visit Scotland's largest city and experience the famous warm welcome.",
+            "category": {
+                "id": "cities",
+                "label": "Cities"
+            },
+            "image": "https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2024/09/12/glasgow-skyline",
+            "link": {
+                "label": "Discover Glasgow",
+                "link": "/resourceapi/places-to-go/glasgow",
+                "type": "INTERNAL"
+            },
+            "placeId": "ChIJ685WIFYViEgRHlHvBbiD5nE",
+            "viewport": {
+                "low": {
+                    "latitude": 55.781279085932326,
+                    "longitude": -4.3932003050548678
+                },
+                "high": {
+                    "latitude": 55.929641114892526,
+                    "longitude": -4.0717167259209441
+                }
+            },
+            "locationCentre": {
+                "latitude": 55.861670399999994,
+                "longitude": -4.2583345
+            }
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-4.289846, 55.869118]
+        }
+    },
+    {
+        "type": "feature",
+        "properties": {
+            "id": "53577888-c626-455c-8fd1-cfdb2341f309",
+            "title": "Inverness",
+            "description": "The capital of the Scottish Highlands sits on Scotland’s north east coast, where the River Ness meets the Moray Firth.",
+            "category": {
+                "id": "cities",
+                "label": "Cities"
+            },
+            "image": "https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2022/12/07/inverness-cathedral",
+            "link": {
+                "label": "Discover Inverness",
+                "link": "/resourceapi/places-to-go/inverness",
+                "type": "INTERNAL"
+            },
+            "placeId": "ChIJK94XLVtxj0gRPcQ-LtEJQ2I",
+            "viewport": {
+                "low": {
+                    "latitude": 57.439880586894574,
+                    "longitude": -4.2704222879806233
+                },
+                "high": {
+                    "latitude": 57.496111969859861,
+                    "longitude": -4.1732931687952481
+                }
+            },
+            "locationCentre": {
+                "latitude": 57.477773,
+                "longitude": -4.224721
+            }
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-4.000025, 57.4586325]
+        }
+    },
+    {
+        "type": "feature",
+        "properties": {
+            "id": "77fdac36-d0e2-4f39-8ac5-f80557a17314",
+            "title": "Perth",
+            "description": "Discover the city of Perth, including holiday ideas, accommodation, travel information and maps, insider tips & fantastic things to see & do.",
+            "category": {
+                "id": "cities",
+                "label": "Cities"
+            },
+            "image": "https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2024/09/03/perth-city",
+            "link": {
+                "label": "Discover Perth",
+                "link": "/resourceapi/places-to-go/perth",
+                "type": "INTERNAL"
+            },
+            "placeId": "ChIJA01I-8YVhkgRGJb0fW4UX7Y",
+            "viewport": {
+                "low": {
+                    "latitude": 56.356531369915707,
+                    "longitude": -3.5070932508599739
+                },
+                "high": {
+                    "latitude": 56.424430124577128,
+                    "longitude": -3.3914109382171467
+                }
+            },
+            "locationCentre": {
+                "latitude": 56.394994,
+                "longitude": -3.430838
+            }
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-3.43529, 56.39768]
+        }
+    },
+    {
+        "type": "feature",
+        "properties": {
+            "id": "864d45c4-59d8-41f1-a5a0-24fc90a784de",
+            "title": "Stirling",
+            "description": "Let Scotland's historic past capture your imagination in Stirling.",
+            "category": {
+                "id": "cities",
+                "label": "Cities"
+            },
+            "image": "https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2024/09/03/stirling-castle",
+            "link": {
+                "label": "Discover Stirling",
+                "link": "/resourceapi/places-to-go/stirling",
+                "type": "INTERNAL"
+            },
+            "placeId": "ChIJMXhDPNdXiEgRrXbVAjcf8Ps",
+            "viewport": {
+                "low": {
+                    "latitude": 56.091872376096333,
+                    "longitude": -3.9750002169327887
+                },
+                "high": {
+                    "latitude": 56.14553824223696,
+                    "longitude": -3.9043965899349731
+                }
+            },
+            "locationCentre": {
+                "latitude": 56.1165227,
+                "longitude": -3.9369028999999998
+            }
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-3.93971, 56.11898]
+        }
+    },
+    {
+        "type": "feature",
+        "properties": {
+            "id": "0d416cc3-3722-4191-82ad-bc52b3239f68",
+            "title": "Aviemore",
+            "description": "Aviemore is surrounded by lush Highland scenery in the north west corner of the majestic Cairngorms National Park.",
+            "category": {
+                "id": "towns",
+                "label": "Towns"
+            },
+            "image": "https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2024/05/23/aviemore-aerial-shot.jpg",
+            "link": {
+                "label": "Discover Aviemore",
+                "link": "/resourceapi/places-to-go/aviemore",
+                "type": "INTERNAL"
+            },
+            "placeId": "ChIJYdwLblnxhUgRA3Kb1RzR3TM",
+            "viewport": {
+                "low": {
+                    "latitude": 57.181162904189463,
+                    "longitude": -3.8381817682043096
+                },
+                "high": {
+                    "latitude": 57.207531980434716,
+                    "longitude": -3.8105881378736597
+                }
+            },
+            "locationCentre": {
+                "latitude": 57.2005355,
+                "longitude": -3.8281798000000005
+            }
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-3.90868692307692, 57.1581246153846]
+        }
+    },
+    {
+        "type": "feature",
+        "properties": {
+            "id": "49dd3e19-2140-4d87-8c4d-ebcbfa568b03",
+            "title": "Fort William & Lochaber",
+            "description": "Part of the 'Outdoor Capital of the UK', Fort William also boasts Ben Nevis, traditional pubs, Lochaber Geopark, and more.",
+            "category": {
+                "id": "towns",
+                "label": "Towns"
+            },
+            "image": "https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2024/09/09/buachaille-etive-mor",
+            "link": {
+                "label": "Discover Fort William & Lochaber",
+                "link": "/resourceapi/places-to-go/fort-william",
+                "type": "INTERNAL"
+            },
+            "placeId": "ChIJGwMcNyMziUgRIUhUCOM-oM0",
+            "viewport": {
+                "low": {
+                    "latitude": 56.804334950717106,
+                    "longitude": -5.13079947019061
+                },
+                "high": {
+                    "latitude": 56.82953014040519,
+                    "longitude": -5.0756682847025205
+                }
+            },
+            "locationCentre": {
+                "latitude": 56.819817000000008,
+                "longitude": -5.105218
+            }
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-5.111, 56.818]
+        }
+    },
+    {
+        "type": "feature",
+        "properties": {
+            "id": "7b2597ae-df83-4e40-bf85-55611dae3665",
+            "title": "Glencoe",
+            "description": "Located within Lochaber Geopark in the Highlands, the village of Glencoe sits in a deep valley surrounded by towering mountains.",
+            "category": {
+                "id": "towns",
+                "label": "Towns"
+            },
+            "image": "https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2023/02/17/pass-of-glencoe.jpg",
+            "link": {
+                "label": "Discover Glencoe",
+                "link": "/resourceapi/places-to-go/glencoe",
+                "type": "INTERNAL"
+            },
+            "placeId": "ChIJdbMpe-owiUgR5zIXwvPg3NE",
+            "viewport": {
+                "low": {
+                    "latitude": 56.679116375709661,
+                    "longitude": -5.1133797504580354
+                },
+                "high": {
+                    "latitude": 56.685652261245153,
+                    "longitude": -5.0916226048481015
+                }
+            },
+            "locationCentre": {
+                "latitude": 56.682559899999994,
+                "longitude": -5.1022713
+            }
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-5.09504, 56.67972]
+        }
+    },
+    {
+        "type": "feature",
+        "properties": {
+            "id": "46eea420-8a0e-4fee-9b2b-c776fe28ec85",
+            "title": "Pitlochry",
+            "description": "Discover Pitlochry, including holiday ideas, accommodation, travel information and maps, insider tips & fantastic things to see & do.",
+            "category": {
+                "id": "towns",
+                "label": "Towns"
+            },
+            "image": "https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2024/02/13/queens-view",
+            "link": {
+                "label": "Discover Pitlochry",
+                "link": "/resourceapi/places-to-go/pitlochry",
+                "type": "INTERNAL"
+            },
+            "placeId": "ChIJsWvnVZEChkgRfkAQNCkRloA",
+            "viewport": {
+                "low": {
+                    "latitude": 56.6948874930943,
+                    "longitude": -3.7513403125881752
+                },
+                "high": {
+                    "latitude": 56.715349336502236,
+                    "longitude": -3.7126802600899822
+                }
+            },
+            "locationCentre": {
+                "latitude": 56.704361,
+                "longitude": -3.729711
+            }
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-3.8991375, 56.70133]
+        }
+    },
+    {
+        "type": "feature",
+        "properties": {
+            "id": "f6a59fbf-e798-4c20-9a64-7bfe90b9748c",
+            "title": "St Andrews",
+            "description": "Discover St Andrews, the world-famous Home of Golf, including holiday ideas, accommodation, travel and maps & fantastic things to see & do.",
+            "category": {
+                "id": "towns",
+                "label": "Towns"
+            },
+            "image": "https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2022/12/07/st-andrews-east-beach",
+            "link": {
+                "label": "Discover St Andrews",
+                "link": "/resourceapi/places-to-go/st-andrews",
+                "type": "INTERNAL"
+            },
+            "placeId": "ChIJ-_kSGZhQhkgR8KlcwJ75JlU",
+            "viewport": {
+                "low": {
+                    "latitude": 56.326528689084483,
+                    "longitude": -2.8381012193268957
+                },
+                "high": {
+                    "latitude": 56.346536851654065,
+                    "longitude": -2.7774513972169541
+                }
+            },
+            "locationCentre": {
+                "latitude": 56.3397753,
+                "longitude": -2.7967214
+            }
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-2.79632, 56.33934]
+        }
+    },
+    {
+        "type": "feature",
+        "properties": {
+            "id": "a83c086f-a9ba-43b9-ac91-84cdfb9d7ac6",
+            "title": "Isle of Arran",
+            "description": "Arran is an island on the west coast of Scotland. It's family-friendly and has great scenery, beaches and lots of things to do.",
+            "category": {
+                "id": "islands",
+                "label": "Islands"
+            },
+            "image": "https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2023/03/07/kildonan-beach-arran",
+            "link": {
+                "label": "Discover Isle of Arran",
+                "link": "/resourceapi/places-to-go/islands/arran",
+                "type": "INTERNAL"
+            },
+            "placeId": "ChIJ8TSdR-DviUgRIqT2yMHVamw",
+            "viewport": {
+                "low": {
+                    "latitude": 55.433838500558586,
+                    "longitude": -5.3977987649782664
+                },
+                "high": {
+                    "latitude": 55.721259643479137,
+                    "longitude": -5.0792919597913651
+                }
+            },
+            "locationCentre": {
+                "latitude": 55.5806165,
+                "longitude": -5.2108573
+            }
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-5.23909421052632, 55.5463215789474]
+        }
+    },
+    {
+        "type": "feature",
+        "properties": {
+            "id": "148851e2-67d7-4fb2-a481-0e10f99dde82",
+            "title": "Isle of Mull",
+            "description": "This large Inner Hebridean island is full of many incredible possibilities, whether you are going for a day trip or staying a fortnight.",
+            "category": {
+                "id": "islands",
+                "label": "Islands"
+            },
+            "image": "https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2024/04/26/tobermory",
+            "link": {
+                "label": "Discover Isle of Mull",
+                "link": "/resourceapi/places-to-go/islands/isle-mull",
+                "type": "INTERNAL"
+            },
+            "placeId": "ChIJkzZd9RDDi0gRLwRNd0RozBw",
+            "viewport": {
+                "low": {
+                    "latitude": 56.2640844573143,
+                    "longitude": -6.3856975827290636
+                },
+                "high": {
+                    "latitude": 56.656878735732519,
+                    "longitude": -5.6457896163059855
+                }
+            },
+            "locationCentre": {
+                "latitude": 56.439198399999995,
+                "longitude": -6.000887
+            }
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-6.10769857142857, 56.4897742857143]
+        }
+    },
+    {
+        "type": "feature",
+        "properties": {
+            "id": "1",
+            "title": "Aberdeenshire",
+            "category": {
+                "id": "regions",
+                "label": "Regions"
+            },
+            "image": "https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2024/09/09/dunnottar-castle",
+            "placeId": "ChIJ1deuZ9h_g0gRB-LNSfT9NVA",
+            "viewport": {
+                "low": {
+                    "latitude": 56.747139670797964,
+                    "longitude": -3.8016479302394033
+                },
+                "high": {
+                    "latitude": 57.701204467578968,
+                    "longitude": -1.7663192482884387
+                }
+            },
+            "locationCentre": {
+                "latitude": 57.162142900000006,
+                "longitude": -2.7194167
+            }
+        }
+    }
+]

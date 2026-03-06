@@ -98,5 +98,28 @@
                 "label": "Facilities"
             }
         ]
+    },
+    {
+        "id":"destinations",
+        "label":"Places",
+        "cmsData":true,
+        "subCategory": [
+            {
+                "id":"cities",
+                "label":"Cities"
+            },
+            {
+                "id":"towns",
+                "label":"Towns"
+            },
+            {
+                "id":"islands",
+                "label":"Islands"
+            },
+            {
+                "id":"regions",
+                "label":"Regions"
+            }
+        ]
     }
 ]
