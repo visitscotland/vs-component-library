@@ -43,7 +43,5 @@ export default {
         display: flex;
         gap: $vs-spacer-075;
         align-items: center;
-        height: 100%;
-        width: 100%;
     }
 </style>
