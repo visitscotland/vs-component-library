@@ -25,21 +25,16 @@
                     :class="utilityClasses"
                     data-test="vs-navigation-bar__utilities"
                 >
-                    <nav :aria-label="utilityMenuAriaLabel">
-                        <ul class="d-flex gap-075">
-                            <!-- @slot For navigation bar utility items  -->
-                            <slot name="navigation-bar-utilities" />
+                    <!-- @slot For navigation bar utility items  -->
+                    <slot name="navigation-bar-utilities" />
 
-                            <li>
-                                <VsNavigationBarSidebarButton
-                                    :class="sidebarButtonClasses"
-                                    data-test="vs-navigation-bar__sidebar-button"
-                                    @sidebar-open="onSidebarOpen"
-                                    :sidebar-open-label="sidebarOpenLabel"
-                                />
-                            </li>
-                        </ul>
-                    </nav>
+                    <VsNavigationBarSidebarButton
+                        :class="sidebarButtonClasses"
+                        class="ms-075"
+                        data-test="vs-navigation-bar__sidebar-button"
+                        @sidebar-open="onSidebarOpen"
+                        :sidebar-open-label="sidebarOpenLabel"
+                    />
                 </VsCol>
             </VsRow>
         </VsContainer>
@@ -49,6 +44,7 @@
         :show="sidebarOpen"
         @update:show="sidebarOpen = $event"
         :sidebar-close-label="sidebarCloseLabel"
+        :sidebar-title="sidebarTitle"
     >
         <!-- @slot For sidebar body content  -->
         <slot name="sidebar-body" />
@@ -95,14 +91,6 @@ export default {
             validator: (value) => value.match(/(xs|sm|md|lg|xl)/),
         },
         /**
-         * The aria-label for the utility menu,
-         * required for accessibility
-         */
-        utilityMenuAriaLabel: {
-            type: String,
-            required: true,
-        },
-        /**
          * The aria-label for the sidebar close button,
          * required for accessibility
          */
@@ -114,6 +102,13 @@ export default {
          * required for accessibility
          */
         sidebarOpenLabel: {
+            type: String,
+            required: true,
+        },
+        /**
+         * The sidebar title, required for accessibility
+         */
+        sidebarTitle: {
             type: String,
             required: true,
         },

@@ -1,8 +1,8 @@
 <template>
     <VsNavigationBar
-        utility-menu-aria-label="Utility menu"
         sidebar-close-label="Close sidebar menu"
         sidebar-open-label="Open sidebar menu"
+        sidebar-title="Navigation menu"
     >
         <template #logo-link>
             <VsSvgLink
@@ -58,44 +58,52 @@
         </template>
 
         <template #navigation-bar-utilities>
-            <li>
-                <VsButton
-                    variant="secondary"
-                    size="sm"
-                    icon="vs-icon-control-search"
-                >
-                    Search
-                </VsButton>
-            </li>
-            <li class="d-none d-md-block">
-                <VsButton
-                    variant="subtle"
-                    size="sm"
-                    icon="fa-regular fa-map"
-                    icon-only
-                    href="#"
-                >
-                    Map
-                </VsButton>
-            </li>
-            <VsNavigationBarMenuDropdown
-                subtle
-                class="d-none d-md-block"
-            >
-                <template #button-content>
-                    EN
-                </template>
+            <nav aria-label="Utility menu">
+                <ul class="d-flex gap-075">
+                    <li>
+                        <VsButton
+                            variant="secondary"
+                            size="sm"
+                            icon="vs-icon-control-search"
+                        >
+                            Search
+                        </VsButton>
+                    </li>
+                    <li
+                        class="d-none d-md-block"
+                        v-if="menuType === 'b2c'"
+                    >
+                        <VsButton
+                            variant="subtle"
+                            size="sm"
+                            icon="fa-regular fa-map"
+                            icon-only
+                            href="#"
+                        >
+                            Map
+                        </VsButton>
+                    </li>
+                    <VsNavigationBarMenuDropdown
+                        subtle
+                        class="d-none d-md-block"
+                        v-if="menuType === 'b2c'"
+                    >
+                        <template #button-content>
+                            EN
+                        </template>
 
-                <VsNavigationBarMenuItem href="#">
-                    English
-                </VsNavigationBarMenuItem>
-                <VsNavigationBarMenuItem href="#">
-                    Spanish
-                </VsNavigationBarMenuItem>
-                <VsNavigationBarMenuItem href="#">
-                    French
-                </VsNavigationBarMenuItem>
-            </VsNavigationBarMenuDropdown>
+                        <VsNavigationBarMenuItem href="#">
+                            English
+                        </VsNavigationBarMenuItem>
+                        <VsNavigationBarMenuItem href="#">
+                            Spanish
+                        </VsNavigationBarMenuItem>
+                        <VsNavigationBarMenuItem href="#">
+                            French
+                        </VsNavigationBarMenuItem>
+                    </VsNavigationBarMenuDropdown>
+                </ul>
+            </nav>
         </template>
 
         <template #sidebar-body>
@@ -108,9 +116,9 @@
                         >
                             <li v-if="mobileItem.dropdownNav">
                                 <VsAccordionItem
-                                    :control-id="mobileItemIndex.toString()"
+                                    :control-id="index.toString()"
                                 >
-                                    <template v-slot:title>
+                                    <template #title>
                                         {{ mobileItem.title }}
                                     </template>
 
@@ -154,7 +162,10 @@
             </VsAccordion>
         </template>
 
-        <template #sidebar-footer>
+        <template
+            #sidebar-footer
+            v-if="menuType === 'b2c'"
+        >
             <div class="p-100 pb-300">
                 <nav aria-label="Utility menu">
                     <ul class="d-flex gap-075 justify-content-end">

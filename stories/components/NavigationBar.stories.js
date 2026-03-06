@@ -14,7 +14,7 @@ import VsDivider from '@/components/divider/Divider.vue';
 import VsSvgLink from '@/components/svg-link/SvgLink.vue';
 import designTokens from '@/assets/tokens/tokens.json';
 import b2cNavExample from '@/assets/fixtures/navigation-bar/b2c-nav.json';
-import b2bNavExample from '@/assets/fixtures/navigation-bar/b2b-nav.json';
+import manyItemsNav from '@/assets/fixtures/navigation-bar/many-items-nav.json';
 
 export default {
     component: VsNavigationBar,
@@ -42,15 +42,16 @@ const Template = (args) => ({
     setup() {
         return {
             args,
-            b2bNavExample,
+            manyItemsNav,
             b2cNavExample,
         };
     },
     template: `   
         <VsNavigationBar 
-            :utility-menu-aria-label="args.utilityMenuAriaLabel"
             :sidebar-close-label="args.sidebarCloseLabel"
             :sidebar-open-label="args.sidebarOpenLabel"
+            :sidebar-title="args.sidebarTitle"
+            :sidebarBreakpoint="args.sidebarBreakpoint"
         >
             <template #logo-link>
                 <VsSvgLink
@@ -65,7 +66,7 @@ const Template = (args) => ({
 
             <template #navigation-bar-menu>
                 <VsNavigationBarMenu :menu-aria-label="args.menuAriaLabel">
-                    <template v-for="(item, index) in b2bNavExample" :key="index">
+                    <template v-for="(item, index) in args.navData" :key="index">
                         <VsNavigationBarMenuDropdown v-if="item.dropdownNav">
                             <template #button-content>
                                 {{ item.title }}
@@ -103,56 +104,66 @@ const Template = (args) => ({
             </template>
 
             <template #navigation-bar-utilities>
-                <li>
-                    <VsButton 
-                        variant="secondary"
-                        size="sm"
-                        icon="vs-icon-control-search"
-                    >
-                        Search
-                    </VsButton>
-                </li>
-                <li class="d-none d-md-block">
-                    <VsButton 
-                        variant="subtle"
-                        size="sm"
-                        icon="fa-regular fa-map"
-                        icon-only
-                        href="#"
-                    > 
-                        Map
-                    </VsButton>
-                </li>
-                <VsNavigationBarMenuDropdown 
-                    subtle 
-                    class="d-none d-md-block"
-                >
-                    <template #button-content>
-                        EN
-                    </template>
+                <nav :aria-label="args.utilityMenuAriaLabel">
+                    <ul class="d-flex gap-075">
+                        <li>
+                            <VsButton 
+                                variant="secondary"
+                                size="sm"
+                                icon="vs-icon-control-search"
+                                :icon-only="args.compactUtilities"
+                            >
+                                Search
+                            </VsButton>
+                            
+                        </li>
+                        <li 
+                            v-if="!args.compactUtilities" 
+                            class="d-none d-md-block"
+                        >
+                            <VsButton 
+                                variant="subtle"
+                                size="sm"
+                                icon="fa-regular fa-map"
+                                icon-only
+                                href="#"
+                            > 
+                                Map
+                            </VsButton>
+                        </li>
+                        <VsNavigationBarMenuDropdown 
+                            subtle 
+                            v-if="!args.compactUtilities"
+                            class="d-none d-md-block"
+                        >
+                            <template #button-content>
+                                EN
+                            </template>
 
-                    <VsNavigationBarMenuItem href="#">
-                        English
-                    </VsNavigationBarMenuItem>
-                    <VsNavigationBarMenuItem href="#">
-                        Spanish
-                    </VsNavigationBarMenuItem>
-                    <VsNavigationBarMenuItem href="#">
-                        French
-                    </VsNavigationBarMenuItem>
-                </VsNavigationBarMenuDropdown>
+                            <VsNavigationBarMenuItem href="#">
+                                English
+                            </VsNavigationBarMenuItem>
+                            <VsNavigationBarMenuItem href="#">
+                                Spanish
+                            </VsNavigationBarMenuItem>
+                            <VsNavigationBarMenuItem href="#">
+                                French
+                            </VsNavigationBarMenuItem>
+                        </VsNavigationBarMenuDropdown>
+                    </ul>
+                </nav>
             </template>
 
             <template #sidebar-body>
                 <VsAccordion>
                     <nav :aria-label="args.menuAriaLabel">
                         <ul>
-                            <template v-for="(mobileItem, mobileItemIndex) in b2bNavExample" :key="mobileItemIndex">
+                            <template v-for="(mobileItem, mobileItemIndex) in args.navData" :key="mobileItemIndex">
                                 <li v-if="mobileItem.dropdownNav">
                                     <VsAccordionItem 
                                         :control-id="mobileItemIndex.toString()"
                                     >
-                                        <template v-slot:title>
+                                        <template #title>
                                             {{ mobileItem.title }}
                                         </template>
 
@@ -195,7 +206,10 @@ const Template = (args) => ({
                 </VsAccordion>
             </template>
 
-            <template #sidebar-footer>
+            <template 
+                #sidebar-footer
+                v-if="!args.compactUtilities"
+            >
                 <div class="p-100 pb-300">
                     <nav :aria-label="args.utilityMenuAriaLabel">
                         <ul class="d-flex gap-075 justify-content-end">
@@ -244,12 +258,16 @@ const base = {
     utilityMenuAriaLabel: 'Utility menu',
     sidebarCloseLabel: 'Close navigation menu',
     sidebarOpenLabel: 'Open navigation menu',
+    sidebarTitle: 'Navigation menu',
     svgAltText: 'VisitScotland Home',
     svgColor: designTokens['vs-color-background-brand'],
     svgHref: '#',
     svgPath: 'visitscotland-logo',
     svgWidth: '167px',
     svgHeight: '28px',
+    navData: b2cNavExample,
+    compactUtilities: false,
+    sidebarBreakpoint: 'md',
 };
 
 export const Default = Template.bind({
@@ -282,4 +300,13 @@ MobileSidebarOpen.play = async({ canvasElement }) => {
     const sidebarButton = canvasElement.querySelector('.vs-navigation-bar-sidebar-button');
 
     await userEvent.click(sidebarButton);
+};
+
+export const ManyNavItems = Template.bind({
+});
+ManyNavItems.args = {
+    ...base,
+    navData: manyItemsNav,
+    compactUtilities: true,
+    sidebarBreakpoint: 'lg',
 };
