@@ -126,6 +126,7 @@
                             class="vs-map__filter-controls-button"
                             :variant="selectedTopLevelCategory === category.id ? 'primary' : 'secondary'"
                             @click.prevent="selectCategory(category.id, key)"
+                            :icon="Object.values(categoryData)[key].icon"
                         >
                             {{ category.label }}
                         </VsButton>
