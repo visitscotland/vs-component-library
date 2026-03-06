@@ -13,27 +13,33 @@
                     <slot name="logo-link" />
                 </VsCol>
 
-                <VsCol class="d-none d-lg-block flex-grow-1">
+                <VsCol
+                    :class="menuClasses"
+                    data-test="vs-navigation-bar__menu"
+                >
                     <!-- @slot For navigation bar menu  -->
                     <slot name="navigation-bar-menu" />
                 </VsCol>
 
-                <VsCol class="d-flex justify-content-end align-items-center col col-lg-auto">
-                    <VsList
-                        unstyled
-                        class="d-flex gap-075"
-                    >
-                        <!-- @slot For navigation bar utility items  -->
-                        <slot name="navigation-bar-utilities" />
+                <VsCol
+                    :class="utilityClasses"
+                    data-test="vs-navigation-bar__utilities"
+                >
+                    <nav :aria-label="utilityMenuAriaLabel">
+                        <ul class="d-flex gap-075">
+                            <!-- @slot For navigation bar utility items  -->
+                            <slot name="navigation-bar-utilities" />
 
-                        <li>
-                            <VsNavigationBarSidebarButton
-                                class="d-lg-none"
-                                @sidebar-open="onSidebarOpen"
-                                :sidebar-open-label="sidebarOpenLabel"
-                            />
-                        </li>
-                    </VsList>
+                            <li>
+                                <VsNavigationBarSidebarButton
+                                    :class="sidebarButtonClasses"
+                                    data-test="vs-navigation-bar__sidebar-button"
+                                    @sidebar-open="onSidebarOpen"
+                                    :sidebar-open-label="sidebarOpenLabel"
+                                />
+                            </li>
+                        </ul>
+                    </nav>
                 </VsCol>
             </VsRow>
         </VsContainer>
@@ -61,7 +67,6 @@ import {
 } from '@/components/grid';
 import VsNavigationBarSidebarButton from '@/components/navigation-bar/components/NavigationBarSidebarButton.vue';
 import VsNavigationSidebar from '@/components/navigation-bar/components/NavigationBarSidebar.vue';
-import VsList from '@/components/list/List.vue';
 
 /**
  *  The Navigation Bar component includes slots for logo link,
@@ -79,9 +84,17 @@ export default {
         VsContainer,
         VsNavigationBarSidebarButton,
         VsNavigationSidebar,
-        VsList,
     },
     props: {
+        /**
+         * The breakpoint at which the sidebar should be used
+         * instead of the regular navigation menu.
+         */
+        sidebarBreakpoint: {
+            type: String,
+            default: 'md',
+            validator: (value) => value.match(/(xs|sm|md|lg|xl)/),
+        },
         /**
          * The aria-label for the sidebar menu,
          * required for accessibility
@@ -110,6 +123,38 @@ export default {
         return {
             sidebarOpen: false,
         };
+    },
+    computed: {
+        // Map of breakpoints to determine when to switch to sidebar
+        breakpointMap() {
+            return {
+                xs: 'sm',
+                sm: 'md',
+                md: 'lg',
+                lg: 'xl',
+                xl: 'xxl',
+            };
+        },
+        // Determine the menu breakpoint class based on
+        // the sidebar breakpoint prop
+        menuBreakpoint() {
+            return this.breakpointMap[this.sidebarBreakpoint] || 'lg';
+        },
+        // Classes for the menu column, which hides the menu
+        // at the sidebarBreakpoint and below
+        menuClasses() {
+            return `d-none d-${this.menuBreakpoint}-block flex-grow-1`;
+        },
+        // Classes for the sidebar toggle button, which shows the
+        // button at the sidebarBreakpoint and below
+        sidebarButtonClasses() {
+            return `d-${this.menuBreakpoint}-none`;
+        },
+        // Classes for the utility items column, which adjusts
+        // alignment based on sidebarBreakpoint
+        utilityClasses() {
+            return `d-flex justify-content-end align-items-center col col-${this.menuBreakpoint}-auto`;
+        },
     },
     methods: {
         // Emit event to open the sidebar
