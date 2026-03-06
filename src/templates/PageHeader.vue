@@ -61,13 +61,7 @@
             <nav aria-label="Utility menu">
                 <ul class="d-flex gap-075">
                     <li>
-                        <VsButton
-                            variant="secondary"
-                            size="sm"
-                            icon="vs-icon-control-search"
-                        >
-                            Search
-                        </VsButton>
+                        <VsNavigationBarSearch />
                     </li>
                     <li
                         class="d-none d-md-block"
@@ -220,6 +214,7 @@ import VsNavigationBar from '@/components/navigation-bar/NavigationBar.vue';
 import VsNavigationBarMenu from '@/components/navigation-bar/components/NavigationBarMenu.vue';
 import VsNavigationBarMenuItem from '@/components/navigation-bar/components/NavigationBarMenuItem.vue';
 import VsNavigationBarMenuDropdown from '@/components/navigation-bar/components/NavigationBarMenuDropdown.vue';
+import VsNavigationBarSearch from '@/components/navigation-bar/components/NavigationBarSearch.vue';
 import VsSvgLink from '@/components/svg-link/SvgLink.vue';
 import VsButton from '@/components/button/Button.vue';
 import VsLink from '@/components/link/Link.vue';
@@ -244,6 +239,7 @@ export default {
         VsNavigationBarMenu,
         VsNavigationBarMenuItem,
         VsNavigationBarMenuDropdown,
+        VsNavigationBarSearch,
         VsSvgLink,
         VsButton,
         VsLink,

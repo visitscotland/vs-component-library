@@ -30,3 +30,19 @@
 .rounded-bottom-end {
     border-bottom-right-radius: var(--bs-border-radius-sm) !important;
 }
+
+// Responsive visually-hidden utilities
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        .visually-hidden.visible-#{$breakpoint}-up {
+            position: static !important;
+            width: auto !important;
+            height: auto !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            overflow: visible !important;
+            clip: auto !important;
+            white-space: normal !important;
+        }
+    }
+}

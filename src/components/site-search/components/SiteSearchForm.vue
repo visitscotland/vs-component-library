@@ -8,13 +8,11 @@
             <VsRow>
                 <VsCol cols="12">
                     <div
-                        class="cludo-input-form d-flex align-items-start"
+                        class="cludo-input-form d-flex pe-075 align-items-start"
                         role="search"
                         id="cludo-search-input"
                     >
-                        <div
-                            class="d-flex flex-column flex-grow-1 position-relative"
-                        >
+                        <div class="d-flex flex-column flex-grow-1 position-relative">
                             <label
                                 for="site-search"
                                 class="vs-site-search-form__label"
@@ -186,7 +184,7 @@ export default {
     background-color: rgba($vs-color-background-secondary, 0.75);
     backdrop-filter: blur(30px);
     padding: $vs-spacer-125 0;
-    position: absolute;
+    position: relative;
     width: 100%;
     z-index: 1;
 
@@ -252,7 +250,7 @@ export default {
         }
     }
 
-    &__close-button {
+    &__close-button.btn {
         position: absolute;
         right: 8px;
         top: 6px;
