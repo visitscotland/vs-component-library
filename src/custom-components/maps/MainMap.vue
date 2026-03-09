@@ -366,7 +366,7 @@ const props = defineProps({
  * Then provide it to the sub components.
  */
 const featuredCategories = props.categoryLabels.find((category) => category.id === 'destinations');
-const featuredSubcategories = featuredCategories.subCategory;
+const featuredSubcategories = featuredCategories ? featuredCategories.subCategory : null;
 
 provide('featuredPlaces', {
     categories: featuredSubcategories,

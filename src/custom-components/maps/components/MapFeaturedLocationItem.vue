@@ -38,12 +38,10 @@
 
 <script setup>
 import { inject } from 'vue';
-import {
-    VsCard,
-    VsHeading,
-    VsImg,
-    VsLink,
-} from '@/components';
+import VsCard from '@/components/card/Card.vue';
+import VsHeading from '@/components/heading/Heading.vue';
+import VsImg from '@/components/img/Img.vue';
+import VsLink from '@/components/link/Link.vue';
 
 const props = defineProps({
     place: {
