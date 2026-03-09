@@ -7,7 +7,6 @@ import VsNavigationBar from '../NavigationBar.vue';
 config.global.renderStubDefaultSlot = true;
 
 const defaultProps = {
-    utilityMenuAriaLabel: 'Main navigation menu',
     sidebarCloseLabel: 'Close navigation menu',
     sidebarOpenLabel: 'Open navigation menu',
 };
@@ -39,16 +38,6 @@ describe('VsNavigationBar', () => {
     });
 
     describe(':props', () => {
-        it('should accept and pass utilityMenuAriaLabel to VsNavigationSidebar', () => {
-            const testLabel = 'Test menu label';
-            const wrapper = factoryShallowMount({
-                utilityMenuAriaLabel: testLabel,
-            });
-            const utilityMenu = wrapper.find('[data-test=vs-navigation-bar__utilities] nav');
-
-            expect(utilityMenu.attributes('aria-label')).toBe(testLabel);
-        });
-
         it('should accept and pass sidebarCloseLabel to VsNavigationSidebar', () => {
             const testLabel = 'Test close label';
             const wrapper = factoryShallowMount({
