@@ -34,36 +34,11 @@ hr {
 .vs-sticky-nav {
     position: sticky;
     z-index: $zindex-fixed;
-    top: -28px;
-
-    @include media-breakpoint-up(md) {
-        top: -36px;
-    }
-
-    // If the global menu has text content, like a language menu, it is 6 pixels taller than the
-    // default and must be recessed more on scroll.
-    &--has-content {
-        top: -34px;
-
-        @include media-breakpoint-up(md) {
-            top: -42px;
-        }
-    }
-
-    // If the skip to bar is focussed, stop trying to hide the global menu as this cuts the skip to
-    // in half
-    &:has(.vs-skip-to:focus-within) {
-        top: 0;
-    }
+    top: 0px;
 }
 
 .no-js { 
     .vs-sticky-nav {
         position: initial;
-        top: 0;
-
-        @include media-breakpoint-up(md) {
-            top: 0;
-        }
     }
 }

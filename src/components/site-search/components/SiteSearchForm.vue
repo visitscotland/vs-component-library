@@ -184,7 +184,9 @@ export default {
     background-color: rgba($vs-color-background-secondary, 0.75);
     backdrop-filter: blur(30px);
     padding: $vs-spacer-125 0;
-    position: relative;
+    position: fixed;
+    top: 76px;
+    left: 0;
     width: 100%;
     z-index: 1;
 

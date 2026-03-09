@@ -223,11 +223,6 @@ const Template = (args) => ({
                             </li>
                             <VsNavigationBarMenuDropdown subtle class="d-block d-md-none">
                                 <template #button-content>
-                                    <VsIcon 
-                                        icon="fa-regular fa-globe"
-                                        size="xs"
-                                        class="me-025"
-                                    ></VsIcon>
                                     EN
                                 </template>
 
