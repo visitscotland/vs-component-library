@@ -30,7 +30,6 @@
 
                     <VsNavigationBarSidebarButton
                         :class="sidebarButtonClasses"
-                        class="ms-075"
                         data-test="vs-navigation-bar__sidebar-button"
                         @sidebar-open="onSidebarOpen"
                         :sidebar-open-label="sidebarOpenLabel"
