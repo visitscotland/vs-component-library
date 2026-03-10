@@ -3,6 +3,12 @@ import axe from '@/../test/unit/helpers/axe-helper';
 import VsMapSidebar from '../MapSidebar.vue';
 
 const factoryMount = (propsData) => mount(VsMapSidebar, {
+    global: {
+        provide: {
+            featuredPlaces: [],
+            onFeaturedLocationClick: () => { },
+        },
+    },
     ...propsData,
     propsData: {
         headerLabel: 'Discover your Scotland',

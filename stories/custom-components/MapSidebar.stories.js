@@ -1,3 +1,4 @@
+import { provide } from 'vue';
 import VsMapSidebar from '@/custom-components/maps/components/MapSidebar.vue';
 
 export default {
@@ -12,6 +13,8 @@ const Template = (args) => ({
         VsMapSidebar,
     },
     setup() {
+        provide('featuredPlaces', []);
+
         return {
             args,
         };
@@ -44,7 +47,7 @@ const base = {
     headerLabel: 'Discover your Scotland',
     closeSidebarButtonLabel: 'Close Sidebar',
     searchBarAriaLabel: 'Search the map',
-    inputPlaceHolderLabel: 'Type in your keyword',
+    inputPlaceholderLabel: 'Type in your keyword',
     searchButtonLabel: 'Search',
     clearMapLabel: 'Clear Map',
     subFilterHeaderLabel: 'Refine your results',

@@ -1,3 +1,20 @@
+# [5.36.0](https://github.com/visitscotland/vs-component-library/compare/v5.35.0...v5.36.0) (2026-03-09)
+
+
+### Bug Fixes
+
+* **main map:** breaking when no "destination" data ([07aaf4e](https://github.com/visitscotland/vs-component-library/commit/07aaf4e2055c9ad4c81425db5b276b17a57d6fc5))
+* **main map:** change featurePlaces to match CMS data format ([5a414a4](https://github.com/visitscotland/vs-component-library/commit/5a414a4a4a728000802137c159abf2e658ccbea4))
+* **vsmainmap - featured-places.json:** fixes incorrect property in test data causing crash ([0df009c](https://github.com/visitscotland/vs-component-library/commit/0df009cb64c67a1c2cfcc9bcd9564b26e40898a7))
+* **vsmainmap:** adds back in category icons ([ae6c9d5](https://github.com/visitscotland/vs-component-library/commit/ae6c9d575f2aed6c9cf99de6aab119d4f270ad5a))
+
+
+### Features
+
+* **vsmainmap:** begins to lay the foundation for map featured places ([1a5536b](https://github.com/visitscotland/vs-component-library/commit/1a5536bef32709b3e58fee24c0cc7611293326d1))
+* **vsmainmap:** gets the images to show on the featured place cards ([7156161](https://github.com/visitscotland/vs-component-library/commit/7156161aa549bc7323cd00c9307365f7f66d7329))
+* **vsmainmap:** implements featuredPlaceClick to search the map of the selected location ([29c16db](https://github.com/visitscotland/vs-component-library/commit/29c16db93c7134c5f8e2046d3c950366cf29808f))
+
 # [5.35.0](https://github.com/visitscotland/vs-component-library/compare/v5.34.0...v5.35.0) (2026-03-03)
 
 
