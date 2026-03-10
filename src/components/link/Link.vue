@@ -224,7 +224,8 @@ export default {
             @extend %outline-link-focus-dark;
         }
 
-        &:visited {
+        &:visited
+        &:visited:not(.vs-link--no-visited-styles) {
             color: $vs-color-interaction-link-visited-on-bold;
         }
     }

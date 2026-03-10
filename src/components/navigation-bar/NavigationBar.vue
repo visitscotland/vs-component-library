@@ -33,6 +33,8 @@
                         data-test="vs-navigation-bar__sidebar-button"
                         @sidebar-open="onSidebarOpen"
                         :sidebar-open-label="sidebarOpenLabel"
+                        :expanded="sidebarOpen"
+                        controls-id="navigation-sidebar"
                     />
                 </VsCol>
             </VsRow>
@@ -87,7 +89,7 @@ export default {
         sidebarBreakpoint: {
             type: String,
             default: 'md',
-            validator: (value) => value.match(/(xs|sm|md|lg|xl)/),
+            validator: (value) => /^(xs|sm|md|lg|xl)$/.test(value),
         },
         /**
          * The aria-label for the sidebar close button,

@@ -66,13 +66,13 @@ export default {
             type: String,
             default: 'Close',
         },
-        /*
+        /**
         * Breakpoint at which to show button label
         */
         showLabelBreakpoint: {
             type: String,
             default: 'md',
-            validator: (value) => value.match(/(xs|sm|md|lg|xl|xxl)/),
+            validator: (value) => /^(xs|sm|md|lg|xl|xxl)$/.test(value),
         },
     },
     data() {

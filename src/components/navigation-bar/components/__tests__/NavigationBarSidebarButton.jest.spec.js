@@ -4,6 +4,7 @@ import VsNavigationBarSidebarButton from '../NavigationBarSidebarButton.vue';
 
 const defaultProps = {
     sidebarOpenLabel: 'Open navigation menu',
+    controlsId: 'navigation-sidebar',
 };
 
 const factoryShallowMount = (propsData) => shallowMount(VsNavigationBarSidebarButton, {
@@ -38,6 +39,37 @@ describe('VsNavigationBarSidebarButton', () => {
             });
 
             expect(wrapper.text()).toContain(testLabel);
+        });
+
+        it(':expanded - should accept and set aria-expanded attribute to "true" when true', () => {
+            const wrapper = factoryMount({
+                expanded: true,
+            });
+
+            expect(wrapper.attributes('aria-expanded')).toBe('true');
+        });
+
+        it(':expanded - should accept and set aria-expanded attribute to "false" when false', () => {
+            const wrapper = factoryMount({
+                expanded: false,
+            });
+
+            expect(wrapper.attributes('aria-expanded')).toBe('false');
+        });
+
+        it(':expanded - should default to "false"', () => {
+            const wrapper = factoryMount();
+
+            expect(wrapper.attributes('aria-expanded')).toBe('false');
+        });
+
+        it(':controlsId - should accept and set aria-controls attribute', () => {
+            const testId = 'test-sidebar-id';
+            const wrapper = factoryMount({
+                controlsId: testId,
+            });
+
+            expect(wrapper.attributes('aria-controls')).toBe(testId);
         });
     });
 
@@ -84,7 +116,7 @@ describe('VsNavigationBarSidebarButton', () => {
         it('should have proper aria-haspopup for menu button', () => {
             const wrapper = factoryMount();
 
-            expect(wrapper.attributes('aria-haspopup')).toBe('true');
+            expect(wrapper.attributes('aria-haspopup')).toBe('dialog');
         });
 
         it('should use sidebarOpenLabel for screen readers', () => {

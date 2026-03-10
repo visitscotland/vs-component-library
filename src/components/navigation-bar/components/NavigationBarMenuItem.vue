@@ -30,7 +30,7 @@ export default {
          */
         href: {
             type: String,
-            default: '#',
+            required: true,
         },
         /**
          * The variant of the menu item, which determines the styling of the link.

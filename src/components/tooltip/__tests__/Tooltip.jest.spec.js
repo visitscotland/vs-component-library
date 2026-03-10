@@ -46,15 +46,12 @@ describe('VsTooltip', () => {
             const wrapperWithPosition = factoryShallowMount({
                 position: 'bottom',
             });
-            const span = wrapperWithPosition.find('span');
 
-            expect(span.attributes('data-original-title')).toBe('Bus');
+            expect(wrapperWithPosition.vm.tooltipConfig.placement).toBe('bottom');
         });
 
         it(':position - should default to "top"', () => {
-            const span = wrapper.find('span');
-
-            expect(span.attributes('data-original-title')).toBe('Bus');
+            expect(wrapper.vm.tooltipConfig.placement).toBe('top');
         });
 
         it(':subtle - should add "vs-tooltip--subtle" class when true', () => {

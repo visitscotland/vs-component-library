@@ -36,8 +36,7 @@ describe('VsNavigationBarMenuDropdown', () => {
     describe(':slots', () => {
         it('renders default slot in main content area', () => {
             const wrapper = factoryShallowMount();
-            const mainContent = wrapper.find('[data-test=vs-navigation-bar-menu-dropdown]');
-            expect(mainContent.exists()).toBe(true);
+            expect(wrapper.text()).toContain('Item');
         });
     });
 });

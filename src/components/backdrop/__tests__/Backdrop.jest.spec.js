@@ -62,6 +62,10 @@ describe('VsBackdrop', () => {
     });
 
     describe(':methods', () => {
+        afterEach(() => {
+            document.body.style.overflow = '';
+        });
+
         it('lockScroll: sets body overflow to hidden', () => {
             const wrapper = factoryShallowMount({
                 show: true,

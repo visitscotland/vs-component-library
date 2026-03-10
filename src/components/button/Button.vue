@@ -123,7 +123,7 @@ export default {
         showLabelBreakpoint: {
             type: String,
             default: '',
-            validator: (value) => !value || value.match(/(xs|sm|md|lg|xl|xxl)/),
+            validator: (value) => value === '' || /^(xs|sm|md|lg|xl|xxl)$/.test(value),
         },
         /**
          * If the button should appear in its active/pressed state

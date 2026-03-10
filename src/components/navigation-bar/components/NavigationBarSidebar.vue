@@ -2,16 +2,16 @@
     <BOffcanvas
         class="vs-navigation-bar-sidebar border-0"
         :model-value="show"
-        aria-labelledby="sidebar-title"
+        aria-labelledby="navigation-sidebar-title"
         @update:model-value="$emit('update:show', $event)"
-        id="offcanvas-1"
+        id="navigation-sidebar"
         placement="end"
         :no-backdrop="true"
         lazy
     >
         <template #header>
             <h2
-                id="sidebar-title"
+                id="navigation-sidebar-title"
                 class="visually-hidden"
             >
                 {{ sidebarTitle }}

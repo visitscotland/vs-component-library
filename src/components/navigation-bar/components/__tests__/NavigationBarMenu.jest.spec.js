@@ -30,7 +30,7 @@ describe('VsNavigationBarMenu', () => {
         expect(nav.exists()).toBe(true);
     });
 
-    it('should render a nan with correct attributes', () => {
+    it('should render a nav with correct attributes', () => {
         const wrapper = factoryShallowMount();
         const nav = wrapper.find('nav');
 
@@ -54,7 +54,8 @@ describe('VsNavigationBarMenu', () => {
 
     describe(':slots', () => {
         it('should render default slot content', () => {
-            const wrapper = factoryMount(VsNavigationBarMenu, {
+            const wrapper = factoryMount({
+            }, {
                 slots: {
                     default: '<li>Menu item</li>',
                 },

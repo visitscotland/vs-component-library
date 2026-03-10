@@ -9,7 +9,7 @@
         "dropdownNav": [
             {
                 "title": "Start your business",
-                "cta": "null",
+                "cta": null,
                 "href": "#",
                 "isExternal": false,
                 "isActive": false,
@@ -17,7 +17,7 @@
             },
             {
                 "title": "Improve your business",
-                "cta": "null",
+                "cta": null,
                 "href": "#",
                 "isExternal": false,
                 "isActive": false,
@@ -25,7 +25,7 @@
             },
             {
                 "title": "Grow your business",
-                "cta": "null",
+                "cta": null,
                 "href": "#",
                 "isExternal": false,
                 "isActive": false,
@@ -33,7 +33,7 @@
             },
             {
                 "title": "Promote your business",
-                "cta": "null",
+                "cta": null,
                 "href": "#",
                 "isExternal": false,
                 "isActive": false,
@@ -41,7 +41,7 @@
             },
             {
                 "title": "Sustainability",
-                "cta": "null",
+                "cta": null,
                 "href": "#",
                 "isExternal": false,
                 "isActive": false,
@@ -49,7 +49,7 @@
             },
             {
                 "title": "Support by sector",
-                "cta": "null",
+                "cta": null,
                 "href": "#",
                 "isExternal": false,
                 "isActive": false,
@@ -59,7 +59,7 @@
     },
     {
         "title": "Training and events",
-        "cta": "null",
+        "cta": null,
         "href": "#",
         "isExternal": false,
         "isActive": false,
@@ -67,7 +67,7 @@
     },
     {
         "title": "Contact us",
-        "cta": "null",
+        "cta": null,
         "href": "#",
         "isExternal": false,
         "isActive": false,

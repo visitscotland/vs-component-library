@@ -96,12 +96,12 @@ export default {
             border-bottom-color: $vs-color-background-bold;
         }
 
-        &.bs-tooltip-left .tooltip-arrow::before,
+        &.bs-tooltip-start .tooltip-arrow::before,
         &.bs-tooltip-auto[data-popper-placement^=left] .tooltip-arrow::before {
             border-left-color: $vs-color-background-bold;
         }
 
-        &.bs-tooltip-right .tooltip-arrow::before,
+        &.bs-tooltip-end .tooltip-arrow::before,
         &.bs-tooltip-auto[data-popper-placement^=right] .tooltip-arrow::before {
             border-right-color: $vs-color-background-bold;
         }
@@ -122,12 +122,12 @@ export default {
                 border-bottom-color: $vs-color-background-inverse;
             }
 
-            &.bs-tooltip-left .tooltip-arrow::before,
+            &.bs-tooltip-start .tooltip-arrow::before,
             &.bs-tooltip-auto[data-popper-placement^=left] .tooltip-arrow::before {
                 border-left-color: $vs-color-background-inverse;
             }
 
-            &.bs-tooltip-right .tooltip-arrow::before,
+            &.bs-tooltip-end .tooltip-arrow::before,
             &.bs-tooltip-auto[data-popper-placement^=right] .tooltip-arrow::before {
                 border-right-color: $vs-color-background-inverse;
             }

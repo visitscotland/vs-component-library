@@ -19,8 +19,8 @@
             <template #navigation-bar-menu>
                 <VsNavigationBarMenu menu-aria-label="Main navigation menu">
                     <template
-                        v-for="(item, index) in menuList"
-                        :key="`top-${index}`"
+                        v-for="(item) in menuList"
+                        :key="`top-${item.title}`"
                     >
                         <li v-if="item.dropdownNav">
                             <VsNavigationBarMenuDropdown>
@@ -29,8 +29,8 @@
                                 </template>
 
                                 <VsNavigationBarMenuItem
-                                    v-for="(dropdownItem, dropdownIndex) in item.dropdownNav"
-                                    :key="dropdownIndex"
+                                    v-for="(dropdownItem) in item.dropdownNav"
+                                    :key="`${item.title}-${dropdownItem.title}`"
                                     :href="dropdownItem.href"
                                 >
                                     {{ dropdownItem.title }}
@@ -125,7 +125,7 @@
                         <ul>
                             <template
                                 v-for="(mobileItem, index) in menuList"
-                                :key="`sidebar-${index}`"
+                                :key="`sidebar-${mobileItem.title}`"
                             >
                                 <li v-if="mobileItem.dropdownNav">
                                     <VsAccordionItem
@@ -137,9 +137,9 @@
 
                                         <ul>
                                             <VsNavigationBarMenuItem
-                                                v-for="(mobileDropdownItem, mobileDropdownIndex)
+                                                v-for="(mobileDropdownItem)
                                                     in mobileItem.dropdownNav"
-                                                :key="mobileDropdownIndex"
+                                                :key="`${mobileItem.title}-${mobileDropdownItem.title}`"
                                                 :href="mobileDropdownItem.href"
                                             >
                                                 {{ mobileDropdownItem.title }}
@@ -253,10 +253,10 @@ import VsAccordion from '@/components/accordion/Accordion.vue';
 import VsAccordionItem from '@/components/accordion/components/AccordionItem.vue';
 import VsDivider from '@/components/divider/Divider.vue';
 import VsTooltip from '@/components/tooltip/Tooltip.vue';
-import designTokens from '@/assets/tokens/tokens.json';
 
 import b2bNav from '@/assets/fixtures/navigation-bar/b2b-nav.json';
 import b2cNav from '@/assets/fixtures/navigation-bar/b2c-nav.json';
+import designTokens from '@/assets/tokens/tokens.json';
 
 /**
  * @displayName Page Header

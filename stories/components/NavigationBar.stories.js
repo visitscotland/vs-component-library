@@ -12,11 +12,11 @@ import VsAccordionItem from '@/components/accordion/components/AccordionItem.vue
 import VsAccordionToggle from '@/components/accordion/components/AccordionToggle.vue';
 import VsDivider from '@/components/divider/Divider.vue';
 import VsTooltip from '@/components/tooltip/Tooltip.vue';
-
 import VsSvgLink from '@/components/svg-link/SvgLink.vue';
-import designTokens from '@/assets/tokens/tokens.json';
+
 import b2cNavExample from '@/assets/fixtures/navigation-bar/b2c-nav.json';
 import manyItemsNav from '@/assets/fixtures/navigation-bar/many-items-nav.json';
+import designTokens from '@/assets/tokens/tokens.json';
 
 export default {
     component: VsNavigationBar,
@@ -121,7 +121,7 @@ const Template = (args) => ({
                             v-if="!args.compactUtilities" 
                             class="d-none d-md-block me-075"
                         >
-                            <VsTooltip title="Map of Scotland" subtle>
+                            <VsTooltip title="Map of Scotland" position="left" subtle>
                                 <template #tooltip-button>
                                     <VsButton 
                                         variant="subtle"
@@ -289,7 +289,6 @@ const base = {
     navData: b2cNavExample,
     compactUtilities: false,
     sidebarBreakpoint: 'md',
-    searchIconOnlyBreakpoint: 'md',
 };
 
 export const Default = Template.bind({

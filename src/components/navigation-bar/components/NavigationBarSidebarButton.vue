@@ -5,7 +5,9 @@
         icon="vs-icon-control-menu"
         variant="subtle"
         @click="sidebarOpen()"
-        aria-haspopup="true"
+        aria-haspopup="dialog"
+        :aria-controls="controlsId"
+        :aria-expanded="String(expanded)"
         size="sm"
     >
         {{ sidebarOpenLabel }}
@@ -28,10 +30,25 @@ export default {
         VsButton,
     },
     props: {
-        /* The aria-label for the sidebar open button,
+        /**
+         * The aria-label for the sidebar open button,
          * required for accessibility
          */
         sidebarOpenLabel: {
+            type: String,
+            required: true,
+        },
+        /**
+         * If the sidebar is currently expanded/open
+        */
+        expanded: {
+            type: Boolean,
+            default: false,
+        },
+        /**
+         * The aria-controls id for the sidebar
+        */
+        controlsId: {
             type: String,
             required: true,
         },
