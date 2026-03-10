@@ -71,30 +71,32 @@ const Template = (args) => ({
             <template #navigation-bar-menu>
                 <VsNavigationBarMenu :menu-aria-label="args.menuAriaLabel">
                     <template v-for="(item, index) in args.navData" :key="index">
-                        <VsNavigationBarMenuDropdown v-if="item.dropdownNav">
-                            <template #button-content>
-                                {{ item.title }}
-                            </template>
+                        <li v-if="item.dropdownNav">
+                            <VsNavigationBarMenuDropdown>
+                                <template #button-content>
+                                    {{ item.title }}
+                                </template>
 
-                            <VsNavigationBarMenuItem 
-                                v-for="(dropdownItem, dropdownIndex) in item.dropdownNav" 
-                                :key="dropdownIndex"
-                                :href="dropdownItem.href"
-                            >
-                                {{ dropdownItem.title }}
-                            </VsNavigationBarMenuItem>
-
-                            <li class="my-075 mx-100">
-                                <VsLink 
-                                    v-if="item.cta" 
-                                    :href="item.href"
-                                    type="internal"
-                                    no-visited-styles
+                                <VsNavigationBarMenuItem 
+                                    v-for="(dropdownItem, dropdownIndex) in item.dropdownNav" 
+                                    :key="dropdownIndex"
+                                    :href="dropdownItem.href"
                                 >
-                                    {{ item.cta }}
-                                </VsLink>
-                            </li>
-                        </VsNavigationBarMenuDropdown>
+                                    {{ dropdownItem.title }}
+                                </VsNavigationBarMenuItem>
+
+                                <li class="my-075 mx-100">
+                                    <VsLink 
+                                        v-if="item.cta" 
+                                        :href="item.href"
+                                        type="internal"
+                                        no-visited-styles
+                                    >
+                                        {{ item.cta }}
+                                    </VsLink>
+                                </li>
+                            </VsNavigationBarMenuDropdown>
+                        </li>
 
                         <VsNavigationBarMenuItem 
                             v-else
@@ -120,42 +122,50 @@ const Template = (args) => ({
                             class="d-none d-md-block me-075"
                         >
                             <VsTooltip title="Map of Scotland" subtle>
-                                <VsButton 
-                                    variant="subtle"
-                                    size="sm"
-                                    icon="fa-regular fa-map"
-                                    icon-only
-                                    href="#"
-                                    class="d-block"
-                                > 
-                                    Map
-                                </VsButton>
+                                <template #tooltip-button>
+                                    <VsButton 
+                                        variant="subtle"
+                                        size="sm"
+                                        icon="fa-regular fa-map"
+                                        icon-only
+                                        href="#"
+                                        class="d-block"
+                                    > 
+                                        Map
+                                    </VsButton>
+                                </template>
                             </VsTooltip>
                         </li>
-                        <VsTooltip 
-                            v-if="!args.compactUtilities"
-                            title="Language"
-                            subtle
+                        <li 
+                            v-if="!args.compactUtilities" 
+                            class="d-none d-md-block me-075"
                         >
-                            <VsNavigationBarMenuDropdown 
-                                subtle 
-                                class="d-none d-md-block me-0 me-md-075 me-lg-0"
+                            <VsTooltip 
+                                title="Language"
+                                subtle
                             >
-                                <template #button-content>
-                                    EN
-                                </template>
+                                <template #tooltip-button>
+                                    <VsNavigationBarMenuDropdown 
+                                        subtle 
+                                        class="d-none d-md-block me-0 me-md-075 me-lg-0"
+                                    >
+                                        <template #button-content>
+                                            EN
+                                        </template>
 
-                                <VsNavigationBarMenuItem href="#">
-                                    English
-                                </VsNavigationBarMenuItem>
-                                <VsNavigationBarMenuItem href="#">
-                                    Spanish
-                                </VsNavigationBarMenuItem>
-                                <VsNavigationBarMenuItem href="#">
-                                    French
-                                </VsNavigationBarMenuItem>
-                            </VsNavigationBarMenuDropdown>
-                        </VsTooltip>
+                                        <VsNavigationBarMenuItem href="#">
+                                            English
+                                        </VsNavigationBarMenuItem>
+                                        <VsNavigationBarMenuItem href="#">
+                                            Spanish
+                                        </VsNavigationBarMenuItem>
+                                        <VsNavigationBarMenuItem href="#">
+                                            French
+                                        </VsNavigationBarMenuItem>
+                                    </VsNavigationBarMenuDropdown>
+                                </template>
+                            </VsTooltip>
+                        </li>
                     </ul>
                 </nav>
             </template>
@@ -221,35 +231,41 @@ const Template = (args) => ({
                         <ul class="d-flex justify-content-end">
                             <li class="me-075">
                                 <VsTooltip title="Map of Scotland" subtle>
-                                    <VsButton 
-                                        variant="subtle"
-                                        size="sm"
-                                        icon="fa-regular fa-map"
-                                        href="#"
-                                        icon-only
-                                        class="d-block d-md-none"
-                                    > 
-                                        Map
-                                    </VsButton>
+                                    <template #tooltip-button>
+                                        <VsButton 
+                                            variant="subtle"
+                                            size="sm"
+                                            icon="fa-regular fa-map"
+                                            href="#"
+                                            icon-only
+                                            class="d-block d-md-none"
+                                        > 
+                                            Map
+                                        </VsButton>
+                                    </template>
                                 </VsTooltip>
                             </li>
-                            <VsTooltip title="Language" subtle>
-                                <VsNavigationBarMenuDropdown subtle class="d-block d-md-none">
-                                    <template #button-content>
-                                        EN
-                                    </template>
+                            <li>
+                                <VsTooltip title="Language" subtle>
+                                    <template #tooltip-button>
+                                        <VsNavigationBarMenuDropdown subtle class="d-block d-md-none">
+                                            <template #button-content>
+                                                EN
+                                            </template>
 
-                                    <VsNavigationBarMenuItem href="#">
-                                        English
-                                    </VsNavigationBarMenuItem>
-                                    <VsNavigationBarMenuItem href="#">
-                                        Spanish
-                                    </VsNavigationBarMenuItem>
-                                    <VsNavigationBarMenuItem href="#">
-                                        French
-                                    </VsNavigationBarMenuItem>
-                                </VsNavigationBarMenuDropdown>
-                            </VsTooltip>
+                                            <VsNavigationBarMenuItem href="#">
+                                                English
+                                            </VsNavigationBarMenuItem>
+                                            <VsNavigationBarMenuItem href="#">
+                                                Spanish
+                                            </VsNavigationBarMenuItem>
+                                            <VsNavigationBarMenuItem href="#">
+                                                French
+                                            </VsNavigationBarMenuItem>
+                                        </VsNavigationBarMenuDropdown>
+                                    </template>
+                                </VsTooltip>
+                            </li>
                         </ul>
                     </nav>
                 </div>

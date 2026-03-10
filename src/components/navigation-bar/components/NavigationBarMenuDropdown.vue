@@ -1,22 +1,19 @@
 <template>
-    <li
+    <BDropdown
         :class="menuDropdownClasses"
         data-test="vs-navigation-bar-menu-dropdown"
+        variant="subtle"
+        ref="dropdown"
+        @show="dataLayerSubmit"
     >
-        <BDropdown
-            variant="subtle"
-            ref="dropdown"
-            @show="dataLayerSubmit"
-        >
-            <template #button-content>
-                <!-- @slot For dropdown toggle button content  -->
-                <slot name="button-content" />
-            </template>
+        <template #button-content>
+            <!-- @slot For dropdown toggle button content  -->
+            <slot name="button-content" />
+        </template>
 
-            <!-- @slot Default slot for dropdown menu content  -->
-            <slot />
-        </BDropdown>
-    </li>
+        <!-- @slot Default slot for dropdown menu content  -->
+        <slot />
+    </BDropdown>
 </template>
 
 <script>

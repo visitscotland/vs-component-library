@@ -4,12 +4,13 @@
         v-b-tooltip="tooltipConfig"
         :title="title"
     >
-        <slot>
+        <slot name="tooltip-button">
             <VsButton
                 v-bind="$attrs"
                 class="position-relative"
             >
-                <!-- Default slot content for VsButton -->
+                <!-- @slot Content inside the button (default slot) -->
+                <slot />
             </VsButton>
         </slot>
     </span>

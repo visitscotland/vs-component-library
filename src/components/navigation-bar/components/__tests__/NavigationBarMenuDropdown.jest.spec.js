@@ -11,9 +11,11 @@ const factoryShallowMount = (propsData) => shallowMount(VsNavigationBarMenuDropd
 });
 
 describe('VsNavigationBarMenuDropdown', () => {
-    it('renders as list item', () => {
+    it('renders a dropdown stub', () => {
         const wrapper = factoryShallowMount();
-        expect(wrapper.element.tagName).toBe('LI');
+        const dropdownStub = wrapper.find('b-dropdown-stub');
+
+        expect(dropdownStub.exists()).toBe(true);
         expect(wrapper.attributes('data-test')).toBe('vs-navigation-bar-menu-dropdown');
     });
 

@@ -9,6 +9,7 @@ config.global.renderStubDefaultSlot = true;
 const defaultProps = {
     sidebarCloseLabel: 'Close navigation menu',
     sidebarOpenLabel: 'Open navigation menu',
+    sidebarTitle: 'Main navigation menu',
 };
 
 const factoryShallowMount = (propsData = {

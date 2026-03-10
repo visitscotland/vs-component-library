@@ -126,49 +126,6 @@ describe('VsNavigationBarSidebar', () => {
             expect(wrapper.emitted('update:show')).toBeTruthy();
             expect(wrapper.emitted('update:show')[0]).toEqual([false]);
         });
-
-        it('should emit update:show when backdrop is clicked', async() => {
-            const wrapper = factoryMount({
-                show: true,
-            });
-            const backdrop = wrapper.findComponent({
-                name: 'VsBackdrop',
-            });
-
-            await backdrop.vm.$emit('click');
-
-            expect(wrapper.emitted('update:show')).toBeTruthy();
-            expect(wrapper.emitted('update:show')[0]).toEqual([false]);
-        });
-    });
-
-    describe(':backdrop', () => {
-        it('should render VsBackdrop with correct props', () => {
-            const wrapper = factoryMount({
-                show: true,
-            });
-            const backdrop = wrapper.findComponent({
-                name: 'VsBackdrop',
-            });
-
-            expect(backdrop.exists()).toBe(true);
-            expect(backdrop.props('show')).toBe(true);
-        });
-
-        it('should pass show prop to backdrop', async() => {
-            const wrapper = factoryMount();
-            const backdrop = wrapper.findComponent({
-                name: 'VsBackdrop',
-            });
-
-            expect(backdrop.props('show')).toBe(false);
-
-            await wrapper.setProps({
-                show: true,
-            });
-
-            expect(backdrop.props('show')).toBe(true);
-        });
     });
 
     describe(':accessibility', () => {

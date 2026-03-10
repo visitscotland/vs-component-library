@@ -6,7 +6,7 @@
         @update:model-value="$emit('update:show', $event)"
         id="offcanvas-1"
         placement="end"
-        no-backdrop="true"
+        :no-backdrop="true"
         lazy
     >
         <template #header>

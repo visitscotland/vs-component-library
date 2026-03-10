@@ -155,6 +155,10 @@ export default {
             box-shadow: none;
             padding: 0;
 
+            &:hover {
+                background-color: transparent;
+            }
+
             &:focus {
                 box-shadow: $vs-focus-shadow;
             }
