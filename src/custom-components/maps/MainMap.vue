@@ -24,7 +24,7 @@
                 >
                     <template
                         #vs-map-sidebar-sub-filters
-                        v-if="selectedTopLevelCategory"
+                        v-if="selectedTopLevelCategory && selectedTopLevelCategory !== 'destinations'"
                     >
                         <div class="vs-map-sidebar__sub-filters">
                             <VsButton
@@ -111,8 +111,9 @@
                     </template>
                 </VsMapSidebar>
                 <div
+                    v-if="googleMapStore.sidebarOpen
+                        && (categoryData && Object.keys(categoryData).length > 0)"
                     class="vs-map__filter-controls"
-                    v-if="googleMapStore.sidebarOpen && Object.keys(categoryData).length > 0"
                 >
                     <VsButton
                         v-for="(category, key) in categoryLabelData"
@@ -236,7 +237,7 @@ const props = defineProps({
     },
     /**
      * MapId set in the Google Maps Platform console
-     * for this paricular map (enables/disable GMP features)
+     * for this particular map (enables/disable GMP features)
      */
     mapId: {
         type: String,
@@ -408,7 +409,7 @@ const currentSearch = ref();
 const subCategoryTypeMap = computed(() => {
     const map = new Map();
 
-    const subCategories = categoryData[selectedTopLevelCategory.value].subCategory;
+    const subCategories = categoryData.value[selectedTopLevelCategory.value].subCategory;
 
     Object.values(subCategories).forEach((subCat) => {
         map.set(subCat.id, {
@@ -680,41 +681,46 @@ function selectCategory(categoryId, key) {
 
     selectedTopLevelCategory.value = categoryId;
 
-    // Retrieves all the values in each subcategory and adds it to
-    // `includedTopLevelTypes` set, which should handle duplication.
-    Object.values(categoryData[categoryId].subCategory).forEach(
-        (subCategory) => includedTopLevelTypes.value.add(subCategory.includedType),
-    );
+    if (categoryId !== 'destinations') {
+        // Retrieves all the values in each subcategory and adds it to
+        // `includedTopLevelTypes` set, which should handle duplication.
+        Object.values(categoryData.value[categoryId].subCategory).forEach(
+            (subCategory) => includedTopLevelTypes.value.add(subCategory.includedType),
+        );
 
-    Object.values(categoryData[categoryId].subCategory).forEach(
-        (subCategory) => {
-            if (subCategory.excludedType) {
-                excludedTopLevelTypes.value.add(subCategory.excludedType);
+        Object.values(categoryData.value[categoryId].subCategory).forEach(
+            (subCategory) => {
+                if (subCategory.excludedType) {
+                    excludedTopLevelTypes.value.add(subCategory.excludedType);
+                }
+            },
+        );
+
+        // Flattens multiple sets back down into one
+        includedTopLevelTypes.value = new Set(Array.from(includedTopLevelTypes.value).flat());
+        excludedTopLevelTypes.value = new Set(Array.from(excludedTopLevelTypes.value).flat());
+
+        // Checks if there are conflicting types and removes from excluded if already in included
+        includedTopLevelTypes.value.forEach((type) => {
+            if (excludedTopLevelTypes.value.has(type)) {
+                excludedTopLevelTypes.value.delete(type);
             }
-        },
-    );
+        });
 
-    // Flattens multiple sets back down into one
-    includedTopLevelTypes.value = new Set(Array.from(includedTopLevelTypes.value).flat());
-    excludedTopLevelTypes.value = new Set(Array.from(excludedTopLevelTypes.value).flat());
+        selectedCategory.value = categoryData.value[categoryId];
+        categoryKey.value = key;
 
-    // Checks if there are conflicting types and removes from exluded if already in included
-    includedTopLevelTypes.value.forEach((type) => {
-        if (excludedTopLevelTypes.value.has(type)) {
-            excludedTopLevelTypes.value.delete(type);
-        }
-    });
+        searchByCategory({
+            includedTypes: Array.from(includedTopLevelTypes.value),
+            excludedTypes: Array.from(excludedTopLevelTypes.value),
+        });
 
-    selectedCategory.value = categoryData[categoryId];
-    categoryKey.value = key;
-
-    searchByCategory({
-        includedTypes: Array.from(includedTopLevelTypes.value),
-        excludedTypes: Array.from(excludedTopLevelTypes.value),
-    });
-
-    query.value = categoryLabelData[categoryKey.value].label;
-    searchInput.value = query.value;
+        query.value = categoryLabelData[categoryKey.value].label;
+        searchInput.value = query.value;
+    } else {
+        resetTextQuery();
+        resetMap();
+    }
 }
 
 function searchSubCategoriesForLabel(selectedSubcategory, subCategoryId) {
