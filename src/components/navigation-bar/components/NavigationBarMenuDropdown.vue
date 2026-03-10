@@ -155,7 +155,7 @@ export default {
     .dropdown-menu {
         border-radius: $vs-radius-small;
         border: 0;
-        margin-top: $vs-spacer-100;
+        margin-top: $vs-spacer-150;
         margin-left: -$vs-spacer-075;
         box-shadow: $vs-elevation-shadow-overlay;
         padding: $vs-spacer-075;

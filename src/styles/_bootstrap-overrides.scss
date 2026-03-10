@@ -131,7 +131,8 @@ $enable-smooth-scroll: false;
 $input-placeholder-color: $vs-color-text-tertiary;
 
 /* Tooltips */
-$tooltip-bg: $vs-color-background-bold;
+$tooltip-arrow-width: 1rem;
+$tooltip-arrow-height: 0.5rem;
 
 /* Buttons */
 $btn-line-height: 1.5rem;
