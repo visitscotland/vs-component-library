@@ -112,25 +112,18 @@
                 </VsMapSidebar>
                 <div
                     class="vs-map__filter-controls"
-                    v-if="
-                        (currentZoom >= CATEGORY_VISIBLE_ZOOM || categoriesVisible)
-                            && googleMapStore.sidebarOpen
-                            && Object.keys(categoryData).length > 0"
+                    v-if="googleMapStore.sidebarOpen && Object.keys(categoryData).length > 0"
                 >
-                    <template
+                    <VsButton
                         v-for="(category, key) in categoryLabelData"
                         :key="key"
+                        class="vs-map__filter-controls-button"
+                        :icon="setCategoryIcon(key)"
+                        :variant="selectedTopLevelCategory === category.id ? 'primary' : 'secondary'"
+                        @click.prevent="selectCategory(category.id, key)"
                     >
-                        <VsButton
-                            v-if="!category.cmsData"
-                            class="vs-map__filter-controls-button"
-                            :variant="selectedTopLevelCategory === category.id ? 'primary' : 'secondary'"
-                            @click.prevent="selectCategory(category.id, key)"
-                            :icon="Object.values(categoryData)[key].icon"
-                        >
-                            {{ category.label }}
-                        </VsButton>
-                    </template>
+                        {{ category.label }}
+                    </VsButton>
                 </div>
             </div>
 
@@ -407,7 +400,6 @@ const subCategoryKey = ref();
 const currentZoom = ref(props.zoom);
 const MAX_ZOOM = 17;
 const CATEGORY_VISIBLE_ZOOM = 11;
-const categoriesVisible = ref(false);
 const NUMBER_OF_RESULTS = 20;
 const query = ref();
 const queryStr = ref(new Set());
@@ -442,8 +434,7 @@ const SCOTLAND_BOUNDS = {
     east: -0.7,
 };
 
-let categoryData = {
-};
+const categoryData = ref();
 const categoryLabelData = props.categoryLabels;
 
 let currentSearchId = 0;
@@ -475,7 +466,7 @@ onMounted(async() => {
     if (props.categoriesLocation) {
         axios.get(props.categoriesLocation)
             .then((response) => {
-                categoryData = response.data;
+                categoryData.value = response.data;
             })
             .catch(() => {});
     }
@@ -1050,8 +1041,6 @@ function resetMap(hardReset, resetLocation) {
 
     textSearchQuery.textQuery = null;
 
-    categoriesVisible.value = false;
-
     if (infoWindow && infoWindow.close) {
         infoWindow.close();
     }
@@ -1247,7 +1236,14 @@ function handleFeaturedLocationClick(place) {
     );
 
     selectCategory('things-to-do', 2);
-    categoriesVisible.value = true;
+}
+
+function setCategoryIcon(key) {
+    const categoryInfo = Object.values(categoryData.value)[key];
+
+    if (!categoryInfo) return null;
+
+    return categoryInfo.icon;
 }
 </script>
 
