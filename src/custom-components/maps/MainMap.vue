@@ -112,20 +112,25 @@
                 </VsMapSidebar>
                 <div
                     class="vs-map__filter-controls"
-                    v-if="(currentZoom >= CATEGORY_VISIBLE_ZOOM)
-                        && googleMapStore.sidebarOpen
-                        && Object.keys(categoryData).length > 0"
+                    v-if="
+                        (currentZoom >= CATEGORY_VISIBLE_ZOOM || categoriesVisible)
+                            && googleMapStore.sidebarOpen
+                            && Object.keys(categoryData).length > 0"
                 >
-                    <VsButton
+                    <template
                         v-for="(category, key) in categoryLabelData"
-                        :key
-                        class="vs-map__filter-controls-button"
-                        :icon="categoryData[category.id].icon"
-                        :variant="selectedTopLevelCategory === category.id ? 'primary' : 'secondary'"
-                        @click.prevent="selectCategory(category.id, key)"
+                        :key="key"
                     >
-                        {{ category.label }}
-                    </VsButton>
+                        <VsButton
+                            v-if="!category.cmsData"
+                            class="vs-map__filter-controls-button"
+                            :variant="selectedTopLevelCategory === category.id ? 'primary' : 'secondary'"
+                            @click.prevent="selectCategory(category.id, key)"
+                            :icon="Object.values(categoryData)[key].icon"
+                        >
+                            {{ category.label }}
+                        </VsButton>
+                    </template>
                 </div>
             </div>
 
@@ -202,6 +207,7 @@ import {
     computed,
     onBeforeMount,
     onMounted,
+    provide,
     ref,
 } from 'vue';
 import getEnvValue from '@/utils/get-env-value';
@@ -308,6 +314,20 @@ const props = defineProps({
         default: () => {},
     },
     /**
+     * Suggested destinations for the user to choose from rather than
+     * using the text or nearby searches. */
+    featuredPlaces: {
+        type: Object,
+        default: undefined,
+    },
+    /**
+     * Tells if JS is Disabled
+     */
+    jsDisabled: {
+        type: Boolean,
+        required: true,
+    },
+    /**
      * Message to display when JavaScript is disabled
      */
     noJsMessage: {
@@ -341,6 +361,20 @@ const props = defineProps({
     },
 });
 
+/**
+ * Set the featured destination categories and content from the CMS data.
+ * Then provide it to the sub components.
+ */
+const featuredCategories = props.categoryLabels.find((category) => category.id === 'destinations');
+const featuredSubcategories = featuredCategories ? featuredCategories.subCategory : null;
+
+provide('featuredPlaces', {
+    categories: featuredSubcategories,
+    places: props.featuredPlaces,
+});
+
+provide('onFeaturedLocationClick', handleFeaturedLocationClick);
+
 // Map Object, HTMLElements & Global Variables
 let gMap;
 
@@ -373,6 +407,7 @@ const subCategoryKey = ref();
 const currentZoom = ref(props.zoom);
 const MAX_ZOOM = 17;
 const CATEGORY_VISIBLE_ZOOM = 11;
+const categoriesVisible = ref(false);
 const NUMBER_OF_RESULTS = 20;
 const query = ref();
 const queryStr = ref(new Set());
@@ -1015,6 +1050,8 @@ function resetMap(hardReset, resetLocation) {
 
     textSearchQuery.textQuery = null;
 
+    categoriesVisible.value = false;
+
     if (infoWindow && infoWindow.close) {
         infoWindow.close();
     }
@@ -1182,6 +1219,35 @@ function getVisibleMarkerCount() {
     }
 
     return visibleCount;
+}
+
+function handleFeaturedLocationClick(place) {
+    gMap.fitBounds(
+        // eslint-disable-next-line no-undef
+        new google.maps.LatLngBounds(
+            // eslint-disable-next-line no-undef
+            new google.maps.LatLng(
+                place.properties.viewport.low.latitude,
+                place.properties.viewport.low.longitude,
+            ),
+            // eslint-disable-next-line no-undef
+            new google.maps.LatLng(
+                place.properties.viewport.high.latitude,
+                place.properties.viewport.high.longitude,
+            ),
+        ),
+    );
+
+    gMap.setCenter(
+        // eslint-disable-next-line no-undef
+        new google.maps.LatLng(
+            place.properties.locationCentre.latitude,
+            place.properties.locationCentre.longitude,
+        ),
+    );
+
+    selectCategory('things-to-do', 2);
+    categoriesVisible.value = true;
 }
 </script>
 

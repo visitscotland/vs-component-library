@@ -1,5 +1,6 @@
 import VsMainMap from '@/custom-components/maps/MainMap.vue';
 import mapCategoryLabels from '@/assets/fixtures/custom-components/main-map/map-labels.json';
+import featuredPlaces from '@/assets/fixtures/custom-components/main-map/map-featured-places.json';
 
 export default {
     component: VsMainMap,
@@ -37,6 +38,7 @@ const base = {
     zoom: 6,
     radius: 5000,
     categoriesLocation: './fixtures/custom-components/main-map/map-categories.json',
+    featuredPlaces,
     categoryLabels: mapCategoryLabels,
     jsDisabled: false,
     noResultsMessage: 'We couldn\'t find anything here.',
