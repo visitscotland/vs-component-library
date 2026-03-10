@@ -22,7 +22,7 @@
         <!-- @slot The button content goes here -->
         <span
             class="vs-button__text"
-            :class="{ 'visually-hidden': iconOnly }"
+            :class="buttonLabelClasses"
         >
             <slot />
         </span>
@@ -117,6 +117,22 @@ export default {
             default: false,
         },
         /**
+         * Breakpoint at which button label becomes visible.
+         * Button shows as icon-only below this breakpoint.
+         */
+        showLabelBreakpoint: {
+            type: String,
+            default: '',
+            validator: (value) => !value || value.match(/(xs|sm|md|lg|xl|xxl)/),
+        },
+        /**
+         * If the button should appear in its active/pressed state
+         */
+        active: {
+            type: Boolean,
+            default: false,
+        },
+        /**
          * The position of the icon
          * `left|right`
          */
@@ -134,16 +150,15 @@ export default {
     },
     computed: {
         buttonClasses() {
-            return [
-                {
-                    'vs-button--animated': this.animate && !this.iconOnly,
-                    'vs-button--is-animating': this.isAnimating,
-                    'vs-button--rounded': this.rounded,
-                    'vs-button--icon-only': this.iconOnly,
-
-                    'vs-button--flex-reverse': this.iconPosition === 'right',
-                },
-            ];
+            return {
+                'vs-button--animated': this.animate && !this.iconOnly && !this.showLabelBreakpoint,
+                'vs-button--is-animating': this.isAnimating,
+                'vs-button--rounded': this.rounded,
+                'vs-button--icon-only': this.iconOnly,
+                'vs-button--active': this.active,
+                'vs-button--flex-reverse': this.iconPosition === 'right',
+                [`vs-button--icon-only-${this.showLabelBreakpoint}-down`]: this.showLabelBreakpoint,
+            };
         },
         iconClasses() {
             return [
@@ -152,6 +167,12 @@ export default {
                     'vs-icon--left': this.iconPosition === 'left',
                 },
             ];
+        },
+        buttonLabelClasses() {
+            return {
+                'visually-hidden': this.iconOnly || this.showLabelBreakpoint,
+                [`visible-${this.showLabelBreakpoint}-up`]: this.showLabelBreakpoint,
+            };
         },
     },
     methods: {
@@ -275,28 +296,17 @@ export default {
         }
 
         &.vs-button--icon-only {
-            line-height: 1;
+            @include button-icon-only-styles;
+        }
 
-            &.btn-sm {
-                padding: $vs-spacer-025 $vs-spacer-025;
-                width: 32px;
-                height: 32px;
-            }
-
-            &.btn-md {
-                padding: $vs-spacer-050 $vs-spacer-025;
-                width: 44px;
-                height: 44px;
-            }
-
-            &.btn-lg {
-                padding: $vs-spacer-050 $vs-spacer-025;
-                width: 52px;
-                height: 52px;
-            }
-
-            .vs-icon {
-                margin: 0;
+        // Generate responsive icon-only classes for each breakpoint
+        // Applies icon-only styles below specified breakpoint,
+        // normal button styles above
+        @each $breakpoint in map-keys($grid-breakpoints) {
+            &.vs-button--icon-only-#{$breakpoint}-down {
+                @include media-breakpoint-down($breakpoint) {
+                    @include button-icon-only-styles;
+                }
             }
         }
 

@@ -3,6 +3,7 @@ import VsNavigationBar from '@/components/navigation-bar/NavigationBar.vue';
 import VsNavigationBarMenu from '@/components/navigation-bar/components/NavigationBarMenu.vue';
 import VsNavigationBarMenuDropdown from '@/components/navigation-bar/components/NavigationBarMenuDropdown.vue';
 import VsNavigationBarMenuItem from '@/components/navigation-bar/components/NavigationBarMenuItem.vue';
+import VsNavigationBarSearch from '@/components/navigation-bar/components/NavigationBarSearch.vue';
 import VsLink from '@/components/link/Link.vue';
 import VsIcon from '@/components/icon/Icon.vue';
 import VsButton from '@/components/button/Button.vue';
@@ -31,6 +32,7 @@ const Template = (args) => ({
         VsNavigationBarMenu,
         VsNavigationBarMenuDropdown,
         VsNavigationBarMenuItem,
+        VsNavigationBarSearch,
         VsLink,
         VsIcon,
         VsButton,
@@ -107,15 +109,9 @@ const Template = (args) => ({
                 <nav :aria-label="args.utilityMenuAriaLabel">
                     <ul class="d-flex gap-075">
                         <li>
-                            <VsButton 
-                                variant="secondary"
-                                size="sm"
-                                icon="vs-icon-control-search"
-                                :icon-only="args.compactUtilities"
-                            >
-                                Search
-                            </VsButton>
-                            
+                            <VsNavigationBarSearch
+                                :showLabelBreakpoint="args.searchShowLabelBreakpoint"
+                            />
                         </li>
                         <li 
                             v-if="!args.compactUtilities" 
@@ -227,11 +223,6 @@ const Template = (args) => ({
                             </li>
                             <VsNavigationBarMenuDropdown subtle class="d-block d-md-none">
                                 <template #button-content>
-                                    <VsIcon 
-                                        icon="fa-regular fa-globe"
-                                        size="xs"
-                                        class="me-025"
-                                    ></VsIcon>
                                     EN
                                 </template>
 
@@ -268,6 +259,7 @@ const base = {
     navData: b2cNavExample,
     compactUtilities: false,
     sidebarBreakpoint: 'md',
+    searchIconOnlyBreakpoint: 'md',
 };
 
 export const Default = Template.bind({
@@ -302,11 +294,12 @@ MobileSidebarOpen.play = async({ canvasElement }) => {
     await userEvent.click(sidebarButton);
 };
 
-export const ManyNavItems = Template.bind({
+export const CustomBreakpoints = Template.bind({
 });
-ManyNavItems.args = {
+CustomBreakpoints.args = {
     ...base,
     navData: manyItemsNav,
     compactUtilities: true,
     sidebarBreakpoint: 'lg',
+    searchShowLabelBreakpoint: 'xxl',
 };

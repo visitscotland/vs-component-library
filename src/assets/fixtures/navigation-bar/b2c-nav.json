@@ -1,6 +1,6 @@
 [
     {
-        "title": "Places to Go",
+        "title": "Places to go",
         "cta": "All places to go",
         "href": "https://www.visitscotland.com/destinations",
         "isExternal": false,
@@ -24,7 +24,7 @@
                 "trackingId": "nav.link.test-tracking-id"
             },
             {
-                "title": "TV & Film locations",
+                "title": "TV & film locations",
                 "cta": "null",
                 "href": "#",
                 "isExternal": false,

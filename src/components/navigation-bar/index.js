@@ -4,6 +4,7 @@ import VsNavigationBarSidebarButton from './components/NavigationBarSidebarButto
 import VsNavigationBarMenu from './components/NavigationBarMenu.vue';
 import VsNavigationBarMenuDropdown from './components/NavigationBarMenuDropdown.vue';
 import VsNavigationBarMenuItem from './components/NavigationBarMenuItem.vue';
+import VsNavigationBarSearch from './components/NavigationBarSearch.vue';
 
 export default {
     VsNavigationBar,
@@ -12,4 +13,5 @@ export default {
     VsNavigationBarMenu,
     VsNavigationBarMenuDropdown,
     VsNavigationBarMenuItem,
+    VsNavigationBarSearch,
 };

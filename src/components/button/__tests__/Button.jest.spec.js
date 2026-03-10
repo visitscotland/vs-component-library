@@ -85,6 +85,85 @@ describe('VsButton', () => {
             expect(wrapper.classes('vs-button--rounded')).toBe(true);
         });
 
+        it(':active - should default to false', () => {
+            const wrapper = factoryMount();
+            expect(wrapper.classes('vs-button--active')).toBe(false);
+        });
+
+        it(':active - should apply vs-button--active class when true', () => {
+            const wrapper = factoryMount({
+                active: true,
+            });
+            expect(wrapper.classes('vs-button--active')).toBe(true);
+        });
+
+        describe(':showLabelBreakpoint', () => {
+            it('should apply responsive icon-only class when set', () => {
+                const wrapper = factoryMount({
+                    showLabelBreakpoint: 'md',
+                });
+                expect(wrapper.classes('vs-button--icon-only-md-down')).toBe(true);
+            });
+
+            it('should apply visually-hidden class to button text', () => {
+                const wrapper = factoryMount({
+                    showLabelBreakpoint: 'lg',
+                });
+                const textSlotSpan = wrapper.get('span.vs-button__text');
+                expect(textSlotSpan.classes('visually-hidden')).toBe(true);
+            });
+
+            it('should apply visible breakpoint class to button text', () => {
+                const wrapper = factoryMount({
+                    showLabelBreakpoint: 'lg',
+                });
+                const textSlotSpan = wrapper.get('span.vs-button__text');
+                expect(textSlotSpan.classes('visible-lg-up')).toBe(true);
+            });
+
+            it('should disable animation when showLabelBreakpoint is set', () => {
+                const wrapper = factoryMount({
+                    animate: true,
+                    showLabelBreakpoint: 'md',
+                });
+                expect(wrapper.classes('vs-button--animated')).toBe(false);
+            });
+        });
+
+        describe(':iconPosition', () => {
+            it('should default to left', () => {
+                const wrapper = factoryMount({
+                    icon: testIcon,
+                });
+                const icon = wrapper.find('.vs-icon');
+                expect(icon.classes('vs-icon--left')).toBe(true);
+            });
+
+            it('should apply vs-icon--right class when set to right', () => {
+                const wrapper = factoryMount({
+                    icon: testIcon,
+                    iconPosition: 'right',
+                });
+                const icon = wrapper.find('.vs-icon');
+                expect(icon.classes('vs-icon--right')).toBe(true);
+            });
+
+            it('should apply vs-button--flex-reverse class when icon position is right', () => {
+                const wrapper = factoryMount({
+                    icon: testIcon,
+                    iconPosition: 'right',
+                });
+                expect(wrapper.classes('vs-button--flex-reverse')).toBe(true);
+            });
+
+            it('should validate iconPosition values', () => {
+                const validator = VsButton.props.iconPosition.validator;
+                expect(validator('left')).toBeTruthy();
+                expect(validator('right')).toBeTruthy();
+                expect(validator('center')).toBeFalsy();
+            });
+        });
+
         describe(':icon', () => {
             it('should *NOT* render an icon if `icon` property is not passed', () => {
                 const wrapper = factoryMount();

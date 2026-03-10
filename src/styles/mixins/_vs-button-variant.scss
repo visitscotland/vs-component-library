@@ -27,7 +27,7 @@
         }
     }
 
-    &:active, &:active:focus{
+    &:active, &:active:focus, &.vs-button--active {
         color: $active-color;
         background-color: $active-background;
         border-color: $active-border;

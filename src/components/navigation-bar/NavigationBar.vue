@@ -161,8 +161,8 @@ export default {
 
 <style lang="scss">
     .vs-navigation-bar {
-        position: static;
-        min-height: 80px;
+        position: relative;
+        height: 76px;
         z-index: 2;
         display: flex;
         align-items: center;

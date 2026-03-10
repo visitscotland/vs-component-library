@@ -103,5 +103,11 @@ export default {
             display: flex;
             justify-content: flex-end;
         }
+
+        .vs-navigation-bar-menu-dropdown
+        .dropdown-menu {
+            margin-top: -$vs-spacer-150;
+            margin-left: 0;
+        }
     }
 </style>
