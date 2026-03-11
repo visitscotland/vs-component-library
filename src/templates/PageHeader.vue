@@ -234,6 +234,7 @@ import VsLink from '@/components/link/Link.vue';
 import VsAccordion from '@/components/accordion/Accordion.vue';
 import VsAccordionItem from '@/components/accordion/components/AccordionItem.vue';
 import VsDivider from '@/components/divider/Divider.vue';
+import VsTooltip from '@/components/tooltip/Tooltip.vue';
 
 import b2bNav from '@/assets/fixtures/navigation-bar/b2b-nav.json';
 import b2cNav from '@/assets/fixtures/navigation-bar/b2c-nav.json';
@@ -257,6 +258,7 @@ export default {
         VsAccordion,
         VsAccordionItem,
         VsDivider,
+        VsTooltip,
     },
     props: {
         /**
