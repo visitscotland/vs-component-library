@@ -55,6 +55,36 @@ export default {
             ];
         },
     },
+    methods: {
+        clickHandler(event) {
+            event.preventDefault();
+
+            if (this.dataLayerValue) {
+                this.createDataLayerObject(this.dataLayerValue, event, this.href);
+            }
+            // short delay to ensure that analytics get added to datalayer
+            setTimeout(() => {
+                this.navigateToUrl();
+            }, 500);
+        },
+        navigateToUrl() {
+            // don't navigate if it's an empty or anchor link
+            if (this.href !== '#' && this.href !== null) {
+                window.location.href = this.href;
+            }
+        },
+        /**
+         * Fires on keypress events on the link, and passes 'space' and 'enter' events
+         * to the click handler to ensure analytics events are properly initiated.
+         */
+        keyHandler(event) {
+            if (event.keyCode === 13 || event.keyCode === 32) {
+                event.preventDefault();
+
+                this.clickHandler(event);
+            }
+        },
+    },
 };
 </script>
 
