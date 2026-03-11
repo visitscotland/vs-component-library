@@ -833,7 +833,7 @@ export default {
                     ...hiddenFields,
                     formType: this.formData.content ? this.formData.content.formType : '',
                     'g-recaptcha-response': gRecaptchaResponse,
-                    consentList: this.consentList ? this.consentList : null,
+                    consentList: this.consentList,
                 },
             ).then(() => {
                 this.submitting = false;
