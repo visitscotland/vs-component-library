@@ -140,7 +140,7 @@ describe('VsNavigationBarSidebar', () => {
                 name: 'BOffcanvas',
             });
 
-            expect(offcanvas.attributes('aria-labelledby')).toBe('sidebar-title');
+            expect(offcanvas.attributes('aria-labelledby')).toBe('navigation-sidebar-title');
         });
 
         it('should require sidebarTitle prop', () => {

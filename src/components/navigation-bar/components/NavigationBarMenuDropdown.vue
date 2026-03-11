@@ -123,8 +123,7 @@ export default {
         }
     }
 
-    &.vs-navigation-bar-menu-dropdown--subtle
-    .btn.dropdown-toggle {
+    &.vs-navigation-bar-menu-dropdown--subtle .btn.dropdown-toggle {
         @extend %button-default-styles;
         padding: $vs-spacer-0125 $vs-spacer-225 $vs-spacer-0125 $vs-spacer-125;
 

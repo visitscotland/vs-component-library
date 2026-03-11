@@ -1,19 +1,13 @@
 <template>
-    <span
+    <VsButton
+        v-bind="$attrs"
+        class="vs-tooltip position-relative"
         data-test="vs-tooltip"
         v-b-tooltip="tooltipConfig"
         :title="title"
     >
-        <slot name="tooltip-button">
-            <VsButton
-                v-bind="$attrs"
-                class="position-relative"
-            >
-                <!-- @slot Content inside the button (default slot) -->
-                <slot />
-            </VsButton>
-        </slot>
-    </span>
+        <slot />
+    </VsButton>
 </template>
 
 <script>
@@ -75,7 +69,6 @@ export default {
     },
 };
 </script>
-
 <style lang="scss">
     .tooltip  {
         border-radius: $vs-radius-small;

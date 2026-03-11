@@ -1,21 +1,25 @@
 <template>
-    <VsButton
-        class="vs-navigation-bar-sidebar-button"
-        icon-only
-        icon="vs-icon-control-menu"
+    <VsTooltip
+        :title="sidebarOpenLabel"
+        subtle
         variant="subtle"
+        size="sm"
+        icon="vs-icon-control-menu"
+        icon-only
+        href="#"
+        class="d-block vs-navigation-bar-sidebar-button"
+        data-test="vs-navigation-bar-sidebar-button"
         @click="sidebarOpen()"
         aria-haspopup="dialog"
         :aria-controls="controlsId"
         :aria-expanded="String(expanded)"
-        size="sm"
     >
         {{ sidebarOpenLabel }}
-    </VsButton>
+    </VsTooltip>
 </template>
 
 <script>
-import VsButton from '@/components/button/Button.vue';
+import VsTooltip from '@/components/tooltip/Tooltip.vue';
 
 /**
  *  Navigation bar sidebar button to open the sidebar
@@ -27,7 +31,7 @@ export default {
     status: 'prototype',
     release: '0.1.0',
     components: {
-        VsButton,
+        VsTooltip,
     },
     props: {
         /**

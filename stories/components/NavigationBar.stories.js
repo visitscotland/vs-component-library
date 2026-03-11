@@ -110,7 +110,7 @@ const Template = (args) => ({
             </template>
 
             <template #navigation-bar-utilities>
-                <nav :aria-label="args.utilityMenuAriaLabel">
+                <nav aria-label="args.utilityMenuAriaLabel">
                     <ul class="d-flex">
                         <li class="me-075">
                             <VsNavigationBarSearch
@@ -121,50 +121,41 @@ const Template = (args) => ({
                             v-if="!args.compactUtilities" 
                             class="d-none d-md-block me-075"
                         >
-                            <VsTooltip title="Map of Scotland" position="left" subtle>
-                                <template #tooltip-button>
-                                    <VsButton 
-                                        variant="subtle"
-                                        size="sm"
-                                        icon="fa-regular fa-map"
-                                        icon-only
-                                        href="#"
-                                        class="d-block"
-                                    > 
-                                        Map
-                                    </VsButton>
-                                </template>
+                            <VsTooltip
+                                title="Map of Scotland"
+                                subtle
+                                variant="subtle"
+                                size="sm"
+                                icon="fa-regular fa-map"
+                                icon-only
+                                href="#"
+                                class="d-block"
+                            >
+                                Map of Scotland
                             </VsTooltip>
                         </li>
-                        <li 
+                        <li
                             v-if="!args.compactUtilities" 
-                            class="d-none d-md-block me-075"
+                            class="d-none d-md-block me-0 me-md-075 me-lg-0"
                         >
-                            <VsTooltip 
-                                title="Language"
-                                subtle
+                            <VsNavigationBarMenuDropdown 
+                                subtle 
+                                class="d-none d-md-block"
                             >
-                                <template #tooltip-button>
-                                    <VsNavigationBarMenuDropdown 
-                                        subtle 
-                                        class="d-none d-md-block me-0 me-md-075 me-lg-0"
-                                    >
-                                        <template #button-content>
-                                            EN
-                                        </template>
-
-                                        <VsNavigationBarMenuItem href="#">
-                                            English
-                                        </VsNavigationBarMenuItem>
-                                        <VsNavigationBarMenuItem href="#">
-                                            Spanish
-                                        </VsNavigationBarMenuItem>
-                                        <VsNavigationBarMenuItem href="#">
-                                            French
-                                        </VsNavigationBarMenuItem>
-                                    </VsNavigationBarMenuDropdown>
+                                <template #button-content>
+                                    EN
                                 </template>
-                            </VsTooltip>
+
+                                <VsNavigationBarMenuItem href="#">
+                                    English
+                                </VsNavigationBarMenuItem>
+                                <VsNavigationBarMenuItem href="#">
+                                    Spanish
+                                </VsNavigationBarMenuItem>
+                                <VsNavigationBarMenuItem href="#">
+                                    French
+                                </VsNavigationBarMenuItem>
+                            </VsNavigationBarMenuDropdown>
                         </li>
                     </ul>
                 </nav>
@@ -227,44 +218,38 @@ const Template = (args) => ({
                 v-if="!args.compactUtilities"
             >
                 <div class="p-100 pb-300">
-                    <nav :aria-label="args.utilityMenuAriaLabel">
+                    <nav :aria-label="args.sidebarUtilityMenuAriaLabel">
                         <ul class="d-flex justify-content-end">
                             <li class="me-075">
-                                <VsTooltip title="Map of Scotland" subtle>
-                                    <template #tooltip-button>
-                                        <VsButton 
-                                            variant="subtle"
-                                            size="sm"
-                                            icon="fa-regular fa-map"
-                                            href="#"
-                                            icon-only
-                                            class="d-block d-md-none"
-                                        > 
-                                            Map
-                                        </VsButton>
-                                    </template>
+                                <VsTooltip
+                                    title="Map of Scotland"
+                                    subtle
+                                    variant="subtle"
+                                    size="sm"
+                                    icon="fa-regular fa-map"
+                                    icon-only
+                                    href="#"
+                                    class="d-block d-md-none"
+                                >
+                                    Map of Scotland
                                 </VsTooltip>
                             </li>
                             <li>
-                                <VsTooltip title="Language" subtle>
-                                    <template #tooltip-button>
-                                        <VsNavigationBarMenuDropdown subtle class="d-block d-md-none">
-                                            <template #button-content>
-                                                EN
-                                            </template>
-
-                                            <VsNavigationBarMenuItem href="#">
-                                                English
-                                            </VsNavigationBarMenuItem>
-                                            <VsNavigationBarMenuItem href="#">
-                                                Spanish
-                                            </VsNavigationBarMenuItem>
-                                            <VsNavigationBarMenuItem href="#">
-                                                French
-                                            </VsNavigationBarMenuItem>
-                                        </VsNavigationBarMenuDropdown>
+                                <VsNavigationBarMenuDropdown subtle class="d-block d-md-none">
+                                    <template #button-content>
+                                        EN
                                     </template>
-                                </VsTooltip>
+
+                                    <VsNavigationBarMenuItem href="#">
+                                        English
+                                    </VsNavigationBarMenuItem>
+                                    <VsNavigationBarMenuItem href="#">
+                                        Spanish
+                                    </VsNavigationBarMenuItem>
+                                    <VsNavigationBarMenuItem href="#">
+                                        French
+                                    </VsNavigationBarMenuItem>
+                                </VsNavigationBarMenuDropdown>
                             </li>
                         </ul>
                     </nav>
@@ -277,8 +262,9 @@ const Template = (args) => ({
 const base = {
     menuAriaLabel: 'Main navigation menu',
     utilityMenuAriaLabel: 'Utility menu',
+    sidebarUtilityMenuAriaLabel: 'Sidebar Utility menu',
     sidebarCloseLabel: 'Close navigation menu',
-    sidebarOpenLabel: 'Open navigation menu',
+    sidebarOpenLabel: 'Main menu',
     sidebarTitle: 'Navigation menu',
     svgAltText: 'VisitScotland Home',
     svgColor: designTokens['vs-color-background-brand'],

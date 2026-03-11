@@ -2,7 +2,10 @@ import { shallowMount } from '@vue/test-utils';
 import VsNavigationBarMenuItem from '../NavigationBarMenuItem.vue';
 
 const factoryShallowMount = (propsData) => shallowMount(VsNavigationBarMenuItem, {
-    propsData,
+    propsData: {
+        href: '#',
+        ...propsData,
+    },
     slots: {
         default: 'Menu Item',
     },
@@ -17,7 +20,7 @@ describe('VsNavigationBarMenuItem', () => {
     });
 
     describe(':props', () => {
-        it('href: defaults to #', () => {
+        it('href: applies href prop', () => {
             const wrapper = factoryShallowMount();
             expect(wrapper.find('[data-test=vs-navigation-bar-menu-item] .vs-navigation-bar-menu-item__link').attributes('href')).toBe('#');
         });

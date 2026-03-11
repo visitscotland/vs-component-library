@@ -7,6 +7,8 @@
             :class="menuItemLinkClasses"
             :href="href"
             data-layer-value="menuNavigationDataEvent"
+            @click="clickHandler($event)"
+            @keydown="keyHandler($event)"
         >
             <!-- @slot Default slot for nav link content  -->
             <slot />
@@ -15,6 +17,7 @@
 </template>
 
 <script>
+import dataLayerMixin from '../../../mixins/dataLayerMixin';
 /**
  *  Navigation bar menu item component with slot for link content
  *
@@ -24,6 +27,7 @@ export default {
     name: 'VsNavigationBarMenuItem',
     status: 'prototype',
     release: '0.1.0',
+    mixins: [dataLayerMixin],
     props: {
         /**
          * The URL for the nav list link

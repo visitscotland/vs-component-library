@@ -22,13 +22,11 @@ const factoryMount = (propsData) => mount(VsNavigationBarSidebarButton, {
 });
 
 describe('VsNavigationBarSidebarButton', () => {
-    it('should render a VsButton component', () => {
+    it('should render a vs-tooltip-stub component', () => {
         const wrapper = factoryShallowMount();
-        const button = wrapper.findComponent({
-            name: 'VsButton',
-        });
+        const tooltip = wrapper.find('[data-test=vs-navigation-bar-sidebar-button]');
 
-        expect(button.exists()).toBe(true);
+        expect(tooltip.exists()).toBe(true);
     });
 
     describe(':props', () => {
@@ -85,18 +83,6 @@ describe('VsNavigationBarSidebarButton', () => {
     });
 
     describe(':events', () => {
-        it('should call sidebarOpen method when button is clicked', async() => {
-            const wrapper = factoryShallowMount();
-            const sidebarOpenSpy = jest.spyOn(wrapper.vm, 'sidebarOpen');
-            const button = wrapper.findComponent({
-                name: 'VsButton',
-            });
-
-            await button.vm.$emit('click');
-
-            expect(sidebarOpenSpy).toHaveBeenCalled();
-        });
-
         it('should emit sidebar-open event when button is clicked', async() => {
             const wrapper = factoryMount();
 
