@@ -34,9 +34,7 @@ const Template = (args) => ({
     },
     template: `
         <VsTooltip v-bind="args">
-            <template v-if="${'default' in args}" v-slot>
-                ${args.default}
-            </template>
+            ${args.title}
         </VsTooltip>
     `,
 });
@@ -46,7 +44,6 @@ const base = {
     size: 'sm',
     position: 'top',
     title: 'Travel by bus',
-    href: '#',
     'icon-only': true,
     variant: 'subtle',
 };

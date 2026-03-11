@@ -103,13 +103,10 @@ export default {
     computed: {
         linkClasses() {
             return [
-                `vs-link--variant-${this.variant}`,
-                this.noVisitedStyles ? 'vs-link--no-visited-styles' : '',
                 'vs-link',
-            ];
-        },
-        variantClass() {
-            return `vs-link--variant-${this.variant}`;
+                `vs-link--variant-${this.variant}`,
+                this.noVisitedStyles && 'vs-link--no-visited-styles',
+            ].filter(Boolean);
         },
         iconName() {
             let icon = '';

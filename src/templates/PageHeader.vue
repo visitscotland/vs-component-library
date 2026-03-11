@@ -87,12 +87,9 @@
                         </li>
                         <li
                             v-if="menuType === 'b2c'"
-                            class="me-0 me-md-075 me-lg-0"
+                            class="d-none d-md-block me-0 me-md-075 me-lg-0"
                         >
-                            <VsNavigationBarMenuDropdown
-                                subtle
-                                class="d-none d-md-block"
-                            >
+                            <VsNavigationBarMenuDropdown subtle>
                                 <template #button-content>
                                     EN
                                 </template>
@@ -177,7 +174,7 @@
                 <div class="p-100 pb-300">
                     <nav aria-label="Sidebar utility menu">
                         <ul class="d-flex justify-content-end">
-                            <li class="me-075">
+                            <li class="me-075 d-block d-md-none">
                                 <VsTooltip
                                     title="Map of Scotland"
                                     subtle
@@ -186,15 +183,13 @@
                                     icon="fa-regular fa-map"
                                     icon-only
                                     href="#"
-                                    class="d-block d-md-none"
                                 >
                                     Map of Scotland
                                 </VsTooltip>
                             </li>
-                            <li>
+                            <li class="d-block d-md-none">
                                 <VsNavigationBarMenuDropdown
                                     subtle
-                                    class="d-block d-md-none"
                                 >
                                     <template #button-content>
                                         EN

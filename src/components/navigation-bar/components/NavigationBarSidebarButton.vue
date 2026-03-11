@@ -6,7 +6,6 @@
         size="sm"
         icon="vs-icon-control-menu"
         icon-only
-        href="#"
         class="d-block vs-navigation-bar-sidebar-button"
         data-test="vs-navigation-bar-sidebar-button"
         @click="sidebarOpen()"

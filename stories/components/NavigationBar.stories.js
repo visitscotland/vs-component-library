@@ -110,7 +110,7 @@ const Template = (args) => ({
             </template>
 
             <template #navigation-bar-utilities>
-                <nav aria-label="args.utilityMenuAriaLabel">
+                <nav :aria-label="args.utilityMenuAriaLabel">
                     <ul class="d-flex">
                         <li class="me-075">
                             <VsNavigationBarSearch
@@ -138,10 +138,7 @@ const Template = (args) => ({
                             v-if="!args.compactUtilities" 
                             class="d-none d-md-block me-0 me-md-075 me-lg-0"
                         >
-                            <VsNavigationBarMenuDropdown 
-                                subtle 
-                                class="d-none d-md-block"
-                            >
+                            <VsNavigationBarMenuDropdown subtle>
                                 <template #button-content>
                                     EN
                                 </template>
@@ -220,7 +217,7 @@ const Template = (args) => ({
                 <div class="p-100 pb-300">
                     <nav :aria-label="args.sidebarUtilityMenuAriaLabel">
                         <ul class="d-flex justify-content-end">
-                            <li class="me-075">
+                            <li class="d-block d-md-none me-075">
                                 <VsTooltip
                                     title="Map of Scotland"
                                     subtle
@@ -229,13 +226,13 @@ const Template = (args) => ({
                                     icon="fa-regular fa-map"
                                     icon-only
                                     href="#"
-                                    class="d-block d-md-none"
+                                    class="d-block"
                                 >
                                     Map of Scotland
                                 </VsTooltip>
                             </li>
-                            <li>
-                                <VsNavigationBarMenuDropdown subtle class="d-block d-md-none">
+                            <li class="d-block d-md-none">
+                                <VsNavigationBarMenuDropdown subtle>
                                     <template #button-content>
                                         EN
                                     </template>
