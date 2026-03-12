@@ -320,6 +320,15 @@ export default {
             type: Boolean,
             default: true,
         },
+        /**
+         * Defines a set of consents which are implied by submission, to be stored in BREG. If this
+         * is defined it should be included as part of the submission.
+         */
+        consentList: {
+            type: Array,
+            required: false,
+            default: null,
+        },
     },
     data() {
         return {
@@ -824,6 +833,7 @@ export default {
                     ...hiddenFields,
                     formType: this.formData.content ? this.formData.content.formType : '',
                     'g-recaptcha-response': gRecaptchaResponse,
+                    consentList: this.consentList,
                 },
             ).then(() => {
                 this.submitting = false;
