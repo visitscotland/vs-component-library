@@ -4,7 +4,7 @@
         data-test="vs-video"
         v-if="!reRendering"
     >
-        <div class="vs-video__iframe-wrapper">
+        <div :class="videoWrapperClasses">
             <div v-if="cookiesAllowed">
                 <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
                 <VueYoutube
@@ -103,6 +103,17 @@ export default {
             default: '',
         },
         /**
+        * The orientation of the video
+        * @values landscape, portrait
+        */
+        orientation: {
+            type: String,
+            default: 'landscape',
+            validator: (value) => value.match(
+                /(landscape|portrait)/,
+            ),
+        },
+        /**
          * A string to be shown with the rounded time, when the rounded
          * minute value is singular. Should contain '%s' to be replaced by the
          * number of minutes
@@ -173,6 +184,12 @@ export default {
         };
     },
     computed: {
+        videoWrapperClasses() {
+            return [
+                'vs-video__iframe-wrapper',
+                `vs-video__iframe-wrapper--${this.orientation}`,
+            ];
+        },
         showError() {
             if ((!this.cookiesAllowed && this.cookiesLoaded === true)
                 || this.cookiesLoaded === false) {
@@ -388,16 +405,22 @@ export default {
         &__iframe-wrapper,
         &__fallback-wrapper {
             position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
+            width: 100%;
+
+            &--portrait {
+                aspect-ratio: 9 / 16;
+            }
+
+            &--landscape {
+                aspect-ratio: 16 / 9;
+            }
 
             iframe {
                 position: absolute;
-                top: 0;
-                left: 0;
+                inset: 0;
                 width: 100%;
                 height: 100%;
+                border: 0;
             }
         }
 

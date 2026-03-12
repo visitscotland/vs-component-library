@@ -4,7 +4,7 @@ export default {
     component: VsVideo,
     title: 'Components/Media & data visualisation/Video',
     decorators: [() => ({
-        template: '<div style="max-width: 520px;"><story /></div>',
+        template: '<div style="max-width: 400px;"><story /></div>',
     })],
 };
 
@@ -18,14 +18,13 @@ const Template = (args) => ({
         };
     },
     template: `
-        <div :class="args.jsDisabled ? 'no-js' : ''">
+        <span :class="args.jsDisabled ? 'no-js' : ''">
             <VsVideo v-bind="args"></VsVideo>
-        </div>
+        </span>
     `,
 });
 
 const base = {
-    videoId: 'c05sg3G4oA4',
     errorMessage: 'Sorry, something\'s gone wrong. Please try again later',
     noJsMessage: 'You need Javascript enabled to see this video',
     noCookiesMessage: 'You need cookies enabled to see this video',
@@ -35,11 +34,20 @@ const base = {
 
 export const Default = Template.bind();
 Default.args = {
+    videoId: 'c05sg3G4oA4',
+    ...base,
+};
+
+export const Portrait = Template.bind();
+Portrait.args = {
+    videoId: 'LpvgT-tivAc',
+    orientation: 'portrait',
     ...base,
 };
 
 export const NoCookies = Template.bind();
 NoCookies.args = {
+    videoId: 'c05sg3G4oA4',
     ...base,
 };
 
@@ -58,5 +66,6 @@ NoCookies.decorators = [
 export const NoJavascript = Template.bind();
 NoJavascript.args = {
     ...base,
+    videoId: 'c05sg3G4oA4',
     jsDisabled: true,
 };
