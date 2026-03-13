@@ -106,6 +106,16 @@ HiddenFields.args = {
             value: 'E-News Signups',
         },
     ],
+    consentList: [
+        {
+            key: 'snow',
+            value: 'SKIEMAIL_002',
+        },
+        {
+            key: 'newsletter',
+            value: 'VSEMAIL_0026',
+        },
+    ],
 };
 
 export const ShowingConditionalField = Template.bind({

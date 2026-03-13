@@ -1,3 +1,10 @@
+# [5.37.0](https://github.com/visitscotland/vs-component-library/compare/v5.36.0...v5.37.0) (2026-03-12)
+
+
+### Features
+
+* **forms:** add optional consentList field to submission ([2d434a6](https://github.com/visitscotland/vs-component-library/commit/2d434a6770ea610801e624b31b4974c7e2dc5dac))
+
 # [5.36.0](https://github.com/visitscotland/vs-component-library/compare/v5.35.0...v5.36.0) (2026-03-09)
 
 
