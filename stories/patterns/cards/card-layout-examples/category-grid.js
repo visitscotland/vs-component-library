@@ -27,7 +27,24 @@ export default `
                         </template>
 
                         <template #vs-card-image>
-                            <VsImg 
+                            <video
+                                v-if="card.videoSrc"
+                                loop
+                                muted
+                                autoplay
+                                playsinline
+                                preload="auto"
+                                poster="fixtures/hero/images/lavendar-fields.png"
+                                aria-hidden="true"
+                                fetchpriority="high"
+                            >
+                                <source
+                                    src="fixtures/hero/video/lavendar-fields.mp4"
+                                    type="video/mp4"
+                                >
+                            </video>
+                            <VsImg
+                                v-else 
                                 :src="card.image" 
                                 class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
                             />

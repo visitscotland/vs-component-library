@@ -25,7 +25,7 @@
         </template>
 
         <template v-if="cardStyle === 'overlay' && $slots['vs-card-image'] && $slots['vs-card-image']()">
-            <div class="vs-card__image">
+            <div class="vs-card__media">
                 <!-- @slot Used for the background image in the overlay variant -->
                 <slot name="vs-card-image" />
             </div>
@@ -178,26 +178,25 @@ export default {
         }
 
         &--overlay {
-            height: 330px;
+            aspect-ratio: 9 / 16;
             color: $vs-color-text-inverse;
             overflow: hidden;
 
-            @include media-breakpoint-up(md) {
-                height: 460px;
-            }
-
-           .vs-card__image {
+           .vs-card__media {
                 position:absolute;
                 inset: 0;
                 z-index: -1;
 
+                .vs-video {
+                    position: absolute;
+                    inset: 0;
+                    height: 100%;
+                    width: 100%;
+                }
+
                 img {
                     width: 100%;
-                    height: 330px;
-
-                    @include media-breakpoint-up(md) {
-                        height: 460px;
-                    }
+                    aspect-ratio: 9 / 16;
                 }
 
                 &::after {

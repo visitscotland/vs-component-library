@@ -19,10 +19,21 @@ export default `
         </template>
 
         <template #vs-card-image>
-            <VsImg 
-                src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/11/05/creel-seafood?size=md" 
-                class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-            />
+            <video
+                loop
+                muted
+                autoplay
+                playsinline
+                preload="auto"
+                poster="fixtures/hero/images/lavendar-fields.png"
+                aria-hidden="true"
+                fetchpriority="high"
+            >
+                <source
+                    src="fixtures/hero/video/lavendar-fields.mp4"
+                    type="video/mp4"
+                >
+            </video>
         </template>
     </VsCard>
 `;
