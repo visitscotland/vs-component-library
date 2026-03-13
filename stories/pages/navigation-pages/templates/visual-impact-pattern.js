@@ -34,7 +34,8 @@ export default `
         </template>
     </VsPageHeader>
 
-    <!------------------------------------------------------------
+   
+     <!------------------------------------------------------------
     NEW SECTION - Section header + new card group (4 cards)
     ------------------------------------------------------------>
     <VsContainer class="mt-500">
@@ -44,10 +45,10 @@ export default `
                     scroll-snap="always"
                     class="text-start"
                 >
-                    <VsCard
+                    <VsCard 
                         v-for="(card, index) in cardListOverlay"
+                        :key="'category-card-list-' + index"
                         card-style="overlay"
-                        :key="'card-list-overlay-' + index"
                     >
                         <template #vs-card-footer>
                             <div class="px-125 pb-125">
@@ -57,7 +58,7 @@ export default `
                                     heading-style="heading-m"
                                 >
                                     <VsLink
-                                        :href="card.link"
+                                        href="#"
                                         class="stretched-link text-decoration-none"
                                         variant="on-dark"
                                     >
@@ -66,8 +67,26 @@ export default `
                                 </VsHeading>
                             </div>
                         </template>
-                        <template v-slot:vs-card-image>
-                            <VsImg 
+
+                        <template #vs-card-image>
+                            <video
+                                v-if="card.videoSrc"
+                                loop
+                                muted
+                                autoplay
+                                playsinline
+                                preload="none"
+                                :poster="card.image"
+                                aria-hidden="true"
+                                fetchpriority="high"
+                            >
+                                <source
+                                    :src="card.videoSrc"
+                                    type="video/mp4"
+                                >
+                            </video>
+                            <VsImg
+                                v-else 
                                 :src="card.image" 
                                 class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
                             />
@@ -77,11 +96,11 @@ export default `
             </VsCol>
         </VsRow>
     </VsContainer>
-
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
-    
+
+
     <!------------------------------------------------------------
     NEW SECTION - Section header + new card group (4 cards)
     ------------------------------------------------------------>
@@ -201,6 +220,77 @@ export default `
             </VsCol>
         </VsRow>
     </VsContainer>
+    <!------------------------------------------------------------
+    SECTION END
+    ------------------------------------------------------------>
+
+
+    <!------------------------------------------------------------
+    NEW SECTION - Section header + Card group with youtube videos 
+    ------------------------------------------------------------>
+    <VsSectionHeader 
+        class="mt-500 mb-300"
+        heading="Discover Scotland in 60 seconds"
+    >
+        <template v-slot:section-header-lede>
+            <p>Get a quick glimpse of Scotland through a collection of short videos capturing some of its most iconic landscapes and experiences. From dramatic coastlines and historic castles to bustling city streets and quiet Highland views, these clips offer a fast, visual snapshot of what makes Scotland unique.</p>
+        </template>
+    </VsSectionHeader>
+
+    <VsContainer class="mt-075 mt-lg-200">
+        <VsRow class="mb-600">
+            <VsCol>
+                <VsCardGroup scroll-snap="always">
+                    <VsVideo 
+                        video-id="LpvgT-tivAc"
+                        orientation="portrait"
+                        error-message="Sorry, something's gone wrong. Please try again later"
+                        no-js-message="You need Javascript enabled to see this video"
+                        no-cookies-message="You need cookies enabled to see this video"
+                        cookie-btn-text="Manage cookies"
+                        class="mb-200"
+                    />
+                    <VsVideo 
+                        video-id="4z5n2lofDD0"
+                        orientation="portrait"
+                        error-message="Sorry, something's gone wrong. Please try again later"
+                        no-js-message="You need Javascript enabled to see this video"
+                        no-cookies-message="You need cookies enabled to see this video"
+                        cookie-btn-text="Manage cookies"
+                        class="mb-200"
+                    />
+                    <VsVideo 
+                        video-id="Ys_SklG8OhY"
+                        orientation="portrait"
+                        error-message="Sorry, something's gone wrong. Please try again later"
+                        no-js-message="You need Javascript enabled to see this video"
+                        no-cookies-message="You need cookies enabled to see this video"
+                        cookie-btn-text="Manage cookies"
+                        class="mb-200"
+                    />
+                    <VsVideo 
+                        video-id="GMuYbI1nxCY"
+                        orientation="portrait"
+                        error-message="Sorry, something's gone wrong. Please try again later"
+                        no-js-message="You need Javascript enabled to see this video"
+                        no-cookies-message="You need cookies enabled to see this video"
+                        cookie-btn-text="Manage cookies"
+                        class="mb-200"
+                    />
+                    <VsVideo 
+                        video-id="0YGd2DZLJk4"
+                        orientation="portrait"
+                        error-message="Sorry, something's gone wrong. Please try again later"
+                        no-js-message="You need Javascript enabled to see this video"
+                        no-cookies-message="You need cookies enabled to see this video"
+                        cookie-btn-text="Manage cookies"
+                        class="mb-200"
+                    />
+                </VsCardGroup>
+            </VsCol>
+        </VsRow>
+    </VsContainer>
+
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>

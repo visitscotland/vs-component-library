@@ -4,7 +4,7 @@ export default `
             <VsHeroSection
                 heading="Scotland, <br/>it's good for the soul"
                 lede="Where history meets breathtaking beauty, and every visit feels like home."
-                img-src="fixtures/hero/images/lavendar-fields.png"
+                img-src="fixtures/hero/images/lavendar-fields.jpg"
                 video-src="fixtures/hero/video/lavendar-fields.mp4"
                 video-btn-text="Play/pause background video"
                 video-playing-status="Playing"
@@ -32,20 +32,21 @@ export default `
                     cards-per-row="4"
                     class="text-start"
                 >
-                    <VsCard
+
+                <VsCard 
                         v-for="(card, index) in cardListOverlay"
+                        :key="'category-card-list-' + index"
                         card-style="overlay"
-                        :key="'card-list-overlay-' + index"
                     >
                         <template #vs-card-footer>
                             <div class="px-125 pb-125">
                                 <VsHeading
-                                    level="3"
+                                    level="2"
                                     no-margins
                                     heading-style="heading-m"
                                 >
                                     <VsLink
-                                        :href="card.link"
+                                        href="#"
                                         class="stretched-link text-decoration-none"
                                         variant="on-dark"
                                     >
@@ -54,8 +55,26 @@ export default `
                                 </VsHeading>
                             </div>
                         </template>
-                        <template v-slot:vs-card-image>
-                            <VsImg 
+
+                        <template #vs-card-image>
+                            <video
+                                v-if="card.videoSrc"
+                                loop
+                                muted
+                                autoplay
+                                playsinline
+                                preload="auto"
+                                poster="card.image"
+                                aria-hidden="true"
+                                fetchpriority="high"
+                            >
+                                <source
+                                    src="card.videoSrc"
+                                    type="video/mp4"
+                                >
+                            </video>
+                            <VsImg
+                                v-else 
                                 :src="card.image" 
                                 class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
                             />

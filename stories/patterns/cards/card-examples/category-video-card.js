@@ -25,7 +25,7 @@ export default `
                 autoplay
                 playsinline
                 preload="auto"
-                poster="fixtures/hero/images/lavendar-fields.png"
+                poster="fixtures/hero/images/lavendar-fields.jpg"
                 aria-hidden="true"
                 fetchpriority="high"
             >

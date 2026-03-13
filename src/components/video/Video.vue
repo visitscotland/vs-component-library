@@ -8,6 +8,7 @@
             <div v-if="cookiesAllowed">
                 <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
                 <VueYoutube
+                    v-if="isVisible"
                     :autoplay="0"
                     :video-id="videoId"
                     :vars="playerVars"
@@ -17,6 +18,12 @@
                     @paused="youtubePaused"
                     @ended="youtubeEnded"
                     @ready="playerReady"
+                />
+                <!-- Placeholder to maintain layout while lazy loading -->
+                <div
+                    v-else
+                    :class="videoWrapperClasses"
+                    class="vs-video__placeholder"
                 />
             </div>
 
@@ -181,6 +188,8 @@ export default {
             reRendering: false,
             shouldAutoPlay: false,
             jsDisabled: true,
+            isVisible: false,
+            observer: null,
         };
     },
     computed: {
@@ -223,6 +232,13 @@ export default {
         videoStore = useVideoStore();
 
         this.setEventListeners();
+
+        this.lazyLoadPlayer();
+    },
+    beforeUnmount() {
+        if (this.observer) {
+            this.observer.disconnect();
+        }
     },
     methods: {
         async playerReady() {
@@ -262,6 +278,13 @@ export default {
          * occur an appropriate analytics event is dispatched to the datalayer.
          */
         youtubePlaying() {
+            // Emit event to pause other videos
+            if (this.emitter) {
+                this.emitter.emit('video-controls', {
+                    action: 'playing',
+                    id: this.videoId,
+                });
+            }
             this.analyticsEvent('play');
         },
         youtubePaused() {
@@ -392,9 +415,27 @@ export default {
                         } else if (args.action === 'pause') {
                             this.pauseVideo();
                         }
+                    } else if (args.action === 'playing') {
+                        // Pause this video if another one started playing
+                        this.pauseVideo();
                     }
                 });
             }
+        },
+        lazyLoadPlayer() {
+            // Lazy load: only load YouTube iframe when video is near viewport
+            this.observer = new IntersectionObserver(
+                ([entry]) => {
+                    if (entry.isIntersecting) {
+                        this.isVisible = true;
+                        this.observer.disconnect();
+                    }
+                },
+                {
+                    rootMargin: '500px', // Load 500px before entering viewport
+                },
+            );
+            this.observer.observe(this.$el);
         },
     },
 };

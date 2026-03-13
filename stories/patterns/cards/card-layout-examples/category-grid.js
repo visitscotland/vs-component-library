@@ -34,12 +34,13 @@ export default `
                                 autoplay
                                 playsinline
                                 preload="auto"
-                                poster="fixtures/hero/images/lavendar-fields.png"
+                                :poster="card.image"
                                 aria-hidden="true"
                                 fetchpriority="high"
+                                class="img-zoom-on-hover"
                             >
                                 <source
-                                    src="fixtures/hero/video/lavendar-fields.mp4"
+                                    :src="card.videoSrc"
                                     type="video/mp4"
                                 >
                             </video>
