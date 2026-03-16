@@ -42,6 +42,28 @@
                     </template>
 
                     <template #vs-map-sidebar-search-results>
+                        <VsAlert
+                            v-if="noResults || (props.alertText && noResults === false)"
+                            class="mt-075 mb-150"
+                            id="vs-map__no-results-alert"
+                            size="small"
+                        >
+                            <template v-if="noResults">
+                                <span>
+                                    {{ noResultsMessage }}
+                                    <a
+                                        href="#"
+                                        @click.prevent="resetMap(true, true)"
+                                    >
+                                        {{ resetMapNoResultsMessage }}
+                                    </a>
+                                </span>
+                            </template>
+                            <template v-else>
+                                {{ alertText }}
+                            </template>
+                        </VsAlert>
+
                         <Suspense>
                             <div id="search-container">
                                 <gmp-place-search
@@ -92,22 +114,6 @@
                                 </gmp-place-search>
                             </div>
                         </Suspense>
-                        <VsAlert
-                            id="vs-map__no-results-alert"
-                            v-if="noResults"
-                            class="mt-075 mb-150"
-                            size="small"
-                        >
-                            <span>
-                                {{ noResultsMessage }}
-                                <a
-                                    href="#"
-                                    @click.prevent="resetMap(true, true)"
-                                >
-                                    {{ resetMapNoResultsMessage }}
-                                </a>
-                            </span>
-                        </VsAlert>
                     </template>
                 </VsMapSidebar>
                 <div
@@ -359,6 +365,11 @@ const props = defineProps({
         type: String,
         required: true,
     },
+    /** Text to appear in alert above search results.  */
+    alertText: {
+        type: String,
+        default: undefined,
+    },
 });
 
 /**
@@ -430,7 +441,7 @@ const subCategoryTypeMap = computed(() => {
 
 const googleMapStore = useGoogleMapStore();
 
-const noResults = ref(false);
+const noResults = ref(undefined);
 
 let showError;
 const errType = ref(undefined);
@@ -1055,7 +1066,7 @@ function resetMap(hardReset, resetLocation) {
     if (infoWindow && infoWindow.close) {
         infoWindow.close();
     }
-    noResults.value = false;
+    noResults.value = undefined;
     if (hardReset) {
         // A `hard reset` will remove all text and categories
         resetTextQuery();
