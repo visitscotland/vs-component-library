@@ -91,7 +91,7 @@
                         >
                             <VsNavigationBarMenuDropdown subtle>
                                 <template #button-content>
-                                    EN
+                                    <span class="visually-hidden">Choose language: </span> EN
                                 </template>
 
                                 <VsNavigationBarMenuItem href="#">
@@ -192,7 +192,7 @@
                                     subtle
                                 >
                                     <template #button-content>
-                                        EN
+                                        <span class="visually-hidden">Choose language: </span> EN
                                     </template>
 
                                     <VsNavigationBarMenuItem href="#">

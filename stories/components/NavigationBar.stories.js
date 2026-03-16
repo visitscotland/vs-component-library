@@ -140,9 +140,8 @@ const Template = (args) => ({
                         >
                             <VsNavigationBarMenuDropdown subtle>
                                 <template #button-content>
-                                    EN
+                                    <span class="visually-hidden">Choose language: </span>EN 
                                 </template>
-
                                 <VsNavigationBarMenuItem href="#">
                                     English
                                 </VsNavigationBarMenuItem>
@@ -234,7 +233,7 @@ const Template = (args) => ({
                             <li class="d-block d-md-none">
                                 <VsNavigationBarMenuDropdown subtle>
                                     <template #button-content>
-                                        EN
+                                        <span class="visually-hidden">Choose language: </span>EN 
                                     </template>
 
                                     <VsNavigationBarMenuItem href="#">

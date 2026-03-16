@@ -4,6 +4,7 @@
         data-test="vs-navigation-bar-menu-dropdown"
         variant="subtle"
         ref="dropdown"
+        role="presentation"
         @show="dataLayerSubmit"
     >
         <template #button-content>
@@ -104,6 +105,10 @@ export default {
                 color: $vs-color-text-inverse;
                 content: "\f077";
             }
+        }
+
+        &.show:focus {
+            @extend %primary-button-focus;
         }
 
         &:focus, &:active, &:active:focus {
