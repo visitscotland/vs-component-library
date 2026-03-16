@@ -1,3 +1,10 @@
+# [5.38.0](https://github.com/visitscotland/vs-component-library/compare/v5.37.0...v5.38.0) (2026-03-16)
+
+
+### Features
+
+* **main map:** add info text above search results ([ee17e9a](https://github.com/visitscotland/vs-component-library/commit/ee17e9a0dbfe91a070b8587663ddcb6368526a68))
+
 # [5.37.0](https://github.com/visitscotland/vs-component-library/compare/v5.36.0...v5.37.0) (2026-03-12)
 
 
