@@ -1,3 +1,10 @@
+# [5.39.0](https://github.com/visitscotland/vs-component-library/compare/v5.38.0...v5.39.0) (2026-03-16)
+
+
+### Features
+
+* **_bootstrap-overrides.css:** add theme-color ([348ab5e](https://github.com/visitscotland/vs-component-library/commit/348ab5e34cf4a6954aee04b8a3e304c2919b0f9c))
+
 # [5.38.0](https://github.com/visitscotland/vs-component-library/compare/v5.37.0...v5.38.0) (2026-03-16)
 
 
