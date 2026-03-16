@@ -5,7 +5,8 @@
  * and cuts down on code duplication, but may change in the
  * future if the build pipeline changes.
  *
- * See pull request #314 for more details and evidence
+ * NOTE: When adding imports here, ensure you also add to 
+ * src\styles\component.styles.scss for the package. 
  */
 
 @import "./resources.scss";
