@@ -16,6 +16,7 @@ $theme-colors: (
     info: $vs-color-background-information,
     warning: $vs-color-background-warning,
     danger: $vs-color-background-error,
+    brand: $vs-color-text-brand,
 );
 
 /* body text */
@@ -76,6 +77,8 @@ $spacers: (
     "600": $vs-spacer-600,
     "700": $vs-spacer-700,
 );
+
+
 
 /* Borders */
 $border-color: $vs-color-border-primary;
