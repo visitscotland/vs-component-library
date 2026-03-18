@@ -3,8 +3,8 @@ export default `
         <VsRow>
             <VsCol>
                 <VsCardGroup
-                    scroll-snap
-                    :cards-per-row="3"
+                    :scroll-snap="scrollSnap"
+                    :cards-per-row="cardsPerRow"
                 >
                     <VsCard
                         v-for="(card, index) in cardList2"

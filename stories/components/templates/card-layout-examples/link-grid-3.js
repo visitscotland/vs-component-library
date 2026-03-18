@@ -3,29 +3,23 @@ export default `
         <VsRow>
             <VsCol>
                 <VsCardGroup
-                    scroll-snap
-                    :cards-per-row="4"
+                    :scroll-snap="scrollSnap"
+                    :cards-per-row="cardsPerRow"
                 >
                     <VsCard
-                        v-for="(card, index) in cardList3"
-                        :key="'card-list-3-' + index"
+                        v-for="(card, index) in textCardList3"
+                        :key="'text-card-list-3-' + index"
+                        card-style="elevated"
+                        accent-bar
                     >
-                        <template #vs-card-header>
-                            <VsImg
-                                v-if="card.image"
-                                :src="card.image"
-                                class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                            />
-                        </template>
-
                         <template #vs-card-body>
-                            <div>
+                            <div class="px-125">
                                 <VsHeading
                                     level="3"
                                     heading-style="heading-xs"
                                 >
                                     <VsLink
-                                        :href="card.link"
+                                        href="#"
                                         class="stretched-link"
                                         variant="secondary"
                                     >
@@ -34,7 +28,7 @@ export default `
                                 </VsHeading>
 
                                 <VsBody class="mb-150">
-                                    <p class="truncate-2-lines">
+                                    <p class="truncate-3-lines">
                                         {{ card.description }}
                                     </p>
                                 </VsBody>

@@ -1,14 +1,14 @@
 export default `
-    <VsContainer class="mt-075 mt-lg-200 mb-200">
+    <VsContainer class="mt-075 mt-lg-200">
         <VsRow>
             <VsCol>
                 <VsCardGroup
-                    :cards-per-row="4"
+                    :scroll-snap="scrollSnap"
+                    :cards-per-row="cardsPerRow"
                 >
                     <VsCard
-                        v-for="(card, index) in cardListMultipleRows"
-                        :key="'card-list-multiple-rows-' + index"
-                        card-style="outlined"
+                        v-for="(card, index) in cardList3"
+                        :key="'card-list-3-' + index"
                     >
                         <template #vs-card-header>
                             <VsImg
@@ -19,7 +19,7 @@ export default `
                         </template>
 
                         <template #vs-card-body>
-                            <div class="px-075">
+                            <div>
                                 <VsHeading
                                     level="3"
                                     heading-style="heading-xs"

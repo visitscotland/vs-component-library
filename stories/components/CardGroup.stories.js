@@ -1,135 +1,132 @@
+import {
+    VsCol, VsRow, VsContainer,
+} from '@/components/grid';
 import VsCardGroup from '@/components/card-group/CardGroup.vue';
 import VsCard from '@/components/card/Card.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsImg from '@/components/img/Img.vue';
 import VsLink from '@/components/link/Link.vue';
-import VsButton from '@/components/button/Button.vue';
 import VsBody from '@/components/body/Body.vue';
+import VsArticleDetails from '@/components/article-details/ArticleDetails.vue';
+import VsBadge from '@/components/badge/Badge.vue';
+
+import visualCardData from '@/assets/fixtures/navigation-pages/visual-impact-cards.json';
+import informationalCardData from '@/assets/fixtures/navigation-pages/information-first-secondary-cards.json';
+
+import SplitLinkGrid3Example from './templates/card-layout-examples/split-link-grid-3';
+import SplitLinkGrid4Example from './templates/card-layout-examples/split-link-grid-4';
+import LinkGrid4Example from './templates/card-layout-examples/link-grid-4';
+import MultipleRowsGridExample from './templates/card-layout-examples/multiple-rows-grid';
+import CategoryGridExample from './templates/card-layout-examples/category-grid';
+
+const components = {
+    VsCard,
+    VsHeading,
+    VsImg,
+    VsLink,
+    VsBody,
+    VsArticleDetails,
+    VsBadge,
+    VsCol,
+    VsRow,
+    VsContainer,
+    VsCardGroup,
+};
+const createStory = (template, args, globals) => {
+    const story = {
+        render: (storyArgs) => ({
+            components,
+            template,
+            setup() {
+                const cardList2 = visualCardData.cardList2?.cards || [];
+                const cardList3 = visualCardData.cardList3?.cards || [];
+                const cardListOverlay = visualCardData.cardListOverlay?.cards || [];
+                const textCardList2 = informationalCardData.textCardList2?.cards || [];
+                const textCardList3 = informationalCardData.textCardList3?.cards || [];
+                const cardListMultipleRows = visualCardData.cardListMultipleRows?.cards || [];
+
+                // Merge story args with the data
+                return {
+                    cardList3,
+                    cardListOverlay,
+                    textCardList2,
+                    textCardList3,
+                    cardList2,
+                    cardListMultipleRows,
+                    scrollSnap: storyArgs.scrollSnap,
+                    cardsPerRow: storyArgs.cardsPerRow,
+                    ...storyArgs,
+                };
+            },
+        }),
+        parameters: {
+            layout: 'fullscreen',
+            docs: {
+                source: {
+                    code: template,
+                },
+            },
+        },
+    };
+
+    if (args) {
+        story.args = args;
+    }
+
+    if (globals) {
+        story.globals = globals;
+    }
+
+    return story;
+};
 
 export default {
     component: VsCardGroup,
     title: 'Components/Layout & content structure/CardGroup',
     argTypes: {
-
+        scrollSnap: {
+            control: {
+                type: 'select',
+            },
+            options: [false, true, 'always'],
+        },
+        cardsPerRow: {
+            control: {
+                type: 'number',
+            },
+        },
     },
 };
 
-const Template = (args) => ({
-    components: {
-        VsCardGroup,
-        VsCard,
-        VsHeading,
-        VsImg,
-        VsLink,
-        VsButton,
-        VsBody,
-    },
-    setup() {
-        const cards = [
-            {
-                image: './fixtures/megalinks/ashton-lane-wide.jpg',
-                title: '11 off-the-beaten-track holiday destinations',
-                description: 'Escape the tourist trails with out best off-the-beaten-track holiday ideas',
-                link: '#',
-            },
-            {
-                image: './fixtures/megalinks/glentress-forest.jpg',
-                title: 'Walking in Scotland',
-                description: 'Walking in Scotland means mighty mountains to conquer...',
-                link: '#',
-            },
-            {
-                image: './fixtures/megalinks/grand-hotel.jpg',
-                title: 'Family holidays in Scotland',
-                description: 'You\'ll wish your family holiday in Scotland could last forever.',
-                link: '#',
-            },
-            {
-                image: './fixtures/megalinks/wellness.jpg',
-                title: 'Walking in Scotland',
-                description: 'Walking in Scotland means mighty mountains to conquer...',
-                link: '#',
-            },
-            {
-                image: './fixtures/megalinks/outlander-wedding.jpg',
-                title: 'Family holidays in Scotland',
-                description: 'You\'ll wish your family holiday in Scotland could last forever.',
-                link: '#',
-            },
-            {
-                image: './fixtures/megalinks/illustrated-map-of-scotland.jpg',
-                title: '11 off-the-beaten-track holiday destinations',
-                description: 'Escape the tourist trails with out best off-the-beaten-track holiday ideas',
-                link: '#',
-            },
-        ];
-
-        return {
-            args,
-            cards,
-        };
-    },
-    template: `
-    <VsCardGroup 
-        v-bind="args"
-    >
-        <VsCard v-for="(card, index) in cards" :key="index">
-            <template #vs-card-header>
-                <VsImg
-                    :src="card.image"
-                    class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                />
-            </template>
-
-            <template #vs-card-body>
-                <VsHeading
-                    level="3"
-                    heading-style="heading-s"
-                >
-                    <VsLink
-                        :href="card.link"
-                        class="stretched-link"
-                        variant="secondary"
-                    >
-                        {{ card.title }}
-                    </VsLink>
-                </VsHeading>
-
-                <VsBody>
-                    {{ card.description }}
-                </VsBody>
-            </template>
-        </VsCard>
-    </VsCardGroup>
-    `,
-});
-
-export const Grid3 = Template.bind({
-});
-
-export const Grid4 = Template.bind({
-});
-
-Grid4.args = {
+const base = {
+    scrollSnap: false,
     cardsPerRow: 4,
+    variant: 'grid',
 };
 
-export const ScrollSnapAlways = Template.bind({
+export const GridRow3 = createStory(SplitLinkGrid3Example, {
+    ...base,
+    cardsPerRow: 3,
 });
 
-ScrollSnapAlways.args = {
-    scrollSnap: 'always',
-};
-
-export const ScrollSnapResponsive = Template.bind({
+export const GridRow4 = createStory(LinkGrid4Example, {
+    ...base,
 });
 
-ScrollSnapResponsive.args = {
+export const MultipleRowsGrid = createStory(MultipleRowsGridExample, {
+    ...base,
+});
+
+export const ScrollSnapResponsive = createStory(SplitLinkGrid4Example, {
+    ...base,
     scrollSnap: true,
-};
-
-ScrollSnapResponsive.globals = {
+}, {
     viewport: {
-        value: 'mobile1',
+        value: 'mobile2',
     },
-};
+});
+
+export const ScrollSnapAlways = createStory(CategoryGridExample, {
+    ...base,
+    scrollSnap: 'always',
+});

@@ -2,7 +2,7 @@ export default `
     <VsContainer class="mt-075 mt-lg-200">
         <VsRow>
             <VsCol>
-                <VsCardGroup scroll-snap="always">
+                <VsCardGroup :scroll-snap="scrollSnap">
                     <VsCard 
                         v-for="(card, index) in cardListOverlay"
                         :key="'category-card-list-' + index"
