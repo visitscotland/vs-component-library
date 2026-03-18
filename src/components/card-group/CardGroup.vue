@@ -76,11 +76,19 @@ export default {
         gap: $vs-spacer-125;
         grid-template-columns: 1fr;
 
-        @include media-breakpoint-up(md) {
+        @include media-breakpoint-up(sm) {
             gap: $vs-spacer-175;
         }
 
+        @include media-breakpoint-up(md) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
         @include media-breakpoint-up(lg) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @include media-breakpoint-up(xl) {
             grid-template-columns: repeat(var(--cards-in-row), 1fr);
         }
 

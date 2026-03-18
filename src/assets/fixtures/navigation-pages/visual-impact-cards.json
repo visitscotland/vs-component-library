@@ -36,27 +36,27 @@
   "cardList1": {
     "cards": [
       {
-        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/08/14/stac-pollaidh-header.jpg",
+        "image": "fixtures/cards/images/stac-pollaidh-header.webp",
         "title": "11 off-the-beaten-track holiday destinations",
         "description": "Escape the tourist trails with out best off-the-beaten-track holiday ideas...",
         "link": "#"
       },
       {
-        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/20/loch-ken",
+        "image": "fixtures/cards/images/loch-ken.webp",
         "title": "Walking in Scotland",
         "description": "Walking in Scotland means mighty mountains to conquer...",
         "link": "#"
       },
       {
-        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/02/12/60285-national-museum-of-scotland-large.jpg",
+        "image": "fixtures/cards/images/60285-national-museum-of-scotland-large.webp",
         "title": "Family holidays in Scotland",
-        "description": "You’ll wish your family holiday in Scotland could last forever.",
+        "description": "You'll wish your family holiday in Scotland could last forever.",
         "link": "#"
       },
       {
-        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2023/06/12/caerlaverock-castle-2.jpg",
-        "title": "Your ultimate guide to cycling in Scotland",
-        "description": "Planning a cycling trip? Here's your ultimate guide to cycling in Scotland.",
+        "image": "fixtures/cards/images/puffin-isle-of-may.webp",
+        "title": "Birdwatching in Scotland",
+        "description": "Interested in bird watching beyond your garden? Find Scottish seabird centres, birds of prey experiences and the best bird watching sites in the UK. See more.",
         "link": "#"
       }
     ]
@@ -166,7 +166,7 @@
       {
         "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2023/04/06/salisbury-crags?size=lg",
         "title": "Affordable and budget-friendly holidays in Scotland",
-        "description": "Find out how to have a cheap holiday in Scotland with our top budget tips. From free attractions to budget accommodation for your holiday, we’ll help you get the best value out of your Scottish break.",
+        "description": "Find out how to have a cheap holiday in Scotland with our top budget tips. From free attractions to budget accommodation for your holiday, we'll help you get the best value out of your Scottish break.",
         "link": "#"
       },
       {
@@ -178,7 +178,83 @@
       {
         "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2025/09/25/japanese-garden.jpg?size=lg",
         "title": "Passes & offers for holidays, attractions & travel in Scotland",
-        "description": "Scotland can offer great value for money all year round. Here’s our one-stop shop for great offers, deals and passes that can make trip planning easy and save your money throughout the seasons.",
+        "description": "Scotland can offer great value for money all year round. Here's our one-stop shop for great offers, deals and passes that can make trip planning easy and save your money throughout the seasons.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/11/30/victoria-street-in-edinburgh?size=lg",
+        "title": "Shopping in Scotland",
+        "description": "Find information about shopping in Scotland, with details about the very best local food and drink, stylish boutiques, shops and arts and craft outlets.",
+        "link": "#"
+      }
+    ]
+  },
+  "cardListMultipleRows": {
+    "cards": [
+      {
+        "image": "fixtures/cards/images/stac-pollaidh-header.webp",
+        "title": "11 off-the-beaten-track holiday destinations",
+        "description": "Escape the tourist trails with out best off-the-beaten-track holiday ideas...",
+        "link": "#"
+      },
+      {
+        "image": "fixtures/cards/images/loch-ken.webp",
+        "title": "Walking in Scotland",
+        "description": "Walking in Scotland means mighty mountains to conquer...",
+        "link": "#"
+      },
+      {
+        "image": "fixtures/cards/images/60285-national-museum-of-scotland-large.webp",
+        "title": "Family holidays in Scotland",
+        "description": "You'll wish your family holiday in Scotland could last forever.",
+        "link": "#"
+      },
+      {
+        "image": "fixtures/cards/images/puffin-isle-of-may.webp",
+        "title": "Birdwatching in Scotland",
+        "description": "Interested in bird watching beyond your garden? Find Scottish seabird centres, birds of prey experiences and the best bird watching sites in the UK. See more.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2023/03/27/dunnottar-castle",
+        "title": "10 Great Scottish castles",
+        "description": "Discover 10 of Scotland's greatest castles and find out what makes them so iconic.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/07/30/highland-cow-on-mull.jpg",
+        "title": "Where to see Highland cows in Scotland",
+        "description": "One of the most sought-after Scottish experiences is meeting our hairy and loveable Highland cows. Or as we Scots call them, Highland coos!",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/25/beinn-eighe-mountain-trail",
+        "title": "15 Beautiful nature reserves to explore in Scotland",
+        "description": "It's time to get out on the road and discover (or rediscover!) some of the many nature reserves which Scotland has to offer.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/10/26/friends-at-ben-ledi",
+        "title": "Scotland's national parks and natural heritage sites",
+        "description": "Explore the wild expanses of our national parks and national nature reserves and learn about how Scotland was formed in our Geoparks.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2023/04/06/salisbury-crags?size=lg",
+        "title": "Affordable and budget-friendly holidays in Scotland",
+        "description": "Find out how to have a cheap holiday in Scotland with our top budget tips. From free attractions to budget accommodation for your holiday, we'll help you get the best value out of your Scottish break.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/11/05/creel-seafood?size=lg",
+        "title": "Scottish food & drink",
+        "description": "Taste and see why Scottish food and drink is famous all over the world.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2025/09/25/japanese-garden.jpg?size=lg",
+        "title": "Passes & offers for holidays, attractions & travel in Scotland",
+        "description": "Scotland can offer great value for money all year round. Here's our one-stop shop for great offers, deals and passes that can make trip planning easy and save your money throughout the seasons.",
         "link": "#"
       },
       {

@@ -17,6 +17,7 @@ import SplitLinkGrid3Example from './card-layout-examples/split-link-grid-3';
 import SplitLinkGrid4Example from './card-layout-examples/split-link-grid-4';
 import LinkGrid3Example from './card-layout-examples/link-grid-3';
 import LinkGrid4Example from './card-layout-examples/link-grid-4';
+import MultipleRowsGridExample from './card-layout-examples/multiple-rows-grid';
 import CategoryGridExample from './card-layout-examples/category-grid';
 
 const components = {
@@ -43,12 +44,14 @@ const createStory = (template) => ({
             const cardListOverlay = visualCardData.cardListOverlay?.cards || [];
             const textCardList2 = informationalCardData.textCardList2?.cards || [];
             const textCardList3 = informationalCardData.textCardList3?.cards || [];
+            const cardListMultipleRows = visualCardData.cardListMultipleRows?.cards || [];
             return {
                 cardList3,
                 cardListOverlay,
                 textCardList2,
                 textCardList3,
                 cardList2,
+                cardListMultipleRows,
             };
         },
     }),
@@ -72,4 +75,5 @@ export const SplitLinkGrid3 = createStory(SplitLinkGrid3Example);
 export const SplitLinkGrid4 = createStory(SplitLinkGrid4Example);
 export const LinkCardGrid3 = createStory(LinkGrid3Example);
 export const LinkCardGrid4 = createStory(LinkGrid4Example);
+export const MultipleRowsGrid = createStory(MultipleRowsGridExample);
 export const CategoryGrid = createStory(CategoryGridExample);
