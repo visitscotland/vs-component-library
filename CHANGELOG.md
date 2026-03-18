@@ -1,3 +1,10 @@
+## [5.39.2](https://github.com/visitscotland/vs-component-library/compare/v5.39.1...v5.39.2) (2026-03-18)
+
+
+### Bug Fixes
+
+* **build:** adjust path load for glob 9 update ([df06d53](https://github.com/visitscotland/vs-component-library/commit/df06d53ec4390c7729c61c9891431c36137a911d))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
