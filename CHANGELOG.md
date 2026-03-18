@@ -1,3 +1,14 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [5.39.1](https://github.com/visitscotland/vs-component-library/compare/v5.39.0...v5.39.1) (2026-03-18)
+
+
+### 🔖 Others
+
+* **deps-dev:** bump storybook ([447dd81](https://github.com/visitscotland/vs-component-library/commit/447dd81e711fcaf77bed572510bc6df678494462))
+
 # [5.39.0](https://github.com/visitscotland/vs-component-library/compare/v5.38.0...v5.39.0) (2026-03-16)
 
 
