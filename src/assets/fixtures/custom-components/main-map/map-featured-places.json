@@ -580,5 +580,101 @@
                 "longitude": -2.7194167
             }
         }
+    },
+    {
+        "type": "feature",
+        "properties": {
+            "id": "aa286327-5023-47d5-92eb-2fd807e8e215",
+            "title": "Cairngorms national park",
+            "description": "The Cairngorms National Park has more mountains, forest paths, rivers, lochs, wildlife hotspots and friendly villages than you can possibly imagine. You can find five of the UK's six highest mountains here, alongside 55 Munros - mountains over 3,000 ft. There is no shortage of things to see and do in the mighty, majestic Cairngorms National Park, from ancient fortresses, wildlife and distilleries to some of the best attractions and museums.",
+            "category": {
+                "id": "national-parks",
+                "label": "National Parks"
+            },
+            "image": "/site/binaries/content/gallery/visitscotland/default/header-iconicviewpoints.jpg",
+            "link": {
+                "label": "Discover Cairngorms national park",
+                "link": "https://www.visitscotland.com/places-to-go/national-parks/cairngorms",
+                "type": "EXTERNAL"
+            },
+            "placeId": "ChIJybx_ORbwhUgRNIv1lLkvqs4",
+            "viewport": {
+                "low": {
+                    "latitude": 56.71657,
+                    "longitude": -4.4165
+                },
+                "high": {
+                    "latitude": 57.37986,
+                    "longitude": -2.80701
+                }
+            },
+            "locationCentre": {
+                "latitude": 57.048215,
+                "longitude": -3.611755
+            }
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-3.5616, 57.0492]
+        }
+    },
+    {
+        "type": "feature",
+        "properties": {
+            "id": "a48683af-440e-40d6-8c37-df5fa6ae5ff9",
+            "title": "Casa Jose",
+            "description": "Short description.",
+            "category": {
+                "id": "national-parks",
+                "label": "National Parks"
+            },
+            "image": "/site/binaries/content/gallery/visitscotland/default/calanais.jpg",
+            "link": {
+                "label": "Discover Casa Jose",
+                "link": "https://www.visitbritain.com",
+                "type": "EXTERNAL"
+            }
+        },
+        "geometry": {
+            "type": "Point",
+                "coordinates": [-4.82427833333333, 56.9493933333333]
+            }
+        },
+    {
+        "type": "feature",
+        "properties": {
+            "id": "00682e49-66d8-41fd-8086-eeb268d6da58",
+            "title": "Loch Lomond and The Trossachs National Park",
+            "description": "Scotland's first national park is packed with interesting corners for you to explore, each with its own character. Between 22 lochs, 39 miles of coastline around three sea lochs, miles of rivers and paths, 21 Munros (mountains over 3,000 ft) and acres of unspoilt land, there is an endless list of things to see and do in the scenic Loch Lomond &amp; The Trossachs National Park.",
+            "category": {
+                "id": "national-parks",
+                "label": "National Parks"
+            },
+            "image": "/site/binaries/content/gallery/visitscotland/default/scotts--view-lothar-stobbe-instagram-lairdsphotography.jpg",
+            "link": {
+                "label": "Discover Loch Lomond and The Trossachs National Park",
+                "link": "https://www.visitscotland.com/places-to-go/national-parks/loch-lomond-trossachs",
+                "type": "EXTERNAL"
+            },
+            "placeId": "ChIJ81Ecc9P_iEgROPs341jn8cQ",
+            "viewport": {
+                "low": {
+                    "latitude": 55.9738,
+                    "longitude": -5.09766
+                },
+                "high": {
+                    "latitude": 56.48676,
+                    "longitude": -4.06082
+                }
+            },
+            "locationCentre": {
+                "latitude": 56.23028,
+                "longitude": -4.57924
+            }
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [-4.584645, 56.010178]
+        }
     }
 ]
