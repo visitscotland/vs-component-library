@@ -1,3 +1,15 @@
+# [5.40.0](https://github.com/visitscotland/vs-component-library/compare/v5.39.2...v5.40.0) (2026-03-19)
+
+
+### Bug Fixes
+
+* **cardgroup:** fix typo in card data ([a406d69](https://github.com/visitscotland/vs-component-library/commit/a406d691f126741aafd4b31a84318a37ab0f03e5))
+
+
+### Features
+
+* **card:** update card group to improve multiple row layout and update storys ([eb2162b](https://github.com/visitscotland/vs-component-library/commit/eb2162bea487c42c4577ce40bd95666f3c8cb155))
+
 ## [5.39.2](https://github.com/visitscotland/vs-component-library/compare/v5.39.1...v5.39.2) (2026-03-18)
 
 
