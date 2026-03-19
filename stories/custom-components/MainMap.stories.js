@@ -57,6 +57,7 @@ const base = {
         searchResults: 'Search results for ',
         openSidebarButton: 'openSidebarButton',
     },
+    alertText: 'A selection of places matching your search is shown below. Up to 20 results are displayed.',
 };
 
 export const Default = Template.bind();

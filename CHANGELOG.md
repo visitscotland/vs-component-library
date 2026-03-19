@@ -1,3 +1,54 @@
+# [5.40.0](https://github.com/visitscotland/vs-component-library/compare/v5.39.2...v5.40.0) (2026-03-19)
+
+
+### Bug Fixes
+
+* **cardgroup:** fix typo in card data ([a406d69](https://github.com/visitscotland/vs-component-library/commit/a406d691f126741aafd4b31a84318a37ab0f03e5))
+
+
+### Features
+
+* **card:** update card group to improve multiple row layout and update storys ([eb2162b](https://github.com/visitscotland/vs-component-library/commit/eb2162bea487c42c4577ce40bd95666f3c8cb155))
+
+## [5.39.2](https://github.com/visitscotland/vs-component-library/compare/v5.39.1...v5.39.2) (2026-03-18)
+
+
+### Bug Fixes
+
+* **build:** adjust path load for glob 9 update ([df06d53](https://github.com/visitscotland/vs-component-library/commit/df06d53ec4390c7729c61c9891431c36137a911d))
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [5.39.1](https://github.com/visitscotland/vs-component-library/compare/v5.39.0...v5.39.1) (2026-03-18)
+
+
+### 🔖 Others
+
+* **deps-dev:** bump storybook ([447dd81](https://github.com/visitscotland/vs-component-library/commit/447dd81e711fcaf77bed572510bc6df678494462))
+
+# [5.39.0](https://github.com/visitscotland/vs-component-library/compare/v5.38.0...v5.39.0) (2026-03-16)
+
+
+### Features
+
+* **_bootstrap-overrides.css:** add theme-color ([348ab5e](https://github.com/visitscotland/vs-component-library/commit/348ab5e34cf4a6954aee04b8a3e304c2919b0f9c))
+
+# [5.38.0](https://github.com/visitscotland/vs-component-library/compare/v5.37.0...v5.38.0) (2026-03-16)
+
+
+### Features
+
+* **main map:** add info text above search results ([ee17e9a](https://github.com/visitscotland/vs-component-library/commit/ee17e9a0dbfe91a070b8587663ddcb6368526a68))
+
+# [5.37.0](https://github.com/visitscotland/vs-component-library/compare/v5.36.0...v5.37.0) (2026-03-12)
+
+
+### Features
+
+* **forms:** add optional consentList field to submission ([2d434a6](https://github.com/visitscotland/vs-component-library/commit/2d434a6770ea610801e624b31b4974c7e2dc5dac))
+
 # [5.36.0](https://github.com/visitscotland/vs-component-library/compare/v5.35.0...v5.36.0) (2026-03-09)
 
 
