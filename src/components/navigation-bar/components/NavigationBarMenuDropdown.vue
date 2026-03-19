@@ -88,6 +88,7 @@ export default {
         transition: background-color $duration-base;
         white-space: normal;
         text-align: left;
+        background-clip: padding-box;
 
         &:focus-visible {
             box-shadow: $vs-focus-shadow inset;
@@ -142,9 +143,13 @@ export default {
             color: $vs-color-text-cta-on-light;
         }
 
+        &:focus {
+            box-shadow: 0 0 0 2px $vs-color-interaction-focus;
+        }
+
         &:active, &:active:focus, &.show {
             &:hover {
-                border-color: $vs-color-interaction-cta-subtle-pressed;
+                border-color: $vs-color-interaction-cta-subtle-hover;
             }
 
             .vs-icon {
