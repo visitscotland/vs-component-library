@@ -45,7 +45,7 @@
                         <VsAlert
                             v-if="noResults || (props.alertText && noResults === false)"
                             class="mt-075 mb-150"
-                            id="vs-map__no-results-alert"
+                            id="vs-map__alert"
                             size="small"
                         >
                             <template v-if="noResults">
