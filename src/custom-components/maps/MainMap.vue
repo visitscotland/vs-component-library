@@ -886,8 +886,6 @@ async function searchByCategory({
 
     const searchId = currentSearchId;
 
-    noResults.value = false;
-
     googleMapStore.filterUsesCount += 1;
 
     currentSearch.value = 'nearby';
@@ -938,7 +936,6 @@ async function searchByCategory({
 async function searchByText() {
     resetMap();
     resetCategories();
-    noResults.value = false;
 
     currentSearchId += 1;
 
@@ -999,6 +996,7 @@ async function addMarkers(searchId) {
         noResults.value = true;
         searchRequest.value.style.display = 'none';
     } else {
+        noResults.value = false;
         searchRequest.value.style.display = 'block';
     }
 
@@ -1213,9 +1211,7 @@ function checkFirstInteraction(interactionType) {
 function getVisibleMarkerCount() {
     const bounds = gMap.getBounds();
 
-    if (!bounds) {
-        return 0;
-    }
+    if (!bounds) return 0;
 
     let visibleCount = 0;
 
