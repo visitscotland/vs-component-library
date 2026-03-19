@@ -22,7 +22,7 @@ module.exports = {
 
     entry: glob.sync('./src/styles/third-party/**.scss').reduce((obj, el) => {
         /* eslint-disable-next-line */
-        obj[path.parse(el).name] = el;
+        obj[path.parse(el).name] = el.startsWith('./') ? el : `./${el}`;
         return obj;
     }, {
 
