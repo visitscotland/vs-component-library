@@ -65,6 +65,15 @@ export default {
         }
     }
 
+    ul, ol {
+        padding-left: $vs-spacer-200;
+        margin-bottom: $vs-spacer-100;
+
+        li {
+            list-style-type: inherit;
+        }
+    }
+
     h2, h3, h4, h5, h6 {
         line-height: $vs-line-height-heading;
         letter-spacing: $vs-letter-spacing-heading;

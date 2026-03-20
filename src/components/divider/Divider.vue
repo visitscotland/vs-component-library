@@ -3,6 +3,7 @@
         class="vs-divider"
         :class="props.variant ? `vs-divider--variant-${props.variant}` : null"
         data-test="vs-divider"
+        aria-hidden="true"
     >
 </template>
 

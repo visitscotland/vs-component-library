@@ -38,6 +38,13 @@
                 </VsCol>
             </VsRow>
         </VsContainer>
+
+        <template #backdrop>
+            <VsBackdrop
+                :show="show"
+                @click="hideModal()"
+            />
+        </template>
     </BModal>
 </template>
 
@@ -47,6 +54,7 @@ import {
 } from '@/components/grid';
 import { BModal } from 'bootstrap-vue-next';
 import VsButton from '@/components/button';
+import VsBackdrop from '@/components/backdrop/Backdrop.vue';
 
 /**
  * The modal is used as a dialog prompt for users
@@ -63,6 +71,7 @@ export default {
         VsContainer,
         VsButton,
         BModal,
+        VsBackdrop,
     },
     props: {
         /**
@@ -184,12 +193,6 @@ export default {
 
     .row > [class*='col-'] {
         display: block;
-    }
-}
-
-.b-overlay {
-    .bg-dark {
-        background-color: rgba(0, 0, 0, 0.5);
     }
 }
 </style>

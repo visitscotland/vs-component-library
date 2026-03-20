@@ -4,28 +4,6 @@ export default {
     component: VsTooltip,
     title: 'Components/Overlays & popups/Tooltip',
     argTypes: {
-        variant: {
-            options: [
-                'primary',
-                'secondary',
-                'subtle',
-                'dark',
-                'light',
-            ],
-            control: {
-                type: 'radio',
-            },
-        },
-        size: {
-            options: [
-                'sm',
-                'md',
-                'lg',
-            ],
-            control: {
-                type: 'radio',
-            },
-        },
         position: {
             options: [
                 'top',
@@ -35,6 +13,11 @@ export default {
             ],
             control: {
                 type: 'radio',
+            },
+        },
+        subtle: {
+            control: {
+                type: 'boolean',
             },
         },
     },
@@ -51,7 +34,7 @@ const Template = (args) => ({
     },
     template: `
         <VsTooltip v-bind="args">
-            <template v-if="${'default' in args}" v-slot>${args.default}</template>
+            ${args.title}
         </VsTooltip>
     `,
 });
@@ -61,7 +44,6 @@ const base = {
     size: 'sm',
     position: 'top',
     title: 'Travel by bus',
-    href: '#',
     'icon-only': true,
     variant: 'subtle',
 };
@@ -70,3 +52,11 @@ export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const Subtle = Template.bind({
+});
+
+Subtle.args = {
+    ...base,
+    subtle: true,
+};

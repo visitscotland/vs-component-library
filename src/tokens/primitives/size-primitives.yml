@@ -19,6 +19,8 @@ aliases:
     value: "1.75rem"
   vs-size-200:
     value: "2rem"
+  vs-size-225:
+    value: "2.25rem"
   vs-size-250:
     value: "2.5rem"
   vs-size-300:

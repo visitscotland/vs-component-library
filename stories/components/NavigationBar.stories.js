@@ -1,46 +1,93 @@
-<template>
-    <div class="vs-sticky-nav">
-        <VsNavigationBar
-            sidebar-close-label="Close sidebar menu"
-            sidebar-open-label="Main menu"
-            sidebar-title="Navigation menu"
+import { userEvent } from 'storybook/test';
+import VsNavigationBar from '@/components/navigation-bar/NavigationBar.vue';
+import VsNavigationBarMenu from '@/components/navigation-bar/components/NavigationBarMenu.vue';
+import VsNavigationBarMenuDropdown from '@/components/navigation-bar/components/NavigationBarMenuDropdown.vue';
+import VsNavigationBarMenuItem from '@/components/navigation-bar/components/NavigationBarMenuItem.vue';
+import VsNavigationBarSearch from '@/components/navigation-bar/components/NavigationBarSearch.vue';
+import VsLink from '@/components/link/Link.vue';
+import VsIcon from '@/components/icon/Icon.vue';
+import VsButton from '@/components/button/Button.vue';
+import VsAccordion from '@/components/accordion/Accordion.vue';
+import VsAccordionItem from '@/components/accordion/components/AccordionItem.vue';
+import VsAccordionToggle from '@/components/accordion/components/AccordionToggle.vue';
+import VsDivider from '@/components/divider/Divider.vue';
+import VsTooltip from '@/components/tooltip/Tooltip.vue';
+import VsSvgLink from '@/components/svg-link/SvgLink.vue';
+
+import b2cNavExample from '@/assets/fixtures/navigation-bar/b2c-nav.json';
+import manyItemsNav from '@/assets/fixtures/navigation-bar/many-items-nav.json';
+import designTokens from '@/assets/tokens/tokens.json';
+
+export default {
+    component: VsNavigationBar,
+    title: 'Components/Navigation/NavigationBar',
+    parameters: {
+        layout: 'fullscreen',
+    },
+};
+
+const Template = (args) => ({
+    components: {
+        VsNavigationBar,
+        VsSvgLink,
+        VsNavigationBarMenu,
+        VsNavigationBarMenuDropdown,
+        VsNavigationBarMenuItem,
+        VsNavigationBarSearch,
+        VsLink,
+        VsIcon,
+        VsButton,
+        VsAccordion,
+        VsAccordionItem,
+        VsAccordionToggle,
+        VsDivider,
+        VsTooltip,
+    },
+    setup() {
+        return {
+            args,
+            manyItemsNav,
+            b2cNavExample,
+        };
+    },
+    template: `   
+        <VsNavigationBar 
+            :sidebar-close-label="args.sidebarCloseLabel"
+            :sidebar-open-label="args.sidebarOpenLabel"
+            :sidebar-title="args.sidebarTitle"
+            :sidebarBreakpoint="args.sidebarBreakpoint"
         >
             <template #logo-link>
                 <VsSvgLink
-                    link-alt-text="VisitScotland Home"
-                    href="#"
-                    :svg-fill="tokens['vs-color-background-brand']"
-                    svg-path="visitscotland-logo"
-                    svg-width="167px"
-                    svg-height="28px"
+                    :linkAltText="args.svgAltText"
+                    :href="args.svgHref"
+                    :svgFill="args.svgColor"
+                    :svgPath="args.svgPath"
+                    :svgWidth="args.svgWidth"
+                    :svgHeight="args.svgHeight"
                 />
             </template>
 
             <template #navigation-bar-menu>
-                <VsNavigationBarMenu menu-aria-label="Main navigation menu">
-                    <template
-                        v-for="(item) in menuList"
-                        :key="`top-${item.title}`"
-                    >
+                <VsNavigationBarMenu :menu-aria-label="args.menuAriaLabel">
+                    <template v-for="(item, index) in args.navData" :key="index">
                         <li v-if="item.dropdownNav">
                             <VsNavigationBarMenuDropdown>
                                 <template #button-content>
                                     {{ item.title }}
                                 </template>
 
-                                <VsNavigationBarMenuItem
-                                    v-for="(dropdownItem) in item.dropdownNav"
-                                    :key="`${item.title}-${dropdownItem.title}`"
+                                <VsNavigationBarMenuItem 
+                                    v-for="(dropdownItem, dropdownIndex) in item.dropdownNav" 
+                                    :key="dropdownIndex"
                                     :href="dropdownItem.href"
                                 >
                                     {{ dropdownItem.title }}
                                 </VsNavigationBarMenuItem>
 
-                                <li
-                                    v-if="item.cta"
-                                    class="my-075 mx-100"
-                                >
-                                    <VsLink
+                                <li class="my-075 mx-100">
+                                    <VsLink 
+                                        v-if="item.cta" 
                                         :href="item.href"
                                         type="internal"
                                         no-visited-styles
@@ -51,7 +98,7 @@
                             </VsNavigationBarMenuDropdown>
                         </li>
 
-                        <VsNavigationBarMenuItem
+                        <VsNavigationBarMenuItem 
                             v-else
                             variant="primary-menu-item"
                             :href="item.href"
@@ -63,14 +110,16 @@
             </template>
 
             <template #navigation-bar-utilities>
-                <nav aria-label="Utility menu">
+                <nav :aria-label="args.utilityMenuAriaLabel">
                     <ul class="d-flex">
                         <li class="me-075">
-                            <VsNavigationBarSearch />
+                            <VsNavigationBarSearch
+                                :showLabelBreakpoint="args.searchShowLabelBreakpoint"
+                            />
                         </li>
-                        <li
+                        <li 
+                            v-if="!args.compactUtilities" 
                             class="d-none d-md-block me-075"
-                            v-if="menuType === 'b2c'"
                         >
                             <VsTooltip
                                 title="Map of Scotland"
@@ -86,14 +135,13 @@
                             </VsTooltip>
                         </li>
                         <li
-                            v-if="menuType === 'b2c'"
+                            v-if="!args.compactUtilities" 
                             class="d-none d-md-block me-0 me-md-075 me-lg-0"
                         >
                             <VsNavigationBarMenuDropdown subtle>
                                 <template #button-content>
-                                    <span class="visually-hidden">Choose language: </span> EN
+                                    <span class="visually-hidden">Choose language: </span>EN 
                                 </template>
-
                                 <VsNavigationBarMenuItem href="#">
                                     English
                                 </VsNavigationBarMenuItem>
@@ -111,15 +159,12 @@
 
             <template #sidebar-body>
                 <VsAccordion>
-                    <nav aria-label="main navigation menu">
+                    <nav :aria-label="args.menuAriaLabel">
                         <ul>
-                            <template
-                                v-for="(mobileItem, index) in menuList"
-                                :key="`sidebar-${mobileItem.title}`"
-                            >
+                            <template v-for="(mobileItem, mobileItemIndex) in args.navData" :key="mobileItemIndex">
                                 <li v-if="mobileItem.dropdownNav">
-                                    <VsAccordionItem
-                                        :control-id="`page-header-sidebar-nav-${index}`"
+                                    <VsAccordionItem 
+                                        :control-id="mobileItemIndex.toString()"
                                     >
                                         <template #title>
                                             {{ mobileItem.title }}
@@ -127,19 +172,16 @@
 
                                         <ul>
                                             <VsNavigationBarMenuItem
-                                                v-for="(mobileDropdownItem)
-                                                    in mobileItem.dropdownNav"
-                                                :key="`${mobileItem.title}-${mobileDropdownItem.title}`"
+                                                v-for="(mobileDropdownItem, mobileDropdownIndex) in mobileItem.dropdownNav" 
+                                                :key="mobileDropdownIndex"
                                                 :href="mobileDropdownItem.href"
                                             >
                                                 {{ mobileDropdownItem.title }}
                                             </VsNavigationBarMenuItem>
 
-                                            <li
-                                                v-if="mobileItem.cta"
-                                                class="my-075 mx-100"
-                                            >
-                                                <VsLink
+                                            <li class="my-075 mx-100">
+                                                <VsLink 
+                                                    v-if="mobileItem.cta" 
                                                     :href="mobileItem.href"
                                                     type="internal"
                                                     no-visited-styles
@@ -167,14 +209,14 @@
                 </VsAccordion>
             </template>
 
-            <template
+            <template 
                 #sidebar-footer
-                v-if="menuType === 'b2c'"
+                v-if="!args.compactUtilities"
             >
                 <div class="p-100 pb-300">
-                    <nav aria-label="Sidebar utility menu">
+                    <nav :aria-label="args.sidebarUtilityMenuAriaLabel">
                         <ul class="d-flex justify-content-end">
-                            <li class="me-075 d-block d-md-none">
+                            <li class="d-block d-md-none me-075">
                                 <VsTooltip
                                     title="Map of Scotland"
                                     subtle
@@ -183,16 +225,15 @@
                                     icon="fa-regular fa-map"
                                     icon-only
                                     href="#"
+                                    class="d-block"
                                 >
                                     Map of Scotland
                                 </VsTooltip>
                             </li>
                             <li class="d-block d-md-none">
-                                <VsNavigationBarMenuDropdown
-                                    subtle
-                                >
+                                <VsNavigationBarMenuDropdown subtle>
                                     <template #button-content>
-                                        <span class="visually-hidden">Choose language: </span> EN
+                                        <span class="visually-hidden">Choose language: </span>EN 
                                     </template>
 
                                     <VsNavigationBarMenuItem href="#">
@@ -211,73 +252,65 @@
                 </div>
             </template>
         </VsNavigationBar>
-    </div>
+    `,
+});
 
-    <slot name="breadcrumb" />
+const base = {
+    menuAriaLabel: 'Main navigation menu',
+    utilityMenuAriaLabel: 'Utility menu',
+    sidebarUtilityMenuAriaLabel: 'Sidebar Utility menu',
+    sidebarCloseLabel: 'Close navigation menu',
+    sidebarOpenLabel: 'Main menu',
+    sidebarTitle: 'Navigation menu',
+    svgAltText: 'VisitScotland Home',
+    svgColor: designTokens['vs-color-background-brand'],
+    svgHref: '#',
+    svgPath: 'visitscotland-logo',
+    svgWidth: '167px',
+    svgHeight: '28px',
+    navData: b2cNavExample,
+    compactUtilities: false,
+    sidebarBreakpoint: 'md',
+};
 
-    <slot name="heroSection" />
-</template>
+export const Default = Template.bind({
+});
+Default.args = base;
 
-<script>
-import VsNavigationBar from '@/components/navigation-bar/NavigationBar.vue';
-import VsNavigationBarMenu from '@/components/navigation-bar/components/NavigationBarMenu.vue';
-import VsNavigationBarMenuItem from '@/components/navigation-bar/components/NavigationBarMenuItem.vue';
-import VsNavigationBarMenuDropdown from '@/components/navigation-bar/components/NavigationBarMenuDropdown.vue';
-import VsNavigationBarSearch from '@/components/navigation-bar/components/NavigationBarSearch.vue';
-import VsSvgLink from '@/components/svg-link/SvgLink.vue';
-import VsLink from '@/components/link/Link.vue';
-import VsAccordion from '@/components/accordion/Accordion.vue';
-import VsAccordionItem from '@/components/accordion/components/AccordionItem.vue';
-import VsDivider from '@/components/divider/Divider.vue';
-import VsTooltip from '@/components/tooltip/Tooltip.vue';
+export const MobileNavigation = Template.bind({
+});
 
-import b2bNav from '@/assets/fixtures/navigation-bar/b2b-nav.json';
-import b2cNav from '@/assets/fixtures/navigation-bar/b2c-nav.json';
-import designTokens from '@/assets/tokens/tokens.json';
+MobileNavigation.args = base;
 
-/**
- * @displayName Page Header
- */
-export default {
-    name: 'VsPageHeader',
-    status: 'prototype',
-    release: '0.0.1',
-    components: {
-        VsNavigationBar,
-        VsNavigationBarMenu,
-        VsNavigationBarMenuItem,
-        VsNavigationBarMenuDropdown,
-        VsNavigationBarSearch,
-        VsSvgLink,
-        VsLink,
-        VsAccordion,
-        VsAccordionItem,
-        VsDivider,
-        VsTooltip,
-    },
-    props: {
-        /**
-        * Choose which menu to display
-        */
-        menuType: {
-            type: String,
-            default: 'b2b',
-            validator: (value) => value.match(/(b2b|b2c)/),
-        },
-    },
-    data() {
-        return {
-            navData: {
-                b2c: b2cNav,
-                b2b: b2bNav,
-            },
-            tokens: designTokens,
-        };
-    },
-    computed: {
-        menuList() {
-            return this.navData[this.menuType] || [];
-        },
+MobileNavigation.globals = {
+    viewport: {
+        value: 'mobile1',
     },
 };
-</script>
+
+export const MobileSidebarOpen = Template.bind({
+});
+
+MobileSidebarOpen.args = base;
+
+MobileSidebarOpen.globals = {
+    viewport: {
+        value: 'mobile1',
+    },
+};
+
+MobileSidebarOpen.play = async({ canvasElement }) => {
+    const sidebarButton = canvasElement.querySelector('.vs-navigation-bar-sidebar-button');
+
+    await userEvent.click(sidebarButton);
+};
+
+export const CustomBreakpoints = Template.bind({
+});
+CustomBreakpoints.args = {
+    ...base,
+    navData: manyItemsNav,
+    compactUtilities: true,
+    sidebarBreakpoint: 'lg',
+    searchShowLabelBreakpoint: 'xxl',
+};
