@@ -12,7 +12,8 @@
         "link": "#"
       },
       {
-        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2025/05/02/ballastbank-troon-header.jpg?size=md",
+        "image": "fixtures/hero/images/lavendar-fields.jpg",
+        "videoSrc": "fixtures/hero/video/lavendar-fields.mp4",
         "title": "Landscapes & nature",
         "link": "#"
       },
