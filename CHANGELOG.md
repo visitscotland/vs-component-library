@@ -1,3 +1,10 @@
+## [5.41.1](https://github.com/visitscotland/vs-component-library/compare/v5.41.0...v5.41.1) (2026-03-23)
+
+
+### Bug Fixes
+
+* **main map:** add missing icon ([0ae9e40](https://github.com/visitscotland/vs-component-library/commit/0ae9e406ed656204a670e1e203e4698627a3caf5))
+
 # [5.41.0](https://github.com/visitscotland/vs-component-library/compare/v5.40.0...v5.41.0) (2026-03-20)
 
 
