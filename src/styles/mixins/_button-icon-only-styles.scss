@@ -1,0 +1,25 @@
+@mixin button-icon-only-styles {
+    line-height: 1;
+
+    &.btn-sm {
+        padding: $vs-spacer-025;
+        width: 32px;
+        height: 32px;
+    }
+
+    &.btn-md {
+        padding: $vs-spacer-050 $vs-spacer-025;
+        width: 44px;
+        height: 44px;
+    }
+
+    &.btn-lg {
+        padding: $vs-spacer-050 $vs-spacer-025;
+        width: 52px;
+        height: 52px;
+    }
+
+    .vs-icon {
+        margin: 0;
+    }
+}

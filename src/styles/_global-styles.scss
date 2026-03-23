@@ -18,13 +18,31 @@ body {
     }
 }
 
+ul {
+    margin: 0;
+    padding: 0;
+
+    li{
+        list-style-type: none;
+    }
+}
+
 hr {
     opacity: 1;
 }
 
-.vs-sticky-nav {
+
+.vs-sticky-nav, 
+.vs-sticky-nav--no-global { 
     position: sticky;
     z-index: $zindex-fixed;
+}
+
+.vs-sticky-nav--no-global {
+    top: 0px;
+}
+
+.vs-sticky-nav {
     top: -28px;
 
     @include media-breakpoint-up(md) {
@@ -49,7 +67,8 @@ hr {
 }
 
 .no-js { 
-    .vs-sticky-nav {
+    .vs-sticky-nav,
+    .vs-sticky-nav--no-global {
         position: initial;
         top: 0;
 

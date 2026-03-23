@@ -1,0 +1,117 @@
+import { shallowMount, mount } from '@vue/test-utils';
+import axe from '@/../test/unit/helpers/axe-helper';
+import VsNavigationBarSidebarButton from '../NavigationBarSidebarButton.vue';
+
+const defaultProps = {
+    sidebarOpenLabel: 'Open navigation menu',
+    controlsId: 'navigation-sidebar',
+};
+
+const factoryShallowMount = (propsData) => shallowMount(VsNavigationBarSidebarButton, {
+    propsData: {
+        ...defaultProps,
+        ...propsData,
+    },
+});
+
+const factoryMount = (propsData) => mount(VsNavigationBarSidebarButton, {
+    propsData: {
+        ...defaultProps,
+        ...propsData,
+    },
+});
+
+describe('VsNavigationBarSidebarButton', () => {
+    it('should render a vs-tooltip-stub component', () => {
+        const wrapper = factoryShallowMount();
+        const tooltip = wrapper.find('[data-test=vs-navigation-bar-sidebar-button]');
+
+        expect(tooltip.exists()).toBe(true);
+    });
+
+    describe(':props', () => {
+        it('should accept and render sidebarOpenLabel as button text', () => {
+            const testLabel = 'Test open menu';
+            const wrapper = factoryMount({
+                sidebarOpenLabel: testLabel,
+            });
+
+            expect(wrapper.text()).toContain(testLabel);
+        });
+
+        it(':expanded - should accept and set aria-expanded attribute to "true" when true', () => {
+            const wrapper = factoryMount({
+                expanded: true,
+            });
+
+            expect(wrapper.attributes('aria-expanded')).toBe('true');
+        });
+
+        it(':expanded - should accept and set aria-expanded attribute to "false" when false', () => {
+            const wrapper = factoryMount({
+                expanded: false,
+            });
+
+            expect(wrapper.attributes('aria-expanded')).toBe('false');
+        });
+
+        it(':expanded - should default to "false"', () => {
+            const wrapper = factoryMount();
+
+            expect(wrapper.attributes('aria-expanded')).toBe('false');
+        });
+
+        it(':controlsId - should accept and set aria-controls attribute', () => {
+            const testId = 'test-sidebar-id';
+            const wrapper = factoryMount({
+                controlsId: testId,
+            });
+
+            expect(wrapper.attributes('aria-controls')).toBe(testId);
+        });
+    });
+
+    describe(':methods', () => {
+        it('should emit sidebar-open event when sidebarOpen method is called', () => {
+            const wrapper = factoryShallowMount();
+
+            wrapper.vm.sidebarOpen();
+
+            expect(wrapper.emitted('sidebar-open')).toBeTruthy();
+            expect(wrapper.emitted('sidebar-open')[0]).toEqual([true]);
+        });
+    });
+
+    describe(':events', () => {
+        it('should emit sidebar-open event when button is clicked', async() => {
+            const wrapper = factoryMount();
+
+            await wrapper.trigger('click');
+
+            expect(wrapper.emitted('sidebar-open')).toBeTruthy();
+            expect(wrapper.emitted('sidebar-open')[0]).toEqual([true]);
+        });
+    });
+
+    describe(':accessibility', () => {
+        it('should not have aXe accessibility issues', async() => {
+            const wrapper = factoryMount();
+            expect(await axe(wrapper.html())).toHaveNoViolations();
+        });
+
+        it('should have proper aria-haspopup for menu button', () => {
+            const wrapper = factoryMount();
+
+            expect(wrapper.attributes('aria-haspopup')).toBe('dialog');
+        });
+
+        it('should use sidebarOpenLabel for screen readers', () => {
+            const testLabel = 'Open main navigation';
+            const wrapper = factoryMount({
+                sidebarOpenLabel: testLabel,
+            });
+
+            expect(wrapper.text()).toContain(testLabel);
+        });
+    });
+});

@@ -119,6 +119,10 @@
             {
                 "id":"regions",
                 "label":"Regions"
+            },
+            {
+                "id": "national-parks",
+                "label": "National Parks"
             }
         ]
     }

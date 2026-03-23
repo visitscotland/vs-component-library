@@ -1,8 +1,9 @@
 <template>
     <VsButton
         v-bind="$attrs"
-        v-b-tooltip="{ placement: position }"
         class="vs-tooltip position-relative"
+        data-test="vs-tooltip"
+        v-b-tooltip="tooltipConfig"
         :title="title"
     >
         <slot />
@@ -47,6 +48,82 @@ export default {
             default: 'top',
             validator: (value) => value.match(/(top|right|left|bottom)/),
         },
+        /**
+         * Sets the subtle style variant
+         */
+        subtle: {
+            type: Boolean,
+            default: false,
+        },
+    },
+    computed: {
+        tooltipConfig() {
+            return {
+                placement: this.position,
+                customClass: [
+                    'vs-tooltip',
+                    this.subtle && 'vs-tooltip--subtle',
+                ].filter(Boolean).join(' '),
+            };
+        },
     },
 };
 </script>
+<style lang="scss">
+    .tooltip  {
+        border-radius: $vs-radius-small;
+        filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
+
+        .tooltip-inner {
+            background: $vs-color-background-bold;
+            border-radius: $vs-radius-small;
+        }
+
+        &.bs-tooltip-top .tooltip-arrow::before,
+        &.bs-tooltip-auto[data-popper-placement^=top] .tooltip-arrow::before {
+            border-top-color: $vs-color-background-bold;
+        }
+
+        &.bs-tooltip-bottom .tooltip-arrow::before,
+        &.bs-tooltip-auto[data-popper-placement^=bottom] .tooltip-arrow::before {
+            border-bottom-color: $vs-color-background-bold;
+        }
+
+        &.bs-tooltip-start .tooltip-arrow::before,
+        &.bs-tooltip-auto[data-popper-placement^=left] .tooltip-arrow::before {
+            border-left-color: $vs-color-background-bold;
+        }
+
+        &.bs-tooltip-end .tooltip-arrow::before,
+        &.bs-tooltip-auto[data-popper-placement^=right] .tooltip-arrow::before {
+            border-right-color: $vs-color-background-bold;
+        }
+
+        &.vs-tooltip--subtle {
+            .tooltip-inner {
+                color: $vs-color-text-primary;
+                background: $vs-color-background-inverse;
+            }
+
+            &.bs-tooltip-top .tooltip-arrow::before,
+            &.bs-tooltip-auto[data-popper-placement^=top] .tooltip-arrow::before {
+                border-top-color: $vs-color-background-inverse;
+            }
+
+            &.bs-tooltip-bottom .tooltip-arrow::before,
+            &.bs-tooltip-auto[data-popper-placement^=bottom] .tooltip-arrow::before {
+                border-bottom-color: $vs-color-background-inverse;
+            }
+
+            &.bs-tooltip-start .tooltip-arrow::before,
+            &.bs-tooltip-auto[data-popper-placement^=left] .tooltip-arrow::before {
+                border-left-color: $vs-color-background-inverse;
+            }
+
+            &.bs-tooltip-end .tooltip-arrow::before,
+            &.bs-tooltip-auto[data-popper-placement^=right] .tooltip-arrow::before {
+                border-right-color: $vs-color-background-inverse;
+            }
+        }
+    }
+</style>

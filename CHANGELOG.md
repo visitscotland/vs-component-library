@@ -1,3 +1,54 @@
+## [5.41.2](https://github.com/visitscotland/vs-component-library/compare/v5.41.1...v5.41.2) (2026-03-23)
+
+
+### Bug Fixes
+
+* **main map:** disclaimer and no results text displaying at the wrong time ([280b981](https://github.com/visitscotland/vs-component-library/commit/280b981ee01fa5b44ae5133c10b60e74c967238a))
+* **main map:** make id on VsAlert component more generitc of automated testing ([a3b9cfb](https://github.com/visitscotland/vs-component-library/commit/a3b9cfb8d25bb2856cdb1c7a2bb1f1514d563d9d))
+
+## [5.41.1](https://github.com/visitscotland/vs-component-library/compare/v5.41.0...v5.41.1) (2026-03-23)
+
+
+### Bug Fixes
+
+* **main map:** add missing icon ([0ae9e40](https://github.com/visitscotland/vs-component-library/commit/0ae9e406ed656204a670e1e203e4698627a3caf5))
+
+# [5.41.0](https://github.com/visitscotland/vs-component-library/compare/v5.40.0...v5.41.0) (2026-03-20)
+
+
+### Bug Fixes
+
+* **navigation:** accessibility fixes ([e3df608](https://github.com/visitscotland/vs-component-library/commit/e3df60874878c6fe675feccde9d359f5bee30fc3))
+* **navigation:** add missing methods to menu item ([9cc0e98](https://github.com/visitscotland/vs-component-library/commit/9cc0e9893f41d77655d8caf66dbb9518357879d0))
+* **navigation:** fix anti-aliasing border issue in dropdown ([8ef1691](https://github.com/visitscotland/vs-component-library/commit/8ef1691727e7bb13a0703af368dee72acf429241))
+* **navigation:** fix broken tooltip ([04ffe4b](https://github.com/visitscotland/vs-component-library/commit/04ffe4ba850a7e1ee48004da1d3136640d5fdbb9))
+* **navigation:** fixing code rabbit review suggestions ([16dff38](https://github.com/visitscotland/vs-component-library/commit/16dff384f29e46f9c3049a116b61f8cccf727b1f))
+* **navigation:** fixing UI issues from screenshot testing ([6c08080](https://github.com/visitscotland/vs-component-library/commit/6c08080920c3e42bba8cf9e620bdd26ec598ee8e))
+* **navigation:** further accessibility fixes ([991a389](https://github.com/visitscotland/vs-component-library/commit/991a38980f7125e28d476bc03a309e527b86f9b9))
+* **navigation:** updating sticky nav styles and files for export ([f7fb1f7](https://github.com/visitscotland/vs-component-library/commit/f7fb1f732fc1df07e44b4fe3be77ce9b92bbf701))
+
+
+### Features
+
+* **backdrop:** adds new backdrop component ([3d5277e](https://github.com/visitscotland/vs-component-library/commit/3d5277ebed460874c672d188fd9f653bc094f003))
+* **link:** add no visit link prop to link component ([d3a6f72](https://github.com/visitscotland/vs-component-library/commit/d3a6f728a011e86aebc4b48a0619639c2c0f36cc))
+* **navgigation:** further code review fixes ([353f604](https://github.com/visitscotland/vs-component-library/commit/353f604e7f6859e2e3d87d7f9bac24ba1587226c))
+* **navigatio:** fixing placement of search and some tidy up bita ([cb74de1](https://github.com/visitscotland/vs-component-library/commit/cb74de1f064aa41c892e9820a1e0887228022dcd))
+* **navigation-bar:** adds new navigation bar wrapper component ([29373a5](https://github.com/visitscotland/vs-component-library/commit/29373a5882bc5a95aeac2adf03836b3a9a95becb))
+* **navigation:** adds navbar menu items and dropdown items ([a46ffa1](https://github.com/visitscotland/vs-component-library/commit/a46ffa160ee157a87b3cb67e862567298684fe5c))
+* **navigation:** adds navigation bar menu component ([03239f8](https://github.com/visitscotland/vs-component-library/commit/03239f897de8dbdda3702a5cfad9a8382f07e3b1))
+* **navigation:** adds navigation sidebar and sidebar toggle components ([27b7869](https://github.com/visitscotland/vs-component-library/commit/27b7869bd0285b0b9b1f9a615afc608527f2a162))
+* **navigation:** adds new navigation sidebar and toggle components ([613ec1c](https://github.com/visitscotland/vs-component-library/commit/613ec1cd40e63a022af0bc7e463298ba42e1b730))
+* **navigation:** adds prop to determine when the sidebar should be shown ([8365430](https://github.com/visitscotland/vs-component-library/commit/83654309a1b409f6c8b57ba684bdcbbf610bafd9))
+* **navigation:** fixing issue with full width dropdowns ([13070f9](https://github.com/visitscotland/vs-component-library/commit/13070f9ba0e1f02958de81b6352c86774a8e843f))
+* **navigation:** tidying navigation bar stories and examples ([f7a44db](https://github.com/visitscotland/vs-component-library/commit/f7a44db5f76f946f259054d24d5d2334672211e6))
+* **navigation:** tidying up UI and accessibility on nav ([cdae708](https://github.com/visitscotland/vs-component-library/commit/cdae708966f270c9c9146bba091fce02b3265d87))
+* **navigation:** tidying up utilities in navigation bar ([0be4e4e](https://github.com/visitscotland/vs-component-library/commit/0be4e4e2581f4008ebe1bff84eb07049ac3624e8))
+* **navigation:** update dropdown and links for navigation ([cf590bb](https://github.com/visitscotland/vs-component-library/commit/cf590bbb9db87127c81c5d532ae3abdfb2fd9977))
+* **navigation:** update page header to use new navigation bar ([282e428](https://github.com/visitscotland/vs-component-library/commit/282e4280b65a2402dfba5ec4b23a099edbb8bb9c))
+* **search:** created navigation search button and update button component ([86f3bd4](https://github.com/visitscotland/vs-component-library/commit/86f3bd462042946ed32e97ac1f4577db3348a899))
+* **tooltip:** update tooltip component styles ([847e17e](https://github.com/visitscotland/vs-component-library/commit/847e17e6deda96da9e473687f9a61c6c08dc2f19))
+
 # [5.40.0](https://github.com/visitscotland/vs-component-library/compare/v5.39.2...v5.40.0) (2026-03-19)
 
 
