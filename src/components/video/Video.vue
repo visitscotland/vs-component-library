@@ -4,131 +4,24 @@
         class="vs-video"
         data-test="vs-video"
     >
-        <div
-            v-if="videoMode === 'html5'"
-            class="vs-video__html5-wrapper"
-        >
-            <video
-                class="vs-video__html5-player img-zoom-on-hover"
-                loop
-                muted
-                autoplay
-                playsinline
-                preload="auto"
-                :poster="posterImageSrc || null"
-                aria-hidden="true"
-                fetchpriority="high"
-            >
-                <source
-                    :src="videoSrc"
-                    type="video/mp4"
-                >
-            </video>
-        </div>
-
-        <div
-            v-else-if="videoMode === 'youtube'"
-            class="vs-video__iframe-wrapper"
-        >
-            <div v-if="cookiesAllowed">
-                <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
-                <VueYoutube
-                    :autoplay="0"
-                    :video-id="videoId"
-                    :vars="playerVars"
-                    ref="youtube"
-                    :nocookie="true"
-                    class="vs-video__youtube-player"
-                    @playing="youtubePlaying"
-                    @paused="youtubePaused"
-                    @ended="youtubeEnded"
-                    @ready="playerReady"
-                />
-            </div>
-
-            <VsWarning
-                v-if="showError"
-                :type="cookiesLoaded === true ? 'cookie' : 'normal'"
-                data-test="vs-video__warning"
-                class="vs-video__warning"
-            >
-                {{ warningText }}
-
-                <template
-                    v-if="!cookiesAllowed && cookiesLoaded === true"
-                    #button-text
-                >
-                    {{ cookieBtnText }}
-                </template>
-            </VsWarning>
-
-            <VsWarning
-                data-test="vs-video__warning--no-js"
-                class="vs-video__warning vs-video__warning--no-js"
-            >
-                {{ noJsMessage }}
-            </VsWarning>
-        </div>
+        <component
+            :is="playerComponent"
+            v-bind="$props"
+        />
     </div>
 </template>
 
 <script>
-import VueYoutube from 'vue-youtube-vue-3';
-import VsWarning from '@/components/warning/Warning.vue';
-
-import useVideoStore from '@/stores/video.store';
-import jsIsDisabled from '@/utils/js-is-disabled';
-import verifyCookiesMixin from '../../mixins/verifyCookiesMixin';
-import requiredCookiesData from '../../utils/required-cookies-data';
-import dataLayerMixin from '../../mixins/dataLayerMixin';
-
-let videoStore = null;
-const cookieValues = requiredCookiesData.youtube;
-
-/**
- * Videos allow a user to engage with our
- * products and discover new information.
- *
- * @displayName Video
- */
+import VsVideoYoutube from './components/VideoYoutube.vue';
+import VsVideoHtml5 from './components/VideoHtml5.vue';
 
 export default {
     name: 'VsVideo',
-    status: 'prototype',
-    release: '0.0.1',
-    components: {
-        VsWarning,
-        VueYoutube,
-    },
-    mixins: [
-        dataLayerMixin,
-        verifyCookiesMixin,
-    ],
+
     props: {
         /**
-        * The YouTube ID for the video
-        */
-        language: {
-            type: String,
-            default: 'en',
-        },
-        /**
-        * The YouTube ID for the video
-        */
-        videoId: {
-            type: String,
-            default: '',
-        },
-        /**
-        * The title of the video, set in the CMS
-        */
-        videoTitle: {
-            type: String,
-            default: '',
-        },
-        /**
-        * Video type - youtube or html5
-        */
+         * The type of video player to display
+         */
         videoType: {
             type: String,
             default: 'youtube',
@@ -147,6 +40,27 @@ export default {
         posterImageSrc: {
             type: String,
             default: '',
+        },
+        /**
+        * The YouTube ID for the video
+        */
+        videoId: {
+            type: String,
+            default: '',
+        },
+        /**
+        * The title of the video, set in the CMS
+        */
+        videoTitle: {
+            type: String,
+            default: '',
+        },
+        /**
+        * The language of the video
+        */
+        language: {
+            type: String,
+            default: 'en',
         },
         /**
          * A string to be shown with the rounded time, when the rounded
@@ -202,305 +116,21 @@ export default {
             default: '',
         },
     },
+
     data() {
         return {
-            duration: {
-                minutes: 0,
-                seconds: 0,
-                roundedMinutes: '',
-            },
-            playerVars: {
-                hl: this.language,
-            },
-            requiredCookies: cookieValues,
             reRendering: false,
-            shouldAutoPlay: false,
-            jsDisabled: true,
         };
     },
+
     computed: {
-        videoMode() {
-            if (this.videoType === 'html5' && this.videoSrc) {
-                return 'html5';
+        playerComponent() {
+            if (this.videoType === 'html5') {
+                return VsVideoHtml5;
             }
 
-            if (this.videoType === 'youtube' && this.videoId) {
-                return 'youtube';
-            }
-
-            return null;
-        },
-        showError() {
-            if ((!this.cookiesAllowed && this.cookiesLoaded === true)
-                || this.cookiesLoaded === false) {
-                return true;
-            }
-            return false;
-        },
-        warningText() {
-            let text = '';
-
-            if (this.videoId && this.jsDisabled) {
-                text = this.noJsMessage;
-            }
-
-            if (!this.cookiesAllowed && this.cookiesLoaded === true) {
-                text = this.noCookiesMessage;
-            }
-
-            return text;
-        },
-        player() {
-            if (this.$refs.youtube) {
-                return this.$refs.youtube.player;
-            }
-
-            return null;
-        },
-    },
-    mounted() {
-        this.jsDisabled = jsIsDisabled();
-        videoStore = useVideoStore();
-
-        this.setEventListeners();
-    },
-    methods: {
-        async playerReady() {
-            await this.getPlayerDetails();
-
-            if (this.shouldAutoPlay) {
-                this.shouldAutoPlay = false;
-                this.playVideo();
-            }
-        },
-        /**
-         * Plays the video
-         */
-        async playVideo() {
-            if (this.player) {
-                await this.player.playVideo();
-            }
-        },
-        /**
-         * Pauses the video
-         */
-        async pauseVideo() {
-            if (this.player) {
-                await this.player.pauseVideo();
-            }
-        },
-        /**
-         * Stops the video, which resets to beginning
-         */
-        async stopVideo() {
-            if (this.player) {
-                await this.player.stopVideo();
-            }
-        },
-        /**
-         * Triggered by video status events from the vue-youtube component. When any of these
-         * occur an appropriate analytics event is dispatched to the datalayer.
-         */
-        youtubePlaying() {
-            this.analyticsEvent('play');
-        },
-        youtubePaused() {
-            this.analyticsEvent('pause');
-        },
-        youtubeEnded() {
-            this.analyticsEvent('ended');
-        },
-        /**
-         * Submits an event to the datalayer mixin when the video is played or paused
-         */
-        analyticsEvent(videoStatus) {
-            let currentTime = 0;
-            let duration = 0;
-
-            this.player.getCurrentTime()
-                .then((time) => {
-                    currentTime = time;
-                    if (this.player) {
-                        return this.player.getDuration();
-                    }
-                    return null;
-                })
-                .then((length) => {
-                    duration = length;
-                })
-                .then(() => {
-                    const videoPercent = (currentTime / duration) * 100;
-
-                    this.createDataLayerObject(
-                        'videoTrackingDataEvent',
-                        {
-                            title: this.videoTitle,
-                            status: videoStatus,
-                            percent: Math.round(videoPercent),
-                        },
-                    );
-                });
-        },
-        async getPlayerDetails() {
-            /**
-             * Upon promise resolution, if the video ID returns
-             * a YouTube video, process the time into the desired format.
-             */
-            if (this.player) {
-                await this.player.getDuration().then((response) => {
-                    this.formatTime(response);
-                    this.storeVideoDetails();
-                });
-            }
-        },
-        /**
-         * Converts time in seconds to minutes and seconds,
-         * returns an object.
-         */
-        formatTime(timeInSeconds) {
-            const minutes = Math.floor(timeInSeconds / 60);
-            const seconds = Math.round(timeInSeconds - (minutes * 60));
-
-            this.duration.minutes = minutes;
-            this.duration.seconds = seconds;
-
-            const roundedMinutes = this.getRoundedMinutes(minutes, seconds);
-
-            this.duration.roundedMinutes = this.formatSingularOrPlural(roundedMinutes);
-        },
-        /**
-         * Takes a time expressed as minutes and seconds and returns the number of minutes rounded
-         * to the nearest one. Any time less than one minute is rounded up to one.
-         */
-        getRoundedMinutes(minutes, seconds) {
-            if (seconds < 30 && minutes !== 0) {
-                return minutes;
-            }
-
-            return minutes + 1;
-        },
-        /**
-         * Checks if the number of (rounded) minutes the video is long is singular or plural, then
-         * returns the appropriate descriptor string with the duration subbed in
-         */
-        formatSingularOrPlural(minutes) {
-            if (minutes === 1) {
-                return this.singleMinuteDescriptor.replace('%s', minutes);
-            }
-
-            return this.pluralMinuteDescriptor.replace('%s', minutes);
-        },
-        /**
-         * Takes a number, returns a string padded with a
-         * leading 0 if the number is less than 10
-         */
-        pad(toPad) {
-            if (toPad >= 10) {
-                return toPad;
-            }
-
-            return `0${toPad}`;
-        },
-        /**
-         * Send video details to Pinia store
-         */
-        storeVideoDetails() {
-            videoStore.addVideo({
-                videoId: this.videoId,
-                videoDurationMsg: this.duration.roundedMinutes,
-                videoDuration: (this.duration.minutes * 60) + this.duration.seconds,
-                videoFullDuration: this.duration,
-            });
-        },
-        /**
-         * Attaches event listeners upon mounting video. These include play and pause functions,
-         * for external play buttons and autoplay functionality for a video inside a modal.
-         */
-        setEventListeners() {
-            if (this.emitter) {
-                this.emitter.on('video-controls', (args) => {
-                    if (args.id === this.videoId) {
-                        if (args.action === 'modal-opened') {
-                            this.playVideo();
-                        }
-                        if (args.action === 'modal-closed') {
-                            this.stopVideo();
-                        }
-
-                        if (args.action === 'play') {
-                            this.playVideo();
-                        } else if (args.action === 'pause') {
-                            this.pauseVideo();
-                        }
-                    }
-                });
-            }
+            return VsVideoYoutube;
         },
     },
 };
 </script>
-
-<style lang="scss">
-    .vs-video {
-        &__iframe-wrapper,
-        &__fallback-wrapper,
-        &__html5-wrapper {
-            position: relative;
-            width: 100%;
-            height: 100%;
-
-            .vs-video__youtube-player,
-            .vs-video__html5-player {
-                position: absolute;
-                inset: 0;
-                width: 100%;
-                height: 100%;
-            }
-        }
-
-        &__html5-wrapper {
-            position: absolute;
-            inset: 0;
-
-            .vs-video__html5-player {
-                object-fit: cover;
-
-                &.img-zoom-on-hover {
-                    transition: transform 0.3s ease-in-out;
-                }
-            }
-        }
-
-        &__iframe-wrapper,
-        &__fallback-wrapper {
-            aspect-ratio: 16 / 9;
-
-            .vs-video__youtube-player {
-                aspect-ratio: 16 / 9;
-            }
-        }
-
-        &__warning {
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            z-index: 1;
-
-            &--no-js {
-                display: none;
-            }
-        }
-    }
-
-    @include no-js {
-        .vs-video {
-            &__warning {
-                display: none;
-
-                &--no-js {
-                    display: flex;
-                }
-            }
-        }
-    }
-</style>
