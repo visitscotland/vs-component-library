@@ -4,6 +4,17 @@
         :style="imageSrc ? { backgroundImage: `url(${imageSrc})` } : {}"
         data-test="vs-spotlight-section"
     >
+        <div
+            v-if="videoSrc"
+            class="vs-spotlight-section__media"
+        >
+            <VsVideo
+                video-type="html5"
+                :poster-image-src="imageSrc"
+                :video-src="videoSrc"
+            />
+        </div>
+
         <div class="vs-spotlight-section__overlay">
             <div class="row w-100 m-0">
                 <div class="col-12 col-sm-7 col-md-8 col-lg-7 col-xl-6 align-self-end p-0">
@@ -59,6 +70,7 @@
 import VsHeading from '@/components/heading/Heading.vue';
 import VsBody from '@/components/body/Body.vue';
 import VsButton from '@/components/button/Button.vue';
+import VsVideo from '@/components/video/Video.vue';
 
 /**
  * Component for the spotlight section.
@@ -77,6 +89,7 @@ export default {
         VsHeading,
         VsBody,
         VsButton,
+        VsVideo,
     },
     props: {
         /**
@@ -115,6 +128,13 @@ export default {
             default: '',
         },
         /**
+         * The video src url to display
+         */
+        videoSrc: {
+            type: String,
+            default: '',
+        },
+        /**
          * The compact variant reduces the size of the section
          */
         compact: {
@@ -141,11 +161,19 @@ export default {
         background-color: $vs-color-background-information;
         color: $vs-color-text-inverse;
         border-radius: $vs-radius-medium;
+        overflow: hidden;
         background-size: cover;
         background-position: center;
 
+        .vs-spotlight-section__media {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
         &__overlay {
             position: relative;
+            z-index: 1;
             height: 100%;
             width: 100%;
             display: grid;
