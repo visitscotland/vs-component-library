@@ -1,3 +1,11 @@
+## [5.41.2](https://github.com/visitscotland/vs-component-library/compare/v5.41.1...v5.41.2) (2026-03-23)
+
+
+### Bug Fixes
+
+* **main map:** disclaimer and no results text displaying at the wrong time ([280b981](https://github.com/visitscotland/vs-component-library/commit/280b981ee01fa5b44ae5133c10b60e74c967238a))
+* **main map:** make id on VsAlert component more generitc of automated testing ([a3b9cfb](https://github.com/visitscotland/vs-component-library/commit/a3b9cfb8d25bb2856cdb1c7a2bb1f1514d563d9d))
+
 ## [5.41.1](https://github.com/visitscotland/vs-component-library/compare/v5.41.0...v5.41.1) (2026-03-23)
 
 
