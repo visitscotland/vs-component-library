@@ -1,10 +1,35 @@
 <template>
     <div
+        v-if="!reRendering"
         class="vs-video"
         data-test="vs-video"
-        v-if="!reRendering"
     >
-        <div class="vs-video__iframe-wrapper">
+        <div
+            v-if="videoMode === 'html5'"
+            class="vs-video__html5-wrapper"
+        >
+            <video
+                class="vs-video__html5-player img-zoom-on-hover"
+                loop
+                muted
+                autoplay
+                playsinline
+                preload="auto"
+                :poster="posterImageSrc || null"
+                aria-hidden="true"
+                fetchpriority="high"
+            >
+                <source
+                    :src="videoSrc"
+                    type="video/mp4"
+                >
+            </video>
+        </div>
+
+        <div
+            v-else-if="videoMode === 'youtube'"
+            class="vs-video__iframe-wrapper"
+        >
             <div v-if="cookiesAllowed">
                 <!-- eslint-disable-next-line vue/component-name-in-template-casing -->
                 <VueYoutube
@@ -13,6 +38,7 @@
                     :vars="playerVars"
                     ref="youtube"
                     :nocookie="true"
+                    class="vs-video__youtube-player"
                     @playing="youtubePlaying"
                     @paused="youtubePaused"
                     @ended="youtubeEnded"
@@ -48,12 +74,10 @@
 
 <script>
 import VueYoutube from 'vue-youtube-vue-3';
-
 import VsWarning from '@/components/warning/Warning.vue';
 
 import useVideoStore from '@/stores/video.store';
 import jsIsDisabled from '@/utils/js-is-disabled';
-
 import verifyCookiesMixin from '../../mixins/verifyCookiesMixin';
 import requiredCookiesData from '../../utils/required-cookies-data';
 import dataLayerMixin from '../../mixins/dataLayerMixin';
@@ -93,12 +117,34 @@ export default {
         */
         videoId: {
             type: String,
-            required: true,
+            default: '',
         },
         /**
         * The title of the video, set in the CMS
         */
         videoTitle: {
+            type: String,
+            default: '',
+        },
+        /**
+        * Video type - youtube or html5
+        */
+        videoType: {
+            type: String,
+            default: 'youtube',
+            validator: (value) => ['youtube', 'html5'].includes(value),
+        },
+        /**
+        * The video url for HTML5 player
+        */
+        videoSrc: {
+            type: String,
+            default: '',
+        },
+        /**
+        * The poster image URL for video player
+        */
+        posterImageSrc: {
             type: String,
             default: '',
         },
@@ -130,14 +176,14 @@ export default {
         */
         noCookiesMessage: {
             type: String,
-            required: true,
+            default: '',
         },
         /**
         * Text used for the link which opens the cookie preference centre.
         */
         cookieBtnText: {
             type: String,
-            required: true,
+            default: '',
         },
         /**
         /**
@@ -146,7 +192,7 @@ export default {
         */
         noJsMessage: {
             type: String,
-            required: true,
+            default: '',
         },
         /**
          * Message to show when there's an error with a third party
@@ -173,6 +219,17 @@ export default {
         };
     },
     computed: {
+        videoMode() {
+            if (this.videoType === 'html5' && this.videoSrc) {
+                return 'html5';
+            }
+
+            if (this.videoType === 'youtube' && this.videoId) {
+                return 'youtube';
+            }
+
+            return null;
+        },
         showError() {
             if ((!this.cookiesAllowed && this.cookiesLoaded === true)
                 || this.cookiesLoaded === false) {
@@ -386,18 +443,40 @@ export default {
 <style lang="scss">
     .vs-video {
         &__iframe-wrapper,
-        &__fallback-wrapper {
+        &__fallback-wrapper,
+        &__html5-wrapper {
             position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
+            width: 100%;
+            height: 100%;
 
-            iframe {
+            .vs-video__youtube-player,
+            .vs-video__html5-player {
                 position: absolute;
-                top: 0;
-                left: 0;
+                inset: 0;
                 width: 100%;
                 height: 100%;
+            }
+        }
+
+        &__html5-wrapper {
+            position: absolute;
+            inset: 0;
+
+            .vs-video__html5-player {
+                object-fit: cover;
+
+                &.img-zoom-on-hover {
+                    transition: transform 0.3s ease-in-out;
+                }
+            }
+        }
+
+        &__iframe-wrapper,
+        &__fallback-wrapper {
+            aspect-ratio: 16 / 9;
+
+            .vs-video__youtube-player {
+                aspect-ratio: 16 / 9;
             }
         }
 

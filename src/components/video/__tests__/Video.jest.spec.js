@@ -33,9 +33,15 @@ function mountOptions() {
     };
 };
 
-const factoryShallowMount = () => shallowMount(
+const factoryShallowMount = (props = {
+}) => shallowMount(
     VsVideo,
-    mountOptions(),
+    {
+        props: {
+            ...mountOptions().propsData,
+            ...props,
+        },
+    },
 );
 
 describe('VsVideo', () => {
@@ -73,6 +79,63 @@ describe('VsVideo', () => {
             const wrapper = factoryShallowMount();
 
             expect(wrapper.vm.playerVars.hl).toBe('de');
+        });
+
+        it('renders youtube player when videoType is youtube and videoId provided', () => {
+            const wrapper = factoryShallowMount({
+                videoType: 'youtube',
+                videoId,
+            });
+
+            expect(wrapper.find('vue-youtube-stub').exists()).toBe(true);
+        });
+
+        it('does not render youtube player if videoId is missing', () => {
+            const wrapper = factoryShallowMount({
+                videoType: 'youtube',
+                videoId: '',
+            });
+
+            expect(wrapper.find('vue-youtube-stub').exists()).toBe(false);
+        });
+
+        it('renders html5 player when videoType is html5 and videoSrc is provided', () => {
+            const wrapper = factoryShallowMount({
+                videoType: 'html5',
+                videoSrc: 'video.mp4',
+            });
+
+            expect(wrapper.find('video').exists()).toBe(true);
+            expect(wrapper.find('vue-youtube-stub').exists()).toBe(false);
+        });
+
+        it('does not render html5 player if videoSrc is missing', () => {
+            const wrapper = factoryShallowMount({
+                videoType: 'html5',
+            });
+
+            expect(wrapper.find('video').exists()).toBe(false);
+        });
+
+        it('should apply videoSrc to source element', () => {
+            const src = 'video.mp4';
+
+            const wrapper = factoryShallowMount({
+                videoType: 'html5',
+                videoSrc: src,
+            });
+
+            expect(wrapper.find('source').attributes('src')).toBe(src);
+        });
+
+        it('passes posterImageSrc to the video element', () => {
+            const wrapper = factoryShallowMount({
+                videoType: 'html5',
+                videoSrc: 'video.mp4',
+                posterImageSrc: 'poster.jpg',
+            });
+
+            expect(wrapper.find('video').attributes('poster')).toBe('poster.jpg');
         });
     });
 
