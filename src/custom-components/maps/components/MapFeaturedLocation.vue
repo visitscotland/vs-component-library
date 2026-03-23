@@ -52,6 +52,8 @@ function setIcon(id) {
         return 'fa-regular fa-island-tropical';
     case 'towns':
         return 'fa-regular fa-house-chimney-window';
+    case 'national-parks':
+        return 'fa-kit fa-vs-icon-national-park';
     default:
         return null;
     };
