@@ -16,6 +16,9 @@ const mapIconMapping = {
             case 'regions':
                 icon.name = 'fa-regular fa-map-location-dot';
                 break;
+            case 'national-parks':
+                icon.name = 'fa-kit fa-vs-icon-national-park';
+                break;
             case 'acco':
                 icon.name = 'fa-regular fa-bed';
                 break;
