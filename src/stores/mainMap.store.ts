@@ -7,7 +7,6 @@ const useGoogleMapStore = defineStore('googleMap', () => {
     const firstInteraction = ref(false);
     const searchesCount = ref(0);
     const filterUsesCount = ref(0);
-    const activeCategoryId = ref<string>(undefined);
 
     return {
         sidebarOpen,
@@ -15,7 +14,6 @@ const useGoogleMapStore = defineStore('googleMap', () => {
         firstInteraction,
         searchesCount,
         filterUsesCount,
-        activeCategoryId,
     };
 });
 

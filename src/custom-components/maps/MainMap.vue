@@ -692,7 +692,7 @@ function selectCategory(categoryId, key) {
 
     selectedTopLevelCategory.value = categoryId;
 
-    if (categoryId !== 'destinations') {
+    if (categoryId !== 'destinations' && categoryId !== 'places') {
         // Retrieves all the values in each subcategory and adds it to
         // `includedTopLevelTypes` set, which should handle duplication.
         Object.values(categoryData.value[categoryId].subCategory).forEach(
@@ -1252,6 +1252,8 @@ function handleFeaturedLocationClick(place) {
 }
 
 function setCategoryIcon(key) {
+    if (!categoryData.value) return null;
+
     const categoryInfo = Object.values(categoryData.value)[key];
 
     if (!categoryInfo) return null;
