@@ -1348,7 +1348,7 @@ function setCategoryIcon(key) {
         @include media-breakpoint-up(md) {
             width: fit-content;
             overflow-x: auto;
-            margin: $vs-spacer-075 $vs-spacer-0 $vs-spacer-0 $vs-spacer-100;
+            margin: $vs-spacer-0 $vs-spacer-0 $vs-spacer-0 $vs-spacer-100;
         }
 
         @include media-breakpoint-up(lg) {
