@@ -191,7 +191,10 @@ export default {
     },
     methods: {
         callbackOnUpdated() {
-            if (this.embeddedScript && this.cookiesLoaded && this.requiredCookiesAllowed) {
+            if (this.embeddedScript && (
+                (this.cookiesLoaded && this.requiredCookiesAllowed)
+                || this.noCookiesRequired
+            )) {
                 const script = document.createElement('script');
                 script.src = this.embeddedScript;
                 document.head.appendChild(script);
