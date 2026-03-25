@@ -1,3 +1,10 @@
+## [5.41.4](https://github.com/visitscotland/vs-component-library/compare/v5.41.3...v5.41.4) (2026-03-25)
+
+
+### Bug Fixes
+
+* **embed wrapper:** also load script on mount if no cookies ([cd8f8d9](https://github.com/visitscotland/vs-component-library/commit/cd8f8d9f093d4001a764a1bf0b7cec0f54ca635e))
+
 ## [5.41.3](https://github.com/visitscotland/vs-component-library/compare/v5.41.2...v5.41.3) (2026-03-25)
 
 
