@@ -1,5 +1,9 @@
 [
     {
+        "id": "places",
+        "label": "Places"
+    },
+    {
         "id": "accommodation",
         "label": "Accommodation",
         "subCategory": [
@@ -100,25 +104,25 @@
         ]
     },
     {
-        "id":"destinations",
-        "label":"Places",
-        "cmsData":true,
+        "id": "destinations",
+        "label": "Places",
+        "cmsData": true,
         "subCategory": [
             {
-                "id":"cities",
-                "label":"Cities"
+                "id": "cities",
+                "label": "Cities"
             },
             {
-                "id":"towns",
-                "label":"Towns"
+                "id": "towns",
+                "label": "Towns"
             },
             {
-                "id":"islands",
-                "label":"Islands"
+                "id": "islands",
+                "label": "Islands"
             },
             {
-                "id":"regions",
-                "label":"Regions"
+                "id": "regions",
+                "label": "Regions"
             },
             {
                 "id": "national-parks",

@@ -24,7 +24,9 @@
                 >
                     <template
                         #vs-map-sidebar-sub-filters
-                        v-if="selectedTopLevelCategory && selectedTopLevelCategory !== 'destinations'"
+                        v-if="selectedTopLevelCategory
+                            && selectedTopLevelCategory !== 'destinations'
+                            && selectedTopLevelCategory !== 'places'"
                     >
                         <div class="vs-map-sidebar__sub-filters">
                             <VsButton
@@ -121,16 +123,20 @@
                         && (categoryData && Object.keys(categoryData).length > 0)"
                     class="vs-map__filter-controls"
                 >
-                    <VsButton
+                    <template
                         v-for="(category, key) in categoryLabelData"
-                        :key="key"
-                        class="vs-map__filter-controls-button"
-                        :icon="setCategoryIcon(key)"
-                        :variant="selectedTopLevelCategory === category.id ? 'primary' : 'secondary'"
-                        @click.prevent="selectCategory(category.id, key)"
+                        :key="category.id"
                     >
-                        {{ category.label }}
-                    </VsButton>
+                        <VsButton
+                            v-if="!category.cmsData"
+                            class="vs-map__filter-controls-button"
+                            :icon="setCategoryIcon(category.id)"
+                            :variant="selectedTopLevelCategory === category.id ? 'primary' : 'secondary'"
+                            @click.prevent="selectCategory(category.id, key)"
+                        >
+                            {{ category.label }}
+                        </VsButton>
+                    </template>
                 </div>
             </div>
 
@@ -1254,7 +1260,7 @@ function handleFeaturedLocationClick(place) {
 function setCategoryIcon(key) {
     if (!categoryData.value) return null;
 
-    const categoryInfo = Object.values(categoryData.value)[key];
+    const categoryInfo = categoryData.value[key];
 
     if (!categoryInfo) return null;
 

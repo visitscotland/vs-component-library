@@ -93,7 +93,7 @@
                 </div>
             </div>
             <VsMapFeaturedLocation
-                v-if="props.selectedCategories === 'destinations'"
+                v-if="props.selectedCategories === 'places'"
                 class="mb-100"
             />
         </div>
