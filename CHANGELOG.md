@@ -1,3 +1,11 @@
+## [5.41.5](https://github.com/visitscotland/vs-component-library/compare/v5.41.4...v5.41.5) (2026-03-25)
+
+
+### Bug Fixes
+
+* **main map:** keyboard control for destination cards ([1b3c912](https://github.com/visitscotland/vs-component-library/commit/1b3c912d672dcc4453f786dff5cd983a983cb773))
+* **map with sidebar:** add missing icon for national parks ([1eecaeb](https://github.com/visitscotland/vs-component-library/commit/1eecaeb8646a2696118e0560e0ac56195a93ab6d))
+
 ## [5.41.4](https://github.com/visitscotland/vs-component-library/compare/v5.41.3...v5.41.4) (2026-03-25)
 
 
