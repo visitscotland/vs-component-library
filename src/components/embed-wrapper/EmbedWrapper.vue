@@ -189,15 +189,20 @@ export default {
             return text;
         },
     },
+    mounted() {
+        if (this.embeddedScript && this.noCookiesRequired) {
+            this.loadScript();
+        }
+    },
     methods: {
+        loadScript() {
+            const script = document.createElement('script');
+            script.src = this.embeddedScript;
+            document.head.appendChild(script);
+        },
         callbackOnUpdated() {
-            if (this.embeddedScript && (
-                (this.cookiesLoaded && this.requiredCookiesAllowed)
-                || this.noCookiesRequired
-            )) {
-                const script = document.createElement('script');
-                script.src = this.embeddedScript;
-                document.head.appendChild(script);
+            if (this.embeddedScript && this.cookiesLoaded && this.requiredCookiesAllowed) {
+                this.loadScript();
             }
         },
     },
