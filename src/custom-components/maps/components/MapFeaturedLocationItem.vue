@@ -16,7 +16,8 @@
                         class="stretched-link text-decoration-none"
                         href="#"
                         variant="on-dark"
-                        @keypress.enter.prevent="featuredPlaceClick(props.place)"
+                        @keyup.enter.prevent="featuredPlaceClick(props.place)"
+                        @keyup.space.prevent="featuredPlaceClick(props.place)"
                     >
                         {{ props.place.properties.title }}
                     </VsLink>
