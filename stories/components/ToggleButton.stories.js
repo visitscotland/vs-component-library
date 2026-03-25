@@ -1,4 +1,5 @@
 import VsToggleButton from '@/components/toggle-button/ToggleButton.vue';
+import VsTooltip from '@/components/tooltip/Tooltip.vue';
 
 export default {
     component: VsToggleButton,
@@ -8,6 +9,7 @@ export default {
 const Template = (args) => ({
     components: {
         VsToggleButton,
+        VsTooltip,
     },
     setup() {
         return {
@@ -15,22 +17,53 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsToggleButton v-bind="args">
-            <template v-if="${'default' in args}" v-slot>
-                <span class="visually-hidden">
-                    ${args.default}
-                </span>
-            </template>
-        </VsToggleButton>
+        <VsTooltip title="Save item">
+            <VsToggleButton v-bind="args" />
+        </VsTooltip>
+        
     `,
 });
 
 const base = {
-    height: '',
-    default: 'Toggle Button',
+    variant: 'subtle',
+    size: 'md',
+    default: 'Search',
+    icon: 'vs-icon-control-search',
 };
 
-export const Default = Template.bind({
-});
+export const Subtle = Template.bind();
+Subtle.args = {
+    ...base,
+    icon: 'fa-regular fa-heart',
+    pressedIcon: 'fa-solid fa-heart',
+    label: 'Add to favourites',
+    pressedLabel: 'Remove from favourites',
+};
 
-Default.args = base;
+export const Small = Template.bind();
+Small.args = {
+    ...base,
+    icon: 'fa-regular fa-heart',
+    pressedIcon: 'fa-solid fa-heart',
+    label: 'Add to favourites',
+    pressedLabel: 'Remove from favourites',
+    size: 'sm',
+};
+
+export const Large = Template.bind();
+Large.args = {
+    ...base,
+    icon: 'fa-regular fa-heart',
+    pressedIcon: 'fa-solid fa-heart',
+    label: 'Add to favourites',
+    pressedLabel: 'Remove from favourites',
+    size: 'lg',
+};
+
+export const Secondary = Template.bind();
+Secondary.args = {
+    ...base,
+    variant: 'secondary',
+    icon: 'vs-icon-control-play',
+    pressedIcon: 'vs-icon-control-pause',
+};
