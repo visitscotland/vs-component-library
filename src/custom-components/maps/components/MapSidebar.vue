@@ -79,7 +79,9 @@
             </div>
             <div class="vs-map-sidebar__search-results">
                 <VsHeading
-                    v-if="props.query || (props.selectedCategories && props.selectedCategories !== 'destinations')"
+                    v-if="props.query || (props.selectedCategories
+                        && props.selectedCategories !== 'destinations'
+                        && props.selectedCategories !== 'places')"
                     data-test="vs-map-sidebar__search-result-query"
                     heading-style="heading-xxxs"
                     level="2"
