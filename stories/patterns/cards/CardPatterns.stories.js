@@ -8,13 +8,15 @@ import VsDetail from '@/components/detail/Detail.vue';
 import VsArticleDetails from '@/components/article-details/ArticleDetails.vue';
 import VsBadge from '@/components/badge/Badge.vue';
 import VsIcon from '@/components/icon/Icon.vue';
+import VsVideo from '@/components/video/Video.vue';
 
 import SplitLinkCardExample from './card-examples/split-link-card';
 import SplitLinkHorizontalCardExample from './card-examples/split-link-horizontal-card';
 import LinkExample from './card-examples/link-card';
 import LinkWithDetailsExample from './card-examples/link-card-with-details';
 import LinkWithIconExample from './card-examples/link-card-with-icon';
-import CategoryExample from './card-examples/category-card';
+import CategoryImageExample from './card-examples/category-image-card';
+import CategoryVideoExample from './card-examples/category-video-card';
 import EventExample from './card-examples/event-card';
 
 const components = {
@@ -28,6 +30,7 @@ const components = {
     VsBadge,
     VsIcon,
     VsDetail,
+    VsVideo,
 };
 
 const decorators = {
@@ -66,5 +69,6 @@ export const SplitLinkHorizontal = createStory(
 export const Link = createStory(LinkExample);
 export const LinkWithDetails = createStory(LinkWithDetailsExample);
 export const LinkWithIcon = createStory(LinkWithIconExample);
-export const Category = createStory(CategoryExample);
+export const CategoryImage = createStory(CategoryImageExample);
+export const CategoryVideo = createStory(CategoryVideoExample);
 export const Event = createStory(EventExample);

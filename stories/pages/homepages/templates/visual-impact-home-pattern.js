@@ -4,7 +4,7 @@ export default `
             <VsHeroSection
                 heading="Scotland, <br/>it's good for the soul"
                 lede="Where history meets breathtaking beauty, and every visit feels like home."
-                img-src="fixtures/hero/images/lavendar-fields.png"
+                img-src="fixtures/hero/images/lavendar-fields.jpg"
                 video-src="fixtures/hero/video/lavendar-fields.mp4"
                 video-btn-text="Play/pause background video"
                 video-playing-status="Playing"
@@ -55,7 +55,14 @@ export default `
                             </div>
                         </template>
                         <template v-slot:vs-card-image>
+                            <VsVideo 
+                                v-if="card.videoSrc"
+                                video-type="html5"
+                                :poster-image-src="card.image"
+                                :video-src="card.videoSrc"
+                            />
                             <VsImg 
+                                v-else
                                 :src="card.image" 
                                 class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
                             />

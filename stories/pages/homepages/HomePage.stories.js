@@ -9,6 +9,7 @@ import VsCard from '@/components/card/Card.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsDetail from '@/components/detail/Detail.vue';
 import VsImg from '@/components/img/Img.vue';
+import VsVideo from '@/components/video/Video.vue';
 import VsLink from '@/components/link/Link.vue';
 import VsBody from '@/components/body/Body.vue';
 import VsBadge from '@/components/badge/Badge.vue';
@@ -36,6 +37,7 @@ const components = {
     VsHeading,
     VsDetail,
     VsImg,
+    VsVideo,
     VsLink,
     VsBody,
     VsBadge,

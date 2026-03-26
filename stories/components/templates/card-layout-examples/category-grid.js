@@ -27,7 +27,14 @@ export default `
                         </template>
 
                         <template #vs-card-image>
+                            <VsVideo 
+                                v-if="card.videoSrc"
+                                video-type="html5"
+                                :poster-image-src="card.image"
+                                :video-src="card.videoSrc"
+                            />
                             <VsImg 
+                                v-else
                                 :src="card.image" 
                                 class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
                             />
