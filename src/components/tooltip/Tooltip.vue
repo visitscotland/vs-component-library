@@ -15,6 +15,7 @@
         <div
             v-if="visible"
             ref="tooltip"
+            tabindex="-1"
             :class="tooltipClasses"
             role="tooltip"
             :style="floatingStyles"
@@ -119,6 +120,7 @@ export default {
     data() {
         return {
             visible: false,
+            hideTimeout: null,
             floatingStyles: {
             },
             arrowStyles: {
@@ -166,11 +168,16 @@ export default {
         hide() {
             if (this.useLegacy) return;
 
-            this.visible = false;
-            if (this.cleanup) {
-                this.cleanup();
-                this.cleanup = null;
-            }
+            clearTimeout(this.showTimeout);
+
+            this.hideTimeout = setTimeout(() => {
+                this.visible = false;
+
+                if (this.cleanup) {
+                    this.cleanup();
+                    this.cleanup = null;
+                }
+            }, 220);
         },
         /**
          * Calculates and updates the tooltip position using Floating UI
