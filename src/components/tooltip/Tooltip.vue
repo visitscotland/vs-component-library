@@ -17,7 +17,7 @@
         </span>
 
         <div
-            v-if="visible"
+            v-if="visible && title"
             ref="tooltip"
             :id="tooltipId"
             tabindex="-1"
@@ -162,8 +162,10 @@ export default {
          */
         show() {
             if (this.useLegacy) return;
+            if (this.useLegacy || !this.title) return;
             clearTimeout(this.hideTimeout);
             this.hideTimeout = null;
+            if (this.visible) return;
             this.visible = true;
 
             // Wait for tooltip to render before calculating its position
