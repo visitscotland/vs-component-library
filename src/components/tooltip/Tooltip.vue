@@ -271,7 +271,6 @@ export default {
         border-radius: $vs-radius-small;
         filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
         max-width: max-content;
-        white-space: nowrap;
         pointer-events: none;
 
         &--subtle {
