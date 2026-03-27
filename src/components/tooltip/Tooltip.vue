@@ -6,10 +6,12 @@
             v-bind="$attrs"
             data-test="vs-tooltip-trigger"
             class="d-inline-block"
+            :aria-describedby="visible ? tooltipId : null"
             @mouseenter="show"
             @mouseleave="hide"
             @focusin="show"
             @focusout="hide"
+            @keydown.escape="hide"
         >
             <slot />
         </span>
@@ -17,6 +19,7 @@
         <div
             v-if="visible"
             ref="tooltip"
+            :id="tooltipId"
             tabindex="-1"
             :class="tooltipClasses"
             role="tooltip"
@@ -79,7 +82,6 @@ export default {
     directives: {
         'b-tooltip': vBTooltip,
     },
-
     props: {
         /**
          * The text to display in the tooltip
@@ -123,6 +125,7 @@ export default {
         return {
             visible: false,
             hideTimeout: null,
+            tooltipId: `vs-tooltip-${Math.random().toString(36).slice(2)}`,
             floatingStyles: {
             },
             arrowStyles: {
@@ -258,7 +261,7 @@ export default {
 </script>
 <style lang="scss">
     .vs-tooltip-popover {
-        z-index: 9999;
+        z-index: $zindex-tooltip;
         padding: $vs-spacer-025 $vs-spacer-050;
         background: $vs-color-background-bold;
         color: white;
