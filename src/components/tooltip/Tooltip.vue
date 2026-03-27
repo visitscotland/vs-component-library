@@ -161,7 +161,6 @@ export default {
          * Only runs for the Floating UI implementation (not legacy Bootstrap).
          */
         show() {
-            if (this.useLegacy) return;
             if (this.useLegacy || !this.title) return;
             clearTimeout(this.hideTimeout);
             this.hideTimeout = null;
