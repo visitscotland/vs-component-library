@@ -17,22 +17,18 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsTooltip title="Save item">
-            <VsToggleButton v-bind="args" />
-        </VsTooltip>
-        
+        <VsToggleButton v-bind="args" />
     `,
 });
 
 const base = {
-    variant: 'subtle',
-    size: 'md',
+    variant: 'default',
     default: 'Search',
     icon: 'vs-icon-control-search',
 };
 
-export const Subtle = Template.bind();
-Subtle.args = {
+export const Default = Template.bind();
+Default.args = {
     ...base,
     icon: 'fa-regular fa-heart',
     pressedIcon: 'fa-solid fa-heart',
@@ -40,30 +36,75 @@ Subtle.args = {
     pressedLabel: 'Remove from favourites',
 };
 
-export const Small = Template.bind();
-Small.args = {
+export const Overlay = Template.bind();
+Overlay.args = {
     ...base,
+    variant: 'overlay',
     icon: 'fa-regular fa-heart',
     pressedIcon: 'fa-solid fa-heart',
     label: 'Add to favourites',
     pressedLabel: 'Remove from favourites',
-    size: 'sm',
+};
+Overlay.globals = {
+    backgrounds: {
+        value: 'dark',
+    },
 };
 
-export const Large = Template.bind();
-Large.args = {
+export const OverlayStrong = Template.bind();
+OverlayStrong.args = {
     ...base,
+    variant: 'overlay-strong',
     icon: 'fa-regular fa-heart',
     pressedIcon: 'fa-solid fa-heart',
     label: 'Add to favourites',
     pressedLabel: 'Remove from favourites',
-    size: 'lg',
+};
+OverlayStrong.globals = {
+    backgrounds: {
+        value: 'dark',
+    },
 };
 
-export const Secondary = Template.bind();
-Secondary.args = {
+export const WithLabelDefault = Template.bind();
+WithLabelDefault.args = {
     ...base,
-    variant: 'secondary',
-    icon: 'vs-icon-control-play',
-    pressedIcon: 'vs-icon-control-pause',
+    variant: 'default',
+    icon: 'fa-regular fa-heart',
+    pressedIcon: 'fa-solid fa-heart',
+    label: 'Add to favourites',
+    pressedLabel: 'Remove from favourites',
+    labelBreakpoint: 'md',
+};
+
+export const WithLabelOverlay = Template.bind();
+WithLabelOverlay.args = {
+    ...base,
+    variant: 'overlay',
+    icon: 'fa-regular fa-heart',
+    pressedIcon: 'fa-solid fa-heart',
+    label: 'Add to favourites',
+    pressedLabel: 'Remove from favourites',
+    labelBreakpoint: 'md',
+};
+WithLabelOverlay.globals = {
+    backgrounds: {
+        value: 'dark',
+    },
+};
+
+export const WithLabelOverlayStrong = Template.bind();
+WithLabelOverlayStrong.args = {
+    ...base,
+    variant: 'overlay-strong',
+    icon: 'fa-regular fa-heart',
+    pressedIcon: 'fa-solid fa-heart',
+    label: 'Add to favourites',
+    pressedLabel: 'Remove from favourites',
+    labelBreakpoint: 'md',
+};
+WithLabelOverlayStrong.globals = {
+    backgrounds: {
+        value: 'dark',
+    },
 };

@@ -9,18 +9,19 @@
         :aria-pressed="isToggle ? isPressed : undefined"
         @click="handleClick"
     >
-        <VsIcon
-            :icon="currentIcon"
-            :size="iconSize"
-            :padding="0"
-        />
-
         <span
             v-if="label"
             class="visually-hidden"
+            :class="buttonLabelClasses"
         >
             {{ computedLabel }}
         </span>
+
+        <VsIcon
+            :icon="currentIcon"
+            size="xs"
+            :padding="0"
+        />
     </BButton>
 
     <!-- LEGACY MODE
@@ -97,8 +98,8 @@ export default {
          */
         variant: {
             type: String,
-            default: 'primary',
-            validator: (value) => value.match(/(primary|secondary|subtle)/),
+            default: 'default',
+            validator: (value) => value.match(/(default|overlay|overlay-strong)/),
         },
         /**
          * Size of the button
@@ -106,7 +107,7 @@ export default {
          */
         size: {
             type: String,
-            default: 'md',
+            default: 'sm',
             validator: (value) => value.match(/(sm|md|lg)/),
         },
         /**
@@ -150,7 +151,7 @@ export default {
          */
         labelBreakpoint: {
             type: String,
-            default: '',
+            default: null,
             validator: (value) => value === '' || /^(xs|sm|md|lg|xl|xxl)$/.test(value),
         },
     },
@@ -195,9 +196,14 @@ export default {
          */
         buttonClasses() {
             return {
-                'vs-icon-button--toggle': this.isToggle,
-                'vs-icon-button--pressed': this.isPressed,
-                'vs-icon-button--active': this.active,
+                'vs-toggle-button--toggle': this.isToggle,
+                'vs-toggle-button--pressed': this.isPressed,
+                [`vs-toggle-button--label-${this.labelBreakpoint}-up`]: this.labelBreakpoint,
+            };
+        },
+        buttonLabelClasses() {
+            return {
+                [`visible-${this.labelBreakpoint}-up`]: this.labelBreakpoint,
             };
         },
         /**
@@ -209,17 +215,6 @@ export default {
             }
 
             return this.icon;
-        },
-        /**
-         * Maps button size to icon size
-         */
-        iconSize() {
-            const map = {
-                sm: 'xs',
-                md: 'sm',
-                lg: 'md',
-            };
-            return map[this.size];
         },
         /**
          * Accessible label based on state
@@ -281,64 +276,81 @@ export default {
             @extend %button-default-font-weight;
             @include button-icon-only-styles;
 
-            // Generate responsive icon-only classes for each breakpoint
-            // Applies icon-only styles below specified breakpoint,
-            // normal button styles above
-            @each $breakpoint in map-keys($grid-breakpoints) {
-                &.vs-button--icon-only-#{$breakpoint}-down {
-                    @include media-breakpoint-down($breakpoint) {
-                        @include button-icon-only-styles;
-                    }
-                }
-            }
-
             &:focus-visible {
                 @extend %primary-button-focus;
                 border-color: $vs-color-interaction-cta-primary;
             }
-        }
 
-        &:focus {
-            @extend %primary-button-focus;
-        }
+            &:focus {
+                @extend %primary-button-focus;
+            }
 
-        .vs-icon {
-            pointer-events: none;
-            vertical-align: middle;
-        }
+            .vs-icon {
+                pointer-events: none;
+                vertical-align: middle;
+            }
 
-        &--rounded {
-            border-radius: $vs-radius-full;
-        }
+            &--pressed {
+                background: $vs-color-interaction-cta-pressed;
+            }
 
-        &--pressed {
-            background: $vs-color-interaction-cta-pressed;
+            // Generates responsive label classes for each breakpoint and
+            // applies full button styles above specified breakpoint to
+            // allow a label to be added
+            @each $breakpoint in map-keys($grid-breakpoints) {
+                &.vs-toggle-button--label-#{$breakpoint}-up {
+                    @include media-breakpoint-up($breakpoint) {
+                        line-height: $line-height-base;
+                        display: block;
+                        width: auto;
+                        height: auto;
+
+                        &.btn-sm {
+                            padding: $vs-spacer-0125 $vs-spacer-125;
+                        }
+
+                        &.btn-md {
+                            padding: $vs-spacer-050 $vs-spacer-150;
+                        }
+
+                        &.btn-lg {
+                            padding: $vs-spacer-075 $vs-spacer-175;
+                            font-size: unset;
+                        }
+
+                        .vs-icon {
+                            margin-top: -0.15rem;
+                            margin-left: $vs-spacer-025;
+                        }
+                    }
+                }
+            }
         }
 
         /* Button Variants
         ------------------------------------------ */
-        &.btn-primary {
+        &.btn-default {
             @include vs-button-variant(
-                $vs-color-text-inverse, $vs-color-interaction-cta-primary, $vs-color-interaction-cta-primary,
-                $vs-color-text-inverse, $vs-color-interaction-cta-hover, $vs-color-interaction-cta-hover,
-                $vs-color-text-inverse, $vs-color-interaction-cta-pressed, $vs-color-interaction-cta-pressed,
+                $vs-color-text-cta-on-light, transparent, transparent,
+                $vs-color-text-cta-on-light, $vs-color-interaction-cta-subtle-hover, $vs-color-interaction-cta-subtle-hover,
+                $vs-color-text-inverse, $vs-color-interaction-cta-subtle-pressed, $vs-color-interaction-cta-subtle-pressed,
             );
         }
 
-        &.btn-secondary {
+        &.btn-overlay {
             @include vs-button-variant(
-                $vs-color-text-cta-on-light, $vs-color-interaction-cta-secondary, $vs-color-interaction-cta-primary,
-                $vs-color-text-inverse, $vs-color-interaction-cta-hover, $vs-color-interaction-cta-hover,
-                $vs-color-text-inverse, $vs-color-interaction-cta-pressed, $vs-color-interaction-cta-pressed,
+                $vs-color-text-secondary, $vs-color-background-inverse, $vs-color-background-inverse,
+                $vs-color-text-primary, $vs-color-background-inverse, $vs-color-background-inverse,
+                $vs-color-text-primary, $vs-color-background-inverse, $vs-color-background-inverse,
             );
         }
 
-        &.btn-subtle {
+        &.btn-overlay-strong {
             &:not(.vs-main-map-category__button) {
                 @include vs-button-variant(
-                    $vs-color-text-cta-on-light, $vs-color-interaction-cta-subtle, $vs-color-interaction-cta-subtle,
-                    $vs-color-text-cta-on-light, $vs-color-interaction-cta-subtle-hover, $vs-color-interaction-cta-subtle-hover,
-                    $vs-color-text-inverse, $vs-color-interaction-cta-subtle-pressed, $vs-color-interaction-cta-subtle-pressed,
+                    $vs-color-icon-accent-saltire-30, $vs-color-background-inverse, $vs-color-background-inverse,
+                    $vs-color-text-cta-on-light, $vs-color-background-inverse, $vs-color-background-inverse,
+                    $vs-color-text-cta-on-light, $vs-color-background-inverse, $vs-color-background-inverse,
                 );
             }
 
