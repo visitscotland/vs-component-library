@@ -67,7 +67,14 @@ export default `
                             </div>
                         </template>
                         <template v-slot:vs-card-image>
+                            <VsVideo 
+                                v-if="card.videoSrc"
+                                video-type="html5"
+                                :poster-image-src="card.image"
+                                :video-src="card.videoSrc"
+                            />
                             <VsImg 
+                                v-else
                                 :src="card.image" 
                                 class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
                             />
@@ -205,6 +212,7 @@ export default `
     SECTION END
     ------------------------------------------------------------>
 
+
     <!------------------------------------------------------------
     NEW SECTION - Spotlight section
     ------------------------------------------------------------>
@@ -212,11 +220,12 @@ export default `
         <VsRow>
             <VsCol>
                 <VsSpotlightSection 
-                    heading="Film & TV locations"
-                    description="This country has produced its fair share of top Hollywood names, and there have been a surprising number of movies filmed in Scotland, too."
-                    imageSrc="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/05/outlander-image"
+                    heading="Slow travel and wellness retreats"
+                    description="Slow down and explore Scotland's breathtaking scenery. Unplug, find moments of wellness, and savour every experience."
+                    imageSrc="fixtures/hero/images/lavendar-fields.jpg"
+                    videoSrc="fixtures/hero/video/lavendar-fields.mp4"
                     ctaLink="#"
-                    ctaText="See the Locations"
+                    ctaText="Explore slow travel adventures"
                 />
             </VsCol>
         </VsRow>
@@ -224,7 +233,6 @@ export default `
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
-
 
     <!------------------------------------------------------------
     NEW SECTION - Section header + new card group ( 4 cards)
@@ -343,6 +351,27 @@ export default `
                         </template>
                     </VsCard>
                 </VsCardGroup>
+            </VsCol>
+        </VsRow>
+    </VsContainer>
+    <!------------------------------------------------------------
+    SECTION END
+    ------------------------------------------------------------>
+
+
+    <!------------------------------------------------------------
+    NEW SECTION - Spotlight section
+    ------------------------------------------------------------>
+    <VsContainer class="mt-500">
+        <VsRow>
+            <VsCol>
+                <VsSpotlightSection 
+                    heading="Film & TV locations"
+                    description="This country has produced its fair share of top Hollywood names, and there have been a surprising number of movies filmed in Scotland, too."
+                    imageSrc="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/05/outlander-image"
+                    ctaLink="#"
+                    ctaText="See the Locations"
+                />
             </VsCol>
         </VsRow>
     </VsContainer>

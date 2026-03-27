@@ -119,8 +119,8 @@ describe('VsCard', () => {
                 },
             });
 
-            expect(wrapper.find('.vs-card__image').exists()).toBe(true);
-            expect(wrapper.find('.vs-card__image img').exists()).toBe(true);
+            expect(wrapper.find('.vs-card__media').exists()).toBe(true);
+            expect(wrapper.find('.vs-card__media img').exists()).toBe(true);
         });
 
         it('does not render image slot when card style is not overlay', () => {
@@ -133,7 +133,7 @@ describe('VsCard', () => {
                 },
             });
 
-            expect(wrapper.find('.vs-card__image').exists()).toBe(false);
+            expect(wrapper.find('.vs-card__media').exists()).toBe(false);
         });
 
         it('always renders body slot container', () => {

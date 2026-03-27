@@ -113,12 +113,11 @@ describe('VsHeroSection', () => {
                 imgSrc: heroImgSrc,
             });
 
-            const video = wrapper.find('video');
-            const source = wrapper.find('source');
+            const video = wrapper.find('vs-video-stub');
 
             expect(video.exists()).toBe(true);
-            expect(video.attributes('poster')).toBe(heroImgSrc);
-            expect(source.attributes('src')).toBe(heroVideoSrc);
+            expect(video.attributes('posterimagesrc')).toBe(heroImgSrc);
+            expect(video.attributes('videosrc')).toBe(heroVideoSrc);
         });
 
         it('does not render a video control when videoSrc is not provided', async() => {

@@ -19,7 +19,9 @@ const Template = (args) => ({
     },
     template: `
         <div :class="args.jsDisabled ? 'no-js' : ''">
-            <VsVideo v-bind="args"></VsVideo>
+            <VsVideo 
+                v-bind="args"
+            ></VsVideo>
         </div>
     `,
 });
@@ -36,6 +38,13 @@ const base = {
 export const Default = Template.bind();
 Default.args = {
     ...base,
+};
+
+export const AmbientVideo = Template.bind();
+AmbientVideo.args = {
+    videoType: 'html5',
+    videoSrc: 'fixtures/hero/video/lavendar-fields.mp4',
+    posterImageSrc: 'fixtures/hero/images/lavendar-fields.jpg',
 };
 
 export const NoCookies = Template.bind();
