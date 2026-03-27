@@ -111,6 +111,12 @@ describe('VsTooltip (floating-ui)', () => {
         expect(wrapper.vm.visible).toBe(true);
     });
 
+    it('should show tooltip on focus', async() => {
+        await wrapper.find('[data-test="vs-tooltip-trigger"]').trigger('focusin');
+
+        expect(wrapper.vm.visible).toBe(true);
+    });
+
     it('should hide tooltip on mouseleave', async() => {
         await wrapper.find('span').trigger('mouseenter');
         await wrapper.find('span').trigger('mouseleave');
@@ -150,6 +156,16 @@ describe('VsTooltip (floating-ui)', () => {
 
             expect(tooltip.classes()).toContain('vs-tooltip-popover--subtle');
         });
+
+        it('should not apply subtle class when subtle is false', async() => {
+            await wrapper.setData({
+                visible: true,
+            });
+
+            const tooltip = wrapper.find('.vs-tooltip-popover');
+
+            expect(tooltip.classes()).not.toContain('vs-tooltip-popover--subtle');
+        });
     });
 
     describe(':slots', () => {
@@ -160,8 +176,50 @@ describe('VsTooltip (floating-ui)', () => {
 
     describe(':accessibility', () => {
         it('should not have aXe accessibility issues', async() => {
-            const modifiedWrapper = factoryMount();
+            const modifiedWrapper = factoryFloating();
             expect(await axe(modifiedWrapper.html())).toHaveNoViolations();
         });
+    });
+});
+
+describe(':useLegacy', () => {
+    it('should default to legacy implementation', () => {
+        const wrapper = factoryShallowMount();
+
+        const legacyTooltip = wrapper.find('[data-test="vs-tooltip"]');
+        const floatingTrigger = wrapper.find('[data-test="vs-tooltip-trigger"]');
+
+        expect(legacyTooltip.exists()).toBe(true);
+        expect(floatingTrigger.exists()).toBe(false);
+    });
+
+    it('should render legacy tooltip when useLegacy is true', () => {
+        const wrapper = factoryMount({
+            useLegacy: true,
+        });
+
+        const legacyTooltip = wrapper.find('[data-test="vs-tooltip"]');
+
+        expect(legacyTooltip.exists()).toBe(true);
+    });
+
+    it('should render floating tooltip when useLegacy is false', () => {
+        const wrapper = factoryMount({
+            useLegacy: false,
+        });
+
+        const floatingTrigger = wrapper.find('[data-test="vs-tooltip-trigger"]');
+
+        expect(floatingTrigger.exists()).toBe(true);
+    });
+
+    it('should not render legacy tooltip when useLegacy is false', () => {
+        const wrapper = factoryMount({
+            useLegacy: false,
+        });
+
+        const legacyTooltip = wrapper.find('[data-test="vs-tooltip"]');
+
+        expect(legacyTooltip.exists()).toBe(false);
     });
 });
