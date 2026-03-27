@@ -266,7 +266,7 @@ const base = {
     utilityMenuAriaLabel: 'Utility menu',
     sidebarUtilityMenuAriaLabel: 'Sidebar Utility menu',
     sidebarCloseLabel: 'Close navigation menu',
-    sidebarOpenLabel: 'Main menu test ',
+    sidebarOpenLabel: 'Main menu',
     sidebarTitle: 'Navigation menu',
     svgAltText: 'VisitScotland Home',
     svgColor: designTokens['vs-color-background-brand'],

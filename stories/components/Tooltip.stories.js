@@ -1,3 +1,4 @@
+import { userEvent, within } from 'storybook/test';
 import VsTooltip from '@/components/tooltip/Tooltip.vue';
 import VsButton from '@/components/button/Button.vue';
 
@@ -22,6 +23,9 @@ export default {
             },
         },
     },
+    decorators: [() => ({
+        template: '<div style="padding:2rem 5rem;"><story /></div>',
+    })],
 };
 
 const Template = (args) => ({
@@ -35,7 +39,6 @@ const Template = (args) => ({
         };
     },
     template: `
-         <!-- NEW TOOLTIP -->
         <VsTooltip
             v-if="!args.useLegacy"
             :title="args.title"
@@ -52,39 +55,34 @@ const Template = (args) => ({
                 {{ args.title }}
             </VsButton>
         </VsTooltip>
-
-        <!-- LEGACY TOOLTIP -->
-        <VsTooltip
-            v-else
-            :title="args.title"
-            :position="args.position"
-            :subtle="args.subtle"
-            :icon="args.icon"
-            :size="args.size"
-            :variant="args.variant"
-            icon-only
-            use-legacy
-        >
-            {{ args.title }}
-        </VsTooltip>
     `,
 });
 
 const base = {
     icon: 'fa-regular fa-bus',
     size: 'sm',
-    position: 'top',
+    position: 'bottom',
     title: 'Travel by bus',
     'icon-only': true,
     variant: 'subtle',
+    useLegacy: false,
 };
 
 export const Default = Template.bind({
 });
 
-Default.args = {
-    ...base,
-    useLegacy: false,
+Default.args = base;
+
+export const DefaultHovered = Template.bind({
+});
+
+DefaultHovered.args = base;
+
+DefaultHovered.play = async({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = await canvas.getByRole('button');
+
+    await userEvent.hover(button);
 };
 
 export const Subtle = Template.bind({
@@ -93,13 +91,19 @@ export const Subtle = Template.bind({
 Subtle.args = {
     ...base,
     subtle: true,
-    useLegacy: false,
 };
 
-export const Legacy = Template.bind({
+export const SubtleHovered = Template.bind({
 });
 
-Legacy.args = {
+SubtleHovered.args = {
     ...base,
-    useLegacy: true,
+    subtle: true,
+};
+
+SubtleHovered.play = async({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = await canvas.getByRole('button');
+
+    await userEvent.hover(button);
 };

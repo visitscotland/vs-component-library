@@ -8,7 +8,6 @@
         <VsButton
             icon-only
             icon="vs-icon-control-menu"
-            href="#"
             size="sm"
             variant="subtle"
             class="d-block vs-navigation-bar-sidebar-button"

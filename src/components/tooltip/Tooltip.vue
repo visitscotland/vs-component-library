@@ -3,6 +3,7 @@
     <template v-if="!useLegacy">
         <span
             ref="trigger"
+            v-bind="$attrs"
             data-test="vs-tooltip-trigger"
             class="d-inline-block"
             @mouseenter="show"
@@ -148,6 +149,7 @@ export default {
         },
     },
     beforeUnmount() {
+        clearTimeout(this.hideTimeout);
         if (this.cleanup) this.cleanup();
     },
     methods: {
@@ -157,6 +159,8 @@ export default {
          */
         show() {
             if (this.useLegacy) return;
+            clearTimeout(this.hideTimeout);
+            this.hideTimeout = null;
             this.visible = true;
 
             // Wait for tooltip to render before calculating its position
@@ -169,7 +173,7 @@ export default {
         hide() {
             if (this.useLegacy) return;
 
-            clearTimeout(this.showTimeout);
+            clearTimeout(this.hideTimeout);
 
             this.hideTimeout = setTimeout(() => {
                 this.visible = false;
@@ -178,6 +182,7 @@ export default {
                     this.cleanup();
                     this.cleanup = null;
                 }
+                this.hideTimeout = null;
             }, 220);
         },
         /**
