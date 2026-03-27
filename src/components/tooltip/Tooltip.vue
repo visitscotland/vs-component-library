@@ -3,6 +3,7 @@
     <template v-if="!useLegacy">
         <span
             ref="trigger"
+            data-test="vs-tooltip-trigger"
             class="d-inline-block"
             @mouseenter="show"
             @mouseleave="hide"
