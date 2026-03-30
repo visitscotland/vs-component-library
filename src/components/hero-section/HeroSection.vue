@@ -22,23 +22,12 @@
                 v-else-if="videoSrc"
                 class="vs-hero-section__video-wrapper"
             >
-                <video
-                    loop
-                    muted
-                    autoplay
-                    playsinline
-                    preload="auto"
-                    :poster="imgSrc"
+                <VsVideo
+                    video-type="html5"
+                    :poster-image-src="imgSrc"
+                    :video-src="videoSrc"
                     class="vs-hero-section__video"
-                    ref="heroVideo"
-                    aria-hidden="true"
-                    fetchpriority="high"
-                >
-                    <source
-                        :src="videoSrc"
-                        type="video/mp4"
-                    >
-                </video>
+                />
                 <div class="vs-hero-section__video-overlay" />
             </div>
 
@@ -90,6 +79,7 @@ import VsHeading from '@/components/heading/Heading.vue';
 import VsBody from '@/components/body/Body.vue';
 import VsHeroSectionImage from '@/components/hero-section/components/HeroSectionImage.vue';
 import VsHeroSectionVideoControl from '@/components/hero-section/components/HeroSectionVideoControl.vue';
+import VsVideo from '@/components/video/Video.vue';
 
 /**
 * Component for the hero section at the top of a page.
@@ -108,6 +98,7 @@ export default {
         VsBody,
         VsHeroSectionImage,
         VsHeroSectionVideoControl,
+        VsVideo,
     },
     provide() {
         return {
@@ -336,9 +327,7 @@ export default {
             line-height: 0; //removes any extra space in the container
 
             .vs-hero-section__video {
-                width: 100%;
                 height: 560px;
-                object-fit: cover;
 
                 @include media-breakpoint-up(sm) {
                     height: 648px;
