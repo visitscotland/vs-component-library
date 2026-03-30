@@ -24,7 +24,9 @@
                 >
                     <template
                         #vs-map-sidebar-sub-filters
-                        v-if="selectedTopLevelCategory"
+                        v-if="selectedTopLevelCategory
+                            && selectedTopLevelCategory !== 'destinations'
+                            && selectedTopLevelCategory !== 'places'"
                     >
                         <div class="vs-map-sidebar__sub-filters">
                             <VsButton
@@ -117,22 +119,20 @@
                     </template>
                 </VsMapSidebar>
                 <div
+                    v-if="googleMapStore.sidebarOpen
+                        && (categoryData && Object.keys(categoryData).length > 0)"
                     class="vs-map__filter-controls"
-                    v-if="
-                        (currentZoom >= CATEGORY_VISIBLE_ZOOM || categoriesVisible)
-                            && googleMapStore.sidebarOpen
-                            && Object.keys(categoryData).length > 0"
                 >
                     <template
                         v-for="(category, key) in categoryLabelData"
-                        :key="key"
+                        :key="category.id"
                     >
                         <VsButton
                             v-if="!category.cmsData"
                             class="vs-map__filter-controls-button"
+                            :icon="setCategoryIcon(category.id)"
                             :variant="selectedTopLevelCategory === category.id ? 'primary' : 'secondary'"
                             @click.prevent="selectCategory(category.id, key)"
-                            :icon="Object.values(categoryData)[key].icon"
                         >
                             {{ category.label }}
                         </VsButton>
@@ -249,7 +249,7 @@ const props = defineProps({
     },
     /**
      * MapId set in the Google Maps Platform console
-     * for this paricular map (enables/disable GMP features)
+     * for this particular map (enables/disable GMP features)
      */
     mapId: {
         type: String,
@@ -418,7 +418,6 @@ const subCategoryKey = ref();
 const currentZoom = ref(props.zoom);
 const MAX_ZOOM = 17;
 const CATEGORY_VISIBLE_ZOOM = 11;
-const categoriesVisible = ref(false);
 const NUMBER_OF_RESULTS = 20;
 const query = ref();
 const queryStr = ref(new Set());
@@ -427,7 +426,7 @@ const currentSearch = ref();
 const subCategoryTypeMap = computed(() => {
     const map = new Map();
 
-    const subCategories = categoryData[selectedTopLevelCategory.value].subCategory;
+    const subCategories = categoryData.value[selectedTopLevelCategory.value].subCategory;
 
     Object.values(subCategories).forEach((subCat) => {
         map.set(subCat.id, {
@@ -453,8 +452,7 @@ const SCOTLAND_BOUNDS = {
     east: -0.7,
 };
 
-let categoryData = {
-};
+const categoryData = ref();
 const categoryLabelData = props.categoryLabels;
 
 let currentSearchId = 0;
@@ -486,7 +484,7 @@ onMounted(async() => {
     if (props.categoriesLocation) {
         axios.get(props.categoriesLocation)
             .then((response) => {
-                categoryData = response.data;
+                categoryData.value = response.data;
             })
             .catch(() => {});
     }
@@ -700,41 +698,46 @@ function selectCategory(categoryId, key) {
 
     selectedTopLevelCategory.value = categoryId;
 
-    // Retrieves all the values in each subcategory and adds it to
-    // `includedTopLevelTypes` set, which should handle duplication.
-    Object.values(categoryData[categoryId].subCategory).forEach(
-        (subCategory) => includedTopLevelTypes.value.add(subCategory.includedType),
-    );
+    if (categoryId !== 'destinations' && categoryId !== 'places') {
+        // Retrieves all the values in each subcategory and adds it to
+        // `includedTopLevelTypes` set, which should handle duplication.
+        Object.values(categoryData.value[categoryId].subCategory).forEach(
+            (subCategory) => includedTopLevelTypes.value.add(subCategory.includedType),
+        );
 
-    Object.values(categoryData[categoryId].subCategory).forEach(
-        (subCategory) => {
-            if (subCategory.excludedType) {
-                excludedTopLevelTypes.value.add(subCategory.excludedType);
+        Object.values(categoryData.value[categoryId].subCategory).forEach(
+            (subCategory) => {
+                if (subCategory.excludedType) {
+                    excludedTopLevelTypes.value.add(subCategory.excludedType);
+                }
+            },
+        );
+
+        // Flattens multiple sets back down into one
+        includedTopLevelTypes.value = new Set(Array.from(includedTopLevelTypes.value).flat());
+        excludedTopLevelTypes.value = new Set(Array.from(excludedTopLevelTypes.value).flat());
+
+        // Checks if there are conflicting types and removes from excluded if already in included
+        includedTopLevelTypes.value.forEach((type) => {
+            if (excludedTopLevelTypes.value.has(type)) {
+                excludedTopLevelTypes.value.delete(type);
             }
-        },
-    );
+        });
 
-    // Flattens multiple sets back down into one
-    includedTopLevelTypes.value = new Set(Array.from(includedTopLevelTypes.value).flat());
-    excludedTopLevelTypes.value = new Set(Array.from(excludedTopLevelTypes.value).flat());
+        selectedCategory.value = categoryData.value[categoryId];
+        categoryKey.value = key;
 
-    // Checks if there are conflicting types and removes from exluded if already in included
-    includedTopLevelTypes.value.forEach((type) => {
-        if (excludedTopLevelTypes.value.has(type)) {
-            excludedTopLevelTypes.value.delete(type);
-        }
-    });
+        searchByCategory({
+            includedTypes: Array.from(includedTopLevelTypes.value),
+            excludedTypes: Array.from(excludedTopLevelTypes.value),
+        });
 
-    selectedCategory.value = categoryData[categoryId];
-    categoryKey.value = key;
-
-    searchByCategory({
-        includedTypes: Array.from(includedTopLevelTypes.value),
-        excludedTypes: Array.from(excludedTopLevelTypes.value),
-    });
-
-    query.value = categoryLabelData[categoryKey.value].label;
-    searchInput.value = query.value;
+        query.value = categoryLabelData[categoryKey.value].label;
+        searchInput.value = query.value;
+    } else {
+        resetTextQuery();
+        resetMap();
+    }
 }
 
 function searchSubCategoriesForLabel(selectedSubcategory, subCategoryId) {
@@ -1063,8 +1066,6 @@ function resetMap(hardReset, resetLocation) {
 
     textSearchQuery.textQuery = null;
 
-    categoriesVisible.value = false;
-
     if (infoWindow && infoWindow.close) {
         infoWindow.close();
     }
@@ -1258,7 +1259,16 @@ function handleFeaturedLocationClick(place) {
     );
 
     selectCategory('things-to-do', 2);
-    categoriesVisible.value = true;
+}
+
+function setCategoryIcon(key) {
+    if (!categoryData.value) return null;
+
+    const categoryInfo = categoryData.value[key];
+
+    if (!categoryInfo) return null;
+
+    return categoryInfo.icon;
 }
 </script>
 
@@ -1350,7 +1360,7 @@ function handleFeaturedLocationClick(place) {
         @include media-breakpoint-up(md) {
             width: fit-content;
             overflow-x: auto;
-            margin: $vs-spacer-075 $vs-spacer-0 $vs-spacer-0 $vs-spacer-100;
+            margin: $vs-spacer-0 $vs-spacer-0 $vs-spacer-0 $vs-spacer-100;
         }
 
         @include media-breakpoint-up(lg) {

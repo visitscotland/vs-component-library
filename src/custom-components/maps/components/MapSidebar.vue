@@ -79,10 +79,12 @@
             </div>
             <div class="vs-map-sidebar__search-results">
                 <VsHeading
-                    level="2"
-                    heading-style="heading-xxxs"
-                    v-if="$props.query || $props.selectedCategories"
+                    v-if="props.query || (props.selectedCategories
+                        && props.selectedCategories !== 'destinations'
+                        && props.selectedCategories !== 'places')"
                     data-test="vs-map-sidebar__search-result-query"
+                    heading-style="heading-xxxs"
+                    level="2"
                 >
                     {{ props.searchResultsLabel }} "{{ props.query || props.selectedCategories }}"
                 </VsHeading>
@@ -93,13 +95,13 @@
                 </div>
             </div>
             <VsMapFeaturedLocation
+                v-if="props.selectedCategories === 'places'"
                 class="mb-100"
-                :class="($props.query || $props.selectedCategories) ? 'd-none' : 'd-block'"
             />
         </div>
         <div
+            v-if="props.query || props.selectedCategories"
             class="vs-map-sidebar__footer"
-            v-if="$props.query || $props.selectedCategories"
         >
             <hr class="vs-map-sidebar__swipe-tab">
         </div>
