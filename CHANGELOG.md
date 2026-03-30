@@ -1,3 +1,15 @@
+# [5.42.0](https://github.com/visitscotland/vs-component-library/compare/v5.41.6...v5.42.0) (2026-03-30)
+
+
+### Bug Fixes
+
+* **build:** adjust glob import to support windows ([6c61829](https://github.com/visitscotland/vs-component-library/commit/6c618290bf55a6bcd0750dbb7fa3ba9d76d531f6))
+
+
+### Features
+
+* **pinia:** update to pinia 3 to support website dependabot updates ([a17ee61](https://github.com/visitscotland/vs-component-library/commit/a17ee6184209f062e897b7699c2faa1d53683d75))
+
 ## [5.41.6](https://github.com/visitscotland/vs-component-library/compare/v5.41.5...v5.41.6) (2026-03-30)
 
 
