@@ -1,3 +1,10 @@
+## [5.41.6](https://github.com/visitscotland/vs-component-library/compare/v5.41.5...v5.41.6) (2026-03-30)
+
+
+### Bug Fixes
+
+* **main map:** help to restrict text search to places in Scotland ([606c767](https://github.com/visitscotland/vs-component-library/commit/606c76770ceaf1503420effff50f35e61ff44c19))
+
 ## [5.41.5](https://github.com/visitscotland/vs-component-library/compare/v5.41.4...v5.41.5) (2026-03-25)
 
 
