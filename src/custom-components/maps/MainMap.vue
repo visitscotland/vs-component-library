@@ -951,7 +951,11 @@ async function searchByText() {
         return;
     }
 
-    textSearchQuery.textQuery = query.value;
+    /**
+     * Add 'in Scotland' to the end of the text query to help contain the
+     * results to Scotland.
+     */
+    textSearchQuery.textQuery = `${query.value} in Scotland`;
 
     textSearchQuery.locationRestriction = gMap.getBounds();
     textSearchQuery.maxResultCount = NUMBER_OF_RESULTS;
