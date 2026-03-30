@@ -1,3 +1,14 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [5.42.1](https://github.com/visitscotland/vs-component-library/compare/v5.42.0...v5.42.1) (2026-03-30)
+
+
+### 🔖 Others
+
+* **deps:** bump the npm_and_yarn group across 1 directory with 3 updates ([635d2ae](https://github.com/visitscotland/vs-component-library/commit/635d2ae3fd8a5fecd568aa7e8296306f714913f0))
+
 # [5.42.0](https://github.com/visitscotland/vs-component-library/compare/v5.41.6...v5.42.0) (2026-03-30)
 
 
