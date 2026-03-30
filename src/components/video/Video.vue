@@ -17,7 +17,6 @@ import VsVideoHtml5 from './components/VideoHtml5.vue';
 
 export default {
     name: 'VsVideo',
-
     props: {
         /**
          * The type of video player to display
@@ -112,6 +111,20 @@ export default {
          * Message to show when there's an error with a third party
         */
         errorMessage: {
+            type: String,
+            default: '',
+        },
+        /**
+        * Text to be announced when button is toggled to play
+        */
+        playButtonLabel: {
+            type: String,
+            default: '',
+        },
+        /**
+         * Text to be announced when button is toggled to pause
+        */
+        pauseButtonLabel: {
             type: String,
             default: '',
         },

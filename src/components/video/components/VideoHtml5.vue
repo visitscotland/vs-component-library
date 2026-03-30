@@ -12,6 +12,7 @@
             :poster="posterImageSrc"
             aria-hidden="true"
             fetchpriority="high"
+            ref="html5Video"
             class="vs-video-html5__player img-zoom-on-hover"
         >
             <source
@@ -19,12 +20,29 @@
                 type="video/mp4"
             >
         </video>
+
+        <VsToggleButton
+            class="vs-video-html5__toggle-video"
+            variant="overlay"
+            icon="vs-icon-control-play"
+            pressed-icon="vs-icon-control-pause"
+            @toggle="onToggleVideo"
+            :label="playButtonLabel"
+            :pressed-label="pauseButtonLabel"
+        />
     </div>
 </template>
 
 <script>
+import VsToggleButton from '@/components/toggle-button/ToggleButton.vue';
+
 export default {
     name: 'VsVideoHtml5',
+    status: 'prototype',
+    release: '0.0.1',
+    components: {
+        VsToggleButton,
+    },
     props: {
         /**
         * The video url for HTML5 player
@@ -39,6 +57,32 @@ export default {
         posterImageSrc: {
             type: String,
             default: '',
+        },
+        /**
+        * Text to be announced when button is toggled to play
+        */
+        playButtonLabel: {
+            type: String,
+            default: '',
+        },
+        /**
+         * Text to be announced when button is toggled to pause
+        */
+        pauseButtonLabel: {
+            type: String,
+            default: '',
+        },
+    },
+    methods: {
+        /**
+         * Play/pause the video
+         */
+        onToggleVideo(isPlaying) {
+            if (isPlaying) {
+                this.$refs.html5Video.pause();
+            } else {
+                this.$refs.html5Video.play();
+            }
         },
     },
 };
@@ -61,6 +105,12 @@ export default {
             &.img-zoom-on-hover {
                 transition: transform 0.3s ease-in-out;
             }
+        }
+
+        &__toggle-video.vs-toggle-button {
+            position: absolute;
+            top: $vs-spacer-125;
+            right: $vs-spacer-125;
         }
     }
 </style>
