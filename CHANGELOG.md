@@ -1,3 +1,44 @@
+# [5.42.0](https://github.com/visitscotland/vs-component-library/compare/v5.41.6...v5.42.0) (2026-03-30)
+
+
+### Bug Fixes
+
+* **build:** adjust glob import to support windows ([6c61829](https://github.com/visitscotland/vs-component-library/commit/6c618290bf55a6bcd0750dbb7fa3ba9d76d531f6))
+
+
+### Features
+
+* **pinia:** update to pinia 3 to support website dependabot updates ([a17ee61](https://github.com/visitscotland/vs-component-library/commit/a17ee6184209f062e897b7699c2faa1d53683d75))
+
+## [5.41.6](https://github.com/visitscotland/vs-component-library/compare/v5.41.5...v5.41.6) (2026-03-30)
+
+
+### Bug Fixes
+
+* **main map:** help to restrict text search to places in Scotland ([606c767](https://github.com/visitscotland/vs-component-library/commit/606c76770ceaf1503420effff50f35e61ff44c19))
+
+## [5.41.5](https://github.com/visitscotland/vs-component-library/compare/v5.41.4...v5.41.5) (2026-03-25)
+
+
+### Bug Fixes
+
+* **main map:** keyboard control for destination cards ([1b3c912](https://github.com/visitscotland/vs-component-library/commit/1b3c912d672dcc4453f786dff5cd983a983cb773))
+* **map with sidebar:** add missing icon for national parks ([1eecaeb](https://github.com/visitscotland/vs-component-library/commit/1eecaeb8646a2696118e0560e0ac56195a93ab6d))
+
+## [5.41.4](https://github.com/visitscotland/vs-component-library/compare/v5.41.3...v5.41.4) (2026-03-25)
+
+
+### Bug Fixes
+
+* **embed wrapper:** also load script on mount if no cookies ([cd8f8d9](https://github.com/visitscotland/vs-component-library/commit/cd8f8d9f093d4001a764a1bf0b7cec0f54ca635e))
+
+## [5.41.3](https://github.com/visitscotland/vs-component-library/compare/v5.41.2...v5.41.3) (2026-03-25)
+
+
+### Bug Fixes
+
+* **embed wrapper:** load script when noCookiesRequired set to true ([b8da9a0](https://github.com/visitscotland/vs-component-library/commit/b8da9a014d2886374d4740b6cb9935a80d882b7d))
+
 ## [5.41.2](https://github.com/visitscotland/vs-component-library/compare/v5.41.1...v5.41.2) (2026-03-23)
 
 
