@@ -124,14 +124,17 @@ const Template = (args) => ({
                             <VsTooltip
                                 title="Map of Scotland"
                                 subtle
-                                variant="subtle"
-                                size="sm"
-                                icon="fa-regular fa-map"
-                                icon-only
-                                href="#"
-                                class="d-block"
+                                :use-legacy="false"
                             >
-                                Map of Scotland
+                                <VsButton
+                                    icon-only
+                                    icon="fa-regular fa-map"
+                                    href="#"
+                                    size="sm"
+                                    variant="subtle"
+                                >
+                                    Map of Scotland
+                                </VsButton>
                             </VsTooltip>
                         </li>
                         <li
@@ -220,14 +223,17 @@ const Template = (args) => ({
                                 <VsTooltip
                                     title="Map of Scotland"
                                     subtle
-                                    variant="subtle"
-                                    size="sm"
-                                    icon="fa-regular fa-map"
-                                    icon-only
-                                    href="#"
-                                    class="d-block"
+                                    :use-legacy="false"
                                 >
-                                    Map of Scotland
+                                    <VsButton
+                                        icon-only
+                                        icon="fa-regular fa-map"
+                                        href="#"
+                                        size="sm"
+                                        variant="subtle"
+                                    >
+                                        Map of Scotland
+                                    </VsButton>
                                 </VsTooltip>
                             </li>
                             <li class="d-block d-md-none">
