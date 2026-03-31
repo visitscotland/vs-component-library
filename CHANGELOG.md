@@ -1,3 +1,20 @@
+# [5.43.0](https://github.com/visitscotland/vs-component-library/compare/v5.42.1...v5.43.0) (2026-03-31)
+
+
+### Bug Fixes
+
+* **tooltip:** add tooltip enhancements ([856da3c](https://github.com/visitscotland/vs-component-library/commit/856da3cb7a0dcdd8abdefff9cc85fd0e0e435699))
+* **tooltip:** fix show method in tooltip ([07aea56](https://github.com/visitscotland/vs-component-library/commit/07aea56d7473658dcd4f2531c83f4b264c63820e))
+* **tooltip:** remove nowrap on tooltip ([a2bebb6](https://github.com/visitscotland/vs-component-library/commit/a2bebb644c44c0a065a093153d0df7beafa13499))
+
+
+### Features
+
+* **tooltip:** accessibility fixes in tooltip ([9bad996](https://github.com/visitscotland/vs-component-library/commit/9bad99650b2943c8bc63096bedb111c77366c018))
+* **tooltip:** improvements to tooltip ([a0b4270](https://github.com/visitscotland/vs-component-library/commit/a0b4270cdba4e7ef4a3ea6a8a1e5f1c4bbcb8213))
+* **tooltip:** refactoring tooltip to use floating UI - should be backwards compatible ([b5232f3](https://github.com/visitscotland/vs-component-library/commit/b5232f350be637fcef6c6d49ea0b2bfbf330a64a))
+* **tooltip:** tidy up tooltip issues ([1bc5e71](https://github.com/visitscotland/vs-component-library/commit/1bc5e7160508223a1ca0b1634175436d9b259035))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
