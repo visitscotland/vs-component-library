@@ -1,3 +1,33 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [5.42.1](https://github.com/visitscotland/vs-component-library/compare/v5.42.0...v5.42.1) (2026-03-30)
+
+
+### 🔖 Others
+
+* **deps:** bump the npm_and_yarn group across 1 directory with 3 updates ([635d2ae](https://github.com/visitscotland/vs-component-library/commit/635d2ae3fd8a5fecd568aa7e8296306f714913f0))
+
+# [5.42.0](https://github.com/visitscotland/vs-component-library/compare/v5.41.6...v5.42.0) (2026-03-30)
+
+
+### Bug Fixes
+
+* **build:** adjust glob import to support windows ([6c61829](https://github.com/visitscotland/vs-component-library/commit/6c618290bf55a6bcd0750dbb7fa3ba9d76d531f6))
+
+
+### Features
+
+* **pinia:** update to pinia 3 to support website dependabot updates ([a17ee61](https://github.com/visitscotland/vs-component-library/commit/a17ee6184209f062e897b7699c2faa1d53683d75))
+
+## [5.41.6](https://github.com/visitscotland/vs-component-library/compare/v5.41.5...v5.41.6) (2026-03-30)
+
+
+### Bug Fixes
+
+* **main map:** help to restrict text search to places in Scotland ([606c767](https://github.com/visitscotland/vs-component-library/commit/606c76770ceaf1503420effff50f35e61ff44c19))
+
 ## [5.41.5](https://github.com/visitscotland/vs-component-library/compare/v5.41.4...v5.41.5) (2026-03-25)
 
 
