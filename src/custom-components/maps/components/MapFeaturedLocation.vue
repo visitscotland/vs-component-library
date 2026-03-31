@@ -1,76 +1,82 @@
 <template>
-    <VsAccordion v-if="categories && places">
-        <VsAccordionItem
-            v-for="(category, index) in categories"
-            :key="index"
-            :control-id="category.id"
-            :open-by-default="category.id === 'cities'"
+    <div class="mb-100">
+        <VsDetail
+            color="secondary"
+            size="small"
         >
-            <template #title>
-                <VsIcon
-                    class="me-025 fa-fw"
-                    custom-colour="#200F2E"
-                    :icon="setIcon(category.id)"
-                    size="sm"
-                    variant="highlight"
-                />
-                <span class="category-title">{{ category.label }}</span>
-            </template>
+            <!-- TODO: Replace this with a new label -->
+            Refine your results by location
+        </VsDetail>
+        <div class="vs-map__destination-types">
+            <VsButton
+                v-for="category in categories"
+                :key="category.id"
+                :icon="iconMap[category.id]"
+                size="sm"
+                :variant="setButtonVariant(category.id)"
+                @click="selectedDestinationType = category.id"
+            >
+                {{ category.label }}
+            </VsButton>
+        </div>
 
-            <div class="vs-map__controls-featured-place-accordion-content p-075">
-                <VsCardGroup scroll-snap="always">
-                    <template v-for="place in places">
-                        <VsMapFeaturedLocationItem
-                            v-if="place.properties.category.id === category.id"
-                            :key="place.properties.id"
-                            :place="place"
-                        />
-                    </template>
-                </VsCardGroup>
-            </div>
-        </VsAccordionItem>
-    </VsAccordion>
+        <div aria-live="polite">
+            <VsCardGroup :cards-per-row="2">
+                <VsMapFeaturedLocationItem
+                    v-for="place in filteredPlaces"
+                    :key="place.properties.id"
+                    :place="place"
+                />
+            </VsCardGroup>
+        </div>
+    </div>
 </template>
 
 <script setup>
-import { inject } from 'vue';
-import VsAccordion from '@/components/accordion/Accordion.vue';
-import VsAccordionItem from '@/components/accordion/components/AccordionItem.vue';
+import {
+    computed,
+    inject,
+    ref,
+} from 'vue';
+import VsButton from '@/components/button/Button.vue';
 import VsCardGroup from '@/components/card-group/CardGroup.vue';
-import VsIcon from '@/components/icon/Icon.vue';
+import VsDetail from '@/components/detail/Detail.vue';
 import VsMapFeaturedLocationItem from './MapFeaturedLocationItem.vue';
 
+// Injected from `MainMap.vue`.
 const { categories, places } = inject('featuredPlaces');
 
-function setIcon(id) {
-    switch (id) {
-    case 'cities':
-        return 'fa-regular fa-city';
-    case 'regions':
-        return 'fa-regular fa-map-location-dot';
-    case 'islands':
-        return 'fa-regular fa-island-tropical';
-    case 'towns':
-        return 'fa-regular fa-house-chimney-window';
-    case 'national-parks':
-        return 'fa-kit fa-vs-icon-national-park';
-    default:
-        return null;
-    };
-}
+const selectedDestinationType = ref(categories[0].id);
+
+// Filter the places data to only show those place that match the selected destination type.
+const filteredPlaces = computed(() => (
+    places.filter((place) => place.properties.category.id === selectedDestinationType.value)
+));
+
+// The button should be secondary unless it is the currently selected destination type.
+const setButtonVariant = (id) => (selectedDestinationType.value === id ? 'primary' : 'secondary');
+
+// Icons used on the destination type buttons.
+const iconMap = {
+    cities: 'fa-regular fa-city',
+    regions: 'fa-regular fa-map-location-dot',
+    islands: 'fa-regular fa-island-tropical',
+    towns: 'fa-regular fa-house-chimney-window',
+    'national-parks': 'fa-kit fa-vs-icon-national-park',
+};
 </script>
 
 <style lang="scss">
-    .category-title {
-        text-transform: capitalize;
-    }
+.vs-map__destination-types {
+    @include scrollsnap-styles;
 
-    .vs-map__controls-featured-place {
-        &-accordion-content {
-            .vs-card-group {
-                column-gap: $vs-spacer-050;
-            }
-        }
+    column-gap: $vs-spacer-050;
+    margin-bottom: $vs-spacer-100;
+    pointer-events: all;
+    padding: $vs-spacer-025 $vs-spacer-025 $vs-spacer-075;
 
+    .vs-button {
+        flex: 0 0 max-content;
     }
+}
 </style>
