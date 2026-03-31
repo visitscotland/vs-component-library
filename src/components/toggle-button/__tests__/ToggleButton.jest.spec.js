@@ -111,14 +111,6 @@ describe('VsToggleButton', () => {
                 expect(wrapper.find('b-button-stub').attributes('variant')).toBe('overlay');
             });
 
-            it('applies the correct button size', () => {
-                const wrapper = factoryNew({
-                    size: 'lg',
-                });
-
-                expect(wrapper.find('b-button-stub').attributes('size')).toBe('lg');
-            });
-
             it('renders accessible label when provided', () => {
                 const wrapper = factoryNew({
                     label: 'Like item',

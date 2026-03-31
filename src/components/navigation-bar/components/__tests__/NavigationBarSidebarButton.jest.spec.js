@@ -24,7 +24,7 @@ const factoryMount = (propsData) => mount(VsNavigationBarSidebarButton, {
 describe('VsNavigationBarSidebarButton', () => {
     it('should render a vs-tooltip-stub component', () => {
         const wrapper = factoryShallowMount();
-        const tooltip = wrapper.find('[data-test=vs-navigation-bar-sidebar-button]');
+        const tooltip = wrapper.find('vs-tooltip-stub');
 
         expect(tooltip.exists()).toBe(true);
     });
@@ -44,7 +44,9 @@ describe('VsNavigationBarSidebarButton', () => {
                 expanded: true,
             });
 
-            expect(wrapper.attributes('aria-expanded')).toBe('true');
+            const button = wrapper.find('[data-test=vs-navigation-bar-sidebar-button]');
+
+            expect(button.attributes('aria-expanded')).toBe('true');
         });
 
         it(':expanded - should accept and set aria-expanded attribute to "false" when false', () => {
@@ -52,13 +54,17 @@ describe('VsNavigationBarSidebarButton', () => {
                 expanded: false,
             });
 
-            expect(wrapper.attributes('aria-expanded')).toBe('false');
+            const button = wrapper.find('[data-test=vs-navigation-bar-sidebar-button]');
+
+            expect(button.attributes('aria-expanded')).toBe('false');
         });
 
         it(':expanded - should default to "false"', () => {
             const wrapper = factoryMount();
 
-            expect(wrapper.attributes('aria-expanded')).toBe('false');
+            const button = wrapper.find('[data-test=vs-navigation-bar-sidebar-button]');
+
+            expect(button.attributes('aria-expanded')).toBe('false');
         });
 
         it(':controlsId - should accept and set aria-controls attribute', () => {
@@ -67,7 +73,9 @@ describe('VsNavigationBarSidebarButton', () => {
                 controlsId: testId,
             });
 
-            expect(wrapper.attributes('aria-controls')).toBe(testId);
+            const button = wrapper.find('[data-test=vs-navigation-bar-sidebar-button]');
+
+            expect(button.attributes('aria-controls')).toBe(testId);
         });
     });
 
@@ -85,8 +93,9 @@ describe('VsNavigationBarSidebarButton', () => {
     describe(':events', () => {
         it('should emit sidebar-open event when button is clicked', async() => {
             const wrapper = factoryMount();
+            const button = wrapper.find('[data-test=vs-navigation-bar-sidebar-button]');
 
-            await wrapper.trigger('click');
+            await button.trigger('click');
 
             expect(wrapper.emitted('sidebar-open')).toBeTruthy();
             expect(wrapper.emitted('sidebar-open')[0]).toEqual([true]);
@@ -102,7 +111,9 @@ describe('VsNavigationBarSidebarButton', () => {
         it('should have proper aria-haspopup for menu button', () => {
             const wrapper = factoryMount();
 
-            expect(wrapper.attributes('aria-haspopup')).toBe('dialog');
+            const button = wrapper.find('[data-test=vs-navigation-bar-sidebar-button]');
+
+            expect(button.attributes('aria-haspopup')).toBe('dialog');
         });
 
         it('should use sidebarOpenLabel for screen readers', () => {
