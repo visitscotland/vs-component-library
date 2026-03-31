@@ -5,10 +5,16 @@
         :variant="variant"
         class="vs-toggle-button"
         :class="buttonClasses"
-        :size="size"
+        size="sm"
         :aria-pressed="isToggle ? isPressed : undefined"
         @click="handleClick"
     >
+        <VsIcon
+            :icon="currentIcon"
+            size="xs"
+            :padding="0"
+        />
+
         <span
             v-if="label"
             class="visually-hidden"
@@ -16,12 +22,6 @@
         >
             {{ computedLabel }}
         </span>
-
-        <VsIcon
-            :icon="currentIcon"
-            size="xs"
-            :padding="0"
-        />
     </BButton>
 
     <!-- LEGACY MODE
@@ -94,21 +94,12 @@ export default {
         },
         /**
          * Style variation to give additional meaning
-         * `primary|secondary|subtle`.
+         * `default|overlay|overlay-strong`.
          */
         variant: {
             type: String,
             default: 'default',
             validator: (value) => value.match(/(default|overlay|overlay-strong)/),
-        },
-        /**
-         * Size of the button
-         * `sm|md|lg`.
-         */
-        size: {
-            type: String,
-            default: 'sm',
-            validator: (value) => value.match(/(sm|md|lg)/),
         },
         /**
          * The default icon to display
@@ -271,19 +262,19 @@ export default {
             justify-content: center;
             padding: $vs-spacer-050;
             border-radius: $vs-radius-full;
+            border: 0;
+            transition:
+                transform 0.2s ease,
+                background-color 0.2s ease,
+                color 0.2s ease;
+
+             &:active {
+                transform: scale(0.92);
+            }
 
             @extend %button-default-styles;
             @extend %button-default-font-weight;
             @include button-icon-only-styles;
-
-            &:focus-visible {
-                @extend %primary-button-focus;
-                border-color: $vs-color-interaction-cta-primary;
-            }
-
-            &:focus {
-                @extend %primary-button-focus;
-            }
 
             .vs-icon {
                 pointer-events: none;
@@ -292,6 +283,11 @@ export default {
 
             &--pressed {
                 background: $vs-color-interaction-cta-pressed;
+                transform: scale(1.05);
+            }
+
+            &:focus-visible, &:focus {
+                outline-offset: 2px;
             }
 
             // Generates responsive label classes for each breakpoint and
@@ -309,18 +305,9 @@ export default {
                             padding: $vs-spacer-0125 $vs-spacer-125;
                         }
 
-                        &.btn-md {
-                            padding: $vs-spacer-050 $vs-spacer-150;
-                        }
-
-                        &.btn-lg {
-                            padding: $vs-spacer-075 $vs-spacer-175;
-                            font-size: unset;
-                        }
-
                         .vs-icon {
                             margin-top: -0.15rem;
-                            margin-left: $vs-spacer-025;
+                            margin-right: $vs-spacer-025;
                         }
                     }
                 }
@@ -335,6 +322,10 @@ export default {
                 $vs-color-text-cta-on-light, $vs-color-interaction-cta-subtle-hover, $vs-color-interaction-cta-subtle-hover,
                 $vs-color-text-inverse, $vs-color-interaction-cta-subtle-pressed, $vs-color-interaction-cta-subtle-pressed,
             );
+
+            &:focus-visible, &:focus {
+                @extend %outline-link-focus;
+            }
         }
 
         &.btn-overlay {
@@ -343,19 +334,29 @@ export default {
                 $vs-color-text-primary, $vs-color-background-inverse, $vs-color-background-inverse,
                 $vs-color-text-primary, $vs-color-background-inverse, $vs-color-background-inverse,
             );
+            background: var(--background-blur, rgba(255, 255, 255, 0.80));
         }
 
         &.btn-overlay-strong {
-            &:not(.vs-main-map-category__button) {
-                @include vs-button-variant(
-                    $vs-color-icon-accent-saltire-30, $vs-color-background-inverse, $vs-color-background-inverse,
-                    $vs-color-text-cta-on-light, $vs-color-background-inverse, $vs-color-background-inverse,
-                    $vs-color-text-cta-on-light, $vs-color-background-inverse, $vs-color-background-inverse,
-                );
-            }
+            @include vs-button-variant(
+                $vs-color-text-secondary, $vs-color-background-inverse, $vs-color-background-inverse,
+                $vs-color-text-primary, $vs-color-background-inverse, $vs-color-background-inverse,
+                $vs-color-text-cta-on-light, $vs-color-background-inverse, $vs-color-background-inverse,
+            );
+            background: var(--background-blur, rgba(255, 255, 255, 0.80));
 
-            &:focus {
-                box-shadow: 0 0 0 2px $vs-color-interaction-focus;
+            &.vs-toggle-button--pressed {
+                color: $vs-color-text-cta-on-light;
+
+                .vs-icon {
+                    color: $vs-color-text-cta-on-light;
+                }
+            }
+        }
+
+        &.btn-overlay, &.btn-overlay-strong {
+            &:focus-visible, &:focus {
+                @extend %outline-link-focus-dark;
             }
         }
     }

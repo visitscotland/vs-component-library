@@ -1,15 +1,39 @@
 import VsToggleButton from '@/components/toggle-button/ToggleButton.vue';
-import VsTooltip from '@/components/tooltip/Tooltip.vue';
 
 export default {
     component: VsToggleButton,
     title: 'Components/Actions & controls/ToggleButton',
+    argTypes: {
+        variant: {
+            options: [
+                'default',
+                'overlay',
+                'overlay-strong',
+            ],
+            control: {
+                type: 'radio',
+            },
+        },
+        labelBreakpoint: {
+            options: [
+                null,
+                'xs',
+                'sm',
+                'md',
+                'lg',
+                'xl',
+                'xxl',
+            ],
+            control: {
+                type: 'select',
+            },
+        },
+    },
 };
 
 const Template = (args) => ({
     components: {
         VsToggleButton,
-        VsTooltip,
     },
     setup() {
         return {
@@ -17,19 +41,15 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsToggleButton v-bind="args" />
+        <VsToggleButton 
+            v-bind="args"
+        />
     `,
 });
 
-const base = {
+export const DefaultToggle = Template.bind();
+DefaultToggle.args = {
     variant: 'default',
-    default: 'Search',
-    icon: 'vs-icon-control-search',
-};
-
-export const Default = Template.bind();
-Default.args = {
-    ...base,
     icon: 'fa-regular fa-heart',
     pressedIcon: 'fa-solid fa-heart',
     label: 'Add to favourites',
@@ -38,12 +58,11 @@ Default.args = {
 
 export const Overlay = Template.bind();
 Overlay.args = {
-    ...base,
     variant: 'overlay',
-    icon: 'fa-regular fa-heart',
-    pressedIcon: 'fa-solid fa-heart',
-    label: 'Add to favourites',
-    pressedLabel: 'Remove from favourites',
+    icon: 'vs-icon-control-play',
+    pressedIcon: 'vs-icon-control-pause',
+    label: 'Play',
+    pressedLabel: 'Pause',
 };
 Overlay.globals = {
     backgrounds: {
@@ -53,7 +72,6 @@ Overlay.globals = {
 
 export const OverlayStrong = Template.bind();
 OverlayStrong.args = {
-    ...base,
     variant: 'overlay-strong',
     icon: 'fa-regular fa-heart',
     pressedIcon: 'fa-solid fa-heart',
@@ -66,9 +84,8 @@ OverlayStrong.globals = {
     },
 };
 
-export const WithLabelDefault = Template.bind();
-WithLabelDefault.args = {
-    ...base,
+export const WithLabel = Template.bind();
+WithLabel.args = {
     variant: 'default',
     icon: 'fa-regular fa-heart',
     pressedIcon: 'fa-solid fa-heart',
@@ -77,34 +94,45 @@ WithLabelDefault.args = {
     labelBreakpoint: 'md',
 };
 
-export const WithLabelOverlay = Template.bind();
-WithLabelOverlay.args = {
-    ...base,
-    variant: 'overlay',
-    icon: 'fa-regular fa-heart',
-    pressedIcon: 'fa-solid fa-heart',
-    label: 'Add to favourites',
-    pressedLabel: 'Remove from favourites',
-    labelBreakpoint: 'md',
-};
-WithLabelOverlay.globals = {
-    backgrounds: {
-        value: 'dark',
-    },
+export const NoIconChange = Template.bind();
+NoIconChange.args = {
+    variant: 'default',
+    default: 'Search',
+    icon: 'vs-icon-control-search',
 };
 
-export const WithLabelOverlayStrong = Template.bind();
-WithLabelOverlayStrong.args = {
-    ...base,
-    variant: 'overlay-strong',
-    icon: 'fa-regular fa-heart',
-    pressedIcon: 'fa-solid fa-heart',
-    label: 'Add to favourites',
-    pressedLabel: 'Remove from favourites',
-    labelBreakpoint: 'md',
-};
-WithLabelOverlayStrong.globals = {
-    backgrounds: {
-        value: 'dark',
+export const Controlled = (args) => ({
+    components: {
+        VsToggleButton,
     },
+    setup() {
+        return {
+            args,
+        };
+    },
+    data() {
+        return {
+            pressed: false,
+        };
+    },
+    template: `
+        <div style="display:flex; gap:1.5rem; align-items:center;">
+            <VsToggleButton
+                v-bind="args"
+                v-model="pressed"
+            />
+
+            <small>
+                Pressed: {{ pressed }}
+            </small>
+        </div>
+    `,
+});
+
+Controlled.args = {
+    variant: 'default',
+    icon: 'vs-icon-control-play',
+    pressedIcon: 'vs-icon-control-pause',
+    label: 'Play',
+    pressedLabel: 'Pause',
 };
