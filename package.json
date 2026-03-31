@@ -1,6 +1,6 @@
 {
   "name": "@visitscotland/component-library",
-  "version": "5.42.0",
+  "version": "5.42.1",
   "description": "VisitScotland Component Library",
   "author": "VisitScotland",
   "homepage": "https://github.com/visitscotland/vs-component-library#readme",
@@ -158,6 +158,7 @@
     "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
+    "@floating-ui/dom": "^1.7.6",
     "@googlemaps/js-api-loader": "^2.0.1",
     "@mapbox/geojson-extent": "^1.0.1",
     "@pinia/testing": "^0.1.3",

@@ -2,22 +2,28 @@
     <VsTooltip
         :title="sidebarOpenLabel"
         subtle
-        variant="subtle"
-        size="sm"
-        icon="vs-icon-control-menu"
-        icon-only
-        class="d-block vs-navigation-bar-sidebar-button"
-        data-test="vs-navigation-bar-sidebar-button"
-        @click="sidebarOpen()"
-        aria-haspopup="dialog"
-        :aria-controls="controlsId"
-        :aria-expanded="String(expanded)"
+        position="bottom"
+        :use-legacy="false"
     >
-        {{ sidebarOpenLabel }}
+        <VsButton
+            icon-only
+            icon="vs-icon-control-menu"
+            size="sm"
+            variant="subtle"
+            class="d-block vs-navigation-bar-sidebar-button"
+            data-test="vs-navigation-bar-sidebar-button"
+            @click="sidebarOpen()"
+            aria-haspopup="dialog"
+            :aria-controls="controlsId"
+            :aria-expanded="String(expanded)"
+        >
+            {{ sidebarOpenLabel }}
+        </VsButton>
     </VsTooltip>
 </template>
 
 <script>
+import VsButton from '@/components/button/Button.vue';
 import VsTooltip from '@/components/tooltip/Tooltip.vue';
 
 /**
@@ -30,6 +36,7 @@ export default {
     status: 'prototype',
     release: '0.1.0',
     components: {
+        VsButton,
         VsTooltip,
     },
     props: {

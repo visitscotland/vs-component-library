@@ -75,14 +75,17 @@
                             <VsTooltip
                                 title="Map of Scotland"
                                 subtle
-                                variant="subtle"
-                                size="sm"
-                                icon="fa-regular fa-map"
-                                icon-only
-                                href="#"
-                                class="d-block"
+                                :use-legacy="false"
                             >
-                                Map of Scotland
+                                <VsButton
+                                    icon-only
+                                    icon="fa-regular fa-map"
+                                    href="#"
+                                    size="sm"
+                                    variant="subtle"
+                                >
+                                    Map of Scotland
+                                </VsButton>
                             </VsTooltip>
                         </li>
                         <li
@@ -178,13 +181,17 @@
                                 <VsTooltip
                                     title="Map of Scotland"
                                     subtle
-                                    variant="subtle"
-                                    size="sm"
-                                    icon="fa-regular fa-map"
-                                    icon-only
-                                    href="#"
+                                    :use-legacy="false"
                                 >
-                                    Map of Scotland
+                                    <VsButton
+                                        icon-only
+                                        icon="fa-regular fa-map"
+                                        href="#"
+                                        size="sm"
+                                        variant="subtle"
+                                    >
+                                        Map of Scotland
+                                    </VsButton>
                                 </VsTooltip>
                             </li>
                             <li class="d-block d-md-none">
@@ -230,6 +237,7 @@ import VsAccordion from '@/components/accordion/Accordion.vue';
 import VsAccordionItem from '@/components/accordion/components/AccordionItem.vue';
 import VsDivider from '@/components/divider/Divider.vue';
 import VsTooltip from '@/components/tooltip/Tooltip.vue';
+import VsButton from '@/components/button/Button.vue';
 
 import b2bNav from '@/assets/fixtures/navigation-bar/b2b-nav.json';
 import b2cNav from '@/assets/fixtures/navigation-bar/b2c-nav.json';
@@ -254,6 +262,7 @@ export default {
         VsAccordionItem,
         VsDivider,
         VsTooltip,
+        VsButton,
     },
     props: {
         /**
