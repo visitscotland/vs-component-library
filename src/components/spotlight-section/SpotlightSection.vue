@@ -4,18 +4,7 @@
         :style="imageSrc ? { backgroundImage: `url(${imageSrc})` } : {}"
         data-test="vs-spotlight-section"
     >
-        <div
-            v-if="videoSrc"
-            class="vs-spotlight-section__media"
-        >
-            <VsVideo
-                video-type="html5"
-                :poster-image-src="imageSrc"
-                :video-src="videoSrc"
-            />
-        </div>
-
-        <div class="vs-spotlight-section__overlay">
+        <div class="vs-spotlight-section__content-overlay">
             <div class="row w-100 m-0">
                 <div class="col-12 col-sm-7 col-md-8 col-lg-7 col-xl-6 align-self-end p-0">
                     <VsHeading
@@ -63,6 +52,20 @@
                 </div>
             </div>
         </div>
+
+        <template v-if="$slots['vs-spotlight-section-media'] && $slots['vs-spotlight-section-media']()">
+            <div class="vs-spotlight-section__media">
+                <slot name="vs-spotlight-section-media" />
+            </div>
+        </template>
+
+        <template v-if="$slots['vs-spotlight-section-overlay-controls'] && $slots['vs-spotlight-section-overlay-controls']()">
+            <div class="vs-spotlight-section__overlay-controls">
+                <slot name="vs-spotlight-section-overlay-controls" />
+            </div>
+        </template>
+
+        <div class="vs-spotlight-section__gradient-overlay" />
     </section>
 </template>
 
@@ -70,7 +73,6 @@
 import VsHeading from '@/components/heading/Heading.vue';
 import VsBody from '@/components/body/Body.vue';
 import VsButton from '@/components/button/Button.vue';
-import VsVideo from '@/components/video/Video.vue';
 
 /**
  * Component for the spotlight section.
@@ -89,7 +91,6 @@ export default {
         VsHeading,
         VsBody,
         VsButton,
-        VsVideo,
     },
     props: {
         /**
@@ -124,13 +125,6 @@ export default {
          * The image src url to display
          */
         imageSrc: {
-            type: String,
-            default: '',
-        },
-        /**
-         * The video src url to display
-         */
-        videoSrc: {
             type: String,
             default: '',
         },
@@ -171,36 +165,48 @@ export default {
             z-index: 0;
         }
 
-        &__overlay {
+        &__gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: opacity 1s;
+            background:
+                    linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%),
+                    linear-gradient(270deg, rgba(0, 0, 0, 0) 30.29%, rgba(0, 0, 0, 0.5) 75%);
+            pointer-events: none;
+
+            @include media-breakpoint-up(lg) {
+                background: linear-gradient(
+                    270deg,rgba(0, 0, 0, 0) 30.29%,rgba(0, 0, 0, 0.5) 75%
+                );
+            }
+        }
+
+        &__overlay-controls {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 10;
+            pointer-events: none;
+            padding: $vs-spacer-125;
+
+            > * {
+                pointer-events: auto;
+            }
+        }
+
+        &__content-overlay {
             position: relative;
             z-index: 1;
-            height: 100%;
-            width: 100%;
             display: grid;
             place-items: end;
             border-radius: $vs-radius-medium;
             padding: $vs-spacer-175 $vs-spacer-125;
-            z-index: 1;
 
             @include media-breakpoint-up(sm) {
                 padding: $vs-spacer-250 $vs-spacer-250;
-            }
-
-            &::before {
-                content: '';
-                position: absolute;
-                inset: 0;
-                border-radius: $vs-radius-medium;
-                background:
-                    linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%),
-                    linear-gradient(270deg, rgba(0, 0, 0, 0) 30.29%, rgba(0, 0, 0, 0.5) 75%);
-                z-index: -1;
-
-                @include media-breakpoint-up(lg) {
-                    background: linear-gradient(
-                        270deg,rgba(0, 0, 0, 0) 30.29%,rgba(0, 0, 0, 0.5) 75%
-                    );
-                }
             }
         }
 
@@ -238,7 +244,7 @@ export default {
                 min-height: 500px;
             }
 
-            .vs-spotlight-section__overlay {
+            .vs-spotlight-section__content-overlay {
                 min-height: 360px;
 
                 @include media-breakpoint-up(md) {
@@ -276,7 +282,7 @@ export default {
                 min-height: 293px;
             }
 
-            .vs-spotlight-section__overlay {
+            .vs-spotlight-section__content-overlay {
                 min-height: 170px;
 
                 @include media-breakpoint-up(lg) {
@@ -310,7 +316,7 @@ export default {
         &--no-image {
             color: $vs-color-text-primary;
 
-            .vs-spotlight-section__overlay::before {
+            .vs-spotlight-section__content-overlay::before {
                 background: $vs-color-background-secondary;
             }
         }
