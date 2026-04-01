@@ -30,6 +30,12 @@
                 <slot name="vs-card-image" />
             </div>
         </template>
+
+        <template v-if="$slots['vs-card-overlay-controls'] && $slots['vs-card-overlay-controls']()">
+            <div class="vs-card__overlay-controls">
+                <slot name="vs-card-overlay-controls" />
+            </div>
+        </template>
     </div>
 </template>
 
@@ -177,6 +183,19 @@ export default {
             }
         }
 
+        &__overlay-controls {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 10;
+            pointer-events: none;
+            padding: $vs-spacer-125;
+
+            > * {
+                pointer-events: auto;
+            }
+        }
+
         &--overlay {
             height: 330px;
             color: $vs-color-text-inverse;
@@ -208,6 +227,7 @@ export default {
                         linear-gradient(180deg, rgba(0, 0, 0, 0) 30.29%, rgba(0, 0, 0, 0.5) 75%); // bottom to top
                     z-index: 0;
                     border-radius: $vs-radius-tiny;
+                    pointer-events: none;
                 }
             }
         }

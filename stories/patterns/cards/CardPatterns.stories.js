@@ -9,6 +9,7 @@ import VsArticleDetails from '@/components/article-details/ArticleDetails.vue';
 import VsBadge from '@/components/badge/Badge.vue';
 import VsIcon from '@/components/icon/Icon.vue';
 import VsVideo from '@/components/video/Video.vue';
+import VsToggleButton from '@/components/toggle-button/ToggleButton.vue';
 
 import SplitLinkCardExample from './card-examples/split-link-card';
 import SplitLinkHorizontalCardExample from './card-examples/split-link-horizontal-card';
@@ -31,6 +32,7 @@ const components = {
     VsIcon,
     VsDetail,
     VsVideo,
+    VsToggleButton,
 };
 
 const decorators = {
@@ -42,10 +44,15 @@ const decorators = {
     }),
 };
 
-const createStory = (template, decorator = decorators.default) => ({
+/**
+ * Generic helper for simple template stories
+ */
+const createStory = (template, decorator = decorators.default, options = {
+}) => ({
     render: () => ({
         components,
         template,
+        ...options,
     }),
     decorators: [decorator],
     parameters: {
@@ -62,13 +69,34 @@ export default {
 };
 
 export const SplitLink = createStory(SplitLinkCardExample);
+
 export const SplitLinkHorizontal = createStory(
     SplitLinkHorizontalCardExample,
     decorators.fullWidth,
 );
+
 export const Link = createStory(LinkExample);
+
 export const LinkWithDetails = createStory(LinkWithDetailsExample);
+
 export const LinkWithIcon = createStory(LinkWithIconExample);
+
 export const CategoryImage = createStory(CategoryImageExample);
-export const CategoryVideo = createStory(CategoryVideoExample);
+
+/**
+ * Interactive story (video play/pause)
+ */
+export const CategoryVideo = createStory(
+    CategoryVideoExample,
+    decorators.default,
+    {
+        methods: {
+            toggleVideo() {
+                const video = this.$refs.cardVideo;
+                video?.toggle?.();
+            },
+        },
+    },
+);
+
 export const Event = createStory(EventExample);
