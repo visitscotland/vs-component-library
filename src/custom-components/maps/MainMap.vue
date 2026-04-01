@@ -8,39 +8,17 @@
         >
             <div class="vs-map__controls">
                 <VsMapSidebar
+                    :categories="categoryLabelData"
+                    :category-data="categoryData"
                     :query="query"
-                    :selected-categories="selectedTopLevelCategory"
-                    :header-label="props.labels.heading"
-                    :close-sidebar-button-label="props.labels.closeSidebarBtn"
-                    :search-bar-aria-label="props.labels.searchBarAriaLabel"
-                    :input-placeholder-label="props.labels.inputPlaceholder"
-                    :search-button-label="props.labels.searchButton"
-                    :clear-map-label="props.labels.clearMap"
-                    :sub-filter-header-label="props.labels.subFilterHeader"
-                    :search-results-label="props.labels.searchResults"
-                    :open-sidebar-button-label="props.labels.openSidebarButton"
-                    @search-input-changed="searchByText"
+                    :selected-category="selectedTopLevelCategory"
+                    :selected-subcategories="selectedSubCategories"
+                    :sidebar-labels="sidebarLabels"
+                    @category-selected="(e) => selectCategory(e.id, e.key)"
                     @reset-map="resetMap(true)"
+                    @search-input-changed="searchByText"
+                    @subcategory-selected="(e) => searchBySubCategory(e.id, e.key)"
                 >
-                    <template
-                        #vs-map-sidebar-sub-filters
-                        v-if="selectedTopLevelCategory"
-                    >
-                        <div class="vs-map-sidebar__sub-filters">
-                            <VsButton
-                                v-for="
-                                    (subCategory, key) in
-                                        categoryLabelData[categoryKey].subCategory"
-                                :key
-                                :variant="selectedSubCategories.has(subCategory.id) ? 'primary' : 'secondary'"
-                                size="sm"
-                                @click="searchBySubCategory(subCategory.id, key)"
-                            >
-                                {{ subCategory.label }}
-                            </VsButton>
-                        </div>
-                    </template>
-
                     <template #vs-map-sidebar-search-results>
                         <VsAlert
                             v-if="noResults || (props.alertText && noResults === false)"
@@ -116,28 +94,6 @@
                         </Suspense>
                     </template>
                 </VsMapSidebar>
-                <div
-                    class="vs-map__filter-controls"
-                    v-if="
-                        (currentZoom >= CATEGORY_VISIBLE_ZOOM || categoriesVisible)
-                            && googleMapStore.sidebarOpen
-                            && Object.keys(categoryData).length > 0"
-                >
-                    <template
-                        v-for="(category, key) in categoryLabelData"
-                        :key="key"
-                    >
-                        <VsButton
-                            v-if="!category.cmsData"
-                            class="vs-map__filter-controls-button"
-                            :variant="selectedTopLevelCategory === category.id ? 'primary' : 'secondary'"
-                            @click.prevent="selectCategory(category.id, key)"
-                            :icon="Object.values(categoryData)[key].icon"
-                        >
-                            {{ category.label }}
-                        </VsButton>
-                    </template>
-                </div>
             </div>
 
             <div class="vs-map__wrapper">
@@ -180,6 +136,7 @@
                 </Suspense>
             </div>
         </div>
+
         <VsWarning
             v-if="showError && errType === 'noCookie'"
             type="cookie"
@@ -208,7 +165,6 @@
 <script setup>
 /* eslint-disable no-use-before-define  */
 /* eslint-disable vue/no-side-effects-in-computed-properties */
-
 import {
     computed,
     onBeforeMount,
@@ -216,21 +172,19 @@ import {
     provide,
     ref,
 } from 'vue';
-import getEnvValue from '@/utils/get-env-value';
-
 import {
     importLibrary,
     setOptions,
 } from '@googlemaps/js-api-loader';
-
 import axios from 'axios';
 
 import {
     VsAlert,
-    VsButton,
     VsWarning,
 } from '@/components';
+
 import useGoogleMapStore from '@/stores/mainMap.store';
+import getEnvValue from '@/utils/get-env-value';
 import cookieValues from '@/utils/required-cookies-data';
 import VsMapSidebar from './components/MapSidebar.vue';
 import cookieCheckerComposable from './composables/verifyCookiesComposable';
@@ -249,7 +203,7 @@ const props = defineProps({
     },
     /**
      * MapId set in the Google Maps Platform console
-     * for this paricular map (enables/disable GMP features)
+     * for this particular map (enables/disable GMP features)
      */
     mapId: {
         type: String,
@@ -458,6 +412,18 @@ let categoryData = {
 const categoryLabelData = props.categoryLabels;
 
 let currentSearchId = 0;
+
+const sidebarLabels = {
+    headerLabel: props.labels.heading,
+    closeSidebarButtonLabel: props.labels.closeSidebarBtn,
+    searchBarAriaLabel: props.labels.searchBarAriaLabel,
+    inputPlaceholderLabel: props.labels.inputPlaceholder,
+    searchButtonLabel: props.labels.searchButton,
+    clearMapLabel: props.labels.clearMap,
+    subFilterHeaderLabel: props.labels.subFilterHeader,
+    searchResultsLabel: props.labels.searchResults,
+    openSidebarButtonLabel: props.labels.openSidebarButton,
+};
 
 onBeforeMount(() => {
     const cookieCheck = cookieCheckerComposable();
@@ -735,6 +701,8 @@ function selectCategory(categoryId, key) {
 
     query.value = categoryLabelData[categoryKey.value].label;
     searchInput.value = query.value;
+
+    googleMapStore.showCategories = true;
 }
 
 function searchSubCategoriesForLabel(selectedSubcategory, subCategoryId) {
@@ -871,6 +839,8 @@ function searchBySubCategory(subCategoryId, key) {
         // Add to the query value.
         query.value = Array.from(queryStr.value).join(', ');
         searchInput.value = query.value;
+
+        googleMapStore.showCategories = true;
     }
 }
 
@@ -1056,6 +1026,8 @@ async function addMarkers(searchId) {
 }
 
 function resetMap(hardReset, resetLocation) {
+    googleMapStore.showCategories = false;
+    // googleMapStore.showDestinations = true;
     clearExistingMarkers();
     currentSearch.value = '';
     nearbySearch.style.display = 'none';
@@ -1257,8 +1229,8 @@ function handleFeaturedLocationClick(place) {
         ),
     );
 
+    // categoriesVisible.value = true;
     selectCategory('things-to-do', 2);
-    categoriesVisible.value = true;
 }
 </script>
 

@@ -39,6 +39,8 @@
 
 <script setup>
 import { inject } from 'vue';
+
+import useGoogleMapStore from '@/stores/mainMap.store';
 import VsCard from '@/components/card/Card.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsImg from '@/components/img/Img.vue';
@@ -51,9 +53,11 @@ const props = defineProps({
     },
 });
 
+const googleMapStore = useGoogleMapStore();
 const onFeaturedLocationClick = inject('onFeaturedLocationClick');
 
 function featuredPlaceClick(place) {
+    googleMapStore.showDestinations = false;
     onFeaturedLocationClick(place);
 }
 </script>

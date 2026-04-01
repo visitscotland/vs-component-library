@@ -67,6 +67,7 @@ const iconMap = {
 </script>
 
 <style lang="scss">
+.vs-map__categories,
 .vs-map__destination-types {
     @include scrollsnap-styles;
 
