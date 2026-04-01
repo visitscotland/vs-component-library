@@ -3,40 +3,50 @@
         class="vs-video-html5"
         data-test="vs-video-html5"
     >
-        <video
-            loop
-            muted
-            autoplay
-            playsinline
-            preload="auto"
-            :poster="posterImageSrc"
-            aria-hidden="true"
-            fetchpriority="high"
-            ref="html5Video"
-            class="vs-video-html5__player img-zoom-on-hover"
-        >
-            <source
-                :src="videoSrc"
-                type="video/mp4"
-            >
-        </video>
+        <template v-if="prefersReducedMotion">
+            <VsImg
+                class="vs-video-html5__fallback-image"
+                :src="posterImageSrc"
+            />
+        </template>
 
-        <VsToggleButton
-            v-if="showToggle"
-            class="vs-video-html5__toggle-video"
-            variant="overlay"
-            icon="vs-icon-control-play"
-            pressed-icon="vs-icon-control-pause"
-            @toggle="toggle"
-            :label="playButtonLabel"
-            :pressed-label="pauseButtonLabel"
-            aria-hidden="true"
-        />
+        <template v-else>
+            <video
+                loop
+                muted
+                autoplay
+                playsinline
+                preload="auto"
+                :poster="posterImageSrc"
+                aria-hidden="true"
+                fetchpriority="high"
+                ref="html5Video"
+                class="vs-video-html5__player img-zoom-on-hover"
+            >
+                <source
+                    :src="videoSrc"
+                    type="video/mp4"
+                >
+            </video>
+
+            <VsToggleButton
+                v-if="showToggle"
+                class="vs-video-html5__toggle-video"
+                variant="overlay"
+                icon="vs-icon-control-play"
+                pressed-icon="vs-icon-control-pause"
+                @toggle="toggle"
+                :label="playButtonLabel"
+                :pressed-label="pauseButtonLabel"
+                aria-hidden="true"
+            />
+        </template>
     </div>
 </template>
 
 <script>
 import VsToggleButton from '@/components/toggle-button/ToggleButton.vue';
+import VsImg from '@/components/img/Img.vue';
 
 export default {
     name: 'VsVideoHtml5',
@@ -44,6 +54,7 @@ export default {
     release: '0.0.1',
     components: {
         VsToggleButton,
+        VsImg,
     },
     props: {
         /**
@@ -83,6 +94,15 @@ export default {
             type: Boolean,
             default: true,
         },
+    },
+    data() {
+        return {
+            prefersReducedMotion: false,
+        };
+    },
+    mounted() {
+        const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        this.prefersReducedMotion = mediaQuery.matches;
     },
     methods: {
         /**
@@ -127,7 +147,7 @@ export default {
         position: absolute;
         inset: 0;
 
-        &__player {
+        &__player, &__fallback-image {
             position: absolute;
             inset: 0;
             width: 100%;

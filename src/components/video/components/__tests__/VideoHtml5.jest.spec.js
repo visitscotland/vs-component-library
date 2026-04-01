@@ -3,6 +3,12 @@ import VsVideoHtml5 from '../VideoHtml5.vue';
 
 config.global.renderStubDefaultSlot = true;
 
+const mockMatchMedia = (matches) => {
+    window.matchMedia = jest.fn().mockReturnValue({
+        matches,
+    });
+};
+
 const factoryShallowMount = (props = {
 }) => shallowMount(
     VsVideoHtml5,
@@ -13,6 +19,9 @@ const factoryShallowMount = (props = {
         },
     },
 );
+
+beforeEach(() => mockMatchMedia(false));
+afterEach(() => jest.restoreAllMocks());
 
 describe('VsVideo', () => {
     it('should render component `vs-video-html5`', () => {
@@ -112,6 +121,43 @@ describe('VsVideo', () => {
             });
             wrapper.vm.toggle();
             expect(video.pause).toHaveBeenCalled();
+        });
+    });
+
+    describe(':prefersReducedMotion', () => {
+        it('renders the fallback image when prefersReducedMotion is true', async() => {
+            const wrapper = factoryShallowMount({
+                posterImageSrc: 'poster.jpg',
+            });
+            await wrapper.setData({
+                prefersReducedMotion: true,
+            });
+            expect(wrapper.find('vs-img-stub').exists()).toBe(true);
+            expect(wrapper.find('video').exists()).toBe(false);
+        });
+
+        it('passes posterImageSrc to the fallback image', async() => {
+            const wrapper = factoryShallowMount({
+                posterImageSrc: 'poster.jpg',
+            });
+            await wrapper.setData({
+                prefersReducedMotion: true,
+            });
+            expect(wrapper.find('vs-img-stub').attributes('src')).toBe('poster.jpg');
+        });
+
+        it('does not render the toggle button when prefersReducedMotion is true', async() => {
+            const wrapper = factoryShallowMount();
+            await wrapper.setData({
+                prefersReducedMotion: true,
+            });
+            expect(wrapper.find('vs-toggle-button-stub').exists()).toBe(false);
+        });
+
+        it('renders the video when prefersReducedMotion is false', () => {
+            const wrapper = factoryShallowMount();
+            expect(wrapper.find('video').exists()).toBe(true);
+            expect(wrapper.find('vs-img-stub').exists()).toBe(false);
         });
     });
 });
