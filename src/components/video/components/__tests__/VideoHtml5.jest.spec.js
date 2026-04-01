@@ -55,6 +55,22 @@ describe('VsVideo', () => {
 
             expect(wrapper.find('video').attributes('poster')).toBe('poster.jpg');
         });
+
+        it('passes playButtonLabel to the toggle button label', () => {
+            const wrapper = factoryShallowMount({
+                playButtonLabel: 'Play video',
+            });
+
+            expect(wrapper.find('vs-toggle-button-stub').attributes('label')).toBe('Play video');
+        });
+
+        it('passes pauseButtonLabel to the toggle button pressedlabel', () => {
+            const wrapper = factoryShallowMount({
+                pauseButtonLabel: 'Pause video',
+            });
+
+            expect(wrapper.find('vs-toggle-button-stub').attributes('pressedlabel')).toBe('Pause video');
+        });
     });
 
     describe(':methods', () => {

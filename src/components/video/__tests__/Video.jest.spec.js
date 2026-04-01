@@ -66,6 +66,20 @@ describe('VsVideo', () => {
             });
             expect(wrapper.find('vs-video-youtube-stub').attributes('showtoggle')).toBe('false');
         });
+
+        it('passes playButtonLabel to the player', () => {
+            const wrapper = factoryShallowMount({
+                playButtonLabel: 'Play video',
+            });
+            expect(wrapper.find('vs-video-youtube-stub').attributes('playbuttonlabel')).toBe('Play video');
+        });
+
+        it('passes pauseButtonLabel to the player', () => {
+            const wrapper = factoryShallowMount({
+                pauseButtonLabel: 'Pause video',
+            });
+            expect(wrapper.find('vs-video-youtube-stub').attributes('pausebuttonlabel')).toBe('Pause video');
+        });
     });
 
     describe(':computed', () => {

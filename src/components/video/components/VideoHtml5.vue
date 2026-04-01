@@ -30,6 +30,7 @@
             @toggle="toggle"
             :label="playButtonLabel"
             :pressed-label="pauseButtonLabel"
+            aria-hidden="true"
         />
     </div>
 </template>
