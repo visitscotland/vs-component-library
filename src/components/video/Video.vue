@@ -6,6 +6,7 @@
     >
         <component
             :is="playerComponent"
+            ref="player"
             v-bind="$props"
         />
     </div>
@@ -128,21 +129,53 @@ export default {
             type: String,
             default: '',
         },
+        /**
+         * Whether to show play/pause toggle button
+        */
+        showToggle: {
+            type: Boolean,
+            default: true,
+        },
     },
-
     data() {
         return {
             reRendering: false,
         };
     },
-
     computed: {
+        /**
+         * Determines which video player component to use
+         * based on the videoType prop
+         */
         playerComponent() {
             if (this.videoType === 'html5') {
                 return VsVideoHtml5;
             }
 
             return VsVideoYoutube;
+        },
+    },
+    methods: {
+        /**
+         * Plays the video by calling the play method
+         * on the player component reference, if it exists
+         */
+        play() {
+            this.$refs.player?.play?.();
+        },
+        /**
+         * Pauses the video by calling the pause method
+         * on the player component reference, if it exists
+         */
+        pause() {
+            this.$refs.player?.pause?.();
+        },
+        /**
+         * Toggles the play/pause state of the video by calling the toggle method
+         * on the player component reference, if it exists
+         */
+        toggle() {
+            this.$refs.player?.toggle?.();
         },
     },
 };

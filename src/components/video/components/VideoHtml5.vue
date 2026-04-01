@@ -22,11 +22,12 @@
         </video>
 
         <VsToggleButton
+            v-if="showToggle"
             class="vs-video-html5__toggle-video"
             variant="overlay"
             icon="vs-icon-control-play"
             pressed-icon="vs-icon-control-pause"
-            @toggle="onToggleVideo"
+            @toggle="toggle"
             :label="playButtonLabel"
             :pressed-label="pauseButtonLabel"
         />
@@ -72,16 +73,46 @@ export default {
             type: String,
             default: '',
         },
+        /**
+         * Whether to show play/pause toggle button
+         * NOTE: this is required for accessibility, only use
+         * if you're providing your own toggle button
+        */
+        showToggle: {
+            type: Boolean,
+            default: true,
+        },
     },
     methods: {
         /**
-         * Play/pause the video
+         * Play the video
          */
-        onToggleVideo(isPlaying) {
-            if (isPlaying) {
-                this.$refs.html5Video.pause();
+        play() {
+            const video = this.$refs.html5Video;
+            if (!video) return;
+
+            video.play();
+        },
+        /**
+         * Pause the video
+         */
+        pause() {
+            const video = this.$refs.html5Video;
+            if (!video) return;
+
+            video.pause();
+        },
+        /**
+         * Toggle the video play/pause state
+         */
+        toggle() {
+            const video = this.$refs.html5Video;
+            if (!video) return;
+
+            if (video.paused) {
+                video.play();
             } else {
-                this.$refs.html5Video.play();
+                video.pause();
             }
         },
     },
@@ -111,6 +142,7 @@ export default {
             position: absolute;
             top: $vs-spacer-125;
             right: $vs-spacer-125;
+            z-index: 5;
         }
     }
 </style>
