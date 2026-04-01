@@ -6,9 +6,8 @@ export default `
                 lede="Where history meets breathtaking beauty, and every visit feels like home."
                 img-src="fixtures/hero/images/lavendar-fields.jpg"
                 video-src="fixtures/hero/video/lavendar-fields.mp4"
-                video-btn-text="Play/pause background video"
-                video-playing-status="Playing"
-                video-paused-status="Paused"
+                play-button-label="Play video"
+                pause-button-label="Pause video"
             />
         </template>
     </VsPageHeader>
