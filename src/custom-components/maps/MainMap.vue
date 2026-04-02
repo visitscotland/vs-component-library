@@ -423,6 +423,7 @@ const NUMBER_OF_RESULTS = 20;
 const query = ref();
 const queryStr = ref(new Set());
 const currentSearch = ref();
+const selfCateringClicked = ref(false);
 
 const subCategoryTypeMap = computed(() => {
     const map = new Map();
@@ -803,13 +804,16 @@ function searchBySubCategory(subCategoryId, key) {
     subCategoryKey.value = key;
 
     if (subCategoryId === 'self-catering') {
+        selfCateringClicked.value = true;
         resetTextQuery();
         selectedSubCategories.value = new Set();
         selectedSubCategories.value.add(subCategoryId);
+        const label = searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value;
         query.value = searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value;
         resetCategories();
         searchInput.value = query.value;
         searchByText();
+        searchInput.value = label;
     } else if (selectedSubCategories.value.has(subCategoryId)) {
         // Delete if already in selectedSubCategories
         selectedSubCategories.value.delete(subCategoryId);
@@ -947,8 +951,18 @@ async function searchByText() {
 
     query.value = searchInput.value.trim();
     // Don't search if no query
-    if (!query.value) {
-        return;
+    if (!query.value) return;
+
+    /**
+     * Search using locationRestriction when "Self catering" sub category has
+     * selected. Search using locationBias for other text searches.
+     */
+    if (selfCateringClicked.value) {
+        textSearchQuery.locationBias = null;
+        textSearchQuery.locationRestriction = gMap.getBounds();
+    } else {
+        textSearchQuery.locationRestriction = null;
+        textSearchQuery.locationBias = gMap.getCenter();
     }
 
     /**
@@ -957,7 +971,6 @@ async function searchByText() {
      */
     textSearchQuery.textQuery = `${query.value} in Scotland`;
 
-    textSearchQuery.locationRestriction = gMap.getBounds();
     textSearchQuery.maxResultCount = NUMBER_OF_RESULTS;
 
     textSearch.style.display = 'block';
@@ -966,6 +979,7 @@ async function searchByText() {
         if (searchId !== currentSearchId) return;
 
         addMarkers(searchId);
+        selfCateringClicked.value = false;
 
         dataLayerHelper.createDataLayerObject('googleMapSearchEvent', {
             search_query: query.value,
