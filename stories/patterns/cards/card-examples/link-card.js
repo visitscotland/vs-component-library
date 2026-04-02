@@ -23,6 +23,7 @@ export default `
                         href="#"
                         class="stretched-link"
                         variant="secondary"
+                        no-visited-styles
                     >
                         Managing your website
                     </VsLink>

@@ -45,6 +45,8 @@ AmbientVideo.args = {
     videoType: 'html5',
     videoSrc: 'fixtures/hero/video/lavendar-fields.mp4',
     posterImageSrc: 'fixtures/hero/images/lavendar-fields.jpg',
+    playButtonLabel: 'Play video',
+    pauseButtonLabel: 'Pause video',
 };
 
 export const NoCookies = Template.bind();

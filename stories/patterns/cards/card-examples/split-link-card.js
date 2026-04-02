@@ -16,6 +16,7 @@ export default `
                     href="#"
                     class="stretched-link"
                     variant="secondary"
+                    no-visited-styles
                 >
                     Unusual accommodation in Scotland
                 </VsLink>
