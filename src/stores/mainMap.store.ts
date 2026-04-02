@@ -7,10 +7,8 @@ const useGoogleMapStore = defineStore('googleMap', () => {
     const firstInteraction = ref(false);
     const searchesCount = ref(0);
     const filterUsesCount = ref(0);
-    const initialView = ref(false);
     const showDestinations = ref(true);
     const showCategories = ref(false);
-    const showSubcategories = ref(false);
 
     return {
         sidebarOpen,
@@ -18,10 +16,8 @@ const useGoogleMapStore = defineStore('googleMap', () => {
         firstInteraction,
         searchesCount,
         filterUsesCount,
-        initialView,
         showDestinations,
         showCategories,
-        showSubcategories,
     };
 });
 

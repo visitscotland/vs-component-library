@@ -21,13 +21,13 @@
         </div>
 
         <div aria-live="polite">
-            <VsCardGroup :cards-per-row="2">
+            <VsRow>
                 <VsMapFeaturedLocationItem
                     v-for="place in filteredPlaces"
                     :key="place.properties.id"
                     :place="place"
                 />
-            </VsCardGroup>
+            </VsRow>
         </div>
     </div>
 </template>
@@ -39,8 +39,8 @@ import {
     ref,
 } from 'vue';
 import VsButton from '@/components/button/Button.vue';
-import VsCardGroup from '@/components/card-group/CardGroup.vue';
 import VsDetail from '@/components/detail/Detail.vue';
+import VsRow from '@/components/grid/Row.vue';
 import VsMapFeaturedLocationItem from './MapFeaturedLocationItem.vue';
 
 // Injected from `MainMap.vue`.

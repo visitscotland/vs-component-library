@@ -123,9 +123,6 @@
                     <slot name="vs-map-sidebar-search-results" />
                 </div>
             </div>
-            <VsMapFeaturedLocation
-                :class="($props.query || $props.selectedCategory) ? 'd-none' : 'd-block'"
-            />
         </div>
         <div
             class="vs-map-sidebar__footer"

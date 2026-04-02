@@ -948,6 +948,8 @@ async function searchByText() {
     }, {
         once: true,
     });
+
+    googleMapStore.showCategories = true;
 }
 
 async function addMarkers(searchId) {
