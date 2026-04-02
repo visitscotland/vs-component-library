@@ -97,7 +97,7 @@ WithLabel.args = {
 export const NoIconChange = Template.bind();
 NoIconChange.args = {
     variant: 'default',
-    default: 'Search',
+    label: 'Search',
     icon: 'vs-icon-control-search',
 };
 

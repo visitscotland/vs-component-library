@@ -147,10 +147,9 @@ export default {
 </script>
 <style lang="scss">
     .vs-video-html5 {
-        position: relative;
+        position: absolute;
         width: 100%;
         height: 100%;
-        position: absolute;
         inset: 0;
 
         &__player, &__fallback-image {

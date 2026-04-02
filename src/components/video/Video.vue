@@ -120,14 +120,14 @@ export default {
         */
         playButtonLabel: {
             type: String,
-            default: '',
+            default: 'Play video',
         },
         /**
          * Text to be announced when button is toggled to pause
         */
         pauseButtonLabel: {
             type: String,
-            default: '',
+            default: 'Pause video',
         },
         /**
          * Whether to show play/pause toggle button

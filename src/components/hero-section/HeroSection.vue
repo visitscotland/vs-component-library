@@ -26,8 +26,8 @@
                     video-type="html5"
                     :poster-image-src="imgSrc"
                     :video-src="videoSrc"
-                    :play-button-label="playButtonLabel"
-                    :pause-button-label="pauseButtonLabel"
+                    :play-button-label="videoPlayingStatus ? videoPlayingStatus : playButtonLabel"
+                    :pause-button-label="videoPausedStatus ? videoPausedStatus : pauseButtonLabel"
                     class="vs-hero-section__video"
                 />
                 <div class="vs-hero-section__video-overlay" />

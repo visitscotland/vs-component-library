@@ -143,7 +143,7 @@ export default {
         labelBreakpoint: {
             type: String,
             default: null,
-            validator: (value) => value === '' || /^(xs|sm|md|lg|xl|xxl)$/.test(value),
+            validator: (value) => value === null || /^(xs|sm|md|lg|xl|xxl)$/.test(value),
         },
     },
     emits: [
@@ -216,11 +216,6 @@ export default {
             }
 
             return this.label;
-        },
-        labelClasses() {
-            return {
-                [`visible-${this.labelBreakpoint}-up`]: this.labelBreakpoint,
-            };
         },
     },
     methods: {
@@ -297,7 +292,6 @@ export default {
                 &.vs-toggle-button--label-#{$breakpoint}-up {
                     @include media-breakpoint-up($breakpoint) {
                         line-height: $line-height-base;
-                        display: block;
                         width: auto;
                         height: auto;
 
@@ -306,7 +300,6 @@ export default {
                         }
 
                         .vs-icon {
-                            margin-top: -0.15rem;
                             margin-right: $vs-spacer-025;
                         }
                     }
