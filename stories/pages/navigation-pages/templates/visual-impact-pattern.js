@@ -49,6 +49,35 @@ export default `
                         card-style="overlay"
                         :key="'card-list-overlay-' + index"
                     >
+                        <template #vs-card-image>
+                            <VsVideo
+                                v-if="card.videoSrc"
+                                :ref="'cardVideo-' + index"
+                                video-type="html5"
+                                :poster-image-src="card.image"
+                                :video-src="card.videoSrc"
+                                :show-toggle="false"
+                            />
+                            <VsImg 
+                                v-else
+                                :src="card.image" 
+                                class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
+                            />
+                        </template>
+
+                        <template #vs-card-overlay-controls>
+                            <VsToggleButton
+                                v-if="card.videoSrc"
+                                variant="overlay"
+                                icon="vs-icon-control-play"
+                                pressed-icon="vs-icon-control-pause"
+                                @toggle="(val) => toggleCardVideo(0)"
+                                label="Play video"
+                                pressed-label="Pause video"
+                                aria-hidden="true"
+                            />
+                        </template>
+
                         <template #vs-card-footer>
                             <div class="px-125 pb-125">
                                 <VsHeading
@@ -65,19 +94,6 @@ export default `
                                     </VsLink>
                                 </VsHeading>
                             </div>
-                        </template>
-                        <template v-slot:vs-card-image>
-                            <VsVideo 
-                                v-if="card.videoSrc"
-                                video-type="html5"
-                                :poster-image-src="card.image"
-                                :video-src="card.videoSrc"
-                            />
-                            <VsImg 
-                                v-else
-                                :src="card.image" 
-                                class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                            />
                         </template>
                     </VsCard>
                 </VsCardGroup>
@@ -223,10 +239,33 @@ export default `
                     heading="Slow travel and wellness retreats"
                     description="Slow down and explore Scotland's breathtaking scenery. Unplug, find moments of wellness, and savour every experience."
                     imageSrc="fixtures/hero/images/lavendar-fields.jpg"
-                    videoSrc="fixtures/hero/video/lavendar-fields.mp4"
                     ctaLink="#"
                     ctaText="Explore slow travel adventures"
-                />
+                >
+                    <template #vs-spotlight-section-media>
+                        <VsVideo
+                            ref="spotlightVideo"
+                            video-type="html5"
+                            poster-image-src="fixtures/hero/images/lavendar-fields.jpg"
+                            video-src="fixtures/hero/video/lavendar-fields.mp4"
+                            play-button-label="Play video"
+                            pause-button-label="Pause video"
+                            :show-toggle="false"
+                        />
+                    </template>
+
+                    <template #vs-spotlight-section-overlay-controls>
+                        <VsToggleButton
+                            variant="overlay"
+                            icon="vs-icon-control-play"
+                            pressed-icon="vs-icon-control-pause"
+                            @toggle="(val) => toggleVideo('spotlightVideo')"
+                            label="Play video"
+                            pressed-label="Pause video"
+                            aria-hidden="true"
+                        />
+                    </template>
+                </VsSpotlightSection>
             </VsCol>
         </VsRow>
     </VsContainer>
