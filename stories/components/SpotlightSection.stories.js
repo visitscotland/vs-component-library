@@ -47,14 +47,13 @@ const Template = (args) => ({
                     video-type="html5"
                     :poster-image-src="args.imageSrc"
                     :video-src="args.videoSrc"
-                    :play-button-label="args.playButtonLabel"
-                    :pause-button-label="args.pauseButtonLabel"
                     :show-toggle="false"
                 />
             </template>
 
             <template #vs-spotlight-section-overlay-controls>
                 <VsToggleButton
+                    v-if="args.videoSrc"
                     variant="overlay"
                     icon="vs-icon-control-play"
                     pressed-icon="vs-icon-control-pause"
@@ -148,6 +147,7 @@ export const NoImage = Template.bind({
 
 NoImage.args = {
     heading: 'Inspiring Scotland travel blogs',
+    ctaText: 'Read the blog',
     compact: true,
     ...base,
 };

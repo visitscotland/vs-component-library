@@ -316,8 +316,8 @@ export default {
         &--no-image {
             color: $vs-color-text-primary;
 
-            .vs-spotlight-section__content-overlay::before {
-                background: $vs-color-background-secondary;
+            .vs-spotlight-section__gradient-overlay {
+                display: none;
             }
         }
     }
