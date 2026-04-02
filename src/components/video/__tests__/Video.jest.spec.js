@@ -8,7 +8,9 @@ config.global.renderStubDefaultSlot = true;
 
 const factoryShallowMount = (props = {
 }) => shallowMount(VsVideo, {
-    props,
+    props: {
+        ...props,
+    },
 });
 
 describe('VsVideo', () => {
@@ -71,14 +73,18 @@ describe('VsVideo', () => {
             const wrapper = factoryShallowMount({
                 playButtonLabel: 'Play video',
             });
-            expect(wrapper.find('vs-video-youtube-stub').attributes('playbuttonlabel')).toBe('Play video');
+            expect(wrapper.find('vs-video-youtube-stub').attributes('playbuttonlabel')).toBe(
+                'Play video',
+            );
         });
 
         it('passes pauseButtonLabel to the player', () => {
             const wrapper = factoryShallowMount({
                 pauseButtonLabel: 'Pause video',
             });
-            expect(wrapper.find('vs-video-youtube-stub').attributes('pausebuttonlabel')).toBe('Pause video');
+            expect(wrapper.find('vs-video-youtube-stub').attributes('pausebuttonlabel')).toBe(
+                'Pause video',
+            );
         });
     });
 
@@ -103,15 +109,18 @@ describe('VsVideo', () => {
             stopVideo: jest.fn(),
             toggleVideo: jest.fn(),
         };
-        const stubWithMethods = {
-            template: '<div />',
-            methods: playerMethods,
-        };
 
         const factoryWithStub = () => shallowMount(VsVideo, {
             global: {
                 stubs: {
-                    VsVideoYoutube: stubWithMethods,
+                    VsVideoYoutube: {
+                        template: '<div><slot /></div>',
+                        methods: playerMethods,
+                    },
+                    VsVideoHtml5: {
+                        template: '<div><slot /></div>',
+                        methods: playerMethods,
+                    },
                 },
             },
         });
@@ -140,6 +149,25 @@ describe('VsVideo', () => {
             const wrapper = factoryWithStub();
             wrapper.vm.toggleVideo();
             expect(playerMethods.toggleVideo).toHaveBeenCalled();
+        });
+
+        it('should pass lazyLoad prop to youtube component when true', () => {
+            const wrapper = factoryShallowMount({
+                videoId: '123456',
+                lazyLoad: true,
+            });
+
+            expect(wrapper.vm.$props.lazyLoad).toBe(true);
+        });
+
+        it('should pass lazyLoad prop to html5 component when true', () => {
+            const wrapper = factoryShallowMount({
+                videoType: 'html5',
+                videoSrc: 'video.mp4',
+                lazyLoad: true,
+            });
+
+            expect(wrapper.vm.$props.lazyLoad).toBe(true);
         });
     });
 });

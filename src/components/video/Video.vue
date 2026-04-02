@@ -8,6 +8,7 @@
             :is="playerComponent"
             ref="player"
             v-bind="$props"
+            :lazy-load="lazyLoad"
         />
     </div>
 </template>
@@ -128,6 +129,13 @@ export default {
         showToggle: {
             type: Boolean,
             default: true,
+        },
+        /**
+         * Enable lazy loading - video only loads when scrolled into view
+         */
+        lazyLoad: {
+            type: Boolean,
+            default: false,
         },
     },
     data() {

@@ -29,18 +29,15 @@ function mountOptions() {
             player: null,
         },
     };
-};
+}
 
 const factoryShallowMount = (props = {
-}) => shallowMount(
-    VsVideoYoutube,
-    {
-        props: {
-            ...mountOptions().propsData,
-            ...props,
-        },
+}) => shallowMount(VsVideoYoutube, {
+    props: {
+        ...mountOptions().propsData,
+        ...props,
     },
-);
+});
 
 describe('VsVideo', () => {
     beforeEach(() => {
@@ -124,7 +121,9 @@ describe('VsVideo', () => {
 
             wrapper.vm.formatTime(80);
 
-            expect(wrapper.vm.duration.roundedMinutes).toBe(singleMinuteDescriptor.replace('%s', '1'));
+            expect(wrapper.vm.duration.roundedMinutes).toBe(
+                singleMinuteDescriptor.replace('%s', '1'),
+            );
         });
 
         it('should render the pluralMinuteDiscriptor for a multi minute video', async() => {
@@ -133,7 +132,9 @@ describe('VsVideo', () => {
             // a 3 minute 40 second video, which should round up to 4 minute
             wrapper.vm.formatTime(220);
 
-            expect(wrapper.vm.duration.roundedMinutes).toBe(pluralMinuteDescriptor.replace('%s', '4'));
+            expect(wrapper.vm.duration.roundedMinutes).toBe(
+                pluralMinuteDescriptor.replace('%s', '4'),
+            );
         });
 
         it('renders content inserted into the `embedIntroCopyNoJs` slot', () => {
@@ -183,6 +184,71 @@ describe('VsVideo', () => {
 
             expect(wrapper.vm.duration.minutes).toBe(3);
             expect(wrapper.vm.duration.seconds).toBe(30);
+        });
+    });
+
+    describe(':lazyLoad', () => {
+        let mockCallback;
+        let originalIntersectionObserver;
+
+        beforeEach(() => {
+            originalIntersectionObserver = global.IntersectionObserver;
+            mockCallback = null;
+            global.IntersectionObserver = jest.fn().mockImplementation((callback) => {
+                mockCallback = callback;
+                return {
+                    observe: jest.fn(),
+                    unobserve: jest.fn(),
+                    disconnect: jest.fn(),
+                };
+            });
+        });
+
+        afterEach(() => {
+            global.IntersectionObserver = originalIntersectionObserver;
+        });
+
+        it('should NOT render VueYoutube when lazyLoad is true and isLoaded is false', () => {
+            const wrapper = factoryShallowMount({
+                lazyLoad: true,
+            });
+            wrapper.vm.isLoaded = false;
+            expect(wrapper.find('vue-youtube-stub').exists()).toBe(false);
+        });
+
+        it('should render VueYoutube when lazyLoad is false', () => {
+            const wrapper = factoryShallowMount({
+                lazyLoad: false,
+            });
+            expect(wrapper.find('vue-youtube-stub').exists()).toBe(true);
+        });
+
+        it('should render VueYoutube when lazyLoad is true but isLoaded becomes true', async() => {
+            const wrapper = factoryShallowMount({
+                lazyLoad: true,
+            });
+            await wrapper.setData({
+                isLoaded: true,
+            });
+            expect(wrapper.find('vue-youtube-stub').exists()).toBe(true);
+        });
+
+        it('should setup IntersectionObserver when lazyLoad is true', () => {
+            const wrapper = factoryShallowMount({
+                lazyLoad: true,
+            });
+            expect(wrapper.vm.observer).not.toBeNull();
+            expect(wrapper.vm.observer.observe).toHaveBeenCalled();
+        });
+
+        it('should set isLoaded to true when IntersectionObserver fires', async() => {
+            const wrapper = factoryShallowMount({
+                lazyLoad: true,
+            });
+            mockCallback([{
+                intersectionRatio: 1,
+            }]);
+            expect(wrapper.vm.isLoaded).toBe(true);
         });
     });
 });
