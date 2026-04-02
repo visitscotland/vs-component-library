@@ -109,6 +109,17 @@ describe('VsCard', () => {
             expect(wrapper.find('.vs-card__footer').text()).toBe('Footer Content');
         });
 
+        it('renders overlay-controls slot when provided', () => {
+            const wrapper = mount(VsCard, {
+                slots: {
+                    'vs-card-overlay-controls': '<div>Overlay controls Content</div>',
+                },
+            });
+
+            expect(wrapper.find('.vs-card__overlay-controls').exists()).toBe(true);
+            expect(wrapper.find('.vs-card__overlay-controls').text()).toBe('Overlay controls Content');
+        });
+
         it('renders image slot when provided and card style is overlay', () => {
             const wrapper = mount(VsCard, {
                 propsData: {
@@ -119,8 +130,8 @@ describe('VsCard', () => {
                 },
             });
 
-            expect(wrapper.find('.vs-card__image').exists()).toBe(true);
-            expect(wrapper.find('.vs-card__image img').exists()).toBe(true);
+            expect(wrapper.find('.vs-card__media').exists()).toBe(true);
+            expect(wrapper.find('.vs-card__media img').exists()).toBe(true);
         });
 
         it('does not render image slot when card style is not overlay', () => {
@@ -133,7 +144,7 @@ describe('VsCard', () => {
                 },
             });
 
-            expect(wrapper.find('.vs-card__image').exists()).toBe(false);
+            expect(wrapper.find('.vs-card__media').exists()).toBe(false);
         });
 
         it('always renders body slot container', () => {

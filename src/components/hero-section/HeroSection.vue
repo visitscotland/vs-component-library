@@ -22,23 +22,14 @@
                 v-else-if="videoSrc"
                 class="vs-hero-section__video-wrapper"
             >
-                <video
-                    loop
-                    muted
-                    autoplay
-                    playsinline
-                    preload="auto"
-                    :poster="imgSrc"
+                <VsVideo
+                    video-type="html5"
+                    :poster-image-src="imgSrc"
+                    :video-src="videoSrc"
+                    :play-button-label="videoPlayingStatus ? videoPlayingStatus : playButtonLabel"
+                    :pause-button-label="videoPausedStatus ? videoPausedStatus : pauseButtonLabel"
                     class="vs-hero-section__video"
-                    ref="heroVideo"
-                    aria-hidden="true"
-                    fetchpriority="high"
-                >
-                    <source
-                        :src="videoSrc"
-                        type="video/mp4"
-                    >
-                </video>
+                />
                 <div class="vs-hero-section__video-overlay" />
             </div>
 
@@ -70,16 +61,6 @@
                         </p>
                     </VsBody>
                 </div>
-
-                <VsHeroSectionVideoControl
-                    v-if="videoSrc"
-                    video-btn-text="Toggle video"
-                    @video-toggled="onToggleVideo"
-                    :video-playing-status="videoPlayingStatus"
-                    :video-paused-status="videoPausedStatus"
-                >
-                    {{ videoBtnText }}
-                </VsHeroSectionVideoControl>
             </div>
         </div>
     </div>
@@ -89,7 +70,7 @@
 import VsHeading from '@/components/heading/Heading.vue';
 import VsBody from '@/components/body/Body.vue';
 import VsHeroSectionImage from '@/components/hero-section/components/HeroSectionImage.vue';
-import VsHeroSectionVideoControl from '@/components/hero-section/components/HeroSectionVideoControl.vue';
+import VsVideo from '@/components/video/Video.vue';
 
 /**
 * Component for the hero section at the top of a page.
@@ -107,7 +88,7 @@ export default {
         VsHeading,
         VsBody,
         VsHeroSectionImage,
-        VsHeroSectionVideoControl,
+        VsVideo,
     },
     provide() {
         return {
@@ -182,6 +163,7 @@ export default {
             default: '',
         },
         /**
+        * ⚠️ Deprecated: use the playButtonLabel and pauseButtonLabel props instead
         * The visually hidden text to display
         */
         videoBtnText: {
@@ -189,6 +171,7 @@ export default {
             default: '',
         },
         /**
+         * ⚠️ Deprecated: use the playButtonLabel and pauseButtonLabel props instead
         * The aria alerted text to announce when the video is playing
         */
         videoPlayingStatus: {
@@ -196,9 +179,24 @@ export default {
             default: '',
         },
         /**
+         * ⚠️ Deprecated: use the playButtonLabel and pauseButtonLabel props instead
         * The aria alerted text to announce when the video is paused
         */
         videoPausedStatus: {
+            type: String,
+            default: '',
+        },
+        /**
+        * The visually hidden text for play button
+        */
+        playButtonLabel: {
+            type: String,
+            default: '',
+        },
+        /**
+         * The visually hidden text for pause button
+        */
+        pauseButtonLabel: {
             type: String,
             default: '',
         },
@@ -216,18 +214,6 @@ export default {
                 },
                 'vs-hero-section__text-container',
             ];
-        },
-    },
-    methods: {
-        /**
-         * Play/pause the video
-         */
-        onToggleVideo(isPlaying) {
-            if (isPlaying) {
-                this.$refs.heroVideo.pause();
-            } else {
-                this.$refs.heroVideo.play();
-            }
         },
     },
 };
@@ -336,9 +322,7 @@ export default {
             line-height: 0; //removes any extra space in the container
 
             .vs-hero-section__video {
-                width: 100%;
                 height: 560px;
-                object-fit: cover;
 
                 @include media-breakpoint-up(sm) {
                     height: 648px;
@@ -356,6 +340,7 @@ export default {
                 height: 100%;
                 transition: opacity 1s;
                 background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 40%, rgba(0, 0, 0, 0.40) 100%);
+                pointer-events: none;
             }
         }
 

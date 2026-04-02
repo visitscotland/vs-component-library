@@ -9,6 +9,7 @@ import VsCard from '@/components/card/Card.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsDetail from '@/components/detail/Detail.vue';
 import VsImg from '@/components/img/Img.vue';
+import VsVideo from '@/components/video/Video.vue';
 import VsLink from '@/components/link/Link.vue';
 import VsBody from '@/components/body/Body.vue';
 import VsBadge from '@/components/badge/Badge.vue';
@@ -16,6 +17,8 @@ import VsIcon from '@/components/icon/Icon.vue';
 import VsSectionHeader from '@/components/section-header/SectionHeader.vue';
 import VsFedSearchInput from '@/custom-components/federated-search/components/FedSearchInput.vue';
 import VsFedFilter from '@/custom-components/federated-search/components/FedFilter.vue';
+
+import VsToggleButton from '@/components/toggle-button/ToggleButton.vue';
 
 import cardLayoutData from '@/assets/fixtures/homepages/visual-impact-home-cards.json';
 import infoCardLayoutData from '@/assets/fixtures/homepages/information-first-home-cards.json';
@@ -36,18 +39,22 @@ const components = {
     VsHeading,
     VsDetail,
     VsImg,
+    VsVideo,
     VsLink,
     VsBody,
     VsBadge,
     VsIcon,
     VsFedSearchInput,
     VsFedFilter,
+    VsToggleButton,
 };
 
-const createStory = (template) => ({
+const createStory = (template, options = {
+}) => ({
     render: () => ({
         components,
         template,
+        ...options,
         setup() {
             const cardListOverlay = cardLayoutData.cardListOverlay?.cards || [];
             const cardListInfoOverlay = infoCardLayoutData.cardListInfoOverlay?.cards || [];
@@ -85,7 +92,19 @@ export default {
 };
 
 export const VisualImpact = {
-    ...createStory(VisualImpactTemplate),
+    ...createStory(VisualImpactTemplate, {
+        methods: {
+            toggleCard(index) {
+                const card = this.$refs.overlayCard?.[index];
+
+                if (!card) {
+                    return;
+                }
+
+                card.toggleVideo?.();
+            },
+        },
+    }),
 };
 
 export const InfoFirst = {

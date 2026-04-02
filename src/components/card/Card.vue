@@ -25,9 +25,15 @@
         </template>
 
         <template v-if="cardStyle === 'overlay' && $slots['vs-card-image'] && $slots['vs-card-image']()">
-            <div class="vs-card__image">
+            <div class="vs-card__media">
                 <!-- @slot Used for the background image in the overlay variant -->
                 <slot name="vs-card-image" />
+            </div>
+        </template>
+
+        <template v-if="$slots['vs-card-overlay-controls'] && $slots['vs-card-overlay-controls']()">
+            <div class="vs-card__overlay-controls">
+                <slot name="vs-card-overlay-controls" />
             </div>
         </template>
     </div>
@@ -45,6 +51,13 @@ export default {
     name: 'VsCard',
     status: 'prototype',
     release: '0.1.0',
+    provide() {
+        return {
+            registerMedia: (component) => {
+                this.mediaComponent = component;
+            },
+        };
+    },
     props: {
         /**
         * The style of the card, this is used to set the border and shadow
@@ -81,6 +94,7 @@ export default {
     data() {
         return {
             tokens: designTokens,
+            mediaComponent: null,
         };
     },
     computed: {
@@ -103,6 +117,18 @@ export default {
             }
 
             return null;
+        },
+    },
+    methods: {
+        /**
+         * Toggles the media component registered in this card, if any
+         */
+        toggle() {
+            if (!this.mediaComponent) {
+                return;
+            }
+
+            this.mediaComponent?.toggleVideo?.();
         },
     },
 };
@@ -177,6 +203,19 @@ export default {
             }
         }
 
+        &__overlay-controls {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 10;
+            pointer-events: none;
+            padding: $vs-spacer-125;
+
+            > * {
+                pointer-events: auto;
+            }
+        }
+
         &--overlay {
             height: 330px;
             color: $vs-color-text-inverse;
@@ -186,7 +225,7 @@ export default {
                 height: 460px;
             }
 
-           .vs-card__image {
+           .vs-card__media {
                 position:absolute;
                 inset: 0;
                 z-index: -1;
@@ -208,6 +247,7 @@ export default {
                         linear-gradient(180deg, rgba(0, 0, 0, 0) 30.29%, rgba(0, 0, 0, 0.5) 75%); // bottom to top
                     z-index: 0;
                     border-radius: $vs-radius-tiny;
+                    pointer-events: none;
                 }
             }
         }

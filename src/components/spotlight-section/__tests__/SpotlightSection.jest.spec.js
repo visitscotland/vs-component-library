@@ -138,6 +138,30 @@ describe('VsSpotlightSection', () => {
         });
     });
 
+    describe(':slots', () => {
+        it('renders the media slot wrapper when vs-spotlight-section-media slot is provided', () => {
+            const wrapper = shallowMount(VsSpotlightSection, {
+                propsData: {
+                    heading: 'Test Heading',
+                    ctaLink: '#',
+                    ctaText: 'Learn More',
+                },
+                slots: {
+                    'vs-spotlight-section-media': '<div class="test-media">Media content</div>',
+                },
+            });
+
+            expect(wrapper.find('.vs-spotlight-section__media').exists()).toBe(true);
+            expect(wrapper.find('.test-media').exists()).toBe(true);
+        });
+
+        it('does not render the media slot wrapper when vs-spotlight-section-media slot is not provided', () => {
+            const wrapper = factoryShallowMount();
+
+            expect(wrapper.find('.vs-spotlight-section__media').exists()).toBe(false);
+        });
+    });
+
     describe(':accessibility', () => {
         it('should not have aXe accessibility issues', async() => {
             const wrapper = factoryShallowMount();

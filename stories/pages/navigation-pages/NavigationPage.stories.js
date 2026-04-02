@@ -20,6 +20,7 @@ import VsBadge from '@/components/badge/Badge.vue';
 import VsModal from '@/components/modal/Modal.vue';
 import VsVideo from '@/components/video/Video.vue';
 import VsSectionHeader from '@/components/section-header/SectionHeader.vue';
+import VsToggleButton from '@/components/toggle-button/ToggleButton.vue';
 
 import cardLayoutData from '@/assets/fixtures/navigation-pages/visual-impact-cards.json';
 import infoCardLayoutData from '@/assets/fixtures/navigation-pages/information-first-top-cards.json';
@@ -52,12 +53,15 @@ const components = {
     VsMegalinkMultiImage,
     VsModal,
     VsVideo,
+    VsToggleButton,
 };
 
-const createStory = (template) => ({
+const createStory = (template, options = {
+}) => ({
     render: () => ({
         components,
         template,
+        ...options,
         setup() {
             const cardListOverlay = cardLayoutData.cardListOverlay?.cards || [];
             const cardList1 = cardLayoutData.cardList1?.cards || [];
@@ -104,9 +108,28 @@ export default {
     title: 'Pages/Navigation',
 };
 
-export const VisualImpact = {
-    ...createStory(VisualImpactTemplate),
-};
+/**
+ * Interactive story (video play/pause)
+ */
+export const VisualImpact = createStory(
+    VisualImpactTemplate,
+    {
+        methods: {
+            toggleVideo(refKey) {
+                this.$refs[refKey]?.toggleVideo?.();
+            },
+            toggleCard(index) {
+                const card = this.$refs.overlayCard?.[index];
+
+                if (!card) {
+                    return;
+                }
+
+                card.toggleVideo?.();
+            },
+        },
+    },
+);
 
 export const InfoFirstTop = {
     ...createStory(InfoFirstTopTemplate),
