@@ -116,7 +116,7 @@ export const VisualImpact = createStory(
     {
         methods: {
             toggleVideo(refKey) {
-                this.$refs[refKey]?.toggle?.();
+                this.$refs[refKey]?.toggleVideo?.();
             },
             toggleCard(index) {
                 const card = this.$refs.overlayCard?.[index];
@@ -125,7 +125,7 @@ export const VisualImpact = createStory(
                     return;
                 }
 
-                card.toggle?.();
+                card.toggleVideo?.();
             },
         },
     },

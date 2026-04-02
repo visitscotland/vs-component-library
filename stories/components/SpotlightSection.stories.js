@@ -35,7 +35,7 @@ const Template = (args) => ({
     methods: {
         toggleVideo() {
             const video = this.$refs.spotlightVideo;
-            video?.toggle?.();
+            video?.toggleVideo?.();
         },
     },
     template: `

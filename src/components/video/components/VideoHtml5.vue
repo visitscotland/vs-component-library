@@ -35,7 +35,7 @@
                 variant="overlay"
                 icon="vs-icon-control-pause"
                 pressed-icon="vs-icon-control-play"
-                @toggle="toggle"
+                @toggle="toggleVideo"
                 :label="pauseButtonLabel"
                 :pressed-label="playButtonLabel"
                 aria-hidden="true"
@@ -114,7 +114,7 @@ export default {
         /**
          * Play the video
          */
-        play() {
+        playVideo() {
             const video = this.$refs.html5Video;
             if (!video) return;
 
@@ -123,16 +123,26 @@ export default {
         /**
          * Pause the video
          */
-        pause() {
+        pauseVideo() {
             const video = this.$refs.html5Video;
             if (!video) return;
 
             video.pause();
         },
         /**
+         * Stop the video
+         */
+        stopVideo() {
+            const video = this.$refs.html5Video;
+            if (!video) return;
+
+            video.pause();
+            video.currentTime = 0;
+        },
+        /**
          * Toggle the video play/pause state
          */
-        toggle() {
+        toggleVideo() {
             const video = this.$refs.html5Video;
             if (!video) return;
 

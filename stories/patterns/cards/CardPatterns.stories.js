@@ -93,7 +93,7 @@ export const CategoryVideo = createStory(
         methods: {
             toggleVideo() {
                 const video = this.$refs.cardVideo;
-                video?.toggle?.();
+                video?.toggleVideo?.();
             },
         },
     },

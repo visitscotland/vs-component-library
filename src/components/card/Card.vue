@@ -128,7 +128,7 @@ export default {
                 return;
             }
 
-            this.mediaComponent?.toggle?.();
+            this.mediaComponent?.toggleVideo?.();
         },
     },
 };

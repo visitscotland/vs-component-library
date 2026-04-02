@@ -101,7 +101,7 @@ export const VisualImpact = {
                     return;
                 }
 
-                card.toggle?.();
+                card.toggleVideo?.();
             },
         },
     }),

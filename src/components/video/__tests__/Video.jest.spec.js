@@ -119,19 +119,25 @@ describe('VsVideo', () => {
 
         it('play calls play on the player ref', () => {
             const wrapper = factoryWithStub();
-            wrapper.vm.play();
+            wrapper.vm.playVideo();
             expect(playerMethods.play).toHaveBeenCalled();
         });
 
         it('pause calls pause on the player ref', () => {
             const wrapper = factoryWithStub();
-            wrapper.vm.pause();
+            wrapper.vm.pauseVideo();
             expect(playerMethods.pause).toHaveBeenCalled();
+        });
+
+        it('stop calls stop on the player ref', () => {
+            const wrapper = factoryWithStub();
+            wrapper.vm.stopVideo();
+            expect(playerMethods.stop).toHaveBeenCalled();
         });
 
         it('toggle calls toggle on the player ref', () => {
             const wrapper = factoryWithStub();
-            wrapper.vm.toggle();
+            wrapper.vm.toggleVideo();
             expect(playerMethods.toggle).toHaveBeenCalled();
         });
     });

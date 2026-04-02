@@ -135,13 +135,6 @@ export default {
             type: String,
             required: true,
         },
-        /**
-         * Message to show when there's an error with a third party
-        */
-        errorMessage: {
-            type: String,
-            required: true,
-        },
     },
     data() {
         return {
@@ -216,6 +209,20 @@ export default {
         async pauseVideo() {
             if (this.player) {
                 await this.player.pauseVideo();
+            }
+        },
+        /**
+         * Toggles the video play/pause state
+         */
+        async toggleVideo() {
+            if (!this.player) return;
+
+            const state = await this.player.getPlayerState();
+
+            if (state === 1) {
+                this.pauseVideo();
+            } else {
+                this.playVideo();
             }
         },
         /**

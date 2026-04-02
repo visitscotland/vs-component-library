@@ -109,13 +109,6 @@ export default {
             default: '',
         },
         /**
-         * Message to show when there's an error with a third party
-        */
-        errorMessage: {
-            type: String,
-            default: '',
-        },
-        /**
         * Text to be announced when button is toggled to play
         */
         playButtonLabel: {
@@ -160,22 +153,29 @@ export default {
          * Plays the video by calling the play method
          * on the player component reference, if it exists
          */
-        play() {
-            this.$refs.player?.play?.();
+        playVideo() {
+            this.$refs.player?.playVideo?.();
         },
         /**
          * Pauses the video by calling the pause method
          * on the player component reference, if it exists
          */
-        pause() {
-            this.$refs.player?.pause?.();
+        pauseVideo() {
+            this.$refs.player?.pauseVideo?.();
+        },
+        /**
+         * Stops the video by calling the stop method
+         * on the player component reference, if it exists
+         */
+        stopVideo() {
+            this.$refs.player?.stopVideo?.();
         },
         /**
          * Toggles the play/pause state of the video by calling the toggle method
          * on the player component reference, if it exists
          */
-        toggle() {
-            this.$refs.player?.toggle?.();
+        toggleVideo() {
+            this.$refs.player?.toggleVideo?.();
         },
     },
 };

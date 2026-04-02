@@ -107,7 +107,7 @@ describe('VsVideo', () => {
                 value: true,
                 configurable: true,
             });
-            wrapper.vm.toggle();
+            wrapper.vm.toggleVideo();
             expect(video.play).toHaveBeenCalled();
         });
 
@@ -119,7 +119,7 @@ describe('VsVideo', () => {
                 value: false,
                 configurable: true,
             });
-            wrapper.vm.toggle();
+            wrapper.vm.toggleVideo();
             expect(video.pause).toHaveBeenCalled();
         });
     });

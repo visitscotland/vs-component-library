@@ -24,7 +24,6 @@ function mountOptions() {
             singleMinuteDescriptor,
             pluralMinuteDescriptor,
             language,
-            errorMessage: errorContent,
             noJsMessage: noJsContent,
             noCookiesMessage: noCookiesContent,
             cookieBtnText: cookieButtonContent,
