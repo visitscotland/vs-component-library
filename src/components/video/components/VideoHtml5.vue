@@ -63,45 +63,45 @@ export default {
     },
     props: {
         /**
-            * The video url for HTML5 player
-            */
+         * The video url for HTML5 player
+         */
         videoSrc: {
             type: String,
             required: true,
         },
         /**
-            * The poster image URL for video player
-            */
+         * The poster image URL for video player
+         */
         posterImageSrc: {
             type: String,
             default: '',
         },
         /**
-            * Enable lazy loading - video only loads when scrolled into view
-            */
+         * Enable lazy loading - video only loads when scrolled into view
+         */
         lazyLoad: {
             type: Boolean,
             default: false,
         },
         /**
-            * Text to be announced when button is toggled to play
-            */
+         * Text to be announced when button is toggled to play
+         */
         playButtonLabel: {
             type: String,
             default: '',
         },
         /**
-            * Text to be announced when button is toggled to pause
-            */
+         * Text to be announced when button is toggled to pause
+         */
         pauseButtonLabel: {
             type: String,
             default: '',
         },
         /**
-            * Whether to show play/pause toggle button
-            * NOTE: this is required for accessibility, only use
-            * if you're providing your own toggle button
-            */
+         * Whether to show play/pause toggle button
+         * NOTE: this is required for accessibility, only use
+         * if you're providing your own toggle button
+         */
         showToggle: {
             type: Boolean,
             default: true,
@@ -132,38 +132,38 @@ export default {
     },
     methods: {
         /**
-            * Play the video
-            */
+         * Play the video
+         */
         playVideo() {
-            const video = this.$refs.html5Video;
+            const video = this.$refs.videoRef;
             if (!video) return;
 
             video.play();
         },
         /**
-            * Pause the video
-            */
+         * Pause the video
+         */
         pauseVideo() {
-            const video = this.$refs.html5Video;
+            const video = this.$refs.videoRef;
             if (!video) return;
 
             video.pause();
         },
         /**
-            * Stop the video
-            */
+         * Stop the video
+         */
         stopVideo() {
-            const video = this.$refs.html5Video;
+            const video = this.$refs.videoRef;
             if (!video) return;
 
             video.pause();
             video.currentTime = 0;
         },
         /**
-            * Toggle the video play/pause state
-            */
+         * Toggle the video play/pause state
+         */
         toggleVideo() {
-            const video = this.$refs.html5Video;
+            const video = this.$refs.videoRef;
             if (!video) return;
 
             if (video.paused) {
@@ -173,26 +173,29 @@ export default {
             }
         },
         /**
-            * Sets up an IntersectionObserver to lazy load the video when it comes into view
-            */
+         * Sets up an IntersectionObserver to lazy load the video when it comes into view
+         */
         setupIntersectionObserver() {
             if (!('IntersectionObserver' in window)) {
                 this.isLoaded = true;
                 return;
             }
 
-            this.observer = new IntersectionObserver((entries) => {
-                if (entries[0].intersectionRatio > 0) {
-                    this.observer.unobserve(this.$el);
-                    this.isLoaded = true;
-                    this.$nextTick(() => {
-                        this.$refs.videoRef?.play();
-                    });
-                }
-            }, {
-                rootMargin: '50px',
-                threshold: 0,
-            });
+            this.observer = new IntersectionObserver(
+                (entries) => {
+                    if (entries[0].intersectionRatio > 0) {
+                        this.observer.unobserve(this.$el);
+                        this.isLoaded = true;
+                        this.$nextTick(() => {
+                            this.$refs.videoRef?.play();
+                        });
+                    }
+                },
+                {
+                    rootMargin: '50px',
+                    threshold: 0,
+                },
+            );
 
             this.observer.observe(this.$el);
         },
@@ -207,7 +210,8 @@ export default {
     height: 100%;
     inset: 0;
 
-    &__player, &__fallback-image {
+    &__player,
+    &__fallback-image {
         position: absolute;
         inset: 0;
         width: 100%;

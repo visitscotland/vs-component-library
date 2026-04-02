@@ -3,7 +3,7 @@
         class="vs-video-youtube"
         data-test="vs-video-youtube"
     >
-        <div v-if="cookiesAllowed">
+        <div v-if="cookiesAllowed && (!lazyLoad || isLoaded)">
             <VueYoutube
                 :autoplay="0"
                 :video-id="videoId"
@@ -63,28 +63,25 @@ export default {
         VueYoutube,
         VsWarning,
     },
-    mixins: [
-        dataLayerMixin,
-        verifyCookiesMixin,
-    ],
+    mixins: [dataLayerMixin, verifyCookiesMixin],
     props: {
         /**
-        * The YouTube ID for the video
-        */
+         * The YouTube ID for the video
+         */
         videoId: {
             type: String,
             required: true,
         },
         /**
-        * The title of the video, set in the CMS
-        */
+         * The title of the video, set in the CMS
+         */
         videoTitle: {
             type: String,
             default: '',
         },
         /**
-        * The language of the video
-        */
+         * The language of the video
+         */
         language: {
             type: String,
             default: 'en',
@@ -112,16 +109,16 @@ export default {
             default: '%s minute video',
         },
         /**
-        * A message explaining why the component has been disabled with disabled cookies, is
-        * provided for descendent components to inject
-        */
+         * A message explaining why the component has been disabled with disabled cookies, is
+         * provided for descendent components to inject
+         */
         noCookiesMessage: {
             type: String,
             required: true,
         },
         /**
-        * Text used for the link which opens the cookie preference centre.
-        */
+         * Text used for the link which opens the cookie preference centre.
+         */
         cookieBtnText: {
             type: String,
             required: true,
@@ -134,6 +131,13 @@ export default {
         noJsMessage: {
             type: String,
             required: true,
+        },
+        /**
+         * Enable lazy loading - video only loads when scrolled into view
+         */
+        lazyLoad: {
+            type: Boolean,
+            default: false,
         },
     },
     data() {
@@ -148,6 +152,8 @@ export default {
                 roundedMinutes: '',
             },
             jsDisabled: true,
+            isLoaded: false,
+            observer: null,
         };
     },
     computed: {
@@ -159,8 +165,10 @@ export default {
             return null;
         },
         showError() {
-            if ((!this.cookiesAllowed && this.cookiesLoaded === true)
-                || this.cookiesLoaded === false) {
+            if (
+                (!this.cookiesAllowed && this.cookiesLoaded === true)
+                || this.cookiesLoaded === false
+            ) {
                 return true;
             }
             return false;
@@ -185,6 +193,17 @@ export default {
         videoStore = useVideoStore();
 
         this.setEventListeners();
+
+        if (this.lazyLoad) {
+            this.setupIntersectionObserver();
+        } else {
+            this.isLoaded = true;
+        }
+    },
+    beforeUnmount() {
+        if (this.observer) {
+            this.observer.disconnect();
+        }
     },
     methods: {
         async playerReady() {
@@ -253,7 +272,8 @@ export default {
             let currentTime = 0;
             let duration = 0;
 
-            this.player.getCurrentTime()
+            this.player
+                .getCurrentTime()
                 .then((time) => {
                     currentTime = time;
                     if (this.player) {
@@ -267,14 +287,11 @@ export default {
                 .then(() => {
                     const videoPercent = (currentTime / duration) * 100;
 
-                    this.createDataLayerObject(
-                        'videoTrackingDataEvent',
-                        {
-                            title: this.videoTitle,
-                            status: videoStatus,
-                            percent: Math.round(videoPercent),
-                        },
-                    );
+                    this.createDataLayerObject('videoTrackingDataEvent', {
+                        title: this.videoTitle,
+                        status: videoStatus,
+                        percent: Math.round(videoPercent),
+                    });
                 });
         },
         async getPlayerDetails() {
@@ -295,7 +312,7 @@ export default {
          */
         formatTime(timeInSeconds) {
             const minutes = Math.floor(timeInSeconds / 60);
-            const seconds = Math.round(timeInSeconds - (minutes * 60));
+            const seconds = Math.round(timeInSeconds - minutes * 60);
 
             this.duration.minutes = minutes;
             this.duration.seconds = seconds;
@@ -344,7 +361,7 @@ export default {
             videoStore.addVideo({
                 videoId: this.videoId,
                 videoDurationMsg: this.duration.roundedMinutes,
-                videoDuration: (this.duration.minutes * 60) + this.duration.seconds,
+                videoDuration: this.duration.minutes * 60 + this.duration.seconds,
                 videoFullDuration: this.duration,
             });
         },
@@ -372,45 +389,72 @@ export default {
                 });
             }
         },
+        /**
+         * Sets up an IntersectionObserver to lazy load the video when it comes into view
+         */
+        setupIntersectionObserver() {
+            if (!('IntersectionObserver' in window)) {
+                this.isLoaded = true;
+                return;
+            }
+
+            this.observer = new IntersectionObserver(
+                (entries) => {
+                    if (entries[0].intersectionRatio > 0) {
+                        this.observer.unobserve(this.$el);
+                        this.isLoaded = true;
+                        this.$nextTick(() => {
+                            this.playVideo();
+                        });
+                    }
+                },
+                {
+                    rootMargin: '50px',
+                    threshold: 0,
+                },
+            );
+
+            this.observer.observe(this.$el);
+        },
     },
 };
 </script>
 <style lang="scss">
-   .vs-video-youtube {
-        position: relative;
+.vs-video-youtube {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16 / 9;
+
+    &__player {
+        position: absolute;
+        inset: 0;
         width: 100%;
         height: 100%;
         aspect-ratio: 16 / 9;
+    }
 
-        &__player {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            aspect-ratio: 16 / 9;
+    &__warning {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+
+        &--no-js {
+            display: none;
         }
+    }
+}
 
+@include no-js {
+    .vs-video-youtube {
         &__warning {
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            z-index: 1;
+            display: none;
 
             &--no-js {
-                display: none;
+                display: flex;
             }
         }
     }
-
-    @include no-js {
-        .vs-video-youtube {
-            &__warning {
-                display: none;
-
-                &--no-js {
-                    display: flex;
-                }
-            }
-        }
-    }
+}
 </style>

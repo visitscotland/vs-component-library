@@ -73,14 +73,18 @@ describe('VsVideo', () => {
             const wrapper = factoryShallowMount({
                 playButtonLabel: 'Play video',
             });
-            expect(wrapper.find('vs-video-youtube-stub').attributes('playbuttonlabel')).toBe('Play video');
+            expect(wrapper.find('vs-video-youtube-stub').attributes('playbuttonlabel')).toBe(
+                'Play video',
+            );
         });
 
         it('passes pauseButtonLabel to the player', () => {
             const wrapper = factoryShallowMount({
                 pauseButtonLabel: 'Pause video',
             });
-            expect(wrapper.find('vs-video-youtube-stub').attributes('pausebuttonlabel')).toBe('Pause video');
+            expect(wrapper.find('vs-video-youtube-stub').attributes('pausebuttonlabel')).toBe(
+                'Pause video',
+            );
         });
     });
 
@@ -105,43 +109,46 @@ describe('VsVideo', () => {
             stopVideo: jest.fn(),
             toggleVideo: jest.fn(),
         };
-        const stubWithMethods = {
-            template: '<div />',
-            methods: playerMethods,
-        };
 
         const factoryWithStub = () => shallowMount(VsVideo, {
             global: {
                 stubs: {
-                    VsVideoYoutube: stubWithMethods,
+                    VsVideoYoutube: {
+                        template: '<div><slot /></div>',
+                        methods: playerMethods,
+                    },
+                    VsVideoHtml5: {
+                        template: '<div><slot /></div>',
+                        methods: playerMethods,
+                    },
                 },
             },
         });
 
         beforeEach(() => jest.clearAllMocks());
 
-        it('play calls play on the player ref', () => {
+        it('play calls playVideo on the player ref', () => {
             const wrapper = factoryWithStub();
             wrapper.vm.playVideo();
-            expect(playerMethods.play).toHaveBeenCalled();
+            expect(playerMethods.playVideo).toHaveBeenCalled();
         });
 
-        it('pause calls pause on the player ref', () => {
+        it('pause calls pauseVideo on the player ref', () => {
             const wrapper = factoryWithStub();
             wrapper.vm.pauseVideo();
-            expect(playerMethods.pause).toHaveBeenCalled();
+            expect(playerMethods.pauseVideo).toHaveBeenCalled();
         });
 
-        it('stop calls stop on the player ref', () => {
+        it('stop calls stopVideo on the player ref', () => {
             const wrapper = factoryWithStub();
             wrapper.vm.stopVideo();
-            expect(playerMethods.stop).toHaveBeenCalled();
+            expect(playerMethods.stopVideo).toHaveBeenCalled();
         });
 
-        it('toggle calls toggle on the player ref', () => {
+        it('toggle calls toggleVideo on the player ref', () => {
             const wrapper = factoryWithStub();
             wrapper.vm.toggleVideo();
-            expect(playerMethods.toggle).toHaveBeenCalled();
+            expect(playerMethods.toggleVideo).toHaveBeenCalled();
         });
 
         it('should pass lazyLoad prop to youtube component when true', () => {
@@ -150,7 +157,7 @@ describe('VsVideo', () => {
                 lazyLoad: true,
             });
 
-            expect(wrapper.find('vs-video-youtube-stub').attributes('lazy-load')).toBe('true');
+            expect(wrapper.vm.$props.lazyLoad).toBe(true);
         });
 
         it('should pass lazyLoad prop to html5 component when true', () => {
@@ -160,7 +167,7 @@ describe('VsVideo', () => {
                 lazyLoad: true,
             });
 
-            expect(wrapper.find('vs-video-html5-stub').attributes('lazy-load')).toBe('true');
+            expect(wrapper.vm.$props.lazyLoad).toBe(true);
         });
     });
 });

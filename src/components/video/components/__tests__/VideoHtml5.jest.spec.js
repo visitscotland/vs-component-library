@@ -83,7 +83,9 @@ describe('VsVideoHtml5', () => {
                 playButtonLabel: 'Play video',
             });
 
-            expect(wrapper.find('vs-toggle-button-stub').attributes('pressedlabel')).toBe('Play video');
+            expect(wrapper.find('vs-toggle-button-stub').attributes('pressedlabel')).toBe(
+                'Play video',
+            );
         });
 
         it('passes pauseButtonLabel to the toggle button label', () => {
@@ -100,21 +102,25 @@ describe('VsVideoHtml5', () => {
 
         it('play calls play on the video element', () => {
             const wrapper = factoryShallowMount();
-            const playSpy = jest.spyOn(wrapper.vm.$refs.html5Video, 'play').mockImplementation(() => Promise.resolve());
+            const playSpy = jest
+                .spyOn(wrapper.vm.$refs.videoRef, 'play')
+                .mockImplementation(() => Promise.resolve());
             wrapper.vm.playVideo();
             expect(playSpy).toHaveBeenCalled();
         });
 
         it('pause calls pause on the video element', () => {
             const wrapper = factoryShallowMount();
-            const pauseSpy = jest.spyOn(wrapper.vm.$refs.html5Video, 'pause').mockImplementation(() => {});
+            const pauseSpy = jest
+                .spyOn(wrapper.vm.$refs.videoRef, 'pause')
+                .mockImplementation(() => {});
             wrapper.vm.pauseVideo();
             expect(pauseSpy).toHaveBeenCalled();
         });
 
         it('toggle calls play when video is paused', () => {
             const wrapper = factoryShallowMount();
-            const video = wrapper.vm.$refs.html5Video;
+            const video = wrapper.vm.$refs.videoRef;
             jest.spyOn(video, 'play').mockImplementation(() => Promise.resolve());
             Object.defineProperty(video, 'paused', {
                 value: true,
@@ -126,7 +132,7 @@ describe('VsVideoHtml5', () => {
 
         it('toggle calls pause when video is playing', () => {
             const wrapper = factoryShallowMount();
-            const video = wrapper.vm.$refs.html5Video;
+            const video = wrapper.vm.$refs.videoRef;
             jest.spyOn(video, 'pause').mockImplementation(() => {});
             Object.defineProperty(video, 'paused', {
                 value: false,
