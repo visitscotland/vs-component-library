@@ -333,12 +333,20 @@ const props = defineProps({
 const featuredCategories = props.categoryLabels.find((category) => category.id === 'destinations');
 const featuredSubcategories = featuredCategories ? featuredCategories.subCategory : null;
 
+// Filter the places data to only show those place that match the selected destination type.
+const filteredPlaces = computed(() => (
+    props.featuredPlaces.filter((place) => (
+        place.properties.category.id === googleMapStore.selectedDestinationType
+    ))
+));
+
 provide('featuredPlaces', {
     categories: featuredSubcategories,
-    places: props.featuredPlaces,
+    places: filteredPlaces,
 });
 
 provide('onFeaturedLocationClick', handleFeaturedLocationClick);
+provide('addDestinationMarkers', addDestinationMarkers);
 
 // Map Object, HTMLElements & Global Variables
 let gMap;
@@ -563,6 +571,8 @@ onMounted(async() => {
                 handlePlaceClick(place, markers[place.id]);
             }
         });
+
+        addDestinationMarkers();
     };
 
     googleMapStore.firstInteraction = false;
@@ -1027,9 +1037,41 @@ async function addMarkers(searchId) {
     }
 }
 
+async function addDestinationMarkers() {
+    const { AdvancedMarkerElement } = await importLibrary('marker');
+
+    clearExistingMarkers();
+
+    filteredPlaces.value.forEach((place) => {
+        const markerIcon = document.createElement('div');
+        markerIcon.classList.add('vs-map-marker');
+
+        const icon = document.createElement('i');
+        icon.classList.add('fa-solid', 'fa-location-dot');
+
+        markerIcon.appendChild(icon);
+
+        // Add `content: markerIcon` to enable custom markers
+        const marker = new AdvancedMarkerElement({
+            map: gMap,
+            position: {
+                lat: place.properties.locationCentre.latitude,
+                lng: place.properties.locationCentre.longitude,
+            },
+            content: markerIcon,
+            title: 'Map pin',
+        });
+
+        // Zoom into the destination and perform "Things to do" search.
+        marker.addEventListener('gmp-click', () => handleFeaturedLocationClick(place));
+
+        markers[place.properties.title] = marker;
+    });
+}
+
 function resetMap(hardReset, resetLocation) {
     googleMapStore.showCategories = false;
-    // googleMapStore.showDestinations = true;
+
     clearExistingMarkers();
     currentSearch.value = '';
     nearbySearch.style.display = 'none';
@@ -1048,6 +1090,8 @@ function resetMap(hardReset, resetLocation) {
         resetTextQuery();
         resetCategories();
         mapInteractionEvent('clear_all');
+        addDestinationMarkers();
+        googleMapStore.showDestinations = true;
     }
     if (resetLocation) {
         gMap.setCenter(props.center);
@@ -1207,6 +1251,8 @@ function getVisibleMarkerCount() {
 }
 
 function handleFeaturedLocationClick(place) {
+    googleMapStore.showDestinations = false;
+
     gMap.fitBounds(
         // eslint-disable-next-line no-undef
         new google.maps.LatLngBounds(

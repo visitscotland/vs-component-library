@@ -14,7 +14,7 @@
                 :icon="iconMap[category.id]"
                 size="sm"
                 :variant="setButtonVariant(category.id)"
-                @click="selectedDestinationType = category.id"
+                @click="handleClick(category.id)"
             >
                 {{ category.label }}
             </VsButton>
@@ -23,7 +23,7 @@
         <div aria-live="polite">
             <VsRow>
                 <VsMapFeaturedLocationItem
-                    v-for="place in filteredPlaces"
+                    v-for="place in places"
                     :key="place.properties.id"
                     :place="place"
                 />
@@ -34,27 +34,27 @@
 
 <script setup>
 import {
-    computed,
     inject,
-    ref,
+    onMounted,
 } from 'vue';
 import VsButton from '@/components/button/Button.vue';
 import VsDetail from '@/components/detail/Detail.vue';
 import VsRow from '@/components/grid/Row.vue';
+import useGoogleMapStore from '@/stores/mainMap.store';
 import VsMapFeaturedLocationItem from './MapFeaturedLocationItem.vue';
 
 // Injected from `MainMap.vue`.
 const { categories, places } = inject('featuredPlaces');
+const addDestinationMarkers = inject('addDestinationMarkers');
 
-const selectedDestinationType = ref(categories[0].id);
+const googleMapStore = useGoogleMapStore();
 
-// Filter the places data to only show those place that match the selected destination type.
-const filteredPlaces = computed(() => (
-    places.filter((place) => place.properties.category.id === selectedDestinationType.value)
-));
+onMounted(() => {
+    googleMapStore.selectedDestinationType = categories[0].id;
+});
 
 // The button should be secondary unless it is the currently selected destination type.
-const setButtonVariant = (id) => (selectedDestinationType.value === id ? 'primary' : 'secondary');
+const setButtonVariant = (id) => (googleMapStore.selectedDestinationType === id ? 'primary' : 'secondary');
 
 // Icons used on the destination type buttons.
 const iconMap = {
@@ -64,6 +64,11 @@ const iconMap = {
     towns: 'fa-regular fa-house-chimney-window',
     'national-parks': 'fa-kit fa-vs-icon-national-park',
 };
+
+function handleClick(id) {
+    googleMapStore.selectedDestinationType = id;
+    addDestinationMarkers();
+}
 </script>
 
 <style lang="scss">
