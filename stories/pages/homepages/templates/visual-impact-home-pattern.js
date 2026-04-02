@@ -78,6 +78,7 @@ export default `
                                 label="Pause video"
                                 pressed-label="Play video"
                                 aria-hidden="true"
+                                tabindex="-1"
                             />
                         </template>
                     </VsCard>

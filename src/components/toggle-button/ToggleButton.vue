@@ -170,7 +170,7 @@ export default {
          * Determines whether button behaves as a toggle
          */
         isToggle() {
-            return !!this.pressedIcon;
+            return this.modelValue !== undefined || !!this.pressedIcon || !!this.pressedLabel;
         },
         /**
          * Pressed state (supports controlled + uncontrolled)
@@ -188,7 +188,7 @@ export default {
         buttonClasses() {
             return {
                 'vs-toggle-button--toggle': this.isToggle,
-                'vs-toggle-button--pressed': this.isPressed,
+                'vs-toggle-button--pressed': this.isToggle && this.isPressed,
                 [`vs-toggle-button--label-${this.labelBreakpoint}-up`]: this.labelBreakpoint,
             };
         },

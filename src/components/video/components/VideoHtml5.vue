@@ -39,6 +39,7 @@
                 :label="pauseButtonLabel"
                 :pressed-label="playButtonLabel"
                 aria-hidden="true"
+                tabindex="-1"
             />
         </template>
     </div>
