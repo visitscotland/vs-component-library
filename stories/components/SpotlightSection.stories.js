@@ -61,6 +61,7 @@ const Template = (args) => ({
                     :label="args.pauseButtonLabel"
                     :pressed-label="args.playButtonLabel"
                     aria-hidden="true"
+                    tabindex="-1"
                 />
             </template>
         </VsSpotlightSection>

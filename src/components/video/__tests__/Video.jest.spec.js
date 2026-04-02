@@ -127,25 +127,25 @@ describe('VsVideo', () => {
 
         beforeEach(() => jest.clearAllMocks());
 
-        it('play calls playVideo on the player ref', () => {
+        it('playVideo calls playVideo on the player ref', () => {
             const wrapper = factoryWithStub();
             wrapper.vm.playVideo();
             expect(playerMethods.playVideo).toHaveBeenCalled();
         });
 
-        it('pause calls pauseVideo on the player ref', () => {
+        it('pauseVideo calls pauseVideo on the player ref', () => {
             const wrapper = factoryWithStub();
             wrapper.vm.pauseVideo();
             expect(playerMethods.pauseVideo).toHaveBeenCalled();
         });
 
-        it('stop calls stopVideo on the player ref', () => {
+        it('stopVideo calls stopVideo on the player ref', () => {
             const wrapper = factoryWithStub();
             wrapper.vm.stopVideo();
             expect(playerMethods.stopVideo).toHaveBeenCalled();
         });
 
-        it('toggle calls toggleVideo on the player ref', () => {
+        it('toggleVideo calls toggleVideo on the player ref', () => {
             const wrapper = factoryWithStub();
             wrapper.vm.toggleVideo();
             expect(playerMethods.toggleVideo).toHaveBeenCalled();
