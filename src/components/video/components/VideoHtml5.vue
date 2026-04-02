@@ -4,15 +4,16 @@
         data-test="vs-video-html5"
     >
         <video
-            loop
-            muted
-            autoplay
+            ref="videoRef"
+            :loop="!lazyLoad || isLoaded"
+            :muted="!lazyLoad || isLoaded"
+            :autoplay="!lazyLoad || isLoaded"
             playsinline
-            preload="auto"
+            :preload="lazyLoad ? 'none' : 'auto'"
             :poster="posterImageSrc"
             aria-hidden="true"
-            fetchpriority="high"
-            class="vs-video-html5__player img-zoom-on-hover"
+            :fetchpriority="lazyLoad ? 'low' : 'high'"
+            :class="['vs-video-html5__player', lazyLoad && isLoaded ? 'img-zoom-on-hover' : '']"
         >
             <source
                 :src="videoSrc"
@@ -39,6 +40,54 @@ export default {
         posterImageSrc: {
             type: String,
             default: '',
+        },
+        /**
+        * Enable lazy loading - video only loads when scrolled into view
+        */
+        lazyLoad: {
+            type: Boolean,
+            default: false,
+        },
+    },
+    data() {
+        return {
+            isLoaded: false,
+            observer: null,
+        };
+    },
+    mounted() {
+        if (this.lazyLoad) {
+            this.setupIntersectionObserver();
+        } else {
+            this.isLoaded = true;
+        }
+    },
+    beforeUnmount() {
+        if (this.observer) {
+            this.observer.disconnect();
+        }
+    },
+    methods: {
+        setupIntersectionObserver() {
+            if (!('IntersectionObserver' in window)) {
+                this.isLoaded = true;
+                return;
+            }
+
+            this.observer = new IntersectionObserver((entries) => {
+                if (entries[0].intersectionRatio > 0) {
+                    this.observer.unobserve(this.$el);
+                    this.isLoaded = true;
+                    this.$nextTick(() => {
+                        this.$refs.videoRef?.play();
+                    });
+                }
+            }, {
+                rootMargin: '50px',
+                threshold: 0,
+            });
+
+            this.observer.observe(this.$el);
         },
     },
 };

@@ -7,6 +7,7 @@
         <component
             :is="playerComponent"
             v-bind="$props"
+            :lazy-load="lazyLoad"
         />
     </div>
 </template>
@@ -110,10 +111,17 @@ export default {
         },
         /**
          * Message to show when there's an error with a third party
-        */
+         */
         errorMessage: {
             type: String,
             default: '',
+        },
+        /**
+         * Enable lazy loading - video only loads when scrolled into view
+         */
+        lazyLoad: {
+            type: Boolean,
+            default: false,
         },
     },
 

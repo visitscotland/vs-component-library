@@ -5,14 +5,11 @@ import VsVideo from '../Video.vue';
 config.global.renderStubDefaultSlot = true;
 
 const factoryShallowMount = (props = {
-}) => shallowMount(
-    VsVideo,
-    {
-        props: {
-            ...props,
-        },
+}) => shallowMount(VsVideo, {
+    props: {
+        ...props,
     },
-);
+});
 
 describe('VsVideo', () => {
     it('should render a component `vs-video`', () => {
@@ -54,6 +51,25 @@ describe('VsVideo', () => {
             });
 
             expect(wrapper.html()).toContain('vs-video-html5-stub');
+        });
+
+        it('should pass lazyLoad prop to youtube component when true', () => {
+            const wrapper = factoryShallowMount({
+                videoId: '123456',
+                lazyLoad: true,
+            });
+
+            expect(wrapper.find('vs-video-youtube-stub').attributes('lazy-load')).toBe('true');
+        });
+
+        it('should pass lazyLoad prop to html5 component when true', () => {
+            const wrapper = factoryShallowMount({
+                videoType: 'html5',
+                videoSrc: 'video.mp4',
+                lazyLoad: true,
+            });
+
+            expect(wrapper.find('vs-video-html5-stub').attributes('lazy-load')).toBe('true');
         });
     });
 });
