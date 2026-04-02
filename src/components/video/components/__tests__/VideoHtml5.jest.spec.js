@@ -23,7 +23,7 @@ const factoryShallowMount = (props = {
 beforeEach(() => mockMatchMedia(false));
 afterEach(() => jest.restoreAllMocks());
 
-describe('VsVideo', () => {
+describe('VsVideoHtml5', () => {
     it('should render component `vs-video-html5`', () => {
         const wrapper = factoryShallowMount();
 
@@ -65,20 +65,20 @@ describe('VsVideo', () => {
             expect(wrapper.find('video').attributes('poster')).toBe('poster.jpg');
         });
 
-        it('passes playButtonLabel to the toggle button label', () => {
+        it('passes playButtonLabel to the toggle button pressedlabel', () => {
             const wrapper = factoryShallowMount({
                 playButtonLabel: 'Play video',
             });
 
-            expect(wrapper.find('vs-toggle-button-stub').attributes('label')).toBe('Play video');
+            expect(wrapper.find('vs-toggle-button-stub').attributes('pressedlabel')).toBe('Play video');
         });
 
-        it('passes pauseButtonLabel to the toggle button pressedlabel', () => {
+        it('passes pauseButtonLabel to the toggle button label', () => {
             const wrapper = factoryShallowMount({
                 pauseButtonLabel: 'Pause video',
             });
 
-            expect(wrapper.find('vs-toggle-button-stub').attributes('pressedlabel')).toBe('Pause video');
+            expect(wrapper.find('vs-toggle-button-stub').attributes('label')).toBe('Pause video');
         });
     });
 
@@ -88,14 +88,14 @@ describe('VsVideo', () => {
         it('play calls play on the video element', () => {
             const wrapper = factoryShallowMount();
             const playSpy = jest.spyOn(wrapper.vm.$refs.html5Video, 'play').mockImplementation(() => Promise.resolve());
-            wrapper.vm.play();
+            wrapper.vm.playVideo();
             expect(playSpy).toHaveBeenCalled();
         });
 
         it('pause calls pause on the video element', () => {
             const wrapper = factoryShallowMount();
             const pauseSpy = jest.spyOn(wrapper.vm.$refs.html5Video, 'pause').mockImplementation(() => {});
-            wrapper.vm.pause();
+            wrapper.vm.pauseVideo();
             expect(pauseSpy).toHaveBeenCalled();
         });
 

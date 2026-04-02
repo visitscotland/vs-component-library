@@ -223,9 +223,10 @@ export default {
          * Emits toggleAction event for legacy button
          * Should be removed when ⚠️ deprecated code is removed.
          */
-        toggleLegacy() {
+        toggleLegacy(event) {
             this.show = !this.show;
             this.$emit('toggleAction', this.show);
+            this.$emit('click', event);
         },
         /**
          * Updates toggle state and emits toggle value and click event
@@ -276,11 +277,6 @@ export default {
                 vertical-align: middle;
             }
 
-            &--pressed {
-                background: $vs-color-interaction-cta-pressed;
-                transform: scale(1.05);
-            }
-
             &:focus-visible, &:focus {
                 outline-offset: 2px;
             }
@@ -305,6 +301,11 @@ export default {
                     }
                 }
             }
+        }
+
+        &--pressed {
+            background: $vs-color-interaction-cta-pressed;
+            transform: scale(1.05);
         }
 
         /* Button Variants

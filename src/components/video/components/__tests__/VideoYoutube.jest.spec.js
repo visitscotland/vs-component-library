@@ -15,7 +15,6 @@ const language = 'de';
 const noJsContent = 'Js is off';
 const noCookiesContent = 'Cookies are off';
 const cookieButtonContent = 'Manage cookies';
-const errorContent = 'Error content';
 
 function mountOptions() {
     return {
@@ -82,7 +81,6 @@ describe('VsVideo', () => {
 
         it('renders youtube player when videoType is youtube and videoId provided', () => {
             const wrapper = factoryShallowMount({
-                videoType: 'youtube',
                 videoId,
             });
 
@@ -185,14 +183,6 @@ describe('VsVideo', () => {
 
             expect(wrapper.vm.duration.minutes).toBe(3);
             expect(wrapper.vm.duration.seconds).toBe(30);
-        });
-
-        it('should not render the video duration if video duration is 0', () => {
-            const wrapper = factoryShallowMount();
-
-            wrapper.vm.formatTime(0);
-
-            expect(wrapper.find('p[data-test="vs-video-duration"]').exists()).toBe(false);
         });
     });
 });

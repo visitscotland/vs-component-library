@@ -98,9 +98,10 @@ describe('VsVideo', () => {
 
     describe(':methods', () => {
         const playerMethods = {
-            play: jest.fn(),
-            pause: jest.fn(),
-            toggle: jest.fn(),
+            playVideo: jest.fn(),
+            pauseVideo: jest.fn(),
+            stopVideo: jest.fn(),
+            toggleVideo: jest.fn(),
         };
         const stubWithMethods = {
             template: '<div />',

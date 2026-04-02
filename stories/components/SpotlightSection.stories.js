@@ -58,8 +58,8 @@ const Template = (args) => ({
                     icon="vs-icon-control-pause"
                     pressed-icon="vs-icon-control-play"
                     @toggle="toggleVideo"
-                    label="Pause video"
-                    pressed-label="Play video"
+                    :label="args.pauseButtonLabel"
+                    :pressed-label="args.playButtonLabel"
                     aria-hidden="true"
                 />
             </template>
