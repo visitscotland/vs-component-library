@@ -6,6 +6,7 @@
     >
         <component
             :is="playerComponent"
+            ref="player"
             v-bind="$props"
             :lazy-load="lazyLoad"
         />
@@ -18,7 +19,6 @@ import VsVideoHtml5 from './components/VideoHtml5.vue';
 
 export default {
     name: 'VsVideo',
-
     props: {
         /**
          * The type of video player to display
@@ -110,11 +110,25 @@ export default {
             default: '',
         },
         /**
-         * Message to show when there's an error with a third party
-         */
-        errorMessage: {
+        * Text to be announced when button is toggled to play
+        */
+        playButtonLabel: {
             type: String,
-            default: '',
+            default: 'Play video',
+        },
+        /**
+         * Text to be announced when button is toggled to pause
+        */
+        pauseButtonLabel: {
+            type: String,
+            default: 'Pause video',
+        },
+        /**
+         * Whether to show play/pause toggle button
+        */
+        showToggle: {
+            type: Boolean,
+            default: true,
         },
         /**
          * Enable lazy loading - video only loads when scrolled into view
@@ -124,20 +138,52 @@ export default {
             default: false,
         },
     },
-
     data() {
         return {
             reRendering: false,
         };
     },
-
     computed: {
+        /**
+         * Determines which video player component to use
+         * based on the videoType prop
+         */
         playerComponent() {
             if (this.videoType === 'html5') {
                 return VsVideoHtml5;
             }
 
             return VsVideoYoutube;
+        },
+    },
+    methods: {
+        /**
+         * Plays the video by calling the play method
+         * on the player component reference, if it exists
+         */
+        playVideo() {
+            this.$refs.player?.playVideo?.();
+        },
+        /**
+         * Pauses the video by calling the pause method
+         * on the player component reference, if it exists
+         */
+        pauseVideo() {
+            this.$refs.player?.pauseVideo?.();
+        },
+        /**
+         * Stops the video by calling the stop method
+         * on the player component reference, if it exists
+         */
+        stopVideo() {
+            this.$refs.player?.stopVideo?.();
+        },
+        /**
+         * Toggles the play/pause state of the video by calling the toggle method
+         * on the player component reference, if it exists
+         */
+        toggleVideo() {
+            this.$refs.player?.toggleVideo?.();
         },
     },
 };

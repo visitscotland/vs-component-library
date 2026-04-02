@@ -18,6 +18,8 @@ import VsSectionHeader from '@/components/section-header/SectionHeader.vue';
 import VsFedSearchInput from '@/custom-components/federated-search/components/FedSearchInput.vue';
 import VsFedFilter from '@/custom-components/federated-search/components/FedFilter.vue';
 
+import VsToggleButton from '@/components/toggle-button/ToggleButton.vue';
+
 import cardLayoutData from '@/assets/fixtures/homepages/visual-impact-home-cards.json';
 import infoCardLayoutData from '@/assets/fixtures/homepages/information-first-home-cards.json';
 
@@ -44,12 +46,15 @@ const components = {
     VsIcon,
     VsFedSearchInput,
     VsFedFilter,
+    VsToggleButton,
 };
 
-const createStory = (template) => ({
+const createStory = (template, options = {
+}) => ({
     render: () => ({
         components,
         template,
+        ...options,
         setup() {
             const cardListOverlay = cardLayoutData.cardListOverlay?.cards || [];
             const cardListInfoOverlay = infoCardLayoutData.cardListInfoOverlay?.cards || [];
@@ -87,7 +92,19 @@ export default {
 };
 
 export const VisualImpact = {
-    ...createStory(VisualImpactTemplate),
+    ...createStory(VisualImpactTemplate, {
+        methods: {
+            toggleCard(index) {
+                const card = this.$refs.overlayCard?.[index];
+
+                if (!card) {
+                    return;
+                }
+
+                card.toggleVideo?.();
+            },
+        },
+    }),
 };
 
 export const InfoFirst = {

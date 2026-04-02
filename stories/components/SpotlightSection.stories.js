@@ -1,4 +1,6 @@
 import VsSpotlightSection from '@/components/spotlight-section/SpotlightSection.vue';
+import VsVideo from '@/components/video/Video.vue';
+import VsToggleButton from '@/components/toggle-button/ToggleButton.vue';
 
 export default {
     component: VsSpotlightSection,
@@ -22,14 +24,46 @@ export default {
 const Template = (args) => ({
     components: {
         VsSpotlightSection,
+        VsVideo,
+        VsToggleButton,
     },
     setup() {
         return {
             args,
         };
     },
+    methods: {
+        toggleVideo() {
+            const video = this.$refs.spotlightVideo;
+            video?.toggleVideo?.();
+        },
+    },
     template: `
-        <VsSpotlightSection v-bind="args" />
+        <VsSpotlightSection v-bind="args">
+            <template #vs-spotlight-section-media>
+                <VsVideo
+                    v-if="args.videoSrc"
+                    ref="spotlightVideo"
+                    video-type="html5"
+                    :poster-image-src="args.imageSrc"
+                    :video-src="args.videoSrc"
+                    :show-toggle="false"
+                />
+            </template>
+
+            <template #vs-spotlight-section-overlay-controls>
+                <VsToggleButton
+                    v-if="args.videoSrc"
+                    variant="overlay"
+                    icon="vs-icon-control-pause"
+                    pressed-icon="vs-icon-control-play"
+                    @toggle="toggleVideo"
+                    :label="args.pauseButtonLabel"
+                    :pressed-label="args.playButtonLabel"
+                    aria-hidden="true"
+                />
+            </template>
+        </VsSpotlightSection>
     `,
 });
 
@@ -87,6 +121,8 @@ WithVideo.args = {
     ctaText: 'Explore slow travel adventures',
     imageSrc: 'fixtures/hero/images/lavendar-fields.jpg',
     videoSrc: 'fixtures/hero/video/lavendar-fields.mp4',
+    playButtonLabel: 'Play video',
+    pauseButtonLabel: 'Pause video',
     compact: false,
     ...base,
 };
@@ -100,6 +136,8 @@ WithVideoCompact.args = {
     ctaText: 'Explore slow travel adventures',
     imageSrc: 'fixtures/hero/images/lavendar-fields.jpg',
     videoSrc: 'fixtures/hero/video/lavendar-fields.mp4',
+    playButtonLabel: 'Play video',
+    pauseButtonLabel: 'Pause video',
     compact: true,
     ...base,
 };
@@ -109,6 +147,7 @@ export const NoImage = Template.bind({
 
 NoImage.args = {
     heading: 'Inspiring Scotland travel blogs',
+    ctaText: 'Read the blog',
     compact: true,
     ...base,
 };

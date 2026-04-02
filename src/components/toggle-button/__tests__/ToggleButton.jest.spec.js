@@ -8,7 +8,7 @@ jest.mock('@/utils/svg-context');
 const toggleIdValue = 'toggle-id';
 const defaultSlotText = 'Click here to toggle caption';
 
-const factoryShallowMount = (propsData) => shallowMount(VsToggleButton, {
+const factoryLegacy = (propsData) => shallowMount(VsToggleButton, {
     propsData: {
         toggleId: toggleIdValue,
         ...propsData,
@@ -18,56 +18,173 @@ const factoryShallowMount = (propsData) => shallowMount(VsToggleButton, {
     },
 });
 
+const factoryNew = (propsData) => shallowMount(VsToggleButton, {
+    propsData: {
+        icon: 'fa-heart',
+        ...propsData,
+    },
+});
+
 describe('VsToggleButton', () => {
-    it('should render a component with the data-test attribute `vs-toggle-btn`', () => {
-        const wrapper = factoryShallowMount();
+    /* -----------------------------
+    LEGACY IMPLEMENTATION
+    ------------------------------ */
 
-        expect(wrapper.attributes('data-test')).toBe('vs-toggle-btn');
+    describe('(legacy)', () => {
+        let wrapper;
+
+        beforeEach(() => {
+            wrapper = factoryLegacy();
+        });
+
+        it('should render a component with the data-test attribute `vs-toggle-btn`', () => {
+            const toggleCaptionBtn = wrapper.find('[data-test="vs-toggle-btn"]');
+            expect(toggleCaptionBtn.attributes('data-test')).toBe('vs-toggle-btn');
+        });
+
+        describe(':props', () => {
+            it('should set correct ID for aria controls with `toggleId` prop', () => {
+                const toggleCaptionBtn = wrapper.find('[data-test="vs-toggle-btn"]');
+
+                expect(toggleCaptionBtn.attributes('aria-controls')).toBe(toggleIdValue);
+            });
+        });
+
+        describe(':slots', () => {
+            it('renders info icon in the `toggle-icon` slot', () => {
+                expect(wrapper.find('[data-test="vs-toggle-btn"]').attributes('aria-expanded')).toContain('false');
+                expect(wrapper.find('vs-icon-stub').attributes('icon')).toContain('circle-info');
+            });
+
+            it('renders content in the `default` slot', () => {
+                expect(wrapper.html()).toContain(defaultSlotText);
+            });
+        });
+
+        describe(':methods', () => {
+            it('emits `toggleAction` when clicked', async() => {
+                const toggleCaptionBtn = wrapper.find('[data-test="vs-toggle-btn"]');
+
+                await toggleCaptionBtn.trigger('click');
+
+                expect(wrapper.emitted().toggleAction).toBeTruthy();
+            });
+
+            it('updates icon and aria-expanded when toggled', async() => {
+                const toggleCaptionBtn = wrapper.find('[data-test="vs-toggle-btn"]');
+
+                await toggleCaptionBtn.trigger('click');
+
+                expect(toggleCaptionBtn.attributes('aria-expanded')).toContain('true');
+                expect(wrapper.find('vs-icon-stub').attributes('icon')).toContain('circle-xmark');
+            });
+        });
     });
 
-    describe(':props', () => {
-        it('should set correct ID for aria controls with `toggleId` prop', () => {
-            const wrapper = factoryShallowMount();
-            const toggleCaptionBtn = wrapper.find('[data-test="vs-toggle-btn"]');
+    /* -----------------------------
+    NEW IMPLEMENTATION
+    ------------------------------ */
 
-            expect(toggleCaptionBtn.attributes('aria-controls')).toBe(toggleIdValue);
-        });
-    });
+    describe('(new implementation)', () => {
+        describe('rendering', () => {
+            it('renders a bootstrap button', () => {
+                const wrapper = factoryNew();
 
-    describe(':slots', () => {
-        it('renders info icon in the `toggle-icon` slot', () => {
-            const wrapper = factoryShallowMount();
+                expect(wrapper.find('b-button-stub').exists()).toBe(true);
+            });
 
-            expect(wrapper.find('[data-test="vs-toggle-btn"]').attributes('aria-expanded')).toContain('false');
-            expect(wrapper.find('vs-icon-stub').attributes('icon')).toContain('circle-info');
-        });
+            it('renders the provided icon', () => {
+                const wrapper = factoryNew({
+                    icon: 'fa-heart',
+                });
 
-        it('renders content in the `default` slot', () => {
-            const wrapper = factoryShallowMount();
-            expect(wrapper.html()).toContain(defaultSlotText);
-        });
-    });
-
-    describe(':methods', () => {
-        it('emits `toggleImage` when clicked', async() => {
-            const wrapper = factoryShallowMount();
-            const toggleCaptionBtn = wrapper.find('[data-test="vs-toggle-btn"]');
-
-            toggleCaptionBtn.trigger('click');
-            await wrapper.vm.$nextTick();
-
-            expect(wrapper.emitted().toggleAction).toBeTruthy();
+                expect(wrapper.find('vs-icon-stub').attributes('icon')).toBe('fa-heart');
+            });
         });
 
-        it(':toggleCaption - icon is updated when the caption is toggled on', async() => {
-            const wrapper = factoryShallowMount();
-            const toggleCaptionBtn = wrapper.find('[data-test="vs-toggle-btn"]');
+        describe(':props', () => {
+            it('applies the correct button variant', () => {
+                const wrapper = factoryNew({
+                    variant: 'overlay',
+                });
 
-            toggleCaptionBtn.trigger('click');
-            await wrapper.vm.$nextTick();
+                expect(wrapper.find('b-button-stub').attributes('variant')).toBe('overlay');
+            });
 
-            expect(toggleCaptionBtn.attributes('aria-expanded')).toContain('true');
-            expect(wrapper.find('vs-icon-stub').attributes('icon')).toContain('circle-xmark');
+            it('renders accessible label when provided', () => {
+                const wrapper = factoryNew({
+                    label: 'Like item',
+                });
+
+                expect(wrapper.find('.visually-hidden').text()).toBe('Like item');
+            });
+        });
+
+        describe('toggle behaviour', () => {
+            it('acts as toggle when pressedIcon is provided', async() => {
+                const wrapper = factoryNew({
+                    icon: 'fa-heart',
+                    pressedIcon: 'fa-heart-solid',
+                });
+
+                await wrapper.find('b-button-stub').trigger('click');
+
+                expect(wrapper.emitted().toggle).toBeTruthy();
+            });
+
+            it('switches icon when pressed', async() => {
+                const wrapper = factoryNew({
+                    icon: 'fa-heart',
+                    pressedIcon: 'fa-heart-solid',
+                });
+
+                await wrapper.find('b-button-stub').trigger('click');
+
+                expect(wrapper.find('vs-icon-stub').attributes('icon')).toBe('fa-heart-solid');
+            });
+
+            it('emits click event', async() => {
+                const wrapper = factoryNew();
+
+                await wrapper.find('b-button-stub').trigger('click');
+
+                expect(wrapper.emitted().click).toBeTruthy();
+            });
+        });
+
+        describe('controlled mode', () => {
+            it('uses modelValue when provided', async() => {
+                const wrapper = factoryNew({
+                    icon: 'fa-heart',
+                    pressedIcon: 'fa-heart-solid',
+                    modelValue: true,
+                });
+
+                expect(wrapper.find('vs-icon-stub').attributes('icon')).toBe('fa-heart-solid');
+            });
+
+            it('emits update:modelValue when clicked', async() => {
+                const wrapper = factoryNew({
+                    icon: 'fa-heart',
+                    pressedIcon: 'fa-heart-solid',
+                    modelValue: false,
+                });
+
+                await wrapper.find('b-button-stub').trigger('click');
+
+                expect(wrapper.emitted()['update:modelValue']).toBeTruthy();
+            });
+        });
+
+        describe(':accessibility', () => {
+            it('sets aria-pressed when toggle button', () => {
+                const wrapper = factoryNew({
+                    icon: 'fa-heart',
+                    pressedIcon: 'fa-heart-solid',
+                });
+
+                expect(wrapper.find('b-button-stub').attributes('aria-pressed')).toBe('false');
+            });
         });
     });
 });

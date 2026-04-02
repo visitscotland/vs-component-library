@@ -42,6 +42,7 @@ export default `
                     href="#"
                     class="stretched-link"
                     variant="secondary"
+                    no-visited-styles
                 >
                     Neuk presents: Edit Your Creative Scotland Bid with Truffle Pig
                 </VsLink>
