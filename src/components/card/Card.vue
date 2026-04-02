@@ -51,6 +51,13 @@ export default {
     name: 'VsCard',
     status: 'prototype',
     release: '0.1.0',
+    provide() {
+        return {
+            registerMedia: (component) => {
+                this.mediaComponent = component;
+            },
+        };
+    },
     props: {
         /**
         * The style of the card, this is used to set the border and shadow
@@ -87,6 +94,7 @@ export default {
     data() {
         return {
             tokens: designTokens,
+            mediaComponent: null,
         };
     },
     computed: {
@@ -109,6 +117,18 @@ export default {
             }
 
             return null;
+        },
+    },
+    methods: {
+        /**
+         * Toggles the media component registered in this card, if any
+         */
+        toggle() {
+            if (!this.mediaComponent) {
+                return;
+            }
+
+            this.mediaComponent?.toggle?.();
         },
     },
 };

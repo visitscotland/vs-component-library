@@ -28,13 +28,14 @@ export default `
         <VsRow>
             <VsCol>
                 <VsCardGroup
-                    cards-per-row="4"
+                    :cards-per-row="4"
                     class="text-start"
                 >
                     <VsCard
                         v-for="(card, index) in cardListOverlay"
                         card-style="overlay"
                         :key="'card-list-overlay-' + index"
+                        ref="overlayCard"
                     >
                         <template #vs-card-footer>
                             <div class="px-125 pb-125">
@@ -59,11 +60,24 @@ export default `
                                 video-type="html5"
                                 :poster-image-src="card.image"
                                 :video-src="card.videoSrc"
+                                :show-toggle="false"
                             />
                             <VsImg 
                                 v-else
                                 :src="card.image" 
                                 class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
+                            />
+                        </template>
+                        <template #vs-card-overlay-controls>
+                            <VsToggleButton
+                                v-if="card.videoSrc"
+                                variant="overlay"
+                                icon="vs-icon-control-pause"
+                                pressed-icon="vs-icon-control-play"
+                                @toggle="(val) => toggleCard(index)"
+                                label="Pause video"
+                                pressed-label="Play video"
+                                aria-hidden="true"
                             />
                         </template>
                     </VsCard>

@@ -33,11 +33,11 @@
                 v-if="showToggle"
                 class="vs-video-html5__toggle-video"
                 variant="overlay"
-                icon="vs-icon-control-play"
-                pressed-icon="vs-icon-control-pause"
+                icon="vs-icon-control-pause"
+                pressed-icon="vs-icon-control-play"
                 @toggle="toggle"
-                :label="playButtonLabel"
-                :pressed-label="pauseButtonLabel"
+                :label="pauseButtonLabel"
+                :pressed-label="playButtonLabel"
                 aria-hidden="true"
             />
         </template>
@@ -55,6 +55,11 @@ export default {
     components: {
         VsToggleButton,
         VsImg,
+    },
+    inject: {
+        registerMedia: {
+            default: null,
+        },
     },
     props: {
         /**
@@ -103,6 +108,7 @@ export default {
     mounted() {
         const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
         this.prefersReducedMotion = mediaQuery.matches;
+        this.registerMedia?.(this);
     },
     methods: {
         /**

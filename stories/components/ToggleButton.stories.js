@@ -59,10 +59,10 @@ DefaultToggle.args = {
 export const Overlay = Template.bind();
 Overlay.args = {
     variant: 'overlay',
-    icon: 'vs-icon-control-play',
-    pressedIcon: 'vs-icon-control-pause',
-    label: 'Play',
-    pressedLabel: 'Pause',
+    icon: 'vs-icon-control-pause',
+    pressedIcon: 'vs-icon-control-play',
+    label: 'Pause',
+    pressedLabel: 'Play',
 };
 Overlay.globals = {
     backgrounds: {

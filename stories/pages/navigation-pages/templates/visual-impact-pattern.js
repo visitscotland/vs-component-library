@@ -48,6 +48,7 @@ export default `
                         v-for="(card, index) in cardListOverlay"
                         card-style="overlay"
                         :key="'card-list-overlay-' + index"
+                        ref="overlayCard"
                     >
                         <template #vs-card-image>
                             <VsVideo
@@ -69,11 +70,11 @@ export default `
                             <VsToggleButton
                                 v-if="card.videoSrc"
                                 variant="overlay"
-                                icon="vs-icon-control-play"
-                                pressed-icon="vs-icon-control-pause"
-                                @toggle="(val) => toggleCardVideo(0)"
-                                label="Play video"
-                                pressed-label="Pause video"
+                                icon="vs-icon-control-pause"
+                                pressed-icon="vs-icon-control-play"
+                                @toggle="(val) => toggleCard(index)"
+                                label="Pause video"
+                                pressed-label="Play video"
                                 aria-hidden="true"
                             />
                         </template>
@@ -248,8 +249,6 @@ export default `
                             video-type="html5"
                             poster-image-src="fixtures/hero/images/lavendar-fields.jpg"
                             video-src="fixtures/hero/video/lavendar-fields.mp4"
-                            play-button-label="Play video"
-                            pause-button-label="Pause video"
                             :show-toggle="false"
                         />
                     </template>
@@ -257,11 +256,11 @@ export default `
                     <template #vs-spotlight-section-overlay-controls>
                         <VsToggleButton
                             variant="overlay"
-                            icon="vs-icon-control-play"
-                            pressed-icon="vs-icon-control-pause"
+                            icon="vs-icon-control-pause"
+                            pressed-icon="vs-icon-control-play"
                             @toggle="(val) => toggleVideo('spotlightVideo')"
-                            label="Play video"
-                            pressed-label="Pause video"
+                            label="Pause video"
+                            pressed-label="Play video"
                             aria-hidden="true"
                         />
                     </template>

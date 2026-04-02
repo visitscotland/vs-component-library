@@ -118,11 +118,14 @@ export const VisualImpact = createStory(
             toggleVideo(refKey) {
                 this.$refs[refKey]?.toggle?.();
             },
-            toggleCardVideo(cardIndex) {
-                const videos = document.querySelectorAll('.vs-card--overlay .vs-video');
-                const videoEl = videos[cardIndex];
-                if (!videoEl) return;
-                videoEl.__vueParentComponent?.proxy?.toggle?.();
+            toggleCard(index) {
+                const card = this.$refs.overlayCard?.[index];
+
+                if (!card) {
+                    return;
+                }
+
+                card.toggle?.();
             },
         },
     },

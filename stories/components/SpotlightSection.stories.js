@@ -55,11 +55,11 @@ const Template = (args) => ({
                 <VsToggleButton
                     v-if="args.videoSrc"
                     variant="overlay"
-                    icon="vs-icon-control-play"
-                    pressed-icon="vs-icon-control-pause"
+                    icon="vs-icon-control-pause"
+                    pressed-icon="vs-icon-control-play"
                     @toggle="toggleVideo"
-                    label="Play video"
-                    pressed-label="Pause video"
+                    label="Pause video"
+                    pressed-label="Play video"
                     aria-hidden="true"
                 />
             </template>
