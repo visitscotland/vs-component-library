@@ -14,7 +14,7 @@
             <video
                 ref="videoRef"
                 :id="videoId"
-                :class="['vs-video-html5__player', lazyLoad && isLoaded ? 'img-zoom-on-hover' : '']"
+                :class="videoPlayerClasses"
                 :poster="posterImageSrc"
                 aria-hidden="true"
                 :loop="!lazyLoad || isLoaded"
@@ -121,6 +121,17 @@ export default {
             observer: null,
             prefersReducedMotion: false,
         };
+    },
+    computed: {
+        /**
+         * Compute video player classes based on lazy load and loaded state
+         */
+        videoPlayerClasses() {
+            return [
+                'vs-video-html5__player',
+                this.lazyLoad && this.isLoaded ? 'img-zoom-on-hover' : '',
+            ];
+        },
     },
     mounted() {
         const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');

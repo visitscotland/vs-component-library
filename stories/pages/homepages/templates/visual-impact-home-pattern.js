@@ -61,7 +61,7 @@ export default `
                                 :poster-image-src="card.image"
                                 :video-src="card.videoSrc"
                                 :show-toggle="false"
-                                :id="'category-card-video' + index"
+                                :video-id="'category-card-video' + index"
                             />
                             <VsImg 
                                 v-else

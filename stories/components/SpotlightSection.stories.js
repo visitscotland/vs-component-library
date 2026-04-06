@@ -51,7 +51,7 @@ const Template = (args) => ({
                     :poster-image-src="args.imageSrc"
                     :video-src="args.videoSrc"
                     :show-toggle="false"
-                    id="spotlight-video"
+                    video-id="spotlight-video"
                 />
             </template>
 

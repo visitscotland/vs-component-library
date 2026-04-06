@@ -8,6 +8,13 @@ export default `
                         :key="'category-card-list-' + index"
                         card-style="overlay"
                     >
+                        <template #vs-card-image>
+                            <VsImg 
+                                :src="card.image" 
+                                class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
+                            />
+                        </template>
+
                         <template #vs-card-footer>
                             <div class="px-125 pb-125">
                                 <VsHeading
@@ -24,20 +31,6 @@ export default `
                                     </VsLink>
                                 </VsHeading>
                             </div>
-                        </template>
-
-                        <template #vs-card-image>
-                            <VsVideo 
-                                v-if="card.videoSrc"
-                                video-type="html5"
-                                :poster-image-src="card.image"
-                                :video-src="card.videoSrc"
-                            />
-                            <VsImg 
-                                v-else
-                                :src="card.image" 
-                                class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                            />
                         </template>
                     </VsCard>
                 </VsCardGroup>

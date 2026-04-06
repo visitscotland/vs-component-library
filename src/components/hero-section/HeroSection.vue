@@ -24,6 +24,7 @@
             >
                 <VsVideo
                     video-type="html5"
+                    video-id="hero-video"
                     :poster-image-src="imgSrc"
                     :video-src="videoSrc"
                     :play-button-label="videoPlayingStatus ? videoPlayingStatus : playButtonLabel"

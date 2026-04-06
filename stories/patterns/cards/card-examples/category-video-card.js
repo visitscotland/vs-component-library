@@ -7,7 +7,7 @@ export default `
                 poster-image-src="fixtures/hero/images/lavendar-fields.jpg"
                 video-src="fixtures/hero/video/lavendar-fields.mp4"
                 :show-toggle="false"
-                id="category-card-video"
+                video-id="category-card-video"
             />
         </template>
 
