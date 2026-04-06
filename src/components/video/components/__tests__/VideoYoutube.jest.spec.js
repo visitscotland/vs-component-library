@@ -212,7 +212,6 @@ describe('VsVideo', () => {
             const wrapper = factoryShallowMount({
                 lazyLoad: true,
             });
-            wrapper.vm.isLoaded = false;
             expect(wrapper.find('vue-youtube-stub').exists()).toBe(false);
         });
 
