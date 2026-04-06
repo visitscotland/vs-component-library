@@ -3,7 +3,7 @@
         class="vs-video-html5"
         data-test="vs-video-html5"
     >
-        <template v-if="isReducedMotion">
+        <template v-if="isReducedMotion || !videoSrc">
             <VsImg
                 class="vs-video-html5__fallback-image"
                 :src="posterImageSrc"
