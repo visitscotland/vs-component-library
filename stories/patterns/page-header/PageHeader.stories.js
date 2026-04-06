@@ -80,4 +80,6 @@ VideoHeader.args = {
     imgUrl: 'fixtures/hero/images/lavendar-fields.jpg',
     imgCaption: 'Sunset at Lochan na h-Achlaise on Rannoch Moor',
     imgCredit: 'VisitScotland / Kenny Lam',
+    playButtonLabel: 'Play video',
+    pauseButtonLabel: 'Pause video',
 };
