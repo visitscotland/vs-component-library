@@ -161,36 +161,33 @@ describe('VsVideoHtml5', () => {
     });
 
     describe(':prefersReducedMotion', () => {
-        it('renders the fallback image when prefersReducedMotion is true', async() => {
+        it('renders the fallback image when prefersReducedMotion is true', () => {
+            mockMatchMedia(true);
             const wrapper = factoryShallowMount({
                 posterImageSrc: 'poster.jpg',
             });
-            await wrapper.setData({
-                prefersReducedMotion: true,
-            });
+
             expect(wrapper.find('vs-img-stub').exists()).toBe(true);
             expect(wrapper.find('video').exists()).toBe(false);
         });
 
-        it('passes posterImageSrc to the fallback image', async() => {
+        it('passes posterImageSrc to the fallback image', () => {
+            mockMatchMedia(true);
             const wrapper = factoryShallowMount({
                 posterImageSrc: 'poster.jpg',
             });
-            await wrapper.setData({
-                prefersReducedMotion: true,
-            });
+
             expect(wrapper.find('vs-img-stub').attributes('src')).toBe('poster.jpg');
         });
 
-        it('does not render the toggle button when prefersReducedMotion is true', async() => {
+        it('does not render the toggle button when prefersReducedMotion is true', () => {
+            mockMatchMedia(true);
             const wrapper = factoryShallowMount();
-            await wrapper.setData({
-                prefersReducedMotion: true,
-            });
             expect(wrapper.find('vs-toggle-button-stub').exists()).toBe(false);
         });
 
         it('renders the video when prefersReducedMotion is false', () => {
+            mockMatchMedia(false);
             const wrapper = factoryShallowMount();
             expect(wrapper.find('video').exists()).toBe(true);
             expect(wrapper.find('vs-img-stub').exists()).toBe(false);

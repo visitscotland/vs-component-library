@@ -3,7 +3,7 @@
         class="vs-video-html5"
         data-test="vs-video-html5"
     >
-        <template v-if="prefersReducedMotion">
+        <template v-if="isReducedMotion">
             <VsImg
                 class="vs-video-html5__fallback-image"
                 :src="posterImageSrc"
@@ -48,6 +48,7 @@
 <script>
 import VsToggleButton from '@/components/toggle-button/ToggleButton.vue';
 import VsImg from '@/components/img/Img.vue';
+import prefersReducedMotion from '@/utils/prefers-reduced-motion';
 
 export default {
     name: 'VsVideoHtml5',
@@ -119,7 +120,7 @@ export default {
         return {
             isLoaded: false,
             observer: null,
-            prefersReducedMotion: false,
+            isReducedMotion: prefersReducedMotion(),
         };
     },
     computed: {
@@ -134,8 +135,6 @@ export default {
         },
     },
     mounted() {
-        const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-        this.prefersReducedMotion = mediaQuery.matches;
         this.registerMedia?.(this);
 
         if (this.lazyLoad) {

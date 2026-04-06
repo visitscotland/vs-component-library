@@ -70,7 +70,7 @@ export default `
 
                         <template #vs-card-overlay-controls>
                             <VsToggleButton
-                                v-if="card.videoSrc"
+                                v-if="card.videoSrc && !isReducedMotion"
                                 variant="overlay"
                                 icon="vs-icon-control-pause"
                                 pressed-icon="vs-icon-control-play"
@@ -259,6 +259,7 @@ export default `
 
                     <template #vs-spotlight-section-overlay-controls>
                         <VsToggleButton
+                            v-if="!isReducedMotion"
                             variant="overlay"
                             icon="vs-icon-control-pause"
                             pressed-icon="vs-icon-control-play"

@@ -11,6 +11,8 @@ import VsIcon from '@/components/icon/Icon.vue';
 import VsVideo from '@/components/video/Video.vue';
 import VsToggleButton from '@/components/toggle-button/ToggleButton.vue';
 
+import prefersReducedMotion from '@/utils/prefers-reduced-motion';
+
 import SplitLinkCardExample from './card-examples/split-link-card';
 import SplitLinkHorizontalCardExample from './card-examples/split-link-horizontal-card';
 import LinkExample from './card-examples/link-card';
@@ -90,6 +92,11 @@ export const CategoryVideo = createStory(
     CategoryVideoExample,
     decorators.default,
     {
+        data() {
+            return {
+                isReducedMotion: prefersReducedMotion(),
+            };
+        },
         methods: {
             /**
              * Toggles the video in the video examples with the ref given

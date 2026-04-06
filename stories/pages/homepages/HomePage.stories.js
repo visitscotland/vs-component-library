@@ -17,8 +17,9 @@ import VsIcon from '@/components/icon/Icon.vue';
 import VsSectionHeader from '@/components/section-header/SectionHeader.vue';
 import VsFedSearchInput from '@/custom-components/federated-search/components/FedSearchInput.vue';
 import VsFedFilter from '@/custom-components/federated-search/components/FedFilter.vue';
-
 import VsToggleButton from '@/components/toggle-button/ToggleButton.vue';
+
+import prefersReducedMotion from '@/utils/prefers-reduced-motion';
 
 import cardLayoutData from '@/assets/fixtures/homepages/visual-impact-home-cards.json';
 import infoCardLayoutData from '@/assets/fixtures/homepages/information-first-home-cards.json';
@@ -93,6 +94,11 @@ export default {
 
 export const VisualImpact = {
     ...createStory(VisualImpactTemplate, {
+        data() {
+            return {
+                isReducedMotion: prefersReducedMotion(),
+            };
+        },
         methods: {
             toggleCard(index) {
                 // Uses card toggle() method to toggle the video in the card,

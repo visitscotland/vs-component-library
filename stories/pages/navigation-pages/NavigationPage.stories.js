@@ -22,6 +22,8 @@ import VsVideo from '@/components/video/Video.vue';
 import VsSectionHeader from '@/components/section-header/SectionHeader.vue';
 import VsToggleButton from '@/components/toggle-button/ToggleButton.vue';
 
+import prefersReducedMotion from '@/utils/prefers-reduced-motion';
+
 import cardLayoutData from '@/assets/fixtures/navigation-pages/visual-impact-cards.json';
 import infoCardLayoutData from '@/assets/fixtures/navigation-pages/information-first-top-cards.json';
 import textCardLayoutData from '@/assets/fixtures/navigation-pages/information-first-secondary-cards.json';
@@ -114,6 +116,11 @@ export default {
 export const VisualImpact = createStory(
     VisualImpactTemplate,
     {
+        data() {
+            return {
+                isReducedMotion: prefersReducedMotion(),
+            };
+        },
         methods: {
             /**
              * Toggles the video in the video examples with the ref given

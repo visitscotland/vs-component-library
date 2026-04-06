@@ -1,6 +1,7 @@
 import VsSpotlightSection from '@/components/spotlight-section/SpotlightSection.vue';
 import VsVideo from '@/components/video/Video.vue';
 import VsToggleButton from '@/components/toggle-button/ToggleButton.vue';
+import prefersReducedMotion from '@/utils/prefers-reduced-motion';
 
 export default {
     component: VsSpotlightSection,
@@ -32,6 +33,11 @@ const Template = (args) => ({
             args,
         };
     },
+    data() {
+        return {
+            isReducedMotion: prefersReducedMotion(),
+        };
+    },
     methods: {
         /**
          * Toggles the video in the video examples with the ref given
@@ -57,7 +63,7 @@ const Template = (args) => ({
 
             <template #vs-spotlight-section-overlay-controls>
                 <VsToggleButton
-                    v-if="args.videoSrc"
+                    v-if="args.videoSrc && !isReducedMotion"
                     variant="overlay"
                     icon="vs-icon-control-pause"
                     pressed-icon="vs-icon-control-play"

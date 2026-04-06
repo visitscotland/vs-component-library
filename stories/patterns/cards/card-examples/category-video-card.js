@@ -13,6 +13,7 @@ export default `
 
         <template #vs-card-overlay-controls>
             <VsToggleButton
+                v-if="!isReducedMotion"
                 variant="overlay"
                 icon="vs-icon-control-pause"
                 pressed-icon="vs-icon-control-play"
