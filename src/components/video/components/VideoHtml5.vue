@@ -12,17 +12,17 @@
 
         <template v-else>
             <video
-                ref="html5Video"
+                ref="videoRef"
                 :id="videoId"
-                class="vs-video-html5__player img-zoom-on-hover"
+                :class="['vs-video-html5__player', lazyLoad && isLoaded ? 'img-zoom-on-hover' : '']"
                 :poster="posterImageSrc"
                 aria-hidden="true"
-                loop
-                muted
-                autoplay
+                :loop="!lazyLoad || isLoaded"
+                :muted="!lazyLoad || isLoaded"
+                :autoplay="!lazyLoad || isLoaded"
                 playsinline
-                preload="auto"
-                fetchpriority="high"
+                :preload="lazyLoad ? 'none' : 'auto'"
+                :fetchpriority="lazyLoad ? 'low' : 'high'"
             >
                 <source
                     :src="videoSrc"
@@ -64,8 +64,8 @@ export default {
     },
     props: {
         /**
-        * The video url for HTML5 player
-        */
+         * The video url for HTML5 player
+         */
         videoSrc: {
             type: String,
             required: true,
@@ -85,15 +85,22 @@ export default {
             default: '',
         },
         /**
-        * Text to be announced when button is toggled to play
-        */
+         * Enable lazy loading - video only loads when scrolled into view
+         */
+        lazyLoad: {
+            type: Boolean,
+            default: false,
+        },
+        /**
+         * Text to be announced when button is toggled to play
+         */
         playButtonLabel: {
             type: String,
             default: '',
         },
         /**
          * Text to be announced when button is toggled to pause
-        */
+         */
         pauseButtonLabel: {
             type: String,
             default: '',
@@ -102,7 +109,7 @@ export default {
          * Whether to show play/pause toggle button
          * NOTE: this is required for accessibility, only use
          * if you're providing your own toggle button
-        */
+         */
         showToggle: {
             type: Boolean,
             default: true,
@@ -110,6 +117,8 @@ export default {
     },
     data() {
         return {
+            isLoaded: false,
+            observer: null,
             prefersReducedMotion: false,
         };
     },
@@ -117,13 +126,24 @@ export default {
         const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
         this.prefersReducedMotion = mediaQuery.matches;
         this.registerMedia?.(this);
+
+        if (this.lazyLoad) {
+            this.setupIntersectionObserver();
+        } else {
+            this.isLoaded = true;
+        }
+    },
+    beforeUnmount() {
+        if (this.observer) {
+            this.observer.disconnect();
+        }
     },
     methods: {
         /**
          * Play the video
          */
         playVideo() {
-            const video = this.$refs.html5Video;
+            const video = this.$refs.videoRef;
             if (!video) return;
 
             video.play();
@@ -132,7 +152,7 @@ export default {
          * Pause the video
          */
         pauseVideo() {
-            const video = this.$refs.html5Video;
+            const video = this.$refs.videoRef;
             if (!video) return;
 
             video.pause();
@@ -141,7 +161,7 @@ export default {
          * Stop the video
          */
         stopVideo() {
-            const video = this.$refs.html5Video;
+            const video = this.$refs.videoRef;
             if (!video) return;
 
             video.pause();
@@ -151,7 +171,7 @@ export default {
          * Toggle the video play/pause state
          */
         toggleVideo() {
-            const video = this.$refs.html5Video;
+            const video = this.$refs.videoRef;
             if (!video) return;
 
             if (video.paused) {
@@ -160,33 +180,62 @@ export default {
                 video.pause();
             }
         },
+        /**
+         * Sets up an IntersectionObserver to lazy load the video when it comes into view
+         */
+        setupIntersectionObserver() {
+            if (!('IntersectionObserver' in window)) {
+                this.isLoaded = true;
+                return;
+            }
+
+            this.observer = new IntersectionObserver(
+                (entries) => {
+                    if (entries[0].intersectionRatio > 0) {
+                        this.observer.unobserve(this.$el);
+                        this.isLoaded = true;
+                        this.$nextTick(() => {
+                            this.$refs.videoRef?.play();
+                        });
+                    }
+                },
+                {
+                    rootMargin: '50px',
+                    threshold: 0,
+                },
+            );
+
+            this.observer.observe(this.$el);
+        },
     },
 };
 </script>
+
 <style lang="scss">
-    .vs-video-html5 {
+.vs-video-html5 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+
+    &__player,
+    &__fallback-image {
         position: absolute;
+        inset: 0;
         width: 100%;
         height: 100%;
-        inset: 0;
+        object-fit: cover;
 
-        &__player, &__fallback-image {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-
-            &.img-zoom-on-hover {
-                transition: transform 0.3s ease-in-out;
-            }
-        }
-
-        &__toggle-video.vs-toggle-button {
-            position: absolute;
-            top: $vs-spacer-125;
-            right: $vs-spacer-125;
-            z-index: 5;
+        &.img-zoom-on-hover {
+            transition: transform 0.3s ease-in-out;
         }
     }
+
+    &__toggle-video.vs-toggle-button {
+        position: absolute;
+        top: $vs-spacer-125;
+        right: $vs-spacer-125;
+        z-index: 5;
+    }
+}
 </style>

@@ -10,16 +10,13 @@ const mockMatchMedia = (matches) => {
 };
 
 const factoryShallowMount = (props = {
-}) => shallowMount(
-    VsVideoHtml5,
-    {
-        props: {
-            videoSrc: 'video.mp4',
-            videoId: 'test-video',
-            ...props,
-        },
+}) => shallowMount(VsVideoHtml5, {
+    props: {
+        videoSrc: 'video.mp4',
+        videoId: 'test-video',
+        ...props,
     },
-);
+});
 
 beforeEach(() => mockMatchMedia(false));
 afterEach(() => jest.restoreAllMocks());
@@ -82,12 +79,30 @@ describe('VsVideoHtml5', () => {
             expect(wrapper.find('video').attributes('poster')).toBe('poster.jpg');
         });
 
+        it('should set preload to none when lazyLoad is true', () => {
+            const wrapper = factoryShallowMount({
+                lazyLoad: true,
+            });
+
+            expect(wrapper.find('video').attributes('preload')).toBe('none');
+        });
+
+        it('should set preload to auto when lazyLoad is false', () => {
+            const wrapper = factoryShallowMount({
+                lazyLoad: false,
+            });
+
+            expect(wrapper.find('video').attributes('preload')).toBe('auto');
+        });
+
         it('passes playButtonLabel to the toggle button pressedlabel', () => {
             const wrapper = factoryShallowMount({
                 playButtonLabel: 'Play video',
             });
 
-            expect(wrapper.find('vs-toggle-button-stub').attributes('pressedlabel')).toBe('Play video');
+            expect(wrapper.find('vs-toggle-button-stub').attributes('pressedlabel')).toBe(
+                'Play video',
+            );
         });
 
         it('passes pauseButtonLabel to the toggle button label', () => {
@@ -104,21 +119,25 @@ describe('VsVideoHtml5', () => {
 
         it('play calls play on the video element', () => {
             const wrapper = factoryShallowMount();
-            const playSpy = jest.spyOn(wrapper.vm.$refs.html5Video, 'play').mockImplementation(() => Promise.resolve());
+            const playSpy = jest
+                .spyOn(wrapper.vm.$refs.videoRef, 'play')
+                .mockImplementation(() => Promise.resolve());
             wrapper.vm.playVideo();
             expect(playSpy).toHaveBeenCalled();
         });
 
         it('pause calls pause on the video element', () => {
             const wrapper = factoryShallowMount();
-            const pauseSpy = jest.spyOn(wrapper.vm.$refs.html5Video, 'pause').mockImplementation(() => {});
+            const pauseSpy = jest
+                .spyOn(wrapper.vm.$refs.videoRef, 'pause')
+                .mockImplementation(() => {});
             wrapper.vm.pauseVideo();
             expect(pauseSpy).toHaveBeenCalled();
         });
 
         it('toggle calls play when video is paused', () => {
             const wrapper = factoryShallowMount();
-            const video = wrapper.vm.$refs.html5Video;
+            const video = wrapper.vm.$refs.videoRef;
             jest.spyOn(video, 'play').mockImplementation(() => Promise.resolve());
             Object.defineProperty(video, 'paused', {
                 value: true,
@@ -130,7 +149,7 @@ describe('VsVideoHtml5', () => {
 
         it('toggle calls pause when video is playing', () => {
             const wrapper = factoryShallowMount();
-            const video = wrapper.vm.$refs.html5Video;
+            const video = wrapper.vm.$refs.videoRef;
             jest.spyOn(video, 'pause').mockImplementation(() => {});
             Object.defineProperty(video, 'paused', {
                 value: false,

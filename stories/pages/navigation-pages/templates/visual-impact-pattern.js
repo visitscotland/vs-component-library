@@ -58,7 +58,8 @@ export default `
                                 :poster-image-src="card.image"
                                 :video-src="card.videoSrc"
                                 :show-toggle="false"
-                                :id="'category-card-video' + index"
+                                :videoId="'category-card-video' + index"
+                                :lazy-load="true"
                             />
                             <VsImg 
                                 v-else
@@ -251,7 +252,8 @@ export default `
                             poster-image-src="fixtures/hero/images/lavendar-fields.jpg"
                             video-src="fixtures/hero/video/lavendar-fields.mp4"
                             :show-toggle="false"
-                            id="spotlight-video"
+                            videoId="spotlight-video"
+                            :lazy-load="true"
                         />
                     </template>
 
