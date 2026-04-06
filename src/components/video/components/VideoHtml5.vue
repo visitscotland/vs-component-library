@@ -13,6 +13,9 @@
         <template v-else>
             <video
                 ref="videoRef"
+                @play="isPlaying = true"
+                @pause="isPlaying = false"
+                @ended="isPlaying = false"
                 :id="videoId"
                 :class="videoPlayerClasses"
                 :poster="posterImageSrc"
@@ -39,6 +42,7 @@
                 :label="pauseButtonLabel"
                 :pressed-label="playButtonLabel"
                 :aria-controls="videoId"
+                :model-value="!isPlaying"
                 @click="toggleVideo"
             />
         </template>
@@ -119,6 +123,7 @@ export default {
     data() {
         return {
             isLoaded: false,
+            isPlaying: false,
             observer: null,
             isReducedMotion: prefersReducedMotion(),
         };
@@ -141,6 +146,7 @@ export default {
             this.setupIntersectionObserver();
         } else {
             this.isLoaded = true;
+            this.isPlaying = true;
         }
     },
     beforeUnmount() {
