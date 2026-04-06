@@ -91,9 +91,12 @@ export const CategoryVideo = createStory(
     decorators.default,
     {
         methods: {
-            toggleVideo() {
-                const video = this.$refs.cardVideo;
-                video?.toggleVideo?.();
+            /**
+             * Toggles the video in the video examples with the ref given
+             * using the exposed toggleVideo method in the video component
+             */
+            toggleVideo(refKey) {
+                this.$refs[refKey]?.toggleVideo?.();
             },
         },
     },

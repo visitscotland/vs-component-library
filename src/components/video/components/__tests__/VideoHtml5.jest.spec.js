@@ -15,6 +15,7 @@ const factoryShallowMount = (props = {
     {
         props: {
             videoSrc: 'video.mp4',
+            videoId: 'test-video',
             ...props,
         },
     },
@@ -47,6 +48,22 @@ describe('VsVideoHtml5', () => {
             const wrapper = factoryShallowMount();
 
             expect(wrapper.find('video').exists()).toBe(true);
+        });
+
+        it('sets videoId as the id on the video element', () => {
+            const wrapper = factoryShallowMount({
+                videoId: 'my-video',
+            });
+
+            expect(wrapper.find('video').attributes('id')).toBe('my-video');
+        });
+
+        it('sets videoId as aria-controls on the toggle button', () => {
+            const wrapper = factoryShallowMount({
+                videoId: 'my-video',
+            });
+
+            expect(wrapper.find('vs-toggle-button-stub').attributes('aria-controls')).toBe('my-video');
         });
 
         it('should apply videoSrc to source element', () => {

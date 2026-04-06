@@ -6,7 +6,7 @@
         class="vs-toggle-button"
         :class="buttonClasses"
         size="sm"
-        :aria-pressed="isToggle ? isPressed : undefined"
+        :aria-label="computedLabel"
         @click="handleClick"
     >
         <VsIcon
@@ -55,13 +55,6 @@
         </slot>
     </VsButton>
 </template>
-
-<style lang="scss">
-    .vs-toggle-btn {
-        z-index: 3;
-        display: block;
-    }
-</style>
 
 <script>
 import VsButton from '@/components/button/Button.vue';
@@ -167,12 +160,6 @@ export default {
             return !this.icon && !this.pressedIcon;
         },
         /**
-         * Determines whether button behaves as a toggle
-         */
-        isToggle() {
-            return this.modelValue !== undefined || !!this.pressedIcon || !!this.pressedLabel;
-        },
-        /**
          * Pressed state (supports controlled + uncontrolled)
          */
         isPressed() {
@@ -187,8 +174,7 @@ export default {
          */
         buttonClasses() {
             return {
-                'vs-toggle-button--toggle': this.isToggle,
-                'vs-toggle-button--pressed': this.isToggle && this.isPressed,
+                'vs-toggle-button--pressed': this.isPressed,
                 [`vs-toggle-button--label-${this.labelBreakpoint}-up`]: this.labelBreakpoint,
             };
         },
@@ -201,7 +187,7 @@ export default {
          * Current icon displayed
          */
         currentIcon() {
-            if (this.isToggle && this.isPressed && this.pressedIcon) {
+            if (this.isPressed && this.pressedIcon) {
                 return this.pressedIcon;
             }
 
@@ -211,7 +197,7 @@ export default {
          * Accessible label based on state
          */
         computedLabel() {
-            if (this.isToggle && this.isPressed && this.pressedLabel) {
+            if (this.isPressed && this.pressedLabel) {
                 return this.pressedLabel;
             }
 
@@ -232,16 +218,12 @@ export default {
          * Updates toggle state and emits toggle value and click event
          */
         handleClick(event) {
-            if (this.isToggle) {
-                const newValue = !this.isPressed;
+            const newValue = !this.isPressed;
 
-                if (this.modelValue !== undefined) {
-                    this.$emit('update:modelValue', newValue);
-                } else {
-                    this.internalPressed = newValue;
-                }
-
-                this.$emit('toggle', newValue);
+            if (this.modelValue !== undefined) {
+                this.$emit('update:modelValue', newValue);
+            } else {
+                this.internalPressed = newValue;
             }
 
             this.$emit('click', event);
@@ -357,6 +339,10 @@ export default {
 
     // Legacy toggle styles
     // Should be removed when ⚠️ deprecated code is removed.
+    .vs-toggle-btn {
+        z-index: 3;
+        display: block;
+    }
     .vs-toggle-btn.vs-button.btn-subtle {
         line-height: 1;
 

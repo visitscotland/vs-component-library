@@ -61,6 +61,7 @@ export default `
                                 :poster-image-src="card.image"
                                 :video-src="card.videoSrc"
                                 :show-toggle="false"
+                                :id="'category-card-video' + index"
                             />
                             <VsImg 
                                 v-else
@@ -74,11 +75,10 @@ export default `
                                 variant="overlay"
                                 icon="vs-icon-control-pause"
                                 pressed-icon="vs-icon-control-play"
-                                @toggle="(val) => toggleCard(index)"
                                 label="Pause video"
                                 pressed-label="Play video"
-                                aria-hidden="true"
-                                tabindex="-1"
+                                :aria-controls="'category-card-video' + index"
+                                @click="toggleCard(index)"
                             />
                         </template>
                     </VsCard>

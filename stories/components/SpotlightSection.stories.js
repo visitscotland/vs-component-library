@@ -33,9 +33,12 @@ const Template = (args) => ({
         };
     },
     methods: {
-        toggleVideo() {
-            const video = this.$refs.spotlightVideo;
-            video?.toggleVideo?.();
+        /**
+         * Toggles the video in the video examples with the ref given
+         * using the exposed toggleVideo method in the video component
+         */
+        toggleVideo(refKey) {
+            this.$refs[refKey]?.toggleVideo?.();
         },
     },
     template: `
@@ -48,6 +51,7 @@ const Template = (args) => ({
                     :poster-image-src="args.imageSrc"
                     :video-src="args.videoSrc"
                     :show-toggle="false"
+                    id="spotlight-video"
                 />
             </template>
 
@@ -57,11 +61,10 @@ const Template = (args) => ({
                     variant="overlay"
                     icon="vs-icon-control-pause"
                     pressed-icon="vs-icon-control-play"
-                    @toggle="toggleVideo"
                     :label="args.pauseButtonLabel"
                     :pressed-label="args.playButtonLabel"
-                    aria-hidden="true"
-                    tabindex="-1"
+                    aria-controls="spotlight-video"
+                    @click="(val) => toggleVideo('spotlightVideo')"
                 />
             </template>
         </VsSpotlightSection>

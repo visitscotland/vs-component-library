@@ -12,16 +12,17 @@
 
         <template v-else>
             <video
+                ref="html5Video"
+                :id="videoId"
+                class="vs-video-html5__player img-zoom-on-hover"
+                :poster="posterImageSrc"
+                aria-hidden="true"
                 loop
                 muted
                 autoplay
                 playsinline
                 preload="auto"
-                :poster="posterImageSrc"
-                aria-hidden="true"
                 fetchpriority="high"
-                ref="html5Video"
-                class="vs-video-html5__player img-zoom-on-hover"
             >
                 <source
                     :src="videoSrc"
@@ -35,11 +36,10 @@
                 variant="overlay"
                 icon="vs-icon-control-pause"
                 pressed-icon="vs-icon-control-play"
-                @toggle="toggleVideo"
                 :label="pauseButtonLabel"
                 :pressed-label="playButtonLabel"
-                aria-hidden="true"
-                tabindex="-1"
+                :aria-controls="videoId"
+                @click="toggleVideo"
             />
         </template>
     </div>
@@ -67,6 +67,13 @@ export default {
         * The video url for HTML5 player
         */
         videoSrc: {
+            type: String,
+            required: true,
+        },
+        /**
+        * The video url for HTML5 player
+        */
+        videoId: {
             type: String,
             required: true,
         },

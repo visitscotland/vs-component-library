@@ -95,13 +95,11 @@ export const VisualImpact = {
     ...createStory(VisualImpactTemplate, {
         methods: {
             toggleCard(index) {
-                const card = this.$refs.overlayCard?.[index];
-
-                if (!card) {
-                    return;
-                }
-
-                card.toggleVideo?.();
+                // Uses card toggle() method to toggle the video in the card,
+                // this allows the card overlay controls to work without needing
+                // to directly access the video component which can be an issue
+                // when using v-for to render multiple cards as in this pattern.
+                this.$refs.overlayCard[index]?.toggle();
             },
         },
     }),

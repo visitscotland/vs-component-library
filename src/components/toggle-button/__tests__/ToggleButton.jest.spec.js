@@ -121,17 +121,6 @@ describe('VsToggleButton', () => {
         });
 
         describe('toggle behaviour', () => {
-            it('acts as toggle when pressedIcon is provided', async() => {
-                const wrapper = factoryNew({
-                    icon: 'fa-heart',
-                    pressedIcon: 'fa-heart-solid',
-                });
-
-                await wrapper.find('b-button-stub').trigger('click');
-
-                expect(wrapper.emitted().toggle).toBeTruthy();
-            });
-
             it('switches icon when pressed', async() => {
                 const wrapper = factoryNew({
                     icon: 'fa-heart',
@@ -177,13 +166,25 @@ describe('VsToggleButton', () => {
         });
 
         describe(':accessibility', () => {
-            it('sets aria-pressed when toggle button', () => {
+            it('sets aria-label to the label prop', () => {
+                const wrapper = factoryNew({
+                    label: 'Like item',
+                });
+
+                expect(wrapper.find('b-button-stub').attributes('aria-label')).toBe('Like item');
+            });
+
+            it('sets aria-label to pressedLabel when pressed', async() => {
                 const wrapper = factoryNew({
                     icon: 'fa-heart',
                     pressedIcon: 'fa-heart-solid',
+                    label: 'Like item',
+                    pressedLabel: 'Unlike item',
                 });
 
-                expect(wrapper.find('b-button-stub').attributes('aria-pressed')).toBe('false');
+                await wrapper.find('b-button-stub').trigger('click');
+
+                expect(wrapper.find('b-button-stub').attributes('aria-label')).toBe('Unlike item');
             });
         });
     });

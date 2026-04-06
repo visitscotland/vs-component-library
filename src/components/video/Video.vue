@@ -42,7 +42,7 @@ export default {
             default: '',
         },
         /**
-        * The YouTube ID for the video
+        * The video ID for the video, used for both YouTube and HTML5 players
         */
         videoId: {
             type: String,

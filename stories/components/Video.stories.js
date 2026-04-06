@@ -46,6 +46,7 @@ AmbientVideo.args = {
     posterImageSrc: 'fixtures/hero/images/lavendar-fields.jpg',
     playButtonLabel: 'Play video',
     pauseButtonLabel: 'Pause video',
+    videoId: 'ambient-video',
 };
 
 export const NoCookies = Template.bind();

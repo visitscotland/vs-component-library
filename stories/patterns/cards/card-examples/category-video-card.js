@@ -2,11 +2,12 @@ export default `
     <VsCard card-style="overlay">
         <template #vs-card-image>
             <VsVideo
-                ref="cardVideo"
+                ref="categoryVideo"
                 video-type="html5"
                 poster-image-src="fixtures/hero/images/lavendar-fields.jpg"
                 video-src="fixtures/hero/video/lavendar-fields.mp4"
                 :show-toggle="false"
+                id="category-card-video"
             />
         </template>
 
@@ -15,11 +16,10 @@ export default `
                 variant="overlay"
                 icon="vs-icon-control-pause"
                 pressed-icon="vs-icon-control-play"
-                @toggle="toggleVideo"
                 label="Pause video"
                 pressed-label="Play video"
-                aria-hidden="true"
-                tabindex="-1"
+                aria-controls="category-card-video"
+                @click="(val) => toggleVideo('categoryVideo')"
             />
         </template>
 
