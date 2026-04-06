@@ -137,7 +137,7 @@ describe('VsToggleButton', () => {
 
                 await wrapper.find('b-button-stub').trigger('click');
 
-                expect(wrapper.emitted().click).toBeTruthy();
+                expect(wrapper.emitted().click).toHaveLength(1);
             });
         });
 

@@ -142,7 +142,6 @@ export default {
     emits: [
         'toggleAction',
         'update:modelValue',
-        'toggle',
         'click',
     ],
     data() {

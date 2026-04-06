@@ -7,7 +7,7 @@
         :class="buttonClasses"
         :size="size"
         v-bind="$attrs"
-        :role="href ? 'link' : 'button'"
+        :role="$attrs.role ?? (href ? 'link' : 'button')"
         :aria-disabled="$attrs.disabled ? true : false"
         @click="animateHandler($event)"
         @keyup.tab="tabbedIn"
