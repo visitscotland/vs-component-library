@@ -35,7 +35,7 @@
                 @click.prevent="$emit('reset-location')"
                 @keyup.enter.prevent="$emit('reset-location')"
             >
-                All locations
+                {{ props.sidebarLabels.resetLocationLabel }}
             </a>
 
             <div class="vs-map-sidebar__input d-flex mt-050 mb-050">
@@ -73,10 +73,11 @@
                 {{ props.sidebarLabels.clearMapLabel }}
             </a>
 
-            <!-- Destinations here -->
-            <VsMapFeaturedLocation v-if="googleMapStore.showDestinations" />
+            <VsMapFeaturedLocation
+                v-if="googleMapStore.showDestinations"
+                :location-select-label="props.sidebarLabels.locationSelectLabel"
+            />
 
-            <!-- Categories here -->
             <div v-if="googleMapStore.showCategories">
                 <div class="vs-map__categories">
                     <template

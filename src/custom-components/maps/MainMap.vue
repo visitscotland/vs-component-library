@@ -429,10 +429,11 @@ const sidebarLabels = {
     inputPlaceholderLabel: props.labels.inputPlaceholder,
     searchButtonLabel: props.labels.searchButton,
     clearMapLabel: props.labels.clearMap,
-    resetLocatiolLabel: props.labels.resetLocation,
+    resetLocationLabel: props.labels.resetLocation,
     subFilterHeaderLabel: props.labels.subFilterHeader,
     searchResultsLabel: props.labels.searchResults,
     openSidebarButtonLabel: props.labels.openSidebarButton,
+    locationSelectLabel: props.labels.locationSelect,
 };
 
 onBeforeMount(() => {

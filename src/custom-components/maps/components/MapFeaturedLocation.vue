@@ -4,8 +4,7 @@
             color="secondary"
             size="small"
         >
-            <!-- TODO: Replace this with a new label -->
-            Refine your results by location
+            {{ props.locationSelectLabel }}
         </VsDetail>
         <div class="vs-map__destination-types">
             <VsButton
@@ -48,6 +47,13 @@ const { categories, places } = inject('featuredPlaces');
 const addDestinationMarkers = inject('addDestinationMarkers');
 
 const googleMapStore = useGoogleMapStore();
+
+const props = defineProps({
+    locationSelectLabel: {
+        type: String,
+        required: true,
+    },
+});
 
 onMounted(() => {
     googleMapStore.selectedDestinationType = categories[0].id;
