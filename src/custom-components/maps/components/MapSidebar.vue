@@ -28,7 +28,17 @@
         </div>
 
         <div class="vs-map-sidebar__content">
-            <div class="vs-map-sidebar__input d-flex mt-100 mb-050">
+            <a
+                v-if="props.query || props.selectedCategory"
+                href="#"
+                data-test="vs-map-sidebar__hard-reset-map"
+                @click.prevent="$emit('reset-location')"
+                @keyup.enter.prevent="$emit('reset-location')"
+            >
+                All locations
+            </a>
+
+            <div class="vs-map-sidebar__input d-flex mt-050 mb-050">
                 <VsInput
                     :aria-label="props.sidebarLabels.searchBarAriaLabel"
                     autocomplete="off"
@@ -124,10 +134,7 @@
                 </div>
             </div>
         </div>
-        <div
-            class="vs-map-sidebar__footer"
-            v-if="$props.query || $props.selectedCategory"
-        >
+        <div class="vs-map-sidebar__footer">
             <hr class="vs-map-sidebar__swipe-tab">
         </div>
     </div>
@@ -192,6 +199,7 @@ const props = defineProps({
 
 defineEmits([
     'category-selected',
+    'reset-location',
     'reset-map',
     'search-input-changed',
     'subcategory-selected',
@@ -229,15 +237,10 @@ function setCategoryIcon(id) {
     box-shadow: $vs-elevation-shadow-raised;
     pointer-events: auto;
     max-height: 87.5vh;
-    overflow-y: auto;
+    overflow: hidden;
 
     @include media-breakpoint-up (sm) {
         width: 23.3rem;
-    }
-
-    &__content {
-        // display: flex;
-        // flex-direction: column;
     }
 
     &__input input {
@@ -245,7 +248,6 @@ function setCategoryIcon(id) {
         border-radius: $vs-radius-small $vs-radius-none $vs-radius-none $vs-radius-small;
         border-right: none;
         height: 52px;
-        // flex: 0 1;
     }
 
     &__search-button {
@@ -274,6 +276,11 @@ function setCategoryIcon(id) {
         button {
             flex: 0 0 max-content;
         }
+    }
+
+    &__google-maps-container {
+        max-height: clamp(275px, 20em, 32vh);
+        overflow-y: scroll;
     }
 
     &__swipe-tab {

@@ -21,7 +21,7 @@
         </div>
 
         <div aria-live="polite">
-            <VsRow>
+            <VsRow class="vs-map__destinations">
                 <VsMapFeaturedLocationItem
                     v-for="place in places"
                     :key="place.properties.id"
@@ -84,5 +84,10 @@ function handleClick(id) {
     .vs-button {
         flex: 0 0 max-content;
     }
+}
+
+.vs-map__destinations {
+    max-height: clamp(275px, 25em, 50vh);
+    overflow-y: scroll;
 }
 </style>

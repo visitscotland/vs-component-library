@@ -16,6 +16,7 @@
                     :sidebar-labels="sidebarLabels"
                     @category-selected="(e) => selectCategory(e.id, e.key)"
                     @reset-map="resetMap(true)"
+                    @reset-location="resetMap(true, true)"
                     @search-input-changed="searchByText"
                     @subcategory-selected="(e) => searchBySubCategory(e.id, e.key)"
                 >
@@ -428,6 +429,7 @@ const sidebarLabels = {
     inputPlaceholderLabel: props.labels.inputPlaceholder,
     searchButtonLabel: props.labels.searchButton,
     clearMapLabel: props.labels.clearMap,
+    resetLocatiolLabel: props.labels.resetLocation,
     subFilterHeaderLabel: props.labels.subFilterHeader,
     searchResultsLabel: props.labels.searchResults,
     openSidebarButtonLabel: props.labels.openSidebarButton,
@@ -694,7 +696,7 @@ function selectCategory(categoryId, key) {
     includedTopLevelTypes.value = new Set(Array.from(includedTopLevelTypes.value).flat());
     excludedTopLevelTypes.value = new Set(Array.from(excludedTopLevelTypes.value).flat());
 
-    // Checks if there are conflicting types and removes from exluded if already in included
+    // Checks if there are conflicting types and removes from excluded if already in included
     includedTopLevelTypes.value.forEach((type) => {
         if (excludedTopLevelTypes.value.has(type)) {
             excludedTopLevelTypes.value.delete(type);
@@ -709,7 +711,7 @@ function selectCategory(categoryId, key) {
         excludedTypes: Array.from(excludedTopLevelTypes.value),
     });
 
-    query.value = categoryLabelData[categoryKey.value].label;
+    query.value = `${categoryLabelData[categoryKey.value].label} ${selectedDestination.value}`;
     searchInput.value = query.value;
 
     googleMapStore.showCategories = true;
@@ -959,6 +961,7 @@ async function searchByText() {
         once: true,
     });
 
+    googleMapStore.showDestinations = false;
     googleMapStore.showCategories = true;
 }
 
@@ -1250,8 +1253,11 @@ function getVisibleMarkerCount() {
     return visibleCount;
 }
 
+const selectedDestination = ref('');
+
 function handleFeaturedLocationClick(place) {
     googleMapStore.showDestinations = false;
+    selectedDestination.value = place.properties.title;
 
     gMap.fitBounds(
         // eslint-disable-next-line no-undef
@@ -1277,7 +1283,6 @@ function handleFeaturedLocationClick(place) {
         ),
     );
 
-    // categoriesVisible.value = true;
     selectCategory('things-to-do', 2);
 }
 </script>
