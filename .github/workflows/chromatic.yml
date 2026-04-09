@@ -3,6 +3,10 @@
 # Workflow name
 name: 'Chromatic'
 
+permissions:
+  contents: read
+  pull-requests: read
+
 # Event for the workflow
 on:
   # Run on PRs into main or cl-release/*
