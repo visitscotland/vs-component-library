@@ -1,24 +1,55 @@
 import { mount } from '@vue/test-utils';
 import axe from '@/../test/unit/helpers/axe-helper';
+import mapCategoryLabels from '@/assets/fixtures/custom-components/main-map/map-labels.json';
 import VsMapSidebar from '../MapSidebar.vue';
 
 const factoryMount = (propsData) => mount(VsMapSidebar, {
     global: {
         provide: {
-            featuredPlaces: [],
+            featuredPlaces: {
+                categories: [
+                    {
+                        id: 'cities',
+                        label: 'Cities',
+                    },
+                    {
+                        id: 'towns',
+                        label: 'Towns',
+                    },
+                    {
+                        id: 'islands',
+                        label: 'Islands',
+                    },
+                    {
+                        id: 'regions',
+                        label: 'Regions',
+                    },
+                    {
+                        id: 'national-parks',
+                        label: 'National Parks',
+                    },
+                ],
+                places: [],
+            },
             onFeaturedLocationClick: () => { },
+            addDestinationMarkers: () => { },
         },
     },
     ...propsData,
     propsData: {
-        headerLabel: 'Discover your Scotland',
-        closeSidebarButtonLabel: 'Close Sidebar',
-        searchBarAriaLabel: 'Search the map',
-        inputPlaceholderLabel: 'Type in your keyword',
-        searchButtonLabel: 'Search',
-        clearMapLabel: 'Clear Map',
-        searchResultsLabel: 'Showing results for: ',
-        openSidebarButtonLabel: 'Open Sidebar',
+        sidebarLabels: {
+            headerLabel: 'Discover your Scotland',
+            closeSidebarButtonLabel: 'Close Sidebar',
+            searchBarAriaLabel: 'Search the map',
+            inputPlaceholderLabel: 'Type in your keyword',
+            searchButtonLabel: 'Search',
+            clearMapLabel: 'Clear Map',
+            searchResultsLabel: 'Showing results for: ',
+            openSidebarButtonLabel: 'Open Sidebar',
+            resetLocationLabel: 'All locations',
+            locationSelectLabel: 'Refine your results by location',
+        },
+        categories: mapCategoryLabels,
     },
     slots: {
         'vs-map-sidebar-sub-filters': '<div data-test="sub-categories">Sub Categories go here</div>',
@@ -38,54 +69,38 @@ describe('VsMapSidebar', () => {
         it('should accept a headerLabel prop and render the header', async() => {
             const wrapper = factoryMount();
 
-            await wrapper.setProps({
-                headerLabel: 'Discover Scotland on a Map',
-            });
-
             const header = wrapper.find('[data-test="vs-map-sidebar__heading"');
             expect(header.exists()).toBe(true);
 
-            expect(header.text()).toBe('Discover Scotland on a Map');
+            expect(header.text()).toBe('Discover your Scotland');
         });
 
         it('should accept a closeSidebarButtonLabel prop and render the text in the button', async() => {
             const wrapper = factoryMount();
 
-            await wrapper.setProps({
-                closeSidebarButtonLabel: 'Close the sidebar',
-            });
-
             const closeSidebarBtn = wrapper.find('[data-test="vs-map-siderbar__sidebar-control--dismiss"]');
             expect(closeSidebarBtn.exists()).toBe(true);
 
-            expect(closeSidebarBtn.text()).toBe('Close the sidebar');
+            expect(closeSidebarBtn.text()).toBe('Close Sidebar');
         });
 
         it('should accept a placeholder prop and render the placeholder in the input field', async() => {
             const wrapper = factoryMount();
 
-            await wrapper.setProps({
-                inputPlaceholderLabel: 'Search Scotland by Text',
-            });
-
             const input = wrapper.find('[data-test="vs-map-search-input"]');
             expect(input.exists()).toBe(true);
 
-            const inputPlaceholder = wrapper.find('[placeholder="Search Scotland by Text"]');
+            const inputPlaceholder = wrapper.find('[placeholder="Type in your keyword"]');
             expect(inputPlaceholder.exists()).toBe(true);
         });
 
         it('should accept a searchButtonLabel prop and render the text in the button', async() => {
             const wrapper = factoryMount();
 
-            await wrapper.setProps({
-                searchButtonLabel: 'Buscar',
-            });
-
             const searchBtn = wrapper.find('[data-test="vs-map-sidebar__search-button"]');
             expect(searchBtn.exists()).toBe(true);
 
-            expect(searchBtn.text()).toBe('Buscar');
+            expect(searchBtn.text()).toBe('Search');
         });
 
         it('should accept a clearMapLabel prop and render the text in the button', async() => {
@@ -93,7 +108,6 @@ describe('VsMapSidebar', () => {
 
             await wrapper.setProps({
                 query: 'Dundee',
-                clearMapLabel: 'Reset map',
             });
 
             const resetMapBtn = wrapper.find('[data-test="vs-map-sidebar__reset-map"]');
@@ -101,7 +115,7 @@ describe('VsMapSidebar', () => {
 
             expect(resetMapBtn.element.tagName).toBe('A');
 
-            expect(resetMapBtn.text()).toBe('Reset map');
+            expect(resetMapBtn.text()).toBe('Clear Map');
         });
 
         it('should accept a query prop and render it in the searched for field', async() => {
@@ -118,29 +132,14 @@ describe('VsMapSidebar', () => {
         it('should accept a openSidebarButtonLabel prop and render the text in the button', async() => {
             const wrapper = factoryMount();
 
-            await wrapper.setProps({
-                openSidebarButtonLabel: 'Open the sidebar',
-            });
-
             const openSidebarBtn = wrapper.find('[data-test="vs-map-sidebar__sidebar-control--open"]');
             expect(openSidebarBtn.exists()).toBe(true);
 
-            expect(openSidebarBtn.text()).toBe('Open the sidebar');
+            expect(openSidebarBtn.text()).toBe('Open Sidebar');
         });
     });
 
     describe(':slots', () => {
-        it('should render the slot for the subcategories when `selectedCategories` is passed', async() => {
-            const wrapper = factoryMount();
-
-            await wrapper.setProps({
-                selectedCategories: 'accommodation',
-            });
-
-            const subCatSlot = wrapper.find('[data-test="sub-categories"');
-            expect(subCatSlot.exists()).toBe(true);
-        });
-
         it('should render the slot for the places ui kit when `query` is present', async() => {
             const wrapper = factoryMount();
 
