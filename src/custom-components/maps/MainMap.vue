@@ -1063,7 +1063,7 @@ async function addDestinationMarkers() {
                 lng: place.properties.locationCentre.longitude,
             },
             content: markerIcon,
-            title: 'Map pin',
+            title: place.properties.title,
         });
 
         // Zoom into the destination and perform "Things to do" search.
