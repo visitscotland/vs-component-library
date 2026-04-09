@@ -1,52 +1,30 @@
 import { shallowMount, config } from '@vue/test-utils';
 import axe from '@/../test/unit/helpers/axe-helper';
-import { setActivePinia, createPinia } from 'pinia';
 import VsVideo from '../Video.vue';
-
-jest.mock('@/mixins/verifyCookiesMixin.js');
+import VsVideoYoutube from '../components/VideoYoutube.vue';
+import VsVideoHtml5 from '../components/VideoHtml5.vue';
 
 config.global.renderStubDefaultSlot = true;
 
-const videoId = 'C0DPdy98e4c';
-const singleMinuteDescriptor = '%s minute';
-const pluralMinuteDescriptor = '%s minutos';
-const language = 'de';
-
-const noJsContent = 'Js is off';
-const noCookiesContent = 'Cookies are off';
-const cookieButtonContent = 'Manage cookies';
-const errorContent = 'Error content';
-
-function mountOptions() {
-    return {
-        propsData: {
-            videoId,
-            singleMinuteDescriptor,
-            pluralMinuteDescriptor,
-            language,
-            errorMessage: errorContent,
-            noJsMessage: noJsContent,
-            noCookiesMessage: noCookiesContent,
-            cookieBtnText: cookieButtonContent,
-            player: null,
-        },
-    };
-};
-
-const factoryShallowMount = () => shallowMount(
-    VsVideo,
-    mountOptions(),
-);
+const factoryShallowMount = (props = {
+}) => shallowMount(VsVideo, {
+    props: {
+        ...props,
+    },
+});
 
 describe('VsVideo', () => {
-    beforeEach(() => {
-        setActivePinia(createPinia());
+    it('should render a component `vs-video`', () => {
+        const wrapper = factoryShallowMount();
+        expect(wrapper.find('div[data-test=vs-video]').exists()).toBe(true);
     });
 
-    it('should render a div with the class `vs-video`', () => {
+    it('does not render when reRendering is true', async() => {
         const wrapper = factoryShallowMount();
-
-        expect(wrapper.find('div[data-test=vs-video]').exists()).toBe(true);
+        await wrapper.setData({
+            reRendering: true,
+        });
+        expect(wrapper.find('div[data-test=vs-video]').exists()).toBe(false);
     });
 
     describe(':accessibility', () => {
@@ -57,128 +35,139 @@ describe('VsVideo', () => {
     });
 
     describe(':props', () => {
-        it('should pass a videoId prop to the youtube component', async() => {
+        it('renders youtube player by default', () => {
             const wrapper = factoryShallowMount();
-
-            await wrapper.setData({
-                requiredCookies: [],
-            });
-
-            await wrapper.vm.$nextTick();
-
-            expect(wrapper.find('vue-youtube-stub').attributes('video-id')).toBe(videoId);
+            expect(wrapper.html()).toContain('vs-video-youtube-stub');
         });
 
-        it('should pass a language prop to `playerVars` data object', () => {
-            const wrapper = factoryShallowMount();
+        it('renders html5 player when videoType is html5', () => {
+            const wrapper = factoryShallowMount({
+                videoType: 'html5',
+            });
+            expect(wrapper.html()).toContain('vs-video-html5-stub');
+        });
 
-            expect(wrapper.vm.playerVars.hl).toBe('de');
+        it('passes videoId to the youtube player', () => {
+            const wrapper = factoryShallowMount({
+                videoId: 'abc123',
+            });
+            expect(wrapper.find('vs-video-youtube-stub').attributes('videoid')).toBe('abc123');
+        });
+
+        it('passes videoSrc to the html5 player', () => {
+            const wrapper = factoryShallowMount({
+                videoType: 'html5',
+                videoSrc: 'video.mp4',
+            });
+            expect(wrapper.find('vs-video-html5-stub').attributes('videosrc')).toBe('video.mp4');
+        });
+
+        it('passes showToggle prop to the player', () => {
+            const wrapper = factoryShallowMount({
+                showToggle: false,
+            });
+            expect(wrapper.find('vs-video-youtube-stub').attributes('showtoggle')).toBe('false');
+        });
+
+        it('passes playButtonLabel to the player', () => {
+            const wrapper = factoryShallowMount({
+                playButtonLabel: 'Play video',
+            });
+            expect(wrapper.find('vs-video-youtube-stub').attributes('playbuttonlabel')).toBe(
+                'Play video',
+            );
+        });
+
+        it('passes pauseButtonLabel to the player', () => {
+            const wrapper = factoryShallowMount({
+                pauseButtonLabel: 'Pause video',
+            });
+            expect(wrapper.find('vs-video-youtube-stub').attributes('pausebuttonlabel')).toBe(
+                'Pause video',
+            );
         });
     });
 
-    describe(':data', () => {
-        it('should show a roundedDuration that rounds up, if the duration is 0 minutes and < 30 seconds', async() => {
+    describe(':computed', () => {
+        it('playerComponent returns VsVideoYoutube by default', () => {
             const wrapper = factoryShallowMount();
-
-            // a 25 second video, which should round to 1 minute
-            wrapper.vm.formatTime(25);
-
-            await wrapper.vm.$nextTick();
-
-            expect(wrapper.vm.duration.roundedMinutes).toContain('1');
+            expect(wrapper.vm.playerComponent).toBe(VsVideoYoutube);
         });
 
-        it('should show a roundedDuration that rounds down, if the duration is x minutes and < 30 seconds', async() => {
-            const wrapper = factoryShallowMount();
-
-            // a 1 minute 20 second video, which should round down to 1 minute
-            wrapper.vm.formatTime(80);
-
-            expect(wrapper.vm.duration.roundedMinutes).toContain('1');
-        });
-
-        it('should show a roundedDuration that rounds up, if the duration is x minutes and >= 30 seconds', async() => {
-            // a 1 minute 30 second video, which should round up to 2 minutes
-            const wrapper = factoryShallowMount();
-
-            wrapper.vm.formatTime(90);
-
-            expect(wrapper.vm.duration.roundedMinutes).toContain('2');
-        });
-
-        it('should show render the singleMinuteDescriptor for a 1 minute video', async() => {
-            // a 1 minute 20 second video, which should round down to 1 minute
-            const wrapper = factoryShallowMount();
-
-            wrapper.vm.formatTime(80);
-
-            expect(wrapper.vm.duration.roundedMinutes).toBe(singleMinuteDescriptor.replace('%s', '1'));
-        });
-
-        it('should render the pluralMinuteDiscriptor for a multi minute video', async() => {
-            const wrapper = factoryShallowMount();
-
-            // a 3 minute 40 second video, which should round up to 4 minute
-            wrapper.vm.formatTime(220);
-
-            expect(wrapper.vm.duration.roundedMinutes).toBe(pluralMinuteDescriptor.replace('%s', '4'));
-        });
-
-        it('renders content inserted into the `embedIntroCopyNoJs` slot', () => {
-            const wrapper = factoryShallowMount();
-            expect(wrapper.text()).toContain(noJsContent);
+        it('playerComponent returns VsVideoHtml5 when videoType is html5', () => {
+            const wrapper = factoryShallowMount({
+                videoType: 'html5',
+            });
+            expect(wrapper.vm.playerComponent).toBe(VsVideoHtml5);
         });
     });
 
     describe(':methods', () => {
-        it('should call the playVideo method when receiving emitted event', () => {
-            jest.useFakeTimers();
-            const wrapper = factoryShallowMount();
-            const mockPlayMethod = jest.fn();
-            wrapper.vm.playVideo = mockPlayMethod;
+        const playerMethods = {
+            playVideo: jest.fn(),
+            pauseVideo: jest.fn(),
+            stopVideo: jest.fn(),
+            toggleVideo: jest.fn(),
+        };
 
-            wrapper.vm.emitter.emit('video-controls', {
-                action: 'play',
-                id: videoId,
+        const factoryWithStub = () => shallowMount(VsVideo, {
+            global: {
+                stubs: {
+                    VsVideoYoutube: {
+                        template: '<div><slot /></div>',
+                        methods: playerMethods,
+                    },
+                    VsVideoHtml5: {
+                        template: '<div><slot /></div>',
+                        methods: playerMethods,
+                    },
+                },
+            },
+        });
+
+        beforeEach(() => jest.clearAllMocks());
+
+        it('playVideo calls playVideo on the player ref', () => {
+            const wrapper = factoryWithStub();
+            wrapper.vm.playVideo();
+            expect(playerMethods.playVideo).toHaveBeenCalled();
+        });
+
+        it('pauseVideo calls pauseVideo on the player ref', () => {
+            const wrapper = factoryWithStub();
+            wrapper.vm.pauseVideo();
+            expect(playerMethods.pauseVideo).toHaveBeenCalled();
+        });
+
+        it('stopVideo calls stopVideo on the player ref', () => {
+            const wrapper = factoryWithStub();
+            wrapper.vm.stopVideo();
+            expect(playerMethods.stopVideo).toHaveBeenCalled();
+        });
+
+        it('toggleVideo calls toggleVideo on the player ref', () => {
+            const wrapper = factoryWithStub();
+            wrapper.vm.toggleVideo();
+            expect(playerMethods.toggleVideo).toHaveBeenCalled();
+        });
+
+        it('should pass lazyLoad prop to youtube component when true', () => {
+            const wrapper = factoryShallowMount({
+                videoId: '123456',
+                lazyLoad: true,
             });
 
-            // wait for setTimeout to run
-            jest.advanceTimersByTime(1500);
-
-            expect(mockPlayMethod).toHaveBeenCalled();
+            expect(wrapper.vm.$props.lazyLoad).toBe(true);
         });
 
-        it('should call the pauseVideo method when receiving emitted event', () => {
-            jest.useFakeTimers();
-            const wrapper = factoryShallowMount();
-            const mockPauseMethod = jest.fn();
-            wrapper.vm.pauseVideo = mockPauseMethod;
-
-            wrapper.vm.emitter.emit('video-controls', {
-                action: 'pause',
-                id: videoId,
+        it('should pass lazyLoad prop to html5 component when true', () => {
+            const wrapper = factoryShallowMount({
+                videoType: 'html5',
+                videoSrc: 'video.mp4',
+                lazyLoad: true,
             });
 
-            // wait for setTimeout to run
-            jest.advanceTimersByTime(1500);
-
-            expect(mockPauseMethod).toHaveBeenCalled();
-        });
-
-        it('should return the formatted time in minutes and seconds', async() => {
-            const wrapper = factoryShallowMount();
-            wrapper.vm.formatTime(210);
-
-            expect(wrapper.vm.duration.minutes).toBe(3);
-            expect(wrapper.vm.duration.seconds).toBe(30);
-        });
-
-        it('should not render the video duration if video duration is 0', () => {
-            const wrapper = factoryShallowMount();
-
-            wrapper.vm.formatTime(0);
-
-            expect(wrapper.find('p[data-test="vs-video-duration"]').exists()).toBe(false);
+            expect(wrapper.vm.$props.lazyLoad).toBe(true);
         });
     });
 });

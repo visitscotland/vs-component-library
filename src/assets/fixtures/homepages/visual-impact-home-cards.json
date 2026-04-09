@@ -17,8 +17,9 @@
         "link": "#"
       },
       {
-        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/09/06/the-royal-edinburgh-military-tattoo?size=md",
-        "title": "Travel & planning ",
+        "image": "fixtures/hero/images/lavendar-fields.jpg",
+        "videoSrc": "fixtures/hero/video/lavendar-fields.mp4",
+        "title": "Landscapes & nature",
         "link": "#"
       }
     ]

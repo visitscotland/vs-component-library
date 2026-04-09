@@ -113,43 +113,31 @@ describe('VsHeroSection', () => {
                 imgSrc: heroImgSrc,
             });
 
-            const video = wrapper.find('video');
-            const source = wrapper.find('source');
+            const video = wrapper.find('vs-video-stub');
 
             expect(video.exists()).toBe(true);
-            expect(video.attributes('poster')).toBe(heroImgSrc);
-            expect(source.attributes('src')).toBe(heroVideoSrc);
+            expect(video.attributes('posterimagesrc')).toBe(heroImgSrc);
+            expect(video.attributes('videosrc')).toBe(heroVideoSrc);
         });
 
-        it('does not render a video control when videoSrc is not provided', async() => {
-            const wrapper = factoryShallowMount();
-            const videoControl = wrapper.find('vs-hero-section-video-control-stub');
-
-            expect(videoControl.exists()).toBe(false);
-        });
-
-        it('renders video control button when videoSrc is provided', async() => {
+        it('passes playButtonLabel to the video component', async() => {
             const wrapper = factoryShallowMount();
             await wrapper.setProps({
                 videoSrc: heroVideoSrc,
-                imgSrc: heroImgSrc,
+                playButtonLabel: 'Play video',
             });
 
-            const videoControl = wrapper.find('vs-hero-section-video-control-stub');
-            expect(videoControl.exists()).toBe(true);
+            expect(wrapper.find('vs-video-stub').attributes('playbuttonlabel')).toBe('Play video');
         });
 
-        it('renders with custom video button text when prop is provided', async() => {
+        it('passes pauseButtonLabel to the video component', async() => {
             const wrapper = factoryShallowMount();
-            const customBtnText = 'Toggle video';
-
             await wrapper.setProps({
                 videoSrc: heroVideoSrc,
-                videoBtnText: customBtnText,
+                pauseButtonLabel: 'Pause video',
             });
 
-            const videoControl = wrapper.find('vs-hero-section-video-control-stub');
-            expect(videoControl.text()).toContain(customBtnText);
+            expect(wrapper.find('vs-video-stub').attributes('pausebuttonlabel')).toBe('Pause video');
         });
 
         it('adds video classes to text container when video is present', async() => {

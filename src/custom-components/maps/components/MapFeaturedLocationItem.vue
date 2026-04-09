@@ -67,7 +67,7 @@ function featuredPlaceClick(place) {
             z-index: 2;
             position: relative;
         }
-        .vs-card__image {
+        .vs-card__media {
             z-index: 1;
 
             & img {

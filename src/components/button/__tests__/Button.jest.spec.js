@@ -45,6 +45,20 @@ describe('VsButton', () => {
             expect(wrapper.attributes('href')).toBe('https://www.visitscotland.com');
         });
 
+        it(':role - should be `link` when href is provided', () => {
+            const wrapper = factoryShallowMount({
+                href: 'https://www.visitscotland.com',
+            });
+
+            expect(wrapper.attributes('role')).toBe('link');
+        });
+
+        it(':role - should be `button` when no href is provided', () => {
+            const wrapper = factoryShallowMount();
+
+            expect(wrapper.attributes('role')).toBe('button');
+        });
+
         it(':tabindex - should accept and render a `tabindex` property', () => {
             const wrapper = factoryShallowMount({
                 tabindex: '2',
