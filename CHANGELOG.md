@@ -1,3 +1,10 @@
+## [5.43.1](https://github.com/visitscotland/vs-component-library/compare/v5.43.0...v5.43.1) (2026-04-09)
+
+
+### Bug Fixes
+
+* **cookies:** check for requiredCookies before iterating ([4120376](https://github.com/visitscotland/vs-component-library/commit/41203760b76fdb602b31a3c63522c136727e2576))
+
 # [5.43.0](https://github.com/visitscotland/vs-component-library/compare/v5.42.1...v5.43.0) (2026-03-31)
 
 
