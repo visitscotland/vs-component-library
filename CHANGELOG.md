@@ -1,3 +1,42 @@
+# [5.44.0](https://github.com/visitscotland/vs-component-library/compare/v5.43.1...v5.44.0) (2026-04-09)
+
+
+### Bug Fixes
+
+* **ambient video:** add lazy-load option to videos in example ([a4251df](https://github.com/visitscotland/vs-component-library/commit/a4251df064e666bc0559127d292846160c77f8bf))
+* **ambient video:** fix tests ([b28805c](https://github.com/visitscotland/vs-component-library/commit/b28805c8e055e5375b1bdca9c786dbfb7ee21994))
+* **card:** fix toggle on card and update stories ([db15c46](https://github.com/visitscotland/vs-component-library/commit/db15c466cf801c768acd98a22f877413f83a03e2))
+* **spotlight:** fix spotlight display issues ([a8ef8ad](https://github.com/visitscotland/vs-component-library/commit/a8ef8adea5d57120da83498e8a38ffd16b33cb41))
+* **toggle:** update event emits in toggle ([554bcaf](https://github.com/visitscotland/vs-component-library/commit/554bcafcddeb9430cf1a4ae1098f9f5d018852fe))
+* **video:** accessibility fixes for toggle button label on screen readers ([c9f5d1a](https://github.com/visitscotland/vs-component-library/commit/c9f5d1a427b87db2cd0b3c6a3c169728502096d7))
+* **video:** add back img-zoom-on-hover class ([9be1c41](https://github.com/visitscotland/vs-component-library/commit/9be1c413deff4f318b0bb4778cd99b73463896d3))
+* **video:** code rabbit fixes for video ([a13dc34](https://github.com/visitscotland/vs-component-library/commit/a13dc34899f75be6869e9bea04080277d4649fec))
+* **video:** fix video id prop across docs ([7a0a21e](https://github.com/visitscotland/vs-component-library/commit/7a0a21ec2bb4642fcfc022f6d0c69c2fb8a60a38))
+* **video:** general tidy up/small bug fixes on video cards ([49e0366](https://github.com/visitscotland/vs-component-library/commit/49e03661adf22d6d35140c5216c319ea0fd5b853))
+* **video:** hide toggle button when no videoSrc ([1374d56](https://github.com/visitscotland/vs-component-library/commit/1374d567d0e10db8b4f0c819b9dd01fe4fe32b2e))
+* **video:** more code rabbit review fixes ([a61ef16](https://github.com/visitscotland/vs-component-library/commit/a61ef16da9a28cd8e6ce990ababc152ae1e89f18))
+
+
+### Features
+
+* **ambient video:** add lazy load option ([db32343](https://github.com/visitscotland/vs-component-library/commit/db323437d19486cf26d5e6ebed1a048d748f4195))
+* **cards:** update card patterns to include no-visited-styles prop ([25a0699](https://github.com/visitscotland/vs-component-library/commit/25a0699a49a8dda5193de962602b7c254985897b))
+* **card:** update category card to use new toggle button ([631e245](https://github.com/visitscotland/vs-component-library/commit/631e245cd190ee17026b1d769de1855ea61515b2))
+* **hero:** remove old toggle button from hero now we have new video implementation ([1dc3462](https://github.com/visitscotland/vs-component-library/commit/1dc346229efba82407915c0505cf2ea2c3e14284))
+* **spotlight:** update spotlight section to add ability to use video ([61a1848](https://github.com/visitscotland/vs-component-library/commit/61a1848ae671104d9fb605e919d1e3e67b3d7558))
+* **spotlight:** update spotlight section to use new toggle button ([05516c9](https://github.com/visitscotland/vs-component-library/commit/05516c987672bb7330d43a6bc00b3b1982e9ac31))
+* **toggle button:** update toggle button variants ([246679d](https://github.com/visitscotland/vs-component-library/commit/246679dfee836b14b27287586c72f13d3c98f16c))
+* **togglebutton:** update toggle button styles ([d404ba7](https://github.com/visitscotland/vs-component-library/commit/d404ba73f48dbaff2ae30a62431b8c7622ebdf6c))
+* **toggle:** update toggle button to include new buttons ([5c38b37](https://github.com/visitscotland/vs-component-library/commit/5c38b376aa9ddedeb012f6e32ccb7241b6f0e8c6))
+* **video:** add ambient html5 video to video component ([ffcbf3a](https://github.com/visitscotland/vs-component-library/commit/ffcbf3a669fa5470c98a5cf7756915951b404811))
+* **video:** add code rabbit review fixes ([8ea3e6e](https://github.com/visitscotland/vs-component-library/commit/8ea3e6e82cbd3059c0af57ca5dbde779159ecdee))
+* **video:** add prefers-reduce-motion implementation to video ([afff254](https://github.com/visitscotland/vs-component-library/commit/afff254880cc2198f078d16d109e9fa8a59c111b))
+* **video:** add toggle button to video component ([c8e3bc3](https://github.com/visitscotland/vs-component-library/commit/c8e3bc3a2b0335c9ebfd3e95bf90cd6036271093))
+* **video:** ensure toggle button is in the correct status for lazyload ([a08cec6](https://github.com/visitscotland/vs-component-library/commit/a08cec63e0056fd9bc2577b9afdcb9d9166c6e2f))
+* **video:** remove redundant line in test ([32a71c3](https://github.com/visitscotland/vs-component-library/commit/32a71c31bf9d653d6467b62ea2956f53789f4417))
+* **video:** update video component to include play/pause toggle ([14f1bd0](https://github.com/visitscotland/vs-component-library/commit/14f1bd025e82923042fa6b5635ac36300dd8cf74))
+* **video:** update video unit tests ([30daaaa](https://github.com/visitscotland/vs-component-library/commit/30daaaa9b62f70f41788e90964c1332683cae42b))
+
 ## [5.43.1](https://github.com/visitscotland/vs-component-library/compare/v5.43.0...v5.43.1) (2026-04-09)
 
 
