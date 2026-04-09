@@ -21,7 +21,7 @@ const cookieCheckerMixin = {
         cookiesUpdated() {
             let allowed = false;
 
-            if (typeof CookieControl !== 'undefined') {
+            if (typeof CookieControl !== 'undefined' && this.requiredCookies) {
                 allowed = this.requiredCookies.every(
                     (category) => CookieControl
                         && CookieControl.getCategoryConsent(category) === true,
