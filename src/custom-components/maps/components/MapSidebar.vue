@@ -265,12 +265,7 @@ function setCategoryIcon(id) {
         flex: 0 1;
 
         @include media-breakpoint-down(md) {
-            width: 100%;
-            flex-wrap: nowrap;
-            align-items: start;
-            @include scrollsnap-styles;
             pointer-events: all;
-            column-gap: $vs-spacer-050;
             padding: $vs-spacer-025 $vs-spacer-025 $vs-spacer-075 $vs-spacer-025 ;
         }
 
