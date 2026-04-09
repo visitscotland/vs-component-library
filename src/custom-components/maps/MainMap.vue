@@ -1067,7 +1067,7 @@ async function addDestinationMarkers() {
         });
 
         // Zoom into the destination and perform "Things to do" search.
-        marker.addEventListener('gmp-click', () => handleFeaturedLocationClick(place));
+        marker.addListener('gmp-click', () => handleFeaturedLocationClick(place));
 
         markers[place.properties.title] = marker;
     });
