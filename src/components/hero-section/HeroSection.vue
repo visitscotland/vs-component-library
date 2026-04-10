@@ -398,6 +398,13 @@ export default {
                         margin: 0 0 $vs-spacer-150 0;
                     }
                 }
+
+                .vs-hero-section__lede,
+                .vs-hero-section__article-details {
+                    @include media-breakpoint-up(lg) {
+                        grid-column: 1;
+                    }
+                }
             }
         }
 
