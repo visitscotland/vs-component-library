@@ -29,7 +29,10 @@
                     <slot name="navigation-bar-utilities" />
 
                     <VsNavigationBarSidebarButton
-                        :class="sidebarButtonClasses" data-test="vs-navigation-bar__sidebar-button" @sidebar-open="onSidebarOpen" :sidebar-open-label="sidebarOpenLabel"
+                        :class="sidebarButtonClasses"
+                        data-test="vs-navigation-bar__sidebar-button"
+                        @sidebar-open="onSidebarOpen"
+                        :sidebar-open-label="sidebarOpenLabel"
                         :expanded="sidebarOpen"
                         controls-id="navigation-sidebar"
                     />
