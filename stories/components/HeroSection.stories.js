@@ -1,11 +1,12 @@
 import VsHeroSection from '@/components/hero-section/HeroSection.vue';
+import VsArticleDetails from '@/components/article-details/ArticleDetails.vue';
 
 export default {
     component: VsHeroSection,
     parameters: {
         layout: 'fullscreen',
     },
-    title: 'Components/Media & data visualisation/HeroSection',
+    title: 'Components/Layout & content structure/HeroSection',
     argTypes: {
         inset: {
             options: [true, false],
@@ -25,6 +26,7 @@ export default {
 const Template = (args) => ({
     components: {
         VsHeroSection,
+        VsArticleDetails,
     },
     setup() {
         return {
@@ -32,7 +34,18 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsHeroSection v-bind="args" />
+        <VsHeroSection v-bind="args">
+            <template 
+                #hero-section-article-details 
+                v-if="args.publishDate || args.readTime || args.articleAuthor"
+            >
+                <VsArticleDetails
+                    :articlePublishDate="args.publishDate"
+                    :articleReadTime="args.readTime"
+                    :articleAuthor="args.articleAuthor"
+                />
+            </template>
+        </VsHeroSection>
     `,
 });
 
@@ -77,6 +90,20 @@ Inset.args = {
     imgSrc: 'fixtures/hero/images/visitscotland_38462263949.jpg',
     imgCaption: 'Sunset at Lochan na h-Achlaise on Rannoch Moor',
     imgCredit: 'VisitScotland / Kenny Lam',
+    inset: true,
+};
+
+export const WithArticleDetails = Template.bind({
+});
+
+WithArticleDetails.args = {
+    ...base,
+    imgSrc: 'fixtures/hero/images/visitscotland_38462263949.jpg',
+    imgCaption: 'Sunset at Lochan na h-Achlaise on Rannoch Moor',
+    imgCredit: 'VisitScotland / Kenny Lam',
+    publishDate: 'September 15, 2024',
+    readTime: '5 min read',
+    articleAuthor: 'Frank Smith',
     inset: true,
 };
 

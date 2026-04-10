@@ -46,7 +46,7 @@ export default `
 
                         <template #vs-card-footer>
                             <VsArticleDetails 
-                                class="px-125"
+                                class="px-125 mb-150"
                                 :article-read-time="card.metaData"
                             />
                         </template>

@@ -151,6 +151,39 @@ describe('VsHeroSection', () => {
         });
     });
 
+    describe(':slots', () => {
+        it('should not render the article details container when slot is empty', () => {
+            const wrapper = factoryShallowMount();
+            expect(wrapper.find('[data-test=vs-hero-section__article-details]').exists()).toBe(false);
+        });
+
+        it('should render the article details container when slot content is provided', () => {
+            const wrapper = shallowMount(VsHeroSection, {
+                propsData: {
+                    heading: headingText,
+                    lede: ledeText,
+                },
+                slots: {
+                    'hero-section-article-details': '<p>Article details</p>',
+                },
+            });
+            expect(wrapper.find('[data-test=vs-hero-section__article-details]').exists()).toBe(true);
+        });
+
+        it('should render slot content inside the article details container', () => {
+            const wrapper = shallowMount(VsHeroSection, {
+                propsData: {
+                    heading: headingText,
+                    lede: ledeText,
+                },
+                slots: {
+                    'hero-section-article-details': '<p>Article details</p>',
+                },
+            });
+            expect(wrapper.find('[data-test=vs-hero-section__article-details]').text()).toContain('Article details');
+        });
+    });
+
     describe(':accessibility', () => {
         it('should not have aXe accessibility issues', async() => {
             const wrapper = factoryShallowMount();
