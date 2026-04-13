@@ -965,14 +965,11 @@ async function searchByText() {
         textSearchQuery.locationBias = gMap.center;
     }
 
-<<<<<<< VS-995-Use-LocationBias-to-search-outside-the-viewport
     // Add the `includedType` of "lodging" when the query includes "self catering".
     textSearchQuery.includedType = (query.value.toLowerCase().includes('self catering'))
         ? 'lodging'
         : null;
 
-=======
->>>>>>> main
     /**
      * Add 'in Scotland' to the end of the text query to help contain the
      * results to Scotland.
