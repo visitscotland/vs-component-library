@@ -43,7 +43,7 @@ export default `
                 <template #hero-section-article-details>
                     <VsArticleDetails
                         article-author="Frank Smith"
-                        article-publish-date="May 10, 2026"
+                        article-publish-date="May 10, 2025"
                         article-read-time="2 minute read"
                     />
                 </template>
