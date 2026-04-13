@@ -1,5 +1,5 @@
 <template>
-    <div class="vs-sticky-nav">
+    <div class="vs-sticky-nav--no-global">
         <VsNavigationBar
             sidebar-close-label="Close sidebar menu"
             sidebar-open-label="Main menu"
