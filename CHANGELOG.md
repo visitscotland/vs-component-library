@@ -1,3 +1,17 @@
+# [5.45.0](https://github.com/visitscotland/vs-component-library/compare/v5.44.0...v5.45.0) (2026-04-13)
+
+
+### Bug Fixes
+
+* **hero:** fix text columns in video variant ([a83b4a3](https://github.com/visitscotland/vs-component-library/commit/a83b4a3959953435ac438c5acae35e2a15aa0816))
+
+
+### Features
+
+* **hero:** tidy article details and update hero page examples with it in use ([0d066c4](https://github.com/visitscotland/vs-component-library/commit/0d066c42441f0f9dd8c96e5e5d99539ca309a5ed))
+* **nav:** deprecate meganav and global menu components ([80f4e32](https://github.com/visitscotland/vs-component-library/commit/80f4e32c3b28e59e9a703f9edd05e4af32703a53))
+* **page intro:** deprecate page intro component, use hero section instead ([a7be8d1](https://github.com/visitscotland/vs-component-library/commit/a7be8d1a33d7132a3d3ea672217036e354fa315c))
+
 # [5.44.0](https://github.com/visitscotland/vs-component-library/compare/v5.43.1...v5.44.0) (2026-04-09)
 
 
