@@ -3,7 +3,7 @@ props:
     - name: vs-color-interaction-focus
       value: "{!vs-saltire-50}"
     - name: vs-color-interaction-focus-on-bold
-      value: "{!vs-gorse-05}"
+      value: "{!vs-snow-00}"
 
     ## CTA
     - name: vs-color-interaction-cta-primary

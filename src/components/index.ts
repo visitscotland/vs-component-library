@@ -85,6 +85,13 @@ export { default as VsMegalinkMultiImage } from './megalinks/components/megalink
 export { default as VsMegalinkSingleImage } from './megalinks/components/megalink-single-image/MegalinkSingleImage.vue';
 export { default as VsModal } from './modal/Modal.vue';
 export { default as VsModuleWrapper } from './module-wrapper/ModuleWrapper.vue';
+export { default as VsNavigationBar } from './navigation-bar/NavigationBar.vue';
+export { default as VsNavigationBarMenu } from './navigation-bar/components/NavigationBarMenu.vue';
+export { default as VsNavigationBarMenuDropdown } from './navigation-bar/components/NavigationBarMenuDropdown.vue';
+export { default as VsNavigationBarMenuItem } from './navigation-bar/components/NavigationBarMenuItem.vue';
+export { default as VsNavigationBarSearch } from './navigation-bar/components/NavigationBarSearch.vue';
+export { default as VsNavigationBarSidebar } from './navigation-bar/components/NavigationBarSidebar.vue';
+export { default as VsNavigationBarSidebarButton } from './navigation-bar/components/NavigationBarSidebarButton.vue';
 export { default as VsNumberInput } from './number-input/NumberInput.vue';
 export { default as VsPageIntro } from './page-intro/PageIntro.vue';
 export { default as VsPagination } from './pagination/VsPagination.vue';

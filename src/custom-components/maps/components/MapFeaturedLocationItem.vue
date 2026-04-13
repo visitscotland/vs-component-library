@@ -16,7 +16,8 @@
                         class="stretched-link text-decoration-none"
                         href="#"
                         variant="on-dark"
-                        @keypress.enter.prevent="featuredPlaceClick(props.place)"
+                        @keyup.enter.prevent="featuredPlaceClick(props.place)"
+                        @keyup.space.prevent="featuredPlaceClick(props.place)"
                     >
                         {{ props.place.properties.title }}
                     </VsLink>
@@ -66,7 +67,7 @@ function featuredPlaceClick(place) {
             z-index: 2;
             position: relative;
         }
-        .vs-card__image {
+        .vs-card__media {
             z-index: 1;
 
             & img {

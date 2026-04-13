@@ -5,6 +5,28 @@
             "type": "feature",
             "properties": {
                 "category": {
+                    "id": "national-parks",
+                    "label": "National Parks"
+                },
+                "id": "7b6014dc-600c-4f35-8e3c-02ebf2b309ea",
+                "title": "Loch Ness",
+                "description": "Discover world-famous Loch Ness with holiday ideas, accommodation, travel and maps, tours, insider tips and fantastic things to see and do.",
+                "image": "fixtures/maps/images/ben-nevis.jpg",
+                "link": {
+                    "label": "Discover Loch Ness",
+                    "link": "#",
+                    "type": "INTERNAL"
+                }
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-4.32751, 57.38469]
+            }
+        },
+        {
+            "type": "feature",
+            "properties": {
+                "category": {
                     "id": "featured",
                     "label": "Featured Places"
                 },

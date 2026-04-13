@@ -1,31 +1,11 @@
+import { userEvent, within } from 'storybook/test';
 import VsTooltip from '@/components/tooltip/Tooltip.vue';
+import VsButton from '@/components/button/Button.vue';
 
 export default {
     component: VsTooltip,
     title: 'Components/Overlays & popups/Tooltip',
     argTypes: {
-        variant: {
-            options: [
-                'primary',
-                'secondary',
-                'subtle',
-                'dark',
-                'light',
-            ],
-            control: {
-                type: 'radio',
-            },
-        },
-        size: {
-            options: [
-                'sm',
-                'md',
-                'lg',
-            ],
-            control: {
-                type: 'radio',
-            },
-        },
         position: {
             options: [
                 'top',
@@ -37,12 +17,21 @@ export default {
                 type: 'radio',
             },
         },
+        subtle: {
+            control: {
+                type: 'boolean',
+            },
+        },
     },
+    decorators: [() => ({
+        template: '<div style="padding:2rem 5rem;"><story /></div>',
+    })],
 };
 
 const Template = (args) => ({
     components: {
         VsTooltip,
+        VsButton,
     },
     setup() {
         return {
@@ -50,8 +39,21 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsTooltip v-bind="args">
-            <template v-if="${'default' in args}" v-slot>${args.default}</template>
+        <VsTooltip
+            v-if="!args.useLegacy"
+            :title="args.title"
+            :position="args.position"
+            :subtle="args.subtle"
+            :use-legacy="false"
+        >
+            <VsButton
+                icon-only
+                :icon="args.icon"
+                :size="args.size"
+                :variant="args.variant"
+            >
+                {{ args.title }}
+            </VsButton>
         </VsTooltip>
     `,
 });
@@ -59,14 +61,49 @@ const Template = (args) => ({
 const base = {
     icon: 'fa-regular fa-bus',
     size: 'sm',
-    position: 'top',
+    position: 'bottom',
     title: 'Travel by bus',
-    href: '#',
     'icon-only': true,
     variant: 'subtle',
+    useLegacy: false,
 };
 
 export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const DefaultHovered = Template.bind({
+});
+
+DefaultHovered.args = base;
+
+DefaultHovered.play = async({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = await canvas.getByRole('button');
+
+    await userEvent.hover(button);
+};
+
+export const Subtle = Template.bind({
+});
+
+Subtle.args = {
+    ...base,
+    subtle: true,
+};
+
+export const SubtleHovered = Template.bind({
+});
+
+SubtleHovered.args = {
+    ...base,
+    subtle: true,
+};
+
+SubtleHovered.play = async({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = await canvas.getByRole('button');
+
+    await userEvent.hover(button);
+};

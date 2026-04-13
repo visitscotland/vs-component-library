@@ -1,0 +1,196 @@
+import { shallowMount, config } from '@vue/test-utils';
+import VsVideoHtml5 from '../VideoHtml5.vue';
+
+config.global.renderStubDefaultSlot = true;
+
+const mockMatchMedia = (matches) => {
+    window.matchMedia = jest.fn().mockReturnValue({
+        matches,
+    });
+};
+
+const factoryShallowMount = (props = {
+}) => shallowMount(VsVideoHtml5, {
+    props: {
+        videoSrc: 'video.mp4',
+        videoId: 'test-video',
+        ...props,
+    },
+});
+
+beforeEach(() => mockMatchMedia(false));
+afterEach(() => jest.restoreAllMocks());
+
+describe('VsVideoHtml5', () => {
+    it('should render component `vs-video-html5`', () => {
+        const wrapper = factoryShallowMount();
+
+        expect(wrapper.find('div[data-test=vs-video-html5]').exists()).toBe(true);
+    });
+
+    describe(':props', () => {
+        it('does not render toggle button when showToggle is false', () => {
+            const wrapper = factoryShallowMount({
+                showToggle: false,
+            });
+            expect(wrapper.find('vs-toggle-button-stub').exists()).toBe(false);
+        });
+
+        it('renders toggle button when showToggle is true', () => {
+            const wrapper = factoryShallowMount();
+            expect(wrapper.find('vs-toggle-button-stub').exists()).toBe(true);
+        });
+
+        it('renders html5 player when videoSrc is provided', () => {
+            const wrapper = factoryShallowMount();
+
+            expect(wrapper.find('video').exists()).toBe(true);
+        });
+
+        it('sets videoId as the id on the video element', () => {
+            const wrapper = factoryShallowMount({
+                videoId: 'my-video',
+            });
+
+            expect(wrapper.find('video').attributes('id')).toBe('my-video');
+        });
+
+        it('sets videoId as aria-controls on the toggle button', () => {
+            const wrapper = factoryShallowMount({
+                videoId: 'my-video',
+            });
+
+            expect(wrapper.find('vs-toggle-button-stub').attributes('aria-controls')).toBe('my-video');
+        });
+
+        it('should apply videoSrc to source element', () => {
+            const src = 'video.mp4';
+
+            const wrapper = factoryShallowMount();
+
+            expect(wrapper.find('source').attributes('src')).toBe(src);
+        });
+
+        it('passes posterImageSrc to the video element', () => {
+            const wrapper = factoryShallowMount({
+                posterImageSrc: 'poster.jpg',
+            });
+
+            expect(wrapper.find('video').attributes('poster')).toBe('poster.jpg');
+        });
+
+        it('should set preload to none when lazyLoad is true', () => {
+            const wrapper = factoryShallowMount({
+                lazyLoad: true,
+            });
+
+            expect(wrapper.find('video').attributes('preload')).toBe('none');
+        });
+
+        it('should set preload to auto when lazyLoad is false', () => {
+            const wrapper = factoryShallowMount({
+                lazyLoad: false,
+            });
+
+            expect(wrapper.find('video').attributes('preload')).toBe('auto');
+        });
+
+        it('passes playButtonLabel to the toggle button pressedlabel', () => {
+            const wrapper = factoryShallowMount({
+                playButtonLabel: 'Play video',
+            });
+
+            expect(wrapper.find('vs-toggle-button-stub').attributes('pressedlabel')).toBe(
+                'Play video',
+            );
+        });
+
+        it('passes pauseButtonLabel to the toggle button label', () => {
+            const wrapper = factoryShallowMount({
+                pauseButtonLabel: 'Pause video',
+            });
+
+            expect(wrapper.find('vs-toggle-button-stub').attributes('label')).toBe('Pause video');
+        });
+    });
+
+    describe(':methods', () => {
+        afterEach(() => jest.restoreAllMocks());
+
+        it('play calls play on the video element', () => {
+            const wrapper = factoryShallowMount();
+            const playSpy = jest
+                .spyOn(wrapper.vm.$refs.videoRef, 'play')
+                .mockImplementation(() => Promise.resolve());
+            wrapper.vm.playVideo();
+            expect(playSpy).toHaveBeenCalled();
+        });
+
+        it('pause calls pause on the video element', () => {
+            const wrapper = factoryShallowMount();
+            const pauseSpy = jest
+                .spyOn(wrapper.vm.$refs.videoRef, 'pause')
+                .mockImplementation(() => {});
+            wrapper.vm.pauseVideo();
+            expect(pauseSpy).toHaveBeenCalled();
+        });
+
+        it('toggle calls play when video is paused', () => {
+            const wrapper = factoryShallowMount();
+            const video = wrapper.vm.$refs.videoRef;
+            jest.spyOn(video, 'play').mockImplementation(() => Promise.resolve());
+            Object.defineProperty(video, 'paused', {
+                value: true,
+                configurable: true,
+            });
+            wrapper.vm.toggleVideo();
+            expect(video.play).toHaveBeenCalled();
+        });
+
+        it('toggle calls pause when video is playing', () => {
+            const wrapper = factoryShallowMount();
+            const video = wrapper.vm.$refs.videoRef;
+            jest.spyOn(video, 'pause').mockImplementation(() => {});
+            Object.defineProperty(video, 'paused', {
+                value: false,
+                configurable: true,
+            });
+            wrapper.vm.toggleVideo();
+            expect(video.pause).toHaveBeenCalled();
+        });
+    });
+
+    describe(':prefersReducedMotion', () => {
+        it('renders the fallback image when prefersReducedMotion is true', () => {
+            mockMatchMedia(true);
+            const wrapper = factoryShallowMount({
+                posterImageSrc: 'poster.jpg',
+            });
+
+            expect(wrapper.find('vs-img-stub').exists()).toBe(true);
+            expect(wrapper.find('video').exists()).toBe(false);
+        });
+
+        it('passes posterImageSrc to the fallback image', () => {
+            mockMatchMedia(true);
+            const wrapper = factoryShallowMount({
+                posterImageSrc: 'poster.jpg',
+            });
+
+            expect(wrapper.find('vs-img-stub').attributes('src')).toBe('poster.jpg');
+        });
+
+        it('does not render the toggle button when prefersReducedMotion is true', () => {
+            mockMatchMedia(true);
+            const wrapper = factoryShallowMount();
+            expect(wrapper.find('vs-toggle-button-stub').exists()).toBe(false);
+        });
+
+        it('renders the video when prefersReducedMotion is false', () => {
+            mockMatchMedia(false);
+            const wrapper = factoryShallowMount();
+            expect(wrapper.find('video').exists()).toBe(true);
+            expect(wrapper.find('vs-img-stub').exists()).toBe(false);
+        });
+    });
+});

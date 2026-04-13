@@ -23,7 +23,8 @@ const ssrAppPath = './ssr/';
 // TODO: add schema for options shape validation
 
 const generateComponentImportStatement = (modulePath, componentName) => {
-    const relativePath = path.posix.relative(ssrAppPath, modulePath);
+    const normalizedModulePath = modulePath.replace(/\\/g, '/');
+    const relativePath = path.posix.relative(ssrAppPath, normalizedModulePath);
 
     return `import ${componentName} from "${relativePath}"`;
 };

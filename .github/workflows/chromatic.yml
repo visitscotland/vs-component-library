@@ -3,6 +3,10 @@
 # Workflow name
 name: 'Chromatic'
 
+permissions:
+  contents: read
+  pull-requests: read
+
 # Event for the workflow
 on:
   # Run on PRs into main or cl-release/*
@@ -39,10 +43,10 @@ jobs:
     # Job steps
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444
         with:
           node-version: 22.18.0
       - name: Install dependencies
@@ -50,7 +54,7 @@ jobs:
         run: yarn
         # 👇 Adds Chromatic as a step in the workflow
       - name: Publish to Chromatic
-        uses: chromaui/action@latest
+        uses: chromaui/action@f191a0224b10e1a38b2091cefb7b7a2337009116
         # Chromatic GitHub Action options
         with:
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.

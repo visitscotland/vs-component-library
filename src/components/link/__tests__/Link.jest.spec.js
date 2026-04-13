@@ -128,6 +128,18 @@ describe('VsLink', () => {
             expect(icon.exists()).toBe(true);
             expect(icon.props('icon')).toBe('vs-icon-control-download');
         });
+
+        it(':noVisitedStyles - defaults to false', () => {
+            const wrapper = factoryShallowMount();
+            expect(wrapper.classes()).not.toContain('vs-link--no-visited-styles');
+        });
+
+        it(':noVisitedStyles - applies class when true', () => {
+            const wrapper = factoryShallowMount({
+                noVisitedStyles: true,
+            });
+            expect(wrapper.classes()).toContain('vs-link--no-visited-styles');
+        });
     });
 
     describe(':accessibility', () => {

@@ -29,7 +29,7 @@ import { Default as summaryBoxDefault } from './SummaryBox.stories';
 
 export default {
     component: VsPageIntro,
-    title: 'Components/To be reviewed/PageIntro',
+    title: 'Components/Deprecated/PageIntro',
     argTypes: {
         background: {
             options: [
@@ -41,6 +41,7 @@ export default {
             },
         },
     },
+    tags: ['deprecated'],
 };
 const Template = (args) => ({
     components: {
@@ -71,6 +72,12 @@ const Template = (args) => ({
         };
     },
     template: `
+    <div style="background: #940f2c17; padding: 1rem; border: 1px solid #940F2C; margin-bottom: 1rem;">
+        ⚠️ Deprecated: Use new Hero Section component and
+            Page Header patterns instead. This component will be
+            removed in a future release.
+            See the <a href="https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1157300230/Page+intro+deprecated">Component migration docs.</a> 
+    </div>
     <div
         :class="args.jsDisabled ? 'no-js' : ''"
     >

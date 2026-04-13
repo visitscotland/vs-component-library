@@ -890,8 +890,6 @@ async function searchByCategory({
 
     const searchId = currentSearchId;
 
-    noResults.value = false;
-
     googleMapStore.filterUsesCount += 1;
 
     currentSearch.value = 'nearby';
@@ -942,7 +940,6 @@ async function searchByCategory({
 async function searchByText() {
     resetMap();
     resetCategories();
-    noResults.value = false;
 
     currentSearchId += 1;
 
@@ -968,11 +965,14 @@ async function searchByText() {
         textSearchQuery.locationBias = gMap.center;
     }
 
+<<<<<<< VS-995-Use-LocationBias-to-search-outside-the-viewport
     // Add the `includedType` of "lodging" when the query includes "self catering".
     textSearchQuery.includedType = (query.value.toLowerCase().includes('self catering'))
         ? 'lodging'
         : null;
 
+=======
+>>>>>>> main
     /**
      * Add 'in Scotland' to the end of the text query to help contain the
      * results to Scotland.
@@ -1022,6 +1022,7 @@ async function addMarkers(searchId) {
         noResults.value = true;
         searchRequest.value.style.display = 'none';
     } else {
+        noResults.value = false;
         searchRequest.value.style.display = 'block';
     }
 
@@ -1236,9 +1237,7 @@ function checkFirstInteraction(interactionType) {
 function getVisibleMarkerCount() {
     const bounds = gMap.getBounds();
 
-    if (!bounds) {
-        return 0;
-    }
+    if (!bounds) return 0;
 
     let visibleCount = 0;
 

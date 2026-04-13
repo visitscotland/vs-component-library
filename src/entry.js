@@ -23,16 +23,18 @@ const components = {
     VsApp: './src/main.js',
 };
 
+const normalizePath = (p) => (p.startsWith('./') ? p : `./${p}`);
+
 const itemKey = (basename, store) => `Vs${store ? 'Store' : ''}${upperFirst(camelCase(basename))}`;
 
 componentPaths
     .reduce((accumulator, pattern) => accumulator.concat(glob.sync(pattern)), [])
     .forEach((componentPath) => {
-        components[itemKey(path.basename(componentPath, '.vue'))] = componentPath;
+        components[itemKey(path.basename(componentPath, '.vue'))] = normalizePath(componentPath);
     });
 
 glob.sync(storePattern).forEach((storePath) => {
-    components[itemKey(path.basename(storePath, '.js'), true)] = storePath;
+    components[itemKey(path.basename(storePath, '.js'), true)] = normalizePath(storePath);
 });
 
 module.exports = components;

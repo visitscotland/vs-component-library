@@ -3,32 +3,29 @@ export default `
         <VsRow>
             <VsCol>
                 <VsCardGroup
-                    scroll-snap
-                    :cards-per-row="4"
+                    :scroll-snap="scrollSnap"
+                    :cards-per-row="cardsPerRow"
                 >
                     <VsCard
-                        v-for="(card, index) in textCardList2"
-                        :key="'text-card-list-2-' + index"
-                        card-style="elevated"
-                        accent-bar
+                        v-for="(card, index) in cardList2"
+                        :key="'card-list-2-' + index"
                     >
                         <template #vs-card-header>
-                            <VsBadge 
-                                variant="subtle"
-                                class="mt-125 mx-075"
-                            >
-                                {{ card.badgeTitle }}
-                            </VsBadge>
+                            <VsImg
+                                v-if="card.image"
+                                :src="card.image"
+                                class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
+                            />
                         </template>
 
                         <template #vs-card-body>
-                            <div class="px-125">
+                            <div>
                                 <VsHeading
                                     level="3"
                                     heading-style="heading-xs"
                                 >
                                     <VsLink
-                                        href="#"
+                                        :href="card.link"
                                         class="stretched-link"
                                         variant="secondary"
                                     >
@@ -37,18 +34,11 @@ export default `
                                 </VsHeading>
 
                                 <VsBody class="mb-150">
-                                    <p class="truncate-3-lines">
+                                    <p class="truncate-2-lines">
                                         {{ card.description }}
                                     </p>
                                 </VsBody>
                             </div>
-                        </template>
-
-                        <template #vs-card-footer>
-                            <VsArticleDetails 
-                                class="px-125"
-                                :article-read-time="card.metaData"
-                            />
                         </template>
                     </VsCard>
                 </VsCardGroup>

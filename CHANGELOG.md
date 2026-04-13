@@ -1,3 +1,213 @@
+# [5.45.0](https://github.com/visitscotland/vs-component-library/compare/v5.44.0...v5.45.0) (2026-04-13)
+
+
+### Bug Fixes
+
+* **hero:** fix text columns in video variant ([a83b4a3](https://github.com/visitscotland/vs-component-library/commit/a83b4a3959953435ac438c5acae35e2a15aa0816))
+
+
+### Features
+
+* **hero:** tidy article details and update hero page examples with it in use ([0d066c4](https://github.com/visitscotland/vs-component-library/commit/0d066c42441f0f9dd8c96e5e5d99539ca309a5ed))
+* **nav:** deprecate meganav and global menu components ([80f4e32](https://github.com/visitscotland/vs-component-library/commit/80f4e32c3b28e59e9a703f9edd05e4af32703a53))
+* **page intro:** deprecate page intro component, use hero section instead ([a7be8d1](https://github.com/visitscotland/vs-component-library/commit/a7be8d1a33d7132a3d3ea672217036e354fa315c))
+
+# [5.44.0](https://github.com/visitscotland/vs-component-library/compare/v5.43.1...v5.44.0) (2026-04-09)
+
+
+### Bug Fixes
+
+* **ambient video:** add lazy-load option to videos in example ([a4251df](https://github.com/visitscotland/vs-component-library/commit/a4251df064e666bc0559127d292846160c77f8bf))
+* **ambient video:** fix tests ([b28805c](https://github.com/visitscotland/vs-component-library/commit/b28805c8e055e5375b1bdca9c786dbfb7ee21994))
+* **card:** fix toggle on card and update stories ([db15c46](https://github.com/visitscotland/vs-component-library/commit/db15c466cf801c768acd98a22f877413f83a03e2))
+* **spotlight:** fix spotlight display issues ([a8ef8ad](https://github.com/visitscotland/vs-component-library/commit/a8ef8adea5d57120da83498e8a38ffd16b33cb41))
+* **toggle:** update event emits in toggle ([554bcaf](https://github.com/visitscotland/vs-component-library/commit/554bcafcddeb9430cf1a4ae1098f9f5d018852fe))
+* **video:** accessibility fixes for toggle button label on screen readers ([c9f5d1a](https://github.com/visitscotland/vs-component-library/commit/c9f5d1a427b87db2cd0b3c6a3c169728502096d7))
+* **video:** add back img-zoom-on-hover class ([9be1c41](https://github.com/visitscotland/vs-component-library/commit/9be1c413deff4f318b0bb4778cd99b73463896d3))
+* **video:** code rabbit fixes for video ([a13dc34](https://github.com/visitscotland/vs-component-library/commit/a13dc34899f75be6869e9bea04080277d4649fec))
+* **video:** fix video id prop across docs ([7a0a21e](https://github.com/visitscotland/vs-component-library/commit/7a0a21ec2bb4642fcfc022f6d0c69c2fb8a60a38))
+* **video:** general tidy up/small bug fixes on video cards ([49e0366](https://github.com/visitscotland/vs-component-library/commit/49e03661adf22d6d35140c5216c319ea0fd5b853))
+* **video:** hide toggle button when no videoSrc ([1374d56](https://github.com/visitscotland/vs-component-library/commit/1374d567d0e10db8b4f0c819b9dd01fe4fe32b2e))
+* **video:** more code rabbit review fixes ([a61ef16](https://github.com/visitscotland/vs-component-library/commit/a61ef16da9a28cd8e6ce990ababc152ae1e89f18))
+
+
+### Features
+
+* **ambient video:** add lazy load option ([db32343](https://github.com/visitscotland/vs-component-library/commit/db323437d19486cf26d5e6ebed1a048d748f4195))
+* **cards:** update card patterns to include no-visited-styles prop ([25a0699](https://github.com/visitscotland/vs-component-library/commit/25a0699a49a8dda5193de962602b7c254985897b))
+* **card:** update category card to use new toggle button ([631e245](https://github.com/visitscotland/vs-component-library/commit/631e245cd190ee17026b1d769de1855ea61515b2))
+* **hero:** remove old toggle button from hero now we have new video implementation ([1dc3462](https://github.com/visitscotland/vs-component-library/commit/1dc346229efba82407915c0505cf2ea2c3e14284))
+* **spotlight:** update spotlight section to add ability to use video ([61a1848](https://github.com/visitscotland/vs-component-library/commit/61a1848ae671104d9fb605e919d1e3e67b3d7558))
+* **spotlight:** update spotlight section to use new toggle button ([05516c9](https://github.com/visitscotland/vs-component-library/commit/05516c987672bb7330d43a6bc00b3b1982e9ac31))
+* **toggle button:** update toggle button variants ([246679d](https://github.com/visitscotland/vs-component-library/commit/246679dfee836b14b27287586c72f13d3c98f16c))
+* **togglebutton:** update toggle button styles ([d404ba7](https://github.com/visitscotland/vs-component-library/commit/d404ba73f48dbaff2ae30a62431b8c7622ebdf6c))
+* **toggle:** update toggle button to include new buttons ([5c38b37](https://github.com/visitscotland/vs-component-library/commit/5c38b376aa9ddedeb012f6e32ccb7241b6f0e8c6))
+* **video:** add ambient html5 video to video component ([ffcbf3a](https://github.com/visitscotland/vs-component-library/commit/ffcbf3a669fa5470c98a5cf7756915951b404811))
+* **video:** add code rabbit review fixes ([8ea3e6e](https://github.com/visitscotland/vs-component-library/commit/8ea3e6e82cbd3059c0af57ca5dbde779159ecdee))
+* **video:** add prefers-reduce-motion implementation to video ([afff254](https://github.com/visitscotland/vs-component-library/commit/afff254880cc2198f078d16d109e9fa8a59c111b))
+* **video:** add toggle button to video component ([c8e3bc3](https://github.com/visitscotland/vs-component-library/commit/c8e3bc3a2b0335c9ebfd3e95bf90cd6036271093))
+* **video:** ensure toggle button is in the correct status for lazyload ([a08cec6](https://github.com/visitscotland/vs-component-library/commit/a08cec63e0056fd9bc2577b9afdcb9d9166c6e2f))
+* **video:** remove redundant line in test ([32a71c3](https://github.com/visitscotland/vs-component-library/commit/32a71c31bf9d653d6467b62ea2956f53789f4417))
+* **video:** update video component to include play/pause toggle ([14f1bd0](https://github.com/visitscotland/vs-component-library/commit/14f1bd025e82923042fa6b5635ac36300dd8cf74))
+* **video:** update video unit tests ([30daaaa](https://github.com/visitscotland/vs-component-library/commit/30daaaa9b62f70f41788e90964c1332683cae42b))
+
+## [5.43.1](https://github.com/visitscotland/vs-component-library/compare/v5.43.0...v5.43.1) (2026-04-09)
+
+
+### Bug Fixes
+
+* **cookies:** check for requiredCookies before iterating ([4120376](https://github.com/visitscotland/vs-component-library/commit/41203760b76fdb602b31a3c63522c136727e2576))
+
+# [5.43.0](https://github.com/visitscotland/vs-component-library/compare/v5.42.1...v5.43.0) (2026-03-31)
+
+
+### Bug Fixes
+
+* **tooltip:** add tooltip enhancements ([856da3c](https://github.com/visitscotland/vs-component-library/commit/856da3cb7a0dcdd8abdefff9cc85fd0e0e435699))
+* **tooltip:** fix show method in tooltip ([07aea56](https://github.com/visitscotland/vs-component-library/commit/07aea56d7473658dcd4f2531c83f4b264c63820e))
+* **tooltip:** remove nowrap on tooltip ([a2bebb6](https://github.com/visitscotland/vs-component-library/commit/a2bebb644c44c0a065a093153d0df7beafa13499))
+
+
+### Features
+
+* **tooltip:** accessibility fixes in tooltip ([9bad996](https://github.com/visitscotland/vs-component-library/commit/9bad99650b2943c8bc63096bedb111c77366c018))
+* **tooltip:** improvements to tooltip ([a0b4270](https://github.com/visitscotland/vs-component-library/commit/a0b4270cdba4e7ef4a3ea6a8a1e5f1c4bbcb8213))
+* **tooltip:** refactoring tooltip to use floating UI - should be backwards compatible ([b5232f3](https://github.com/visitscotland/vs-component-library/commit/b5232f350be637fcef6c6d49ea0b2bfbf330a64a))
+* **tooltip:** tidy up tooltip issues ([1bc5e71](https://github.com/visitscotland/vs-component-library/commit/1bc5e7160508223a1ca0b1634175436d9b259035))
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [5.42.1](https://github.com/visitscotland/vs-component-library/compare/v5.42.0...v5.42.1) (2026-03-30)
+
+
+### 🔖 Others
+
+* **deps:** bump the npm_and_yarn group across 1 directory with 3 updates ([635d2ae](https://github.com/visitscotland/vs-component-library/commit/635d2ae3fd8a5fecd568aa7e8296306f714913f0))
+
+# [5.42.0](https://github.com/visitscotland/vs-component-library/compare/v5.41.6...v5.42.0) (2026-03-30)
+
+
+### Bug Fixes
+
+* **build:** adjust glob import to support windows ([6c61829](https://github.com/visitscotland/vs-component-library/commit/6c618290bf55a6bcd0750dbb7fa3ba9d76d531f6))
+
+
+### Features
+
+* **pinia:** update to pinia 3 to support website dependabot updates ([a17ee61](https://github.com/visitscotland/vs-component-library/commit/a17ee6184209f062e897b7699c2faa1d53683d75))
+
+## [5.41.6](https://github.com/visitscotland/vs-component-library/compare/v5.41.5...v5.41.6) (2026-03-30)
+
+
+### Bug Fixes
+
+* **main map:** help to restrict text search to places in Scotland ([606c767](https://github.com/visitscotland/vs-component-library/commit/606c76770ceaf1503420effff50f35e61ff44c19))
+
+## [5.41.5](https://github.com/visitscotland/vs-component-library/compare/v5.41.4...v5.41.5) (2026-03-25)
+
+
+### Bug Fixes
+
+* **main map:** keyboard control for destination cards ([1b3c912](https://github.com/visitscotland/vs-component-library/commit/1b3c912d672dcc4453f786dff5cd983a983cb773))
+* **map with sidebar:** add missing icon for national parks ([1eecaeb](https://github.com/visitscotland/vs-component-library/commit/1eecaeb8646a2696118e0560e0ac56195a93ab6d))
+
+## [5.41.4](https://github.com/visitscotland/vs-component-library/compare/v5.41.3...v5.41.4) (2026-03-25)
+
+
+### Bug Fixes
+
+* **embed wrapper:** also load script on mount if no cookies ([cd8f8d9](https://github.com/visitscotland/vs-component-library/commit/cd8f8d9f093d4001a764a1bf0b7cec0f54ca635e))
+
+## [5.41.3](https://github.com/visitscotland/vs-component-library/compare/v5.41.2...v5.41.3) (2026-03-25)
+
+
+### Bug Fixes
+
+* **embed wrapper:** load script when noCookiesRequired set to true ([b8da9a0](https://github.com/visitscotland/vs-component-library/commit/b8da9a014d2886374d4740b6cb9935a80d882b7d))
+
+## [5.41.2](https://github.com/visitscotland/vs-component-library/compare/v5.41.1...v5.41.2) (2026-03-23)
+
+
+### Bug Fixes
+
+* **main map:** disclaimer and no results text displaying at the wrong time ([280b981](https://github.com/visitscotland/vs-component-library/commit/280b981ee01fa5b44ae5133c10b60e74c967238a))
+* **main map:** make id on VsAlert component more generitc of automated testing ([a3b9cfb](https://github.com/visitscotland/vs-component-library/commit/a3b9cfb8d25bb2856cdb1c7a2bb1f1514d563d9d))
+
+## [5.41.1](https://github.com/visitscotland/vs-component-library/compare/v5.41.0...v5.41.1) (2026-03-23)
+
+
+### Bug Fixes
+
+* **main map:** add missing icon ([0ae9e40](https://github.com/visitscotland/vs-component-library/commit/0ae9e406ed656204a670e1e203e4698627a3caf5))
+
+# [5.41.0](https://github.com/visitscotland/vs-component-library/compare/v5.40.0...v5.41.0) (2026-03-20)
+
+
+### Bug Fixes
+
+* **navigation:** accessibility fixes ([e3df608](https://github.com/visitscotland/vs-component-library/commit/e3df60874878c6fe675feccde9d359f5bee30fc3))
+* **navigation:** add missing methods to menu item ([9cc0e98](https://github.com/visitscotland/vs-component-library/commit/9cc0e9893f41d77655d8caf66dbb9518357879d0))
+* **navigation:** fix anti-aliasing border issue in dropdown ([8ef1691](https://github.com/visitscotland/vs-component-library/commit/8ef1691727e7bb13a0703af368dee72acf429241))
+* **navigation:** fix broken tooltip ([04ffe4b](https://github.com/visitscotland/vs-component-library/commit/04ffe4ba850a7e1ee48004da1d3136640d5fdbb9))
+* **navigation:** fixing code rabbit review suggestions ([16dff38](https://github.com/visitscotland/vs-component-library/commit/16dff384f29e46f9c3049a116b61f8cccf727b1f))
+* **navigation:** fixing UI issues from screenshot testing ([6c08080](https://github.com/visitscotland/vs-component-library/commit/6c08080920c3e42bba8cf9e620bdd26ec598ee8e))
+* **navigation:** further accessibility fixes ([991a389](https://github.com/visitscotland/vs-component-library/commit/991a38980f7125e28d476bc03a309e527b86f9b9))
+* **navigation:** updating sticky nav styles and files for export ([f7fb1f7](https://github.com/visitscotland/vs-component-library/commit/f7fb1f732fc1df07e44b4fe3be77ce9b92bbf701))
+
+
+### Features
+
+* **backdrop:** adds new backdrop component ([3d5277e](https://github.com/visitscotland/vs-component-library/commit/3d5277ebed460874c672d188fd9f653bc094f003))
+* **link:** add no visit link prop to link component ([d3a6f72](https://github.com/visitscotland/vs-component-library/commit/d3a6f728a011e86aebc4b48a0619639c2c0f36cc))
+* **navgigation:** further code review fixes ([353f604](https://github.com/visitscotland/vs-component-library/commit/353f604e7f6859e2e3d87d7f9bac24ba1587226c))
+* **navigatio:** fixing placement of search and some tidy up bita ([cb74de1](https://github.com/visitscotland/vs-component-library/commit/cb74de1f064aa41c892e9820a1e0887228022dcd))
+* **navigation-bar:** adds new navigation bar wrapper component ([29373a5](https://github.com/visitscotland/vs-component-library/commit/29373a5882bc5a95aeac2adf03836b3a9a95becb))
+* **navigation:** adds navbar menu items and dropdown items ([a46ffa1](https://github.com/visitscotland/vs-component-library/commit/a46ffa160ee157a87b3cb67e862567298684fe5c))
+* **navigation:** adds navigation bar menu component ([03239f8](https://github.com/visitscotland/vs-component-library/commit/03239f897de8dbdda3702a5cfad9a8382f07e3b1))
+* **navigation:** adds navigation sidebar and sidebar toggle components ([27b7869](https://github.com/visitscotland/vs-component-library/commit/27b7869bd0285b0b9b1f9a615afc608527f2a162))
+* **navigation:** adds new navigation sidebar and toggle components ([613ec1c](https://github.com/visitscotland/vs-component-library/commit/613ec1cd40e63a022af0bc7e463298ba42e1b730))
+* **navigation:** adds prop to determine when the sidebar should be shown ([8365430](https://github.com/visitscotland/vs-component-library/commit/83654309a1b409f6c8b57ba684bdcbbf610bafd9))
+* **navigation:** fixing issue with full width dropdowns ([13070f9](https://github.com/visitscotland/vs-component-library/commit/13070f9ba0e1f02958de81b6352c86774a8e843f))
+* **navigation:** tidying navigation bar stories and examples ([f7a44db](https://github.com/visitscotland/vs-component-library/commit/f7a44db5f76f946f259054d24d5d2334672211e6))
+* **navigation:** tidying up UI and accessibility on nav ([cdae708](https://github.com/visitscotland/vs-component-library/commit/cdae708966f270c9c9146bba091fce02b3265d87))
+* **navigation:** tidying up utilities in navigation bar ([0be4e4e](https://github.com/visitscotland/vs-component-library/commit/0be4e4e2581f4008ebe1bff84eb07049ac3624e8))
+* **navigation:** update dropdown and links for navigation ([cf590bb](https://github.com/visitscotland/vs-component-library/commit/cf590bbb9db87127c81c5d532ae3abdfb2fd9977))
+* **navigation:** update page header to use new navigation bar ([282e428](https://github.com/visitscotland/vs-component-library/commit/282e4280b65a2402dfba5ec4b23a099edbb8bb9c))
+* **search:** created navigation search button and update button component ([86f3bd4](https://github.com/visitscotland/vs-component-library/commit/86f3bd462042946ed32e97ac1f4577db3348a899))
+* **tooltip:** update tooltip component styles ([847e17e](https://github.com/visitscotland/vs-component-library/commit/847e17e6deda96da9e473687f9a61c6c08dc2f19))
+
+# [5.40.0](https://github.com/visitscotland/vs-component-library/compare/v5.39.2...v5.40.0) (2026-03-19)
+
+
+### Bug Fixes
+
+* **cardgroup:** fix typo in card data ([a406d69](https://github.com/visitscotland/vs-component-library/commit/a406d691f126741aafd4b31a84318a37ab0f03e5))
+
+
+### Features
+
+* **card:** update card group to improve multiple row layout and update storys ([eb2162b](https://github.com/visitscotland/vs-component-library/commit/eb2162bea487c42c4577ce40bd95666f3c8cb155))
+
+## [5.39.2](https://github.com/visitscotland/vs-component-library/compare/v5.39.1...v5.39.2) (2026-03-18)
+
+
+### Bug Fixes
+
+* **build:** adjust path load for glob 9 update ([df06d53](https://github.com/visitscotland/vs-component-library/commit/df06d53ec4390c7729c61c9891431c36137a911d))
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [5.39.1](https://github.com/visitscotland/vs-component-library/compare/v5.39.0...v5.39.1) (2026-03-18)
+
+
+### 🔖 Others
+
+* **deps-dev:** bump storybook ([447dd81](https://github.com/visitscotland/vs-component-library/commit/447dd81e711fcaf77bed572510bc6df678494462))
+
 # [5.39.0](https://github.com/visitscotland/vs-component-library/compare/v5.38.0...v5.39.0) (2026-03-16)
 
 

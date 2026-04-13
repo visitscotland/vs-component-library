@@ -23,6 +23,7 @@ export default `
                         href="#"
                         class="stretched-link"
                         variant="secondary"
+                        no-visited-styles
                     >
                         Managing your website
                     </VsLink>
@@ -38,7 +39,7 @@ export default `
 
         <template #vs-card-footer>
             <VsArticleDetails 
-                class="px-125"
+                class="px-125 mb-150"
                 article-read-time="2 minute read"
             />
         </template>

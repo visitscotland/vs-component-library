@@ -123,6 +123,32 @@ describe('VsModal', () => {
 
             expect(wrapper.vm.show).toBe(false);
         });
+
+        it('backdrop is rendered with show prop', async() => {
+            const wrapper = factoryMount();
+            wrapper.vm.show = true;
+
+            await wrapper.vm.$nextTick();
+
+            const backdrop = wrapper.findComponent({
+                name: 'VsBackdrop',
+            });
+            expect(backdrop.exists()).toBe(true);
+            expect(backdrop.props('show')).toBe(true);
+        });
+
+        it('hideModal is called when backdrop emits click', async() => {
+            const wrapper = factoryMount();
+            const hideModalSpy = jest.spyOn(wrapper.vm, 'hideModal');
+            wrapper.vm.show = true;
+            await wrapper.vm.$nextTick();
+
+            wrapper.findComponent({
+                name: 'VsBackdrop',
+            }).vm.$emit('click');
+
+            expect(hideModalSpy).toHaveBeenCalled();
+        });
     });
 
     describe(':accessibility', () => {

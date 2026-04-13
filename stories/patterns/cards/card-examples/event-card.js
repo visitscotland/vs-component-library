@@ -21,6 +21,15 @@ export default `
                         25 Oct 2025
                     </VsBadge>
                 </div>
+
+                <div class="position-absolute bottom-0 end-0 d-flex">
+                    <VsBadge
+                        variant="highlight"
+                        class="rounded-top-start rounded-bottom-start mx-0"
+                    >
+                        Event
+                    </VsBadge>
+                </div>
             </div>
         </template>
 
@@ -33,6 +42,7 @@ export default `
                     href="#"
                     class="stretched-link"
                     variant="secondary"
+                    no-visited-styles
                 >
                     Neuk presents: Edit Your Creative Scotland Bid with Truffle Pig
                 </VsLink>
@@ -55,7 +65,7 @@ export default `
                         size="sm"
                     />
                     <VsDetail no-margins color="tertiary">
-                        Scotland
+                        Perth Theatre, Perth
                     </VsDetail>
                 </div>
 
@@ -63,6 +73,7 @@ export default `
                     icon="vs-icon-control-external-link"
                     variant="highlight"
                     size="sm"
+                    class="ms-050"
                 />
             </div>
         </template>
