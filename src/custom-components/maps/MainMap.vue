@@ -965,8 +965,13 @@ async function searchByText() {
         textSearchQuery.locationRestriction = gMap.getBounds();
     } else {
         textSearchQuery.locationRestriction = null;
-        textSearchQuery.locationBias = gMap.getCenter();
+        textSearchQuery.locationBias = gMap.center;
     }
+
+    // Add the `includedType` of "lodging" when the query includes "self catering".
+    textSearchQuery.includedType = (query.value.includes('self catering'))
+        ? 'lodging'
+        : null;
 
     /**
      * Add 'in Scotland' to the end of the text query to help contain the
