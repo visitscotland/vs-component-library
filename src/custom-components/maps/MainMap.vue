@@ -969,7 +969,7 @@ async function searchByText() {
     }
 
     // Add the `includedType` of "lodging" when the query includes "self catering".
-    textSearchQuery.includedType = (query.value.includes('self catering'))
+    textSearchQuery.includedType = (query.value.toLowerCase().includes('self catering'))
         ? 'lodging'
         : null;
 
