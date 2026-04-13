@@ -61,6 +61,15 @@
                             {{ lede }}
                         </p>
                     </VsBody>
+
+                    <div
+                        v-if="$slots['hero-section-article-details']"
+                        class="vs-hero-section__article-details"
+                        data-test="vs-hero-section__article-details"
+                    >
+                        <!-- @slot Slot to contain article details -->
+                        <slot name="hero-section-article-details" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -300,7 +309,7 @@ export default {
                 width: 100%;
                 display: grid;
                 grid-template-columns: 1.5fr 1fr;
-                gap: 6rem;
+                gap: $vs-spacer-250 $vs-spacer-500;
             }
 
             @include media-breakpoint-up(xl) {
@@ -309,6 +318,21 @@ export default {
 
             .vs-hero-section__heading.vs-heading {
                 color: $vs-color-text-brand;
+
+                @include media-breakpoint-up(lg) {
+                    margin: 0;
+                }
+            }
+
+            .vs-hero-section__lede,
+            .vs-hero-section__article-details {
+                @include media-breakpoint-up(lg) {
+                    grid-column: 2;
+                }
+            }
+
+            .vs-hero-section__article-details {
+                margin-top: $vs-spacer-200;
 
                 @include media-breakpoint-up(lg) {
                     margin: 0;
@@ -372,6 +396,13 @@ export default {
 
                     @include media-breakpoint-up(lg) {
                         margin: 0 0 $vs-spacer-150 0;
+                    }
+                }
+
+                .vs-hero-section__lede,
+                .vs-hero-section__article-details {
+                    @include media-breakpoint-up(lg) {
+                        grid-column: 1;
                     }
                 }
             }
@@ -443,6 +474,13 @@ export default {
                 .vs-hero-section__heading.vs-heading {
                     @include media-breakpoint-up(lg) {
                         margin: 0 0 $vs-spacer-150 0;
+                    }
+                }
+
+                .vs-hero-section__lede,
+                .vs-hero-section__article-details {
+                    @include media-breakpoint-up(lg) {
+                        grid-column: 1;
                     }
                 }
             }

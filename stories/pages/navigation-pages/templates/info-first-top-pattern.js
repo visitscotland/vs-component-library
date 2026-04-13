@@ -119,7 +119,7 @@ export default `
                         <template #vs-card-footer>
                             <VsArticleDetails
                                 v-if="card.metaData"
-                                class="px-125"
+                                class="px-125 mb-150"
                                 :article-read-time="card.metaData"
                             />
                         </template>
@@ -211,7 +211,7 @@ export default `
                         <template #vs-card-footer>
                             <VsArticleDetails
                                 v-if="card.metaData"
-                                class="px-125"
+                                class="px-125 mb-150"
                                 :article-read-time="card.metaData"
                             />
                         </template>

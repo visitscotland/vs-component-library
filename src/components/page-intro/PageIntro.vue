@@ -135,16 +135,17 @@ import {
 } from '@/components/grid';
 
 /**
-* Component for the page hero and introduction.
-* Designed to be flexible so multiple designs of page intro
-* can be accommodated.
+* @deprecated: ⚠️ Use new Hero Section component and
+* page header patterns instead. This component will be
+* removed in a future release.
+* @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1157300230/Page+intro+deprecated
 *
 * @displayName Page Intro
 */
 
 export default {
     name: 'VsPageIntro',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsHeading,
