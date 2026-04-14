@@ -1,3 +1,10 @@
+## [5.45.1](https://github.com/visitscotland/vs-component-library/compare/v5.45.0...v5.45.1) (2026-04-14)
+
+
+### Bug Fixes
+
+* **video:** make prefers motion check ssr safe ([eabbd88](https://github.com/visitscotland/vs-component-library/commit/eabbd88b77b91458496e3da5708ce0e314b325a5))
+
 # [5.45.0](https://github.com/visitscotland/vs-component-library/compare/v5.44.0...v5.45.0) (2026-04-13)
 
 
