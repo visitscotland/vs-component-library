@@ -1,3 +1,10 @@
+# [5.46.0](https://github.com/visitscotland/vs-component-library/compare/v5.45.2...v5.46.0) (2026-04-15)
+
+
+### Features
+
+* **build:** remove redundant index files ([1801fef](https://github.com/visitscotland/vs-component-library/commit/1801fefa3c429e29ec15576d743be974f6dd6a3f))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
