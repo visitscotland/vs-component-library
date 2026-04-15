@@ -53,7 +53,7 @@ import {
     VsCol, VsRow, VsContainer,
 } from '@/components/grid';
 import { BModal } from 'bootstrap-vue-next';
-import VsButton from '@/components/button';
+import VsButton from '@/components/button/Button.vue';
 import VsBackdrop from '@/components/backdrop/Backdrop.vue';
 
 /**
