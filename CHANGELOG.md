@@ -1,3 +1,19 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [5.45.2](https://github.com/visitscotland/vs-component-library/compare/v5.45.1...v5.45.2) (2026-04-15)
+
+
+### 🔖 Others
+
+* **deps:** bump vue from 3.5.16 to 3.5.32 ([357eae3](https://github.com/visitscotland/vs-component-library/commit/357eae39eeb2c3122170d4ad8821eac5bc08f614))
+
+
+### 🏗 Build System
+
+* **ssr:** Remove legacy ssr build and unused dependencies ([022731e](https://github.com/visitscotland/vs-component-library/commit/022731e0ecbfbcbe34836c542dce3bd9d4e60c68))
+
 ## [5.45.1](https://github.com/visitscotland/vs-component-library/compare/v5.45.0...v5.45.1) (2026-04-14)
 
 
