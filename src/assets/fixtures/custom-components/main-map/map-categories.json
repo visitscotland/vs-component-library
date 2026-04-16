@@ -48,7 +48,30 @@
                     "hotel", "motel", "bed_and_breakfast", "guest_house", "inn"
                 ]
             }
-        ]
+        ],
+        "keywords": {
+            "en": [
+                "self catering",
+                "self-catering",
+                "holiday rental",
+                "holiday rentals",
+                "vacation rental",
+                "vacation rentals",
+                "holiday cottage",
+                "holiday cottages",
+                "cottage",
+                "cottages",
+                "holiday let",
+                "holiday lets",
+                "lodge",
+                "lodges"
+            ],
+            "es": [],
+            "it": [],
+            "de": [],
+            "nl": [],
+            "fr": []
+        }
     },
     "food-drink": {
         "id": "food-drink",

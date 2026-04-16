@@ -424,6 +424,7 @@ const query = ref();
 const queryStr = ref(new Set());
 const currentSearch = ref();
 const selfCateringClicked = ref(false);
+const keywords = ref(undefined);
 
 const subCategoryTypeMap = computed(() => {
     const map = new Map();
@@ -488,6 +489,7 @@ onMounted(async() => {
         axios.get(props.categoriesLocation)
             .then((response) => {
                 categoryData = response.data;
+                keywords.value = response.data.accommodation.keywords;
             })
             .catch(() => {});
     }
@@ -962,11 +964,13 @@ async function searchByText() {
         textSearchQuery.locationRestriction = gMap.getBounds();
     } else {
         textSearchQuery.locationRestriction = null;
-        textSearchQuery.locationBias = gMap.center;
+        textSearchQuery.locationBias = gMap.getCenter();
     }
 
     // Add the `includedType` of "lodging" when the query includes "self catering".
-    textSearchQuery.includedType = (query.value.toLowerCase().includes('self catering'))
+    textSearchQuery.includedType = (keywords.value[props.languageCode].some(
+        (term) => query.value.toLowerCase().includes(term),
+    ))
         ? 'lodging'
         : null;
 
