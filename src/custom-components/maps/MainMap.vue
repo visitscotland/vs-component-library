@@ -789,7 +789,7 @@ function searchBySubCategory(subCategoryId, key) {
         selectedSubCategories.value.add(subCategoryId);
         query.value = searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value;
         resetCategories();
-        searchInput.value = query.value;
+        searchInput.value = `${query.value} ${selectedDestination.value}`;
         searchByText();
     } else if (selectedSubCategories.value.has(subCategoryId)) {
         // Delete if already in selectedSubCategories
@@ -850,7 +850,7 @@ function searchBySubCategory(subCategoryId, key) {
         );
 
         // Add to the query value.
-        query.value = Array.from(queryStr.value).join(', ');
+        query.value = `${Array.from(queryStr.value).join(', ')} ${selectedDestination.value}`;
         searchInput.value = query.value;
 
         googleMapStore.showCategories = true;
