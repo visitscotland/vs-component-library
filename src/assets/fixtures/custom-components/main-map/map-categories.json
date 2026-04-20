@@ -66,11 +66,64 @@
                 "lodge",
                 "lodges"
             ],
-            "es": [],
-            "it": [],
-            "de": [],
-            "nl": [],
-            "fr": []
+            "es": [
+                "Alojamiento de alquiler vacacional",
+                "Alojamiento vacacional",
+                "Alojamientos vacacionales",
+                "Alojamientos de alquiler vacacional",
+                "Casa rural",
+                "Casas rurales",
+                "Cabaña",
+                "Cabañas"
+            ],
+            "it": [
+                "Casa vacanze con uso cucina",
+                "Casa vacanze",
+                "Appartamento vacanze",
+                "Case vacanze",
+                "Appartamenti vacanze",
+                "Casetta per le vacanze",
+                "Cottage",
+                "Lodge",
+                "Bungalow"
+            ],
+            "de": [
+                "Ferienhaus",
+                "Ferienwohnung",
+                "Ferienhäuser",
+                "Ferienwohnungen",
+                "Cottage",
+                "Cottages",
+                "Lodge",
+                "Lodges",
+                "Hütte",
+                "Hütten"
+            ],
+            "nl": [
+                "Vakantiehuis",
+                "Vakantiewoning",
+                "Vakantiehuizen",
+                "Vakantiewoningen",
+                "Vakantiehuisje",
+                "Vakantiehuisjes",
+                "Lodge",
+                "Lodges",
+                "Hut",
+                "Hutten"
+            ],
+            "fr": [
+                "Hébergement de location",
+                "Location de vacances",
+                "Locations de vacances",
+                "Gîte de vacances",
+                "Gîtes de vacances",
+                "Cottage",
+                "Cottages",
+                "Lodge",
+                "Lodges",
+                "Cabine",
+                "Cabines"
+            ]
         }
     },
     "food-drink": {
