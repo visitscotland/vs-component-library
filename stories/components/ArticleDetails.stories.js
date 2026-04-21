@@ -30,7 +30,7 @@ const base = {
 };
 
 const dateAuthor = {
-    articlePublishDate: 'Last updated: 24 January 2025',
+    articlePublishDate: '24 January 2025',
     articleAuthor: 'Sarah Henderson',
 };
 
@@ -42,7 +42,7 @@ export const WithDate = Template.bind({
 });
 WithDate.args = {
     ...base,
-    articlePublishDate: 'Last updated: 24 January 2025',
+    articlePublishDate: '24 January 2025',
 };
 
 export const WithAuthor = Template.bind({
@@ -55,7 +55,7 @@ WithAuthor.args = {
 export const NoReadTime = Template.bind({
 });
 NoReadTime.args = {
-    articlePublishDate: 'Last updated: 24 January 2025',
+    articlePublishDate: '24 January 2025',
 };
 
 export const StackMobile = Template.bind({

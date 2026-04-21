@@ -16,7 +16,7 @@ import staticNavExample from '@/assets/fixtures/header/static-nav.json';
 
 export default {
     component: VsMeganav,
-    title: 'Components/Navigation/MegaNav',
+    title: 'Components/Deprecated/MegaNav',
     argTypes: {
         topMenuItemAlign: {
             options: [
@@ -28,6 +28,7 @@ export default {
             },
         },
     },
+    tags: ['deprecated'],
 };
 
 const Template = (args) => ({
@@ -50,6 +51,11 @@ const Template = (args) => ({
         };
     },
     template: `   
+        <div style="background: #940f2c17; padding: 1rem; border: 1px solid #940F2C; margin-bottom: 1rem;">
+            ⚠️ Deprecated: Use new NavigationBar component instead. This component will be removed in a future release.
+            See the <a href="https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1156087809/Meganav+deprecated">component migration docs</a> 
+        </div>
+
         <div :class="args.jsDisabled ? 'no-js' : ''">     
             <VsMeganav
                 v-bind="args"

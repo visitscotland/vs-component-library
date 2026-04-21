@@ -15,6 +15,7 @@
     &::-webkit-scrollbar-thumb {
         background: $vs-color-interaction-cta-primary;
         border-radius: $vs-radius-tiny;
+        cursor: grab;
     }
 
     .vs-card {

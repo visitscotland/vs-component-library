@@ -3,6 +3,9 @@
 # Workflow name
 name: 'Yarn Test'
 
+permissions:
+  contents: read
+
 # Event for the workflow
 on:
   pull_request:

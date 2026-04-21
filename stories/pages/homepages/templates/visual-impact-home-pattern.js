@@ -4,11 +4,10 @@ export default `
             <VsHeroSection
                 heading="Scotland, <br/>it's good for the soul"
                 lede="Where history meets breathtaking beauty, and every visit feels like home."
-                img-src="fixtures/hero/images/lavendar-fields.png"
+                img-src="fixtures/hero/images/lavendar-fields.jpg"
                 video-src="fixtures/hero/video/lavendar-fields.mp4"
-                video-btn-text="Play/pause background video"
-                video-playing-status="Playing"
-                video-paused-status="Paused"
+                play-button-label="Play video"
+                pause-button-label="Pause video"
             />
         </template>
     </VsPageHeader>
@@ -29,13 +28,14 @@ export default `
         <VsRow>
             <VsCol>
                 <VsCardGroup
-                    cards-per-row="4"
+                    :cards-per-row="4"
                     class="text-start"
                 >
                     <VsCard
                         v-for="(card, index) in cardListOverlay"
                         card-style="overlay"
                         :key="'card-list-overlay-' + index"
+                        ref="overlayCard"
                     >
                         <template #vs-card-footer>
                             <div class="px-125 pb-125">
@@ -55,9 +55,30 @@ export default `
                             </div>
                         </template>
                         <template v-slot:vs-card-image>
+                            <VsVideo 
+                                v-if="card.videoSrc"
+                                video-type="html5"
+                                :poster-image-src="card.image"
+                                :video-src="card.videoSrc"
+                                :show-toggle="false"
+                                :video-id="'category-card-video' + index"
+                            />
                             <VsImg 
+                                v-else
                                 :src="card.image" 
                                 class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
+                            />
+                        </template>
+                        <template #vs-card-overlay-controls>
+                            <VsToggleButton
+                                v-if="card.videoSrc && !isReducedMotion"
+                                variant="overlay"
+                                icon="vs-icon-control-pause"
+                                pressed-icon="vs-icon-control-play"
+                                label="Pause video"
+                                pressed-label="Play video"
+                                :aria-controls="'category-card-video' + index"
+                                @click="toggleCard(index)"
                             />
                         </template>
                     </VsCard>

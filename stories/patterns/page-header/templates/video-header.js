@@ -8,7 +8,8 @@ export default `
                 :img-caption="args.imgCaption"
                 :img-credit="args.imgCredit"
                 video-src="fixtures/hero/video/lavendar-fields.mp4"
-                video-btn-text="Toggle video"
+                :play-button-label="args.playButtonLabel"
+                :pause-button-label="args.pauseButtonLabel"
             />
         </template>
     </VsPageHeader>

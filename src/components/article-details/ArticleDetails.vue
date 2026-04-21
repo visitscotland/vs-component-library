@@ -15,7 +15,6 @@
             v-if="articleReadTime || articlePublishDate"
             data-test="vs-article-details__date-time"
             :class="!articleAuthor ? 'vs-article-details--highlight' : ''"
-            class="mb-150"
         >
             <template v-if="articleReadTime">
                 <VsIcon
@@ -88,21 +87,12 @@ export default {
 
 <style lang="scss">
 .vs-article-details {
-    &__date {
-        display: block;
-
-        @include media-breakpoint-up(sm) {
-            display: inline;
-        }
+    &__date, &__divider {
+       display: inline;
     }
 
     &__divider {
-        display: none;
         padding: 0 $vs-spacer-025;
-
-        @include media-breakpoint-up(sm) {
-            display: inline;
-        }
     }
 
     &--highlight {

@@ -9,6 +9,7 @@ import VsLink from '@/components/link/Link.vue';
 import VsBody from '@/components/body/Body.vue';
 import VsArticleDetails from '@/components/article-details/ArticleDetails.vue';
 import VsBadge from '@/components/badge/Badge.vue';
+import VsVideo from '@/components/video/Video.vue';
 
 import visualCardData from '@/assets/fixtures/navigation-pages/visual-impact-cards.json';
 import informationalCardData from '@/assets/fixtures/navigation-pages/information-first-secondary-cards.json';
@@ -31,6 +32,7 @@ const components = {
     VsRow,
     VsContainer,
     VsCardGroup,
+    VsVideo,
 };
 const createStory = (template, args, globals) => {
     const story = {

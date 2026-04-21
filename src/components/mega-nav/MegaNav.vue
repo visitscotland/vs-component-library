@@ -144,14 +144,15 @@ import clickOutside from '@/directives/click-outside';
 import dataLayerMixin from '../../mixins/dataLayerMixin';
 
 /**
- *  The Mega Nav bar component includes main VS logo and slots for
- *  top menu items on desktop and dropdown toggle with menu items for mobile
+ * @deprecated: ⚠️ Use new NavigationBar component instead.
+ * This component will be removed in a future release.
+ * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1156087809/Meganav+deprecated
  *
  * @displayName Mega Navigation
  */
 export default {
     name: 'VsMegaNav',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.1.0',
     components: {
         VsCol,

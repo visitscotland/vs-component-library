@@ -26,15 +26,15 @@ import {
 import { LazyHydrationWrapper } from 'vue3-lazy-hydration';
 
 /**
- * This component is the main Global Nav Wrapper for the top of the page.
- * It holds the Our Websites and slots for Login and Language Change functionalities.
+ * @deprecated: ⚠️ This pattern is no longer supported. Use the
+ * Navigation Bar instead. This component will be removed in a future release.
+ * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1157562370/Global+Menu+deprecated
  *
  * @displayName Global Menu
  */
-
 export default {
     name: 'VsGlobalMenu',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.1.0',
     components: {
         VsContainer,
