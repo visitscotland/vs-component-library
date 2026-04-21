@@ -115,7 +115,7 @@
     "sass": "^1.62.1",
     "semantic-release": "^24.2.0",
     "standard-version": "^9.5.0",
-    "storybook": "^9.1.0-alpha.2",
+    "storybook": "^10.3.5",
     "storybook-addon-datalayer-watcher": "^2.0.1",
     "storybook-addon-tag-badges": "^2.0.2",
     "theo": "^8.1.5",
