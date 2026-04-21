@@ -703,6 +703,10 @@ function selectCategory(categoryId, key) {
 
     selectedTopLevelCategory.value = categoryId;
 
+    if (categoryData[categoryId].includedType) {
+        includedTopLevelTypes.value.add(categoryData[categoryId].includedType);
+    }
+
     // Retrieves all the values in each subcategory and adds it to
     // `includedTopLevelTypes` set, which should handle duplication.
     Object.values(categoryData[categoryId].subCategory).forEach(

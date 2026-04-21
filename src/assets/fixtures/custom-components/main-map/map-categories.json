@@ -2,6 +2,9 @@
     "accommodation": {
         "id": "accommodation",
         "icon": "fa-regular fa-bed",
+        "includedType": [
+            "lodging"
+        ],
         "subCategory": [
             {
                 "id": "self-catering",
