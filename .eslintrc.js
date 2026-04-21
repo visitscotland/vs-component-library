@@ -150,9 +150,6 @@ module.exports = {
                     '.vue',
                 ],
             },
-            webpack: {
-                config: './build/webpack.conf.js',
-            },
             typescript: {
 
             },
