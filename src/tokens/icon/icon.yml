@@ -27,6 +27,10 @@ props:
     value: "fa-regular fa-pause"
   vs-icon-control-external-link:
     value: "fa-regular fa-square-arrow-up-right"  
+  vs-icon-control-previous:
+    value: "fa-regular fa-chevron-down"
+  vs-icon-control-next:
+    value: "fa-regular fa-chevron-up"  
 
   ## Feedback Icons
   vs-icon-feedback-information:

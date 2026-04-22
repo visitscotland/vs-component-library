@@ -21,6 +21,7 @@ import VsModal from '@/components/modal/Modal.vue';
 import VsVideo from '@/components/video/Video.vue';
 import VsSectionHeader from '@/components/section-header/SectionHeader.vue';
 import VsToggleButton from '@/components/toggle-button/ToggleButton.vue';
+import { VsCardCarousel, VsCarouselNewSlide } from '@/components/carousel-new';
 
 import prefersReducedMotion from '@/utils/prefers-reduced-motion';
 
@@ -56,6 +57,8 @@ const components = {
     VsModal,
     VsVideo,
     VsToggleButton,
+    VsCardCarousel,
+    VsCarouselNewSlide,
 };
 
 const createStory = (template, options = {
