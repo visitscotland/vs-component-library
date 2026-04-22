@@ -386,6 +386,8 @@ const NUMBER_OF_RESULTS = 20;
 const query = ref();
 const queryStr = ref(new Set());
 const currentSearch = ref();
+const selfCateringClicked = ref(false);
+const keywords = ref(undefined);
 
 const subCategoryTypeMap = computed(() => {
     const map = new Map();
@@ -464,6 +466,7 @@ onMounted(async() => {
         axios.get(props.categoriesLocation)
             .then((response) => {
                 categoryData = response.data;
+                keywords.value = response.data.accommodation.keywords;
             })
             .catch(() => {});
     }
@@ -679,6 +682,10 @@ function selectCategory(categoryId, key) {
 
     selectedTopLevelCategory.value = categoryId;
 
+    if (categoryData[categoryId].includedType) {
+        includedTopLevelTypes.value.add(categoryData[categoryId].includedType);
+    }
+
     // Retrieves all the values in each subcategory and adds it to
     // `includedTopLevelTypes` set, which should handle duplication.
     Object.values(categoryData[categoryId].subCategory).forEach(
@@ -784,13 +791,16 @@ function searchBySubCategory(subCategoryId, key) {
     subCategoryKey.value = key;
 
     if (subCategoryId === 'self-catering') {
+        selfCateringClicked.value = true;
         resetTextQuery();
         selectedSubCategories.value = new Set();
         selectedSubCategories.value.add(subCategoryId);
+        const label = searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value;
         query.value = searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value;
         resetCategories();
         searchInput.value = `${query.value} ${selectedDestination.value}`;
         searchByText();
+        searchInput.value = label;
     } else if (selectedSubCategories.value.has(subCategoryId)) {
         // Delete if already in selectedSubCategories
         selectedSubCategories.value.delete(subCategoryId);
@@ -930,9 +940,26 @@ async function searchByText() {
 
     query.value = searchInput.value.trim();
     // Don't search if no query
-    if (!query.value) {
-        return;
+    if (!query.value) return;
+
+    /**
+     * Search using locationRestriction when "Self catering" sub category has
+     * selected. Search using locationBias for other text searches.
+     */
+    if (selfCateringClicked.value) {
+        textSearchQuery.locationBias = null;
+        textSearchQuery.locationRestriction = gMap.getBounds();
+    } else {
+        textSearchQuery.locationRestriction = null;
+        textSearchQuery.locationBias = gMap.getCenter();
     }
+
+    // Add the `includedType` of "lodging" when the query includes a keyword.
+    textSearchQuery.includedType = (keywords.value.some(
+        (term) => query.value.toLowerCase().includes(term),
+    ))
+        ? 'lodging'
+        : null;
 
     /**
      * Add 'in Scotland' to the end of the text query to help contain the
@@ -940,7 +967,6 @@ async function searchByText() {
      */
     textSearchQuery.textQuery = `${query.value} in Scotland`;
 
-    textSearchQuery.locationRestriction = gMap.getBounds();
     textSearchQuery.maxResultCount = NUMBER_OF_RESULTS;
 
     textSearch.style.display = 'block';
@@ -949,6 +975,7 @@ async function searchByText() {
         if (searchId !== currentSearchId) return;
 
         addMarkers(searchId);
+        selfCateringClicked.value = false;
 
         dataLayerHelper.createDataLayerObject('googleMapSearchEvent', {
             search_query: query.value,
