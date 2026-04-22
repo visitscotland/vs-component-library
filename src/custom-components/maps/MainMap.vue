@@ -971,8 +971,8 @@ async function searchByText() {
         textSearchQuery.locationBias = gMap.getCenter();
     }
 
-    // Add the `includedType` of "lodging" when the query includes "self catering".
-    textSearchQuery.includedType = (keywords.value[props.languageCode].some(
+    // Add the `includedType` of "lodging" when the query includes a keyword.
+    textSearchQuery.includedType = (keywords.value.some(
         (term) => query.value.toLowerCase().includes(term),
     ))
         ? 'lodging'
