@@ -1,3 +1,20 @@
+# [5.47.0](https://github.com/visitscotland/vs-component-library/compare/v5.46.0...v5.47.0) (2026-04-22)
+
+
+### Bug Fixes
+
+* **main map:** check the lowercase version of the search query when deciding to set includedType ([f71f720](https://github.com/visitscotland/vs-component-library/commit/f71f720661a637c643a321a6e886bfe2c4d60fa9))
+* **main map:** keyword search ([7c2f78b](https://github.com/visitscotland/vs-component-library/commit/7c2f78bcebfa8cbd8b4423297c8381cce3f32c99))
+* **main map:** remove merge conflict code ([41a8124](https://github.com/visitscotland/vs-component-library/commit/41a8124cee06a4fcc609b15032b33fbc9e41e5bc))
+* **main map:** set includedType when searching "self catering" ([fe0fa12](https://github.com/visitscotland/vs-component-library/commit/fe0fa121adc3be779e0da06abc2bcad6e6fffbe6))
+* **main map:** switch to locationBias for the text search ([1550049](https://github.com/visitscotland/vs-component-library/commit/1550049656eefd5b181131707cbe2204c9ed2000))
+
+
+### Features
+
+* **main map:** add includedType to top level categories ([965c49f](https://github.com/visitscotland/vs-component-library/commit/965c49fe1468eea53885694878d1abb4b9f66650))
+* **main map:** add search terms for lodging to the map-categories file ([d02b92f](https://github.com/visitscotland/vs-component-library/commit/d02b92ff09878602e76b85c79a41a5673357bdcd))
+
 # [5.46.0](https://github.com/visitscotland/vs-component-library/compare/v5.45.2...v5.46.0) (2026-04-15)
 
 
