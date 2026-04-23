@@ -2,46 +2,46 @@
     <div
         class="vs-card-carousel"
         :id="`vs-carousel-${instanceId}`"
-        :class="{ 'vs-card-carousel--fixed': isFixed }"
+        :class="carouselClasses"
     >
-        <div class="vs-card-carousel__controls">
-            <VsButton
-                icon-only
-                class="vs-card-carousel__control--prev me-050"
-                :class="`vs-carousel-prev-${instanceId}`"
-                icon="fa-regular fa-arrow-left"
-                variant="secondary"
-            >
-                {{ previousButtonLabel }}
-            </VsButton>
+        <div class="vs-card-carousel__inner">
+            <div class="vs-card-carousel__controls">
+                <VsButton
+                    icon-only
+                    class="vs-card-carousel__control--prev me-050"
+                    :class="`vs-carousel-prev-${instanceId}`"
+                    icon="fa-regular fa-arrow-left"
+                    variant="secondary"
+                >
+                    {{ previousButtonLabel }}
+                </VsButton>
 
-            <VsButton
-                icon-only
-                class="vs-card-carousel__control--next"
-                :class="`vs-carousel-next-${instanceId}`"
-                icon="fa-regular fa-arrow-right"
-                variant="secondary"
+                <VsButton
+                    icon-only
+                    class="vs-card-carousel__control--next"
+                    :class="`vs-carousel-next-${instanceId}`"
+                    icon="fa-regular fa-arrow-right"
+                    variant="secondary"
+                >
+                    {{ nextButtonLabel }}
+                </VsButton>
+            </div>
+
+            <Swiper
+                :modules="modules"
+                :space-between="30"
+                :navigation="{
+                    prevEl: `.vs-carousel-prev-${instanceId}`,
+                    nextEl: `.vs-carousel-next-${instanceId}`,
+                }"
+                :scrollbar="{ draggable: false }"
+                :breakpoints="swiperBreakpoints"
+                :slides-per-view="slidesPerView"
             >
-                {{ nextButtonLabel }}
-            </VsButton>
+                <!-- Default slot for VsCarouselSlides -->
+                <slot />
+            </Swiper>
         </div>
-
-        <Swiper
-            :modules="modules"
-            :space-between="30"
-            :navigation="{
-                prevEl: `.vs-carousel-prev-${instanceId}`,
-                nextEl: `.vs-carousel-next-${instanceId}`,
-            }"
-            :scrollbar="{
-                draggable: false,
-            }"
-            :breakpoints="swiperBreakpoints"
-            :slides-per-view="slidesPerView"
-        >
-            <!-- Default slot for VsCarouselSlides -->
-            <slot />
-        </Swiper>
     </div>
 </template>
 
@@ -146,6 +146,13 @@ export default {
         };
     },
     computed: {
+        carouselClasses() {
+            return {
+                'vs-card-carousel--fixed': this.isFixed,
+                'vs-card-carousel--fluid': !this.isFixed,
+            };
+        },
+
         isFixed() {
             return this.layout === 'fixed';
         },
@@ -193,16 +200,75 @@ export default {
 <style lang="scss">
 
 .vs-card-carousel {
+    width: 100%;
+    overflow: clip;
+
+    .vs-card-carousel__inner {
+        margin: 0 auto;
+        padding: 0 0.75rem;
+
+        @include media-breakpoint-up(sm) {
+            max-width: 540px;
+        }
+
+        @include media-breakpoint-up(md) {
+            max-width: 720px;
+        }
+
+        @include media-breakpoint-up(lg) {
+            max-width: 960px;
+        }
+
+        @include media-breakpoint-up(xl) {
+            max-width: 1140px;
+        }
+
+        @include media-breakpoint-up(xxl) {
+            max-width: 1320px;
+        }
+    }
+
+     &:has(.swiper-button-lock) {
+        .swiper-wrapper {
+            display: flex;
+            gap: 30px;
+            transform: none !important;
+        }
+
+        .swiper-slide {
+            margin-right: 0!important;
+        }
+    }
+
+    .swiper {
+        overflow: visible;
+    }
+
     &--fixed {
         .swiper-slide {
             width: 240px;
 
             @include media-breakpoint-up(md) {
-                width: 280px;
+                width: 292px;
             }
 
             @include media-breakpoint-up(lg) {
-                width: 320px;
+                width: 300px;
+            }
+        }
+
+         &:has(.swiper-button-lock) {
+            .swiper-slide {
+                flex: 0 0 auto;
+                margin-right: 0!important;
+            }
+        }
+    }
+    &--fluid {
+        &:has(.swiper-button-lock) {
+            .swiper-slide {
+                flex: 1 1 0;
+                width: auto !important;
             }
         }
     }
@@ -219,38 +285,6 @@ export default {
         .swiper-button-lock {
             display: none;
         }
-    }
-
-    .swiper {
-        overflow: visible;
-    }
-
-    &:has(.swiper-button-lock) {
-        .swiper-wrapper {
-            display: flex;
-            gap: 30px; // replaces spaceBetween
-            transform: none !important;
-        }
-
-        .swiper-slide {
-            width: 100% !important;
-            margin-right: 0 !important;
-            flex: 1 1 0;
-        }
-
-        // .vs-card-carousel--fixed {
-        //     .swiper-wrapper {
-        //         display: flex;
-        //         gap: 30px;
-        //         justify-content: flex-start; // or center
-        //         transform: none !important;
-        //     }
-
-        //     .swiper-slide {
-        //         margin-right: 0 !important;
-        //         flex: 0 0 auto; // keep fixed width
-        //     }
-        // }
     }
 
     .swiper-scrollbar {
