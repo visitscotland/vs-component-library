@@ -28,9 +28,9 @@ props:
   vs-icon-control-external-link:
     value: "fa-regular fa-square-arrow-up-right"  
   vs-icon-control-previous:
-    value: "fa-regular fa-chevron-down"
+    value: "fa-regular fa-chevron-left"
   vs-icon-control-next:
-    value: "fa-regular fa-chevron-up"  
+    value: "fa-regular fa-chevron-right"  
 
   ## Feedback Icons
   vs-icon-feedback-information:
