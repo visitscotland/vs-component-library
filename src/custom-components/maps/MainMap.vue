@@ -135,6 +135,21 @@
                         </gmp-place-details>
                     </div>
                 </Suspense>
+
+                <!-- TODO: Add conditional back in -->
+                <div
+                    v-if="showSearchAreaButton"
+                    class="vs-map__search-area"
+                >
+                    <VsButton
+                        icon="vs-icon-control-search"
+                        variant="secondary"
+                        @click="searchArea"
+                    >
+                        <!-- TODO: Add label -->
+                        Search this area
+                    </VsButton>
+                </div>
             </div>
         </div>
 
@@ -181,6 +196,7 @@ import axios from 'axios';
 
 import {
     VsAlert,
+    VsButton,
     VsWarning,
 } from '@/components';
 
@@ -388,6 +404,7 @@ const queryStr = ref(new Set());
 const currentSearch = ref();
 const selfCateringClicked = ref(false);
 const keywords = ref(undefined);
+const showSearchAreaButton = ref(false);
 
 const subCategoryTypeMap = computed(() => {
     const map = new Map();
@@ -1313,6 +1330,37 @@ function handleFeaturedLocationClick(place) {
 
     selectCategory('things-to-do', 2);
 }
+
+function searchArea() {
+    // hide button
+    googleMapStore.showDestinations = false;
+    selectedDestination.value = '';
+
+    // Check for selected subcategory and start nearby search.
+    if (selectedSubCategories.value.size > 0) {
+        searchByCategory({
+            includedTypes: Array.from(includedSubTypes.value),
+            excludedTypes: Array.from(excludedSubTypes.value),
+        });
+        googleMapStore.showCategories = true;
+        return;
+    }
+
+    // Check for selected category and start nearby search.
+    if (selectedTopLevelCategory.value) {
+        selectCategory(selectedTopLevelCategory.value, categoryKey.value);
+        return;
+    }
+
+    // Check for searchInput value and start text search.
+    if (searchInput.value) {
+        searchByText();
+        return;
+    }
+
+    // Start "Things to do" search if no categories selected or search terms entered.
+    selectCategory('things-to-do', 2);
+}
 </script>
 
 <style lang="scss">
@@ -1339,6 +1387,7 @@ function handleFeaturedLocationClick(place) {
 
     &__wrapper, #vs-map {
         height: 90vh;
+        position: relative;
         width: 100%;
 
         gmp-advanced-marker {
@@ -1363,6 +1412,15 @@ function handleFeaturedLocationClick(place) {
             &:hover {
                 transform: scale(1.25);
             }
+        }
+
+        .vs-map__search-area {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            top: $vs-spacer-100;
+            left: 0;
+            width: 100%;
         }
     }
 
