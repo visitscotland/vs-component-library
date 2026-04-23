@@ -1,20 +1,19 @@
 <template>
     <div
         class="vs-map-sidebar px-125"
-        data-test="vs-map-sidebar"
         :class="googleMapStore.sidebarOpen ? 'd-block' : 'd-none'"
-        ref="vsMapSidebar"
+        data-test="vs-map-sidebar"
     >
         <div class="vs-map-sidebar__header d-flex">
             <VsHeading
-                v-if="props.headerLabel"
-                level="1"
-                heading-style="heading-xxs"
+                v-if="props.sidebarLabels.headerLabel"
                 class="flex-grow-1"
-                id="vs-map-sidebar__heading"
                 data-test="vs-map-sidebar__heading"
+                heading-style="heading-xxs"
+                id="vs-map-sidebar__heading"
+                level="1"
             >
-                {{ props.headerLabel }}
+                {{ props.sidebarLabels.headerLabel }}
             </VsHeading>
             <VsButton
                 class="vs-map-sidebar__sidebar-control vs-map-siderbar__sidebar-control--dismiss"
@@ -24,20 +23,29 @@
                 variant="subtle"
                 @click="googleMapStore.sidebarOpen = false"
             >
-                {{ props.closeSidebarButtonLabel }}
+                {{ props.sidebarLabels.closeSidebarButtonLabel }}
             </VsButton>
         </div>
+
         <div class="vs-map-sidebar__content">
-            <div class="vs-map-sidebar__input d-flex mt-100 mb-050">
+            <a
+                v-if="props.query || props.selectedCategory"
+                href="#"
+                data-test="vs-map-sidebar__hard-reset-map"
+                @click.prevent="$emit('reset-location')"
+                @keyup.enter.prevent="$emit('reset-location')"
+            >
+                {{ props.sidebarLabels.resetLocationLabel }}
+            </a>
+
+            <div class="vs-map-sidebar__input d-flex mt-050 mb-050">
                 <VsInput
-                    type="text"
+                    :aria-label="props.sidebarLabels.searchBarAriaLabel"
                     autocomplete="off"
-                    field-name="vs-map-search-input"
-                    data-test="vs-map-search-input"
-                    ref="vs-search-input"
-                    :placeholder="props.inputPlaceholderLabel"
                     class="vs-map-sidebar__input flex-grow-1"
-                    :aria-label="props.searchBarAriaLabel"
+                    data-test="vs-map-search-input"
+                    field-name="vs-map-search-input"
+                    :placeholder="props.sidebarLabels.inputPlaceholderLabel"
                     @keyup.enter.prevent="$emit('search-input-changed')"
                 />
                 <VsButton
@@ -50,41 +58,75 @@
                     @click.prevent="$emit('search-input-changed')"
                     @keyup.enter.prevent="$emit('search-input-changed')"
                 >
-                    {{ props.searchButtonLabel }}
+                    {{ props.sidebarLabels.searchButtonLabel }}
                 </VsButton>
             </div>
+
             <a
-                href="#"
+                v-if="props.query || props.selectedCategory"
                 class="d-block"
+                href="#"
                 data-test="vs-map-sidebar__reset-map"
-                v-if="$props.query || $props.selectedCategories"
                 @click.prevent="$emit('reset-map')"
                 @keyup.enter.prevent="$emit('reset-map')"
             >
-                {{ props.clearMapLabel }}
+                {{ props.sidebarLabels.clearMapLabel }}
             </a>
-            <div
-                v-if="$slots['vs-map-sidebar-sub-filters'] && $slots['vs-map-sidebar-sub-filters']()"
-                class="vs-map-sidebar__sub-filters-wrapper"
-            >
+
+            <VsMapFeaturedLocation
+                v-if="googleMapStore.showDestinations"
+                :location-select-label="props.sidebarLabels.locationSelectLabel"
+            />
+
+            <div v-if="googleMapStore.showCategories">
+                <div class="vs-map__categories">
+                    <template
+                        v-for="(category, key) in props.categories"
+                        :key="key"
+                    >
+                        <VsButton
+                            v-if="!category.cmsData"
+                            class="vs-map__filter-controls-button"
+                            :icon="setCategoryIcon(category.id)"
+                            size="sm"
+                            :variant="props.selectedCategory === category.id ? 'primary' : 'secondary'"
+                            @click="$emit('category-selected', { id: category.id, key })"
+                        >
+                            {{ category.label }}
+                        </VsButton>
+                    </template>
+                </div>
+
                 <VsDetail
                     class="vs-map-sidebar__sub-filter-header"
-                    size="small"
                     color="secondary"
+                    size="small"
                 >
-                    {{ props.subFilterHeaderLabel }}
+                    {{ props.sidebarLabels.subFilterHeaderLabel }}
                 </VsDetail>
-                <!-- @Slot for sub filters to be added to sidebar -->
-                <slot name="vs-map-sidebar-sub-filters" />
+
+                <div class="vs-map-sidebar__sub-filters">
+                    <VsButton
+                        v-for="(subcategory, key) in subcategories"
+                        :key
+                        size="sm"
+                        :variant="isSubcategoryActive(subcategory.id)"
+                        @click="$emit('subcategory-selected', { id: subcategory.id, key })"
+                    >
+                        {{ subcategory.label }}
+                    </VsButton>
+                </div>
             </div>
+
             <div class="vs-map-sidebar__search-results">
                 <VsHeading
                     level="2"
                     heading-style="heading-xxxs"
-                    v-if="$props.query || $props.selectedCategories"
+                    v-if="$props.query || $props.selectedCategory"
                     data-test="vs-map-sidebar__search-result-query"
                 >
-                    {{ props.searchResultsLabel }} "{{ props.query || props.selectedCategories }}"
+                    {{ props.sidebarLabels.searchResultsLabel }}
+                    "{{ props.query || props.selectedCategory }}"
                 </VsHeading>
                 <div class="vs-map-sidebar__google-maps-container mt-075">
                     <!-- @Slot to contain Google Maps Places
@@ -92,32 +134,27 @@
                     <slot name="vs-map-sidebar-search-results" />
                 </div>
             </div>
-            <VsMapFeaturedLocation
-                class="mb-100"
-                :class="($props.query || $props.selectedCategories) ? 'd-none' : 'd-block'"
-            />
         </div>
-        <div
-            class="vs-map-sidebar__footer"
-            v-if="$props.query || $props.selectedCategories"
-        >
+        <div class="vs-map-sidebar__footer">
             <hr class="vs-map-sidebar__swipe-tab">
         </div>
     </div>
     <VsButton
         class="vs-map-sidebar__sidebar-control vs-map-sidebar__sidebar-control--open"
-        data-test="vs-map-sidebar__sidebar-control--open"
         :class="googleMapStore.sidebarOpen ? 'd-none' : 'd-block'"
+        data-test="vs-map-sidebar__sidebar-control--open"
         size="sm"
         icon="fa-regular fa-sliders"
         icon-only
         @click="googleMapStore.sidebarOpen = true"
     >
-        {{ props.openSidebarButtonLabel }}
+        {{ props.sidebarLabels.openSidebarButtonLabel }}
     </VsButton>
 </template>
 
-<script setup lang="ts">
+<script setup>
+import { computed } from 'vue';
+
 import VsButton from '@/components/button/Button.vue';
 import VsDetail from '@/components/detail/Detail.vue';
 import VsHeading from '@/components/heading/Heading.vue';
@@ -135,58 +172,62 @@ const props = defineProps({
         default: '',
     },
     /** Selected Top Level Category */
-    selectedCategories: {
+    selectedCategory: {
         type: String,
         default: '',
     },
-    /** Label for the sidebar header */
-    headerLabel: {
-        type: String,
-        default: '',
+    /** Selected sub categories */
+    selectedSubcategories: {
+        type: Object,
+        default: undefined,
     },
-    /** Label for the close sidebar button */
-    closeSidebarButtonLabel: {
-        type: String,
-        default: '',
+    /** Labels for the sidebar */
+    sidebarLabels: {
+        type: Object,
+        required: true,
     },
-    /** ARIA Label for the input */
-    searchBarAriaLabel: {
-        type: String,
-        default: '',
+    /** Label and id for the category buttons. */
+    categories: {
+        type: Object,
+        required: true,
     },
-    /** Label for the input placeholder text */
-    inputPlaceholderLabel: {
-        type: String,
-        default: '',
-    },
-    /** Label for the search button */
-    searchButtonLabel: {
-        type: String,
-        default: '',
-    },
-    /** Label for the clear map link */
-    clearMapLabel: {
-        type: String,
-        default: '',
-    },
-    /* Label for subfilter header */
-    subFilterHeaderLabel: {
-        type: String,
-        default: '',
-    },
-    /** Label for the search results text */
-    searchResultsLabel: {
-        type: String,
-        default: '',
-    },
-    /** Label for the open sidebar button */
-    openSidebarButtonLabel: {
-        type: String,
-        default: '',
+    /** Icon data for the category buttons. */
+    categoryData: {
+        type: Object,
+        default: () => {},
     },
 });
 
-defineEmits(['search-input-changed', 'reset-map']);
+defineEmits([
+    'category-selected',
+    'reset-location',
+    'reset-map',
+    'search-input-changed',
+    'subcategory-selected',
+]);
+
+// Set the subcategories for the selected category.
+const subcategories = computed(() => {
+    if (!props.selectedCategory) return null;
+
+    const categoryData = props.categories.find((cat) => cat.id === props.selectedCategory);
+    return categoryData.subCategory;
+});
+
+// Check if subcategory button should be active.
+function isSubcategoryActive(id) {
+    return Array.from(props.selectedSubcategories).includes(id) ? 'primary' : 'secondary';
+}
+
+function setCategoryIcon(id) {
+    if (!props.categoryData) return null;
+
+    const categoryInfo = props.categoryData[id];
+
+    if (!categoryInfo) return null;
+
+    return categoryInfo.icon;
+}
 </script>
 
 <style lang="scss">
@@ -197,15 +238,10 @@ defineEmits(['search-input-changed', 'reset-map']);
     box-shadow: $vs-elevation-shadow-raised;
     pointer-events: auto;
     max-height: 87.5vh;
-    overflow-y: auto;
+    overflow: hidden;
 
     @include media-breakpoint-up (sm) {
         width: 23.3rem;
-    }
-
-    &__content{
-        display: flex;
-        flex-direction: column;
     }
 
     &__input input {
@@ -213,7 +249,6 @@ defineEmits(['search-input-changed', 'reset-map']);
         border-radius: $vs-radius-small $vs-radius-none $vs-radius-none $vs-radius-small;
         border-right: none;
         height: 52px;
-        flex: 0 1;
     }
 
     &__search-button {
@@ -230,13 +265,8 @@ defineEmits(['search-input-changed', 'reset-map']);
         flex: 0 1;
 
         @include media-breakpoint-down(md) {
-            width: 100%;
-            flex-wrap: nowrap;
-            align-items: start;
-            @include scrollsnap-styles;
             pointer-events: all;
-            column-gap: $vs-spacer-050;
-            padding: $vs-spacer-025 $vs-spacer-025 $vs-spacer-050 $vs-spacer-025 ;
+            padding: $vs-spacer-025 $vs-spacer-025 $vs-spacer-075 $vs-spacer-025 ;
         }
 
         button {
@@ -244,13 +274,8 @@ defineEmits(['search-input-changed', 'reset-map']);
         }
     }
 
-    &__search-results {
-        flex: 1 0 max-content;
-    }
-
     &__google-maps-container {
-        border-radius: $vs-radius-large;
-        max-height: clamp(275px, 20em, 50vh);
+        max-height: clamp(275px, 20em, 32vh);
         overflow-y: scroll;
     }
 
