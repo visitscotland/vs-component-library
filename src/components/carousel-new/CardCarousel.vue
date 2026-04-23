@@ -2,7 +2,10 @@
     <div
         class="vs-card-carousel"
         :id="`vs-carousel-${instanceId}`"
-        :class="carouselClasses"
+        :class="[
+            carouselClasses,
+            { 'is-interacting': isInteracting },
+        ]"
     >
         <div class="vs-card-carousel__inner">
             <div class="vs-card-carousel__controls">
@@ -37,6 +40,11 @@
                 :scrollbar="{ draggable: false }"
                 :breakpoints="swiperBreakpoints"
                 :slides-per-view="slidesPerView"
+                @touch-start="onTouchStart"
+                @touch-end="onTouchEnd"
+                @slider-move="onSliderMove"
+                @slide-change-transition-start="onInteractionStart"
+                @slide-change-transition-end="onInteractionEnd"
             >
                 <!-- Default slot for VsCarouselSlides -->
                 <slot />
@@ -94,7 +102,7 @@ export default {
          */
         slidesPerViewXs: {
             type: Number,
-            default: 1.2,
+            default: 1.4,
         },
         /**
          * Slides per view at SM breakpoint (576px+)
@@ -143,6 +151,7 @@ export default {
         return {
             modules: [Navigation, Scrollbar],
             instanceId: `carousel-${Math.random().toString(36).slice(2, 9)}`,
+            isInteracting: false,
         };
     },
     computed: {
@@ -191,6 +200,38 @@ export default {
 
         slidesPerView() {
             return this.isFixed ? 'auto' : undefined;
+        },
+    },
+    methods: {
+        onTouchStart() {
+            this.isInteracting = true;
+        },
+
+        onSliderMove() {
+            this.isInteracting = true;
+        },
+
+        onTouchEnd() {
+            // small delay feels more natural
+            setTimeout(() => {
+                this.isInteracting = false;
+            }, 300);
+        },
+
+        onInteractionStart() {
+            this.isInteracting = true;
+        },
+
+        onInteractionEnd() {
+            this.endInteraction();
+        },
+
+        endInteraction() {
+            clearTimeout(this._interactionTimer);
+
+            this._interactionTimer = setTimeout(() => {
+                this.isInteracting = false;
+            }, 400);
         },
     },
 };
@@ -264,6 +305,7 @@ export default {
             }
         }
     }
+
     &--fluid {
         &:has(.swiper-button-lock) {
             .swiper-slide {
@@ -276,6 +318,7 @@ export default {
     &__controls {
         display: flex;
         justify-content: flex-end;
+        padding-top: $vs-spacer-025;
 
         .vs-card-carousel__control--prev,
         .vs-card-carousel__control--next {
@@ -287,10 +330,20 @@ export default {
         }
     }
 
+    &.is-interacting {
+        .swiper {
+            .swiper-scrollbar {
+                opacity: 1;
+            }
+        }
+    }
+
     .swiper-scrollbar {
         height: 2px;
         background: $vs-color-border-primary;
         border-radius: 3px;
+        opacity: 0;
+        transition: opacity 0.4s ease-in-out;
 
         &.swiper-scrollbar-horizontal {
             top: -44px;

@@ -144,8 +144,8 @@ Default.args = {
     ...base,
     layout: 'fluid',
     cards: cardLayoutData.cardListMultipleRows?.cards || [],
-    slidesPerViewSm: 2.2,
-    slidesPerViewXl: 4.2,
+    slidesPerViewSm: 2.4,
+    slidesPerViewXl: 4.4,
 };
 
 export const CustomBreakpoints = StandardTemplate.bind({
@@ -154,8 +154,8 @@ CustomBreakpoints.args = {
     ...base,
     layout: 'fluid',
     cards: cardLayoutData.cardList2?.cards || [],
-    slidesPerViewSm: 2.2,
-    slidesPerViewXl: 3.2,
+    slidesPerViewSm: 2.4,
+    slidesPerViewXl: 3.4,
 };
 
 export const FixedCardWidths = OverlayTemplate.bind({

@@ -123,8 +123,8 @@ export default `
     <VsCardCarousel
         previousButtonLabel="Previous"
         nextButtonLabel="Next"
-        :slidesPerViewSm="2.2"
-        :slidesPerViewXl="4.2"
+        :slidesPerViewSm="2.4"
+        :slidesPerViewXl="4.4"
     >
         <VsCarouselNewSlide
             v-for="(card, index) in cardList1"
@@ -183,9 +183,9 @@ export default `
         <VsCardCarousel
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
-            :slidesPerViewSm="2.2"
+            :slidesPerViewSm="2.4"
 
-            :slidesPerViewXl="3.2"
+            :slidesPerViewXl="3.4"
         >
             <VsCarouselNewSlide
                 v-for="(card, index) in cardList2"
@@ -289,9 +289,9 @@ export default `
         <VsCardCarousel
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
-            :slidesPerViewSm="2.2"
+            :slidesPerViewSm="2.4"
 
-            :slidesPerViewXl="4.2"
+            :slidesPerViewXl="4.4"
         >
             <VsCarouselNewSlide
                 v-for="(card, index) in cardList3"
@@ -350,9 +350,9 @@ export default `
         <VsCardCarousel
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
-            :slidesPerViewSm="2.2"
+            :slidesPerViewSm="2.4"
 
-            :slidesPerViewXl="3.2"
+            :slidesPerViewXl="3.4"
         >
             <VsCarouselNewSlide
                 v-for="(card, index) in cardList5"
@@ -433,9 +433,9 @@ export default `
         <VsCardCarousel
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
-            :slidesPerViewSm="2.2"
+            :slidesPerViewSm="2.4"
 
-            :slidesPerViewXl="4.2"
+            :slidesPerViewXl="4.4"
         >
             <VsCarouselNewSlide
                 v-for="(card, index) in cardList6"
@@ -501,9 +501,9 @@ export default `
         <VsCardCarousel
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
-            :slidesPerViewSm="2.2"
+            :slidesPerViewSm="2.4"
 
-            :slidesPerViewXl="4.2"
+            :slidesPerViewXl="4.4"
         >
             <VsCarouselNewSlide
                 v-for="(card, index) in cardList4"
