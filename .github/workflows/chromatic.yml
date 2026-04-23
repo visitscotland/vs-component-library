@@ -18,6 +18,7 @@ on:
     branches:
       - 'main'
       - 'cl-release/**'
+      - 'cl-feature/**'
 
   # Run automatically when pushing to main
   push:
@@ -38,6 +39,9 @@ env:
 # List of jobs
 jobs:
   chromatic-deployment:
+    if: |
+      github.event_name == 'pull_request' ||
+      (github.event_name == 'push' && !contains(github.event.head_commit.author.name, 'dependabot'))
     # Operating System
     runs-on: ubuntu-latest
     # Job steps
