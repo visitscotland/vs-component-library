@@ -145,7 +145,6 @@ Default.args = {
     layout: 'fluid',
     cards: cardLayoutData.cardListMultipleRows?.cards || [],
     slidesPerViewSm: 2.2,
-    slidesPerViewLg: 3.2,
     slidesPerViewXl: 4.2,
 };
 
@@ -154,15 +153,14 @@ export const CustomBreakpoints = StandardTemplate.bind({
 CustomBreakpoints.args = {
     ...base,
     layout: 'fluid',
-    cards: cardLayoutData.cardList1?.cards || [],
+    cards: cardLayoutData.cardList2?.cards || [],
     slidesPerViewSm: 2.2,
-    slidesPerViewMd: 3.2,
-    slidesPerViewXl: 4.2,
+    slidesPerViewXl: 3.2,
 };
 
-export const OverlayCards = OverlayTemplate.bind({
+export const FixedCardWidths = OverlayTemplate.bind({
 });
-OverlayCards.args = {
+FixedCardWidths.args = {
     ...base,
     layout: 'fixed',
     cards: cardLayoutData.cardListOverlay?.cards || [],

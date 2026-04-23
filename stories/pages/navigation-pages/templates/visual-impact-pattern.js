@@ -124,7 +124,6 @@ export default `
         previousButtonLabel="Previous"
         nextButtonLabel="Next"
         :slidesPerViewSm="2.2"
-        :slidesPerViewLg="3.2"
         :slidesPerViewXl="4.2"
     >
         <VsCarouselNewSlide
@@ -185,7 +184,8 @@ export default `
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
             :slidesPerViewSm="2.2"
-            :slidesPerViewLg="3.2"
+
+            :slidesPerViewXl="3.2"
         >
             <VsCarouselNewSlide
                 v-for="(card, index) in cardList2"
@@ -290,7 +290,7 @@ export default `
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
             :slidesPerViewSm="2.2"
-            :slidesPerViewLg="3.2"
+
             :slidesPerViewXl="4.2"
         >
             <VsCarouselNewSlide
@@ -351,7 +351,8 @@ export default `
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
             :slidesPerViewSm="2.2"
-            :slidesPerViewLg="3.2"
+
+            :slidesPerViewXl="3.2"
         >
             <VsCarouselNewSlide
                 v-for="(card, index) in cardList5"
@@ -433,7 +434,7 @@ export default `
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
             :slidesPerViewSm="2.2"
-            :slidesPerViewLg="3.2"
+
             :slidesPerViewXl="4.2"
         >
             <VsCarouselNewSlide
@@ -501,7 +502,7 @@ export default `
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
             :slidesPerViewSm="2.2"
-            :slidesPerViewLg="3.2"
+
             :slidesPerViewXl="4.2"
         >
             <VsCarouselNewSlide
