@@ -346,4 +346,19 @@ export default {
         }
     }
 }
+
+@include no-js {
+    .vs-card-carousel {
+        overflow: auto;
+
+        &__controls,
+        .swiper-scrollbar {
+            display: none;
+        }
+
+        .swiper-wrapper {
+            flex-wrap: wrap;
+        }
+    }
+}
 </style>

@@ -81,6 +81,7 @@ const Template = (args) => ({
 const base = {
     previousButtonLabel: 'Previous',
     nextButtonLabel: 'Next',
+    slidesPerViewSm: 2.4,
     jsDisabled: false,
 };
 
@@ -88,9 +89,7 @@ export const Default = Template.bind({
 });
 Default.args = {
     ...base,
-    layout: 'fluid',
     cards: cardLayoutData.cardListMultipleRows?.cards || [],
-    slidesPerViewSm: 2.4,
     slidesPerViewXl: 4.4,
 };
 
@@ -98,8 +97,15 @@ export const CustomBreakpoints = Template.bind({
 });
 CustomBreakpoints.args = {
     ...base,
-    layout: 'fluid',
     cards: cardLayoutData.cardList2?.cards || [],
-    slidesPerViewSm: 2.4,
     slidesPerViewXl: 3.4,
+};
+
+export const NoJavascript = Template.bind({
+});
+NoJavascript.args = {
+    ...base,
+    cards: cardLayoutData.cardListMultipleRows?.cards || [],
+    slidesPerViewXl: 4.4,
+    jsDisabled: true,
 };
