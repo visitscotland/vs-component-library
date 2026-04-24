@@ -41,7 +41,10 @@ export default `
         <VsCardCarousel
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
-            layout="fixed"
+            :slidesPerViewXs="1.2"
+            :slidesPerViewSm="2.2"
+            :slidesPerViewLg="2.7"
+            :slidesPerViewXl="4"
         >
             <VsCarouselNewSlide
                 v-for="(card, index) in cardListOverlay"

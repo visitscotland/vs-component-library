@@ -9,21 +9,19 @@ import cardLayoutData from '@/assets/fixtures/navigation-pages/visual-impact-car
 
 export default {
     component: VsCardCarousel,
-    title: 'Components/Media & data visualisation/Card Carousel',
+    title: 'Components/Layout & content structure/Card Carousel',
 };
 
-const sharedComponents = {
-    VsCardCarousel,
-    VsCarouselNewSlide,
-    VsCard,
-    VsImg,
-    VsHeading,
-    VsLink,
-    VsBody,
-};
-
-const OverlayTemplate = (args) => ({
-    components: sharedComponents,
+const Template = (args) => ({
+    components: {
+        VsCardCarousel,
+        VsCarouselNewSlide,
+        VsCard,
+        VsImg,
+        VsHeading,
+        VsLink,
+        VsBody,
+    },
     setup() {
         return {
             args,
@@ -35,58 +33,6 @@ const OverlayTemplate = (args) => ({
             <VsCardCarousel
                 :previousButtonLabel="args.previousButtonLabel"
                 :nextButtonLabel="args.nextButtonLabel"
-                :layout="args.layout"
-            >
-                <VsCarouselNewSlide
-                    v-for="(card, index) in cards"
-                    :key="'card-overlay-' + index"
-                >
-                    <VsCard card-style="overlay">
-                        <template #vs-card-image>
-                            <VsImg
-                                :src="card.image"
-                                class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                            />
-                        </template>
-
-                        <template #vs-card-footer>
-                            <div class="px-125 pb-125">
-                                <VsHeading
-                                    level="2"
-                                    no-margins
-                                    heading-style="heading-m"
-                                >
-                                    <VsLink
-                                        :href="card.link"
-                                        class="stretched-link text-decoration-none"
-                                        variant="on-dark"
-                                    >
-                                        {{ card.title }}
-                                    </VsLink>
-                                </VsHeading>
-                            </div>
-                        </template>
-                    </VsCard>
-                </VsCarouselNewSlide>
-            </VsCardCarousel>
-        </div>
-    `,
-});
-
-const StandardTemplate = (args) => ({
-    components: sharedComponents,
-    setup() {
-        return {
-            args,
-            cards: args.cards,
-        };
-    },
-    template: `
-        <div :class="args.jsDisabled ? 'no-js' : ''">
-            <VsCardCarousel
-                :previousButtonLabel="args.previousButtonLabel"
-                :nextButtonLabel="args.nextButtonLabel"
-                :layout="args.layout"
                 :slidesPerViewSm="args.slidesPerViewSm"
                 :slidesPerViewMd="args.slidesPerViewMd"
                 :slidesPerViewLg="args.slidesPerViewLg"
@@ -138,7 +84,7 @@ const base = {
     jsDisabled: false,
 };
 
-export const Default = StandardTemplate.bind({
+export const Default = Template.bind({
 });
 Default.args = {
     ...base,
@@ -148,7 +94,7 @@ Default.args = {
     slidesPerViewXl: 4.4,
 };
 
-export const CustomBreakpoints = StandardTemplate.bind({
+export const CustomBreakpoints = Template.bind({
 });
 CustomBreakpoints.args = {
     ...base,
@@ -156,12 +102,4 @@ CustomBreakpoints.args = {
     cards: cardLayoutData.cardList2?.cards || [],
     slidesPerViewSm: 2.4,
     slidesPerViewXl: 3.4,
-};
-
-export const FixedCardWidths = OverlayTemplate.bind({
-});
-FixedCardWidths.args = {
-    ...base,
-    layout: 'fixed',
-    cards: cardLayoutData.cardListOverlay?.cards || [],
 };
