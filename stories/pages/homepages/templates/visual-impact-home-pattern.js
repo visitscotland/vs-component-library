@@ -1,3 +1,7 @@
+import splitCardCarousel from '../../partials/splitCardCarousel';
+import overlayCardCarousel from '../../partials/overlayCardCarousel';
+import eventCardCarousel from '../../partials/eventCardCarousel';
+
 export default `
     <VsPageHeader menu-type="b2c">
         <template #heroSection>
@@ -13,10 +17,10 @@ export default `
     </VsPageHeader>
 
     <!------------------------------------------------------------
-    NEW SECTION - Section header + category card group
+    NEW SECTION - Section header + card carousel
     ------------------------------------------------------------>
     <VsSectionHeader 
-        class="mt-500 mb-300"
+        class="mt-500 mb-200 mb-xl-300"
         heading="Inspiration for your trip"
     >
         <template v-slot:section-header-lede>
@@ -24,68 +28,9 @@ export default `
         </template>
     </VsSectionHeader>
 
-    <VsContainer class="mt-500">
-        <VsRow>
-            <VsCol>
-                <VsCardGroup
-                    :cards-per-row="4"
-                    class="text-start"
-                >
-                    <VsCard
-                        v-for="(card, index) in cardListOverlay"
-                        card-style="overlay"
-                        :key="'card-list-overlay-' + index"
-                        ref="overlayCard"
-                    >
-                        <template #vs-card-footer>
-                            <div class="px-125 pb-125">
-                                <VsHeading
-                                    level="3"
-                                    no-margins
-                                    heading-style="heading-m"
-                                >
-                                    <VsLink
-                                        :href="card.link"
-                                        class="stretched-link text-decoration-none"
-                                        variant="on-dark"
-                                    >
-                                        {{ card.title }}
-                                    </VsLink>
-                                </VsHeading>
-                            </div>
-                        </template>
-                        <template v-slot:vs-card-image>
-                            <VsVideo 
-                                v-if="card.videoSrc"
-                                video-type="html5"
-                                :poster-image-src="card.image"
-                                :video-src="card.videoSrc"
-                                :show-toggle="false"
-                                :video-id="'category-card-video' + index"
-                            />
-                            <VsImg 
-                                v-else
-                                :src="card.image" 
-                                class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                            />
-                        </template>
-                        <template #vs-card-overlay-controls>
-                            <VsToggleButton
-                                v-if="card.videoSrc && !isReducedMotion"
-                                variant="overlay"
-                                icon="vs-icon-control-pause"
-                                pressed-icon="vs-icon-control-play"
-                                label="Pause video"
-                                pressed-label="Play video"
-                                :aria-controls="'category-card-video' + index"
-                                @click="toggleCard(index)"
-                            />
-                        </template>
-                    </VsCard>
-                </VsCardGroup>
-            </VsCol>
-        </VsRow>
-    </VsContainer>
+    ${overlayCardCarousel({
+        cardsVar: 'cardListOverlay',
+    })}
 
     <!------------------------------------------------------------
     SECTION END
@@ -96,7 +41,7 @@ export default `
     NEW SECTION - Section header + search
     ------------------------------------------------------------>
     <VsSectionHeader 
-        class="mt-500 mb-300"
+        class="mt-500 mb-200 mb-xl-300"
         heading="Discover unique experiences in Scotland"
     >
         <template v-slot:section-header-lede>
@@ -192,7 +137,7 @@ export default `
     NEW SECTION - Section header + map
     ------------------------------------------------------------>
     <VsSectionHeader 
-        class="mt-500 mb-300"
+        class="mt-500 mb-200 mb-xl-300"
         heading="Uncover Scotland's regions"
     >
         <template v-slot:section-header-lede>
@@ -215,10 +160,10 @@ export default `
 
 
     <!------------------------------------------------------------
-    NEW SECTION - Section header + new card group ( 3cards)
+    NEW SECTION - Section header + card carousel
     ------------------------------------------------------------>
     <VsSectionHeader 
-        class="mt-500 mb-300"
+        class="mt-500 mb-200 mb-xl-300"
         heading="Top tips for travelling to Scotland"
     >
         <template v-slot:section-header-lede>
@@ -226,51 +171,12 @@ export default `
         </template>
     </VsSectionHeader>
 
-    <VsContainer>
-        <VsRow>
-            <VsCol>
-                <VsCardGroup
-                    scroll-snap          
-                    :cards-per-row="4"
-                    class="text-start"
-                >
-                    <VsCard
-                        v-for="(card, index) in cardList1"
-                        :key="'card-list-2-' + index"
-                    >
-                        <template #vs-card-header>
-                            <VsImg
-                                v-if="card.image"
-                                :src="card.image"
-                                class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                            />
-                        </template>
-
-                        <template #vs-card-body>
-                            <div>
-                                <VsHeading
-                                    level="3"
-                                    heading-style="heading-xs"
-                                >
-                                    <VsLink
-                                        :href="card.link"
-                                        class="stretched-link"
-                                        variant="secondary"
-                                    >
-                                        {{ card.title }}
-                                    </VsLink>
-                                </VsHeading>
-
-                                <VsBody class="mb-150 truncate-2-lines">
-                                    {{ card.description }}
-                                </VsBody>
-                            </div>
-                        </template>
-                    </VsCard>
-                </VsCardGroup>
-            </VsCol>
-        </VsRow>
-    </VsContainer>
+    ${splitCardCarousel({
+        cardsVar: 'cardList1',
+        cardsKey: '1',
+        slidesPerViewXl: 4.4,
+    })}
+    
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
@@ -297,10 +203,10 @@ export default `
 
 
     <!------------------------------------------------------------
-    NEW SECTION - Section header + new card group ( 4 cards)
+    NEW SECTION - Section header + card carousel
     ------------------------------------------------------------>
     <VsSectionHeader 
-        class="mt-500 mb-300"
+        class="mt-500 mb-200 mb-xl-300"
         heading="Not sure where to start?"
     >
         <template v-slot:section-header-lede>
@@ -308,61 +214,22 @@ export default `
         </template>
     </VsSectionHeader>
 
-    <VsContainer>
-        <VsRow>
-            <VsCol>
-                <VsCardGroup
-                    scroll-snap
-                    :cards-per-row="3"
-                    class="text-start"
-                >
-                    <VsCard
-                        v-for="(card, index) in cardList2"
-                        :key="'card-list-3-' + index"
-                    >
-                        <template #vs-card-header>
-                            <VsImg
-                                v-if="card.image"
-                                :src="card.image"
-                                class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                            />
-                        </template>
+    ${splitCardCarousel({
+        cardsVar: 'cardList2',
+        cardsKey: '2',
+        slidesPerViewXl: 3.4,
+    })}
 
-                        <template #vs-card-body>
-                            <div>
-                                <VsHeading
-                                    level="3"
-                                    heading-style="heading-xs"
-                                >
-                                    <VsLink
-                                        :href="card.link"
-                                        class="stretched-link"
-                                        variant="secondary"
-                                    >
-                                        {{ card.title }}
-                                    </VsLink>
-                                </VsHeading>
-
-                                <VsBody class="mb-150 truncate-2-lines">
-                                    {{ card.description }}
-                                </VsBody>
-                            </div>
-                        </template>
-                    </VsCard>
-                </VsCardGroup>
-            </VsCol>
-        </VsRow>
-    </VsContainer>
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
 
 
     <!------------------------------------------------------------
-    NEW SECTION - Section header + event card group ( 4 cards)
+    NEW SECTION - Section header + card carousel
     ------------------------------------------------------------>
     <VsSectionHeader 
-        class="mt-500 mb-300"
+        class="mt-500 mb-200 mb-xl-300"
         heading="Unmissable events in Scotland"
     >
         <template v-slot:section-header-lede>
@@ -370,96 +237,12 @@ export default `
         </template>
     </VsSectionHeader>
 
-    <VsContainer class="mb-500">
-        <VsRow>
-            <VsCol>
-                <VsCardGroup
-                    scroll-snap
-                    :cards-per-row="4"
-                    class="text-start"
-                >
-                    <VsCard
-                        v-for="(card, index) in eventCardList"
-                        :key="'card-list-event-' + index"
-                    >
-                        <template #vs-card-header>
-                            <div class="position-relative">
-                                <VsImg
-                                    v-if="card.image"
-                                    :src="card.image"
-                                    class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                                />
-                                <div class="position-absolute bottom-0 start-0 d-flex gap-2">
-                                    <VsBadge
-                                        v-if="card.price"
-                                        variant="information"
-                                        class="rounded-top-end rounded-bottom-start"
-                                    >
-                                        {{ card.price }}
-                                    </VsBadge>
-
-                                    <VsBadge
-                                        v-if="card.date"
-                                        variant="information"
-                                        class="rounded-top-end rounded-top-start"
-                                    >
-                                        {{ card.date }}
-                                    </VsBadge>
-                                </div>
-                            </div>
-                        </template>
-
-                        <template #vs-card-body >
-                            <VsHeading
-                                level="3"
-                                heading-style="heading-xs"
-                            >
-                                <VsLink
-                                    href="#"
-                                    class="stretched-link"
-                                    variant="secondary"
-                                >
-                                    {{ card.title }}
-                                </VsLink>
-                            </VsHeading>
-
-                            <VsBody>
-                                <p class="truncate-2-lines">
-                                    {{ card.description }}
-                                </p>
-                            </VsBody>
-                        </template>
-
-                        <template #vs-card-footer>
-                            <div class="d-flex justify-content-between align-items-end">
-                                <div class="d-flex align-items-center">
-                                    <VsIcon
-                                        icon="fa-solid fa-location-dot"
-                                        variant="highlight"
-                                        class="me-050"
-                                        size="sm"
-                                    />
-                                    <VsDetail 
-                                        v-if="card.location" 
-                                        no-margins
-                                        color="tertiary"
-                                    >
-                                        {{ card.location }}
-                                    </VsDetail>
-                                </div>
-
-                                <VsIcon 
-                                    icon="vs-icon-control-external-link"
-                                    variant="highlight"
-                                    size="sm"
-                                />
-                            </div>
-                        </template>
-                    </VsCard>
-                </VsCardGroup>
-            </VsCol>
-        </VsRow>
-    </VsContainer>
+    <div class="mb-500">
+        ${eventCardCarousel({
+            cardsVar: 'eventCardList',
+            cardsKey: 'event',
+        })}
+    </div>
     <!-----------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>

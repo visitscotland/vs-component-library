@@ -218,6 +218,7 @@ export default {
 
         &--overlay {
             height: 330px;
+            width: 100%;
             color: $vs-color-text-inverse;
             overflow: hidden;
 

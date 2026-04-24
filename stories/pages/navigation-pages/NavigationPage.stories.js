@@ -8,17 +8,18 @@ import {
 import VsSpotlightSection from '@/components/spotlight-section/SpotlightSection.vue';
 import VsMegalinks from '@/components/megalinks/Megalinks.vue';
 import VsMegalinkMultiImage from '@/components/megalinks/components/megalink-multi-image/MegalinkMultiImage.vue';
-import VsCardGroup from '@/components/card-group/CardGroup.vue';
 import VsCard from '@/components/card/Card.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsImg from '@/components/img/Img.vue';
 import VsLink from '@/components/link/Link.vue';
+import VsIcon from '@/components/icon/Icon.vue';
 import VsBody from '@/components/body/Body.vue';
 import VsButton from '@/components/button/Button.vue';
 import VsArticleDetails from '@/components/article-details/ArticleDetails.vue';
 import VsBadge from '@/components/badge/Badge.vue';
 import VsModal from '@/components/modal/Modal.vue';
 import VsVideo from '@/components/video/Video.vue';
+import VsMediaCaption from '@/components/media-caption/MediaCaption.vue';
 import VsSectionHeader from '@/components/section-header/SectionHeader.vue';
 import VsToggleButton from '@/components/toggle-button/ToggleButton.vue';
 import { VsCardCarousel, VsCarouselNewSlide } from '@/components/carousel-new';
@@ -41,13 +42,13 @@ const components = {
     VsCol,
     VsContainer,
     VsRow,
-    VsCardGroup,
     VsCard,
     VsSectionHeader,
     VsSpotlightSection,
     VsHeading,
     VsImg,
     VsLink,
+    VsIcon,
     VsBody,
     VsButton,
     VsArticleDetails,
@@ -56,6 +57,7 @@ const components = {
     VsMegalinkMultiImage,
     VsModal,
     VsVideo,
+    VsMediaCaption,
     VsToggleButton,
     VsCardCarousel,
     VsCarouselNewSlide,
@@ -81,6 +83,7 @@ const createStory = (template, options = {
             const infoCardList2 = infoCardLayoutData.infoCardList2?.cards || [];
             const infoCardList3 = infoCardLayoutData.infoCardList3?.cards || [];
             const infoCardList4 = infoCardLayoutData.infoCardList4?.cards || [];
+            const infoCardList5 = infoCardLayoutData.infoCardList5?.cards || [];
 
             return {
                 cardListOverlay,
@@ -96,6 +99,7 @@ const createStory = (template, options = {
                 infoCardList2,
                 infoCardList3,
                 infoCardList4,
+                infoCardList5,
             };
         },
     }),

@@ -36,7 +36,6 @@
                 }"
                 :scrollbar="{ draggable: false }"
                 :breakpoints="swiperBreakpoints"
-                :slides-per-view="slidesPerView"
                 @touch-start="onTouchStart"
                 @touch-end="onTouchEnd"
                 @slider-move="onSliderMove"
@@ -83,16 +82,6 @@ export default {
         nextButtonLabel: {
             type: String,
             required: true,
-        },
-        /**
-         * Carousel layout mode
-         * - fluid: responsive slides per view (default)
-         * - fixed: fixed width slides using auto layout
-         */
-        layout: {
-            type: String,
-            default: 'fluid',
-            validator: (val) => ['fluid', 'fixed'].includes(val),
         },
         /**
          * Slides per view at XS breakpoint (0px+)
@@ -154,17 +143,10 @@ export default {
     computed: {
         carouselClasses() {
             return {
-                'vs-card-carousel--fixed': this.isFixed,
-                'vs-card-carousel--fluid': !this.isFixed,
                 'is-interacting': this.isInteracting,
             };
         },
-        isFixed() {
-            return this.layout === 'fixed';
-        },
         swiperBreakpoints() {
-            if (this.isFixed) return undefined;
-
             const breakpointMap = {
                 0: this.slidesPerViewXs,
                 576: this.slidesPerViewSm,
@@ -198,9 +180,6 @@ export default {
 
             // returns breakpoint map for Swiper
             return result;
-        },
-        slidesPerView() {
-            return this.isFixed ? 'auto' : undefined;
         },
     },
     methods: {
@@ -266,7 +245,7 @@ export default {
 
     .vs-card-carousel__inner {
         margin: 0 auto;
-        padding: 0 $vs-spacer-075;
+        padding: $vs-spacer-025 $vs-spacer-075;
 
         @include media-breakpoint-up(sm) {
             max-width: $max-container-width-sm;
@@ -293,6 +272,11 @@ export default {
         overflow: visible;
     }
 
+    .swiper-slide {
+        display: flex;
+        height: auto;
+    }
+
     &:has(.swiper-button-lock) {
         .swiper-wrapper {
             display: flex;
@@ -301,44 +285,15 @@ export default {
         }
 
         .swiper-slide {
+            flex: 1 1 0;
+            width: auto !important;
             margin-right: 0!important;
-        }
-    }
-
-    &--fixed {
-        .swiper-slide {
-            width: 240px;
-
-            @include media-breakpoint-up(md) {
-                width: 292px;
-            }
-
-            @include media-breakpoint-up(lg) {
-                width: 300px;
-            }
-        }
-
-         &:has(.swiper-button-lock) {
-            .swiper-slide {
-                flex: 0 0 auto;
-                margin-right: 0!important;
-            }
-        }
-    }
-
-    &--fluid {
-        &:has(.swiper-button-lock) {
-            .swiper-slide {
-                flex: 1 1 0;
-                width: auto !important;
-            }
         }
     }
 
     &__controls {
         display: flex;
         justify-content: flex-end;
-        padding-top: $vs-spacer-025;
 
         .vs-card-carousel__control--prev,
         .vs-card-carousel__control--next {

@@ -1,3 +1,5 @@
+import linkCardCarousel from '../../partials/linkCardCarousel';
+
 export default `
     <VsPageHeader menu-type="b2c">
         <template #breadcrumb>
@@ -42,10 +44,10 @@ export default `
     </VsPageHeader>
 
     <!------------------------------------------------------------
-    NEW SECTION - Section header + new card group ( 3cards)
+    NEW SECTION - Section header + card carousel
     ------------------------------------------------------------>
     <VsSectionHeader 
-        class="mt-500 mb-300"
+        class="mt-500 mb-200 mb-xl-300"
         heading="Understand sustainability"
     >
         <template v-slot:section-header-lede>
@@ -55,64 +57,12 @@ export default `
         </template>
     </VsSectionHeader>
 
-    <VsContainer>
-        <VsRow>
-            <VsCol>
-                <VsCardGroup
-                    scroll-snap
-                    :cards-per-row="3"
-                    class="text-start"
-                >
-                    <VsCard
-                        v-for="(card, index) in infoCardList1"
-                        :key="'card-1-' + index"
-                        :accent-bar="true"
-                        :fill-color="'vs-color-background-primary'"
-                        card-style="elevated"
-                    >
-                        <template #vs-card-header>
-                            <VsBadge
-                                v-if="card.badgeTitle"
-                                variant="subtle"
-                                class="mt-125 mx-075"
-                            >
-                                {{ card.badgeTitle }}
-                            </VsBadge>
-                        </template>
+    ${linkCardCarousel({
+        cardsVar: 'infoCardList1',
+        cardsKey: '1',
+        slidesPerViewXl: 3.4,
+    })}
 
-                        <template #vs-card-body>
-                            <div class="px-125">
-                                <VsHeading
-                                    level="3"
-                                    heading-style="heading-xs"
-                                >
-                                    <VsLink
-                                        :href="card.link"
-                                        class="stretched-link"
-                                        variant="secondary"
-                                    >
-                                        {{ card.title }}
-                                    </VsLink>
-                                </VsHeading>
-
-                                <VsBody class="mb-150 truncate-3-lines">
-                                    {{ card.description }}
-                                </VsBody>
-                            </div>
-                        </template>
-
-                        <template #vs-card-footer>
-                            <VsArticleDetails
-                                v-if="card.metaData"
-                                class="px-125 mb-150"
-                                :article-read-time="card.metaData"
-                            />
-                        </template>
-                    </VsCard>
-                </VsCardGroup>
-            </VsCol>
-        </VsRow>
-    </VsContainer>
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
@@ -139,10 +89,10 @@ export default `
 
 
     <!------------------------------------------------------------
-    NEW SECTION - Section header + new card group (3 cards)
+    NEW SECTION - Section header + card carousel
     ------------------------------------------------------------>
     <VsSectionHeader 
-        class="mt-500 mb-300"
+        class="mt-500 mb-200 mb-xl-300"
         heading="How to develop your sustainability journey"
     >
         <template v-slot:section-header-lede>
@@ -152,134 +102,63 @@ export default `
         </template>
     </VsSectionHeader>
 
+    ${linkCardCarousel({
+        cardsVar: 'infoCardList2',
+        cardsKey: '2',
+        slidesPerViewXl: 3.4,
+    })}
+
+    <!------------------------------------------------------------
+    SECTION END
+    ------------------------------------------------------------>
+
+    
+    <!------------------------------------------------------------
+    NEW SECTION - Video highlight
+    ------------------------------------------------------------>
+
+    <VsSectionHeader 
+        class="mt-500 mb-200 mb-xl-300"
+        heading="Watch our climate action workbook webinar"
+    >
+        <template v-slot:section-header-lede>
+            <p>
+                Join Tiomóid Foley, our Responsible Tourism - Net Zero Manager, to learn more about our climate action workbook in this webinar.
+            </p>
+        </template>
+    </VsSectionHeader>
+
     <VsContainer>
         <VsRow>
             <VsCol>
-                <VsCardGroup
-                    scroll-snap
-                    :cards-per-row="3"
-                    class="text-start"
+                <VsVideo 
+                    video-id="Nz2iwpqsPlI"
+                    error-message="Sorry, something's gone wrong. Please try again later"
+                    no-js-message="You need Javascript enabled to see this video"
+                    no-cookies-message="You need cookies enabled to see this video"
+                    cookie-btn-text="Manage cookies"
+                />
+                <VsMediaCaption 
+                    video-id="Nz2iwpqsPlI"
                 >
-                    <VsCard
-                        v-for="(card, index) in infoCardList2"
-                        :key="'card-2-' + index"
-                        :accent-bar="true"
-                        :fill-color="'vs-color-background-primary'"
-                        card-style="elevated"
-                    >
-                        <template #vs-card-header>
-                            <VsBadge
-                                v-if="card.badgeTitle"
-                                variant="subtle"
-                                class="mt-125 mx-075"
-                            >
-                                {{ card.badgeTitle }}
-                            </VsBadge>
-                        </template>
-
-                        <template #vs-card-body>
-                            <div class="px-125">
-                                <VsHeading
-                                    level="3"
-                                    heading-style="heading-xs"
-                                >
-                                    <VsLink
-                                        :href="card.link"
-                                        class="stretched-link"
-                                        variant="secondary"
-                                    >
-                                        {{ card.title }}
-                                    </VsLink>
-                                </VsHeading>
-
-                                <VsBody class="mb-150 truncate-3-lines">
-                                    {{ card.description }}
-                                </VsBody>
-                            </div>
-                        </template>
-
-                        <template #vs-card-footer>
-                            <VsArticleDetails
-                                v-if="card.metaData"
-                                class="px-125 mb-150"
-                                :article-read-time="card.metaData"
-                            />
-                        </template>
-                    </VsCard>
-                </VsCardGroup>
+                    <template v-slot:caption>
+                        A promotional film inviting viewers to rediscover Scotland's landscapes and culture.
+                    </template>
+                </VsMediaCaption>
             </VsCol>
         </VsRow>
     </VsContainer>
-    <!------------------------------------------------------------
-    SECTION END
-    ------------------------------------------------------------>
-
     
-    <!------------------------------------------------------------
-    MEGALINKS - Video highlight
-        ------------------------------------------------------------>
-    <VsMegalinks 
-        title="Watch our climate action workbook webinar"
-        variant="multi-image" 
-        theme="light"
-    >
-        <template v-slot:vs-megalinks-intro>
-            <p>Join Tiomóid Foley, our Responsible Tourism – Net Zero Manager, to learn more about our climate action workbook in this webinar.</p>
-        </template>
-
-        <VsContainer>
-            <VsRow>
-                <VsCol cols="12" xl="10" class="offset-xl-1">
-                    <VsMegalinkMultiImage
-                        theme="light"
-                        :featured="true"
-                        img-src="https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/12-mar/loch-affric"
-                        link-type="video"
-                        link-url="#"
-                        video-id="Nz2iwpqsPlI"
-                        video-btn-text="Play Video"
-                        error-message="We're sorry, there's been an error"
-                    >
-                        <template v-slot:vs-multi-image-heading>
-                            How to measure your climate impact
-                        </template>
-
-                        <template v-slot:vs-multi-image-content>
-                            <p>This is our new practical resource for tourism businesses to help you measure your emissions and build a climate action plan for your business.</p>
-                        </template>
-                    </VsMegalinkMultiImage>
-
-                    <VsModal
-                        modal-id="Nz2iwpqsPlI"
-                        close-btn-text="Close"
-                        :is-video-modal="true"
-                    >
-                        <VsRow>
-                            <VsCol cols="12">
-                                <VsVideo
-                                    video-id="Nz2iwpqsPlI"
-                                    class="mb-200"
-                                    no-js-message="You need Javascript enabled"
-                                    no-cookies-message="You need cookies enabled"
-                                    cookie-btn-text="Enable cookies to play video"
-                                />
-                            </VsCol>
-                        </VsRow>
-                    </VsModal>
-                </VsCol>
-            </VsRow>
-        </VsContainer>
-    </VsMegalinks>
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
     
     
     <!------------------------------------------------------------
-    NEW SECTION - Section header + new card group (3 cards)
+    NEW SECTION - Section header + card carousel
     ------------------------------------------------------------>
     <VsSectionHeader 
-        class="mb-300"
+        class="mt-500 mb-200 mb-xl-300"
         heading="Guidance for sustainable tourism"
     >
         <template v-slot:section-header-lede>
@@ -289,64 +168,12 @@ export default `
         </template>
     </VsSectionHeader>
 
-    <VsContainer>
-        <VsRow>
-            <VsCol>
-                <VsCardGroup
-                    scroll-snap
-                    :cards-per-row="3"
-                    class="text-start"
-                >
-                    <VsCard
-                        v-for="(card, index) in infoCardList3"
-                        :key="'card-3-' + index"
-                        :accent-bar="true"
-                        :fill-color="'vs-color-background-primary'"
-                        card-style="elevated"
-                    >
-                        <template #vs-card-header>
-                            <VsBadge
-                                v-if="card.badgeTitle"
-                                variant="subtle"
-                                class="mt-125 mx-075"
-                            >
-                                {{ card.badgeTitle }}
-                            </VsBadge>
-                        </template>
+    ${linkCardCarousel({
+        cardsVar: 'infoCardList3',
+        cardsKey: '3',
+        slidesPerViewXl: 3.4,
+    })}
 
-                        <template #vs-card-body>
-                            <div class="px-125">
-                                <VsHeading
-                                    level="3"
-                                    heading-style="heading-xs"
-                                >
-                                    <VsLink
-                                        :href="card.link"
-                                        class="stretched-link"
-                                        variant="secondary"
-                                    >
-                                        {{ card.title }}
-                                    </VsLink>
-                                </VsHeading>
-
-                                <VsBody class="mb-150 truncate-3-lines">
-                                    {{ card.description }}
-                                </VsBody>
-                            </div>
-                        </template>
-
-                        <template #vs-card-footer>
-                            <VsArticleDetails
-                                v-if="card.metaData"
-                                class="px-125 mb-150"
-                                :article-read-time="card.metaData"
-                            />
-                        </template>
-                    </VsCard>
-                </VsCardGroup>
-            </VsCol>
-        </VsRow>
-    </VsContainer>
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
@@ -370,7 +197,6 @@ export default `
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
-
 
     <!------------------------------------------------------------
     MEGALINKS MULTI VIDEO
@@ -518,72 +344,27 @@ export default `
     </VsMegalinks>
 
     <!------------------------------------------------------------
-    NEW SECTION - Section header + new card group (4 cards)
+    NEW SECTION - Section header + card carousel
     ------------------------------------------------------------>
+
     <VsSectionHeader 
-        class="mb-300"
+        class="mb-200 mb-xl-300"
         heading="Related pages"
     >
+        <template v-slot:section-header-lede>
+            <p>
+                Explore more guidance, tools and insights to support your tourism business. These pages offer practical advice tailored to different sectors and stages of growth.
+            </p>
+        </template>
     </VsSectionHeader>
 
-    <VsContainer class="mb-500">
-        <VsRow>
-            <VsCol>
-                <VsCardGroup
-                    scroll-snap
-                    :cards-per-row="4"
-                    class="text-start"
-                >
-                    <VsCard
-                        v-for="(card, index) in infoCardList4"
-                        :key="'card-4-' + index"
-                        :accent-bar="true"
-                        :fill-color="'vs-color-background-primary'"
-                        card-style="elevated"
-                    >
-                        <template #vs-card-header>
-                            <VsBadge
-                                v-if="card.badgeTitle"
-                                variant="subtle"
-                                class="mt-125 mx-075"
-                            >
-                                {{ card.badgeTitle }}
-                            </VsBadge>
-                        </template>
-
-                        <template #vs-card-body>
-                            <div class="px-125">
-                                <VsHeading
-                                    level="3"
-                                    heading-style="heading-xs"
-                                >
-                                    <VsLink
-                                        :href="card.link"
-                                        class="stretched-link"
-                                        variant="secondary"
-                                    >
-                                        {{ card.title }}
-                                    </VsLink>
-                                </VsHeading>
-
-                                <VsBody class="mb-150 truncate-3-lines">
-                                    {{ card.description }}
-                                </VsBody>
-                            </div>
-                        </template>
-
-                        <template #vs-card-footer>
-                            <VsArticleDetails
-                                v-if="card.metaData"
-                                class="px-125 mb-150"
-                                :article-read-time="card.metaData"
-                            />
-                        </template>
-                    </VsCard>
-                </VsCardGroup>
-            </VsCol>
-        </VsRow>
-    </VsContainer>
+    <div class="mb-500">
+        ${linkCardCarousel({
+            cardsVar: 'infoCardList4',
+            cardsKey: '4',
+            slidesPerViewXl: 4.4,
+        })}
+    </div>
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>

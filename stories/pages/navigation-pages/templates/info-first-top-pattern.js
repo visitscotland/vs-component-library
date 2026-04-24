@@ -1,3 +1,5 @@
+import linkCardCarousel from '../../partials/linkCardCarousel';
+
 export default `
     <VsPageHeader menu-type="b2b">
         <template #breadcrumb>
@@ -59,10 +61,10 @@ export default `
 
 
     <!------------------------------------------------------------
-    NEW SECTION - Section header + new card group ( 3 cards)
+    NEW SECTION - Section header + card carousel
     ------------------------------------------------------------>
     <VsSectionHeader 
-        class="mt-500 mb-300"
+        class="mt-500 mb-200 mb-xl-300"
         heading="Advice for each stage of your journey"
     >
         <template v-slot:section-header-lede>
@@ -70,64 +72,12 @@ export default `
         </template>
     </VsSectionHeader>
 
-    <VsContainer>
-        <VsRow>
-            <VsCol>
-                <VsCardGroup
-                    scroll-snap
-                    :cards-per-row="4"
-                    class="text-start"
-                >
-                    <VsCard
-                        v-for="(card, index) in textCardList1"
-                        :key="'text-card-list-1-' + index"
-                        :accent-bar="true"
-                        :fill-color="'vs-color-background-primary'"
-                        card-style="elevated"
-                    >
-                        <template #vs-card-header>
-                            <VsBadge
-                                v-if="card.badgeTitle"
-                                variant="subtle"
-                                class="mt-125 mx-075"
-                            >
-                                {{ card.badgeTitle }}
-                            </VsBadge>
-                        </template>
+    ${linkCardCarousel({
+        cardsVar: 'textCardList1',
+        cardsKey: '1',
+        slidesPerViewXl: 4.4,
+    })}
 
-                        <template #vs-card-body>
-                            <div class="px-125">
-                                <VsHeading
-                                    level="3"
-                                    heading-style="heading-xs"
-                                >
-                                    <VsLink
-                                        :href="card.link"
-                                        class="stretched-link"
-                                        variant="secondary"
-                                    >
-                                        {{ card.title }}
-                                    </VsLink>
-                                </VsHeading>
-
-                                <VsBody class="mb-150 truncate-3-lines">
-                                    {{ card.description }}
-                                </VsBody>
-                            </div>
-                        </template>
-
-                        <template #vs-card-footer>
-                            <VsArticleDetails
-                                v-if="card.metaData"
-                                class="px-125 mb-150"
-                                :article-read-time="card.metaData"
-                            />
-                        </template>
-                    </VsCard>
-                </VsCardGroup>
-            </VsCol>
-        </VsRow>
-    </VsContainer>
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
@@ -154,72 +104,20 @@ export default `
 
 
     <!------------------------------------------------------------
-    NEW SECTION - Section header + new card group ( 3 cards)
+    NEW SECTION - Section header + card carousel
     ------------------------------------------------------------>
     <VsSectionHeader 
-        class="mt-500 mb-300"
+        class="mt-500 mb-200 mb-xl-300"
         heading="Related pages"
     >
     </VsSectionHeader>
 
-    <VsContainer>
-        <VsRow>
-            <VsCol>
-                <VsCardGroup
-                    scroll-snap
-                    :cards-per-row="4"
-                    class="text-start"
-                >
-                    <VsCard
-                        v-for="(card, index) in textCardList2"
-                        :key="'text-card-list-2-' + index"
-                        :accent-bar="true"
-                        :fill-color="'vs-color-background-primary'"
-                        card-style="elevated"
-                    >
-                        <template #vs-card-header>
-                            <VsBadge
-                                v-if="card.badgeTitle"
-                                variant="subtle"
-                                class="mt-125 mx-075"
-                            >
-                                {{ card.badgeTitle }}
-                            </VsBadge>
-                        </template>
+    ${linkCardCarousel({
+        cardsVar: 'textCardList2',
+        cardsKey: '2',
+        slidesPerViewXl: 4.4,
+    })}
 
-                        <template #vs-card-body>
-                            <div class="px-125">
-                                <VsHeading
-                                    level="3"
-                                    heading-style="heading-xs"
-                                >
-                                    <VsLink
-                                        :href="card.link"
-                                        class="stretched-link"
-                                        variant="secondary"
-                                    >
-                                        {{ card.title }}
-                                    </VsLink>
-                                </VsHeading>
-
-                                <VsBody class="mb-150 truncate-3-lines">
-                                    {{ card.description }}
-                                </VsBody>
-                            </div>
-                        </template>
-
-                        <template #vs-card-footer>
-                            <VsArticleDetails
-                                v-if="card.metaData"
-                                class="px-125 mb-150"
-                                :article-read-time="card.metaData"
-                            />
-                        </template>
-                    </VsCard>
-                </VsCardGroup>
-            </VsCol>
-        </VsRow>
-    </VsContainer>
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>

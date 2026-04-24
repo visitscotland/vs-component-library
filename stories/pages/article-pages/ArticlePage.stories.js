@@ -14,7 +14,7 @@ import VsPanel from '@/components/panel/Panel.vue';
 import VsIcon from '@/components/icon/Icon.vue';
 import VsDetail from '@/components/detail/Detail.vue';
 import VsLink from '@/components/link/Link.vue';
-import VsCardGroup from '@/components/card-group/CardGroup.vue';
+import { VsCardCarousel, VsCarouselNewSlide } from '@/components/carousel-new';
 import VsCard from '@/components/card/Card.vue';
 import VsSpotlightSection from '@/components/spotlight-section/SpotlightSection.vue';
 import VsIllustratedMap from '@/components/illustrated-map/IllustratedMap.vue';
@@ -42,11 +42,12 @@ const components = {
     VsIcon,
     VsDetail,
     VsLink,
-    VsCardGroup,
     VsCard,
     VsSpotlightSection,
     VsIllustratedMap,
     VsMediaCaption,
+    VsCardCarousel,
+    VsCarouselNewSlide,
 };
 
 const createStory = (template) => ({
