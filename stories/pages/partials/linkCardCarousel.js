@@ -11,7 +11,7 @@ export default function linkCardCarousel({
             :slidesPerViewSm="2.4"
             :slidesPerViewXl="${cardsPerRowXl}"
         >
-            <VsCarouselNewSlide
+            <VsCardCarouselSlide
                 v-for="(card, index) in ${cardsVar}"
                 :key="'card-list-${cardsKey}-' + index"
             >
@@ -59,7 +59,7 @@ export default function linkCardCarousel({
                         />
                     </template>
                 </VsCard>
-            </VsCarouselNewSlide>
+            </VsCardCarouselSlide>
     </VsCardCarousel>
     `;
 }

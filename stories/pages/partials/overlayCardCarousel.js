@@ -12,7 +12,7 @@ export default function overlayCardCarousel({
             :slidesPerViewLg="2.7"
             :slidesPerViewXl="4"
         >
-            <VsCarouselNewSlide
+            <VsCardCarouselSlide
                 v-for="(card, index) in ${cardsVar}"
                 :key="'card-overlay-${cardsKey}' + index"
             >
@@ -69,7 +69,7 @@ export default function overlayCardCarousel({
                         </div>
                     </template>
                 </VsCard>
-            </VsCarouselNewSlide>
+            </VsCardCarouselSlide>
         </VsCardCarousel>
     `;
 }

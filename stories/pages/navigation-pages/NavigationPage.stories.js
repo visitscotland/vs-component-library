@@ -22,7 +22,8 @@ import VsVideo from '@/components/video/Video.vue';
 import VsMediaCaption from '@/components/media-caption/MediaCaption.vue';
 import VsSectionHeader from '@/components/section-header/SectionHeader.vue';
 import VsToggleButton from '@/components/toggle-button/ToggleButton.vue';
-import { VsCardCarousel, VsCarouselNewSlide } from '@/components/carousel-new';
+import VsCardCarousel from '@/components/card-carousel/CardCarousel.vue';
+import VsCardCarouselSlide from '@/components/card-carousel/components/CardCarouselSlide';
 
 import prefersReducedMotion from '@/utils/prefers-reduced-motion';
 
@@ -60,7 +61,7 @@ const components = {
     VsMediaCaption,
     VsToggleButton,
     VsCardCarousel,
-    VsCarouselNewSlide,
+    VsCardCarouselSlide,
 };
 
 const createStory = (template, options = {
