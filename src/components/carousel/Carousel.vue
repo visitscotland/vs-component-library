@@ -102,15 +102,16 @@ import {
 } from '@/components/grid';
 
 /**
-* Multi purpose carousel component to use
-* for carousel and slider content
+* @deprecated: ⚠️ Use new Card Carousel component instead. This component will be
+* removed in a future release.
+* @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1189052422/Carousel+deprecated
 *
 * @displayName Carousel
 */
 
 export default {
     name: 'VsCarousel',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsContainer,
