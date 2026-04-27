@@ -3,10 +3,11 @@ import VsCarouselSlide from '@/components/carousel/components/CarouselSlide.vue'
 
 export default {
     component: VsCarouselSlide,
-    title: 'Components/Media & data visualisation/Carousel',
+    title: 'Components/Deprecated/Carousel',
     argTypes: {
         // Delete if empty
     },
+    tags: ['deprecated'],
 };
 
 const Template = (args) => ({
@@ -20,6 +21,12 @@ const Template = (args) => ({
         };
     },
     template: `
+
+        <div style="background: #940f2c17; padding: 1rem; border: 1px solid #940F2C; margin-bottom: 1rem;">
+        ⚠️ Deprecated: Use new Card Carousel instead. 
+        This component will be removed in a future release. 
+        See the <a href="https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1189052422/Carousel+deprecated">Component migration docs.</a> 
+        </div>
         <div
             :class="args.jsDisabled ? 'no-js' : ''"
         >
