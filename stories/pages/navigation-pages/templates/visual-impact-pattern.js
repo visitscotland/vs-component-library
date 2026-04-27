@@ -35,81 +35,84 @@ export default `
     </VsPageHeader>
 
     <!------------------------------------------------------------
-    NEW SECTION - Section header + new card group (4 cards)
+    NEW SECTION - Section header + card carousel (Overlay)
     ------------------------------------------------------------>
-    <VsContainer class="mt-500">
-        <VsRow>
-            <VsCol>
-                <VsCardGroup
-                    scroll-snap="always"
-                    class="text-start"
+    <div class="mt-500">
+        <VsCardCarousel
+            previousButtonLabel="Previous"
+            nextButtonLabel="Next"
+            :slidesPerViewXs="1.2"
+            :slidesPerViewSm="2.2"
+            :slidesPerViewLg="2.7"
+            :slidesPerViewXl="4"
+        >
+            <VsCardCarouselSlide
+                v-for="(card, index) in cardListOverlay"
+                :key="'card-overlay-' + index"
+            >
+                <VsCard
+                    card-style="overlay"
+                    ref="overlayCard"
                 >
-                    <VsCard
-                        v-for="(card, index) in cardListOverlay"
-                        card-style="overlay"
-                        :key="'card-list-overlay-' + index"
-                        ref="overlayCard"
-                    >
-                        <template #vs-card-image>
-                            <VsVideo
-                                v-if="card.videoSrc"
-                                :ref="'cardVideo-' + index"
-                                video-type="html5"
-                                :poster-image-src="card.image"
-                                :video-src="card.videoSrc"
-                                :show-toggle="false"
-                                :video-id="'category-card-video' + index"
-                                :lazy-load="true"
-                            />
-                            <VsImg 
-                                v-else
-                                :src="card.image" 
-                                class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                            />
-                        </template>
+                    <template #vs-card-image>
+                        <VsVideo
+                            v-if="card.videoSrc"
+                            :ref="'cardVideo-' + index"
+                            video-type="html5"
+                            :poster-image-src="card.image"
+                            :video-src="card.videoSrc"
+                            :show-toggle="false"
+                            :video-id="'category-card-video' + index"
+                            :lazy-load="true"
+                        />
+                        <VsImg 
+                            v-else
+                            :src="card.image" 
+                            class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
+                        />
+                    </template>
 
-                        <template #vs-card-overlay-controls>
-                            <VsToggleButton
-                                v-if="card.videoSrc && !isReducedMotion"
-                                variant="overlay"
-                                icon="vs-icon-control-pause"
-                                pressed-icon="vs-icon-control-play"
-                                label="Pause video"
-                                pressed-label="Play video"
-                                :aria-controls="'category-card-video' + index"
-                                @click="toggleCard(index)"
-                            />
-                        </template>
+                    <template #vs-card-overlay-controls>
+                        <VsToggleButton
+                            v-if="card.videoSrc && !isReducedMotion"
+                            variant="overlay"
+                            icon="vs-icon-control-pause"
+                            pressed-icon="vs-icon-control-play"
+                            label="Pause video"
+                            pressed-label="Play video"
+                            :aria-controls="'category-card-video' + index"
+                            @click="toggleCard(index)"
+                        />
+                    </template>
 
-                        <template #vs-card-footer>
-                            <div class="px-125 pb-125">
-                                <VsHeading
-                                    level="2"
-                                    no-margins
-                                    heading-style="heading-m"
+                    <template #vs-card-footer>
+                        <div class="px-125 pb-125">
+                            <VsHeading
+                                level="2"
+                                no-margins
+                                heading-style="heading-m"
+                            >
+                                <VsLink
+                                    :href="card.link"
+                                    class="stretched-link text-decoration-none"
+                                    variant="on-dark"
                                 >
-                                    <VsLink
-                                        :href="card.link"
-                                        class="stretched-link text-decoration-none"
-                                        variant="on-dark"
-                                    >
-                                        {{ card.title }}
-                                    </VsLink>
-                                </VsHeading>
-                            </div>
-                        </template>
-                    </VsCard>
-                </VsCardGroup>
-            </VsCol>
-        </VsRow>
-    </VsContainer>
+                                    {{ card.title }}
+                                </VsLink>
+                            </VsHeading>
+                        </div>
+                    </template>
+                </VsCard>
+            </VsCardCarouselSlide>
+        </VsCardCarousel>
+    </div>
 
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
     
     <!------------------------------------------------------------
-    NEW SECTION - Section header + new card group (4 cards)
+    NEW SECTION - Section header + card carousel (4 cards)
     ------------------------------------------------------------>
     <VsSectionHeader 
         class="mt-500 mb-300"
@@ -120,58 +123,55 @@ export default `
         </template>
     </VsSectionHeader>
 
-        <VsContainer>
-        <VsRow>
-            <VsCol>
-                <VsCardGroup
-                    scroll-snap
-                    :cards-per-row="4"
-                    class="text-start"
-                >
-                    <VsCard
-                        v-for="(card, index) in cardList1"
-                        :key="'card-list-1-' + index"
-                    >
-                        <template #vs-card-header>
-                            <VsImg
-                                v-if="card.image"
-                                :src="card.image"
-                                class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                            />
-                        </template>
+    <VsCardCarousel
+        previousButtonLabel="Previous"
+        nextButtonLabel="Next"
+        :slidesPerViewSm="2.4"
+        :slidesPerViewXl="4.4"
+    >
+        <VsCardCarouselSlide
+            v-for="(card, index) in cardList1"
+            :key="'card-list-1-' + index"
+        >
+            <VsCard>
+                <template #vs-card-header>
+                    <VsImg
+                        v-if="card.image"
+                        :src="card.image"
+                        class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
+                    />
+                </template>
 
-                        <template #vs-card-body>
-                            <div>
-                                <VsHeading
-                                    level="3"
-                                    heading-style="heading-xs"
-                                >
-                                    <VsLink
-                                        :href="card.link"
-                                        class="stretched-link"
-                                        variant="secondary"
-                                    >
-                                        {{ card.title }}
-                                    </VsLink>
-                                </VsHeading>
+                <template #vs-card-body>
+                    <div>
+                        <VsHeading
+                            level="3"
+                            heading-style="heading-xs"
+                        >
+                            <VsLink
+                                :href="card.link"
+                                class="stretched-link"
+                                variant="secondary"
+                            >
+                                {{ card.title }}
+                            </VsLink>
+                        </VsHeading>
 
-                                <VsBody class="mb-150 truncate-2-lines">
-                                    {{ card.description }}
-                                </VsBody>
-                            </div>
-                        </template>
-                    </VsCard>
-                </VsCardGroup>
-            </VsCol>
-        </VsRow>
-    </VsContainer>
+                        <VsBody class="mb-150 truncate-2-lines">
+                            {{ card.description }}
+                        </VsBody>
+                    </div>
+                </template>
+            </VsCard>
+        </VsCardCarouselSlide>
+    </VsCardCarousel>
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
 
 
-    <!------------------------------------------------------------
-    NEW SECTION - Section header + new card group ( 3cards)
+     <!------------------------------------------------------------
+    NEW SECTION - Section header + card carousel ( 3cards)
     ------------------------------------------------------------>
     <VsSectionHeader 
         class="mt-500 mb-300"
@@ -182,54 +182,54 @@ export default `
         </template>
     </VsSectionHeader>
 
-    <VsContainer>
-        <VsRow>
-            <VsCol>
-                <VsCardGroup
-                    scroll-snap
-                    :cards-per-row="3"
-                    class="text-start"
-                >
-                    <VsCard
-                        v-for="(card, index) in cardList2"
-                        :key="'card-list-2-' + index"
-                    >
-                        <template #vs-card-header>
-                            <VsImg
-                                v-if="card.image"
-                                :src="card.image"
-                                class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                            />
-                        </template>
+    
+        <VsCardCarousel
+            previousButtonLabel="Previous"
+            nextButtonLabel="Next"
+            :slidesPerViewSm="2.4"
 
-                        <template #vs-card-body>
-                            <div>
-                                <VsHeading
-                                    level="3"
-                                    heading-style="heading-xs"
+            :slidesPerViewXl="3.4"
+        >
+            <VsCardCarouselSlide
+                v-for="(card, index) in cardList2"
+                :key="'card-list-2-' + index"
+            >
+                <VsCard>
+                    <template #vs-card-header>
+                        <VsImg
+                            v-if="card.image"
+                            :src="card.image"
+                            class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
+                        />
+                    </template>
+
+                    <template #vs-card-body>
+                        <div>
+                            <VsHeading
+                                level="3"
+                                heading-style="heading-xs"
+                            >
+                                <VsLink
+                                    :href="card.link"
+                                    class="stretched-link"
+                                    variant="secondary"
                                 >
-                                    <VsLink
-                                        :href="card.link"
-                                        class="stretched-link"
-                                        variant="secondary"
-                                    >
-                                        {{ card.title }}
-                                    </VsLink>
-                                </VsHeading>
+                                    {{ card.title }}
+                                </VsLink>
+                            </VsHeading>
 
-                                <VsBody class="mb-150 truncate-2-lines">
-                                    {{ card.description }}
-                                </VsBody>
-                            </div>
-                        </template>
-                    </VsCard>
-                </VsCardGroup>
-            </VsCol>
-        </VsRow>
-    </VsContainer>
+                            <VsBody class="mb-150 truncate-2-lines">
+                                {{ card.description }}
+                            </VsBody>
+                        </div>
+                    </template>
+                </VsCard>
+            </VsCardCarouselSlide>
+        </VsCardCarousel>
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
+
 
 
     <!------------------------------------------------------------
@@ -278,7 +278,7 @@ export default `
     ------------------------------------------------------------>
 
     <!------------------------------------------------------------
-    NEW SECTION - Section header + new card group ( 4 cards)
+    NEW SECTION - Section header + card carousel ( 4 cards)
     ------------------------------------------------------------>
     <VsSectionHeader 
         class="mt-500 mb-300"
@@ -289,57 +289,55 @@ export default `
         </template>
     </VsSectionHeader>
 
-    <VsContainer>
-        <VsRow>
-            <VsCol>
-                <VsCardGroup
-                    scroll-snap
-                    :cards-per-row="4"
-                    class="text-start"
-                >
-                    <VsCard
-                        v-for="(card, index) in cardList3"
-                        :key="'card-list-3-' + index"
-                    >
-                        <template #vs-card-header>
-                            <VsImg
-                                v-if="card.image"
-                                :src="card.image"
-                                class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                            />
-                        </template>
+        <VsCardCarousel
+            previousButtonLabel="Previous"
+            nextButtonLabel="Next"
+            :slidesPerViewSm="2.4"
 
-                        <template #vs-card-body>
-                            <div>
-                                <VsHeading
-                                    level="3"
-                                    heading-style="heading-xs"
+            :slidesPerViewXl="4.4"
+        >
+            <VsCardCarouselSlide
+                v-for="(card, index) in cardList3"
+                :key="'card-list-1-' + index"
+            >
+                <VsCard>
+                    <template #vs-card-header>
+                        <VsImg
+                            v-if="card.image"
+                            :src="card.image"
+                            class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
+                        />
+                    </template>
+
+                    <template #vs-card-body>
+                        <div>
+                            <VsHeading
+                                level="3"
+                                heading-style="heading-xs"
+                            >
+                                <VsLink
+                                    :href="card.link"
+                                    class="stretched-link"
+                                    variant="secondary"
                                 >
-                                    <VsLink
-                                        :href="card.link"
-                                        class="stretched-link"
-                                        variant="secondary"
-                                    >
-                                        {{ card.title }}
-                                    </VsLink>
-                                </VsHeading>
+                                    {{ card.title }}
+                                </VsLink>
+                            </VsHeading>
 
-                                <VsBody class="mb-150 truncate-2-lines">
-                                    {{ card.description }}
-                                </VsBody>
-                            </div>
-                        </template>
-                    </VsCard>
-                </VsCardGroup>
-            </VsCol>
-        </VsRow>
-    </VsContainer>
+                            <VsBody class="mb-150 truncate-2-lines">
+                                {{ card.description }}
+                            </VsBody>
+                        </div>
+                    </template>
+                </VsCard>
+            </VsCardCarouselSlide>
+        </VsCardCarousel>
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
 
     <!------------------------------------------------------------
-    NEW SECTION - Section header + new card group ( 3 cards)
+    NEW SECTION - Section header + card carousel ( 3 cards)
     ------------------------------------------------------------>
     <VsSectionHeader 
         class="mt-500 mb-300"
@@ -352,51 +350,49 @@ export default `
         </template>
     </VsSectionHeader>
 
-    <VsContainer>
-        <VsRow>
-            <VsCol>
-                <VsCardGroup
-                    scroll-snap
-                    :cards-per-row="3"
-                    class="text-start"
-                >
-                    <VsCard
-                        v-for="(card, index) in cardList5"
-                        :key="'card-list-5-' + index"
-                    >
-                        <template #vs-card-header>
-                            <VsImg
-                                v-if="card.image"
-                                :src="card.image"
-                                class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                            />
-                        </template>
+        <VsCardCarousel
+            previousButtonLabel="Previous"
+            nextButtonLabel="Next"
+            :slidesPerViewSm="2.4"
 
-                        <template #vs-card-body>
-                            <div>
-                                <VsHeading
-                                    level="3"
-                                    heading-style="heading-xs"
+            :slidesPerViewXl="3.4"
+        >
+            <VsCardCarouselSlide
+                v-for="(card, index) in cardList5"
+                :key="'card-list-1-' + index"
+            >
+                <VsCard>
+                    <template #vs-card-header>
+                        <VsImg
+                            v-if="card.image"
+                            :src="card.image"
+                            class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
+                        />
+                    </template>
+
+                    <template #vs-card-body>
+                        <div>
+                            <VsHeading
+                                level="3"
+                                heading-style="heading-xs"
+                            >
+                                <VsLink
+                                    :href="card.link"
+                                    class="stretched-link"
+                                    variant="secondary"
                                 >
-                                    <VsLink
-                                        :href="card.link"
-                                        class="stretched-link"
-                                        variant="secondary"
-                                    >
-                                        {{ card.title }}
-                                    </VsLink>
-                                </VsHeading>
+                                    {{ card.title }}
+                                </VsLink>
+                            </VsHeading>
 
-                                <VsBody class="mb-150 truncate-2-lines">
-                                    {{ card.description }}
-                                </VsBody>
-                            </div>
-                        </template>
-                    </VsCard>
-                </VsCardGroup>
-            </VsCol>
-        </VsRow>
-    </VsContainer>
+                            <VsBody class="mb-150 truncate-2-lines">
+                                {{ card.description }}
+                            </VsBody>
+                        </div>
+                    </template>
+                </VsCard>
+            </VsCardCarouselSlide>
+        </VsCardCarousel>
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
@@ -424,7 +420,7 @@ export default `
 
     
     <!------------------------------------------------------------
-    NEW SECTION - Section header + new card group ( 4 cards)
+    NEW SECTION - Section header + card carousel ( 4 cards)
     ------------------------------------------------------------>
     <VsSectionHeader 
         class="mt-500 mb-400"
@@ -437,51 +433,49 @@ export default `
         </template>
     </VsSectionHeader>
 
-    <VsContainer>
-        <VsRow>
-            <VsCol>
-                <VsCardGroup
-                    scroll-snap
-                    :cards-per-row="4"
-                    class="text-start"
-                >
-                    <VsCard
-                        v-for="(card, index) in cardList6"
-                        :key="'card-list-6-' + index"
-                    >
-                        <template #vs-card-header>
-                            <VsImg
-                                v-if="card.image"
-                                :src="card.image"
-                                class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                            />
-                        </template>
+        <VsCardCarousel
+            previousButtonLabel="Previous"
+            nextButtonLabel="Next"
+            :slidesPerViewSm="2.4"
 
-                        <template #vs-card-body>
-                            <div>
-                                <VsHeading
-                                    level="3"
-                                    heading-style="heading-xs"
+            :slidesPerViewXl="4.4"
+        >
+            <VsCardCarouselSlide
+                v-for="(card, index) in cardList6"
+                :key="'card-list-1-' + index"
+            >
+                <VsCard>
+                    <template #vs-card-header>
+                        <VsImg
+                            v-if="card.image"
+                            :src="card.image"
+                            class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
+                        />
+                    </template>
+
+                    <template #vs-card-body>
+                        <div>
+                            <VsHeading
+                                level="3"
+                                heading-style="heading-xs"
+                            >
+                                <VsLink
+                                    :href="card.link"
+                                    class="stretched-link"
+                                    variant="secondary"
                                 >
-                                    <VsLink
-                                        :href="card.link"
-                                        class="stretched-link"
-                                        variant="secondary"
-                                    >
-                                        {{ card.title }}
-                                    </VsLink>
-                                </VsHeading>
+                                    {{ card.title }}
+                                </VsLink>
+                            </VsHeading>
 
-                                <VsBody class="mb-150 truncate-2-lines">
-                                    {{ card.description }}
-                                </VsBody>
-                            </div>
-                        </template>
-                    </VsCard>
-                </VsCardGroup>
-            </VsCol>
-        </VsRow>
-    </VsContainer>
+                            <VsBody class="mb-150 truncate-2-lines">
+                                {{ card.description }}
+                            </VsBody>
+                        </div>
+                    </template>
+                </VsCard>
+            </VsCardCarouselSlide>
+        </VsCardCarousel>
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
@@ -489,7 +483,7 @@ export default `
 
 
     <!------------------------------------------------------------
-    NEW SECTION - Section header + new card group ( 4 cards)
+    NEW SECTION - Section header + card carousel ( 4 cards)
     ------------------------------------------------------------>
     <VsSectionHeader 
         class="mt-500 mb-300"
@@ -506,51 +500,51 @@ export default `
         </template>
     </VsSectionHeader>
 
-    <VsContainer class="mb-500">
-        <VsRow>
-            <VsCol>
-                <VsCardGroup
-                    scroll-snap
-                    :cards-per-row="4"
-                    class="text-start"
-                >
-                    <VsCard
-                        v-for="(card, index) in cardList4"
-                        :key="'card-list-4-' + index"
-                    >
-                        <template #vs-card-header>
-                            <VsImg
-                                v-if="card.image"
-                                :src="card.image"
-                                class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                            />
-                        </template>
+    <div class="mb-500">
+        <VsCardCarousel
+            previousButtonLabel="Previous"
+            nextButtonLabel="Next"
+            :slidesPerViewSm="2.4"
 
-                        <template #vs-card-body>
-                            <div>
-                                <VsHeading
-                                    level="3"
-                                    heading-style="heading-xs"
+            :slidesPerViewXl="4.4"
+        >
+            <VsCardCarouselSlide
+                v-for="(card, index) in cardList4"
+                :key="'card-list-1-' + index"
+            >
+                <VsCard>
+                    <template #vs-card-header>
+                        <VsImg
+                            v-if="card.image"
+                            :src="card.image"
+                            class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
+                        />
+                    </template>
+
+                    <template #vs-card-body>
+                        <div>
+                            <VsHeading
+                                level="3"
+                                heading-style="heading-xs"
+                            >
+                                <VsLink
+                                    :href="card.link"
+                                    class="stretched-link"
+                                    variant="secondary"
                                 >
-                                    <VsLink
-                                        :href="card.link"
-                                        class="stretched-link"
-                                        variant="secondary"
-                                    >
-                                        {{ card.title }}
-                                    </VsLink>
-                                </VsHeading>
+                                    {{ card.title }}
+                                </VsLink>
+                            </VsHeading>
 
-                                <VsBody class="mb-150 truncate-2-lines">
-                                    {{ card.description }}
-                                </VsBody>
-                            </div>
-                        </template>
-                    </VsCard>
-                </VsCardGroup>
-            </VsCol>
-        </VsRow>
-    </VsContainer>
+                            <VsBody class="mb-150 truncate-2-lines">
+                                {{ card.description }}
+                            </VsBody>
+                        </div>
+                    </template>
+                </VsCard>
+            </VsCardCarouselSlide>
+        </VsCardCarousel>
+    </div>
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
