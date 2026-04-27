@@ -140,6 +140,7 @@ export default {
         display: flex;
         flex-direction: column;
         border-radius: $vs-radius-tiny;
+        height: 100%;
 
         &:hover {
             cursor: pointer;
