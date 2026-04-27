@@ -1,3 +1,5 @@
+import splitCardCarousel from '../../partials/splitCardCarousel';
+
 export default `
     <VsPageHeader menu-type="b2c">
         <template #breadcrumb>
@@ -427,10 +429,10 @@ export default `
 
 
     <!------------------------------------------------------------
-    NEW SECTION - Section header + new card group ( 4 cards)
+    NEW SECTION - Section header + new card carousel ( 4 cards)
     ------------------------------------------------------------>
     <VsSectionHeader 
-        class="mt-500 mb-300"
+        class="mt-500 mb-200 mb-xl-300"
         heading="Explore places to stay"
     >
         <template v-slot:section-header-lede>
@@ -438,56 +440,11 @@ export default `
         </template>
     </VsSectionHeader>
 
-    <VsContainer class="mb-500">
-        <VsRow>
-            <VsCol>
-                <VsCardGroup
-                    scroll-snap
-                    :cards-per-row="4"
-                    class="text-start"
-                >
-                    <VsCard
-                        v-for="(card, index) in cardList4"
-                        :key="'card-list-4-' + index"
-                    >
-                        <template #vs-card-header>
-                            <VsImg
-                                v-if="card.image"
-                                :src="card.image"
-                                class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                            />
-                        </template>
-
-                        <template #vs-card-body>
-                            <div>
-                                <VsHeading
-                                    level="3"
-                                    heading-style="heading-xs"
-                                >
-                                    <VsLink
-                                        :href="card.link"
-                                        class="stretched-link"
-                                        variant="secondary"
-                                    >
-                                        {{ card.title }}
-                                    </VsLink>
-                                </VsHeading>
-
-                                <VsBody class="mb-150 truncate-2-lines">
-                                    {{ card.description }}
-                                </VsBody>
-                            </div>
-                        </template>
-                    </VsCard>
-                </VsCardGroup>
-            </VsCol>
-        </VsRow>
-    </VsContainer>
+    ${splitCardCarousel()}
+    
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
-
-
 
 
     <!------------------------------------------------------------

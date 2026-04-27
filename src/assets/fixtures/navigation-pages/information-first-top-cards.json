@@ -96,5 +96,30 @@
         "link": "#"
       }
     ]
+  },
+  "infoCardList5": {
+    "cards": [
+      {
+        "image": "https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/03-mar/glen-mhor_yt.jpg?size=md",
+        "title": "Climate Action Case Study: Glen Mhor",
+        "description": "Glen Mhor Hotel & Apartments and Distillery talk through their approach to creating a sustainable business.",
+        "link": "#",
+        "isExternal": true
+      },
+      {
+        "image": "https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/03-mar/wilderness-scotland_yt.jpg?size=sm",
+        "title": "Climate Case Study: Wilderness Scotland",
+        "description": "Learn how Wilderness Scotland has adapted their business to prioritise sustainability.",
+        "link": "#",
+        "isExternal": true
+      },
+      {
+        "image": "https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/03-mar/crannog_yt.jpg?size=md",
+        "title": "Climate Action Case Study: The Scottish Crannog Centre",
+        "description": "Find out how The Scottish Crannog Centre have put sustainability at the heart of their business.",
+        "link": "#",
+        "isExternal": true
+      }
+    ]
   }
 }
