@@ -50,6 +50,7 @@
 </template>
 
 <script>
+import { useId } from 'vue';
 import { Swiper } from 'swiper/vue';
 import {
     Navigation,
@@ -136,7 +137,7 @@ export default {
     data() {
         return {
             modules: [Navigation, Scrollbar],
-            instanceId: `carousel-${Math.random().toString(36).slice(2, 9)}`,
+            instanceId: useId(),
             isInteracting: false,
         };
     },
@@ -182,33 +183,34 @@ export default {
             return result;
         },
     },
+    beforeUnmount() {
+        clearTimeout(this._interactionTimer);
+    },
     methods: {
         /**
-        * Sets itsInteracting to true when user starts
+        * Sets isInteracting to true when user starts
         * interacting with the carousel (touch or mouse).
         */
         onTouchStart() {
             this.isInteracting = true;
         },
         /**
-        * Sets itsInteracting to true when user moves
+        * Sets isInteracting to true when user moves
         * the slider (touch or mouse)
         */
         onSliderMove() {
             this.isInteracting = true;
         },
         /**
-        * Sets itsInteracting to false when user stops interacting
+        * Sets isInteracting to false when user stops interacting
         * with the slider (touch or mouse). It's a delay to prevent it
         * from hiding the scrollbar immediately.
         */
         onTouchEnd() {
-            setTimeout(() => {
-                this.isInteracting = false;
-            }, 400);
+            this.endInteraction();
         },
         /**
-        * Sets itsInteracting to true when user change slide
+        * Sets isInteracting to true when user change slide
         * using navigation buttons.
         */
         onInteractionStart() {
@@ -222,7 +224,7 @@ export default {
             this.endInteraction();
         },
         /**
-        * Sets itsInteracting to false with a delay. Used after slide
+        * Sets isInteracting to false with a delay. Used after slide
         * changes to prevent hiding the scrollbar immediately.
         */
         endInteraction() {

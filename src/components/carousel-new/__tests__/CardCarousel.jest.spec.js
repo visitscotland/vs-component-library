@@ -40,7 +40,7 @@ describe('VsCardCarousel', () => {
         const wrapper = factoryShallowMount();
 
         expect(wrapper.classes()).toContain('vs-card-carousel');
-        expect(wrapper.attributes('id')).toMatch(/^vs-carousel-carousel-/);
+        expect(wrapper.attributes('id')).toMatch(/^vs-carousel-v-\d+$/);
     });
 
     it('renders previous and next buttons with the provided labels', () => {
