@@ -193,14 +193,15 @@ import requiredCookiesData from '../../utils/required-cookies-data';
 const cookieValues = requiredCookiesData.youtube;
 
 /**
- * The Stretched Link Card is a block that stretches its nested link across its whole area
- * meaning that the whole block is clickable
- *
- * @displayName Stretched Link Card
- */
+* @deprecated: ⚠️ Use new Card component instead. This component will be
+* removed in a future release.
+* @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1190068237/Stretched+link+card+deprecated
+*
+* @displayName Stretched Link Card
+*/
 export default {
     name: 'VsStretchedLinkCard',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsHeading,

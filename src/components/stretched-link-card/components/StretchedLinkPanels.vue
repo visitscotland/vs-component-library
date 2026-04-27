@@ -29,13 +29,15 @@
 <script>
 import VsIcon from '@/components/icon/Icon.vue';
 /**
- * Panels to show information in the stretched link component
- *
- * @displayName Stretched Link Panels
- */
+* @deprecated: ⚠️ Use new Card component instead. This component will be
+* removed in a future release.
+* @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1190068237/Stretched+link+card+deprecated
+*
+* @displayName Stretched Link Panels
+*/
 export default {
     name: 'VsStretchedLinkPanels',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsIcon,
