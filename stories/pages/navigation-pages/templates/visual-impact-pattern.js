@@ -46,7 +46,7 @@ export default `
             :slidesPerViewLg="2.7"
             :slidesPerViewXl="4"
         >
-            <VsCarouselNewSlide
+            <VsCardCarouselSlide
                 v-for="(card, index) in cardListOverlay"
                 :key="'card-overlay-' + index"
             >
@@ -103,7 +103,7 @@ export default `
                         </div>
                     </template>
                 </VsCard>
-            </VsCarouselNewSlide>
+            </VsCardCarouselSlide>
         </VsCardCarousel>
     </div>
 
@@ -129,7 +129,7 @@ export default `
         :slidesPerViewSm="2.4"
         :slidesPerViewXl="4.4"
     >
-        <VsCarouselNewSlide
+        <VsCardCarouselSlide
             v-for="(card, index) in cardList1"
             :key="'card-list-1-' + index"
         >
@@ -163,7 +163,7 @@ export default `
                     </div>
                 </template>
             </VsCard>
-        </VsCarouselNewSlide>
+        </VsCardCarouselSlide>
     </VsCardCarousel>
     <!------------------------------------------------------------
     SECTION END
@@ -190,7 +190,7 @@ export default `
 
             :slidesPerViewXl="3.4"
         >
-            <VsCarouselNewSlide
+            <VsCardCarouselSlide
                 v-for="(card, index) in cardList2"
                 :key="'card-list-2-' + index"
             >
@@ -224,7 +224,7 @@ export default `
                         </div>
                     </template>
                 </VsCard>
-            </VsCarouselNewSlide>
+            </VsCardCarouselSlide>
         </VsCardCarousel>
     <!------------------------------------------------------------
     SECTION END
@@ -296,7 +296,7 @@ export default `
 
             :slidesPerViewXl="4.4"
         >
-            <VsCarouselNewSlide
+            <VsCardCarouselSlide
                 v-for="(card, index) in cardList3"
                 :key="'card-list-1-' + index"
             >
@@ -330,7 +330,7 @@ export default `
                         </div>
                     </template>
                 </VsCard>
-            </VsCarouselNewSlide>
+            </VsCardCarouselSlide>
         </VsCardCarousel>
     <!------------------------------------------------------------
     SECTION END
@@ -357,7 +357,7 @@ export default `
 
             :slidesPerViewXl="3.4"
         >
-            <VsCarouselNewSlide
+            <VsCardCarouselSlide
                 v-for="(card, index) in cardList5"
                 :key="'card-list-1-' + index"
             >
@@ -391,7 +391,7 @@ export default `
                         </div>
                     </template>
                 </VsCard>
-            </VsCarouselNewSlide>
+            </VsCardCarouselSlide>
         </VsCardCarousel>
     <!------------------------------------------------------------
     SECTION END
@@ -440,7 +440,7 @@ export default `
 
             :slidesPerViewXl="4.4"
         >
-            <VsCarouselNewSlide
+            <VsCardCarouselSlide
                 v-for="(card, index) in cardList6"
                 :key="'card-list-1-' + index"
             >
@@ -474,7 +474,7 @@ export default `
                         </div>
                     </template>
                 </VsCard>
-            </VsCarouselNewSlide>
+            </VsCardCarouselSlide>
         </VsCardCarousel>
     <!------------------------------------------------------------
     SECTION END
@@ -508,7 +508,7 @@ export default `
 
             :slidesPerViewXl="4.4"
         >
-            <VsCarouselNewSlide
+            <VsCardCarouselSlide
                 v-for="(card, index) in cardList4"
                 :key="'card-list-1-' + index"
             >
@@ -542,7 +542,7 @@ export default `
                         </div>
                     </template>
                 </VsCard>
-            </VsCarouselNewSlide>
+            </VsCardCarouselSlide>
         </VsCardCarousel>
     </div>
     <!------------------------------------------------------------

@@ -3,7 +3,8 @@ import VsImg from '@/components/img/Img.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsLink from '@/components/link/Link.vue';
 import VsBody from '@/components/body/Body.vue';
-import { VsCardCarousel, VsCarouselNewSlide } from '@/components/carousel-new';
+import VsCardCarousel from '@/components/card-carousel/CardCarousel.vue';
+import VsCardCarouselSlide from '@/components/card-carousel/components/CardCarouselSlide';
 
 import cardLayoutData from '@/assets/fixtures/navigation-pages/visual-impact-cards.json';
 
@@ -15,7 +16,7 @@ export default {
 const Template = (args) => ({
     components: {
         VsCardCarousel,
-        VsCarouselNewSlide,
+        VsCardCarouselSlide,
         VsCard,
         VsImg,
         VsHeading,
@@ -40,7 +41,7 @@ const Template = (args) => ({
                 :slidesPerViewXxl="args.slidesPerViewXxl"
                 :slidesPerViewXxxl="args.slidesPerViewXxxl"
             >
-                <VsCarouselNewSlide
+                <VsCardCarouselSlide
                     v-for="(card, index) in cards"
                     :key="'card-' + index"
                 >
@@ -72,7 +73,7 @@ const Template = (args) => ({
                             </VsBody>
                         </template>
                     </VsCard>
-                </VsCarouselNewSlide>
+                </VsCardCarouselSlide>
             </VsCardCarousel>
         </div>
     `,
