@@ -148,10 +148,15 @@ export default {
             default: null,
         },
     },
+    setup() {
+        const instanceId = useId();
+        return {
+            instanceId,
+        };
+    },
     data() {
         return {
             modules: [Navigation, Scrollbar, A11y],
-            instanceId: useId(),
             isInteracting: false,
         };
     },

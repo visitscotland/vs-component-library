@@ -1,7 +1,7 @@
 export default function linkCardCarousel({
     cardsVar = 'cardList4',
     cardsKey = '4',
-    cardsPerRowXl = 4.4,
+    slidesPerViewXl = 4.4,
 } = {
 }) {
     return `
@@ -10,7 +10,7 @@ export default function linkCardCarousel({
             nextButtonLabel="Next"
             carouselAriaLabel="Link cards"
             :slidesPerViewSm="2.4"
-            :slidesPerViewXl="${cardsPerRowXl}"
+            :slidesPerViewXl="${slidesPerViewXl}"
         >
             <VsCardCarouselSlide
                 v-for="(card, index) in ${cardsVar}"

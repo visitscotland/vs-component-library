@@ -29,7 +29,7 @@ export default function overlayCardCarousel({
                             :poster-image-src="card.image"
                             :video-src="card.videoSrc"
                             :show-toggle="false"
-                            :video-id="'category-card-video' + index"
+                            :video-id="'category-card-video-${cardsKey}-' + index"
                             :lazy-load="true"
                         />
                         <VsImg 
@@ -47,7 +47,7 @@ export default function overlayCardCarousel({
                             pressed-icon="vs-icon-control-play"
                             label="Pause video"
                             pressed-label="Play video"
-                            :aria-controls="'category-card-video' + index"
+                            :aria-controls="'category-card-video-${cardsKey}-' + index"
                             @click="toggleCard(index)"
                         />
                     </template>

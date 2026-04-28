@@ -13,6 +13,8 @@ jest.mock('swiper/modules', () => ({
     },
     Scrollbar: {
     },
+    A11y: {
+    },
 }));
 jest.mock('swiper/css', () => {});
 jest.mock('swiper/css/scrollbar', () => {});
@@ -22,6 +24,7 @@ config.global.renderStubDefaultSlot = true;
 const requiredProps = {
     previousButtonLabel: 'Previous',
     nextButtonLabel: 'Next',
+    carouselAriaLabel: 'Card carousel',
 };
 
 const factoryShallowMount = (options = {
@@ -52,6 +55,12 @@ describe('VsCardCarousel', () => {
         expect(wrapper.text()).toContain('Next');
     });
 
+    it('renders the carousel aria-label on the wrapper', () => {
+        const wrapper = factoryShallowMount();
+
+        expect(wrapper.attributes('aria-label')).toBe('Card carousel');
+    });
+
     it('renders default slot content inside the swiper wrapper', () => {
         const wrapper = factoryShallowMount({
             slots: {
@@ -65,7 +74,8 @@ describe('VsCardCarousel', () => {
 
     it('computes swiperBreakpoints using fallback values for unset breakpoints', () => {
         const wrapper = factoryShallowMount({
-            propsData: {
+            props: {
+                ...requiredProps,
                 slidesPerViewXs: 1,
                 slidesPerViewSm: 2,
                 slidesPerViewMd: null,

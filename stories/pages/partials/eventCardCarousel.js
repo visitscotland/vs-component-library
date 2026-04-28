@@ -1,7 +1,7 @@
 export default function eventCardCarousel({
     cardsVar = 'cardList4',
     cardsKey = '4',
-    cardsPerRowXl = 3.4,
+    slidesPerViewXl = 3.4,
 } = {
 }) {
     return `
@@ -10,7 +10,7 @@ export default function eventCardCarousel({
             nextButtonLabel="Next"
             carouselAriaLabel="Event cards"
             :slidesPerViewSm="2.4"
-            :slidesPerViewXl="${cardsPerRowXl}"
+            :slidesPerViewXl="${slidesPerViewXl}"
         >
             <VsCardCarouselSlide
                 v-for="(card, index) in ${cardsVar}"
@@ -61,7 +61,7 @@ export default function eventCardCarousel({
                             heading-style="heading-xs"
                         >
                             <VsLink
-                                href="#"
+                                :href="card.link"
                                 class="stretched-link"
                                 variant="secondary"
                             >
@@ -78,7 +78,10 @@ export default function eventCardCarousel({
 
                     <template #vs-card-footer>
                         <div class="d-flex justify-content-between align-items-end">
-                            <div class="d-flex align-items-center">
+                            <div 
+                                v-if="card.location"
+                                class="d-flex align-items-center"
+                            >
                                 <VsIcon
                                     icon="fa-solid fa-location-dot"
                                     variant="highlight"
@@ -95,6 +98,7 @@ export default function eventCardCarousel({
                             </div>
 
                             <VsIcon 
+                                v-if="card.isExternal"
                                 icon="vs-icon-control-external-link"
                                 variant="highlight"
                                 size="sm"
