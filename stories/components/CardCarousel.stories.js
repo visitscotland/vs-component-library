@@ -92,7 +92,7 @@ export const Default = Template.bind({
 });
 Default.args = {
     ...base,
-    cards: cardLayoutData.cardList1?.cards || [],
+    cards: cardLayoutData.cardList7?.cards || [],
     slidesPerViewXl: 4.4,
 };
 
@@ -100,7 +100,7 @@ export const NoJavascript = Template.bind({
 });
 NoJavascript.args = {
     ...base,
-    cards: cardLayoutData.cardList1?.cards || [],
+    cards: cardLayoutData.cardList7?.cards || [],
     slidesPerViewXl: 4.4,
     jsDisabled: true,
 };

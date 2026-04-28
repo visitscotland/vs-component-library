@@ -190,6 +190,40 @@
       }
     ]
   },
+  "cardList7": {
+    "cards": [
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2023/04/06/salisbury-crags?size=lg",
+        "title": "Affordable and budget-friendly holidays in Scotland",
+        "description": "Find out how to have a cheap holiday in Scotland with our top budget tips. From free attractions to budget accommodation for your holiday, we'll help you get the best value out of your Scottish break.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/11/05/creel-seafood?size=lg",
+        "title": "Scottish food & drink",
+        "description": "Taste and see why Scottish food and drink is famous all over the world.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2025/09/25/japanese-garden.jpg?size=lg",
+        "title": "Passes & offers for holidays, attractions & travel in Scotland",
+        "description": "Scotland can offer great value for money all year round. Here's our one-stop shop for great offers, deals and passes that can make trip planning easy and save your money throughout the seasons.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/11/30/victoria-street-in-edinburgh?size=lg",
+        "title": "Shopping in Scotland",
+        "description": "Find information about shopping in Scotland, with details about the very best local food and drink, stylish boutiques, shops and arts and craft outlets.",
+        "link": "#"
+      },
+      {
+        "image": "https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/25/edinburgh-city-sightseeing-bus?size=lg",
+        "title": "Day trips & days out in Scotland",
+        "description": "There are hundreds of tours, day trip ideas, itineraries and more than you can use to create an exciting weekend break, or even a spontaneous last-minute day out.",
+        "link": "#"
+      }
+    ]
+  },
   "cardListMultipleRows": {
     "cards": [
       {
