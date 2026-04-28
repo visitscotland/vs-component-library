@@ -8,7 +8,7 @@ export default function splitCardCarousel({
         <VsCardCarousel
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
-            carouselAriaLabel="Split cards",
+            carouselAriaLabel="Split cards"
             :slidesPerViewSm="2.4"
             :slidesPerViewXl="${cardsPerRowXl}"
         >

@@ -34,7 +34,7 @@ const Template = (args) => ({
             <VsCardCarousel
                 :previousButtonLabel="args.previousButtonLabel"
                 :nextButtonLabel="args.nextButtonLabel"
-                :carouselAriaLabel="args.carouselAriaLabel",
+                :carouselAriaLabel="args.carouselAriaLabel"
                 :slidesPerViewSm="args.slidesPerViewSm"
                 :slidesPerViewMd="args.slidesPerViewMd"
                 :slidesPerViewLg="args.slidesPerViewLg"
