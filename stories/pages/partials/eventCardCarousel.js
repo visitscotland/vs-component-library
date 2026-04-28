@@ -8,6 +8,7 @@ export default function eventCardCarousel({
         <VsCardCarousel
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
+            carouselAriaLabel="Event cards"
             :slidesPerViewSm="2.4"
             :slidesPerViewXl="${cardsPerRowXl}"
         >
