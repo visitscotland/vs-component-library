@@ -1,8 +1,10 @@
 <template>
-    <div
+    <section
         class="vs-card-carousel"
         :id="`vs-carousel-${instanceId}`"
         :class="carouselClasses"
+        aria-roledescription="carousel"
+        :aria-label="carouselAriaLabel"
     >
         <div class="vs-card-carousel__inner">
             <div class="vs-card-carousel__controls">
@@ -36,6 +38,10 @@
                 }"
                 :scrollbar="{ draggable: false }"
                 :breakpoints="swiperBreakpoints"
+                :a11y="{
+                    scrollOnFocus: true,
+                    slideLabelMessage: 'Slide {{index}} of {{slidesLength}}',
+                }"
                 @touch-start="onTouchStart"
                 @touch-end="onTouchEnd"
                 @slider-move="onSliderMove"
@@ -46,7 +52,7 @@
                 <slot />
             </Swiper>
         </div>
-    </div>
+    </section>
 </template>
 
 <script>
@@ -55,6 +61,7 @@ import { Swiper } from 'swiper/vue';
 import {
     Navigation,
     Scrollbar,
+    A11y,
 } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
@@ -81,6 +88,13 @@ export default {
          * Accessibility text for next button
          */
         nextButtonLabel: {
+            type: String,
+            required: true,
+        },
+        /**
+         * Accessibility label for the carousel group
+         */
+        carouselAriaLabel: {
             type: String,
             required: true,
         },
@@ -136,7 +150,7 @@ export default {
     },
     data() {
         return {
-            modules: [Navigation, Scrollbar],
+            modules: [Navigation, Scrollbar, A11y],
             instanceId: useId(),
             isInteracting: false,
         };

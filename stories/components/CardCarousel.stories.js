@@ -34,6 +34,7 @@ const Template = (args) => ({
             <VsCardCarousel
                 :previousButtonLabel="args.previousButtonLabel"
                 :nextButtonLabel="args.nextButtonLabel"
+                :carouselAriaLabel="args.carouselAriaLabel",
                 :slidesPerViewSm="args.slidesPerViewSm"
                 :slidesPerViewMd="args.slidesPerViewMd"
                 :slidesPerViewLg="args.slidesPerViewLg"
@@ -82,6 +83,7 @@ const Template = (args) => ({
 const base = {
     previousButtonLabel: 'Previous',
     nextButtonLabel: 'Next',
+    carouselAriaLabel: 'Featured articles',
     slidesPerViewSm: 2.4,
     jsDisabled: false,
 };
@@ -90,23 +92,15 @@ export const Default = Template.bind({
 });
 Default.args = {
     ...base,
-    cards: cardLayoutData.cardListMultipleRows?.cards || [],
+    cards: cardLayoutData.cardList1?.cards || [],
     slidesPerViewXl: 4.4,
-};
-
-export const CustomBreakpoints = Template.bind({
-});
-CustomBreakpoints.args = {
-    ...base,
-    cards: cardLayoutData.cardList2?.cards || [],
-    slidesPerViewXl: 3.4,
 };
 
 export const NoJavascript = Template.bind({
 });
 NoJavascript.args = {
     ...base,
-    cards: cardLayoutData.cardListMultipleRows?.cards || [],
+    cards: cardLayoutData.cardList1?.cards || [],
     slidesPerViewXl: 4.4,
     jsDisabled: true,
 };

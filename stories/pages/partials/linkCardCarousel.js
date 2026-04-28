@@ -8,6 +8,7 @@ export default function linkCardCarousel({
         <VsCardCarousel
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
+            carouselAriaLabel="Link cards",
             :slidesPerViewSm="2.4"
             :slidesPerViewXl="${cardsPerRowXl}"
         >

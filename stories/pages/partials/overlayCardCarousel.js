@@ -7,6 +7,7 @@ export default function overlayCardCarousel({
         <VsCardCarousel
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
+            carouselAriaLabel="Category cards",
             :slidesPerViewXs="1.2"
             :slidesPerViewSm="2.2"
             :slidesPerViewLg="2.7"
