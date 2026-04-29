@@ -4821,6 +4821,9 @@ __metadata:
   peerDependencies:
     "@popperjs/core": "*"
     postcss: "*"
+  dependenciesMeta:
+    husky:
+      built: true
   languageName: unknown
   linkType: soft
 

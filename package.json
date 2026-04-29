@@ -156,15 +156,15 @@
     "@popperjs/core": "*",
     "postcss": "*"
   },
-  "dependenciesMeta": {
-    "husky": {
-      "built": true
-    },
-  },
   "engines": {
     "node": ">= 16.20.0",
     "npm": ">= 6.14.5",
     "yarn": ">= 1.22.4"
+  },
+  "dependenciesMeta": {
+    "husky": {
+      "built": true
+    }
   },
   "browserslist": [
     "> 1%",
