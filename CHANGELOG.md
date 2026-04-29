@@ -1,3 +1,10 @@
+# [5.48.0](https://github.com/visitscotland/vs-component-library/compare/v5.47.0...v5.48.0) (2026-04-28)
+
+
+### Features
+
+* **stretched link card:** deprecates stretched link card component ([96dd920](https://github.com/visitscotland/vs-component-library/commit/96dd920fa01f7f9f943fda90cf1bb5530697a79f))
+
 # [5.47.0](https://github.com/visitscotland/vs-component-library/compare/v5.46.0...v5.47.0) (2026-04-22)
 
 
