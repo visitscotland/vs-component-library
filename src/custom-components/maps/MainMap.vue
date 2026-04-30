@@ -14,11 +14,11 @@
                     :selected-category="selectedTopLevelCategory"
                     :selected-subcategories="selectedSubCategories"
                     :sidebar-labels="sidebarLabels"
-                    @category-selected="(e) => selectCategory(e.id, e.key)"
+                    @category-selected="(e) => handleSelectCategory(e.id, e.key)"
                     @reset-map="resetMap(true)"
                     @reset-location="resetMap(true, true)"
                     @search-input-changed="searchByText"
-                    @subcategory-selected="(e) => searchBySubCategory(e.id, e.key)"
+                    @subcategory-selected="(e) => handleSelectSubcategory(e.id, e.key)"
                 >
                     <template #vs-map-sidebar-search-results>
                         <VsAlert
@@ -136,7 +136,6 @@
                     </div>
                 </Suspense>
 
-                <!-- TODO: Add conditional back in -->
                 <div
                     v-if="showSearchAreaButton"
                     class="vs-map__search-area"
@@ -146,8 +145,7 @@
                         variant="secondary"
                         @click="searchArea"
                     >
-                        <!-- TODO: Add label -->
-                        Search this area
+                        {{ props.labels.searchAreaButton }}
                     </VsButton>
                 </div>
             </div>
@@ -206,6 +204,8 @@ import cookieValues from '@/utils/required-cookies-data';
 import VsMapSidebar from './components/MapSidebar.vue';
 import cookieCheckerComposable from './composables/verifyCookiesComposable';
 import dataLayerComposable from './composables/dataLayerComposable';
+
+import useViewportController from './composables/useViewportController';
 
 const dataLayerHelper = dataLayerComposable();
 
@@ -404,7 +404,6 @@ const queryStr = ref(new Set());
 const currentSearch = ref();
 const selfCateringClicked = ref(false);
 const keywords = ref(undefined);
-const showSearchAreaButton = ref(false);
 
 const subCategoryTypeMap = computed(() => {
     const map = new Map();
@@ -454,6 +453,16 @@ const sidebarLabels = {
     openSidebarButtonLabel: props.labels.openSidebarButton,
     locationSelectLabel: props.labels.locationSelect,
 };
+
+const {
+    getViewport,
+    hasViewportChanged,
+    isProgrammaticMove,
+    isUserMove,
+    lastSearchViewport,
+    runProgrammaticMove,
+    showSearchAreaButton,
+} = useViewportController();
 
 onBeforeMount(() => {
     const cookieCheck = cookieCheckerComposable();
@@ -549,7 +558,7 @@ onMounted(async() => {
             if (mapContainer) {
                 // eslint-disable-next-line no-undef
                 gMap = new google.maps.Map(mapContainer, mapOptions);
-                gMap.fitBounds(SCOTLAND_BOUNDS);
+                runProgrammaticMove(() => gMap.fitBounds(SCOTLAND_BOUNDS));
             } else {
                 throw new Error('Init error, mapContainer undefined');
             }
@@ -575,10 +584,29 @@ onMounted(async() => {
             } else {
                 shadeMapAreas(true);
             }
+
+            isUserMove.value = !isProgrammaticMove.value;
+
+            // Show the "Search this area" button if the user has zoomed in passed level 7.
+            if (currentZoom.value > 7 && !isProgrammaticMove.value && isUserMove.value) {
+                showSearchAreaButton.value = true;
+            }
+        });
+
+        gMap.addListener('dragstart', () => {
+            isUserMove.value = true;
         });
 
         gMap.addListener('idle', () => {
             visibleMarkerCount = getVisibleMarkerCount();
+
+            // Show the "Search this area" button if the user has moved the map.
+            if (!isProgrammaticMove.value
+                && isUserMove.value
+                && hasViewportChanged(getViewport(gMap))) {
+                showSearchAreaButton.value = true;
+                isUserMove.value = false;
+            }
         });
 
         // Handles click events in the Places UI Kit search panel for
@@ -694,6 +722,16 @@ function shadeMapAreas(zoomedIn) {
     }
 }
 
+function handleSelectCategory(categoryId, key) {
+    // Move the viewport back to the previous viewport when clicking a category.
+    if (lastSearchViewport.value) {
+        runProgrammaticMove(() => gMap.setCenter(lastSearchViewport.value.center));
+        runProgrammaticMove(() => gMap.setZoom(lastSearchViewport.value.zoom));
+    }
+    selectedDestination.value = '';
+    selectCategory(categoryId, key);
+}
+
 function selectCategory(categoryId, key) {
     resetCategories();
 
@@ -740,6 +778,7 @@ function selectCategory(categoryId, key) {
     searchInput.value = query.value;
 
     googleMapStore.showCategories = true;
+    showSearchAreaButton.value = false;
 }
 
 function searchSubCategoriesForLabel(selectedSubcategory, subCategoryId) {
@@ -804,8 +843,19 @@ function updateSubCategoryTypes(
     }
 }
 
+function handleSelectSubcategory(categoryId, key) {
+    // Move the viewport back to the previous viewport when clicking a subcategory.
+    if (lastSearchViewport.value) {
+        runProgrammaticMove(() => gMap.setCenter(lastSearchViewport.value.center));
+        runProgrammaticMove(() => gMap.setZoom(lastSearchViewport.value.zoom));
+    }
+    selectedDestination.value = '';
+    searchBySubCategory(categoryId, key);
+}
+
 function searchBySubCategory(subCategoryId, key) {
     subCategoryKey.value = key;
+    selectedDestination.value = '';
 
     if (subCategoryId === 'self-catering') {
         selfCateringClicked.value = true;
@@ -813,7 +863,7 @@ function searchBySubCategory(subCategoryId, key) {
         selectedSubCategories.value = new Set();
         selectedSubCategories.value.add(subCategoryId);
         const label = searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value;
-        query.value = searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value;
+        query.value = label;
         resetCategories();
         searchInput.value = `${query.value} ${selectedDestination.value}`;
         searchByText();
@@ -1069,19 +1119,22 @@ async function addMarkers(searchId) {
             markers[place.id] = marker;
             bounds.extend(place.location);
             if (searchRequest.value.places.length === 1) {
-                gMap.setCenter(
+                runProgrammaticMove(() => gMap.setCenter(
                     {
                         lat: place.location.lat(),
                         lng: place.location.lng(),
                     },
-                );
-                gMap.setZoom(14);
-                gMap.fitBounds(place.viewport);
+                ));
+
+                runProgrammaticMove(() => gMap.setZoom(14));
+                runProgrammaticMove(() => gMap.fitBounds(place.viewport));
             } else {
-                gMap.setCenter(bounds.getCenter());
-                gMap.fitBounds(bounds);
+                runProgrammaticMove(() => gMap.setCenter(bounds.getCenter()));
+                runProgrammaticMove(() => gMap.fitBounds(bounds));
             }
         });
+
+        lastSearchViewport.value = getViewport(gMap);
     }
 }
 
@@ -1142,9 +1195,9 @@ function resetMap(hardReset, resetLocation) {
         googleMapStore.showDestinations = true;
     }
     if (resetLocation) {
-        gMap.setCenter(props.center);
-        gMap.setZoom(props.zoom);
-        gMap.fitBounds(SCOTLAND_BOUNDS);
+        runProgrammaticMove(() => gMap.setCenter(props.center));
+        runProgrammaticMove(() => gMap.setZoom(props.zoom));
+        runProgrammaticMove(() => gMap.fitBounds(SCOTLAND_BOUNDS));
         mapInteractionEvent('reset_map');
     }
 }
@@ -1218,13 +1271,13 @@ function handlePlaceClick(place) {
     // eslint-disable-next-line no-undef
     google.maps.event.addListenerOnce(gMap, 'idle', () => {
         if (gMap.getZoom() > MAX_ZOOM) {
-            gMap.setZoom(MAX_ZOOM);
+            runProgrammaticMove(() => gMap.setZoom(MAX_ZOOM));
         }
 
         mapInteractionEvent('card_open', place);
     });
 
-    gMap.setCenter(place.location);
+    runProgrammaticMove(() => gMap.setCenter(place.location));
 }
 
 async function mapInteractionEvent(interactionType, place) {
@@ -1304,7 +1357,7 @@ function handleFeaturedLocationClick(place) {
     googleMapStore.showDestinations = false;
     selectedDestination.value = place.properties.title;
 
-    gMap.fitBounds(
+    runProgrammaticMove(() => gMap.fitBounds(
         // eslint-disable-next-line no-undef
         new google.maps.LatLngBounds(
             // eslint-disable-next-line no-undef
@@ -1318,23 +1371,28 @@ function handleFeaturedLocationClick(place) {
                 place.properties.viewport.high.longitude,
             ),
         ),
-    );
+    ));
 
-    gMap.setCenter(
+    runProgrammaticMove(() => gMap.setCenter(
         // eslint-disable-next-line no-undef
         new google.maps.LatLng(
             place.properties.locationCentre.latitude,
             place.properties.locationCentre.longitude,
         ),
-    );
+    ));
 
     selectCategory('things-to-do', 2);
 }
 
+/**
+ * Search the current viewport area re-running the previous search
+ * or running a "Things to do" if no previous search.
+ */
 function searchArea() {
-    // hide button
     googleMapStore.showDestinations = false;
+    googleMapStore.sidebarOpen = true;
     selectedDestination.value = '';
+    showSearchAreaButton.value = false;
 
     // Check for selected subcategory and start nearby search.
     if (selectedSubCategories.value.size > 0) {
@@ -1342,6 +1400,17 @@ function searchArea() {
             includedTypes: Array.from(includedSubTypes.value),
             excludedTypes: Array.from(excludedSubTypes.value),
         });
+
+        // Get labels for the selected subcategories.
+        const subcatLabels = [];
+        selectedSubCategories.value.forEach((subcat) => {
+            subcatLabels.push(
+                searchSubCategoriesForLabel(selectedSubCategories.value, subcat).value,
+            );
+        });
+        query.value = subcatLabels.join(', ');
+        searchInput.value = query.value;
+        // searchInput.value = selectedSubCategories.value.join(', ');
         googleMapStore.showCategories = true;
         return;
     }
