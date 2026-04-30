@@ -9,7 +9,8 @@ permissions:
 
 # Event for the workflow
 on:
-  # Run on PRs into main or cl-release/*
+  # Run on PRs into main, cl-release/**, or cl-feature/**
+  # but ignore PRs from dependabot
   pull_request:
     types:
       - opened
@@ -18,6 +19,7 @@ on:
     branches:
       - 'main'
       - 'cl-release/**'
+      - 'cl-feature/**'
 
   # Run automatically when pushing to main
   push:
@@ -38,6 +40,10 @@ env:
 # List of jobs
 jobs:
   chromatic-deployment:
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'pull_request' && github.event.pull_request.user.login != 'dependabot[bot]') ||
+      (github.event_name == 'push' && github.actor != 'dependabot[bot]')
     # Operating System
     runs-on: ubuntu-latest
     # Job steps
