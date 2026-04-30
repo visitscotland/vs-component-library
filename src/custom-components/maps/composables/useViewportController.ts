@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import { ref } from 'vue';
 
-type ViewportCenter = google.maps.LatLng;
+type ViewportCenter = google.maps.LatLngLiteral;
 
 type Viewport = {
     bounds: google.maps.LatLngBounds | null;
