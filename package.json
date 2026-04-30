@@ -161,6 +161,11 @@
     "npm": ">= 6.14.5",
     "yarn": ">= 1.22.4"
   },
+  "dependenciesMeta": {
+    "husky": {
+      "built": true
+    }
+  },
   "browserslist": [
     "> 1%",
     "last 2 versions",
@@ -195,5 +200,5 @@
     "get-func-name": "^2.0.1",
     "svgo": "3.2.0"
   },
-  "packageManager": "yarn@4.6.0"
+  "packageManager": "yarn@4.14.1"
 }
