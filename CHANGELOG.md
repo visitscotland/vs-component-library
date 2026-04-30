@@ -1,3 +1,10 @@
+# [5.50.0](https://github.com/visitscotland/vs-component-library/compare/v5.49.0...v5.50.0) (2026-04-30)
+
+
+### Features
+
+* **video:** add tabindex -1 to video source ([bd0d143](https://github.com/visitscotland/vs-component-library/commit/bd0d1434f922063936b0c4a2793e7aaa0c894806))
+
 # [5.49.0](https://github.com/visitscotland/vs-component-library/compare/v5.48.0...v5.49.0) (2026-04-30)
 
 
