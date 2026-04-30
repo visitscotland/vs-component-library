@@ -1,3 +1,10 @@
+# [5.49.0](https://github.com/visitscotland/vs-component-library/compare/v5.48.0...v5.49.0) (2026-04-30)
+
+
+### Features
+
+* **packages:** update tar ([5709f5e](https://github.com/visitscotland/vs-component-library/commit/5709f5e460d18a5cd655df22b970db6a28541247))
+
 # [5.48.0](https://github.com/visitscotland/vs-component-library/compare/v5.47.0...v5.48.0) (2026-04-28)
 
 
