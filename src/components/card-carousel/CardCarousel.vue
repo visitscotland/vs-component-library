@@ -31,7 +31,7 @@
 
             <Swiper
                 :modules="modules"
-                :space-between="30"
+                :space-between="24"
                 :navigation="{
                     prevEl: `.vs-carousel-prev-${instanceId}`,
                     nextEl: `.vs-carousel-next-${instanceId}`,
@@ -301,7 +301,7 @@ export default {
     &:has(.swiper-button-lock) {
         .swiper-wrapper {
             display: flex;
-            gap: 30px;
+            gap: 24px;
             transform: none !important;
         }
 

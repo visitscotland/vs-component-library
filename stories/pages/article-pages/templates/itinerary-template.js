@@ -1,4 +1,5 @@
 import splitCardCarousel from '../../partials/splitCardCarousel';
+import imageCardCarousel from '../../partials/imageCardCarousel';
 
 export default `
     <VsPageHeader menu-type="b2c">
@@ -177,6 +178,10 @@ export default `
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
+    
+    <div class="mt-500">
+        ${imageCardCarousel()}
+    </div>
 
     <!------------------------------------------------------------
     NEW SECTION - Two col content section
@@ -217,7 +222,7 @@ export default `
                         use-lazy-loading
                         class="rounded-2 w-100 mb-175"
                     />
-
+                   
                     <!------- Content block header -------> 
                     <VsRow class="mb-125">
                         <VsCol
@@ -239,6 +244,12 @@ export default `
 
                     <!------- Content block body -------> 
                     <VsBody class="mb-150">
+                        <p>
+                            Towering over the city, you won't be able to miss Edinburgh Castle. As well as offering spectacular views of the skyline, it's home to the Scottish Crown Jewels and the Stone of Destiny. On your visit, uncover Scotland's military history in the National War Museum and take in the haunting National War Memorial. Once you've explored the castle, wander down the Royal Mile to take in this famous thoroughfare - it's lined with an eclectic range of shops, pubs, eateries and historic closes, and you can also find St Giles' Cathedral in the middle and the Palace of Holyroodhouse at the bottom of the street.
+                        </p>
+
+                        ${imageCardCarousel()}
+
                         <p>
                             Towering over the city, you won't be able to miss Edinburgh Castle. As well as offering spectacular views of the skyline, it's home to the Scottish Crown Jewels and the Stone of Destiny. On your visit, uncover Scotland's military history in the National War Museum and take in the haunting National War Memorial. Once you've explored the castle, wander down the Royal Mile to take in this famous thoroughfare - it's lined with an eclectic range of shops, pubs, eateries and historic closes, and you can also find St Giles' Cathedral in the middle and the Palace of Holyroodhouse at the bottom of the street.
                         </p>

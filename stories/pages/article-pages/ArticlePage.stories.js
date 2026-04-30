@@ -21,6 +21,7 @@ import VsSpotlightSection from '@/components/spotlight-section/SpotlightSection.
 import VsIllustratedMap from '@/components/illustrated-map/IllustratedMap.vue';
 import VsMediaCaption from '@/components/media-caption/MediaCaption.vue';
 import cardLayoutData from '@/assets/fixtures/navigation-pages/visual-impact-cards.json';
+import mediaCarouselImages from '@/assets/fixtures/media-carousel/media-carousel-images.json';
 
 import RichArticleTemplate from './templates/rich-article-template';
 import StructuredArticleTemplate from './templates/structured-article-template';
@@ -57,9 +58,10 @@ const createStory = (template) => ({
         template,
         setup() {
             const cardList4 = cardLayoutData.cardList4?.cards || [];
-
+            const carouselImages = mediaCarouselImages.carouselImages?.images || [];
             return {
                 cardList4,
+                carouselImages,
             };
         },
     }),

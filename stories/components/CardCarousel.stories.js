@@ -1,5 +1,6 @@
 import VsCard from '@/components/card/Card.vue';
 import VsImg from '@/components/img/Img.vue';
+import VsMediaCaption from '@/components/media-caption/MediaCaption.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsLink from '@/components/link/Link.vue';
 import VsBody from '@/components/body/Body.vue';
@@ -7,6 +8,7 @@ import VsCardCarousel from '@/components/card-carousel/CardCarousel.vue';
 import VsCardCarouselSlide from '@/components/card-carousel/components/CardCarouselSlide';
 
 import cardLayoutData from '@/assets/fixtures/navigation-pages/visual-impact-cards.json';
+import mediaCarouselImages from '@/assets/fixtures/media-carousel/media-carousel-images.json';
 
 export default {
     component: VsCardCarousel,
@@ -19,6 +21,7 @@ const Template = (args) => ({
         VsCardCarouselSlide,
         VsCard,
         VsImg,
+        VsMediaCaption,
         VsHeading,
         VsLink,
         VsBody,
@@ -27,11 +30,13 @@ const Template = (args) => ({
         return {
             args,
             cards: args.cards,
+            images: args.images,
         };
     },
     template: `
         <div :class="args.jsDisabled ? 'no-js' : ''">
             <VsCardCarousel
+                v-if="args.cards"
                 :previousButtonLabel="args.previousButtonLabel"
                 :nextButtonLabel="args.nextButtonLabel"
                 :carouselAriaLabel="args.carouselAriaLabel"
@@ -76,6 +81,42 @@ const Template = (args) => ({
                     </VsCard>
                 </VsCardCarouselSlide>
             </VsCardCarousel>
+
+            <VsCardCarousel
+                v-else-if="args.images"
+                :previousButtonLabel="args.previousButtonLabel"
+                :nextButtonLabel="args.nextButtonLabel"
+                :carouselAriaLabel="args.carouselAriaLabel"
+                :slidesPerViewSm="args.slidesPerViewSm"
+                :slidesPerViewMd="args.slidesPerViewMd"
+                :slidesPerViewLg="args.slidesPerViewLg"
+                :slidesPerViewXl="args.slidesPerViewXl"
+                :slidesPerViewXxl="args.slidesPerViewXxl"
+                :slidesPerViewXxxl="args.slidesPerViewXxxl"
+            >
+                <VsCardCarouselSlide
+                    v-for="(image, index) in images"
+                    :key="'image-' + index"
+                >
+                    <figure>
+                        <VsImg 
+                            v-if="image.image"
+                            :src="image.image"
+                            fluid
+                        />
+                        <figcaption>
+                            <VsMediaCaption>
+                                <template v-slot:caption>
+                                    {{ image.caption }}
+                                </template>
+                                <template v-slot:credit>
+                                    {{ image.credit }}
+                                </template>
+                            </VsMediaCaption>
+                        </figcaption>
+                    </figure>
+                </VsCardCarouselSlide>
+            </VsCardCarousel>
         </div>
     `,
 });
@@ -84,16 +125,23 @@ const base = {
     previousButtonLabel: 'Previous',
     nextButtonLabel: 'Next',
     carouselAriaLabel: 'Featured articles',
-    slidesPerViewSm: 2.4,
     jsDisabled: false,
 };
 
-export const Default = Template.bind({
+export const WithCards = Template.bind({
 });
-Default.args = {
+WithCards.args = {
     ...base,
     cards: cardLayoutData.cardList7?.cards || [],
+    slidesPerViewSm: 2.4,
     slidesPerViewXl: 4.4,
+};
+
+export const WithImages = Template.bind({
+});
+WithImages.args = {
+    ...base,
+    images: mediaCarouselImages.carouselImages?.images || [],
 };
 
 export const NoJavascript = Template.bind({
@@ -101,6 +149,7 @@ export const NoJavascript = Template.bind({
 NoJavascript.args = {
     ...base,
     cards: cardLayoutData.cardList7?.cards || [],
+    slidesPerViewSm: 2.4,
     slidesPerViewXl: 4.4,
     jsDisabled: true,
 };
