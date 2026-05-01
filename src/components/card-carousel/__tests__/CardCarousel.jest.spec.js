@@ -35,7 +35,6 @@ const factoryShallowMount = (options = {
         }),
     },
     slots: options.slots,
-    ...options,
 });
 
 describe('VsCardCarousel', () => {
@@ -106,6 +105,20 @@ describe('VsCardCarousel', () => {
                 slidesPerView: 4,
             },
         });
+    });
+
+    it('does not add vs-card-carousel--contained class by default', () => {
+        const wrapper = factoryShallowMount();
+        expect(wrapper.classes()).not.toContain('vs-card-carousel--contained');
+    });
+
+    it('adds vs-card-carousel--contained class when contained prop is true', () => {
+        const wrapper = factoryShallowMount({
+            props: {
+                contained: true,
+            },
+        });
+        expect(wrapper.classes()).toContain('vs-card-carousel--contained');
     });
 
     it('adds is-interacting class to carousel when isInteracting is true', async() => {

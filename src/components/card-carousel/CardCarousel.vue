@@ -97,6 +97,15 @@ export default {
             required: true,
         },
         /**
+         * Set to true when the carousel is placed inside
+         * a Bootstrap grid container to remove the padding and
+         * max-width that the component applies for overflow capabilities
+         */
+        contained: {
+            type: Boolean,
+            default: false,
+        },
+        /**
          * Slides per view at XS breakpoint (0px+)
          */
         slidesPerViewXs: {
@@ -162,6 +171,7 @@ export default {
         carouselClasses() {
             return {
                 'is-interacting': this.isInteracting,
+                'vs-card-carousel--contained': this.contained,
             };
         },
         scrollbarContainerClasses() {
@@ -264,6 +274,14 @@ export default {
         // ensures carousel content is contained
         // within max-width breakpoints
         @include container-max-widths();
+    }
+
+    &--contained {
+        .vs-card-carousel__inner {
+            padding: 0;
+            max-width: none;
+            width: 100%;
+        }
     }
 
     .swiper {

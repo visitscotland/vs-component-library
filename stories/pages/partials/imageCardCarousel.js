@@ -1,6 +1,7 @@
 export default function imageCardCarousel({
     cardsVar = 'carouselImages',
     cardsKey = '1',
+    contained = false,
 } = {
 }) {
     return `
@@ -8,6 +9,7 @@ export default function imageCardCarousel({
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
             carouselAriaLabel="'image-group-${cardsKey}'"
+            :contained="${contained}"
         >
             <VsCardCarouselSlide
                 v-for="(image, index) in ${cardsVar}"
