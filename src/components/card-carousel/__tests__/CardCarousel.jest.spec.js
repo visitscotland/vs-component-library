@@ -108,20 +108,31 @@ describe('VsCardCarousel', () => {
         });
     });
 
+    it('adds is-interacting class to carousel when isInteracting is true', async() => {
+        const wrapper = factoryShallowMount();
+
+        expect(wrapper.classes()).not.toContain('is-interacting');
+
+        wrapper.vm.isInteracting = true;
+        await wrapper.vm.$nextTick();
+
+        expect(wrapper.classes()).toContain('is-interacting');
+    });
+
+    it('renders scrollbar container with instance-specific class', () => {
+        const wrapper = factoryShallowMount();
+        const scrollbar = wrapper.find('.vs-card-carousel__scrollbar-container');
+
+        expect(scrollbar.exists()).toBe(true);
+        expect(scrollbar.classes()).toContain(`vs-card-carousel__scrollbar-${wrapper.vm.instanceId}`);
+    });
+
     it('updates interactive state when user starts interacting', async() => {
         const wrapper = factoryShallowMount();
 
         expect(wrapper.vm.isInteracting).toBe(false);
 
-        wrapper.vm.onTouchStart();
-        expect(wrapper.vm.isInteracting).toBe(true);
-
-        wrapper.vm.isInteracting = false;
-        wrapper.vm.onSliderMove();
-        expect(wrapper.vm.isInteracting).toBe(true);
-
-        wrapper.vm.isInteracting = false;
-        wrapper.vm.onInteractionStart();
+        wrapper.vm.startInteraction();
         expect(wrapper.vm.isInteracting).toBe(true);
     });
 
@@ -131,7 +142,7 @@ describe('VsCardCarousel', () => {
         const wrapper = factoryShallowMount();
 
         wrapper.vm.isInteracting = true;
-        wrapper.vm.onTouchEnd();
+        wrapper.vm.endInteraction();
 
         expect(wrapper.vm.isInteracting).toBe(true);
 

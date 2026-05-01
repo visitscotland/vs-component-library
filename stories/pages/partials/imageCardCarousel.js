@@ -13,10 +13,11 @@ export default function imageCardCarousel({
                 v-for="(image, index) in ${cardsVar}"
                 :key="'image-group-${cardsKey}-' + index"
             >
-                <figure>
+                <figure class="w-100">
                     <VsImg 
                         v-if="image.image"
                         :src="image.image"
+                        class="w-100"
                         fluid
                     />
                     <figcaption>
