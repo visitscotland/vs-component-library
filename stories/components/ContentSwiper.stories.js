@@ -4,21 +4,21 @@ import VsMediaCaption from '@/components/media-caption/MediaCaption.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsLink from '@/components/link/Link.vue';
 import VsBody from '@/components/body/Body.vue';
-import VsCardCarousel from '@/components/card-carousel/CardCarousel.vue';
-import VsCardCarouselSlide from '@/components/card-carousel/components/CardCarouselSlide';
+import VsContentSwiper from '@/components/content-swiper/ContentSwiper.vue';
+import VsContentSwiperSlide from '@/components/content-swiper/components/ContentSwiperSlide';
 
 import cardLayoutData from '@/assets/fixtures/navigation-pages/visual-impact-cards.json';
-import mediaCarouselImages from '@/assets/fixtures/card-carousel/media-carousel-images.json';
+import contentSwiperImages from '@/assets/fixtures/content-swiper/content-swiper-images.json';
 
 export default {
-    component: VsCardCarousel,
-    title: 'Components/Layout & content structure/Card Carousel',
+    component: VsContentSwiper,
+    title: 'Components/Layout & content structure/Content Swiper',
 };
 
 const Template = (args) => ({
     components: {
-        VsCardCarousel,
-        VsCardCarouselSlide,
+        VsContentSwiper,
+        VsContentSwiperSlide,
         VsCard,
         VsImg,
         VsMediaCaption,
@@ -35,11 +35,11 @@ const Template = (args) => ({
     },
     template: `
         <div :class="args.jsDisabled ? 'no-js' : ''">
-            <VsCardCarousel
+            <VsContentSwiper
                 v-if="args.cards"
                 :previousButtonLabel="args.previousButtonLabel"
                 :nextButtonLabel="args.nextButtonLabel"
-                :carouselAriaLabel="args.carouselAriaLabel"
+                :contentSwiperAriaLabel="args.contentSwiperAriaLabel"
                 :slidesPerViewSm="args.slidesPerViewSm"
                 :slidesPerViewMd="args.slidesPerViewMd"
                 :slidesPerViewLg="args.slidesPerViewLg"
@@ -47,7 +47,7 @@ const Template = (args) => ({
                 :slidesPerViewXxl="args.slidesPerViewXxl"
                 :slidesPerViewXxxl="args.slidesPerViewXxxl"
             >
-                <VsCardCarouselSlide
+                <VsContentSwiperSlide
                     v-for="(card, index) in cards"
                     :key="'card-' + index"
                 >
@@ -79,15 +79,15 @@ const Template = (args) => ({
                             </VsBody>
                         </template>
                     </VsCard>
-                </VsCardCarouselSlide>
-            </VsCardCarousel>
+                </VsContentSwiperSlide>
+            </VsContentSwiper>
 
-            <VsCardCarousel
+            <VsContentSwiper
                 v-else-if="args.images"
                 :mixedWidths="args.mixedWidths"
                 :previousButtonLabel="args.previousButtonLabel"
                 :nextButtonLabel="args.nextButtonLabel"
-                :carouselAriaLabel="args.carouselAriaLabel"
+                :contentSwiperAriaLabel="args.contentSwiperAriaLabel"
                 :slidesPerViewSm="args.slidesPerViewSm"
                 :slidesPerViewMd="args.slidesPerViewMd"
                 :slidesPerViewLg="args.slidesPerViewLg"
@@ -95,7 +95,7 @@ const Template = (args) => ({
                 :slidesPerViewXxl="args.slidesPerViewXxl"
                 :slidesPerViewXxxl="args.slidesPerViewXxxl"
             >
-                <VsCardCarouselSlide
+                <VsContentSwiperSlide
                     v-for="(image, index) in images"
                     :key="'image-' + index"
                     :class="image.orientation == 'portrait' ? 'portrait' : 'landscape'"
@@ -117,8 +117,8 @@ const Template = (args) => ({
                             </VsMediaCaption>
                         </figcaption>
                     </figure>
-                </VsCardCarouselSlide>
-            </VsCardCarousel>
+                </VsContentSwiperSlide>
+            </VsContentSwiper>
         </div>
     `,
 });
@@ -126,7 +126,7 @@ const Template = (args) => ({
 const base = {
     previousButtonLabel: 'Previous',
     nextButtonLabel: 'Next',
-    carouselAriaLabel: 'Featured articles',
+    contentSwiperAriaLabel: 'Featured articles',
     jsDisabled: false,
 };
 
@@ -143,7 +143,7 @@ export const WithImages = Template.bind({
 });
 WithImages.args = {
     ...base,
-    images: mediaCarouselImages.landscapeImages?.images || [],
+    images: contentSwiperImages.landscapeImages?.images || [],
 };
 
 export const WithPortraitImages = Template.bind({
@@ -152,7 +152,7 @@ WithPortraitImages.args = {
     ...base,
     slidesPerViewSm: 2.4,
     slidesPerViewXl: 3.4,
-    images: mediaCarouselImages.portraitImages?.images || [],
+    images: contentSwiperImages.portraitImages?.images || [],
 };
 
 export const NoJavascript = Template.bind({

@@ -1,6 +1,6 @@
 import { config, shallowMount } from '@vue/test-utils';
 import axe from '@/../test/unit/helpers/axe-helper';
-import VsCardCarousel from '../CardCarousel.vue';
+import VsContentSwiper from '../ContentSwiper.vue';
 
 jest.mock('swiper/vue', () => ({
     Swiper: {
@@ -24,11 +24,11 @@ config.global.renderStubDefaultSlot = true;
 const requiredProps = {
     previousButtonLabel: 'Previous',
     nextButtonLabel: 'Next',
-    carouselAriaLabel: 'Card carousel',
+    contentSwiperAriaLabel: 'Content Swiper',
 };
 
 const factoryShallowMount = (options = {
-}) => shallowMount(VsCardCarousel, {
+}) => shallowMount(VsContentSwiper, {
     props: {
         ...requiredProps,
         ...(options.props || {
@@ -37,38 +37,38 @@ const factoryShallowMount = (options = {
     slots: options.slots,
 });
 
-describe('VsCardCarousel', () => {
-    it('renders the carousel container with the expected class and id prefix', () => {
+describe('VsContentSwiper', () => {
+    it('renders the content swiper container with the expected class and id prefix', () => {
         const wrapper = factoryShallowMount();
 
-        expect(wrapper.classes()).toContain('vs-card-carousel');
-        expect(wrapper.attributes('id')).toMatch(/^vs-carousel-v-\d+$/);
+        expect(wrapper.classes()).toContain('vs-content-swiper');
+        expect(wrapper.attributes('id')).toMatch(/^vs-content-swiper-v-\d+$/);
     });
 
     it('renders previous and next buttons with the provided labels', () => {
         const wrapper = factoryShallowMount();
 
-        expect(wrapper.find('.vs-card-carousel__control--prev').exists()).toBe(true);
-        expect(wrapper.find('.vs-card-carousel__control--next').exists()).toBe(true);
+        expect(wrapper.find('.vs-content-swiper__control--prev').exists()).toBe(true);
+        expect(wrapper.find('.vs-content-swiper__control--next').exists()).toBe(true);
         expect(wrapper.text()).toContain('Previous');
         expect(wrapper.text()).toContain('Next');
     });
 
-    it('renders the carousel aria-label on the wrapper', () => {
+    it('renders the content swiper aria-label on the wrapper', () => {
         const wrapper = factoryShallowMount();
 
-        expect(wrapper.attributes('aria-label')).toBe('Card carousel');
+        expect(wrapper.attributes('aria-label')).toBe('Content Swiper');
     });
 
     it('renders default slot content inside the swiper wrapper', () => {
         const wrapper = factoryShallowMount({
             slots: {
-                default: '<div class="carousel-slide">Slide content</div>',
+                default: '<div class="vs-content-swiper__slide">Slide content</div>',
             },
         });
 
-        expect(wrapper.find('.carousel-slide').exists()).toBe(true);
-        expect(wrapper.find('.carousel-slide').text()).toBe('Slide content');
+        expect(wrapper.find('.vs-content-swiper__slide').exists()).toBe(true);
+        expect(wrapper.find('.vs-content-swiper__slide').text()).toBe('Slide content');
     });
 
     it('computes swiperBreakpoints using fallback values for unset breakpoints', () => {
@@ -107,21 +107,21 @@ describe('VsCardCarousel', () => {
         });
     });
 
-    it('does not add vs-card-carousel--contained class by default', () => {
+    it('does not add vs-content-swiper--contained class by default', () => {
         const wrapper = factoryShallowMount();
-        expect(wrapper.classes()).not.toContain('vs-card-carousel--contained');
+        expect(wrapper.classes()).not.toContain('vs-content-swiper--contained');
     });
 
-    it('adds vs-card-carousel--contained class when contained prop is true', () => {
+    it('adds vs-content-swiper--contained class when contained prop is true', () => {
         const wrapper = factoryShallowMount({
             props: {
                 contained: true,
             },
         });
-        expect(wrapper.classes()).toContain('vs-card-carousel--contained');
+        expect(wrapper.classes()).toContain('vs-content-swiper--contained');
     });
 
-    it('adds is-interacting class to carousel when isInteracting is true', async() => {
+    it('adds is-interacting class to content swiper when isInteracting is true', async() => {
         const wrapper = factoryShallowMount();
 
         expect(wrapper.classes()).not.toContain('is-interacting');
@@ -134,10 +134,10 @@ describe('VsCardCarousel', () => {
 
     it('renders scrollbar container with instance-specific class', () => {
         const wrapper = factoryShallowMount();
-        const scrollbar = wrapper.find('.vs-card-carousel__scrollbar-container');
+        const scrollbar = wrapper.find('.vs-content-swiper__scrollbar-container');
 
         expect(scrollbar.exists()).toBe(true);
-        expect(scrollbar.classes()).toContain(`vs-card-carousel__scrollbar-${wrapper.vm.instanceId}`);
+        expect(scrollbar.classes()).toContain(`vs-content-swiper__scrollbar-${wrapper.vm.instanceId}`);
     });
 
     it('updates interactive state when user starts interacting', async() => {

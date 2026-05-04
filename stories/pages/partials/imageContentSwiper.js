@@ -1,17 +1,17 @@
-export default function imageCardCarousel({
+export default function imageContentSwiper({
     slidesVar = 'landscapeImages',
     slidesKey = '1',
     contained = false,
 } = {
 }) {
     return `
-        <VsCardCarousel
+        <VsContentSwiper
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
-            carouselAriaLabel="'image-group-${slidesKey}'"
+            contentSwiperAriaLabel="'image-group-${slidesKey}'"
             :contained="${contained}"
         >
-            <VsCardCarouselSlide
+            <VsContentSwiperSlide
                 v-for="(image, index) in ${slidesVar}"
                 :key="'image-group-${slidesKey}-' + index"
             >
@@ -33,7 +33,7 @@ export default function imageCardCarousel({
                         </VsMediaCaption>
                     </figcaption>
                 </figure>
-            </VsCardCarouselSlide>
-    </VsCardCarousel>
+            </VsContentSwiperSlide>
+    </VsContentSwiper>
     `;
 }
