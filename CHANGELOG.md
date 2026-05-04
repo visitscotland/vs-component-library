@@ -1,3 +1,44 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [5.51.1](https://github.com/visitscotland/vs-component-library/compare/v5.51.0...v5.51.1) (2026-05-04)
+
+
+### 🏗 Build System
+
+* **dependabot:** remove minimatch again ([8e1a1a5](https://github.com/visitscotland/vs-component-library/commit/8e1a1a581287e529cacbcc03c3a1cc1f3874dd33))
+
+## [5.51.0](https://github.com/visitscotland/vs-component-library/compare/v5.50.2...v5.51.0) (2026-05-04)
+
+### [5.50.2](https://github.com/visitscotland/vs-component-library/compare/v5.50.1...v5.50.2) (2026-05-04)
+
+
+### 🔖 Others
+
+* **release:** 5.50.1 ([67aad1f](https://github.com/visitscotland/vs-component-library/commit/67aad1fd10c51c0c9bedb79ee37899ff7571e0f2))
+
+## [5.50.1](https://github.com/visitscotland/vs-component-library/compare/v5.50.0...v5.50.1) (2026-05-04)
+
+
+### Bug Fixes
+
+* **main map:** increase scotland bounds restriction ([be0e70a](https://github.com/visitscotland/vs-component-library/commit/be0e70a7bc3fdc26b5d3d3f2634d02d6b4ea0c1c))
+
+# [5.50.0](https://github.com/visitscotland/vs-component-library/compare/v5.49.0...v5.50.0) (2026-04-30)
+
+
+### Features
+
+* **video:** add tabindex -1 to video source ([bd0d143](https://github.com/visitscotland/vs-component-library/commit/bd0d1434f922063936b0c4a2793e7aaa0c894806))
+
+# [5.49.0](https://github.com/visitscotland/vs-component-library/compare/v5.48.0...v5.49.0) (2026-04-30)
+
+
+### Features
+
+* **packages:** update tar ([5709f5e](https://github.com/visitscotland/vs-component-library/commit/5709f5e460d18a5cd655df22b970db6a28541247))
+
 # [5.48.0](https://github.com/visitscotland/vs-component-library/compare/v5.47.0...v5.48.0) (2026-04-28)
 
 
