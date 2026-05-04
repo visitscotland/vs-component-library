@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.50.2](https://github.com/visitscotland/vs-component-library/compare/v5.50.1...v5.50.2) (2026-05-04)
+
+
+### 🔖 Others
+
+* **release:** 5.50.1 ([67aad1f](https://github.com/visitscotland/vs-component-library/commit/67aad1fd10c51c0c9bedb79ee37899ff7571e0f2))
+
 ## [5.50.1](https://github.com/visitscotland/vs-component-library/compare/v5.50.0...v5.50.1) (2026-05-04)
 
 
