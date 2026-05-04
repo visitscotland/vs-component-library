@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.51.1](https://github.com/visitscotland/vs-component-library/compare/v5.51.0...v5.51.1) (2026-05-04)
+
+
+### 🏗 Build System
+
+* **dependabot:** remove minimatch again ([8e1a1a5](https://github.com/visitscotland/vs-component-library/commit/8e1a1a581287e529cacbcc03c3a1cc1f3874dd33))
+
 ## [5.51.0](https://github.com/visitscotland/vs-component-library/compare/v5.50.2...v5.51.0) (2026-05-04)
 
 ### [5.50.2](https://github.com/visitscotland/vs-component-library/compare/v5.50.1...v5.50.2) (2026-05-04)
