@@ -1,3 +1,10 @@
+## [5.50.1](https://github.com/visitscotland/vs-component-library/compare/v5.50.0...v5.50.1) (2026-05-04)
+
+
+### Bug Fixes
+
+* **main map:** increase scotland bounds restriction ([be0e70a](https://github.com/visitscotland/vs-component-library/commit/be0e70a7bc3fdc26b5d3d3f2634d02d6b4ea0c1c))
+
 # [5.50.0](https://github.com/visitscotland/vs-component-library/compare/v5.49.0...v5.50.0) (2026-04-30)
 
 
