@@ -1,0 +1,111 @@
+{
+  "landscapeImages": {
+    "images": [
+      {
+        "image": "fixtures/card-carousel/landscape/cairnie-fruit-farm-kids.webp",
+        "caption": "Cairnie Fruit Farm",
+        "credit": "VisitScotland"
+      },
+      {
+        "image": "fixtures/card-carousel/landscape/ardross-farm.webp",
+        "caption": "Ardross Farm, Fife",
+        "credit": "VisitScotland"
+      },
+      {
+        "image": "fixtures/card-carousel/landscape/crail-harbour.webp",
+        "caption": "Crail Harbour",
+        "credit": "VisitScotland"
+      },
+      {
+        "image": "fixtures/card-carousel/landscape/findhorn-beach.webp",
+        "caption": "Visitors explore Findhorn beach in Moray Speyside",
+        "credit": "VisitScotland"
+      },
+      {
+        "image": "fixtures/card-carousel/landscape/balvenie-castle.webp",
+        "caption": "Balvenie Castle",
+        "credit": "VisitScotland"
+      }
+    ]
+  },
+  "mixedImages": {
+    "images": [
+      {
+        "image": "fixtures/card-carousel/mixed/hinterland.jpg",
+        "caption": "Eating at Hinterland, Edinburgh",
+        "credit": "VisitScotland",
+        "orientation": "landscape"
+      },
+      {
+        "image": "fixtures/card-carousel/mixed/hinterland-food.jpg",
+        "caption": "Dinner served at Hinterland, Edinburgh",
+        "credit": "VisitScotland",
+        "orientation": "portrait"
+      },
+      {
+        "image": "fixtures/card-carousel/mixed/lobster.jpg",
+        "caption": "Beautiful lobster at Lobster Shack, North Berwick",
+        "credit": "VisitScotland",
+        "orientation": "portrait"
+      },
+      {
+        "image": "fixtures/card-carousel/mixed/lobster-shack.jpg",
+        "caption": "Serving food at Lobster Shack, North Berwick",
+        "credit": "VisitScotland",
+        "orientation": "landscape"
+      },
+      {
+        "image": "fixtures/card-carousel/mixed/haggis.jpg",
+        "caption": "Haggis, neeps and tatties for Burns Night",
+        "credit": "VisitScotland",
+        "orientation": "portrait"
+      },
+      {
+        "image": "fixtures/card-carousel/mixed/ubiquitous-chip.jpg",
+        "caption": "Eating at ubiquitous-chip",
+        "credit": "VisitScotland",
+        "orientation": "landscape"
+      },
+      {
+        "image": "fixtures/card-carousel/mixed/cranachan.jpg",
+        "caption": "Cranachan for Burns Night dessert",
+        "credit": "VisitScotland",
+        "orientation": "portrait"
+      },
+      {
+        "image": "fixtures/card-carousel/mixed/ubiquitous-chip-food.jpg",
+        "caption": "Delicious food at ubiquitous-chip",
+        "credit": "VisitScotland",
+        "orientation": "landscape"
+      }
+    ]
+  },
+  "portraitImages": {
+    "images": [
+      {
+        "image": "fixtures/card-carousel/mixed/hinterland-food.jpg",
+        "caption": "Dinner served at Hinterland, Edinburgh",
+        "credit": "VisitScotland",
+        "orientation": "portrait"
+      },
+      {
+        "image": "fixtures/card-carousel/mixed/lobster.jpg",
+        "caption": "Beautiful lobster at Lobster Shack, North Berwick",
+        "credit": "VisitScotland",
+        "orientation": "portrait"
+      },
+      {
+        "image": "fixtures/card-carousel/mixed/haggis.jpg",
+        "caption": "Haggis, neeps and tatties for Burns Night",
+        "credit": "VisitScotland",
+        "orientation": "portrait"
+      },
+      {
+        "image": "fixtures/card-carousel/mixed/cranachan.jpg",
+        "caption": "Cranachan for Burns Night dessert",
+        "credit": "VisitScotland",
+        "orientation": "portrait"
+      }
+    ]
+  }
+}

@@ -8,7 +8,7 @@ import VsCardCarousel from '@/components/card-carousel/CardCarousel.vue';
 import VsCardCarouselSlide from '@/components/card-carousel/components/CardCarouselSlide';
 
 import cardLayoutData from '@/assets/fixtures/navigation-pages/visual-impact-cards.json';
-import mediaCarouselImages from '@/assets/fixtures/media-carousel/media-carousel-images.json';
+import mediaCarouselImages from '@/assets/fixtures/card-carousel/media-carousel-images.json';
 
 export default {
     component: VsCardCarousel,
@@ -84,6 +84,7 @@ const Template = (args) => ({
 
             <VsCardCarousel
                 v-else-if="args.images"
+                :mixedWidths="args.mixedWidths"
                 :previousButtonLabel="args.previousButtonLabel"
                 :nextButtonLabel="args.nextButtonLabel"
                 :carouselAriaLabel="args.carouselAriaLabel"
@@ -97,6 +98,7 @@ const Template = (args) => ({
                 <VsCardCarouselSlide
                     v-for="(image, index) in images"
                     :key="'image-' + index"
+                    :class="image.orientation == 'portrait' ? 'portrait' : 'landscape'"
                 >
                     <figure>
                         <VsImg 
@@ -141,7 +143,16 @@ export const WithImages = Template.bind({
 });
 WithImages.args = {
     ...base,
-    images: mediaCarouselImages.carouselImages?.images || [],
+    images: mediaCarouselImages.landscapeImages?.images || [],
+};
+
+export const WithPortraitImages = Template.bind({
+});
+WithPortraitImages.args = {
+    ...base,
+    slidesPerViewSm: 2.4,
+    slidesPerViewXl: 3.4,
+    images: mediaCarouselImages.portraitImages?.images || [],
 };
 
 export const NoJavascript = Template.bind({

@@ -1,6 +1,6 @@
 export default function imageCardCarousel({
-    cardsVar = 'carouselImages',
-    cardsKey = '1',
+    slidesVar = 'landscapeImages',
+    slidesKey = '1',
     contained = false,
 } = {
 }) {
@@ -8,12 +8,12 @@ export default function imageCardCarousel({
         <VsCardCarousel
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
-            carouselAriaLabel="'image-group-${cardsKey}'"
+            carouselAriaLabel="'image-group-${slidesKey}'"
             :contained="${contained}"
         >
             <VsCardCarouselSlide
-                v-for="(image, index) in ${cardsVar}"
-                :key="'image-group-${cardsKey}-' + index"
+                v-for="(image, index) in ${slidesVar}"
+                :key="'image-group-${slidesKey}-' + index"
             >
                 <figure class="w-100">
                     <VsImg 
