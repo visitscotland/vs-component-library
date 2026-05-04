@@ -59,10 +59,12 @@ const createStory = (template) => ({
         setup() {
             const cardList4 = cardLayoutData.cardList4?.cards || [];
             const landscapeImages = mediaCarouselImages.landscapeImages?.images || [];
+            const mixedImages = mediaCarouselImages.mixedImages?.images || [];
             const portraitImages = mediaCarouselImages.portraitImages?.images || [];
             return {
                 cardList4,
                 landscapeImages,
+                mixedImages,
                 portraitImages,
             };
         },

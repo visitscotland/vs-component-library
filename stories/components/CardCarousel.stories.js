@@ -155,6 +155,14 @@ WithPortraitImages.args = {
     images: mediaCarouselImages.portraitImages?.images || [],
 };
 
+export const WithMixedImages = Template.bind({
+});
+WithMixedImages.args = {
+    ...base,
+    mixedWidths: true,
+    images: mediaCarouselImages.mixedImages?.images || [],
+};
+
 export const NoJavascript = Template.bind({
 });
 NoJavascript.args = {

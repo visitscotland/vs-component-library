@@ -36,6 +36,7 @@
             <Swiper
                 :modules="modules"
                 :space-between="24"
+                :slides-per-view="swiperSlidesPerView"
                 :navigation="swiperNavigation"
                 :scrollbar="swiperScrollbar"
                 :breakpoints="swiperBreakpoints"
@@ -106,6 +107,14 @@ export default {
             default: false,
         },
         /**
+         * When true, enables automatic calculation
+         * of slidesPerView based on slide width.
+         */
+        mixedWidths: {
+            type: Boolean,
+            default: false,
+        },
+        /**
          * Slides per view at XS breakpoint (0px+)
          */
         slidesPerViewXs: {
@@ -172,6 +181,7 @@ export default {
             return {
                 'is-interacting': this.isInteracting,
                 'vs-card-carousel--contained': this.contained,
+                'vs-card-carousel--mixed-widths': this.mixedWidths,
             };
         },
         scrollbarContainerClasses() {
@@ -198,7 +208,13 @@ export default {
                 slideLabelMessage: 'Slide {{index}} of {{slidesLength}}',
             };
         },
+        swiperSlidesPerView() {
+            return this.mixedWidths ? 'auto' : this.slidesPerViewXs;
+        },
         swiperBreakpoints() {
+            // if (this.mixedWidths) return {
+            // };
+
             const breakpointMap = {
                 0: this.slidesPerViewXs,
                 576: this.slidesPerViewSm,
@@ -276,14 +292,6 @@ export default {
         @include container-max-widths();
     }
 
-    &--contained {
-        .vs-card-carousel__inner {
-            padding: 0;
-            max-width: none;
-            width: 100%;
-        }
-    }
-
     .swiper {
         overflow: visible;
     }
@@ -291,6 +299,28 @@ export default {
     .swiper-slide {
         display: flex;
         height: auto;
+    }
+
+    &--mixed-widths {
+        .swiper-slide {
+            width: auto;
+        }
+
+        .swiper-slide.portrait {
+            width: 267px;
+        }
+
+        .swiper-slide.landscape {
+            width: 600px;
+        }
+    }
+
+    &--contained {
+        .vs-card-carousel__inner {
+            padding: 0;
+            max-width: none;
+            width: 100%;
+        }
     }
 
     &:has(.swiper-button-lock) {

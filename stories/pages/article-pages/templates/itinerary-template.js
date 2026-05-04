@@ -252,6 +252,16 @@ export default `
                             contained: true,
                         })}
 
+                        ${imageCardCarousel({
+                            slidesVar: 'mixedImages',
+                            contained: true,
+                        })}
+
+                        ${imageCardCarousel({
+                            slidesVar: 'portraitImages',
+                            contained: true,
+                        })}
+
                         <p>
                             Towering over the city, you won't be able to miss Edinburgh Castle. As well as offering spectacular views of the skyline, it's home to the Scottish Crown Jewels and the Stone of Destiny. On your visit, uncover Scotland's military history in the National War Museum and take in the haunting National War Memorial. Once you've explored the castle, wander down the Royal Mile to take in this famous thoroughfare - it's lined with an eclectic range of shops, pubs, eateries and historic closes, and you can also find St Giles' Cathedral in the middle and the Palace of Holyroodhouse at the bottom of the street.
                         </p>
