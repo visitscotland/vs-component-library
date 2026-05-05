@@ -21,13 +21,15 @@
                     @subcategory-selected="(e) => handleSelectSubcategory(e.id, e.key)"
                 >
                     <template #vs-map-sidebar-search-results>
-                        <VsAlert
+                        <div
                             v-if="noResults || (props.alertText && noResults === false)"
                             class="mt-075 mb-150"
-                            id="vs-map__alert"
-                            size="small"
                         >
-                            <template v-if="noResults">
+                            <VsAlert
+                                v-if="noResults"
+                                id="vs-map__alert"
+                                size="small"
+                            >
                                 <span>
                                     {{ noResultsMessage }}
                                     <a
@@ -37,11 +39,19 @@
                                         {{ resetMapNoResultsMessage }}
                                     </a>
                                 </span>
-                            </template>
-                            <template v-else>
+                            </VsAlert>
+
+                            <VsDetail
+                                v-else
+                                class="mb-150"
+                                color="secondary"
+                                icon="vs-icon-feedback-information"
+                                icon-variant="highlight"
+                                size="small"
+                            >
                                 {{ alertText }}
-                            </template>
-                        </VsAlert>
+                            </VsDetail>
+                        </div>
 
                         <Suspense>
                             <div id="search-container">
@@ -195,6 +205,7 @@ import axios from 'axios';
 import {
     VsAlert,
     VsButton,
+    VsDetail,
     VsWarning,
 } from '@/components';
 

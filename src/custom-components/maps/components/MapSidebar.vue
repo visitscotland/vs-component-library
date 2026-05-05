@@ -259,7 +259,7 @@ function setCategoryIcon(id) {
     &__sub-filters {
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         column-gap: $vs-spacer-025;
         row-gap: $vs-spacer-025;
         flex: 0 1;

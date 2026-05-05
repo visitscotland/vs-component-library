@@ -79,11 +79,11 @@ function handleClick(id) {
 
 <style lang="scss">
 .vs-map__categories,
-.vs-map__destination-types {
+.vs-map__destination-types,
+.vs-map-sidebar__sub-filters {
     @include scrollsnap-styles;
 
     column-gap: $vs-spacer-050;
-    margin-bottom: $vs-spacer-100;
     pointer-events: all;
     padding: $vs-spacer-025 $vs-spacer-025 $vs-spacer-075;
 
