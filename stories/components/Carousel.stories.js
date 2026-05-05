@@ -23,7 +23,7 @@ const Template = (args) => ({
     template: `
 
         <div style="background: #940f2c17; padding: 1rem; border: 1px solid #940F2C; margin-bottom: 1rem;">
-        ⚠️ Deprecated: Use new Card Carousel instead. 
+        ⚠️ Deprecated: Use new Content Swiper instead. 
         This component will be removed in a future release. 
         See the <a href="https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1189052422/Carousel+deprecated">Component migration docs.</a> 
         </div>

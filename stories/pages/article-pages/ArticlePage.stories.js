@@ -14,14 +14,14 @@ import VsPanel from '@/components/panel/Panel.vue';
 import VsIcon from '@/components/icon/Icon.vue';
 import VsDetail from '@/components/detail/Detail.vue';
 import VsLink from '@/components/link/Link.vue';
-import VsCardCarousel from '@/components/card-carousel/CardCarousel.vue';
-import VsCardCarouselSlide from '@/components/card-carousel/components/CardCarouselSlide';
+import VsContentSwiper from '@/components/content-swiper/ContentSwiper.vue';
+import VsContentSwiperSlide from '@/components/content-swiper/components/ContentSwiperSlide';
 import VsCard from '@/components/card/Card.vue';
 import VsSpotlightSection from '@/components/spotlight-section/SpotlightSection.vue';
 import VsIllustratedMap from '@/components/illustrated-map/IllustratedMap.vue';
 import VsMediaCaption from '@/components/media-caption/MediaCaption.vue';
 import cardLayoutData from '@/assets/fixtures/navigation-pages/visual-impact-cards.json';
-import mediaCarouselImages from '@/assets/fixtures/card-carousel/media-carousel-images.json';
+import contentSwiperImages from '@/assets/fixtures/content-swiper/content-swiper-images.json';
 
 import RichArticleTemplate from './templates/rich-article-template';
 import StructuredArticleTemplate from './templates/structured-article-template';
@@ -48,8 +48,8 @@ const components = {
     VsSpotlightSection,
     VsIllustratedMap,
     VsMediaCaption,
-    VsCardCarousel,
-    VsCardCarouselSlide,
+    VsContentSwiper,
+    VsContentSwiperSlide,
 };
 
 const createStory = (template) => ({
@@ -58,8 +58,8 @@ const createStory = (template) => ({
         template,
         setup() {
             const cardList4 = cardLayoutData.cardList4?.cards || [];
-            const landscapeImages = mediaCarouselImages.landscapeImages?.images || [];
-            const portraitImages = mediaCarouselImages.portraitImages?.images || [];
+            const landscapeImages = contentSwiperImages.landscapeImages?.images || [];
+            const portraitImages = contentSwiperImages.portraitImages?.images || [];
             return {
                 cardList4,
                 landscapeImages,

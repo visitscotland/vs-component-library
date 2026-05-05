@@ -1,6 +1,6 @@
-import splitCardCarousel from '../../partials/splitCardCarousel';
-import overlayCardCarousel from '../../partials/overlayCardCarousel';
-import eventCardCarousel from '../../partials/eventCardCarousel';
+import splitCardContentSwiper from '../../partials/splitCardContentSwiper';
+import categoryCardContentSwiper from '../../partials/categoryCardContentSwiper';
+import eventCardContentSwiper from '../../partials/eventCardContentSwiper';
 
 export default `
     <VsPageHeader menu-type="b2c">
@@ -17,7 +17,7 @@ export default `
     </VsPageHeader>
 
     <!------------------------------------------------------------
-    NEW SECTION - Section header + card carousel
+    NEW SECTION - Section header + content swiper
     ------------------------------------------------------------>
     <VsSectionHeader 
         class="mt-500 mb-200 mb-xl-300"
@@ -28,8 +28,8 @@ export default `
         </template>
     </VsSectionHeader>
 
-    ${overlayCardCarousel({
-        cardsVar: 'cardListOverlay',
+    ${categoryCardContentSwiper({
+        slidesVar: 'cardListOverlay',
     })}
 
     <!------------------------------------------------------------
@@ -160,7 +160,7 @@ export default `
 
 
     <!------------------------------------------------------------
-    NEW SECTION - Section header + card carousel
+    NEW SECTION - Section header + content swiper
     ------------------------------------------------------------>
     <VsSectionHeader 
         class="mt-500 mb-200 mb-xl-300"
@@ -171,9 +171,9 @@ export default `
         </template>
     </VsSectionHeader>
 
-    ${splitCardCarousel({
-        cardsVar: 'cardList1',
-        cardsKey: '1',
+    ${splitCardContentSwiper({
+        slidesVar: 'cardList1',
+        slidesKey: '1',
         slidesPerViewXl: 4.4,
     })}
     
@@ -203,7 +203,7 @@ export default `
 
 
     <!------------------------------------------------------------
-    NEW SECTION - Section header + card carousel
+    NEW SECTION - Section header + content swiper
     ------------------------------------------------------------>
     <VsSectionHeader 
         class="mt-500 mb-200 mb-xl-300"
@@ -214,9 +214,9 @@ export default `
         </template>
     </VsSectionHeader>
 
-    ${splitCardCarousel({
-        cardsVar: 'cardList2',
-        cardsKey: '2',
+    ${splitCardContentSwiper({
+        slidesVar: 'cardList2',
+        slidesKey: '2',
         slidesPerViewXl: 3.4,
     })}
 
@@ -226,7 +226,7 @@ export default `
 
 
     <!------------------------------------------------------------
-    NEW SECTION - Section header + card carousel
+    NEW SECTION - Section header + content swiper
     ------------------------------------------------------------>
     <VsSectionHeader 
         class="mt-500 mb-200 mb-xl-300"
@@ -238,9 +238,9 @@ export default `
     </VsSectionHeader>
 
     <div class="mb-500">
-        ${eventCardCarousel({
-            cardsVar: 'eventCardList',
-            cardsKey: 'event',
+        ${eventCardContentSwiper({
+            slidesVar: 'eventCardList',
+            slidesKey: 'event',
         })}
     </div>
     <!-----------------------------------------------------------

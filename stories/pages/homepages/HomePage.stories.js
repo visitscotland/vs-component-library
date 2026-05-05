@@ -17,8 +17,8 @@ import VsSectionHeader from '@/components/section-header/SectionHeader.vue';
 import VsFedSearchInput from '@/custom-components/federated-search/components/FedSearchInput.vue';
 import VsFedFilter from '@/custom-components/federated-search/components/FedFilter.vue';
 import VsToggleButton from '@/components/toggle-button/ToggleButton.vue';
-import VsCardCarousel from '@/components/card-carousel/CardCarousel.vue';
-import VsCardCarouselSlide from '@/components/card-carousel/components/CardCarouselSlide';
+import VsContentSwiper from '@/components/content-swiper/ContentSwiper.vue';
+import VsContentSwiperSlide from '@/components/content-swiper/components/ContentSwiperSlide';
 
 import prefersReducedMotion from '@/utils/prefers-reduced-motion';
 
@@ -48,8 +48,8 @@ const components = {
     VsFedSearchInput,
     VsFedFilter,
     VsToggleButton,
-    VsCardCarousel,
-    VsCardCarouselSlide,
+    VsContentSwiper,
+    VsContentSwiperSlide,
 };
 
 const createStory = (template, options = {

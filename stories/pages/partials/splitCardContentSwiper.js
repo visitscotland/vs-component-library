@@ -1,20 +1,20 @@
-export default function splitCardCarousel({
-    cardsVar = 'cardList4',
-    cardsKey = '4',
+export default function splitCardContentSwiper({
+    slidesVar = 'cardList4',
+    slidesKey = '4',
     slidesPerViewXl = 4.4,
 } = {
 }) {
     return `
-        <VsCardCarousel
+        <VsContentSwiper
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
-            carouselAriaLabel="Split cards"
+            contentSwiperAriaLabel="Split cards"
             :slidesPerViewSm="2.4"
             :slidesPerViewXl="${slidesPerViewXl}"
         >
-            <VsCardCarouselSlide
-                v-for="(card, index) in ${cardsVar}"
-                :key="'card-list-${cardsKey}-' + index"
+            <VsContentSwiperSlide
+                v-for="(card, index) in ${slidesVar}"
+                :key="'card-list-${slidesKey}-' + index"
             >
                 <VsCard>
                     <template #vs-card-header>
@@ -56,7 +56,7 @@ export default function splitCardCarousel({
                         </div>
                     </template>
                 </VsCard>
-            </VsCardCarouselSlide>
-    </VsCardCarousel>
+            </VsContentSwiperSlide>
+    </VsContentSwiper>
     `;
 }

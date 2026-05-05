@@ -1,5 +1,5 @@
-import splitCardCarousel from '../../partials/splitCardCarousel';
-import imageCardCarousel from '../../partials/imageCardCarousel';
+import splitCardContentSwiper from '../../partials/splitCardContentSwiper';
+import imageContentSwiper from '../../partials/imageContentSwiper';
 
 export default `
     <VsPageHeader menu-type="b2c">
@@ -180,7 +180,7 @@ export default `
     ------------------------------------------------------------>
     
     <div class="mt-500">
-        ${imageCardCarousel()}
+        ${imageContentSwiper()}
     </div>
 
     <!------------------------------------------------------------
@@ -248,7 +248,7 @@ export default `
                             Towering over the city, you won't be able to miss Edinburgh Castle. As well as offering spectacular views of the skyline, it's home to the Scottish Crown Jewels and the Stone of Destiny. On your visit, uncover Scotland's military history in the National War Museum and take in the haunting National War Memorial. Once you've explored the castle, wander down the Royal Mile to take in this famous thoroughfare - it's lined with an eclectic range of shops, pubs, eateries and historic closes, and you can also find St Giles' Cathedral in the middle and the Palace of Holyroodhouse at the bottom of the street.
                         </p>
 
-                        ${imageCardCarousel({
+                        ${imageContentSwiper({
                             contained: true,
                         })}
 
@@ -442,7 +442,7 @@ export default `
 
 
     <!------------------------------------------------------------
-    NEW SECTION - Section header + new card carousel ( 4 cards)
+    NEW SECTION - Section header + new content swiper ( 4 cards)
     ------------------------------------------------------------>
     <VsSectionHeader 
         class="mt-500 mb-200 mb-xl-300"
@@ -453,7 +453,7 @@ export default `
         </template>
     </VsSectionHeader>
 
-    ${splitCardCarousel()}
+    ${splitCardContentSwiper()}
     
     <!------------------------------------------------------------
     SECTION END

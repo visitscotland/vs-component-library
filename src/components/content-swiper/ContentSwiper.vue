@@ -1,20 +1,20 @@
 <template>
     <section
-        class="vs-card-carousel"
-        :id="`vs-carousel-${instanceId}`"
-        :class="carouselClasses"
-        aria-roledescription="carousel"
-        :aria-label="carouselAriaLabel"
+        class="vs-content-swiper"
+        :id="`vs-content-swiper-${instanceId}`"
+        :class="contentSwiperClasses"
+        aria-roledescription="content-swiper"
+        :aria-label="contentSwiperAriaLabel"
     >
-        <div class="vs-card-carousel__inner">
-            <div class="vs-card-carousel__header">
+        <div class="vs-content-swiper__inner">
+            <div class="vs-content-swiper__header">
                 <div :class="scrollbarContainerClasses" />
 
-                <div class="vs-card-carousel__controls">
+                <div class="vs-content-swiper__controls">
                     <VsButton
                         icon-only
-                        class="vs-card-carousel__control--prev"
-                        :class="`vs-carousel-prev-${instanceId}`"
+                        class="vs-content-swiper__control--prev"
+                        :class="`vs-content-swiper-prev-${instanceId}`"
                         icon="vs-icon-control-previous"
                         variant="secondary"
                     >
@@ -23,8 +23,8 @@
 
                     <VsButton
                         icon-only
-                        class="vs-card-carousel__control--next"
-                        :class="`vs-carousel-next-${instanceId}`"
+                        class="vs-content-swiper__control--next"
+                        :class="`vs-content-swiper-next-${instanceId}`"
                         icon="vs-icon-control-next"
                         variant="secondary"
                     >
@@ -46,7 +46,7 @@
                 @slide-change-transition-start="startInteraction"
                 @slide-change-transition-end="endInteraction"
             >
-                <!-- Default slot for VsCarouselSlides -->
+                <!-- Default slot for VsContentSwiperSlides -->
                 <slot />
             </Swiper>
         </div>
@@ -65,9 +65,14 @@ import 'swiper/css';
 import 'swiper/css/scrollbar';
 
 import VsButton from '@/components/button/Button.vue';
-
+/**
+ * Display content in a horizontally scrollable, responsive swiper
+ * that helps users browse related content in a compact space.
+ *
+ * @displayName Content Swiper
+ */
 export default {
-    name: 'VsCardCarousel',
+    name: 'VsContentSwiper',
     status: 'prototype',
     release: '0.0.1',
     components: {
@@ -90,14 +95,14 @@ export default {
             required: true,
         },
         /**
-         * Accessibility label for the carousel group
+         * Accessibility label for the content swiper group
          */
-        carouselAriaLabel: {
+        contentSwiperAriaLabel: {
             type: String,
             required: true,
         },
         /**
-         * Set to true when the carousel is placed inside
+         * Set to true when the content swiper is placed inside
          * a Bootstrap grid container to remove the padding and
          * max-width that the component applies for overflow capabilities
          */
@@ -168,27 +173,27 @@ export default {
         };
     },
     computed: {
-        carouselClasses() {
+        contentSwiperClasses() {
             return {
                 'is-interacting': this.isInteracting,
-                'vs-card-carousel--contained': this.contained,
+                'vs-content-swiper--contained': this.contained,
             };
         },
         scrollbarContainerClasses() {
             return [
-                'vs-card-carousel__scrollbar-container',
-                `vs-card-carousel__scrollbar-${this.instanceId}`,
+                'vs-content-swiper__scrollbar-container',
+                `vs-content-swiper__scrollbar-${this.instanceId}`,
             ];
         },
         swiperNavigation() {
             return {
-                prevEl: `.vs-carousel-prev-${this.instanceId}`,
-                nextEl: `.vs-carousel-next-${this.instanceId}`,
+                prevEl: `.vs-content-swiper-prev-${this.instanceId}`,
+                nextEl: `.vs-content-swiper-next-${this.instanceId}`,
             };
         },
         swiperScrollbar() {
             return {
-                el: `.vs-card-carousel__scrollbar-${this.instanceId}`,
+                el: `.vs-content-swiper__scrollbar-${this.instanceId}`,
                 draggable: false,
             };
         },
@@ -240,7 +245,7 @@ export default {
     methods: {
         /**
         * Sets isInteracting to true when user starts
-        * interacting with the carousel (touch or mouse).
+        * interacting with the content swiper (touch or mouse).
         */
         startInteraction() {
             this.isInteracting = true;
@@ -263,21 +268,21 @@ export default {
 
 <style lang="scss">
 
-.vs-card-carousel {
+.vs-content-swiper {
     width: 100%;
     overflow: clip;
 
-    .vs-card-carousel__inner {
+    .vs-content-swiper__inner {
         margin: 0 auto;
         padding: $vs-spacer-025 $vs-spacer-075;
 
-        // ensures carousel content is contained
+        // ensures content swiper is contained
         // within max-width breakpoints
         @include container-max-widths();
     }
 
     &--contained {
-        .vs-card-carousel__inner {
+        .vs-content-swiper__inner {
             padding: 0;
             max-width: none;
             width: 100%;
@@ -326,7 +331,7 @@ export default {
     }
 
     &.is-interacting {
-        .vs-card-carousel__scrollbar-container {
+        .vs-content-swiper__scrollbar-container {
             opacity: $opacity-100;
         }
     }
@@ -348,7 +353,7 @@ export default {
 }
 
 @include no-js {
-    .vs-card-carousel {
+    .vs-content-swiper {
         overflow: auto;
 
         &__controls,

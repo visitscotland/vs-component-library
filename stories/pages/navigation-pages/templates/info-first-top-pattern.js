@@ -1,4 +1,4 @@
-import linkCardCarousel from '../../partials/linkCardCarousel';
+import linkCardContentSwiper from '../../partials/linkCardContentSwiper';
 
 export default `
     <VsPageHeader menu-type="b2b">
@@ -61,7 +61,7 @@ export default `
 
 
     <!------------------------------------------------------------
-    NEW SECTION - Section header + card carousel
+    NEW SECTION - Section header + content swiper
     ------------------------------------------------------------>
     <VsSectionHeader 
         class="mt-500 mb-200 mb-xl-300"
@@ -72,9 +72,9 @@ export default `
         </template>
     </VsSectionHeader>
 
-    ${linkCardCarousel({
-        cardsVar: 'textCardList1',
-        cardsKey: '1',
+    ${linkCardContentSwiper({
+        slidesVar: 'textCardList1',
+        slidesKey: '1',
         slidesPerViewXl: 4.4,
     })}
 
@@ -104,7 +104,7 @@ export default `
 
 
     <!------------------------------------------------------------
-    NEW SECTION - Section header + card carousel
+    NEW SECTION - Section header + content swiper
     ------------------------------------------------------------>
     <VsSectionHeader 
         class="mt-500 mb-200 mb-xl-300"
@@ -112,9 +112,9 @@ export default `
     >
     </VsSectionHeader>
 
-    ${linkCardCarousel({
-        cardsVar: 'textCardList2',
-        cardsKey: '2',
+    ${linkCardContentSwiper({
+        slidesVar: 'textCardList2',
+        slidesKey: '2',
         slidesPerViewXl: 4.4,
     })}
 

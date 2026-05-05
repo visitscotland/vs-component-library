@@ -54,7 +54,7 @@ import VsStretchedLinkPanels from '@/components/stretched-link-card/components/S
 import { VsCol } from '@/components/grid';
 
 /**
-* @deprecated: ⚠️ Use new Card Carousel Slide component instead. This component will be
+* @deprecated: ⚠️ Use new Content Swiper Slide component instead. This component will be
 * removed in a future release.
 * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1189052422/Carousel+deprecated
 *
