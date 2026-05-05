@@ -102,7 +102,7 @@ import {
 } from '@/components/grid';
 
 /**
-* @deprecated: ⚠️ Use new Content Swiper component instead. This component will be
+* @deprecated ⚠️ Use new Content Swiper component instead. This component will be
 * removed in a future release.
 * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1189052422/Carousel+deprecated
 *

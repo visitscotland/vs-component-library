@@ -168,6 +168,7 @@ describe('VsContentSwiper', () => {
 
     it('clears prior interaction timer and ends interaction after a delay', () => {
         jest.useFakeTimers();
+        const clearTimeoutSpy = jest.spyOn(global, 'clearTimeout');
 
         const wrapper = factoryShallowMount();
 
@@ -175,11 +176,13 @@ describe('VsContentSwiper', () => {
         wrapper.vm.endInteraction();
 
         expect(wrapper.vm.isInteracting).toBe(true);
+        expect(clearTimeoutSpy).toHaveBeenCalled();
 
         jest.runAllTimers();
 
         expect(wrapper.vm.isInteracting).toBe(false);
 
+        clearTimeoutSpy.mockRestore();
         jest.useRealTimers();
     });
 

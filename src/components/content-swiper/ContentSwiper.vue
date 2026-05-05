@@ -248,6 +248,7 @@ export default {
         * interacting with the content swiper (touch or mouse).
         */
         startInteraction() {
+            clearTimeout(this._interactionTimer);
             this.isInteracting = true;
         },
         /**

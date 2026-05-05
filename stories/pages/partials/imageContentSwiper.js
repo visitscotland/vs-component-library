@@ -9,7 +9,7 @@ export default function imageContentSwiper({
         <VsContentSwiper
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
-            contentSwiperAriaLabel="'image-group-${slidesKey}'"
+            contentSwiperAriaLabel="image-group-${slidesKey}"
             :contained="${contained}"
             :slidesPerViewLg="${slidesPerViewLg}"
         >

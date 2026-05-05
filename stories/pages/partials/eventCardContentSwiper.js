@@ -88,8 +88,7 @@ export default function eventCardContentSwiper({
                                     class="me-050"
                                     size="sm"
                                 />
-                                <VsDetail 
-                                    v-if="card.location" 
+                                <VsDetail
                                     no-margins
                                     color="tertiary"
                                 >
