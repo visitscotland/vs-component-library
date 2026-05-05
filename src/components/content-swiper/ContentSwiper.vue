@@ -115,7 +115,7 @@ export default {
          */
         slidesPerViewXs: {
             type: Number,
-            default: 1.4,
+            default: 1.2,
         },
         /**
          * Slides per view at SM breakpoint (576px+)
@@ -281,14 +281,6 @@ export default {
         @include container-max-widths();
     }
 
-    &--contained {
-        .vs-content-swiper__inner {
-            padding: 0;
-            max-width: none;
-            width: 100%;
-        }
-    }
-
     .swiper {
         overflow: visible;
     }
@@ -309,6 +301,20 @@ export default {
             flex: 1 1 0;
             width: auto !important;
             margin-right: 0!important;
+        }
+    }
+
+    &--contained {
+        overflow: visible;
+
+        .vs-content-swiper__inner {
+            padding: 0;
+            max-width: none;
+            width: 100%;
+        }
+
+        .swiper {
+            overflow: hidden;
         }
     }
 

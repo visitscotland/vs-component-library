@@ -180,7 +180,9 @@ export default `
     ------------------------------------------------------------>
     
     <div class="mt-500">
-        ${imageContentSwiper()}
+        ${imageContentSwiper({
+            slidesPerViewLg: 2.2,
+        })}
     </div>
 
     <!------------------------------------------------------------
