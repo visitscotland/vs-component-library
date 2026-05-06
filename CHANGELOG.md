@@ -1,3 +1,10 @@
+# [5.53.0](https://github.com/visitscotland/vs-component-library/compare/v5.52.0...v5.53.0) (2026-05-06)
+
+
+### Features
+
+* **accordions:** add additional analytics value for .com ([a40fc3d](https://github.com/visitscotland/vs-component-library/commit/a40fc3de7fbdf39b221acb4db8eb4a002c43b984))
+
 # [5.52.0](https://github.com/visitscotland/vs-component-library/compare/v5.51.1...v5.52.0) (2026-05-06)
 
 
