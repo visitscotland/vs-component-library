@@ -128,7 +128,7 @@
                     {{ props.sidebarLabels.searchResultsLabel }}
                     "{{ props.query || props.selectedCategory }}"
                 </VsHeading>
-                <div class="vs-map-sidebar__google-maps-container mt-075">
+                <div class="vs-map-sidebar__google-maps-container">
                     <!-- @Slot to contain Google Maps Places
                         UI Kit Search Results/Details components -->
                     <slot name="vs-map-sidebar-search-results" />
@@ -237,10 +237,11 @@ function setCategoryIcon(id) {
     border-radius: $vs-radius-large;
     box-shadow: $vs-elevation-shadow-raised;
     pointer-events: auto;
-    max-height: 87.5vh;
+    max-height: 95vh;
     overflow: hidden;
 
     @include media-breakpoint-up (sm) {
+        max-height: 87.5vh;
         width: 23.3rem;
     }
 
@@ -275,8 +276,14 @@ function setCategoryIcon(id) {
     }
 
     &__google-maps-container {
+        margin-top: $vs-spacer-075;
         max-height: clamp(275px, 20em, 32vh);
         overflow-y: scroll;
+
+        @include media-breakpoint-down(sm) {
+            margin-top: $vs-spacer-0;
+            max-height: clamp(160px, 20em, 32vh);
+        }
     }
 
     &__swipe-tab {
