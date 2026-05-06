@@ -56,6 +56,9 @@ const base = {
         subFilterHeader: 'Refine your results',
         searchResults: 'Search results for ',
         openSidebarButton: 'openSidebarButton',
+        resetLocation: 'All locations',
+        locationSelect: 'Refine your results by location',
+        searchAreaButton: 'Search this area',
     },
     alertText: 'A selection of places matching your search is shown below. Up to 20 results are displayed.',
 };

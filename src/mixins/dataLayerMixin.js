@@ -347,6 +347,7 @@ const dataLayerMixin = {
                     event: eventName,
                     tag_name: tagName,
                     accordion_text: event.accordion_text,
+                    click_text: event.accordion_text,
                 };
 
                 fullTemplate = this.compileFullTemplate(templateValues);
