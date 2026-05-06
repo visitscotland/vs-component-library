@@ -4854,7 +4854,7 @@ __metadata:
     babel-plugin-macros: "npm:^2.4.2"
     bootstrap: "npm:^5.3.2"
     bootstrap-vue-next: "npm:^0.17.0"
-    chromatic: "npm:^6.17.3"
+    chromatic: "npm:^16.6.3"
     commitizen: "npm:^4.3.0"
     cross-env: "npm:^7.0.3"
     cz-conventional-changelog: "npm:^3.3.0"
@@ -6934,14 +6934,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:^6.17.3":
-  version: 6.24.1
-  resolution: "chromatic@npm:6.24.1"
+"chromatic@npm:^16.6.3":
+  version: 16.6.3
+  resolution: "chromatic@npm:16.6.3"
+  dependencies:
+    semver: "npm:^7.3.5"
+  peerDependencies:
+    "@chromatic-com/cypress": ^0.*.* || ^1.0.0
+    "@chromatic-com/playwright": ^0.*.* || ^1.0.0
+    "@chromatic-com/vitest": ^0.*.* || ^1.0.0
+  peerDependenciesMeta:
+    "@chromatic-com/cypress":
+      optional: true
+    "@chromatic-com/playwright":
+      optional: true
+    "@chromatic-com/vitest":
+      optional: true
   bin:
-    chroma: dist/bin.js
-    chromatic: dist/bin.js
-    chromatic-cli: dist/bin.js
-  checksum: 10c0/b65ad05fa38c54693f670a5c4ad1f104d60ff1023282976135c3a537529829bf15fda877a29278b95385fa8c51971dc4b20f418a77b501c5c18367fcaad39e7c
+    chroma: dist/bin.cjs
+    chromatic: dist/bin.cjs
+    chromatic-cli: dist/bin.cjs
+  checksum: 10c0/a27b46dbef9935892f36f672e49ece11cfbe0e64bf52d09948a69bf687f26b45f17fc2da6b1c50c00bb3aca1545efe7b9fd96bbc8f1ba901e8768a8c19940d0f
   languageName: node
   linkType: hard
 
