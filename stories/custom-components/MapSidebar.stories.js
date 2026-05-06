@@ -1,4 +1,5 @@
 import { provide } from 'vue';
+import mapCategoryLabels from '@/assets/fixtures/custom-components/main-map/map-labels.json';
 import VsMapSidebar from '@/custom-components/maps/components/MapSidebar.vue';
 
 export default {
@@ -13,8 +14,32 @@ const Template = (args) => ({
         VsMapSidebar,
     },
     setup() {
-        provide('featuredPlaces', []);
-
+        provide('featuredPlaces', {
+            categories: [
+                {
+                    id: 'cities',
+                    label: 'Cities',
+                },
+                {
+                    id: 'towns',
+                    label: 'Towns',
+                },
+                {
+                    id: 'islands',
+                    label: 'Islands',
+                },
+                {
+                    id: 'regions',
+                    label: 'Regions',
+                },
+                {
+                    id: 'national-parks',
+                    label: 'National Parks',
+                },
+            ],
+            places: [],
+        });
+        provide('addDestinationMarkers', () => { });
         return {
             args,
         };
@@ -44,15 +69,20 @@ const Template = (args) => ({
 });
 
 const base = {
-    headerLabel: 'Discover your Scotland',
-    closeSidebarButtonLabel: 'Close Sidebar',
-    searchBarAriaLabel: 'Search the map',
-    inputPlaceholderLabel: 'Type in your keyword',
-    searchButtonLabel: 'Search',
-    clearMapLabel: 'Clear Map',
-    subFilterHeaderLabel: 'Refine your results',
-    searchResultsLabel: 'Showing results for: ',
-    openSidebarButtonLabel: 'Open Sidebar',
+    sidebarLabels: {
+        headerLabel: 'Discover your Scotland',
+        closeSidebarButtonLabel: 'Close Sidebar',
+        searchBarAriaLabel: 'Search the map',
+        inputPlaceholderLabel: 'Type in your keyword',
+        searchButtonLabel: 'Search',
+        clearMapLabel: 'Clear Map',
+        subFilterHeaderLabel: 'Refine your results',
+        searchResultsLabel: 'Showing results for: ',
+        openSidebarButtonLabel: 'Open Sidebar',
+        resetLocationLabel: 'All locations',
+        locationSelectLabel: 'Refine your results by location',
+    },
+    categories: mapCategoryLabels,
 };
 
 export const Default = Template.bind();
