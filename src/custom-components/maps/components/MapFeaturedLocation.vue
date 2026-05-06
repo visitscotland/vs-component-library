@@ -92,6 +92,10 @@ function handleClick(id) {
     }
 }
 
+.vs-map__destination-types {
+    margin-bottom: $vs-spacer-100;
+}
+
 .vs-map__destinations {
     max-height: clamp(275px, 25em, 50vh);
     overflow-y: scroll;
