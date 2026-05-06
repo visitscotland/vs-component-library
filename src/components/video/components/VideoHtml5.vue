@@ -26,6 +26,7 @@
                 playsinline
                 :preload="lazyLoad ? 'none' : 'auto'"
                 :fetchpriority="lazyLoad ? 'low' : 'high'"
+                tabindex="-1"
             >
                 <source
                     :src="videoSrc"

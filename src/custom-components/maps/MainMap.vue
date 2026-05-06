@@ -439,10 +439,10 @@ let showError;
 const errType = ref(undefined);
 
 const SCOTLAND_BOUNDS = {
-    north: 60.8,
-    south: 54.8,
-    west: -8.5,
-    east: -0.7,
+    north: 61.0,
+    south: 54.6,
+    west: -8.7,
+    east: 0.3,
 };
 
 let categoryData = {
