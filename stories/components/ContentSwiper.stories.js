@@ -100,11 +100,11 @@ const Template = (args) => ({
                     :key="'image-' + index"
                     :class="image.orientation == 'portrait' ? 'portrait' : 'landscape'"
                 >
-                    <figure>
+                    <figure class="w-100">
                         <VsImg 
                             v-if="image.image"
                             :src="image.image"
-                            fluid
+                            class="w-100"
                         />
                         <figcaption>
                             <VsMediaCaption>

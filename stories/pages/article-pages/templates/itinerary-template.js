@@ -182,14 +182,15 @@ export default `
     <div class="mt-500">
         ${imageContentSwiper({
             slidesPerViewLg: 2.2,
+            slidesKey: 'highlights image group',
         })}
     </div>
 
     <!------------------------------------------------------------
     NEW SECTION - Two col content section
     ------------------------------------------------------------>
-    <VsContainer>
-        <VsRow class="mt-500">
+    <VsContainer class="mt-500">
+        <VsRow>
             <!-- First col: Section heading - Itinerary day -->
             <VsCol
                 cols="12"
@@ -252,6 +253,7 @@ export default `
 
                         ${imageContentSwiper({
                             contained: true,
+                            slidesKey: 'itinerary image group',
                         })}
 
                         <p>

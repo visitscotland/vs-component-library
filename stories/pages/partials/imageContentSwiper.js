@@ -9,20 +9,19 @@ export default function imageContentSwiper({
         <VsContentSwiper
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
-            contentSwiperAriaLabel="image-group-${slidesKey}"
+            contentSwiperAriaLabel="${slidesKey}"
             :contained="${contained}"
             :slidesPerViewLg="${slidesPerViewLg}"
         >
             <VsContentSwiperSlide
                 v-for="(image, index) in ${slidesVar}"
-                :key="'image-group-${slidesKey}-' + index"
+                :key="'image-group-' + index"
             >
                 <figure class="w-100">
                     <VsImg 
                         v-if="image.image"
                         :src="image.image"
                         class="w-100"
-                        fluid
                     />
                     <figcaption>
                         <VsMediaCaption>
