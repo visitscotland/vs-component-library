@@ -8,7 +8,6 @@ export default function eventCardContentSwiper({
         <VsContentSwiper
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
-            contentSwiperAriaLabel="Event cards"
             :slidesPerViewSm="2.4"
             :slidesPerViewXl="${slidesPerViewXl}"
         >

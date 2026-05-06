@@ -1,10 +1,8 @@
 <template>
-    <section
+    <div
         class="vs-content-swiper"
         :id="`vs-content-swiper-${instanceId}`"
         :class="contentSwiperClasses"
-        aria-roledescription="content-swiper"
-        :aria-label="contentSwiperAriaLabel"
     >
         <div class="vs-content-swiper__inner">
             <div class="vs-content-swiper__header">
@@ -50,7 +48,7 @@
                 <slot />
             </Swiper>
         </div>
-    </section>
+    </div>
 </template>
 
 <script>
@@ -91,13 +89,6 @@ export default {
          * Accessibility text for next button
          */
         nextButtonLabel: {
-            type: String,
-            required: true,
-        },
-        /**
-         * Accessibility label for the content swiper group
-         */
-        contentSwiperAriaLabel: {
             type: String,
             required: true,
         },

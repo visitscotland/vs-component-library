@@ -8,7 +8,6 @@ export default function linkCardContentSwiper({
         <VsContentSwiper
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
-            contentSwiperAriaLabel="Link cards"
             :slidesPerViewSm="2.4"
             :slidesPerViewXl="${slidesPerViewXl}"
         >

@@ -1,6 +1,5 @@
 export default function imageContentSwiper({
     slidesVar = 'landscapeImages',
-    slidesKey = '1',
     contained = false,
     slidesPerViewLg = 1.4,
 } = {
@@ -9,7 +8,6 @@ export default function imageContentSwiper({
         <VsContentSwiper
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
-            contentSwiperAriaLabel="${slidesKey}"
             :contained="${contained}"
             :slidesPerViewLg="${slidesPerViewLg}"
         >

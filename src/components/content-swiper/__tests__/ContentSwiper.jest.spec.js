@@ -24,7 +24,6 @@ config.global.renderStubDefaultSlot = true;
 const requiredProps = {
     previousButtonLabel: 'Previous',
     nextButtonLabel: 'Next',
-    contentSwiperAriaLabel: 'Content Swiper',
 };
 
 const factoryShallowMount = (options = {
@@ -45,145 +44,150 @@ describe('VsContentSwiper', () => {
         expect(wrapper.attributes('id')).toMatch(/^vs-content-swiper-v-\d+$/);
     });
 
-    it('renders previous and next buttons with the provided labels', () => {
+    it('renders as a div element by default', () => {
         const wrapper = factoryShallowMount();
-
-        expect(wrapper.find('.vs-content-swiper__control--prev').exists()).toBe(true);
-        expect(wrapper.find('.vs-content-swiper__control--next').exists()).toBe(true);
-        expect(wrapper.text()).toContain('Previous');
-        expect(wrapper.text()).toContain('Next');
+        expect(wrapper.element.tagName).toBe('DIV');
     });
 
-    it('renders the content swiper aria-label on the wrapper', () => {
-        const wrapper = factoryShallowMount();
+    describe(':props', () => {
+        it('renders previous and next buttons with the provided labels', () => {
+            const wrapper = factoryShallowMount();
 
-        expect(wrapper.attributes('aria-label')).toBe('Content Swiper');
-    });
-
-    it('renders default slot content inside the swiper wrapper', () => {
-        const wrapper = factoryShallowMount({
-            slots: {
-                default: '<div class="vs-content-swiper__slide">Slide content</div>',
-            },
+            expect(wrapper.find('.vs-content-swiper__control--prev').exists()).toBe(true);
+            expect(wrapper.find('.vs-content-swiper__control--next').exists()).toBe(true);
+            expect(wrapper.text()).toContain('Previous');
+            expect(wrapper.text()).toContain('Next');
         });
 
-        expect(wrapper.find('.vs-content-swiper__slide').exists()).toBe(true);
-        expect(wrapper.find('.vs-content-swiper__slide').text()).toBe('Slide content');
-    });
+        it('computes swiperBreakpoints using fallback values for unset breakpoints', () => {
+            const wrapper = factoryShallowMount({
+                props: {
+                    ...requiredProps,
+                    slidesPerViewXs: 1,
+                    slidesPerViewSm: 2,
+                    slidesPerViewMd: null,
+                    slidesPerViewLg: 4,
+                },
+            });
 
-    it('computes swiperBreakpoints using fallback values for unset breakpoints', () => {
-        const wrapper = factoryShallowMount({
-            props: {
-                ...requiredProps,
-                slidesPerViewXs: 1,
-                slidesPerViewSm: 2,
-                slidesPerViewMd: null,
-                slidesPerViewLg: 4,
-            },
+            expect(wrapper.vm.swiperBreakpoints).toEqual({
+                0: {
+                    slidesPerView: 1,
+                },
+                576: {
+                    slidesPerView: 2,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                992: {
+                    slidesPerView: 4,
+                },
+                1200: {
+                    slidesPerView: 4,
+                },
+                1400: {
+                    slidesPerView: 4,
+                },
+                1680: {
+                    slidesPerView: 4,
+                },
+            });
         });
 
-        expect(wrapper.vm.swiperBreakpoints).toEqual({
-            0: {
-                slidesPerView: 1,
-            },
-            576: {
-                slidesPerView: 2,
-            },
-            768: {
-                slidesPerView: 2,
-            },
-            992: {
-                slidesPerView: 4,
-            },
-            1200: {
-                slidesPerView: 4,
-            },
-            1400: {
-                slidesPerView: 4,
-            },
-            1680: {
-                slidesPerView: 4,
-            },
+        it('does not add vs-content-swiper--contained class by default', () => {
+            const wrapper = factoryShallowMount();
+            expect(wrapper.classes()).not.toContain('vs-content-swiper--contained');
+        });
+
+        it('adds vs-content-swiper--contained class when contained prop is true', () => {
+            const wrapper = factoryShallowMount({
+                props: {
+                    contained: true,
+                },
+            });
+            expect(wrapper.classes()).toContain('vs-content-swiper--contained');
+        });
+
+        it('adds is-interacting class to content swiper when isInteracting is true', async() => {
+            const wrapper = factoryShallowMount();
+
+            expect(wrapper.classes()).not.toContain('is-interacting');
+
+            wrapper.vm.isInteracting = true;
+            await wrapper.vm.$nextTick();
+
+            expect(wrapper.classes()).toContain('is-interacting');
+        });
+
+        it('renders scrollbar container with instance-specific class', () => {
+            const wrapper = factoryShallowMount();
+            const scrollbar = wrapper.find('.vs-content-swiper__scrollbar-container');
+
+            expect(scrollbar.exists()).toBe(true);
+            expect(scrollbar.classes()).toContain(`vs-content-swiper__scrollbar-${wrapper.vm.instanceId}`);
         });
     });
 
-    it('does not add vs-content-swiper--contained class by default', () => {
-        const wrapper = factoryShallowMount();
-        expect(wrapper.classes()).not.toContain('vs-content-swiper--contained');
-    });
+    describe(':slots', () => {
+        it('renders default slot content inside the swiper wrapper', () => {
+            const wrapper = factoryShallowMount({
+                slots: {
+                    default: '<div class="vs-content-swiper__slide">Slide content</div>',
+                },
+            });
 
-    it('adds vs-content-swiper--contained class when contained prop is true', () => {
-        const wrapper = factoryShallowMount({
-            props: {
-                contained: true,
-            },
+            expect(wrapper.find('.vs-content-swiper__slide').exists()).toBe(true);
+            expect(wrapper.find('.vs-content-swiper__slide').text()).toBe('Slide content');
         });
-        expect(wrapper.classes()).toContain('vs-content-swiper--contained');
     });
 
-    it('adds is-interacting class to content swiper when isInteracting is true', async() => {
-        const wrapper = factoryShallowMount();
+    describe(':methods', () => {
+        it('updates interactive state when user starts interacting', async() => {
+            const wrapper = factoryShallowMount();
 
-        expect(wrapper.classes()).not.toContain('is-interacting');
+            expect(wrapper.vm.isInteracting).toBe(false);
 
-        wrapper.vm.isInteracting = true;
-        await wrapper.vm.$nextTick();
+            wrapper.vm.startInteraction();
+            expect(wrapper.vm.isInteracting).toBe(true);
+        });
 
-        expect(wrapper.classes()).toContain('is-interacting');
-    });
+        it('sets isInteracting to false after touch end delay', () => {
+            jest.useFakeTimers();
 
-    it('renders scrollbar container with instance-specific class', () => {
-        const wrapper = factoryShallowMount();
-        const scrollbar = wrapper.find('.vs-content-swiper__scrollbar-container');
+            const wrapper = factoryShallowMount();
 
-        expect(scrollbar.exists()).toBe(true);
-        expect(scrollbar.classes()).toContain(`vs-content-swiper__scrollbar-${wrapper.vm.instanceId}`);
-    });
+            wrapper.vm.isInteracting = true;
+            wrapper.vm.endInteraction();
 
-    it('updates interactive state when user starts interacting', async() => {
-        const wrapper = factoryShallowMount();
+            expect(wrapper.vm.isInteracting).toBe(true);
 
-        expect(wrapper.vm.isInteracting).toBe(false);
+            jest.runAllTimers();
 
-        wrapper.vm.startInteraction();
-        expect(wrapper.vm.isInteracting).toBe(true);
-    });
+            expect(wrapper.vm.isInteracting).toBe(false);
 
-    it('sets isInteracting to false after touch end delay', () => {
-        jest.useFakeTimers();
+            jest.useRealTimers();
+        });
 
-        const wrapper = factoryShallowMount();
+        it('clears prior interaction timer and ends interaction after a delay', () => {
+            jest.useFakeTimers();
+            const clearTimeoutSpy = jest.spyOn(global, 'clearTimeout');
 
-        wrapper.vm.isInteracting = true;
-        wrapper.vm.endInteraction();
+            const wrapper = factoryShallowMount();
 
-        expect(wrapper.vm.isInteracting).toBe(true);
+            wrapper.vm.isInteracting = true;
+            wrapper.vm.endInteraction();
 
-        jest.runAllTimers();
+            expect(wrapper.vm.isInteracting).toBe(true);
+            expect(clearTimeoutSpy).toHaveBeenCalled();
 
-        expect(wrapper.vm.isInteracting).toBe(false);
+            jest.runAllTimers();
 
-        jest.useRealTimers();
-    });
+            expect(wrapper.vm.isInteracting).toBe(false);
 
-    it('clears prior interaction timer and ends interaction after a delay', () => {
-        jest.useFakeTimers();
-        const clearTimeoutSpy = jest.spyOn(global, 'clearTimeout');
-
-        const wrapper = factoryShallowMount();
-
-        wrapper.vm.isInteracting = true;
-        wrapper.vm.endInteraction();
-
-        expect(wrapper.vm.isInteracting).toBe(true);
-        expect(clearTimeoutSpy).toHaveBeenCalled();
-
-        jest.runAllTimers();
-
-        expect(wrapper.vm.isInteracting).toBe(false);
-
-        clearTimeoutSpy.mockRestore();
-        jest.useRealTimers();
+            clearTimeoutSpy.mockRestore();
+            jest.useRealTimers();
+        });
     });
 
     describe(':accessibility', () => {

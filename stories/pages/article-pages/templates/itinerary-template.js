@@ -179,12 +179,14 @@ export default `
     SECTION END
     ------------------------------------------------------------>
     
-    <div class="mt-500">
+    <section 
+        class="mt-500"
+        aria-label="Itinerary hightlight images"
+    >
         ${imageContentSwiper({
             slidesPerViewLg: 2.2,
-            slidesKey: 'highlights image group',
         })}
-    </div>
+    </section>
 
     <!------------------------------------------------------------
     NEW SECTION - Two col content section
@@ -253,7 +255,6 @@ export default `
 
                         ${imageContentSwiper({
                             contained: true,
-                            slidesKey: 'itinerary image group',
                         })}
 
                         <p>

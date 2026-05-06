@@ -39,7 +39,6 @@ const Template = (args) => ({
                 v-if="args.cards"
                 :previousButtonLabel="args.previousButtonLabel"
                 :nextButtonLabel="args.nextButtonLabel"
-                :contentSwiperAriaLabel="args.contentSwiperAriaLabel"
                 :slidesPerViewSm="args.slidesPerViewSm"
                 :slidesPerViewMd="args.slidesPerViewMd"
                 :slidesPerViewLg="args.slidesPerViewLg"
@@ -87,7 +86,6 @@ const Template = (args) => ({
                 :mixedWidths="args.mixedWidths"
                 :previousButtonLabel="args.previousButtonLabel"
                 :nextButtonLabel="args.nextButtonLabel"
-                :contentSwiperAriaLabel="args.contentSwiperAriaLabel"
                 :slidesPerViewSm="args.slidesPerViewSm"
                 :slidesPerViewMd="args.slidesPerViewMd"
                 :slidesPerViewLg="args.slidesPerViewLg"
@@ -126,7 +124,6 @@ const Template = (args) => ({
 const base = {
     previousButtonLabel: 'Previous',
     nextButtonLabel: 'Next',
-    contentSwiperAriaLabel: 'Featured articles',
     jsDisabled: false,
 };
 

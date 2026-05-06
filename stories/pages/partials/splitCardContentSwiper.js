@@ -8,7 +8,6 @@ export default function splitCardContentSwiper({
         <VsContentSwiper
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
-            contentSwiperAriaLabel="Split cards"
             :slidesPerViewSm="2.4"
             :slidesPerViewXl="${slidesPerViewXl}"
         >

@@ -7,7 +7,6 @@ export default function categoryCardContentSwiper({
         <VsContentSwiper
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
-            contentSwiperAriaLabel="Category cards"
             :slidesPerViewXs="1.2"
             :slidesPerViewSm="2.2"
             :slidesPerViewLg="2.7"
