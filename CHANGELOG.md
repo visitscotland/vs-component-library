@@ -1,3 +1,29 @@
+# [5.52.0](https://github.com/visitscotland/vs-component-library/compare/v5.51.1...v5.52.0) (2026-05-06)
+
+
+### Bug Fixes
+
+* **main map:** add margin above destination card grid ([1cb5151](https://github.com/visitscotland/vs-component-library/commit/1cb5151c95eda15ab147bb854ec3cbdf0d83fceb))
+* **main map:** add selected destination when searching by subcategory ([48ac66a](https://github.com/visitscotland/vs-component-library/commit/48ac66a6fd760aa0c268e39eb98cac2500619a25))
+* **main map:** add title to destination markers ([1ba5a1e](https://github.com/visitscotland/vs-component-library/commit/1ba5a1eb178b06a0cfeb5a0e9d277c95a0faf0fc))
+* **main map:** adjust height of sidebar on small mobile ([5bb48d6](https://github.com/visitscotland/vs-component-library/commit/5bb48d60a35e1f3c2a3eaeb02599bbc4bda70ad1))
+* **main map:** broken event listener ([08d30d4](https://github.com/visitscotland/vs-component-library/commit/08d30d456775c29bdc64c0930e04a1c7dee2372b))
+* **main map:** minor sidebar fixes ([663f763](https://github.com/visitscotland/vs-component-library/commit/663f76344dc633c63bccede5e3ae12dc058c8a8c))
+* **main map:** reduce height of content above search results in sidebar ([ca5c2de](https://github.com/visitscotland/vs-component-library/commit/ca5c2ded34e80da67e54602ab98c347cfd01f12d))
+* **useviewportcontroller:** correct type ([68dce9e](https://github.com/visitscotland/vs-component-library/commit/68dce9eafe57e2a70608431dd1ebe3517066c48a))
+
+
+### Features
+
+* **main map:** add "search this area" show/hide functionality ([05269a9](https://github.com/visitscotland/vs-component-library/commit/05269a9f6527592d7404d068376911d59268a42d))
+* **main map:** add markers for destinations ([71d07ce](https://github.com/visitscotland/vs-component-library/commit/71d07cef7c2f10a10d975df3268ae8a5ab1b1b14))
+* **main map:** add props for new labels ([9bdcbac](https://github.com/visitscotland/vs-component-library/commit/9bdcbac5fba918a16b51a91881374abfa9330e12))
+* **main map:** add search this area functionality ([e7d456e](https://github.com/visitscotland/vs-component-library/commit/e7d456eb4752cd82d593e364a8da433b206587a9))
+* **main map:** adjust destination card layout ([069ea5f](https://github.com/visitscotland/vs-component-library/commit/069ea5fcbc2ec64c657f66a2e685185d83d2a081))
+* **main map:** adjust mobile styles for sidebar ([d90b4cf](https://github.com/visitscotland/vs-component-library/commit/d90b4cf1fa2662ad6036e3d8327fae787b9d5bcc))
+* **main map:** change the layout of the featured destinations ([ff02cdd](https://github.com/visitscotland/vs-component-library/commit/ff02cddadcb4a0faf4d63826584dc90d04e5b571))
+* **main map:** move categories to the sidebar ([4ce91ce](https://github.com/visitscotland/vs-component-library/commit/4ce91cec2c92b2f79a21f78eaa645ffd0628f67a))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
