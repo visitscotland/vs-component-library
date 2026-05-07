@@ -1,19 +1,19 @@
-export default function linkCardCarousel({
-    cardsVar = 'cardList4',
-    cardsKey = '4',
-    cardsPerRowXl = 4.4,
+export default function linkCardContentSwiper({
+    slidesVar = 'cardList4',
+    slidesKey = '4',
+    slidesPerViewXl = 4.4,
 } = {
 }) {
     return `
-        <VsCardCarousel
+        <VsContentSwiper
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
             :slidesPerViewSm="2.4"
-            :slidesPerViewXl="${cardsPerRowXl}"
+            :slidesPerViewXl="${slidesPerViewXl}"
         >
-            <VsCardCarouselSlide
-                v-for="(card, index) in ${cardsVar}"
-                :key="'card-list-${cardsKey}-' + index"
+            <VsContentSwiperSlide
+                v-for="(card, index) in ${slidesVar}"
+                :key="'card-list-${slidesKey}-' + index"
             >
                 <VsCard
                     :accent-bar="true"
@@ -59,7 +59,7 @@ export default function linkCardCarousel({
                         />
                     </template>
                 </VsCard>
-            </VsCardCarouselSlide>
-    </VsCardCarousel>
+            </VsContentSwiperSlide>
+    </VsContentSwiper>
     `;
 }

@@ -1,48 +1,50 @@
 <template>
     <div
-        class="vs-card-carousel"
-        :id="`vs-carousel-${instanceId}`"
-        :class="carouselClasses"
+        class="vs-content-swiper"
+        :id="`vs-content-swiper-${instanceId}`"
+        :class="contentSwiperClasses"
     >
-        <div class="vs-card-carousel__inner">
-            <div class="vs-card-carousel__controls">
-                <VsButton
-                    icon-only
-                    class="vs-card-carousel__control--prev me-050"
-                    :class="`vs-carousel-prev-${instanceId}`"
-                    icon="vs-icon-control-previous"
-                    variant="secondary"
-                >
-                    {{ previousButtonLabel }}
-                </VsButton>
+        <div class="vs-content-swiper__inner">
+            <div class="vs-content-swiper__header">
+                <div :class="scrollbarContainerClasses" />
 
-                <VsButton
-                    icon-only
-                    class="vs-card-carousel__control--next"
-                    :class="`vs-carousel-next-${instanceId}`"
-                    icon="vs-icon-control-next"
-                    variant="secondary"
-                >
-                    {{ nextButtonLabel }}
-                </VsButton>
+                <div class="vs-content-swiper__controls">
+                    <VsButton
+                        icon-only
+                        class="vs-content-swiper__control--prev"
+                        :class="`vs-content-swiper-prev-${instanceId}`"
+                        icon="vs-icon-control-previous"
+                        variant="secondary"
+                    >
+                        {{ previousButtonLabel }}
+                    </VsButton>
+
+                    <VsButton
+                        icon-only
+                        class="vs-content-swiper__control--next"
+                        :class="`vs-content-swiper-next-${instanceId}`"
+                        icon="vs-icon-control-next"
+                        variant="secondary"
+                    >
+                        {{ nextButtonLabel }}
+                    </VsButton>
+                </div>
             </div>
 
             <Swiper
                 :modules="modules"
-                :space-between="30"
-                :navigation="{
-                    prevEl: `.vs-carousel-prev-${instanceId}`,
-                    nextEl: `.vs-carousel-next-${instanceId}`,
-                }"
-                :scrollbar="{ draggable: false }"
+                :space-between="24"
+                :navigation="swiperNavigation"
+                :scrollbar="swiperScrollbar"
                 :breakpoints="swiperBreakpoints"
-                @touch-start="onTouchStart"
-                @touch-end="onTouchEnd"
-                @slider-move="onSliderMove"
-                @slide-change-transition-start="onInteractionStart"
-                @slide-change-transition-end="onInteractionEnd"
+                :a11y="swiperA11y"
+                @touch-start="startInteraction"
+                @touch-end="endInteraction"
+                @slider-move="startInteraction"
+                @slide-change-transition-start="startInteraction"
+                @slide-change-transition-end="endInteraction"
             >
-                <!-- Default slot for VsCarouselSlides -->
+                <!-- Default slot for VsContentSwiperSlides -->
                 <slot />
             </Swiper>
         </div>
@@ -55,14 +57,20 @@ import { Swiper } from 'swiper/vue';
 import {
     Navigation,
     Scrollbar,
+    A11y,
 } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
 
 import VsButton from '@/components/button/Button.vue';
-
+/**
+ * Display content in a horizontally scrollable, responsive swiper
+ * that helps users browse related content in a compact space.
+ *
+ * @displayName Content Swiper
+ */
 export default {
-    name: 'VsCardCarousel',
+    name: 'VsContentSwiper',
     status: 'prototype',
     release: '0.0.1',
     components: {
@@ -85,11 +93,20 @@ export default {
             required: true,
         },
         /**
+         * Set to true when the content swiper is placed inside
+         * a Bootstrap grid container to remove the padding and
+         * max-width that the component applies for overflow capabilities
+         */
+        contained: {
+            type: Boolean,
+            default: false,
+        },
+        /**
          * Slides per view at XS breakpoint (0px+)
          */
         slidesPerViewXs: {
             type: Number,
-            default: 1.4,
+            default: 1.2,
         },
         /**
          * Slides per view at SM breakpoint (576px+)
@@ -134,17 +151,47 @@ export default {
             default: null,
         },
     },
+    setup() {
+        const instanceId = useId();
+        return {
+            instanceId,
+        };
+    },
     data() {
         return {
-            modules: [Navigation, Scrollbar],
-            instanceId: useId(),
+            modules: [Navigation, Scrollbar, A11y],
             isInteracting: false,
         };
     },
     computed: {
-        carouselClasses() {
+        contentSwiperClasses() {
             return {
                 'is-interacting': this.isInteracting,
+                'vs-content-swiper--contained': this.contained,
+            };
+        },
+        scrollbarContainerClasses() {
+            return [
+                'vs-content-swiper__scrollbar-container',
+                `vs-content-swiper__scrollbar-${this.instanceId}`,
+            ];
+        },
+        swiperNavigation() {
+            return {
+                prevEl: `.vs-content-swiper-prev-${this.instanceId}`,
+                nextEl: `.vs-content-swiper-next-${this.instanceId}`,
+            };
+        },
+        swiperScrollbar() {
+            return {
+                el: `.vs-content-swiper__scrollbar-${this.instanceId}`,
+                draggable: false,
+            };
+        },
+        swiperA11y() {
+            return {
+                scrollOnFocus: true,
+                slideLabelMessage: 'Slide {{index}} of {{slidesLength}}',
             };
         },
         swiperBreakpoints() {
@@ -189,43 +236,15 @@ export default {
     methods: {
         /**
         * Sets isInteracting to true when user starts
-        * interacting with the carousel (touch or mouse).
+        * interacting with the content swiper (touch or mouse).
         */
-        onTouchStart() {
+        startInteraction() {
+            clearTimeout(this._interactionTimer);
             this.isInteracting = true;
         },
         /**
-        * Sets isInteracting to true when user moves
-        * the slider (touch or mouse)
-        */
-        onSliderMove() {
-            this.isInteracting = true;
-        },
-        /**
-        * Sets isInteracting to false when user stops interacting
-        * with the slider (touch or mouse). It's a delay to prevent it
-        * from hiding the scrollbar immediately.
-        */
-        onTouchEnd() {
-            this.endInteraction();
-        },
-        /**
-        * Sets isInteracting to true when user change slide
-        * using navigation buttons.
-        */
-        onInteractionStart() {
-            this.isInteracting = true;
-        },
-        /**
-        * Ends interaction when user finishes
-        * changing slides using navigation buttons.
-        */
-        onInteractionEnd() {
-            this.endInteraction();
-        },
-        /**
-        * Sets isInteracting to false with a delay. Used after slide
-        * changes to prevent hiding the scrollbar immediately.
+        * Sets isInteracting to false with a delay to prevent
+        * hiding the scrollbar immediately after interaction ends.
         */
         endInteraction() {
             clearTimeout(this._interactionTimer);
@@ -241,33 +260,17 @@ export default {
 
 <style lang="scss">
 
-.vs-card-carousel {
+.vs-content-swiper {
     width: 100%;
     overflow: clip;
 
-    .vs-card-carousel__inner {
+    .vs-content-swiper__inner {
         margin: 0 auto;
         padding: $vs-spacer-025 $vs-spacer-075;
 
-        @include media-breakpoint-up(sm) {
-            max-width: $max-container-width-sm;
-        }
-
-        @include media-breakpoint-up(md) {
-            max-width: $max-container-width-md;
-        }
-
-        @include media-breakpoint-up(lg) {
-            max-width: $max-container-width-lg;
-        }
-
-        @include media-breakpoint-up(xl) {
-            max-width: $max-container-width-xl;
-        }
-
-        @include media-breakpoint-up(xxl) {
-            max-width: $max-container-width-xxl;
-        }
+        // ensures content swiper is contained
+        // within max-width breakpoints
+        @include container-max-widths();
     }
 
     .swiper {
@@ -282,7 +285,7 @@ export default {
     &:has(.swiper-button-lock) {
         .swiper-wrapper {
             display: flex;
-            gap: 30px;
+            gap: 24px;
             transform: none !important;
         }
 
@@ -293,14 +296,32 @@ export default {
         }
     }
 
+    &--contained {
+        overflow: visible;
+
+        .vs-content-swiper__inner {
+            padding: 0;
+            max-width: none;
+            width: 100%;
+        }
+
+        .swiper {
+            overflow: hidden;
+        }
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: $vs-spacer-150;
+        margin-bottom: $vs-spacer-150;
+    }
+
     &__controls {
         display: flex;
-        justify-content: flex-end;
-
-        .vs-card-carousel__control--prev,
-        .vs-card-carousel__control--next {
-            margin-bottom: $vs-spacer-150;
-        }
+        gap: $vs-spacer-050;
+        flex-shrink: 0;
 
         .swiper-button-lock {
             display: none;
@@ -308,39 +329,19 @@ export default {
     }
 
     &.is-interacting {
-        .swiper-scrollbar {
+        .vs-content-swiper__scrollbar-container {
             opacity: $opacity-100;
         }
     }
 
-    .swiper-scrollbar {
+    &__scrollbar-container {
+        flex: 1;
+        min-width: 0;
         height: 2px;
         background: $vs-color-border-primary;
         border-radius: $vs-radius-tiny;
         opacity: $opacity-0;
         transition: opacity 0.4s ease-in-out;
-
-        &.swiper-scrollbar-horizontal {
-            top: -44px;
-            left: 0;
-            width: 60%;
-
-            @include media-breakpoint-up(sm) {
-                width: 75%;
-            }
-
-            @include media-breakpoint-up(md) {
-                width: 80%;
-            }
-
-            @include media-breakpoint-up(lg) {
-                width: 85%;
-            }
-
-            @include media-breakpoint-up(xl) {
-                width: 90%;
-            }
-        }
 
         .swiper-scrollbar-drag {
             background: $vs-color-border-secondary;
@@ -350,7 +351,7 @@ export default {
 }
 
 @include no-js {
-    .vs-card-carousel {
+    .vs-content-swiper {
         overflow: auto;
 
         &__controls,

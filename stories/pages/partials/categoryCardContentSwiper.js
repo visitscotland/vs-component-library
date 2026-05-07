@@ -1,10 +1,10 @@
-export default function overlayCardCarousel({
-    cardsVar = 'cardListOverlay',
-    cardsKey = '1',
+export default function categoryCardContentSwiper({
+    slidesVar = 'cardListOverlay',
+    slidesKey = '1',
 } = {
 }) {
     return `
-        <VsCardCarousel
+        <VsContentSwiper
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
             :slidesPerViewXs="1.2"
@@ -12,9 +12,9 @@ export default function overlayCardCarousel({
             :slidesPerViewLg="2.7"
             :slidesPerViewXl="4"
         >
-            <VsCardCarouselSlide
-                v-for="(card, index) in ${cardsVar}"
-                :key="'card-overlay-${cardsKey}' + index"
+            <VsContentSwiperSlide
+                v-for="(card, index) in ${slidesVar}"
+                :key="'card-overlay-${slidesKey}' + index"
             >
                 <VsCard
                     card-style="overlay"
@@ -28,7 +28,7 @@ export default function overlayCardCarousel({
                             :poster-image-src="card.image"
                             :video-src="card.videoSrc"
                             :show-toggle="false"
-                            :video-id="'category-card-video' + index"
+                            :video-id="'category-card-video-${slidesKey}-' + index"
                             :lazy-load="true"
                         />
                         <VsImg 
@@ -46,7 +46,7 @@ export default function overlayCardCarousel({
                             pressed-icon="vs-icon-control-play"
                             label="Pause video"
                             pressed-label="Play video"
-                            :aria-controls="'category-card-video' + index"
+                            :aria-controls="'category-card-video-${slidesKey}-' + index"
                             @click="toggleCard(index)"
                         />
                     </template>
@@ -69,7 +69,7 @@ export default function overlayCardCarousel({
                         </div>
                     </template>
                 </VsCard>
-            </VsCardCarouselSlide>
-        </VsCardCarousel>
+            </VsContentSwiperSlide>
+        </VsContentSwiper>
     `;
 }

@@ -8,7 +8,7 @@
  *
  * To maintain a clean design system API without exposing 'swiper/vue' imports
  * to consumers, we re-export SwiperSlide directly from this JS file. This allows
- * consumers to import 'VsCardCarouselSlide' while Swiper sees the real component.
+ * consumers to import 'VsContentSwiperSlide' while Swiper sees the real component.
  *
  * Alternative approaches (like SFC wrappers) were tried but failed due to Swiper's
  * internal slot scanning logic.

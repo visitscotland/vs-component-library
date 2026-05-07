@@ -1,19 +1,19 @@
-export default function eventCardCarousel({
-    cardsVar = 'cardList4',
-    cardsKey = '4',
-    cardsPerRowXl = 3.4,
+export default function eventCardContentSwiper({
+    slidesVar = 'cardList4',
+    slidesKey = '4',
+    slidesPerViewXl = 3.4,
 } = {
 }) {
     return `
-        <VsCardCarousel
+        <VsContentSwiper
             previousButtonLabel="Previous"
             nextButtonLabel="Next"
             :slidesPerViewSm="2.4"
-            :slidesPerViewXl="${cardsPerRowXl}"
+            :slidesPerViewXl="${slidesPerViewXl}"
         >
-            <VsCardCarouselSlide
-                v-for="(card, index) in ${cardsVar}"
-                :key="'card-list-${cardsKey}-' + index"
+            <VsContentSwiperSlide
+                v-for="(card, index) in ${slidesVar}"
+                :key="'card-list-${slidesKey}-' + index"
             >
                 <VsCard>
                     <template #vs-card-header>
@@ -60,7 +60,7 @@ export default function eventCardCarousel({
                             heading-style="heading-xs"
                         >
                             <VsLink
-                                href="#"
+                                :href="card.link"
                                 class="stretched-link"
                                 variant="secondary"
                             >
@@ -77,15 +77,17 @@ export default function eventCardCarousel({
 
                     <template #vs-card-footer>
                         <div class="d-flex justify-content-between align-items-end">
-                            <div class="d-flex align-items-center">
+                            <div 
+                                v-if="card.location"
+                                class="d-flex align-items-center"
+                            >
                                 <VsIcon
                                     icon="fa-solid fa-location-dot"
                                     variant="highlight"
                                     class="me-050"
                                     size="sm"
                                 />
-                                <VsDetail 
-                                    v-if="card.location" 
+                                <VsDetail
                                     no-margins
                                     color="tertiary"
                                 >
@@ -94,6 +96,7 @@ export default function eventCardCarousel({
                             </div>
 
                             <VsIcon 
+                                v-if="card.isExternal"
                                 icon="vs-icon-control-external-link"
                                 variant="highlight"
                                 size="sm"
@@ -101,7 +104,7 @@ export default function eventCardCarousel({
                         </div>
                     </template>
                 </VsCard>
-            </VsCardCarouselSlide>
-    </VsCardCarousel>
+            </VsContentSwiperSlide>
+    </VsContentSwiper>
     `;
 }
