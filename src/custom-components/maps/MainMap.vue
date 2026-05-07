@@ -785,7 +785,12 @@ function selectCategory(categoryId, key) {
         excludedTypes: Array.from(excludedTopLevelTypes.value),
     });
 
-    query.value = `${categoryLabelData[categoryKey.value].label} ${selectedDestination.value}`;
+    // Get the button label.
+    const lookup = Object.fromEntries(
+        categoryLabelData.map((category) => [category.id, category.label]),
+    );
+
+    query.value = `${lookup[categoryId]} ${selectedDestination.value}`;
     searchInput.value = query.value;
 
     googleMapStore.showCategories = true;
