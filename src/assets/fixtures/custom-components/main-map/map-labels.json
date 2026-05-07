@@ -1,4 +1,39 @@
 [
+    
+    {
+        "id": "things-to-do",
+        "label": "Things to do",
+        "subCategory": [
+            {
+                "id": "nature-outdoors",
+                "label": "Nature & Outdoors"
+            },
+            {
+                "id": "culture-history",
+                "label": "Culture & History"
+            },
+            {
+                "id": "entertainment",
+                "label": "Entertainment"
+            },
+            {
+                "id": "active-adventure",
+                "label": "Active & Adventure"
+            },
+            {
+                "id": "shopping",
+                "label": "Shopping"
+            },
+            {
+                "id": "health-wellness",
+                "label": "Health & Wellness"
+            },
+            {
+                "id": "tours",
+                "label": "Tours"
+            }
+        ]
+    },
     {
         "id": "accommodation",
         "label": "Accommodation",
@@ -44,40 +79,6 @@
             {
                 "id": "bars-pubs",
                 "label": "Bars & Pubs"
-            }
-        ]
-    },
-    {
-        "id": "things-to-do",
-        "label": "Things to do",
-        "subCategory": [
-            {
-                "id": "nature-outdoors",
-                "label": "Nature & Outdoors"
-            },
-            {
-                "id": "culture-history",
-                "label": "Culture & History"
-            },
-            {
-                "id": "entertainment",
-                "label": "Entertainment"
-            },
-            {
-                "id": "active-adventure",
-                "label": "Active & Adventure"
-            },
-            {
-                "id": "shopping",
-                "label": "Shopping"
-            },
-            {
-                "id": "health-wellness",
-                "label": "Health & Wellness"
-            },
-            {
-                "id": "tours",
-                "label": "Tours"
             }
         ]
     },
