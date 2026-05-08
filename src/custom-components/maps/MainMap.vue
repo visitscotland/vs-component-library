@@ -1199,14 +1199,11 @@ function resetMap(hardReset, resetLocation) {
     nearbySearch.style.display = 'none';
 
     // Reset text search.
-    textSearchQuery.includedTypes = null;
-    textSearchQuery.excludedTypes = null;
+    textSearchQuery.includedType = null;
     textSearchQuery.locationRestriction = null;
     textSearchQuery.locationBias = null;
     textSearchQuery.textQuery = null;
     textSearch.style.display = 'none';
-
-    textSearchQuery.textQuery = null;
 
     categoriesVisible.value = false;
 
