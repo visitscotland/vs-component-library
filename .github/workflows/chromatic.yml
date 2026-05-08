@@ -41,13 +41,17 @@ env:
 jobs:
   chromatic-deployment:
     if: |
-      github.event_name == 'workflow_dispatch' ||
-      (github.event_name == 'pull_request' && github.event.pull_request.user.login != 'dependabot[bot]') ||
-      (github.event_name == 'push' && github.actor != 'dependabot[bot]')
+      github.event_name != 'pull_request' ||
+      github.event.pull_request.user.login != 'dependabot[bot]'
     # Operating System
     runs-on: ubuntu-latest
     # Job steps
     steps:
+      - name: Debug actor
+        run: |
+          echo "actor=${{ github.actor }}"
+          echo "pr_user=${{ github.event.pull_request.user.login }}"
+          echo "event=${{ github.event_name }}"
       - name: Checkout code
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
         with:
