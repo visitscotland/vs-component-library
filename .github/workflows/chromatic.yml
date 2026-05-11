@@ -41,9 +41,8 @@ env:
 jobs:
   chromatic-deployment:
     if: |
-      github.event_name == 'workflow_dispatch' ||
-      (github.event_name == 'pull_request' && github.event.pull_request.user.login != 'dependabot[bot]') ||
-      (github.event_name == 'push' && github.actor != 'dependabot[bot]')
+      github.event_name != 'pull_request' ||
+      github.event.pull_request.user.login != 'dependabot[bot]'
     # Operating System
     runs-on: ubuntu-latest
     # Job steps
@@ -58,8 +57,23 @@ jobs:
       - name: Install dependencies
         # 👇 Install dependencies with the same package manager used in the project (replace it as needed), e.g. yarn, npm, pnpm
         run: yarn
+       # Detect merged Dependabot commits on push events
+      - name: Check for Dependabot merge commit
+        id: dependabot_check
+        run: |
+          COMMIT_MSG=$(git log -1 --pretty=%B)
+
+          echo "Commit message:"
+          echo "$COMMIT_MSG"
+
+          if echo "$COMMIT_MSG" | grep -qi "dependabot"; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
         # 👇 Adds Chromatic as a step in the workflow
       - name: Publish to Chromatic
+        if: steps.dependabot_check.outputs.skip != 'true'
         uses: chromaui/action@f191a0224b10e1a38b2091cefb7b7a2337009116
         # Chromatic GitHub Action options
         with:
