@@ -1,3 +1,10 @@
+## [5.53.1](https://github.com/visitscotland/vs-component-library/compare/v5.53.0...v5.53.1) (2026-05-07)
+
+
+### Bug Fixes
+
+* **main map:** improve how we get category label ([b12624b](https://github.com/visitscotland/vs-component-library/commit/b12624bdb0a1cfcf9a0f8b9a853c794128c0bce3))
+
 # [5.53.0](https://github.com/visitscotland/vs-component-library/compare/v5.52.0...v5.53.0) (2026-05-06)
 
 
