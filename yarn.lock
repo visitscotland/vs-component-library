@@ -4919,7 +4919,7 @@ __metadata:
     glob: "npm:^12.0.0"
     husky: "npm:^9.1.7"
     jest: "npm:^29.5.0"
-    jest-axe: "npm:^8.0.0"
+    jest-axe: "npm:^10.0.0"
     jest-environment-jsdom: "npm:^29.5.0"
     jest-serializer-vue: "npm:^3.1.0"
     lint-staged: "npm:^16.4.0"
@@ -6268,10 +6268,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axe-core@npm:4.7.2":
-  version: 4.7.2
-  resolution: "axe-core@npm:4.7.2"
-  checksum: 10c0/8dfc61f038fbd9623ae8a264c8a475d887113a027fb440a2b377b82ffd300e71d1a0bcf042ff13b517a8d548b34c44b4159eff693725c5d7cde240d0aa68feac
+"axe-core@npm:4.10.2":
+  version: 4.10.2
+  resolution: "axe-core@npm:4.10.2"
+  checksum: 10c0/0e20169077de96946a547fce0df39d9aeebe0077f9d3eeff4896518b96fde857f80b98f0d4279274a7178791744dd5a54bb4f322de45b4f561ffa2586ff9a09d
   languageName: node
   linkType: hard
 
@@ -11891,15 +11891,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-axe@npm:^8.0.0":
-  version: 8.0.0
-  resolution: "jest-axe@npm:8.0.0"
+"jest-axe@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "jest-axe@npm:10.0.0"
   dependencies:
-    axe-core: "npm:4.7.2"
+    axe-core: "npm:4.10.2"
     chalk: "npm:4.1.2"
     jest-matcher-utils: "npm:29.2.2"
     lodash.merge: "npm:4.6.2"
-  checksum: 10c0/7e7b41324695c26332803937908604e325415a34945526fa20d74a9f3c5a7bb6432e7158d6091f6e8fdd1b09bc6be093c306938c6626119f6ee613453cc913f0
+  checksum: 10c0/0c79e4a09e120224e903542591bfadfaa2574132c73639d3c9aa2371a720799929b2f2d13a12367f2642192dd0c66daec184ea9a134c8b20061216cea6801439
   languageName: node
   linkType: hard
 
