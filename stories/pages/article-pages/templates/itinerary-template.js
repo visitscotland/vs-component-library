@@ -1,3 +1,6 @@
+import splitCardContentSwiper from '../../partials/splitCardContentSwiper';
+import imageContentSwiper from '../../partials/imageContentSwiper';
+
 export default `
     <VsPageHeader menu-type="b2c">
         <template #breadcrumb>
@@ -175,12 +178,21 @@ export default `
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
+    
+    <section 
+        class="mt-500"
+        aria-label="Itinerary hightlight images"
+    >
+        ${imageContentSwiper({
+            slidesPerViewLg: 2.2,
+        })}
+    </section>
 
     <!------------------------------------------------------------
     NEW SECTION - Two col content section
     ------------------------------------------------------------>
-    <VsContainer>
-        <VsRow class="mt-500">
+    <VsContainer class="mt-500">
+        <VsRow>
             <!-- First col: Section heading - Itinerary day -->
             <VsCol
                 cols="12"
@@ -215,7 +227,7 @@ export default `
                         use-lazy-loading
                         class="rounded-2 w-100 mb-175"
                     />
-
+                   
                     <!------- Content block header -------> 
                     <VsRow class="mb-125">
                         <VsCol
@@ -237,6 +249,14 @@ export default `
 
                     <!------- Content block body -------> 
                     <VsBody class="mb-150">
+                        <p>
+                            Towering over the city, you won't be able to miss Edinburgh Castle. As well as offering spectacular views of the skyline, it's home to the Scottish Crown Jewels and the Stone of Destiny. On your visit, uncover Scotland's military history in the National War Museum and take in the haunting National War Memorial. Once you've explored the castle, wander down the Royal Mile to take in this famous thoroughfare - it's lined with an eclectic range of shops, pubs, eateries and historic closes, and you can also find St Giles' Cathedral in the middle and the Palace of Holyroodhouse at the bottom of the street.
+                        </p>
+
+                        ${imageContentSwiper({
+                            contained: true,
+                        })}
+
                         <p>
                             Towering over the city, you won't be able to miss Edinburgh Castle. As well as offering spectacular views of the skyline, it's home to the Scottish Crown Jewels and the Stone of Destiny. On your visit, uncover Scotland's military history in the National War Museum and take in the haunting National War Memorial. Once you've explored the castle, wander down the Royal Mile to take in this famous thoroughfare - it's lined with an eclectic range of shops, pubs, eateries and historic closes, and you can also find St Giles' Cathedral in the middle and the Palace of Holyroodhouse at the bottom of the street.
                         </p>
@@ -427,10 +447,10 @@ export default `
 
 
     <!------------------------------------------------------------
-    NEW SECTION - Section header + new card group ( 4 cards)
+    NEW SECTION - Section header + new content swiper ( 4 cards)
     ------------------------------------------------------------>
     <VsSectionHeader 
-        class="mt-500 mb-300"
+        class="mt-500 mb-200 mb-xl-300"
         heading="Explore places to stay"
     >
         <template v-slot:section-header-lede>
@@ -438,56 +458,11 @@ export default `
         </template>
     </VsSectionHeader>
 
-    <VsContainer class="mb-500">
-        <VsRow>
-            <VsCol>
-                <VsCardGroup
-                    scroll-snap
-                    :cards-per-row="4"
-                    class="text-start"
-                >
-                    <VsCard
-                        v-for="(card, index) in cardList4"
-                        :key="'card-list-4-' + index"
-                    >
-                        <template #vs-card-header>
-                            <VsImg
-                                v-if="card.image"
-                                :src="card.image"
-                                class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
-                            />
-                        </template>
-
-                        <template #vs-card-body>
-                            <div>
-                                <VsHeading
-                                    level="3"
-                                    heading-style="heading-xs"
-                                >
-                                    <VsLink
-                                        :href="card.link"
-                                        class="stretched-link"
-                                        variant="secondary"
-                                    >
-                                        {{ card.title }}
-                                    </VsLink>
-                                </VsHeading>
-
-                                <VsBody class="mb-150 truncate-2-lines">
-                                    {{ card.description }}
-                                </VsBody>
-                            </div>
-                        </template>
-                    </VsCard>
-                </VsCardGroup>
-            </VsCol>
-        </VsRow>
-    </VsContainer>
+    ${splitCardContentSwiper()}
+    
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
-
-
 
 
     <!------------------------------------------------------------

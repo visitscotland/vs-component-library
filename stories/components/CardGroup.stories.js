@@ -17,7 +17,6 @@ import informationalCardData from '@/assets/fixtures/navigation-pages/informatio
 import SplitLinkGrid3Example from './templates/card-layout-examples/split-link-grid-3';
 import SplitLinkGrid4Example from './templates/card-layout-examples/split-link-grid-4';
 import LinkGrid4Example from './templates/card-layout-examples/link-grid-4';
-import MultipleRowsGridExample from './templates/card-layout-examples/multiple-rows-grid';
 import CategoryGridExample from './templates/card-layout-examples/category-grid';
 
 const components = {
@@ -34,18 +33,25 @@ const components = {
     VsCardGroup,
     VsVideo,
 };
+const deprecationNotice = `
+<div style="background: #940f2c17; padding: 1rem; border: 1px solid #940F2C; margin-bottom: 1rem;">
+  ⚠️ Deprecated: Use new Content Swiper component or layout Grid instead.
+  This component will be removed in a future release.
+  See the <a href="https://visitscotland.atlassian.net/wiki/spaces/DE/pages/628293634/Card+group+deprecated">Component migration docs.</a>
+</div>
+`;
+
 const createStory = (template, args, globals) => {
     const story = {
         render: (storyArgs) => ({
             components,
-            template,
+            template: deprecationNotice + template,
             setup() {
                 const cardList2 = visualCardData.cardList2?.cards || [];
                 const cardList3 = visualCardData.cardList3?.cards || [];
                 const cardListOverlay = visualCardData.cardListOverlay?.cards || [];
                 const textCardList2 = informationalCardData.textCardList2?.cards || [];
                 const textCardList3 = informationalCardData.textCardList3?.cards || [];
-                const cardListMultipleRows = visualCardData.cardListMultipleRows?.cards || [];
 
                 // Merge story args with the data
                 return {
@@ -54,7 +60,6 @@ const createStory = (template, args, globals) => {
                     textCardList2,
                     textCardList3,
                     cardList2,
-                    cardListMultipleRows,
                     scrollSnap: storyArgs.scrollSnap,
                     cardsPerRow: storyArgs.cardsPerRow,
                     ...storyArgs,
@@ -84,7 +89,7 @@ const createStory = (template, args, globals) => {
 
 export default {
     component: VsCardGroup,
-    title: 'Components/Layout & content structure/CardGroup',
+    title: 'Components/Deprecated/CardGroup',
     argTypes: {
         scrollSnap: {
             control: {
@@ -98,6 +103,7 @@ export default {
             },
         },
     },
+    tags: ['deprecated'],
 };
 
 const base = {
@@ -112,10 +118,6 @@ export const GridRow3 = createStory(SplitLinkGrid3Example, {
 });
 
 export const GridRow4 = createStory(LinkGrid4Example, {
-    ...base,
-});
-
-export const MultipleRowsGrid = createStory(MultipleRowsGridExample, {
     ...base,
 });
 

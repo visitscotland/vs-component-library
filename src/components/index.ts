@@ -23,6 +23,8 @@ export { default as VsCard } from './card/Card.vue';
 export { default as VsCardGroup } from './card-group/CardGroup.vue';
 export { default as VsCarousel } from './carousel/Carousel.vue';
 export { default as VsCarouselSlide } from './carousel/components/CarouselSlide.vue';
+export { default as VsContentSwiper } from './content-swiper/ContentSwiper.vue';
+export { default as VsContentSwiperSlide } from './content-swiper/components/ContentSwiperSlide';
 export { default as VsCheckbox } from './checkbox/Checkbox.vue';
 export { default as VsDescriptionList } from './description-list/DescriptionList.vue';
 export { default as VsDescriptionListItem } from './description-list/components/DescriptionListItem.vue';

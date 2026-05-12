@@ -112,6 +112,7 @@
                     id="vs-map"
                     map-id="vs-map"
                     ref="vsMap"
+                    data-chromatic="ignore"
                 >
                 </div>
                 <Suspense>
