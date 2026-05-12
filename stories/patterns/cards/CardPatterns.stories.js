@@ -70,25 +70,25 @@ export default {
     title: 'Patterns/Cards',
 };
 
-export const SplitLink = createStory(SplitLinkCardExample);
+export const SplitLinkCard = createStory(SplitLinkCardExample);
 
-export const SplitLinkHorizontal = createStory(
+export const SplitLinkHorizontalCard = createStory(
     SplitLinkHorizontalCardExample,
     decorators.fullWidth,
 );
 
-export const Link = createStory(LinkExample);
+export const LinkCard = createStory(LinkExample);
 
-export const LinkWithDetails = createStory(LinkWithDetailsExample);
+export const LinkCardWithDetails = createStory(LinkWithDetailsExample);
 
-export const LinkWithIcon = createStory(LinkWithIconExample);
+export const LinkCardWithIcon = createStory(LinkWithIconExample);
 
-export const CategoryImage = createStory(CategoryImageExample);
+export const CategoryImageCard = createStory(CategoryImageExample);
 
 /**
  * Interactive story (video play/pause)
  */
-export const CategoryVideo = createStory(
+export const CategoryVideoCard = createStory(
     CategoryVideoExample,
     decorators.default,
     {
@@ -109,4 +109,4 @@ export const CategoryVideo = createStory(
     },
 );
 
-export const Event = createStory(EventExample);
+export const EventCard = createStory(EventExample);
