@@ -111,16 +111,12 @@ describe('VsInput', () => {
         });
 
         it('should show the clear button when there is a value if the `closeButtonText` prop is defined', async() => {
-            wrapper.setProps({
+            const mountedWrapper = factoryMount({
                 clearButtonText: 'clear text',
+                value: 'test',
             });
 
-            wrapper.setData({
-                inputVal: 'test',
-            });
-            await wrapper.vm.$nextTick();
-
-            expect(wrapper.find('[data-test="input-clear-button"]').text()).toBe('clear text');
+            expect(mountedWrapper.find('[data-test="input-clear-button"]').text()).toBe('clear text');
         });
 
         it('should have an aria label property on the input when the aria label is populated', async() => {

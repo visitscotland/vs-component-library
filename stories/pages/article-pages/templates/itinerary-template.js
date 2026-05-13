@@ -1,5 +1,6 @@
 import splitCardContentSwiper from '../../partials/splitCardContentSwiper';
 import imageContentSwiper from '../../partials/imageContentSwiper';
+import imageWithCaptionPartial from '../../partials/imageWithCaptionPartial';
 
 export default `
     <VsPageHeader menu-type="b2c">
@@ -214,19 +215,19 @@ export default `
                 lg="8"
             >
                 <!------- Itinerary day intro ------->
-                <VsBody class="mb-400">
+                <VsBody class="mb-200 mb-xl-300">
                     <p>
                         Edinburgh, Scotland's historic capital city, is bound to leave an impression on you. You could easily spend weeks discovering its many fantastic attractions, hidden gems and vibrant cultural scene. Today's stops will give you a real feel for this beautiful city's unique character, fascinating past and unbridled charm.
                     </p>
                 </VsBody>       
 
                 <!------- New structured content block: Itinerary stop ------->
-                <div class="mb-400">
-                    <VsImg
-                        src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2023/08/28/edinburgh-castle?size=lg"
-                        use-lazy-loading
-                        class="rounded-2 w-100 mb-175"
-                    />
+                <div class="mb-200 mb-xl-300">
+                    ${imageWithCaptionPartial({
+                        imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2023/08/28/edinburgh-castle?size=lg',
+                        imageCaption: 'Edinburgh Castle',
+                        imageCredit: 'VisitScotland',
+                    })}
                    
                     <!------- Content block header -------> 
                     <VsRow class="mb-125">
@@ -253,9 +254,11 @@ export default `
                             Towering over the city, you won't be able to miss Edinburgh Castle. As well as offering spectacular views of the skyline, it's home to the Scottish Crown Jewels and the Stone of Destiny. On your visit, uncover Scotland's military history in the National War Museum and take in the haunting National War Memorial. Once you've explored the castle, wander down the Royal Mile to take in this famous thoroughfare - it's lined with an eclectic range of shops, pubs, eateries and historic closes, and you can also find St Giles' Cathedral in the middle and the Palace of Holyroodhouse at the bottom of the street.
                         </p>
 
-                        ${imageContentSwiper({
-                            contained: true,
-                        })}
+                        <div class="my-175">
+                            ${imageContentSwiper({
+                                contained: true,
+                            })}
+                        </div>
 
                         <p>
                             Towering over the city, you won't be able to miss Edinburgh Castle. As well as offering spectacular views of the skyline, it's home to the Scottish Crown Jewels and the Stone of Destiny. On your visit, uncover Scotland's military history in the National War Museum and take in the haunting National War Memorial. Once you've explored the castle, wander down the Royal Mile to take in this famous thoroughfare - it's lined with an eclectic range of shops, pubs, eateries and historic closes, and you can also find St Giles' Cathedral in the middle and the Palace of Holyroodhouse at the bottom of the street.
@@ -282,12 +285,12 @@ export default `
 
 
                 <!------- New structured content block: Itinerary stop ------->
-                <div class="mb-400">
-                    <VsImg
-                        src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/02/12/60285-national-museum-of-scotland-large.jpg?size=lg"
-                        use-lazy-loading
-                        class="rounded-2 w-100 mb-175"
-                    />
+                <div class="mb-200 mb-xl-300">
+                    ${imageWithCaptionPartial({
+                        imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/02/12/60285-national-museum-of-scotland-large.jpg?size=lg',
+                        imageCaption: 'National Museum of Scotland',
+                        imageCredit: 'VisitScotland',
+                    })}
 
                     <!------- Content block header -------> 
                     <VsRow class="mb-125">
@@ -335,12 +338,12 @@ export default `
 
 
                 <!------- New structured content block: Itinerary stop ------->
-                <div class="mb-400">
-                    <VsImg
-                        src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/06/30/301/calton-hill-evening?size=lg"
-                        use-lazy-loading
-                        class="rounded-2 w-100 mb-175"
-                    />
+                <div class="mb-200 mb-xl-300">
+                    ${imageWithCaptionPartial({
+                        imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/06/30/301/calton-hill-evening?size=lg',
+                        imageCaption: 'View from Calton Hill',
+                        imageCredit: 'VisitScotland',
+                    })}
 
                     <!------- Content block header ------->
                     <VsRow class="mb-125">
@@ -388,11 +391,11 @@ export default `
 
                 <!------- New structured content block: Itinerary stop ------->
                 <div>
-                    <VsImg
-                        src="https://2f1a7f9478.visitscotland.net/wsimgs/TRMKC_Bottom_of_Close_01_1655320697.jpg?size=lg"
-                        use-lazy-loading
-                        class="rounded-2 w-100 mb-175"
-                    />
+                    ${imageWithCaptionPartial({
+                        imageSrc: 'https://2f1a7f9478.visitscotland.net/wsimgs/TRMKC_Bottom_of_Close_01_1655320697.jpg?size=lg',
+                        imageCaption: 'Real Mary King\'s Close',
+                        imageCredit: 'VisitScotland',
+                    })}
 
                     <!------- Content block header ------->
                     <VsRow class="mb-125">
@@ -491,19 +494,19 @@ export default `
                 lg="8"
             >
                 <!------- Itinerary day intro ------->
-                <VsBody class="mb-400">
+                <VsBody class="mb-200 mb-xl-300">
                     <p>
                         Leave Edinburgh and venture out into the Kingdom of Fife, taking the Queensferry Crossing. Look out for the remarkable structure of the Forth Bridge, a UNESCO World Heritage Site, and the Forth Road Bridge. Follow the brown signs for the Fife Coastal Route to take in the sparkling coastline and the picturesque villages of the East Neuk.
                     </p>
                 </VsBody>
                 
                 <!------- New structured content block: Itinerary stop ------->
-                <div class="mb-400">
-                    <VsImg
-                        src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/04/041/pittenween-fishing-village-cottage?size=lg"
-                        use-lazy-loading
-                        class="rounded-2 w-100 mb-175"
-                    />
+                <div class="mb-200 mb-xl-300">
+                    ${imageWithCaptionPartial({
+                        imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/04/041/pittenween-fishing-village-cottage?size=lg',
+                        imageCaption: 'Pittemween fishing village',
+                        imageCredit: 'VisitScotland',
+                    })}
 
                     <!------- Content block header -------> 
                     <VsRow class="mb-125">
@@ -555,12 +558,12 @@ export default `
 
 
                 <!------- New structured content block: Itinerary stop ------->
-                <div class="mb-400">
-                    <VsImg
-                        src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/01/st-andrews-west-sands?size=lg"
-                        use-lazy-loading
-                        class="rounded-2 w-100 mb-175"
-                    />
+                <div class="mb-200 mb-xl-300">
+                    ${imageWithCaptionPartial({
+                        imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/01/st-andrews-west-sands?size=lg',
+                        imageCaption: 'St Andrews West Sands',
+                        imageCredit: 'VisitScotland',
+                    })}
 
                     <!------- Content block header -------> 
                     <VsRow class="mb-125">
@@ -613,11 +616,11 @@ export default `
 
                 <!------- New structured content block: Itinerary stop ------->
                 <div>
-                    <VsImg
-                        src="https://2f1a7f9478.visitscotland.net/wsimgs/distillery_edit_1097016301.jpg?size=lg"
-                        use-lazy-loading
-                        class="rounded-2 w-100 mb-175"
-                    />
+                    ${imageWithCaptionPartial({
+                        imageSrc: 'https://2f1a7f9478.visitscotland.net/wsimgs/distillery_edit_1097016301.jpg?size=lg',
+                        imageCaption: 'Eden Mill Distillery & Brewery',
+                        imageCredit: 'VisitScotland',
+                    })}
 
                     <!------- Content block header ------->
                     <VsRow class="mb-125">
@@ -720,19 +723,19 @@ export default `
                 lg="8"
             >
                 <!------- Itinerary day intro ------->
-                <VsBody class="mb-400">
+                <VsBody class="mb-200 mb-xl-300">
                     <p>
                         On the third day of your trip, it's time to discover the unique offerings of Dundee, Scotland's fourth largest city. A UNESCO City of Design, Dundee is a thriving, compact place full of exciting developments and has a vibrant cultural scene. It also has a fascinating and varied history that includes textiles manufacturing, polar exploration, journalism… and marmalade!
                     </p>
                 </VsBody>
                 
                 <!------- New structured content block: Itinerary stop ------->
-                <div class="mb-400">
-                    <VsImg
-                        src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/09/11/va-dundee.jpg?size=lg"
-                        use-lazy-loading
-                        class="rounded-2 w-100 mb-175"
-                    />
+                <div class="mb-200 mb-xl-300">
+                    ${imageWithCaptionPartial({
+                        imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/09/11/va-dundee.jpg?size=lg',
+                        imageCaption: 'RRS Discovery, Dundee',
+                        imageCredit: 'VisitScotland',
+                    })}
 
                     <!------- Content block header -------> 
                     <VsRow class="mb-125">
@@ -780,12 +783,12 @@ export default `
 
 
                 <!------- New structured content block: Itinerary stop ------->
-                <div class="mb-400">
-                    <VsImg
-                        src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/08/01/va-dundee?size=lg"
-                        use-lazy-loading
-                        class="rounded-2 w-100 mb-175"
-                    />
+                <div class="mb-200 mb-xl-300">
+                    ${imageWithCaptionPartial({
+                        imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/08/01/va-dundee?size=lg',
+                        imageCaption: 'V&A Dundee',
+                        imageCredit: 'VisitScotland',
+                    })}
 
                     <!------- Content block header -------> 
                     <VsRow class="mb-125">
@@ -833,12 +836,12 @@ export default `
 
 
                 <!------- New structured content block: Itinerary stop ------->
-                <div class="mb-400">
-                    <VsImg
-                        src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/12/the-mcmanus?size=lg"
-                        use-lazy-loading
-                        class="rounded-2 w-100 mb-175"
-                    />
+                <div class="mb-200 mb-xl-300">
+                    ${imageWithCaptionPartial({
+                        imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/12/the-mcmanus?size=lg',
+                        imageCaption: 'The McManus',
+                        imageCredit: 'VisitScotland',
+                    })}
 
                     <!------- Content block header ------->
                     <VsRow class="mb-125">
@@ -885,12 +888,12 @@ export default `
                 </div>
 
                 <!------- New structured content block: Itinerary stop ------->
-                <div class="mb-400">
-                    <VsImg
-                        src="https://2f1a7f9478.visitscotland.net/wsimgs/1059891_2129749568.jpg?size=lg"
-                        use-lazy-loading
-                        class="rounded-2 w-100 mb-175"
-                    />
+                <div class="mb-200 mb-xl-300">
+                    ${imageWithCaptionPartial({
+                        imageSrc: 'https://2f1a7f9478.visitscotland.net/wsimgs/1059891_2129749568.jpg?size=lg',
+                        imageCaption: 'Dundee Contemporary Arts',
+                        imageCredit: 'VisitScotland',
+                    })}
 
                     <!------- Content block header ------->
                     <VsRow class="mb-125">

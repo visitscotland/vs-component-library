@@ -213,7 +213,7 @@ export default `
     NEW SECTION - Section header + content swiper ( 4 cards)
     ------------------------------------------------------------>
     <VsSectionHeader 
-        class="mt-500 mb-400"
+        class="mt-500 mb-200 mb-xl-300"
         heading="Make the most of your visit"
     >
         <template v-slot:section-header-lede>

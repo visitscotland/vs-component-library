@@ -1,3 +1,5 @@
+import imageWithCaptionPartial from '../../partials/imageWithCaptionPartial';
+
 export default `
     <VsPageHeader menu-type="b2c">
         <template #breadcrumb>
@@ -142,12 +144,12 @@ export default `
                         </VsDetail>
                     </div>
                 </div>
-            
-                <VsImg
-                    src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2025/07/01/corstorphine-hill?size=lg"
-                    use-lazy-loading
-                    class="rounded-2 w-100 mb-175"
-                />
+
+                ${imageWithCaptionPartial({
+                    imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2025/07/01/corstorphine-hill?size=lg',
+                    imageCaption: 'View form Corstorphine Hill',
+                    imageCredit: 'VisitScotland',
+                })}
 
                 <VsButton
                     href="#"
@@ -241,11 +243,11 @@ export default `
                     </div>
                 </div>
             
-                <VsImg
-                    src="https://2f1a7f9478.visitscotland.net/wsimgs/Hill-of-Tarvit_917093008.jpg?size=lg"
-                    use-lazy-loading
-                    class="rounded-2 w-100 mb-175"
-                />
+                ${imageWithCaptionPartial({
+                    imageSrc: 'https://2f1a7f9478.visitscotland.net/wsimgs/Hill-of-Tarvit_917093008.jpg?size=lg',
+                    imageCaption: 'Edwardian Hill of Tarvit Mansion',
+                    imageCredit: 'VisitScotland',
+                })}
 
                 <VsButton
                     href="#"
@@ -338,12 +340,12 @@ export default `
                         </VsDetail>
                     </div>
                 </div>
-            
-                <VsImg
-                    src="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2023/09/29/carradale-on-kilbrannan-sound.jpg?size=lg"
-                    use-lazy-loading
-                    class="rounded-2 w-100 mb-175"
-                />
+
+                ${imageWithCaptionPartial({
+                    imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2023/09/29/carradale-on-kilbrannan-sound.jpg?size=lg',
+                    imageCaption: 'View from Deer Hill, Carradale',
+                    imageCredit: 'VisitScotland',
+                })}
 
                 <VsButton
                     href="#"
