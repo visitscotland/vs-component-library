@@ -20,10 +20,13 @@ import VsCard from '@/components/card/Card.vue';
 import VsSpotlightSection from '@/components/spotlight-section/SpotlightSection.vue';
 import VsIllustratedMap from '@/components/illustrated-map/IllustratedMap.vue';
 import VsMediaCaption from '@/components/media-caption/MediaCaption.vue';
+import VsVideo from '@/components/video/Video.vue';
+
 import cardLayoutData from '@/assets/fixtures/navigation-pages/visual-impact-cards.json';
 import contentSwiperImages from '@/assets/fixtures/content-swiper/content-swiper-images.json';
 
 import RichArticleTemplate from './templates/rich-article-template';
+import RichArticleNewTemplate from './templates/rich-article-new-template';
 import StructuredArticleTemplate from './templates/structured-article-template';
 import ItineraryTemplate from './templates/itinerary-template';
 
@@ -48,6 +51,7 @@ const components = {
     VsSpotlightSection,
     VsIllustratedMap,
     VsMediaCaption,
+    VsVideo,
     VsContentSwiper,
     VsContentSwiperSlide,
 };
@@ -83,6 +87,10 @@ export default {
 
 export const RichArticle = {
     ...createStory(RichArticleTemplate),
+};
+
+export const RichArticleNew = {
+    ...createStory(RichArticleNewTemplate),
 };
 
 export const StructuredArticle = {
