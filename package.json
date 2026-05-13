@@ -79,7 +79,7 @@
     "@semantic-release/exec": "^7.1.0",
     "@semantic-release/npm": "^13.1.5",
     "@storybook/addon-a11y": "^9.1.0-alpha.2",
-    "@storybook/addon-docs": "9.1.0-alpha.2",
+    "@storybook/addon-docs": "10.3.6",
     "@storybook/addon-links": "^9.1.0-alpha.2",
     "@storybook/vue3-vite": "^9.1.0-alpha.2",
     "@types/google.maps": "^3.64.0",
