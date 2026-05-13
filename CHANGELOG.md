@@ -1,3 +1,11 @@
+# [5.55.0](https://github.com/visitscotland/vs-component-library/compare/v5.54.0...v5.55.0) (2026-05-13)
+
+
+### Features
+
+* **image with caption:** handle null values ([6d8bb06](https://github.com/visitscotland/vs-component-library/commit/6d8bb0603257840319bdf158ce78abc1478196c0))
+* **image with caption:** update image with caption pattern to use new border-radius style ([3e6032b](https://github.com/visitscotland/vs-component-library/commit/3e6032b1499916ec028d68f454bae4438d8ecc95))
+
 # [5.54.0](https://github.com/visitscotland/vs-component-library/compare/v5.53.1...v5.54.0) (2026-05-12)
 
 
