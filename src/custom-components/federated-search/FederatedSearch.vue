@@ -205,6 +205,7 @@ import {
     onMounted,
     onUpdated,
 } from 'vue';
+
 import {
     VsBadge,
     VsBody,
@@ -238,6 +239,16 @@ const isError = ref(
 );
 
 const fallbackImg = 'https://static.visitscotland.com/img/fallback-img.png';
+
+/**
+ * @deprecated ⚠️ This component is no longer supported and will be removed
+ * in a future release.
+ *
+ */
+
+defineOptions({
+    status: 'deprecated',
+});
 
 const props = defineProps({
     /**

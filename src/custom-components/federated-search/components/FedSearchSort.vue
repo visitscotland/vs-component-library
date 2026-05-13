@@ -80,6 +80,16 @@ import useFederatedSearchStore from '@/custom-components/federated-search/stores
 
 const federatedSearchStore = useFederatedSearchStore();
 
+/**
+ * @deprecated ⚠️ This component is no longer supported and will be removed
+ * in a future release.
+ *
+ */
+
+defineOptions({
+    status: 'deprecated',
+});
+
 const props = defineProps({
     /**
      * Determines if the date fields are visible
