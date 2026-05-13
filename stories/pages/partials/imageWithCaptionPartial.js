@@ -6,6 +6,7 @@ export default function imageWithCaptionPartial({
     addTopMargin = false,
 } = {
 }) {
+    if (!imageSrc) return '';
     return `
     <figure>
         <VsImg 
@@ -17,10 +18,10 @@ export default function imageWithCaptionPartial({
         <figcaption>
             <VsMediaCaption class="${hasArticleSpacing ? 'mb-100' : ''}">
                 <template v-slot:caption>
-                    ${imageCaption}
+                    ${imageCaption ?? ''}
                 </template>
                 <template v-slot:credit>
-                    ${imageCredit}
+                    ${imageCredit ?? ''}
                 </template>
             </VsMediaCaption>
         </figcaption>

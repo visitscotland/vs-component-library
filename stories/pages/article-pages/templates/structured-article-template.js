@@ -147,7 +147,7 @@ export default `
 
                 ${imageWithCaptionPartial({
                     imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2025/07/01/corstorphine-hill?size=lg',
-                    imageCaption: 'View frm Corstorphine Hill',
+                    imageCaption: 'View form Corstorphine Hill',
                     imageCredit: 'VisitScotland',
                 })}
 
