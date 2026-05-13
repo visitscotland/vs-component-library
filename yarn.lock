@@ -2264,11 +2264,11 @@ __metadata:
   linkType: hard
 
 "@googlemaps/js-api-loader@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "@googlemaps/js-api-loader@npm:2.0.1"
+  version: 2.0.2
+  resolution: "@googlemaps/js-api-loader@npm:2.0.2"
   dependencies:
     "@types/google.maps": "npm:^3.53.1"
-  checksum: 10c0/fa1146881762021ebe5021c6be03c5f5fd85557caa5360c590de00502c08f6a2b75bf3352ce767dd8437bedbf469131f088a9e598bce83c2a829b6a207e3be60
+  checksum: 10c0/1bd8f1e117145de83a7cfca7c05cf4cfb2d9095d507497f8b0e590be94de3a6a27a7a3c80801de6f58d77e5a2ce169a6b6d9c9d0dfc20ea1039d890226318c46
   languageName: node
   linkType: hard
 
