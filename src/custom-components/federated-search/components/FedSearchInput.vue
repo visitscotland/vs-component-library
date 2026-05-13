@@ -100,6 +100,16 @@ import dataLayerComposable from '../composables/dataLayerComposable';
 
 const dataLayerHelper = dataLayerComposable();
 
+/**
+ * @deprecated ⚠️ This component is no longer supported and will be removed
+ * in a future release.
+ *
+ */
+
+defineOptions({
+    status: 'deprecated',
+});
+
 const props = defineProps({
     /**
      * API Key for Cludo.
