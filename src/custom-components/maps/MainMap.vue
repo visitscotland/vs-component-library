@@ -1192,10 +1192,19 @@ function resetMap(hardReset, resetLocation) {
 
     clearExistingMarkers();
     currentSearch.value = '';
-    nearbySearch.style.display = 'none';
-    textSearch.style.display = 'none';
 
+    // Reset nearby search.
+    nearbySearchQuery.includedTypes = null;
+    nearbySearchQuery.excludedTypes = null;
+    nearbySearchQuery.locationRestriction = null;
+    nearbySearch.style.display = 'none';
+
+    // Reset text search.
+    textSearchQuery.includedType = null;
+    textSearchQuery.locationRestriction = null;
+    textSearchQuery.locationBias = null;
     textSearchQuery.textQuery = null;
+    textSearch.style.display = 'none';
 
     categoriesVisible.value = false;
 
