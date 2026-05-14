@@ -1,3 +1,11 @@
+## [5.55.1](https://github.com/visitscotland/vs-component-library/compare/v5.55.0...v5.55.1) (2026-05-14)
+
+
+### Bug Fixes
+
+* **main map:** remove unused search query properties ([1a1c15d](https://github.com/visitscotland/vs-component-library/commit/1a1c15dc559e315a306a27d1a356d8df6b4b4e95))
+* **main map:** reset map search parameters ([fc9c7fa](https://github.com/visitscotland/vs-component-library/commit/fc9c7fa8ac777feb71a8c873376800a40782fccc))
+
 # [5.55.0](https://github.com/visitscotland/vs-component-library/compare/v5.54.0...v5.55.0) (2026-05-13)
 
 
