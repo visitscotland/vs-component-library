@@ -615,6 +615,7 @@ onMounted(async() => {
 
         // Only display the sidebar and destination markers when the map tiles have loaded.
         gMap.addListener('tilesloaded', () => {
+            if (mapLoaded.value) return;
             mapLoaded.value = true;
 
             addDestinationMarkers();
