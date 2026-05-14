@@ -135,7 +135,7 @@ import {
 } from '@/components/grid';
 
 /**
-* @deprecated: ⚠️ Use new Hero Section component and
+* @deprecated ⚠️ Use new Hero Section component and
 * page header patterns instead. This component will be
 * removed in a future release.
 * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1157300230/Page+intro+deprecated

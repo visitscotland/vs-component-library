@@ -275,6 +275,7 @@ export default {
 <style lang="scss">
     .vs-image-with-caption {
         position: relative;
+        margin-bottom: $vs-spacer-100;
 
         &__image-wrapper {
             position: relative;

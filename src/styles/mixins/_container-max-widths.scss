@@ -1,0 +1,27 @@
+@mixin container-max-widths(
+    $sm: $max-container-width-sm,
+    $md: $max-container-width-md,
+    $lg: $max-container-width-lg,
+    $xl: $max-container-width-xl,
+    $xxl: $max-container-width-xxl
+) {
+    @include media-breakpoint-up(sm) {
+        max-width: $sm;
+    }
+
+    @include media-breakpoint-up(md) {
+        max-width: $md;
+    }
+
+    @include media-breakpoint-up(lg) {
+        max-width: $lg;
+    }
+
+    @include media-breakpoint-up(xl) {
+        max-width: $xl;
+    }
+
+    @include media-breakpoint-up(xxl) {
+        max-width: $xxl;
+    }
+}

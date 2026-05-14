@@ -1,3 +1,45 @@
+# [5.55.0](https://github.com/visitscotland/vs-component-library/compare/v5.54.0...v5.55.0) (2026-05-13)
+
+
+### Features
+
+* **image with caption:** handle null values ([6d8bb06](https://github.com/visitscotland/vs-component-library/commit/6d8bb0603257840319bdf158ce78abc1478196c0))
+* **image with caption:** update image with caption pattern to use new border-radius style ([3e6032b](https://github.com/visitscotland/vs-component-library/commit/3e6032b1499916ec028d68f454bae4438d8ecc95))
+
+# [5.54.0](https://github.com/visitscotland/vs-component-library/compare/v5.53.1...v5.54.0) (2026-05-12)
+
+
+### Bug Fixes
+
+* **card carousel:** fix instance id and code tidy ([c2b1575](https://github.com/visitscotland/vs-component-library/commit/c2b1575f0aae13e981738c859b30cf628364417f))
+* **card carousel:** remove rogue comma ([e046881](https://github.com/visitscotland/vs-component-library/commit/e0468810aa3697fd96ae2c2c1ddd5ca250b8666d))
+* **image with caption:** add fix for image with caption margin ([0c0acd7](https://github.com/visitscotland/vs-component-library/commit/0c0acd713a6049e02f0bb115e6cf74c7eafa80df))
+
+
+### Features
+
+* **card carousel:** add image example to card carousel ([c2fa5b2](https://github.com/visitscotland/vs-component-library/commit/c2fa5b200fe8acdb3b893f540417320b15c40ba4))
+* **card carousel:** add portrait and landscape examples ([d985148](https://github.com/visitscotland/vs-component-library/commit/d985148792cd0dffa4c85e86d671146e401ea0df))
+* **card carousel:** add portrait images to fixtures ([4bf1d75](https://github.com/visitscotland/vs-component-library/commit/4bf1d75595201500efe1a4cbed1903bf11512b18))
+* **card carousel:** add styles for no-js version ([fb97754](https://github.com/visitscotland/vs-component-library/commit/fb9775452eaaaaf811fd8fed3d73e9205456a170))
+* **card carousel:** adds new card carousel component ([7bb73a0](https://github.com/visitscotland/vs-component-library/commit/7bb73a018b427b2d6f4b2f6425f1875ce1de7920))
+* **card carousel:** fix layout issues with card carousel ([15b05f9](https://github.com/visitscotland/vs-component-library/commit/15b05f95eac33692db36942c8b7d87264a524e29))
+* **card carousel:** fixing card carousel layout ([4b5b347](https://github.com/visitscotland/vs-component-library/commit/4b5b347ad83f58406973e6c3da8e27c7a6e195d3))
+* **card carousel:** improve accessibility on card carousel ([d08eebe](https://github.com/visitscotland/vs-component-library/commit/d08eebefa911582758069641c99946b636d6dd68))
+* **card carousel:** update card carousel arrows ([3512873](https://github.com/visitscotland/vs-component-library/commit/3512873d42a80d60de4922699393dcb401e7cbbf))
+* **card carousel:** update navigation story with carousels ([bf3ff30](https://github.com/visitscotland/vs-component-library/commit/bf3ff30b3ce3c5f27e3fedf04d80deefa8857a80))
+* **card group:** deprecate the card group component ([d92137f](https://github.com/visitscotland/vs-component-library/commit/d92137fcc1fbeb0bc13ff7b81956c207b5adc514))
+* **cardcarousel:** updating card carousel across page examples ([8466f3e](https://github.com/visitscotland/vs-component-library/commit/8466f3e3a33a3c01748942edec8483755422c349))
+* **carousel:** add contained prop for contained carousels ([b807338](https://github.com/visitscotland/vs-component-library/commit/b807338b6716815b7915f076656c7ee1b3ddd1c9))
+* **carousel:** deprecates legacy carousel component ([87b939b](https://github.com/visitscotland/vs-component-library/commit/87b939b331bf17556ae003530916dc4141281732))
+* **carousel:** installs swiper and adds card-carousel files ([e3e5860](https://github.com/visitscotland/vs-component-library/commit/e3e586030f72e5fcd74b41eaf18b122337b0e9f1))
+* **carousel:** make scrollbar only appear on swipe ([02f3141](https://github.com/visitscotland/vs-component-library/commit/02f31415f0d2b8b032706c9bc89b1367654fca8b))
+* **carousel:** updating how the scrollbar works and code tidy ([1fd1aef](https://github.com/visitscotland/vs-component-library/commit/1fd1aefaa6bcf16b82872b88209e2a8ae9a47e58))
+* **content swiper:** ensure swiper examples have a unique aria-label ([7a6385a](https://github.com/visitscotland/vs-component-library/commit/7a6385a58becb28b21c9669011dbed39408c951d))
+* **content swiper:** remove aria-label and section from content swiper ([49d731c](https://github.com/visitscotland/vs-component-library/commit/49d731c32e98257f162e45bba56707df4ac02b9b))
+* **content swiper:** renaming card carousel to content swiper ([2b3ab71](https://github.com/visitscotland/vs-component-library/commit/2b3ab718b841dc5d3305543f697fd0234946239c))
+* **content swiper:** update image examples with number of images ([235f97d](https://github.com/visitscotland/vs-component-library/commit/235f97d16351bdbd4af8a841e7b691664dca6c20))
+
 ## [5.53.1](https://github.com/visitscotland/vs-component-library/compare/v5.53.0...v5.53.1) (2026-05-07)
 
 

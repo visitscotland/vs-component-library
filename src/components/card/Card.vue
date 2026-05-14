@@ -140,6 +140,7 @@ export default {
         display: flex;
         flex-direction: column;
         border-radius: $vs-radius-tiny;
+        height: 100%;
 
         &:hover {
             cursor: pointer;
@@ -218,6 +219,7 @@ export default {
 
         &--overlay {
             height: 330px;
+            width: 100%;
             color: $vs-color-text-inverse;
             overflow: hidden;
 

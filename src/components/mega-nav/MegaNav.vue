@@ -144,7 +144,7 @@ import clickOutside from '@/directives/click-outside';
 import dataLayerMixin from '../../mixins/dataLayerMixin';
 
 /**
- * @deprecated: ⚠️ Use new NavigationBar component instead.
+ * @deprecated ⚠️ Use new NavigationBar component instead.
  * This component will be removed in a future release.
  * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1156087809/Meganav+deprecated
  *
