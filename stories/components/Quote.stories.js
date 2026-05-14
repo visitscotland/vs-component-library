@@ -1,15 +1,15 @@
-import VsButton from '@/components/button/Button.vue';
-import VsImg from '@/components/img/Img.vue';
 import VsQuote from '@/components/quote/Quote.vue';
 
 export default {
     component: VsQuote,
     title: 'Components/Text & typography/Quote',
     argTypes: {
-        variant: {
+        type: {
             options: [
-                'narrow',
-                'wide',
+                'blockquote',
+                'q',
+                'aside',
+                'div',
             ],
             control: {
                 type: 'radio',
@@ -17,13 +17,11 @@ export default {
         },
     },
     decorators: [() => ({
-        template: '<div style="max-width: 500px;"><story /></div>',
+        template: '<div style="max-width: 740px;"><story /></div>',
     })],
 };
 const Template = (args) => ({
     components: {
-        VsButton,
-        VsImg,
         VsQuote,
     },
     setup() {
@@ -32,76 +30,44 @@ const Template = (args) => ({
         };
     },
     template: `
-        <VsQuote v-bind="args">
-            <template
-                v-if="args['quote-image']"
-                v-slot:quote-image
-            >
-                <VsImg
-                    :src="args['quote-image'].src"
-                    alt="args['quote-image'].alt"
-                />
-            </template>
-            
-            <template v-slot:quote-content>
-                <p>
-                    {{ args['quote-content'] }}
-                </p>
-            </template>
-
-            <template v-slot:quote-author-name>{{ args['quote-author-name'] }}</template>
-            <template v-slot:quote-author-title>{{ args['quote-author-title'] }}</template>
-
-            <template
-                v-if="args['quote-link']"
-                v-slot:quote-link
-            >
-                <VsButton
-                    :href="args['quote-link'].link"
-                >
-                    {{ args['quote-link'].linkText }}
-                </VsButton>
-            </template>
-        </VsQuote>
+        <VsQuote 
+            :useLegacy="args.useLegacy"
+            :type="args.type"
+            :quoteText="args.quoteText"
+            :quoteName="args.quoteName"
+            :quoteDetails="args.quoteDetails"
+        />
     `,
 });
 
+const blockquoteText = 'Afterwards, if you are ready for dinner, you could catch the tram to the Leith area of the city. It\'s one of the trendiest neighbourhoods in the UK and boasts three Michelin-star restaurants. Alternatively, wander along Princes Street or George Street to the city\'s West End.';
+const pullquoteText = 'It\'s one of the trendiest neighbourhoods in the UK and boasts three Michelin-star restaurants.';
+
 const base = {
-    'quote-content': 'Scotland\'s largest mountain was once a massive active volcano which exploded and collapsed inwards on itself millions of years ago.',
-    'quote-author-name': 'Penny',
-    'quote-author-title': 'Visitor Services Advisor at Edinburgh iCentre',
-    variant: 'narrow',
+    useLegacy: false,
+    type: 'blockquote',
+    quoteText: blockquoteText,
 };
 
-export const Default = Template.bind({
+export const Blockquote = Template.bind({
 });
 
-Default.args = base;
+Blockquote.args = base;
 
-export const WithImage = Template.bind({
+export const BlockquoteWithAttribution = Template.bind({
 });
 
-WithImage.args = {
+BlockquoteWithAttribution.args = {
     ...base,
-    'quote-image': {
-        src: 'fixtures/quote/ben-nevis-and-river-lochy.jfif',
-        alt: 'Ben Nevis',
-    },
+    quoteName: 'Madeleine Macaulay-Stuart',
+    quoteDetails: 'Senior Manager Creative Studio, VisitScotland',
 };
 
-export const WithLink = Template.bind({
+export const Pullquote = Template.bind({
 });
 
-WithLink.args = {
+Pullquote.args = {
     ...base,
-    'quote-link': {
-        link: '#',
-        linkText: 'Explore Ben Nevis',
-    },
-};
-
-export const WithBorder = Template.bind();
-WithBorder.args = {
-    ...base,
-    withBorder: true,
+    type: 'aside',
+    quoteText: pullquoteText,
 };
