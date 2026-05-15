@@ -1,10 +1,8 @@
 <template>
     <!-- NEW MODE -->
     <template v-if="!useLegacy">
-        <Component
-            :is="type"
-            class="vs-quote-new"
-            :class="quoteTypeClass"
+        <blockquote
+            class="vs-quote-new vs-quote-new--blockquote"
             data-test="vs-quote-new"
         >
             <div class="vs-quote-new__wrapper">
@@ -14,7 +12,7 @@
                     </p>
                 </VsBody>
                 <VsDetail
-                    v-if="quoteName || quoteDetails"
+                    v-if="quoteName || $slots['quote-details']"
                     color="secondary"
                     size="small"
                 >
@@ -23,12 +21,13 @@
                             v-if="quoteName"
                             class="vs-quote__name"
                         >
-                            {{ quoteName }}
-                        </span><span v-if="quoteDetails">, {{ quoteDetails }}</span>
+                            {{ quoteName }}<span v-if="$slots['quote-details']">, </span>
+                        </span>
+                        <slot name="quote-details" />
                     </p>
                 </VsDetail>
             </div>
-        </Component>
+        </blockquote>
     </template>
 
     <!-- LEGACY MODE
@@ -107,16 +106,6 @@ export default {
     },
     props: {
         /**
-         * Sets HTML tag for correct quote type (e.g. blockquote for
-         * long quotes, q for short quotes, aside for pull quotes,
-         * div for generic quotes)
-         */
-        type: {
-            type: String,
-            default: 'blockquote',
-            validator: (value) => value.match(/(blockquote|aside|q|div)/),
-        },
-        /**
          * Sets the quote text content.
          */
         quoteText: {
@@ -127,13 +116,6 @@ export default {
          * Sets the name of the quote author.
          */
         quoteName: {
-            type: String,
-            default: '',
-        },
-        /**
-         * Sets the source of the quote.
-         */
-        quoteDetails: {
             type: String,
             default: '',
         },
@@ -159,9 +141,6 @@ export default {
         },
     },
     computed: {
-        quoteTypeClass() {
-            return this.type === 'blockquote' ? 'vs-quote-new--blockquote' : 'vs-quote-new--pullquote';
-        },
         /** ⚠️ Deprecated - use the new props instead.
          */
         hasAuthorName() {
@@ -198,6 +177,7 @@ export default {
     .vs-quote__text,
     .vs-quote__name {
         font-weight: $vs-font-weight-medium;
+        text-wrap: pretty;
     }
 
     &--blockquote {
@@ -209,12 +189,14 @@ export default {
             padding-left: $vs-spacer-200;
 
             &::before {
-                content: '“';
-                font-size: 3.6rem;
-                color: $vs-color-border-accent-vs-tolsta-20;
+                display: inline-block;
+                font-family: "Font Awesome 6 Pro";
+                content: "\f10d";
+                font-size: 1.50rem;
+                color: $vs-color-border-accent-tolsta-20;
                 position: absolute;
-                left: -10px;
-                top: -20px;
+                left: -8px;
+                top: -10px;
             }
 
             &::after {
@@ -224,14 +206,9 @@ export default {
                 top: $vs-spacer-175;
                 bottom: 0;
                 width: 4px;
-                background-color: $vs-color-border-accent-vs-tolsta-20;
+                background-color: $vs-color-border-accent-tolsta-20;
             }
         }
-    }
-
-    &--pullquote {
-        margin: 0;
-        padding: $vs-spacer-100 0;
     }
 }
 
