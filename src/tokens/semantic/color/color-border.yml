@@ -22,8 +22,12 @@ props:
       value: "{!vs-cloud-40}"
 
     ## Accents
-    - name: vs-color-border-accent-vs-tolsta-20
-      value: "{!vs-tolsta-20}"      
+    - name: vs-color-border-accent-thistle-20
+      value: "{!vs-thistle-20}"
+    - name: vs-color-border-accent-tolsta-20
+      value: "{!vs-tolsta-20}"
+    - name: vs-color-border-accent-whisky-20
+      value: "{!vs-whisky-20}" 
 imports:
   - ../../primitives/color/color-primitives.yml
   - ../../primitives/color/color-support-primitives.yml

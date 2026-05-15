@@ -26,13 +26,13 @@ export default {
     props: {
         /**
          * The panel variant style.
-         * `secondary|information`
+         * `secondary|information|accent-tolsta|accent-whisky|accent-thistle`
          */
         variant: {
             type: String,
             default: 'secondary',
             validator: (value) => value.match(
-                /(secondary|information)/,
+                /(secondary|information|accent-tolsta|accent-whisky|accent-thistle)/,
             ),
         },
     },
@@ -55,6 +55,18 @@ export default {
 
     &--information {
         background-color: $vs-color-background-information;
+    }
+
+    &--accent-tolsta {
+        background-color: $vs-color-background-accent-tolsta-05;
+    }
+
+    &--accent-whisky {
+        background-color: $vs-color-background-accent-whisky-05;
+    }
+
+    &--accent-thistle {
+        background-color: $vs-color-background-accent-thistle-05;
     }
 
     // To be removed in future versions

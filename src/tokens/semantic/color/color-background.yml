@@ -23,6 +23,13 @@ props:
       value: "{!vs-color-support-error}"
 
     ## Accents
+    - name: vs-color-background-accent-thistle-05
+      value: "{!vs-thistle-05}"
+    - name: vs-color-background-accent-tolsta-05
+      value: "{!vs-tolsta-05}"
+    - name: vs-color-background-accent-whisky-05
+      value: "{!vs-whisky-05}"
+
     - name: vs-color-background-accent-heather-80
       value: "{!vs-heather-80}"
     - name: vs-color-background-accent-heather-30

@@ -20,6 +20,14 @@ props:
       value: "{!vs-color-support-success}"
     - name: vs-color-text-disabled
       value: "{!vs-cloud-40}"
+
+  ## Accents
+    - name: vs-color-text-accent-thistle-80
+      value: "{!vs-thistle-80}"
+    - name: vs-color-text-accent-tolsta-80
+      value: "{!vs-tolsta-80}"
+    - name: vs-color-text-accent-whisky-80
+      value: "{!vs-whisky-80}" 
 imports:
   - ../../primitives/color/color-primitives.yml
   - ../../primitives/color/color-support-primitives.yml

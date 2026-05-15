@@ -32,13 +32,14 @@ export default {
         },
         /**
          * The color of the icon.
-         * `primary|secondary|tertiary|cta|inverse|disabled|highlight|error|warning|success`
+         * `primary|secondary|tertiary|cta|inverse|disabled|highlight|error|warning|
+         * success|accent-tolsta|accent-whisky|accent-thistle`
          */
         variant: {
             type: String,
             default: 'primary',
             validator: (value) => value.match(
-                /(primary|secondary|tertiary|cta|inverse|disabled|highlight|error|warning|success)/,
+                /(primary|secondary|tertiary|cta|inverse|disabled|highlight|error|warning|success|accent-tolsta|accent-whisky|accent-thistle)/,
             ),
         },
         /**
@@ -53,21 +54,21 @@ export default {
         },
         /**
         * Size of icon
-        * `xxs|xs|sm|md|lg|xl`
+        * `xxs|xs|sm|md|lg|xl|xxl`
         */
         size: {
             type: String,
             default: 'md',
-            validator: (value) => value.match(/(xxs|xs|sm|md|lg|xl)/),
+            validator: (value) => value.match(/(xxs|xs|sm|md|lg|xl|xxl)/),
         },
         /**
         * Changes the size of the icon at sm and xs viewports
-        * `xxs|xs|sm|md|lg|xl`
+        * `xxs|xs|sm|md|lg|xl|xxl`
         */
         smallSize: {
             type: String,
             default: null,
-            validator: (value) => value.match(/(xxs|xs|sm|md|lg|xl)/),
+            validator: (value) => value.match(/(xxs|xs|sm|md|lg|xl|xxl)/),
         },
     },
     data() {
@@ -106,6 +107,7 @@ $sizes: (
     md: $icon-size-md,
     lg: $icon-size-lg,
     xl: $icon-size-xl,
+    xxl: $icon-size-xxl,
 );
 
 $variants: (
@@ -119,6 +121,9 @@ $variants: (
     error: $vs-color-icon-error,
     warning: $vs-color-icon-warning,
     success: $vs-color-icon-success,
+    accent-tolsta: $vs-color-icon-accent-tolsta-80,
+    accent-whisky: $vs-color-icon-accent-whisky-80,
+    accent-thistle: $vs-color-icon-accent-thistle-80,
 );
 
 .vs-icon {

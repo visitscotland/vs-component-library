@@ -4,17 +4,28 @@
         <Component
             :is="type"
             class="vs-quote-new"
-            :class="quoteTypeClass"
+            :class="[quoteTypeClass, setAccentColorThemeClass]"
             data-test="vs-quote-new"
         >
-            <div class="vs-quote-new__wrapper">
-                <VsBody>
+            <component
+                :is="wrapperComponent"
+                :class="wrapperClass"
+                v-bind="panelProps"
+            >
+                <VsBody :no-margins="type !== 'blockquote'">
+                    <VsIcon
+                        v-if="type !== 'blockquote'"
+                        icon="fa-regular fa-quote-left"
+                        :variant="accentColorTheme"
+                        size="xxl"
+                        aria-hidden="true"
+                    />
                     <p class="vs-quote__text">
                         {{ quoteText }}
                     </p>
                 </VsBody>
                 <VsDetail
-                    v-if="quoteName || quoteDetails"
+                    v-if="quoteName || $slots['quote-details']"
                     color="secondary"
                     size="small"
                 >
@@ -23,11 +34,12 @@
                             v-if="quoteName"
                             class="vs-quote__name"
                         >
-                            {{ quoteName }}
-                        </span><span v-if="quoteDetails">, {{ quoteDetails }}</span>
+                            {{ quoteName }}<span v-if="$slots['quote-details']">, </span>
+                        </span>
+                        <slot name="quote-details" />
                     </p>
                 </VsDetail>
-            </div>
+            </component>
         </Component>
     </template>
 
@@ -91,6 +103,8 @@
 <script>
 import VsDetail from '@/components/detail/Detail.vue';
 import VsBody from '@/components/body/Body.vue';
+import VsPanel from '@/components/panel/Panel.vue';
+import VsIcon from '@/components/icon/Icon.vue';
 
 /**
  * Short excerpt used to emphasize content or break up a large body of text
@@ -104,6 +118,8 @@ export default {
     components: {
         VsDetail,
         VsBody,
+        VsPanel,
+        VsIcon,
     },
     props: {
         /**
@@ -131,11 +147,12 @@ export default {
             default: '',
         },
         /**
-         * Sets the source of the quote.
+         * Sets the accent color theme for the quote.
          */
-        quoteDetails: {
+        accentColorTheme: {
             type: String,
             default: '',
+            validator: (value) => value.match(/(accent-tolsta|accent-whisky|accent-thistle)/),
         },
         /**
          * Whether to display old quote UI or new one
@@ -161,6 +178,33 @@ export default {
     computed: {
         quoteTypeClass() {
             return this.type === 'blockquote' ? 'vs-quote-new--blockquote' : 'vs-quote-new--pullquote';
+        },
+        wrapperComponent() {
+            return this.type === 'blockquote' ? 'div' : 'VsPanel';
+        },
+        wrapperClass() {
+            return this.type === 'blockquote' ? 'vs-quote-new__wrapper' : '';
+        },
+        panelProps() {
+            if (this.type === 'blockquote') {
+                return {
+                };
+            }
+
+            if (this.accentColorTheme) {
+                return {
+                    variant: this.accentColorTheme,
+                };
+            }
+
+            return {
+            };
+        },
+        setAccentColorThemeClass() {
+            if (this.accentColorTheme) {
+                return `vs-quote-new--${this.accentColorTheme}`;
+            }
+            return '';
         },
         /** ⚠️ Deprecated - use the new props instead.
          */
@@ -198,6 +242,7 @@ export default {
     .vs-quote__text,
     .vs-quote__name {
         font-weight: $vs-font-weight-medium;
+        text-wrap: pretty;
     }
 
     &--blockquote {
@@ -209,12 +254,14 @@ export default {
             padding-left: $vs-spacer-200;
 
             &::before {
-                content: '“';
-                font-size: 3.6rem;
-                color: $vs-color-border-accent-vs-tolsta-20;
+                display: inline-block;
+                font-family: "Font Awesome 6 Pro";
+                content: "\f10d";
+                font-size: 1.50rem;
+                color: $vs-color-border-accent-tolsta-20;
                 position: absolute;
-                left: -10px;
-                top: -20px;
+                left: -8px;
+                top: -10px;
             }
 
             &::after {
@@ -224,14 +271,30 @@ export default {
                 top: $vs-spacer-175;
                 bottom: 0;
                 width: 4px;
-                background-color: $vs-color-border-accent-vs-tolsta-20;
+                background-color: $vs-color-border-accent-tolsta-20;
             }
         }
     }
 
     &--pullquote {
-        margin: 0;
-        padding: $vs-spacer-100 0;
+        .vs-body {
+            font-size: 2rem;
+            line-height: 1.2;
+        }
+
+        &.vs-quote-new {
+            &--accent-thistle {
+                color: $vs-color-text-accent-thistle-80;
+            }
+
+            &--accent-tolsta {
+                color: $vs-color-text-accent-tolsta-80;
+            }
+
+            &--accent-whisky {
+                color: $vs-color-text-accent-whisky-80;
+            }
+        }
     }
 }
 

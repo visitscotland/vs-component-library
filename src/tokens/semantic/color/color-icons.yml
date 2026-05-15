@@ -24,6 +24,12 @@ props:
     ## Accents
     - name: vs-color-icon-accent-saltire-30
       value: "{!vs-saltire-30}"
+    - name: vs-color-icon-accent-thistle-80
+      value: "{!vs-thistle-80}"
+    - name: vs-color-icon-accent-tolsta-80
+      value: "{!vs-tolsta-80}"
+    - name: vs-color-icon-accent-whisky-80
+      value: "{!vs-whisky-80}" 
 
     ## SkiScotland colours
     - name: vs-color-icon-ski-easy
