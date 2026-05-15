@@ -123,16 +123,6 @@ export default {
     },
     props: {
         /**
-         * Sets HTML tag for correct quote type (e.g. blockquote for
-         * long quotes, q for short quotes, aside for pull quotes,
-         * div for generic quotes)
-         */
-        type: {
-            type: String,
-            default: 'blockquote',
-            validator: (value) => value.match(/(blockquote|aside|q|div)/),
-        },
-        /**
          * Sets the quote text content.
          */
         quoteText: {
