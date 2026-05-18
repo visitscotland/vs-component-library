@@ -111,7 +111,7 @@ export default {
          */
         quoteText: {
             type: String,
-            required: true,
+            default: '',
         },
         /**
          * Sets the name of the quote author.

@@ -24,7 +24,10 @@ const Template = (args) => ({
             :quoteText="args.quoteText"
             :quoteName="args.quoteName"
         >
-            <template #quote-details>
+            <template 
+                v-if="args.quoteDetails"
+                #quote-details
+            >
                 <span v-html="args.quoteDetails"></span>
             </template>
         </VsQuote>
