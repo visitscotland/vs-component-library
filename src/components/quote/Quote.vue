@@ -192,6 +192,7 @@ export default {
                 display: inline-block;
                 font-family: "Font Awesome 6 Pro";
                 content: "\f10d";
+                font-weight: $vs-font-weight-strong;
                 font-size: 1.50rem;
                 color: $vs-color-border-accent-tolsta-20;
                 position: absolute;
