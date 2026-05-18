@@ -23,6 +23,7 @@
                         >
                             {{ quoteName }}<span v-if="$slots['quote-details']">, </span>
                         </span>
+                        <!-- @slot Holds attribution details (e.g. job role, company, citation) -->
                         <slot name="quote-details" />
                     </p>
                 </VsDetail>
@@ -92,7 +93,7 @@ import VsDetail from '@/components/detail/Detail.vue';
 import VsBody from '@/components/body/Body.vue';
 
 /**
- * Short excerpt used to emphasize content or break up a large body of text
+ * Used to display quoted content with optional attribution.
  *
  * @displayName Quote
  */
@@ -186,28 +187,28 @@ export default {
 
         .vs-quote-new__wrapper {
             position: relative;
-            padding-left: $vs-spacer-200;
+            padding-left: $vs-spacer-175;
 
             &::before {
                 display: inline-block;
                 font-family: "Font Awesome 6 Pro";
                 content: "\f10d";
                 font-weight: $vs-font-weight-strong;
-                font-size: 1.50rem;
-                color: $vs-color-border-accent-tolsta-20;
+                font-size: $icon-size-sm;
+                color: $vs-color-icon-accent-thistle-20;
                 position: absolute;
-                left: -8px;
-                top: -10px;
+                left: -6px;
+                top: -6px;
             }
 
             &::after {
                 content: '';
                 position: absolute;
                 left: 0;
-                top: $vs-spacer-175;
+                top: 26px;
                 bottom: 0;
                 width: 4px;
-                background-color: $vs-color-border-accent-tolsta-20;
+                background-color: $vs-color-border-accent-thistle-20;
             }
         }
     }

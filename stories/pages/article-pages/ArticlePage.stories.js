@@ -20,6 +20,8 @@ import VsCard from '@/components/card/Card.vue';
 import VsSpotlightSection from '@/components/spotlight-section/SpotlightSection.vue';
 import VsIllustratedMap from '@/components/illustrated-map/IllustratedMap.vue';
 import VsMediaCaption from '@/components/media-caption/MediaCaption.vue';
+import VsQuote from '@/components/quote/Quote.vue';
+
 import cardLayoutData from '@/assets/fixtures/navigation-pages/visual-impact-cards.json';
 import contentSwiperImages from '@/assets/fixtures/content-swiper/content-swiper-images.json';
 
@@ -48,6 +50,7 @@ const components = {
     VsSpotlightSection,
     VsIllustratedMap,
     VsMediaCaption,
+    VsQuote,
     VsContentSwiper,
     VsContentSwiperSlide,
 };

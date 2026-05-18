@@ -21,10 +21,8 @@ const Template = (args) => ({
     template: `
         <VsQuote 
             :useLegacy="args.useLegacy"
-            :type="args.type"
             :quoteText="args.quoteText"
             :quoteName="args.quoteName"
-            :quoteDetails="args.quoteDetails"
         >
             <template #quote-details>
                 <span v-html="args.quoteDetails"></span>
@@ -37,7 +35,6 @@ const blockquoteText = 'Afterwards, if you are ready for dinner, you could catch
 
 const base = {
     useLegacy: false,
-    type: 'blockquote',
     quoteText: blockquoteText,
 };
 
