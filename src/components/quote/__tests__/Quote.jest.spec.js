@@ -139,7 +139,7 @@ describe('VsQuote', () => {
             }, {
                 'quote-details': 'Photographer',
             });
-            expect(wrapper.html()).toContain(', ');
+            expect(wrapper.find('.vs-quote__name span').exists()).toBe(true);
         });
 
         it('does not render a comma separator when only `quoteName` is provided', () => {
@@ -147,7 +147,7 @@ describe('VsQuote', () => {
                 ...newProps,
                 quoteName: 'John Smith',
             });
-            expect(wrapper.html()).not.toContain(', ');
+            expect(wrapper.find('.vs-quote__name span').exists()).toBe(false);
         });
     });
 
