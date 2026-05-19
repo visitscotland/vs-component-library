@@ -312,11 +312,22 @@ export default `
                     </VsRow> 
 
                     <!------- Content block body -------> 
-                    <VsBody class="mb-150">
+                    <VsBody>
                         <p>
                             Not only is the National Museum of Scotland free to visit and full of thousands of incredible objects, the building is an architectural masterpiece that should not be missed by fans of design. Take in the vast airy space of the Grand Gallery before moving into the galleries on art, design and science, which covers everything from Dolly the Sheep, a marvel of genetics, to the couture fashions of the late Vivienne Westwood, and Alexander McQueen. There are also fantastic temporary exhibitions to see. It's a real treasure trove!
                         </p>
                     </VsBody>
+
+                    <VsQuote 
+                        :use-legacy="false"
+                        quote-text="The National Museum of Scotland is one of those rare places where world-class collections and extraordinary architecture come together seamlessly. Whether you're interested in fashion, science, design or Scottish history, every gallery offers something unexpected to discover."
+                        quote-name="Emily Fraser"
+                        class="mb-150"
+                    >
+                        <template #quote-details>
+                            Cultural Heritage Writer, <cite>Edinburgh Visitor Guide</cite>
+                        </template>
+                    </VsQuote>
 
                     <div class="d-flex flex-wrap gap-125">
                         <VsButton

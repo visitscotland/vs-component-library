@@ -1,59 +1,99 @@
 <template>
-    <div
-        class="vs-quote"
-        :class="variantClass"
-        data-test="vs-quote"
-    >
-        <div
-            v-if="!withBorder"
-            class="vs-quote__speech-container"
+    <!-- NEW MODE -->
+    <template v-if="!useLegacy">
+        <blockquote
+            class="vs-quote-new vs-quote-new--blockquote"
+            data-test="vs-quote-new"
         >
-            <span class="vs-quote__speech-mark">“</span>
-        </div>
-        <div
-            class="vs-quote__author-container"
-            v-if="hasAuthorImage"
-        >
-            <!-- @slot Holds the author image (vs-image expected) -->
-            <slot name="quote-image" />
-        </div>
-        <div class="vs-quote__content-container">
-            <div class="vs-quote__content">
-                <!-- @slot Holds the main body of the quote (html expected) -->
-                <slot name="quote-content" />
+            <div class="vs-quote-new__wrapper">
+                <VsBody>
+                    <p class="vs-quote__text">
+                        {{ quoteText }}
+                    </p>
+                </VsBody>
+                <VsDetail
+                    v-if="quoteName || $slots['quote-details']"
+                    color="secondary"
+                    size="small"
+                >
+                    <p>
+                        <span
+                            v-if="quoteName"
+                            class="vs-quote__name"
+                        >
+                            {{ quoteName }}<span v-if="$slots['quote-details']">, </span>
+                        </span>
+                        <!-- @slot Holds attribution details (e.g. job role, company, citation) -->
+                        <slot name="quote-details" />
+                    </p>
+                </VsDetail>
             </div>
-            <p
-                class="vs-quote__author-name"
-                v-if="hasAuthorName"
-            >
-                <!-- @slot Holds the name of the author (text expected) -->
-                <slot name="quote-author-name" />
-            </p>
-            <p
-                class="vs-quote__author-title"
-                :class="(variant === 'narrow') ? 'vs-quote__author-title--narrow-margin' : null "
-                v-if="hasAuthorTitle"
-            >
-                <!-- @slot Holds the job title of the author (text expected) -->
-                <slot name="quote-author-title" />
-            </p>
-            <!-- @slot Optional slot that holds a cta for the block (vs-button expected) -->
+        </blockquote>
+    </template>
+
+    <!-- LEGACY MODE
+     ⚠️ Deprecated. Will be removed at next major release
+     Use new tooltip button instead. -->
+    <template v-else>
+        <div
+            class="vs-quote"
+            :class="variantClass"
+            data-test="vs-quote"
+        >
             <div
-                class="vs-quote__quote-link"
-                v-if="$slots['quote-link']"
+                v-if="!withBorder"
+                class="vs-quote__speech-container"
             >
-                <slot
-                    name="quote-link"
-                    if="$slots['quote-link']"
-                />
+                <span class="vs-quote__speech-mark">“</span>
+            </div>
+            <div
+                class="vs-quote__author-container"
+                v-if="hasAuthorImage"
+            >
+                <!-- @slot Holds the author image (vs-image expected) -->
+                <slot name="quote-image" />
+            </div>
+            <div class="vs-quote__content-container">
+                <div class="vs-quote__content">
+                    <!-- @slot Holds the main body of the quote (html expected) -->
+                    <slot name="quote-content" />
+                </div>
+                <p
+                    class="vs-quote__author-name"
+                    v-if="hasAuthorName"
+                >
+                    <!-- @slot Holds the name of the author (text expected) -->
+                    <slot name="quote-author-name" />
+                </p>
+                <p
+                    class="vs-quote__author-title"
+                    :class="(variant === 'narrow') ? 'vs-quote__author-title--narrow-margin' : null "
+                    v-if="hasAuthorTitle"
+                >
+                    <!-- @slot Holds the job title of the author (text expected) -->
+                    <slot name="quote-author-title" />
+                </p>
+                <!-- @slot Optional slot that holds a cta for the block (vs-button expected) -->
+                <div
+                    class="vs-quote__quote-link"
+                    v-if="$slots['quote-link']"
+                >
+                    <slot
+                        name="quote-link"
+                        if="$slots['quote-link']"
+                    />
+                </div>
             </div>
         </div>
-    </div>
+    </template>
 </template>
 
 <script>
+import VsDetail from '@/components/detail/Detail.vue';
+import VsBody from '@/components/body/Body.vue';
+
 /**
- * An embeddable quote with an author, links to icentre information and an optional CTA
+ * Used to display quoted content with optional attribution.
  *
  * @displayName Quote
  */
@@ -61,27 +101,64 @@ export default {
     name: 'VsQuote',
     status: 'prototype',
     release: '0.0.1',
+    components: {
+        VsDetail,
+        VsBody,
+    },
     props: {
+        /**
+         * Sets the quote text content.
+         */
+        quoteText: {
+            type: String,
+            default: '',
+        },
+        /**
+         * Sets the name of the quote author.
+         */
+        quoteName: {
+            type: String,
+            default: '',
+        },
+        /**
+         * Whether to display old quote UI or new one
+         */
+        useLegacy: {
+            type: Boolean,
+            default: true,
+        },
+        /** ⚠️ Deprecated - use the new props instead.
+         */
         variant: {
             type: String,
             default: 'narrow',
             validator: (value) => value.match(/(narrow|wide)/),
         },
+        /** ⚠️ Deprecated - use the new props instead.
+         */
         withBorder: {
             type: Boolean,
             default: false,
         },
     },
     computed: {
+        /** ⚠️ Deprecated - use the new props instead.
+         */
         hasAuthorName() {
             return !!this.$slots['quote-author-name'];
         },
+        /** ⚠️ Deprecated - use the new props instead.
+         */
         hasAuthorTitle() {
             return !!this.$slots['quote-author-title'];
         },
+        /** ⚠️ Deprecated - use the new props instead.
+         */
         hasAuthorImage() {
             return !!this.$slots['quote-image'];
         },
+        /** ⚠️ Deprecated - use the new props instead.
+         */
         variantClass() {
             return [
                 {
@@ -96,7 +173,50 @@ export default {
 </script>
 
 <style lang="scss">
+.vs-quote-new {
+    // New quote styles
+    .vs-quote__text,
+    .vs-quote__name {
+        font-weight: $vs-font-weight-medium;
+        text-wrap: pretty;
+    }
+
+    &--blockquote {
+        margin: 0;
+        padding: $vs-spacer-100 0;
+
+        .vs-quote-new__wrapper {
+            position: relative;
+            padding-left: $vs-spacer-175;
+
+            &::before {
+                display: inline-block;
+                font-family: "Font Awesome 6 Pro";
+                content: "\f10d";
+                font-weight: $vs-font-weight-strong;
+                font-size: $icon-size-sm;
+                color: $vs-color-icon-accent-thistle-20;
+                position: absolute;
+                left: -6px;
+                top: -6px;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 26px;
+                bottom: 0;
+                width: 4px;
+                background-color: $vs-color-border-accent-thistle-20;
+            }
+        }
+    }
+}
+
 .vs-quote {
+    // Legacy quote styles
+    // Should be removed when ⚠️ deprecated code is removed.
     &__content {
         font-size: $font-size-8;
         font-weight: $vs-font-weight-subtle;
