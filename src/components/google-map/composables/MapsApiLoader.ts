@@ -1,5 +1,6 @@
 /// <reference types="google.maps" />
 
+import type { LatLngObject, MapOptions } from '@/types/types';
 import {
     importLibrary,
     setOptions,
@@ -19,18 +20,37 @@ async function googleMapsLoader(apiKey: string) {
 
 async function initialiseMap(
     mapElement: HTMLElement,
+    options: {
+        center: LatLngObject,
+        zoom: number,
+        mapId: string,
+        features: MapOptions,
+    },
 ) {
     const { Map } = await importLibrary('maps');
 
-    const map = new Map(mapElement, {
-        center: {
-            lat: 57.81,
-            lng: -5.51,
-        },
-        zoom: 6,
-    });
-
-    return map;
+    try {
+        const map = new Map(mapElement, {
+            center: options.center,
+            zoom: options.zoom,
+            clickableIcons: options.features.clickableIcons,
+            gestureHandling: options.features.gestureHandling,
+            isFractionalZoomEnabled: options.features.isFractionalZoomEnabled,
+            renderingType: options.features.renderingTypeVector
+                // eslint-disable-next-line no-undef
+                ? google.maps.RenderingType.VECTOR
+                // eslint-disable-next-line no-undef
+                : google.maps.RenderingType.RASTER,
+            restriction: {
+                latLngBounds: options.features.boundsData,
+            },
+            disableDefaultUI: true,
+            keyboardShortcuts: true,
+        });
+        return map;
+    } catch (error) {
+        return error;
+    };
 }
 
 export {

@@ -55,3 +55,18 @@ export type LatLngObject = {
     lat: number;
     lng: number;
 };
+
+export type LatLngBounds = {
+    north: number;
+    south: number;
+    west: number;
+    east: number;
+};
+
+export type MapOptions = {
+    boundsData?: LatLngBounds;
+    clickableIcons?: boolean;
+    gestureHandling?: string;
+    isFractionalZoomEnabled?: boolean;
+    renderingTypeVector?: boolean;
+}
