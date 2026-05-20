@@ -1,3 +1,17 @@
+# [5.56.0](https://github.com/visitscotland/vs-component-library/compare/v5.55.1...v5.56.0) (2026-05-20)
+
+
+### Bug Fixes
+
+* **quote:** hide slot if no content passed ([90039b3](https://github.com/visitscotland/vs-component-library/commit/90039b39aa1c5379b41811ac958544e918455453))
+
+
+### Features
+
+* **quote:** tidy quote styles and add to page example ([041b128](https://github.com/visitscotland/vs-component-library/commit/041b128560cd9dc442da73805b6a4a4a07c61b73))
+* **quote:** update font awesome to new quote icon ([19a3ab6](https://github.com/visitscotland/vs-component-library/commit/19a3ab6cbd11a0f0bbc4193778711dcc3051f56d))
+* **quote:** update quote component for new UI ([76d62b7](https://github.com/visitscotland/vs-component-library/commit/76d62b7db136f0c6c7593989aeb154276fc044a2))
+
 ## [5.55.1](https://github.com/visitscotland/vs-component-library/compare/v5.55.0...v5.55.1) (2026-05-14)
 
 
