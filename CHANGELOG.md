@@ -1,3 +1,10 @@
+# [5.57.0](https://github.com/visitscotland/vs-component-library/compare/v5.56.0...v5.57.0) (2026-05-20)
+
+
+### Features
+
+* **content swiper:** add handler for safari focus loss ([76a5248](https://github.com/visitscotland/vs-component-library/commit/76a52488873f96a433e56c77c4a10230303ecd89))
+
 # [5.56.0](https://github.com/visitscotland/vs-component-library/compare/v5.55.1...v5.56.0) (2026-05-20)
 
 
