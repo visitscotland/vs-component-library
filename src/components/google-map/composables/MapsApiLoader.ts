@@ -1,10 +1,22 @@
 /// <reference types="google.maps" />
 
-import type { LatLngObject, MapOptions } from '@/types/types';
+import type {
+    LatLngBounds,
+    LatLngObject,
+    MapOptions,
+} from '@/types/types';
+
 import {
     importLibrary,
     setOptions,
 } from '@googlemaps/js-api-loader';
+
+const FALLBACK_SCOTLAND_BOUNDS: LatLngBounds = {
+    north: 61.0,
+    south: 54.6,
+    west: -8.7,
+    east: 0.3,
+};
 
 async function googleMapsLoader(apiKey: string) {
     setOptions({
@@ -42,7 +54,7 @@ async function initialiseMap(
                 // eslint-disable-next-line no-undef
                 : google.maps.RenderingType.RASTER,
             restriction: {
-                latLngBounds: options.features.boundsData,
+                latLngBounds: options.features.boundsData || FALLBACK_SCOTLAND_BOUNDS,
             },
             disableDefaultUI: true,
             keyboardShortcuts: true,

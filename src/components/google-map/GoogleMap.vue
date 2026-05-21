@@ -5,54 +5,75 @@
             id="vs-google-map"
             ref="VsGoogleMapElement"
         />
-        
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { onMounted, ref } from 'vue';
+import getEnvValue from '@/utils/get-env-value';
 import { mapLoader, initMap } from './composables/MapsApiLoader';
 import { createCustomControls } from './composables/CustomControls';
-import { LatLngObject, MapOptions } from '@/types/types';
-import getEnvValue from '@/utils/get-env-value';
 
 const map = ref();
 const VsGoogleMapElement = ref();
 
-type Props = {
-    apiKey: string,
-    center: LatLngObject,
-    zoom: number,
-    mapId?: string,
-    features?: MapOptions,
-}
-
-const {
-    apiKey = getEnvValue('GOOGLE_MAPS_API_KEY'),
-    center = {
-        lat: 0,
-        lng: 0,
+const props = defineProps({
+    /**
+     * API Key for Google Maps
+     */
+    apiKey: {
+        type: String,
+        default: getEnvValue('GOOGLE_MAPS_API_KEY'),
     },
-    zoom = 1,
-    mapId = 'vs-map',
-    features = {
-        clickableIcons: true,
-        gestureHandling: 'auto',
-        isFractionalZoomEnabled: false,
-        renderingTypeVector: true,
-    }
-} = defineProps<Props>();
-
+    /**
+     * Initial center point for the map
+     */
+    center: {
+        type: Object,
+        default: () => ({
+            lat: 0,
+            lng: 0,
+        }),
+    },
+    /**
+     * Initial zoom level for the map
+     */
+    zoom: {
+        type: Number,
+        default: 6,
+    },
+    /**
+     * Map ID as set in the Google Maps Cloud Console,
+     * required for shading, styling, etc.
+     */
+    mapId: {
+        type: String,
+        default: 'vs-map',
+    },
+    /**
+     * Object to set optional map features, otherwise
+     * sensible defaults are set.
+     */
+    features: {
+        type: Object,
+        default: () => ({
+            clickableIcons: true,
+            gestureHandling: 'auto',
+            isFractionalZoomEnabled: false,
+            renderingTypeVector: true,
+        }),
+    },
+});
 
 onMounted(async() => {
-    mapLoader(apiKey);
+    mapLoader(props.apiKey);
     map.value = await initMap(
         VsGoogleMapElement.value,
         {
-            center,
-            zoom,
-            mapId,
-            features,
+            center: props.center,
+            zoom: props.zoom,
+            mapId: props.mapId,
+            features: props.features,
         },
     );
 
