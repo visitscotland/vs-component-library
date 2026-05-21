@@ -443,7 +443,7 @@ const SCOTLAND_BOUNDS = {
     north: 61.3,
     south: 54.6,
     west: -8.7,
-    east: 1.5,
+    east: 2.0,
 };
 
 let categoryData = {
