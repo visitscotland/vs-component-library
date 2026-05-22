@@ -43,6 +43,7 @@
                 @slider-move="startInteraction"
                 @slide-change-transition-start="startInteraction"
                 @slide-change-transition-end="endInteraction"
+                @slide-change="handleSlideChange"
             >
                 <!-- Default slot for VsContentSwiperSlides -->
                 <slot />
@@ -52,6 +53,8 @@
 </template>
 
 <script>
+/* eslint-disable import/no-duplicates */
+
 import { useId } from 'vue';
 import { Swiper } from 'swiper/vue';
 import {
@@ -252,6 +255,39 @@ export default {
             this._interactionTimer = setTimeout(() => {
                 this.isInteracting = false;
             }, 400);
+        },
+        /**
+         * Prevents Safari focus loss bug when navigation buttons become disabled
+         */
+        handleSlideChange(swiper) {
+            const nextSelector = `.vs-content-swiper-next-${this.instanceId}`;
+            const prevSelector = `.vs-content-swiper-prev-${this.instanceId}`;
+
+            // On certain browsers, including Safari, if a button becomes disabled while it is
+            // focussed the browser drops focus entirely, resetting the user to the top of the
+            // page. If the user is navigating with the next and previous buttons and hits the
+            // end this ensures their focus is captured so they can continue tabbing into the
+            // swiper content.
+
+            if (swiper.isEnd) {
+                const nextBtn = this.$el.querySelector(nextSelector);
+                if (nextBtn && (
+                    document.activeElement === nextBtn
+                    || nextBtn.contains(document.activeElement)
+                )) {
+                    const prevBtn = this.$el.querySelector(prevSelector);
+                    prevBtn?.focus();
+                }
+            } else if (swiper.isBeginning) {
+                const prevBtn = this.$el.querySelector(prevSelector);
+                if (prevBtn && (
+                    document.activeElement === prevBtn
+                    || prevBtn.contains(document.activeElement)
+                )) {
+                    const nextBtn = this.$el.querySelector(nextSelector);
+                    nextBtn?.focus();
+                }
+            }
         },
     },
 };

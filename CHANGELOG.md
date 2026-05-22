@@ -1,3 +1,38 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [5.57.1](https://github.com/visitscotland/vs-component-library/compare/v5.57.0...v5.57.1) (2026-05-20)
+
+# [5.57.0](https://github.com/visitscotland/vs-component-library/compare/v5.56.0...v5.57.0) (2026-05-20)
+
+
+### Features
+
+* **content swiper:** add handler for safari focus loss ([76a5248](https://github.com/visitscotland/vs-component-library/commit/76a52488873f96a433e56c77c4a10230303ecd89))
+
+# [5.56.0](https://github.com/visitscotland/vs-component-library/compare/v5.55.1...v5.56.0) (2026-05-20)
+
+
+### Bug Fixes
+
+* **quote:** hide slot if no content passed ([90039b3](https://github.com/visitscotland/vs-component-library/commit/90039b39aa1c5379b41811ac958544e918455453))
+
+
+### Features
+
+* **quote:** tidy quote styles and add to page example ([041b128](https://github.com/visitscotland/vs-component-library/commit/041b128560cd9dc442da73805b6a4a4a07c61b73))
+* **quote:** update font awesome to new quote icon ([19a3ab6](https://github.com/visitscotland/vs-component-library/commit/19a3ab6cbd11a0f0bbc4193778711dcc3051f56d))
+* **quote:** update quote component for new UI ([76d62b7](https://github.com/visitscotland/vs-component-library/commit/76d62b7db136f0c6c7593989aeb154276fc044a2))
+
+## [5.55.1](https://github.com/visitscotland/vs-component-library/compare/v5.55.0...v5.55.1) (2026-05-14)
+
+
+### Bug Fixes
+
+* **main map:** remove unused search query properties ([1a1c15d](https://github.com/visitscotland/vs-component-library/commit/1a1c15dc559e315a306a27d1a356d8df6b4b4e95))
+* **main map:** reset map search parameters ([fc9c7fa](https://github.com/visitscotland/vs-component-library/commit/fc9c7fa8ac777feb71a8c873376800a40782fccc))
+
 # [5.55.0](https://github.com/visitscotland/vs-component-library/compare/v5.54.0...v5.55.0) (2026-05-13)
 
 
