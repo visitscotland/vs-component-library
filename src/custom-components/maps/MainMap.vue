@@ -313,13 +313,6 @@ const props = defineProps({
         default: undefined,
     },
     /**
-     * Tells if JS is Disabled
-     */
-    jsDisabled: {
-        type: Boolean,
-        required: true,
-    },
-    /**
      * Message to display when JavaScript is disabled
      */
     noJsMessage: {
