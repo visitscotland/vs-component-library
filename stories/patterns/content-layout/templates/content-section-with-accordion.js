@@ -105,22 +105,20 @@ export default `
                                 <p>
                                     Yes - you may notice Gaelic in several ways: 
                                 </p>
-                                <p>
-                                    <VsList>
-                                        <li>
-                                            On road signs in parts of the country
-                                        </li>
-                                        <li>
-                                            On TV and radio via BBC Alba and BBC Radio nan Gàidheal
-                                        </li>
-                                        <li>
-                                            In everyday conversation within some communities
-                                        </li>
-                                        <li>
-                                            Along routes like the Edinburgh Gaelic Trail
-                                        </li>
-                                    </VsList>
-                                </p>
+                                <VsList>
+                                    <li>
+                                        On road signs in parts of the country
+                                    </li>
+                                    <li>
+                                        On TV and radio via BBC Alba and BBC Radio nan Gàidheal
+                                    </li>
+                                    <li>
+                                        In everyday conversation within some communities
+                                    </li>
+                                    <li>
+                                        Along routes like the Edinburgh Gaelic Trail
+                                    </li>
+                                </VsList>
                             </VsBody>
                         </VsAccordionItem>
                         <VsAccordionItem

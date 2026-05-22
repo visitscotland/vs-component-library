@@ -16,8 +16,8 @@ import VsAccordionItem from '@/components/accordion/components/AccordionItem.vue
 import FullTemplate from './templates/content-section-full';
 import FullWithHeaderTemplate from './templates/content-section-full-with-header';
 import TwoColTemplate from './templates/content-section-two-col';
-import WithHeaderTemplate from './templates/content-section-with-header';
-import WithAccordionTemplate from './templates/content-section-with-accordion';
+import TwoColWithHeaderTemplate from './templates/content-section-with-header';
+import TwoColWithAccordionTemplate from './templates/content-section-with-accordion';
 
 const components = {
     VsHeading,
@@ -57,5 +57,5 @@ export default {
 export const Full = createStory(FullTemplate);
 export const FullWithHeader = createStory(FullWithHeaderTemplate);
 export const TwoCol = createStory(TwoColTemplate);
-export const TwoColWithHeader = createStory(WithHeaderTemplate);
-export const TwoColWithAccordion = createStory(WithAccordionTemplate);
+export const TwoColWithHeader = createStory(TwoColWithHeaderTemplate);
+export const TwoColWithAccordion = createStory(TwoColWithAccordionTemplate);

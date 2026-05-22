@@ -42,22 +42,20 @@ export default `
                         The Gaelic language is deeply bound to Scotland’s landscape. In fact, place names often vividly evoke the physical features and character of the lands. Here are some examples. 
                     </p>
 
-                    <p>
-                        <VsList>
-                            <li>
-                                Glasgow - Glaschu: “green hollow” or “glen” - the Dear Green Place
-                            </li>
-                            <li>
-                                Aberdeen - Obar Dheathain: “mouth of the River Don”  
-                            </li>
-                            <li>
-                                Ardnamurchan - Àird nam Murchan: “headland of the sea hounds” (seals or otters)  
-                            </li>
-                            <li>
-                                Ben Nevis - Beinn Nibheis: “venomous” or “malicious mountain”  
-                            </li>
-                        </VsList>
-                    </p>
+                    <VsList>
+                        <li>
+                            Glasgow - Glaschu: “green hollow” or “glen” - the Dear Green Place
+                        </li>
+                        <li>
+                            Aberdeen - Obar Dheathain: “mouth of the River Don”  
+                        </li>
+                        <li>
+                            Ardnamurchan - Àird nam Murchan: “headland of the sea hounds” (seals or otters)  
+                        </li>
+                        <li>
+                            Ben Nevis - Beinn Nibheis: “venomous” or “malicious mountain”  
+                        </li>
+                    </VsList>
                 </VsBody>
             </VsCol>
         </VsRow>
