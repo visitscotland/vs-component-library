@@ -1,3 +1,25 @@
+## [5.57.4](https://github.com/visitscotland/vs-component-library/compare/v5.57.3...v5.57.4) (2026-05-22)
+
+
+### Bug Fixes
+
+* **main map:** remove unused prop ([80376da](https://github.com/visitscotland/vs-component-library/commit/80376daeca0178ce88c74f7f66e41ef278e524e6))
+
+## [5.57.3](https://github.com/visitscotland/vs-component-library/compare/v5.57.2...v5.57.3) (2026-05-22)
+
+
+### Bug Fixes
+
+* **useviewportcontroller.ts:** typescript errors ([c41a9e7](https://github.com/visitscotland/vs-component-library/commit/c41a9e7c906cc76432dc4cb21aae92f2f0f6ce7e))
+
+## [5.57.2](https://github.com/visitscotland/vs-component-library/compare/v5.57.1...v5.57.2) (2026-05-22)
+
+
+### Bug Fixes
+
+* **main map:** only show sidebar when map is fully loaded to prevent broken search ([9ecbf24](https://github.com/visitscotland/vs-component-library/commit/9ecbf2424ff8ca56f6783dc5e040e223ea8470e3))
+* **main map:** prevent addDestinationMarkers() from running everytime the tiles are loaded ([05dbda3](https://github.com/visitscotland/vs-component-library/commit/05dbda3eeef4bad65abf73bc3cb22ccd3ca6f67f))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.

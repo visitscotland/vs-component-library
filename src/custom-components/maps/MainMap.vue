@@ -6,7 +6,10 @@
             class="vs-map__container"
             :class="showError ? 'd-none' : ''"
         >
-            <div class="vs-map__controls">
+            <div
+                v-show="mapLoaded"
+                class="vs-map__controls"
+            >
                 <VsMapSidebar
                     :categories="categoryLabelData"
                     :category-data="categoryData"
@@ -310,13 +313,6 @@ const props = defineProps({
         default: undefined,
     },
     /**
-     * Tells if JS is Disabled
-     */
-    jsDisabled: {
-        type: Boolean,
-        required: true,
-    },
-    /**
      * Message to display when JavaScript is disabled
      */
     noJsMessage: {
@@ -416,6 +412,7 @@ const queryStr = ref(new Set());
 const currentSearch = ref();
 const selfCateringClicked = ref(false);
 const keywords = ref(undefined);
+const mapLoaded = ref(false);
 
 const subCategoryTypeMap = computed(() => {
     const map = new Map();
@@ -609,6 +606,14 @@ onMounted(async() => {
             isUserMove.value = true;
         });
 
+        // Only display the sidebar and destination markers when the map tiles have loaded.
+        gMap.addListener('tilesloaded', () => {
+            if (mapLoaded.value) return;
+            mapLoaded.value = true;
+
+            addDestinationMarkers();
+        });
+
         gMap.addListener('idle', () => {
             visibleMarkerCount = getVisibleMarkerCount();
 
@@ -634,8 +639,6 @@ onMounted(async() => {
                 handlePlaceClick(place, markers[place.id]);
             }
         });
-
-        addDestinationMarkers();
     };
 
     googleMapStore.firstInteraction = false;
