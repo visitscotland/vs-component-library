@@ -1,3 +1,10 @@
+## [5.57.3](https://github.com/visitscotland/vs-component-library/compare/v5.57.2...v5.57.3) (2026-05-22)
+
+
+### Bug Fixes
+
+* **useviewportcontroller.ts:** typescript errors ([c41a9e7](https://github.com/visitscotland/vs-component-library/commit/c41a9e7c906cc76432dc4cb21aae92f2f0f6ce7e))
+
 ## [5.57.2](https://github.com/visitscotland/vs-component-library/compare/v5.57.1...v5.57.2) (2026-05-22)
 
 
