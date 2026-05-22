@@ -17,11 +17,11 @@
                     :selected-category="selectedTopLevelCategory"
                     :selected-subcategories="selectedSubCategories"
                     :sidebar-labels="sidebarLabels"
-                    @category-selected="(e) => handleSelectCategory(e.id, e.key)"
+                    @category-selected="(e) => selectCategory(e.id, e.key)"
                     @reset-map="resetMap(true)"
                     @reset-location="resetMap(true, true)"
                     @search-input-changed="searchByText"
-                    @subcategory-selected="(e) => handleSelectSubcategory(e.id, e.key)"
+                    @subcategory-selected="(e) => searchBySubCategory(e.id, e.key)"
                 >
                     <template #vs-map-sidebar-search-results>
                         <div
@@ -737,16 +737,6 @@ function shadeMapAreas(zoomedIn) {
     }
 }
 
-function handleSelectCategory(categoryId, key) {
-    // Move the viewport back to the previous viewport when clicking a category.
-    if (lastSearchViewport.value) {
-        runProgrammaticMove(() => gMap.setCenter(lastSearchViewport.value.center));
-        runProgrammaticMove(() => gMap.setZoom(lastSearchViewport.value.zoom));
-    }
-    selectedDestination.value = '';
-    selectCategory(categoryId, key);
-}
-
 function selectCategory(categoryId, key) {
     resetCategories();
 
@@ -861,16 +851,6 @@ function updateSubCategoryTypes(
             if (removeExcludedTypes) excludedSubTypes.value.delete(excludedType);
         });
     }
-}
-
-function handleSelectSubcategory(categoryId, key) {
-    // Move the viewport back to the previous viewport when clicking a subcategory.
-    if (lastSearchViewport.value) {
-        runProgrammaticMove(() => gMap.setCenter(lastSearchViewport.value.center));
-        runProgrammaticMove(() => gMap.setZoom(lastSearchViewport.value.zoom));
-    }
-    selectedDestination.value = '';
-    searchBySubCategory(categoryId, key);
 }
 
 function searchBySubCategory(subCategoryId, key) {
@@ -1013,7 +993,7 @@ async function searchByCategory({
     });
 }
 
-async function searchByText() {
+async function searchByText(useRestriction = false) {
     resetMap();
     resetCategories();
 
@@ -1031,9 +1011,9 @@ async function searchByText() {
 
     /**
      * Search using locationRestriction when "Self catering" sub category has
-     * selected. Search using locationBias for other text searches.
+     * been selected. Search using locationBias for other text searches.
      */
-    if (selfCateringClicked.value) {
+    if (selfCateringClicked.value || useRestriction) {
         textSearchQuery.locationBias = null;
         textSearchQuery.locationRestriction = gMap.getBounds();
     } else {
@@ -1452,7 +1432,7 @@ function searchArea() {
 
     // Check for searchInput value and start text search.
     if (searchInput.value) {
-        searchByText();
+        searchByText(true);
         return;
     }
 

@@ -98,6 +98,7 @@
                 </div>
 
                 <VsDetail
+                    v-if="subcategories"
                     class="vs-map-sidebar__sub-filter-header"
                     color="secondary"
                     size="small"
