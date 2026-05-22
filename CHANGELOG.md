@@ -1,3 +1,10 @@
+## [5.57.4](https://github.com/visitscotland/vs-component-library/compare/v5.57.3...v5.57.4) (2026-05-22)
+
+
+### Bug Fixes
+
+* **main map:** remove unused prop ([80376da](https://github.com/visitscotland/vs-component-library/commit/80376daeca0178ce88c74f7f66e41ef278e524e6))
+
 ## [5.57.3](https://github.com/visitscotland/vs-component-library/compare/v5.57.2...v5.57.3) (2026-05-22)
 
 
