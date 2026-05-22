@@ -3715,16 +3715,40 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/builder-vite@npm:9.1.20":
-  version: 9.1.20
-  resolution: "@storybook/builder-vite@npm:9.1.20"
+"@storybook/builder-vite@npm:10.4.0":
+  version: 10.4.0
+  resolution: "@storybook/builder-vite@npm:10.4.0"
   dependencies:
-    "@storybook/csf-plugin": "npm:9.1.20"
+    "@storybook/csf-plugin": "npm:10.4.0"
     ts-dedent: "npm:^2.0.0"
   peerDependencies:
-    storybook: ^9.1.20
-    vite: ^5.0.0 || ^6.0.0 || ^7.0.0
-  checksum: 10c0/66115548731615e9f66a23f69499a5334b83bc85500695b55d931fd3758dd733b9b9a806426aa6c2da49429736cf29dce57b7d574a104b9b7afb5777dae20c0a
+    storybook: ^10.4.0
+    vite: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
+  checksum: 10c0/416240f36b7e93520a6d1168470614fce615062c3c39ea1ad9fe1defffc4f50716b2923210d4e89fa68c1162d89a6f646ef29a08759ed2430ccbf1c0c89453b6
+  languageName: node
+  linkType: hard
+
+"@storybook/csf-plugin@npm:10.4.0":
+  version: 10.4.0
+  resolution: "@storybook/csf-plugin@npm:10.4.0"
+  dependencies:
+    unplugin: "npm:^2.3.5"
+  peerDependencies:
+    esbuild: "*"
+    rollup: "*"
+    storybook: ^10.4.0
+    vite: "*"
+    webpack: "*"
+  peerDependenciesMeta:
+    esbuild:
+      optional: true
+    rollup:
+      optional: true
+    vite:
+      optional: true
+    webpack:
+      optional: true
+  checksum: 10c0/9c968636b14beb9b740b42c3e0f0b81ef2662344bb2328e1149b62e71d3e1e45d82bb08788b6a3fe7755c2884d0b5cf8e033937a07659047764dcfeb91cce80b
   languageName: node
   linkType: hard
 
@@ -3736,17 +3760,6 @@ __metadata:
   peerDependencies:
     storybook: ^9.1.0-alpha.2
   checksum: 10c0/8d335745ef72bacce1e97311f2afa01ab4fefb566e77f77430ed4b9d3c0ec75f4ec670f16ee4a119892dc2c34daefbac623b86f824915d226e433113a43a83cd
-  languageName: node
-  linkType: hard
-
-"@storybook/csf-plugin@npm:9.1.20":
-  version: 9.1.20
-  resolution: "@storybook/csf-plugin@npm:9.1.20"
-  dependencies:
-    unplugin: "npm:^1.3.1"
-  peerDependencies:
-    storybook: ^9.1.20
-  checksum: 10c0/42642bf8252400f0b5a889e118dab3c35505ce539a57cdb51ae6fc335485de055d9b635db8cc8ae6d47a77ea5856cdf6880458c70b26b214ea48d44502a1bf57
   languageName: node
   linkType: hard
 
@@ -3778,35 +3791,34 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/vue3-vite@npm:^9.1.0-alpha.2":
-  version: 9.1.20
-  resolution: "@storybook/vue3-vite@npm:9.1.20"
+"@storybook/vue3-vite@npm:^10.4.0":
+  version: 10.4.0
+  resolution: "@storybook/vue3-vite@npm:10.4.0"
   dependencies:
-    "@storybook/builder-vite": "npm:9.1.20"
-    "@storybook/vue3": "npm:9.1.20"
-    find-package-json: "npm:^1.2.0"
+    "@storybook/builder-vite": "npm:10.4.0"
+    "@storybook/vue3": "npm:10.4.0"
     magic-string: "npm:^0.30.0"
-    typescript: "npm:^5.8.3"
+    typescript: "npm:^5.9.3"
     vue-component-meta: "npm:^2.0.0"
     vue-docgen-api: "npm:^4.75.1"
   peerDependencies:
-    storybook: ^9.1.20
-    vite: ^5.0.0 || ^6.0.0 || ^7.0.0
-  checksum: 10c0/f7b39dc0185835e649ec714588c24ecab5069667e1bd99bda086d63abfd57e02f3e26b9bd891904b504ea9b39dd906a56c7a245f72a1336b9f91dd9decfa02ef
+    storybook: ^10.4.0
+    vite: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
+  checksum: 10c0/72915caffcc9e06a42aa301e0ad11e180a239873b389cf120e0299cbf88d7c7a5530670c4e644004263f86fd40ea4b0b689e2ce7d1589077ee17416d4d96b514
   languageName: node
   linkType: hard
 
-"@storybook/vue3@npm:9.1.20":
-  version: 9.1.20
-  resolution: "@storybook/vue3@npm:9.1.20"
+"@storybook/vue3@npm:10.4.0":
+  version: 10.4.0
+  resolution: "@storybook/vue3@npm:10.4.0"
   dependencies:
     "@storybook/global": "npm:^5.0.0"
     type-fest: "npm:~2.19"
     vue-component-type-helpers: "npm:latest"
   peerDependencies:
-    storybook: ^9.1.20
+    storybook: ^10.4.0
     vue: ^3.0.0
-  checksum: 10c0/85799853013f2b930a85cbd65569560719d38336805a1574038b01323dd83912418f53f886cabfacd11a7831f83ab422be549f93e6ff3b2c9e591010a0699265
+  checksum: 10c0/6167994b3b9959d576b0415afd604d507d931a48f8d51c20db42f7c105ff880fdeaa1ae7ec3a72afb9b846b1b2b8cc1d71ea9c450d115c0088045a6e64b318df
   languageName: node
   linkType: hard
 
@@ -4497,7 +4509,7 @@ __metadata:
     "@storybook/addon-a11y": "npm:^9.1.0-alpha.2"
     "@storybook/addon-docs": "npm:9.1.0-alpha.2"
     "@storybook/addon-links": "npm:^9.1.0-alpha.2"
-    "@storybook/vue3-vite": "npm:^9.1.0-alpha.2"
+    "@storybook/vue3-vite": "npm:^10.4.0"
     "@types/google.maps": "npm:^3.64.0"
     "@typescript-eslint/eslint-plugin": "npm:^8.38.0"
     "@typescript-eslint/parser": "npm:^8.38.0"
@@ -5066,7 +5078,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn@npm:^8.1.0, acorn@npm:^8.11.0, acorn@npm:^8.14.0, acorn@npm:^8.16.0, acorn@npm:^8.8.1, acorn@npm:^8.9.0":
+"acorn@npm:^8.1.0, acorn@npm:^8.11.0, acorn@npm:^8.14.0, acorn@npm:^8.15.0, acorn@npm:^8.16.0, acorn@npm:^8.8.1, acorn@npm:^8.9.0":
   version: 8.16.0
   resolution: "acorn@npm:8.16.0"
   bin:
@@ -9118,13 +9130,6 @@ __metadata:
     findup-sync: "npm:^4.0.0"
     merge: "npm:^2.1.1"
   checksum: 10c0/61fd8300635f6b6237985f05ef9ba01dbd29482c625c8c34a321fe5e9e69a48f4ab9e03c3026cd22eb2b6618d01309b515a7cf73dd886fc2cf099f2e4ecaf598
-  languageName: node
-  linkType: hard
-
-"find-package-json@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "find-package-json@npm:1.2.0"
-  checksum: 10c0/85d6c97afb9f8f0deb0d344a1c4eb8027347cf4d61666c28d3ac3f913e916684441218682b3dd6f8ad570e5d43c96a7db521f70183d70df559d07e1f99cdc635
   languageName: node
   linkType: hard
 
@@ -17221,7 +17226,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.0.4, typescript@npm:^5.8.3":
+"typescript@npm:^5.0.4, typescript@npm:^5.9.3":
   version: 5.9.3
   resolution: "typescript@npm:5.9.3"
   bin:
@@ -17241,7 +17246,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.0.4#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.8.3#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^5.0.4#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.9.3#optional!builtin<compat/typescript>":
   version: 5.9.3
   resolution: "typescript@patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"
   bin:
@@ -17408,6 +17413,18 @@ __metadata:
     acorn: "npm:^8.14.0"
     webpack-virtual-modules: "npm:^0.6.2"
   checksum: 10c0/dd5f8c5727d0135847da73cf03fb199107f1acf458167034886fda3405737dab871ad3926431b4f70e1e82cdac482ac1383cea4019d782a68515c8e3e611b6cc
+  languageName: node
+  linkType: hard
+
+"unplugin@npm:^2.3.5":
+  version: 2.3.11
+  resolution: "unplugin@npm:2.3.11"
+  dependencies:
+    "@jridgewell/remapping": "npm:^2.3.5"
+    acorn: "npm:^8.15.0"
+    picomatch: "npm:^4.0.3"
+    webpack-virtual-modules: "npm:^0.6.2"
+  checksum: 10c0/273c1eab0eca4470c7317428689295c31dbe8ab0b306504de9f03cd20c156debb4131bef24b27ac615862958c5dd950a3951d26c0723ea774652ab3624149cff
   languageName: node
   linkType: hard
 
