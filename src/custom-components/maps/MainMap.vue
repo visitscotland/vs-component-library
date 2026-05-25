@@ -857,19 +857,20 @@ function searchBySubCategory(subCategoryId, key) {
     subCategoryKey.value = key;
     selectedDestination.value = '';
 
-    if (subCategoryId === 'self-catering') {
+    if (subCategoryId === 'self-catering' && !selectedSubCategories.value.has('self-catering')) {
         selfCateringClicked.value = true;
         resetTextQuery();
         selectedSubCategories.value = new Set();
         selectedSubCategories.value.add(subCategoryId);
         const label = searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value;
         query.value = label;
-        resetCategories();
+        // resetCategories();
         searchInput.value = `${query.value} ${selectedDestination.value}`;
         searchByText();
         searchInput.value = label;
     } else if (selectedSubCategories.value.has(subCategoryId)) {
         // Delete if already in selectedSubCategories
+        selectedSubCategories.value.delete('self-catering');
         selectedSubCategories.value.delete(subCategoryId);
 
         // Reset subcategories
@@ -906,6 +907,7 @@ function searchBySubCategory(subCategoryId, key) {
             searchInput.value = query.value;
         }
     } else {
+        selectedSubCategories.value.delete('self-catering');
         // Add if not already in selectedSubCategories
         selectedSubCategories.value.add(subCategoryId);
         // Iterate through each subcategory to find the selected subcategory
@@ -1016,6 +1018,9 @@ async function searchByText(useRestriction = false) {
     if (selfCateringClicked.value || useRestriction) {
         textSearchQuery.locationBias = null;
         textSearchQuery.locationRestriction = gMap.getBounds();
+
+        selectedTopLevelCategory.value = 'accommodation';
+        selectedSubCategories.value.add('self-catering');
     } else {
         textSearchQuery.locationRestriction = null;
         textSearchQuery.locationBias = gMap.getCenter();
@@ -1405,22 +1410,27 @@ function searchArea() {
 
     // Check for selected subcategory and start nearby search.
     if (selectedSubCategories.value.size > 0) {
-        searchByCategory({
-            includedTypes: Array.from(includedSubTypes.value),
-            excludedTypes: Array.from(excludedSubTypes.value),
-        });
+        if (selectedSubCategories.value.has('self-catering')) {
+            selectedSubCategories.value.delete('self-catering');
+            searchBySubCategory('self-catering', 0);
+        } else {
+            searchByCategory({
+                includedTypes: Array.from(includedSubTypes.value),
+                excludedTypes: Array.from(excludedSubTypes.value),
+            });
 
-        // Get labels for the selected subcategories.
-        const subcatLabels = [];
-        selectedSubCategories.value.forEach((subcat) => {
-            subcatLabels.push(
-                searchSubCategoriesForLabel(selectedSubCategories.value, subcat).value,
-            );
-        });
-        query.value = subcatLabels.join(', ');
-        searchInput.value = query.value;
-        // searchInput.value = selectedSubCategories.value.join(', ');
-        googleMapStore.showCategories = true;
+            // Get labels for the selected subcategories.
+            const subcatLabels = [];
+            selectedSubCategories.value.forEach((subcat) => {
+                subcatLabels.push(
+                    searchSubCategoriesForLabel(selectedSubCategories.value, subcat).value,
+                );
+            });
+            query.value = subcatLabels.join(', ');
+            searchInput.value = query.value;
+            // searchInput.value = selectedSubCategories.value.join(', ');
+            googleMapStore.showCategories = true;
+        }
         return;
     }
 

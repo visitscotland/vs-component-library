@@ -1,3 +1,22 @@
+## [5.58.1](https://github.com/visitscotland/vs-component-library/compare/v5.58.0...v5.58.1) (2026-05-25)
+
+
+### Bug Fixes
+
+* **main map:** persist filters when "self catering" selected ([ea5b434](https://github.com/visitscotland/vs-component-library/commit/ea5b4342dcd32e5ec22275278bcc179bc1a562e0))
+
+# [5.58.0](https://github.com/visitscotland/vs-component-library/compare/v5.57.4...v5.58.0) (2026-05-22)
+
+
+### Bug Fixes
+
+* **content section:** remove paragraph tags round list ([db4483a](https://github.com/visitscotland/vs-component-library/commit/db4483a69bb3bf04b9469e6fb87c62a976dbe8bf))
+
+
+### Features
+
+* **content section:** add content section pattern stories ([7df7bc6](https://github.com/visitscotland/vs-component-library/commit/7df7bc67ac5a63d13e64ccbaf4f2fcef6a2872b8))
+
 ## [5.57.4](https://github.com/visitscotland/vs-component-library/compare/v5.57.3...v5.57.4) (2026-05-22)
 
 

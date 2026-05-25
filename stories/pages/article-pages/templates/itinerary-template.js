@@ -1,6 +1,6 @@
-import splitCardContentSwiper from '../../partials/splitCardContentSwiper';
-import imageContentSwiper from '../../partials/imageContentSwiper';
-import imageWithCaptionPartial from '../../partials/imageWithCaptionPartial';
+import splitCardContentSwiper from '../../../story-partials/splitCardContentSwiper';
+import imageContentSwiper from '../../../story-partials/imageContentSwiper';
+import imageWithCaptionPartial from '../../../story-partials/imageWithCaptionPartial';
 
 export default `
     <VsPageHeader menu-type="b2c">
