@@ -1,3 +1,10 @@
+## [5.58.1](https://github.com/visitscotland/vs-component-library/compare/v5.58.0...v5.58.1) (2026-05-25)
+
+
+### Bug Fixes
+
+* **main map:** persist filters when "self catering" selected ([ea5b434](https://github.com/visitscotland/vs-component-library/commit/ea5b4342dcd32e5ec22275278bcc179bc1a562e0))
+
 # [5.58.0](https://github.com/visitscotland/vs-component-library/compare/v5.57.4...v5.58.0) (2026-05-22)
 
 
