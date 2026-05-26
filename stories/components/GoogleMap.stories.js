@@ -46,7 +46,7 @@ const base = {
     mapId: 'b55b94a250e703072014702e',
     features: {
         clickableIcons: true,
-        gestureHandling: 'cooperative',
+        gestureHandling: 'greedy',
         isFractionalZoomEnabled: true,
         fullscreenControl: false,
         renderingTypeVector: true,

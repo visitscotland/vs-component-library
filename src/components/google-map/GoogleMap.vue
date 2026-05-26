@@ -107,6 +107,38 @@ onMounted(async() => {
         flex-direction: column;
         row-gap: $vs-spacer-075;
     }
+
+    &__map-pin {
+        background: no-repeat url('@/assets/svg/map-pin.svg');
+        width: $vs-spacer-200;
+        height: $vs-spacer-200;
+        background-size: contain;
+        background-position: center;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transition: all $duration-base;
+
+        &-icon {
+            color: white;
+            margin-bottom: 0.25em;
+        }
+
+        &-number {
+            color: white;
+            font-family: $vs-font-family-display;
+            margin-bottom: 0.25em;
+            font-size: 1.25em;
+        }
+
+        &:hover {
+            scale: 150%;
+            transition: all $duration-base;
+            transform-origin: bottom;
+        }
+    }
 }
 
 </style>
