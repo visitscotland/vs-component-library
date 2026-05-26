@@ -70,3 +70,26 @@ export type MapOptions = {
     isFractionalZoomEnabled?: boolean;
     renderingTypeVector?: boolean;
 }
+
+export type brxmFeature = {
+    type: string;
+    properties: {
+        category: {
+            id: string;
+            label: string;
+        };
+        id: number | string;
+        title: string;
+        description: string;
+        image: string;
+        link: {
+            label: string;
+            link: string;
+            type: string;
+        };
+    };
+    geometry: {
+        type: string;
+        coordinates: number[];
+    };
+}

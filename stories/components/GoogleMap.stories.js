@@ -1,5 +1,6 @@
 import { VsContainer, VsRow } from '@/components';
 import VsGoogleMap from '@/components/google-map/GoogleMap.vue';
+import placesData from '@/assets/fixtures/maps/places-data-regional.json';
 
 export default {
     component: VsGoogleMap,
@@ -38,11 +39,11 @@ const Template = (args) => ({
 
 const base = {
     center: {
-        lat: 56,
-        lng: -5,
+        lat: 57.7,
+        lng: -4.7,
     },
     zoom: 8,
-    mapId: 'vs-map',
+    mapId: 'b55b94a250e703072014702e',
     features: {
         clickableIcons: true,
         gestureHandling: 'cooperative',
@@ -56,6 +57,7 @@ const base = {
             east: 0.3,
         },
     },
+    markerData: placesData.features,
 };
 
 export const Default = Template.bind({

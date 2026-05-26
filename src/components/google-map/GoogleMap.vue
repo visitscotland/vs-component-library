@@ -11,8 +11,9 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import getEnvValue from '@/utils/get-env-value';
+
 import { mapLoader, initMap } from './composables/MapsApiLoader';
-import { createCustomControls } from './composables/CustomControls';
+import createCustomControlElement from './composables/CustomControls';
 
 const map = ref();
 const VsGoogleMapElement = ref();
@@ -48,7 +49,7 @@ const props = defineProps({
      */
     mapId: {
         type: String,
-        default: 'vs-map',
+        required: true,
     },
     /**
      * Object to set optional map features, otherwise
@@ -63,6 +64,13 @@ const props = defineProps({
             renderingTypeVector: true,
         }),
     },
+    /**
+     * Array of marker pins.
+     */
+    markerData: {
+        type: Array,
+        required: true,
+    },
 });
 
 onMounted(async() => {
@@ -74,17 +82,21 @@ onMounted(async() => {
             zoom: props.zoom,
             mapId: props.mapId,
             features: props.features,
+            markers: props.markerData,
         },
     );
 
-    // Creates and mounts custom contols
-    await createCustomControls(map.value);
+    await new Promise(() => {
+        // eslint-disable-next-line no-undef
+        google.maps.event.addListenerOnce(map.value, 'idle', () => {
+            createCustomControlElement(map.value);
+        });
+    });
 });
 
 </script>
 
 <style lang="scss">
-
 .vs-google-map {
     width: 100%;
     height: inherit;

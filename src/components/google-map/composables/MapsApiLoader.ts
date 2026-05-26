@@ -1,6 +1,8 @@
+/* eslint-disable no-undef */
 /// <reference types="google.maps" />
 
 import type {
+    brxmFeature,
     LatLngBounds,
     LatLngObject,
     MapOptions,
@@ -10,6 +12,8 @@ import {
     importLibrary,
     setOptions,
 } from '@googlemaps/js-api-loader';
+
+import addMarkers from './AddMarker';
 
 const FALLBACK_SCOTLAND_BOUNDS: LatLngBounds = {
     north: 61.0,
@@ -26,8 +30,6 @@ async function googleMapsLoader(apiKey: string) {
         region: 'GB',
         language: 'en',
     });
-
-    await importLibrary('maps');
 }
 
 async function initialiseMap(
@@ -37,14 +39,17 @@ async function initialiseMap(
         zoom: number,
         mapId: string,
         features: MapOptions,
+        markers: brxmFeature[],
     },
 ) {
     const { Map } = await importLibrary('maps');
+    await google.maps.importLibrary('marker') as google.maps.MarkerLibrary;
 
     try {
         const map = new Map(mapElement, {
             center: options.center,
             zoom: options.zoom,
+            mapId: options.mapId,
             clickableIcons: options.features.clickableIcons,
             gestureHandling: options.features.gestureHandling,
             isFractionalZoomEnabled: options.features.isFractionalZoomEnabled,
@@ -59,6 +64,13 @@ async function initialiseMap(
             disableDefaultUI: true,
             keyboardShortcuts: true,
         });
+
+        if (options.markers) {
+            options.markers.forEach((place) => {
+                addMarkers(map, place);
+            });
+        };
+
         return map;
     } catch (error) {
         return error;
