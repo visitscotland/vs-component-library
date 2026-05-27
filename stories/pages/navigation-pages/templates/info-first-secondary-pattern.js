@@ -1,4 +1,4 @@
-import linkCardContentSwiper from '../../partials/linkCardContentSwiper';
+import linkCardContentSwiper from '../../../story-partials/linkCardContentSwiper';
 
 export default `
     <VsPageHeader menu-type="b2c">

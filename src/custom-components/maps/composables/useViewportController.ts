@@ -1,9 +1,14 @@
 /* eslint-disable no-undef */
 import { ref } from 'vue';
 
+type ViewportCenter = {
+    lat: number;
+    lng: number;
+};
+
 type Viewport = {
-    bounds: any;
-    center: any;
+    bounds: google.maps.LatLngBounds | null;
+    center: google.maps.LatLng;
     zoom: number;
 };
 
@@ -25,7 +30,7 @@ export default function useViewportController() {
     }
 
     // Calculate distance between viewport centres.
-    function getDistanceMeters(oldCenter: any, newCenter: any) {
+    function getDistanceMeters(oldCenter: ViewportCenter, newCenter: ViewportCenter) {
         const R = 6371000; // Radius of Earth in meters.
         const dLat = (newCenter.lat - oldCenter.lat) * (Math.PI / 180);
         const dLng = (newCenter.lng - oldCenter.lng) * (Math.PI / 180);

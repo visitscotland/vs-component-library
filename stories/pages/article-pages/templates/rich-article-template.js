@@ -1,4 +1,4 @@
-import imageWithCaptionPartial from '../../partials/imageWithCaptionPartial';
+import imageWithCaptionPartial from '../../../story-partials/imageWithCaptionPartial';
 
 export default `
     <VsPageHeader menu-type="b2c">
