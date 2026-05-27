@@ -1,6 +1,6 @@
 import { VsContainer, VsRow } from '@/components';
 import VsGoogleMap from '@/components/google-map/GoogleMap.vue';
-import placesData from '@/assets/fixtures/maps/places-data-regional.json';
+import placesData from '@/assets/fixtures/maps/places-data-outlander.json';
 
 export default {
     component: VsGoogleMap,
@@ -42,7 +42,7 @@ const base = {
         lat: 57.7,
         lng: -4.7,
     },
-    zoom: 8,
+    zoom: 6.25,
     mapId: 'b55b94a250e703072014702e',
     features: {
         clickableIcons: true,

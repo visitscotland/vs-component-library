@@ -108,18 +108,18 @@ onMounted(async() => {
         row-gap: $vs-spacer-075;
     }
 
-    &__map-pin {
-        background: no-repeat url('@/assets/svg/map-pin.svg');
-        width: $vs-spacer-200;
-        height: $vs-spacer-200;
-        background-size: contain;
-        background-position: center;
+    @include google-map-marker-themes;
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    &__map-pin {
+        display: grid;
+        place-items: center;
+        color: $vs-color-interaction-link-secondary;
 
         transition: all $duration-base;
+
+        > * {
+            grid-area: 1/1;
+        }
 
         &-icon {
             color: white;

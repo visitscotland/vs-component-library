@@ -1,0 +1,41 @@
+@mixin google-map-marker-themes {
+    $themes: (
+        "cities": $vs-color-icon-accent-loch-ness,
+        "towns": $vs-color-icon-accent-grey-02,
+        "islands": $vs-color-icon-accent-saltire,
+        "regions": $vs-color-icon-accent-bramble,
+        "featured": $vs-color-icon-accent-buachaille,
+        "acco": $vs-color-icon-accent-bramble,
+        "attr": $vs-color-icon-accent-grey-02,
+        "acti": $vs-color-icon-accent-heather,
+        "even": $vs-color-icon-accent-saltire,
+        "cate": $vs-color-icon-accent-whisky,
+        "reta": $vs-color-icon-accent-loch-ness,
+        "twnv": $vs-color-icon-accent-loch-ness,
+        "vics": $vs-color-icon-accent-bramble,
+        "outlander-castle": $vs-color-icon-accent-heather,
+        "outlander-church-abbey": $vs-color-icon-accent-cranachan,
+        "outlander-city-town-village": $vs-color-icon-accent-loch-ness,
+        "outlander-heritage": $vs-color-icon-accent-whisky,
+        "outlander-landscape-park": $vs-color-icon-accent-grey-02,
+        "outlander-palace-house": $vs-color-icon-accent-bramble,
+        "distilleries": $vs-color-icon-accent-cranachan,
+        "itinerary-stop": $vs-color-icon-highlight,
+    );
+
+    @each $name, $color in $themes {
+        .vs-google-map__map-pin--#{$name} {
+            &:hover{
+                color: $vs-color-icon-primary;
+
+                .vs-google-map__map-pin-icon {
+                    color: $vs-color-icon-inverse;
+                }
+            }
+        };
+
+        .vs-google-map__map-pin--#{$name} {
+            color: $color;            
+        }
+    };
+};
