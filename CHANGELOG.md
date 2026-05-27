@@ -1,3 +1,11 @@
+## [5.59.3](https://github.com/visitscotland/vs-component-library/compare/v5.59.2...v5.59.3) (2026-05-27)
+
+
+### Bug Fixes
+
+* **main map:** bug - self catering selected when it shoudn't be ([523834f](https://github.com/visitscotland/vs-component-library/commit/523834ff0a0e278ec4239df773ff5a1d0e6f2313))
+* **main map:** use locationRestriction when clicking search this area ([00889a9](https://github.com/visitscotland/vs-component-library/commit/00889a94ed3f128cc926365884d8a2a92f895184))
+
 ## [5.59.2](https://github.com/visitscotland/vs-component-library/compare/v5.59.1...v5.59.2) (2026-05-27)
 
 
