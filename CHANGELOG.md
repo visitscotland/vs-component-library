@@ -1,3 +1,19 @@
+## [5.59.1](https://github.com/visitscotland/vs-component-library/compare/v5.59.0...v5.59.1) (2026-05-27)
+
+
+### Bug Fixes
+
+* **main map:** adjust bounds to better accommodated shetland ([a9647b8](https://github.com/visitscotland/vs-component-library/commit/a9647b860c58594a59f88657a4b6947ece050d4a))
+* **main map:** adjust scotland bounds ([2d40748](https://github.com/visitscotland/vs-component-library/commit/2d4074877a13eeeb35875ee4ed0795961d165f84))
+* **useviewportcontroller.ts:** fix TypeScript errors ([5eb0e4b](https://github.com/visitscotland/vs-component-library/commit/5eb0e4be89330e3a15de1e3837ccec66367ae299))
+
+# [5.59.0](https://github.com/visitscotland/vs-component-library/compare/v5.58.1...v5.59.0) (2026-05-27)
+
+
+### Features
+
+* **togglebutton:** adds shadow to outline & outline-strong toggle button variants ([de0cc64](https://github.com/visitscotland/vs-component-library/commit/de0cc64253a16d3d23e504805d3d40d82ba494c8))
+
 ## [5.58.1](https://github.com/visitscotland/vs-component-library/compare/v5.58.0...v5.58.1) (2026-05-25)
 
 
