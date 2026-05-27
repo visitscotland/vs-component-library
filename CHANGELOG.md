@@ -1,3 +1,10 @@
+# [5.59.0](https://github.com/visitscotland/vs-component-library/compare/v5.58.1...v5.59.0) (2026-05-27)
+
+
+### Features
+
+* **togglebutton:** adds shadow to outline & outline-strong toggle button variants ([de0cc64](https://github.com/visitscotland/vs-component-library/commit/de0cc64253a16d3d23e504805d3d40d82ba494c8))
+
 ## [5.58.1](https://github.com/visitscotland/vs-component-library/compare/v5.58.0...v5.58.1) (2026-05-25)
 
 
