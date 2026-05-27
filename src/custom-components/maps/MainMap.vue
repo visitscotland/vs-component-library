@@ -979,8 +979,18 @@ async function searchByCategory({
     // eslint-disable-next-line no-undef
     const diameter = google.maps.geometry.spherical.computeDistanceBetween(ne, sw);
 
-    // Set search distance to 50km for region searches and 25km for all other searches.
-    const cappedDistance = googleMapStore.selectedDestinationType === 'regions' ? 50000 : 25000;
+    // Set search distance to 50km for region and "Shetland" and "Orkney" islands
+    // searches and 25km for all other searches.
+    let cappedDistance = 25000;
+
+    if (googleMapStore.selectedDestinationType === 'regions'
+        || (googleMapStore.selectedDestinationType === 'islands' && selectedDestination.value === 'Shetland')
+        || (googleMapStore.selectedDestinationType === 'islands' && selectedDestination.value === 'Orkney')
+    ) {
+        cappedDistance = 50000;
+    }
+
+    // const cappedDistance = googleMapStore.selectedDestinationType === 'regions' ? 50000 : 25000;
     const cappedRadius = Math.min((diameter / 2), cappedDistance);
 
     nearbySearchQuery.includedTypes = includedTypes;
