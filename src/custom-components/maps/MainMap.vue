@@ -437,10 +437,10 @@ let showError;
 const errType = ref(undefined);
 
 const SCOTLAND_BOUNDS = {
-    north: 61.0,
+    north: 61.3,
     south: 54.6,
     west: -8.7,
-    east: 0.3,
+    east: 2.0,
 };
 
 let categoryData = {
@@ -622,6 +622,7 @@ onMounted(async() => {
                 && isUserMove.value
                 && hasViewportChanged(getViewport(gMap))) {
                 showSearchAreaButton.value = true;
+                googleMapStore.selectedDestinationType = '';
                 isUserMove.value = false;
             }
         });
@@ -957,7 +958,20 @@ async function searchByCategory({
     const sw = bounds.getSouthWest();
     // eslint-disable-next-line no-undef
     const diameter = google.maps.geometry.spherical.computeDistanceBetween(ne, sw);
-    const cappedRadius = Math.min((diameter / 2), 25000);
+
+    // Set search distance to 50km for region and "Shetland" and "Orkney" islands
+    // searches and 25km for all other searches.
+    let cappedDistance = 25000;
+
+    if (googleMapStore.selectedDestinationType === 'regions'
+        || (googleMapStore.selectedDestinationType === 'islands' && selectedDestination.value === 'Shetland')
+        || (googleMapStore.selectedDestinationType === 'islands' && selectedDestination.value === 'Orkney')
+    ) {
+        cappedDistance = 50000;
+    }
+
+    // const cappedDistance = googleMapStore.selectedDestinationType === 'regions' ? 50000 : 25000;
+    const cappedRadius = Math.min((diameter / 2), cappedDistance);
 
     nearbySearchQuery.includedTypes = includedTypes;
     nearbySearchQuery.excludedTypes = excludedTypes ?? [];

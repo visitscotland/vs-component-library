@@ -310,6 +310,7 @@ export default {
                 $vs-color-text-primary, $vs-color-background-inverse, $vs-color-background-inverse,
             );
             background: var(--background-blur, rgba(255, 255, 255, 0.80));
+            box-shadow: $vs-elevation-shadow-raised;
         }
 
         &.btn-overlay-strong {
@@ -319,6 +320,7 @@ export default {
                 $vs-color-text-cta-on-light, $vs-color-background-inverse, $vs-color-background-inverse,
             );
             background: var(--background-blur, rgba(255, 255, 255, 0.80));
+            box-shadow: $vs-elevation-shadow-raised;
 
             &.vs-toggle-button--pressed {
                 color: $vs-color-text-cta-on-light;
