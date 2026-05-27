@@ -1018,12 +1018,16 @@ async function searchByText(useRestriction = false) {
     if (selfCateringClicked.value || useRestriction) {
         textSearchQuery.locationBias = null;
         textSearchQuery.locationRestriction = gMap.getBounds();
-
-        selectedTopLevelCategory.value = 'accommodation';
-        selectedSubCategories.value.add('self-catering');
     } else {
         textSearchQuery.locationRestriction = null;
         textSearchQuery.locationBias = gMap.getCenter();
+    }
+
+    // Make sure the "accommodation" and "self catering" categories are selected
+    // when doing a self catering search.
+    if (selfCateringClicked.value) {
+        selectedTopLevelCategory.value = 'accommodation';
+        selectedSubCategories.value.add('self-catering');
     }
 
     // Add the `includedType` of "lodging" when the query includes a keyword.
