@@ -2,8 +2,8 @@
 import { ref } from 'vue';
 
 type ViewportCenter = {
-    lat: number,
-    lng: number,
+    lat: number;
+    lng: number;
 };
 
 type Viewport = {
