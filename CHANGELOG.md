@@ -1,3 +1,11 @@
+## [5.59.2](https://github.com/visitscotland/vs-component-library/compare/v5.59.1...v5.59.2) (2026-05-27)
+
+
+### Bug Fixes
+
+* **main map:** increase search radius to 50km for regional search ([dce30b2](https://github.com/visitscotland/vs-component-library/commit/dce30b2587231eed6726957a1626cc9d296ca1ee))
+* **main map:** set shetland and orkney islands to 50km search radius ([095bc89](https://github.com/visitscotland/vs-component-library/commit/095bc89bb9cf1dfac0d0f9bcdad0cb7b8026fd42))
+
 ## [5.59.1](https://github.com/visitscotland/vs-component-library/compare/v5.59.0...v5.59.1) (2026-05-27)
 
 
