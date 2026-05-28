@@ -36,7 +36,7 @@ export default function addMarkers(map: google.maps.Map, feature: brxmFeature) {
         }
     };
 
-    return new google.maps.marker.AdvancedMarkerElement({
+    const marker = new google.maps.marker.AdvancedMarkerElement({
         content: mapPin,
         gmpClickable: true,
         map,
@@ -46,4 +46,16 @@ export default function addMarkers(map: google.maps.Map, feature: brxmFeature) {
         },
         title: feature.properties.title,
     });
+
+    const originalZIndex = marker.zIndex || 1;
+
+    mapPin.addEventListener('mouseenter', () => {
+        marker.zIndex = 9999;
+    });
+
+    mapPin.addEventListener('mouseleave', () => {
+        marker.zIndex = originalZIndex;
+    });
+
+    return marker;
 };

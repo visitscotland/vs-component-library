@@ -73,8 +73,6 @@ async function initialiseMap(
             });
         };
 
-        console.log(markers);
-
         return map;
     } catch (error) {
         return error;
