@@ -33,8 +33,12 @@ function createCustomControl({
 
     if (label) {
         const controlButtonLabel = document.createElement('span');
-        controlButtonLabel.classList.add('vs-button__text');
-        controlButtonLabel.textContent = 'label';
+        controlButtonLabel.classList.add('vs-button__text', 'visually-hidden');
+        controlButtonLabel.textContent = label;
+
+        controlButton.setAttribute('title', label);
+
+        controlButton.append(controlButtonLabel);
     }
 
     controlButton.type = 'button';
@@ -42,12 +46,12 @@ function createCustomControl({
     return controlButton;
 }
 
-export default function createCustomControlElement(map: google.maps.Map) {
+export default function createCustomControlElement(map: google.maps.Map, uiLabels: any) {
     const customControlsDiv = document.createElement('div');
     customControlsDiv.classList.add('vs-google-map__custom-control-container');
 
     const customZoomInControl = createCustomControl({
-        label: 'Zoom In',
+        label: uiLabels.zoomIn,
         icon: 'fa-plus',
         elementId: 'vs-google-map__zoom-in-control',
     });
@@ -57,7 +61,7 @@ export default function createCustomControlElement(map: google.maps.Map) {
     });
 
     const customZoomOutControl = createCustomControl({
-        label: 'Zoom Out',
+        label: uiLabels.zoomOut,
         icon: 'fa-minus',
         elementId: 'vs-google-map__zoom-out-control',
     });
@@ -71,7 +75,7 @@ export default function createCustomControlElement(map: google.maps.Map) {
     // Check to see if on iOS, as fullscreen is not available on iOS.
     if (!isAppleIOS()) {
         const customFullscreenControl = createCustomControl({
-            label: 'Fullscreen',
+            label: uiLabels.fullScreen,
             icon: 'fa-arrows-maximize',
             elementId: 'vs-google-map__fullscreen-control',
         });

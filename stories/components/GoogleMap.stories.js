@@ -59,6 +59,11 @@ const base = {
             east: 0.3,
         },
     },
+    uiLabels: {
+        fullScreen: 'Fullscreen toggle',
+        zoomIn: 'Zoom In',
+        zoomOut: 'Zoom Out',
+    },
 };
 
 export const Default = Template.bind({

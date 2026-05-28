@@ -71,6 +71,13 @@ const props = defineProps({
         type: Array,
         required: true,
     },
+    /**
+     * Object containing labels of UI Elements
+     */
+    uiLabels: {
+        type: Object,
+        required: true,
+    },
 });
 
 onMounted(async() => {
@@ -89,7 +96,14 @@ onMounted(async() => {
     await new Promise(() => {
         // eslint-disable-next-line no-undef
         google.maps.event.addListenerOnce(map.value, 'idle', () => {
-            createCustomControlElement(map.value);
+            createCustomControlElement(
+                map.value,
+                {
+                    zoomIn: props.uiLabels.zoomIn,
+                    zoomOut: props.uiLabels.zoomOut,
+                    fullScreen: props.uiLabels.fullScreen,
+                },
+            );
         });
     });
 });
