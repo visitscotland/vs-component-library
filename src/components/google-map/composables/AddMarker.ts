@@ -53,7 +53,15 @@ export default function addMarkers(map: google.maps.Map, feature: brxmFeature) {
         marker.zIndex = 9999;
     });
 
+    mapPin.addEventListener('focusin', () => {
+        marker.zIndex = 9999;
+    });
+
     mapPin.addEventListener('mouseleave', () => {
+        marker.zIndex = originalZIndex;
+    });
+
+    mapPin.addEventListener('focusout', () => {
         marker.zIndex = originalZIndex;
     });
 

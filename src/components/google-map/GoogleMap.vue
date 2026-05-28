@@ -116,7 +116,7 @@ onMounted(async() => {
     height: inherit;
 
     &__custom-control-container {
-        margin: 1em 1em 0 0;
+        margin: $vs-spacer-100 $vs-spacer-100 0 0;
         display: flex;
         flex-direction: column;
         row-gap: $vs-spacer-075;
@@ -136,18 +136,18 @@ onMounted(async() => {
         }
 
         &-icon {
-            color: $vs-color-text-inverse;
+            color: $vs-color-icon-inverse;
             margin-bottom: $vs-spacer-050;
         }
 
         &-number {
-            color: white;
+            color: $vs-color-text-inverse;
             font-family: $vs-font-family-display;
             margin-bottom: $vs-spacer-025;
             font-size: $vs-font-size-detail-l;
         }
 
-        &:hover {
+        &:hover, &:focus {
             scale: 150%;
             transition: all $duration-base;
             transform-origin: bottom;
