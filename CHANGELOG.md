@@ -1,3 +1,10 @@
+## [5.59.4](https://github.com/visitscotland/vs-component-library/compare/v5.59.3...v5.59.4) (2026-05-28)
+
+
+### Bug Fixes
+
+* **main map:** clear selected destination when user moves map ([6cbd3ba](https://github.com/visitscotland/vs-component-library/commit/6cbd3ba4200fb8ebc617ee8d1a6f83da204eb906))
+
 ## [5.59.3](https://github.com/visitscotland/vs-component-library/compare/v5.59.2...v5.59.3) (2026-05-27)
 
 
