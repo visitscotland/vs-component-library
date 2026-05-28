@@ -60,6 +60,7 @@ const props = defineProps({
         default: () => ({
             clickableIcons: true,
             gestureHandling: 'auto',
+            initialViewOfScotland: true,
             isFractionalZoomEnabled: false,
             renderingTypeVector: true,
         }),

@@ -65,6 +65,7 @@ export type LatLngBounds = {
 
 export type MapOptions = {
     boundsData?: LatLngBounds;
+    initialViewOfScotland?: boolean;
     clickableIcons?: boolean;
     gestureHandling?: string;
     isFractionalZoomEnabled?: boolean;

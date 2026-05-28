@@ -48,15 +48,16 @@ const base = {
     mapId: 'b55b94a250e703072014702e',
     features: {
         clickableIcons: true,
+        initialViewIsScotland: true,
         gestureHandling: 'cooperative',
         isFractionalZoomEnabled: true,
         fullscreenControl: false,
         renderingTypeVector: true,
         boundsData: {
-            north: 61.0,
+            north: 61.3,
             south: 54.6,
             west: -8.7,
-            east: 0.3,
+            east: 2,
         },
     },
     uiLabels: {
@@ -94,5 +95,20 @@ export const RegionMap = Template.bind({
 
 RegionMap.args = {
     ...base,
+    zoom: 8,
+    features: {
+        clickableIcons: true,
+        initialViewIsScotland: false,
+        gestureHandling: 'greedy',
+        isFractionalZoomEnabled: true,
+        fullscreenControl: false,
+        renderingTypeVector: true,
+        boundsData: {
+            north: 61.3,
+            south: 54.6,
+            west: -8.7,
+            east: 2,
+        },
+    },
     markerData: regionPlaces.features,
 };
