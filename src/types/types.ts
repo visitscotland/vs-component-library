@@ -74,15 +74,16 @@ export type MapOptions = {
 export type brxmFeature = {
     type: string;
     properties: {
-        category: {
+        category?: {
             id: string;
             label: string;
         };
+        stopCount?: number;
         id: number | string;
         title: string;
-        description: string;
-        image: string;
-        link: {
+        description?: string;
+        image?: string;
+        link?: {
             label: string;
             link: string;
             type: string;

@@ -1,6 +1,8 @@
 import { VsContainer, VsRow } from '@/components';
 import VsGoogleMap from '@/components/google-map/GoogleMap.vue';
-import placesData from '@/assets/fixtures/maps/places-data-outlander.json';
+import outlanderPlaces from '@/assets/fixtures/maps/places-data-outlander.json';
+import numberedPlaces from '@/assets/fixtures/maps/places-data-outlander-numbered.json';
+import regionPlaces from '@/assets/fixtures/maps/places-data-regional.json';
 
 export default {
     component: VsGoogleMap,
@@ -46,7 +48,7 @@ const base = {
     mapId: 'b55b94a250e703072014702e',
     features: {
         clickableIcons: true,
-        gestureHandling: 'greedy',
+        gestureHandling: 'cooperative',
         isFractionalZoomEnabled: true,
         fullscreenControl: false,
         renderingTypeVector: true,
@@ -57,7 +59,6 @@ const base = {
             east: 0.3,
         },
     },
-    markerData: placesData.features,
 };
 
 export const Default = Template.bind({
@@ -65,4 +66,28 @@ export const Default = Template.bind({
 
 Default.args = {
     ...base,
+};
+
+export const OutlanderMap = Template.bind({
+});
+
+OutlanderMap.args = {
+    ...base,
+    markerData: outlanderPlaces.features,
+};
+
+export const NumberedMap = Template.bind({
+});
+
+NumberedMap.args = {
+    ...base,
+    markerData: numberedPlaces.features,
+};
+
+export const RegionMap = Template.bind({
+});
+
+RegionMap.args = {
+    ...base,
+    markerData: regionPlaces.features,
 };

@@ -113,7 +113,7 @@ onMounted(async() => {
     &__map-pin {
         display: grid;
         place-items: center;
-        color: $vs-color-interaction-link-secondary;
+        color: $vs-color-background-accent-heather-80;
 
         transition: all $duration-base;
 
@@ -122,15 +122,15 @@ onMounted(async() => {
         }
 
         &-icon {
-            color: white;
-            margin-bottom: 0.25em;
+            color: $vs-color-text-inverse;
+            margin-bottom: $vs-spacer-050;
         }
 
         &-number {
             color: white;
             font-family: $vs-font-family-display;
-            margin-bottom: 0.25em;
-            font-size: 1.25em;
+            margin-bottom: $vs-spacer-025;
+            font-size: $vs-font-size-detail-l;
         }
 
         &:hover {

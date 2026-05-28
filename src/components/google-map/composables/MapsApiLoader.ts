@@ -65,11 +65,15 @@ async function initialiseMap(
             keyboardShortcuts: true,
         });
 
+        const markers: google.maps.marker.AdvancedMarkerElement[] = [];
+
         if (options.markers) {
-            options.markers.forEach((place) => {
-                addMarkers(map, place);
+            options.markers.forEach((place, key) => {
+                markers[key] = addMarkers(map, place);
             });
         };
+
+        console.log(markers);
 
         return map;
     } catch (error) {
