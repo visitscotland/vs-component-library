@@ -37,5 +37,15 @@
         .vs-google-map__map-pin--#{$name} {
             color: $color;            
         }
+
+        gmp-advanced-marker:focus {
+            .vs-google-map__map-pin--#{$name} {
+                color: $vs-color-icon-primary;
+
+                .vs-google-map__map-pin-icon {
+                    color: $vs-color-icon-inverse;
+                }
+            }
+        };
     };
 };

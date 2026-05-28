@@ -8,6 +8,7 @@ const mapGraphic = '<svg width="36" height="41" viewBox="0 0 36 41" fill="none" 
 export default function addMarkers(map: google.maps.Map, feature: brxmFeature) {
     const mapPin = document.createElement('div');
     mapPin.classList.add('vs-google-map__map-pin');
+    mapPin.setAttribute('tabindex', '0');
     mapPin.innerHTML = mapGraphic;
 
     if (feature.geometry.type === 'Point') {
@@ -53,7 +54,7 @@ export default function addMarkers(map: google.maps.Map, feature: brxmFeature) {
         marker.zIndex = 9999;
     });
 
-    mapPin.addEventListener('focusin', () => {
+    marker.addEventListener('focusin', () => {
         marker.zIndex = 9999;
     });
 
@@ -61,7 +62,7 @@ export default function addMarkers(map: google.maps.Map, feature: brxmFeature) {
         marker.zIndex = originalZIndex;
     });
 
-    mapPin.addEventListener('focusout', () => {
+    marker.addEventListener('focusout', () => {
         marker.zIndex = originalZIndex;
     });
 

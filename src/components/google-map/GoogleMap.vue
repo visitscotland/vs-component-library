@@ -147,7 +147,7 @@ onMounted(async() => {
             font-size: $vs-font-size-detail-l;
         }
 
-        &:hover, &:focus {
+        &:hover {
             scale: 150%;
             transition: all $duration-base;
             transform-origin: bottom;
@@ -155,4 +155,11 @@ onMounted(async() => {
     }
 }
 
+gmp-advanced-marker:focus {
+    .vs-google-map__map-pin {
+        scale: 150%;
+        transition: all $duration-base;
+        transform-origin: bottom;
+    }
+}
 </style>
