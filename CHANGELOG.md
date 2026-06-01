@@ -1,3 +1,10 @@
+## [5.59.5](https://github.com/visitscotland/vs-component-library/compare/v5.59.4...v5.59.5) (2026-06-01)
+
+
+### Bug Fixes
+
+* **main map:** temporarily remove "towns" from featured destinations ([7300ddd](https://github.com/visitscotland/vs-component-library/commit/7300ddd568d39f191086cc1cc8524a17366a0ea4))
+
 ## [5.59.4](https://github.com/visitscotland/vs-component-library/compare/v5.59.3...v5.59.4) (2026-05-28)
 
 
