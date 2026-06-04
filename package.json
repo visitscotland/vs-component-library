@@ -35,7 +35,7 @@
     "test:no-theo": "jest --config ./test/unit/jest.conf.js",
     "lint": "eslint",
     "lint:fix": "yarn lint \"src/**/*.{js,vue,ts}\" \"stories/**/*.js\" --fix",
-    "prettier": "prettier --write",
+    "prettier": "prettier --write .",
     "prettier:check": "prettier --check .",
     "theo": "theo ./src/tokens/tokens.yml --transform web --format map.scss,scss,raw.json,json --dest ./src/assets/tokens",
     "third-party": "node scripts/build-third-party.mjs",
