@@ -21,10 +21,10 @@ const FALLBACK_SCOTLAND_BOUNDS: LatLngBounds = {
 };
 
 const INITIAL_SCOTLAND_VIEW_BOUNDS: LatLngBounds = {
-    north: 59.9,
-    south: 55.6,
-    west: -7.7,
-    east: -0.7,
+    north: 60.0,
+    south: 54.64,
+    west: -7.65,
+    east: -1.4,
 };
 
 async function googleMapsLoader(apiKey: string) {
