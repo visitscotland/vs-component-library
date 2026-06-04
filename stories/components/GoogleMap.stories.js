@@ -97,7 +97,7 @@ RegionMap.args = {
     ...base,
     zoom: 8,
     features: {
-        clickableIcons: true,
+        clickableIcons: false,
         initialViewIsScotland: false,
         gestureHandling: 'greedy',
         isFractionalZoomEnabled: true,

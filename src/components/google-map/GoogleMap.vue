@@ -9,14 +9,21 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
+/// <reference types="google.maps" />
+
+import {
+    markRaw,
+    onMounted,
+    shallowRef,
+} from 'vue';
 import getEnvValue from '@/utils/get-env-value';
 
 import { mapLoader, initMap } from './composables/MapsApiLoader';
 import createCustomControlElement from './composables/CustomControls';
+import addMarkers from './composables/AddMarker';
 
-const map = ref();
-const VsGoogleMapElement = ref();
+const map = shallowRef(null);
+const markers = [];
 
 const props = defineProps({
     /**
@@ -60,7 +67,7 @@ const props = defineProps({
         default: () => ({
             clickableIcons: true,
             gestureHandling: 'auto',
-            initialViewOfScotland: true,
+            initialViewIsScotland: true,
             isFractionalZoomEnabled: false,
             renderingTypeVector: true,
         }),
@@ -83,8 +90,8 @@ const props = defineProps({
 
 onMounted(async() => {
     mapLoader(props.apiKey);
-    map.value = await initMap(
-        VsGoogleMapElement.value,
+    const gMap = await initMap(
+        document.getElementById('vs-google-map'),
         {
             center: props.center,
             zoom: props.zoom,
@@ -93,6 +100,8 @@ onMounted(async() => {
             markers: props.markerData,
         },
     );
+
+    map.value = markRaw(gMap);
 
     await new Promise(() => {
         // eslint-disable-next-line no-undef
@@ -106,6 +115,21 @@ onMounted(async() => {
                 },
             );
         });
+
+        if (props.markerData) {
+            // eslint-disable-next-line no-undef
+            google.maps.event.addListenerOnce(map.value, 'tilesloaded', () => {
+                props.markerData.forEach((place, key) => {
+                    markers[key] = addMarkers(map.value, place);
+                });
+
+                // Google Maps bug doesn't fully render the accessibility
+                // tree on initial load so moving the map slightly forces it
+                requestAnimationFrame(() => {
+                    map.value.panBy(0, 1);
+                });
+            });
+        };
     });
 });
 

@@ -13,8 +13,6 @@ import {
     setOptions,
 } from '@googlemaps/js-api-loader';
 
-import addMarkers from './AddMarker';
-
 const FALLBACK_SCOTLAND_BOUNDS: LatLngBounds = {
     north: 60.9,
     south: 54.6,
@@ -72,17 +70,11 @@ async function initialiseMap(
             keyboardShortcuts: true,
         });
 
-        const markers: google.maps.marker.AdvancedMarkerElement[] = [];
-
-        if (options.markers) {
-            options.markers.forEach((place, key) => {
-                markers[key] = addMarkers(map, place);
-            });
-        };
-
-        if (options.features.initialViewOfScotland) {
-            map.fitBounds(INITIAL_SCOTLAND_VIEW_BOUNDS);
-        }
+        google.maps.event.addListenerOnce(map, 'idle', () => {
+            if (options.features.initialViewIsScotland) {
+                map.fitBounds(INITIAL_SCOTLAND_VIEW_BOUNDS);
+            }
+        });
 
         return map;
     } catch (error) {
