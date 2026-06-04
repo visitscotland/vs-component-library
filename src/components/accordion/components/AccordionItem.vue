@@ -151,7 +151,7 @@ export default {
                 isNumber(value)
                     ? value > 0 && value < 7
                     : value.match(/(1|2|3|4|5|6)/)
-        	),
+            ),
         },
         /**
          * If this is provided, the accordion expands above

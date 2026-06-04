@@ -146,10 +146,10 @@ export default `
                 </div>
 
                 ${imageWithCaptionPartial({
-                    imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2025/07/01/corstorphine-hill?size=lg',
-                    imageCaption: 'View form Corstorphine Hill',
-                    imageCredit: 'VisitScotland',
-                })}
+    imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2025/07/01/corstorphine-hill?size=lg',
+    imageCaption: 'View form Corstorphine Hill',
+    imageCredit: 'VisitScotland',
+})}
 
                 <VsButton
                     href="#"
@@ -244,10 +244,10 @@ export default `
                 </div>
             
                 ${imageWithCaptionPartial({
-                    imageSrc: 'https://2f1a7f9478.visitscotland.net/wsimgs/Hill-of-Tarvit_917093008.jpg?size=lg',
-                    imageCaption: 'Edwardian Hill of Tarvit Mansion',
-                    imageCredit: 'VisitScotland',
-                })}
+    imageSrc: 'https://2f1a7f9478.visitscotland.net/wsimgs/Hill-of-Tarvit_917093008.jpg?size=lg',
+    imageCaption: 'Edwardian Hill of Tarvit Mansion',
+    imageCredit: 'VisitScotland',
+})}
 
                 <VsButton
                     href="#"
@@ -342,10 +342,10 @@ export default `
                 </div>
 
                 ${imageWithCaptionPartial({
-                    imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2023/09/29/carradale-on-kilbrannan-sound.jpg?size=lg',
-                    imageCaption: 'View from Deer Hill, Carradale',
-                    imageCredit: 'VisitScotland',
-                })}
+    imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2023/09/29/carradale-on-kilbrannan-sound.jpg?size=lg',
+    imageCaption: 'View from Deer Hill, Carradale',
+    imageCredit: 'VisitScotland',
+})}
 
                 <VsButton
                     href="#"

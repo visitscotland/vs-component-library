@@ -70,9 +70,23 @@ export default defineConfigWithVueTs(
 	// Project-wide rule overrides (Vue + JS/TS code style rules)
 	{
 		rules: {
-            indent: 'off',
-            'vue/script-indent': 'off',
-            'vue/html-indent': 'off',
+            indent: [
+                'warn',
+                4,
+                {
+                    ignoredNodes: [
+                        'TemplateLiteral',
+                    ],
+                },
+            ],
+            'vue/script-indent': [
+                'error',
+                4,
+            ],
+            'vue/html-indent': [
+                'error',
+                4,
+            ],
 			'vue/attributes-order': 'off',
 			'vue/no-unused-vars': 'error',
 			'vue/order-in-components': 'error',

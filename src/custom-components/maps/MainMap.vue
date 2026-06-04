@@ -1,217 +1,217 @@
 <!-- eslint-disable vue/html-self-closing -->
 <!-- eslint-disable vue/component-name-in-template-casing -->
 <template>
-	<div class="vs-map">
-		<div
-			class="vs-map__container"
-			:class="showError ? 'd-none' : ''"
-		>
-			<div
-				v-show="mapLoaded"
-				class="vs-map__controls"
-			>
-				<VsMapSidebar
-					:categories="categoryLabelData"
-					:category-data="categoryData"
-					:query="query"
-					:selected-category="selectedTopLevelCategory"
-					:selected-subcategories="selectedSubCategories"
-					:sidebar-labels="sidebarLabels"
-					@category-selected="(e) => selectCategory(e.id, e.key)"
-					@reset-map="resetMap(true)"
-					@reset-location="resetMap(true, true)"
-					@search-input-changed="searchByText"
-					@subcategory-selected="(e) => searchBySubCategory(e.id, e.key)"
-				>
-					<template #vs-map-sidebar-search-results>
-						<div
-							v-if="noResults || (props.alertText && noResults === false)"
-							class="mt-075 mb-150"
-						>
-							<VsAlert
-								v-if="noResults"
-								id="vs-map__alert"
-								size="small"
-							>
-								<span>
-									{{ noResultsMessage }}
-									<a
-										href="#"
-										@click.prevent="resetMap(true, true)"
-									>
-										{{ resetMapNoResultsMessage }}
-									</a>
-								</span>
-							</VsAlert>
+    <div class="vs-map">
+        <div
+            class="vs-map__container"
+            :class="showError ? 'd-none' : ''"
+        >
+            <div
+                v-show="mapLoaded"
+                class="vs-map__controls"
+            >
+                <VsMapSidebar
+                    :categories="categoryLabelData"
+                    :category-data="categoryData"
+                    :query="query"
+                    :selected-category="selectedTopLevelCategory"
+                    :selected-subcategories="selectedSubCategories"
+                    :sidebar-labels="sidebarLabels"
+                    @category-selected="(e) => selectCategory(e.id, e.key)"
+                    @reset-map="resetMap(true)"
+                    @reset-location="resetMap(true, true)"
+                    @search-input-changed="searchByText"
+                    @subcategory-selected="(e) => searchBySubCategory(e.id, e.key)"
+                >
+                    <template #vs-map-sidebar-search-results>
+                        <div
+                            v-if="noResults || (props.alertText && noResults === false)"
+                            class="mt-075 mb-150"
+                        >
+                            <VsAlert
+                                v-if="noResults"
+                                id="vs-map__alert"
+                                size="small"
+                            >
+                                <span>
+                                    {{ noResultsMessage }}
+                                    <a
+                                        href="#"
+                                        @click.prevent="resetMap(true, true)"
+                                    >
+                                        {{ resetMapNoResultsMessage }}
+                                    </a>
+                                </span>
+                            </VsAlert>
 
-							<VsDetail
-								v-else
-								class="mb-150"
-								color="secondary"
-								icon="vs-icon-feedback-information"
-								icon-variant="highlight"
-								size="small"
-							>
-								{{ alertText }}
-							</VsDetail>
-						</div>
+                            <VsDetail
+                                v-else
+                                class="mb-150"
+                                color="secondary"
+                                icon="vs-icon-feedback-information"
+                                icon-variant="highlight"
+                                size="small"
+                            >
+                                {{ alertText }}
+                            </VsDetail>
+                        </div>
 
-						<Suspense>
-							<div id="search-container">
-								<gmp-place-search
-									id="nearbySearch"
-									orientation="vertical"
-									selectable
-									style="display: none"
-								>
-									<gmp-place-nearby-search-request id="nearbySearchQuery">
-									</gmp-place-nearby-search-request>
-									<gmp-place-content-config>
-										<gmp-place-address></gmp-place-address>
-										<gmp-place-rating></gmp-place-rating>
-										<gmp-place-type></gmp-place-type>
-										<gmp-place-price></gmp-place-price>
-										<gmp-place-accessible-entrance-icon>
-										</gmp-place-accessible-entrance-icon>
-										<gmp-place-opening-hours></gmp-place-opening-hours>
-										<gmp-place-reviews></gmp-place-reviews>
-										<gmp-place-attribution
-											light-scheme-color="gray"
-											dark-scheme-color="gray"
-										></gmp-place-attribution>
-									</gmp-place-content-config>
-								</gmp-place-search>
-								<gmp-place-search
-									id="textSearch"
-									orientation="vertical"
-									selectable
-									style="display: none"
-								>
-									<gmp-place-text-search-request id="textSearchQuery">
-									</gmp-place-text-search-request>
-									<gmp-place-content-config>
-										<gmp-place-address></gmp-place-address>
-										<gmp-place-rating></gmp-place-rating>
-										<gmp-place-type></gmp-place-type>
-										<gmp-place-price></gmp-place-price>
-										<gmp-place-accessible-entrance-icon>
-										</gmp-place-accessible-entrance-icon>
-										<gmp-place-opening-hours></gmp-place-opening-hours>
-										<gmp-place-reviews></gmp-place-reviews>
-										<gmp-place-attribution
-											light-scheme-color="gray"
-											dark-scheme-color="gray"
-										></gmp-place-attribution>
-									</gmp-place-content-config>
-								</gmp-place-search>
-							</div>
-						</Suspense>
-					</template>
-				</VsMapSidebar>
-			</div>
+                        <Suspense>
+                            <div id="search-container">
+                                <gmp-place-search
+                                    id="nearbySearch"
+                                    orientation="vertical"
+                                    selectable
+                                    style="display: none"
+                                >
+                                    <gmp-place-nearby-search-request id="nearbySearchQuery">
+                                    </gmp-place-nearby-search-request>
+                                    <gmp-place-content-config>
+                                        <gmp-place-address></gmp-place-address>
+                                        <gmp-place-rating></gmp-place-rating>
+                                        <gmp-place-type></gmp-place-type>
+                                        <gmp-place-price></gmp-place-price>
+                                        <gmp-place-accessible-entrance-icon>
+                                        </gmp-place-accessible-entrance-icon>
+                                        <gmp-place-opening-hours></gmp-place-opening-hours>
+                                        <gmp-place-reviews></gmp-place-reviews>
+                                        <gmp-place-attribution
+                                            light-scheme-color="gray"
+                                            dark-scheme-color="gray"
+                                        ></gmp-place-attribution>
+                                    </gmp-place-content-config>
+                                </gmp-place-search>
+                                <gmp-place-search
+                                    id="textSearch"
+                                    orientation="vertical"
+                                    selectable
+                                    style="display: none"
+                                >
+                                    <gmp-place-text-search-request id="textSearchQuery">
+                                    </gmp-place-text-search-request>
+                                    <gmp-place-content-config>
+                                        <gmp-place-address></gmp-place-address>
+                                        <gmp-place-rating></gmp-place-rating>
+                                        <gmp-place-type></gmp-place-type>
+                                        <gmp-place-price></gmp-place-price>
+                                        <gmp-place-accessible-entrance-icon>
+                                        </gmp-place-accessible-entrance-icon>
+                                        <gmp-place-opening-hours></gmp-place-opening-hours>
+                                        <gmp-place-reviews></gmp-place-reviews>
+                                        <gmp-place-attribution
+                                            light-scheme-color="gray"
+                                            dark-scheme-color="gray"
+                                        ></gmp-place-attribution>
+                                    </gmp-place-content-config>
+                                </gmp-place-search>
+                            </div>
+                        </Suspense>
+                    </template>
+                </VsMapSidebar>
+            </div>
 
-			<div class="vs-map__wrapper">
-				<div
-					id="vs-map"
-					map-id="vs-map"
-					ref="vsMap"
-					data-chromatic="ignore"
-				>
-				</div>
-				<Suspense>
-					<div id="detail-container">
-						<gmp-place-details
-							id="placeDetails"
-							style="display: none"
-						>
-							<gmp-place-details-place-request id="placeRequest">
-							</gmp-place-details-place-request>
-							<gmp-place-content-config>
-								<gmp-place-address></gmp-place-address>
-								<gmp-place-rating></gmp-place-rating>
-								<gmp-place-type></gmp-place-type>
-								<gmp-place-price></gmp-place-price>
-								<gmp-place-accessible-entrance-icon>
-								</gmp-place-accessible-entrance-icon>
-								<gmp-place-opening-hours></gmp-place-opening-hours>
-								<gmp-place-website></gmp-place-website>
-								<gmp-place-phone-number></gmp-place-phone-number>
-								<gmp-place-summary></gmp-place-summary>
-								<gmp-place-type-specific-highlights>
-								</gmp-place-type-specific-highlights>
-								<gmp-place-reviews></gmp-place-reviews>
-								<gmp-place-feature-list></gmp-place-feature-list>
-								<gmp-place-media lightbox-preferred></gmp-place-media>
-								<gmp-place-attribution
-									light-scheme-color="gray"
-									dark-scheme-color="gray"
-								></gmp-place-attribution>
-							</gmp-place-content-config>
-						</gmp-place-details>
-					</div>
-				</Suspense>
+            <div class="vs-map__wrapper">
+                <div
+                    id="vs-map"
+                    map-id="vs-map"
+                    ref="vsMap"
+                    data-chromatic="ignore"
+                >
+                </div>
+                <Suspense>
+                    <div id="detail-container">
+                        <gmp-place-details
+                            id="placeDetails"
+                            style="display: none"
+                        >
+                            <gmp-place-details-place-request id="placeRequest">
+                            </gmp-place-details-place-request>
+                            <gmp-place-content-config>
+                                <gmp-place-address></gmp-place-address>
+                                <gmp-place-rating></gmp-place-rating>
+                                <gmp-place-type></gmp-place-type>
+                                <gmp-place-price></gmp-place-price>
+                                <gmp-place-accessible-entrance-icon>
+                                </gmp-place-accessible-entrance-icon>
+                                <gmp-place-opening-hours></gmp-place-opening-hours>
+                                <gmp-place-website></gmp-place-website>
+                                <gmp-place-phone-number></gmp-place-phone-number>
+                                <gmp-place-summary></gmp-place-summary>
+                                <gmp-place-type-specific-highlights>
+                                </gmp-place-type-specific-highlights>
+                                <gmp-place-reviews></gmp-place-reviews>
+                                <gmp-place-feature-list></gmp-place-feature-list>
+                                <gmp-place-media lightbox-preferred></gmp-place-media>
+                                <gmp-place-attribution
+                                    light-scheme-color="gray"
+                                    dark-scheme-color="gray"
+                                ></gmp-place-attribution>
+                            </gmp-place-content-config>
+                        </gmp-place-details>
+                    </div>
+                </Suspense>
 
-				<div
-					v-if="showSearchAreaButton"
-					class="vs-map__search-area"
-				>
-					<VsButton
-						icon="vs-icon-control-search"
-						variant="secondary"
-						@click="searchArea"
-					>
-						{{ props.labels.searchAreaButton }}
-					</VsButton>
-				</div>
-			</div>
-		</div>
+                <div
+                    v-if="showSearchAreaButton"
+                    class="vs-map__search-area"
+                >
+                    <VsButton
+                        icon="vs-icon-control-search"
+                        variant="secondary"
+                        @click="searchArea"
+                    >
+                        {{ props.labels.searchAreaButton }}
+                    </VsButton>
+                </div>
+            </div>
+        </div>
 
-		<VsWarning
-			v-if="showError && errType === 'noCookie'"
-			type="cookie"
-			class="vs-map__error vs-map__error--no-cookies"
-			:class="showError ? 'd-block' : 'd-none'"
-			data-test="vs-map__warning--no-cookies"
-		>
-			{{ props.noCookiesMessage }}
+        <VsWarning
+            v-if="showError && errType === 'noCookie'"
+            type="cookie"
+            class="vs-map__error vs-map__error--no-cookies"
+            :class="showError ? 'd-block' : 'd-none'"
+            data-test="vs-map__warning--no-cookies"
+        >
+            {{ props.noCookiesMessage }}
 
-			<template
-				#button-text
-			>
-				{{ props.cookieBtnText }}
-			</template>
-		</VsWarning>
+            <template
+                #button-text
+            >
+                {{ props.cookieBtnText }}
+            </template>
+        </VsWarning>
 
-		<VsWarning
-			class="vs-map__warning vs-map__warning--no-js"
-			data-test="vs-map__warning--no-js"
-		>
-			{{ noJsMessage }}
-		</VsWarning>
-	</div>
+        <VsWarning
+            class="vs-map__warning vs-map__warning--no-js"
+            data-test="vs-map__warning--no-js"
+        >
+            {{ noJsMessage }}
+        </VsWarning>
+    </div>
 </template>
 
 <script setup>
  
 /* eslint-disable vue/no-side-effects-in-computed-properties */
 import {
-	computed,
-	onBeforeMount,
-	onMounted,
-	provide,
-	ref,
+    computed,
+    onBeforeMount,
+    onMounted,
+    provide,
+    ref,
 } from 'vue';
 import {
-	importLibrary,
-	setOptions,
+    importLibrary,
+    setOptions,
 } from '@googlemaps/js-api-loader';
 import axios from 'axios';
 
 import {
-	VsAlert,
-	VsButton,
-	VsDetail,
-	VsWarning,
+    VsAlert,
+    VsButton,
+    VsDetail,
+    VsWarning,
 } from '@/components';
 
 import useGoogleMapStore from '@/stores/mainMap.store';
@@ -226,130 +226,130 @@ import useViewportController from './composables/useViewportController';
 const dataLayerHelper = dataLayerComposable();
 
 const props = defineProps({
-	/**
+    /**
      * Override for API Key, otherwise it'll be retrieved
      * from environment variables
      */
-	apiKey: {
-		type: String,
-		default: getEnvValue('GOOGLE_MAPS_API_KEY'),
-	},
-	/**
+    apiKey: {
+        type: String,
+        default: getEnvValue('GOOGLE_MAPS_API_KEY'),
+    },
+    /**
      * MapId set in the Google Maps Platform console
      * for this particular map (enables/disable GMP features)
      */
-	mapId: {
-		type: String,
-		default: 'vs-map',
-	},
-	/**
+    mapId: {
+        type: String,
+        default: 'vs-map',
+    },
+    /**
      * Rendering Type for the Map.
      * True = Vector Map, otherwise fallback to Raster
      * Vector Map enables support (with correct MapID) for advanced features like shading
      * Raster Maps are available for full compatibility across devices.
      */
-	mapTypeVector: {
-		type: Boolean,
-		default: false,
-	},
-	/**
+    mapTypeVector: {
+        type: Boolean,
+        default: false,
+    },
+    /**
      * Center point of map.
      * Defaults to what is considered the center of Scotland
      */
-	center: {
-		type: Object,
-		default: () => ({
-			lat: 56.490153,
-			lng: -4.10959,
-		}),
-	},
-	/**
+    center: {
+        type: Object,
+        default: () => ({
+            lat: 56.490153,
+            lng: -4.10959,
+        }),
+    },
+    /**
      * Zoom level.
      * ~12 Good for big cities, ~13 for smaller cities.
      * 6 for whole of Scotland
      */
-	zoom: {
-		type: Number,
-		default: 6,
-	},
-	/**
+    zoom: {
+        type: Number,
+        default: 6,
+    },
+    /**
      * Radius (in meters) to search from center point.
      * Default 1000m (1km)
      * Maximum Value 50000m (50km)
      */
-	radius: {
-		type: Number,
-		default: 1000,
-	},
-	/** Object of labels for the Maps UI */
-	labels: {
-		type: Object,
-		default: () => {},
-	},
-	/** 2 Letter language code to display Google Maps UI with */
-	languageCode: {
-		type: String,
-		default: 'en',
-		validator: (value) => value.match(
-			/(en|es|it|de|nl|fr)/,
-		),
-	},
-	/**
+    radius: {
+        type: Number,
+        default: 1000,
+    },
+    /** Object of labels for the Maps UI */
+    labels: {
+        type: Object,
+        default: () => {},
+    },
+    /** 2 Letter language code to display Google Maps UI with */
+    languageCode: {
+        type: String,
+        default: 'en',
+        validator: (value) => value.match(
+            /(en|es|it|de|nl|fr)/,
+        ),
+    },
+    /**
      * URL location of the categories JSON file (from static server)
      */
-	categoriesLocation: {
-		type: String,
-		default: '',
-	},
-	/** JSON object for the category labels (from CMS taxonomies) */
-	categoryLabels: {
-		type: Object,
-		default: () => {},
-	},
-	/**
+    categoriesLocation: {
+        type: String,
+        default: '',
+    },
+    /** JSON object for the category labels (from CMS taxonomies) */
+    categoryLabels: {
+        type: Object,
+        default: () => {},
+    },
+    /**
      * Suggested destinations for the user to choose from rather than
      * using the text or nearby searches. */
-	featuredPlaces: {
-		type: Object,
-		default: undefined,
-	},
-	/**
+    featuredPlaces: {
+        type: Object,
+        default: undefined,
+    },
+    /**
      * Message to display when JavaScript is disabled
      */
-	noJsMessage: {
-		type: String,
-		required: true,
-	},
-	/**
+    noJsMessage: {
+        type: String,
+        required: true,
+    },
+    /**
      * Message to display when Cookies disabled
      */
-	noCookiesMessage: {
-		type: String,
-		required: true,
-	},
-	/**
+    noCookiesMessage: {
+        type: String,
+        required: true,
+    },
+    /**
      * Text for Cookies button that will open Cookie Manager
      */
-	cookieBtnText: {
-		type: String,
-		required: true,
-	},
-	/**
+    cookieBtnText: {
+        type: String,
+        required: true,
+    },
+    /**
      * Message to display when there are no results available
      */
-	noResultsMessage: {
-		type: String,
-		required: true,
-	},
-	resetMapNoResultsMessage: {
-		type: String,
-		required: true,
-	},
-	/** Text to appear in alert above search results.  */
-	alertText: {
-		type: String,
-		default: undefined,
-	},
+    noResultsMessage: {
+        type: String,
+        required: true,
+    },
+    resetMapNoResultsMessage: {
+        type: String,
+        required: true,
+    },
+    /** Text to appear in alert above search results.  */
+    alertText: {
+        type: String,
+        default: undefined,
+    },
 });
 
 /**
@@ -361,14 +361,14 @@ const featuredSubcategories = featuredCategories ? featuredCategories.subCategor
 
 // Filter the places data to only show those place that match the selected destination type.
 const filteredPlaces = computed(() => (
-	props.featuredPlaces.filter((place) => (
-		place.properties.category.id === googleMapStore.selectedDestinationType
-	))
+    props.featuredPlaces.filter((place) => (
+        place.properties.category.id === googleMapStore.selectedDestinationType
+    ))
 ));
 
 provide('featuredPlaces', {
-	categories: featuredSubcategories,
-	places: filteredPlaces,
+    categories: featuredSubcategories,
+    places: filteredPlaces,
 });
 
 provide('onFeaturedLocationClick', handleFeaturedLocationClick);
@@ -416,18 +416,18 @@ const keywords = ref(undefined);
 const mapLoaded = ref(false);
 
 const subCategoryTypeMap = computed(() => {
-	const map = new Map();
+    const map = new Map();
 
-	const subCategories = categoryData[selectedTopLevelCategory.value].subCategory;
+    const subCategories = categoryData[selectedTopLevelCategory.value].subCategory;
 
-	Object.values(subCategories).forEach((subCat) => {
-		map.set(subCat.id, {
-			includedTypes: subCat.includedType,
-			excludedTypes: subCat.excludedType,
-		});
-	});
+    Object.values(subCategories).forEach((subCat) => {
+        map.set(subCat.id, {
+            includedTypes: subCat.includedType,
+            excludedTypes: subCat.excludedType,
+        });
+    });
 
-	return map;
+    return map;
 });
 
 const googleMapStore = useGoogleMapStore();
@@ -438,10 +438,10 @@ let showError;
 const errType = ref(undefined);
 
 const SCOTLAND_BOUNDS = {
-	north: 61.3,
-	south: 54.6,
-	west: -8.7,
-	east: 2.0,
+    north: 61.3,
+    south: 54.6,
+    west: -8.7,
+    east: 2.0,
 };
 
 let categoryData = {
@@ -451,972 +451,972 @@ const categoryLabelData = props.categoryLabels;
 let currentSearchId = 0;
 
 const sidebarLabels = {
-	headerLabel: props.labels.heading,
-	closeSidebarButtonLabel: props.labels.closeSidebarBtn,
-	searchBarAriaLabel: props.labels.searchBarAriaLabel,
-	inputPlaceholderLabel: props.labels.inputPlaceholder,
-	searchButtonLabel: props.labels.searchButton,
-	clearMapLabel: props.labels.clearMap,
-	resetLocationLabel: props.labels.resetLocation,
-	subFilterHeaderLabel: props.labels.subFilterHeader,
-	searchResultsLabel: props.labels.searchResults,
-	openSidebarButtonLabel: props.labels.openSidebarButton,
-	locationSelectLabel: props.labels.locationSelect,
+    headerLabel: props.labels.heading,
+    closeSidebarButtonLabel: props.labels.closeSidebarBtn,
+    searchBarAriaLabel: props.labels.searchBarAriaLabel,
+    inputPlaceholderLabel: props.labels.inputPlaceholder,
+    searchButtonLabel: props.labels.searchButton,
+    clearMapLabel: props.labels.clearMap,
+    resetLocationLabel: props.labels.resetLocation,
+    subFilterHeaderLabel: props.labels.subFilterHeader,
+    searchResultsLabel: props.labels.searchResults,
+    openSidebarButtonLabel: props.labels.openSidebarButton,
+    locationSelectLabel: props.labels.locationSelect,
 };
 
 const {
-	getViewport,
-	hasViewportChanged,
-	isProgrammaticMove,
-	isUserMove,
-	lastSearchViewport,
-	runProgrammaticMove,
-	showSearchAreaButton,
+    getViewport,
+    hasViewportChanged,
+    isProgrammaticMove,
+    isUserMove,
+    lastSearchViewport,
+    runProgrammaticMove,
+    showSearchAreaButton,
 } = useViewportController();
 
 onBeforeMount(() => {
-	const cookieCheck = cookieCheckerComposable();
-	cookieCheck.requiredCookies.value = cookieValues.google_maps;
+    const cookieCheck = cookieCheckerComposable();
+    cookieCheck.requiredCookies.value = cookieValues.google_maps;
 
-	showError = computed(() => {
-		if (
-			(!cookieCheck.cookiesAllowed.value && cookieCheck.cookiesLoaded.value === true)
-			|| !cookieCheck.cookiesLoaded.value
-		) {
-			errType.value = 'noCookie';
-			return true;
-		}
+    showError = computed(() => {
+        if (
+            (!cookieCheck.cookiesAllowed.value && cookieCheck.cookiesLoaded.value === true)
+            || !cookieCheck.cookiesLoaded.value
+        ) {
+            errType.value = 'noCookie';
+            return true;
+        }
 
-		return false;
-	});
+        return false;
+    });
 });
 
 onMounted(async() => {
-	/**
+    /**
      * Called on component created. Loads the json file located at this.categories which
      * contains all of the category and subcategory mapping information from the static
      * server.
      */
 
-	if (props.categoriesLocation) {
-		axios.get(props.categoriesLocation)
-			.then((response) => {
-				categoryData = response.data;
-				keywords.value = response.data.accommodation.keywords;
-			})
-			.catch(() => {});
-	}
+    if (props.categoriesLocation) {
+        axios.get(props.categoriesLocation)
+            .then((response) => {
+                categoryData = response.data;
+                keywords.value = response.data.accommodation.keywords;
+            })
+            .catch(() => {});
+    }
 
-	// Only load Google Maps libraries if no error
-	if (showError.value === false) {
-		setOptions({
-			key: props.apiKey,
-			v: 'quarterly',
-			libraries: ['maps', 'places', 'marker', 'core', 'geometry'],
-			region: 'GB',
-			language: props.languageCode,
-		});
+    // Only load Google Maps libraries if no error
+    if (showError.value === false) {
+        setOptions({
+            key: props.apiKey,
+            v: 'quarterly',
+            libraries: ['maps', 'places', 'marker', 'core', 'geometry'],
+            region: 'GB',
+            language: props.languageCode,
+        });
 
-		try {
-			await importLibrary('maps');
-			await importLibrary('places');
-			await importLibrary('marker');
-			await importLibrary('core');
-			await importLibrary('geometry');
-		} catch {
-			console.error('Google Maps Library load error');
-		}
-	};
+        try {
+            await importLibrary('maps');
+            await importLibrary('places');
+            await importLibrary('marker');
+            await importLibrary('core');
+            await importLibrary('geometry');
+        } catch {
+            console.error('Google Maps Library load error');
+        }
+    };
 
-	mapContainer = document.getElementById('vs-map');
-	// searchContainer = document.getElementById('search-container');
-	nearbySearch = document.getElementById('nearbySearch');
-	textSearch = document.getElementById('textSearch');
-	textSearchQuery = document.querySelector('gmp-place-text-search-request');
-	nearbySearchQuery = document.querySelector('gmp-place-nearby-search-request');
-	// detailContainer = document.getElementById('detail-container');
-	placeDetails = document.querySelector('gmp-place-details');
-	placeRequest = document.getElementById('placeRequest');
-	searchInput = document.getElementById('vs-map-search-input');
+    mapContainer = document.getElementById('vs-map');
+    // searchContainer = document.getElementById('search-container');
+    nearbySearch = document.getElementById('nearbySearch');
+    textSearch = document.getElementById('textSearch');
+    textSearchQuery = document.querySelector('gmp-place-text-search-request');
+    nearbySearchQuery = document.querySelector('gmp-place-nearby-search-request');
+    // detailContainer = document.getElementById('detail-container');
+    placeDetails = document.querySelector('gmp-place-details');
+    placeRequest = document.getElementById('placeRequest');
+    searchInput = document.getElementById('vs-map-search-input');
 
-	async function initMap() {
-		try {
-			const mapOptions = {
-				center: {
-					lat: props.center.lat,
-					lng: props.center.lng,
-				},
-				renderingType: props.mapTypeVector
+    async function initMap() {
+        try {
+            const mapOptions = {
+                center: {
+                    lat: props.center.lat,
+                    lng: props.center.lng,
+                },
+                renderingType: props.mapTypeVector
                      
-					? google.maps.RenderingType.VECTOR
+                    ? google.maps.RenderingType.VECTOR
                      
-					: google.maps.RenderingType.RASTER,
-				zoom: props.zoom,
-				isFractionalZoomEnabled: true,
-				mapId: props.mapId,
-				restriction: {
-					latLngBounds: SCOTLAND_BOUNDS,
-				},
-				zoomControl: true,
-				fullscreenControl: false,
-				mapTypeControl: false,
-				cameraControl: false,
-				streetViewControl: false,
-				gestureHandling: 'greedy',
-			};
+                    : google.maps.RenderingType.RASTER,
+                zoom: props.zoom,
+                isFractionalZoomEnabled: true,
+                mapId: props.mapId,
+                restriction: {
+                    latLngBounds: SCOTLAND_BOUNDS,
+                },
+                zoomControl: true,
+                fullscreenControl: false,
+                mapTypeControl: false,
+                cameraControl: false,
+                streetViewControl: false,
+                gestureHandling: 'greedy',
+            };
 
-			if (mapContainer) {
+            if (mapContainer) {
                  
-				gMap = new google.maps.Map(mapContainer, mapOptions);
-				runProgrammaticMove(() => gMap.fitBounds(SCOTLAND_BOUNDS));
-			} else {
-				throw new Error('Init error, mapContainer undefined');
-			}
-		} catch (error) {
-			console.error('Maps init error', error.message);
-		}
+                gMap = new google.maps.Map(mapContainer, mapOptions);
+                runProgrammaticMove(() => gMap.fitBounds(SCOTLAND_BOUNDS));
+            } else {
+                throw new Error('Init error, mapContainer undefined');
+            }
+        } catch (error) {
+            console.error('Maps init error', error.message);
+        }
 
-		// Registers the infoWindow that the placeDetail element lives
+        // Registers the infoWindow that the placeDetail element lives
          
-		infoWindow = new google.maps.InfoWindow();
+        infoWindow = new google.maps.InfoWindow();
 
-		infoWindow.addListener('closeclick', () => {
-			mapInteractionEvent('card_close', placeRequest.place);
-		});
+        infoWindow.addListener('closeclick', () => {
+            mapInteractionEvent('card_close', placeRequest.place);
+        });
 
-		shadeMapAreas();
+        shadeMapAreas();
 
-		// Listens to the zoom level
-		gMap.addListener('zoom_changed', () => {
-			currentZoom.value = gMap.getZoom();
-			if (currentZoom.value < CATEGORY_VISIBLE_ZOOM) {
-				shadeMapAreas();
-			} else {
-				shadeMapAreas(true);
-			}
+        // Listens to the zoom level
+        gMap.addListener('zoom_changed', () => {
+            currentZoom.value = gMap.getZoom();
+            if (currentZoom.value < CATEGORY_VISIBLE_ZOOM) {
+                shadeMapAreas();
+            } else {
+                shadeMapAreas(true);
+            }
 
-			isUserMove.value = !isProgrammaticMove.value;
+            isUserMove.value = !isProgrammaticMove.value;
 
-			// Show the "Search this area" button if the user has zoomed in passed level 7.
-			if (currentZoom.value > 7 && !isProgrammaticMove.value && isUserMove.value) {
-				showSearchAreaButton.value = true;
-			}
-		});
+            // Show the "Search this area" button if the user has zoomed in passed level 7.
+            if (currentZoom.value > 7 && !isProgrammaticMove.value && isUserMove.value) {
+                showSearchAreaButton.value = true;
+            }
+        });
 
-		gMap.addListener('dragstart', () => {
-			isUserMove.value = true;
-		});
+        gMap.addListener('dragstart', () => {
+            isUserMove.value = true;
+        });
 
-		// Only display the sidebar and destination markers when the map tiles have loaded.
-		gMap.addListener('tilesloaded', () => {
-			if (mapLoaded.value) return;
-			mapLoaded.value = true;
+        // Only display the sidebar and destination markers when the map tiles have loaded.
+        gMap.addListener('tilesloaded', () => {
+            if (mapLoaded.value) return;
+            mapLoaded.value = true;
 
-			addDestinationMarkers();
-		});
+            addDestinationMarkers();
+        });
 
-		gMap.addListener('idle', () => {
-			visibleMarkerCount = getVisibleMarkerCount();
+        gMap.addListener('idle', () => {
+            visibleMarkerCount = getVisibleMarkerCount();
 
-			// Show the "Search this area" button if the user has moved the map.
-			if (!isProgrammaticMove.value
-				&& isUserMove.value
-				&& hasViewportChanged(getViewport(gMap))) {
-				showSearchAreaButton.value = true;
-				googleMapStore.selectedDestinationType = '';
-				selectedDestination.value = '';
-				isUserMove.value = false;
-			}
-		});
+            // Show the "Search this area" button if the user has moved the map.
+            if (!isProgrammaticMove.value
+                && isUserMove.value
+                && hasViewportChanged(getViewport(gMap))) {
+                showSearchAreaButton.value = true;
+                googleMapStore.selectedDestinationType = '';
+                selectedDestination.value = '';
+                isUserMove.value = false;
+            }
+        });
 
-		// Handles click events in the Places UI Kit search panel for
-		// both nearby and text searches.
-		nearbySearch.addEventListener('gmp-select', ({ place }) => {
-			if (markers[place.id]) {
-				handlePlaceClick(place, markers[place.id]);
-			}
-		});
+        // Handles click events in the Places UI Kit search panel for
+        // both nearby and text searches.
+        nearbySearch.addEventListener('gmp-select', ({ place }) => {
+            if (markers[place.id]) {
+                handlePlaceClick(place, markers[place.id]);
+            }
+        });
 
-		textSearch.addEventListener('gmp-select', ({ place }) => {
-			if (markers[place.id]) {
-				handlePlaceClick(place, markers[place.id]);
-			}
-		});
-	};
+        textSearch.addEventListener('gmp-select', ({ place }) => {
+            if (markers[place.id]) {
+                handlePlaceClick(place, markers[place.id]);
+            }
+        });
+    };
 
-	googleMapStore.firstInteraction = false;
-	googleMapStore.searchesCount = 0;
-	googleMapStore.filterUsesCount = 0;
+    googleMapStore.firstInteraction = false;
+    googleMapStore.searchesCount = 0;
+    googleMapStore.filterUsesCount = 0;
 
-	// Init map if no error
-	if (showError.value === false) {
-		await initMap();
-	}
+    // Init map if no error
+    if (showError.value === false) {
+        await initMap();
+    }
 });
 
 function shadeMapAreas(zoomedIn) {
-	const shadedAreaStyleOptions = {
-		strokeColor: '#A3A3CC',
-		strokeOpacity: 1,
-		strokeWeight: 1,
-		fillColor: '#A3A3CC',
-		fillOpacity: 0.5,
-	};
+    const shadedAreaStyleOptions = {
+        strokeColor: '#A3A3CC',
+        strokeOpacity: 1,
+        strokeWeight: 1,
+        fillColor: '#A3A3CC',
+        fillOpacity: 0.5,
+    };
 
-	// Google Maps Place types for countries and Admin Level 1
-	// areas that could possibly be in the viewport.
-	const fullShadedPlaces = [
-		'ChIJ39UebIqp0EcRqI4tMyWV4fQ', // England
-		'ChIJdZmmmcoQXkgR2OO3bu8o5fc', // Northern Ireland
-		'ChIJ-ydAXOS6WUgRCPTbzjQSfM8', // Republic of Ireland
-		'ChIJ7Q8cbLY0ZEgRouilirxxux4', // Wales
-		'ChIJ1YEuRDCFY0gRDeDw8bxbAuo', // Isle of Man
-		'ChIJv-VNj0VoEkYRK9BkuJ07sKE', // Norway
-		'ChIJ-1-U7rYnS0YRzZLgw9BDh1I', // Denmark
-		'ChIJ8fA1bTmyXEYRYm-tjaLruCI', // Sweden
-		'ChIJ6_ktdpMVvEgRJBv3ZEgxsD8', // Faroe Islands
-		'ChIJa76xwh5ymkcRW-WRjmtd6HU', // Germany
-		'ChIJu-SH28MJxkcRnwq9_851obM', // Netherlands
-		'ChIJuwtkpGSZAEcR6lXMScpzdQk', // Poland
-		'ChIJl5fz7WR9wUcR8g_mObTy60c', // Belgium
-		'ChIJMVd4MymgVA0R99lHx5Y__Ws', // France
-		'ChIJ_ZqKe2cw6UYREPzyaM3PAAA', // Latvia
-		'ChIJE74zDxSU3UYRubpdpdNUCvM', // Lithuania
-		'ChIJ4wsuREWc40YRewI60MRYJR4', // Kaliningrad
-		'ChIJ_UuggpyUkkYRwyW0T7qf6kA', // Estonia
-		'ChIJ3fYyS9_KgUYREKh1PNZGAQA', // Finland
-		'ChIJQ2Dro1Ir0kgRmkXB5TQEim8', // Iceland
-		'ChIJFXfA47sNok4RGOIUAYOdzzQ', // Greenland
-		'ChIJI9HkgQm_ikYR8i7GR23fEbY', // Countryside, Åland
-		'ChIJUXXYvLMei0YR7zdFQUIM8bA', // Archipelago, Åland
-		'ChIJRyEhyrlFlUcR75LTAvZg22Q', // Luxembourg
-	];
+    // Google Maps Place types for countries and Admin Level 1
+    // areas that could possibly be in the viewport.
+    const fullShadedPlaces = [
+        'ChIJ39UebIqp0EcRqI4tMyWV4fQ', // England
+        'ChIJdZmmmcoQXkgR2OO3bu8o5fc', // Northern Ireland
+        'ChIJ-ydAXOS6WUgRCPTbzjQSfM8', // Republic of Ireland
+        'ChIJ7Q8cbLY0ZEgRouilirxxux4', // Wales
+        'ChIJ1YEuRDCFY0gRDeDw8bxbAuo', // Isle of Man
+        'ChIJv-VNj0VoEkYRK9BkuJ07sKE', // Norway
+        'ChIJ-1-U7rYnS0YRzZLgw9BDh1I', // Denmark
+        'ChIJ8fA1bTmyXEYRYm-tjaLruCI', // Sweden
+        'ChIJ6_ktdpMVvEgRJBv3ZEgxsD8', // Faroe Islands
+        'ChIJa76xwh5ymkcRW-WRjmtd6HU', // Germany
+        'ChIJu-SH28MJxkcRnwq9_851obM', // Netherlands
+        'ChIJuwtkpGSZAEcR6lXMScpzdQk', // Poland
+        'ChIJl5fz7WR9wUcR8g_mObTy60c', // Belgium
+        'ChIJMVd4MymgVA0R99lHx5Y__Ws', // France
+        'ChIJ_ZqKe2cw6UYREPzyaM3PAAA', // Latvia
+        'ChIJE74zDxSU3UYRubpdpdNUCvM', // Lithuania
+        'ChIJ4wsuREWc40YRewI60MRYJR4', // Kaliningrad
+        'ChIJ_UuggpyUkkYRwyW0T7qf6kA', // Estonia
+        'ChIJ3fYyS9_KgUYREKh1PNZGAQA', // Finland
+        'ChIJQ2Dro1Ir0kgRmkXB5TQEim8', // Iceland
+        'ChIJFXfA47sNok4RGOIUAYOdzzQ', // Greenland
+        'ChIJI9HkgQm_ikYR8i7GR23fEbY', // Countryside, Åland
+        'ChIJUXXYvLMei0YR7zdFQUIM8bA', // Archipelago, Åland
+        'ChIJRyEhyrlFlUcR75LTAvZg22Q', // Luxembourg
+    ];
 
-	const zoomedInShadedPlaces = [
-		'ChIJ39UebIqp0EcRqI4tMyWV4fQ', // England
-		'ChIJdZmmmcoQXkgR2OO3bu8o5fc', // Northern Ireland
-		'ChIJ-ydAXOS6WUgRCPTbzjQSfM8', // Republic of Ireland
-		'ChIJ6_ktdpMVvEgRJBv3ZEgxsD8', // Faroe Islands
-	];
+    const zoomedInShadedPlaces = [
+        'ChIJ39UebIqp0EcRqI4tMyWV4fQ', // England
+        'ChIJdZmmmcoQXkgR2OO3bu8o5fc', // Northern Ireland
+        'ChIJ-ydAXOS6WUgRCPTbzjQSfM8', // Republic of Ireland
+        'ChIJ6_ktdpMVvEgRJBv3ZEgxsD8', // Faroe Islands
+    ];
 
      
-	const countryLayer = gMap.getFeatureLayer(google.maps.FeatureType.COUNTRY);
+    const countryLayer = gMap.getFeatureLayer(google.maps.FeatureType.COUNTRY);
      
-	const adminArea1Layer = 
-		gMap.getFeatureLayer(google.maps.FeatureType.ADMINISTRATIVE_AREA_LEVEL_1);
+    const adminArea1Layer = 
+        gMap.getFeatureLayer(google.maps.FeatureType.ADMINISTRATIVE_AREA_LEVEL_1);
 
-	if (zoomedIn) {
-		countryLayer.style = null;
-		adminArea1Layer.style = null;
-
-         
-		countryLayer.style = (options) => {
-			if (zoomedInShadedPlaces.includes(options.feature.placeId)) {
-				return shadedAreaStyleOptions;
-			}
-		};
+    if (zoomedIn) {
+        countryLayer.style = null;
+        adminArea1Layer.style = null;
 
          
-		adminArea1Layer.style = (options) => {
-			if (zoomedInShadedPlaces.includes(options.feature.placeId)) {
-				return shadedAreaStyleOptions;
-			}
-		};
-	} else {
-		// These two functions iterate through shadedPlaces to find
-		// the corresponding place types on the map and shades them
-         
-		countryLayer.style = (options) => {
-			if (fullShadedPlaces.includes(options.feature.placeId)) {
-				return shadedAreaStyleOptions;
-			}
-		};
+        countryLayer.style = (options) => {
+            if (zoomedInShadedPlaces.includes(options.feature.placeId)) {
+                return shadedAreaStyleOptions;
+            }
+        };
 
          
-		adminArea1Layer.style = (options) => {
-			if (fullShadedPlaces.includes(options.feature.placeId)) {
-				return shadedAreaStyleOptions;
-			}
-		};
-	}
+        adminArea1Layer.style = (options) => {
+            if (zoomedInShadedPlaces.includes(options.feature.placeId)) {
+                return shadedAreaStyleOptions;
+            }
+        };
+    } else {
+        // These two functions iterate through shadedPlaces to find
+        // the corresponding place types on the map and shades them
+         
+        countryLayer.style = (options) => {
+            if (fullShadedPlaces.includes(options.feature.placeId)) {
+                return shadedAreaStyleOptions;
+            }
+        };
+
+         
+        adminArea1Layer.style = (options) => {
+            if (fullShadedPlaces.includes(options.feature.placeId)) {
+                return shadedAreaStyleOptions;
+            }
+        };
+    }
 }
 
 function selectCategory(categoryId, key) {
-	resetCategories();
+    resetCategories();
 
-	selectedTopLevelCategory.value = categoryId;
+    selectedTopLevelCategory.value = categoryId;
 
-	if (categoryData[categoryId].includedType) {
-		includedTopLevelTypes.value.add(categoryData[categoryId].includedType);
-	}
+    if (categoryData[categoryId].includedType) {
+        includedTopLevelTypes.value.add(categoryData[categoryId].includedType);
+    }
 
-	// Retrieves all the values in each subcategory and adds it to
-	// `includedTopLevelTypes` set, which should handle duplication.
-	Object.values(categoryData[categoryId].subCategory).forEach(
-		(subCategory) => includedTopLevelTypes.value.add(subCategory.includedType),
-	);
+    // Retrieves all the values in each subcategory and adds it to
+    // `includedTopLevelTypes` set, which should handle duplication.
+    Object.values(categoryData[categoryId].subCategory).forEach(
+        (subCategory) => includedTopLevelTypes.value.add(subCategory.includedType),
+    );
 
-	Object.values(categoryData[categoryId].subCategory).forEach(
-		(subCategory) => {
-			if (subCategory.excludedType) {
-				excludedTopLevelTypes.value.add(subCategory.excludedType);
-			}
-		},
-	);
+    Object.values(categoryData[categoryId].subCategory).forEach(
+        (subCategory) => {
+            if (subCategory.excludedType) {
+                excludedTopLevelTypes.value.add(subCategory.excludedType);
+            }
+        },
+    );
 
-	// Flattens multiple sets back down into one
-	includedTopLevelTypes.value = new Set(Array.from(includedTopLevelTypes.value).flat());
-	excludedTopLevelTypes.value = new Set(Array.from(excludedTopLevelTypes.value).flat());
+    // Flattens multiple sets back down into one
+    includedTopLevelTypes.value = new Set(Array.from(includedTopLevelTypes.value).flat());
+    excludedTopLevelTypes.value = new Set(Array.from(excludedTopLevelTypes.value).flat());
 
-	// Checks if there are conflicting types and removes from excluded if already in included
-	includedTopLevelTypes.value.forEach((type) => {
-		if (excludedTopLevelTypes.value.has(type)) {
-			excludedTopLevelTypes.value.delete(type);
-		}
-	});
+    // Checks if there are conflicting types and removes from excluded if already in included
+    includedTopLevelTypes.value.forEach((type) => {
+        if (excludedTopLevelTypes.value.has(type)) {
+            excludedTopLevelTypes.value.delete(type);
+        }
+    });
 
-	selectedCategory.value = categoryData[categoryId];
-	categoryKey.value = key;
+    selectedCategory.value = categoryData[categoryId];
+    categoryKey.value = key;
 
-	searchByCategory({
-		includedTypes: Array.from(includedTopLevelTypes.value),
-		excludedTypes: Array.from(excludedTopLevelTypes.value),
-	});
+    searchByCategory({
+        includedTypes: Array.from(includedTopLevelTypes.value),
+        excludedTypes: Array.from(excludedTopLevelTypes.value),
+    });
 
-	// Get the button label.
-	const lookup = Object.fromEntries(
-		categoryLabelData.map((category) => [category.id, category.label]),
-	);
+    // Get the button label.
+    const lookup = Object.fromEntries(
+        categoryLabelData.map((category) => [category.id, category.label]),
+    );
 
-	query.value = `${lookup[categoryId]} ${selectedDestination.value}`;
-	searchInput.value = query.value;
+    query.value = `${lookup[categoryId]} ${selectedDestination.value}`;
+    searchInput.value = query.value;
 
-	googleMapStore.showCategories = true;
-	showSearchAreaButton.value = false;
+    googleMapStore.showCategories = true;
+    showSearchAreaButton.value = false;
 }
 
 function searchSubCategoriesForLabel(selectedSubcategory, subCategoryId) {
-	const selCat = ref([]);
-	const selSubCatLabel = ref();
+    const selCat = ref([]);
+    const selSubCatLabel = ref();
 
-	selectedSubcategory.forEach(() => {
-		// Iterate through the category label data to find corresponding category
-		categoryLabelData.forEach((category) => {
-			if (category.id === selectedTopLevelCategory.value) {
-				selCat.value = category;
-			}
-		});
+    selectedSubcategory.forEach(() => {
+        // Iterate through the category label data to find corresponding category
+        categoryLabelData.forEach((category) => {
+            if (category.id === selectedTopLevelCategory.value) {
+                selCat.value = category;
+            }
+        });
 
-		// Iterate through the subCategories to find the correct one,
-		// and then again to find the label
-		Object.values(selCat.value).forEach((subCat) => {
+        // Iterate through the subCategories to find the correct one,
+        // and then again to find the label
+        Object.values(selCat.value).forEach((subCat) => {
              
-			Object.values(subCat).forEach((subCat) => {
-				if (subCategoryId === subCat.id) {
-					selSubCatLabel.value = subCat.label;
-				}
-			});
-		});
-	});
+            Object.values(subCat).forEach((subCat) => {
+                if (subCategoryId === subCat.id) {
+                    selSubCatLabel.value = subCat.label;
+                }
+            });
+        });
+    });
 
-	return selSubCatLabel;
+    return selSubCatLabel;
 }
 
 function checkForConflictingPlaceTypes() {
-	includedSubTypes.value.forEach((subCategory) => {
-		if (excludedSubTypes.value.has(subCategory)) {
-			excludedSubTypes.value.delete(subCategory);
-		}
-	});
+    includedSubTypes.value.forEach((subCategory) => {
+        if (excludedSubTypes.value.has(subCategory)) {
+            excludedSubTypes.value.delete(subCategory);
+        }
+    });
 };
 
 function updateSubCategoryTypes(
-	subCategoryId,
-	{
-		includeTypes = false,
-		excludeTypes = false,
-		removeIncludedTypes = false,
-		removeExcludedTypes = false,
-	} = {
-	},
+    subCategoryId,
+    {
+        includeTypes = false,
+        excludeTypes = false,
+        removeIncludedTypes = false,
+        removeExcludedTypes = false,
+    } = {
+    },
 ) {
-	const types = subCategoryTypeMap.value.get(subCategoryId);
+    const types = subCategoryTypeMap.value.get(subCategoryId);
 
-	if (includeTypes) {
-		types.includedTypes.forEach((includedType) => {
-			if (includeTypes) includedSubTypes.value.add(includedType);
-			if (removeIncludedTypes) includedSubTypes.value.delete(includedType);
-		});
-	}
+    if (includeTypes) {
+        types.includedTypes.forEach((includedType) => {
+            if (includeTypes) includedSubTypes.value.add(includedType);
+            if (removeIncludedTypes) includedSubTypes.value.delete(includedType);
+        });
+    }
 
-	if (excludeTypes || removeExcludedTypes) {
-		types.excludedTypes?.forEach((excludedType) => {
-			if (excludeTypes) excludedSubTypes.value.add(excludedType);
-			if (removeExcludedTypes) excludedSubTypes.value.delete(excludedType);
-		});
-	}
+    if (excludeTypes || removeExcludedTypes) {
+        types.excludedTypes?.forEach((excludedType) => {
+            if (excludeTypes) excludedSubTypes.value.add(excludedType);
+            if (removeExcludedTypes) excludedSubTypes.value.delete(excludedType);
+        });
+    }
 }
 
 function searchBySubCategory(subCategoryId, key) {
-	subCategoryKey.value = key;
-	selectedDestination.value = '';
+    subCategoryKey.value = key;
+    selectedDestination.value = '';
 
-	if (subCategoryId === 'self-catering' && !selectedSubCategories.value.has('self-catering')) {
-		selfCateringClicked.value = true;
-		resetTextQuery();
-		selectedSubCategories.value = new Set();
-		selectedSubCategories.value.add(subCategoryId);
-		const label = searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value;
-		query.value = label;
-		// resetCategories();
-		searchInput.value = `${query.value} ${selectedDestination.value}`;
-		searchByText();
-		searchInput.value = label;
-	} else if (selectedSubCategories.value.has(subCategoryId)) {
-		// Delete if already in selectedSubCategories
-		selectedSubCategories.value.delete('self-catering');
-		selectedSubCategories.value.delete(subCategoryId);
+    if (subCategoryId === 'self-catering' && !selectedSubCategories.value.has('self-catering')) {
+        selfCateringClicked.value = true;
+        resetTextQuery();
+        selectedSubCategories.value = new Set();
+        selectedSubCategories.value.add(subCategoryId);
+        const label = searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value;
+        query.value = label;
+        // resetCategories();
+        searchInput.value = `${query.value} ${selectedDestination.value}`;
+        searchByText();
+        searchInput.value = label;
+    } else if (selectedSubCategories.value.has(subCategoryId)) {
+        // Delete if already in selectedSubCategories
+        selectedSubCategories.value.delete('self-catering');
+        selectedSubCategories.value.delete(subCategoryId);
 
-		// Reset subcategories
-		includedSubTypes.value = new Set();
-		excludedSubTypes.value = new Set();
+        // Reset subcategories
+        includedSubTypes.value = new Set();
+        excludedSubTypes.value = new Set();
 
-		// Add in all remaining types again, to account for any
-		// conflicting duplicate types that had been removed
-		selectedSubCategories.value.forEach((subCatId) => {
-			updateSubCategoryTypes(subCatId, {
-				includeTypes: true,
-				excludeTypes: true,
-			});
-		});
+        // Add in all remaining types again, to account for any
+        // conflicting duplicate types that had been removed
+        selectedSubCategories.value.forEach((subCatId) => {
+            updateSubCategoryTypes(subCatId, {
+                includeTypes: true,
+                excludeTypes: true,
+            });
+        });
 
-		checkForConflictingPlaceTypes();
+        checkForConflictingPlaceTypes();
 
-		// Remove subCategory labels to the queryString to show on UI
-		queryStr.value.delete(
-			searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value,
-		);
+        // Remove subCategory labels to the queryString to show on UI
+        queryStr.value.delete(
+            searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value,
+        );
 
-		if (selectedSubCategories.value.size === 0) {
-			// If the last subCategory is removed,
-			// reset queryString and revert to a top-level search
-			queryStr.value = new Set();
-			selectCategory(selectedTopLevelCategory.value, categoryKey.value);
-		} else {
-			searchByCategory({
-				includedTypes: Array.from(includedSubTypes.value).flat(),
-				excludedTypes: Array.from(excludedSubTypes.value).flat(),
-			});
-			query.value = Array.from(queryStr.value).join(', ');
-			searchInput.value = query.value;
-		}
-	} else {
-		selectedSubCategories.value.delete('self-catering');
-		// Add if not already in selectedSubCategories
-		selectedSubCategories.value.add(subCategoryId);
-		// Iterate through each subcategory to find the selected subcategory
-		updateSubCategoryTypes(subCategoryId, {
-			includeTypes: true,
-			excludeTypes: true,
-		});
+        if (selectedSubCategories.value.size === 0) {
+            // If the last subCategory is removed,
+            // reset queryString and revert to a top-level search
+            queryStr.value = new Set();
+            selectCategory(selectedTopLevelCategory.value, categoryKey.value);
+        } else {
+            searchByCategory({
+                includedTypes: Array.from(includedSubTypes.value).flat(),
+                excludedTypes: Array.from(excludedSubTypes.value).flat(),
+            });
+            query.value = Array.from(queryStr.value).join(', ');
+            searchInput.value = query.value;
+        }
+    } else {
+        selectedSubCategories.value.delete('self-catering');
+        // Add if not already in selectedSubCategories
+        selectedSubCategories.value.add(subCategoryId);
+        // Iterate through each subcategory to find the selected subcategory
+        updateSubCategoryTypes(subCategoryId, {
+            includeTypes: true,
+            excludeTypes: true,
+        });
 
-		checkForConflictingPlaceTypes();
+        checkForConflictingPlaceTypes();
 
-		searchByCategory({
-			includedTypes: Array.from(includedSubTypes.value).flat(),
-			excludedTypes: Array.from(excludedSubTypes.value).flat(),
-		});
+        searchByCategory({
+            includedTypes: Array.from(includedSubTypes.value).flat(),
+            excludedTypes: Array.from(excludedSubTypes.value).flat(),
+        });
 
-		// Add subCategory labels to the queryString to show on UI
-		queryStr.value.add(
-			searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value,
-		);
+        // Add subCategory labels to the queryString to show on UI
+        queryStr.value.add(
+            searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value,
+        );
 
-		// Add to the query value.
-		query.value = `${Array.from(queryStr.value).join(', ')} ${selectedDestination.value}`;
-		searchInput.value = query.value;
+        // Add to the query value.
+        query.value = `${Array.from(queryStr.value).join(', ')} ${selectedDestination.value}`;
+        searchInput.value = query.value;
 
-		googleMapStore.showCategories = true;
-	}
+        googleMapStore.showCategories = true;
+    }
 }
 
 async function searchByCategory({
-	includedTypes = [],
-	excludedTypes = [],
+    includedTypes = [],
+    excludedTypes = [],
 } = {
 }) {
-	resetMap();
-	resetTextQuery();
+    resetMap();
+    resetTextQuery();
 
-	currentSearchId += 1;
+    currentSearchId += 1;
 
-	const searchId = currentSearchId;
+    const searchId = currentSearchId;
 
-	googleMapStore.filterUsesCount += 1;
+    googleMapStore.filterUsesCount += 1;
 
-	currentSearch.value = 'nearby';
+    currentSearch.value = 'nearby';
 
-	const bounds = gMap.getBounds();
-	const ne = bounds.getNorthEast();
-	const sw = bounds.getSouthWest();
+    const bounds = gMap.getBounds();
+    const ne = bounds.getNorthEast();
+    const sw = bounds.getSouthWest();
      
-	const diameter = google.maps.geometry.spherical.computeDistanceBetween(ne, sw);
+    const diameter = google.maps.geometry.spherical.computeDistanceBetween(ne, sw);
 
-	// Set search distance to 50km for region and "Shetland" and "Orkney" islands
-	// searches and 25km for all other searches.
-	let cappedDistance = 25000;
+    // Set search distance to 50km for region and "Shetland" and "Orkney" islands
+    // searches and 25km for all other searches.
+    let cappedDistance = 25000;
 
-	if (googleMapStore.selectedDestinationType === 'regions'
-		|| (googleMapStore.selectedDestinationType === 'islands' && selectedDestination.value === 'Shetland')
-		|| (googleMapStore.selectedDestinationType === 'islands' && selectedDestination.value === 'Orkney')
-	) {
-		cappedDistance = 50000;
-	}
+    if (googleMapStore.selectedDestinationType === 'regions'
+        || (googleMapStore.selectedDestinationType === 'islands' && selectedDestination.value === 'Shetland')
+        || (googleMapStore.selectedDestinationType === 'islands' && selectedDestination.value === 'Orkney')
+    ) {
+        cappedDistance = 50000;
+    }
 
-	// const cappedDistance = googleMapStore.selectedDestinationType === 'regions' ? 50000 : 25000;
-	const cappedRadius = Math.min((diameter / 2), cappedDistance);
+    // const cappedDistance = googleMapStore.selectedDestinationType === 'regions' ? 50000 : 25000;
+    const cappedRadius = Math.min((diameter / 2), cappedDistance);
 
-	nearbySearchQuery.includedTypes = includedTypes;
-	nearbySearchQuery.excludedTypes = excludedTypes ?? [];
-	nearbySearchQuery.maxResultCount = NUMBER_OF_RESULTS;
-	nearbySearchQuery.locationRestriction = {
-		center: gMap.getCenter(),
-		radius: cappedRadius,
-	};
+    nearbySearchQuery.includedTypes = includedTypes;
+    nearbySearchQuery.excludedTypes = excludedTypes ?? [];
+    nearbySearchQuery.maxResultCount = NUMBER_OF_RESULTS;
+    nearbySearchQuery.locationRestriction = {
+        center: gMap.getCenter(),
+        radius: cappedRadius,
+    };
 
-	nearbySearch.style.display = 'block';
-	nearbySearch.addEventListener('gmp-load', () => {
-		if (searchId !== currentSearchId) return;
+    nearbySearch.style.display = 'block';
+    nearbySearch.addEventListener('gmp-load', () => {
+        if (searchId !== currentSearchId) return;
 
-		addMarkers(searchId);
+        addMarkers(searchId);
 
-		let filterType = 'main';
-		let filterSelection = selectedTopLevelCategory.value;
+        let filterType = 'main';
+        let filterSelection = selectedTopLevelCategory.value;
 
-		if (selectedSubCategories.value.size) {
-			filterType = 'sub';
-			filterSelection = Array.from(selectedSubCategories.value).join(', ');
-		}
+        if (selectedSubCategories.value.size) {
+            filterType = 'sub';
+            filterSelection = Array.from(selectedSubCategories.value).join(', ');
+        }
 
-		dataLayerHelper.createDataLayerObject('googleMapFilterEvent', {
-			filter_type: filterType,
-			search_map_location: gMap.getCenter().toString(),
-			filter_selection: filterSelection,
-			results_count: nearbySearch.places.length,
-			filter_usage_index: googleMapStore.filterUsesCount,
-		});
+        dataLayerHelper.createDataLayerObject('googleMapFilterEvent', {
+            filter_type: filterType,
+            search_map_location: gMap.getCenter().toString(),
+            filter_selection: filterSelection,
+            results_count: nearbySearch.places.length,
+            filter_usage_index: googleMapStore.filterUsesCount,
+        });
 
-		checkFirstInteraction('map_filter');
-	}, {
-		once: true,
-	});
+        checkFirstInteraction('map_filter');
+    }, {
+        once: true,
+    });
 }
 
 async function searchByText(useRestriction = false) {
-	resetMap();
-	resetCategories();
+    resetMap();
+    resetCategories();
 
-	currentSearchId += 1;
+    currentSearchId += 1;
 
-	const searchId = currentSearchId;
+    const searchId = currentSearchId;
 
-	googleMapStore.searchesCount += 1;
+    googleMapStore.searchesCount += 1;
 
-	currentSearch.value = 'text';
+    currentSearch.value = 'text';
 
-	query.value = searchInput.value.trim();
-	// Don't search if no query
-	if (!query.value) return;
+    query.value = searchInput.value.trim();
+    // Don't search if no query
+    if (!query.value) return;
 
-	/**
+    /**
      * Search using locationRestriction when "Self catering" sub category has
      * been selected. Search using locationBias for other text searches.
      */
-	if (selfCateringClicked.value || useRestriction) {
-		textSearchQuery.locationBias = null;
-		textSearchQuery.locationRestriction = gMap.getBounds();
-	} else {
-		textSearchQuery.locationRestriction = null;
-		textSearchQuery.locationBias = gMap.getCenter();
-	}
+    if (selfCateringClicked.value || useRestriction) {
+        textSearchQuery.locationBias = null;
+        textSearchQuery.locationRestriction = gMap.getBounds();
+    } else {
+        textSearchQuery.locationRestriction = null;
+        textSearchQuery.locationBias = gMap.getCenter();
+    }
 
-	// Make sure the "accommodation" and "self catering" categories are selected
-	// when doing a self catering search.
-	if (selfCateringClicked.value) {
-		selectedTopLevelCategory.value = 'accommodation';
-		selectedSubCategories.value.add('self-catering');
-	}
+    // Make sure the "accommodation" and "self catering" categories are selected
+    // when doing a self catering search.
+    if (selfCateringClicked.value) {
+        selectedTopLevelCategory.value = 'accommodation';
+        selectedSubCategories.value.add('self-catering');
+    }
 
-	// Add the `includedType` of "lodging" when the query includes a keyword.
-	textSearchQuery.includedType = (keywords.value.some(
-		(term) => query.value.toLowerCase().includes(term),
-	))
-		? 'lodging'
-		: null;
+    // Add the `includedType` of "lodging" when the query includes a keyword.
+    textSearchQuery.includedType = (keywords.value.some(
+        (term) => query.value.toLowerCase().includes(term),
+    ))
+        ? 'lodging'
+        : null;
 
-	/**
+    /**
      * Add 'in Scotland' to the end of the text query to help contain the
      * results to Scotland.
      */
-	textSearchQuery.textQuery = `${query.value} in Scotland`;
+    textSearchQuery.textQuery = `${query.value} in Scotland`;
 
-	textSearchQuery.maxResultCount = NUMBER_OF_RESULTS;
+    textSearchQuery.maxResultCount = NUMBER_OF_RESULTS;
 
-	textSearch.style.display = 'block';
+    textSearch.style.display = 'block';
 
-	textSearch.addEventListener('gmp-load', () => {
-		if (searchId !== currentSearchId) return;
+    textSearch.addEventListener('gmp-load', () => {
+        if (searchId !== currentSearchId) return;
 
-		addMarkers(searchId);
-		selfCateringClicked.value = false;
+        addMarkers(searchId);
+        selfCateringClicked.value = false;
 
-		dataLayerHelper.createDataLayerObject('googleMapSearchEvent', {
-			search_query: query.value,
-			search_map_location: gMap.getCenter().toString(),
-			search_results_count: textSearch.places.length,
-			search_usage_index: googleMapStore.searchesCount,
-		});
+        dataLayerHelper.createDataLayerObject('googleMapSearchEvent', {
+            search_query: query.value,
+            search_map_location: gMap.getCenter().toString(),
+            search_results_count: textSearch.places.length,
+            search_usage_index: googleMapStore.searchesCount,
+        });
 
-		checkFirstInteraction('map_search');
-	}, {
-		once: true,
-	});
+        checkFirstInteraction('map_search');
+    }, {
+        once: true,
+    });
 
-	googleMapStore.showDestinations = false;
-	googleMapStore.showCategories = true;
+    googleMapStore.showDestinations = false;
+    googleMapStore.showCategories = true;
 }
 
 async function addMarkers(searchId) {
-	const { AdvancedMarkerElement } = await importLibrary('marker');
-	const { LatLngBounds } = await importLibrary('core');
+    const { AdvancedMarkerElement } = await importLibrary('marker');
+    const { LatLngBounds } = await importLibrary('core');
 
-	if (searchId !== currentSearchId) return;
+    if (searchId !== currentSearchId) return;
 
-	const searchRequest = ref();
+    const searchRequest = ref();
 
-	if (currentSearch.value === 'nearby') {
-		searchRequest.value = nearbySearch;
-	} else if (currentSearch.value === 'text') {
-		searchRequest.value = textSearch;
-	} else {
-		console.error('Unrecognised Search type');
-	}
+    if (currentSearch.value === 'nearby') {
+        searchRequest.value = nearbySearch;
+    } else if (currentSearch.value === 'text') {
+        searchRequest.value = textSearch;
+    } else {
+        console.error('Unrecognised Search type');
+    }
 
-	if (searchRequest.value.places.length === 0) {
-		noResults.value = true;
-		searchRequest.value.style.display = 'none';
-	} else {
-		noResults.value = false;
-		searchRequest.value.style.display = 'block';
-	}
+    if (searchRequest.value.places.length === 0) {
+        noResults.value = true;
+        searchRequest.value.style.display = 'none';
+    } else {
+        noResults.value = false;
+        searchRequest.value.style.display = 'block';
+    }
 
-	const bounds = new LatLngBounds();
+    const bounds = new LatLngBounds();
 
-	if (searchRequest.value.places) {
-		searchRequest.value.places.forEach((place) => {
-			// Custom styling for marker
-			const markerIcon = document.createElement('div');
-			markerIcon.classList.add('vs-map-marker');
+    if (searchRequest.value.places) {
+        searchRequest.value.places.forEach((place) => {
+            // Custom styling for marker
+            const markerIcon = document.createElement('div');
+            markerIcon.classList.add('vs-map-marker');
 
-			const icon = document.createElement('i');
-			icon.classList.add('fa-solid', 'fa-location-dot');
+            const icon = document.createElement('i');
+            icon.classList.add('fa-solid', 'fa-location-dot');
 
-			markerIcon.appendChild(icon);
+            markerIcon.appendChild(icon);
 
-			// Add `content: markerIcon` to enable custom markers
-			const marker = new AdvancedMarkerElement({
-				map: gMap,
-				position: place.location,
-				content: markerIcon,
-				title: 'Map pin',
-			});
+            // Add `content: markerIcon` to enable custom markers
+            const marker = new AdvancedMarkerElement({
+                map: gMap,
+                position: place.location,
+                content: markerIcon,
+                title: 'Map pin',
+            });
 
-			marker.addEventListener('gmp-placeclick', () => {
-				handlePlaceClick(place, marker);
-			});
+            marker.addEventListener('gmp-placeclick', () => {
+                handlePlaceClick(place, marker);
+            });
 
-			marker.addListener('click', () => {
-				handlePlaceClick(place, marker);
-			});
+            marker.addListener('click', () => {
+                handlePlaceClick(place, marker);
+            });
 
-			marker.metadata = {
-				id: place.id,
-			};
-			markers[place.id] = marker;
-			bounds.extend(place.location);
-			if (searchRequest.value.places.length === 1) {
-				runProgrammaticMove(() => gMap.setCenter(
-					{
-						lat: place.location.lat(),
-						lng: place.location.lng(),
-					},
-				));
+            marker.metadata = {
+                id: place.id,
+            };
+            markers[place.id] = marker;
+            bounds.extend(place.location);
+            if (searchRequest.value.places.length === 1) {
+                runProgrammaticMove(() => gMap.setCenter(
+                    {
+                        lat: place.location.lat(),
+                        lng: place.location.lng(),
+                    },
+                ));
 
-				runProgrammaticMove(() => gMap.setZoom(14));
-				runProgrammaticMove(() => gMap.fitBounds(place.viewport));
-			} else {
-				runProgrammaticMove(() => gMap.setCenter(bounds.getCenter()));
-				runProgrammaticMove(() => gMap.fitBounds(bounds));
-			}
-		});
+                runProgrammaticMove(() => gMap.setZoom(14));
+                runProgrammaticMove(() => gMap.fitBounds(place.viewport));
+            } else {
+                runProgrammaticMove(() => gMap.setCenter(bounds.getCenter()));
+                runProgrammaticMove(() => gMap.fitBounds(bounds));
+            }
+        });
 
-		lastSearchViewport.value = getViewport(gMap);
-	}
+        lastSearchViewport.value = getViewport(gMap);
+    }
 }
 
 async function addDestinationMarkers() {
-	const { AdvancedMarkerElement } = await importLibrary('marker');
+    const { AdvancedMarkerElement } = await importLibrary('marker');
 
-	clearExistingMarkers();
+    clearExistingMarkers();
 
-	filteredPlaces.value.forEach((place) => {
-		const markerIcon = document.createElement('div');
-		markerIcon.classList.add('vs-map-marker');
+    filteredPlaces.value.forEach((place) => {
+        const markerIcon = document.createElement('div');
+        markerIcon.classList.add('vs-map-marker');
 
-		const icon = document.createElement('i');
-		icon.classList.add('fa-solid', 'fa-location-dot');
+        const icon = document.createElement('i');
+        icon.classList.add('fa-solid', 'fa-location-dot');
 
-		markerIcon.appendChild(icon);
+        markerIcon.appendChild(icon);
 
-		// Add `content: markerIcon` to enable custom markers
-		const marker = new AdvancedMarkerElement({
-			map: gMap,
-			position: {
-				lat: place.properties.locationCentre.latitude,
-				lng: place.properties.locationCentre.longitude,
-			},
-			content: markerIcon,
-			title: place.properties.title,
-		});
+        // Add `content: markerIcon` to enable custom markers
+        const marker = new AdvancedMarkerElement({
+            map: gMap,
+            position: {
+                lat: place.properties.locationCentre.latitude,
+                lng: place.properties.locationCentre.longitude,
+            },
+            content: markerIcon,
+            title: place.properties.title,
+        });
 
-		// Zoom into the destination and perform "Things to do" search.
-		marker.addListener('gmp-click', () => handleFeaturedLocationClick(place));
+        // Zoom into the destination and perform "Things to do" search.
+        marker.addListener('gmp-click', () => handleFeaturedLocationClick(place));
 
-		markers[place.properties.title] = marker;
-	});
+        markers[place.properties.title] = marker;
+    });
 }
 
 function resetMap(hardReset, resetLocation) {
-	googleMapStore.showCategories = false;
+    googleMapStore.showCategories = false;
 
-	clearExistingMarkers();
-	currentSearch.value = '';
+    clearExistingMarkers();
+    currentSearch.value = '';
 
-	// Reset nearby search.
-	nearbySearchQuery.includedTypes = null;
-	nearbySearchQuery.excludedTypes = null;
-	nearbySearchQuery.locationRestriction = null;
-	nearbySearch.style.display = 'none';
+    // Reset nearby search.
+    nearbySearchQuery.includedTypes = null;
+    nearbySearchQuery.excludedTypes = null;
+    nearbySearchQuery.locationRestriction = null;
+    nearbySearch.style.display = 'none';
 
-	// Reset text search.
-	textSearchQuery.includedType = null;
-	textSearchQuery.locationRestriction = null;
-	textSearchQuery.locationBias = null;
-	textSearchQuery.textQuery = null;
-	textSearch.style.display = 'none';
+    // Reset text search.
+    textSearchQuery.includedType = null;
+    textSearchQuery.locationRestriction = null;
+    textSearchQuery.locationBias = null;
+    textSearchQuery.textQuery = null;
+    textSearch.style.display = 'none';
 
-	categoriesVisible.value = false;
+    categoriesVisible.value = false;
 
-	if (infoWindow && infoWindow.close) {
-		infoWindow.close();
-	}
-	noResults.value = undefined;
-	if (hardReset) {
-		// A `hard reset` will remove all text and categories
-		resetTextQuery();
-		resetCategories();
-		mapInteractionEvent('clear_all');
-		addDestinationMarkers();
-		googleMapStore.showDestinations = true;
-	}
-	if (resetLocation) {
-		runProgrammaticMove(() => gMap.setCenter(props.center));
-		runProgrammaticMove(() => gMap.setZoom(props.zoom));
-		runProgrammaticMove(() => gMap.fitBounds(SCOTLAND_BOUNDS));
-		mapInteractionEvent('reset_map');
-	}
+    if (infoWindow && infoWindow.close) {
+        infoWindow.close();
+    }
+    noResults.value = undefined;
+    if (hardReset) {
+        // A `hard reset` will remove all text and categories
+        resetTextQuery();
+        resetCategories();
+        mapInteractionEvent('clear_all');
+        addDestinationMarkers();
+        googleMapStore.showDestinations = true;
+    }
+    if (resetLocation) {
+        runProgrammaticMove(() => gMap.setCenter(props.center));
+        runProgrammaticMove(() => gMap.setZoom(props.zoom));
+        runProgrammaticMove(() => gMap.fitBounds(SCOTLAND_BOUNDS));
+        mapInteractionEvent('reset_map');
+    }
 }
 
 function resetTextQuery() {
-	query.value = null;
-	searchInput.value = '';
+    query.value = null;
+    searchInput.value = '';
 }
 
 function resetCategories() {
-	selectedTopLevelCategory.value = undefined;
-	selectedSubCategories.value = new Set();
-	includedTopLevelTypes.value = new Set();
-	excludedTopLevelTypes.value = new Set();
-	includedSubTypes.value = new Set();
-	excludedSubTypes.value = new Set();
-	queryStr.value = new Set();
-	categoryKey.value = undefined;
-	subCategoryKey.value = undefined;
+    selectedTopLevelCategory.value = undefined;
+    selectedSubCategories.value = new Set();
+    includedTopLevelTypes.value = new Set();
+    excludedTopLevelTypes.value = new Set();
+    includedSubTypes.value = new Set();
+    excludedSubTypes.value = new Set();
+    queryStr.value = new Set();
+    categoryKey.value = undefined;
+    subCategoryKey.value = undefined;
 }
 
 function clearExistingMarkers() {
      
-	for (const marker in markers) {
-		if (markers[marker]) {
-			markers[marker].map = null;
-		}
-	}
-	markers = {
-	};
+    for (const marker in markers) {
+        if (markers[marker]) {
+            markers[marker].map = null;
+        }
+    }
+    markers = {
+    };
 }
 
 function handlePlaceClick(place) {
-	if (infoWindow.isOpen) {
-		infoWindow.close();
-		mapInteractionEvent('card_close', placeRequest.place);
-	}
+    if (infoWindow.isOpen) {
+        infoWindow.close();
+        mapInteractionEvent('card_close', placeRequest.place);
+    }
 
-	placeRequest.place = place;
+    placeRequest.place = place;
 
-	// Medium breakpoint (this can't be done in CSS unfortunately)
-	const isMobile = window.innerWidth <= 768;
+    // Medium breakpoint (this can't be done in CSS unfortunately)
+    const isMobile = window.innerWidth <= 768;
 
-	if (!isMobile) {
-		placeDetails.style.width = '20em';
-		placeDetails.style.height = '32em';
-	} else {
-		placeDetails.style.width = '85vw';
-		placeDetails.style.height = '32em';
-		googleMapStore.sidebarOpen = false;
-	}
+    if (!isMobile) {
+        placeDetails.style.width = '20em';
+        placeDetails.style.height = '32em';
+    } else {
+        placeDetails.style.width = '85vw';
+        placeDetails.style.height = '32em';
+        googleMapStore.sidebarOpen = false;
+    }
 
-	placeDetails.style.display = 'block';
-	placeDetails.style.overflowY = 'auto';
-	placeDetails.style.overflowX = 'hidden';
-	placeDetails.style.boxSizing = 'border-box';
-	placeDetails.style.maxHeight = '32em';
+    placeDetails.style.display = 'block';
+    placeDetails.style.overflowY = 'auto';
+    placeDetails.style.overflowX = 'hidden';
+    placeDetails.style.boxSizing = 'border-box';
+    placeDetails.style.maxHeight = '32em';
 
-	infoWindow.setOptions({
-		content: placeDetails,
-		maxWidth: '25em',
-		position: place.location,
+    infoWindow.setOptions({
+        content: placeDetails,
+        maxWidth: '25em',
+        position: place.location,
          
-		pixelOffset: new google.maps.Size(0, -32),
-	});
+        pixelOffset: new google.maps.Size(0, -32),
+    });
 
-	infoWindow.open({
-		map: gMap,
-	});
+    infoWindow.open({
+        map: gMap,
+    });
 
      
-	google.maps.event.addListenerOnce(gMap, 'idle', () => {
-		if (gMap.getZoom() > MAX_ZOOM) {
-			runProgrammaticMove(() => gMap.setZoom(MAX_ZOOM));
-		}
+    google.maps.event.addListenerOnce(gMap, 'idle', () => {
+        if (gMap.getZoom() > MAX_ZOOM) {
+            runProgrammaticMove(() => gMap.setZoom(MAX_ZOOM));
+        }
 
-		mapInteractionEvent('card_open', place);
-	});
+        mapInteractionEvent('card_open', place);
+    });
 
-	runProgrammaticMove(() => gMap.setCenter(place.location));
+    runProgrammaticMove(() => gMap.setCenter(place.location));
 }
 
 async function mapInteractionEvent(interactionType, place) {
-	let cardName = '';
-	let cardRating = '';
-	let cardUrl = '';
-	let cardPrimaryType = '';
+    let cardName = '';
+    let cardRating = '';
+    let cardUrl = '';
+    let cardPrimaryType = '';
 
-	if (place) {
-		await place.fetchFields({
-			fields: [
-				'displayName',
-				'primaryType',
-				'rating',
-				'websiteURI',
-			],
-		});
+    if (place) {
+        await place.fetchFields({
+            fields: [
+                'displayName',
+                'primaryType',
+                'rating',
+                'websiteURI',
+            ],
+        });
 
-		cardName = place.displayName;
-		cardRating = place.rating;
-		cardUrl = place.websiteURI;
-		cardPrimaryType = place.primaryType;
-	}
+        cardName = place.displayName;
+        cardRating = place.rating;
+        cardUrl = place.websiteURI;
+        cardPrimaryType = place.primaryType;
+    }
 
-	dataLayerHelper.createDataLayerObject('googleMapInteractionEvent', {
-		interaction_type: interactionType,
-		search_query: searchInput.value.trim(),
-		map_location: gMap.getCenter().toString(),
-		visible_attractions_count: visibleMarkerCount,
-		card_attraction_name: cardName,
-		card_attraction_category: cardPrimaryType,
-		card_attraction_rating: cardRating,
-		card_attraction_url: cardUrl,
-		interaction_timestamp_ms: Date.now(),
-	});
+    dataLayerHelper.createDataLayerObject('googleMapInteractionEvent', {
+        interaction_type: interactionType,
+        search_query: searchInput.value.trim(),
+        map_location: gMap.getCenter().toString(),
+        visible_attractions_count: visibleMarkerCount,
+        card_attraction_name: cardName,
+        card_attraction_category: cardPrimaryType,
+        card_attraction_rating: cardRating,
+        card_attraction_url: cardUrl,
+        interaction_timestamp_ms: Date.now(),
+    });
 
-	checkFirstInteraction(interactionType);
+    checkFirstInteraction(interactionType);
 };
 
 function checkFirstInteraction(interactionType) {
-	if (!googleMapStore.firstInteraction) {
-		const timeNow = Date.now();
-		const timeToFirstInteraction = timeNow - googleMapStore.timeMounted;
+    if (!googleMapStore.firstInteraction) {
+        const timeNow = Date.now();
+        const timeToFirstInteraction = timeNow - googleMapStore.timeMounted;
 
-		dataLayerHelper.createDataLayerObject('googleMapTimeToFirstInteractionEvent', {
-			time_to_first_interaction_ms: timeToFirstInteraction,
-			first_interaction_type: interactionType,
-		});
+        dataLayerHelper.createDataLayerObject('googleMapTimeToFirstInteractionEvent', {
+            time_to_first_interaction_ms: timeToFirstInteraction,
+            first_interaction_type: interactionType,
+        });
 
-		googleMapStore.firstInteraction = true;
-	}
+        googleMapStore.firstInteraction = true;
+    }
 }
 
 function getVisibleMarkerCount() {
-	const bounds = gMap.getBounds();
+    const bounds = gMap.getBounds();
 
-	if (!bounds) return 0;
+    if (!bounds) return 0;
 
-	let visibleCount = 0;
+    let visibleCount = 0;
 
-	for (let x = 0; x < Object.keys(markers).length; x++) {
-		const marker = markers[Object.keys(markers)[x]];
+    for (let x = 0; x < Object.keys(markers).length; x++) {
+        const marker = markers[Object.keys(markers)[x]];
 
-		const position = marker.position;
+        const position = marker.position;
 
-		if (bounds.contains(position)) {
-			visibleCount += 1;
-		}
-	}
+        if (bounds.contains(position)) {
+            visibleCount += 1;
+        }
+    }
 
-	return visibleCount;
+    return visibleCount;
 }
 
 const selectedDestination = ref('');
 
 function handleFeaturedLocationClick(place) {
-	googleMapStore.showDestinations = false;
-	selectedDestination.value = place.properties.title;
+    googleMapStore.showDestinations = false;
+    selectedDestination.value = place.properties.title;
 
-	runProgrammaticMove(() => gMap.fitBounds(
+    runProgrammaticMove(() => gMap.fitBounds(
          
-		new google.maps.LatLngBounds(
+        new google.maps.LatLngBounds(
              
-			new google.maps.LatLng(
-				place.properties.viewport.low.latitude,
-				place.properties.viewport.low.longitude,
-			),
+            new google.maps.LatLng(
+                place.properties.viewport.low.latitude,
+                place.properties.viewport.low.longitude,
+            ),
              
-			new google.maps.LatLng(
-				place.properties.viewport.high.latitude,
-				place.properties.viewport.high.longitude,
-			),
-		),
-	));
+            new google.maps.LatLng(
+                place.properties.viewport.high.latitude,
+                place.properties.viewport.high.longitude,
+            ),
+        ),
+    ));
 
-	runProgrammaticMove(() => gMap.setCenter(
+    runProgrammaticMove(() => gMap.setCenter(
          
-		new google.maps.LatLng(
-			place.properties.locationCentre.latitude,
-			place.properties.locationCentre.longitude,
-		),
-	));
+        new google.maps.LatLng(
+            place.properties.locationCentre.latitude,
+            place.properties.locationCentre.longitude,
+        ),
+    ));
 
-	selectCategory('things-to-do', 2);
+    selectCategory('things-to-do', 2);
 }
 
 /**
@@ -1424,51 +1424,51 @@ function handleFeaturedLocationClick(place) {
  * or running a "Things to do" if no previous search.
  */
 function searchArea() {
-	googleMapStore.showDestinations = false;
-	googleMapStore.sidebarOpen = true;
-	selectedDestination.value = '';
-	showSearchAreaButton.value = false;
+    googleMapStore.showDestinations = false;
+    googleMapStore.sidebarOpen = true;
+    selectedDestination.value = '';
+    showSearchAreaButton.value = false;
 
-	// Check for selected subcategory and start nearby search.
-	if (selectedSubCategories.value.size > 0) {
-		if (selectedSubCategories.value.has('self-catering')) {
-			selectedSubCategories.value.delete('self-catering');
-			searchBySubCategory('self-catering', 0);
-		} else {
-			searchByCategory({
-				includedTypes: Array.from(includedSubTypes.value),
-				excludedTypes: Array.from(excludedSubTypes.value),
-			});
+    // Check for selected subcategory and start nearby search.
+    if (selectedSubCategories.value.size > 0) {
+        if (selectedSubCategories.value.has('self-catering')) {
+            selectedSubCategories.value.delete('self-catering');
+            searchBySubCategory('self-catering', 0);
+        } else {
+            searchByCategory({
+                includedTypes: Array.from(includedSubTypes.value),
+                excludedTypes: Array.from(excludedSubTypes.value),
+            });
 
-			// Get labels for the selected subcategories.
-			const subcatLabels = [];
-			selectedSubCategories.value.forEach((subcat) => {
-				subcatLabels.push(
-					searchSubCategoriesForLabel(selectedSubCategories.value, subcat).value,
-				);
-			});
-			query.value = subcatLabels.join(', ');
-			searchInput.value = query.value;
-			// searchInput.value = selectedSubCategories.value.join(', ');
-			googleMapStore.showCategories = true;
-		}
-		return;
-	}
+            // Get labels for the selected subcategories.
+            const subcatLabels = [];
+            selectedSubCategories.value.forEach((subcat) => {
+                subcatLabels.push(
+                    searchSubCategoriesForLabel(selectedSubCategories.value, subcat).value,
+                );
+            });
+            query.value = subcatLabels.join(', ');
+            searchInput.value = query.value;
+            // searchInput.value = selectedSubCategories.value.join(', ');
+            googleMapStore.showCategories = true;
+        }
+        return;
+    }
 
-	// Check for selected category and start nearby search.
-	if (selectedTopLevelCategory.value) {
-		selectCategory(selectedTopLevelCategory.value, categoryKey.value);
-		return;
-	}
+    // Check for selected category and start nearby search.
+    if (selectedTopLevelCategory.value) {
+        selectCategory(selectedTopLevelCategory.value, categoryKey.value);
+        return;
+    }
 
-	// Check for searchInput value and start text search.
-	if (searchInput.value) {
-		searchByText(true);
-		return;
-	}
+    // Check for searchInput value and start text search.
+    if (searchInput.value) {
+        searchByText(true);
+        return;
+    }
 
-	// Start "Things to do" search if no categories selected or search terms entered.
-	selectCategory('things-to-do', 2);
+    // Start "Things to do" search if no categories selected or search terms entered.
+    selectCategory('things-to-do', 2);
 }
 </script>
 

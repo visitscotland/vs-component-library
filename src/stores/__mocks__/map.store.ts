@@ -11,79 +11,79 @@ interface MapInstance {
 }
 
 const useMapStore = defineStore('map', () => {
-	const maps: Ref<MapInstance[]> = ref([]);
-	const activeSubcatFilters: Ref<unknown[]> = ref([]);
-	const selectedSubCategory = ref<unknown>(null);
-	const activeMarkerPos = ref<unknown>(null);
-	const activePlace = ref<unknown>(null);
+    const maps: Ref<MapInstance[]> = ref([]);
+    const activeSubcatFilters: Ref<unknown[]> = ref([]);
+    const selectedSubCategory = ref<unknown>(null);
+    const activeMarkerPos = ref<unknown>(null);
+    const activePlace = ref<unknown>(null);
 
-	function addMapInstance(payload: Pick<MapInstance, 'id' | 'filters' | 'places' | 'activePins'>) {
-		maps.value.push({
-			id: payload.id,
-			filters: payload.filters,
-			places: payload.places,
-			activePins: payload.activePins,
-			hovered: '',
-			activePlace: null,
-		});
-	}
+    function addMapInstance(payload: Pick<MapInstance, 'id' | 'filters' | 'places' | 'activePins'>) {
+        maps.value.push({
+            id: payload.id,
+            filters: payload.filters,
+            places: payload.places,
+            activePins: payload.activePins,
+            hovered: '',
+            activePlace: null,
+        });
+    }
 
-	function setHoveredPlace(payload: { mapId: string; hoveredFeature: string }) {
-		maps.value.forEach((map) => {
-			if (map.id === payload.mapId) {
-				map.hovered = payload.hoveredFeature;
-			}
-		});
-	}
+    function setHoveredPlace(payload: { mapId: string; hoveredFeature: string }) {
+        maps.value.forEach((map) => {
+            if (map.id === payload.mapId) {
+                map.hovered = payload.hoveredFeature;
+            }
+        });
+    }
 
-	function setActivePlace(payload: { mapId: string; placeId: unknown }) {
-		maps.value.forEach((map) => {
-			if (map.id === payload.mapId) {
-				map.activePlace = payload.placeId;
-			}
-		});
-	}
+    function setActivePlace(payload: { mapId: string; placeId: unknown }) {
+        maps.value.forEach((map) => {
+            if (map.id === payload.mapId) {
+                map.activePlace = payload.placeId;
+            }
+        });
+    }
 
-	function setActiveSubcatFilters(payload: unknown[]) {
-		activeSubcatFilters.value = payload;
-	}
+    function setActiveSubcatFilters(payload: unknown[]) {
+        activeSubcatFilters.value = payload;
+    }
 
-	function setSelectedSubcat(payload: unknown) {
-		selectedSubCategory.value = payload;
-	}
+    function setSelectedSubcat(payload: unknown) {
+        selectedSubCategory.value = payload;
+    }
 
-	function setActiveMarkerPos(payload: unknown) {
-		activeMarkerPos.value = payload;
-	}
+    function setActiveMarkerPos(payload: unknown) {
+        activeMarkerPos.value = payload;
+    }
 
-	function getMapById(id: string) {
-		return maps.value.find((map) => map.id === id);
-	}
+    function getMapById(id: string) {
+        return maps.value.find((map) => map.id === id);
+    }
 
-	function getHoveredStop() {
-		return [];
-	}
+    function getHoveredStop() {
+        return [];
+    }
 
-	function getActivePlace() {
-		return [];
-	}
+    function getActivePlace() {
+        return [];
+    }
 
-	return {
-		maps,
-		activeSubcatFilters,
-		selectedSubCategory,
-		activeMarkerPos,
-		activePlace,
-		addMapInstance,
-		setHoveredPlace,
-		setActivePlace,
-		setActiveSubcatFilters,
-		setSelectedSubcat,
-		setActiveMarkerPos,
-		getMapById,
-		getHoveredStop,
-		getActivePlace,
-	};
+    return {
+        maps,
+        activeSubcatFilters,
+        selectedSubCategory,
+        activeMarkerPos,
+        activePlace,
+        addMapInstance,
+        setHoveredPlace,
+        setActivePlace,
+        setActiveSubcatFilters,
+        setSelectedSubcat,
+        setActiveMarkerPos,
+        getMapById,
+        getHoveredStop,
+        getActivePlace,
+    };
 });
 
 export default useMapStore;

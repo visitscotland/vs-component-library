@@ -82,11 +82,11 @@ export default `
                     </p>
 
                     ${imageWithCaptionPartial({
-                        imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/13/caber-toss?size=lg',
-                        imageCaption: 'Caber toss demonstration',
-                        imageCredit: 'VisitScotland',
-                        addTopMargin: true,
-                    })}
+    imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/13/caber-toss?size=lg',
+    imageCaption: 'Caber toss demonstration',
+    imageCredit: 'VisitScotland',
+    addTopMargin: true,
+})}
 
                      <VsHeading 
                         heading-style="heading-s" 
@@ -159,10 +159,10 @@ export default `
             >
                 <VsBody>
                     ${imageWithCaptionPartial({
-                        imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/13/ballater-highland-games?size=md',
-                        imageCaption: 'Ballater Highland Games',
-                        imageCredit: 'VisitScotland',
-                    })}
+    imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/13/ballater-highland-games?size=md',
+    imageCaption: 'Ballater Highland Games',
+    imageCredit: 'VisitScotland',
+})}
 
                     <p>
                         Every Highland games event in Scotland has a unique character and tradition and many are held in simply stunning locations. Make new friends with the locals and other visitors as you enjoy our Scottish hospitality and watch a gripping spectacle of champions, with dancing, music and more.
@@ -226,11 +226,11 @@ export default `
                     </p>
 
                     ${imageWithCaptionPartial({
-                        imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/13/nairn-highland-games?size=md',
-                        imageCaption: 'Nairn Highland Games',
-                        imageCredit: 'VisitScotland',
-                        addTopMargin: true,
-                    })}
+    imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/13/nairn-highland-games?size=md',
+    imageCaption: 'Nairn Highland Games',
+    imageCredit: 'VisitScotland',
+    addTopMargin: true,
+})}
 
                     <VsHeading
                         heading-style="heading-s" 
@@ -286,11 +286,11 @@ export default `
                     </p>
 
                     ${imageWithCaptionPartial({
-                        imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/13/tug-of-war?size=lg',
-                        imageCaption: 'Tug o\' war',
-                        imageCredit: 'VisitScotland',
-                        addTopMargin: true,
-                    })}
+    imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/13/tug-of-war?size=lg',
+    imageCaption: 'Tug o\' war',
+    imageCredit: 'VisitScotland',
+    addTopMargin: true,
+})}
 
                     <VsHeading 
                         heading-style="heading-s" 
@@ -349,11 +349,11 @@ export default `
                     </p>
 
                     ${imageWithCaptionPartial({
-                        imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/13/highland-dancing?size=md',
-                        imageCaption: 'Highland dancing',
-                        imageCredit: 'VisitScotland',
-                        addTopMargin: true,
-                    })}
+    imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/13/highland-dancing?size=md',
+    imageCaption: 'Highland dancing',
+    imageCredit: 'VisitScotland',
+    addTopMargin: true,
+})}
 
                     <VsHeading 
                         heading-style="heading-s" 

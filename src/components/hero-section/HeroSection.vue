@@ -1,79 +1,79 @@
 <template>
-	<div
-		class="vs-hero-section"
-		:class="{ 'vs-hero-section--split': split }"
-		data-test="vs-hero-section"
-	>
-		<div class="vs-hero-section__grid">
-			<div
-				v-if="imgSrc && !videoSrc"
-				:class="['vs-hero-section__image', imageClasses]"
-			>
-				<VsHeroSectionImage
-					:img-alt="imgAlt"
-					:src="imgSrc"
-					:img-caption="imgCaption"
-					:img-credit="imgCredit"
-					:split="split"
-				/>
-			</div>
+    <div
+        class="vs-hero-section"
+        :class="{ 'vs-hero-section--split': split }"
+        data-test="vs-hero-section"
+    >
+        <div class="vs-hero-section__grid">
+            <div
+                v-if="imgSrc && !videoSrc"
+                :class="['vs-hero-section__image', imageClasses]"
+            >
+                <VsHeroSectionImage
+                    :img-alt="imgAlt"
+                    :src="imgSrc"
+                    :img-caption="imgCaption"
+                    :img-credit="imgCredit"
+                    :split="split"
+                />
+            </div>
 
-			<div
-				v-else-if="videoSrc"
-				class="vs-hero-section__video-wrapper"
-			>
-				<VsVideo
-					video-type="html5"
-					video-id="hero-video"
-					:poster-image-src="imgSrc"
-					:video-src="videoSrc"
-					:play-button-label="videoPlayingStatus ? videoPlayingStatus : playButtonLabel"
-					:pause-button-label="videoPausedStatus ? videoPausedStatus : pauseButtonLabel"
-					class="vs-hero-section__video"
-				/>
-				<div class="vs-hero-section__video-overlay" />
-			</div>
+            <div
+                v-else-if="videoSrc"
+                class="vs-hero-section__video-wrapper"
+            >
+                <VsVideo
+                    video-type="html5"
+                    video-id="hero-video"
+                    :poster-image-src="imgSrc"
+                    :video-src="videoSrc"
+                    :play-button-label="videoPlayingStatus ? videoPlayingStatus : playButtonLabel"
+                    :pause-button-label="videoPausedStatus ? videoPausedStatus : pauseButtonLabel"
+                    class="vs-hero-section__video"
+                />
+                <div class="vs-hero-section__video-overlay" />
+            </div>
 
-			<hr
-				v-else
-				class="vs-hero-section__divider"
-			/>
+            <hr
+                v-else
+                class="vs-hero-section__divider"
+            />
 
-			<div :class="textContainerClasses">
-				<div class="vs-hero-section__text">
-					<VsHeading
-						class="vs-hero-section__heading"
-						data-test="vs-hero-section__heading"
-						level="1"
-						heading-style="display-s"
-						id="main-heading"
-					>
-						<span v-html="heading" />
-					</VsHeading>
+            <div :class="textContainerClasses">
+                <div class="vs-hero-section__text">
+                    <VsHeading
+                        class="vs-hero-section__heading"
+                        data-test="vs-hero-section__heading"
+                        level="1"
+                        heading-style="display-s"
+                        id="main-heading"
+                    >
+                        <span v-html="heading" />
+                    </VsHeading>
 
-					<VsBody
-						v-if="lede"
-						class="vs-hero-section__lede"
-						data-test="vs-hero-section__lede"
-						variant="lead"
-					>
-						<p class="mb-0">
-							{{ lede }}
-						</p>
-					</VsBody>
+                    <VsBody
+                        v-if="lede"
+                        class="vs-hero-section__lede"
+                        data-test="vs-hero-section__lede"
+                        variant="lead"
+                    >
+                        <p class="mb-0">
+                            {{ lede }}
+                        </p>
+                    </VsBody>
 
-					<div
-						v-if="$slots['hero-section-article-details']"
-						class="vs-hero-section__article-details"
-						data-test="vs-hero-section__article-details"
-					>
-						<!-- @slot Slot to contain article details -->
-						<slot name="hero-section-article-details" />
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                    <div
+                        v-if="$slots['hero-section-article-details']"
+                        class="vs-hero-section__article-details"
+                        data-test="vs-hero-section__article-details"
+                    >
+                        <!-- @slot Slot to contain article details -->
+                        <slot name="hero-section-article-details" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -91,139 +91,139 @@ import VsVideo from '@/components/video/Video.vue';
 */
 
 export default {
-	name: 'VsHeroSection',
-	status: 'prototype',
-	release: '0.0.1',
-	components: {
-		VsHeading,
-		VsBody,
-		VsHeroSectionImage,
-		VsVideo,
-	},
-	provide() {
-		return {
-			videoPlayingStatus: this.videoPlayingStatus,
-			videoPausedStatus: this.videoPausedStatus,
-		};
-	},
-	props: {
-		/**
+    name: 'VsHeroSection',
+    status: 'prototype',
+    release: '0.0.1',
+    components: {
+        VsHeading,
+        VsBody,
+        VsHeroSectionImage,
+        VsVideo,
+    },
+    provide() {
+        return {
+            videoPlayingStatus: this.videoPlayingStatus,
+            videoPausedStatus: this.videoPausedStatus,
+        };
+    },
+    props: {
+        /**
         * The text for the heading
         */
-		heading: {
-			type: String,
-			required: true,
-		},
-		/**
+        heading: {
+            type: String,
+            required: true,
+        },
+        /**
         * The text for the summary
         */
-		lede: {
-			type: String,
-			required: true,
-		},
-		/**
+        lede: {
+            type: String,
+            required: true,
+        },
+        /**
         * The image src url to display
         */
-		imgSrc: {
-			type: String,
-			default: '',
-		},
-		/**
+        imgSrc: {
+            type: String,
+            default: '',
+        },
+        /**
         * The alt text for the image if applicable
         */
-		imgAlt: {
-			type: String,
-			default: '',
-		},
-		/**
+        imgAlt: {
+            type: String,
+            default: '',
+        },
+        /**
         * The caption text for the image
         */
-		imgCaption: {
-			type: String,
-			default: '',
-		},
-		/**
+        imgCaption: {
+            type: String,
+            default: '',
+        },
+        /**
         * The author credit for the image
         */
-		imgCredit: {
-			type: String,
-			default: '',
-		},
-		/**
+        imgCredit: {
+            type: String,
+            default: '',
+        },
+        /**
         * Whether the image should sit in a container or not
         */
-		inset: {
-			type: Boolean,
-			default: false,
-		},
-		/**
+        inset: {
+            type: Boolean,
+            default: false,
+        },
+        /**
         * Changes layout to split text/image variant
         */
-		split: {
-			type: Boolean,
-			default: false,
-		},
-		/**
+        split: {
+            type: Boolean,
+            default: false,
+        },
+        /**
         * The image src url to display
         */
-		videoSrc: {
-			type: String,
-			default: '',
-		},
-		/**
+        videoSrc: {
+            type: String,
+            default: '',
+        },
+        /**
         * ⚠️ Deprecated: use the playButtonLabel and pauseButtonLabel props instead
         * The visually hidden text to display
         */
-		videoBtnText: {
-			type: String,
-			default: '',
-		},
-		/**
+        videoBtnText: {
+            type: String,
+            default: '',
+        },
+        /**
          * ⚠️ Deprecated: use the playButtonLabel and pauseButtonLabel props instead
         * The aria alerted text to announce when the video is playing
         */
-		videoPlayingStatus: {
-			type: String,
-			default: '',
-		},
-		/**
+        videoPlayingStatus: {
+            type: String,
+            default: '',
+        },
+        /**
          * ⚠️ Deprecated: use the playButtonLabel and pauseButtonLabel props instead
         * The aria alerted text to announce when the video is paused
         */
-		videoPausedStatus: {
-			type: String,
-			default: '',
-		},
-		/**
+        videoPausedStatus: {
+            type: String,
+            default: '',
+        },
+        /**
         * The visually hidden text for play button
         */
-		playButtonLabel: {
-			type: String,
-			default: '',
-		},
-		/**
+        playButtonLabel: {
+            type: String,
+            default: '',
+        },
+        /**
          * The visually hidden text for pause button
         */
-		pauseButtonLabel: {
-			type: String,
-			default: '',
-		},
-	},
-	computed: {
-		imageClasses() {
-			return {
-				'vs-hero-section__image--inset': this.inset,
-			};
-		},
-		textContainerClasses() {
-			return [
-				{
-					'vs-hero-section__text-container--video': this.videoSrc,
-				},
-				'vs-hero-section__text-container',
-			];
-		},
-	},
+        pauseButtonLabel: {
+            type: String,
+            default: '',
+        },
+    },
+    computed: {
+        imageClasses() {
+            return {
+                'vs-hero-section__image--inset': this.inset,
+            };
+        },
+        textContainerClasses() {
+            return [
+                {
+                    'vs-hero-section__text-container--video': this.videoSrc,
+                },
+                'vs-hero-section__text-container',
+            ];
+        },
+    },
 };
 
 </script>

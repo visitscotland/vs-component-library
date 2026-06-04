@@ -162,8 +162,8 @@ export default {
                 // show success text on button
                 this.show = true;
                 setTimeout(() => {
-					this.show = false; 
-				}, 2000);
+                    this.show = false; 
+                }, 2000);
             }
 
             this.trackShareClick(event);
