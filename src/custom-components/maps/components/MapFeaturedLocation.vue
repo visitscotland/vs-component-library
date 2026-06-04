@@ -1,40 +1,40 @@
 <template>
-    <div class="mb-100">
-        <VsDetail
-            color="secondary"
-            size="small"
-        >
-            {{ props.locationSelectLabel }}
-        </VsDetail>
-        <div class="vs-map__destination-types">
-            <VsButton
-                v-for="category in filteredCategories"
-                :key="category.id"
-                :icon="iconMap[category.id]"
-                size="sm"
-                :variant="setButtonVariant(category.id)"
-                @click="handleClick(category.id)"
-            >
-                {{ category.label }}
-            </VsButton>
-        </div>
+	<div class="mb-100">
+		<VsDetail
+			color="secondary"
+			size="small"
+		>
+			{{ props.locationSelectLabel }}
+		</VsDetail>
+		<div class="vs-map__destination-types">
+			<VsButton
+				v-for="category in filteredCategories"
+				:key="category.id"
+				:icon="iconMap[category.id]"
+				size="sm"
+				:variant="setButtonVariant(category.id)"
+				@click="handleClick(category.id)"
+			>
+				{{ category.label }}
+			</VsButton>
+		</div>
 
-        <div aria-live="polite">
-            <VsRow class="vs-map__destinations">
-                <VsMapFeaturedLocationItem
-                    v-for="place in places"
-                    :key="place.properties.id"
-                    :place="place"
-                />
-            </VsRow>
-        </div>
-    </div>
+		<div aria-live="polite">
+			<VsRow class="vs-map__destinations">
+				<VsMapFeaturedLocationItem
+					v-for="place in places"
+					:key="place.properties.id"
+					:place="place"
+				/>
+			</VsRow>
+		</div>
+	</div>
 </template>
 
 <script setup>
 import {
-    inject,
-    onMounted,
+	inject,
+	onMounted,
 } from 'vue';
 import VsButton from '@/components/button/Button.vue';
 import VsDetail from '@/components/detail/Detail.vue';
@@ -49,14 +49,14 @@ const addDestinationMarkers = inject('addDestinationMarkers');
 const googleMapStore = useGoogleMapStore();
 
 const props = defineProps({
-    locationSelectLabel: {
-        type: String,
-        required: true,
-    },
+	locationSelectLabel: {
+		type: String,
+		required: true,
+	},
 });
 
 onMounted(() => {
-    googleMapStore.selectedDestinationType = categories[0].id;
+	googleMapStore.selectedDestinationType = categories[0].id;
 });
 
 // The button should be secondary unless it is the currently selected destination type.
@@ -67,16 +67,16 @@ const filteredCategories = categories.filter((category) => category.id !== 'town
 
 // Icons used on the destination type buttons.
 const iconMap = {
-    cities: 'fa-regular fa-city',
-    regions: 'fa-regular fa-map-location-dot',
-    islands: 'fa-regular fa-island-tropical',
-    towns: 'fa-regular fa-house-chimney-window',
-    'national-parks': 'fa-kit fa-vs-icon-national-park',
+	cities: 'fa-regular fa-city',
+	regions: 'fa-regular fa-map-location-dot',
+	islands: 'fa-regular fa-island-tropical',
+	towns: 'fa-regular fa-house-chimney-window',
+	'national-parks': 'fa-kit fa-vs-icon-national-park',
 };
 
 function handleClick(id) {
-    googleMapStore.selectedDestinationType = id;
-    addDestinationMarkers();
+	googleMapStore.selectedDestinationType = id;
+	addDestinationMarkers();
 }
 </script>
 

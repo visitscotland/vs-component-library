@@ -17,6 +17,7 @@ export default defineConfigWithVueTs(
 	globalIgnores([
 		'**/dist/**',
 		'**/dist-ssr/**',
+		'**/scripts/**',
 		'**/coverage/**',
 		'**/node_modules/**',
 		'src/components/product-search/**/*',
@@ -69,8 +70,14 @@ export default defineConfigWithVueTs(
 	// Project-wide rule overrides (Vue + JS/TS code style rules)
 	{
 		rules: {
-			'vue/html-indent': ['error', 'tab'],
-			'vue/script-indent': ['error', 'tab'],
+			// 'vue/script-indent': [
+			// 	'error',
+			// 	4,
+			// ],
+			// 'vue/html-indent': [
+			// 	'error',
+			// 	4,
+			// ],
 			'vue/attributes-order': 'off',
 			'vue/no-unused-vars': 'error',
 			'vue/order-in-components': 'error',
@@ -93,7 +100,7 @@ export default defineConfigWithVueTs(
 				'error',
 				{
 					singleline: {
-						max: 1,
+						max: 2,
 					},
 					multiline: {
 						max: 1,
@@ -140,8 +147,39 @@ export default defineConfigWithVueTs(
 			],
 			quotes: ['error', 'single'],
 			semi: ['error', 'always'],
-			indent: ['error', 'tab'],
-			'object-curly-spacing': ['error', 'always'],
+			// indent: ['error', 'tab'],
+			// indent: [
+			// 	'warn',
+			// 	4,
+			// 	{
+			// 		ignoredNodes: [
+			// 			'TemplateLiteral',
+			// 		],
+			// 	},
+			// ],
+			'object-curly-newline': [
+				'error',
+				{
+					ObjectExpression: 'always',
+					ObjectPattern: {
+						multiline: true,
+					},
+					ImportDeclaration: {
+						multiline: true,
+						minProperties: 3,
+					},
+					ExportDeclaration: {
+						multiline: true,
+						minProperties: 3,
+					},
+				},
+			],
+			'object-property-newline': [
+				'error',
+				{
+					allowAllPropertiesOnSameLine: false,
+				},
+			],
 			'array-bracket-spacing': ['error', 'never'],
 			'comma-dangle': ['error', 'always-multiline'],
 			'arrow-parens': ['error', 'always'],
@@ -150,15 +188,6 @@ export default defineConfigWithVueTs(
 			'keyword-spacing': ['error'],
 			'func-call-spacing': ['error', 'never'],
 			'no-multi-spaces': 'error',
-			'object-curly-newline': [
-				'error',
-				{
-					ImportDeclaration: {
-						multiline: true,
-						minProperties: 2,
-					},
-				},
-			],
 			'max-len': [
 				'warn',
 				{

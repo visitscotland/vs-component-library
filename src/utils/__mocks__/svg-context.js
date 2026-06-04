@@ -1,3 +1,4 @@
+/* global jest */
 const mockSvg = require('../../../test/unit/mocks/svgMock');
 
 const mockFunc = jest.fn();

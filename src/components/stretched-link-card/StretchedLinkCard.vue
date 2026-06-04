@@ -234,7 +234,6 @@ export default {
         link: {
             type: String,
             required: true,
-            default: '#',
         },
         /**
         * The correct heading level for page hierarchy, the
@@ -255,6 +254,7 @@ export default {
             type: [String, Number],
             default: 'heading-xs',
             validator: (value) => value.match(
+				// eslint-disable-next-line max-len
                 /(display-m|display-s|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs)/,
             ),
         },

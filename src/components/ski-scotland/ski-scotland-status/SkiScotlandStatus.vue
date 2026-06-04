@@ -399,7 +399,9 @@
                                         :data-test="`vs-ski__${level.name}-label`"
                                         class="d-inline-block"
                                     >
-                                        <span class="visually-hidden">{{ getColourLabel(level.colour) }}</span>
+                                        <span class="visually-hidden">
+                                            {{ getColourLabel(level.colour) }}
+                                        </span>
                                         {{ level.name }}
                                     </div>
                                 </template>

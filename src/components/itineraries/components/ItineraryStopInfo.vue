@@ -14,7 +14,7 @@
                     class="itinerary-stop-info__times mb-0"
                     data-test="vs-itinerary-stop-status"
                 >
-                    {{ hoursMessage }}<br>
+                    {{ hoursMessage }}<br/>
                 </p>
                 <p
                     v-if="!closedLongTerm

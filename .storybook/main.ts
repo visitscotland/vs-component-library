@@ -1,23 +1,24 @@
 import path from 'path';
 import { mergeConfig } from 'vite';
-import type { StorybookConfig } from '@storybook/vue3-vite'
+import type { StorybookConfig } from '@storybook/vue3-vite';
 
 const config: StorybookConfig = {
   stories: [
-    "../stories/**/*.mdx",
-    "../stories/**/*.stories.@(js|jsx|ts|tsx)"
+    '../stories/**/*.mdx',
+    '../stories/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
     '@storybook/addon-links',
     '@chromatic-com/storybook',
-    "@storybook/addon-a11y",
+    '@storybook/addon-a11y',
     '@storybook/addon-docs',
     'storybook-addon-datalayer-watcher',
     'storybook-addon-tag-badges',
   ],
   framework: {
     name: '@storybook/vue3-vite',
-    options: {}
+    options: {
+	},
   },
   staticDirs: ['../src/assets'],
   viteFinal: (viteConfig) =>
@@ -25,8 +26,9 @@ const config: StorybookConfig = {
       css: {
         preprocessorOptions: {
           scss: {
-            // Next line will prepend the import in all you scss files as you did with your vite.config.js file
-            additionalData: `@import "../src/styles/resources.scss";`,
+            // Next line will prepend the import in all
+            additionalData:
+              '@import "../src/styles/resources.scss";',
             quietDeps: true,
           },
         },
@@ -39,16 +41,16 @@ const config: StorybookConfig = {
       resolve: {
         alias: [
           {
-            find: "@",
-            replacement: path.resolve(__dirname, "../src"),
+            find: '@',
+            replacement: path.resolve(__dirname, '../src'),
           },
           {
-            find: "@assets",
-            replacement: path.resolve(__dirname, "../src/assets"),
+            find: '@assets',
+            replacement: path.resolve(__dirname, '../src/assets'),
           },
           {
-            find: "@components",
-            replacement: path.resolve(__dirname, "../src/components"),
+            find: '@components',
+            replacement: path.resolve(__dirname, '../src/components'),
           },
         ],
       },

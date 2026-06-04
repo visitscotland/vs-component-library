@@ -1,17 +1,17 @@
 <template>
-    <p :class="detailClasses">
-        <VsIcon
-            v-if="icon"
-            class="me-050 flex-shrink-0"
-            :icon="icon"
-            :size="iconSize"
-            :variant="iconVariant"
-        />
-        <span>
-            <!-- @slot Default slot for detail text content -->
-            <slot />
-        </span>
-    </p>
+	<p :class="detailClasses">
+		<VsIcon
+			v-if="icon"
+			class="me-050 flex-shrink-0"
+			:icon="icon"
+			:size="iconSize"
+			:variant="iconVariant"
+		/>
+		<span>
+			<!-- @slot Default slot for detail text content -->
+			<slot />
+		</span>
+	</p>
 </template>
 
 <script>
@@ -24,69 +24,71 @@ import VsIcon from '@/components/icon/Icon.vue';
  * @displayName Detail
  */
 export default {
-    name: 'VsDetail',
-    status: 'prototype',
-    release: '0.0.1',
-    components: {
-        VsIcon,
-    },
-    props: {
-        /**
+	name: 'VsDetail',
+	status: 'prototype',
+	release: '0.0.1',
+	components: {
+		VsIcon,
+	},
+	props: {
+		/**
          * The font size
          * `small|medium|large`
          */
-        size: {
-            type: String,
-            default: 'medium',
-            validator: (value) => value.match(/(small|medium|large)/),
-        },
-        /**
+		size: {
+			type: String,
+			default: 'medium',
+			validator: (value) => value.match(/(small|medium|large)/),
+		},
+		/**
          * The text color
          * `primary|secondary|tertiary`
          */
-        color: {
-            type: String,
-            default: 'primary',
-            validator: (value) => value.match(/(primary|secondary|tertiary)/),
-        },
-        /**
+		color: {
+			type: String,
+			default: 'primary',
+			validator: (value) => value.match(/(primary|secondary|tertiary)/),
+		},
+		/**
          * Option to remove margins from the detail text.
          * Useful when the detail text is used inside a component
          */
-        noMargins: {
-            type: Boolean,
-            default: false,
-        },
-        /**
+		noMargins: {
+			type: Boolean,
+			default: false,
+		},
+		/**
          * The name of the icon to display alongside the detail text.
          */
-        icon: {
-            type: String,
-            default: '',
-        },
-        /**
+		icon: {
+			type: String,
+			default: '',
+		},
+		/**
          * Color variant of the icon displayed alongside the detail text.
          */
-        iconVariant: {
-            type: String,
-            default: 'primary',
-            validator: (value) => value.match(/(primary|secondary|tertiary|cta|inverse|disabled|highlight|error|warning|success)/),
-        },
-    },
-    computed: {
-        detailClasses() {
-            return [
-                'vs-detail',
-                `vs-detail--${this.size}`,
-                `vs-detail--${this.color}`,
-                ...(this.icon ? ['d-flex', 'align-items-baseline'] : []),
-                ...(this.noMargins ? [] : ['vs-detail--with-margins']),
-            ];
-        },
-        iconSize() {
-            return this.size === 'small' ? 'xxs' : 'xs';
-        },
-    },
+		iconVariant: {
+			type: String,
+			default: 'primary',
+			validator: (value) => value.match(
+				/(primary|secondary|tertiary|cta|inverse|disabled|highlight|error|warning|success)/,
+			),
+		},
+	},
+	computed: {
+		detailClasses() {
+			return [
+				'vs-detail',
+				`vs-detail--${this.size}`,
+				`vs-detail--${this.color}`,
+				...(this.icon ? ['d-flex', 'align-items-baseline'] : []),
+				...(this.noMargins ? [] : ['vs-detail--with-margins']),
+			];
+		},
+		iconSize() {
+			return this.size === 'small' ? 'xxs' : 'xs';
+		},
+	},
 };
 </script>
 

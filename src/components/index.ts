@@ -1,4 +1,4 @@
-/* eslint-disable vue/max-len */
+ 
 /* Export elements */
 export { default as VsAccordion } from './accordion/Accordion.vue';
 export { default as VsAccordionItem } from './accordion/components/AccordionItem.vue';
