@@ -36,6 +36,48 @@ export type TmsApiDataItem = {
     lng: string;
 };
 
+export type EventItem = {
+    id: string;
+    parentId: string;
+    name: string;
+    descriptions?: { description: string }[];
+    images?: { url: string }[];
+    performances?: { url: string }[];
+    place: {
+        website: string;
+        town: string;
+    };
+    startFormatted: string;
+    endFormatted: string;
+    minPrice?: number;
+    categoryCard?: string;
+};
+
+export type EventResponse = {
+    events: EventItem[];
+    totalResults: number;
+};
+
+export type CludoResponseField = {
+    Value: string;
+};
+
+export type CludoDocument = {
+    Fields: {
+        Id: CludoResponseField;
+        Title: CludoResponseField;
+        Description: CludoResponseField;
+        Image?: CludoResponseField;
+        Url: CludoResponseField;
+        categoryCard: CludoResponseField;
+    };
+};
+
+export type CludoResponse = {
+    TypedDocuments: CludoDocument[];
+    TotalDocument: number;
+};
+
 export type CludoCredentials = {
     apiKey: string;
     customerId: number;
