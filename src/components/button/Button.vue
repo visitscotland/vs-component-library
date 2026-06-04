@@ -261,6 +261,7 @@ export default {
         &.btn-subtle:not(.vs-main-map-category__button) {
             &.disabled, &:disabled {
                 @extend %button-disabled;
+                @extend %button-disabled-icon;
             }
         }
 
