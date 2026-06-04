@@ -70,14 +70,9 @@ export default defineConfigWithVueTs(
 	// Project-wide rule overrides (Vue + JS/TS code style rules)
 	{
 		rules: {
-			// 'vue/script-indent': [
-			// 	'error',
-			// 	4,
-			// ],
-			// 'vue/html-indent': [
-			// 	'error',
-			// 	4,
-			// ],
+            indent: 'off',
+            'vue/script-indent': 'off',
+            'vue/html-indent': 'off',
 			'vue/attributes-order': 'off',
 			'vue/no-unused-vars': 'error',
 			'vue/order-in-components': 'error',
@@ -147,16 +142,6 @@ export default defineConfigWithVueTs(
 			],
 			quotes: ['error', 'single'],
 			semi: ['error', 'always'],
-			// indent: ['error', 'tab'],
-			// indent: [
-			// 	'warn',
-			// 	4,
-			// 	{
-			// 		ignoredNodes: [
-			// 			'TemplateLiteral',
-			// 		],
-			// 	},
-			// ],
 			'object-curly-newline': [
 				'error',
 				{
