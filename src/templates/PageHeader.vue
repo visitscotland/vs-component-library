@@ -1,229 +1,229 @@
 <template>
-	<div class="vs-sticky-nav--no-global">
-		<VsNavigationBar
-			sidebar-close-label="Close sidebar menu"
-			sidebar-open-label="Main menu"
-			sidebar-title="Navigation menu"
-		>
-			<template #logo-link>
-				<VsSvgLink
-					link-alt-text="VisitScotland Home"
-					href="#"
-					:svg-fill="tokens['vs-color-background-brand']"
-					svg-path="visitscotland-logo"
-					svg-width="167px"
-					svg-height="28px"
-				/>
-			</template>
+    <div class="vs-sticky-nav--no-global">
+        <VsNavigationBar
+            sidebar-close-label="Close sidebar menu"
+            sidebar-open-label="Main menu"
+            sidebar-title="Navigation menu"
+        >
+            <template #logo-link>
+                <VsSvgLink
+                    link-alt-text="VisitScotland Home"
+                    href="#"
+                    :svg-fill="tokens['vs-color-background-brand']"
+                    svg-path="visitscotland-logo"
+                    svg-width="167px"
+                    svg-height="28px"
+                />
+            </template>
 
-			<template #navigation-bar-menu>
-				<VsNavigationBarMenu menu-aria-label="Main navigation menu">
-					<template
-						v-for="(item) in menuList"
-						:key="`top-${item.title}`"
-					>
-						<li v-if="item.dropdownNav">
-							<VsNavigationBarMenuDropdown>
-								<template #button-content>
-									{{ item.title }}
-								</template>
+            <template #navigation-bar-menu>
+                <VsNavigationBarMenu menu-aria-label="Main navigation menu">
+                    <template
+                        v-for="(item) in menuList"
+                        :key="`top-${item.title}`"
+                    >
+                        <li v-if="item.dropdownNav">
+                            <VsNavigationBarMenuDropdown>
+                                <template #button-content>
+                                    {{ item.title }}
+                                </template>
 
-								<VsNavigationBarMenuItem
-									v-for="(dropdownItem) in item.dropdownNav"
-									:key="`${item.title}-${dropdownItem.title}`"
-									:href="dropdownItem.href"
-								>
-									{{ dropdownItem.title }}
-								</VsNavigationBarMenuItem>
+                                <VsNavigationBarMenuItem
+                                    v-for="(dropdownItem) in item.dropdownNav"
+                                    :key="`${item.title}-${dropdownItem.title}`"
+                                    :href="dropdownItem.href"
+                                >
+                                    {{ dropdownItem.title }}
+                                </VsNavigationBarMenuItem>
 
-								<li
-									v-if="item.cta"
-									class="my-075 mx-100"
-								>
-									<VsLink
-										:href="item.href"
-										type="internal"
-										no-visited-styles
-									>
-										{{ item.cta }}
-									</VsLink>
-								</li>
-							</VsNavigationBarMenuDropdown>
-						</li>
+                                <li
+                                    v-if="item.cta"
+                                    class="my-075 mx-100"
+                                >
+                                    <VsLink
+                                        :href="item.href"
+                                        type="internal"
+                                        no-visited-styles
+                                    >
+                                        {{ item.cta }}
+                                    </VsLink>
+                                </li>
+                            </VsNavigationBarMenuDropdown>
+                        </li>
 
-						<VsNavigationBarMenuItem
-							v-else
-							variant="primary-menu-item"
-							:href="item.href"
-						>
-							{{ item.title }}
-						</VsNavigationBarMenuItem>
-					</template>
-				</VsNavigationBarMenu>
-			</template>
+                        <VsNavigationBarMenuItem
+                            v-else
+                            variant="primary-menu-item"
+                            :href="item.href"
+                        >
+                            {{ item.title }}
+                        </VsNavigationBarMenuItem>
+                    </template>
+                </VsNavigationBarMenu>
+            </template>
 
-			<template #navigation-bar-utilities>
-				<nav aria-label="Utility menu">
-					<ul class="d-flex">
-						<li class="me-075">
-							<VsNavigationBarSearch />
-						</li>
-						<li
-							class="d-none d-md-block me-075"
-							v-if="menuType === 'b2c'"
-						>
-							<VsTooltip
-								title="Map of Scotland"
-								subtle
-								:use-legacy="false"
-							>
-								<VsButton
-									icon-only
-									icon="fa-regular fa-map"
-									href="#"
-									size="sm"
-									variant="subtle"
-								>
-									Map of Scotland
-								</VsButton>
-							</VsTooltip>
-						</li>
-						<li
-							v-if="menuType === 'b2c'"
-							class="d-none d-md-block me-0 me-md-075 me-lg-0"
-						>
-							<VsNavigationBarMenuDropdown subtle>
-								<template #button-content>
-									<span class="visually-hidden">Choose language: </span> EN
-								</template>
+            <template #navigation-bar-utilities>
+                <nav aria-label="Utility menu">
+                    <ul class="d-flex">
+                        <li class="me-075">
+                            <VsNavigationBarSearch />
+                        </li>
+                        <li
+                            class="d-none d-md-block me-075"
+                            v-if="menuType === 'b2c'"
+                        >
+                            <VsTooltip
+                                title="Map of Scotland"
+                                subtle
+                                :use-legacy="false"
+                            >
+                                <VsButton
+                                    icon-only
+                                    icon="fa-regular fa-map"
+                                    href="#"
+                                    size="sm"
+                                    variant="subtle"
+                                >
+                                    Map of Scotland
+                                </VsButton>
+                            </VsTooltip>
+                        </li>
+                        <li
+                            v-if="menuType === 'b2c'"
+                            class="d-none d-md-block me-0 me-md-075 me-lg-0"
+                        >
+                            <VsNavigationBarMenuDropdown subtle>
+                                <template #button-content>
+                                    <span class="visually-hidden">Choose language: </span> EN
+                                </template>
 
-								<VsNavigationBarMenuItem href="#">
-									English
-								</VsNavigationBarMenuItem>
-								<VsNavigationBarMenuItem href="#">
-									Spanish
-								</VsNavigationBarMenuItem>
-								<VsNavigationBarMenuItem href="#">
-									French
-								</VsNavigationBarMenuItem>
-							</VsNavigationBarMenuDropdown>
-						</li>
-					</ul>
-				</nav>
-			</template>
+                                <VsNavigationBarMenuItem href="#">
+                                    English
+                                </VsNavigationBarMenuItem>
+                                <VsNavigationBarMenuItem href="#">
+                                    Spanish
+                                </VsNavigationBarMenuItem>
+                                <VsNavigationBarMenuItem href="#">
+                                    French
+                                </VsNavigationBarMenuItem>
+                            </VsNavigationBarMenuDropdown>
+                        </li>
+                    </ul>
+                </nav>
+            </template>
 
-			<template #sidebar-body>
-				<VsAccordion>
-					<nav aria-label="main navigation menu">
-						<ul>
-							<template
-								v-for="(mobileItem, index) in menuList"
-								:key="`sidebar-${mobileItem.title}`"
-							>
-								<li v-if="mobileItem.dropdownNav">
-									<VsAccordionItem
-										:control-id="`page-header-sidebar-nav-${index}`"
-									>
-										<template #title>
-											{{ mobileItem.title }}
-										</template>
+            <template #sidebar-body>
+                <VsAccordion>
+                    <nav aria-label="main navigation menu">
+                        <ul>
+                            <template
+                                v-for="(mobileItem, index) in menuList"
+                                :key="`sidebar-${mobileItem.title}`"
+                            >
+                                <li v-if="mobileItem.dropdownNav">
+                                    <VsAccordionItem
+                                        :control-id="`page-header-sidebar-nav-${index}`"
+                                    >
+                                        <template #title>
+                                            {{ mobileItem.title }}
+                                        </template>
 
-										<ul>
-											<VsNavigationBarMenuItem
-												v-for="(mobileDropdownItem)
-													in mobileItem.dropdownNav"
-												:key="`${mobileItem.title}-
+                                        <ul>
+                                            <VsNavigationBarMenuItem
+                                                v-for="(mobileDropdownItem)
+                                                    in mobileItem.dropdownNav"
+                                                :key="`${mobileItem.title}-
 													${mobileDropdownItem.title}`"
-												:href="mobileDropdownItem.href"
-											>
-												{{ mobileDropdownItem.title }}
-											</VsNavigationBarMenuItem>
+                                                :href="mobileDropdownItem.href"
+                                            >
+                                                {{ mobileDropdownItem.title }}
+                                            </VsNavigationBarMenuItem>
 
-											<li
-												v-if="mobileItem.cta"
-												class="my-075 mx-100"
-											>
-												<VsLink
-													:href="mobileItem.href"
-													type="internal"
-													no-visited-styles
-												>
-													{{ mobileItem.cta }}
-												</VsLink>
-											</li>
-										</ul>
-									</VsAccordionItem>
-								</li>
+                                            <li
+                                                v-if="mobileItem.cta"
+                                                class="my-075 mx-100"
+                                            >
+                                                <VsLink
+                                                    :href="mobileItem.href"
+                                                    type="internal"
+                                                    no-visited-styles
+                                                >
+                                                    {{ mobileItem.cta }}
+                                                </VsLink>
+                                            </li>
+                                        </ul>
+                                    </VsAccordionItem>
+                                </li>
 
-								<template v-else>
-									<VsNavigationBarMenuItem
-										variant="primary-sidebar-item"
-										:href="mobileItem.href"
-									>
-										{{ mobileItem.title }}
-									</VsNavigationBarMenuItem>
+                                <template v-else>
+                                    <VsNavigationBarMenuItem
+                                        variant="primary-sidebar-item"
+                                        :href="mobileItem.href"
+                                    >
+                                        {{ mobileItem.title }}
+                                    </VsNavigationBarMenuItem>
 
-									<VsDivider class="my-025" />
-								</template>
-							</template>
-						</ul>
-					</nav>
-				</VsAccordion>
-			</template>
+                                    <VsDivider class="my-025" />
+                                </template>
+                            </template>
+                        </ul>
+                    </nav>
+                </VsAccordion>
+            </template>
 
-			<template
-				#sidebar-footer
-				v-if="menuType === 'b2c'"
-			>
-				<div class="p-100 pb-300">
-					<nav aria-label="Sidebar utility menu">
-						<ul class="d-flex justify-content-end">
-							<li class="me-075 d-block d-md-none">
-								<VsTooltip
-									title="Map of Scotland"
-									subtle
-									:use-legacy="false"
-								>
-									<VsButton
-										icon-only
-										icon="fa-regular fa-map"
-										href="#"
-										size="sm"
-										variant="subtle"
-									>
-										Map of Scotland
-									</VsButton>
-								</VsTooltip>
-							</li>
-							<li class="d-block d-md-none">
-								<VsNavigationBarMenuDropdown
-									subtle
-								>
-									<template #button-content>
-										<span class="visually-hidden">Choose language: </span> EN
-									</template>
+            <template
+                #sidebar-footer
+                v-if="menuType === 'b2c'"
+            >
+                <div class="p-100 pb-300">
+                    <nav aria-label="Sidebar utility menu">
+                        <ul class="d-flex justify-content-end">
+                            <li class="me-075 d-block d-md-none">
+                                <VsTooltip
+                                    title="Map of Scotland"
+                                    subtle
+                                    :use-legacy="false"
+                                >
+                                    <VsButton
+                                        icon-only
+                                        icon="fa-regular fa-map"
+                                        href="#"
+                                        size="sm"
+                                        variant="subtle"
+                                    >
+                                        Map of Scotland
+                                    </VsButton>
+                                </VsTooltip>
+                            </li>
+                            <li class="d-block d-md-none">
+                                <VsNavigationBarMenuDropdown
+                                    subtle
+                                >
+                                    <template #button-content>
+                                        <span class="visually-hidden">Choose language: </span> EN
+                                    </template>
 
-									<VsNavigationBarMenuItem href="#">
-										English
-									</VsNavigationBarMenuItem>
-									<VsNavigationBarMenuItem href="#">
-										Spanish
-									</VsNavigationBarMenuItem>
-									<VsNavigationBarMenuItem href="#">
-										French
-									</VsNavigationBarMenuItem>
-								</VsNavigationBarMenuDropdown>
-							</li>
-						</ul>
-					</nav>
-				</div>
-			</template>
-		</VsNavigationBar>
-	</div>
+                                    <VsNavigationBarMenuItem href="#">
+                                        English
+                                    </VsNavigationBarMenuItem>
+                                    <VsNavigationBarMenuItem href="#">
+                                        Spanish
+                                    </VsNavigationBarMenuItem>
+                                    <VsNavigationBarMenuItem href="#">
+                                        French
+                                    </VsNavigationBarMenuItem>
+                                </VsNavigationBarMenuDropdown>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </template>
+        </VsNavigationBar>
+    </div>
 
-	<slot name="breadcrumb" />
+    <slot name="breadcrumb" />
 
-	<slot name="heroSection" />
+    <slot name="heroSection" />
 </template>
 
 <script>
@@ -248,46 +248,46 @@ import designTokens from '@/assets/tokens/tokens.json';
  * @displayName Page Header
  */
 export default {
-	name: 'VsPageHeader',
-	status: 'prototype',
-	release: '0.0.1',
-	components: {
-		VsNavigationBar,
-		VsNavigationBarMenu,
-		VsNavigationBarMenuItem,
-		VsNavigationBarMenuDropdown,
-		VsNavigationBarSearch,
-		VsSvgLink,
-		VsLink,
-		VsAccordion,
-		VsAccordionItem,
-		VsDivider,
-		VsTooltip,
-		VsButton,
-	},
-	props: {
-		/**
+    name: 'VsPageHeader',
+    status: 'prototype',
+    release: '0.0.1',
+    components: {
+        VsNavigationBar,
+        VsNavigationBarMenu,
+        VsNavigationBarMenuItem,
+        VsNavigationBarMenuDropdown,
+        VsNavigationBarSearch,
+        VsSvgLink,
+        VsLink,
+        VsAccordion,
+        VsAccordionItem,
+        VsDivider,
+        VsTooltip,
+        VsButton,
+    },
+    props: {
+        /**
         * Choose which menu to display
         */
-		menuType: {
-			type: String,
-			default: 'b2b',
-			validator: (value) => value.match(/(b2b|b2c)/),
-		},
-	},
-	data() {
-		return {
-			navData: {
-				b2c: b2cNav,
-				b2b: b2bNav,
-			},
-			tokens: designTokens,
-		};
-	},
-	computed: {
-		menuList() {
-			return this.navData[this.menuType] || [];
-		},
-	},
+        menuType: {
+            type: String,
+            default: 'b2b',
+            validator: (value) => value.match(/(b2b|b2c)/),
+        },
+    },
+    data() {
+        return {
+            navData: {
+                b2c: b2cNav,
+                b2b: b2bNav,
+            },
+            tokens: designTokens,
+        };
+    },
+    computed: {
+        menuList() {
+            return this.navData[this.menuType] || [];
+        },
+    },
 };
 </script>

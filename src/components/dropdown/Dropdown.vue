@@ -1,37 +1,37 @@
 <template>
-	<BDropdown
-		v-bind="$attrs"
-		:variant="variant"
-		class="vs-dropdown"
-	>
-		<template
-			v-for="(_, name) in nonButtonContentSlots"
-			#[name]
-		>
-			<slot
-				:name="name"
-			/>
-		</template>
-		<template #button-content>
-			<slot name="button-content">
-				{{ text }}
-			</slot>
-		</template>
-		<slot />
-	</BDropdown>
+    <BDropdown
+        v-bind="$attrs"
+        :variant="variant"
+        class="vs-dropdown"
+    >
+        <template
+            v-for="(_, name) in nonButtonContentSlots"
+            #[name]
+        >
+            <slot
+                :name="name"
+            />
+        </template>
+        <template #button-content>
+            <slot name="button-content">
+                {{ text }}
+            </slot>
+        </template>
+        <slot />
+    </BDropdown>
 
-	<!-- No JS version -->
-	<div
-		:class="$attrs.class"
-		class="dropdown vs-dropdown vs-dropdown--fallback"
-	>
-		<ul
-			class="dropdown-menu overflow-auto"
-			role="menu"
-		>
-			<slot />
-		</ul>
-	</div>
+    <!-- No JS version -->
+    <div
+        :class="$attrs.class"
+        class="dropdown vs-dropdown vs-dropdown--fallback"
+    >
+        <ul
+            class="dropdown-menu overflow-auto"
+            role="menu"
+        >
+            <slot />
+        </ul>
+    </div>
 </template>
 
 <script>
@@ -44,36 +44,36 @@ import { reject } from 'lodash';
  * @displayName Dropdown
  */
 export default {
-	name: 'VsDropdown',
-	status: 'prototype',
-	release: '0.0.1',
-	components: {
-		BDropdown,
-	},
-	props: {
-		text: {
-			type: String,
-			default: '',
-		},
-		/**
+    name: 'VsDropdown',
+    status: 'prototype',
+    release: '0.0.1',
+    components: {
+        BDropdown,
+    },
+    props: {
+        text: {
+            type: String,
+            default: '',
+        },
+        /**
          * Style variation to give additional meaning
          * `primary|secondary`.
          */
-		variant: {
-			type: String,
-			default: 'primary',
-			validator: (value) => value.match(
-				/(primary|secondary)/,
-			),
-		},
-	},
-	computed: {
-		nonButtonContentSlots() {
-			return reject(this.$slots, {
-				name: 'button-content',
-			});
-		},
-	},
+        variant: {
+            type: String,
+            default: 'primary',
+            validator: (value) => value.match(
+                /(primary|secondary)/,
+            ),
+        },
+    },
+    computed: {
+        nonButtonContentSlots() {
+            return reject(this.$slots, {
+                name: 'button-content',
+            });
+        },
+    },
 };
 </script>
 

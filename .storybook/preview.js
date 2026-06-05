@@ -25,24 +25,24 @@ const preview = {
         backgrounds: {
             options: {
                 grey: {
-					name: 'Grey',
-					value: '#F2F2F8', 
-				},
+                    name: 'Grey',
+                    value: '#F2F2F8', 
+                },
                 dark: {
-					name: 'Dark',
-					value: '#200F2E', 
-				},
+                    name: 'Dark',
+                    value: '#200F2E', 
+                },
                 light: {
-					name: 'Light',
-					value: '#fff', 
-				},
+                    name: 'Light',
+                    value: '#fff', 
+                },
             },
         },
         options: {
             storySort: {
                 order: [
                     'Components',  
-                        ['Actions & controls', 'Feedback & status', 'Layout & content structure', 'Media & data visualisation', 'Navigation', 'Overlays & popups', 'Text & typography', 'To be reviewed', 'Deprecated'], 
+                    ['Actions & controls', 'Feedback & status', 'Layout & content structure', 'Media & data visualisation', 'Navigation', 'Overlays & popups', 'Text & typography', 'To be reviewed', 'Deprecated'], 
                     'Patterns', 
                     'Pages'],
             },
@@ -55,12 +55,12 @@ const preview = {
 
             return {
               	components: {
-					story, 
-				},
-				template: `
+                    story, 
+                },
+                template: `
 					<story/>
 				`,
-				};
+            };
         },
     ],
     tags: ['autodocs'],

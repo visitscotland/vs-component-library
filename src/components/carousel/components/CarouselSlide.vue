@@ -1,53 +1,53 @@
 <template>
-	<VsCol
-		:cols="slideCols.xs"
-		:sm="slideCols.sm"
-		:lg="slideCols.md"
-		:xl="slideCols.lg"
-		data-test="vs-carousel-slide"
-		:aria-disabled="!isVisible(slideIndex)"
-	>
-		<div class="vs-carousel-slide">
-			<VsStretchedLinkCard
-				:link="linkUrl"
-				:type="linkType"
-				:img-src="imgSrc"
-				:img-alt="imgAlt"
-				:class="isVisible(slideIndex)
-					? 'vs-carousel-slide__card--active' 
-					: 'vs-carousel-slide__card--disabled'"
-				class="vs-carousel-slide__card"
-				:disabled="!isVisible(slideIndex)"
-				data-test="vs-carousel-card"
-			>
-				<template
-					v-if="days && transport"
-					#stretched-card-panels
-				>
-					<VsStretchedLinkPanels
-						:days="days"
-						:transport="transport"
-						:transport-name="transportName"
-						:days-label="daysLabel"
-					/>
-				</template>
+    <VsCol
+        :cols="slideCols.xs"
+        :sm="slideCols.sm"
+        :lg="slideCols.md"
+        :xl="slideCols.lg"
+        data-test="vs-carousel-slide"
+        :aria-disabled="!isVisible(slideIndex)"
+    >
+        <div class="vs-carousel-slide">
+            <VsStretchedLinkCard
+                :link="linkUrl"
+                :type="linkType"
+                :img-src="imgSrc"
+                :img-alt="imgAlt"
+                :class="isVisible(slideIndex)
+                    ? 'vs-carousel-slide__card--active' 
+                    : 'vs-carousel-slide__card--disabled'"
+                class="vs-carousel-slide__card"
+                :disabled="!isVisible(slideIndex)"
+                data-test="vs-carousel-card"
+            >
+                <template
+                    v-if="days && transport"
+                    #stretched-card-panels
+                >
+                    <VsStretchedLinkPanels
+                        :days="days"
+                        :transport="transport"
+                        :transport-name="transportName"
+                        :days-label="daysLabel"
+                    />
+                </template>
 
-				<template #stretched-card-category>
-					<span class="visually-hidden">{{ categoryLabel }}: </span>{{ category }}
-				</template>
+                <template #stretched-card-category>
+                    <span class="visually-hidden">{{ categoryLabel }}: </span>{{ category }}
+                </template>
 
-				<template #stretched-card-header>
-					<span
-						class="vs-carousel-slide__title"
-						data-test="vs-carousel-slide__title"
-					>
-						<!-- @slot Slot to contain heading -->
-						<slot name="vs-carousel-slide-heading" />
-					</span>
-				</template>
-			</VsStretchedLinkCard>
-		</div>
-	</VsCol>
+                <template #stretched-card-header>
+                    <span
+                        class="vs-carousel-slide__title"
+                        data-test="vs-carousel-slide__title"
+                    >
+                        <!-- @slot Slot to contain heading -->
+                        <slot name="vs-carousel-slide-heading" />
+                    </span>
+                </template>
+            </VsStretchedLinkCard>
+        </div>
+    </VsCol>
 </template>
 
 <script>
@@ -64,108 +64,108 @@ import { VsCol } from '@/components/grid';
 */
 
 export default {
-	name: 'VsCarouselSlide',
-	status: 'deprecated',
-	release: '0.0.1',
-	components: {
-		VsStretchedLinkCard,
-		VsStretchedLinkPanels,
-		VsCol,
-	},
-	inject: ['slideCols', 'visibleSlides'],
-	props: {
-		/**
+    name: 'VsCarouselSlide',
+    status: 'deprecated',
+    release: '0.0.1',
+    components: {
+        VsStretchedLinkCard,
+        VsStretchedLinkPanels,
+        VsCol,
+    },
+    inject: ['slideCols', 'visibleSlides'],
+    props: {
+        /**
         * The image to use in the component
         */
-		imgSrc: {
-			required: true,
-			type: String,
-		},
-		/**
+        imgSrc: {
+            required: true,
+            type: String,
+        },
+        /**
         * The image alt text to use in the component
         */
-		imgAlt: {
-			type: String,
-			default: '',
-		},
-		/**
+        imgAlt: {
+            type: String,
+            default: '',
+        },
+        /**
         * The type of link. This will set the icon.
         * `external, internal, download`
         */
-		linkType: {
-			type: String,
-			required: true,
-			validator: (value) => value.match(/(default|external|internal|download)/),
-		},
-		/**
+        linkType: {
+            type: String,
+            required: true,
+            validator: (value) => value.match(/(default|external|internal|download)/),
+        },
+        /**
         * The link destination
         */
-		linkUrl: {
-			type: String,
-			required: true,
-		},
-		/**
+        linkUrl: {
+            type: String,
+            required: true,
+        },
+        /**
         * Translatable text for the 'category' label
         */
-		categoryLabel: {
-			type: String,
-			default: null,
-		},
-		/**
+        categoryLabel: {
+            type: String,
+            default: null,
+        },
+        /**
         * The category of the content
         */
-		category: {
-			type: String,
-			default: null,
-		},
-		/**
+        category: {
+            type: String,
+            default: null,
+        },
+        /**
         * Optional prop for number of days
         */
-		days: {
-			type: String,
-			default: '',
-		},
-		/**
+        days: {
+            type: String,
+            default: '',
+        },
+        /**
         * Label for days - too allow translation in CMS
         */
-		daysLabel: {
-			type: String,
-			default: 'days',
-		},
-		/**
+        daysLabel: {
+            type: String,
+            default: 'days',
+        },
+        /**
         * Optional prop for transport type (will show a the transport icon if used)
         */
-		transport: {
-			type: String,
-			default: '',
-		},
-		/**
+        transport: {
+            type: String,
+            default: '',
+        },
+        /**
         * Display-friendly transport name
         * to allow for translation
         */
-		transportName: {
-			type: String,
-			default: '',
-		},
-		/**
+        transportName: {
+            type: String,
+            default: '',
+        },
+        /**
         * Mandatory index of slide -
         * needed to calculate active slides
         */
-		slideIndex: {
-			type: String,
-			required: true,
-		},
-	},
-	methods: {
-		isVisible(slideNum) {
-			const slideInt = parseInt(slideNum, 10);
-			if (this.visibleSlides.indexOf(slideInt) >= 0) {
-				return true;
-			}
+        slideIndex: {
+            type: String,
+            required: true,
+        },
+    },
+    methods: {
+        isVisible(slideNum) {
+            const slideInt = parseInt(slideNum, 10);
+            if (this.visibleSlides.indexOf(slideInt) >= 0) {
+                return true;
+            }
 
-			return false;
-		},
-	},
+            return false;
+        },
+    },
 };
 </script>
 

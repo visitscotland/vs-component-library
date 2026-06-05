@@ -41,7 +41,7 @@
                     class="col-12 col-sm-5 col-md-4
                         col-lg-5 col-xl-6 align-self-sm-end 
 						text-sm-end p-0"
-                	>
+                >
                     <!-- Compact variant CTA: shown only when compact is true-->
                     <VsButton
                         class="vs-spotlight-section__cta-button"

@@ -2,45 +2,45 @@ import VsHeroSection from '@/components/hero-section/HeroSection.vue';
 import VsArticleDetails from '@/components/article-details/ArticleDetails.vue';
 
 export default {
-	component: VsHeroSection,
-	parameters: {
-		layout: 'fullscreen',
-	},
-	title: 'Components/Layout & content structure/HeroSection',
-	argTypes: {
-		inset: {
-			options: [true, false],
-			control: {
-				type: 'radio',
-			},
-		},
-		heading: {
-			control: {
-				type: 'input',
-			},
-		},
+    component: VsHeroSection,
+    parameters: {
+        layout: 'fullscreen',
+    },
+    title: 'Components/Layout & content structure/HeroSection',
+    argTypes: {
+        inset: {
+            options: [true, false],
+            control: {
+                type: 'radio',
+            },
+        },
+        heading: {
+            control: {
+                type: 'input',
+            },
+        },
 
-	},
+    },
 };
 
 const Template = (args) => ({
-	components: {
-		VsHeroSection,
-		VsArticleDetails,
-	},
-	setup() {
-		const articleArgs = {
-			publishDate: args.publishDate,
-			readTime: args.readTime,
-			articleAuthor: args.articleAuthor,
-		};
+    components: {
+        VsHeroSection,
+        VsArticleDetails,
+    },
+    setup() {
+        const articleArgs = {
+            publishDate: args.publishDate,
+            readTime: args.readTime,
+            articleAuthor: args.articleAuthor,
+        };
 
-		return {
-			args,
-			articleArgs, 
-		};
-	},
-	template: `
+        return {
+            args,
+            articleArgs, 
+        };
+    },
+    template: `
         <VsHeroSection v-bind="args">
             <template
                 #hero-section-article-details
@@ -57,8 +57,8 @@ const Template = (args) => ({
 });
 
 const base = {
-	heading: 'Scotland, the biggest wee country in the world',
-	lede: 'Welcome to Scotland, where history meets breathtaking beauty, and every visit feels like home.',
+    heading: 'Scotland, the biggest wee country in the world',
+    lede: 'Welcome to Scotland, where history meets breathtaking beauty, and every visit feels like home.',
 };
 
 export const NoImage = Template.bind({
@@ -70,59 +70,59 @@ export const FullBleed = Template.bind({
 });
 
 FullBleed.args = {
-	...base,
-	imgSrc: 'fixtures/hero/images/visitscotland_38462263949.jpg',
-	alt: 'Sunset at Lochan na h-Achlaise on Rannoch Moor',
-	imgCaption: 'Sunset at Lochan na h-Achlaise on Rannoch Moor',
-	imgCredit: 'VisitScotland / Kenny Lam',
+    ...base,
+    imgSrc: 'fixtures/hero/images/visitscotland_38462263949.jpg',
+    alt: 'Sunset at Lochan na h-Achlaise on Rannoch Moor',
+    imgCaption: 'Sunset at Lochan na h-Achlaise on Rannoch Moor',
+    imgCredit: 'VisitScotland / Kenny Lam',
 };
 
 export const WithVideo = Template.bind({
 });
 
 WithVideo.args = {
-	heading: 'Scotland, <br/>it\'s good for the soul',
-	lede: 'Where history meets breathtaking beauty, and every visit feels like home.',
-	imgSrc: 'fixtures/hero/images/lavendar-fields.jpg',
-	videoSrc: 'fixtures/hero/video/lavendar-fields.mp4',
-	playButtonLabel: 'Play video',
-	pauseButtonLabel: 'Pause video',
+    heading: 'Scotland, <br/>it\'s good for the soul',
+    lede: 'Where history meets breathtaking beauty, and every visit feels like home.',
+    imgSrc: 'fixtures/hero/images/lavendar-fields.jpg',
+    videoSrc: 'fixtures/hero/video/lavendar-fields.mp4',
+    playButtonLabel: 'Play video',
+    pauseButtonLabel: 'Pause video',
 };
 
 export const Inset = Template.bind({
 });
 
 Inset.args = {
-	...base,
-	imgSrc: 'fixtures/hero/images/visitscotland_38462263949.jpg',
-	imgCaption: 'Sunset at Lochan na h-Achlaise on Rannoch Moor',
-	imgCredit: 'VisitScotland / Kenny Lam',
-	inset: true,
+    ...base,
+    imgSrc: 'fixtures/hero/images/visitscotland_38462263949.jpg',
+    imgCaption: 'Sunset at Lochan na h-Achlaise on Rannoch Moor',
+    imgCredit: 'VisitScotland / Kenny Lam',
+    inset: true,
 };
 
 export const WithArticleDetails = Template.bind({
 });
 
 WithArticleDetails.args = {
-	...base,
-	imgSrc: 'fixtures/hero/images/visitscotland_38462263949.jpg',
-	imgCaption: 'Sunset at Lochan na h-Achlaise on Rannoch Moor',
-	imgCredit: 'VisitScotland / Kenny Lam',
-	publishDate: 'September 15, 2024',
-	readTime: '5 min read',
-	articleAuthor: 'Frank Smith',
-	inset: true,
+    ...base,
+    imgSrc: 'fixtures/hero/images/visitscotland_38462263949.jpg',
+    imgCaption: 'Sunset at Lochan na h-Achlaise on Rannoch Moor',
+    imgCredit: 'VisitScotland / Kenny Lam',
+    publishDate: 'September 15, 2024',
+    readTime: '5 min read',
+    articleAuthor: 'Frank Smith',
+    inset: true,
 };
 
 export const Split = Template.bind({
 });
 
 Split.args = {
-	heading: 'Join the journey to change',
-	lede: 'Scotland views business events as catalysts for social and economic  transformation, addressing climate change, and advocating human rights.',
-	imgSrc: 'fixtures/hero/images/visitscotland_38462263949.jpg',
-	alt: 'Sunset at Lochan na h-Achlaise on Rannoch Moor',
-	imgCaption: 'Sunset at Lochan na h-Achlaise on Rannoch Moor',
-	imgCredit: 'VisitScotland / Kenny Lam',
-	split: true,
+    heading: 'Join the journey to change',
+    lede: 'Scotland views business events as catalysts for social and economic  transformation, addressing climate change, and advocating human rights.',
+    imgSrc: 'fixtures/hero/images/visitscotland_38462263949.jpg',
+    alt: 'Sunset at Lochan na h-Achlaise on Rannoch Moor',
+    imgCaption: 'Sunset at Lochan na h-Achlaise on Rannoch Moor',
+    imgCredit: 'VisitScotland / Kenny Lam',
+    split: true,
 };

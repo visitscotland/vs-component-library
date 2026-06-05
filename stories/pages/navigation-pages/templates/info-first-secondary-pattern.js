@@ -58,10 +58,10 @@ export default `
     </VsSectionHeader>
 
     ${linkCardContentSwiper({
-        slidesVar: 'infoCardList1',
-        slidesKey: '1',
-        slidesPerViewXl: 3.4,
-    })}
+    slidesVar: 'infoCardList1',
+    slidesKey: '1',
+    slidesPerViewXl: 3.4,
+})}
 
     <!------------------------------------------------------------
     SECTION END
@@ -103,10 +103,10 @@ export default `
     </VsSectionHeader>
 
     ${linkCardContentSwiper({
-        slidesVar: 'infoCardList2',
-        slidesKey: '2',
-        slidesPerViewXl: 3.4,
-    })}
+    slidesVar: 'infoCardList2',
+    slidesKey: '2',
+    slidesPerViewXl: 3.4,
+})}
 
     <!------------------------------------------------------------
     SECTION END
@@ -169,10 +169,10 @@ export default `
     </VsSectionHeader>
 
     ${linkCardContentSwiper({
-        slidesVar: 'infoCardList3',
-        slidesKey: '3',
-        slidesPerViewXl: 3.4,
-    })}
+    slidesVar: 'infoCardList3',
+    slidesKey: '3',
+    slidesPerViewXl: 3.4,
+})}
 
     <!------------------------------------------------------------
     SECTION END
@@ -360,10 +360,10 @@ export default `
 
     <div class="mb-500">
         ${linkCardContentSwiper({
-            slidesVar: 'infoCardList4',
-            slidesKey: '4',
-            slidesPerViewXl: 4.4,
-        })}
+    slidesVar: 'infoCardList4',
+    slidesKey: '4',
+    slidesPerViewXl: 4.4,
+})}
     </div>
     <!------------------------------------------------------------
     SECTION END

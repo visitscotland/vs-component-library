@@ -20,7 +20,7 @@
                         v-if="($slots['tourism-info-links']
                             && $slots['tourism-info-links']())
                             && !($slots['tourism-info-quote']
-                            && $slots['tourism-info-quote']())"
+                                && $slots['tourism-info-quote']())"
                     >
                         <!-- @slot Holds the links (html expected) -->
                         <slot name="tourism-info-links" />

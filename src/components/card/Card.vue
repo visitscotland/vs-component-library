@@ -1,46 +1,46 @@
 <template>
-	<div
-		class="vs-card"
-		data-test="vs-card"
-		:class="cardClasses"
-		:style="cardStyles"
-	>
-		<template v-if="$slots['vs-card-header'] && $slots['vs-card-header']()">
-			<div class="vs-card__header">
-				<!-- @slot Used for the header of the card -->
-				<slot name="vs-card-header" />
-			</div>
-		</template>
+    <div
+        class="vs-card"
+        data-test="vs-card"
+        :class="cardClasses"
+        :style="cardStyles"
+    >
+        <template v-if="$slots['vs-card-header'] && $slots['vs-card-header']()">
+            <div class="vs-card__header">
+                <!-- @slot Used for the header of the card -->
+                <slot name="vs-card-header" />
+            </div>
+        </template>
 
-		<div class="vs-card__body">
-			<!-- @slot Used for the body of the card -->
-			<slot name="vs-card-body" />
-		</div>
+        <div class="vs-card__body">
+            <!-- @slot Used for the body of the card -->
+            <slot name="vs-card-body" />
+        </div>
 
-		<template v-if="$slots['vs-card-footer'] && $slots['vs-card-footer']()">
-			<div class="vs-card__footer">
-				<!-- @slot Used for the footer of the card -->
-				<slot name="vs-card-footer" />
-			</div>
-		</template>
+        <template v-if="$slots['vs-card-footer'] && $slots['vs-card-footer']()">
+            <div class="vs-card__footer">
+                <!-- @slot Used for the footer of the card -->
+                <slot name="vs-card-footer" />
+            </div>
+        </template>
 
-		<template 
-			v-if="cardStyle === 'overlay'
-				&& $slots['vs-card-image'] 
-				&& $slots['vs-card-image']()"
-		>
-			<div class="vs-card__media">
-				<!-- @slot Used for the background image in the overlay variant -->
-				<slot name="vs-card-image" />
-			</div>
-		</template>
+        <template 
+            v-if="cardStyle === 'overlay'
+                && $slots['vs-card-image'] 
+                && $slots['vs-card-image']()"
+        >
+            <div class="vs-card__media">
+                <!-- @slot Used for the background image in the overlay variant -->
+                <slot name="vs-card-image" />
+            </div>
+        </template>
 
-		<template v-if="$slots['vs-card-overlay-controls'] && $slots['vs-card-overlay-controls']()">
-			<div class="vs-card__overlay-controls">
-				<slot name="vs-card-overlay-controls" />
-			</div>
-		</template>
-	</div>
+        <template v-if="$slots['vs-card-overlay-controls'] && $slots['vs-card-overlay-controls']()">
+            <div class="vs-card__overlay-controls">
+                <slot name="vs-card-overlay-controls" />
+            </div>
+        </template>
+    </div>
 </template>
 
 <script>
@@ -52,89 +52,89 @@ import designTokens from '@/assets/tokens/tokens.json';
  * @displayName Card
  */
 export default {
-	name: 'VsCard',
-	status: 'prototype',
-	release: '0.1.0',
-	provide() {
-		return {
-			registerMedia: (component) => {
-				this.mediaComponent = component;
-			},
-		};
-	},
-	props: {
-		/**
+    name: 'VsCard',
+    status: 'prototype',
+    release: '0.1.0',
+    provide() {
+        return {
+            registerMedia: (component) => {
+                this.mediaComponent = component;
+            },
+        };
+    },
+    props: {
+        /**
         * The style of the card, this is used to set the border and shadow
         * `elevated|outlined|overlay`
         */
-		cardStyle: {
-			type: String,
-			default: null,
-			validator: (value) => value.match(/(elevated|outlined|overlay)/),
-		},
-		/*
+        cardStyle: {
+            type: String,
+            default: null,
+            validator: (value) => value.match(/(elevated|outlined|overlay)/),
+        },
+        /*
         * Accepts semantic token or hex code for the
         * background colour of the card.
         */
-		fillColor: {
-			type: String,
-			default: 'vs-color-interaction-cta-subtle',
-		},
-		/**
+        fillColor: {
+            type: String,
+            default: 'vs-color-interaction-cta-subtle',
+        },
+        /**
         * Adds an accent bar to the left of the card
         */
-		accentBar: {
-			type: Boolean,
-			default: false,
-		},
-		/**
+        accentBar: {
+            type: Boolean,
+            default: false,
+        },
+        /**
         * Sets the card to horizontal layout
         */
-		horizontal: {
-			type: Boolean,
-			default: false,
-		},
-	},
-	data() {
-		return {
-			tokens: designTokens,
-			mediaComponent: null,
-		};
-	},
-	computed: {
-		cardClasses() {
-			return [
-				{
-					'vs-card--horizontal': this.horizontal,
-					'vs-card--accent-bar': this.accentBar,
-				},
-				this.cardStyle ? `vs-card--${this.cardStyle}` : null,
-			];
-		},
-		cardStyles() {
-			if (this.fillColor) {
-				const fill = this.tokens[this.fillColor] || this.fillColor;
+        horizontal: {
+            type: Boolean,
+            default: false,
+        },
+    },
+    data() {
+        return {
+            tokens: designTokens,
+            mediaComponent: null,
+        };
+    },
+    computed: {
+        cardClasses() {
+            return [
+                {
+                    'vs-card--horizontal': this.horizontal,
+                    'vs-card--accent-bar': this.accentBar,
+                },
+                this.cardStyle ? `vs-card--${this.cardStyle}` : null,
+            ];
+        },
+        cardStyles() {
+            if (this.fillColor) {
+                const fill = this.tokens[this.fillColor] || this.fillColor;
 
-				return {
-					'background-color': fill,
-				};
-			}
+                return {
+                    'background-color': fill,
+                };
+            }
 
-			return null;
-		},
-	},
-	methods: {
-		/**
+            return null;
+        },
+    },
+    methods: {
+        /**
          * Toggles the media component registered in this card, if any
          */
-		toggle() {
-			if (!this.mediaComponent) {
-				return;
-			}
+        toggle() {
+            if (!this.mediaComponent) {
+                return;
+            }
 
-			this.mediaComponent?.toggleVideo?.();
-		},
-	},
+            this.mediaComponent?.toggleVideo?.();
+        },
+    },
 };
 </script>
 

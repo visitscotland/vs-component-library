@@ -184,7 +184,7 @@ export default {
             type: String,
             default: 'heading-xl',
             validator: (value) => value.match(
-				// eslint-disable-next-line max-len
+                // eslint-disable-next-line max-len
                 /(display-m|display-s|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs|heading-xxxs)/,
             ),
         },

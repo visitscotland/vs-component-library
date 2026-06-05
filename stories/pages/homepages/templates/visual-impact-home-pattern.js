@@ -29,8 +29,8 @@ export default `
     </VsSectionHeader>
 
     ${categoryCardContentSwiper({
-        slidesVar: 'cardListOverlay',
-    })}
+    slidesVar: 'cardListOverlay',
+})}
 
     <!------------------------------------------------------------
     SECTION END
@@ -172,10 +172,10 @@ export default `
     </VsSectionHeader>
 
     ${splitCardContentSwiper({
-        slidesVar: 'cardList1',
-        slidesKey: '1',
-        slidesPerViewXl: 4.4,
-    })}
+    slidesVar: 'cardList1',
+    slidesKey: '1',
+    slidesPerViewXl: 4.4,
+})}
     
     <!------------------------------------------------------------
     SECTION END
@@ -215,10 +215,10 @@ export default `
     </VsSectionHeader>
 
     ${splitCardContentSwiper({
-        slidesVar: 'cardList2',
-        slidesKey: '2',
-        slidesPerViewXl: 3.4,
-    })}
+    slidesVar: 'cardList2',
+    slidesKey: '2',
+    slidesPerViewXl: 3.4,
+})}
 
     <!------------------------------------------------------------
     SECTION END
@@ -239,9 +239,9 @@ export default `
 
     <div class="mb-500">
         ${eventCardContentSwiper({
-            slidesVar: 'eventCardList',
-            slidesKey: 'event',
-        })}
+    slidesVar: 'eventCardList',
+    slidesKey: 'event',
+})}
     </div>
     <!-----------------------------------------------------------
     SECTION END

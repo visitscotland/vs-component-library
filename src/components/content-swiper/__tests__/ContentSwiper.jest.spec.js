@@ -6,8 +6,8 @@ jest.mock('swiper/vue', () => ({
     Swiper: {
         name: 'Swiper',
         render() {
-			return null; 
-		},
+            return null; 
+        },
     },
 }));
 jest.mock('swiper/modules', () => ({
