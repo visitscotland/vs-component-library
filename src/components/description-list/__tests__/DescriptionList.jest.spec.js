@@ -60,7 +60,6 @@ describe('VsDescriptionList', () => {
                 inline: true,
             });
 
-            /* eslint-disable no-underscore-dangle */
             expect(wrapper.vm.inline).toBe(true);
         });
     });

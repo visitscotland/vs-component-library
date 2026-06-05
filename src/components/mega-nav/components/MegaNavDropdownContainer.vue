@@ -23,7 +23,7 @@
                     >
                         {{ ctaText }}
                     </VsLink>
-                    <hr class="vs-mega-nav-dropdown-container__divider">
+                    <hr class="vs-mega-nav-dropdown-container__divider"/>
                 </template>
 
                 <template #dropdown-content>

@@ -93,7 +93,6 @@ describe('VsDescriptionListItem', () => {
             });
 
             it('should accept an `inline` property injected by the parent component', () => {
-                /* eslint-disable no-underscore-dangle */
                 expect(wrapper.vm.inline).toBe(true);
             });
 

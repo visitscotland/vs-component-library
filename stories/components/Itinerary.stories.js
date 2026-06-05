@@ -257,7 +257,6 @@ const Template = (args) => ({
 
 const mapStops = [];
 
-// eslint-disable-next-line array-callback-return
 sampleItinerary.days.map((day) => {
     day.stops.map((stop) => mapStops.push({
         title: stop.title,

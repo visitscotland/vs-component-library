@@ -244,10 +244,10 @@ export default {
                 allSlidesArr.forEach((slide, index) => {
                     const activeSlideStart = this.currentPage
                         * this.slidesPerPage[this.currentWidth];
-                    // eslint-disable-next-line function-paren-newline
+                     
                     const activeSlideEnd = parseInt(
                         this.currentPage * this.slidesPerPage[this.currentWidth], 10,
-                    // eslint-disable-next-line function-paren-newline
+                     
                     ) + parseInt(this.slidesPerPage[this.currentWidth], 10);
 
                     // if we're at a final slide that has a remainder

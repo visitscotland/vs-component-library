@@ -9,6 +9,7 @@
     >
         <title>{{ title }}</title>
         <!-- Each path uses dynamic class binding -->
+        <!-- eslint-disable max-len -->
         <path
             id="region-borders"
             d="M94.8908 215.531L93.0078 228.835L107.675 235.709V243.242L113.032 241.534L128.139 211.014L120.114 207.334L105.422 215.196L94.8908 215.531Z"
@@ -106,6 +107,7 @@ export default {
             type: Array,
             default: () => [],
             validator: (value) => value.every(
+                // eslint-disable-next-line max-len
                 (region) => /^(borders|dumfries|highlands|outerhebs|shetland|orkney|edinburgh|glasgow|fife|dundee|aberdeen|perth|lomond|arranayr|argyll)$/.test(region),
             ),
         },

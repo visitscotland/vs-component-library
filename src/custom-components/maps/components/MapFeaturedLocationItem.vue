@@ -1,42 +1,43 @@
 <template>
-    <VsCol cols="6">
-        <VsCard
-            card-style="overlay"
-            class="vs-map__controls-featured-place-card"
-            @click="featuredPlaceClick(props.place)"
-        >
-            <template #vs-card-footer>
-                <div class="px-125 pb-125">
-                    <VsHeading
-                        class="vs-map__controls-featured-place-card-heading"
-                        heading-style="heading-xxxs"
-                        level="2"
-                        no-margins
-                    >
-                        <VsLink
-                            class="stretched-link text-decoration-none"
-                            href="#"
-                            variant="on-dark"
-                            @keyup.enter.prevent="featuredPlaceClick(props.place)"
-                            @keyup.space.prevent="featuredPlaceClick(props.place)"
-                        >
-                            {{ props.place.properties.title }}
-                        </VsLink>
-                    </VsHeading>
-                </div>
-            </template>
-            <template
-                v-if="props.place.properties.image"
-                #vs-card-image
-            >
-                <VsImg
-                    class="vs-map__controls-featured-place-img w-100 rounded-1 object-fit-cover img-zoom-on-hover"
-                    :src="props.place.properties.image"
-                    :use-lazy-loading="false"
-                />
-            </template>
-        </VsCard>
-    </VsCol>
+	<VsCol cols="6">
+		<VsCard
+			card-style="overlay"
+			class="vs-map__controls-featured-place-card"
+			@click="featuredPlaceClick(props.place)"
+		>
+			<template #vs-card-footer>
+				<div class="px-125 pb-125">
+					<VsHeading
+						class="vs-map__controls-featured-place-card-heading"
+						heading-style="heading-xxxs"
+						level="2"
+						no-margins
+					>
+						<VsLink
+							class="stretched-link text-decoration-none"
+							href="#"
+							variant="on-dark"
+							@keyup.enter.prevent="featuredPlaceClick(props.place)"
+							@keyup.space.prevent="featuredPlaceClick(props.place)"
+						>
+							{{ props.place.properties.title }}
+						</VsLink>
+					</VsHeading>
+				</div>
+			</template>
+			<template
+				v-if="props.place.properties.image"
+				#vs-card-image
+			>
+				<VsImg
+					class="vs-map__controls-featured-place-img 
+						w-100 rounded-1 object-fit-cover img-zoom-on-hover"
+					:src="props.place.properties.image"
+					:use-lazy-loading="false"
+				/>
+			</template>
+		</VsCard>
+	</VsCol>
 </template>
 
 <script setup>
@@ -50,18 +51,18 @@ import VsImg from '@/components/img/Img.vue';
 import VsLink from '@/components/link/Link.vue';
 
 const props = defineProps({
-    place: {
-        type: Object,
-        default: () => {},
-    },
+	place: {
+		type: Object,
+		default: () => {},
+	},
 });
 
 const googleMapStore = useGoogleMapStore();
 const onFeaturedLocationClick = inject('onFeaturedLocationClick');
 
 function featuredPlaceClick(place) {
-    googleMapStore.showDestinations = false;
-    onFeaturedLocationClick(place);
+	googleMapStore.showDestinations = false;
+	onFeaturedLocationClick(place);
 }
 </script>
 

@@ -944,11 +944,11 @@ export default {
          */
         getBoundsFromPolygon() {
             const coordinates = this.boundsData.coordinates[0];
-            /* eslint-disable arrow-body-style */
+             
             return coordinates.reduce((bounds, coord) => {
                 return bounds.extend(coord);
             }, new mapboxgl.LngLatBounds(coordinates[0], coordinates[0]));
-            /* eslint-enable arrow-body-style */
+             
         },
         /**
          * Check a marker is visible on the map
@@ -1105,9 +1105,15 @@ export default {
             }
 
             @include vs-button-variant(
-                $vs-color-text-cta-on-light, $vs-color-interaction-cta-secondary, $vs-color-interaction-cta-primary,
-                $vs-color-text-inverse, $vs-color-interaction-cta-hover, $vs-color-interaction-cta-hover,
-                $vs-color-text-inverse, $vs-color-interaction-cta-pressed, $vs-color-interaction-cta-pressed,
+                $vs-color-text-cta-on-light,
+                $vs-color-interaction-cta-secondary,
+                $vs-color-interaction-cta-primary,
+                $vs-color-text-inverse,
+                $vs-color-interaction-cta-hover,
+                $vs-color-interaction-cta-hover,
+                $vs-color-text-inverse,
+                $vs-color-interaction-cta-pressed,
+                $vs-color-interaction-cta-pressed,
             );
 
             &.mapboxgl-ctrl-zoom-in {

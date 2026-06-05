@@ -39,7 +39,6 @@ const factoryMount = (propsData) => mount(VsCannedSearchLogos, {
     },
 });
 
-/* eslint-disable */
 const originalWarn = console.warn.bind(console.warn);
 
 beforeAll(() => {
@@ -49,7 +48,6 @@ beforeAll(() => {
 afterAll(() => {
     console.warn = originalWarn;
 });
-/* eslint-enable */
 
 let wrapper;
 beforeEach(() => {
