@@ -17,7 +17,7 @@
         </VsButton>
 
         <BPopover
-            custom-class="vs-social-share__popover"
+            class="vs-social-share__popover"
             :target="`vs-social-share-popover--${id}`"
             :click="true"
             container="body"
