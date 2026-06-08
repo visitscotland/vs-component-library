@@ -55,7 +55,7 @@
 
         <!-- No JS version -->
         <ul
-            class="dropdown-menu--fallback overflow-auto"
+            class="dropdown-menu--fallback overflow-auto d-none"
             role="menu"
         >
             <li role="menuitem">
@@ -420,10 +420,6 @@ export default {
 
         &__close-btn {
             display: none !important;
-        }
-
-        .vs-mega-nav-dropdown__panel {
-            display: none;
         }
 
         .dropdown-menu--fallback {
