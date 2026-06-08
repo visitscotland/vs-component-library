@@ -163,7 +163,7 @@ onMounted(async() => {
                     addPolygon(map.value, place);
                 });
             });
-        }
+        };
     });
 });
 
