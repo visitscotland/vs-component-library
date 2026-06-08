@@ -36,7 +36,6 @@
 
 <script>
 import { BDropdown } from 'bootstrap-vue-next';
-import { reject } from 'lodash';
 
 /**
  * Dropdown component for lists of links for example.
@@ -69,9 +68,9 @@ export default {
     },
     computed: {
         nonButtonContentSlots() {
-            return reject(this.$slots, {
-                name: 'button-content',
-            });
+            return Object.fromEntries(
+                Object.entries(this.$slots).filter(([slotName]) => slotName !== 'button-content'),
+            );
         },
     },
 };

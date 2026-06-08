@@ -7,6 +7,6 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "types": ["google.maps"]
+    "types": ["google.maps", "node"]
   },
 }

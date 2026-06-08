@@ -28,7 +28,7 @@ const config: StorybookConfig = {
                     scss: {
                         // Next line will prepend the import in all
                         additionalData:
-              '@import "../src/styles/resources.scss";',
+                            '@import "@/styles/resources.scss";',
                         quietDeps: true,
                     },
                 },
