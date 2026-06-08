@@ -126,9 +126,21 @@ onMounted(async() => {
 
         if (props.markerData) {
             // eslint-disable-next-line no-undef
+            const bounds = new google.maps.LatLngBounds();
+
+            // eslint-disable-next-line no-undef
             google.maps.event.addListenerOnce(map.value, 'tilesloaded', () => {
                 props.markerData.forEach((place, key) => {
                     markers[key] = addMarkers(map.value, place);
+                    if (!props.features.initialViewIsScotland) {
+                        bounds.extend(
+                            // eslint-disable-next-line no-undef
+                            new google.maps.LatLng(
+                                place.geometry.coordinates[1],
+                                place.geometry.coordinates[0],
+                            ),
+                        );
+                    }
                 });
 
                 // Google Maps bug doesn't fully render the accessibility
@@ -136,6 +148,11 @@ onMounted(async() => {
                 requestAnimationFrame(() => {
                     map.value.panBy(0, 1);
                 });
+
+                if (!props.features.initialViewIsScotland) {
+                    map.value.fitBounds(bounds);
+                    map.value.setCenter(bounds.getCenter());
+                }
             });
         };
 

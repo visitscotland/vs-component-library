@@ -89,6 +89,20 @@ export const NumberedMap = Template.bind({
 
 NumberedMap.args = {
     ...base,
+    features: {
+        clickableIcons: true,
+        initialViewIsScotland: false,
+        gestureHandling: 'cooperative',
+        isFractionalZoomEnabled: true,
+        fullscreenControl: false,
+        renderingTypeVector: true,
+        boundsData: {
+            north: 61.3,
+            south: 54.6,
+            west: -8.7,
+            east: 2,
+        },
+    },
     markerData: numberedPlaces.features,
 };
 
