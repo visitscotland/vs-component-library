@@ -21,6 +21,7 @@ import getEnvValue from '@/utils/get-env-value';
 import { mapLoader, initMap } from './composables/MapsApiLoader';
 import createCustomControlElement from './composables/CustomControls';
 import addMarkers from './composables/AddMarker';
+import addPolygon from './composables/AddPolygon';
 
 const map = shallowRef(null);
 const markers = [];
@@ -77,7 +78,14 @@ const props = defineProps({
      */
     markerData: {
         type: Array,
-        required: true,
+        default: () => {},
+    },
+    /**
+     * Array containing a polygon dataset.
+     */
+    polygonData: {
+        type: Array,
+        default: () => {},
     },
     /**
      * Object containing labels of UI Elements
@@ -130,6 +138,15 @@ onMounted(async() => {
                 });
             });
         };
+
+        if (props.polygonData) {
+            // eslint-disable-next-line no-undef
+            google.maps.event.addListenerOnce(map.value, 'tilesloaded', () => {
+                props.polygonData.forEach((place) => {
+                    addPolygon(map.value, place);
+                });
+            });
+        }
     });
 });
 

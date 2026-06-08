@@ -3,6 +3,8 @@ import VsGoogleMap from '@/components/google-map/GoogleMap.vue';
 import outlanderPlaces from '@/assets/fixtures/maps/places-data-outlander.json';
 import numberedPlaces from '@/assets/fixtures/maps/places-data-outlander-numbered.json';
 import regionPlaces from '@/assets/fixtures/maps/places-data-regional.json';
+import polygonDataset from '@/assets/fixtures/maps/regions-data.json';
+import multiPolygonDataset from '@/assets/fixtures/maps/places-data-regions.json';
 
 export default {
     component: VsGoogleMap,
@@ -111,4 +113,52 @@ RegionMap.args = {
         },
     },
     markerData: regionPlaces.features,
+};
+
+export const PolygonMap = Template.bind({
+});
+
+PolygonMap.args = {
+    ...base,
+    features: {
+        clickableIcons: false,
+        initialViewIsScotland: true,
+        gestureHandling: 'greedy',
+        isFractionalZoomEnabled: true,
+        fullscreenControl: false,
+        renderingTypeVector: true,
+        boundsData: {
+            north: 61.3,
+            south: 54.6,
+            west: -8.7,
+            east: 2,
+        },
+    },
+    polygonData: polygonDataset.features,
+};
+
+export const PolygonAndMarkerMap = Template.bind({
+});
+
+export const MultiPolygonMap = Template.bind({
+});
+
+MultiPolygonMap.args = {
+    ...base,
+    features: {
+        clickableIcons: false,
+        initialViewIsScotland: true,
+        gestureHandling: 'greedy',
+        isFractionalZoomEnabled: true,
+        fullscreenControl: false,
+        renderingTypeVector: true,
+        boundsData: {
+            north: 61.3,
+            south: 54.6,
+            west: -8.7,
+            east: 2,
+        },
+    },
+    markerData: outlanderPlaces.features,
+    polygonData: multiPolygonDataset.features,
 };

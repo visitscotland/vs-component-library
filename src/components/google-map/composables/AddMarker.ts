@@ -38,10 +38,10 @@ export default function addMarkers(map: google.maps.Map, feature: brxmFeature) {
         content: mapPin,
         gmpClickable: true,
         map,
-        position: {
-            lat: feature.geometry.coordinates[1],
-            lng: feature.geometry.coordinates[0],
-        },
+        position: new google.maps.LatLng(
+            feature.geometry.coordinates[1],
+            feature.geometry.coordinates[0],
+        ),
         title: feature.properties.title,
     });
 
