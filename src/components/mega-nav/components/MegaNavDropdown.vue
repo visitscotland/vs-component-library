@@ -2,12 +2,14 @@
     <div
         class="vs-mega-nav-dropdown"
         data-test="vs-mega-nav-dropdown"
+        role="menuitem"
     >
         <!-- Toggle -->
         <button
             class="vs-mega-nav-dropdown__toggle"
             @click="toggleMenu"
             :class="{ 'is-active': isOpen }"
+            aria-haspopup="menu"
             :aria-expanded="isOpen"
         >
             <slot name="button-content" />
@@ -17,7 +19,6 @@
         <div
             v-if="isOpen"
             class="vs-mega-nav-dropdown__panel"
-            role="menu"
         >
             <VsContainer
                 fluid="lg"
