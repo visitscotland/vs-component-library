@@ -151,9 +151,6 @@ PolygonMap.args = {
     polygonData: polygonDataset.features,
 };
 
-export const PolygonAndMarkerMap = Template.bind({
-});
-
 export const MultiPolygonMap = Template.bind({
 });
 
