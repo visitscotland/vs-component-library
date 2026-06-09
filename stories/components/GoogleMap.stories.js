@@ -1,5 +1,8 @@
 import { VsContainer, VsRow } from '@/components';
 import VsGoogleMap from '@/components/google-map/GoogleMap.vue';
+import outlanderPlaces from '@/assets/fixtures/maps/places-data-outlander.json';
+import numberedPlaces from '@/assets/fixtures/maps/places-data-outlander-numbered.json';
+import regionPlaces from '@/assets/fixtures/maps/places-data-regional.json';
 
 export default {
     component: VsGoogleMap,
@@ -38,23 +41,29 @@ const Template = (args) => ({
 
 const base = {
     center: {
-        lat: 56,
-        lng: -5,
+        lat: 57.7,
+        lng: -4.7,
     },
-    zoom: 8,
-    mapId: 'vs-map',
+    zoom: 6.25,
+    mapId: 'b55b94a250e703072014702e',
     features: {
         clickableIcons: true,
+        initialViewIsScotland: true,
         gestureHandling: 'cooperative',
         isFractionalZoomEnabled: true,
         fullscreenControl: false,
         renderingTypeVector: true,
         boundsData: {
-            north: 61.0,
+            north: 61.3,
             south: 54.6,
             west: -8.7,
-            east: 0.3,
+            east: 2,
         },
+    },
+    uiLabels: {
+        fullScreen: 'Fullscreen toggle',
+        zoomIn: 'Zoom In',
+        zoomOut: 'Zoom Out',
     },
 };
 
@@ -63,4 +72,57 @@ export const Default = Template.bind({
 
 Default.args = {
     ...base,
+};
+
+export const OutlanderMap = Template.bind({
+});
+
+OutlanderMap.args = {
+    ...base,
+    markerData: outlanderPlaces.features,
+};
+
+export const NumberedMap = Template.bind({
+});
+
+NumberedMap.args = {
+    ...base,
+    features: {
+        clickableIcons: true,
+        initialViewIsScotland: false,
+        gestureHandling: 'cooperative',
+        isFractionalZoomEnabled: true,
+        fullscreenControl: false,
+        renderingTypeVector: true,
+        boundsData: {
+            north: 61.3,
+            south: 54.6,
+            west: -8.7,
+            east: 2,
+        },
+    },
+    markerData: numberedPlaces.features,
+};
+
+export const RegionMap = Template.bind({
+});
+
+RegionMap.args = {
+    ...base,
+    zoom: 8,
+    features: {
+        clickableIcons: false,
+        initialViewIsScotland: false,
+        gestureHandling: 'greedy',
+        isFractionalZoomEnabled: true,
+        fullscreenControl: false,
+        renderingTypeVector: true,
+        boundsData: {
+            north: 61.3,
+            south: 54.6,
+            west: -8.7,
+            east: 2,
+        },
+    },
+    markerData: regionPlaces.features,
 };

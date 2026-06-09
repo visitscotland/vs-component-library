@@ -65,8 +65,33 @@ export type LatLngBounds = {
 
 export type MapOptions = {
     boundsData?: LatLngBounds;
+    initialViewIsScotland?: boolean;
     clickableIcons?: boolean;
     gestureHandling?: string;
     isFractionalZoomEnabled?: boolean;
     renderingTypeVector?: boolean;
+}
+
+export type brxmFeature = {
+    type: string;
+    properties: {
+        category?: {
+            id: string;
+            label: string;
+        };
+        stopCount?: number;
+        id: number | string;
+        title: string;
+        description?: string;
+        image?: string;
+        link?: {
+            label: string;
+            link: string;
+            type: string;
+        };
+    };
+    geometry: {
+        type: string;
+        coordinates: number[];
+    };
 }

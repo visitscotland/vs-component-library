@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /// <reference types="google.maps" />
 
 import type {
@@ -12,10 +13,17 @@ import {
 } from '@googlemaps/js-api-loader';
 
 const FALLBACK_SCOTLAND_BOUNDS: LatLngBounds = {
-    north: 61.0,
+    north: 60.9,
     south: 54.6,
-    west: -8.7,
-    east: 0.3,
+    west: -7.7,
+    east: -0.7,
+};
+
+const INITIAL_SCOTLAND_VIEW_BOUNDS: LatLngBounds = {
+    north: 60.0,
+    south: 54.64,
+    west: -7.65,
+    east: -1.4,
 };
 
 async function googleMapsLoader(apiKey: string) {
@@ -26,8 +34,6 @@ async function googleMapsLoader(apiKey: string) {
         region: 'GB',
         language: 'en',
     });
-
-    await importLibrary('maps');
 }
 
 async function initialiseMap(
@@ -40,11 +46,13 @@ async function initialiseMap(
     },
 ) {
     const { Map } = await importLibrary('maps');
+    await google.maps.importLibrary('marker') as google.maps.MarkerLibrary;
 
     try {
         const map = new Map(mapElement, {
             center: options.center,
             zoom: options.zoom,
+            mapId: options.mapId,
             clickableIcons: options.features.clickableIcons,
             gestureHandling: options.features.gestureHandling,
             isFractionalZoomEnabled: options.features.isFractionalZoomEnabled,
@@ -59,6 +67,13 @@ async function initialiseMap(
             disableDefaultUI: true,
             keyboardShortcuts: true,
         });
+
+        google.maps.event.addListenerOnce(map, 'idle', () => {
+            if (options.features.initialViewIsScotland) {
+                map.fitBounds(INITIAL_SCOTLAND_VIEW_BOUNDS);
+            }
+        });
+
         return map;
     } catch (error) {
         return error;
