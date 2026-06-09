@@ -81,7 +81,7 @@ export const OutlanderMap = Template.bind({
 
 OutlanderMap.args = {
     ...base,
-    markerData: outlanderPlaces.features,
+    featureData: outlanderPlaces.features,
 };
 
 export const NumberedMap = Template.bind({
@@ -103,7 +103,7 @@ NumberedMap.args = {
             east: 2,
         },
     },
-    markerData: numberedPlaces.features,
+    featureData: numberedPlaces.features,
 };
 
 export const RegionMap = Template.bind({
@@ -126,7 +126,7 @@ RegionMap.args = {
             east: 2,
         },
     },
-    markerData: regionPlaces.features,
+    featureData: regionPlaces.features,
 };
 
 export const PolygonMap = Template.bind({
@@ -148,7 +148,7 @@ PolygonMap.args = {
             east: 2,
         },
     },
-    polygonData: polygonDataset.features,
+    featureData: polygonDataset.features,
 };
 
 export const MultiPolygonMap = Template.bind({
@@ -170,6 +170,5 @@ MultiPolygonMap.args = {
             east: 2,
         },
     },
-    markerData: outlanderPlaces.features,
-    polygonData: multiPolygonDataset.features,
+    featureData: multiPolygonDataset.features,
 };

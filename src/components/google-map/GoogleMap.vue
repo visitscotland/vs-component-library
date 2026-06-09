@@ -74,16 +74,9 @@ const props = defineProps({
         }),
     },
     /**
-     * Array of marker pins.
+     * Array of marker pins and/or polygon coordinates.
      */
-    markerData: {
-        type: Array,
-        default: () => {},
-    },
-    /**
-     * Array containing a polygon dataset.
-     */
-    polygonData: {
+    featureData: {
         type: Array,
         default: () => {},
     },
@@ -105,7 +98,7 @@ onMounted(async() => {
             zoom: props.zoom,
             mapId: props.mapId,
             features: props.features,
-            markers: props.markerData,
+            markers: props.featureData,
         },
     );
 
@@ -124,13 +117,13 @@ onMounted(async() => {
             );
         });
 
-        if (props.markerData) {
+        if (props.featureData) {
             // eslint-disable-next-line no-undef
             const bounds = new google.maps.LatLngBounds();
 
             // eslint-disable-next-line no-undef
             google.maps.event.addListenerOnce(map.value, 'tilesloaded', () => {
-                props.markerData.forEach((place, key) => {
+                props.featureData.forEach((place, key) => {
                     markers[key] = addMarkers(map.value, place);
                     if (!props.features.initialViewIsScotland) {
                         bounds.extend(
@@ -156,10 +149,10 @@ onMounted(async() => {
             });
         };
 
-        if (props.polygonData) {
+        if (props.featureData) {
             // eslint-disable-next-line no-undef
             google.maps.event.addListenerOnce(map.value, 'tilesloaded', () => {
-                props.polygonData.forEach((place) => {
+                props.featureData.forEach((place) => {
                     addPolygon(map.value, place);
                 });
             });
