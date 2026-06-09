@@ -2,7 +2,6 @@
 /// <reference types="google.maps" />
 
 import type {
-    brxmFeature,
     LatLngBounds,
     LatLngObject,
     MapOptions,
@@ -44,7 +43,6 @@ async function initialiseMap(
         zoom: number,
         mapId: string,
         features: MapOptions,
-        markers: brxmFeature[],
     },
 ) {
     const { Map } = await importLibrary('maps');

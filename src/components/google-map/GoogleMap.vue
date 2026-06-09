@@ -97,7 +97,6 @@ onMounted(async() => {
             zoom: props.zoom,
             mapId: props.mapId,
             features: props.features,
-            markers: props.markerData,
         },
     );
 
