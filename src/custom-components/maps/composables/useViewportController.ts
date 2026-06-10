@@ -1,12 +1,15 @@
-/* eslint-disable no-undef */
+ 
 import { ref } from 'vue';
 
-type ViewportCenter = google.maps.LatLngLiteral;
+type ViewportCenter = {
+    lat: number;
+    lng: number;
+};
 
 type Viewport = {
-    bounds: google.maps.LatLngBounds | null;
-    center: ViewportCenter;
-    zoom: number;
+    bounds: google.maps.LatLngBounds | null | undefined;
+    center: google.maps.LatLng | undefined;
+    zoom: number | undefined;
 };
 
 export default function useViewportController() {
@@ -54,7 +57,9 @@ export default function useViewportController() {
     // Check if the viewport has moved passed the distance or zoom thresholds.
     function hasViewportChanged(newViewPort: Viewport) {
         if (!lastSearchViewport.value) return false;
-
+        if (!lastSearchViewport.value.center || !newViewPort.center) return false;
+        if (lastSearchViewport.value.zoom === undefined || 
+			newViewPort.zoom === undefined) return false;
         const oldCenter = {
             lat: lastSearchViewport.value.center.lat(),
             lng: lastSearchViewport.value.center.lng(),
@@ -76,7 +81,7 @@ export default function useViewportController() {
      * Wrapper for programmatic map move to prevent the "Search the area" button from showing.
      * Functions such as gMap.setCenter(), gMap.setBounds(), and gMap.setZoom()
      */
-    function runProgrammaticMove(fn: Function) {
+    function runProgrammaticMove(fn: () => void) {
         isProgrammaticMove.value = true;
 
         fn();

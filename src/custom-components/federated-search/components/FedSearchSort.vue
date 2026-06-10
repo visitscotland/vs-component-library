@@ -52,7 +52,9 @@
                 variant="secondary"
                 id="vs-fed-search-sort__dropdown"
                 name="vs-fed-search-sort__dropdown"
-                :text="federatedSearchStore.sortBy ? `${props.sortLabel}: ${activeOption.label}` : props.sortLabel"
+                :text="federatedSearchStore.sortBy
+                    ? `${props.sortLabel}: ${activeOption.label}`
+                    : props.sortLabel"
             >
                 <VsDropdownItem
                     v-for="(sortOption, index) in sortOptions"

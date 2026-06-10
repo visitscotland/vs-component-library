@@ -75,8 +75,11 @@ export default {
             if (this.svg) {
                 const tag = first(this.svg.match(/<svg[^>]+.*?>/));
 
-                const attributes = tag.match(/(\S+)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/g);
-                const attributesMap = fromPairs(map(attributes, partial(split, partial.placeholder, '=', 2)));
+                const attrRegex = /(\S+)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/g;
+                const attributes = tag.match(attrRegex);
+                const attributesMap = fromPairs(
+                    map(attributes, partial(split, partial.placeholder, '=', 2)),
+                );
 
                 return mapValues(attributesMap, partial(replace, partial.placeholder, /"/g, ''));
             }

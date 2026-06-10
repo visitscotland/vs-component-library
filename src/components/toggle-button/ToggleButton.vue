@@ -293,9 +293,15 @@ export default {
         ------------------------------------------ */
         &.btn-default {
             @include vs-button-variant(
-                $vs-color-text-cta-on-light, transparent, transparent,
-                $vs-color-text-cta-on-light, $vs-color-interaction-cta-subtle-hover, $vs-color-interaction-cta-subtle-hover,
-                $vs-color-text-inverse, $vs-color-interaction-cta-subtle-pressed, $vs-color-interaction-cta-subtle-pressed,
+                $vs-color-text-cta-on-light,
+                transparent,
+                transparent,
+                $vs-color-text-cta-on-light,
+                $vs-color-interaction-cta-subtle-hover,
+                $vs-color-interaction-cta-subtle-hover,
+                $vs-color-text-inverse,
+                $vs-color-interaction-cta-subtle-pressed,
+                $vs-color-interaction-cta-subtle-pressed,
             );
 
             &:focus-visible, &:focus {
@@ -305,20 +311,34 @@ export default {
 
         &.btn-overlay {
             @include vs-button-variant(
-                $vs-color-text-secondary, $vs-color-background-inverse, $vs-color-background-inverse,
-                $vs-color-text-primary, $vs-color-background-inverse, $vs-color-background-inverse,
-                $vs-color-text-primary, $vs-color-background-inverse, $vs-color-background-inverse,
+                $vs-color-text-secondary,
+                $vs-color-background-inverse,
+                $vs-color-background-inverse,
+                $vs-color-text-primary,
+                $vs-color-background-inverse,
+                $vs-color-background-inverse,
+                $vs-color-text-primary,
+                $vs-color-background-inverse,
+                $vs-color-background-inverse,
             );
             background: var(--background-blur, rgba(255, 255, 255, 0.80));
+            box-shadow: $vs-elevation-shadow-raised;
         }
 
         &.btn-overlay-strong {
             @include vs-button-variant(
-                $vs-color-text-secondary, $vs-color-background-inverse, $vs-color-background-inverse,
-                $vs-color-text-primary, $vs-color-background-inverse, $vs-color-background-inverse,
-                $vs-color-text-cta-on-light, $vs-color-background-inverse, $vs-color-background-inverse,
+                $vs-color-text-secondary,
+                $vs-color-background-inverse,
+                $vs-color-background-inverse,
+                $vs-color-text-primary,
+                $vs-color-background-inverse,
+                $vs-color-background-inverse,
+                $vs-color-text-cta-on-light,
+                $vs-color-background-inverse,
+                $vs-color-background-inverse,
             );
             background: var(--background-blur, rgba(255, 255, 255, 0.80));
+            box-shadow: $vs-elevation-shadow-raised;
 
             &.vs-toggle-button--pressed {
                 color: $vs-color-text-cta-on-light;

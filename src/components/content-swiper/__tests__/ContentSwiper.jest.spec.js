@@ -5,7 +5,9 @@ import VsContentSwiper from '../ContentSwiper.vue';
 jest.mock('swiper/vue', () => ({
     Swiper: {
         name: 'Swiper',
-        render() { return null; },
+        render() {
+            return null; 
+        },
     },
 }));
 jest.mock('swiper/modules', () => ({

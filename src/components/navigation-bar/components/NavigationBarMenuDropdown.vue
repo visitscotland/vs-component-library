@@ -134,9 +134,15 @@ export default {
         padding: $vs-spacer-0125 $vs-spacer-225 $vs-spacer-0125 $vs-spacer-125;
 
         @include vs-button-variant(
-            $vs-color-text-cta-on-light, $vs-color-interaction-cta-subtle, $vs-color-interaction-cta-subtle,
-            $vs-color-text-cta-on-light, $vs-color-interaction-cta-subtle-hover, $vs-color-interaction-cta-subtle-hover,
-            $vs-color-text-inverse, $vs-color-interaction-cta-subtle-pressed, $vs-color-interaction-cta-subtle-pressed,
+            $vs-color-text-cta-on-light,
+            $vs-color-interaction-cta-subtle,
+            $vs-color-interaction-cta-subtle,
+            $vs-color-text-cta-on-light,
+            $vs-color-interaction-cta-subtle-hover,
+            $vs-color-interaction-cta-subtle-hover,
+            $vs-color-text-inverse,
+            $vs-color-interaction-cta-subtle-pressed,
+            $vs-color-interaction-cta-subtle-pressed,
         );
 
         &::after {

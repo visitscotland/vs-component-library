@@ -132,7 +132,8 @@
                                             <VsNavigationBarMenuItem
                                                 v-for="(mobileDropdownItem)
                                                     in mobileItem.dropdownNav"
-                                                :key="`${mobileItem.title}-${mobileDropdownItem.title}`"
+                                                :key="`${mobileItem.title}-
+													${mobileDropdownItem.title}`"
                                                 :href="mobileDropdownItem.href"
                                             >
                                                 {{ mobileDropdownItem.title }}

@@ -779,7 +779,7 @@ export default {
                     try {
                         this.$refs.questions[this.activeStage - 1].$el.focus();
                         this.$refs.progress.$el.scrollIntoView();
-                    } catch (e) {
+                    } catch {
                         // Fails in jest
                     }
                 });

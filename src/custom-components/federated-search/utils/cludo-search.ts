@@ -1,7 +1,9 @@
-import { CludoCredentials, FederatedSearchResult } from '@/types/types';
+import {
+    CludoCredentials, CludoResponse, FederatedSearchResult, 
+} from '@/types/types';
 import useFederatedSearchStore from '@/custom-components/federated-search/stores/federatedSearch.store';
 
-function cleanData(data: any) {
+function cleanData(data: CludoResponse) {
     const documents = data.TypedDocuments;
 
     const results: FederatedSearchResult[] = documents.map((document) => ({
@@ -85,7 +87,7 @@ async function cludoSearch(
             results: cleanResults,
             totalResults: results.TotalDocument,
         };
-    } catch (error) {
+    } catch {
         federatedSearchStore.cludoError = true;
         federatedSearchStore.isLoading = false;
         return {

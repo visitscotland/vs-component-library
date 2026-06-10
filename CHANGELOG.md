@@ -1,3 +1,90 @@
+## [5.59.5](https://github.com/visitscotland/vs-component-library/compare/v5.59.4...v5.59.5) (2026-06-01)
+
+
+### Bug Fixes
+
+* **main map:** temporarily remove "towns" from featured destinations ([7300ddd](https://github.com/visitscotland/vs-component-library/commit/7300ddd568d39f191086cc1cc8524a17366a0ea4))
+
+## [5.59.4](https://github.com/visitscotland/vs-component-library/compare/v5.59.3...v5.59.4) (2026-05-28)
+
+
+### Bug Fixes
+
+* **main map:** clear selected destination when user moves map ([6cbd3ba](https://github.com/visitscotland/vs-component-library/commit/6cbd3ba4200fb8ebc617ee8d1a6f83da204eb906))
+
+## [5.59.3](https://github.com/visitscotland/vs-component-library/compare/v5.59.2...v5.59.3) (2026-05-27)
+
+
+### Bug Fixes
+
+* **main map:** bug - self catering selected when it shoudn't be ([523834f](https://github.com/visitscotland/vs-component-library/commit/523834ff0a0e278ec4239df773ff5a1d0e6f2313))
+* **main map:** use locationRestriction when clicking search this area ([00889a9](https://github.com/visitscotland/vs-component-library/commit/00889a94ed3f128cc926365884d8a2a92f895184))
+
+## [5.59.2](https://github.com/visitscotland/vs-component-library/compare/v5.59.1...v5.59.2) (2026-05-27)
+
+
+### Bug Fixes
+
+* **main map:** increase search radius to 50km for regional search ([dce30b2](https://github.com/visitscotland/vs-component-library/commit/dce30b2587231eed6726957a1626cc9d296ca1ee))
+* **main map:** set shetland and orkney islands to 50km search radius ([095bc89](https://github.com/visitscotland/vs-component-library/commit/095bc89bb9cf1dfac0d0f9bcdad0cb7b8026fd42))
+
+## [5.59.1](https://github.com/visitscotland/vs-component-library/compare/v5.59.0...v5.59.1) (2026-05-27)
+
+
+### Bug Fixes
+
+* **main map:** adjust bounds to better accommodated shetland ([a9647b8](https://github.com/visitscotland/vs-component-library/commit/a9647b860c58594a59f88657a4b6947ece050d4a))
+* **main map:** adjust scotland bounds ([2d40748](https://github.com/visitscotland/vs-component-library/commit/2d4074877a13eeeb35875ee4ed0795961d165f84))
+* **useviewportcontroller.ts:** fix TypeScript errors ([5eb0e4b](https://github.com/visitscotland/vs-component-library/commit/5eb0e4be89330e3a15de1e3837ccec66367ae299))
+
+# [5.59.0](https://github.com/visitscotland/vs-component-library/compare/v5.58.1...v5.59.0) (2026-05-27)
+
+
+### Features
+
+* **togglebutton:** adds shadow to outline & outline-strong toggle button variants ([de0cc64](https://github.com/visitscotland/vs-component-library/commit/de0cc64253a16d3d23e504805d3d40d82ba494c8))
+
+## [5.58.1](https://github.com/visitscotland/vs-component-library/compare/v5.58.0...v5.58.1) (2026-05-25)
+
+
+### Bug Fixes
+
+* **main map:** persist filters when "self catering" selected ([ea5b434](https://github.com/visitscotland/vs-component-library/commit/ea5b4342dcd32e5ec22275278bcc179bc1a562e0))
+
+# [5.58.0](https://github.com/visitscotland/vs-component-library/compare/v5.57.4...v5.58.0) (2026-05-22)
+
+
+### Bug Fixes
+
+* **content section:** remove paragraph tags round list ([db4483a](https://github.com/visitscotland/vs-component-library/commit/db4483a69bb3bf04b9469e6fb87c62a976dbe8bf))
+
+
+### Features
+
+* **content section:** add content section pattern stories ([7df7bc6](https://github.com/visitscotland/vs-component-library/commit/7df7bc67ac5a63d13e64ccbaf4f2fcef6a2872b8))
+
+## [5.57.4](https://github.com/visitscotland/vs-component-library/compare/v5.57.3...v5.57.4) (2026-05-22)
+
+
+### Bug Fixes
+
+* **main map:** remove unused prop ([80376da](https://github.com/visitscotland/vs-component-library/commit/80376daeca0178ce88c74f7f66e41ef278e524e6))
+
+## [5.57.3](https://github.com/visitscotland/vs-component-library/compare/v5.57.2...v5.57.3) (2026-05-22)
+
+
+### Bug Fixes
+
+* **useviewportcontroller.ts:** typescript errors ([c41a9e7](https://github.com/visitscotland/vs-component-library/commit/c41a9e7c906cc76432dc4cb21aae92f2f0f6ce7e))
+
+## [5.57.2](https://github.com/visitscotland/vs-component-library/compare/v5.57.1...v5.57.2) (2026-05-22)
+
+
+### Bug Fixes
+
+* **main map:** only show sidebar when map is fully loaded to prevent broken search ([9ecbf24](https://github.com/visitscotland/vs-component-library/commit/9ecbf2424ff8ca56f6783dc5e040e223ea8470e3))
+* **main map:** prevent addDestinationMarkers() from running everytime the tiles are loaded ([05dbda3](https://github.com/visitscotland/vs-component-library/commit/05dbda3eeef4bad65abf73bc3cb22ccd3ca6f67f))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.

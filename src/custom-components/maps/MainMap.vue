@@ -6,7 +6,10 @@
             class="vs-map__container"
             :class="showError ? 'd-none' : ''"
         >
-            <div class="vs-map__controls">
+            <div
+                v-show="mapLoaded"
+                class="vs-map__controls"
+            >
                 <VsMapSidebar
                     :categories="categoryLabelData"
                     :category-data="categoryData"
@@ -14,11 +17,11 @@
                     :selected-category="selectedTopLevelCategory"
                     :selected-subcategories="selectedSubCategories"
                     :sidebar-labels="sidebarLabels"
-                    @category-selected="(e) => handleSelectCategory(e.id, e.key)"
+                    @category-selected="(e) => selectCategory(e.id, e.key)"
                     @reset-map="resetMap(true)"
                     @reset-location="resetMap(true, true)"
                     @search-input-changed="searchByText"
-                    @subcategory-selected="(e) => handleSelectSubcategory(e.id, e.key)"
+                    @subcategory-selected="(e) => searchBySubCategory(e.id, e.key)"
                 >
                     <template #vs-map-sidebar-search-results>
                         <div
@@ -121,7 +124,8 @@
                             id="placeDetails"
                             style="display: none"
                         >
-                            <gmp-place-details-place-request id="placeRequest"></gmp-place-details-place-request>
+                            <gmp-place-details-place-request id="placeRequest">
+                            </gmp-place-details-place-request>
                             <gmp-place-content-config>
                                 <gmp-place-address></gmp-place-address>
                                 <gmp-place-rating></gmp-place-rating>
@@ -188,7 +192,7 @@
 </template>
 
 <script setup>
-/* eslint-disable no-use-before-define  */
+ 
 /* eslint-disable vue/no-side-effects-in-computed-properties */
 import {
     computed,
@@ -310,13 +314,6 @@ const props = defineProps({
         default: undefined,
     },
     /**
-     * Tells if JS is Disabled
-     */
-    jsDisabled: {
-        type: Boolean,
-        required: true,
-    },
-    /**
      * Message to display when JavaScript is disabled
      */
     noJsMessage: {
@@ -416,6 +413,7 @@ const queryStr = ref(new Set());
 const currentSearch = ref();
 const selfCateringClicked = ref(false);
 const keywords = ref(undefined);
+const mapLoaded = ref(false);
 
 const subCategoryTypeMap = computed(() => {
     const map = new Map();
@@ -440,10 +438,10 @@ let showError;
 const errType = ref(undefined);
 
 const SCOTLAND_BOUNDS = {
-    north: 61.0,
+    north: 61.3,
     south: 54.6,
     west: -8.7,
-    east: 0.3,
+    east: 2.0,
 };
 
 let categoryData = {
@@ -525,7 +523,7 @@ onMounted(async() => {
             await importLibrary('marker');
             await importLibrary('core');
             await importLibrary('geometry');
-        } catch (error) {
+        } catch {
             console.error('Google Maps Library load error');
         }
     };
@@ -549,9 +547,9 @@ onMounted(async() => {
                     lng: props.center.lng,
                 },
                 renderingType: props.mapTypeVector
-                    // eslint-disable-next-line no-undef
+                     
                     ? google.maps.RenderingType.VECTOR
-                    // eslint-disable-next-line no-undef
+                     
                     : google.maps.RenderingType.RASTER,
                 zoom: props.zoom,
                 isFractionalZoomEnabled: true,
@@ -568,7 +566,7 @@ onMounted(async() => {
             };
 
             if (mapContainer) {
-                // eslint-disable-next-line no-undef
+                 
                 gMap = new google.maps.Map(mapContainer, mapOptions);
                 runProgrammaticMove(() => gMap.fitBounds(SCOTLAND_BOUNDS));
             } else {
@@ -579,7 +577,7 @@ onMounted(async() => {
         }
 
         // Registers the infoWindow that the placeDetail element lives
-        // eslint-disable-next-line no-undef
+         
         infoWindow = new google.maps.InfoWindow();
 
         infoWindow.addListener('closeclick', () => {
@@ -609,6 +607,14 @@ onMounted(async() => {
             isUserMove.value = true;
         });
 
+        // Only display the sidebar and destination markers when the map tiles have loaded.
+        gMap.addListener('tilesloaded', () => {
+            if (mapLoaded.value) return;
+            mapLoaded.value = true;
+
+            addDestinationMarkers();
+        });
+
         gMap.addListener('idle', () => {
             visibleMarkerCount = getVisibleMarkerCount();
 
@@ -617,6 +623,8 @@ onMounted(async() => {
                 && isUserMove.value
                 && hasViewportChanged(getViewport(gMap))) {
                 showSearchAreaButton.value = true;
+                googleMapStore.selectedDestinationType = '';
+                selectedDestination.value = '';
                 isUserMove.value = false;
             }
         });
@@ -634,8 +642,6 @@ onMounted(async() => {
                 handlePlaceClick(place, markers[place.id]);
             }
         });
-
-        addDestinationMarkers();
     };
 
     googleMapStore.firstInteraction = false;
@@ -693,23 +699,24 @@ function shadeMapAreas(zoomedIn) {
         'ChIJ6_ktdpMVvEgRJBv3ZEgxsD8', // Faroe Islands
     ];
 
-    // eslint-disable-next-line no-undef
+     
     const countryLayer = gMap.getFeatureLayer(google.maps.FeatureType.COUNTRY);
-    // eslint-disable-next-line no-undef, vue/max-len
-    const adminArea1Layer = gMap.getFeatureLayer(google.maps.FeatureType.ADMINISTRATIVE_AREA_LEVEL_1);
+     
+    const adminArea1Layer = 
+        gMap.getFeatureLayer(google.maps.FeatureType.ADMINISTRATIVE_AREA_LEVEL_1);
 
     if (zoomedIn) {
         countryLayer.style = null;
         adminArea1Layer.style = null;
 
-        // eslint-disable-next-line consistent-return
+         
         countryLayer.style = (options) => {
             if (zoomedInShadedPlaces.includes(options.feature.placeId)) {
                 return shadedAreaStyleOptions;
             }
         };
 
-        // eslint-disable-next-line consistent-return
+         
         adminArea1Layer.style = (options) => {
             if (zoomedInShadedPlaces.includes(options.feature.placeId)) {
                 return shadedAreaStyleOptions;
@@ -718,30 +725,20 @@ function shadeMapAreas(zoomedIn) {
     } else {
         // These two functions iterate through shadedPlaces to find
         // the corresponding place types on the map and shades them
-        // eslint-disable-next-line consistent-return
+         
         countryLayer.style = (options) => {
             if (fullShadedPlaces.includes(options.feature.placeId)) {
                 return shadedAreaStyleOptions;
             }
         };
 
-        // eslint-disable-next-line consistent-return
+         
         adminArea1Layer.style = (options) => {
             if (fullShadedPlaces.includes(options.feature.placeId)) {
                 return shadedAreaStyleOptions;
             }
         };
     }
-}
-
-function handleSelectCategory(categoryId, key) {
-    // Move the viewport back to the previous viewport when clicking a category.
-    if (lastSearchViewport.value) {
-        runProgrammaticMove(() => gMap.setCenter(lastSearchViewport.value.center));
-        runProgrammaticMove(() => gMap.setZoom(lastSearchViewport.value.zoom));
-    }
-    selectedDestination.value = '';
-    selectCategory(categoryId, key);
 }
 
 function selectCategory(categoryId, key) {
@@ -813,7 +810,7 @@ function searchSubCategoriesForLabel(selectedSubcategory, subCategoryId) {
         // Iterate through the subCategories to find the correct one,
         // and then again to find the label
         Object.values(selCat.value).forEach((subCat) => {
-            // eslint-disable-next-line no-shadow
+             
             Object.values(subCat).forEach((subCat) => {
                 if (subCategoryId === subCat.id) {
                     selSubCatLabel.value = subCat.label;
@@ -860,33 +857,24 @@ function updateSubCategoryTypes(
     }
 }
 
-function handleSelectSubcategory(categoryId, key) {
-    // Move the viewport back to the previous viewport when clicking a subcategory.
-    if (lastSearchViewport.value) {
-        runProgrammaticMove(() => gMap.setCenter(lastSearchViewport.value.center));
-        runProgrammaticMove(() => gMap.setZoom(lastSearchViewport.value.zoom));
-    }
-    selectedDestination.value = '';
-    searchBySubCategory(categoryId, key);
-}
-
 function searchBySubCategory(subCategoryId, key) {
     subCategoryKey.value = key;
     selectedDestination.value = '';
 
-    if (subCategoryId === 'self-catering') {
+    if (subCategoryId === 'self-catering' && !selectedSubCategories.value.has('self-catering')) {
         selfCateringClicked.value = true;
         resetTextQuery();
         selectedSubCategories.value = new Set();
         selectedSubCategories.value.add(subCategoryId);
         const label = searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value;
         query.value = label;
-        resetCategories();
+        // resetCategories();
         searchInput.value = `${query.value} ${selectedDestination.value}`;
         searchByText();
         searchInput.value = label;
     } else if (selectedSubCategories.value.has(subCategoryId)) {
         // Delete if already in selectedSubCategories
+        selectedSubCategories.value.delete('self-catering');
         selectedSubCategories.value.delete(subCategoryId);
 
         // Reset subcategories
@@ -923,6 +911,7 @@ function searchBySubCategory(subCategoryId, key) {
             searchInput.value = query.value;
         }
     } else {
+        selectedSubCategories.value.delete('self-catering');
         // Add if not already in selectedSubCategories
         selectedSubCategories.value.add(subCategoryId);
         // Iterate through each subcategory to find the selected subcategory
@@ -970,9 +959,22 @@ async function searchByCategory({
     const bounds = gMap.getBounds();
     const ne = bounds.getNorthEast();
     const sw = bounds.getSouthWest();
-    // eslint-disable-next-line no-undef
+     
     const diameter = google.maps.geometry.spherical.computeDistanceBetween(ne, sw);
-    const cappedRadius = Math.min((diameter / 2), 25000);
+
+    // Set search distance to 50km for region and "Shetland" and "Orkney" islands
+    // searches and 25km for all other searches.
+    let cappedDistance = 25000;
+
+    if (googleMapStore.selectedDestinationType === 'regions'
+        || (googleMapStore.selectedDestinationType === 'islands' && selectedDestination.value === 'Shetland')
+        || (googleMapStore.selectedDestinationType === 'islands' && selectedDestination.value === 'Orkney')
+    ) {
+        cappedDistance = 50000;
+    }
+
+    // const cappedDistance = googleMapStore.selectedDestinationType === 'regions' ? 50000 : 25000;
+    const cappedRadius = Math.min((diameter / 2), cappedDistance);
 
     nearbySearchQuery.includedTypes = includedTypes;
     nearbySearchQuery.excludedTypes = excludedTypes ?? [];
@@ -1010,7 +1012,7 @@ async function searchByCategory({
     });
 }
 
-async function searchByText() {
+async function searchByText(useRestriction = false) {
     resetMap();
     resetCategories();
 
@@ -1028,14 +1030,21 @@ async function searchByText() {
 
     /**
      * Search using locationRestriction when "Self catering" sub category has
-     * selected. Search using locationBias for other text searches.
+     * been selected. Search using locationBias for other text searches.
      */
-    if (selfCateringClicked.value) {
+    if (selfCateringClicked.value || useRestriction) {
         textSearchQuery.locationBias = null;
         textSearchQuery.locationRestriction = gMap.getBounds();
     } else {
         textSearchQuery.locationRestriction = null;
         textSearchQuery.locationBias = gMap.getCenter();
+    }
+
+    // Make sure the "accommodation" and "self catering" categories are selected
+    // when doing a self catering search.
+    if (selfCateringClicked.value) {
+        selectedTopLevelCategory.value = 'accommodation';
+        selectedSubCategories.value.add('self-catering');
     }
 
     // Add the `includedType` of "lodging" when the query includes a keyword.
@@ -1246,7 +1255,7 @@ function resetCategories() {
 }
 
 function clearExistingMarkers() {
-    // eslint-disable-next-line no-restricted-syntax
+     
     for (const marker in markers) {
         if (markers[marker]) {
             markers[marker].map = null;
@@ -1286,7 +1295,7 @@ function handlePlaceClick(place) {
         content: placeDetails,
         maxWidth: '25em',
         position: place.location,
-        // eslint-disable-next-line no-undef
+         
         pixelOffset: new google.maps.Size(0, -32),
     });
 
@@ -1294,7 +1303,7 @@ function handlePlaceClick(place) {
         map: gMap,
     });
 
-    // eslint-disable-next-line no-undef
+     
     google.maps.event.addListenerOnce(gMap, 'idle', () => {
         if (gMap.getZoom() > MAX_ZOOM) {
             runProgrammaticMove(() => gMap.setZoom(MAX_ZOOM));
@@ -1384,14 +1393,14 @@ function handleFeaturedLocationClick(place) {
     selectedDestination.value = place.properties.title;
 
     runProgrammaticMove(() => gMap.fitBounds(
-        // eslint-disable-next-line no-undef
+         
         new google.maps.LatLngBounds(
-            // eslint-disable-next-line no-undef
+             
             new google.maps.LatLng(
                 place.properties.viewport.low.latitude,
                 place.properties.viewport.low.longitude,
             ),
-            // eslint-disable-next-line no-undef
+             
             new google.maps.LatLng(
                 place.properties.viewport.high.latitude,
                 place.properties.viewport.high.longitude,
@@ -1400,7 +1409,7 @@ function handleFeaturedLocationClick(place) {
     ));
 
     runProgrammaticMove(() => gMap.setCenter(
-        // eslint-disable-next-line no-undef
+         
         new google.maps.LatLng(
             place.properties.locationCentre.latitude,
             place.properties.locationCentre.longitude,
@@ -1422,22 +1431,27 @@ function searchArea() {
 
     // Check for selected subcategory and start nearby search.
     if (selectedSubCategories.value.size > 0) {
-        searchByCategory({
-            includedTypes: Array.from(includedSubTypes.value),
-            excludedTypes: Array.from(excludedSubTypes.value),
-        });
+        if (selectedSubCategories.value.has('self-catering')) {
+            selectedSubCategories.value.delete('self-catering');
+            searchBySubCategory('self-catering', 0);
+        } else {
+            searchByCategory({
+                includedTypes: Array.from(includedSubTypes.value),
+                excludedTypes: Array.from(excludedSubTypes.value),
+            });
 
-        // Get labels for the selected subcategories.
-        const subcatLabels = [];
-        selectedSubCategories.value.forEach((subcat) => {
-            subcatLabels.push(
-                searchSubCategoriesForLabel(selectedSubCategories.value, subcat).value,
-            );
-        });
-        query.value = subcatLabels.join(', ');
-        searchInput.value = query.value;
-        // searchInput.value = selectedSubCategories.value.join(', ');
-        googleMapStore.showCategories = true;
+            // Get labels for the selected subcategories.
+            const subcatLabels = [];
+            selectedSubCategories.value.forEach((subcat) => {
+                subcatLabels.push(
+                    searchSubCategoriesForLabel(selectedSubCategories.value, subcat).value,
+                );
+            });
+            query.value = subcatLabels.join(', ');
+            searchInput.value = query.value;
+            // searchInput.value = selectedSubCategories.value.join(', ');
+            googleMapStore.showCategories = true;
+        }
         return;
     }
 
@@ -1449,7 +1463,7 @@ function searchArea() {
 
     // Check for searchInput value and start text search.
     if (searchInput.value) {
-        searchByText();
+        searchByText(true);
         return;
     }
 
@@ -1470,7 +1484,9 @@ function searchArea() {
     --gmp-mat-color-positive: #03AA46; //$vs-color-text-success;
     --gmp-mat-color-info: #A8308C; //$vs-color-icon-highlight;
     --gmp-mat-color-outline-decorative: #E9E9E9; //$vs-color-border-primary;
-    --gmp-mat-font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; //$vs-font-family-sans-serif;
+    --gmp-mat-font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+		'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 
+		'Segoe UI Emoji', 'Segoe UI Symbol'; //$vs-font-family-sans-serif;
 
     gmp-place-search, gmp-place-details {
         color-scheme: only light;

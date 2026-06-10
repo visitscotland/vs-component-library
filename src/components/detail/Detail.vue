@@ -70,7 +70,9 @@ export default {
         iconVariant: {
             type: String,
             default: 'primary',
-            validator: (value) => value.match(/(primary|secondary|tertiary|cta|inverse|disabled|highlight|error|warning|success)/),
+            validator: (value) => value.match(
+                /(primary|secondary|tertiary|cta|inverse|disabled|highlight|error|warning|success)/,
+            ),
         },
     },
     computed: {

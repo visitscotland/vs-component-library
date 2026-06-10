@@ -1,6 +1,6 @@
-import splitCardContentSwiper from '../../partials/splitCardContentSwiper';
-import categoryCardContentSwiper from '../../partials/categoryCardContentSwiper';
-import eventCardContentSwiper from '../../partials/eventCardContentSwiper';
+import splitCardContentSwiper from '../../../story-partials/splitCardContentSwiper';
+import categoryCardContentSwiper from '../../../story-partials/categoryCardContentSwiper';
+import eventCardContentSwiper from '../../../story-partials/eventCardContentSwiper';
 
 export default `
     <VsPageHeader menu-type="b2b">
@@ -29,8 +29,8 @@ export default `
     </VsSectionHeader>
 
     ${categoryCardContentSwiper({
-        slidesVar: 'cardListInfoOverlay',
-    })}
+    slidesVar: 'cardListInfoOverlay',
+})}
 
     <!------------------------------------------------------------
     SECTION END
@@ -51,10 +51,10 @@ export default `
     </VsSectionHeader>
 
     ${splitCardContentSwiper({
-        slidesVar: 'infoCardList1',
-        slidesKey: '1',
-        slidesPerViewXl: 4.4,
-    })}
+    slidesVar: 'infoCardList1',
+    slidesKey: '1',
+    slidesPerViewXl: 4.4,
+})}
 
     <!------------------------------------------------------------
     SECTION END
@@ -93,10 +93,10 @@ export default `
     </VsSectionHeader>
 
     ${splitCardContentSwiper({
-        slidesVar: 'infoCardList2',
-        slidesKey: '2',
-        slidesPerViewXl: 3.4,
-    })}
+    slidesVar: 'infoCardList2',
+    slidesKey: '2',
+    slidesPerViewXl: 3.4,
+})}
 
     <!------------------------------------------------------------
     SECTION END
@@ -118,9 +118,9 @@ export default `
 
     <div class="mb-500">
         ${eventCardContentSwiper({
-            slidesVar: 'eventCardInfoList',
-            slidesKey: 'event',
-        })}
+    slidesVar: 'eventCardInfoList',
+    slidesKey: 'event',
+})}
     </div>
     <!-----------------------------------------------------------
     SECTION END

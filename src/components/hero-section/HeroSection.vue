@@ -37,7 +37,7 @@
             <hr
                 v-else
                 class="vs-hero-section__divider"
-            >
+            />
 
             <div :class="textContainerClasses">
                 <div class="vs-hero-section__text">
@@ -112,7 +112,6 @@ export default {
         */
         heading: {
             type: String,
-            default: '',
             required: true,
         },
         /**
@@ -120,7 +119,6 @@ export default {
         */
         lede: {
             type: String,
-            default: '',
             required: true,
         },
         /**
@@ -289,7 +287,7 @@ export default {
             width: var(--content_maxwidth);
             padding: $vs-spacer-150 0 $vs-spacer-250 0;
 
-            @include media-breakpoint-up(lg) {
+			@include media-breakpoint-up(lg) {
                 padding: $vs-spacer-300 0;
             }
         }
@@ -364,7 +362,9 @@ export default {
                 width: 100%;
                 height: 100%;
                 transition: opacity 1s;
-                background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 40%, rgba(0, 0, 0, 0.40) 100%);
+                background: linear-gradient(
+                    180deg, rgba(0, 0, 0, 0.00) 40%, rgba(0, 0, 0, 0.40) 100%
+                );
                 pointer-events: none;
             }
         }

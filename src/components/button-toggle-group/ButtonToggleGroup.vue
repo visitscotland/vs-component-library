@@ -243,16 +243,28 @@ export default {
                     cursor: default;
 
                     @include vs-button-variant(
-                        $vs-color-interaction-cta-primary, $vs-color-interaction-cta-secondary, $vs-color-interaction-cta-primary,
-                        $vs-color-interaction-cta-primary, $vs-color-interaction-cta-secondary, $vs-color-interaction-cta-primary,
-                        $vs-color-interaction-cta-primary, $vs-color-interaction-cta-secondary, $vs-color-interaction-cta-primary,
+                        $vs-color-interaction-cta-primary,
+                        $vs-color-interaction-cta-secondary,
+                        $vs-color-interaction-cta-primary,
+                        $vs-color-interaction-cta-primary,
+                        $vs-color-interaction-cta-secondary,
+                        $vs-color-interaction-cta-primary,
+                        $vs-color-interaction-cta-primary,
+                        $vs-color-interaction-cta-secondary,
+                        $vs-color-interaction-cta-primary,
                     );
 
                     @include media-breakpoint-up(lg) {
                         @include vs-button-variant(
-                            $vs-color-interaction-cta-primary, $vs-color-interaction-cta-secondary, $vs-color-interaction-cta-primary,
-                            $vs-color-interaction-cta-primary, $vs-color-interaction-cta-secondary, $vs-color-interaction-cta-primary,
-                            $vs-color-interaction-cta-primary, $vs-color-interaction-cta-secondary, $vs-color-interaction-cta-primary,
+                            $vs-color-interaction-cta-primary,
+                            $vs-color-interaction-cta-secondary,
+                            $vs-color-interaction-cta-primary,
+                            $vs-color-interaction-cta-primary,
+                            $vs-color-interaction-cta-secondary,
+                            $vs-color-interaction-cta-primary,
+                            $vs-color-interaction-cta-primary,
+                            $vs-color-interaction-cta-secondary,
+                            $vs-color-interaction-cta-primary,
                         );
                     }
                 }

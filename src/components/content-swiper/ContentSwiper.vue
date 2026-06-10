@@ -53,8 +53,6 @@
 </template>
 
 <script>
-/* eslint-disable import/no-duplicates */
-
 import { useId } from 'vue';
 import { Swiper } from 'swiper/vue';
 import {

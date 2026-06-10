@@ -1,4 +1,4 @@
-import linkCardContentSwiper from '../../partials/linkCardContentSwiper';
+import linkCardContentSwiper from '../../../story-partials/linkCardContentSwiper';
 
 export default `
     <VsPageHeader menu-type="b2b">
@@ -73,10 +73,10 @@ export default `
     </VsSectionHeader>
 
     ${linkCardContentSwiper({
-        slidesVar: 'textCardList1',
-        slidesKey: '1',
-        slidesPerViewXl: 4.4,
-    })}
+    slidesVar: 'textCardList1',
+    slidesKey: '1',
+    slidesPerViewXl: 4.4,
+})}
 
     <!------------------------------------------------------------
     SECTION END
@@ -113,10 +113,10 @@ export default `
     </VsSectionHeader>
 
     ${linkCardContentSwiper({
-        slidesVar: 'textCardList2',
-        slidesKey: '2',
-        slidesPerViewXl: 4.4,
-    })}
+    slidesVar: 'textCardList2',
+    slidesKey: '2',
+    slidesPerViewXl: 4.4,
+})}
 
     <!------------------------------------------------------------
     SECTION END

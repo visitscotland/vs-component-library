@@ -1,4 +1,4 @@
-/* eslint-disable vue/max-len */
+ 
 /* Export elements */
 
 /*

@@ -8,7 +8,7 @@
         </VsDetail>
         <div class="vs-map__destination-types">
             <VsButton
-                v-for="category in categories"
+                v-for="category in filteredCategories"
                 :key="category.id"
                 :icon="iconMap[category.id]"
                 size="sm"
@@ -61,6 +61,9 @@ onMounted(() => {
 
 // The button should be secondary unless it is the currently selected destination type.
 const setButtonVariant = (id) => (googleMapStore.selectedDestinationType === id ? 'primary' : 'secondary');
+
+// Temporary hide "Town" from the destinations categories.
+const filteredCategories = categories.filter((category) => category.id !== 'towns');
 
 // Icons used on the destination type buttons.
 const iconMap = {

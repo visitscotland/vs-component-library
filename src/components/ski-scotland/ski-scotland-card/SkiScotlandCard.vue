@@ -401,7 +401,6 @@ export default {
         moreDetailsLink: {
             type: String,
             required: true,
-            default: '#',
         },
     },
     data() {

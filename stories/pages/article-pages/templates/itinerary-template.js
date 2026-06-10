@@ -1,6 +1,6 @@
-import splitCardContentSwiper from '../../partials/splitCardContentSwiper';
-import imageContentSwiper from '../../partials/imageContentSwiper';
-import imageWithCaptionPartial from '../../partials/imageWithCaptionPartial';
+import splitCardContentSwiper from '../../../story-partials/splitCardContentSwiper';
+import imageContentSwiper from '../../../story-partials/imageContentSwiper';
+import imageWithCaptionPartial from '../../../story-partials/imageWithCaptionPartial';
 
 export default `
     <VsPageHeader menu-type="b2c">
@@ -185,8 +185,8 @@ export default `
         aria-label="Itinerary hightlight images"
     >
         ${imageContentSwiper({
-            slidesPerViewLg: 2.2,
-        })}
+    slidesPerViewLg: 2.2,
+})}
     </section>
 
     <!------------------------------------------------------------
@@ -224,10 +224,10 @@ export default `
                 <!------- New structured content block: Itinerary stop ------->
                 <div class="mb-200 mb-xl-300">
                     ${imageWithCaptionPartial({
-                        imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2023/08/28/edinburgh-castle?size=lg',
-                        imageCaption: 'Edinburgh Castle',
-                        imageCredit: 'VisitScotland',
-                    })}
+    imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2023/08/28/edinburgh-castle?size=lg',
+    imageCaption: 'Edinburgh Castle',
+    imageCredit: 'VisitScotland',
+})}
                    
                     <!------- Content block header -------> 
                     <VsRow class="mb-125">
@@ -256,8 +256,8 @@ export default `
 
                         <div class="my-175">
                             ${imageContentSwiper({
-                                contained: true,
-                            })}
+    contained: true,
+})}
                         </div>
 
                         <p>
@@ -287,10 +287,10 @@ export default `
                 <!------- New structured content block: Itinerary stop ------->
                 <div class="mb-200 mb-xl-300">
                     ${imageWithCaptionPartial({
-                        imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/02/12/60285-national-museum-of-scotland-large.jpg?size=lg',
-                        imageCaption: 'National Museum of Scotland',
-                        imageCredit: 'VisitScotland',
-                    })}
+    imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/02/12/60285-national-museum-of-scotland-large.jpg?size=lg',
+    imageCaption: 'National Museum of Scotland',
+    imageCredit: 'VisitScotland',
+})}
 
                     <!------- Content block header -------> 
                     <VsRow class="mb-125">
@@ -351,10 +351,10 @@ export default `
                 <!------- New structured content block: Itinerary stop ------->
                 <div class="mb-200 mb-xl-300">
                     ${imageWithCaptionPartial({
-                        imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/06/30/301/calton-hill-evening?size=lg',
-                        imageCaption: 'View from Calton Hill',
-                        imageCredit: 'VisitScotland',
-                    })}
+    imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/06/30/301/calton-hill-evening?size=lg',
+    imageCaption: 'View from Calton Hill',
+    imageCredit: 'VisitScotland',
+})}
 
                     <!------- Content block header ------->
                     <VsRow class="mb-125">
@@ -403,10 +403,10 @@ export default `
                 <!------- New structured content block: Itinerary stop ------->
                 <div>
                     ${imageWithCaptionPartial({
-                        imageSrc: 'https://2f1a7f9478.visitscotland.net/wsimgs/TRMKC_Bottom_of_Close_01_1655320697.jpg?size=lg',
-                        imageCaption: 'Real Mary King\'s Close',
-                        imageCredit: 'VisitScotland',
-                    })}
+    imageSrc: 'https://2f1a7f9478.visitscotland.net/wsimgs/TRMKC_Bottom_of_Close_01_1655320697.jpg?size=lg',
+    imageCaption: 'Real Mary King\'s Close',
+    imageCredit: 'VisitScotland',
+})}
 
                     <!------- Content block header ------->
                     <VsRow class="mb-125">
@@ -514,10 +514,10 @@ export default `
                 <!------- New structured content block: Itinerary stop ------->
                 <div class="mb-200 mb-xl-300">
                     ${imageWithCaptionPartial({
-                        imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/04/041/pittenween-fishing-village-cottage?size=lg',
-                        imageCaption: 'Pittemween fishing village',
-                        imageCredit: 'VisitScotland',
-                    })}
+    imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/04/041/pittenween-fishing-village-cottage?size=lg',
+    imageCaption: 'Pittemween fishing village',
+    imageCredit: 'VisitScotland',
+})}
 
                     <!------- Content block header -------> 
                     <VsRow class="mb-125">
@@ -571,10 +571,10 @@ export default `
                 <!------- New structured content block: Itinerary stop ------->
                 <div class="mb-200 mb-xl-300">
                     ${imageWithCaptionPartial({
-                        imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/01/st-andrews-west-sands?size=lg',
-                        imageCaption: 'St Andrews West Sands',
-                        imageCredit: 'VisitScotland',
-                    })}
+    imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/01/st-andrews-west-sands?size=lg',
+    imageCaption: 'St Andrews West Sands',
+    imageCredit: 'VisitScotland',
+})}
 
                     <!------- Content block header -------> 
                     <VsRow class="mb-125">
@@ -628,10 +628,10 @@ export default `
                 <!------- New structured content block: Itinerary stop ------->
                 <div>
                     ${imageWithCaptionPartial({
-                        imageSrc: 'https://2f1a7f9478.visitscotland.net/wsimgs/distillery_edit_1097016301.jpg?size=lg',
-                        imageCaption: 'Eden Mill Distillery & Brewery',
-                        imageCredit: 'VisitScotland',
-                    })}
+    imageSrc: 'https://2f1a7f9478.visitscotland.net/wsimgs/distillery_edit_1097016301.jpg?size=lg',
+    imageCaption: 'Eden Mill Distillery & Brewery',
+    imageCredit: 'VisitScotland',
+})}
 
                     <!------- Content block header ------->
                     <VsRow class="mb-125">
@@ -743,10 +743,10 @@ export default `
                 <!------- New structured content block: Itinerary stop ------->
                 <div class="mb-200 mb-xl-300">
                     ${imageWithCaptionPartial({
-                        imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/09/11/va-dundee.jpg?size=lg',
-                        imageCaption: 'RRS Discovery, Dundee',
-                        imageCredit: 'VisitScotland',
-                    })}
+    imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/09/11/va-dundee.jpg?size=lg',
+    imageCaption: 'RRS Discovery, Dundee',
+    imageCredit: 'VisitScotland',
+})}
 
                     <!------- Content block header -------> 
                     <VsRow class="mb-125">
@@ -796,10 +796,10 @@ export default `
                 <!------- New structured content block: Itinerary stop ------->
                 <div class="mb-200 mb-xl-300">
                     ${imageWithCaptionPartial({
-                        imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/08/01/va-dundee?size=lg',
-                        imageCaption: 'V&A Dundee',
-                        imageCredit: 'VisitScotland',
-                    })}
+    imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/08/01/va-dundee?size=lg',
+    imageCaption: 'V&A Dundee',
+    imageCredit: 'VisitScotland',
+})}
 
                     <!------- Content block header -------> 
                     <VsRow class="mb-125">
@@ -849,10 +849,10 @@ export default `
                 <!------- New structured content block: Itinerary stop ------->
                 <div class="mb-200 mb-xl-300">
                     ${imageWithCaptionPartial({
-                        imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/12/the-mcmanus?size=lg',
-                        imageCaption: 'The McManus',
-                        imageCredit: 'VisitScotland',
-                    })}
+    imageSrc: 'https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/12/the-mcmanus?size=lg',
+    imageCaption: 'The McManus',
+    imageCredit: 'VisitScotland',
+})}
 
                     <!------- Content block header ------->
                     <VsRow class="mb-125">
@@ -901,10 +901,10 @@ export default `
                 <!------- New structured content block: Itinerary stop ------->
                 <div class="mb-200 mb-xl-300">
                     ${imageWithCaptionPartial({
-                        imageSrc: 'https://2f1a7f9478.visitscotland.net/wsimgs/1059891_2129749568.jpg?size=lg',
-                        imageCaption: 'Dundee Contemporary Arts',
-                        imageCredit: 'VisitScotland',
-                    })}
+    imageSrc: 'https://2f1a7f9478.visitscotland.net/wsimgs/1059891_2129749568.jpg?size=lg',
+    imageCaption: 'Dundee Contemporary Arts',
+    imageCredit: 'VisitScotland',
+})}
 
                     <!------- Content block header ------->
                     <VsRow class="mb-125">

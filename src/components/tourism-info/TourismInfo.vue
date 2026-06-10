@@ -17,7 +17,10 @@
                     <div
                         class="vs-tourism-info__links"
                         data-test="vs-tourism-info__standalone-links"
-                        v-if="($slots['tourism-info-links'] && $slots['tourism-info-links']()) && !($slots['tourism-info-quote'] && $slots['tourism-info-quote']())"
+                        v-if="($slots['tourism-info-links']
+                            && $slots['tourism-info-links']())
+                            && !($slots['tourism-info-quote']
+                                && $slots['tourism-info-quote']())"
                     >
                         <!-- @slot Holds the links (html expected) -->
                         <slot name="tourism-info-links" />
@@ -28,7 +31,8 @@
                     cols="12"
                     md="10"
                     offset-md="1"
-                    :class="{ 'vs-tourism-info__image-offset': ($slots['tourism-info-quote'] && $slots['tourism-info-quote']()) }"
+                    :class="{ 'vs-tourism-info__image-offset':
+                        ($slots['tourism-info-quote'] && $slots['tourism-info-quote']()) }"
                 >
                     <!-- @slot Holds the main tourism-info image -->
                     <slot

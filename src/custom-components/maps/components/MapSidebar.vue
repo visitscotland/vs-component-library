@@ -89,7 +89,8 @@
                             class="vs-map__filter-controls-button"
                             :icon="setCategoryIcon(category.id)"
                             size="sm"
-                            :variant="props.selectedCategory === category.id ? 'primary' : 'secondary'"
+                            :variant="props.selectedCategory === category.id 
+                                ? 'primary' : 'secondary'"
                             @click="$emit('category-selected', { id: category.id, key })"
                         >
                             {{ category.label }}
@@ -98,6 +99,7 @@
                 </div>
 
                 <VsDetail
+                    v-if="subcategories"
                     class="vs-map-sidebar__sub-filter-header"
                     color="secondary"
                     size="small"
@@ -136,7 +138,7 @@
             </div>
         </div>
         <div class="vs-map-sidebar__footer">
-            <hr class="vs-map-sidebar__swipe-tab">
+            <hr class="vs-map-sidebar__swipe-tab"/>
         </div>
     </div>
     <VsButton

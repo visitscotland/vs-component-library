@@ -1,7 +1,10 @@
-import type { FederatedSearchResult } from '@/types/types';
+import type {
+    FederatedSearchResult,
+    EventResponse,
+} from '@/types/types';
 import useFederatedSearchStore from '@/custom-components/federated-search/stores/federatedSearch.store';
 
-function cleanData(data: any) {
+function cleanData(data: EventResponse) {
     const events = data.events;
 
     const results: FederatedSearchResult[] = events.map((event) => ({
@@ -76,7 +79,7 @@ async function eventSearch(
             results: cleanData(results),
             totalResults: results.totalResults,
         };
-    } catch (error) {
+    } catch {
         federatedSearchStore.isLoading = false;
         federatedSearchStore.eventsApiError = true;
         return {

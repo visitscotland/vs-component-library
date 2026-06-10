@@ -24,7 +24,11 @@
             </div>
         </template>
 
-        <template v-if="cardStyle === 'overlay' && $slots['vs-card-image'] && $slots['vs-card-image']()">
+        <template 
+            v-if="cardStyle === 'overlay'
+                && $slots['vs-card-image'] 
+                && $slots['vs-card-image']()"
+        >
             <div class="vs-card__media">
                 <!-- @slot Used for the background image in the overlay variant -->
                 <slot name="vs-card-image" />
@@ -246,7 +250,7 @@ export default {
                     position: absolute;
                     inset: 0;
                     background:
-                        linear-gradient(180deg, rgba(0, 0, 0, 0) 30.29%, rgba(0, 0, 0, 0.5) 75%); // bottom to top
+                        linear-gradient(180deg, rgba(0, 0, 0, 0) 30.29%, rgba(0, 0, 0, 0.5) 75%);
                     z-index: 0;
                     border-radius: $vs-radius-tiny;
                     pointer-events: none;

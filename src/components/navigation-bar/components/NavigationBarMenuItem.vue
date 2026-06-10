@@ -44,7 +44,9 @@ export default {
         variant: {
             type: String,
             default: 'secondary-menu-item',
-            validator: (value) => value.match(/(primary-menu-item|primary-sidebar-item|secondary-menu-item)/),
+            validator: (value) => value.match(
+                /(primary-menu-item|primary-sidebar-item|secondary-menu-item)/,
+            ),
         },
     },
     computed: {

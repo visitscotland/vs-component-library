@@ -261,6 +261,7 @@ export default {
         &.btn-subtle:not(.vs-main-map-category__button) {
             &.disabled, &:disabled {
                 @extend %button-disabled;
+                @extend %button-disabled-icon;
             }
         }
 
@@ -268,26 +269,44 @@ export default {
         ------------------------------------------ */
         &.btn-primary {
             @include vs-button-variant(
-                $vs-color-text-inverse, $vs-color-interaction-cta-primary, $vs-color-interaction-cta-primary,
-                $vs-color-text-inverse, $vs-color-interaction-cta-hover, $vs-color-interaction-cta-hover,
-                $vs-color-text-inverse, $vs-color-interaction-cta-pressed, $vs-color-interaction-cta-pressed,
+                $vs-color-text-inverse,
+                $vs-color-interaction-cta-primary,
+                $vs-color-interaction-cta-primary,
+                $vs-color-text-inverse,
+                $vs-color-interaction-cta-hover,
+                $vs-color-interaction-cta-hover,
+                $vs-color-text-inverse,
+                $vs-color-interaction-cta-pressed,
+                $vs-color-interaction-cta-pressed,
             );
         }
 
         &.btn-secondary {
             @include vs-button-variant(
-                $vs-color-text-cta-on-light, $vs-color-interaction-cta-secondary, $vs-color-interaction-cta-primary,
-                $vs-color-text-inverse, $vs-color-interaction-cta-hover, $vs-color-interaction-cta-hover,
-                $vs-color-text-inverse, $vs-color-interaction-cta-pressed, $vs-color-interaction-cta-pressed,
+                $vs-color-text-cta-on-light,
+                $vs-color-interaction-cta-secondary,
+                $vs-color-interaction-cta-primary,
+                $vs-color-text-inverse,
+                $vs-color-interaction-cta-hover,
+                $vs-color-interaction-cta-hover,
+                $vs-color-text-inverse,
+                $vs-color-interaction-cta-pressed,
+                $vs-color-interaction-cta-pressed,
             );
         }
 
         &.btn-subtle {
             &:not(.vs-main-map-category__button) {
                 @include vs-button-variant(
-                    $vs-color-text-cta-on-light, $vs-color-interaction-cta-subtle, $vs-color-interaction-cta-subtle,
-                    $vs-color-text-cta-on-light, $vs-color-interaction-cta-subtle-hover, $vs-color-interaction-cta-subtle-hover,
-                    $vs-color-text-inverse, $vs-color-interaction-cta-subtle-pressed, $vs-color-interaction-cta-subtle-pressed,
+                    $vs-color-text-cta-on-light,
+                    $vs-color-interaction-cta-subtle,
+                    $vs-color-interaction-cta-subtle,
+                    $vs-color-text-cta-on-light,
+                    $vs-color-interaction-cta-subtle-hover,
+                    $vs-color-interaction-cta-subtle-hover,
+                    $vs-color-text-inverse,
+                    $vs-color-interaction-cta-subtle-pressed,
+                    $vs-color-interaction-cta-subtle-pressed,
                 );
             }
 

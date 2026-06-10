@@ -108,7 +108,6 @@ export default {
     methods: {
         manageCookies() {
             if (typeof CookieControl !== 'undefined') {
-                // eslint-disable-next-line no-undef
                 CookieControl.open();
             }
         },

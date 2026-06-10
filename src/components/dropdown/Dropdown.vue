@@ -36,7 +36,6 @@
 
 <script>
 import { BDropdown } from 'bootstrap-vue-next';
-import { reject } from 'lodash';
 
 /**
  * Dropdown component for lists of links for example.
@@ -69,9 +68,9 @@ export default {
     },
     computed: {
         nonButtonContentSlots() {
-            return reject(this.$slots, {
-                name: 'button-content',
-            });
+            return Object.fromEntries(
+                Object.entries(this.$slots).filter(([slotName]) => slotName !== 'button-content'),
+            );
         },
     },
 };
@@ -109,9 +108,15 @@ export default {
 
         &.btn-secondary {
             @include vs-button-variant(
-                $vs-color-text-cta-on-light, $vs-color-interaction-cta-secondary, $vs-color-interaction-cta-primary,
-                $vs-color-text-inverse, $vs-color-interaction-cta-hover, $vs-color-interaction-cta-hover,
-                $vs-color-text-inverse, $vs-color-interaction-cta-pressed, $vs-color-interaction-cta-pressed,
+                $vs-color-text-cta-on-light,
+                $vs-color-interaction-cta-secondary,
+                $vs-color-interaction-cta-primary,
+                $vs-color-text-inverse,
+                $vs-color-interaction-cta-hover,
+                $vs-color-interaction-cta-hover,
+                $vs-color-text-inverse,
+                $vs-color-interaction-cta-pressed,
+                $vs-color-interaction-cta-pressed,
             );
 
             &::after {

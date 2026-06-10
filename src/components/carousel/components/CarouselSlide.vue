@@ -13,7 +13,9 @@
                 :type="linkType"
                 :img-src="imgSrc"
                 :img-alt="imgAlt"
-                :class="isVisible(slideIndex) ? 'vs-carousel-slide__card--active' : 'vs-carousel-slide__card--disabled'"
+                :class="isVisible(slideIndex)
+                    ? 'vs-carousel-slide__card--active' 
+                    : 'vs-carousel-slide__card--disabled'"
                 class="vs-carousel-slide__card"
                 :disabled="!isVisible(slideIndex)"
                 data-test="vs-carousel-card"

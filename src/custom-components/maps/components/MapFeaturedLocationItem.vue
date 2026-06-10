@@ -30,7 +30,8 @@
                 #vs-card-image
             >
                 <VsImg
-                    class="vs-map__controls-featured-place-img w-100 rounded-1 object-fit-cover img-zoom-on-hover"
+                    class="vs-map__controls-featured-place-img 
+						w-100 rounded-1 object-fit-cover img-zoom-on-hover"
                     :src="props.place.properties.image"
                     :use-lazy-loading="false"
                 />

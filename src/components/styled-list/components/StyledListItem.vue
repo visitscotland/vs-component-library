@@ -57,7 +57,9 @@ const props = defineProps({
     headingLevel: {
         type: Number,
         default: 3,
-        validator: (value) => (isNumber(value) ? value > 0 && value < 7 : value.match(/(1|2|3|4|5|6)/)),
+        validator: (value) => (isNumber(value)
+            ? value > 0 && value < 7
+            : value.match(/(1|2|3|4|5|6)/)),
     },
     /**
      * Image source of the list item.

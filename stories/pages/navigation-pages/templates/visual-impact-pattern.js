@@ -1,5 +1,5 @@
-import splitCardContentSwiper from '../../partials/splitCardContentSwiper';
-import categoryCardContentSwiper from '../../partials/categoryCardContentSwiper';
+import splitCardContentSwiper from '../../../story-partials/splitCardContentSwiper';
+import categoryCardContentSwiper from '../../../story-partials/categoryCardContentSwiper';
 
 export default `
     <VsPageHeader menu-type="b2c">
@@ -42,8 +42,8 @@ export default `
     ------------------------------------------------------------>
     <div class="mt-300">
         ${categoryCardContentSwiper({
-            slidesVar: 'cardListOverlay',
-        })}
+    slidesVar: 'cardListOverlay',
+})}
     </div>
 
     <!------------------------------------------------------------
@@ -63,10 +63,10 @@ export default `
     </VsSectionHeader>
 
     ${splitCardContentSwiper({
-        slidesVar: 'cardList1',
-        slidesKey: '1',
-        slidesPerViewXl: 4.4,
-    })}
+    slidesVar: 'cardList1',
+    slidesKey: '1',
+    slidesPerViewXl: 4.4,
+})}
 
     <!------------------------------------------------------------
     SECTION END
@@ -86,10 +86,10 @@ export default `
     </VsSectionHeader>
 
     ${splitCardContentSwiper({
-        slidesVar: 'cardList2',
-        slidesKey: '2',
-        slidesPerViewXl: 3.4,
-    })}
+    slidesVar: 'cardList2',
+    slidesKey: '2',
+    slidesPerViewXl: 3.4,
+})}
 
     <!------------------------------------------------------------
     SECTION END
@@ -154,10 +154,10 @@ export default `
     </VsSectionHeader>
 
     ${splitCardContentSwiper({
-        slidesVar: 'cardList3',
-        slidesKey: '3',
-        slidesPerViewXl: 4.4,
-    })}
+    slidesVar: 'cardList3',
+    slidesKey: '3',
+    slidesPerViewXl: 4.4,
+})}
 
     <!------------------------------------------------------------
     SECTION END
@@ -178,10 +178,10 @@ export default `
     </VsSectionHeader>
 
     ${splitCardContentSwiper({
-        slidesVar: 'cardList5',
-        slidesKey: '5',
-        slidesPerViewXl: 3.4,
-    })}
+    slidesVar: 'cardList5',
+    slidesKey: '5',
+    slidesPerViewXl: 3.4,
+})}
 
     <!------------------------------------------------------------
     SECTION END
@@ -224,10 +224,10 @@ export default `
     </VsSectionHeader>
 
     ${splitCardContentSwiper({
-        slidesVar: 'cardList6',
-        slidesKey: '6',
-        slidesPerViewXl: 4.4,
-    })}
+    slidesVar: 'cardList6',
+    slidesKey: '6',
+    slidesPerViewXl: 4.4,
+})}
 
     <!------------------------------------------------------------
     SECTION END
@@ -254,10 +254,10 @@ export default `
 
     <div class="mb-500">
         ${splitCardContentSwiper({
-            slidesVar: 'cardList4',
-            slidesKey: '4',
-            slidesPerViewXl: 4.4,
-        })}
+    slidesVar: 'cardList4',
+    slidesKey: '4',
+    slidesPerViewXl: 4.4,
+})}
     </div>
     <!------------------------------------------------------------
     SECTION END

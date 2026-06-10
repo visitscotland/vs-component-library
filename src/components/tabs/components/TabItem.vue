@@ -2,7 +2,9 @@
     <BTab
         class="vs-tab__item"
         data-test="vs-tab__item"
-        :title-link-class="noContainer ? 'vs-tab-link--no-container vs-heading' : 'vs-tab-link vs-heading'"
+        :title-link-class="noContainer
+            ? 'vs-tab-link--no-container vs-heading'
+            : 'vs-tab-link vs-heading'"
         :title="title"
         @click="trackClick"
     >
