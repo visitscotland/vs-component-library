@@ -889,14 +889,6 @@ export default {
 
             const filteredConsents = this.getFilteredConsents();
 
-            console.log('Submitting form with data', {
-                ...this.form,
-                ...hiddenFields,
-                formType: this.formData.content ? this.formData.content.formType : '',
-                'g-recaptcha-response': gRecaptchaResponse,
-                consentList: filteredConsents,
-            });
-
             axios
                 .post(this.submitUrl, {
                     ...this.form,
