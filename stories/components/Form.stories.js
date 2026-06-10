@@ -94,7 +94,6 @@ export const HiddenFields = Template.bind({
 
 HiddenFields.args = {
     ...base,
-    dataUrl: 'http://localhost:3000/prize-draws/the-open-golf-prize-draw-2026.json',
     isMarketo: false,
     submissionType: 'breg',
     usesRecaptcha: false,
