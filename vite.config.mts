@@ -124,6 +124,12 @@ export default defineConfig(({ mode }) => {
                 ],
                 output: {
                     dir: 'dist/components',
+                    assetFileNames: (assetInfo) => {
+                        if (assetInfo.name?.endsWith('.css')) {
+                            return 'style.css';
+                        }
+                        return '[name]-[hash][extname]';
+                    },
                     globals: {
                         vue: 'Vue',
                         'bootstrap-vue-next': 'BootstrapVueNext',

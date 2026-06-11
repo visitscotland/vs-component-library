@@ -1,3 +1,10 @@
+## [5.61.1](https://github.com/visitscotland/vs-component-library/compare/v5.61.0...v5.61.1) (2026-06-11)
+
+
+### Bug Fixes
+
+* **build:** update style file name generation for vite plugin-vue update ([84de9cc](https://github.com/visitscotland/vs-component-library/commit/84de9cc2f74cf53f1250da1017c14fd2e11dca84))
+
 # [5.61.0](https://github.com/visitscotland/vs-component-library/compare/v5.60.0...v5.61.0) (2026-06-11)
 
 
