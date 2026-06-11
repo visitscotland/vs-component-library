@@ -94,7 +94,7 @@ describe('VsLink', () => {
             const wrapper = factoryShallowMount({
                 type: 'internal',
             });
-            expect(wrapper.attributes()).not.toContain('download');
+            expect(wrapper.attributes()).not.toHaveProperty('download');
         });
 
         it('does not render icon for default type', () => {
