@@ -1,3 +1,11 @@
+# [5.60.0](https://github.com/visitscotland/vs-component-library/compare/v5.59.5...v5.60.0) (2026-06-11)
+
+
+### Features
+
+* **forms:** add consentList filtering for optional consents ([2cc3e1e](https://github.com/visitscotland/vs-component-library/commit/2cc3e1e33739378322643f01c5d14637770f7e2f))
+* **forms:** implement hidden fields in form config ([a95b7e9](https://github.com/visitscotland/vs-component-library/commit/a95b7e9621bc0af27dbc788f66849032cf51d830))
+
 ## [5.59.5](https://github.com/visitscotland/vs-component-library/compare/v5.59.4...v5.59.5) (2026-06-01)
 
 
