@@ -12,10 +12,15 @@ type Polygon = Coordinate[];
 
 function getPolygonCenter(map: google.maps.Map, polygon: google.maps.Polygon): google.maps.LatLng {
     const bounds = new google.maps.LatLngBounds();
-    const polygonPaths = polygon.getPath();
+    const polygonAreaPaths: google.maps.MVCArray<google.maps.LatLng>[] = polygon
+        .getPaths()
+        .getArray()
+        .flat();
 
-    polygonPaths.forEach((edge: google.maps.LatLng) => {
-        bounds.extend(new google.maps.LatLng(edge.lat(), edge.lng()));
+    polygonAreaPaths.forEach((polygonPaths: any) => {
+        polygonPaths.getArray().forEach((edge: any) => {
+            bounds.extend(new google.maps.LatLng(edge.lat(), edge.lng()));
+        });
     });
 
     return bounds.getCenter();
