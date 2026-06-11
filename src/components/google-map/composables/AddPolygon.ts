@@ -1,5 +1,8 @@
 /* eslint-disable no-undef */
 
+import { brxmFeatureProperties } from '@/types/types';
+import Tooltip from './AddTooltip';
+
 const ACTIVE_COLOR = '#19C8C5';
 const HOVER_COLOR = '#A830FF';
 const STROKE_COLOR = '#FFFFFF';
@@ -7,23 +10,43 @@ const STROKE_COLOR = '#FFFFFF';
 type Coordinate = [number, number];
 type Polygon = Coordinate[];
 
-function attachListeners(polygon: google.maps.Polygon) {
-    polygon.addListener('mouseover', () => {
+function getPolygonCenter(map: google.maps.Map, polygon: google.maps.Polygon): google.maps.LatLng {
+    const bounds = new google.maps.LatLngBounds();
+    const polygonPaths = polygon.getPath();
+
+    polygonPaths.forEach((edge: google.maps.LatLng) => {
+        bounds.extend(new google.maps.LatLng(edge.lat(), edge.lng()));
+    });
+
+    return bounds.getCenter();
+}
+
+async function attachListeners(
+    polygon: google.maps.Polygon,
+    tooltip: Tooltip,
+) {
+    polygon.addListener('mouseover', async() => {
         polygon.setOptions({
             fillColor: HOVER_COLOR,
         });
+        tooltip.show();
     });
 
-    polygon.addListener('mouseout', () => {
+    polygon.addListener('mouseout', async() => {
         polygon.setOptions({
             fillColor: ACTIVE_COLOR,
         });
+        tooltip.hide();
     });
 };
 
-function createPolygon(map: google.maps.Map, polygonData: any) {
+function createPolygon(
+    map: google.maps.Map,
+    polygonCoordinates: any,
+    polygonProperties: brxmFeatureProperties,
+) {
     const polygon = new google.maps.Polygon({
-        paths: polygonData,
+        paths: polygonCoordinates,
         strokeColor: STROKE_COLOR,
         strokeOpacity: 0.8,
         strokeWeight: 2,
@@ -34,7 +57,16 @@ function createPolygon(map: google.maps.Map, polygonData: any) {
 
     polygon.setMap(map);
 
-    attachListeners(polygon);
+    const centerOfPolygon: google.maps.LatLng = getPolygonCenter(map, polygon);
+
+    const tooltip = new Tooltip(
+        map,
+        centerOfPolygon,
+        polygonProperties,
+    );
+    tooltip.setMap(map);
+
+    attachListeners(polygon, tooltip);
 };
 
 export default async function addPolygon(map: google.maps.Map, feature: any) {
@@ -48,7 +80,11 @@ export default async function addPolygon(map: google.maps.Map, feature: any) {
             );
         });
 
-        createPolygon(map, polygonCoordinates);
+        createPolygon(
+            map,
+            polygonCoordinates,
+            feature.properties,
+        );
     };
 
     // Multiple area polygons that act as one
@@ -65,6 +101,10 @@ export default async function addPolygon(map: google.maps.Map, feature: any) {
             });
         });
 
-        createPolygon(map, regionPolygons);
+        createPolygon(
+            map,
+            regionPolygons,
+            feature.properties,
+        );
     };
 };

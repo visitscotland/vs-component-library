@@ -70,28 +70,30 @@ export type MapOptions = {
     gestureHandling?: string;
     isFractionalZoomEnabled?: boolean;
     renderingTypeVector?: boolean;
-}
+};
+
+export type brxmFeatureProperties = {
+    category?: {
+        id: string;
+        label: string;
+    };
+    stopCount?: number;
+    id: number | string;
+    title: string;
+    description?: string;
+    image?: string;
+    link?: {
+        label: string;
+        link: string;
+        type: string;
+    };
+};
 
 export type brxmFeature = {
     type: string;
-    properties: {
-        category?: {
-            id: string;
-            label: string;
-        };
-        stopCount?: number;
-        id: number | string;
-        title: string;
-        description?: string;
-        image?: string;
-        link?: {
-            label: string;
-            link: string;
-            type: string;
-        };
-    };
+    properties: brxmFeatureProperties;
     geometry: {
         type: string;
         coordinates: number[];
     };
-}
+};

@@ -154,6 +154,8 @@ onMounted(async() => {
                 props.featureData.forEach((place) => {
                     addPolygon(map.value, place);
                 });
+
+                // addPolygon(map.value, props.featureData[10]);
             });
         };
     });
@@ -204,6 +206,15 @@ onMounted(async() => {
             transform-origin: bottom;
         }
     }
+
+    &__tooltip {
+        width: max-content;
+        padding: $vs-spacer-050 $vs-spacer-100;
+        font-family: $vs-font-family-sans-serif;
+        font-size: $vs-font-size-detail-s;
+        background: #fff;
+        border-radius: $vs-radius-small;
+    }
 }
 
 gmp-advanced-marker:focus {
@@ -213,4 +224,5 @@ gmp-advanced-marker:focus {
         transform-origin: bottom;
     }
 }
+
 </style>
