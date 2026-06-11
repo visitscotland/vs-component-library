@@ -22,6 +22,8 @@ export default class Tooltip extends OverlayView {
 
     private tooltipContainer?: HTMLDivElement;
 
+    private tooltipArrow?: HTMLDivElement;
+
     constructor(
         map: google.maps.Map,
         location: google.maps.LatLng,
@@ -38,9 +40,20 @@ export default class Tooltip extends OverlayView {
         this.tooltipContainer = document.createElement('div');
         this.tooltipContainer.classList.add('vs-google-map__tooltip');
 
-        const tooltipContent = document.createElement('span');
-        tooltipContent.innerHTML = `${this.properties.title}`;
+        const tooltipContent = document.createElement('div');
+        tooltipContent.classList.add('vs-google-map__tooltip-content');
+
+        const tooltipText = document.createElement('span');
+        tooltipText.innerHTML = `${this.properties.title}`;
+
+        tooltipContent.appendChild(tooltipText);
+
         this.tooltipContainer.appendChild(tooltipContent);
+
+        this.tooltipArrow = document.createElement('div');
+        this.tooltipArrow.classList.add('vs-google-map__tooltip-arrow');
+
+        this.tooltipContainer.appendChild(this.tooltipArrow);
 
         this.tooltipContainer.style.position = 'absolute';
         this.tooltipContainer.style.zIndex = '9999';
@@ -64,8 +77,11 @@ export default class Tooltip extends OverlayView {
         );
 
         if (this.tooltipContainer) {
-            this.tooltipContainer.style.left = `${tooltipProjection!.x}px`;
-            this.tooltipContainer.style.top = `${tooltipProjection!.y}px`;
+            const tooltipWidth = this.tooltipContainer.offsetWidth;
+            const tooltipHeight = this.tooltipContainer.offsetHeight;
+
+            this.tooltipContainer.style.left = `${tooltipProjection!.x - (tooltipWidth / 2)}px`;
+            this.tooltipContainer.style.top = `${tooltipProjection!.y - tooltipHeight}px`;
         }
     }
 

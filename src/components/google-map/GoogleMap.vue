@@ -208,12 +208,30 @@ onMounted(async() => {
     }
 
     &__tooltip {
-        width: max-content;
-        padding: $vs-spacer-050 $vs-spacer-100;
-        font-family: $vs-font-family-sans-serif;
-        font-size: $vs-font-size-detail-s;
-        background: #fff;
-        border-radius: $vs-radius-small;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
+        pointer-events: none;
+
+        &-content {
+            width: max-content;
+            padding: $vs-spacer-050 $vs-spacer-100;
+            font-family: $vs-font-family-sans-serif;
+            font-size: $vs-font-size-detail-s;
+            background: $vs-color-background-inverse;
+            border-radius: $vs-radius-small;
+        }
+
+        &-arrow {
+            width: 10px;
+            height: 10px;
+            background: $vs-color-background-inverse;
+            transform: rotate(45deg);
+            position: relative;
+            top: -5px;
+        }
+
     }
 }
 
