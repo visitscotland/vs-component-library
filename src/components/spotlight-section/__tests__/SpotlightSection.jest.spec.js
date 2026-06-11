@@ -50,7 +50,7 @@ describe('VsSpotlightSection', () => {
                 imageSrc: 'test-image.jpg',
             });
 
-            expect(wrapper.attributes('style')).toContain('background-image: url(test-image.jpg)');
+            expect(wrapper.attributes('style')).toContain('background-image: url("test-image.jpg")');
         });
 
         it('should not apply background image when imageSrc is not provided', () => {
