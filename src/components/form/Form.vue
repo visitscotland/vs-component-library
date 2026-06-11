@@ -17,100 +17,124 @@
                     >
                         {{ getTranslatedContent('heading') }}
                     </legend>
-                    <BFormGroup
+                    <template
                         v-for="(field, index) in formData.fields"
                         :key="field.name"
-                        :label="needsLabel(field) ? getTranslatedLabel(field.name, index) : ''"
-                        :label-for="needsLabel(field) ? field.name : ''"
-                        :class="conditionalElementClass(field.name)"
                     >
-                        <legend
-                            v-if="!isUndefined(field.descriptor)
-                                && field.element === 'checkbox'"
-                        >
-                            {{ getTranslatedLegend(field.name, index) }}
-                        </legend>
-                        <div
+                        <template v-if="field.element === 'hidden'">
+                            <input
+                                type="hidden"
+                                :key="field.name"
+                                :ref="field.name"
+                                :name="field.name"
+                                :value="field.value"
+                            >
+                        </template>
+                        <BFormGroup
+                            v-else
+                            :label="needsLabel(field) ? getTranslatedLabel(field.name, index) : ''"
+                            :label-for="needsLabel(field) ? field.name : ''"
                             :class="conditionalElementClass(field.name)"
                         >
-                            <template v-if="field.element === 'input'">
-                                <VsInput
-                                    :ref="field.name"
-                                    @status-update="updateFieldData"
-                                    :field-name="field.name"
-                                    :type="field.type"
-                                    :validation-rules="field.validation || {}"
-                                    :validation-messages="getTranslatedValidation(field.name, index)
-                                        || {}"
-                                    :generic-validation="getMessagingData('validation', language)"
-                                    :invalid="errorFields.indexOf(field.name) > -1 ? true : false"
-                                    :trigger-validate="triggerValidate"
-                                    :hint-text="getTranslatedHint(field.name, index)"
-                                    :placeholder="field.placeholder || ''"
-                                    :re-alert-errors="reAlertErrors"
-                                />
-                            </template>
+                            <legend
+                                v-if="!isUndefined(field.descriptor)
+                                    && field.element === 'checkbox'"
+                            >
+                                {{ getTranslatedLegend(field.name, index) }}
+                            </legend>
+                            <div
+                                :class="conditionalElementClass(field.name)"
+                            >
+                                <template v-if="field.element === 'input'">
+                                    <VsInput
+                                        :ref="field.name"
+                                        @status-update="updateFieldData"
+                                        :field-name="field.name"
+                                        :type="field.type"
+                                        :validation-rules="field.validation || {}"
+                                        :validation-messages="
+                                            getTranslatedValidation(field.name, index) || {}"
+                                        :generic-validation="getMessagingData('validation', language)"
+                                        :invalid="
+                                            errorFields.indexOf(field.name) > -1 ? true : false
+                                        "
+                                        :trigger-validate="triggerValidate"
+                                        :hint-text="getTranslatedHint(field.name, index)"
+                                        :placeholder="field.placeholder || ''"
+                                        :re-alert-errors="reAlertErrors"
+                                    />
+                                </template>
 
-                            <template v-if="field.element === 'select'">
-                                <VsSelect
-                                    :options="getTranslatedOptions(field.name, index)"
-                                    :ref="field.name"
-                                    @status-update="updateFieldData"
-                                    :field-name="field.name"
-                                    :validation-rules="field.validation || {}"
-                                    :validation-messages="getTranslatedValidation(field.name, index)
-                                        || {}"
-                                    :generic-validation="getMessagingData('validation', language)"
-                                    :invalid="errorFields.indexOf(field.name) > -1 ? true : false"
-                                    :trigger-validate="triggerValidate"
-                                    :country-list-url="countryListUrl"
-                                    :countries="field.countries"
-                                    :hint-text="getTranslatedHint(field.name, index)"
-                                    :re-alert-errors="reAlertErrors"
-                                />
-                            </template>
+                                <template v-if="field.element === 'select'">
+                                    <VsSelect
+                                        :options="getTranslatedOptions(field.name, index)"
+                                        :ref="field.name"
+                                        @status-update="updateFieldData"
+                                        :field-name="field.name"
+                                        :validation-rules="field.validation || {}"
+                                        :validation-messages="
+                                            getTranslatedValidation(field.name, index) || {}
+                                        "
+                                        :generic-validation="getMessagingData('validation', language)"
+                                        :invalid="
+                                            errorFields.indexOf(field.name) > -1 ? true : false
+                                        "
+                                        :trigger-validate="triggerValidate"
+                                        :country-list-url="countryListUrl"
+                                        :countries="field.countries"
+                                        :hint-text="getTranslatedHint(field.name, index)"
+                                        :re-alert-errors="reAlertErrors"
+                                    />
+                                </template>
 
-                            <template v-if="field.element === 'checkbox'">
-                                <VsCheckbox
-                                    :key="field.name"
-                                    :ref="field.name"
-                                    :name="field.name"
-                                    :value="field.value"
-                                    :label="getTranslatedLabel(field.name, index)"
-                                    @status-update="updateFieldData"
-                                    :field-name="field.name"
-                                    :validation-rules="field.validation || {}"
-                                    :validation-messages="getTranslatedValidation(field.name, index)
-                                        || {}"
-                                    :generic-validation="getMessagingData('validation', language)"
-                                    :invalid="errorFields.indexOf(field.name) > -1 ? true : false"
-                                    :trigger-validate="triggerValidate"
-                                    :optional-text="getMessagingData('optional', language)"
-                                    :hint-text="getTranslatedHint(field.name, index)"
-                                    :info-text="getTranslatedInfo(field.name, index)"
-                                    :re-alert-errors="reAlertErrors"
-                                />
-                            </template>
+                                <template v-if="field.element === 'checkbox'">
+                                    <VsCheckbox
+                                        :key="field.name"
+                                        :ref="field.name"
+                                        :name="field.name"
+                                        :value="field.value"
+                                        :label="getTranslatedLabel(field.name, index)"
+                                        @status-update="updateFieldData"
+                                        :field-name="field.name"
+                                        :validation-rules="field.validation || {}"
+                                        :validation-messages="
+                                            getTranslatedValidation(field.name, index) || {}
+                                        "
+                                        :generic-validation="getMessagingData('validation', language)"
+                                        :invalid="
+                                            errorFields.indexOf(field.name) > -1 ? true : false
+                                        "
+                                        :trigger-validate="triggerValidate"
+                                        :optional-text="getMessagingData('optional', language)"
+                                        :hint-text="getTranslatedHint(field.name, index)"
+                                        :info-text="getTranslatedInfo(field.name, index)"
+                                        :re-alert-errors="reAlertErrors"
+                                    />
+                                </template>
 
-                            <template v-if="field.element === 'textarea'">
-                                <VsTextarea
-                                    :ref="field.name"
-                                    @status-update="updateFieldData"
-                                    :field-name="field.name"
-                                    :validation-rules="field.validation || {}"
-                                    :validation-messages="getTranslatedValidation(field.name, index)
-                                        || {}"
-                                    :generic-validation="getMessagingData('validation', language)"
-                                    :invalid="errorFields.indexOf(field.name) > -1 ? true : false"
-                                    :trigger-validate="triggerValidate"
-                                    :hint-text="getTranslatedHint(field.name, index)"
-                                    :placeholder="field.placeholder || ''"
-                                    :re-alert-errors="reAlertErrors"
-                                    :rows="field.rows || null"
-                                />
-                            </template>
-                        </div>
-                    </BFormGroup>
+                                <template v-if="field.element === 'textarea'">
+                                    <VsTextarea
+                                        :ref="field.name"
+                                        @status-update="updateFieldData"
+                                        :field-name="field.name"
+                                        :validation-rules="field.validation || {}"
+                                        :validation-messages="
+                                            getTranslatedValidation(field.name, index) || {}
+                                        "
+                                        :generic-validation="getMessagingData('validation', language)"
+                                        :invalid="
+                                            errorFields.indexOf(field.name) > -1 ? true : false
+                                        "
+                                        :trigger-validate="triggerValidate"
+                                        :hint-text="getTranslatedHint(field.name, index)"
+                                        :placeholder="field.placeholder || ''"
+                                        :re-alert-errors="reAlertErrors"
+                                        :rows="field.rows || null"
+                                    />
+                                </template>
+                            </div>
+                        </BFormGroup>
+                    </template>
                 </fieldset>
 
                 <slot name="hidden-fields" />
@@ -622,6 +646,43 @@ export default {
                 });
         },
         /**
+         * Returns a filtered list of items from the consentList object, removing any that are
+         * option and for which the relevant optional checkbox has not been selected by the user.
+         *
+         * {
+         *   key: 'snow',
+         *   value: 'SKIEMAIL_002',
+         * },
+         * {
+         *   key: 'newsletter',
+         *   value: 'VSEMAIL_0026',
+         * },
+         * {
+         *   key: 'partner_consent',
+         *   value: 'The user has consented to be contacted by our partners',
+         *   optional: true,
+         * },
+         *
+         * In the example case the snow and newsletter items will always be present. The
+         * partner_consent object will be removed from the array if the partner_consent
+         * in this.form is falsy and left if it is truthy.
+         */
+        getFilteredConsents() {
+            if (!this.consentList) {
+                return null;
+            }
+
+            return this.consentList.filter((consent) => {
+                // If consent is not optional, always include it
+                if (!consent.optional) {
+                    return true;
+                }
+
+                // If consent is optional, only include if the corresponding form field is truthy
+                return !!this.form[consent.key];
+            });
+        },
+        /**
          * Parses the value of an input field, converting 'true' and 'false' string values to their
          * boolean primitive equivalents.
          *
@@ -826,24 +887,26 @@ export default {
 
             const hiddenFields = this.getHiddenFields();
 
-            axios.post(
-                this.submitUrl,
-                {
+            const filteredConsents = this.getFilteredConsents();
+
+            axios
+                .post(this.submitUrl, {
                     ...this.form,
                     ...hiddenFields,
                     formType: this.formData.content ? this.formData.content.formType : '',
                     'g-recaptcha-response': gRecaptchaResponse,
-                    consentList: this.consentList,
-                },
-            ).then(() => {
-                this.submitting = false;
-                this.submitted = true;
-                this.attachEmail();
-                return false;
-            }).catch(() => {
-                this.submitError = true;
-                return false;
-            });
+                    consentList: filteredConsents,
+                })
+                .then(() => {
+                    this.submitting = false;
+                    this.submitted = true;
+                    this.attachEmail();
+                    return false;
+                })
+                .catch(() => {
+                    this.submitError = true;
+                    return false;
+                });
         },
         /**
          * If exponea is present in the window (via gtm with accepted cookies), and the form uses

@@ -5,8 +5,9 @@
         :ref="`modal-${modalId}`"
         :id="modalId"
         size="xl"
-        hide-footer
-        hide-header
+        no-footer
+        no-header
+        :aria-label="modalAriaLabel"
         :static="isVideoModal"
         v-model="show"
         v-if="mounted"
@@ -88,6 +89,13 @@ export default {
         closeBtnText: {
             type: String,
             required: true,
+        },
+        /**
+         * ARIA label for the modal
+         */
+        modalAriaLabel: {
+            type: String,
+            default: '',
         },
         /**
          * Whether or not the modal contains an embedded
