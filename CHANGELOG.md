@@ -1,3 +1,17 @@
+# [5.61.0](https://github.com/visitscotland/vs-component-library/compare/v5.60.0...v5.61.0) (2026-06-11)
+
+
+### Bug Fixes
+
+* **meganv:** fix issue with meganav no-js display ([d1d66a3](https://github.com/visitscotland/vs-component-library/commit/d1d66a329b4a8b9112d48a80a11b1653ead905d8))
+* **meganv:** update aria labels in mega nav ([a3f6bfb](https://github.com/visitscotland/vs-component-library/commit/a3f6bfb2359f8a828f195fc520142b2471b48e0e))
+
+
+### Features
+
+* **bootstrap:** fix bootstrap vue components after upgrading ([28822a1](https://github.com/visitscotland/vs-component-library/commit/28822a1bc232f65e74cce6fa152c5d328843c3b2))
+* **meganav:** update meganav to fix dropdown ([b88b152](https://github.com/visitscotland/vs-component-library/commit/b88b15203556cffa7b75fca90a623e7628e24910))
+
 # [5.60.0](https://github.com/visitscotland/vs-component-library/compare/v5.59.5...v5.60.0) (2026-06-11)
 
 
