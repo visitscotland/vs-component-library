@@ -4439,7 +4439,7 @@ __metadata:
     jest-environment-jsdom: "npm:^30.4.1"
     jest-serializer-vue: "npm:^3.1.0"
     jiti: "npm:^2.7.0"
-    lint-staged: "npm:^17.0.2"
+    lint-staged: "npm:^17.0.7"
     lodash: "npm:^4.17.21"
     mapbox-gl: "npm:^1.11.1"
     mitt: "npm:^3.0.0"
@@ -11671,7 +11671,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:^17.0.2":
+"lint-staged@npm:^17.0.7":
   version: 17.0.7
   resolution: "lint-staged@npm:17.0.7"
   dependencies:
