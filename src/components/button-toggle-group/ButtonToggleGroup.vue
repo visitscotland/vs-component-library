@@ -143,7 +143,7 @@ export default {
         display: flex;
         justify-content: center;
 
-        legend {
+        .form-label {
             // sr-only styles
             border: 0;
             clip: rect(0, 0, 0, 0);

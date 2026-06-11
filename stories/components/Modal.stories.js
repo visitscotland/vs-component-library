@@ -97,6 +97,7 @@ const Template = (args) => ({
 
 const base = {
     modalId: 'c05sg3G4oA4',
+    modalAriaLabel: 'Video modal',
     closeBtnText: 'Close',
     jsDisabled: false,
 };
