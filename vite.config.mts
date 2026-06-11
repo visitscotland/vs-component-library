@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue';
 import path from 'node:path';
 import dts from 'vite-plugin-dts';
 import replace from '@rollup/plugin-replace';
-import { aliases } from './vite.alias';
+import { aliases } from './vite.alias.mjs';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, process.cwd(), '');
@@ -27,7 +27,13 @@ export default defineConfig(({ mode }) => {
                     additionalData: `
                         @import "@/styles/resources.scss";
                     `,
-                    silenceDeprecations: ['mixed-decls', 'color-functions', 'global-builtin', 'import', 'legacy-js-api'],
+                    silenceDeprecations: [
+                        'color-functions',
+                        'global-builtin',
+                        'import',
+                        'legacy-js-api',
+                        'if-function',
+                    ],
                 },
             },
         },

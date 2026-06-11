@@ -1,6 +1,6 @@
 import { mergeConfig } from 'vite';
 import type { StorybookConfig } from '@storybook/vue3-vite';
-import { aliases } from '../vite.alias.ts';
+import { aliases } from '../vite.alias.mjs';
 
 const config: StorybookConfig = {
     stories: [
@@ -31,6 +31,13 @@ const config: StorybookConfig = {
                     scss: {
                         additionalData: '@import "@/styles/resources.scss";',
                         quietDeps: true,
+                        silenceDeprecations: [
+                            'color-functions',
+                            'global-builtin',
+                            'import',
+                            'legacy-js-api',
+                            'if-function',
+                        ],
                     },
                 },
             },

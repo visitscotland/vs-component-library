@@ -1378,18 +1378,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chromatic-com/storybook@npm:^4.0.0-next.16":
-  version: 4.1.3
-  resolution: "@chromatic-com/storybook@npm:4.1.3"
+"@chromatic-com/storybook@npm:^5.2.1":
+  version: 5.2.1
+  resolution: "@chromatic-com/storybook@npm:5.2.1"
   dependencies:
     "@neoconfetti/react": "npm:^1.0.0"
-    chromatic: "npm:^13.3.3"
-    filesize: "npm:^10.0.12"
+    chromatic: "npm:16.10.0"
     jsonfile: "npm:^6.1.0"
     strip-ansi: "npm:^7.1.0"
   peerDependencies:
-    storybook: ^0.0.0-0 || ^9.0.0 || ^9.1.0-0 || ^9.2.0-0 || ^10.0.0-0 || ^10.1.0-0 || ^10.2.0-0 || ^10.3.0-0
-  checksum: 10c0/31d1cc7e98489238a22c7560677bf07235b87c48dc1f39faf1fdc7dda2f41221709c10af2a5fcb10e46bea7b80cc81badf08aba7015f0c5b8d0a9e037e92e1bf
+    storybook: ^0.0.0-0 || ^10.1.0 || ^10.1.0-0 || ^10.2.0-0 || ^10.3.0-0 || ^10.4.0-0 || ^10.5.0-0 || ^10.6.0-0
+  checksum: 10c0/066b0a75906936916cbafbcb26375509240025bbacda02d9ae4929aaec07ae3ec7792dddf0b03095b8792d7891a55c1d70af6496eda1d3932fa2e2b9caa2407e
   languageName: node
   linkType: hard
 
@@ -4528,7 +4527,7 @@ __metadata:
     "@babel/core": "npm:^7.23.2"
     "@babel/plugin-transform-runtime": "npm:^7.23.2"
     "@babel/preset-env": "npm:^7.23.2"
-    "@chromatic-com/storybook": "npm:^4.0.0-next.16"
+    "@chromatic-com/storybook": "npm:^5.2.1"
     "@eslint/js": "npm:^10.0.1"
     "@floating-ui/dom": "npm:^1.7.6"
     "@googlemaps/js-api-loader": "npm:^2.0.1"
@@ -4555,7 +4554,7 @@ __metadata:
     babel-plugin-macros: "npm:^2.4.2"
     bootstrap: "npm:^5.3.2"
     bootstrap-vue-next: "npm:^0.45.4"
-    chromatic: "npm:^6.17.3"
+    chromatic: "npm:^17.2.0"
     commitizen: "npm:^4.3.0"
     cz-conventional-changelog: "npm:^3.3.0"
     eslint: "npm:^10.4.0"
@@ -4594,6 +4593,7 @@ __metadata:
     vue: "npm:^3.5.35"
     vue-combo-blocks: "npm:^2.1.1"
     vue-recaptcha: "npm:^2.0.1"
+    vue-tsc: "npm:^3.3.3"
     vue-youtube-vue-3: "npm:^1.5.0"
     vue3-charts: "npm:^1.1.33"
     vue3-lazy-hydration: "npm:^1.2.1"
@@ -4701,7 +4701,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@volar/typescript@npm:^2.4.26":
+"@volar/typescript@npm:2.4.28, @volar/typescript@npm:^2.4.26":
   version: 2.4.28
   resolution: "@volar/typescript@npm:2.4.28"
   dependencies:
@@ -4842,6 +4842,21 @@ __metadata:
     typescript:
       optional: true
   checksum: 10c0/b69864af058d757f9774390f4ced8e79d569703088c708736aba987c3a2f4072f2aa92dee81051891bd060998c5383dd857b9107e2c9f6c3ba0f288f826f521e
+  languageName: node
+  linkType: hard
+
+"@vue/language-core@npm:3.3.3":
+  version: 3.3.3
+  resolution: "@vue/language-core@npm:3.3.3"
+  dependencies:
+    "@volar/language-core": "npm:2.4.28"
+    "@vue/compiler-dom": "npm:^3.5.0"
+    "@vue/shared": "npm:^3.5.0"
+    alien-signals: "npm:^3.2.0"
+    muggle-string: "npm:^0.4.1"
+    path-browserify: "npm:^1.0.1"
+    picomatch: "npm:^4.0.4"
+  checksum: 10c0/9d05638757c5babcc07fc526621a737737f790a39b93056f1e4e1f647fd4fe38bae41162e7077905bab71c02d81133a3ab55acac0878ae051c45f1ae4c7d832a
   languageName: node
   linkType: hard
 
@@ -5132,6 +5147,13 @@ __metadata:
   version: 1.0.13
   resolution: "alien-signals@npm:1.0.13"
   checksum: 10c0/7b0ec8305eaacf810ab3fa7e2045c343e695dca510befc148ccef26cb59b8f159d9d56772fbd8767f85cbccc6fadcc09b9f90a4e1e1206d5f726b8995f24dbe4
+  languageName: node
+  linkType: hard
+
+"alien-signals@npm:^3.2.0":
+  version: 3.2.1
+  resolution: "alien-signals@npm:3.2.1"
+  checksum: 10c0/4c4064faa208126177224d1ed6a2310687d452dec0771994e276d9af4c72e853fcb969ae4a7fcd034b1d1b9accb9500f4941178326eeea1cb8f64ec612853ef8
   languageName: node
   linkType: hard
 
@@ -6349,33 +6371,51 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:^13.3.3":
-  version: 13.3.5
-  resolution: "chromatic@npm:13.3.5"
+"chromatic@npm:16.10.0":
+  version: 16.10.0
+  resolution: "chromatic@npm:16.10.0"
+  dependencies:
+    semver: "npm:^7.3.5"
   peerDependencies:
     "@chromatic-com/cypress": ^0.*.* || ^1.0.0
     "@chromatic-com/playwright": ^0.*.* || ^1.0.0
+    "@chromatic-com/vitest": ^0.*.* || ^1.0.0
   peerDependenciesMeta:
     "@chromatic-com/cypress":
       optional: true
     "@chromatic-com/playwright":
       optional: true
+    "@chromatic-com/vitest":
+      optional: true
   bin:
-    chroma: dist/bin.js
-    chromatic: dist/bin.js
-    chromatic-cli: dist/bin.js
-  checksum: 10c0/58b3d7984db000f8c7b605788569a24c3f3cd41bb6b2d3a94f18acc9ff11ce6c6881f795c8390a94ff721ccfcf8a2d7942e78a54a1f70294a7b3d35ccc382154
+    chroma: dist/bin.cjs
+    chromatic: dist/bin.cjs
+    chromatic-cli: dist/bin.cjs
+  checksum: 10c0/4867da7b0512c6c86b00b7e633908e90594b893801202577d76849d9b0ba61c716dfa7479dcb5c0786665b7fe6560ede262ad6a16696fc74c2240cc6d5bf485c
   languageName: node
   linkType: hard
 
-"chromatic@npm:^6.17.3":
-  version: 6.24.1
-  resolution: "chromatic@npm:6.24.1"
+"chromatic@npm:^17.2.0":
+  version: 17.2.0
+  resolution: "chromatic@npm:17.2.0"
+  dependencies:
+    semver: "npm:^7.3.5"
+  peerDependencies:
+    "@chromatic-com/cypress": ^0.*.* || ^1.0.0
+    "@chromatic-com/playwright": ^0.*.* || ^1.0.0
+    "@chromatic-com/vitest": ^0.*.* || ^1.0.0
+  peerDependenciesMeta:
+    "@chromatic-com/cypress":
+      optional: true
+    "@chromatic-com/playwright":
+      optional: true
+    "@chromatic-com/vitest":
+      optional: true
   bin:
-    chroma: dist/bin.js
-    chromatic: dist/bin.js
-    chromatic-cli: dist/bin.js
-  checksum: 10c0/b65ad05fa38c54693f670a5c4ad1f104d60ff1023282976135c3a537529829bf15fda877a29278b95385fa8c51971dc4b20f418a77b501c5c18367fcaad39e7c
+    chroma: dist/bin.cjs
+    chromatic: dist/bin.cjs
+    chromatic-cli: dist/bin.cjs
+  checksum: 10c0/188ad0d6c3633a2a6b030815406e0391d6d30d405a593333db940cdaba58808ad0d8fa01404113efe14b5a852f0b6ed027623d07e6ce8933dfa96b9bc8a37622
   languageName: node
   linkType: hard
 
@@ -8582,13 +8622,6 @@ __metadata:
   dependencies:
     flat-cache: "npm:^4.0.0"
   checksum: 10c0/9e2b5938b1cd9b6d7e3612bdc533afd4ac17b2fc646569e9a8abbf2eb48e5eb8e316bc38815a3ef6a1b456f4107f0d0f055a614ca613e75db6bf9ff4d72c1638
-  languageName: node
-  linkType: hard
-
-"filesize@npm:^10.0.12":
-  version: 10.1.6
-  resolution: "filesize@npm:10.1.6"
-  checksum: 10c0/9a196d64da4e947b8c0d294be09a3dfa7a634434a1fc5fb3465f1c9acc1237ea0363f245ba6e24477ea612754d942bc964d86e0e500905a72e9e0e17ae1bbdbc
   languageName: node
   linkType: hard
 
@@ -17138,6 +17171,20 @@ __metadata:
     "@vue/composition-api":
       optional: true
   checksum: 10c0/f6acb50ad737552b4bc9eaf5fab0b21d9193001bed2fe219cb9f9561d34c9feef7fc81e36f0d1155946ebaf01aaaa7d45ca2d7bac8be5153eb66afc83cf4ab3f
+  languageName: node
+  linkType: hard
+
+"vue-tsc@npm:^3.3.3":
+  version: 3.3.3
+  resolution: "vue-tsc@npm:3.3.3"
+  dependencies:
+    "@volar/typescript": "npm:2.4.28"
+    "@vue/language-core": "npm:3.3.3"
+  peerDependencies:
+    typescript: ">=5.0.0"
+  bin:
+    vue-tsc: bin/vue-tsc.js
+  checksum: 10c0/576d606f82557b54aeaac30e4ef7f799f1fcec31dd667c60908dc3df68cbf479f1eb549bf0e479b8dce26e4ace4f47d511f7be6a10b188bf6ca852b306b91581
   languageName: node
   linkType: hard
 

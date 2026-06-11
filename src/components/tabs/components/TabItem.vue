@@ -25,7 +25,7 @@
 
 import VsHeading from '@/components/heading/Heading.vue';
 import { BTab } from 'bootstrap-vue-next';
-import dataLayerMixin from '@/mixins/dataLayerMixin';
+import dataLayerMixin from '../../../mixins/dataLayerMixin';
 /**
  * Tab item for use within the Tabs component.
  *

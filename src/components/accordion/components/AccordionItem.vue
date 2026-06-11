@@ -82,7 +82,7 @@ import VsIcon from '@/components/icon/Icon.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsDivider from '@/components/divider/Divider.vue';
 
-import dataLayerMixin from '@/mixins/dataLayerMixin';
+import dataLayerMixin from '../../../mixins/dataLayerMixin';
 
 import { inject } from 'vue';
 import { isNumber } from 'lodash';

@@ -1,12 +1,24 @@
 {
   "compilerOptions": {
+    "noEmit": true,
+    "isolatedModules": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "target": "ESNext",
     "allowJs": true,
-    "outDir": "./dist",
     "esModuleInterop": true,
+    "ignoreDeprecations": "6.0",
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
     },
-    "types": ["google.maps", "node"]
+    "types": ["google.maps", "node", "vite/client"],
+    "skipLibCheck": true,
+    "strict": false,
   },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.vue"
+  ]
 }
