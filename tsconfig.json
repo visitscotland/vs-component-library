@@ -13,7 +13,6 @@
     },
     "types": ["google.maps", "node", "vite/client"],
     "skipLibCheck": true,
-    "strict": false,
   },
   "include": [
     "src/**/*.ts",
