@@ -20,8 +20,9 @@
 
 <script>
 import { BImg } from 'bootstrap-vue-next';
-import srcSetMixin from '@/mixins/srcSetMixin';
-import imgSizesMixin from '@/mixins/imgSizesMixin';
+import srcSetMixin from '../../mixins/srcSetMixin';
+import imgSizesMixin from '../../mixins/imgSizesMixin';
+
 /**
  * This image component is used to render images in our products
  * to help support and clarify content.

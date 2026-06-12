@@ -1,8 +1,9 @@
 import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import path from 'path';
+import path from 'node:path';
 import dts from 'vite-plugin-dts';
 import replace from '@rollup/plugin-replace';
+import { aliases } from './vite.alias.mjs';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, process.cwd(), '');
@@ -10,8 +11,6 @@ export default defineConfig(({ mode }) => {
     return {
         define: {
             'process.env': JSON.stringify({
-                ICON_KIT_TOKEN: env.ICON_KIT_TOKEN,
-                ICON_API_TOKEN: env.ICON_API_TOKEN,
                 RECAPTCHA_TOKEN: env.RECAPTCHA_TOKEN,
                 EVENTS_API_URL: env.EVENTS_API_URL,
                 CLUDO_API_KEY: env.CLUDO_API_KEY,
@@ -28,19 +27,19 @@ export default defineConfig(({ mode }) => {
                     additionalData: `
                         @import "@/styles/resources.scss";
                     `,
-                    silenceDeprecations: ['mixed-decls', 'color-functions', 'global-builtin', 'import', 'legacy-js-api'],
+                    silenceDeprecations: [
+                        'color-functions',
+                        'global-builtin',
+                        'import',
+                        'legacy-js-api',
+                        'if-function',
+                    ],
                 },
             },
         },
         resolve: {
-            alias: {
-                '@': path.resolve(__dirname, './src'),
-                find: '@vue/runtime-core',
-                replacement: '@vue/runtime-core/dist/runtime-core.esm-bundler.js',
-            },
-            dedupe: [
-                'vue',
-            ],
+            alias: aliases,
+            dedupe: ['vue'],
         },
         plugins: [
             vue({
@@ -80,7 +79,7 @@ export default defineConfig(({ mode }) => {
                 },
             }),
             dts({
-                outDir: './dist/components',
+                outDirs: './dist/components',
                 include: [
                     './src/components',
                     './src/custom-components',
