@@ -38,7 +38,7 @@
  */
 export default {
     name: 'VsArticleSidebar',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     props: {
         /**
