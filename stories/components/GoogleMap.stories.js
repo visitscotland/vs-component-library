@@ -172,8 +172,8 @@ MultiPolygonMap.args = {
             west: -8.7,
             east: 2,
         },
-        isMarkerTooltipsEnabled: false,
-        isPolygonTooltipsEnabled: true,
+        isMarkerTooltipsEnabled: true,
+        isPolygonTooltipsEnabled: false,
     },
     featureData: multiPolygonDataset.features,
 };

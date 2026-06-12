@@ -17,6 +17,8 @@ export default function createTooltip(mapsLibrary: google.maps.MapsLibrary) {
 
         private properties: brxmFeatureProperties;
 
+        private isMarker: boolean;
+
         private tooltipContainer?: HTMLDivElement;
 
         private tooltipArrow?: HTMLDivElement;
@@ -25,12 +27,14 @@ export default function createTooltip(mapsLibrary: google.maps.MapsLibrary) {
             map: google.maps.Map,
             location: google.maps.LatLng,
             properties: brxmFeatureProperties,
+            isMarker: boolean = false,
         ) {
             super();
 
             this.map = map;
             this.location = location;
             this.properties = properties;
+            this.isMarker = isMarker;
         };
 
         onAdd() {
@@ -78,7 +82,12 @@ export default function createTooltip(mapsLibrary: google.maps.MapsLibrary) {
                 const tooltipHeight = this.tooltipContainer.offsetHeight;
 
                 this.tooltipContainer.style.left = `${tooltipProjection!.x - (tooltipWidth / 2)}px`;
-                this.tooltipContainer.style.top = `${tooltipProjection!.y - tooltipHeight}px`;
+
+                if (this.isMarker) {
+                    this.tooltipContainer.style.top = `${tooltipProjection!.y - 100}px`;
+                } else {
+                    this.tooltipContainer.style.top = `${tooltipProjection!.y - tooltipHeight}px`;
+                }
             }
         }
 

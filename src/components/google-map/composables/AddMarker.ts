@@ -65,6 +65,7 @@ export default async function addMarkers(
                 feature.geometry.coordinates[0],
             ),
             feature.properties,
+            isMarkerTooltipsEnabled,
         )
     
         tooltip.setMap(map);
@@ -91,10 +92,18 @@ export default async function addMarkers(
 
     marker.addEventListener('focusin', () => {
         if (marker.zIndex !== 9999) marker.zIndex = 9999;
+
+        if (tooltip) {
+            tooltip.show();
+        }
     });
 
     marker.addEventListener('focusout', () => {
         if (marker.zIndex !== originalZIndex) marker.zIndex = originalZIndex;
+
+        if (tooltip) {
+            tooltip.hide();
+        }
     });
 
     marker.setAttribute('tabindex', '0');
