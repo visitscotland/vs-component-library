@@ -5,8 +5,8 @@ import { importLibrary } from '@googlemaps/js-api-loader';
 import { brxmFeature, brxmFeatureProperties } from '@/types/types';
 import createTooltip from './AddTooltip';
 
-const ACTIVE_COLOR = '#19C8C5';
-const HOVER_COLOR = '#A830FF';
+const ACTIVE_COLOR = '#A3A3CC';
+const HOVER_COLOR = '#33225D';
 const STROKE_COLOR = '#FFFFFF';
 
 type Coordinate = [number, number];
