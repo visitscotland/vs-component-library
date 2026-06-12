@@ -29,20 +29,26 @@ function getPolygonCenter(map: google.maps.Map, polygon: google.maps.Polygon): g
 
 async function attachListeners(
     polygon: google.maps.Polygon,
-    tooltip: any,
+    tooltip?: any,
 ) {
     polygon.addListener('mouseover', async() => {
         polygon.setOptions({
             fillColor: HOVER_COLOR,
         });
-        tooltip.show();
+
+        if(tooltip) {
+            tooltip.show();
+        }
     });
 
     polygon.addListener('mouseout', async() => {
         polygon.setOptions({
             fillColor: ACTIVE_COLOR,
         });
-        tooltip.hide();
+
+        if (tooltip) {
+            tooltip.hide();
+        }
     });
 };
 
@@ -50,6 +56,7 @@ async function createPolygon(
     map: google.maps.Map,
     polygonCoordinates: any,
     polygonProperties: brxmFeatureProperties,
+    isPolygonTooltipsEnabled: boolean,
 ) {
     const polygon = new google.maps.Polygon({
         paths: polygonCoordinates,
@@ -65,21 +72,26 @@ async function createPolygon(
 
     const centerOfPolygon: google.maps.LatLng = getPolygonCenter(map, polygon);
 
-    const mapsLibrary = await importLibrary('maps') as google.maps.MapsLibrary;
+    if (isPolygonTooltipsEnabled) {
+        const mapsLibrary = await importLibrary('maps') as google.maps.MapsLibrary;
+    
+        const Tooltip = createTooltip(mapsLibrary);
+    
+        const tooltip = new Tooltip(
+            map,
+            centerOfPolygon,
+            polygonProperties,
+        );
+        tooltip.setMap(map);
+        attachListeners(polygon, tooltip);
+    } else {
+        attachListeners(polygon);
+    }
 
-    const Tooltip = createTooltip(mapsLibrary);
 
-    const tooltip = new Tooltip(
-        map,
-        centerOfPolygon,
-        polygonProperties,
-    );
-    tooltip.setMap(map);
-
-    attachListeners(polygon, tooltip);
 };
 
-export default async function addPolygon(map: google.maps.Map, feature: any) {
+export default async function addPolygon(map: google.maps.Map, feature: any, isPolygonTooltipsEnabled: boolean) {
     // Single area polygon
     if (feature.geometry.type === 'Polygon') {
         const polygonCoordinates: google.maps.LatLng[] = [];
@@ -94,6 +106,7 @@ export default async function addPolygon(map: google.maps.Map, feature: any) {
             map,
             polygonCoordinates,
             feature.properties,
+            isPolygonTooltipsEnabled,
         );
     };
 
@@ -115,6 +128,7 @@ export default async function addPolygon(map: google.maps.Map, feature: any) {
             map,
             regionPolygons,
             feature.properties,
+            isPolygonTooltipsEnabled,
         );
     };
 };

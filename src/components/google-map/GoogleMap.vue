@@ -69,8 +69,11 @@ const props = defineProps({
             clickableIcons: true,
             gestureHandling: 'auto',
             initialViewIsScotland: true,
+            isViewToFitMarkers: false,
             isFractionalZoomEnabled: false,
             renderingTypeVector: true,
+            isMarkerTooltipsEnabled: false,
+            isPolygonTooltipsEnabled: true,
         }),
     },
     /**
@@ -123,8 +126,13 @@ onMounted(async() => {
             // eslint-disable-next-line no-undef
             google.maps.event.addListenerOnce(map.value, 'tilesloaded', () => {
                 props.featureData.forEach((place, key) => {
-                    markers[key] = addMarkers(map.value, place);
-                    if (!props.features.initialViewIsScotland) {
+                    markers[key] = addMarkers(
+                        map.value,
+                        place,
+                        props.features.isMarkerTooltipsEnabled,
+                    );
+
+                    if (props.features.isViewToFitMarkers) {
                         bounds.extend(
                             // eslint-disable-next-line no-undef
                             new google.maps.LatLng(
@@ -141,7 +149,7 @@ onMounted(async() => {
                     map.value.panBy(0, 1);
                 });
 
-                if (!props.features.initialViewIsScotland) {
+                if (props.features.isViewToFitMarkers) {
                     map.value.fitBounds(bounds);
                     map.value.setCenter(bounds.getCenter());
                 }
@@ -152,10 +160,12 @@ onMounted(async() => {
             // eslint-disable-next-line no-undef
             google.maps.event.addListenerOnce(map.value, 'tilesloaded', () => {
                 props.featureData.forEach((place) => {
-                    addPolygon(map.value, place);
+                    addPolygon(
+                        map.value,
+                        place,
+                        props.features.isPolygonTooltipsEnabled,
+                    );
                 });
-
-                // addPolygon(map.value, props.featureData[10]);
             });
         };
     });

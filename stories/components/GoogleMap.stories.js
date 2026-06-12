@@ -51,6 +51,7 @@ const base = {
     features: {
         clickableIcons: true,
         initialViewIsScotland: true,
+        isViewToFitMarkers: false,
         gestureHandling: 'cooperative',
         isFractionalZoomEnabled: true,
         fullscreenControl: false,
@@ -92,6 +93,7 @@ NumberedMap.args = {
     features: {
         clickableIcons: true,
         initialViewIsScotland: false,
+        isViewToFitMarkers: true,
         gestureHandling: 'cooperative',
         isFractionalZoomEnabled: true,
         fullscreenControl: false,
@@ -111,10 +113,11 @@ export const RegionMap = Template.bind({
 
 RegionMap.args = {
     ...base,
-    zoom: 8,
+    zoom: 7,
     features: {
         clickableIcons: false,
         initialViewIsScotland: false,
+        isViewToFitMarkers: true,
         gestureHandling: 'greedy',
         isFractionalZoomEnabled: true,
         fullscreenControl: false,
@@ -169,6 +172,8 @@ MultiPolygonMap.args = {
             west: -8.7,
             east: 2,
         },
+        isMarkerTooltipsEnabled: false,
+        isPolygonTooltipsEnabled: true,
     },
     featureData: multiPolygonDataset.features,
 };

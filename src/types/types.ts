@@ -66,10 +66,13 @@ export type LatLngBounds = {
 export type MapOptions = {
     boundsData?: LatLngBounds;
     initialViewIsScotland?: boolean;
+    isViewToFitMarkers?: boolean;
     clickableIcons?: boolean;
     gestureHandling?: string;
     isFractionalZoomEnabled?: boolean;
     renderingTypeVector?: boolean;
+    isMarkerTooltipsEnabled?: boolean;
+    isPolygonTooltipsEnabled?: boolean;
 };
 
 export type brxmFeatureProperties = {
