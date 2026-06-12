@@ -67,13 +67,15 @@ import { VsRow, VsCol } from '@/components/grid';
 import VsBody from '@/components/body/Body.vue';
 
 /**
- * TODO: Document usage
+ * @deprecated: ⚠️ Use new article page layouts and guidance. 
+ * This component will be removed in a future release.
+ * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1273397331/Listicle+Item+deprecated
  *
  * @displayName Listicle Item
  */
 export default {
     name: 'VsListicleItem',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsHeading,

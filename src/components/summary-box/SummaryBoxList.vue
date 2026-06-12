@@ -13,13 +13,16 @@
 
 <script>
 /**
- * Summary Box - Wraps a number of VsSummaryBoxListItem and VsSummaryBoxDistanceListItem components
- *
+ * @deprecated: ⚠️ Use the Panel component for highlighting information.
+ * This component will be removed in a future release.
+ * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1273299024/Summary+Box+deprecated
+ * 
  * @displayName Summary Box
  */
+
 export default {
     name: 'VsSummaryBoxList',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
 };
 </script>

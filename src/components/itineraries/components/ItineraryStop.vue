@@ -92,7 +92,7 @@ import VsDetail from '@/components/detail/Detail.vue';
 
 export default {
     name: 'VsItineraryStop',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsHeading,

@@ -51,16 +51,18 @@ import {
 import VsButton from '@/components/button/Button.vue';
 import VsAccordion from '@/components/accordion/Accordion.vue';
 
+
 /**
- * A wrapper component that wraps the itinerary map and list.
- * It controls display of the mobile map toggle on smaller screens.
- *
+ * @deprecated: ⚠️ Use new article page layouts and guidance. 
+ * This component will be removed in a future release.
+ * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1273397342/Itinerary+deprecated
+ * 
  * @displayName Itinerary
  */
 
 export default {
     name: 'VsItinerary',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsContainer,
