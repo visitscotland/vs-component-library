@@ -17,7 +17,7 @@
 
 <script>
 /**
- * @deprecated: ⚠️ This component is longer supported and should not be used.
+ * @deprecated ⚠️ This component is no longer supported and should not be used.
  * It will be removed in a future release.
  * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1273299012/Icon+List+deprecated
  * 

@@ -84,9 +84,10 @@ import { isNumber } from 'lodash';
 import VsBody from '@/components/body/Body.vue';
 
 /**
- * @deprecated: ⚠️ Use new article page layouts and guidance. 
+ * @deprecated ⚠️ Use new article page layouts and guidance. 
  * This component will be removed in a future release.
  * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1273167881/Article+deprecated
+ * 
  * @displayName Article
  */
 export default {

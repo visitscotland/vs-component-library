@@ -67,7 +67,7 @@ import VsCol from '@/components/grid/Col.vue';
 import VsRow from '@/components/grid/Row.vue';
 
 /**
- * @deprecated: ⚠️ Use the new Card component and card patterns.
+ * @deprecated ⚠️ Use the new Card component and card patterns.
  * This component will be removed in a future release.
  * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1273397354/Event+Card+deprecated
  * 

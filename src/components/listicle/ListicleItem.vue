@@ -67,7 +67,7 @@ import { VsRow, VsCol } from '@/components/grid';
 import VsBody from '@/components/body/Body.vue';
 
 /**
- * @deprecated: ⚠️ Use new article page layouts and guidance. 
+ * @deprecated ⚠️ Use new article page layouts and guidance. 
  * This component will be removed in a future release.
  * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1273397331/Listicle+Item+deprecated
  *

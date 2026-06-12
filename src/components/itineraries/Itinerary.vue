@@ -53,7 +53,7 @@ import VsAccordion from '@/components/accordion/Accordion.vue';
 
 
 /**
- * @deprecated: ⚠️ Use new article page layouts and guidance. 
+ * @deprecated ⚠️ Use new article page layouts and guidance. 
  * This component will be removed in a future release.
  * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1273397342/Itinerary+deprecated
  * 

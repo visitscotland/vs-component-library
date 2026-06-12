@@ -14,7 +14,7 @@
 <script>
 
 /**
- * @deprecated: ⚠️ Use new Content Swiper component or layout Grid.
+ * @deprecated ⚠️ Use new Content Swiper component or layout Grid.
  * This component will be removed in a future release.
  * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/628293634/Card+group+deprecated
  * @displayName Card Group

@@ -19,7 +19,7 @@ const Template = (args) => ({
     },
     template: `
         <div style="background: #940f2c17; padding: 1rem; border: 1px solid #940F2C; margin-bottom: 1rem;">
-            ⚠️ Deprecated: This component is longer supported and should not be used. It will be removed in a future release.
+            ⚠️ Deprecated: This component is no longer supported and should not be used. It will be removed in a future release.
             See the <a href="https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1273299012/Icon+List+deprecated">Component migration docs.</a>
         </div>
 

@@ -13,7 +13,7 @@
 
 <script>
 /**
- * @deprecated: ⚠️ Use the Panel component for highlighting information.
+ * @deprecated ⚠️ Use the Panel component for highlighting information.
  * This component will be removed in a future release.
  * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1273299024/Summary+Box+deprecated
  * 
