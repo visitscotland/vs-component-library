@@ -1,7 +1,8 @@
 /* eslint-disable no-undef */
 
 import { brxmFeatureProperties } from '@/types/types';
-import Tooltip from './AddTooltip';
+import createTooltip from './AddTooltip';
+import { importLibrary } from '@googlemaps/js-api-loader';
 
 const ACTIVE_COLOR = '#19C8C5';
 const HOVER_COLOR = '#A830FF';
@@ -28,7 +29,7 @@ function getPolygonCenter(map: google.maps.Map, polygon: google.maps.Polygon): g
 
 async function attachListeners(
     polygon: google.maps.Polygon,
-    tooltip: Tooltip,
+    tooltip: any,
 ) {
     polygon.addListener('mouseover', async() => {
         polygon.setOptions({
@@ -45,7 +46,7 @@ async function attachListeners(
     });
 };
 
-function createPolygon(
+async function createPolygon(
     map: google.maps.Map,
     polygonCoordinates: any,
     polygonProperties: brxmFeatureProperties,
@@ -63,6 +64,10 @@ function createPolygon(
     polygon.setMap(map);
 
     const centerOfPolygon: google.maps.LatLng = getPolygonCenter(map, polygon);
+
+    const mapsLibrary = await importLibrary('maps') as google.maps.MapsLibrary;
+
+    const Tooltip = createTooltip(mapsLibrary);
 
     const tooltip = new Tooltip(
         map,
