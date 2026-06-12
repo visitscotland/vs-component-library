@@ -1,10 +1,7 @@
 // If editing, read this first:
 // https://developers.google.com/maps/documentation/javascript/reference/overlay-view
 
-import getEnvValue from '@/utils/get-env-value';
 import { brxmFeatureProperties } from '@/types/types';
-import { importLibrary } from '@googlemaps/js-api-loader';
-import { mapLoader } from './MapsApiLoader';
 
 /* eslint-disable no-undef */
 /// <reference types='google.maps' />
