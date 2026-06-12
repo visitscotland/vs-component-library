@@ -57,17 +57,16 @@ export default function createTooltip(mapsLibrary: google.maps.MapsLibrary) {
             this.tooltipContainer.style.zIndex = '9999';
 
             const panes = this.getPanes();
-            // panes?.floatPane.appendChild(this.tooltipContainer);
             panes?.overlayMouseTarget.appendChild(this.tooltipContainer);
 
             this.hide();
-        }
+        };
 
         onRemove() {
             if (this.tooltipContainer?.parentElement) {
                 this.tooltipContainer.parentElement.removeChild(this.tooltipContainer);
-            }
-        }
+            };
+        };
 
         draw() {
             const tooltipProjection = this.getProjection().fromLatLngToDivPixel(
@@ -84,29 +83,28 @@ export default function createTooltip(mapsLibrary: google.maps.MapsLibrary) {
                     this.tooltipContainer.style.top = `${tooltipProjection!.y - 100}px`;
                 } else {
                     this.tooltipContainer.style.top = `${tooltipProjection!.y - tooltipHeight}px`;
-                }
-            }
-        }
+                };
+            };
+        };
 
         toggleDOM() {
             if (this.getMap()) {
                 this.setMap(null);
             } else {
                 this.setMap(this.map);
-            }
+            };
         }
 
         show() {
             if (this.tooltipContainer) {
                 this.tooltipContainer.style.visibility = 'visible';
-            }
+            };
         }
 
         hide() {
             if (this.tooltipContainer) {
                 this.tooltipContainer.style.visibility = 'hidden';
-            }
+            };
         }
     };
-
 };

@@ -97,6 +97,6 @@ export type brxmFeature = {
     properties: brxmFeatureProperties;
     geometry: {
         type: string;
-        coordinates: number[];
+        coordinates: any; 
     };
 };

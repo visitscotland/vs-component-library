@@ -1,8 +1,9 @@
 /* eslint-disable no-undef */
 
-import { brxmFeatureProperties } from '@/types/types';
-import createTooltip from './AddTooltip';
 import { importLibrary } from '@googlemaps/js-api-loader';
+
+import { brxmFeature, brxmFeatureProperties } from '@/types/types';
+import createTooltip from './AddTooltip';
 
 const ACTIVE_COLOR = '#19C8C5';
 const HOVER_COLOR = '#A830FF';
@@ -25,7 +26,7 @@ function getPolygonCenter(map: google.maps.Map, polygon: google.maps.Polygon): g
     });
 
     return bounds.getCenter();
-}
+};
 
 async function attachListeners(
     polygon: google.maps.Polygon,
@@ -36,9 +37,9 @@ async function attachListeners(
             fillColor: HOVER_COLOR,
         });
 
-        if(tooltip) {
+        if (tooltip) {
             tooltip.show();
-        }
+        };
     });
 
     polygon.addListener('mouseout', async() => {
@@ -48,7 +49,7 @@ async function attachListeners(
 
         if (tooltip) {
             tooltip.hide();
-        }
+        };
     });
 };
 
@@ -74,9 +75,9 @@ async function createPolygon(
 
     if (isPolygonTooltipsEnabled) {
         const mapsLibrary = await importLibrary('maps') as google.maps.MapsLibrary;
-    
+
         const Tooltip = createTooltip(mapsLibrary);
-    
+
         const tooltip = new Tooltip(
             map,
             centerOfPolygon,
@@ -86,12 +87,14 @@ async function createPolygon(
         attachListeners(polygon, tooltip);
     } else {
         attachListeners(polygon);
-    }
-
-
+    };
 };
 
-export default async function addPolygon(map: google.maps.Map, feature: any, isPolygonTooltipsEnabled: boolean) {
+export default async function addPolygon(
+    map: google.maps.Map,
+    feature: brxmFeature,
+    isPolygonTooltipsEnabled: boolean,
+) {
     // Single area polygon
     if (feature.geometry.type === 'Polygon') {
         const polygonCoordinates: google.maps.LatLng[] = [];

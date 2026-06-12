@@ -37,7 +37,7 @@ export default async function addMarkers(
             mapPinNumber.classList.add('vs-google-map__map-pin-number');
             mapPinNumber.textContent = feature.properties.stopCount.toString();
             mapPin.appendChild(mapPinNumber);
-        }
+        };
     };
 
     const marker = new google.maps.marker.AdvancedMarkerElement({
@@ -51,13 +51,12 @@ export default async function addMarkers(
         title: feature.properties.title,
     });
 
-    let tooltip = undefined;
+    let tooltip: any;
 
     if (isMarkerTooltipsEnabled) {
         const mapsLibrary = await importLibrary('maps') as google.maps.MapsLibrary;
-    
         const Tooltip = createTooltip(mapsLibrary);
-    
+
         tooltip = new Tooltip(
             map,
             new google.maps.LatLng(
@@ -66,11 +65,10 @@ export default async function addMarkers(
             ),
             feature.properties,
             isMarkerTooltipsEnabled,
-        )
-    
-        tooltip.setMap(map);
-    }
+        );
 
+        tooltip.setMap(map);
+    };
 
     const originalZIndex = marker.zIndex || 1;
 
@@ -79,7 +77,7 @@ export default async function addMarkers(
 
         if (tooltip) {
             tooltip.show();
-        }
+        };
     });
 
     mapPin.addEventListener('mouseleave', () => {
@@ -87,7 +85,7 @@ export default async function addMarkers(
 
         if (tooltip) {
             tooltip.hide();
-        }
+        };
     });
 
     marker.addEventListener('focusin', () => {
@@ -95,7 +93,7 @@ export default async function addMarkers(
 
         if (tooltip) {
             tooltip.show();
-        }
+        };
     });
 
     marker.addEventListener('focusout', () => {
@@ -103,7 +101,7 @@ export default async function addMarkers(
 
         if (tooltip) {
             tooltip.hide();
-        }
+        };
     });
 
     marker.setAttribute('tabindex', '0');
