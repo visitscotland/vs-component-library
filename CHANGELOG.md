@@ -1,3 +1,11 @@
+# [5.62.0](https://github.com/visitscotland/vs-component-library/compare/v5.61.1...v5.62.0) (2026-06-17)
+
+
+### Features
+
+* **components:** deprecates article, listicle, itinerary, event-card components ([9c6268d](https://github.com/visitscotland/vs-component-library/commit/9c6268d085e55e536cf5b52159883874bc75d97c))
+* **components:** tidy deprecated docs in components ([cdf6fef](https://github.com/visitscotland/vs-component-library/commit/cdf6fefdf90b82cc3417702d362a76a98932e00b))
+
 ## [5.61.1](https://github.com/visitscotland/vs-component-library/compare/v5.61.0...v5.61.1) (2026-06-11)
 
 
