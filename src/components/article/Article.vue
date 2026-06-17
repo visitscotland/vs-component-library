@@ -84,14 +84,15 @@ import { isNumber } from 'lodash';
 import VsBody from '@/components/body/Body.vue';
 
 /**
- * The article component is used for in-depth editorial style
- * content.
- *
+ * @deprecated ⚠️ Use new article page layouts and guidance. 
+ * This component will be removed in a future release.
+ * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1273167881/Article+deprecated
+ * 
  * @displayName Article
  */
 export default {
     name: 'VsArticle',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsCol,

@@ -79,7 +79,7 @@ import VsAccordionItem from '@/components/accordion/components/AccordionItem.vue
 
 export default {
     name: 'VsItineraryDay',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsContainer,
