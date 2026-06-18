@@ -1,8 +1,12 @@
 /* eslint-disable no-undef */
 
 import { importLibrary } from '@googlemaps/js-api-loader';
+import { ref, watch } from 'vue';
+import { storeToRefs } from 'pinia';
 
 import { brxmFeature, brxmFeatureProperties } from '@/types/types';
+import useGoogleBaseMapStore from '@/stores/googleMap.store';
+
 import createTooltip from './AddTooltip';
 
 const ACTIVE_COLOR = '#A3A3CC';
@@ -32,12 +36,15 @@ async function attachListeners(
     polygon: google.maps.Polygon,
     tooltip?: any,
 ) {
+    const useGoogleMapStore = useGoogleBaseMapStore();
+
     polygon.addListener('mouseover', async() => {
         polygon.setOptions({
             fillColor: HOVER_COLOR,
         });
 
-        if (tooltip) {
+        if (tooltip && !useGoogleMapStore.isMarkerTooltipOpen) {
+            useGoogleMapStore.isPolygonTooltipOpen = true;
             tooltip.show();
         };
     });
@@ -48,7 +55,23 @@ async function attachListeners(
         });
 
         if (tooltip) {
+            useGoogleMapStore.isPolygonTooltipOpen = false;
             tooltip.hide();
+        };
+    });
+
+    const mapStore = ref(storeToRefs(useGoogleMapStore));
+
+    watch(() => mapStore.value.isMarkerTooltipOpen, async(markerTooltipOpen) => {
+        if (markerTooltipOpen) {
+            tooltip.hide();
+        };
+    });
+
+    polygon.addListener('mousemove', async() => {
+        if (useGoogleMapStore.isPolygonTooltipOpen && !useGoogleMapStore.isMarkerTooltipOpen) {
+            tooltip.show();
+            useGoogleMapStore.isPolygonTooltipOpen = true;
         };
     });
 };
