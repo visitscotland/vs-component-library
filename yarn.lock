@@ -1852,11 +1852,11 @@ __metadata:
   linkType: hard
 
 "@googlemaps/js-api-loader@npm:^2.0.1":
-  version: 2.1.0
-  resolution: "@googlemaps/js-api-loader@npm:2.1.0"
+  version: 2.1.1
+  resolution: "@googlemaps/js-api-loader@npm:2.1.1"
   dependencies:
     "@types/google.maps": "npm:^3.53.1"
-  checksum: 10c0/dc9593252f59af6c8af0056d1045bc6ce8335962fde51b4e294b864f47d3c640c4259c3afedfb9c0f60b62f76d9c8786062888c6f22518ce88f2e0d95dc6b510
+  checksum: 10c0/06cb6eaf686b838be51efd8293010b7bee42e341e9ad41b42a0ee8909cf06cc5711ba6cfdbcd0c62ff05c8ba35d8622c34130e738bc5844011c8bc457d14de64
   languageName: node
   linkType: hard
 
