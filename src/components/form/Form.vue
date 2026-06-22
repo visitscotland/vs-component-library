@@ -28,7 +28,7 @@
                                 :ref="field.name"
                                 :name="field.name"
                                 :value="field.value"
-                            >
+                            />
                         </template>
                         <BFormGroup
                             v-else
@@ -896,6 +896,8 @@ export default {
                     formType: this.formData.content ? this.formData.content.formType : '',
                     'g-recaptcha-response': gRecaptchaResponse,
                     consentList: filteredConsents,
+                }, {
+                    withCredentials: true,
                 })
                 .then(() => {
                     this.submitting = false;
