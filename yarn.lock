@@ -4782,7 +4782,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/compiler-dom@npm:3.5.35, @vue/compiler-dom@npm:^3.2.0, @vue/compiler-dom@npm:^3.5.0, @vue/compiler-dom@npm:^3.5.35":
+"@vue/compiler-dom@npm:3.5.35":
   version: 3.5.35
   resolution: "@vue/compiler-dom@npm:3.5.35"
   dependencies:
@@ -4792,7 +4792,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/compiler-dom@npm:3.5.38":
+"@vue/compiler-dom@npm:3.5.38, @vue/compiler-dom@npm:^3.2.0, @vue/compiler-dom@npm:^3.5.0, @vue/compiler-dom@npm:^3.5.35":
   version: 3.5.38
   resolution: "@vue/compiler-dom@npm:3.5.38"
   dependencies:
