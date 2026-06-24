@@ -1,3 +1,10 @@
+## [5.63.3](https://github.com/visitscotland/vs-component-library/compare/v5.63.2...v5.63.3) (2026-06-24)
+
+
+### Bug Fixes
+
+* **forms:** and another small tweak ([f5bd9ba](https://github.com/visitscotland/vs-component-library/commit/f5bd9bab102eb738af1be9945e5bea861914c2fe))
+
 ## [5.63.2](https://github.com/visitscotland/vs-component-library/compare/v5.63.1...v5.63.2) (2026-06-24)
 
 
