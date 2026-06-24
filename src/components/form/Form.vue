@@ -884,7 +884,7 @@ export default {
 
             if (window.grecaptcha) {
                 gRecaptchaResponse = window.grecaptcha.getResponse();
-
+            } else {
                 axiosConfig = {
                     withCredentials: true,
                 };
