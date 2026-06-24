@@ -879,10 +879,15 @@ export default {
             this.createDataLayerObject('formsDataEvent');
             this.submitting = true;
 
-            let gRecaptchaResponse = '';
+            let axiosConfig = {
+            };
 
             if (window.grecaptcha) {
                 gRecaptchaResponse = window.grecaptcha.getResponse();
+
+                axiosConfig = {
+                    withCredentials: true,
+                };
             }
 
             const hiddenFields = this.getHiddenFields();
@@ -896,9 +901,7 @@ export default {
                     formType: this.formData.content ? this.formData.content.formType : '',
                     'g-recaptcha-response': gRecaptchaResponse,
                     consentList: filteredConsents,
-                }, {
-                    withCredentials: gRecaptchaResponse ? true : false,
-                })
+                }, axiosConfig)
                 .then(() => {
                     this.submitting = false;
                     this.submitted = true;
