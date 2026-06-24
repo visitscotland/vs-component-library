@@ -1,3 +1,10 @@
+## [5.63.2](https://github.com/visitscotland/vs-component-library/compare/v5.63.1...v5.63.2) (2026-06-24)
+
+
+### Bug Fixes
+
+* **forms:** make withCreds optional in a different way ([2cad54a](https://github.com/visitscotland/vs-component-library/commit/2cad54a7927aac8da3f8c478d9b3df4501c18d17))
+
 ## [5.63.1](https://github.com/visitscotland/vs-component-library/compare/v5.63.0...v5.63.1) (2026-06-24)
 
 
