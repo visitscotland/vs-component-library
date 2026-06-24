@@ -882,6 +882,8 @@ export default {
             let axiosConfig = {
             };
 
+            let gRecaptchaResponse = '';
+
             if (window.grecaptcha) {
                 gRecaptchaResponse = window.grecaptcha.getResponse();
             } else {
