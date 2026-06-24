@@ -1,3 +1,10 @@
+# [5.63.0](https://github.com/visitscotland/vs-component-library/compare/v5.62.0...v5.63.0) (2026-06-24)
+
+
+### Features
+
+* **forms:** submit axios withCredentials for in person events ([d951239](https://github.com/visitscotland/vs-component-library/commit/d951239d7bbe0b5a14c37821e2c21127038a1c8c))
+
 # [5.62.0](https://github.com/visitscotland/vs-component-library/compare/v5.61.1...v5.62.0) (2026-06-17)
 
 
