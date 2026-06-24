@@ -897,7 +897,7 @@ export default {
                     'g-recaptcha-response': gRecaptchaResponse,
                     consentList: filteredConsents,
                 }, {
-                    withCredentials: true,
+                    withCredentials: gRecaptchaResponse ? true : false,
                 })
                 .then(() => {
                     this.submitting = false;
