@@ -52,8 +52,11 @@ export default async function addMarkers(
             feature.geometry.coordinates[1],
             feature.geometry.coordinates[0],
         ),
-        title: feature.properties.title,
     });
+
+    marker.setAttribute('aria-label', `${feature.properties.title}`);
+    marker.setAttribute('role', 'button');
+    marker.setAttribute('tabindex', '0');
 
     let tooltip: any;
 
@@ -111,9 +114,6 @@ export default async function addMarkers(
             tooltip.hide();
         };
     });
-
-    marker.setAttribute('tabindex', '0');
-    marker.setAttribute('role', 'button');
 
     return marker;
 };
