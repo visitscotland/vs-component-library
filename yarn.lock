@@ -3841,40 +3841,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/builder-vite@npm:10.4.4":
-  version: 10.4.4
-  resolution: "@storybook/builder-vite@npm:10.4.4"
+"@storybook/builder-vite@npm:10.4.6":
+  version: 10.4.6
+  resolution: "@storybook/builder-vite@npm:10.4.6"
   dependencies:
-    "@storybook/csf-plugin": "npm:10.4.4"
+    "@storybook/csf-plugin": "npm:10.4.6"
     ts-dedent: "npm:^2.0.0"
   peerDependencies:
-    storybook: ^10.4.4
+    storybook: ^10.4.6
     vite: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: 10c0/6969074c1011689c3143aa91649d6720a855f451a8a12ae81522ab88ea8b9ff8f0654fce2180f22d8022f36881a5949e6fc684c176672765bea19546804818ca
-  languageName: node
-  linkType: hard
-
-"@storybook/csf-plugin@npm:10.4.4":
-  version: 10.4.4
-  resolution: "@storybook/csf-plugin@npm:10.4.4"
-  dependencies:
-    unplugin: "npm:^2.3.5"
-  peerDependencies:
-    esbuild: "*"
-    rollup: "*"
-    storybook: ^10.4.4
-    vite: "*"
-    webpack: "*"
-  peerDependenciesMeta:
-    esbuild:
-      optional: true
-    rollup:
-      optional: true
-    vite:
-      optional: true
-    webpack:
-      optional: true
-  checksum: 10c0/965403e296ba7e18104e0e597eb2399d436b2d6b96a7a74b6367f937764eaf87eb85de53d82d4961b7c2feced7af3addc5bf569860c3ecfa3652fc2dc793ff0f
+  checksum: 10c0/6238a6574485b979f698fe4979df4307a1a2554748c7a6530e7985f5df238cc6419b53ea6812f4c206ec39d96554a911ba302b9aa19460bacb6097af8c4be36e
   languageName: node
   linkType: hard
 
@@ -3937,34 +3913,34 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/vue3-vite@npm:10.4.4":
-  version: 10.4.4
-  resolution: "@storybook/vue3-vite@npm:10.4.4"
+"@storybook/vue3-vite@npm:10.4.6":
+  version: 10.4.6
+  resolution: "@storybook/vue3-vite@npm:10.4.6"
   dependencies:
-    "@storybook/builder-vite": "npm:10.4.4"
-    "@storybook/vue3": "npm:10.4.4"
+    "@storybook/builder-vite": "npm:10.4.6"
+    "@storybook/vue3": "npm:10.4.6"
     magic-string: "npm:^0.30.0"
     typescript: "npm:^5.9.3"
     vue-component-meta: "npm:^2.0.0"
     vue-docgen-api: "npm:^4.75.1"
   peerDependencies:
-    storybook: ^10.4.4
+    storybook: ^10.4.6
     vite: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: 10c0/4ce3249f9bcc76c9cd21e67f636394bd543b7fa43b1596afe3b711582af350e45fc151a2dbca02aec7dd73fd9dec0b7357bd6555eaa8ac22dad37282ebb16017
+  checksum: 10c0/c21aa98f76e956413bb230355d3ac56543de625fe27846959f5671035584357fcb775202054d49d18028615c7adbb8c03f271efc1584618dfe1acdf87d9b1987
   languageName: node
   linkType: hard
 
-"@storybook/vue3@npm:10.4.4":
-  version: 10.4.4
-  resolution: "@storybook/vue3@npm:10.4.4"
+"@storybook/vue3@npm:10.4.6":
+  version: 10.4.6
+  resolution: "@storybook/vue3@npm:10.4.6"
   dependencies:
     "@storybook/global": "npm:^5.0.0"
     type-fest: "npm:^5.6.0"
     vue-component-type-helpers: "npm:^3.2.9"
   peerDependencies:
-    storybook: ^10.4.4
+    storybook: ^10.4.6
     vue: ^3.0.0
-  checksum: 10c0/eedf8947c36189af0e2d26526a238080eb6aa5ef754234ff3aa8a52b2f9d739248c3356d9080fce4d4de02d0b53778756983ea6daa4919dce6f824ffa6397163
+  checksum: 10c0/19b26ca20b4f82141a56195a29098996a41cab9f4f16873e1de87e276764fd656997ddb775afcdd84a38f2840e681eb296ba958432f346a53b32ffb984bce5f1
   languageName: node
   linkType: hard
 
@@ -4603,7 +4579,7 @@ __metadata:
     "@storybook/addon-a11y": "npm:10.4.3"
     "@storybook/addon-docs": "npm:10.4.6"
     "@storybook/addon-links": "npm:10.4.4"
-    "@storybook/vue3-vite": "npm:10.4.4"
+    "@storybook/vue3-vite": "npm:10.4.6"
     "@types/google.maps": "npm:^3.64.0"
     "@types/node": "npm:^25.9.1"
     "@types/react": "npm:^19.2.16"
