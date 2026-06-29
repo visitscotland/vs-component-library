@@ -11,7 +11,7 @@
         :class="useGenericLqip ? 'generic-lqip' : ''"
         :srcset="computedSrcSet"
         :low-res-image="resolvedLowResImage"
-        :sizes="computedSizes"
+        :sizes="resolvedSizes"
     >
         <!-- @slot Default slot for image content -->
         <slot />
@@ -102,7 +102,15 @@ export default {
         },
     },
     computed: {
+        /**
+         * Resolve the low-quality placeholder image.
+         * SVGs do not use LQIP.
+         */
         resolvedLowResImage() {
+            if (this.isSvg) {
+                return null;
+            }
+
             const lowResImage = typeof this.lowResImage === 'string'
                 ? this.lowResImage.trim()
                 : '';
@@ -110,13 +118,23 @@ export default {
             if (lowResImage) {
                 return lowResImage;
             }
-
-            if (this.isSvg) {
-                return '';
-            }
-
             return this.specificImgSize('xxs');
         },
+        /**
+         * Generate the sizes attribute for responsive raster images.
+         * Omitted for SVGs.
+         */
+        resolvedSizes() {
+            if (this.isSvg) {
+                return null;
+            }
+
+            return this.computedSizes;
+        },
+        /**
+         * Apply the LQIP background while the image loads.
+         * Skipped for SVGs and generic placeholders.
+         */
         imgStyle() {
             if (this.useGenericLqip || this.isSvg || !this.resolvedLowResImage) {
                 return null;
@@ -126,9 +144,16 @@ export default {
                 backgroundImage: `url(${this.resolvedLowResImage})`,
             };
         },
+        /**
+         * Determine whether the image source is an SVG.
+         */
         isSvg() {
             return typeof this.src === 'string' && this.src.toLowerCase().includes('.svg');
         },
+        /**
+         * Generate a responsive srcset for raster images.
+         * SVGs are served as a single scalable asset.
+         */
         computedSrcSet() {
             if (this.isSvg) {
                 return null;
