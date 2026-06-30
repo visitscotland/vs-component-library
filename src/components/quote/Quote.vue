@@ -7,9 +7,9 @@
         >
             <div class="vs-quote-new__wrapper">
                 <VsBody>
-                    <p class="vs-quote__text">
+                    <div class="vs-quote__text">
                         <slot name="quote-content">{{ quoteText }}</slot>
-                    </p>
+                    </div>
                 </VsBody>
                 <VsDetail
                     v-if="quoteName || $slots['quote-details']"
