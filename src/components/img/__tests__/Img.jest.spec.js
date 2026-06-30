@@ -87,6 +87,25 @@ describe('VsImg', () => {
             expect(wrapper.attributes('style')).toBeUndefined();
         });
 
+        it('should not treat a URL with ".svg" in the query string as an SVG', () => {
+            const wrapper = factoryMount({
+                src: 'https://example.com/image.jpg?format=.svg&size=large',
+            });
+
+            expect(wrapper.vm.isSvg).toBe(false);
+            expect(wrapper.vm.resolvedLowResImage).toContain('size=xxs');
+        });
+
+        it('should treat data URL SVG content as an SVG', () => {
+            const wrapper = factoryShallowMount({
+                src: 'data:image/svg+xml;base64,PHN2Zy8+',
+            });
+
+            expect(wrapper.vm.isSvg).toBe(true);
+            expect(wrapper.vm.resolvedLowResImage).toBeNull();
+            expect(wrapper.vm.computedSrcSet).toBeNull();
+        });
+
         it('should set a `generic-lqip` class if `useGenericLqip` is set to true', () => {
             const wrapper = factoryMount({
                 useGenericLqip: true,
