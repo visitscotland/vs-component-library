@@ -10,7 +10,7 @@
         class="vs-img low-res-img"
         :class="useGenericLqip ? 'generic-lqip' : ''"
         :srcset="computedSrcSet"
-        :low-res-image="isSvg ? '' : specificImgSize('xxs')"
+        :low-res-image="resolvedLowResImage"
         :sizes="computedSizes"
     >
         <!-- @slot Default slot for image content -->
@@ -24,8 +24,9 @@ import srcSetMixin from '../../mixins/srcSetMixin';
 import imgSizesMixin from '../../mixins/imgSizesMixin';
 
 /**
- * This image component is used to render images in our products
- * to help support and clarify content.
+ * A responsive image component that displays images efficiently 
+ * across devices while supporting accessibility, 
+ * responsive loading, and performance optimisation.
  *
  * @displayName Img
  */
@@ -101,17 +102,32 @@ export default {
         },
     },
     computed: {
-        imgStyle() {
-            if (!this.useGenericLqip && !this.src.includes('.svg')) {
-                return {
-                    backgroundImage: `url(${this.specificImgSize('xxs')})`,
-                };
+        resolvedLowResImage() {
+            const lowResImage = typeof this.lowResImage === 'string'
+                ? this.lowResImage.trim()
+                : '';
+
+            if (lowResImage) {
+                return lowResImage;
             }
 
-            return null;
+            if (this.isSvg) {
+                return '';
+            }
+
+            return this.specificImgSize('xxs');
+        },
+        imgStyle() {
+            if (this.useGenericLqip || this.isSvg || !this.resolvedLowResImage) {
+                return null;
+            }
+
+            return {
+                backgroundImage: `url(${this.resolvedLowResImage})`,
+            };
         },
         isSvg() {
-            return this.src.includes('.svg');
+            return typeof this.src === 'string' && this.src.toLowerCase().includes('.svg');
         },
         computedSrcSet() {
             if (this.isSvg) {
