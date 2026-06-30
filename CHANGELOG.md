@@ -1,3 +1,10 @@
+# [5.64.0](https://github.com/visitscotland/vs-component-library/compare/v5.63.4...v5.64.0) (2026-06-30)
+
+
+### Features
+
+* **img:** hook up the lowResImage prop so one can be provided if needed ([bc96c52](https://github.com/visitscotland/vs-component-library/commit/bc96c5287292a613d582db91c471e25ae43f2bcc))
+
 ## [5.63.4](https://github.com/visitscotland/vs-component-library/compare/v5.63.3...v5.63.4) (2026-06-24)
 
 
