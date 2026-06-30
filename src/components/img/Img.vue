@@ -148,7 +148,27 @@ export default {
          * Determine whether the image source is an SVG.
          */
         isSvg() {
-            return typeof this.src === 'string' && this.src.toLowerCase().includes('.svg');
+            if (typeof this.src !== 'string') {
+                return false;
+            }
+
+            const source = this.src.trim();
+
+            if (!source) {
+                return false;
+            }
+
+            if (source.startsWith('data:image/svg+xml')) {
+                return true;
+            }
+
+            try {
+                const url = new URL(source);
+                const pathname = url.pathname.toLowerCase();
+                return pathname.endsWith('.svg');
+            } catch {
+                return source.toLowerCase().endsWith('.svg');
+            }
         },
         /**
          * Generate a responsive srcset for raster images.
