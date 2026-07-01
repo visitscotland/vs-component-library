@@ -1,3 +1,11 @@
+# [5.65.0](https://github.com/visitscotland/vs-component-library/compare/v5.64.0...v5.65.0) (2026-06-30)
+
+
+### Features
+
+* **image:** ensure image component can handle svgs ([5aba88f](https://github.com/visitscotland/vs-component-library/commit/5aba88f90890a8265b091495df38963ea32b73cd))
+* **img:** updating isSvg to better detect svg images ([14baba1](https://github.com/visitscotland/vs-component-library/commit/14baba15203958ae1d4add069bff99717681ebe7))
+
 # [5.64.0](https://github.com/visitscotland/vs-component-library/compare/v5.63.4...v5.64.0) (2026-06-30)
 
 
