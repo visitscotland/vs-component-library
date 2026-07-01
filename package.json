@@ -64,7 +64,7 @@
   "devDependencies": {
     "@babel/core": "^7.23.2",
     "@babel/plugin-transform-runtime": "^7.23.2",
-    "@babel/preset-env": "^7.23.2",
+    "@babel/preset-env": "^8.0.2",
     "@chromatic-com/storybook": "^5.2.1",
     "@eslint/js": "^10.0.1",
     "@originjs/vite-plugin-require-context": "^1.0.9",
