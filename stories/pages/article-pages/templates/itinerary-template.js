@@ -320,10 +320,12 @@ export default `
 
                     <VsQuote 
                         :use-legacy="false"
-                        quote-text="The National Museum of Scotland is one of those rare places where world-class collections and extraordinary architecture come together seamlessly. Whether you're interested in fashion, science, design or Scottish history, every gallery offers something unexpected to discover."
                         quote-name="Emily Fraser"
                         class="mb-150"
                     >
+                        <template #quote-content>
+                            The National Museum of Scotland is one of those rare places where world-class collections and extraordinary architecture come together seamlessly. Whether you're interested in fashion, science, design or Scottish history, every gallery offers something unexpected to discover.
+                        </template>
                         <template #quote-details>
                             Cultural Heritage Writer, <cite>Edinburgh Visitor Guide</cite>
                         </template>
