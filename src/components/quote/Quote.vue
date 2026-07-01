@@ -6,10 +6,8 @@
             data-test="vs-quote-new"
         >
             <div class="vs-quote-new__wrapper">
-                <VsBody>
-                    <div class="vs-quote__text">
-                        <slot name="quote-content">{{ quoteText }}</slot>
-                    </div>
+                <VsBody class="vs-quote__text">
+                    <slot name="quote-content">{{ quoteText }}</slot>
                 </VsBody>
                 <VsDetail
                     v-if="quoteName || $slots['quote-details']"
