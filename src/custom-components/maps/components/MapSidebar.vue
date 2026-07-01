@@ -279,12 +279,12 @@ function setCategoryIcon(id) {
 
     &__google-maps-container {
         margin-top: $vs-spacer-075;
-        max-height: clamp(275px, 20em, 32vh);
+        // max-height: clamp(275px, 20em, 32vh);
         overflow-y: scroll;
 
         @include media-breakpoint-down(sm) {
             margin-top: $vs-spacer-0;
-            max-height: clamp(160px, 20em, 32vh);
+            // max-height: clamp(160px, 20em, 32vh);
         }
     }
 

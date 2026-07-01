@@ -10,6 +10,7 @@ const useGoogleMapStore = defineStore('googleMap', () => {
     const showDestinations = ref(true);
     const showCategories = ref(false);
     const selectedDestinationType = ref<string | undefined>(undefined);
+    const searchTerm = ref<string | undefined>(undefined);
 
     return {
         sidebarOpen,
@@ -17,6 +18,7 @@ const useGoogleMapStore = defineStore('googleMap', () => {
         firstInteraction,
         searchesCount,
         filterUsesCount,
+        searchTerm,
         showDestinations,
         showCategories,
         selectedDestinationType,
