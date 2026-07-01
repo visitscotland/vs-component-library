@@ -1,3 +1,16 @@
+# [5.66.0](https://github.com/visitscotland/vs-component-library/compare/v5.65.0...v5.66.0) (2026-07-01)
+
+
+### Bug Fixes
+
+* **quote:** remove enforced <p> tag ([a2678e1](https://github.com/visitscotland/vs-component-library/commit/a2678e1eaa2e4bb4567f634ecdedc455371887de))
+* **quote:** remove wrapper div ([4c145b4](https://github.com/visitscotland/vs-component-library/commit/4c145b472e7a20d2054247b61c8163a0cfe76452))
+
+
+### Features
+
+* **quote:** adjust new quote layout to accept html ([3d55747](https://github.com/visitscotland/vs-component-library/commit/3d557472d755ac71438a7734c92a777949ea48ff))
+
 # [5.65.0](https://github.com/visitscotland/vs-component-library/compare/v5.64.0...v5.65.0) (2026-06-30)
 
 
