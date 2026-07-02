@@ -63,7 +63,7 @@ import VsLink from '@/components/link/Link.vue';
 
 export default {
     name: 'VsItineraryStopInfo',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsIcon,

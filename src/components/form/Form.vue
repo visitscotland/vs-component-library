@@ -28,7 +28,7 @@
                                 :ref="field.name"
                                 :name="field.name"
                                 :value="field.value"
-                            >
+                            />
                         </template>
                         <BFormGroup
                             v-else
@@ -879,10 +879,17 @@ export default {
             this.createDataLayerObject('formsDataEvent');
             this.submitting = true;
 
+            let axiosConfig = {
+            };
+
             let gRecaptchaResponse = '';
 
             if (window.grecaptcha) {
                 gRecaptchaResponse = window.grecaptcha.getResponse();
+            } else {
+                axiosConfig = {
+                    withCredentials: true,
+                };
             }
 
             const hiddenFields = this.getHiddenFields();
@@ -896,7 +903,7 @@ export default {
                     formType: this.formData.content ? this.formData.content.formType : '',
                     'g-recaptcha-response': gRecaptchaResponse,
                     consentList: filteredConsents,
-                })
+                }, axiosConfig)
                 .then(() => {
                     this.submitting = false;
                     this.submitted = true;

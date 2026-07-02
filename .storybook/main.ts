@@ -1,58 +1,55 @@
-import path from 'path';
 import { mergeConfig } from 'vite';
 import type { StorybookConfig } from '@storybook/vue3-vite';
+import { aliases } from '../vite.alias.mjs';
 
 const config: StorybookConfig = {
     stories: [
         '../stories/**/*.mdx',
         '../stories/**/*.stories.@(js|jsx|ts|tsx)',
     ],
+
     addons: [
         '@storybook/addon-links',
         '@chromatic-com/storybook',
         '@storybook/addon-a11y',
         '@storybook/addon-docs',
-        'storybook-addon-datalayer-watcher',
         'storybook-addon-tag-badges',
     ],
+
     framework: {
         name: '@storybook/vue3-vite',
         options: {
         },
     },
+
     staticDirs: ['../src/assets'],
+
     viteFinal: (viteConfig) =>
         mergeConfig(viteConfig, {
             css: {
                 preprocessorOptions: {
                     scss: {
-                        // Next line will prepend the import in all
-                        additionalData:
-                            '@import "@/styles/resources.scss";',
+                        additionalData: '@import "@/styles/resources.scss";',
                         quietDeps: true,
+                        silenceDeprecations: [
+                            'color-functions',
+                            'global-builtin',
+                            'import',
+                            'legacy-js-api',
+                            'if-function',
+                        ],
                     },
                 },
             },
+
             define: {
                 'process.env': process.env,
                 'process.versions': process.versions,
                 'process.platform': `"${process.platform}"`,
             },
+
             resolve: {
-                alias: [
-                    {
-                        find: '@',
-                        replacement: path.resolve(__dirname, '../src'),
-                    },
-                    {
-                        find: '@assets',
-                        replacement: path.resolve(__dirname, '../src/assets'),
-                    },
-                    {
-                        find: '@components',
-                        replacement: path.resolve(__dirname, '../src/components'),
-                    },
-                ],
+                alias: aliases,
             },
         }),
 };

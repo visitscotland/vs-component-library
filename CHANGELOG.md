@@ -1,3 +1,74 @@
+# [5.66.0](https://github.com/visitscotland/vs-component-library/compare/v5.65.0...v5.66.0) (2026-07-01)
+
+
+### Bug Fixes
+
+* **quote:** remove enforced <p> tag ([a2678e1](https://github.com/visitscotland/vs-component-library/commit/a2678e1eaa2e4bb4567f634ecdedc455371887de))
+* **quote:** remove wrapper div ([4c145b4](https://github.com/visitscotland/vs-component-library/commit/4c145b472e7a20d2054247b61c8163a0cfe76452))
+
+
+### Features
+
+* **quote:** adjust new quote layout to accept html ([3d55747](https://github.com/visitscotland/vs-component-library/commit/3d557472d755ac71438a7734c92a777949ea48ff))
+
+# [5.65.0](https://github.com/visitscotland/vs-component-library/compare/v5.64.0...v5.65.0) (2026-06-30)
+
+
+### Features
+
+* **image:** ensure image component can handle svgs ([5aba88f](https://github.com/visitscotland/vs-component-library/commit/5aba88f90890a8265b091495df38963ea32b73cd))
+* **img:** updating isSvg to better detect svg images ([14baba1](https://github.com/visitscotland/vs-component-library/commit/14baba15203958ae1d4add069bff99717681ebe7))
+
+# [5.64.0](https://github.com/visitscotland/vs-component-library/compare/v5.63.4...v5.64.0) (2026-06-30)
+
+
+### Features
+
+* **img:** hook up the lowResImage prop so one can be provided if needed ([bc96c52](https://github.com/visitscotland/vs-component-library/commit/bc96c5287292a613d582db91c471e25ae43f2bcc))
+
+## [5.63.4](https://github.com/visitscotland/vs-component-library/compare/v5.63.3...v5.63.4) (2026-06-24)
+
+
+### Bug Fixes
+
+* **forms:** coooooooors ([f18bba2](https://github.com/visitscotland/vs-component-library/commit/f18bba2f97aaca5b2fb4fefa55b2de21be6b5ef2))
+
+## [5.63.3](https://github.com/visitscotland/vs-component-library/compare/v5.63.2...v5.63.3) (2026-06-24)
+
+
+### Bug Fixes
+
+* **forms:** and another small tweak ([f5bd9ba](https://github.com/visitscotland/vs-component-library/commit/f5bd9bab102eb738af1be9945e5bea861914c2fe))
+
+## [5.63.2](https://github.com/visitscotland/vs-component-library/compare/v5.63.1...v5.63.2) (2026-06-24)
+
+
+### Bug Fixes
+
+* **forms:** make withCreds optional in a different way ([2cad54a](https://github.com/visitscotland/vs-component-library/commit/2cad54a7927aac8da3f8c478d9b3df4501c18d17))
+
+## [5.63.1](https://github.com/visitscotland/vs-component-library/compare/v5.63.0...v5.63.1) (2026-06-24)
+
+
+### Bug Fixes
+
+* **forms:** make withCreds optional ([4f08697](https://github.com/visitscotland/vs-component-library/commit/4f08697fd20aaaba82051ccd84055b40410bf6fb))
+
+# [5.63.0](https://github.com/visitscotland/vs-component-library/compare/v5.62.0...v5.63.0) (2026-06-24)
+
+
+### Features
+
+* **forms:** submit axios withCredentials for in person events ([d951239](https://github.com/visitscotland/vs-component-library/commit/d951239d7bbe0b5a14c37821e2c21127038a1c8c))
+
+# [5.62.0](https://github.com/visitscotland/vs-component-library/compare/v5.61.1...v5.62.0) (2026-06-17)
+
+
+### Features
+
+* **components:** deprecates article, listicle, itinerary, event-card components ([9c6268d](https://github.com/visitscotland/vs-component-library/commit/9c6268d085e55e536cf5b52159883874bc75d97c))
+* **components:** tidy deprecated docs in components ([cdf6fef](https://github.com/visitscotland/vs-component-library/commit/cdf6fefdf90b82cc3417702d362a76a98932e00b))
+
 ## [5.61.1](https://github.com/visitscotland/vs-component-library/compare/v5.61.0...v5.61.1) (2026-06-11)
 
 

@@ -21,9 +21,14 @@ const Template = (args) => ({
     template: `
         <VsQuote 
             :useLegacy="args.useLegacy"
-            :quoteText="args.quoteText"
             :quoteName="args.quoteName"
         >
+            <template
+                v-if="args.quoteContent"
+                #quote-content
+            >
+                <span v-html="args.quoteContent"></span>
+            </template>
             <template 
                 v-if="args.quoteDetails"
                 #quote-details
@@ -34,11 +39,11 @@ const Template = (args) => ({
     `,
 });
 
-const blockquoteText = 'Afterwards, if you are ready for dinner, you could catch the tram to the Leith area of the city. It\'s one of the trendiest neighbourhoods in the UK and boasts three Michelin-star restaurants. Alternatively, wander along Princes Street or George Street to the city\'s West End.';
+const blockquoteText = '<p>Afterwards, if you are ready for dinner, you could catch the tram to the Leith area of the city. It\'s one of the trendiest neighbourhoods in the UK and boasts three Michelin-star restaurants. Alternatively, wander along Princes Street or George Street to the city\'s West End.</p>';
 
 const base = {
     useLegacy: false,
-    quoteText: blockquoteText,
+    quoteContent: blockquoteText,
 };
 
 export const Blockquote = Template.bind({

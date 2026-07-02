@@ -10,8 +10,8 @@
         class="vs-img low-res-img"
         :class="useGenericLqip ? 'generic-lqip' : ''"
         :srcset="computedSrcSet"
-        :low-res-image="isSvg ? '' : specificImgSize('xxs')"
-        :sizes="computedSizes"
+        :low-res-image="resolvedLowResImage"
+        :sizes="resolvedSizes"
     >
         <!-- @slot Default slot for image content -->
         <slot />
@@ -20,11 +20,13 @@
 
 <script>
 import { BImg } from 'bootstrap-vue-next';
-import srcSetMixin from '@/mixins/srcSetMixin';
-import imgSizesMixin from '@/mixins/imgSizesMixin';
+import srcSetMixin from '../../mixins/srcSetMixin';
+import imgSizesMixin from '../../mixins/imgSizesMixin';
+
 /**
- * This image component is used to render images in our products
- * to help support and clarify content.
+ * A responsive image component that displays images efficiently 
+ * across devices while supporting accessibility, 
+ * responsive loading, and performance optimisation.
  *
  * @displayName Img
  */
@@ -100,18 +102,78 @@ export default {
         },
     },
     computed: {
-        imgStyle() {
-            if (!this.useGenericLqip && !this.src.includes('.svg')) {
-                return {
-                    backgroundImage: `url(${this.specificImgSize('xxs')})`,
-                };
+        /**
+         * Resolve the low-quality placeholder image.
+         * SVGs do not use LQIP.
+         */
+        resolvedLowResImage() {
+            if (this.isSvg) {
+                return null;
             }
 
-            return null;
+            const lowResImage = typeof this.lowResImage === 'string'
+                ? this.lowResImage.trim()
+                : '';
+
+            if (lowResImage) {
+                return lowResImage;
+            }
+            return this.specificImgSize('xxs');
         },
+        /**
+         * Generate the sizes attribute for responsive raster images.
+         * Omitted for SVGs.
+         */
+        resolvedSizes() {
+            if (this.isSvg) {
+                return null;
+            }
+
+            return this.computedSizes;
+        },
+        /**
+         * Apply the LQIP background while the image loads.
+         * Skipped for SVGs and generic placeholders.
+         */
+        imgStyle() {
+            if (this.useGenericLqip || this.isSvg || !this.resolvedLowResImage) {
+                return null;
+            }
+
+            return {
+                backgroundImage: `url(${this.resolvedLowResImage})`,
+            };
+        },
+        /**
+         * Determine whether the image source is an SVG.
+         */
         isSvg() {
-            return this.src.includes('.svg');
+            if (typeof this.src !== 'string') {
+                return false;
+            }
+
+            const source = this.src.trim();
+
+            if (!source) {
+                return false;
+            }
+
+            if (source.startsWith('data:image/svg+xml')) {
+                return true;
+            }
+
+            try {
+                const url = new URL(source);
+                const pathname = url.pathname.toLowerCase();
+                return pathname.endsWith('.svg');
+            } catch {
+                return source.toLowerCase().endsWith('.svg');
+            }
         },
+        /**
+         * Generate a responsive srcset for raster images.
+         * SVGs are served as a single scalable asset.
+         */
         computedSrcSet() {
             if (this.isSvg) {
                 return null;

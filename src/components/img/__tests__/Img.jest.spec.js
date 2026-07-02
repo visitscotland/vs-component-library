@@ -57,10 +57,53 @@ describe('VsImg', () => {
             expect(wrapper.attributes('alt')).toBe('Claire standing stones');
         });
 
-        it('should accept and render a `lowResImage` property', () => {
+        it('should fall back to the xxs image size when a `lowResImage` prop is not provided', () => {
             const wrapper = factoryMount();
 
             expect(wrapper.attributes('style')).toContain(`${imgUrl}?size=xxs`);
+        });
+
+        it('should use the provided `lowResImage` prop when available', () => {
+            const wrapper = factoryMount({
+                lowResImage: 'https://example.com/low-res.jpg',
+            });
+
+            expect(wrapper.attributes('style')).toContain('https://example.com/low-res.jpg');
+        });
+
+        it('should fall back to the xxs image size when the low res image is an empty string', () => {
+            const wrapper = factoryMount({
+                lowResImage: '',
+            });
+
+            expect(wrapper.attributes('style')).toContain(`${imgUrl}?size=xxs`);
+        });
+
+        it('should not set a background image style for SVG images', () => {
+            const wrapper = factoryMount({
+                src: 'https://example.com/image.svg',
+            });
+
+            expect(wrapper.attributes('style')).toBeUndefined();
+        });
+
+        it('should not treat a URL with ".svg" in the query string as an SVG', () => {
+            const wrapper = factoryMount({
+                src: 'https://example.com/image.jpg?format=.svg&size=large',
+            });
+
+            expect(wrapper.vm.isSvg).toBe(false);
+            expect(wrapper.vm.resolvedLowResImage).toContain('size=xxs');
+        });
+
+        it('should treat data URL SVG content as an SVG', () => {
+            const wrapper = factoryShallowMount({
+                src: 'data:image/svg+xml;base64,PHN2Zy8+',
+            });
+
+            expect(wrapper.vm.isSvg).toBe(true);
+            expect(wrapper.vm.resolvedLowResImage).toBeNull();
+            expect(wrapper.vm.computedSrcSet).toBeNull();
         });
 
         it('should set a `generic-lqip` class if `useGenericLqip` is set to true', () => {

@@ -6,7 +6,7 @@ import sampleItinerary from '@/assets/fixtures/itineraries/sample-itinerary.json
 
 export default {
     component: VsSummaryBoxList,
-    title: 'Components/To be reviewed/SummaryBox',
+    title: 'Components/Deprecated/SummaryBox',
     argTypes: {
         transportKey: {
             options: [
@@ -66,6 +66,7 @@ export default {
             },
         },
     },
+    tags: ['deprecated'],
 };
 
 const Template = (args) => ({
@@ -80,6 +81,11 @@ const Template = (args) => ({
         };
     },
     template: `
+        <div style="background: #940f2c17; padding: 1rem; border: 1px solid #940F2C; margin-bottom: 1rem;">
+            ⚠️ Deprecated: Use the Panel component for highlighting information. This component will be removed in a future release.
+            See the <a href="https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1273299024/Summary+Box+deprecated">Component migration docs.</a>
+        </div>
+
         <VsSummaryBoxList>
             <VsSummaryBoxListItem
                 :text="args.totalDays"

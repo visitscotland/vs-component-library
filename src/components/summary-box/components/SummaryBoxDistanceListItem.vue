@@ -40,7 +40,7 @@
  */
 export default {
     name: 'VsSummaryBoxDistanceListItem',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     props: {
         /**

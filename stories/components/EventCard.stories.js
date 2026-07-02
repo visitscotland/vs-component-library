@@ -6,10 +6,11 @@ import VsList from '@/components/list/List.vue';
 
 export default {
     component: VsEventCard,
-    title: 'Components/To be reviewed/EventCard',
+    title: 'Components/Deprecated/EventCard',
     decorators: [() => ({
         template: '<div style="max-width:900px;"><story /></div>',
     })],
+    tags: ['deprecated'],
 };
 
 const Template = (args) => ({
@@ -26,6 +27,10 @@ const Template = (args) => ({
         };
     },
     template: `
+        <div style="background: #940f2c17; padding: 1rem; border: 1px solid #940F2C; margin-bottom: 1rem;">
+            ⚠️ Deprecated: Use the new Card component and card patterns. This component will be removed in a future release.
+            See the <a href="https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1273397354/Event+Card+deprecated">Component migration docs.</a>
+        </div>
         <VsEventCard v-bind="args">
                 <template v-slot:event-card-header> {{args.title}} </template>
 

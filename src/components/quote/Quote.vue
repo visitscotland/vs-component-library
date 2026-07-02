@@ -6,10 +6,8 @@
             data-test="vs-quote-new"
         >
             <div class="vs-quote-new__wrapper">
-                <VsBody>
-                    <p class="vs-quote__text">
-                        {{ quoteText }}
-                    </p>
+                <VsBody class="vs-quote__text">
+                    <slot name="quote-content">{{ quoteText }}</slot>
                 </VsBody>
                 <VsDetail
                     v-if="quoteName || $slots['quote-details']"
@@ -110,6 +108,8 @@ export default {
     props: {
         /**
          * Sets the quote text content.
+         *
+         * @deprecated Use the `quote-content` slot instead. Will be removed in a future major release.
          */
         quoteText: {
             type: String,

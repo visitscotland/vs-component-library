@@ -6,7 +6,6 @@ config.global.renderStubDefaultSlot = true;
 
 const factoryShallowMount = (propsData, slotsData) => shallowMount(VsQuote, {
     props: {
-        quoteText: 'Test quote text',
         ...propsData,
     },
     slots: {
@@ -103,7 +102,7 @@ describe('VsQuote', () => {
     });
 
     describe(':props', () => {
-        it('renders the `quoteText` prop', () => {
+        it('falls back to the `quoteText` prop when no `quote-content` slot is provided', () => {
             const wrapper = factoryShallowMount({
                 ...newProps,
                 quoteText: 'This is a quote',
@@ -164,6 +163,24 @@ describe('VsQuote', () => {
                 'quote-details': 'Photographer',
             });
             expect(wrapper.find('vs-detail-stub').exists()).toBe(true);
+        });
+
+        it('renders content inserted in the `quote-content` slot', () => {
+            const wrapper = factoryShallowMount(newProps, {
+                'quote-content': 'Slot quote content',
+            });
+            expect(wrapper.find('.vs-quote__text').text()).toContain('Slot quote content');
+        });
+
+        it('the `quote-content` slot takes priority over the `quoteText` prop', () => {
+            const wrapper = factoryShallowMount({
+                ...newProps,
+                quoteText: 'Prop text fallback',
+            }, {
+                'quote-content': 'Slot content wins',
+            });
+            expect(wrapper.find('.vs-quote__text').text()).toContain('Slot content wins');
+            expect(wrapper.find('.vs-quote__text').text()).not.toContain('Prop text fallback');
         });
     });
 
