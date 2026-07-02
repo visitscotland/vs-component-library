@@ -349,7 +349,6 @@ let nearbySearchQuery;
 let placeDetails;
 let placeRequest;
 let searchInput;
-let infoWindow;
 
 let markers = {
 };
@@ -537,14 +536,6 @@ onMounted(async() => {
         } catch (error) {
             console.error('Maps init error', error.message);
         }
-
-        // Registers the infoWindow that the placeDetail element lives
-         
-        infoWindow = new google.maps.InfoWindow();
-
-        infoWindow.addListener('closeclick', () => {
-            mapInteractionEvent('card_close', placeRequest.place);
-        });
 
         shadeMapAreas();
 
@@ -1185,9 +1176,6 @@ function resetMap(hardReset, resetLocation) {
 
     categoriesVisible.value = false;
 
-    if (infoWindow && infoWindow.close) {
-        infoWindow.close();
-    }
     noResults.value = undefined;
     if (hardReset) {
         // A `hard reset` will remove all text and categories
@@ -1234,11 +1222,6 @@ function clearExistingMarkers() {
 }
 
 function handlePlaceClick(place) {
-    if (infoWindow.isOpen) {
-        infoWindow.close();
-        mapInteractionEvent('card_close', placeRequest.place);
-    }
-
     placeRequest.place = place;
 
     placeDetails.style.display = 'block';
