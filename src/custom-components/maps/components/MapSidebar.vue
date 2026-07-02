@@ -43,7 +43,7 @@
                             data-test="vs-map-search-input"
                             field-name="vs-map-search-input"
                             :placeholder="props.sidebarLabels.inputPlaceholderLabel"
-                            :value="googleMapStore.searchTerm"
+                            :value="props.query"
                             @keyup.enter="$emit('search-input-changed')"
                         />
                         <VsButton
@@ -79,7 +79,8 @@
                             has-icons
                             :items="filteredDestinationCategories"
                             :selected-category="googleMapStore.selectedDestinationType"
-                            @changed="(event) => handleDestinationTypeClick(event.id)"
+                            @changed="(event: MapFilterChanged) =>
+                                handleDestinationTypeClick(event.id)"
                         />
                     </div>
 
@@ -88,7 +89,7 @@
                             has-icons
                             :items="filteredCategories"
                             :selected-category="props.selectedCategory"
-                            @changed="(event) =>
+                            @changed="(event: MapFilterChanged) =>
                                 $emit('category-selected', { id: event.id, key: event.key })"
                         />
 
@@ -96,8 +97,8 @@
                             v-if="props.selectedCategory && subcategories"
                             :detail-text="props.sidebarLabels.subFilterHeaderLabel"
                             :items="subcategories"
-                            :selected-category="Array.from(props.selectedSubcategories)"
-                            @changed="(event) =>
+                            :selected-category="Array.from(props.selectedSubcategories) ?? []"
+                            @changed="(event: MapFilterChanged) =>
                                 $emit('subcategory-selected', { id: event.id, key: event.key })"
                         />
                     </div>
@@ -220,6 +221,11 @@ import useGoogleMapStore from '@/stores/mainMap.store';
 import useSwipeDrawer from '../composables/useSwipeDrawer';
 import VsMapFeaturedLocationItem from './MapFeaturedLocationItem.vue';
 import VsMapFilter from './MapFilter.vue';
+
+type MapFilterChanged = {
+    id: string;
+    key: number | string;
+};
 
 type CategoryConfig = Record<string, Category>;
 

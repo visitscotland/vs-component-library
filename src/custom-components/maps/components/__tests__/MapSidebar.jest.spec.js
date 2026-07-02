@@ -23,9 +23,8 @@ const factoryMount = (propsData) => mount(VsMapSidebar, {
             'gmp-place-type-specific-highlights': true,
             'gmp-place-reviews': true,
             'gmp-place-feature-list': true,
-            'gmp-place-media lightbox-preferred': true,
-            'gmp-place-attribution': true,
             'gmp-place-media': true,
+            'gmp-place-attribution': true,
         },
         provide: {
             onFeaturedLocationClick: () => { },

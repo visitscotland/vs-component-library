@@ -14,14 +14,15 @@ export default function useSwipeDrawer(isOpen: Ref<boolean>, sidebar: Ref<HTMLEl
     const sidebarHeight = ref(0);
     const isDragging = ref(false);
     const isMobile = ref(false);
+    const peekHeight = ref(0);
 
     const OPEN_POSITION = 0;
     const SWIPE_THRESHOLD = 30;
 
     // Set the how much of the sidebar is visible when it's closed.
-    const peekHeight = Math.min(250, window.innerHeight * 0.3);
+    peekHeight.value = Math.min(250, window.innerHeight * 0.3);
     const closedPosition = computed(() =>
-        Math.max(0, sidebarHeight.value - peekHeight),
+        Math.max(0, sidebarHeight.value - peekHeight.value),
     );
 
     // Set the sidebar style, depending on
@@ -112,6 +113,7 @@ export default function useSwipeDrawer(isOpen: Ref<boolean>, sidebar: Ref<HTMLEl
      */
     function onResize() {
         isMobile.value = window.innerWidth < 768;
+        peekHeight.value = Math.min(250, window.innerHeight * 0.3);
     }
 
     watchEffect(() => {
@@ -135,7 +137,7 @@ export default function useSwipeDrawer(isOpen: Ref<boolean>, sidebar: Ref<HTMLEl
 
     onUnmounted(() => {
         window.removeEventListener('pointermove', onDrag);
-        window.removeEventListener('pointerup', onDrag);
+        window.removeEventListener('pointerup', endDrag);
         window.removeEventListener('resize', onResize);
     });
 
