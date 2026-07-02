@@ -16,6 +16,9 @@
                     @click="isOpen = !isOpen"
                 >
                     <div class="vs-map-sidebar__handle-bar" />
+                    <span class="sr-only">
+                        {{ props.sidebarLabels.openSidebarButtonLabel }}
+                    </span>
                 </VsButton>
             </div>
 
@@ -151,6 +154,9 @@
                     @click="isOpen = !isOpen"
                 >
                     <div class="vs-map-sidebar__handle-bar" />
+                    <span class="sr-only">
+                        {{ props.sidebarLabels.openSidebarButtonLabel }}
+                    </span>
                 </VsButton>
             </div>
 
@@ -206,12 +212,10 @@ import {
     onMounted,
     useTemplateRef,
 } from 'vue';
-import {
-    VsButton,
-    VsHeading,
-    VsInput,
-    VsRow,
-} from '@/components';
+import VsButton from '@/components/button/Button.vue';
+import VsHeading from '@/components/heading/Heading.vue';
+import VsInput from '@/components/input/Input.vue';
+import VsRow from '@/components/grid/Row.vue';
 import useGoogleMapStore from '@/stores/mainMap.store';
 import useSwipeDrawer from '../composables/useSwipeDrawer';
 import VsMapFeaturedLocationItem from './MapFeaturedLocationItem.vue';
@@ -259,7 +263,7 @@ type Props = {
     destinations: any;
     /** List of destination categories */
     destinationCategories: DestinationCategory[];
-    /** Where the map is loaded or not. */
+    /** Whether the map is loaded or not. */
     mapLoaded?: boolean;
     /** Test query from Map Search */
     query?: string;

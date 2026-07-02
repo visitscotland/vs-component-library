@@ -24,7 +24,8 @@
 </template>
 
 <script setup lang="ts">
-import { VsButton, VsDetail } from '@/components';
+import VsButton from '@/components/button/Button.vue';
+import VsDetail from '@/components/detail/Detail.vue';
 
 type Item = {
     id: string;
