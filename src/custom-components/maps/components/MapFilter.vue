@@ -8,10 +8,7 @@
             {{ props.detailText }}
         </VsDetail>
 
-        <div
-            v-if="props.items"
-            class="vs-map__destination-types"
-        >
+        <div class="vs-map-filter__buttons">
             <VsButton
                 v-for="(item, index) in props.items"
                 :key="item.id"
@@ -41,9 +38,7 @@ type Props = {
     selectedCategory: string | string[] | undefined;
 };
 
-type Icon = {
-    [key: string]: string;
-};
+type Icon = Record<string, string>;
 
 const props = withDefaults(defineProps<Props>(), {
     detailText: undefined,
@@ -89,23 +84,16 @@ const iconMap: Icon = {
 </script>
 
 <style lang="scss">
-.vs-map__destination-types {
+.vs-map-filter__buttons {
     @include scrollsnap-styles;
 
     column-gap: $vs-spacer-050;
-    pointer-events: all;
+    margin-bottom: $vs-spacer-100;
     padding: $vs-spacer-025 $vs-spacer-025 $vs-spacer-075;
+    pointer-events: all;
 
     .vs-button {
         flex: 0 0 max-content;
     }
-}
-
-.vs-map__destination-types {
-    margin-bottom: $vs-spacer-100;
-}
-
-.vs-map__destinations {
-    overflow-y: scroll;
 }
 </style>

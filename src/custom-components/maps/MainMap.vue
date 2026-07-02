@@ -6,111 +6,7 @@
             class="vs-map__container"
             :class="showError ? 'd-none' : ''"
         >
-            <div
-                v-show="mapLoaded"
-                class="vs-map__controls"
-            >
-                <!-- <VsMapSidebar
-                    :categories="categoryLabelData"
-                    :category-data="categoryData"
-                    :query="query"
-                    :selected-category="selectedTopLevelCategory"
-                    :selected-subcategories="selectedSubCategories"
-                    :sidebar-labels="sidebarLabels"
-                    @category-selected="(e) => selectCategory(e.id, e.key)"
-                    @reset-map="resetMap(true)"
-                    @reset-location="resetMap(true, true)"
-                    @search-input-changed="searchByText"
-                    @subcategory-selected="(e) => searchBySubCategory(e.id, e.key)"
-                >
-                    <template #vs-map-sidebar-search-results>
-                        <div
-                            v-if="noResults || (props.alertText && noResults === false)"
-                            class="mt-075 mb-150"
-                        >
-                            <VsAlert
-                                v-if="noResults"
-                                id="vs-map__alert"
-                                size="small"
-                            >
-                                <span>
-                                    {{ noResultsMessage }}
-                                    <a
-                                        href="#"
-                                        @click.prevent="resetMap(true, true)"
-                                    >
-                                        {{ resetMapNoResultsMessage }}
-                                    </a>
-                                </span>
-                            </VsAlert>
-
-                            <VsDetail
-                                v-else
-                                class="mb-150"
-                                color="secondary"
-                                icon="vs-icon-feedback-information"
-                                icon-variant="highlight"
-                                size="small"
-                            >
-                                {{ alertText }}
-                            </VsDetail>
-                        </div>
-
-                        <Suspense>
-                            <div id="search-container">
-                                <gmp-place-search
-                                    id="nearbySearch"
-                                    orientation="vertical"
-                                    selectable
-                                    style="display: none"
-                                >
-                                    <gmp-place-nearby-search-request id="nearbySearchQuery">
-                                    </gmp-place-nearby-search-request>
-                                    <gmp-place-content-config>
-                                        <gmp-place-address></gmp-place-address>
-                                        <gmp-place-rating></gmp-place-rating>
-                                        <gmp-place-type></gmp-place-type>
-                                        <gmp-place-price></gmp-place-price>
-                                        <gmp-place-accessible-entrance-icon>
-                                        </gmp-place-accessible-entrance-icon>
-                                        <gmp-place-opening-hours></gmp-place-opening-hours>
-                                        <gmp-place-reviews></gmp-place-reviews>
-                                        <gmp-place-attribution
-                                            light-scheme-color="gray"
-                                            dark-scheme-color="gray"
-                                        ></gmp-place-attribution>
-                                    </gmp-place-content-config>
-                                </gmp-place-search>
-                                <gmp-place-search
-                                    id="textSearch"
-                                    orientation="vertical"
-                                    selectable
-                                    style="display: none"
-                                >
-                                    <gmp-place-text-search-request id="textSearchQuery">
-                                    </gmp-place-text-search-request>
-                                    <gmp-place-content-config>
-                                        <gmp-place-address></gmp-place-address>
-                                        <gmp-place-rating></gmp-place-rating>
-                                        <gmp-place-type></gmp-place-type>
-                                        <gmp-place-price></gmp-place-price>
-                                        <gmp-place-accessible-entrance-icon>
-                                        </gmp-place-accessible-entrance-icon>
-                                        <gmp-place-opening-hours></gmp-place-opening-hours>
-                                        <gmp-place-reviews></gmp-place-reviews>
-                                        <gmp-place-attribution
-                                            light-scheme-color="gray"
-                                            dark-scheme-color="gray"
-                                        ></gmp-place-attribution>
-                                    </gmp-place-content-config>
-                                </gmp-place-search>
-                            </div>
-                        </Suspense>
-                    </template>
-                </VsMapSidebar> -->
-            </div>
-
-            <VsMapNewSidebar
+            <VsMapSidebar
                 v-model:is-open="isSidebarOpen"
                 v-model:is-results-open="isSidebarResultsOpen"
                 :categories="categoryLabelData"
@@ -209,7 +105,7 @@
                         </div>
                     </Suspense>
                 </template>
-            </VsMapNewSidebar>
+            </VsMapSidebar>
 
             <div class="vs-map__wrapper">
                 <div
@@ -286,8 +182,7 @@ import {
 import useGoogleMapStore from '@/stores/mainMap.store';
 import getEnvValue from '@/utils/get-env-value';
 import cookieValues from '@/utils/required-cookies-data';
-// import VsMapSidebar from './components/MapSidebar.vue';
-import VsMapNewSidebar from './components/MapNewSidebar.vue';
+import VsMapSidebar from './components/MapSidebar.vue';
 import cookieCheckerComposable from './composables/verifyCookiesComposable';
 import dataLayerComposable from './composables/dataLayerComposable';
 
@@ -1346,38 +1241,9 @@ function handlePlaceClick(place) {
 
     placeRequest.place = place;
 
-    // Medium breakpoint (this can't be done in CSS unfortunately)
-    // const isMobile = window.innerWidth <= 768;
-
-    // if (!isMobile) {
-    //     placeDetails.style.width = '20em';
-    //     placeDetails.style.height = '32em';
-    // } else {
-    //     placeDetails.style.width = '85vw';
-    //     placeDetails.style.height = '32em';
-    //     googleMapStore.sidebarOpen = false;
-    // }
-
     placeDetails.style.display = 'block';
     isSidebarOpen.value = true;
     isSidebarResultsOpen.value = true;
-    // placeDetails.style.overflowY = 'auto';
-    // placeDetails.style.overflowX = 'hidden';
-    // placeDetails.style.boxSizing = 'border-box';
-    // placeDetails.style.maxHeight = '32em';
-
-    // infoWindow.setOptions({
-    //     content: placeDetails,
-    //     maxWidth: '25em',
-    //     position: place.location,
-         
-    //     pixelOffset: new google.maps.Size(0, -32),
-    // });
-
-    // infoWindow.open({
-    //     map: gMap,
-    // });
-
      
     google.maps.event.addListenerOnce(gMap, 'idle', () => {
         if (gMap.getZoom() > MAX_ZOOM) {
@@ -1617,22 +1483,6 @@ function searchArea() {
             top: $vs-spacer-100;
             left: 0;
             width: 100%;
-        }
-    }
-
-    &__controls {
-        position: absolute;
-        top: $vs-spacer-100;
-        left: $vs-spacer-100;
-        z-index: 100;
-        display: flex;
-        flex-direction: column;
-        pointer-events: none;
-        flex-grow: 1;
-        min-width: 0;
-
-        @include media-breakpoint-up(md) {
-            flex-direction: row;
         }
     }
 
