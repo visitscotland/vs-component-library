@@ -8,10 +8,11 @@ import { VsCol, VsRow } from '@/components/grid';
 
 export default {
     component: VsImageWithCaption,
-    title: 'Components/Media & data visualisation/ImageWithCaption',
+    title: 'Components/Deprecated/ImageWithCaption',
     decorators: [() => ({
         template: '<div style="max-width: 500px;"><story /></div>',
     })],
+    tags: ['deprecated'],
 };
 const Template = (args) => ({
     components: {
@@ -30,6 +31,12 @@ const Template = (args) => ({
         };
     },
     template: `
+        <div style="background: #940f2c17; padding: 1rem; border: 1px solid #940F2C; margin-bottom: 1rem;">
+            ⚠️ Deprecated: Use new Media with caption instead. 
+            This component will be removed in a future release. 
+            See the <a href="https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1315504130/Image+with+Caption+deprecated">Component migration docs.</a> 
+        </div>
+
         <div
             :class="args.jsDisabled ? 'no-js' : ''"
         >
