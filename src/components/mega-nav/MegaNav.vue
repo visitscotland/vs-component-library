@@ -30,9 +30,12 @@
                                     class="visually-hidden"
                                     data-test="link-alt-text"
                                 >
-                                    {{ linkAltText }}
+                                    Visit Scotland Home
                                 </span>
-                                <VsImg src="./svg/visitscotland-logo.svg"/>
+                                <VsImg 
+                                    :src="visitscotlandLogo"
+                                    :use-lazy-loading="false"
+                                />
                             </VsLink>
                         </div>
                     </VsCol>
@@ -148,6 +151,7 @@ import VsSiteSearchForm from '@/components/site-search/components/SiteSearchForm
 import designTokens from '@/assets/tokens/tokens.json';
 import clickOutside from '@/directives/click-outside';
 import dataLayerMixin from '../../mixins/dataLayerMixin';
+import visitscotlandLogo from '@/assets/svg/visitscotland-logo.svg';
 
 /**
  * @deprecated ⚠️ Use new NavigationBar component instead.
@@ -275,6 +279,7 @@ export default {
             isOpen: false,
             showSearch: false,
             tokens: designTokens,
+            visitscotlandLogo,
         };
     },
     mounted() {

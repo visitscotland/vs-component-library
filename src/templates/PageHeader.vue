@@ -17,8 +17,9 @@
                         VisitScotland Home
                     </span>
                     <VsImg 
-                        src="./svg/visitscotland-logo.svg"
+                        :src="visitscotlandLogo"
                         style="width: 167px;"
+                        :use-lazy-loading="false"
                     />
                 </VsLink>
             </template>
@@ -250,6 +251,7 @@ import VsButton from '@/components/button/Button.vue';
 import b2bNav from '@/assets/fixtures/navigation-bar/b2b-nav.json';
 import b2cNav from '@/assets/fixtures/navigation-bar/b2c-nav.json';
 import designTokens from '@/assets/tokens/tokens.json';
+import visitscotlandLogo from '@/assets/svg/visitscotland-logo.svg';
 
 /**
  * @displayName Page Header
@@ -289,6 +291,7 @@ export default {
                 b2b: b2bNav,
             },
             tokens: designTokens,
+            visitscotlandLogo,
         };
     },
     computed: {

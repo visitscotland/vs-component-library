@@ -67,6 +67,7 @@ const Template = (args) => ({
                     <VsImg 
                         src="./svg/visitscotland-logo.svg"
                         style="width: 167px;"
+                        :use-lazy-loading="false"
                     />
                 </VsLink>
             </template>

@@ -13,6 +13,7 @@
                     <VsLink 
                         class="vs-footer-copyright__logo mb-050"
                         data-test="vs-footer-copyright-logo"
+                        variant="on-dark"
                         :href="href"
                     >
                         <span
@@ -21,7 +22,7 @@
                         >
                             {{ linkAltText }}
                         </span>
-                        <VsImg src="./svg/brandscotland-logo.svg"/>
+                        <VsImg :src="brandscotlandLogo" />
                     </VsLink>
 
                     <p class="vs-footer-copyright__text">
@@ -42,6 +43,7 @@ import VsLink from '@/components/link/Link.vue';
 import {
     VsRow, VsContainer, VsCol,
 } from '@/components/grid';
+import brandscotlandLogo from '@/assets/svg/brandscotland-logo.svg';
 
 /**
  * The VsFooterCopyright holds an image and copyright notices for the footer.
@@ -79,6 +81,7 @@ export default {
     data() {
         return {
             currentYear: '',
+            brandscotlandLogo,
         };
     },
     computed: {
