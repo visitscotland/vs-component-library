@@ -1903,5 +1903,78 @@
                 ]
             ]
         }
+    },
+    {
+        "type": "feature",
+        "properties": {
+            "id": "1dfb148e-9488-4cc2-a750-e8405867ae33",
+            "title": "Fife",
+            "description": "Discover the region of Fife, including holiday ideas, accommodation, travel information and maps, insider tips & fantastic things to see & do.",
+            "category": {
+                "id": "regions",
+                "label": "Regions"
+            },
+            "image": "https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2023/01/17/north-queensferry",
+            "link": {
+                "label": "Discover Fife",
+                "link": "/resourceapi/places-to-go/kingdom-fife",
+                "type": "INTERNAL"
+            },
+            "viewport": {
+                "low": {
+                    "latitude": 56.005832,
+                    "longitude": -3.739918
+                },
+                "high": {
+                    "latitude": 56.451858,
+                    "longitude": -2.544301
+                }
+            },
+            "locationCentre": {
+                "latitude": 56.228845,
+                "longitude": -3.1421095
+            }
+        },
+        "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+                [
+                    [
+                        [-2.56275, 56.18689],
+                        [-2.566513, 56.193404],
+                        [-2.544301, 56.180906],
+                        [-2.56275, 56.18689]
+                    ]
+                ],
+                [
+                    [
+                        [-2.800323, 56.413412],
+                        [-2.805795, 56.370933],
+                        [-2.809263, 56.376818],
+                        [-2.799071, 56.346051],
+                        [-2.775318, 56.334044],
+                        [-2.682305, 56.326283],
+                        [-2.584829, 56.280975],
+                        [-2.604378, 56.260943],
+                        [-2.683375, 56.22462]
+                    ],
+                    [
+                        [-2.800317, 56.413454],
+                        [-2.77976, 56.429817],
+                        [-2.807689, 56.447387],
+                        [-2.797234, 56.437343],
+                        [-2.800317, 56.413454]
+                    ]
+                ],
+                [
+                    [
+                        [-3.138264, 56.032002],
+                        [-3.137706, 56.037425],
+                        [-3.12693, 56.023448],
+                        [-3.138264, 56.032002]
+                    ]
+                ]
+            ]
+        }
     }
 ]
