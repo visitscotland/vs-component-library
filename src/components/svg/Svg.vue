@@ -27,6 +27,10 @@ import {
 import svgContext from '@/utils/svg-context';
 
 /**
+ * @deprecated Use Image component instead.
+ * This component will be removed in a future release. 
+ *@see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1315831810/SVG+deprecated
+ *
  * The SVG wrapper is used to display vector images.
  *
  * @displayName SVG Wrapper
@@ -34,7 +38,7 @@ import svgContext from '@/utils/svg-context';
 export default {
     name: 'VsSvg',
     release: '0.1.1',
-    status: 'prototype',
+    status: 'deprecated',
     props: {
         /**
          * The path of the SVG to display, relative to /src/assets
