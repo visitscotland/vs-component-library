@@ -12,11 +12,10 @@ import VsAccordionItem from '@/components/accordion/components/AccordionItem.vue
 import VsAccordionToggle from '@/components/accordion/components/AccordionToggle.vue';
 import VsDivider from '@/components/divider/Divider.vue';
 import VsTooltip from '@/components/tooltip/Tooltip.vue';
-import VsSvgLink from '@/components/svg-link/SvgLink.vue';
+import VsImg from '@/components/img/Img.vue';
 
 import b2cNavExample from '@/assets/fixtures/navigation-bar/b2c-nav.json';
 import manyItemsNav from '@/assets/fixtures/navigation-bar/many-items-nav.json';
-import designTokens from '@/assets/tokens/tokens.json';
 
 export default {
     component: VsNavigationBar,
@@ -29,7 +28,6 @@ export default {
 const Template = (args) => ({
     components: {
         VsNavigationBar,
-        VsSvgLink,
         VsNavigationBarMenu,
         VsNavigationBarMenuDropdown,
         VsNavigationBarMenuItem,
@@ -42,6 +40,7 @@ const Template = (args) => ({
         VsAccordionToggle,
         VsDivider,
         VsTooltip,
+        VsImg,
     },
     setup() {
         return {
@@ -58,14 +57,18 @@ const Template = (args) => ({
             :sidebarBreakpoint="args.sidebarBreakpoint"
         >
             <template #logo-link>
-                <VsSvgLink
-                    :linkAltText="args.svgAltText"
-                    :href="args.svgHref"
-                    :svgFill="args.svgColor"
-                    :svgPath="args.svgPath"
-                    :svgWidth="args.svgWidth"
-                    :svgHeight="args.svgHeight"
-                />
+                <VsLink href="#">
+                    <span
+                        class="visually-hidden"
+                        data-test="link-alt-text"
+                    >
+                        VisitScotland Home
+                    </span>
+                    <VsImg 
+                        src="./svg/visitscotland-logo.svg"
+                        style="width: 167px;"
+                    />
+                </VsLink>
             </template>
 
             <template #navigation-bar-menu>
@@ -268,12 +271,6 @@ const base = {
     sidebarCloseLabel: 'Close navigation menu',
     sidebarOpenLabel: 'Main menu',
     sidebarTitle: 'Navigation menu',
-    svgAltText: 'VisitScotland Home',
-    svgColor: designTokens['vs-color-background-brand'],
-    svgHref: '#',
-    svgPath: 'visitscotland-logo',
-    svgWidth: '167px',
-    svgHeight: '28px',
     navData: b2cNavExample,
     compactUtilities: false,
     sidebarBreakpoint: 'md',

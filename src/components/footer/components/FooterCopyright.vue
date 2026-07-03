@@ -10,15 +10,19 @@
                     cols="12"
                     class="text-center"
                 >
-                    <VsSvgLink
-                        class="vs-footer-copyright__logo mb-100"
+                    <VsLink 
+                        class="vs-footer-copyright__logo mb-050"
                         data-test="vs-footer-copyright-logo"
-                        :link-alt-text="linkAltText"
                         :href="href"
-                        svg-fill="#ffffff"
-                        svg-path="brandscotland-logo"
-                        link-variant="on-dark"
-                    />
+                    >
+                        <span
+                            class="visually-hidden"
+                            data-test="link-alt-text"
+                        >
+                            {{ linkAltText }}
+                        </span>
+                        <VsImg src="./svg/brandscotland-logo.svg"/>
+                    </VsLink>
 
                     <p class="vs-footer-copyright__text">
                         &copy; {{ getCurrentYear }}
@@ -33,8 +37,8 @@
 </template>
 
 <script>
-import VsSvgLink from '@/components/svg-link/SvgLink.vue';
-
+import VsImg from '@/components/img/Img.vue';
+import VsLink from '@/components/link/Link.vue';
 import {
     VsRow, VsContainer, VsCol,
 } from '@/components/grid';
@@ -50,10 +54,11 @@ export default {
     status: 'prototype',
     release: '0.0.1',
     components: {
-        VsSvgLink,
         VsRow,
         VsContainer,
         VsCol,
+        VsImg,
+        VsLink,
     },
     props: {
         /**
@@ -92,7 +97,7 @@ export default {
     .vs-footer-copyright__logo {
         display: inline-block;
 
-        svg{
+        img {
             width: 166px;
         }
 

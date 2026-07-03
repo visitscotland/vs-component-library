@@ -20,15 +20,20 @@
                         lg="3"
                     >
                         <div>
-                            <VsSvgLink
+                            <VsLink 
                                 class="vs-mega-nav__logo"
                                 data-test="vs-mega-nav__logo"
-                                :link-alt-text="logoAltText"
                                 :href="href"
-                                :svg-fill="tokens['vs-color-background-brand']"
-                                svg-path="visitscotland-logo"
                                 data-layer-value="homePageLogoClickDataEvent"
-                            />
+                            >
+                                <span
+                                    class="visually-hidden"
+                                    data-test="link-alt-text"
+                                >
+                                    {{ linkAltText }}
+                                </span>
+                                <VsImg src="./svg/visitscotland-logo.svg"/>
+                            </VsLink>
                         </div>
                     </VsCol>
 
@@ -133,10 +138,11 @@
 import {
     VsCol, VsRow, VsContainer,
 } from '@/components/grid';
-import VsSvgLink from '@/components/svg-link/SvgLink.vue';
 import VsMegaNavTopMenu from '@/components/mega-nav/components/MegaNavTopMenu.vue';
 import VsMegaNavMobileMenu from '@/components/mega-nav/components/MegaNavMobileMenu.vue';
 import VsButton from '@/components/button/Button.vue';
+import VsImg from '@/components/img/Img.vue';
+import VsLink from '@/components/link/Link.vue';
 import VsSiteSearch from '@/components/site-search/SiteSearch.vue';
 import VsSiteSearchForm from '@/components/site-search/components/SiteSearchForm.vue';
 import designTokens from '@/assets/tokens/tokens.json';
@@ -158,12 +164,13 @@ export default {
         VsCol,
         VsRow,
         VsContainer,
-        VsSvgLink,
         VsMegaNavTopMenu,
         VsMegaNavMobileMenu,
         VsSiteSearch,
         VsSiteSearchForm,
         VsButton,
+        VsImg,
+        VsLink,
     },
     directives: {
         clickOutside,
@@ -340,7 +347,7 @@ export default {
         }
     }
 
-    &__logo svg {
+    &__logo img {
         width: 184px;
         vertical-align: top;
         margin-top: $vs-spacer-025;

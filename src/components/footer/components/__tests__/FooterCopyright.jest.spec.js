@@ -6,8 +6,6 @@ import VsFooterCopyright from '../FooterCopyright.vue';
 
 config.global.renderStubDefaultSlot = true;
 
-jest.mock('@/utils/svg-context');
-
 const slotContent = 'Some copyright info';
 
 function mountOptions(propsData) {
