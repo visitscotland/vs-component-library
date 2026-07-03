@@ -1,3 +1,17 @@
+# [5.67.0](https://github.com/visitscotland/vs-component-library/compare/v5.66.1...v5.67.0) (2026-07-03)
+
+
+### Features
+
+* **image with caption:** mark image with caption component as deprecated ([5fbf73b](https://github.com/visitscotland/vs-component-library/commit/5fbf73bc783afd74cac042b801d311df359ed32c))
+
+## [5.66.1](https://github.com/visitscotland/vs-component-library/compare/v5.66.0...v5.66.1) (2026-07-03)
+
+
+### Bug Fixes
+
+* **main map:** reduce search radius for the Fife region ([197a12b](https://github.com/visitscotland/vs-component-library/commit/197a12b3a578ccc8489d977351c79341d48d43c2))
+
 # [5.66.0](https://github.com/visitscotland/vs-component-library/compare/v5.65.0...v5.66.0) (2026-07-01)
 
 
