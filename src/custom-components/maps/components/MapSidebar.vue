@@ -43,7 +43,6 @@
                             data-test="vs-map-search-input"
                             field-name="vs-map-search-input"
                             :placeholder="props.sidebarLabels.inputPlaceholderLabel"
-                            :value="props.query"
                             @keyup.enter="$emit('search-input-changed')"
                         />
                         <VsButton
@@ -116,7 +115,6 @@
                             "{{ props.query || props.selectedCategory }}"
                         </VsHeading>
 
-                        
                         <a
                             v-if="props.query || props.selectedCategory"
                             href="#"

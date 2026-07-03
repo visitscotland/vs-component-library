@@ -83,6 +83,9 @@ Espanol.args = {
         subFilterHeader: 'Perfecciona tus resultados',
         searchResults: 'Resultados de la búsqueda para ',
         openSidebarButton: 'Abrir barra lateral',
+        resetLocation: 'Todas las ubicaciones',
+        locationSelect: 'Refina tus resultados por ubicación',
+        searchAreaButton: 'Busca en esta zona',
     },
     languageCode: 'es',
 };
