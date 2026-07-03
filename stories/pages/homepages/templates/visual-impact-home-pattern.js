@@ -19,18 +19,20 @@ export default `
     <!------------------------------------------------------------
     NEW SECTION - Section header + content swiper
     ------------------------------------------------------------>
-    <VsSectionHeader 
-        class="mt-500 mb-200 mb-xl-300"
-        heading="Inspiration for your trip"
-    >
-        <template v-slot:section-header-lede>
-            <p>Step into a land steeped in history and legend, explore our dramatic landscapes and uncover our ancient Celtic roots. Vast lochs, glens and Munros - easily accessible from our vibrant cities and towns - make Scotland the perfect place to lose yourself.</p>
-        </template>
-    </VsSectionHeader>
+    <section class="mt-500">
+        <VsSectionHeader
+            class="mb-200 mb-xl-300"
+            heading="Inspiration for your trip"
+        >
+            <template v-slot:section-header-lede>
+                <p>Step into a land steeped in history and legend, explore our dramatic landscapes and uncover our ancient Celtic roots. Vast lochs, glens and Munros - easily accessible from our vibrant cities and towns - make Scotland the perfect place to lose yourself.</p>
+            </template>
+        </VsSectionHeader>
 
     ${categoryCardContentSwiper({
     slidesVar: 'cardListOverlay',
 })}
+    </section>
 
     <!------------------------------------------------------------
     SECTION END
@@ -40,21 +42,22 @@ export default `
     <!------------------------------------------------------------
     NEW SECTION - Section header + search
     ------------------------------------------------------------>
-    <VsSectionHeader 
-        class="mt-500 mb-200 mb-xl-300"
-        heading="Discover unique experiences in Scotland"
-    >
-        <template v-slot:section-header-lede>
-            <p>
-                Discover hidden gems, plan your perfect trip, or find exactly what you need—from scenic hikes and cosy cottages to local events and cultural experiences. Start exploring now!
-            </p>
-        </template>
-    </VsSectionHeader>
+    <section class="mt-500">
+        <VsSectionHeader
+            class="mb-200 mb-xl-300"
+            heading="Discover unique experiences in Scotland"
+        >
+            <template v-slot:section-header-lede>
+                <p>
+                    Discover hidden gems, plan your perfect trip, or find exactly what you need—from scenic hikes and cosy cottages to local events and cultural experiences. Start exploring now!
+                </p>
+            </template>
+        </VsSectionHeader>
 
-    <VsContainer>
-        <VsRow>
-            <VsCol>
-                <VsFedSearchInput
+        <VsContainer>
+            <VsRow>
+                <VsCol>
+                    <VsFedSearchInput
                     search-url="/site-search-results"
                     :labels="{
                         search: 'Search',
@@ -106,7 +109,8 @@ export default `
                 />
             </VsCol>
         </VsRow>
-    </VsContainer>
+        </VsContainer>
+    </section>
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
@@ -115,10 +119,11 @@ export default `
     <!------------------------------------------------------------
     NEW SECTION - Spotlight section
     ------------------------------------------------------------>
-    <VsContainer class="mt-500">
-        <VsRow>
-            <VsCol>
-                <VsSpotlightSection 
+    <section class="mt-500">
+        <VsContainer>
+            <VsRow>
+                <VsCol>
+                    <VsSpotlightSection
                     heading="Scotland at night"
                     description="Ready to experience the magic of Scotland after dark? Watch the star-filled skies light up iconic landscapes and ancient sites. From the Isle of Coll to Galloway, discover the best dark sky spots – your gateway to the galaxy."
                     imageSrc="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/10/04/dark-skies-loch-morlich?size=lg"
@@ -127,7 +132,8 @@ export default `
                 />
             </VsCol>
         </VsRow>
-    </VsContainer>
+        </VsContainer>
+    </section>
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
@@ -136,24 +142,26 @@ export default `
     <!------------------------------------------------------------
     NEW SECTION - Section header + map
     ------------------------------------------------------------>
-    <VsSectionHeader 
-        class="mt-500 mb-200 mb-xl-300"
-        heading="Uncover Scotland's regions"
-    >
-        <template v-slot:section-header-lede>
-            <p>From the rugged coastline to sparkling city lights, the ancient Caledonian forests of the Highlands to the rich history of the Lowlands, there are plenty of places to start your Scottish adventure.</p>
-        </template>
-    </VsSectionHeader>
+    <section class="mt-500">
+        <VsSectionHeader
+            class="mb-200 mb-xl-300"
+            heading="Uncover Scotland's regions"
+        >
+            <template v-slot:section-header-lede>
+                <p>From the rugged coastline to sparkling city lights, the ancient Caledonian forests of the Highlands to the rich history of the Lowlands, there are plenty of places to start your Scottish adventure.</p>
+            </template>
+        </VsSectionHeader>
 
-    <VsContainer>
-        <VsRow>
-            <VsCol>
-                <div style="background: #E3FCFC; padding: 5rem;" class="text-center">
+        <VsContainer>
+            <VsRow>
+                <VsCol>
+                    <div style="background: #E3FCFC; padding: 5rem;" class="text-center">
                     <p>Map</p>
                 </div>
             </VsCol>
         </VsRow>
-    </VsContainer>
+        </VsContainer>
+    </section>
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
@@ -162,20 +170,22 @@ export default `
     <!------------------------------------------------------------
     NEW SECTION - Section header + content swiper
     ------------------------------------------------------------>
-    <VsSectionHeader 
-        class="mt-500 mb-200 mb-xl-300"
-        heading="Top tips for travelling to Scotland"
-    >
-        <template v-slot:section-header-lede>
-            <p>Planning a trip to Scotland? From practical driving advice to weather tips, entry requirements, and holiday planning, these guides will help you prepare for a smooth and memorable visit.</p>
-        </template>
-    </VsSectionHeader>
+    <section class="mt-500">
+        <VsSectionHeader
+            class="mb-200 mb-xl-300"
+            heading="Top tips for travelling to Scotland"
+        >
+            <template v-slot:section-header-lede>
+                <p>Planning a trip to Scotland? From practical driving advice to weather tips, entry requirements, and holiday planning, these guides will help you prepare for a smooth and memorable visit.</p>
+            </template>
+        </VsSectionHeader>
 
     ${splitCardContentSwiper({
     slidesVar: 'cardList1',
     slidesKey: '1',
     slidesPerViewXl: 4.4,
 })}
+    </section>
     
     <!------------------------------------------------------------
     SECTION END
@@ -184,10 +194,11 @@ export default `
     <!------------------------------------------------------------
     NEW SECTION - Spotlight section
     ------------------------------------------------------------>
-    <VsContainer class="mt-500">
-        <VsRow>
-            <VsCol>
-                <VsSpotlightSection 
+    <section class="mt-500">
+        <VsContainer>
+            <VsRow>
+                <VsCol>
+                    <VsSpotlightSection
                     heading="Whatever the season"
                     description="Autumn in Scotland is stunning. With dramatic landscapes, leafy cities, mild temperatures and dark starry skies, it's the perfect destination for an autumn break."
                     imageSrc="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2024/09/03/lady-marys-walk?size=lg"
@@ -196,7 +207,8 @@ export default `
                 />
             </VsCol>
         </VsRow>
-    </VsContainer>
+        </VsContainer>
+    </section>
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
@@ -205,20 +217,22 @@ export default `
     <!------------------------------------------------------------
     NEW SECTION - Section header + content swiper
     ------------------------------------------------------------>
-    <VsSectionHeader 
-        class="mt-500 mb-200 mb-xl-300"
-        heading="Not sure where to start?"
-    >
-        <template v-slot:section-header-lede>
-            <p>Step into a land steeped in history and legend, explore our dramatic landscapes and uncover our ancient Celtic roots. Vast lochs, glens and Munros - easily accessible from our vibrant cities and towns - make Scotland the perfect place to lose yourself.</p>
-        </template>
-    </VsSectionHeader>
+    <section class="mt-500">
+        <VsSectionHeader
+            class="mb-200 mb-xl-300"
+            heading="Not sure where to start?"
+        >
+            <template v-slot:section-header-lede>
+                <p>Step into a land steeped in history and legend, explore our dramatic landscapes and uncover our ancient Celtic roots. Vast lochs, glens and Munros - easily accessible from our vibrant cities and towns - make Scotland the perfect place to lose yourself.</p>
+            </template>
+        </VsSectionHeader>
 
     ${splitCardContentSwiper({
     slidesVar: 'cardList2',
     slidesKey: '2',
     slidesPerViewXl: 3.4,
 })}
+    </section>
 
     <!------------------------------------------------------------
     SECTION END
@@ -228,21 +242,21 @@ export default `
     <!------------------------------------------------------------
     NEW SECTION - Section header + content swiper
     ------------------------------------------------------------>
-    <VsSectionHeader 
-        class="mt-500 mb-200 mb-xl-300"
-        heading="Unmissable events in Scotland"
-    >
-        <template v-slot:section-header-lede>
-            <p>Events in Scotland have the power to amaze and inspire you. Our atmospheric crowds, iconic venues and picture-perfect landscapes play host to everything from concerts to sporting tournaments.</p>
-        </template>
-    </VsSectionHeader>
+    <section class="mt-500 mb-500">
+        <VsSectionHeader
+            class="mb-200 mb-xl-300"
+            heading="Unmissable events in Scotland"
+        >
+            <template v-slot:section-header-lede>
+                <p>Events in Scotland have the power to amaze and inspire you. Our atmospheric crowds, iconic venues and picture-perfect landscapes play host to everything from concerts to sporting tournaments.</p>
+            </template>
+        </VsSectionHeader>
 
-    <div class="mb-500">
-        ${eventCardContentSwiper({
+    ${eventCardContentSwiper({
     slidesVar: 'eventCardList',
     slidesKey: 'event',
 })}
-    </div>
+    </section>
     <!-----------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
