@@ -1,3 +1,11 @@
+# [5.69.0](https://github.com/visitscotland/vs-component-library/compare/v5.68.0...v5.69.0) (2026-07-06)
+
+
+### Features
+
+* **pages:** update page templates to use <section> so they are more semantic ([9aa96e5](https://github.com/visitscotland/vs-component-library/commit/9aa96e5c0a196faeaab5d3455251bccaee0d9397))
+* **spotlight:** swap section tag to div in spotlight for consistency in page ([7ccf713](https://github.com/visitscotland/vs-component-library/commit/7ccf71317dae0ac4f1dc12400552edcfefc0bca4))
+
 # [5.68.0](https://github.com/visitscotland/vs-component-library/compare/v5.67.0...v5.68.0) (2026-07-06)
 
 
