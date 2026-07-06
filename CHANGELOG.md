@@ -1,3 +1,13 @@
+# [5.68.0](https://github.com/visitscotland/vs-component-library/compare/v5.67.0...v5.68.0) (2026-07-06)
+
+
+### Features
+
+* **svg:** fix svg imports ([00da016](https://github.com/visitscotland/vs-component-library/commit/00da016ac6d0c5a8573e47f188986a412ffc4a86))
+* **svglink:** mark svglink component as deprecated ([0c544f9](https://github.com/visitscotland/vs-component-library/commit/0c544f985a9d01c905ca21eb3e7abcb55c144ac1))
+* **svg:** mark svg component as deprecated ([b62c95d](https://github.com/visitscotland/vs-component-library/commit/b62c95da43721b3a31d55ac4e167aeac22b105fb))
+* **svg:** remove use of svg and svglink in components so it can be safely deprecated ([2ffbbe6](https://github.com/visitscotland/vs-component-library/commit/2ffbbe61a4a21986997974452a58a300435989d0))
+
 # [5.67.0](https://github.com/visitscotland/vs-component-library/compare/v5.66.1...v5.67.0) (2026-07-03)
 
 
