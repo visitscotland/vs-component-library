@@ -1,6 +1,6 @@
 {
   "name": "@visitscotland/component-library",
-  "version": "5.68.0",
+  "version": "5.69.0",
   "description": "VisitScotland Component Library",
   "author": "VisitScotland",
   "homepage": "https://github.com/visitscotland/vs-component-library#readme",
@@ -63,7 +63,7 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.23.2",
-    "@babel/plugin-transform-runtime": "^8.0.1",
+    "@babel/plugin-transform-runtime": "^7.23.2",
     "@babel/preset-env": "^7.23.2",
     "@chromatic-com/storybook": "^5.2.1",
     "@eslint/js": "^10.0.1",
