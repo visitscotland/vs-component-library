@@ -46,22 +46,24 @@ export default `
     <!------------------------------------------------------------
     NEW SECTION - Section header + content swiper
     ------------------------------------------------------------>
-    <VsSectionHeader 
-        class="mt-500 mb-200 mb-xl-300"
-        heading="Understand sustainability"
-    >
-        <template v-slot:section-header-lede>
-            <p>
-                Scotland's natural beauty, rich heritage, and vibrant communities make it a world-class destination — but with this comes the responsibility to protect it for future generations. As a tourism business, you play a vital role in shaping a more sustainable industry, ensuring visitors enjoy Scotland's wonders while minimising environmental impact and supporting local communities.
-            </p>
-        </template>
-    </VsSectionHeader>
+    <section class="mt-500">
+        <VsSectionHeader
+            class="mb-200 mb-xl-300"
+            heading="Understand sustainability"
+        >
+            <template v-slot:section-header-lede>
+                <p>
+                    Scotland's natural beauty, rich heritage, and vibrant communities make it a world-class destination — but with this comes the responsibility to protect it for future generations. As a tourism business, you play a vital role in shaping a more sustainable industry, ensuring visitors enjoy Scotland's wonders while minimising environmental impact and supporting local communities.
+                </p>
+            </template>
+        </VsSectionHeader>
 
-    ${linkCardContentSwiper({
+        ${linkCardContentSwiper({
     slidesVar: 'infoCardList1',
     slidesKey: '1',
     slidesPerViewXl: 3.4,
 })}
+    </section>
 
     <!------------------------------------------------------------
     SECTION END
@@ -70,19 +72,21 @@ export default `
     <!------------------------------------------------------------
     NEW SECTION - Spotlight section
     ------------------------------------------------------------>
-    <VsContainer class="mt-500">
-        <VsRow>
-            <VsCol>
-                <VsSpotlightSection 
-                    heading="How to measure your climate impact"
-                    description="Measure your emissions with the Climate Impact Guide. See what data to gather, and how to use the insights for a more sustainable business model."
-                    imageSrc="https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/2-dec/gleneagles-hotel-couple"
-                    ctaLink="#"
-                    ctaText="Read the guide"
-                />
-            </VsCol>
-        </VsRow>
-    </VsContainer>
+    <section class="mt-500">
+        <VsContainer>
+            <VsRow>
+                <VsCol>
+                    <VsSpotlightSection
+                        heading="How to measure your climate impact"
+                        description="Measure your emissions with the Climate Impact Guide. See what data to gather, and how to use the insights for a more sustainable business model."
+                        imageSrc="https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/2-dec/gleneagles-hotel-couple"
+                        ctaLink="#"
+                        ctaText="Read the guide"
+                    />
+                </VsCol>
+            </VsRow>
+        </VsContainer>
+    </section>
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
@@ -91,22 +95,24 @@ export default `
     <!------------------------------------------------------------
     NEW SECTION - Section header + content swiper
     ------------------------------------------------------------>
-    <VsSectionHeader 
-        class="mt-500 mb-200 mb-xl-300"
-        heading="How to develop your sustainability journey"
-    >
-        <template v-slot:section-header-lede>
-            <p>
-                Step-by-step guidance to help you measure your impact, create an action plan, and make meaningful improvements to your business.
-            </p>
-        </template>
-    </VsSectionHeader>
+    <section class="mt-500">
+        <VsSectionHeader
+            class="mb-200 mb-xl-300"
+            heading="How to develop your sustainability journey"
+        >
+            <template v-slot:section-header-lede>
+                <p>
+                    Step-by-step guidance to help you measure your impact, create an action plan, and make meaningful improvements to your business.
+                </p>
+            </template>
+        </VsSectionHeader>
 
-    ${linkCardContentSwiper({
+        ${linkCardContentSwiper({
     slidesVar: 'infoCardList2',
     slidesKey: '2',
     slidesPerViewXl: 3.4,
 })}
+    </section>
 
     <!------------------------------------------------------------
     SECTION END
@@ -117,37 +123,39 @@ export default `
     NEW SECTION - Video highlight
     ------------------------------------------------------------>
 
-    <VsSectionHeader 
-        class="mt-500 mb-200 mb-xl-300"
-        heading="Watch our climate action workbook webinar"
-    >
-        <template v-slot:section-header-lede>
-            <p>
-                Join Tiomóid Foley, our Responsible Tourism - Net Zero Manager, to learn more about our climate action workbook in this webinar.
-            </p>
-        </template>
-    </VsSectionHeader>
+    <section class="mt-500">
+        <VsSectionHeader
+            class="mb-200 mb-xl-300"
+            heading="Watch our climate action workbook webinar"
+        >
+            <template v-slot:section-header-lede>
+                <p>
+                    Join Tiomóid Foley, our Responsible Tourism - Net Zero Manager, to learn more about our climate action workbook in this webinar.
+                </p>
+            </template>
+        </VsSectionHeader>
 
-    <VsContainer>
-        <VsRow>
-            <VsCol>
-                <VsVideo 
-                    video-id="Nz2iwpqsPlI"
-                    error-message="Sorry, something's gone wrong. Please try again later"
-                    no-js-message="You need Javascript enabled to see this video"
-                    no-cookies-message="You need cookies enabled to see this video"
-                    cookie-btn-text="Manage cookies"
-                />
-                <VsMediaCaption 
-                    video-id="Nz2iwpqsPlI"
-                >
-                    <template v-slot:caption>
-                        A promotional film inviting viewers to rediscover Scotland's landscapes and culture.
-                    </template>
-                </VsMediaCaption>
-            </VsCol>
-        </VsRow>
-    </VsContainer>
+        <VsContainer>
+            <VsRow>
+                <VsCol>
+                    <VsVideo
+                        video-id="Nz2iwpqsPlI"
+                        error-message="Sorry, something's gone wrong. Please try again later"
+                        no-js-message="You need Javascript enabled to see this video"
+                        no-cookies-message="You need cookies enabled to see this video"
+                        cookie-btn-text="Manage cookies"
+                    />
+                    <VsMediaCaption 
+                        video-id="Nz2iwpqsPlI"
+                    >
+                        <template v-slot:caption>
+                            A promotional film inviting viewers to rediscover Scotland's landscapes and culture.
+                        </template>
+                    </VsMediaCaption>
+                </VsCol>
+            </VsRow>
+        </VsContainer>
+    </section>
     
     <!------------------------------------------------------------
     SECTION END
@@ -157,22 +165,24 @@ export default `
     <!------------------------------------------------------------
     NEW SECTION - Section header + content swiper
     ------------------------------------------------------------>
-    <VsSectionHeader 
-        class="mt-500 mb-200 mb-xl-300"
-        heading="Guidance for sustainable tourism"
-    >
-        <template v-slot:section-header-lede>
-            <p>
-                Explore practical resources, tips, and tools to support long-term sustainability across your tourism operations and promotions.
-            </p>
-        </template>
-    </VsSectionHeader>
+    <section class="mt-500">
+        <VsSectionHeader
+            class="mb-200 mb-xl-300"
+            heading="Guidance for sustainable tourism"
+        >
+            <template v-slot:section-header-lede>
+                <p>
+                    Explore practical resources, tips, and tools to support long-term sustainability across your tourism operations and promotions.
+                </p>
+            </template>
+        </VsSectionHeader>
 
     ${linkCardContentSwiper({
     slidesVar: 'infoCardList3',
     slidesKey: '3',
     slidesPerViewXl: 3.4,
 })}
+    </section>
 
     <!------------------------------------------------------------
     SECTION END
@@ -181,19 +191,21 @@ export default `
     <!------------------------------------------------------------
     NEW SECTION - Spotlight section
     ------------------------------------------------------------>
-    <VsContainer class="mt-500">
-        <VsRow>
-            <VsCol>
-                <VsSpotlightSection 
-                    heading="Carbon emissions calculator methodology statement"
-                    description="Find out more on how our climate action workbook calculates your emissions."
-                    imageSrc="https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/03-mar/inversnaid-waterfall.jpg?size=md"
-                    ctaLink="#"
-                    ctaText="Read the guide"
-                />
-            </VsCol>
-        </VsRow>
-    </VsContainer>
+    <section class="mt-500">
+        <VsContainer>
+            <VsRow>
+                <VsCol>
+                    <VsSpotlightSection
+                        heading="Carbon emissions calculator methodology statement"
+                        description="Find out more on how our climate action workbook calculates your emissions."
+                        imageSrc="https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/03-mar/inversnaid-waterfall.jpg?size=md"
+                        ctaLink="#"
+                        ctaText="Read the guide"
+                    />
+                </VsCol>
+            </VsRow>
+        </VsContainer>
+    </section>
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
@@ -347,24 +359,24 @@ export default `
     NEW SECTION - Section header + content swiper
     ------------------------------------------------------------>
 
-    <VsSectionHeader 
-        class="mb-200 mb-xl-300"
-        heading="Related pages"
-    >
-        <template v-slot:section-header-lede>
-            <p>
-                Explore more guidance, tools and insights to support your tourism business. These pages offer practical advice tailored to different sectors and stages of growth.
-            </p>
-        </template>
-    </VsSectionHeader>
+    <section class="mb-500">
+        <VsSectionHeader
+            class="mb-200 mb-xl-300"
+            heading="Related pages"
+        >
+            <template v-slot:section-header-lede>
+                <p>
+                    Explore more guidance, tools and insights to support your tourism business. These pages offer practical advice tailored to different sectors and stages of growth.
+                </p>
+            </template>
+        </VsSectionHeader>
 
-    <div class="mb-500">
-        ${linkCardContentSwiper({
+    ${linkCardContentSwiper({
     slidesVar: 'infoCardList4',
     slidesKey: '4',
     slidesPerViewXl: 4.4,
 })}
-    </div>
+    </section>
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
