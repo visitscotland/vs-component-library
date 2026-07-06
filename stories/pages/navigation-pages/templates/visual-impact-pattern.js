@@ -40,11 +40,11 @@ export default `
     <!------------------------------------------------------------
     NEW SECTION - Section header + content swiper (Overlay)
     ------------------------------------------------------------>
-    <div class="mt-300">
-        ${categoryCardContentSwiper({
+    <section class="mt-300">
+    ${categoryCardContentSwiper({
     slidesVar: 'cardListOverlay',
 })}
-    </div>
+    </section>
 
     <!------------------------------------------------------------
     SECTION END
@@ -53,20 +53,22 @@ export default `
     <!------------------------------------------------------------
     NEW SECTION - Section header + content swiper (4 cards)
     ------------------------------------------------------------>
-    <VsSectionHeader 
-        class="mt-500 mb-200 mb-xl-300"
-        heading="Top things to do and experience in Scotland"
-    >
-        <template v-slot:section-header-lede>
-            <p>Explore the top things to do in Scotland, including must-see attractions, exciting experiences, and inspiring ways to enjoy the outdoors.</p>
-        </template>
-    </VsSectionHeader>
+    <section class="mt-500">
+        <VsSectionHeader
+            class="mb-200 mb-xl-300"
+            heading="Top things to do and experience in Scotland"
+        >
+            <template v-slot:section-header-lede>
+                <p>Explore the top things to do in Scotland, including must-see attractions, exciting experiences, and inspiring ways to enjoy the outdoors.</p>
+            </template>
+        </VsSectionHeader>
 
     ${splitCardContentSwiper({
     slidesVar: 'cardList1',
     slidesKey: '1',
     slidesPerViewXl: 4.4,
 })}
+    </section>
 
     <!------------------------------------------------------------
     SECTION END
@@ -76,20 +78,22 @@ export default `
      <!------------------------------------------------------------
     NEW SECTION - Section header + content swiper ( 3cards)
     ------------------------------------------------------------>
-    <VsSectionHeader 
-        class="mt-500 mb-200 mb-xl-300"
-        heading="Captivating Scottish events"
-    >
-        <template v-slot:section-header-lede>
-            <p>Discover new musicians you'll love forever, watch incredible athletes compete for gold or spend some time with the locals at authentic community events. It's a packed calendar all year round!</p>
-        </template>
-    </VsSectionHeader>
+    <section class="mt-500">
+        <VsSectionHeader
+            class="mb-200 mb-xl-300"
+            heading="Captivating Scottish events"
+        >
+            <template v-slot:section-header-lede>
+                <p>Discover new musicians you'll love forever, watch incredible athletes compete for gold or spend some time with the locals at authentic community events. It's a packed calendar all year round!</p>
+            </template>
+        </VsSectionHeader>
 
     ${splitCardContentSwiper({
     slidesVar: 'cardList2',
     slidesKey: '2',
     slidesPerViewXl: 3.4,
 })}
+    </section>
 
     <!------------------------------------------------------------
     SECTION END
@@ -99,16 +103,17 @@ export default `
     <!------------------------------------------------------------
     NEW SECTION - Spotlight section
     ------------------------------------------------------------>
-    <VsContainer class="mt-500">
-        <VsRow>
-            <VsCol>
-                <VsSpotlightSection 
-                    heading="Slow travel and wellness retreats"
-                    description="Slow down and explore Scotland's breathtaking scenery. Unplug, find moments of wellness, and savour every experience."
-                    imageSrc="fixtures/hero/images/lavendar-fields.jpg"
-                    ctaLink="#"
-                    ctaText="Explore slow travel adventures"
-                >
+    <section class="mt-500">
+        <VsContainer>
+            <VsRow>
+                <VsCol>
+                    <VsSpotlightSection
+                        heading="Slow travel and wellness retreats"
+                        description="Slow down and explore Scotland's breathtaking scenery. Unplug, find moments of wellness, and savour every experience."
+                        imageSrc="fixtures/hero/images/lavendar-fields.jpg"
+                        ctaLink="#"
+                        ctaText="Explore slow travel adventures"
+                    >
                     <template #vs-spotlight-section-media>
                         <VsVideo
                             ref="spotlightVideo"
@@ -133,10 +138,11 @@ export default `
                             @click="(val) => toggleVideo('spotlightVideo')"
                         />
                     </template>
-                </VsSpotlightSection>
-            </VsCol>
-        </VsRow>
-    </VsContainer>
+                    </VsSpotlightSection>
+                </VsCol>
+            </VsRow>
+        </VsContainer>
+    </section>
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
@@ -144,10 +150,11 @@ export default `
     <!------------------------------------------------------------
     NEW SECTION - Section header + content swiper ( 4 cards)
     ------------------------------------------------------------>
-    <VsSectionHeader 
-        class="mt-500 mb-200 mb-xl-300"
-        heading="Magical places to visit"
-    >
+    <section class="mt-500">
+        <VsSectionHeader
+            class="mb-200 mb-xl-300"
+            heading="Magical places to visit"
+        >
         <template v-slot:section-header-lede>
             <p>Make new memories at some of our most popular attractions, uncover incredible film locations, or get up and close with Scotland's stunning landscapes and wildlife.</p>
         </template>
@@ -158,6 +165,7 @@ export default `
     slidesKey: '3',
     slidesPerViewXl: 4.4,
 })}
+    </section>
 
     <!------------------------------------------------------------
     SECTION END
@@ -166,10 +174,11 @@ export default `
     <!------------------------------------------------------------
     NEW SECTION - Section header + content swiper ( 3 cards)
     ------------------------------------------------------------>
-    <VsSectionHeader 
-        class="mt-500 mb-200 mb-xl-300"
-        heading="Plan your trip"
-    >
+    <section class="mt-500">
+        <VsSectionHeader
+            class="mb-200 mb-xl-300"
+            heading="Plan your trip"
+        >
         <template v-slot:section-header-lede>
             <p>
                 Choose from inspiring tours and itineraries to help you make the most of your time in Scotland — whether it's a road trip, city break or scenic adventure.
@@ -182,6 +191,7 @@ export default `
     slidesKey: '5',
     slidesPerViewXl: 3.4,
 })}
+    </section>
 
     <!------------------------------------------------------------
     SECTION END
@@ -191,19 +201,21 @@ export default `
     <!------------------------------------------------------------
     NEW SECTION - Spotlight section
     ------------------------------------------------------------>
-    <VsContainer class="mt-500">
-        <VsRow>
-            <VsCol>
-                <VsSpotlightSection 
-                    heading="Film & TV locations"
-                    description="This country has produced its fair share of top Hollywood names, and there have been a surprising number of movies filmed in Scotland, too."
-                    imageSrc="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/05/outlander-image"
-                    ctaLink="#"
-                    ctaText="See the Locations"
-                />
-            </VsCol>
-        </VsRow>
-    </VsContainer>
+    <section class="mt-500">
+        <VsContainer>
+            <VsRow>
+                <VsCol>
+                    <VsSpotlightSection
+                        heading="Film & TV locations"
+                        description="This country has produced its fair share of top Hollywood names, and there have been a surprising number of movies filmed in Scotland, too."
+                        imageSrc="https://2f1a7f9478.visitscotland.net/binaries/content/gallery/visitscotland/cms-images/2022/07/05/outlander-image"
+                        ctaLink="#"
+                        ctaText="See the Locations"
+                    />
+                </VsCol>
+            </VsRow>
+        </VsContainer>
+    </section>
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
@@ -212,10 +224,11 @@ export default `
     <!------------------------------------------------------------
     NEW SECTION - Section header + content swiper ( 4 cards)
     ------------------------------------------------------------>
-    <VsSectionHeader 
-        class="mt-500 mb-200 mb-xl-300"
-        heading="Make the most of your visit"
-    >
+    <section class="mt-500">
+        <VsSectionHeader
+            class="mb-200 mb-xl-300"
+            heading="Make the most of your visit"
+        >
         <template v-slot:section-header-lede>
             <p>
                 Sample Scotland's delicious local food and drink, shopping, and find the best passes and offers to make your trip even more rewarding.
@@ -228,6 +241,7 @@ export default `
     slidesKey: '6',
     slidesPerViewXl: 4.4,
 })}
+    </section>
 
     <!------------------------------------------------------------
     SECTION END
@@ -237,10 +251,11 @@ export default `
     <!------------------------------------------------------------
     NEW SECTION - Section header + content swiper ( 4 cards)
     ------------------------------------------------------------>
-    <VsSectionHeader 
-        class="mt-500 mb-200 mb-xl-300"
-        heading="Top tips for travelling to Scotland"
-    >
+    <section class="mt-500 mb-500">
+        <VsSectionHeader
+            class="mb-200 mb-xl-300"
+            heading="Top tips for travelling to Scotland"
+        >
         <template v-slot:section-header-lede>
             <p>Find out everything you need to know before you explore Scotland.</p>
         </template>
@@ -252,13 +267,12 @@ export default `
         </template>
     </VsSectionHeader>
 
-    <div class="mb-500">
-        ${splitCardContentSwiper({
+    ${splitCardContentSwiper({
     slidesVar: 'cardList4',
     slidesKey: '4',
     slidesPerViewXl: 4.4,
 })}
-    </div>
+    </section>
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
