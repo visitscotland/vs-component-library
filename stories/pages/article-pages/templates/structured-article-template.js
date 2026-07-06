@@ -173,7 +173,7 @@ export default `
     ------------------------------------------------------------>
     <section class="mt-500">
         <VsContainer>
-            <VsRow class="mt-500">
+            <VsRow>
                 <!-- First col: Section heading -->
                 <VsCol
                     cols="12"
