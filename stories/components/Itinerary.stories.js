@@ -6,7 +6,7 @@ import VsDescriptionList from '@/components/description-list/DescriptionList.vue
 import VsDescriptionListItem from '@/components/description-list/components/DescriptionListItem.vue';
 import VsTooltip from '@/components/tooltip/Tooltip.vue';
 import VsLink from '@/components/link/Link.vue';
-import VsSvg from '@/components/svg/Svg.vue';
+import VsImg from '@/components/img/Img.vue';
 import VsAddress from '@/components/address/Address.vue';
 import VsItineraryStopInfo from '@/components/itineraries/components/ItineraryStopInfo.vue';
 import VsItineraryTips from '@/components/itineraries/components/ItineraryTips.vue';
@@ -37,7 +37,7 @@ const Template = (args) => ({
         VsLink,
         VsIconList,
         VsIconListItem,
-        VsSvg,
+        VsImg,
         VsAddress,
         VsImageWithCaption,
         VsCaption,
@@ -189,7 +189,7 @@ const Template = (args) => ({
                                         </div>
                                     </template>
                                     <template v-slot:svg>
-                                        <VsSvg path="highland-cow" />
+                                        <VsImg src="./svg/highland-cow.svg" />
                                     </template>
                                 </VsItineraryTips>
                             </template>
