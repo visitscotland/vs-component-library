@@ -6,14 +6,22 @@
             sidebar-title="Navigation menu"
         >
             <template #logo-link>
-                <VsSvgLink
-                    link-alt-text="VisitScotland Home"
+                <VsLink 
                     href="#"
-                    :svg-fill="tokens['vs-color-background-brand']"
-                    svg-path="visitscotland-logo"
-                    svg-width="167px"
-                    svg-height="28px"
-                />
+                    data-layer-value="homePageLogoClickDataEvent"
+                >
+                    <span
+                        class="visually-hidden"
+                        data-test="link-alt-text"
+                    >
+                        VisitScotland Home
+                    </span>
+                    <VsImg 
+                        :src="visitscotlandLogo"
+                        style="width: 167px;"
+                        :use-lazy-loading="false"
+                    />
+                </VsLink>
             </template>
 
             <template #navigation-bar-menu>
@@ -232,8 +240,8 @@ import VsNavigationBarMenu from '@/components/navigation-bar/components/Navigati
 import VsNavigationBarMenuItem from '@/components/navigation-bar/components/NavigationBarMenuItem.vue';
 import VsNavigationBarMenuDropdown from '@/components/navigation-bar/components/NavigationBarMenuDropdown.vue';
 import VsNavigationBarSearch from '@/components/navigation-bar/components/NavigationBarSearch.vue';
-import VsSvgLink from '@/components/svg-link/SvgLink.vue';
 import VsLink from '@/components/link/Link.vue';
+import VsImg from '@/components/img/Img.vue';
 import VsAccordion from '@/components/accordion/Accordion.vue';
 import VsAccordionItem from '@/components/accordion/components/AccordionItem.vue';
 import VsDivider from '@/components/divider/Divider.vue';
@@ -243,6 +251,7 @@ import VsButton from '@/components/button/Button.vue';
 import b2bNav from '@/assets/fixtures/navigation-bar/b2b-nav.json';
 import b2cNav from '@/assets/fixtures/navigation-bar/b2c-nav.json';
 import designTokens from '@/assets/tokens/tokens.json';
+import visitscotlandLogo from '@/assets/svg/visitscotland-logo.svg';
 
 /**
  * @displayName Page Header
@@ -257,13 +266,13 @@ export default {
         VsNavigationBarMenuItem,
         VsNavigationBarMenuDropdown,
         VsNavigationBarSearch,
-        VsSvgLink,
         VsLink,
         VsAccordion,
         VsAccordionItem,
         VsDivider,
         VsTooltip,
         VsButton,
+        VsImg,
     },
     props: {
         /**
@@ -282,6 +291,7 @@ export default {
                 b2b: b2bNav,
             },
             tokens: designTokens,
+            visitscotlandLogo,
         };
     },
     computed: {
