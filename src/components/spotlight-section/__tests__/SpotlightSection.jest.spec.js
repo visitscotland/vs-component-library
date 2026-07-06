@@ -16,9 +16,9 @@ const factoryShallowMount = (propsData) => shallowMount(VsSpotlightSection, {
 describe('VsSpotlightSection', () => {
     it('should render a spotlight section component', () => {
         const wrapper = factoryShallowMount();
-        const section = wrapper.find('section[data-test=vs-spotlight-section]');
+        const spotlightSection = wrapper.find('div[data-test=vs-spotlight-section]');
 
-        expect(section.exists()).toBe(true);
+        expect(spotlightSection.exists()).toBe(true);
         expect(wrapper.classes()).toContain('vs-spotlight-section');
     });
 
