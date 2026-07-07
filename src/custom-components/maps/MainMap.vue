@@ -222,6 +222,7 @@ import cookieCheckerComposable from './composables/verifyCookiesComposable';
 import dataLayerComposable from './composables/dataLayerComposable';
 
 import useViewportController from './composables/useViewportController';
+import useUpdateSearchParams from './composables/useUpdateSearchParams';
 
 const dataLayerHelper = dataLayerComposable();
 
@@ -474,6 +475,8 @@ const {
     showSearchAreaButton,
 } = useViewportController();
 
+const { getSearchParams, updateSearchParams } = useUpdateSearchParams();
+
 onBeforeMount(() => {
     const cookieCheck = cookieCheckerComposable();
     cookieCheck.requiredCookies.value = cookieValues.google_maps;
@@ -613,6 +616,20 @@ onMounted(async() => {
             mapLoaded.value = true;
 
             addDestinationMarkers();
+
+            // Search a search if there are parameters in the URL.
+            const {
+                category,
+                location,
+            } = getSearchParams();
+
+            if (location) {
+                const placeData = props.featuredPlaces.find((place) => (
+                    place.properties.title.toLowerCase() === location.toLowerCase()
+                ));
+                handleFeaturedLocationClick(placeData, category);
+            }
+
         });
 
         gMap.addListener('idle', () => {
@@ -1010,6 +1027,11 @@ async function searchByCategory({
     }, {
         once: true,
     });
+
+    updateSearchParams({
+        location: selectedDestination.value.toLowerCase(),
+        category: selectedTopLevelCategory.value,
+    });
 }
 
 async function searchByText(useRestriction = false) {
@@ -1202,6 +1224,12 @@ function resetMap(hardReset, resetLocation) {
     clearExistingMarkers();
     currentSearch.value = '';
 
+    // Remove the search params.
+    updateSearchParams({
+        location: null,
+        category: null,
+    });
+
     // Reset nearby search.
     nearbySearchQuery.includedTypes = null;
     nearbySearchQuery.excludedTypes = null;
@@ -1388,7 +1416,7 @@ function getVisibleMarkerCount() {
 
 const selectedDestination = ref('');
 
-function handleFeaturedLocationClick(place) {
+function handleFeaturedLocationClick(place, category) {
     googleMapStore.showDestinations = false;
     selectedDestination.value = place.properties.title;
 
@@ -1416,7 +1444,11 @@ function handleFeaturedLocationClick(place) {
         ),
     ));
 
-    selectCategory('things-to-do', 2);
+    updateSearchParams({
+        location: place.properties.title.toLowerCase(),
+    });
+
+    selectCategory(category || 'things-to-do', 2);
 }
 
 /**
