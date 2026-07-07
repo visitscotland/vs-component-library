@@ -983,9 +983,10 @@ async function searchByCategory({
     // searches and 25km for all other searches.
     let cappedDistance = 25000;
 
-    if (googleMapStore.selectedDestinationType === 'regions'
+    if ((googleMapStore.selectedDestinationType === 'regions' && selectedDestination.value !== 'Fife')
         || (googleMapStore.selectedDestinationType === 'islands' && selectedDestination.value === 'Shetland')
         || (googleMapStore.selectedDestinationType === 'islands' && selectedDestination.value === 'Orkney')
+
     ) {
         cappedDistance = 50000;
     }

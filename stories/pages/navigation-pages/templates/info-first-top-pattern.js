@@ -42,19 +42,21 @@ export default `
     <!------------------------------------------------------------
     NEW SECTION - Spotlight section
     ------------------------------------------------------------>
-    <VsContainer class="mt-500">
-        <VsRow>
-            <VsCol>
-                <VsSpotlightSection 
-                    heading="Support by sector"
-                    description="Find tailored advice and case studies for accommodation, active and outdoor, events and festivals, food and drink and visitor attraction sectors."
-                    imageSrc="https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/20-jan/cairnie-fruit-farm"
-                    ctaLink="#"
-                    ctaText="Find sector support"
-                />
-            </VsCol>
-        </VsRow>
-    </VsContainer>
+    <section class="mt-500">
+        <VsContainer>
+            <VsRow>
+                <VsCol>
+                    <VsSpotlightSection
+                        heading="Support by sector"
+                        description="Find tailored advice and case studies for accommodation, active and outdoor, events and festivals, food and drink and visitor attraction sectors."
+                        imageSrc="https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/20-jan/cairnie-fruit-farm"
+                        ctaLink="#"
+                        ctaText="Find sector support"
+                    />
+                </VsCol>
+            </VsRow>
+        </VsContainer>
+    </section>
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
@@ -63,20 +65,22 @@ export default `
     <!------------------------------------------------------------
     NEW SECTION - Section header + content swiper
     ------------------------------------------------------------>
-    <VsSectionHeader 
-        class="mt-500 mb-200 mb-xl-300"
-        heading="Advice for each stage of your journey"
-    >
-        <template v-slot:section-header-lede>
-            <p>Whatever stage you're at - whether you just have an idea, or you've been welcoming customers for over 20 years, there's always room for sustainable growth.</p>
-        </template>
-    </VsSectionHeader>
+    <section class="mt-500">
+        <VsSectionHeader
+            class="mb-200 mb-xl-300"
+            heading="Advice for each stage of your journey"
+        >
+            <template v-slot:section-header-lede>
+                <p>Whatever stage you're at - whether you just have an idea, or you've been welcoming customers for over 20 years, there's always room for sustainable growth.</p>
+            </template>
+        </VsSectionHeader>
 
     ${linkCardContentSwiper({
     slidesVar: 'textCardList1',
     slidesKey: '1',
     slidesPerViewXl: 4.4,
 })}
+    </section>
 
     <!------------------------------------------------------------
     SECTION END
@@ -85,19 +89,21 @@ export default `
     <!------------------------------------------------------------
     NEW SECTION - Spotlight section
     ------------------------------------------------------------>
-    <VsContainer class="mt-500">
-        <VsRow>
-            <VsCol>
-                <VsSpotlightSection 
-                    heading="Sustainability"
-                    description="Sustainably grow your tourism or events business with actionable green strategies."
-                    imageSrc="https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/12-mar/loch-affric"
-                    ctaLink="#"
-                    ctaText="Explore sustainability"
-                />
-            </VsCol>   
-        </VsRow>
-    </VsContainer>
+    <section class="mt-500">
+        <VsContainer>
+            <VsRow>
+                <VsCol>
+                    <VsSpotlightSection
+                        heading="Sustainability"
+                        description="Sustainably grow your tourism or events business with actionable green strategies."
+                        imageSrc="https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/12-mar/loch-affric"
+                        ctaLink="#"
+                        ctaText="Explore sustainability"
+                    />
+                </VsCol>
+            </VsRow>
+        </VsContainer>
+    </section>
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>
@@ -106,17 +112,19 @@ export default `
     <!------------------------------------------------------------
     NEW SECTION - Section header + content swiper
     ------------------------------------------------------------>
-    <VsSectionHeader 
-        class="mt-500 mb-200 mb-xl-300"
-        heading="Related pages"
-    >
-    </VsSectionHeader>
+    <section class="mt-500">
+        <VsSectionHeader
+            class="mb-200 mb-xl-300"
+            heading="Related pages"
+        >
+        </VsSectionHeader>
 
     ${linkCardContentSwiper({
     slidesVar: 'textCardList2',
     slidesKey: '2',
     slidesPerViewXl: 4.4,
 })}
+    </section>
 
     <!------------------------------------------------------------
     SECTION END
@@ -125,19 +133,21 @@ export default `
     <!------------------------------------------------------------
     NEW SECTION - Spotlight section
     ------------------------------------------------------------>
-    <VsContainer class="mt-500 mb-500">
-        <VsRow>
-            <VsCol>
-                <VsSpotlightSection 
-                    heading="Sign up for the latest advice"
-                    description="Get expert tips, case studies, and business advice straight to your inbox with our monthly Business Support newsletter."
-                    ctaLink="#"
-                    ctaText="Join the newsletter"
-                    compact
-                />
-            </VsCol>   
-        </VsRow>
-    </VsContainer>
+    <section class="mt-500 mb-500">
+        <VsContainer>
+            <VsRow>
+                <VsCol>
+                    <VsSpotlightSection
+                        heading="Sign up for the latest advice"
+                        description="Get expert tips, case studies, and business advice straight to our inbox with our monthly Business Support newsletter."
+                        ctaLink="#"
+                        ctaText="Join the newsletter"
+                        compact
+                    />
+                </VsCol>
+            </VsRow>
+        </VsContainer>
+    </section>
     <!------------------------------------------------------------
     SECTION END
     ------------------------------------------------------------>          
