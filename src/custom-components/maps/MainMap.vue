@@ -1059,7 +1059,11 @@ async function searchByText(useRestriction = false) {
      * Add 'in Scotland' to the end of the text query to help contain the
      * results to Scotland.
      */
-    textSearchQuery.textQuery = `${query.value} in Scotland`;
+    if (selfCateringClicked.value) {
+        textSearchQuery.textQuery = 'self catering in Scotland';
+    } else {
+        textSearchQuery.textQuery = `${query.value} in Scotland`;
+    }
 
     textSearchQuery.maxResultCount = NUMBER_OF_RESULTS;
 
