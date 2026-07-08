@@ -30,7 +30,6 @@ imports:
   - ./font-size.yml
   - ./opacity.yml
   - ./timing.yml
-  - ./utility.yml
   - ./themes.yml
 
 global:
