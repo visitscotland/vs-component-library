@@ -1,3 +1,10 @@
+## [5.69.1](https://github.com/visitscotland/vs-component-library/compare/v5.69.0...v5.69.1) (2026-07-08)
+
+
+### Bug Fixes
+
+* **main map:** always use the english query for self catering ([be0ed09](https://github.com/visitscotland/vs-component-library/commit/be0ed090f2aa2ee6026323fb3435579af01f1454))
+
 # [5.69.0](https://github.com/visitscotland/vs-component-library/compare/v5.68.0...v5.69.0) (2026-07-06)
 
 
