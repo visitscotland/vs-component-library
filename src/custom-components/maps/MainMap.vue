@@ -1422,7 +1422,7 @@ function searchArea() {
         position: relative;
 
         @include media-breakpoint-down(md) {
-            height: 98vh;
+            height: 90vh;
         }
     }
 

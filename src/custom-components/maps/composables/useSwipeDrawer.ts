@@ -20,7 +20,7 @@ export default function useSwipeDrawer(isOpen: Ref<boolean>, sidebar: Ref<HTMLEl
     const SWIPE_THRESHOLD = 30;
 
     // Set the how much of the sidebar is visible when it's closed.
-    peekHeight.value = Math.min(250, window.innerHeight * 0.3);
+    
     const closedPosition = computed(() =>
         Math.max(0, sidebarHeight.value - peekHeight.value),
     );
@@ -127,6 +127,8 @@ export default function useSwipeDrawer(isOpen: Ref<boolean>, sidebar: Ref<HTMLEl
         sidebarHeight.value = sidebar.value
             ? sidebar.value.getBoundingClientRect().height
             : 500;
+        
+        peekHeight.value = Math.min(250, window.innerHeight * 0.3);
 
         currentY.value = closedPosition.value;
         isMobile.value = window.innerWidth < 768;
