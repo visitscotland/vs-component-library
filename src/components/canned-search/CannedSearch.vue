@@ -450,7 +450,7 @@ export default {
         margin-bottom: $vs-spacer-300;
 
         .vs-button {
-            margin: $vs-spacer-0 $vs-spacer-050 $vs-spacer-050;
+            margin: 0 $vs-spacer-050 $vs-spacer-050;
         }
     }
 

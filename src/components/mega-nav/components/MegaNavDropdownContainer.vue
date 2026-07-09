@@ -133,7 +133,7 @@ export default {
     .vs-mega-nav-dropdown-container {
         &__featured {
             @include media-breakpoint-up(lg) {
-                margin: $vs-spacer-050 $vs-spacer-0 $vs-spacer-125 $vs-spacer-150;
+                margin: $vs-spacer-050 0 $vs-spacer-125 $vs-spacer-150;
                 position: absolute;
                 right: 0;
                 top: 0;
@@ -153,7 +153,7 @@ export default {
                 &--bottom {
                     bottom: 0;
                     top: auto;
-                    margin-bottom: $vs-spacer-0;
+                    margin-bottom: 0;
                 }
 
                 &--left {

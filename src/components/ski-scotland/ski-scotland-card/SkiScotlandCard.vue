@@ -614,7 +614,7 @@ export default {
         }
 
         .vs-heading {
-            margin-top: $vs-spacer-0;
+            margin-top: 0;
         }
 
         .vs-button {

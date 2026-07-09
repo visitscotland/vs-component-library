@@ -215,7 +215,7 @@ watch(() => props.numberOfPages, () => {
         display: flex;
         flex-direction: row;
         list-style: none;
-        padding-left: $vs-spacer-0;
+        padding-left: 0;
 
         @include media-breakpoint-down(md) {
             display: none;

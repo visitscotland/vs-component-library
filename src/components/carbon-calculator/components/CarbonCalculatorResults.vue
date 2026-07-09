@@ -413,7 +413,7 @@ export default {
         }
 
         .vs-carbon-calculator-results__unicorn-content {
-            margin-bottom: $vs-spacer-0;
+            margin-bottom: 0;
 
             p:last-of-type{
                 margin-bottom: 0;

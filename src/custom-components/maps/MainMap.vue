@@ -1564,20 +1564,20 @@ function searchArea() {
         flex: 1;
         height: fit-content;
         width: calc(100vw - $vs-spacer-100);
-        margin: $vs-spacer-050 $vs-spacer-0;
+        margin: $vs-spacer-050 0;
         padding: $vs-spacer-025 $vs-spacer-025 $vs-spacer-050 $vs-spacer-025;
         pointer-events: all;
 
         @include scrollsnap-styles;
 
         &::-webkit-scrollbar-track {
-            margin: $vs-spacer-0 $vs-spacer-100 $vs-spacer-0 $vs-spacer-0;
+            margin: 0 $vs-spacer-100 0 0;
         }
 
         @include media-breakpoint-up(md) {
             width: fit-content;
             overflow-x: auto;
-            margin: $vs-spacer-075 $vs-spacer-0 $vs-spacer-0 $vs-spacer-100;
+            margin: $vs-spacer-075 0 0 $vs-spacer-100;
         }
 
         @include media-breakpoint-up(lg) {

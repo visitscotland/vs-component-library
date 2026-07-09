@@ -7,7 +7,9 @@
         >
             <div class="vs-quote-new__wrapper">
                 <VsBody class="vs-quote__text">
-                    <slot name="quote-content">{{ quoteText }}</slot>
+                    <slot name="quote-content">
+                        {{ quoteText }}
+                    </slot>
                 </VsBody>
                 <VsDetail
                     v-if="quoteName || $slots['quote-details']"
@@ -109,7 +111,8 @@ export default {
         /**
          * Sets the quote text content.
          *
-         * @deprecated Use the `quote-content` slot instead. Will be removed in a future major release.
+         * @deprecated Use the `quote-content` slot instead. 
+         * Will be removed in a future major release.
          */
         quoteText: {
             type: String,
@@ -227,7 +230,7 @@ export default {
 
     &__author-name {
         font-weight: $vs-font-weight-medium;
-        margin-bottom: $vs-spacer-0;
+        margin-bottom: 0;
 
         @include media-breakpoint-up(md) {
             margin-bottom: $vs-spacer-025;
@@ -236,7 +239,7 @@ export default {
     }
 
     &__author-title {
-        margin-bottom: $vs-spacer-0;
+        margin-bottom: 0;
 
         @include media-breakpoint-up(md) {
             font-size: $font-size-5;

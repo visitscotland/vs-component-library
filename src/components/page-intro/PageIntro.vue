@@ -274,7 +274,7 @@ export default {
             }
 
             .breadcrumb {
-                margin-bottom: $vs-spacer-0;
+                margin-bottom: 0;
                 flex-wrap: nowrap;
             }
         }
@@ -305,7 +305,7 @@ export default {
         }
 
         .vs-image-with-caption__captions {
-            padding: $vs-spacer-0 $vs-spacer-100;
+            padding: 0 $vs-spacer-100;
         }
     }
 
@@ -340,7 +340,7 @@ export default {
         }
 
         .vs-hero {
-            margin-bottom: $vs-spacer-0;
+            margin-bottom: 0;
 
             .vs-caption {
                 @include media-breakpoint-up(lg) {

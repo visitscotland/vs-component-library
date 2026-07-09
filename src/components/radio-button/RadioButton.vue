@@ -291,7 +291,7 @@ export default {
 
     .vs-radio-button {
         width: 100%;
-        margin: -#{$vs-spacer-075} $vs-spacer-0;
+        margin: -#{$vs-spacer-075} 0;
 
         .vs-radio-button__option {
             display: inline-block;
@@ -299,7 +299,7 @@ export default {
             cursor: pointer;
             box-sizing: border-box;
             background-color: $vs-color-interaction-cta-secondary;
-            padding: $vs-spacer-075 $vs-spacer-0;
+            padding: $vs-spacer-075 0;
             width: 100%;
             font-size: $font-size-4;
 
@@ -308,11 +308,11 @@ export default {
                 width: 50%;
 
                 &:nth-of-type(odd) {
-                    padding-left: $vs-spacer-0;
+                    padding-left: 0;
                 }
 
                 &:nth-of-type(even) {
-                    padding-right: $vs-spacer-0;
+                    padding-right: 0;
                 }
             }
 

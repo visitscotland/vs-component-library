@@ -71,14 +71,14 @@ export default {
 
         @include media-breakpoint-up(md) {
             margin-left: 0;
-            padding: $vs-spacer-200 $vs-spacer-0 $vs-spacer-025;
+            padding: $vs-spacer-200 0 $vs-spacer-025;
         }
     }
 
     @include media-breakpoint-up(md) {
         &--right{
             .vs-article-sidebar__quote-wrapper {
-                padding-left: $vs-spacer-0;
+                padding-left: 0;
                 padding-right: $vs-spacer-125;
             }
         }
@@ -86,7 +86,7 @@ export default {
         &--left{
             .vs-article-sidebar__quote-wrapper {
                 padding-left: $vs-spacer-125;
-                padding-right: $vs-spacer-0;
+                padding-right: 0;
             }
         }
     }

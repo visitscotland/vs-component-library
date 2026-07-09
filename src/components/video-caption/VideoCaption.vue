@@ -343,7 +343,7 @@ export default {
                 width: $vs-spacer-400;
                 height: $vs-spacer-400;
                 position: relative;
-                padding: $vs-spacer-0;
+                padding: 0;
                 font-size: 0;
 
                 .vs-icon {
@@ -382,7 +382,7 @@ export default {
 
         .vs-video-caption__buttons-container {
             .container {
-                padding: $vs-spacer-0;
+                padding: 0;
             }
 
             .vs-video-caption__button {

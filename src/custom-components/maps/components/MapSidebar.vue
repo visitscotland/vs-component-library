@@ -248,7 +248,7 @@ function setCategoryIcon(id) {
     }
 
     &__input input {
-        margin: $vs-spacer-0;
+        margin: 0;
         border-radius: $vs-radius-small $vs-radius-none $vs-radius-none $vs-radius-small;
         border-right: none;
         height: 52px;
@@ -283,7 +283,7 @@ function setCategoryIcon(id) {
         overflow-y: scroll;
 
         @include media-breakpoint-down(sm) {
-            margin-top: $vs-spacer-0;
+            margin-top: 0;
             max-height: clamp(160px, 20em, 32vh);
         }
     }

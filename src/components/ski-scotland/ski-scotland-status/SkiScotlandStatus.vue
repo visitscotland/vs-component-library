@@ -1112,7 +1112,7 @@ export default {
 
             @include media-breakpoint-up(md) {
                 margin-bottom: $vs-spacer-175;
-                margin-top: $vs-spacer-0;
+                margin-top: 0;
             }
 
             li {
@@ -1151,10 +1151,10 @@ export default {
         }
 
         &__run-status-table {
-            margin-bottom: $vs-spacer-0;
+            margin-bottom: 0;
 
             p {
-                margin-bottom: $vs-spacer-0;
+                margin-bottom: 0;
             }
 
             thead th {
