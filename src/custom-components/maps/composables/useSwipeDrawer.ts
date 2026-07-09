@@ -18,9 +18,9 @@ export default function useSwipeDrawer(isOpen: Ref<boolean>, sidebar: Ref<HTMLEl
 
     const OPEN_POSITION = 0;
     const SWIPE_THRESHOLD = 30;
+    const HEADER_HEIGHT = 81;
 
     // Set the how much of the sidebar is visible when it's closed.
-    
     const closedPosition = computed(() =>
         Math.max(0, sidebarHeight.value - peekHeight.value),
     );
@@ -28,11 +28,13 @@ export default function useSwipeDrawer(isOpen: Ref<boolean>, sidebar: Ref<HTMLEl
     // Set the sidebar style, depending on
     // - if it's being dragged or not.
     // - if it's open or closed.
-    const sidebarStyle = computed(() =>{ 
+    const sidebarStyle = computed(() => { 
         // Only set the style if on mobile.
         if (!isMobile.value) return undefined;
 
         return {
+            height: `calc(100vh - ${HEADER_HEIGHT}px)`,
+            top: `${HEADER_HEIGHT}px`,
             transform: `translateY(${currentY.value}px)`,
             transition: isDragging.value
                 ? 'none'
@@ -85,27 +87,24 @@ export default function useSwipeDrawer(isOpen: Ref<boolean>, sidebar: Ref<HTMLEl
                 isOpen.value = false;
             }
         }
-
-        window.removeEventListener('pointermove', onDrag);
-        window.removeEventListener('pointerup', endDrag);
     }
+
     /**
      * Add event listeners when the user clicks/touches the drawer.
      * 
      * @param {PointerEvent} event: - pointer move event.
      */
     function startDrag(event: PointerEvent) {
-        console.log('startDrag');
         // Only allow users to drag the sidebar when on small screen size.
         if (window.innerWidth >= 768) return;
+
+        const element = event.currentTarget as HTMLElement;
+        element.setPointerCapture(event.pointerId);
 
         isDragging.value = true;
 
         startY.value = event.clientY;
         startTranslate.value = currentY.value;
-
-        window.addEventListener('pointermove', onDrag);
-        window.addEventListener('pointerup', endDrag);
     }
 
     /**
@@ -123,6 +122,12 @@ export default function useSwipeDrawer(isOpen: Ref<boolean>, sidebar: Ref<HTMLEl
     });
 
     onMounted(() => {
+        // Prevent the body from scrolling on mobile.
+        if (isMobile.value) {
+            document.documentElement.classList.add('map-page');
+            document.body.classList.add('map-page');
+        }
+    
         // Set the position of the drawer when the component is mounted.
         sidebarHeight.value = sidebar.value
             ? sidebar.value.getBoundingClientRect().height
@@ -138,12 +143,15 @@ export default function useSwipeDrawer(isOpen: Ref<boolean>, sidebar: Ref<HTMLEl
     });
 
     onUnmounted(() => {
-        window.removeEventListener('pointermove', onDrag);
-        window.removeEventListener('pointerup', endDrag);
+        document.documentElement.classList.remove('map-page');
+        document.body.classList.remove('map-page');
+
         window.removeEventListener('resize', onResize);
     });
 
     return {
+        endDrag,
+        onDrag,
         sidebarStyle,
         startDrag,
     };

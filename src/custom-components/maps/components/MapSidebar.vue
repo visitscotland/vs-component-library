@@ -5,6 +5,9 @@
         ref="sidebar"
         :style="sidebarStyle"
         @pointerdown="startDrag"
+        @pointermove="onDrag"
+        @pointerup="endDrag"
+        @pointercancel="endDrag"
     >
         <div
             v-show="props.mapLoaded"
@@ -317,6 +320,8 @@ const sidebar = useTemplateRef('sidebar');
 
 const googleMapStore = useGoogleMapStore();
 const {
+    endDrag,
+    onDrag,
     startDrag,
     sidebarStyle,
 } = useSwipeDrawer(isOpen, sidebar);
@@ -349,20 +354,28 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
+html.map-page,
+body.map-page {
+    height: 100%;
+    overflow: hidden;
+    overscroll-behavior-y: none;
+}
+
 .vs-map-sidebar {
     height: 91vh;
     max-height: 900px;
     min-height: 400px;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 1;
     
-    display: block;
-    
     @include media-breakpoint-down(md) {
+        overscroll-behavior: contain;
         right: 0;
         bottom: 0;
+        touch-action: none;
+        width: 100vw;
     }
 
     @include media-breakpoint-up(md) {
@@ -379,6 +392,7 @@ onMounted(() => {
     &__panel2 {
         background: $vs-color-background-primary;
         border-radius: $vs-radius-large $vs-radius-large 0 0;
+        box-shadow: $vs-elevation-shadow-raised;
         height: 100%;
         overflow: hidden;
         padding: $vs-spacer-075 $vs-spacer-125;
@@ -406,6 +420,7 @@ onMounted(() => {
         display: flex;
         justify-content: center;
         padding: $vs-spacer-0 $vs-spacer-075 $vs-spacer-075 $vs-spacer-075;
+        touch-action: none;
 
         @include media-breakpoint-up(md) {
             display: none;
@@ -416,6 +431,7 @@ onMounted(() => {
         background: $vs-color-background-highlight;
         border-radius: $vs-radius-large;
         height: 4px;
+        touch-action: none;
         width: 48px;
     }
 
