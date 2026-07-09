@@ -1,3 +1,10 @@
+## [5.69.2](https://github.com/visitscotland/vs-component-library/compare/v5.69.1...v5.69.2) (2026-07-09)
+
+
+### Bug Fixes
+
+* **quote:** fix linting issues ([5d0c9b7](https://github.com/visitscotland/vs-component-library/commit/5d0c9b7bc4b656c98517739213fad27acf8f0f00))
+
 ## [5.69.1](https://github.com/visitscotland/vs-component-library/compare/v5.69.0...v5.69.1) (2026-07-08)
 
 

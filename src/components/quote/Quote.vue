@@ -110,9 +110,6 @@ export default {
     props: {
         /**
          * Sets the quote text content.
-         *
-         * @deprecated Use the `quote-content` slot instead. 
-         * Will be removed in a future major release.
          */
         quoteText: {
             type: String,
