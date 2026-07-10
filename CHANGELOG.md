@@ -1,3 +1,20 @@
+# [5.70.0](https://github.com/visitscotland/vs-component-library/compare/v5.69.2...v5.70.0) (2026-07-10)
+
+
+### Bug Fixes
+
+* **main map sidebar:** calculate peekheight onmount ([ba6dcb7](https://github.com/visitscotland/vs-component-library/commit/ba6dcb79c377c214408d6514d3eece2f7894cf85))
+* **main map:** minor fixes ([de6d2fa](https://github.com/visitscotland/vs-component-library/commit/de6d2fac89c5572cc1b39ff3439458c40af45872))
+* **main map:** remove infowindow as it's no longer used ([7bd216e](https://github.com/visitscotland/vs-component-library/commit/7bd216edd90dbf3fc358c6ffac8c3125be35e5d2))
+* **map sidebar:** bug resetting input ([180bee2](https://github.com/visitscotland/vs-component-library/commit/180bee21b790edcd135129929547a944b27c2661))
+* **map sidebar:** make adjustments for use on .com ([6dd4520](https://github.com/visitscotland/vs-component-library/commit/6dd4520d6e6307f75b19c88e86b55441d938c0df))
+
+
+### Features
+
+* **main map sidebar:** flesh out sidebar with full functionality ([9514298](https://github.com/visitscotland/vs-component-library/commit/95142980c6318d286ce94eace065e6f4b34fb4d7))
+* **main map sidebar:** rebuild map sidebar to accommodate mobile drawer functionality ([aed7187](https://github.com/visitscotland/vs-component-library/commit/aed71871a2efc31569e4a18f0ecb5fa2acbea498))
+
 ## [5.69.2](https://github.com/visitscotland/vs-component-library/compare/v5.69.1...v5.69.2) (2026-07-09)
 
 

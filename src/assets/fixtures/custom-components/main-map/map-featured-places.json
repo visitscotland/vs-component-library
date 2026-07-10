@@ -692,10 +692,19 @@
             },
             "placeId": "ChIJz8MDaGgUnEgRf1XLFSWaY9M",
             "viewport": {
-                "low": { "latitude": 59.511499, "longitude": -2.116203 },
-                "high": { "latitude": 60.845749, "longitude": -0.753341 }
+                "low": {
+                    "latitude": 59.511499,
+                    "longitude": -2.116203
+                },
+                "high": {
+                    "latitude": 60.845749,
+                    "longitude": -0.753341
+                }
             },
-            "locationCentre": { "latitude": 60.178624, "longitude": -1.4347720000000002 }
+            "locationCentre": {
+                "latitude": 60.178624,
+                "longitude": -1.4347720000000002
+            }
         },
         "geometry": {
             "type": "MultiPolygon",
@@ -1307,10 +1316,19 @@
             },
             "placeId": "ChIJz8MDaGgUnEgRf1XLFSWaY9M",
             "viewport": {
-                "low": { "latitude": 59.511499, "longitude": -2.116203 },
-                "high": { "latitude": 60.845749, "longitude": -0.753341 }
+                "low": {
+                    "latitude": 59.511499,
+                    "longitude": -2.116203
+                },
+                "high": {
+                    "latitude": 60.845749,
+                    "longitude": -0.753341
+                }
             },
-            "locationCentre": { "latitude": 60.178624, "longitude": -1.4347720000000002 }
+            "locationCentre": {
+                "latitude": 60.178624,
+                "longitude": -1.4347720000000002
+            }
         },
         "geometry": {
             "type": "MultiPolygon",
