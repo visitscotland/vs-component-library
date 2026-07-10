@@ -4855,7 +4855,7 @@ __metadata:
     babel-jest: "npm:^30.4.1"
     bootstrap: "npm:^5.3.2"
     bootstrap-vue-next: "npm:^0.45.4"
-    chromatic: "npm:^18.0.0"
+    chromatic: "npm:^18.0.1"
     commitizen: "npm:^4.3.0"
     cz-conventional-changelog: "npm:^3.3.0"
     eslint: "npm:^10.4.0"
@@ -6685,7 +6685,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:^18.0.0":
+"chromatic@npm:^18.0.1":
   version: 18.0.1
   resolution: "chromatic@npm:18.0.1"
   dependencies:
