@@ -99,7 +99,7 @@ export default {
             position: relative;
             text-decoration: none;
             padding: $vs-spacer-075 $vs-spacer-100;
-            margin: $vs-spacer-0;
+            margin: 0;
             display: block;
             transition: background-color $duration-base;
             white-space: normal;

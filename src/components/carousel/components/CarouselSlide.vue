@@ -192,7 +192,7 @@ export default {
         }
 
         .card-title {
-            margin-bottom: $vs-spacer-0;
+            margin-bottom: 0;
         }
 
         .card-body {

@@ -129,7 +129,7 @@ export default {
 
     &__image-credit {
         font-weight: $vs-font-weight-subtle;
-        margin-bottom: $vs-spacer-0;
+        margin-bottom: 0;
     }
 }
 

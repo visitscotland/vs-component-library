@@ -160,7 +160,7 @@ export default {
 
         .progress {
             width: 100%;
-            margin: $vs-spacer-050 $vs-spacer-0 $vs-spacer-050;
+            margin: $vs-spacer-050 0 $vs-spacer-050;
             background: $vs-color-background-secondary;
             border-radius: $vs-radius-full;
             overflow: hidden;

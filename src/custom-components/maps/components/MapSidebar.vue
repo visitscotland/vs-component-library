@@ -419,7 +419,7 @@ body.map-page {
     &__handle {
         display: flex;
         justify-content: center;
-        padding: $vs-spacer-0 $vs-spacer-075 $vs-spacer-075 $vs-spacer-075;
+        padding: 0 $vs-spacer-075 $vs-spacer-075 $vs-spacer-075;
         touch-action: none;
 
         @include media-breakpoint-up(md) {
@@ -436,7 +436,7 @@ body.map-page {
     }
 
     &__input input {
-        margin: $vs-spacer-0;
+        margin: 0;
         border-radius: $vs-radius-small $vs-radius-none $vs-radius-none $vs-radius-small;
         border-right: none;
         height: 52px;

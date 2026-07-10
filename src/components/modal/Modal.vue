@@ -176,7 +176,7 @@ export default {
     }
 
     .modal-body {
-        padding: $vs-spacer-125 $vs-spacer-0;
+        padding: $vs-spacer-125 0;
 
         @include media-breakpoint-up(sm) {
             padding: $vs-spacer-125 $vs-spacer-050;

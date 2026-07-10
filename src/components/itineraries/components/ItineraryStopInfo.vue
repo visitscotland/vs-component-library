@@ -402,7 +402,7 @@ export default {
 <style lang="scss">
     .vs-itinerary-stop-info {
         display: flex;
-        margin-top: $vs-spacer-0;
+        margin-top: 0;
         max-width: 50%;
 
         &__times {

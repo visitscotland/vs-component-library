@@ -516,7 +516,7 @@ export default {
                     aspect-ratio: auto;
 
                     @supports not (aspect-ratio: 3/2) {
-                        padding-bottom: $vs-spacer-0;
+                        padding-bottom: 0;
                     }
 
                     .vs-toggle-btn {

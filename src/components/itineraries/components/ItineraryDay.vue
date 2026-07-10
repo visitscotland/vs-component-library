@@ -136,7 +136,7 @@ export default {
         max-width: initial;
         width: calc(100% + #{$vs-spacer-100});
         margin-left: -#{$vs-spacer-050};
-        padding: $vs-spacer-0 $vs-spacer-050;
+        padding: 0 $vs-spacer-050;
     }
 
     &__list-item.card.vs-accordion-item {

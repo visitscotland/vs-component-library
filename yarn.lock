@@ -4855,7 +4855,7 @@ __metadata:
     babel-jest: "npm:^30.4.1"
     bootstrap: "npm:^5.3.2"
     bootstrap-vue-next: "npm:^0.45.4"
-    chromatic: "npm:^18.0.0"
+    chromatic: "npm:^18.0.1"
     commitizen: "npm:^4.3.0"
     cz-conventional-changelog: "npm:^3.3.0"
     eslint: "npm:^10.4.0"
@@ -4884,7 +4884,7 @@ __metadata:
     standard-version: "npm:^9.5.0"
     storybook: "npm:^10.4.6"
     storybook-addon-tag-badges: "npm:^3.1.0"
-    swiper: "npm:^14.0.1"
+    swiper: "npm:^12.2.0"
     theo: "npm:^8.1.5"
     ts-jest: "npm:^29.4.11"
     typescript: "npm:5.9.3"
@@ -6685,7 +6685,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:^18.0.0":
+"chromatic@npm:^18.0.1":
   version: 18.0.1
   resolution: "chromatic@npm:18.0.1"
   dependencies:
@@ -16310,10 +16310,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swiper@npm:^14.0.1":
-  version: 14.0.1
-  resolution: "swiper@npm:14.0.1"
-  checksum: 10c0/3d4f2cdeef9fec9ee3ad2b2dafc883f168a0d5c0909ebb269ef405043162645e94548b81bb6aea5208e632af0cbf09f9d4483956c4a6dd2374f4a89ae074c6ac
+"swiper@npm:^12.2.0":
+  version: 12.2.0
+  resolution: "swiper@npm:12.2.0"
+  checksum: 10c0/459c9621e170130c0a6874b05e24fefd0411529600a17b2d8afc4987dc2e803ab18d42983081b723423819d464568fdb541b6c3f517e558c60888c644dc4ead1
   languageName: node
   linkType: hard
 

@@ -145,13 +145,13 @@ export default {
     }
 
     &__links-contained {
-        margin-bottom: $vs-spacer-0;
+        margin-bottom: 0;
         margin-top: $vs-spacer-300;
         font-size: $font-size-5;
     }
 
     figure {
-        margin-bottom: $vs-spacer-0;
+        margin-bottom: 0;
     }
 }
 </style>

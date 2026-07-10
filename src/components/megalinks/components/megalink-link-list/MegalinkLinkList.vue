@@ -249,7 +249,7 @@ export default {
             }
 
             .vs-stretched-link-card__video-button {
-                bottom: $vs-spacer-0;
+                bottom: 0;
                 z-index: 2;
             }
 
@@ -283,7 +283,7 @@ export default {
                 }
 
                 @include media-breakpoint-up(xl) {
-                    padding-bottom: $vs-spacer-0;
+                    padding-bottom: 0;
                 }
 
                 &--warning-full {

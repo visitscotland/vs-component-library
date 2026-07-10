@@ -100,8 +100,8 @@ $btn-padding-x-lg: 3.5rem;
 
 
 /* Breadcrumbs */
-$breadcrumb-padding-y: $vs-spacer-0;
-$breadcrumb-padding-x: $vs-spacer-0;
+$breadcrumb-padding-y: 0;
+$breadcrumb-padding-x: 0;
 $breadcrumb-bg: transparent;
 $breadcrumb-divider-color: $vs-color-text-secondary;
 $breadcrumb-active-color: $vs-color-text-secondary;
@@ -111,7 +111,7 @@ $breadcrumb-margin-bottom: 0;
 
 
 /* Dropdowns */
-$dropdown-padding-y: $vs-spacer-0;
+$dropdown-padding-y: 0;
 $dropdown-border-color: $vs-color-border-primary;
 $dropdown-box-shadow: none;
 $dropdown-item-padding-x: $vs-spacer-050;

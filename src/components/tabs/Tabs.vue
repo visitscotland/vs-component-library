@@ -86,7 +86,7 @@ export default {
 
         .nav-item {
             display: flex;
-            margin: $vs-spacer-0 $vs-spacer-025;
+            margin: 0 $vs-spacer-025;
             text-wrap: wrap;
             flex-direction: row;
             flex-wrap: nowrap;
@@ -100,7 +100,7 @@ export default {
 
         @include media-breakpoint-up(md) {
             .nav-item {
-                margin: $vs-spacer-0 $vs-spacer-100;
+                margin: 0 $vs-spacer-100;
                 flex-grow: unset;
             }
 

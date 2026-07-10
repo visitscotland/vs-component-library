@@ -618,7 +618,7 @@ export default {
         }
 
         .vs-stretched-link-card__link {
-            margin: $vs-spacer-100 $vs-spacer-0 $vs-spacer-0;
+            margin: $vs-spacer-100 0 0;
             color: $vs-color-interaction-link-primary;
             text-decoration: underline;
         }
