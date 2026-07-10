@@ -623,7 +623,7 @@ onMounted(async() => {
                 && isUserMove.value
                 && hasViewportChanged(getViewport(gMap))) {
                 showSearchAreaButton.value = true;
-                googleMapStore.selectedDestinationType = '';
+                googleMapStore.selectedDestinationType = featuredSubcategories[0].id;
                 selectedDestination.value = '';
                 isUserMove.value = false;
             }
