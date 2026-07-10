@@ -68,19 +68,27 @@ function featuredPlaceClick(place) {
 
 <style lang="scss">
     .vs-map__controls-featured-place-card {
-        height: 10em;
-        flex: 0 0 9.25em !important;
+        height: 15rem;
         margin-bottom: $vs-spacer-100;
 
-        &-heading {
-            z-index: 2;
-            position: relative;
+        @include media-breakpoint-up(md) {
+            height: 11rem;
         }
+
+        &-heading {
+            position: relative;
+            z-index: 2;
+        }
+    
         .vs-card__media {
             z-index: 1;
 
             & img {
-                height: 10em;
+                height: 15rem;
+
+                @include media-breakpoint-up(md) {
+                    height: 11rem;
+                }
             }
         }
     }

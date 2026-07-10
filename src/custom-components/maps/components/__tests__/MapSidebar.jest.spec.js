@@ -1,38 +1,33 @@
 import { mount } from '@vue/test-utils';
 import axe from '@/../test/unit/helpers/axe-helper';
 import mapCategoryLabels from '@/assets/fixtures/custom-components/main-map/map-labels.json';
+import mapCategories from '@/assets/fixtures/custom-components/main-map/map-categories.json';
+import featuredPlaces from '@/assets/fixtures/custom-components/main-map/map-featured-places.json';
 import VsMapSidebar from '../MapSidebar.vue';
 
 const factoryMount = (propsData) => mount(VsMapSidebar, {
     global: {
+        stubs: {
+            'gmp-place-details': true,
+            'gmp-place-details-place-request': true,
+            'gmp-place-content-config': true,
+            'gmp-place-address': true,
+            'gmp-place-rating': true,
+            'gmp-place-type': true,
+            'gmp-place-price': true,
+            'gmp-place-accessible-entrance-icon': true,
+            'gmp-place-opening-hours': true,
+            'gmp-place-website': true,
+            'gmp-place-phone-number': true,
+            'gmp-place-summary': true,
+            'gmp-place-type-specific-highlights': true,
+            'gmp-place-reviews': true,
+            'gmp-place-feature-list': true,
+            'gmp-place-media': true,
+            'gmp-place-attribution': true,
+        },
         provide: {
-            featuredPlaces: {
-                categories: [
-                    {
-                        id: 'cities',
-                        label: 'Cities',
-                    },
-                    {
-                        id: 'towns',
-                        label: 'Towns',
-                    },
-                    {
-                        id: 'islands',
-                        label: 'Islands',
-                    },
-                    {
-                        id: 'regions',
-                        label: 'Regions',
-                    },
-                    {
-                        id: 'national-parks',
-                        label: 'National Parks',
-                    },
-                ],
-                places: [],
-            },
             onFeaturedLocationClick: () => { },
-            addDestinationMarkers: () => { },
         },
     },
     ...propsData,
@@ -50,9 +45,33 @@ const factoryMount = (propsData) => mount(VsMapSidebar, {
             locationSelectLabel: 'Refine your results by location',
         },
         categories: mapCategoryLabels,
+        categoryData: mapCategories,
+        destinations: featuredPlaces,
+        destinationCategories: [
+            {
+                id:'cities',
+                label:'Cities',
+            },
+            {
+                id:'towns',
+                label:'Towns',
+            },
+            {
+                id:'islands',
+                label:'Islands',
+            },
+            {
+                id:'regions',
+                label:'Regions',
+            },
+            {
+                id: 'national-parks',
+                label: 'National Parks',
+            },
+        ],
+        mapLoaded: true,
     },
     slots: {
-        'vs-map-sidebar-sub-filters': '<div data-test="sub-categories">Sub Categories go here</div>',
         'vs-map-sidebar-search-results': '<div data-test="places-ui-kit">Places UI Kit go here</div>',
     },
 });
@@ -73,15 +92,6 @@ describe('VsMapSidebar', () => {
             expect(header.exists()).toBe(true);
 
             expect(header.text()).toBe('Discover your Scotland');
-        });
-
-        it('should accept a closeSidebarButtonLabel prop and render the text in the button', async() => {
-            const wrapper = factoryMount();
-
-            const closeSidebarBtn = wrapper.find('[data-test="vs-map-siderbar__sidebar-control--dismiss"]');
-            expect(closeSidebarBtn.exists()).toBe(true);
-
-            expect(closeSidebarBtn.text()).toBe('Close Sidebar');
         });
 
         it('should accept a placeholder prop and render the placeholder in the input field', async() => {
@@ -132,7 +142,7 @@ describe('VsMapSidebar', () => {
         it('should accept a openSidebarButtonLabel prop and render the text in the button', async() => {
             const wrapper = factoryMount();
 
-            const openSidebarBtn = wrapper.find('[data-test="vs-map-sidebar__sidebar-control--open"]');
+            const openSidebarBtn = wrapper.find('.vs-map-sidebar__handle');
             expect(openSidebarBtn.exists()).toBe(true);
 
             expect(openSidebarBtn.text()).toBe('Open Sidebar');
@@ -149,39 +159,6 @@ describe('VsMapSidebar', () => {
 
             const subCatSlot = wrapper.find('[data-test="places-ui-kit"');
             expect(subCatSlot.exists()).toBe(true);
-        });
-    });
-
-    describe(':sidebar-logic', () => {
-        it('should be able to close and reopen the sidebar', async() => {
-            const wrapper = factoryMount();
-
-            const closeSidebarBtn = wrapper.find('[data-test="vs-map-siderbar__sidebar-control--dismiss"]');
-            const sidebar = wrapper.find('[data-test="vs-map-sidebar"]');
-            const openSidebarBtn = wrapper.find('[data-test="vs-map-sidebar__sidebar-control--open"]');
-
-            // Sidebar and control buttons exist
-            expect(closeSidebarBtn.exists()).toBe(true);
-            expect(sidebar.exists()).toBe(true);
-            expect(openSidebarBtn.exists()).toBe(true);
-
-            // Initial state where the sidebar is open
-            expect(sidebar.classes()).toContain('d-block');
-            expect(openSidebarBtn.classes()).toContain('d-none');
-
-            // Click close button
-            await closeSidebarBtn.trigger('click');
-
-            // New state where the sidebar should now be closed (display: none)
-            expect(sidebar.classes()).toContain('d-none');
-            expect(openSidebarBtn.classes()).toContain('d-block');
-
-            // Click open button
-            await openSidebarBtn.trigger('click');
-
-            // New state where the sidebar should now be closed (display: none)
-            expect(sidebar.classes()).toContain('d-block');
-            expect(openSidebarBtn.classes()).toContain('d-none');
         });
     });
 

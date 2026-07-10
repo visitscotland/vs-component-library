@@ -6,109 +6,106 @@
             class="vs-map__container"
             :class="showError ? 'd-none' : ''"
         >
-            <div
-                v-show="mapLoaded"
-                class="vs-map__controls"
+            <VsMapSidebar
+                v-model:is-open="isSidebarOpen"
+                v-model:is-results-open="isSidebarResultsOpen"
+                :categories="categoryLabelData"
+                :category-data="categoryData"
+                :destination-categories="featuredSubcategories"
+                :destinations="filteredPlaces"
+                :map-loaded="mapLoaded"
+                :query="query"
+                :selected-category="selectedTopLevelCategory"
+                :selected-subcategories="selectedSubCategories"
+                :sidebar-labels="sidebarLabels"
+                @category-selected="(e) => selectCategory(e.id, e.key)"
+                @destination-type-selected="addDestinationMarkers"
+                @reset-map="resetMap(true)"
+                @reset-location="resetMap(true, true)"
+                @search-input-changed="searchByText"
+                @subcategory-selected="(e) => searchBySubCategory(e.id, e.key)"
             >
-                <VsMapSidebar
-                    :categories="categoryLabelData"
-                    :category-data="categoryData"
-                    :query="query"
-                    :selected-category="selectedTopLevelCategory"
-                    :selected-subcategories="selectedSubCategories"
-                    :sidebar-labels="sidebarLabels"
-                    @category-selected="(e) => selectCategory(e.id, e.key)"
-                    @reset-map="resetMap(true)"
-                    @reset-location="resetMap(true, true)"
-                    @search-input-changed="searchByText"
-                    @subcategory-selected="(e) => searchBySubCategory(e.id, e.key)"
-                >
-                    <template #vs-map-sidebar-search-results>
-                        <div
-                            v-if="noResults || (props.alertText && noResults === false)"
-                            class="mt-075 mb-150"
+                <template #vs-map-sidebar-search-results>
+                    <div
+                        v-if="noResults || (props.alertText && noResults === false)"
+                        class="mt-075 mb-150"
+                    >
+                        <VsAlert
+                            v-if="noResults"
+                            id="vs-map__alert"
+                            size="small"
                         >
-                            <VsAlert
-                                v-if="noResults"
-                                id="vs-map__alert"
-                                size="small"
-                            >
-                                <span>
-                                    {{ noResultsMessage }}
-                                    <a
-                                        href="#"
-                                        @click.prevent="resetMap(true, true)"
-                                    >
-                                        {{ resetMapNoResultsMessage }}
-                                    </a>
-                                </span>
-                            </VsAlert>
+                            <span>
+                                {{ noResultsMessage }}
+                                <a
+                                    href="#"
+                                    @click.prevent="resetMap(true, true)"
+                                >
+                                    {{ resetMapNoResultsMessage }}
+                                </a>
+                            </span>
+                        </VsAlert>
 
-                            <VsDetail
-                                v-else
-                                class="mb-150"
-                                color="secondary"
-                                icon="vs-icon-feedback-information"
-                                icon-variant="highlight"
-                                size="small"
+                        <VsDetail
+                            v-else
+                            class="mb-150"
+                            color="secondary"
+                            icon="vs-icon-feedback-information"
+                            icon-variant="highlight"
+                            size="small"
+                        >
+                            {{ alertText }}
+                        </VsDetail>
+                    </div>
+
+                    <Suspense>
+                        <div id="search-container">
+                            <gmp-place-search
+                                id="nearbySearch"
+                                orientation="vertical"
+                                selectable
+                                style="display: none"
                             >
-                                {{ alertText }}
-                            </VsDetail>
+                                <gmp-place-nearby-search-request id="nearbySearchQuery" />
+                                <gmp-place-content-config>
+                                    <gmp-place-address />
+                                    <gmp-place-rating />
+                                    <gmp-place-type />
+                                    <gmp-place-price />
+                                    <gmp-place-accessible-entrance-icon />
+                                    <gmp-place-opening-hours />
+                                    <gmp-place-reviews />
+                                    <gmp-place-attribution
+                                        light-scheme-color="gray"
+                                        dark-scheme-color="gray"
+                                    />
+                                </gmp-place-content-config>
+                            </gmp-place-search>
+                            <gmp-place-search
+                                id="textSearch"
+                                orientation="vertical"
+                                selectable
+                                style="display: none"
+                            >
+                                <gmp-place-text-search-request id="textSearchQuery" />
+                                <gmp-place-content-config>
+                                    <gmp-place-address />
+                                    <gmp-place-rating />
+                                    <gmp-place-type />
+                                    <gmp-place-price />
+                                    <gmp-place-accessible-entrance-icon />
+                                    <gmp-place-opening-hours />
+                                    <gmp-place-reviews />
+                                    <gmp-place-attribution
+                                        light-scheme-color="gray"
+                                        dark-scheme-color="gray"
+                                    />
+                                </gmp-place-content-config>
+                            </gmp-place-search>
                         </div>
-
-                        <Suspense>
-                            <div id="search-container">
-                                <gmp-place-search
-                                    id="nearbySearch"
-                                    orientation="vertical"
-                                    selectable
-                                    style="display: none"
-                                >
-                                    <gmp-place-nearby-search-request id="nearbySearchQuery">
-                                    </gmp-place-nearby-search-request>
-                                    <gmp-place-content-config>
-                                        <gmp-place-address></gmp-place-address>
-                                        <gmp-place-rating></gmp-place-rating>
-                                        <gmp-place-type></gmp-place-type>
-                                        <gmp-place-price></gmp-place-price>
-                                        <gmp-place-accessible-entrance-icon>
-                                        </gmp-place-accessible-entrance-icon>
-                                        <gmp-place-opening-hours></gmp-place-opening-hours>
-                                        <gmp-place-reviews></gmp-place-reviews>
-                                        <gmp-place-attribution
-                                            light-scheme-color="gray"
-                                            dark-scheme-color="gray"
-                                        ></gmp-place-attribution>
-                                    </gmp-place-content-config>
-                                </gmp-place-search>
-                                <gmp-place-search
-                                    id="textSearch"
-                                    orientation="vertical"
-                                    selectable
-                                    style="display: none"
-                                >
-                                    <gmp-place-text-search-request id="textSearchQuery">
-                                    </gmp-place-text-search-request>
-                                    <gmp-place-content-config>
-                                        <gmp-place-address></gmp-place-address>
-                                        <gmp-place-rating></gmp-place-rating>
-                                        <gmp-place-type></gmp-place-type>
-                                        <gmp-place-price></gmp-place-price>
-                                        <gmp-place-accessible-entrance-icon>
-                                        </gmp-place-accessible-entrance-icon>
-                                        <gmp-place-opening-hours></gmp-place-opening-hours>
-                                        <gmp-place-reviews></gmp-place-reviews>
-                                        <gmp-place-attribution
-                                            light-scheme-color="gray"
-                                            dark-scheme-color="gray"
-                                        ></gmp-place-attribution>
-                                    </gmp-place-content-config>
-                                </gmp-place-search>
-                            </div>
-                        </Suspense>
-                    </template>
-                </VsMapSidebar>
-            </div>
+                    </Suspense>
+                </template>
+            </VsMapSidebar>
 
             <div class="vs-map__wrapper">
                 <div
@@ -118,38 +115,6 @@
                     data-chromatic="ignore"
                 >
                 </div>
-                <Suspense>
-                    <div id="detail-container">
-                        <gmp-place-details
-                            id="placeDetails"
-                            style="display: none"
-                        >
-                            <gmp-place-details-place-request id="placeRequest">
-                            </gmp-place-details-place-request>
-                            <gmp-place-content-config>
-                                <gmp-place-address></gmp-place-address>
-                                <gmp-place-rating></gmp-place-rating>
-                                <gmp-place-type></gmp-place-type>
-                                <gmp-place-price></gmp-place-price>
-                                <gmp-place-accessible-entrance-icon>
-                                </gmp-place-accessible-entrance-icon>
-                                <gmp-place-opening-hours></gmp-place-opening-hours>
-                                <gmp-place-website></gmp-place-website>
-                                <gmp-place-phone-number></gmp-place-phone-number>
-                                <gmp-place-summary></gmp-place-summary>
-                                <gmp-place-type-specific-highlights>
-                                </gmp-place-type-specific-highlights>
-                                <gmp-place-reviews></gmp-place-reviews>
-                                <gmp-place-feature-list></gmp-place-feature-list>
-                                <gmp-place-media lightbox-preferred></gmp-place-media>
-                                <gmp-place-attribution
-                                    light-scheme-color="gray"
-                                    dark-scheme-color="gray"
-                                ></gmp-place-attribution>
-                            </gmp-place-content-config>
-                        </gmp-place-details>
-                    </div>
-                </Suspense>
 
                 <div
                     v-if="showSearchAreaButton"
@@ -352,6 +317,9 @@ const props = defineProps({
     },
 });
 
+const isSidebarOpen = ref(false);
+const isSidebarResultsOpen = ref(false);
+
 /**
  * Set the featured destination categories and content from the CMS data.
  * Then provide it to the sub components.
@@ -366,13 +334,7 @@ const filteredPlaces = computed(() => (
     ))
 ));
 
-provide('featuredPlaces', {
-    categories: featuredSubcategories,
-    places: filteredPlaces,
-});
-
 provide('onFeaturedLocationClick', handleFeaturedLocationClick);
-provide('addDestinationMarkers', addDestinationMarkers);
 
 // Map Object, HTMLElements & Global Variables
 let gMap;
@@ -387,7 +349,6 @@ let nearbySearchQuery;
 let placeDetails;
 let placeRequest;
 let searchInput;
-let infoWindow;
 
 let markers = {
 };
@@ -575,14 +536,6 @@ onMounted(async() => {
         } catch (error) {
             console.error('Maps init error', error.message);
         }
-
-        // Registers the infoWindow that the placeDetail element lives
-         
-        infoWindow = new google.maps.InfoWindow();
-
-        infoWindow.addListener('closeclick', () => {
-            mapInteractionEvent('card_close', placeRequest.place);
-        });
 
         shadeMapAreas();
 
@@ -861,6 +814,8 @@ function searchBySubCategory(subCategoryId, key) {
     subCategoryKey.value = key;
     selectedDestination.value = '';
 
+    isSidebarOpen.value = true;
+
     if (subCategoryId === 'self-catering' && !selectedSubCategories.value.has('self-catering')) {
         selfCateringClicked.value = true;
         resetTextQuery();
@@ -936,8 +891,8 @@ function searchBySubCategory(subCategoryId, key) {
         query.value = `${Array.from(queryStr.value).join(', ')} ${selectedDestination.value}`;
         searchInput.value = query.value;
 
-        googleMapStore.showCategories = true;
     }
+    googleMapStore.showCategories = true;
 }
 
 async function searchByCategory({
@@ -947,6 +902,8 @@ async function searchByCategory({
 }) {
     resetMap();
     resetTextQuery();
+
+    isSidebarOpen.value = true;
 
     currentSearchId += 1;
 
@@ -1016,6 +973,8 @@ async function searchByCategory({
 async function searchByText(useRestriction = false) {
     resetMap();
     resetCategories();
+
+    isSidebarOpen.value = true;
 
     currentSearchId += 1;
 
@@ -1222,9 +1181,6 @@ function resetMap(hardReset, resetLocation) {
 
     categoriesVisible.value = false;
 
-    if (infoWindow && infoWindow.close) {
-        infoWindow.close();
-    }
     noResults.value = undefined;
     if (hardReset) {
         // A `hard reset` will remove all text and categories
@@ -1271,43 +1227,11 @@ function clearExistingMarkers() {
 }
 
 function handlePlaceClick(place) {
-    if (infoWindow.isOpen) {
-        infoWindow.close();
-        mapInteractionEvent('card_close', placeRequest.place);
-    }
-
     placeRequest.place = place;
 
-    // Medium breakpoint (this can't be done in CSS unfortunately)
-    const isMobile = window.innerWidth <= 768;
-
-    if (!isMobile) {
-        placeDetails.style.width = '20em';
-        placeDetails.style.height = '32em';
-    } else {
-        placeDetails.style.width = '85vw';
-        placeDetails.style.height = '32em';
-        googleMapStore.sidebarOpen = false;
-    }
-
     placeDetails.style.display = 'block';
-    placeDetails.style.overflowY = 'auto';
-    placeDetails.style.overflowX = 'hidden';
-    placeDetails.style.boxSizing = 'border-box';
-    placeDetails.style.maxHeight = '32em';
-
-    infoWindow.setOptions({
-        content: placeDetails,
-        maxWidth: '25em',
-        position: place.location,
-         
-        pixelOffset: new google.maps.Size(0, -32),
-    });
-
-    infoWindow.open({
-        map: gMap,
-    });
-
+    isSidebarOpen.value = true;
+    isSidebarResultsOpen.value = true;
      
     google.maps.event.addListenerOnce(gMap, 'idle', () => {
         if (gMap.getZoom() > MAX_ZOOM) {
@@ -1422,6 +1346,7 @@ function handleFeaturedLocationClick(place) {
     ));
 
     selectCategory('things-to-do', 2);
+    isSidebarOpen.value = true;
 }
 
 /**
@@ -1498,13 +1423,22 @@ function searchArea() {
     }
 
     &__container {
+        overflow: hidden;
         position: relative;
+
+        @include media-breakpoint-down(md) {
+            height: 90vh;
+        }
     }
 
     &__wrapper, #vs-map {
-        height: 90vh;
+        height: 63vh;
         position: relative;
         width: 100%;
+
+        @include media-breakpoint-up(md) {
+            height: 90vh;
+        }
 
         gmp-advanced-marker {
             width: $vs-spacer-200;
@@ -1537,22 +1471,6 @@ function searchArea() {
             top: $vs-spacer-100;
             left: 0;
             width: 100%;
-        }
-    }
-
-    &__controls {
-        position: absolute;
-        top: $vs-spacer-100;
-        left: $vs-spacer-100;
-        z-index: 100;
-        display: flex;
-        flex-direction: column;
-        pointer-events: none;
-        flex-grow: 1;
-        min-width: 0;
-
-        @include media-breakpoint-up(md) {
-            flex-direction: row;
         }
     }
 
