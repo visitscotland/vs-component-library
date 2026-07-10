@@ -1,5 +1,6 @@
 import VsMainMap from '@/custom-components/maps/MainMap.vue';
 import mapCategoryLabels from '@/assets/fixtures/custom-components/main-map/map-labels.json';
+import mapCategoryLabelsItalian from '@/assets/fixtures/custom-components/main-map/map-labels-italian.json';
 import featuredPlaces from '@/assets/fixtures/custom-components/main-map/map-featured-places.json';
 
 export default {
@@ -88,6 +89,30 @@ Espanol.args = {
         searchAreaButton: 'Busca en esta zona',
     },
     languageCode: 'es',
+};
+
+export const Italiano = Template.bind();
+Italiano.args = {
+    ...base,
+    categoryLabels: mapCategoryLabelsItalian,
+    noResultsMessage: 'Non abbiamo trovato niente qui. Prova a zoomare indietro per vedere altri luoghi.',
+    resetMapNoResultsMessage: 'Reset',
+    labels: {
+        heading: 'Esplora la Scozia',
+        closeSidebarBtn: 'Chiudi il pannello di ricerca e filtri',
+        searchBarAriaLabel: 'Buscar en el mapa',
+        inputPlaceholder: 'Digita la tua parola chiave',
+        searchButton: 'Cerca',
+        clearMap: 'Cancella tutto',
+        subFilterHeader: 'Affina i tuoi risultati',
+        searchResults: 'Risultati della ricerca per',
+        openSidebarButton: 'Menu della mappa',
+        resetLocation: 'Tutte le località',
+        locationSelect: 'Affina i risultati in base alla località',
+        searchAreaButton: 'Cerca in questa zona',
+    },
+    languageCode: 'it',
+    alertText: 'Vengono visualizzati i luoghi corrispondenti alla tua ricerca. Vengono visualizzati fino a 20 risultati.',
 };
 
 export const NoJavascript = Template.bind();

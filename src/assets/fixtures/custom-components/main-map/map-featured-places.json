@@ -1932,7 +1932,7 @@
                 "id": "regions",
                 "label": "Regions"
             },
-            "image": "/binaries/content/gallery/visitscotland/cms-images/2023/01/17/north-queensferry",
+            "image": "https://www.visitscotland.com/binaries/content/gallery/visitscotland/cms-images/2023/01/17/north-queensferry",
             "link": {
                 "label": "Discover Fife",
                 "link": "/resourceapi/places-to-go/kingdom-fife",

@@ -1,3 +1,49 @@
+## [5.69.2](https://github.com/visitscotland/vs-component-library/compare/v5.69.1...v5.69.2) (2026-07-09)
+
+
+### Bug Fixes
+
+* **quote:** fix linting issues ([5d0c9b7](https://github.com/visitscotland/vs-component-library/commit/5d0c9b7bc4b656c98517739213fad27acf8f0f00))
+
+## [5.69.1](https://github.com/visitscotland/vs-component-library/compare/v5.69.0...v5.69.1) (2026-07-08)
+
+
+### Bug Fixes
+
+* **main map:** always use the english query for self catering ([be0ed09](https://github.com/visitscotland/vs-component-library/commit/be0ed090f2aa2ee6026323fb3435579af01f1454))
+
+# [5.69.0](https://github.com/visitscotland/vs-component-library/compare/v5.68.0...v5.69.0) (2026-07-06)
+
+
+### Features
+
+* **pages:** update page templates to use <section> so they are more semantic ([9aa96e5](https://github.com/visitscotland/vs-component-library/commit/9aa96e5c0a196faeaab5d3455251bccaee0d9397))
+* **spotlight:** swap section tag to div in spotlight for consistency in page ([7ccf713](https://github.com/visitscotland/vs-component-library/commit/7ccf71317dae0ac4f1dc12400552edcfefc0bca4))
+
+# [5.68.0](https://github.com/visitscotland/vs-component-library/compare/v5.67.0...v5.68.0) (2026-07-06)
+
+
+### Features
+
+* **svg:** fix svg imports ([00da016](https://github.com/visitscotland/vs-component-library/commit/00da016ac6d0c5a8573e47f188986a412ffc4a86))
+* **svglink:** mark svglink component as deprecated ([0c544f9](https://github.com/visitscotland/vs-component-library/commit/0c544f985a9d01c905ca21eb3e7abcb55c144ac1))
+* **svg:** mark svg component as deprecated ([b62c95d](https://github.com/visitscotland/vs-component-library/commit/b62c95da43721b3a31d55ac4e167aeac22b105fb))
+* **svg:** remove use of svg and svglink in components so it can be safely deprecated ([2ffbbe6](https://github.com/visitscotland/vs-component-library/commit/2ffbbe61a4a21986997974452a58a300435989d0))
+
+# [5.67.0](https://github.com/visitscotland/vs-component-library/compare/v5.66.1...v5.67.0) (2026-07-03)
+
+
+### Features
+
+* **image with caption:** mark image with caption component as deprecated ([5fbf73b](https://github.com/visitscotland/vs-component-library/commit/5fbf73bc783afd74cac042b801d311df359ed32c))
+
+## [5.66.1](https://github.com/visitscotland/vs-component-library/compare/v5.66.0...v5.66.1) (2026-07-03)
+
+
+### Bug Fixes
+
+* **main map:** reduce search radius for the Fife region ([197a12b](https://github.com/visitscotland/vs-component-library/commit/197a12b3a578ccc8489d977351c79341d48d43c2))
+
 # [5.66.0](https://github.com/visitscotland/vs-component-library/compare/v5.65.0...v5.66.0) (2026-07-01)
 
 

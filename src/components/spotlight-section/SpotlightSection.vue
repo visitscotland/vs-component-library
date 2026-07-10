@@ -1,5 +1,5 @@
 <template>
-    <section
+    <div
         :class="spotlightSectionClasses"
         :style="imageSrc ? { backgroundImage: `url(${imageSrc})` } : {}"
         data-test="vs-spotlight-section"
@@ -74,7 +74,7 @@
         </template>
 
         <div class="vs-spotlight-section__gradient-overlay" />
-    </section>
+    </div>
 </template>
 
 <script>
