@@ -45,11 +45,10 @@ const Template = (args) => ({
             >
                 <template #vs-google-map-marker>
                     <VsGoogleMapMarker
-                        v-for="feature in args.featureData"
+                        v-for="feature in args.markerData"
                         :key="feature.properties.id"
                         :featureData="feature"
-                        :markerTooltipsEnabled="args.features.isMarkerTooltipsEnabled"
-                        @marker-click="console.log(event)"
+                        :markerTooltipsEnabled="args.isMarkerTooltipsEnabled"
                     >
                         <template #vs-google-map-marker-content>
                             <span
@@ -74,8 +73,7 @@ const Template = (args) => ({
             </VsGoogleMap>
         </VsRow>
     </VsContainer>
-        
-    `,
+`,
 });
 
 const base = {
@@ -85,21 +83,22 @@ const base = {
     },
     zoom: 6.25,
     mapId: 'b55b94a250e703072014702e',
-    features: {
+    googleMapsOptions: {
         clickableIcons: true,
-        initialViewIsScotland: true,
-        isViewToFitMarkers: false,
-        gestureHandling: 'cooperative',
         isFractionalZoomEnabled: true,
-        fullscreenControl: false,
         renderingTypeVector: true,
-        boundsData: {
-            north: 61.3,
-            south: 54.6,
-            west: -8.7,
-            east: 2,
-        },
+        gestureHandling: 'cooperative',
     },
+    mapBounds: {
+        north: 61.3,
+        south: 54.6,
+        west: -8.7,
+        east: 2,
+    },
+    initialViewIsScotland: true,
+    isViewToFitMarkers: false,
+    isMarkerTooltipsEnabled: false,
+    isPolygonTooltipsEnabled: true,
     uiLabels: {
         fullScreen: 'Fullscreen toggle',
         zoomIn: 'Zoom In',
@@ -119,7 +118,7 @@ export const ThemedMarkers = Template.bind({
 
 ThemedMarkers.args = {
     ...base,
-    featureData: outlanderPlaces.features,
+    markerData: outlanderPlaces.features,
 };
 
 export const NumberedMarkers = Template.bind({
@@ -127,46 +126,21 @@ export const NumberedMarkers = Template.bind({
 
 NumberedMarkers.args = {
     ...base,
-    features: {
-        clickableIcons: true,
-        initialViewIsScotland: false,
-        isViewToFitMarkers: true,
-        gestureHandling: 'cooperative',
-        isFractionalZoomEnabled: true,
-        fullscreenControl: false,
-        renderingTypeVector: true,
-        boundsData: {
-            north: 61.3,
-            south: 54.6,
-            west: -8.7,
-            east: 2,
-        },
-    },
-    featureData: numberedPlaces.features,
+    initialViewIsScotland: false,
+    isViewToFitMarkers: true,
+    markerData: numberedPlaces.features,
 };
 
-export const RegionMap = Template.bind({
+export const MapZoomsToMarkers = Template.bind({
 });
 
-RegionMap.args = {
+MapZoomsToMarkers.args = {
     ...base,
     zoom: 7,
-    features: {
-        clickableIcons: false,
-        initialViewIsScotland: false,
-        isViewToFitMarkers: true,
-        gestureHandling: 'greedy',
-        isFractionalZoomEnabled: true,
-        fullscreenControl: false,
-        renderingTypeVector: true,
-        boundsData: {
-            north: 61.3,
-            south: 54.6,
-            west: -8.7,
-            east: 2,
-        },
-    },
-    featureData: regionPlaces.features,
+    initialViewIsScotland: false,
+    isViewToFitMarkers: true,
+    isMarkerTooltipsEnabled: true,
+    markerData: regionPlaces.features,
 };
 
 export const WithPolygons = Template.bind({
@@ -174,21 +148,7 @@ export const WithPolygons = Template.bind({
 
 WithPolygons.args = {
     ...base,
-    features: {
-        clickableIcons: false,
-        initialViewIsScotland: true,
-        gestureHandling: 'greedy',
-        isFractionalZoomEnabled: true,
-        fullscreenControl: false,
-        renderingTypeVector: true,
-        boundsData: {
-            north: 61.3,
-            south: 54.6,
-            west: -8.7,
-            east: 2,
-        },
-    },
-    featureData: polygonDataset.features,
+    polygonData: polygonDataset.features,
 };
 
 export const WithPolygonsAndMarkers = Template.bind({
@@ -196,21 +156,8 @@ export const WithPolygonsAndMarkers = Template.bind({
 
 WithPolygonsAndMarkers.args = {
     ...base,
-    features: {
-        clickableIcons: false,
-        initialViewIsScotland: true,
-        gestureHandling: 'greedy',
-        isFractionalZoomEnabled: true,
-        fullscreenControl: false,
-        renderingTypeVector: true,
-        boundsData: {
-            north: 61.3,
-            south: 54.6,
-            west: -8.7,
-            east: 2,
-        },
-        isMarkerTooltipsEnabled: true,
-        isPolygonTooltipsEnabled: true,
-    },
-    featureData: multiPolygonDataset.features,
+    isMarkerTooltipsEnabled: true,
+    isPolygonTooltipsEnabled: true,
+    markerData: multiPolygonDataset.features,
+    polygonData: multiPolygonDataset.features,
 };

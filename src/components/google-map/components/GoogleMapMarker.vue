@@ -13,8 +13,8 @@
         :aria-label="props.featureData.properties.title"
         role="button"
         :zIndex="markerZIndex"
-        @mouseenter="props.markerTooltipsEnabled ? showTooltip() : bringToFront()"
-        @mouseout="props.markerTooltipsEnabled ? hideTooltip() : resetZIndex()"
+        @mouseenter="bringToFront()"
+        @mouseout="resetZIndex()"
         @focus="props.markerTooltipsEnabled ? showTooltip() : bringToFront()"
         @focusout="props.markerTooltipsEnabled ? hideTooltip() : resetZIndex()"
         @click="$emit('markerClick', props.featureData)"
@@ -187,7 +187,6 @@ gmp-advanced-marker:focus-within .vs-google-map-marker {
 
 .vs-tooltip-popover {
     font-size: $vs-font-size-detail-s;
-    min-width: clamp(max-content, 5em, 10em);
     text-align: center;
 }
 

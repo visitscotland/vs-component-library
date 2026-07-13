@@ -6,6 +6,44 @@ import { brxmFeatureProperties } from '@/types/types';
 /* eslint-disable no-undef */
 /// <reference types='google.maps' />
 
+function createTooltipContainer() {
+    const tooltipContainer = document.createElement('div');
+    tooltipContainer.classList.add('vs-google-map__tooltip');
+    tooltipContainer.style.display = 'flex';
+    tooltipContainer.style.flexDirection = 'column';
+    tooltipContainer.style.alignItems = 'center';
+    tooltipContainer.style.filter = 'drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25))';
+    tooltipContainer.style.pointerEvents = 'none';
+
+    return tooltipContainer;
+}
+
+function createTooltipContent() {
+    const tooltipContent = document.createElement('div');
+    tooltipContent.classList.add('vs-google-map__tooltip-content');
+    tooltipContent.style.width = 'max-content';
+    tooltipContent.style.padding = '0.25em 0.5em';
+    tooltipContent.style.fontFamily = '"Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
+    tooltipContent.style.fontSize = '0.875rem';
+    tooltipContent.style.borderRadius = '0.5rem';
+    tooltipContent.style.background = '#fff';
+
+    return tooltipContent;
+}
+
+function createTooltipArrow() {
+    const tooltipArrow = document.createElement('div');
+    tooltipArrow.classList.add('vs-google-map__tooltip-arrow');
+    tooltipArrow.style.width = '10px';
+    tooltipArrow.style.height = '10px';
+    tooltipArrow.style.background = '#fff';
+    tooltipArrow.style.transform = 'rotate(45deg)';
+    tooltipArrow.style.position = 'relative';
+    tooltipArrow.style.top = '-5px';
+
+    return tooltipArrow;
+}
+
 export default function createTooltip(mapsLibrary: google.maps.MapsLibrary) {
     return class Tooltip extends mapsLibrary.OverlayView {
         private map: google.maps.Map;
@@ -33,9 +71,9 @@ export default function createTooltip(mapsLibrary: google.maps.MapsLibrary) {
         };
 
         onAdd() {
-            this.tooltipContainer = this.createTooltipContainer();
+            this.tooltipContainer = createTooltipContainer();
 
-            const tooltipContent = this.createTooltipContent();
+            const tooltipContent = createTooltipContent();
 
             const tooltipText = document.createElement('span');
             tooltipText.innerHTML = `${this.properties.title}`;
@@ -44,7 +82,7 @@ export default function createTooltip(mapsLibrary: google.maps.MapsLibrary) {
 
             this.tooltipContainer.appendChild(tooltipContent);
 
-            const tooltipArrow = this.createTooltipArrow();
+            const tooltipArrow = createTooltipArrow();
 
             this.tooltipContainer.appendChild(tooltipArrow);
 
@@ -100,44 +138,6 @@ export default function createTooltip(mapsLibrary: google.maps.MapsLibrary) {
             if (this.tooltipContainer) {
                 this.tooltipContainer.style.visibility = 'hidden';
             };
-        }
-
-        static createTooltipContainer() {
-            const tooltipContainer = document.createElement('div');
-            tooltipContainer.classList.add('vs-google-map__tooltip');
-            tooltipContainer.style.display = 'flex';
-            tooltipContainer.style.flexDirection = 'column';
-            tooltipContainer.style.alignItems = 'center';
-            tooltipContainer.style.filter = 'drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25))';
-            tooltipContainer.style.pointerEvents = 'none';
-
-            return tooltipContainer;
-        }
-
-        static createTooltipContent() {
-            const tooltipContent = document.createElement('div');
-            tooltipContent.classList.add('vs-google-map__tooltip-content');
-            tooltipContent.style.width = 'max-content';
-            tooltipContent.style.padding = '0.25em 0.5em';
-            tooltipContent.style.fontFamily = '"Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
-            tooltipContent.style.fontSize = '0.875rem';
-            tooltipContent.style.borderRadius = '0.5rem';
-            tooltipContent.style.background = '#fff';
-
-            return tooltipContent;
-        }
-
-        static createTooltipArrow() {
-            const tooltipArrow = document.createElement('div');
-            tooltipArrow.classList.add('vs-google-map__tooltip-arrow');
-            tooltipArrow.style.width = '10px';
-            tooltipArrow.style.height = '10px';
-            tooltipArrow.style.background = '#fff';
-            tooltipArrow.style.transform = 'rotate(45deg)';
-            tooltipArrow.style.position = 'relative';
-            tooltipArrow.style.top = '-5px';
-
-            return tooltipArrow;
         }
     };
 };

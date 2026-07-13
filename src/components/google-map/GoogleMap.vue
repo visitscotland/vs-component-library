@@ -108,25 +108,66 @@ const props = defineProps({
      * Object to set optional map features, otherwise
      * sensible defaults are set.
      */
-    features: {
+    googleMapsOptions: {
         type: Object,
         default: () => ({
             clickableIcons: true,
             gestureHandling: 'auto',
-            initialViewIsScotland: true,
-            isViewToFitMarkers: false,
             isFractionalZoomEnabled: false,
             renderingTypeVector: true,
-            isMarkerTooltipsEnabled: false,
-            isPolygonTooltipsEnabled: true,
         }),
     },
     /**
-     * Array of marker pins and/or polygon coordinates.
+     * The bounds of the map that the user will not be
+     * able to pan past.
      */
-    featureData: {
-        type: Array,
+    mapBounds: {
+        type: Object,
         default: () => {},
+    },
+    /**
+     * Determines whether the map should zoom out to show
+     * all of Scotland on inital load
+     */
+    initialViewIsScotland: {
+        type: Boolean,
+        default: true,
+    },
+    /**
+     * Determines whether the map should zoom into the markers
+     * displayed, rather than respecting center & zoom props.
+     */
+    isViewToFitMarkers: {
+        type: Boolean,
+        deafult: false,
+    },
+    /**
+     * Enables/disables tooltips for the markers
+     */
+    isMarkerTooltipsEnabled: {
+        type: Boolean,
+        default: false,
+    },
+    /**
+     * Enables/disables tooltips for the polygons
+     */
+    isPolygonTooltipsEnabled: {
+        type: Boolean,
+        default: true,
+    },
+    /**
+     * Array of marker brxm features.
+     */
+    markerData: {
+        type: Array,
+        default: () => [],
+    },
+    /**
+     * Array of polygon brxm features.
+     */
+    polygonData: {
+        type: Array,
+        default: () => [],
     },
     /**
      * Object containing labels of UI Elements
@@ -145,7 +186,7 @@ const innerMap = shallowRef();
 const mapCenter = ref(null);
 const isFullscreen = ref(false);
 
-const polygonData = [];
+const sanitizedPolygonData = [];
 
 const INITIAL_SCOTLAND_VIEW_BOUNDS = {
     north: 60.0,
@@ -157,9 +198,9 @@ const INITIAL_SCOTLAND_VIEW_BOUNDS = {
 onBeforeMount(() => {
     mapCenter.value = props.center;
 
-    props.featureData.forEach((feature) => {
+    props.polygonData.forEach((feature) => {
         if (feature.geometry.type === 'Polygon' || feature.geometry.type === 'MultiPolygon') {
-            polygonData.push(feature);
+            sanitizedPolygonData.push(feature);
         }
     });
 });
@@ -179,24 +220,28 @@ async function init() {
         center: props.center,
         zoom: props.zoom,
         mapId: props.mapId,
-        clickableIcons: props.features.clickableIcons,
-        gestureHandling: props.features.gestureHandling,
-        isFractionalZoomEnabled: props.features.isFractionalZoomEnabled,
-        renderingType: props.features.renderingTypeVector
+        clickableIcons: props.googleMapsOptions.clickableIcons,
+        gestureHandling: props.googleMapsOptions.gestureHandling,
+        isFractionalZoomEnabled: props.googleMapsOptions.isFractionalZoomEnabled,
+        renderingType: props.googleMapsOptions.renderingTypeVector
             // eslint-disable-next-line no-undef
             ? google.maps.RenderingType.VECTOR
             // eslint-disable-next-line no-undef
             : google.maps.RenderingType.RASTER,
         restriction: {
-            latLngBounds: props.features.boundsData,
+            latLngBounds: props.mapBounds,
         },
         disableDefaultUI: true,
         keyboardShortcuts: true,
     });
 
-    if (props.features.initialViewIsScotland) {
+    if (props.initialViewIsScotland) {
         innerMap.value.fitBounds(INITIAL_SCOTLAND_VIEW_BOUNDS);
-    } else if (!props.features.initialViewIsScotland && googleMapStore.markers.length > 0) {
+    } else if (
+        !props.initialViewIsScotland
+        && props.isViewToFitMarkers
+        && googleMapStore.markers.length > 0
+    ) {
         // eslint-disable-next-line no-undef
         google.maps.event.addListenerOnce(innerMap.value, 'idle', () => {
             // eslint-disable-next-line no-undef
@@ -210,14 +255,14 @@ async function init() {
         });
     };
 
-    if (polygonData) {
+    if (sanitizedPolygonData) {
         // eslint-disable-next-line no-undef
         google.maps.event.addListenerOnce(innerMap.value, 'tilesloaded', () => {
-            polygonData.forEach((place) => {
+            sanitizedPolygonData.forEach((place) => {
                 addPolygon(
                     innerMap.value,
                     place,
-                    props.features.isPolygonTooltipsEnabled,
+                    props.isPolygonTooltipsEnabled,
                 );
             });
         });
