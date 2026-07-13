@@ -6,11 +6,13 @@ import { defineStore } from 'pinia';
 import { ref } from 'vue';
 
 const useGoogleBaseMapStore = defineStore('googleBaseMap', () => {
-    const isMarkerTooltipOpen = ref(false);
+    const markers = ref([]);
+    const isMarkerHovered = ref(false);
     const isPolygonTooltipOpen = ref(false);
 
     return {
-        isMarkerTooltipOpen,
+        markers,
+        isMarkerHovered,
         isPolygonTooltipOpen,
     };
 });

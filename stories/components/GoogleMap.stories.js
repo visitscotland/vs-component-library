@@ -1,5 +1,11 @@
-import { VsContainer, VsRow } from '@/components';
 import VsGoogleMap from '@/components/google-map/GoogleMap.vue';
+import VsGoogleMapMarker from '@/components/google-map/components/GoogleMapMarker.vue';
+import {
+    VsContainer,
+    VsIcon,
+    VsRow,
+} from '@/components';
+
 import outlanderPlaces from '@/assets/fixtures/maps/places-data-outlander.json';
 import numberedPlaces from '@/assets/fixtures/maps/places-data-outlander-numbered.json';
 import regionPlaces from '@/assets/fixtures/maps/places-data-regional.json';
@@ -17,7 +23,9 @@ export default {
 const Template = (args) => ({
     components: {
         VsGoogleMap,
+        VsGoogleMapMarker,
         VsContainer,
+        VsIcon,
         VsRow,
     },
     setup() {
@@ -28,13 +36,42 @@ const Template = (args) => ({
     template: `
     <VsContainer>
         <VsRow>
-            <vs-google-map
+            <VsGoogleMap
                 v-bind="args"
                 style="
                     height: 40em;
                     width: 100%;
                 "
-            />
+            >
+                <template #vs-google-map-marker>
+                    <VsGoogleMapMarker
+                        v-for="feature in args.featureData"
+                        :key="feature.properties.id"
+                        :featureData="feature"
+                        :markerTooltipsEnabled="args.features.isMarkerTooltipsEnabled"
+                        @marker-click="console.log(event)"
+                    >
+                        <template #vs-google-map-marker-content>
+                            <span
+                                v-if="feature.properties.stopCount"
+                                class="vs-google-map-marker__stop-count mt-050"
+                            >
+                            {{ feature.properties.stopCount }}
+                            </span> 
+                            <span
+                                v-if="feature.properties.category && !feature.properties.stopCount"
+                                class="vs-google-map-marker__icon mt-075"
+                            >
+                                <VsIcon
+                                    icon="fa-kit fa-vs-coo"
+                                    variant="inverse"
+                                    size="xxs"
+                                />
+                            </span> 
+                        </template>
+                    </VsGoogleMapMarker>
+                </template>
+            </VsGoogleMap>
         </VsRow>
     </VsContainer>
         
@@ -77,18 +114,18 @@ Default.args = {
     ...base,
 };
 
-export const OutlanderMap = Template.bind({
+export const ThemedMarkers = Template.bind({
 });
 
-OutlanderMap.args = {
+ThemedMarkers.args = {
     ...base,
     featureData: outlanderPlaces.features,
 };
 
-export const NumberedMap = Template.bind({
+export const NumberedMarkers = Template.bind({
 });
 
-NumberedMap.args = {
+NumberedMarkers.args = {
     ...base,
     features: {
         clickableIcons: true,
@@ -132,10 +169,10 @@ RegionMap.args = {
     featureData: regionPlaces.features,
 };
 
-export const PolygonMap = Template.bind({
+export const WithPolygons = Template.bind({
 });
 
-PolygonMap.args = {
+WithPolygons.args = {
     ...base,
     features: {
         clickableIcons: false,
@@ -154,10 +191,10 @@ PolygonMap.args = {
     featureData: polygonDataset.features,
 };
 
-export const MultiPolygonMap = Template.bind({
+export const WithPolygonsAndMarkers = Template.bind({
 });
 
-MultiPolygonMap.args = {
+WithPolygonsAndMarkers.args = {
     ...base,
     features: {
         clickableIcons: false,
@@ -172,7 +209,7 @@ MultiPolygonMap.args = {
             west: -8.7,
             east: 2,
         },
-        isMarkerTooltipsEnabled: false,
+        isMarkerTooltipsEnabled: true,
         isPolygonTooltipsEnabled: true,
     },
     featureData: multiPolygonDataset.features,

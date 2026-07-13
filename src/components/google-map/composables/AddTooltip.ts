@@ -18,8 +18,6 @@ export default function createTooltip(mapsLibrary: google.maps.MapsLibrary) {
 
         private tooltipContainer?: HTMLDivElement;
 
-        private tooltipArrow?: HTMLDivElement;
-
         constructor(
             map: google.maps.Map,
             location: google.maps.LatLng,
@@ -35,11 +33,9 @@ export default function createTooltip(mapsLibrary: google.maps.MapsLibrary) {
         };
 
         onAdd() {
-            this.tooltipContainer = document.createElement('div');
-            this.tooltipContainer.classList.add('vs-google-map__tooltip');
+            this.tooltipContainer = this.createTooltipContainer();
 
-            const tooltipContent = document.createElement('div');
-            tooltipContent.classList.add('vs-google-map__tooltip-content');
+            const tooltipContent = this.createTooltipContent();
 
             const tooltipText = document.createElement('span');
             tooltipText.innerHTML = `${this.properties.title}`;
@@ -48,10 +44,9 @@ export default function createTooltip(mapsLibrary: google.maps.MapsLibrary) {
 
             this.tooltipContainer.appendChild(tooltipContent);
 
-            this.tooltipArrow = document.createElement('div');
-            this.tooltipArrow.classList.add('vs-google-map__tooltip-arrow');
+            const tooltipArrow = this.createTooltipArrow();
 
-            this.tooltipContainer.appendChild(this.tooltipArrow);
+            this.tooltipContainer.appendChild(tooltipArrow);
 
             this.tooltipContainer.style.position = 'absolute';
             this.tooltipContainer.style.zIndex = '9999';
@@ -105,6 +100,44 @@ export default function createTooltip(mapsLibrary: google.maps.MapsLibrary) {
             if (this.tooltipContainer) {
                 this.tooltipContainer.style.visibility = 'hidden';
             };
+        }
+
+        static createTooltipContainer() {
+            const tooltipContainer = document.createElement('div');
+            tooltipContainer.classList.add('vs-google-map__tooltip');
+            tooltipContainer.style.display = 'flex';
+            tooltipContainer.style.flexDirection = 'column';
+            tooltipContainer.style.alignItems = 'center';
+            tooltipContainer.style.filter = 'drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25))';
+            tooltipContainer.style.pointerEvents = 'none';
+
+            return tooltipContainer;
+        }
+
+        static createTooltipContent() {
+            const tooltipContent = document.createElement('div');
+            tooltipContent.classList.add('vs-google-map__tooltip-content');
+            tooltipContent.style.width = 'max-content';
+            tooltipContent.style.padding = '0.25em 0.5em';
+            tooltipContent.style.fontFamily = '"Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
+            tooltipContent.style.fontSize = '0.875rem';
+            tooltipContent.style.borderRadius = '0.5rem';
+            tooltipContent.style.background = '#fff';
+
+            return tooltipContent;
+        }
+
+        static createTooltipArrow() {
+            const tooltipArrow = document.createElement('div');
+            tooltipArrow.classList.add('vs-google-map__tooltip-arrow');
+            tooltipArrow.style.width = '10px';
+            tooltipArrow.style.height = '10px';
+            tooltipArrow.style.background = '#fff';
+            tooltipArrow.style.transform = 'rotate(45deg)';
+            tooltipArrow.style.position = 'relative';
+            tooltipArrow.style.top = '-5px';
+
+            return tooltipArrow;
         }
     };
 };

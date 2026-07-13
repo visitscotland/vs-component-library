@@ -1,10 +1,56 @@
+<!--
+    These disabled as gmp-elements only accept kebab-case element
+    names and standard web component slots, not v:slots.
+-->
+<!-- eslint-disable vue/component-name-in-template-casing -->
+<!-- eslint-disable vue/no-deprecated-slot-attribute -->
 <template>
     <div>
-        <div
+        <gmp-map
+            :center="mapCenter"
+            :zoom="props.zoom"
+            :map-id="props.mapId"
             class="vs-google-map"
             id="vs-google-map"
-            ref="VsGoogleMapElement"
-        />
+            ref="mapRef"
+        >
+            <slot
+                name="vs-google-map-marker"
+            />
+            <div
+                class="vs-google-map__custom-controls"
+                slot="control-inline-end-block-start"
+            >
+                <VsButton
+                    icon="fa-regular fa-plus"
+                    variant="secondary"
+                    icon-only
+                    size="sm"
+                    @click="zoomIn"
+                >
+                    {{ props.uiLabels.zoomIn }}
+                </VsButton>
+                <VsButton
+                    icon="fa-regular fa-minus"
+                    variant="secondary"
+                    icon-only
+                    size="sm"
+                    @click="zoomOut"
+                >
+                    {{ props.uiLabels.zoomOut }}
+                </VsButton>
+                <VsButton
+                    v-if="isAppleIOS"
+                    :icon="isFullscreen ? 'fa-regular fa-arrows-minimize' : 'fa-regular fa-arrows-maximize'"
+                    variant="secondary"
+                    icon-only
+                    size="sm"
+                    @click="fullscreenToggle"
+                >
+                    {{ props.uiLabels.fullScreen }}
+                </VsButton>
+            </div>
+        </gmp-map>
     </div>
 </template>
 
@@ -12,19 +58,18 @@
 /// <reference types="google.maps" />
 
 import {
-    markRaw,
+    ref,
+    onBeforeMount,
     onMounted,
     shallowRef,
 } from 'vue';
 import getEnvValue from '@/utils/get-env-value';
+import { isAppleIOS } from '@/utils/is-apple-ios';
+import useGoogleBaseMapStore from '@/stores/googleMap.store';
 
-import { mapLoader, initMap } from './composables/MapsApiLoader';
-import createCustomControlElement from './composables/CustomControls';
-import addMarkers from './composables/AddMarker';
+import { VsButton } from '@/components';
+import mapLoader from './composables/MapsApiLoader';
 import addPolygon from './composables/AddPolygon';
-
-const map = shallowRef(null);
-const markers = [];
 
 const props = defineProps({
     /**
@@ -92,164 +137,162 @@ const props = defineProps({
     },
 });
 
-onMounted(async() => {
-    mapLoader(props.apiKey);
-    const gMap = await initMap(
-        document.getElementById('vs-google-map'),
-        {
-            center: props.center,
-            zoom: props.zoom,
-            mapId: props.mapId,
-            features: props.features,
-        },
-    );
+const googleMapStore = useGoogleBaseMapStore();
 
-    map.value = markRaw(gMap);
+const mapRef = ref(null);
+const innerMap = shallowRef();
 
-    await new Promise(() => {
-        // eslint-disable-next-line no-undef
-        google.maps.event.addListenerOnce(map.value, 'idle', () => {
-            createCustomControlElement(
-                map.value,
-                {
-                    zoomIn: props.uiLabels.zoomIn,
-                    zoomOut: props.uiLabels.zoomOut,
-                    fullScreen: props.uiLabels.fullScreen,
-                },
-            );
-        });
+const mapCenter = ref(null);
+const isFullscreen = ref(false);
 
-        if (props.featureData) {
-            // eslint-disable-next-line no-undef
-            const bounds = new google.maps.LatLngBounds();
+const polygonData = [];
 
-            // eslint-disable-next-line no-undef
-            google.maps.event.addListenerOnce(map.value, 'tilesloaded', () => {
-                props.featureData.forEach((place, key) => {
-                    markers[key] = addMarkers(
-                        map.value,
-                        place,
-                        props.features.isMarkerTooltipsEnabled,
-                    );
+const INITIAL_SCOTLAND_VIEW_BOUNDS = {
+    north: 60.0,
+    south: 54.24,
+    west: -7.65,
+    east: -1.4,
+};
 
-                    if (props.features.isViewToFitMarkers) {
-                        bounds.extend(
-                            // eslint-disable-next-line no-undef
-                            new google.maps.LatLng(
-                                place.geometry.coordinates[1],
-                                place.geometry.coordinates[0],
-                            ),
-                        );
-                    }
-                });
+onBeforeMount(() => {
+    mapCenter.value = props.center;
 
-                // Google Maps bug doesn't fully render the accessibility
-                // tree on initial load so moving the map slightly forces it
-                requestAnimationFrame(() => {
-                    map.value.panBy(0, 1);
-                });
-
-                if (props.features.isViewToFitMarkers) {
-                    map.value.fitBounds(bounds);
-                    map.value.setCenter(bounds.getCenter());
-                }
-            });
-        };
-
-        if (props.featureData) {
-            // eslint-disable-next-line no-undef
-            google.maps.event.addListenerOnce(map.value, 'tilesloaded', () => {
-                props.featureData.forEach((place) => {
-                    addPolygon(
-                        map.value,
-                        place,
-                        props.features.isPolygonTooltipsEnabled,
-                    );
-                });
-            });
-        };
+    props.featureData.forEach((feature) => {
+        if (feature.geometry.type === 'Polygon' || feature.geometry.type === 'MultiPolygon') {
+            polygonData.push(feature);
+        }
     });
 });
+
+async function init() {
+    // Import the needed libraries.
+    // eslint-disable-next-line no-undef
+    await google.maps.importLibrary('maps');
+    // eslint-disable-next-line no-undef
+    await google.maps.importLibrary('marker');
+
+    // Access the map.
+    // Access the underlying map object.
+    innerMap.value = mapRef.value.innerMap;
+
+    innerMap.value.setOptions({
+        center: props.center,
+        zoom: props.zoom,
+        mapId: props.mapId,
+        clickableIcons: props.features.clickableIcons,
+        gestureHandling: props.features.gestureHandling,
+        isFractionalZoomEnabled: props.features.isFractionalZoomEnabled,
+        renderingType: props.features.renderingTypeVector
+            // eslint-disable-next-line no-undef
+            ? google.maps.RenderingType.VECTOR
+            // eslint-disable-next-line no-undef
+            : google.maps.RenderingType.RASTER,
+        restriction: {
+            latLngBounds: props.features.boundsData,
+        },
+        disableDefaultUI: true,
+        keyboardShortcuts: true,
+    });
+
+    if (props.features.initialViewIsScotland) {
+        innerMap.value.fitBounds(INITIAL_SCOTLAND_VIEW_BOUNDS);
+    } else if (!props.features.initialViewIsScotland && googleMapStore.markers.length > 0) {
+        // eslint-disable-next-line no-undef
+        google.maps.event.addListenerOnce(innerMap.value, 'idle', () => {
+            // eslint-disable-next-line no-undef
+            const bounds = new google.maps.LatLngBounds();
+            googleMapStore.markers.forEach((marker) => {
+                // eslint-disable-next-line no-undef
+                bounds.extend(new google.maps.LatLng(marker.location[1], marker.location[0]));
+            });
+            mapCenter.value = bounds.getCenter();
+            innerMap.value.fitBounds(bounds);
+        });
+    };
+
+    if (polygonData) {
+        // eslint-disable-next-line no-undef
+        google.maps.event.addListenerOnce(innerMap.value, 'tilesloaded', () => {
+            polygonData.forEach((place) => {
+                addPolygon(
+                    innerMap.value,
+                    place,
+                    props.features.isPolygonTooltipsEnabled,
+                );
+            });
+        });
+    };
+};
+
+onMounted(async() => {
+    mapLoader(props.apiKey);
+    init();
+});
+
+function zoomIn() {
+    if (innerMap.value) {
+        innerMap.value.setZoom((innerMap.value.getZoom() || 0) + 1);
+    };
+};
+
+function zoomOut() {
+    if (innerMap.value) {
+        innerMap.value.setZoom((innerMap.value.getZoom() || 0) - 1);
+    };
+};
+
+function fullscreenToggle() {
+    if (!isAppleIOS()) {
+        if (!document.fullscreenElement) {
+            // Request fullscreen on the container element, NOT document or map div
+            mapRef.value.requestFullscreen()
+                .catch((err) => console.error(`Error enabling fullscreen: ${err.message}`));
+            isFullscreen.value = true;
+        } else {
+            document.exitFullscreen();
+            isFullscreen.value = false;
+        };
+    };
+};
 
 </script>
 
 <style lang="scss">
-.vs-google-map {
+gmp-map .vs-google-map {
     width: 100%;
     height: inherit;
 
-    &__custom-control-container {
+    &__custom-controls {
         margin: $vs-spacer-100 $vs-spacer-100 0 0;
         display: flex;
         flex-direction: column;
         row-gap: $vs-spacer-075;
     }
-
-    @include google-map-marker-themes;
-
-    &__map-pin {
-        display: grid;
-        place-items: center;
-        color: $vs-color-background-accent-heather-80;
-
-        transition: all $duration-base;
-
-        > * {
-            grid-area: 1/1;
-        }
-
-        &-icon {
-            color: $vs-color-icon-inverse;
-            margin-bottom: $vs-spacer-050;
-        }
-
-        &-number {
-            color: $vs-color-text-inverse;
-            font-family: $vs-font-family-display;
-            margin-bottom: $vs-spacer-025;
-            font-size: $vs-font-size-detail-l;
-        }
-
-        &:hover {
-            scale: 150%;
-            transition: all $duration-base;
-            transform-origin: bottom;
-        }
-    }
-
-    &__tooltip {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
-        pointer-events: none;
-
-        &-content {
-            width: max-content;
-            padding: $vs-spacer-050 $vs-spacer-100;
-            font-family: $vs-font-family-sans-serif;
-            font-size: $vs-font-size-detail-s;
-            background: $vs-color-background-inverse;
-            border-radius: $vs-radius-small;
-        }
-
-        &-arrow {
-            width: 10px;
-            height: 10px;
-            background: $vs-color-background-inverse;
-            transform: rotate(45deg);
-            position: relative;
-            top: -5px;
-        }
-
-    }
 }
 
-gmp-advanced-marker:focus {
-    .vs-google-map__map-pin {
-        scale: 150%;
-        transition: all $duration-base;
-        transform-origin: bottom;
+.vs-google-map__tooltip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
+    pointer-events: none;
+
+    &-content {
+        width: max-content;
+        padding: $vs-spacer-050 $vs-spacer-100;
+        font-family: $vs-font-family-sans-serif;
+        font-size: $vs-font-size-detail-s;
+        background: $vs-color-background-inverse;
+        border-radius: $vs-radius-small;
+    }
+
+    &-arrow {
+        width: 10px;
+        height: 10px;
+        background: $vs-color-background-inverse;
+        transform: rotate(45deg);
+        position: relative;
+        top: -5px;
     }
 }
 
