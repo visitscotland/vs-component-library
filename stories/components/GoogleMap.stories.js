@@ -36,41 +36,46 @@ const Template = (args) => ({
     template: `
     <VsContainer>
         <VsRow>
-            <VsGoogleMap
-                v-bind="args"
-                style="
-                    height: 40em;
-                    width: 100%;
-                "
+            <div
+                :class="args.jsDisabled ? 'no-js' : ''"
             >
-                <template #vs-google-map-marker>
-                    <VsGoogleMapMarker
-                        v-for="feature in args.markerData"
-                        :key="feature.properties.id"
-                        :featureData="feature"
-                        :markerTooltipsEnabled="args.isMarkerTooltipsEnabled"
-                    >
-                        <template #vs-google-map-marker-content>
-                            <span
-                                v-if="feature.properties.stopCount"
-                                class="vs-google-map-marker__stop-count mt-050"
-                            >
-                            {{ feature.properties.stopCount }}
-                            </span> 
-                            <span
-                                v-if="feature.properties.category && !feature.properties.stopCount"
-                                class="vs-google-map-marker__icon mt-075"
-                            >
-                                <VsIcon
-                                    icon="fa-kit fa-vs-coo"
-                                    variant="inverse"
-                                    size="xxs"
-                                />
-                            </span> 
-                        </template>
-                    </VsGoogleMapMarker>
-                </template>
-            </VsGoogleMap>
+                <VsGoogleMap
+                    v-bind="args"
+                    :class="args.jsDisabled ? 'no-js' : ''"
+                    :style="!args.jsDisabled ? 'height: 40em; width: 100%;' : ''"
+                >
+                    <template #vs-google-map-marker>
+                        <VsGoogleMapMarker
+                            v-for="feature in args.markerData"
+                            :key="feature.properties.id"
+                            :featureData="feature"
+                            :markerTooltipsEnabled="args.isMarkerTooltipsEnabled"
+                        >
+                            <template #vs-google-map-marker-content>
+                                <span
+                                    v-if="feature.properties.stopCount"
+                                    class="vs-google-map-marker__stop-count mt-050"
+                                >
+                                {{ feature.properties.stopCount }}
+                                </span> 
+                                <span
+                                    v-if="feature.properties.category && !feature.properties.stopCount"
+                                    class="vs-google-map-marker__icon mt-075"
+                                >
+                                    <VsIcon
+                                        icon="fa-kit fa-vs-coo"
+                                        variant="inverse"
+                                        size="xxs"
+                                    />
+                                </span> 
+                            </template>
+                        </VsGoogleMapMarker>
+                    </template>
+                    <template #no-js>
+                        You need Javascript enabled to see this map
+                    </template>
+                </VsGoogleMap>
+            </div>
         </VsRow>
     </VsContainer>
 `,
@@ -104,6 +109,7 @@ const base = {
         zoomIn: 'Zoom In',
         zoomOut: 'Zoom Out',
     },
+    jsDisabled: false,
 };
 
 export const Default = Template.bind({
@@ -160,4 +166,11 @@ WithPolygonsAndMarkers.args = {
     isPolygonTooltipsEnabled: true,
     markerData: multiPolygonDataset.features,
     polygonData: multiPolygonDataset.features,
+};
+
+export const NoJavascript = Template.bind({
+});
+
+NoJavascript.args = {
+    jsDisabled: true,
 };

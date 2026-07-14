@@ -5,15 +5,16 @@
 <!-- eslint-disable vue/component-name-in-template-casing -->
 <!-- eslint-disable vue/no-deprecated-slot-attribute -->
 <template>
-    <div>
+    <div class="vs-google-map">
         <gmp-map
             :center="mapCenter"
             :zoom="props.zoom"
             :map-id="props.mapId"
-            class="vs-google-map"
+            class="vs-google-map__map"
             id="vs-google-map"
             ref="mapRef"
         >
+            <!-- @slot for VsGoogleMapMarker component -->
             <slot
                 name="vs-google-map-marker"
             />
@@ -51,6 +52,10 @@
                 </VsButton>
             </div>
         </gmp-map>
+        <VsWarning class="vs-google-map__no-js">
+            <!-- @slot Message to show when JS is disabled  -->
+            <slot name="no-js" />
+        </VsWarning>
     </div>
 </template>
 
@@ -67,7 +72,7 @@ import getEnvValue from '@/utils/get-env-value';
 import { isAppleIOS } from '@/utils/is-apple-ios';
 import useGoogleBaseMapStore from '@/stores/googleMap.store';
 
-import { VsButton } from '@/components';
+import { VsButton, VsWarning } from '@/components';
 import mapLoader from './composables/MapsApiLoader';
 import addPolygon from './composables/AddPolygon';
 
@@ -303,9 +308,11 @@ function fullscreenToggle() {
 </script>
 
 <style lang="scss">
-gmp-map .vs-google-map {
-    width: 100%;
-    height: inherit;
+.vs-google-map {
+    &__map{
+        width: 100%;
+        height: inherit;
+    }
 
     &__custom-controls {
         margin: $vs-spacer-100 $vs-spacer-100 0 0;
@@ -313,31 +320,21 @@ gmp-map .vs-google-map {
         flex-direction: column;
         row-gap: $vs-spacer-075;
     }
+
+    &__no-js {
+        display: none;
+    }
 }
 
-.vs-google-map__tooltip {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
-    pointer-events: none;
+@include no-js {
+    .vs-google-map {
+        &__map {
+            display: none;
+        }
 
-    &-content {
-        width: max-content;
-        padding: $vs-spacer-050 $vs-spacer-100;
-        font-family: $vs-font-family-sans-serif;
-        font-size: $vs-font-size-detail-s;
-        background: $vs-color-background-inverse;
-        border-radius: $vs-radius-small;
-    }
-
-    &-arrow {
-        width: 10px;
-        height: 10px;
-        background: $vs-color-background-inverse;
-        transform: rotate(45deg);
-        position: relative;
-        top: -5px;
+        &__no-js {
+            display: block;
+        }
     }
 }
 
