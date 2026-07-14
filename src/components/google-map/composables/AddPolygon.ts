@@ -1,10 +1,10 @@
 /* eslint-disable no-undef */
 
 import { importLibrary } from '@googlemaps/js-api-loader';
-import { ref, watch } from 'vue';
+import { watch } from 'vue';
 import { storeToRefs } from 'pinia';
 
-import { brxmFeature, brxmFeatureProperties } from '@/types/types';
+import type { BrxmFeature, BrxmFeatureProperties } from '@/types/types';
 import useGoogleBaseMapStore from '@/stores/googleMap.store';
 
 import createTooltip from './AddTooltip';
@@ -36,42 +36,43 @@ async function attachListeners(
     polygon: google.maps.Polygon,
     tooltip?: any,
 ) {
-    const useGoogleMapStore = useGoogleBaseMapStore();
+    const googleMapStore = useGoogleBaseMapStore();
 
-    polygon.addListener('mouseover', async() => {
+    polygon.addListener('mouseover', () => {
         polygon.setOptions({
             fillColor: HOVER_COLOR,
         });
 
-        if (tooltip && !useGoogleMapStore.isMarkerHovered) {
-            useGoogleMapStore.isPolygonTooltipOpen = true;
+        if (tooltip && !googleMapStore.isMarkerHovered) {
+            googleMapStore.isPolygonTooltipOpen = true;
             tooltip.show();
         };
     });
 
-    polygon.addListener('mouseout', async() => {
+    polygon.addListener('mouseout', () => {
         polygon.setOptions({
             fillColor: ACTIVE_COLOR,
         });
 
         if (tooltip) {
-            useGoogleMapStore.isPolygonTooltipOpen = false;
+            googleMapStore.isPolygonTooltipOpen = false;
             tooltip.hide();
         };
     });
 
-    const mapStore = ref(storeToRefs(useGoogleMapStore));
+    const { isMarkerHovered } = storeToRefs(googleMapStore);
 
-    watch(() => mapStore.value.isMarkerHovered, async(markerTooltipOpen) => {
+    watch(() => isMarkerHovered.value, (markerTooltipOpen) => {
         if (markerTooltipOpen) {
             tooltip.hide();
+            googleMapStore.isPolygonTooltipOpen = false;
         };
     });
 
-    polygon.addListener('mousemove', async() => {
-        if (useGoogleMapStore.isPolygonTooltipOpen && !useGoogleMapStore.isMarkerHovered) {
+    polygon.addListener('mousemove', () => {
+        if (!googleMapStore.isPolygonTooltipOpen && !googleMapStore.isMarkerHovered) {
             tooltip.show();
-            useGoogleMapStore.isPolygonTooltipOpen = true;
+            googleMapStore.isPolygonTooltipOpen = true;
         };
     });
 };
@@ -79,7 +80,7 @@ async function attachListeners(
 async function createPolygon(
     map: google.maps.Map,
     polygonCoordinates: any,
-    polygonProperties: brxmFeatureProperties,
+    polygonProperties: BrxmFeatureProperties,
     isPolygonTooltipsEnabled: boolean,
 ) {
     const polygon = new google.maps.Polygon({
@@ -113,9 +114,9 @@ async function createPolygon(
     };
 };
 
-export default async function addPolygon(
+export default function addPolygon(
     map: google.maps.Map,
-    feature: brxmFeature,
+    feature: BrxmFeature,
     isPolygonTooltipsEnabled: boolean,
 ) {
     // Single area polygon

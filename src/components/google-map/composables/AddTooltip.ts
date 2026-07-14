@@ -1,7 +1,7 @@
 // If editing, read this first:
 // https://developers.google.com/maps/documentation/javascript/reference/overlay-view
 
-import { brxmFeatureProperties } from '@/types/types';
+import type { BrxmFeatureProperties } from '@/types/types';
 
 /* eslint-disable no-undef */
 /// <reference types='google.maps' />
@@ -50,7 +50,7 @@ export default function createTooltip(mapsLibrary: google.maps.MapsLibrary) {
 
         private location: google.maps.LatLng;
 
-        private properties: brxmFeatureProperties;
+        private properties: BrxmFeatureProperties;
 
         private isMarker: boolean;
 
@@ -59,7 +59,7 @@ export default function createTooltip(mapsLibrary: google.maps.MapsLibrary) {
         constructor(
             map: google.maps.Map,
             location: google.maps.LatLng,
-            properties: brxmFeatureProperties,
+            properties: BrxmFeatureProperties,
             isMarker: boolean = false,
         ) {
             super();

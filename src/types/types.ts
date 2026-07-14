@@ -63,19 +63,7 @@ export type LatLngBounds = {
     east: number;
 };
 
-export type MapOptions = {
-    boundsData?: LatLngBounds;
-    initialViewIsScotland?: boolean;
-    isViewToFitMarkers?: boolean;
-    clickableIcons?: boolean;
-    gestureHandling?: string;
-    isFractionalZoomEnabled?: boolean;
-    renderingTypeVector?: boolean;
-    isMarkerTooltipsEnabled?: boolean;
-    isPolygonTooltipsEnabled?: boolean;
-};
-
-export type brxmFeatureProperties = {
+export type BrxmFeatureProperties = {
     category?: {
         id: string;
         label: string;
@@ -92,11 +80,11 @@ export type brxmFeatureProperties = {
     };
 };
 
-export type brxmFeature = {
+export type BrxmFeature = {
     type: string;
-    properties: brxmFeatureProperties;
+    properties: BrxmFeatureProperties;
     geometry: {
         type: string;
-        coordinates: any; 
+        coordinates: any;
     };
 };
