@@ -84,8 +84,6 @@ import {
 import useGoogleBaseMapStore from '@/stores/googleMap.store';
 
 const googleMapStore = useGoogleBaseMapStore();
-
-const vsGoogleMapMarker = ref(null);
 const tooltip = ref(null);
 
 const markerZIndex = ref(null);
@@ -94,7 +92,7 @@ const props = defineProps({
     /** Single object of BRXM Feature data */
     featureData: {
         type: Object,
-        default: () => {},
+        required: true,
     },
     /** SVG Compatible colour (Hex/String/RGB()), Defaults to  */
     pinColor: {
