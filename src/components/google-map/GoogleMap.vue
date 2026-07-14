@@ -13,6 +13,7 @@
             class="vs-google-map__map"
             id="vs-google-map"
             ref="mapRef"
+            data-test="vs-google-map"
         >
             <!-- @slot for VsGoogleMapMarker component -->
             <slot
@@ -20,6 +21,7 @@
             />
             <div
                 class="vs-google-map__custom-controls"
+                data-test="vs-google-map__custom-control-container"
                 slot="control-inline-end-block-start"
             >
                 <VsButton
@@ -28,6 +30,7 @@
                     icon-only
                     size="sm"
                     @click="zoomIn"
+                    data-test="vs-google-map__custom-control--zoom-in"
                 >
                     {{ props.uiLabels?.zoomIn }}
                 </VsButton>
@@ -37,6 +40,7 @@
                     icon-only
                     size="sm"
                     @click="zoomOut"
+                    data-test="vs-google-map__custom-control--zoom-out"
                 >
                     {{ props.uiLabels?.zoomOut }}
                 </VsButton>
@@ -47,6 +51,7 @@
                     icon-only
                     size="sm"
                     @click="fullscreenToggle"
+                    data-test="vs-google-map__custom-control--fullscreen"
                 >
                     {{ props.uiLabels?.fullScreen }}
                 </VsButton>
@@ -308,8 +313,7 @@ function fullscreenToggle() {
     if (!isAppleIOS()) {
         if (!document.fullscreenElement && mapRef.value) {
             // Request fullscreen on the container element, NOT document or map div
-            mapRef.value.requestFullscreen()
-                .catch((err) => console.error(`Error enabling fullscreen: ${err.message}`));
+            mapRef.value.requestFullscreen();
             isFullscreen.value = true;
         } else {
             document.exitFullscreen();
