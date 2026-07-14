@@ -73,7 +73,7 @@ import { isAppleIOS } from '@/utils/is-apple-ios';
 import useGoogleBaseMapStore from '@/stores/googleMap.store';
 
 import { VsButton, VsWarning } from '@/components';
-import mapLoader from './composables/MapsApiLoader';
+import { setOptions } from '@googlemaps/js-api-loader';
 import addPolygon from './composables/AddPolygon';
 
 const props = defineProps({
@@ -173,6 +173,13 @@ const props = defineProps({
     polygonData: {
         type: Array,
         default: () => [],
+    },
+    /**
+     * ISO 639 Language code for map language
+     */
+    languageCode: {
+        type: String,
+        default: 'en',
     },
     /**
      * Object containing labels of UI Elements
@@ -275,7 +282,13 @@ async function init() {
 };
 
 onMounted(async() => {
-    mapLoader(props.apiKey);
+    setOptions({
+        key: props.apiKey,
+        v: 'quarterly',
+        libraries: ['maps', 'marker'],
+        region: 'GB',
+        language: props.languageCode,
+    });
     init();
 });
 

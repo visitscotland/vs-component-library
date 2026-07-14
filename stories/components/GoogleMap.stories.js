@@ -104,6 +104,7 @@ const base = {
     isViewToFitMarkers: false,
     isMarkerTooltipsEnabled: false,
     isPolygonTooltipsEnabled: true,
+    languageCode: 'en',
     uiLabels: {
         fullScreen: 'Fullscreen toggle',
         zoomIn: 'Zoom In',
@@ -166,6 +167,15 @@ WithPolygonsAndMarkers.args = {
     isPolygonTooltipsEnabled: true,
     markerData: multiPolygonDataset.features,
     polygonData: multiPolygonDataset.features,
+};
+
+export const ItalianMap = Template.bind({
+});
+
+ItalianMap.args = {
+    ...base,
+    languageCode: 'it',
+    markerData: outlanderPlaces.features,
 };
 
 export const NoJavascript = Template.bind({
