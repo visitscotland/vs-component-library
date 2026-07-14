@@ -362,15 +362,15 @@ body.map-page {
 }
 
 .vs-map-sidebar {
-    height: 91vh;
-    max-height: 900px;
-    min-height: 400px;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1;
     
     @include media-breakpoint-down(md) {
+        height: 91vh;
+        max-height: 900px;
+        min-height: 400px;
         overscroll-behavior: contain;
         right: 0;
         bottom: 0;
@@ -379,13 +379,12 @@ body.map-page {
     }
 
     @include media-breakpoint-up(md) {
-        height: 85vh;
+        display: flex;
+        gap: 1rem;
+        max-height: 85vh;
         position: absolute;
         top: $vs-spacer-100;
         left: $vs-spacer-100;
-
-        display: flex;
-        gap: 1rem;
     }
 
     &__panel1,
@@ -393,9 +392,8 @@ body.map-page {
         background: $vs-color-background-primary;
         border-radius: $vs-radius-large $vs-radius-large 0 0;
         box-shadow: $vs-elevation-shadow-raised;
-        height: 100%;
         overflow: hidden;
-        padding: $vs-spacer-075 $vs-spacer-125;
+        padding: $vs-spacer-075 $vs-spacer-125 $vs-spacer-175;
 
         @include media-breakpoint-up(md) {
             border-radius: $vs-radius-large;
@@ -403,6 +401,10 @@ body.map-page {
             overflow: auto;
             padding: $vs-spacer-125;
             width: 23.3rem;
+        }
+
+        @include media-breakpoint-down(md) {
+            height: 100%;
         }
     }
 
