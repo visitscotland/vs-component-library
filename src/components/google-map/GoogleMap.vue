@@ -29,7 +29,7 @@
                     size="sm"
                     @click="zoomIn"
                 >
-                    {{ props.uiLabels.zoomIn }}
+                    {{ props.uiLabels?.zoomIn }}
                 </VsButton>
                 <VsButton
                     icon="fa-regular fa-minus"
@@ -38,7 +38,7 @@
                     size="sm"
                     @click="zoomOut"
                 >
-                    {{ props.uiLabels.zoomOut }}
+                    {{ props.uiLabels?.zoomOut }}
                 </VsButton>
                 <VsButton
                     v-if="isAppleIOS"
@@ -48,7 +48,7 @@
                     size="sm"
                     @click="fullscreenToggle"
                 >
-                    {{ props.uiLabels.fullScreen }}
+                    {{ props.uiLabels?.fullScreen }}
                 </VsButton>
             </div>
         </gmp-map>
@@ -306,7 +306,7 @@ function zoomOut() {
 
 function fullscreenToggle() {
     if (!isAppleIOS()) {
-        if (!document.fullscreenElement) {
+        if (!document.fullscreenElement && mapRef.value) {
             // Request fullscreen on the container element, NOT document or map div
             mapRef.value.requestFullscreen()
                 .catch((err) => console.error(`Error enabling fullscreen: ${err.message}`));
