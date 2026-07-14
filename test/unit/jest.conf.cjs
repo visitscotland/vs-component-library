@@ -19,9 +19,8 @@ module.exports = {
             '<rootDir>/test/unit/mocks/fileMock.js',
     },
     transform: {
-        '^.+\\.ts$': '<rootDir>/node_modules/ts-jest',
-        '^.+\\.js$': '<rootDir>/node_modules/babel-jest',
-        '.*\\.(vue)$': '<rootDir>/node_modules/@vue/vue3-jest',
+        '^.+\\.[jt]sx?$': '<rootDir>/node_modules/ts-jest',
+        '.*\\.vue$': '<rootDir>/node_modules/@vue/vue3-jest',
     },
     transformIgnorePatterns: ['<rootDir>/node_modules/(?!(bootstrap-vue)/)'],
     snapshotSerializers: ['<rootDir>/node_modules/jest-serializer-vue'],

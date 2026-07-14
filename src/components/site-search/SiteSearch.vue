@@ -101,7 +101,7 @@ export default {
         height: 48px;
 
         .vs-icon{
-            margin-right: $vs-spacer-0;
+            margin-right: 0;
         }
 
         &.vs-button.btn-md {

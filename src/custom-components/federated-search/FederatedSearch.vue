@@ -588,10 +588,10 @@ onUpdated(() => {
 <style lang="scss">
 .vs-federated-search {
     &__pagination {
-        margin: $vs-spacer-400 $vs-spacer-0 $vs-spacer-300 $vs-spacer-0;
+        margin: $vs-spacer-400 0 $vs-spacer-300 0;
 
         @include media-breakpoint-down(lg) {
-            margin: $vs-spacer-100 $vs-spacer-0 $vs-spacer-200 $vs-spacer-0;
+            margin: $vs-spacer-100 0 $vs-spacer-200 0;
         }
     }
 

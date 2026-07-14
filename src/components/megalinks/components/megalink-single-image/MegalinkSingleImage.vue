@@ -166,7 +166,7 @@ export default {
             z-index: 10;
             background-color: $vs-elevation-surface-raised;
             box-shadow: $vs-elevation-shadow-raised;
-            margin: $vs-spacer-0 $vs-spacer-075;
+            margin: 0 $vs-spacer-075;
             padding: $vs-spacer-200 $vs-spacer-150;
             clear: both;
 
@@ -196,7 +196,7 @@ export default {
             font-size: $font-size-5;
 
             &:first-of-type {
-                margin-bottom: $vs-spacer-0;
+                margin-bottom: 0;
             }
         }
 

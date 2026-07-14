@@ -1,3 +1,41 @@
+# [5.71.0](https://github.com/visitscotland/vs-component-library/compare/v5.70.0...v5.71.0) (2026-07-14)
+
+
+### Features
+
+* **swiper:** upgrade swiper and fix error ([7c858ce](https://github.com/visitscotland/vs-component-library/commit/7c858ce34f6bd04cffb3a7196ce04db77be793f5))
+
+# [5.70.0](https://github.com/visitscotland/vs-component-library/compare/v5.69.2...v5.70.0) (2026-07-10)
+
+
+### Bug Fixes
+
+* **main map sidebar:** calculate peekheight onmount ([ba6dcb7](https://github.com/visitscotland/vs-component-library/commit/ba6dcb79c377c214408d6514d3eece2f7894cf85))
+* **main map:** minor fixes ([de6d2fa](https://github.com/visitscotland/vs-component-library/commit/de6d2fac89c5572cc1b39ff3439458c40af45872))
+* **main map:** remove infowindow as it's no longer used ([7bd216e](https://github.com/visitscotland/vs-component-library/commit/7bd216edd90dbf3fc358c6ffac8c3125be35e5d2))
+* **map sidebar:** bug resetting input ([180bee2](https://github.com/visitscotland/vs-component-library/commit/180bee21b790edcd135129929547a944b27c2661))
+* **map sidebar:** make adjustments for use on .com ([6dd4520](https://github.com/visitscotland/vs-component-library/commit/6dd4520d6e6307f75b19c88e86b55441d938c0df))
+
+
+### Features
+
+* **main map sidebar:** flesh out sidebar with full functionality ([9514298](https://github.com/visitscotland/vs-component-library/commit/95142980c6318d286ce94eace065e6f4b34fb4d7))
+* **main map sidebar:** rebuild map sidebar to accommodate mobile drawer functionality ([aed7187](https://github.com/visitscotland/vs-component-library/commit/aed71871a2efc31569e4a18f0ecb5fa2acbea498))
+
+## [5.69.2](https://github.com/visitscotland/vs-component-library/compare/v5.69.1...v5.69.2) (2026-07-09)
+
+
+### Bug Fixes
+
+* **quote:** fix linting issues ([5d0c9b7](https://github.com/visitscotland/vs-component-library/commit/5d0c9b7bc4b656c98517739213fad27acf8f0f00))
+
+## [5.69.1](https://github.com/visitscotland/vs-component-library/compare/v5.69.0...v5.69.1) (2026-07-08)
+
+
+### Bug Fixes
+
+* **main map:** always use the english query for self catering ([be0ed09](https://github.com/visitscotland/vs-component-library/commit/be0ed090f2aa2ee6026323fb3435579af01f1454))
+
 # [5.69.0](https://github.com/visitscotland/vs-component-library/compare/v5.68.0...v5.69.0) (2026-07-06)
 
 

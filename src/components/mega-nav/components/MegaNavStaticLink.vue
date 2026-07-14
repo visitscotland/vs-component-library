@@ -92,10 +92,10 @@ export default {
             text-decoration: none;
             color: $vs-color-text-primary;
             padding: $vs-spacer-075 $vs-spacer-050;
-            margin: $vs-spacer-0 $vs-spacer-0;
+            margin: 0 0;
 
             @include media-breakpoint-up(xl) {
-                margin: $vs-spacer-0 $vs-spacer-050;
+                margin: 0 $vs-spacer-050;
             }
 
             &::after {

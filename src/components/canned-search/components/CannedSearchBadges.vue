@@ -111,7 +111,7 @@ export default {
 
         &__badge {
             position: absolute;
-            padding: $vs-spacer-0 $vs-spacer-050;
+            padding: 0 $vs-spacer-050;
             text-transform: uppercase;
             max-height: 1.5em;
             text-align: right;
@@ -150,7 +150,7 @@ export default {
             &--br {
                 bottom: $vs-spacer-050;
                 right: $vs-spacer-050;
-                padding: $vs-spacer-0 $vs-spacer-100;
+                padding: 0 $vs-spacer-100;
             }
         }
 

@@ -6,7 +6,10 @@
     >
         <div class="vs-content-swiper__inner">
             <div class="vs-content-swiper__header">
-                <div :class="scrollbarContainerClasses" />
+                <div
+                    ref="scrollbar"
+                    :class="scrollbarContainerClasses"
+                />
 
                 <div class="vs-content-swiper__controls">
                     <VsButton
@@ -162,6 +165,7 @@ export default {
         return {
             modules: [Navigation, Scrollbar, A11y],
             isInteracting: false,
+            scrollbarEl: null,
         };
     },
     computed: {
@@ -185,7 +189,7 @@ export default {
         },
         swiperScrollbar() {
             return {
-                el: `.vs-content-swiper__scrollbar-${this.instanceId}`,
+                el: this.scrollbarEl,
                 draggable: false,
             };
         },
@@ -230,6 +234,9 @@ export default {
             // returns breakpoint map for Swiper
             return result;
         },
+    },
+    mounted() {
+        this.scrollbarEl = this.$refs.scrollbar;
     },
     beforeUnmount() {
         clearTimeout(this._interactionTimer);

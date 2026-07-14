@@ -276,7 +276,7 @@ export default {
         }
 
         .card-body {
-            padding: $vs-spacer-025 $vs-spacer-0 $vs-spacer-0;
+            padding: $vs-spacer-025 0 0;
             min-height: 11.5rem;
 
             &--short {
@@ -324,7 +324,7 @@ export default {
 
         .vs-product-card__title {
             display: flex;
-            margin: $vs-spacer-075 $vs-spacer-0 $vs-spacer-050;
+            margin: $vs-spacer-075 0 $vs-spacer-050;
 
             @include media-breakpoint-up(md) {
                 font-size: $vs-font-size-heading-xs;

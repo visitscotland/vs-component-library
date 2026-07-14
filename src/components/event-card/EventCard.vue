@@ -119,17 +119,17 @@ export default {
     }
 
     .vs-event-card__date {
-        margin: auto $vs-spacer-0;
+        margin: auto 0;
         font-size: $font-size-6;
         font-weight: $vs-font-weight-medium;
     }
 
     .vs-event-card__heading {
-        margin: $vs-spacer-0;
+        margin: 0;
     }
 
     .vs-event-card__header {
-        margin: $vs-spacer-050 $vs-spacer-0;
+        margin: $vs-spacer-050 0;
     }
 
     .vs-event-card__cta {
@@ -145,11 +145,11 @@ export default {
     @include media-breakpoint-up(md) {
 
         .vs-event-card__header {
-            margin: $vs-spacer-0 $vs-spacer-0 $vs-spacer-0 $vs-spacer-0;
+            margin: 0 0 0 0;
         }
 
         .vs-event-card__heading {
-            margin: $vs-spacer-050 $vs-spacer-0;
+            margin: $vs-spacer-050 0;
         }
 
         .vs-event-card__date {
@@ -158,7 +158,7 @@ export default {
 
         .vs-event-card__cta {
             position: relative;
-            right: $vs-spacer-0;
+            right: 0;
             bottom: $vs-spacer-300;
             float: right;
             margin-bottom: -$vs-spacer-300;

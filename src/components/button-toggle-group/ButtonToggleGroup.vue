@@ -174,7 +174,7 @@ export default {
                 color: $vs-color-text-cta-on-light;
                 transition: none;
                 padding-top: $vs-spacer-050;
-                margin-bottom: $vs-spacer-0;
+                margin-bottom: 0;
                 padding-bottom: $vs-spacer-050;
                 display: flex;
                 align-items: center;

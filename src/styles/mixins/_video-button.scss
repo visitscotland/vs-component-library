@@ -8,8 +8,8 @@
         flex-direction: column;
 
         .vs-icon {
-            margin-right: $vs-spacer-0;
-            margin-top: $vs-spacer-0;
+            margin-right: 0;
+            margin-top: 0;
             margin-bottom: $vs-spacer-025;
         }
     }
@@ -27,7 +27,7 @@
         .vs-icon {
             margin-right: $vs-spacer-050;
             margin-top: -.05em;
-            margin-bottom: $vs-spacer-0;
+            margin-bottom: 0;
         }
     }
 
@@ -44,7 +44,7 @@
         .vs-icon {
             margin-right: $vs-spacer-050;
             margin-top: -.05rem;
-            margin-bottom: $vs-spacer-0;
+            margin-bottom: 0;
         }
     }
 
