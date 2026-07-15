@@ -1,3 +1,10 @@
+# [5.71.0](https://github.com/visitscotland/vs-component-library/compare/v5.70.0...v5.71.0) (2026-07-14)
+
+
+### Features
+
+* **swiper:** upgrade swiper and fix error ([7c858ce](https://github.com/visitscotland/vs-component-library/commit/7c858ce34f6bd04cffb3a7196ce04db77be793f5))
+
 # [5.70.0](https://github.com/visitscotland/vs-component-library/compare/v5.69.2...v5.70.0) (2026-07-10)
 
 
