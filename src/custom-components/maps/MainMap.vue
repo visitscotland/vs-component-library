@@ -557,6 +557,14 @@ onMounted(async() => {
             if (currentZoom.value > 7 && !isProgrammaticMove.value && isUserMove.value) {
                 showSearchAreaButton.value = true;
             }
+
+            // if (isUserMove.value) {
+            //     updateSearchParams({
+            //         coords: gMap.getCenter().toString().replace(/[()\s]/g, ''),
+            //         location: null,
+            //         zoom: gMap.getZoom(),
+            //     });
+            // }
         });
 
         gMap.addListener('dragstart', () => {
@@ -570,19 +578,35 @@ onMounted(async() => {
 
             addDestinationMarkers();
 
-            // Search a search if there are parameters in the URL.
+            // Start a search if there are parameters in the URL.
             const {
                 category,
+                coords,
                 location,
+                zoom,
             } = getSearchParams();
 
             if (location) {
                 const placeData = props.featuredPlaces.find((place) => (
                     place.properties.title.toLowerCase() === location.toLowerCase()
                 ));
-                handleFeaturedLocationClick(placeData, category);
-            }
 
+                if (placeData) {
+                    handleFeaturedLocationClick(placeData, category);
+                }
+            } else if (coords) {
+                googleMapStore.showDestinations = false;
+                runProgrammaticMove(() => gMap.setZoom(zoom));
+
+                runProgrammaticMove(() => gMap.setCenter(
+                    new google.maps.LatLng(
+                        coords[0],
+                        coords[1],
+                    ),
+                ));
+
+                selectCategory(category || 'things-to-do', 2);
+            }
         });
 
         gMap.addListener('idle', () => {
@@ -596,6 +620,12 @@ onMounted(async() => {
                 googleMapStore.selectedDestinationType = '';
                 selectedDestination.value = '';
                 isUserMove.value = false;
+
+                updateSearchParams({
+                    coords: gMap.getCenter().toString().replace(/[()\s]/g, ''),
+                    location: null,
+                    zoom: gMap.getZoom(),
+                });
             }
         });
 
@@ -1188,12 +1218,6 @@ function resetMap(hardReset, resetLocation) {
     clearExistingMarkers();
     currentSearch.value = '';
 
-    // Remove the search params.
-    updateSearchParams({
-        location: null,
-        category: null,
-    });
-
     // Reset nearby search.
     nearbySearchQuery.includedTypes = null;
     nearbySearchQuery.excludedTypes = null;
@@ -1223,6 +1247,16 @@ function resetMap(hardReset, resetLocation) {
         runProgrammaticMove(() => gMap.setZoom(props.zoom));
         runProgrammaticMove(() => gMap.fitBounds(SCOTLAND_BOUNDS));
         mapInteractionEvent('reset_map');
+    }
+
+    if (hardReset || resetLocation) {
+        // Remove the search params.
+        updateSearchParams({
+            location: null,
+            category: null,
+            coords: null,
+            zoom: null,
+        });
     }
 }
 
@@ -1375,6 +1409,8 @@ function handleFeaturedLocationClick(place, category) {
 
     updateSearchParams({
         location: place.properties.title.toLowerCase(),
+        coords: null,
+        zoom: null,
     });
 
     selectCategory(category || 'things-to-do', 2);
