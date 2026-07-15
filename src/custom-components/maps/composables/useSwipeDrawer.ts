@@ -113,6 +113,9 @@ export default function useSwipeDrawer(isOpen: Ref<boolean>, sidebar: Ref<HTMLEl
     function onResize() {
         isMobile.value = window.innerWidth < 768;
         peekHeight.value = Math.min(250, window.innerHeight * 0.3);
+        sidebarHeight.value = sidebar.value
+            ? sidebar.value.getBoundingClientRect().height
+            : 500;
     }
 
     watchEffect(() => {
