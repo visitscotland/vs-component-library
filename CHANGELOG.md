@@ -1,3 +1,11 @@
+## [5.71.1](https://github.com/visitscotland/vs-component-library/compare/v5.71.0...v5.71.1) (2026-07-15)
+
+
+### Bug Fixes
+
+* **main map sidebar:** allow sidebar height to change based on content ([866f9cb](https://github.com/visitscotland/vs-component-library/commit/866f9cb9283fd5226e19e34b570aecca4a9ab300))
+* **main map sidebar:** update sidebar height when screen resizes ([74a55d8](https://github.com/visitscotland/vs-component-library/commit/74a55d8319d06a079007ee825a6c65774df76590))
+
 # [5.71.0](https://github.com/visitscotland/vs-component-library/compare/v5.70.0...v5.71.0) (2026-07-14)
 
 
