@@ -372,6 +372,7 @@ body.map-page {
         max-height: 900px;
         min-height: 400px;
         overscroll-behavior: contain;
+        top: auto;
         right: 0;
         bottom: 0;
         touch-action: none;
@@ -397,7 +398,6 @@ body.map-page {
 
         @include media-breakpoint-up(md) {
             border-radius: $vs-radius-large;
-            box-shadow: $vs-elevation-shadow-raised;
             overflow: auto;
             padding: $vs-spacer-125;
             width: 23.3rem;
