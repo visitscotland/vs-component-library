@@ -19,17 +19,22 @@ export default function useUpdateSearchParams() {
         const category = params.get('category');
         const location = params.get('location');
         const subcategories = params.get('subcategories');
-        const searchTerm = params.get('search-term');
         const zoom = Number(params.get('zoom'));
+        
         
         const coordsParam = params.get('coords');
         let coords: number[] | undefined;
-
+        
         if (coordsParam) {
             coords = coordsParam.split(',')
                 .map((el) => Number(el));
         }
-
+        
+        let searchTerm = params.get('search-term');
+        if (searchTerm) {
+            searchTerm = decodeURI(searchTerm);
+        }
+        
         return {
             category,
             coords,

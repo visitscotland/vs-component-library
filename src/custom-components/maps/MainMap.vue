@@ -583,6 +583,7 @@ onMounted(async() => {
                 category,
                 coords,
                 location,
+                searchTerm,
                 zoom,
             } = getSearchParams();
 
@@ -606,6 +607,10 @@ onMounted(async() => {
                 ));
 
                 selectCategory(category || 'things-to-do', 2);
+            } else if (searchTerm) {
+                query.value = searchTerm;
+                searchInput.value = searchTerm;
+                searchByText();
             }
         });
 
@@ -624,6 +629,7 @@ onMounted(async() => {
                 updateSearchParams({
                     coords: gMap.getCenter().toString().replace(/[()\s]/g, ''),
                     location: null,
+                    'search-term': null,
                     zoom: gMap.getZoom(),
                 });
             }
@@ -1016,9 +1022,22 @@ async function searchByCategory({
         once: true,
     });
 
+    let location;
+    let coords;
+
+    if (selectedDestination.value) {
+        location = selectedDestination.value.toLowerCase();
+        coords = null;
+    } else {
+        location = null;
+        coords = gMap.getCenter().toString().replace(/[()\s]/g, '');
+    }
+
     updateSearchParams({
-        location: selectedDestination.value.toLowerCase(),
+        location,
         category: selectedTopLevelCategory.value,
+        'search-term': null,
+        coords,
     });
 }
 
@@ -1100,6 +1119,13 @@ async function searchByText(useRestriction = false) {
 
     googleMapStore.showDestinations = false;
     googleMapStore.showCategories = true;
+
+    updateSearchParams({
+        location: null,
+        category: null,
+        coords: null,
+        'search-term': query.value,
+    });
 }
 
 async function addMarkers(searchId) {
@@ -1255,6 +1281,7 @@ function resetMap(hardReset, resetLocation) {
             location: null,
             category: null,
             coords: null,
+            'search-term': null,
             zoom: null,
         });
     }
@@ -1410,6 +1437,7 @@ function handleFeaturedLocationClick(place, category) {
     updateSearchParams({
         location: place.properties.title.toLowerCase(),
         coords: null,
+        'search-term': null,
         zoom: null,
     });
 
