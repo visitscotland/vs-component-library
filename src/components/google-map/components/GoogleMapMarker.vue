@@ -9,6 +9,7 @@
         :position="getPosition(props.featureData.geometry.coordinates)"
         ref="vsGoogleMapMarker"
         class="vs-google-map-marker__gmp-element"
+        data-test="vs-google-map-marker"
         tabindex="0"
         :aria-label="props.featureData.properties.title"
         role="button"
@@ -34,6 +35,7 @@
                 viewBox="0 0 36 41"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                data-test="vs-google-map-marker__pin-graphic"
             >
                 <path
                     d="M18 1C27.3888 1 35 8.61116 35 18C35 21.2018 34.304 23.8695 32.7432 26.4014C31.2002 28.9041 28.844 31.2202 25.6221 33.7822L25.6025 33.7988L25.5811 33.8135L18 39.2285L10.4189 33.8135L10.3975 33.7988L10.3779 33.7822C7.15645 31.2202 4.79987 28.9041 3.25684 26.4014C1.69596 23.8696 1 21.2017 1 18C1 8.61116 8.61116 1 18 1Z"
@@ -57,6 +59,7 @@
                 viewBox="0 0 36 41"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                data-test="vs-google-map-marker__pin-graphic"
             >
                 <path
                     d="M18 1C27.3888 1 35 8.61116 35 18C35 21.2018 34.304 23.8695 32.7432 26.4014C31.2002 28.9041 28.844 31.2202 25.6221 33.7822L25.6025 33.7988L25.5811 33.8135L18 39.2285L10.4189 33.8135L10.3975 33.7988L10.3779 33.7822C7.15645 31.2202 4.79987 28.9041 3.25684 26.4014C1.69596 23.8696 1 21.2017 1 18C1 8.61116 8.61116 1 18 1Z"
@@ -66,7 +69,11 @@
                 />
             </svg>
 
-            <span class="vs-google-map-marker__content">
+            <span
+                class="vs-google-map-marker__content"
+                data-test="vs-google-map-marker__content"
+            >
+                <!-- @slot for content on the pin of the marker -->
                 <slot name="vs-google-map-marker-content" />
             </span>
         </div>
