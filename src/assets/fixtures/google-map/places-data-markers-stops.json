@@ -12,6 +12,7 @@
                 "title": "Loch Ness",
                 "description": "Discover world-famous Loch Ness with holiday ideas, accommodation, travel and maps, tours, insider tips and fantastic things to see and do.",
                 "image": "fixtures/maps/images/ben-nevis.jpg",
+                "stopCount": 1,
                 "link": {
                     "label": "Discover Loch Ness",
                     "link": "#",
@@ -34,6 +35,7 @@
                 "title": "Loch Lomond",
                 "description": "Head to the bonnie banks of Loch Lomond with plenty of things to see & do for day trips and holiday inspiration.",
                 "image": "http://www.visitscotland.com/wsimgs/External%20View%20Media%20Res%20c%20Andrew%20Lee.jpg",
+                "stopCount": 2,
                 "link": {
                     "label": "Discover Loch Lomond",
                     "link": "#",
@@ -56,6 +58,7 @@
                 "title": "Dunfermline",
                 "description": "Dunfermline is Scotland's newest city, and sits in the east of Scotland.",
                 "image": "fixtures/maps/images/ben-nevis.jpg",
+                "stopCount": 3,
                 "link": {
                     "label": "Discover Dunfermline",
                     "link": "#",
@@ -78,6 +81,7 @@
                 "title": "Aberdeen",
                 "description": "Get the lowdown on the Aberdeen, Scotland's city in the north east.",
                 "image": "fixtures/maps/images/churchill-barriers.jpg",
+                "stopCount": 4,
                 "link": {
                     "label": "Discover Aberdeen",
                     "link": "#",
@@ -100,6 +104,7 @@
                 "title": "Dumfries",
                 "description": "Discover a wealth of attractions and amazing things to see and do in Dumfries.",
                 "image": "http://www.visitscotland.com/wsimgs/visitscotland_49002709930_1970963108.jpg",
+                "stopCount": 5,
                 "link": {
                     "label": "Discover Dumfries",
                     "link": "#",
@@ -122,6 +127,7 @@
                 "title": "Kirkwall",
                 "description": "Located on the enchanting Orkney Islands off Scotland's north coast, this vibrant capital is a fascinating ancient Norse town.",
                 "image": "http://www.visitscotland.com/wsimgs/Small_20Header2_561210442.jpg",
+                "stopCount": 6,
                 "link": {
                     "label": "Discover Kirkwall",
                     "link": "#",
@@ -144,6 +150,7 @@
                 "title": "Isle of Arran",
                 "description": "Arran is an island on the west coast of Scotland. It's family-friendly and has great scenery, beaches and lots of things to do.",
                 "image": "fixtures/maps/images/ben-nevis.jpg",
+                "stopCount": 7,
                 "link": {
                     "label": "Discover Isle of Arran",
                     "link": "#",
@@ -166,6 +173,7 @@
                 "title": "Isle of Skye",
                 "description": "Skye is a truly magical place. The largest of the Inner Hebrides, it's home to some of Scotland's most iconic landscapes.",
                 "image": "fixtures/maps/images/ben-nevis.jpg",
+                "stopCount": 8,
                 "link": {
                     "label": "Discover Isle of Skye",
                     "link": "#",

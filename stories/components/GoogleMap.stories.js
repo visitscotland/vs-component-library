@@ -6,11 +6,9 @@ import {
     VsRow,
 } from '@/components';
 
-import outlanderPlaces from '@/assets/fixtures/maps/places-data-outlander.json';
-import numberedPlaces from '@/assets/fixtures/maps/places-data-outlander-numbered.json';
-import regionPlaces from '@/assets/fixtures/maps/places-data-regional.json';
-import polygonDataset from '@/assets/fixtures/maps/regions-data.json';
-import multiPolygonDataset from '@/assets/fixtures/maps/places-data-regions.json';
+import markerPlaces from '@/assets/fixtures/google-map/places-data-markers.json';
+import numberedPlaces from '@/assets/fixtures/google-map/places-data-markers-stops.json';
+import polygonDataset from '@/assets/fixtures/google-map/places-data-polygons.json';
 
 export default {
     component: VsGoogleMap,
@@ -44,7 +42,10 @@ const Template = (args) => ({
                     :class="args.jsDisabled ? 'no-js' : ''"
                     :style="!args.jsDisabled ? 'height: 40em; width: 100%;' : ''"
                 >
-                    <template #vs-google-map-marker>
+                    <template
+                        #vs-google-map-marker
+                        v-if="args.markerData"
+                    >
                         <VsGoogleMapMarker
                             v-for="feature in args.markerData"
                             :key="feature.properties.id"
@@ -125,7 +126,7 @@ export const ThemedMarkers = Template.bind({
 
 ThemedMarkers.args = {
     ...base,
-    markerData: outlanderPlaces.features,
+    markerData: markerPlaces.features,
 };
 
 export const NumberedMarkers = Template.bind({
@@ -136,18 +137,6 @@ NumberedMarkers.args = {
     initialViewIsScotland: false,
     isViewToFitMarkers: true,
     markerData: numberedPlaces.features,
-};
-
-export const MapZoomsToMarkers = Template.bind({
-});
-
-MapZoomsToMarkers.args = {
-    ...base,
-    zoom: 7,
-    initialViewIsScotland: false,
-    isViewToFitMarkers: true,
-    isMarkerTooltipsEnabled: true,
-    markerData: regionPlaces.features,
 };
 
 export const WithPolygons = Template.bind({
@@ -165,8 +154,8 @@ WithPolygonsAndMarkers.args = {
     ...base,
     isMarkerTooltipsEnabled: true,
     isPolygonTooltipsEnabled: true,
-    markerData: multiPolygonDataset.features,
-    polygonData: multiPolygonDataset.features,
+    markerData: markerPlaces.features,
+    polygonData: polygonDataset.features,
 };
 
 export const ItalianMap = Template.bind({
@@ -175,7 +164,7 @@ export const ItalianMap = Template.bind({
 ItalianMap.args = {
     ...base,
     languageCode: 'it',
-    markerData: outlanderPlaces.features,
+    markerData: markerPlaces.features,
 };
 
 export const NoJavascript = Template.bind({
