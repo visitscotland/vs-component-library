@@ -2,6 +2,7 @@
 // https://developers.google.com/maps/documentation/javascript/reference/overlay-view
 
 import type { BrxmFeatureProperties } from '@/types/types';
+import designTokens from '@/assets/tokens/tokens.json';
 
 /* eslint-disable no-undef */
 /// <reference types='google.maps' />
@@ -22,11 +23,11 @@ function createTooltipContent() {
     const tooltipContent = document.createElement('div');
     tooltipContent.classList.add('vs-google-map__tooltip-content');
     tooltipContent.style.width = 'max-content';
-    tooltipContent.style.padding = '0.25em 0.5em';
-    tooltipContent.style.fontFamily = '"Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
-    tooltipContent.style.fontSize = '0.875rem';
-    tooltipContent.style.borderRadius = '0.5rem';
-    tooltipContent.style.background = '#fff';
+    tooltipContent.style.padding = `${designTokens['vs-spacer-025']} ${designTokens['vs-spacer-050']}`;
+    tooltipContent.style.fontFamily = designTokens['vs-font-family-sans-serif'];
+    tooltipContent.style.fontSize = designTokens['vs-font-size-detail-s'];
+    tooltipContent.style.borderRadius = designTokens['vs-radius-small'];
+    tooltipContent.style.background = designTokens['vs-color-background-inverse'];
 
     return tooltipContent;
 }
@@ -36,7 +37,7 @@ function createTooltipArrow() {
     tooltipArrow.classList.add('vs-google-map__tooltip-arrow');
     tooltipArrow.style.width = '10px';
     tooltipArrow.style.height = '10px';
-    tooltipArrow.style.background = '#fff';
+    tooltipArrow.style.background = designTokens['vs-color-background-inverse'];
     tooltipArrow.style.transform = 'rotate(45deg)';
     tooltipArrow.style.position = 'relative';
     tooltipArrow.style.top = '-5px';
@@ -76,7 +77,7 @@ export default function createTooltip(mapsLibrary: google.maps.MapsLibrary) {
             const tooltipContent = createTooltipContent();
 
             const tooltipText = document.createElement('span');
-            tooltipText.innerHTML = `${this.properties.title}`;
+            tooltipText.textContent = `${this.properties.title}`;
 
             tooltipContent.appendChild(tooltipText);
 

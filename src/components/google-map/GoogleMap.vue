@@ -149,7 +149,7 @@ const props = defineProps({
      */
     isViewToFitMarkers: {
         type: Boolean,
-        deafult: false,
+        default: false,
     },
     /**
      * Enables/disables tooltips for the markers
@@ -164,13 +164,6 @@ const props = defineProps({
     isPolygonTooltipsEnabled: {
         type: Boolean,
         default: true,
-    },
-    /**
-     * Array of marker brxm features.
-     */
-    markerData: {
-        type: Array,
-        default: () => [],
     },
     /**
      * Array of polygon brxm features.

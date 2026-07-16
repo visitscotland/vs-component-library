@@ -89,6 +89,8 @@ import {
     ref,
 } from 'vue';
 
+import designTokens from '@/assets/tokens/tokens.json';
+
 import useGoogleBaseMapStore from '@/stores/googleMap.store';
 
 const googleMapStore = useGoogleBaseMapStore();
@@ -105,7 +107,7 @@ const props = defineProps({
     /** SVG Compatible colour (Hex/String/RGB()), Defaults to  */
     pinColor: {
         type: String,
-        default: '#33225D',
+        default: designTokens['vs-color-background-accent-heather-80'],
     },
     markerTooltipsEnabled: {
         type: Boolean,

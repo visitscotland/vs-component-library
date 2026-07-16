@@ -5,13 +5,14 @@ import { watch } from 'vue';
 import { storeToRefs } from 'pinia';
 
 import type { BrxmFeature, BrxmFeatureProperties } from '@/types/types';
+import designTokens from '@/assets/tokens/tokens.json';
 import useGoogleBaseMapStore from '@/stores/googleMap.store';
 
 import createTooltip from './AddTooltip';
 
-const ACTIVE_COLOR = '#A3A3CC';
-const HOVER_COLOR = '#33225D';
-const STROKE_COLOR = '#FFFFFF';
+const ACTIVE_COLOR = designTokens['vs-color-background-accent-heather-30'];
+const HOVER_COLOR = designTokens['vs-color-background-accent-heather-80'];
+const STROKE_COLOR = designTokens['vs-color-border-inverse'];
 
 type Coordinate = [number, number];
 type Polygon = Coordinate[];
