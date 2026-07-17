@@ -71,7 +71,7 @@
     "@rollup/plugin-replace": "^6.0.2",
     "@semantic-release/exec": "^7.1.0",
     "@semantic-release/npm": "^13.1.5",
-    "@storybook/addon-a11y": "10.4.6",
+    "@storybook/addon-a11y": "10.5.0",
     "@storybook/addon-docs": "10.4.6",
     "@storybook/addon-links": "10.4.6",
     "@storybook/vue3-vite": "10.4.6",
