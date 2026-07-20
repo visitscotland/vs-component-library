@@ -368,7 +368,7 @@ body.map-page {
     z-index: 1;
     
     @include media-breakpoint-down(md) {
-        height: 91vh;
+        height: 91dvh;
         max-height: 900px;
         min-height: 400px;
         overscroll-behavior: contain;
@@ -382,7 +382,7 @@ body.map-page {
     @include media-breakpoint-up(md) {
         display: flex;
         gap: 1rem;
-        max-height: 85vh;
+        max-height: 85dvh;
         position: absolute;
         top: $vs-spacer-100;
         left: $vs-spacer-100;
@@ -471,6 +471,10 @@ body.map-page {
     height: 100%;
     overflow: auto;
     position: relative;
+
+    @include media-breakpoint-down(md) {
+        padding-bottom: $vs-spacer-400;
+    }
 
     &__dismiss {
         position: absolute !important;
