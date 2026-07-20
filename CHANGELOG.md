@@ -1,3 +1,10 @@
+## [5.71.3](https://github.com/visitscotland/vs-component-library/compare/v5.71.2...v5.71.3) (2026-07-20)
+
+
+### Bug Fixes
+
+* **main map:** use dynamic viewport height to account for browser's expanding address bar ([154644e](https://github.com/visitscotland/vs-component-library/commit/154644ef07b7b775fa156321f0984f3d4442a57c))
+
 ## [5.71.2](https://github.com/visitscotland/vs-component-library/compare/v5.71.1...v5.71.2) (2026-07-20)
 
 
