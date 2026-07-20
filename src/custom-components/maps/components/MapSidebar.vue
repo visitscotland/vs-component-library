@@ -468,6 +468,8 @@ body.map-page {
 }
 
 .vs-map-detail-container {
+    height: 100%;
+    overflow: auto;
     position: relative;
 
     &__dismiss {
