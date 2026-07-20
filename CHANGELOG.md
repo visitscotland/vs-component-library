@@ -1,3 +1,10 @@
+## [5.71.2](https://github.com/visitscotland/vs-component-library/compare/v5.71.1...v5.71.2) (2026-07-20)
+
+
+### Bug Fixes
+
+* **main map sidebar:** make search results scrollable ([4f68af3](https://github.com/visitscotland/vs-component-library/commit/4f68af33efa5ffbad7b4176e0d0bdcfaaf5e58e6))
+
 ## [5.71.1](https://github.com/visitscotland/vs-component-library/compare/v5.71.0...v5.71.1) (2026-07-15)
 
 
