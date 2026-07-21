@@ -1,3 +1,10 @@
+## [5.71.4](https://github.com/visitscotland/vs-component-library/compare/v5.71.3...v5.71.4) (2026-07-21)
+
+
+### Bug Fixes
+
+* **main map:** reset selected destination category ([53aa213](https://github.com/visitscotland/vs-component-library/commit/53aa2135a8abe95cc31478d1b182726b76476df2))
+
 ## [5.71.3](https://github.com/visitscotland/vs-component-library/compare/v5.71.2...v5.71.3) (2026-07-20)
 
 
