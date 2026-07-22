@@ -71,6 +71,11 @@ const formData = {
                 selectexample: 'first',
             },
         },
+        {
+            name: 'termsNotice',
+            element: 'text-block',
+            content: '<p>By submitting this form, you agree to our <a href="/terms">terms and conditions</a>.</p>',
+        },
     ],
     de: {
         FirstName: {
@@ -183,7 +188,7 @@ describe('VsForm', () => {
 
         const allInputs = wrapper.findAll('b-form-group-stub');
 
-        expect(allInputs.length).toBe(4);
+        expect(allInputs.length).toBe(5);
     });
 
     it('should render a submit element with a value of `submit` from the data', async() => {
@@ -218,6 +223,23 @@ describe('VsForm', () => {
 
         const recaptcha = wrapper.find('vs-recaptcha-stub');
         expect(recaptcha.exists()).toBe(false);
+    });
+
+    it('should render a text-block field with its content', async() => {
+        const wrapper = factoryShallowMount();
+        await wrapper.vm.$nextTick();
+
+        const textBlock = wrapper.find('vs-body-stub');
+
+        expect(textBlock.exists()).toBe(true);
+        expect(textBlock.html()).toContain('terms and conditions');
+    });
+
+    it('should not add a text-block field to the form data object', async() => {
+        const wrapper = factoryShallowMount();
+        await wrapper.vm.$nextTick();
+
+        expect(wrapper.vm.form.termsNotice).toBeUndefined();
     });
 
     describe(':slots', () => {

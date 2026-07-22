@@ -162,3 +162,30 @@ NoJavascript.args = {
     ...base,
     jsDisabled: true,
 };
+
+export const TextBlock = Template.bind({
+});
+
+TextBlock.args = {
+    ...base,
+    usesRecaptcha: false,
+    dataUrl: './fixtures/forms/text-block-form.json',
+};
+
+export const TextBlockConditional = Template.bind({
+});
+
+TextBlockConditional.args = {
+    ...base,
+    usesRecaptcha: false,
+    dataUrl: './fixtures/forms/text-block-form.json',
+};
+
+TextBlockConditional.play = async({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await waitFor(async() => {
+        const select = canvas.getByLabelText('Country');
+        await userEvent.selectOptions(select, ['United Kingdom (Scotland)']);
+    });
+};

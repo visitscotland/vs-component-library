@@ -132,6 +132,14 @@
                                         :rows="field.rows || null"
                                     />
                                 </template>
+
+                                <template v-if="field.element === 'text-block'">
+                                    <VsBody>
+                                        <div
+                                            v-html="getTranslatedTextBlockContent(field.name, index)"
+                                        />
+                                    </VsBody>
+                                </template>
                             </div>
                         </BFormGroup>
                     </template>
@@ -208,6 +216,7 @@ import VsButton from '@/components/button/Button.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsWarning from '@/components/warning/Warning.vue';
 import VsTextarea from '@/components/textarea/Textarea.vue';
+import VsBody from '@/components/body/Body.vue';
 import dataLayerMixin from '../../mixins/dataLayerMixin';
 
 /**
@@ -230,6 +239,7 @@ export default {
         VsHeading,
         VsWarning,
         VsTextarea,
+        VsBody,
     },
     mixins: [dataLayerMixin],
     props: {
@@ -411,8 +421,11 @@ export default {
                     }
 
                     response.data.fields.forEach((field) => {
-                        // create a data entry for each field
-                        this.form[field.name] = '';
+                        // create a data entry for each field, unless it is a text-block
+                        // which has no value and should not be submitted with the form
+                        if (field.element !== 'text-block') {
+                            this.form[field.name] = '';
+                        }
 
                         // Vue.set no longer needed to ensure reactivity in vue 3
                         if (field.conditional) {
@@ -538,6 +551,23 @@ export default {
             }
 
             return validationObj;
+        },
+        /**
+         * Attempts to retrieve the text block content for a given field from the current
+         * language obj. If no localisation is available, or the language is en, falls back
+         * to the default content for the fieldname.
+         */
+        getTranslatedTextBlockContent(fieldName, index) {
+            const languageObj = this.getLanguageObj();
+
+            if (this.language !== 'en'
+                && !this.isUndefined(languageObj[fieldName])
+                && !this.isUndefined(languageObj[fieldName].content)
+            ) {
+                return languageObj[fieldName].content;
+            }
+
+            return this.formData.fields[index].content;
         },
         /**
          * Attempts to retrieve the options for a given select field from the current language
@@ -770,7 +800,8 @@ export default {
         needsLabel(field) {
             if (field.element === 'radio'
                 || field.element === 'submit'
-                || field.element === 'checkbox') {
+                || field.element === 'checkbox'
+                || field.element === 'text-block') {
                 return false;
             }
 
