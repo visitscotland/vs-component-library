@@ -1,5 +1,5 @@
 import {
-    userEvent, within, waitFor,
+    userEvent, within, waitFor, expect,
 } from 'storybook/test';
 
 import VsForm from '@/components/form/Form.vue';
@@ -187,5 +187,40 @@ TextBlockConditional.play = async({ canvasElement }) => {
     await waitFor(async() => {
         const select = canvas.getByLabelText('Country');
         await userEvent.selectOptions(select, ['United Kingdom (Scotland)']);
+    });
+};
+
+export const ConditionalSubmit = Template.bind({
+});
+
+ConditionalSubmit.args = {
+    ...base,
+    usesRecaptcha: false,
+    dataUrl: './fixtures/forms/text-block-form.json',
+};
+
+ConditionalSubmit.play = async({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await waitFor(() => {
+        const submit = canvas.getByText('Subscribe');
+        expect(submit.closest('button')).toBeDisabled();
+    }, {
+        timeout: 15000,
+        interval: 250,
+    });
+
+    await waitFor(async() => {
+        const email = canvas.getByLabelText('Email address');
+        await userEvent.type(email, 'test@example.com');
+        email.blur();
+    });
+
+    await waitFor(() => {
+        const submit = canvas.getByText('Subscribe');
+        expect(submit.closest('button')).toBeEnabled();
+    }, {
+        timeout: 15000,
+        interval: 250,
     });
 };

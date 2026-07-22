@@ -163,6 +163,7 @@
                     variant="primary"
                     type="submit"
                     class="vs-form__submit mt-300"
+                    :disabled="submitDisabled"
                     @click="preSubmit"
                 >
                     {{ getTranslatedContent('submit') }}
@@ -386,6 +387,7 @@ export default {
             inputVal: '',
             reAlertErrors: false,
             emailFieldName: '',
+            submitDisabled: false,
         };
     },
     computed: {
@@ -813,6 +815,11 @@ export default {
          */
         preSubmit(e) {
             e.preventDefault();
+
+            if (this.submitDisabled) {
+                return;
+            }
+
             this.submitError = false;
 
             function isRequired(value) {
@@ -1023,6 +1030,8 @@ export default {
                     }
                 });
             });
+
+            this.checkSubmitConditional();
         },
         /**
          * Sets the 'd-none' class on conditional fields which are currently not displaying.
@@ -1031,6 +1040,38 @@ export default {
             return this.conditionalFields[fieldName] === true
                 || typeof this.conditionalFields[fieldName] === 'undefined'
                 ? '' : 'd-none';
+        },
+        /**
+         * Checks whether the submitConditional config meets its condition, and updates
+         * the submitDisabled flag. When the condition is met the submit button is disabled.
+         */
+        checkSubmitConditional() {
+            if (!this.formData.submitConditional) {
+                this.submitDisabled = false;
+
+                return;
+            }
+
+            let disable = false;
+
+            Object.keys(this.formData.submitConditional).forEach((rule) => {
+                const conditions = this.formData.submitConditional[rule];
+
+                if (Array.isArray(conditions)) {
+                    if (conditions.length === 0) {
+                        // Empty array means: enabled when field has any non-empty value
+                        if (!this.form[rule]) {
+                            disable = true;
+                        }
+                    } else if (conditions.indexOf(this.form[rule]) === -1) {
+                        disable = true;
+                    }
+                } else if (this.form[rule] !== conditions) {
+                    disable = true;
+                }
+            });
+
+            this.submitDisabled = disable;
         },
     },
 };

@@ -242,6 +242,128 @@ describe('VsForm', () => {
         expect(wrapper.vm.form.termsNotice).toBeUndefined();
     });
 
+    it('should disable the submit button when submitConditional condition is not met', async() => {
+        const wrapper = factoryShallowMount();
+        await wrapper.vm.$nextTick();
+
+        wrapper.setData({
+            formData: {
+                ...wrapper.vm.formData,
+                submitConditional: {
+                    selectexample: 'first',
+                },
+            },
+        });
+
+        wrapper.vm.updateFieldData({
+            field: 'selectexample',
+            value: 'second',
+            errors: [],
+        });
+        await wrapper.vm.$nextTick();
+
+        expect(wrapper.vm.submitDisabled).toBe(true);
+    });
+
+    it('should enable the submit button when submitConditional condition is met', async() => {
+        const wrapper = factoryShallowMount();
+        await wrapper.vm.$nextTick();
+
+        wrapper.setData({
+            formData: {
+                ...wrapper.vm.formData,
+                submitConditional: {
+                    selectexample: 'first',
+                },
+            },
+        });
+
+        wrapper.vm.updateFieldData({
+            field: 'selectexample',
+            value: 'first',
+            errors: [],
+        });
+        await wrapper.vm.$nextTick();
+
+        expect(wrapper.vm.submitDisabled).toBe(false);
+    });
+
+    it('should disable the submit button when an empty-array submitConditional field has no value', async() => {
+        const wrapper = factoryShallowMount();
+        await wrapper.vm.$nextTick();
+
+        wrapper.setData({
+            formData: {
+                ...wrapper.vm.formData,
+                submitConditional: {
+                    Email: [],
+                },
+            },
+        });
+
+        wrapper.vm.checkSubmitConditional();
+        await wrapper.vm.$nextTick();
+
+        expect(wrapper.vm.submitDisabled).toBe(true);
+    });
+
+    it('should enable the submit button when an empty-array submitConditional field has a value', async() => {
+        const wrapper = factoryShallowMount();
+        await wrapper.vm.$nextTick();
+
+        wrapper.setData({
+            formData: {
+                ...wrapper.vm.formData,
+                submitConditional: {
+                    Email: [],
+                },
+            },
+        });
+
+        wrapper.vm.updateFieldData({
+            field: 'Email',
+            value: 'test@example.com',
+            errors: [],
+        });
+        await wrapper.vm.$nextTick();
+
+        expect(wrapper.vm.submitDisabled).toBe(false);
+    });
+
+    it('should not submit the form when submit is disabled', async() => {
+        const axiosSpy = jest.spyOn(VsForm.methods, 'axiosSubmit');
+
+        const wrapper = factoryMount({
+            isMarketo: false,
+            submitUrl: '/test/form/url',
+            isTest: true,
+        });
+
+        wrapper.setData({
+            submitDisabled: true,
+        });
+        await wrapper.vm.$nextTick();
+
+        const fnInput = wrapper.find('#FirstName');
+        await fnInput.setValue('Jason');
+
+        const lnInput = wrapper.find('#LastName');
+        await lnInput.setValue('Bourne');
+
+        const eInput = wrapper.find('#Email');
+        await eInput.setValue('test@email.com');
+
+        wrapper.setData({
+            recaptchaVerified: true,
+        });
+        await wrapper.vm.$nextTick();
+
+        wrapper.find('.vs-form__submit').trigger('click');
+        await wrapper.vm.$nextTick();
+
+        expect(axiosSpy).not.toHaveBeenCalled();
+    });
+
     describe(':slots', () => {
         it('should render the `submitting` slot', async() => {
             const wrapper = factoryShallowMount();
