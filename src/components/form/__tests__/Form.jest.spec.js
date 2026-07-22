@@ -76,6 +76,10 @@ const formData = {
             element: 'text-block',
             content: '<p>By submitting this form, you agree to our <a href="/terms">terms and conditions</a>.</p>',
         },
+        {
+            name: 'formSeparator',
+            element: 'hr',
+        },
     ],
     de: {
         FirstName: {
@@ -188,7 +192,7 @@ describe('VsForm', () => {
 
         const allInputs = wrapper.findAll('b-form-group-stub');
 
-        expect(allInputs.length).toBe(5);
+        expect(allInputs.length).toBe(6);
     });
 
     it('should render a submit element with a value of `submit` from the data', async() => {
@@ -240,6 +244,22 @@ describe('VsForm', () => {
         await wrapper.vm.$nextTick();
 
         expect(wrapper.vm.form.termsNotice).toBeUndefined();
+    });
+
+    it('should render an hr element for hr fields', async() => {
+        const wrapper = factoryShallowMount();
+        await wrapper.vm.$nextTick();
+
+        const hr = wrapper.find('.vs-form__hr');
+
+        expect(hr.exists()).toBe(true);
+    });
+
+    it('should not add an hr field to the form data object', async() => {
+        const wrapper = factoryShallowMount();
+        await wrapper.vm.$nextTick();
+
+        expect(wrapper.vm.form.formSeparator).toBeUndefined();
     });
 
     it('should disable the submit button when submitConditional condition is not met', async() => {

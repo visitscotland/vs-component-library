@@ -140,6 +140,10 @@
                                         />
                                     </VsBody>
                                 </template>
+
+                                <template v-if="field.element === 'hr'">
+                                    <hr class="vs-form__hr" />
+                                </template>
                             </div>
                         </BFormGroup>
                     </template>
@@ -424,8 +428,9 @@ export default {
 
                     response.data.fields.forEach((field) => {
                         // create a data entry for each field, unless it is a text-block
-                        // which has no value and should not be submitted with the form
-                        if (field.element !== 'text-block') {
+                        // or hr which have no value and should not be submitted with the form
+                        if (field.element !== 'text-block'
+                            && field.element !== 'hr') {
                             this.form[field.name] = '';
                         }
 
@@ -803,7 +808,8 @@ export default {
             if (field.element === 'radio'
                 || field.element === 'submit'
                 || field.element === 'checkbox'
-                || field.element === 'text-block') {
+                || field.element === 'text-block'
+                || field.element === 'hr') {
                 return false;
             }
 
