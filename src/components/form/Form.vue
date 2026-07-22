@@ -134,7 +134,7 @@
                                 </template>
 
                                 <template v-if="field.element === 'text-block'">
-                                    <VsBody>
+                                    <VsBody aria-live="polite">
                                         <div
                                             v-html="getTranslatedTextBlockContent(field.name, index)"
                                         />
