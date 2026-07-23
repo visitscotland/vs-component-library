@@ -1019,22 +1019,22 @@ export default {
                         // against the string
                         showField = false;
                     }
-
-                    if (showField) {
-                        if (!this.conditionalFields[field]) {
-                            this.conditionalFields[field] = true;
-
-                            if (this.$refs[field]) {
-                                this.$refs[field][0].manualValidate();
-                            }
-                        }
-                    } else {
-                        // If a field is hidden by its conditional status, clear any existing
-                        // errors as they are no longer relevant
-                        this.manageErrorStatus(field, []);
-                        this.conditionalFields[field] = false;
-                    }
                 });
+
+                if (showField) {
+                    if (!this.conditionalFields[field]) {
+                        this.conditionalFields[field] = true;
+
+                        if (this.$refs[field]) {
+                            this.$refs[field][0].manualValidate();
+                        }
+                    }
+                } else {
+                    // If a field is hidden by its conditional status, clear any existing
+                    // errors as they are no longer relevant
+                    this.manageErrorStatus(field, []);
+                    this.conditionalFields[field] = false;
+                }
             });
 
             this.checkSubmitConditional();
