@@ -4033,21 +4033,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-links@npm:10.5.0":
-  version: 10.5.0
-  resolution: "@storybook/addon-links@npm:10.5.0"
+"@storybook/addon-links@npm:10.5.2":
+  version: 10.5.2
+  resolution: "@storybook/addon-links@npm:10.5.2"
   dependencies:
     "@storybook/global": "npm:^5.0.0"
   peerDependencies:
     "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-    storybook: ^10.5.0
+    storybook: ^10.5.2
   peerDependenciesMeta:
     "@types/react":
       optional: true
     react:
       optional: true
-  checksum: 10c0/e8f3124fadf85533e560077e7ab86fa4deb022ab36e6e9de921f6c1815427a3084ac515d62bac216aead6cc695acc20b9f5fc364ac2bf438f186c3b4befcd11e
+  checksum: 10c0/c48830b01b552de4973d697096011007f2d467c3d0468a5303a311ffdc207b8f0427ce96e44c4c59bcca49bf6ca1bbfc0bc3cd7457ed0e98ae230c453976f5f2
   languageName: node
   linkType: hard
 
@@ -4892,7 +4892,7 @@ __metadata:
     "@semantic-release/npm": "npm:^13.1.5"
     "@storybook/addon-a11y": "npm:10.5.0"
     "@storybook/addon-docs": "npm:10.5.0"
-    "@storybook/addon-links": "npm:10.5.0"
+    "@storybook/addon-links": "npm:10.5.2"
     "@storybook/vue3-vite": "npm:10.5.0"
     "@types/google.maps": "npm:^3.64.0"
     "@types/node": "npm:^26.0.1"
