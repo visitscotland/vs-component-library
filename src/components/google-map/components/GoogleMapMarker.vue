@@ -1,13 +1,15 @@
 <!--
     These disabled as gmp-elements only accept kebab-case element
     names and camel case attributes.
+    Click event handled by top-level gmp-advanced-marker element
+    but still throws error. Functionality is verified.
 -->
 <!-- eslint-disable vue/component-name-in-template-casing -->
 <!-- eslint-disable vue/attribute-hyphenation -->
+<!-- eslint-disable vuejs-accessibility/click-events-have-key-events -->
 <template>
     <gmp-advanced-marker
-        :position="getPosition(props.featureData.geometry.coordinates)"
-        ref="vsGoogleMapMarker"
+        :position.attr="getPosition(props.featureData.geometry.coordinates)"
         class="vs-google-map-marker__gmp-element"
         data-test="vs-google-map-marker"
         tabindex="0"
@@ -18,7 +20,7 @@
         @mouseout="resetZIndex()"
         @focus="props.markerTooltipsEnabled ? showTooltip() : bringToFront()"
         @focusout="props.markerTooltipsEnabled ? hideTooltip() : resetZIndex()"
-        @click="$emit('markerClick', props.featureData)"
+        @keydown.enter="$emit('markerClick', props.featureData)"
     >
         <VsTooltip
             v-if="props.markerTooltipsEnabled"
@@ -28,6 +30,7 @@
             subtle
             :use-legacy="false"
             ref="tooltip"
+            @click="$emit('markerClick', props.featureData)"
         >
             <svg
                 width="36"
@@ -52,6 +55,7 @@
         <div
             v-else
             class="vs-google-map-marker"
+            @click="$emit('markerClick', props.featureData)"
         >
             <svg
                 width="36"

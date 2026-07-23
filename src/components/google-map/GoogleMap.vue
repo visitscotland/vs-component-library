@@ -7,9 +7,9 @@
 <template>
     <div class="vs-google-map">
         <gmp-map
-            :center="mapCenter"
-            :zoom="props.zoom"
-            :map-id="props.mapId"
+            :center.prop="mapCenter"
+            :zoom.attr="props.zoom"
+            :map-id.camel="props.mapId"
             class="vs-google-map__map"
             id="vs-google-map"
             ref="mapRef"
@@ -72,6 +72,7 @@ import {
     onBeforeMount,
     onMounted,
     shallowRef,
+    onBeforeUnmount,
 } from 'vue';
 import getEnvValue from '@/utils/get-env-value';
 import { isAppleIOS } from '@/utils/is-apple-ios';
@@ -196,8 +197,6 @@ const innerMap = shallowRef();
 const mapCenter = ref(null);
 const isFullscreen = ref(false);
 
-const sanitizedPolygonData = [];
-
 const INITIAL_SCOTLAND_VIEW_BOUNDS = {
     north: 60.0,
     south: 54.24,
@@ -207,12 +206,6 @@ const INITIAL_SCOTLAND_VIEW_BOUNDS = {
 
 onBeforeMount(() => {
     mapCenter.value = props.center;
-
-    props.polygonData.forEach((feature) => {
-        if (feature.geometry.type === 'Polygon' || feature.geometry.type === 'MultiPolygon') {
-            sanitizedPolygonData.push(feature);
-        }
-    });
 });
 
 async function init() {
@@ -222,12 +215,11 @@ async function init() {
     // eslint-disable-next-line no-undef
     await google.maps.importLibrary('marker');
 
-    // Access the map.
     // Access the underlying map object.
     innerMap.value = mapRef.value.innerMap;
 
     innerMap.value.setOptions({
-        center: props.center,
+        center: mapCenter.value,
         zoom: props.zoom,
         mapId: props.mapId,
         clickableIcons: props.googleMapsOptions.clickableIcons,
@@ -265,10 +257,10 @@ async function init() {
         });
     };
 
-    if (sanitizedPolygonData) {
+    if (props.polygonData) {
         // eslint-disable-next-line no-undef
         google.maps.event.addListenerOnce(innerMap.value, 'tilesloaded', () => {
-            sanitizedPolygonData.forEach((place) => {
+            props.polygonData.forEach((place) => {
                 addPolygon(
                     innerMap.value,
                     place,
@@ -288,6 +280,16 @@ onMounted(async() => {
         language: props.languageCode,
     });
     init();
+});
+
+onBeforeUnmount(() => {
+    // Destroy and reset map instance if component umnoumted
+    mapRef.value.remove();
+    // eslint-disable-next-line no-undef
+    google.maps.event.clearInstanceListeners(innerMap.value);
+    mapRef.value = null;
+    innerMap.value = null;
+    googleMapStore.markers = [];
 });
 
 function zoomIn() {

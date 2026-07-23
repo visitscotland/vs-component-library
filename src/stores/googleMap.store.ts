@@ -6,7 +6,7 @@ import { defineStore } from 'pinia';
 import { ref } from 'vue';
 
 const useGoogleBaseMapStore = defineStore('googleBaseMap', () => {
-    const markers = ref([]);
+    const markers = ref<Object[]>([]);
     const isMarkerHovered = ref(false);
     const isPolygonTooltipOpen = ref(false);
 

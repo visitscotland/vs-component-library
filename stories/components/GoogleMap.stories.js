@@ -14,7 +14,6 @@ export default {
     component: VsGoogleMap,
     title: 'Components/Media & data visualisation/Google Map',
     argTypes: {
-
     },
 };
 
@@ -61,9 +60,10 @@ const Template = (args) => ({
                                 </span> 
                                 <span
                                     v-if="feature.properties.category && !feature.properties.stopCount"
-                                    class="vs-google-map-marker__icon mt-075"
+                                    class="vs-google-map-marker__icon"
                                 >
                                     <VsIcon
+                                        style="margin-top: 0.9em"
                                         icon="fa-kit fa-vs-coo"
                                         variant="inverse"
                                         size="xxs"
