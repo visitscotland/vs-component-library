@@ -15,6 +15,7 @@
                     :img-caption="imgCaption"
                     :img-credit="imgCredit"
                     :split="split"
+                    :inset="inset"
                 />
             </div>
 
