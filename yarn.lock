@@ -4935,7 +4935,7 @@ __metadata:
     sass: "npm:^1.62.1"
     semantic-release: "npm:^25.0.3"
     standard-version: "npm:^9.5.0"
-    storybook: "npm:^10.4.6"
+    storybook: "npm:^10.5.0"
     storybook-addon-tag-badges: "npm:^3.1.0"
     swiper: "npm:^14.0.1"
     theo: "npm:^8.1.5"
@@ -15981,7 +15981,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook@npm:^10.4.6":
+"storybook@npm:^10.5.0":
   version: 10.5.0
   resolution: "storybook@npm:10.5.0"
   dependencies:

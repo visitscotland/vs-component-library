@@ -6,6 +6,7 @@
     >
         <VsImg
             class="vs-hero-section-image__img"
+            :class="isInset"
             :src="src"
             :alt="imgAlt"
         />
@@ -82,11 +83,22 @@ export default {
             type: Boolean,
             default: false,
         },
+        /**
+        * Changes image to inset style
+        */
+        inset: {
+            type: Boolean,
+            default: false,
+        },
     },
     computed: {
-        // Set container class for inset variant
+        // Set container class for split variant
         isSplit() {
             return this.split ? 'vs-hero-section-image--split' : '';
+        },
+        // Set container class for inset variant
+        isInset() {
+            return this.inset ? 'vs-hero-section-image--inset' : '';
         },
     },
 };
@@ -106,6 +118,10 @@ export default {
             @include media-breakpoint-up(lg) {
                 height: 648px;
             }
+        }
+
+        &--inset {
+            border-radius: $vs-radius-small;
         }
 
         &--split {
