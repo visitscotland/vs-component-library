@@ -12,7 +12,8 @@ import placesDataDistillery from '@/assets/fixtures/maps/places-data-distillerie
 
 export default {
     component: VsMapWithSidebar,
-    title: 'Components/To be reviewed/MapWithSidebar',
+    title: 'Components/Deprecated/MapWithSidebar',
+    tags: ['deprecated'],
 };
 
 const Template = (args) => ({
@@ -25,6 +26,11 @@ const Template = (args) => ({
         };
     },
     template: `
+        <div style="background: #940f2c17; padding: 1rem; border: 1px solid #940F2C; margin-bottom: 1rem;">
+            ⚠️ Deprecated: This component will be removed in a future release. 
+            See the <a href="https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1353416820/Map+with+Sidebar+deprecated">Component migration docs.</a> 
+        </div>
+
         <VsMapWithSidebar
             v-bind="args"
             :class="args.jsDisabled ? 'no-js' : ''"

@@ -65,6 +65,10 @@ import VsMapMarker from './components/MapMarker.vue';
 let mapStore = null;
 
 /**
+ * @deprecated ⚠️ Use new Google Map component instead. This component will be
+ * removed in a future release.
+ * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1354137643/Map+deprecated
+ *
  * Renders a MapBox map
  *
  * @displayName Map
@@ -72,7 +76,7 @@ let mapStore = null;
 
 export default {
     name: 'VsMap',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsWarning,
