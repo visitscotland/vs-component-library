@@ -148,15 +148,18 @@ import VsMapWithSidebarPanel from './components/MapWithSidebarPanel.vue';
 let mapStore = null;
 
 /**
+ * @deprecated ⚠️ This component will be removed in a future release.
+ * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1353416820/Map+with+Sidebar+deprecated
+ *
  * Renders a widget that display a map
  * and gives filtering options
- *
+ * 
  * @displayName Main Map Wrapper
  */
 
 export default {
     name: 'VsMapWithSidebar',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsContainer,
