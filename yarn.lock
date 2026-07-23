@@ -4012,24 +4012,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-docs@npm:10.5.0":
-  version: 10.5.0
-  resolution: "@storybook/addon-docs@npm:10.5.0"
+"@storybook/addon-docs@npm:10.5.2":
+  version: 10.5.2
+  resolution: "@storybook/addon-docs@npm:10.5.2"
   dependencies:
     "@mdx-js/react": "npm:^3.0.0"
-    "@storybook/csf-plugin": "npm:10.5.0"
+    "@storybook/csf-plugin": "npm:10.5.2"
     "@storybook/icons": "npm:^2.0.2"
-    "@storybook/react-dom-shim": "npm:10.5.0"
+    "@storybook/react-dom-shim": "npm:10.5.2"
     react: "npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
     react-dom: "npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
     ts-dedent: "npm:^2.0.0"
   peerDependencies:
     "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-    storybook: ^10.5.0
+    storybook: ^10.5.2
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 10c0/0588c03022939966e4beb78d4a5af0341c464f825de651971c49cc1e49ac599e2307f676bf1d52675bdb7b9a2392cb32a3cf462148b22154e7c5854848671efd
+  checksum: 10c0/902b1002d1c7fc0a998bb9a6e1c6723cff6c5a3ac90c20b6ace1642e6a0b0f9e8cfd06072360236f2c2b7a3c126e848d63160ba3dc47d58118595e12f8861976
   languageName: node
   linkType: hard
 
@@ -4088,6 +4088,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/csf-plugin@npm:10.5.2":
+  version: 10.5.2
+  resolution: "@storybook/csf-plugin@npm:10.5.2"
+  dependencies:
+    unplugin: "npm:^2.3.5"
+  peerDependencies:
+    esbuild: "*"
+    rollup: "*"
+    storybook: ^10.5.2
+    vite: "*"
+    webpack: "*"
+  peerDependenciesMeta:
+    esbuild:
+      optional: true
+    rollup:
+      optional: true
+    vite:
+      optional: true
+    webpack:
+      optional: true
+  checksum: 10c0/f7feba941bc916faa03a8822967cc9e188a716a8860ff5de0f5267091362706a14b17d8639888791c130f39d3a8ee4820926d892c2caab0f8c78306397c89815
+  languageName: node
+  linkType: hard
+
 "@storybook/global@npm:^5.0.0":
   version: 5.0.0
   resolution: "@storybook/global@npm:5.0.0"
@@ -4104,21 +4128,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/react-dom-shim@npm:10.5.0":
-  version: 10.5.0
-  resolution: "@storybook/react-dom-shim@npm:10.5.0"
+"@storybook/react-dom-shim@npm:10.5.2":
+  version: 10.5.2
+  resolution: "@storybook/react-dom-shim@npm:10.5.2"
   peerDependencies:
     "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     "@types/react-dom": ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-    storybook: ^10.5.0
+    storybook: ^10.5.2
   peerDependenciesMeta:
     "@types/react":
       optional: true
     "@types/react-dom":
       optional: true
-  checksum: 10c0/4c60f33405954dd78ea943c506669e6aa1c16b6f2d1461b28e28a8b19197105d9f70706d75633c10d341e80ce4d4e5c6e8cf5968ca7ba2e175d291caa347cdee
+  checksum: 10c0/1c57790798b7432fa9faa4cf60399e7cb6121ef1a2a1543cad200976f7d0a68eb8f27ab334afcc192c6681ea36e3d8b2c818b202ed60480c27092bdb7b5f0d7c
   languageName: node
   linkType: hard
 
@@ -4891,7 +4915,7 @@ __metadata:
     "@semantic-release/exec": "npm:^7.1.0"
     "@semantic-release/npm": "npm:^13.1.5"
     "@storybook/addon-a11y": "npm:10.5.0"
-    "@storybook/addon-docs": "npm:10.5.0"
+    "@storybook/addon-docs": "npm:10.5.2"
     "@storybook/addon-links": "npm:10.5.0"
     "@storybook/vue3-vite": "npm:10.5.0"
     "@types/google.maps": "npm:^3.64.0"
