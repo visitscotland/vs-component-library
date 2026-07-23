@@ -1,3 +1,15 @@
+# [5.72.0](https://github.com/visitscotland/vs-component-library/compare/v5.71.4...v5.72.0) (2026-07-23)
+
+
+### Features
+
+* **forms:** add hr field option ([b078291](https://github.com/visitscotland/vs-component-library/commit/b078291510089708142a2d3d0dc8a77926c47d32))
+* **forms:** add text block element to forms ([c6b4e86](https://github.com/visitscotland/vs-component-library/commit/c6b4e86c902c7fddb2b6707e3829bf9202051ae4))
+* **forms:** add text block example fixture ([4e57b40](https://github.com/visitscotland/vs-component-library/commit/4e57b40da1c6a943b925fb4d287acf8f14f1d35d))
+* **forms:** allow submit button to be conditionally disabled ([d2ec0e1](https://github.com/visitscotland/vs-component-library/commit/d2ec0e1f13216eb70bb228f08e05ae23a26cf55c))
+* **forms:** fix infinite loop in multi-conditional fields ([9137aef](https://github.com/visitscotland/vs-component-library/commit/9137aefd1c889d7f7645d51236f366daf6ba550b))
+* **forms:** make text block aria-live ([ae0a723](https://github.com/visitscotland/vs-component-library/commit/ae0a723f1f3e8e79c30ef28eedf49113d7a316be))
+
 ## [5.71.4](https://github.com/visitscotland/vs-component-library/compare/v5.71.3...v5.71.4) (2026-07-21)
 
 
