@@ -50,6 +50,7 @@ const Template = (args) => ({
                             :key="feature.properties.id"
                             :featureData="feature"
                             :markerTooltipsEnabled="args.isMarkerTooltipsEnabled"
+                            :pinColor="args.pinColor"
                         >
                             <template #vs-google-map-marker-content>
                                 <span
@@ -64,7 +65,7 @@ const Template = (args) => ({
                                 >
                                     <VsIcon
                                         style="margin-top: 0.9em"
-                                        icon="fa-kit fa-vs-coo"
+                                        :icon="args.iconName"
                                         variant="inverse"
                                         size="xxs"
                                     />
@@ -112,6 +113,7 @@ const base = {
         zoomOut: 'Zoom Out',
     },
     jsDisabled: false,
+    iconName: 'fa-kit fa-vs-coo',
 };
 
 export const Default = Template.bind({
@@ -127,16 +129,19 @@ export const ThemedMarkers = Template.bind({
 ThemedMarkers.args = {
     ...base,
     markerData: markerPlaces.features,
+    pinColor: '#FF476F',
+    iconName: 'fa-regular fa-chess-rook',
 };
 
-export const NumberedMarkers = Template.bind({
+export const MarkersWithTooltips = Template.bind({
 });
 
-NumberedMarkers.args = {
+MarkersWithTooltips.args = {
     ...base,
     initialViewIsScotland: false,
     isViewToFitMarkers: true,
     markerData: numberedPlaces.features,
+    isMarkerTooltipsEnabled: true,
 };
 
 export const WithPolygons = Template.bind({
@@ -156,15 +161,6 @@ WithPolygonsAndMarkers.args = {
     isPolygonTooltipsEnabled: true,
     markerData: markerPlaces.features,
     polygonData: polygonDataset.features,
-};
-
-export const ItalianMap = Template.bind({
-});
-
-ItalianMap.args = {
-    ...base,
-    languageCode: 'it',
-    markerData: markerPlaces.features,
 };
 
 export const NoJavascript = Template.bind({
