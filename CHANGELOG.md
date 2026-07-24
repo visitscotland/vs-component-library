@@ -1,3 +1,10 @@
+## [5.72.1](https://github.com/visitscotland/vs-component-library/compare/v5.72.0...v5.72.1) (2026-07-24)
+
+
+### Bug Fixes
+
+* **vsmainmap:** fix missing id for h1, main-content ([b4348b9](https://github.com/visitscotland/vs-component-library/commit/b4348b91279ab8377a8003c280b9429322dfe9c8))
+
 # [5.72.0](https://github.com/visitscotland/vs-component-library/compare/v5.71.4...v5.72.0) (2026-07-23)
 
 
