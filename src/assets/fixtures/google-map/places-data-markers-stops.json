@@ -1,0 +1,189 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "feature",
+            "properties": {
+                "category": {
+                    "id": "national-parks",
+                    "label": "National Parks"
+                },
+                "id": "7b6014dc-600c-4f35-8e3c-02ebf2b309ea",
+                "title": "Loch Ness",
+                "description": "Discover world-famous Loch Ness with holiday ideas, accommodation, travel and maps, tours, insider tips and fantastic things to see and do.",
+                "image": "fixtures/maps/images/ben-nevis.jpg",
+                "stopCount": 1,
+                "link": {
+                    "label": "Discover Loch Ness",
+                    "link": "#",
+                    "type": "INTERNAL"
+                }
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-4.32751, 57.38469]
+            }
+        },
+        {
+            "type": "feature",
+            "properties": {
+                "category": {
+                    "id": "featured",
+                    "label": "Featured Places"
+                },
+                "id": "0618136e-ee16-4c8b-b5af-d55c526640ae",
+                "title": "Loch Lomond",
+                "description": "Head to the bonnie banks of Loch Lomond with plenty of things to see & do for day trips and holiday inspiration.",
+                "image": "http://www.visitscotland.com/wsimgs/External%20View%20Media%20Res%20c%20Andrew%20Lee.jpg",
+                "stopCount": 2,
+                "link": {
+                    "label": "Discover Loch Lomond",
+                    "link": "#",
+                    "type": "INTERNAL"
+                }
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-4.9479555, 56.1556131]
+            }
+        },
+        {
+            "type": "feature",
+            "properties": {
+                "category": {
+                    "id": "cities",
+                    "label": "Cities"
+                },
+                "id": "04639845-8cfd-4488-ac99-2d93d7ec01cd",
+                "title": "Dunfermline",
+                "description": "Dunfermline is Scotland's newest city, and sits in the east of Scotland.",
+                "image": "fixtures/maps/images/ben-nevis.jpg",
+                "stopCount": 3,
+                "link": {
+                    "label": "Discover Dunfermline",
+                    "link": "#",
+                    "type": "INTERNAL"
+                }
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-3.2852550000000003, 55.95357800000001]
+            }
+        },
+        {
+            "type": "feature",
+            "properties": {
+                "category": {
+                    "id": "cities",
+                    "label": "Cities"
+                },
+                "id": "cd9b4c75-df2c-4bcd-91f5-4679494b258e",
+                "title": "Aberdeen",
+                "description": "Get the lowdown on the Aberdeen, Scotland's city in the north east.",
+                "image": "fixtures/maps/images/churchill-barriers.jpg",
+                "stopCount": 4,
+                "link": {
+                    "label": "Discover Aberdeen",
+                    "link": "#",
+                    "type": "INTERNAL"
+                }
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-2.099075, 57.149651]
+            }
+        },
+        {
+            "type": "feature",
+            "properties": {
+                "category": {
+                    "id": "towns",
+                    "label": "Towns"
+                },
+                "id": "1c209b09-673d-41c2-8076-f3861681b325",
+                "title": "Dumfries",
+                "description": "Discover a wealth of attractions and amazing things to see and do in Dumfries.",
+                "image": "http://www.visitscotland.com/wsimgs/visitscotland_49002709930_1970963108.jpg",
+                "stopCount": 5,
+                "link": {
+                    "label": "Discover Dumfries",
+                    "link": "#",
+                    "type": "INTERNAL"
+                }
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-3.662259, 55.0490607]
+            }
+        },
+        {
+            "type": "feature",
+            "properties": {
+                "category": {
+                    "id": "towns",
+                    "label": "Towns"
+                },
+                "id": "7dea652b-9707-4f4d-a9d1-fe940c76ba9a",
+                "title": "Kirkwall",
+                "description": "Located on the enchanting Orkney Islands off Scotland's north coast, this vibrant capital is a fascinating ancient Norse town.",
+                "image": "http://www.visitscotland.com/wsimgs/Small_20Header2_561210442.jpg",
+                "stopCount": 6,
+                "link": {
+                    "label": "Discover Kirkwall",
+                    "link": "#",
+                    "type": "INTERNAL"
+                }
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-2.977443, 58.9815773]
+            }
+        },
+        {
+            "type": "feature",
+            "properties": {
+                "category": {
+                    "id": "islands",
+                    "label": "Islands"
+                },
+                "id": "0166e6a3-0410-4a88-9b4a-a93d97c5b63c",
+                "title": "Isle of Arran",
+                "description": "Arran is an island on the west coast of Scotland. It's family-friendly and has great scenery, beaches and lots of things to do.",
+                "image": "fixtures/maps/images/ben-nevis.jpg",
+                "stopCount": 7,
+                "link": {
+                    "label": "Discover Isle of Arran",
+                    "link": "#",
+                    "type": "EXTERNAL"
+                }
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-5.4033492, 55.5776326]
+            }
+        },
+        {
+            "type": "feature",
+            "properties": {
+                "category": {
+                    "id": "islands",
+                    "label": "Islands"
+                },
+                "id": "f26098b8-99fb-4a4f-a2a1-4833401d10a3",
+                "title": "Isle of Skye",
+                "description": "Skye is a truly magical place. The largest of the Inner Hebrides, it's home to some of Scotland's most iconic landscapes.",
+                "image": "fixtures/maps/images/ben-nevis.jpg",
+                "stopCount": 8,
+                "link": {
+                    "label": "Discover Isle of Skye",
+                    "link": "#",
+                    "type": "INTERNAL"
+                }
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-6.8773315, 57.3619879]
+            }
+        }
+    ]
+}
