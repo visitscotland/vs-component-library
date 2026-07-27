@@ -1,3 +1,12 @@
+# [5.73.0](https://github.com/visitscotland/vs-component-library/compare/v5.72.1...v5.73.0) (2026-07-27)
+
+
+### Features
+
+* **hero:** update hero inset image to have rounded corners ([bd5273b](https://github.com/visitscotland/vs-component-library/commit/bd5273ba74d33fb32aa2ea8c64f52e811bb154cd))
+* **map:** deprecate map and map with sidebar in the component library ([8a0ea80](https://github.com/visitscotland/vs-component-library/commit/8a0ea80ed3095a82a1fcb033fcf8c31e9af873a9))
+* **megalinks:** deprecate megalinks in the component library ([d1a79fc](https://github.com/visitscotland/vs-component-library/commit/d1a79fcec9ad1b115709414a6518098da38fa940))
+
 ## [5.72.1](https://github.com/visitscotland/vs-component-library/compare/v5.72.0...v5.72.1) (2026-07-24)
 
 

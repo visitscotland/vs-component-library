@@ -4012,24 +4012,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-docs@npm:10.5.0":
-  version: 10.5.0
-  resolution: "@storybook/addon-docs@npm:10.5.0"
+"@storybook/addon-docs@npm:10.5.2":
+  version: 10.5.2
+  resolution: "@storybook/addon-docs@npm:10.5.2"
   dependencies:
     "@mdx-js/react": "npm:^3.0.0"
-    "@storybook/csf-plugin": "npm:10.5.0"
+    "@storybook/csf-plugin": "npm:10.5.2"
     "@storybook/icons": "npm:^2.0.2"
-    "@storybook/react-dom-shim": "npm:10.5.0"
+    "@storybook/react-dom-shim": "npm:10.5.2"
     react: "npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
     react-dom: "npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
     ts-dedent: "npm:^2.0.0"
   peerDependencies:
     "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-    storybook: ^10.5.0
+    storybook: ^10.5.2
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 10c0/0588c03022939966e4beb78d4a5af0341c464f825de651971c49cc1e49ac599e2307f676bf1d52675bdb7b9a2392cb32a3cf462148b22154e7c5854848671efd
+  checksum: 10c0/902b1002d1c7fc0a998bb9a6e1c6723cff6c5a3ac90c20b6ace1642e6a0b0f9e8cfd06072360236f2c2b7a3c126e848d63160ba3dc47d58118595e12f8861976
   languageName: node
   linkType: hard
 
@@ -4051,16 +4051,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/builder-vite@npm:10.5.0":
-  version: 10.5.0
-  resolution: "@storybook/builder-vite@npm:10.5.0"
+"@storybook/builder-vite@npm:10.5.2":
+  version: 10.5.2
+  resolution: "@storybook/builder-vite@npm:10.5.2"
   dependencies:
-    "@storybook/csf-plugin": "npm:10.5.0"
+    "@storybook/csf-plugin": "npm:10.5.2"
     ts-dedent: "npm:^2.0.0"
   peerDependencies:
-    storybook: ^10.5.0
+    storybook: ^10.5.2
     vite: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: 10c0/1d485c9b19bcb65305b9de63bfd9abdb0f23c8aacf165b3d7edea8766fa9db38bb543f66902acb3c2cfc33b800c3b5b958b3c86e99ec0dde85065dccb0a2b5a9
+  checksum: 10c0/65bfc4e0881f42ee746fe244a2c69f2522f3eb9921fe22416d3b6743bd5aa278364746b27b8264e9e0dd5650368593159cd39a709f836de0ba790f76f36df712
   languageName: node
   linkType: hard
 
@@ -4088,6 +4088,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/csf-plugin@npm:10.5.2":
+  version: 10.5.2
+  resolution: "@storybook/csf-plugin@npm:10.5.2"
+  dependencies:
+    unplugin: "npm:^2.3.5"
+  peerDependencies:
+    esbuild: "*"
+    rollup: "*"
+    storybook: ^10.5.2
+    vite: "*"
+    webpack: "*"
+  peerDependenciesMeta:
+    esbuild:
+      optional: true
+    rollup:
+      optional: true
+    vite:
+      optional: true
+    webpack:
+      optional: true
+  checksum: 10c0/f7feba941bc916faa03a8822967cc9e188a716a8860ff5de0f5267091362706a14b17d8639888791c130f39d3a8ee4820926d892c2caab0f8c78306397c89815
+  languageName: node
+  linkType: hard
+
 "@storybook/global@npm:^5.0.0":
   version: 5.0.0
   resolution: "@storybook/global@npm:5.0.0"
@@ -4104,52 +4128,52 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/react-dom-shim@npm:10.5.0":
-  version: 10.5.0
-  resolution: "@storybook/react-dom-shim@npm:10.5.0"
+"@storybook/react-dom-shim@npm:10.5.2":
+  version: 10.5.2
+  resolution: "@storybook/react-dom-shim@npm:10.5.2"
   peerDependencies:
     "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     "@types/react-dom": ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-    storybook: ^10.5.0
+    storybook: ^10.5.2
   peerDependenciesMeta:
     "@types/react":
       optional: true
     "@types/react-dom":
       optional: true
-  checksum: 10c0/4c60f33405954dd78ea943c506669e6aa1c16b6f2d1461b28e28a8b19197105d9f70706d75633c10d341e80ce4d4e5c6e8cf5968ca7ba2e175d291caa347cdee
+  checksum: 10c0/1c57790798b7432fa9faa4cf60399e7cb6121ef1a2a1543cad200976f7d0a68eb8f27ab334afcc192c6681ea36e3d8b2c818b202ed60480c27092bdb7b5f0d7c
   languageName: node
   linkType: hard
 
-"@storybook/vue3-vite@npm:10.5.0":
-  version: 10.5.0
-  resolution: "@storybook/vue3-vite@npm:10.5.0"
+"@storybook/vue3-vite@npm:10.5.2":
+  version: 10.5.2
+  resolution: "@storybook/vue3-vite@npm:10.5.2"
   dependencies:
-    "@storybook/builder-vite": "npm:10.5.0"
-    "@storybook/vue3": "npm:10.5.0"
+    "@storybook/builder-vite": "npm:10.5.2"
+    "@storybook/vue3": "npm:10.5.2"
     magic-string: "npm:^0.30.0"
     typescript: "npm:^5.9.3"
     vue-component-meta: "npm:^3.2.7"
     vue-docgen-api: "npm:^4.75.1"
   peerDependencies:
-    storybook: ^10.5.0
+    storybook: ^10.5.2
     vite: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: 10c0/5f03dd739af13a50357e0ec7e1ac583b454eb24217c0832e72e14a233b345aa618686f663334d4c51f1e24cf1d94b8f03890ff636d05a2bb0d07934da8096c4c
+  checksum: 10c0/51ee15e6c0ae2f09f51549c03538e65f1602d76c4ec2ad60235387def0aee7a8520d01fe666e658fa0faa1e6ea43c1c4eae9226a032dfa04e1893825c64efdf2
   languageName: node
   linkType: hard
 
-"@storybook/vue3@npm:10.5.0":
-  version: 10.5.0
-  resolution: "@storybook/vue3@npm:10.5.0"
+"@storybook/vue3@npm:10.5.2":
+  version: 10.5.2
+  resolution: "@storybook/vue3@npm:10.5.2"
   dependencies:
     "@storybook/global": "npm:^5.0.0"
     type-fest: "npm:^5.6.0"
     vue-component-type-helpers: "npm:^3.2.9"
   peerDependencies:
-    storybook: ^10.5.0
+    storybook: ^10.5.2
     vue: ^3.0.0
-  checksum: 10c0/86c8f1aa3a1f82118b1b6b31ba4f05d79fb9367da3627aa28c097b6de348389eae9ad4852eb8daba811af6b2ea56765b39974f1ce068ff8a021c6924ac934f62
+  checksum: 10c0/4560c4cdf02a3d2d2db2d78435e297ba5c4d10569bb7f60160a9bacb8ddf04a76df6e508112107df5506f3d61be3e8292feb63659de24bc8c2cf508385c2d9ca
   languageName: node
   linkType: hard
 
@@ -4891,9 +4915,9 @@ __metadata:
     "@semantic-release/exec": "npm:^7.1.0"
     "@semantic-release/npm": "npm:^13.1.5"
     "@storybook/addon-a11y": "npm:10.5.0"
-    "@storybook/addon-docs": "npm:10.5.0"
+    "@storybook/addon-docs": "npm:10.5.2"
     "@storybook/addon-links": "npm:10.5.0"
-    "@storybook/vue3-vite": "npm:10.5.0"
+    "@storybook/vue3-vite": "npm:10.5.2"
     "@types/google.maps": "npm:^3.64.0"
     "@types/node": "npm:^26.0.1"
     "@types/react": "npm:^19.2.16"
