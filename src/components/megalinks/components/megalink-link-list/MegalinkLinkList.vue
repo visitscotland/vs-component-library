@@ -67,6 +67,9 @@ import VsStretchedLinkPanels from '@/components/stretched-link-card/components/S
 import VsBody from '@/components/body/Body.vue';
 
 /**
+ * @deprecated ⚠️ Use new card layout patterns and guidance. 
+ * This component will be removed in a future release.
+ * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1354137631/Megalinks+deprecated
 * Megalink link list cards to be used in the megalinks component
 * There is a standard and featured variant.
 *
@@ -75,7 +78,7 @@ import VsBody from '@/components/body/Body.vue';
 
 export default {
     name: 'VsMegalinkLinkList',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsStretchedLinkCard,

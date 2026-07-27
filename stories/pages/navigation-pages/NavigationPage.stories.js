@@ -6,8 +6,6 @@ import {
     VsCol, VsRow, VsContainer,
 } from '@/components/grid';
 import VsSpotlightSection from '@/components/spotlight-section/SpotlightSection.vue';
-import VsMegalinks from '@/components/megalinks/Megalinks.vue';
-import VsMegalinkMultiImage from '@/components/megalinks/components/megalink-multi-image/MegalinkMultiImage.vue';
 import VsCard from '@/components/card/Card.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsImg from '@/components/img/Img.vue';
@@ -17,7 +15,6 @@ import VsBody from '@/components/body/Body.vue';
 import VsButton from '@/components/button/Button.vue';
 import VsArticleDetails from '@/components/article-details/ArticleDetails.vue';
 import VsBadge from '@/components/badge/Badge.vue';
-import VsModal from '@/components/modal/Modal.vue';
 import VsVideo from '@/components/video/Video.vue';
 import VsMediaCaption from '@/components/media-caption/MediaCaption.vue';
 import VsSectionHeader from '@/components/section-header/SectionHeader.vue';
@@ -54,9 +51,6 @@ const components = {
     VsButton,
     VsArticleDetails,
     VsBadge,
-    VsMegalinks,
-    VsMegalinkMultiImage,
-    VsModal,
     VsVideo,
     VsMediaCaption,
     VsToggleButton,
