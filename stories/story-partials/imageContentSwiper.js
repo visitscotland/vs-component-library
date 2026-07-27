@@ -19,7 +19,7 @@ export default function imageContentSwiper({
                     <VsImg 
                         v-if="image.image"
                         :src="image.image"
-                        class="w-100"
+                        class="w-100 rounded-2"
                     />
                     <figcaption>
                         <VsMediaCaption>
