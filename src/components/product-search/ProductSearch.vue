@@ -54,6 +54,9 @@ import VsWarning from '@/components/warning/Warning.vue';
 import VsProductSearchEmbed from './components/ProductSearchEmbed.vue';
 
 /**
+ * @deprecated ⚠️ This component will be removed in a future release.
+ * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1354137679/Product+Search+deprecated
+ * 
  * A module housing the PSR widget, a title and optional text
  *
  * @displayName Product Search
@@ -61,7 +64,7 @@ import VsProductSearchEmbed from './components/ProductSearchEmbed.vue';
 
 export default {
     name: 'VsProductSearch',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsContainer,
