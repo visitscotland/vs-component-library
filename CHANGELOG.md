@@ -1,3 +1,10 @@
+# [5.74.0](https://github.com/visitscotland/vs-component-library/compare/v5.73.0...v5.74.0) (2026-07-28)
+
+
+### Features
+
+* **components:** deprecating .com specific components from the library ([c70dc4b](https://github.com/visitscotland/vs-component-library/commit/c70dc4bd6bcf91b102ef664ea2df49d8146b9c1f))
+
 # [5.73.0](https://github.com/visitscotland/vs-component-library/compare/v5.72.1...v5.73.0) (2026-07-27)
 
 
