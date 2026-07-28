@@ -167,7 +167,7 @@
                     variant="primary"
                     type="submit"
                     class="vs-form__submit mt-300"
-                    :disabled="submitDisabled"
+                    :disabled="submitDisabled || submitting"
                     @click="preSubmit"
                 >
                     {{ getTranslatedContent('submit') }}
@@ -180,9 +180,13 @@
         </VsWarning>
 
         <div aria-live="assertive">
-            <p v-if="submitting">
+            <div
+                v-if="submitting"
+                class="vs-form__submitting"
+            >
+                <VsLoadingSpinner />
                 <slot name="submitting" />
-            </p>
+            </div>
 
             <template v-if="submitted">
                 <VsHeading
@@ -222,6 +226,7 @@ import VsHeading from '@/components/heading/Heading.vue';
 import VsWarning from '@/components/warning/Warning.vue';
 import VsTextarea from '@/components/textarea/Textarea.vue';
 import VsBody from '@/components/body/Body.vue';
+import VsLoadingSpinner from '@/components/loading-spinner/LoadingSpinner.vue';
 import dataLayerMixin from '../../mixins/dataLayerMixin';
 
 /**
@@ -245,6 +250,7 @@ export default {
         VsWarning,
         VsTextarea,
         VsBody,
+        VsLoadingSpinner,
     },
     mixins: [dataLayerMixin],
     props: {
@@ -955,6 +961,7 @@ export default {
                     return false;
                 })
                 .catch(() => {
+                    this.submitting = false;
                     this.submitError = true;
                     return false;
                 });
@@ -1097,6 +1104,10 @@ export default {
             > div {
                 margin-bottom: $vs-spacer-150;
             }
+        }
+
+        &__submitting {
+            overflow: hidden;
         }
 
         &__no-js {
