@@ -3,6 +3,7 @@ import {
 } from '@vue/test-utils';
 import axe from '@/../test/unit/helpers/axe-helper';
 import moxios from 'moxios';
+import axios from 'axios';
 import VsForm from '../Form.vue';
 
 config.global.renderStubDefaultSlot = true;
@@ -555,6 +556,96 @@ describe('VsForm', () => {
             expect(wrapper.html()).toContain(successContent);
 
             moxios.uninstall();
+        });
+
+        it('should set bespokeResponse when response status code matches bespokeResponses on error', async() => {
+            const mockError = {
+                response: {
+                    status: 503,
+                },
+            };
+            const postSpy = jest.spyOn(axios, 'post').mockRejectedValue(mockError);
+
+            const wrapper = factoryMount({
+                isMarketo: false,
+                submitUrl: '/test/form/url',
+                isTest: true,
+            });
+
+            wrapper.vm.formData.bespokeResponses = {
+                '503': 'Service unavailable, please try later',
+            };
+
+            await wrapper.vm.axiosSubmit();
+            await wrapper.vm.$nextTick();
+
+            expect(wrapper.vm.bespokeResponse).toBe('Service unavailable, please try later');
+            expect(wrapper.vm.submitError).toBe(true);
+            expect(wrapper.vm.submitted).toBe(false);
+
+            postSpy.mockRestore();
+        });
+
+        it('should set bespokeResponse when response status code matches bespokeResponses on success', async() => {
+            const mockResponse = {
+                status: 200,
+            };
+            const postSpy = jest.spyOn(axios, 'post').mockResolvedValue(mockResponse);
+
+            const wrapper = factoryMount({
+                isMarketo: false,
+                submitUrl: '/test/form/url',
+                isTest: true,
+            });
+
+            wrapper.vm.formData.bespokeResponses = {
+                '200': 'Custom success message',
+            };
+
+            await wrapper.vm.axiosSubmit();
+
+            expect(wrapper.vm.bespokeResponse).toBe('Custom success message');
+            expect(wrapper.vm.submitError).toBe(true);
+            expect(wrapper.vm.submitted).toBe(false);
+
+            postSpy.mockRestore();
+        });
+
+        it('should fall back to submit-error slot when no matching bespokeResponses key exists', async() => {
+            const mockError = {
+                response: {
+                    status: 500,
+                },
+            };
+            const postSpy = jest.spyOn(axios, 'post').mockRejectedValue(mockError);
+
+            const wrapper = factoryMount({
+                isMarketo: false,
+                submitUrl: '/test/form/url',
+                isTest: true,
+            });
+
+            wrapper.vm.formData.bespokeResponses = {
+                '503': 'Service unavailable',
+            };
+
+            await wrapper.vm.axiosSubmit();
+
+            expect(wrapper.vm.bespokeResponse).toBeNull();
+            expect(wrapper.vm.submitError).toBe(true);
+
+            postSpy.mockRestore();
+        });
+
+        it('should reset bespokeResponse when preSubmit is called', () => {
+            const wrapper = factoryShallowMount();
+            wrapper.vm.bespokeResponse = 'Old error';
+
+            wrapper.vm.preSubmit({
+                preventDefault: jest.fn(),
+            });
+
+            expect(wrapper.vm.bespokeResponse).toBeNull();
         });
 
         it('should properly define the `emailField` value when attachEmail is called, if the submission type is "breg"', async() => {

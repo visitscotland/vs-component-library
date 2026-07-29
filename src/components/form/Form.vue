@@ -204,7 +204,13 @@
             </template>
 
             <p
-                v-if="submitError"
+                v-if="submitError && bespokeResponse"
+                class="mt-200"
+            >
+                {{ bespokeResponse }}
+            </p>
+            <p
+                v-if="submitError && !bespokeResponse"
                 class="mt-200"
             >
                 <slot name="submit-error" />
@@ -380,6 +386,7 @@ export default {
             submitted: false,
             submitting: false,
             submitError: false,
+            bespokeResponse: null,
             formData: {
             },
             messagingData: {
@@ -833,6 +840,7 @@ export default {
             }
 
             this.submitError = false;
+            this.bespokeResponse = null;
 
             function isRequired(value) {
                 return value.validation && value.validation.required;
@@ -954,14 +962,31 @@ export default {
                     'g-recaptcha-response': gRecaptchaResponse,
                     consentList: filteredConsents,
                 }, axiosConfig)
-                .then(() => {
+                .then((response) => {
                     this.submitting = false;
-                    this.submitted = true;
-                    this.attachEmail();
+
+                    if (this.formData.bespokeResponses
+                        && this.formData.bespokeResponses[response.status]) {
+                        this.bespokeResponse = this.formData.bespokeResponses[response.status];
+                        this.submitError = true;
+                    } else {
+                        this.submitted = true;
+                        this.attachEmail();
+                    }
+
                     return false;
                 })
-                .catch(() => {
+                .catch((error) => {
                     this.submitting = false;
+
+                    const statusCode = error.response && error.response.status;
+
+                    if (statusCode
+                        && this.formData.bespokeResponses
+                        && this.formData.bespokeResponses[statusCode]) {
+                        this.bespokeResponse = this.formData.bespokeResponses[statusCode];
+                    }
+
                     this.submitError = true;
                     return false;
                 });
