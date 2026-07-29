@@ -967,7 +967,11 @@ export default {
 
                     if (this.formData.bespokeResponses
                         && this.formData.bespokeResponses[response.status]) {
-                        this.bespokeResponse = this.formData.bespokeResponses[response.status];
+                        this.bespokeResponse = this.replaceResponsePlaceholders(
+                            this.formData.bespokeResponses[response.status],
+                            response.data || {
+                            },
+                        );
                         this.submitError = true;
                     } else {
                         this.submitted = true;
@@ -984,12 +988,25 @@ export default {
                     if (statusCode
                         && this.formData.bespokeResponses
                         && this.formData.bespokeResponses[statusCode]) {
-                        this.bespokeResponse = this.formData.bespokeResponses[statusCode];
+                        this.bespokeResponse = this.replaceResponsePlaceholders(
+                            this.formData.bespokeResponses[statusCode],
+                            (error.response && error.response.data) || {
+                            },
+                        );
                     }
 
                     this.submitError = true;
                     return false;
                 });
+        },
+        /**
+         * Replaces ${variable} placeholders in a template string with values from a data object
+         */
+        replaceResponsePlaceholders(template, data) {
+            return template.replace(
+                /\$\{(\w+)\}/g,
+                (match, key) => data[key] !== undefined ? data[key] : match,
+            );
         },
         /**
          * If exponea is present in the window (via gtm with accepted cookies), and the form uses

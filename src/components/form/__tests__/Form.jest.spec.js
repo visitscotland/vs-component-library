@@ -562,6 +562,9 @@ describe('VsForm', () => {
             const mockError = {
                 response: {
                     status: 503,
+                    data: {
+                        description: 'Error description text',
+                    },
                 },
             };
             const postSpy = jest.spyOn(axios, 'post').mockRejectedValue(mockError);
@@ -573,13 +576,13 @@ describe('VsForm', () => {
             });
 
             wrapper.vm.formData.bespokeResponses = {
-                '503': 'Service unavailable, please try later',
+                '503': 'Service unavailable, please try later. ${description}',
             };
 
             await wrapper.vm.axiosSubmit();
             await wrapper.vm.$nextTick();
 
-            expect(wrapper.vm.bespokeResponse).toBe('Service unavailable, please try later');
+            expect(wrapper.vm.bespokeResponse).toBe('Service unavailable, please try later. Error description text');
             expect(wrapper.vm.submitError).toBe(true);
             expect(wrapper.vm.submitted).toBe(false);
 
@@ -589,6 +592,9 @@ describe('VsForm', () => {
         it('should set bespokeResponse when response status code matches bespokeResponses on success', async() => {
             const mockResponse = {
                 status: 200,
+                data: {
+                    description: 'Custom description',
+                },
             };
             const postSpy = jest.spyOn(axios, 'post').mockResolvedValue(mockResponse);
 
@@ -599,12 +605,12 @@ describe('VsForm', () => {
             });
 
             wrapper.vm.formData.bespokeResponses = {
-                '200': 'Custom success message',
+                '200': 'Custom success message: ${description}',
             };
 
             await wrapper.vm.axiosSubmit();
 
-            expect(wrapper.vm.bespokeResponse).toBe('Custom success message');
+            expect(wrapper.vm.bespokeResponse).toBe('Custom success message: Custom description');
             expect(wrapper.vm.submitError).toBe(true);
             expect(wrapper.vm.submitted).toBe(false);
 
