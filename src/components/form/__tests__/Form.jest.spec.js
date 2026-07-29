@@ -636,6 +636,7 @@ describe('VsForm', () => {
             };
 
             await wrapper.vm.axiosSubmit();
+            await wrapper.vm.$nextTick();
 
             expect(wrapper.vm.bespokeResponse).toBeNull();
             expect(wrapper.vm.submitError).toBe(true);
