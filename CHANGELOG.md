@@ -1,3 +1,38 @@
+# [5.74.0](https://github.com/visitscotland/vs-component-library/compare/v5.73.0...v5.74.0) (2026-07-28)
+
+
+### Features
+
+* **components:** deprecating .com specific components from the library ([c70dc4b](https://github.com/visitscotland/vs-component-library/commit/c70dc4bd6bcf91b102ef664ea2df49d8146b9c1f))
+
+# [5.73.0](https://github.com/visitscotland/vs-component-library/compare/v5.72.1...v5.73.0) (2026-07-27)
+
+
+### Features
+
+* **hero:** update hero inset image to have rounded corners ([bd5273b](https://github.com/visitscotland/vs-component-library/commit/bd5273ba74d33fb32aa2ea8c64f52e811bb154cd))
+* **map:** deprecate map and map with sidebar in the component library ([8a0ea80](https://github.com/visitscotland/vs-component-library/commit/8a0ea80ed3095a82a1fcb033fcf8c31e9af873a9))
+* **megalinks:** deprecate megalinks in the component library ([d1a79fc](https://github.com/visitscotland/vs-component-library/commit/d1a79fcec9ad1b115709414a6518098da38fa940))
+
+## [5.72.1](https://github.com/visitscotland/vs-component-library/compare/v5.72.0...v5.72.1) (2026-07-24)
+
+
+### Bug Fixes
+
+* **vsmainmap:** fix missing id for h1, main-content ([b4348b9](https://github.com/visitscotland/vs-component-library/commit/b4348b91279ab8377a8003c280b9429322dfe9c8))
+
+# [5.72.0](https://github.com/visitscotland/vs-component-library/compare/v5.71.4...v5.72.0) (2026-07-23)
+
+
+### Features
+
+* **forms:** add hr field option ([b078291](https://github.com/visitscotland/vs-component-library/commit/b078291510089708142a2d3d0dc8a77926c47d32))
+* **forms:** add text block element to forms ([c6b4e86](https://github.com/visitscotland/vs-component-library/commit/c6b4e86c902c7fddb2b6707e3829bf9202051ae4))
+* **forms:** add text block example fixture ([4e57b40](https://github.com/visitscotland/vs-component-library/commit/4e57b40da1c6a943b925fb4d287acf8f14f1d35d))
+* **forms:** allow submit button to be conditionally disabled ([d2ec0e1](https://github.com/visitscotland/vs-component-library/commit/d2ec0e1f13216eb70bb228f08e05ae23a26cf55c))
+* **forms:** fix infinite loop in multi-conditional fields ([9137aef](https://github.com/visitscotland/vs-component-library/commit/9137aefd1c889d7f7645d51236f366daf6ba550b))
+* **forms:** make text block aria-live ([ae0a723](https://github.com/visitscotland/vs-component-library/commit/ae0a723f1f3e8e79c30ef28eedf49113d7a316be))
+
 ## [5.71.4](https://github.com/visitscotland/vs-component-library/compare/v5.71.3...v5.71.4) (2026-07-21)
 
 

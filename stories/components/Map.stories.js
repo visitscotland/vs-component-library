@@ -3,7 +3,8 @@ import placesData from '@/assets/fixtures/maps/places-data.json';
 
 export default {
     component: VsMap,
-    title: 'Components/Media & data visualisation/Map',
+    title: 'Components/Deprecated/Map',
+    tags: ['deprecated'],
 };
 
 const Template = (args) => ({
@@ -16,6 +17,13 @@ const Template = (args) => ({
         };
     },
     template: `
+
+        <div style="background: #940f2c17; padding: 1rem; border: 1px solid #940F2C; margin-bottom: 1rem;">
+            ⚠️ Deprecated: Use new Google Map component instead.
+            This component will be removed in a future release. 
+            See the <a href="https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1354137643/Map+deprecated">Component migration docs.</a> 
+        </div>
+    
         <div
             :class="args.jsDisabled ? 'no-js' : ''"
             :style="!args.jsDisabled ? 'height: 75vh; width: 600px' : ''"

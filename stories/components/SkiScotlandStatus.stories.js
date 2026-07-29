@@ -6,7 +6,8 @@ import VsIcon from '@/components/icon/Icon.vue';
 
 export default {
     component: VsSkiScotlandStatus,
-    title: 'Components/To be reviewed/SkiScotlandStatus',
+    title: 'Components/Deprecated/SkiScotlandStatus',
+    tags: ['deprecated'],
 };
 
 const Template = (args) => ({
@@ -23,6 +24,11 @@ const Template = (args) => ({
         };
     },
     template: `
+        <div style="background: #940f2c17; padding: 1rem; border: 1px solid #940F2C; margin-bottom: 1rem;">
+            ⚠️ Deprecated: This component will be removed in a future release. 
+            See the <a href="https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1354137670/Ski+Scotland+Status+deprecated">Component migration docs.</a> 
+        </div>
+
         <VsSkiScotlandStatus
             v-bind="args"
         >

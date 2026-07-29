@@ -74,6 +74,9 @@ import {
 } from '@/components/grid';
 
 /**
+ * @deprecated ⚠️ This component will be removed in a future release.
+ * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1353416810/Tourism+Info+deprecated
+ * 
  * A tourism information block with a name, cover image and an optional slot for an
  * embedded quote (either just text or a vs-quote element)
  *
@@ -81,7 +84,7 @@ import {
  */
 export default {
     name: 'VsTourismInfo',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsContainer,
