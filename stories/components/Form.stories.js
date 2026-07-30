@@ -44,6 +44,10 @@ const Template = (args) => ({
                 <template v-slot:submit-error v-if="args['submit-error']">
                     {{ args['submit-error'] }}
                 </template>
+
+                <template v-slot:submitting v-if="args['submitting']">
+                    {{ args['submitting'] }}
+                </template>
             </VsForm>
         </div>
     `,

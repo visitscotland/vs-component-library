@@ -259,6 +259,7 @@ export default {
          * to trigger validation
          */
         triggerValidate() {
+            this.v$.$touch();
             this.manualValidate();
         },
         inputVal(newValue) {

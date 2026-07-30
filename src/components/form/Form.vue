@@ -167,7 +167,7 @@
                     variant="primary"
                     type="submit"
                     class="vs-form__submit mt-300"
-                    :disabled="submitDisabled"
+                    :disabled="submitDisabled || submitting"
                     @click="preSubmit"
                 >
                     {{ getTranslatedContent('submit') }}
@@ -180,9 +180,13 @@
         </VsWarning>
 
         <div aria-live="assertive">
-            <p v-if="submitting">
+            <div
+                v-if="submitting"
+                class="vs-form__submitting"
+            >
+                <VsLoadingSpinner />
                 <slot name="submitting" />
-            </p>
+            </div>
 
             <template v-if="submitted">
                 <VsHeading
@@ -200,7 +204,13 @@
             </template>
 
             <p
-                v-if="submitError"
+                v-if="submitError && bespokeResponse"
+                class="mt-200"
+            >
+                {{ bespokeResponse }}
+            </p>
+            <p
+                v-if="submitError && !bespokeResponse"
                 class="mt-200"
             >
                 <slot name="submit-error" />
@@ -222,6 +232,7 @@ import VsHeading from '@/components/heading/Heading.vue';
 import VsWarning from '@/components/warning/Warning.vue';
 import VsTextarea from '@/components/textarea/Textarea.vue';
 import VsBody from '@/components/body/Body.vue';
+import VsLoadingSpinner from '@/components/loading-spinner/LoadingSpinner.vue';
 import dataLayerMixin from '../../mixins/dataLayerMixin';
 
 /**
@@ -245,6 +256,7 @@ export default {
         VsWarning,
         VsTextarea,
         VsBody,
+        VsLoadingSpinner,
     },
     mixins: [dataLayerMixin],
     props: {
@@ -374,6 +386,7 @@ export default {
             submitted: false,
             submitting: false,
             submitError: false,
+            bespokeResponse: null,
             formData: {
             },
             messagingData: {
@@ -822,11 +835,12 @@ export default {
         preSubmit(e) {
             e.preventDefault();
 
-            if (this.submitDisabled) {
+            if (this.submitDisabled || this.submitting) {
                 return;
             }
 
             this.submitError = false;
+            this.bespokeResponse = null;
 
             function isRequired(value) {
                 return value.validation && value.validation.required;
@@ -948,16 +962,56 @@ export default {
                     'g-recaptcha-response': gRecaptchaResponse,
                     consentList: filteredConsents,
                 }, axiosConfig)
-                .then(() => {
+                .then((response) => {
                     this.submitting = false;
-                    this.submitted = true;
-                    this.attachEmail();
+
+                    const bespokeResponse = this.getLanguageObj().bespokeResponses
+                        || this.formData.bespokeResponses;
+
+                    if (bespokeResponse
+                        && bespokeResponse[response.status]) {
+                        this.bespokeResponse = this.replaceResponsePlaceholders(
+                            bespokeResponse[response.status],
+                            response.data || {
+                            },
+                        );
+                        this.submitError = true;
+                    } else {
+                        this.submitted = true;
+                        this.attachEmail();
+                    }
+
                     return false;
                 })
-                .catch(() => {
+                .catch((error) => {
+                    this.submitting = false;
+
+                    const statusCode = error.response && error.response.status;
+                    const bespokeResponse = this.getLanguageObj().bespokeResponses
+                        || this.formData.bespokeResponses;
+
+                    if (statusCode
+                        && bespokeResponse
+                        && bespokeResponse[statusCode]) {
+                        this.bespokeResponse = this.replaceResponsePlaceholders(
+                            bespokeResponse[statusCode],
+                            (error.response && error.response.data) || {
+                            },
+                        );
+                    }
+
                     this.submitError = true;
                     return false;
                 });
+        },
+        /**
+         * Replaces ${variable} placeholders in a template string with values from a data object
+         */
+        replaceResponsePlaceholders(template, data) {
+            return template.replace(
+                /\$\{(\w+)\}/g,
+                (match, key) => data[key] !== undefined ? data[key] : match,
+            );
         },
         /**
          * If exponea is present in the window (via gtm with accepted cookies), and the form uses
@@ -1024,10 +1078,6 @@ export default {
                 if (showField) {
                     if (!this.conditionalFields[field]) {
                         this.conditionalFields[field] = true;
-
-                        if (this.$refs[field]) {
-                            this.$refs[field][0].manualValidate();
-                        }
                     }
                 } else {
                     // If a field is hidden by its conditional status, clear any existing
@@ -1097,6 +1147,10 @@ export default {
             > div {
                 margin-bottom: $vs-spacer-150;
             }
+        }
+
+        &__submitting {
+            overflow: hidden;
         }
 
         &__no-js {
