@@ -1073,10 +1073,6 @@ export default {
                 if (showField) {
                     if (!this.conditionalFields[field]) {
                         this.conditionalFields[field] = true;
-
-                        if (this.$refs[field]) {
-                            this.$refs[field][0].manualValidate();
-                        }
                     }
                 } else {
                     // If a field is hidden by its conditional status, clear any existing
