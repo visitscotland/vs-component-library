@@ -239,6 +239,9 @@ import VsTableFooter from '@/components/table/components/TableFooter.vue';
 import axios from 'axios';
 
 /**
+ * @deprecated ⚠️ This component will be removed in a future release.
+ * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1354137661/Ski+Scotland+Card+deprecated
+ * 
  * The ski scotland card component displays ski run status information for a specific
  * ski resort. It is intended to be used in a grid with other
  *
@@ -246,7 +249,7 @@ import axios from 'axios';
  */
 export default {
     name: 'VsSkiScotlandCard',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsImg,
