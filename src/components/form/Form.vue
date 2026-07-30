@@ -965,10 +965,13 @@ export default {
                 .then((response) => {
                     this.submitting = false;
 
-                    if (this.formData.bespokeResponses
-                        && this.formData.bespokeResponses[response.status]) {
+                    const bespokeResponse = this.getLanguageObj().bespokeResponses
+                        || this.formData.bespokeResponses;
+
+                    if (bespokeResponse
+                        && bespokeResponse[response.status]) {
                         this.bespokeResponse = this.replaceResponsePlaceholders(
-                            this.formData.bespokeResponses[response.status],
+                            bespokeResponse[response.status],
                             response.data || {
                             },
                         );
@@ -984,12 +987,14 @@ export default {
                     this.submitting = false;
 
                     const statusCode = error.response && error.response.status;
+                    const bespokeResponse = this.getLanguageObj().bespokeResponses
+                        || this.formData.bespokeResponses;
 
                     if (statusCode
-                        && this.formData.bespokeResponses
-                        && this.formData.bespokeResponses[statusCode]) {
+                        && bespokeResponse
+                        && bespokeResponse[statusCode]) {
                         this.bespokeResponse = this.replaceResponsePlaceholders(
-                            this.formData.bespokeResponses[statusCode],
+                            bespokeResponse[statusCode],
                             (error.response && error.response.data) || {
                             },
                         );
