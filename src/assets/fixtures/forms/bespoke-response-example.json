@@ -1,0 +1,25 @@
+{
+    "content": {
+        "heading": "Contact us",
+        "successHeading": "Thanks for your enquiry",
+        "successContent": "<p>We'll be in touch shortly.</p>",
+        "noJs": "<p><strong>You need JavaScript enabled to be able to display this form.</strong></p>",
+        "submit": "Send"
+    },
+    "fields": [
+        {
+            "name": "Email",
+            "element": "input",
+            "type": "email",
+            "label": "Email address",
+            "validation": {
+                "required": true,
+                "email": true
+            }
+        }
+    ],
+    "bespokeResponses": {
+        "202": "This worked, with caveats.",
+        "505": "Our service is temporarily unavailable. Please try again later. ${description}"
+    }
+}
