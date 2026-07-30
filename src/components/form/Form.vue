@@ -835,7 +835,7 @@ export default {
         preSubmit(e) {
             e.preventDefault();
 
-            if (this.submitDisabled) {
+            if (this.submitDisabled || this.submitting) {
                 return;
             }
 
