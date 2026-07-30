@@ -76,6 +76,7 @@ describe('VsCheckbox', () => {
 
             await mountedWrapper.vm.$nextTick();
 
+            mountedWrapper.vm.v$.$touch();
             mountedWrapper.vm.manualValidate();
 
             expect(mountedWrapper.vm.errorsList.length).toBeGreaterThan(0);

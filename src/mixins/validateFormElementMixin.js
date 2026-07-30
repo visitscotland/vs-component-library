@@ -139,7 +139,8 @@ const validateFormElementMixin = {
                 }
 
                 if (failed) {
-                    if (this.errorsList.indexOf('required') === -1) {
+                    if (this.errorsList.indexOf('required') === -1
+                        && this.v$.inputVal?.$anyDirty) {
                         this.errorsList.push('required');
                     }
                 }
@@ -176,9 +177,9 @@ const validateFormElementMixin = {
          */
         emitStatus() {
             setTimeout(() => {
+                this.v$.$touch();
                 this.manualValidate();
                 this.touched = true;
-                this.v$.$touch();
             }, 50);
         },
     },

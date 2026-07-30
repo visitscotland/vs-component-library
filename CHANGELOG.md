@@ -1,3 +1,23 @@
+# [5.75.0](https://github.com/visitscotland/vs-component-library/compare/v5.74.0...v5.75.0) (2026-07-30)
+
+
+### Bug Fixes
+
+* **forms:** add fixtures file for bespoke responses ([4669b83](https://github.com/visitscotland/vs-component-library/commit/4669b83eb001f8cc26f7ec5c9a1f277d1119ca06))
+* **forms:** block preSubmit during submission as well as button ([0920c46](https://github.com/visitscotland/vs-component-library/commit/0920c465a9c0c72cc4d4f9273d7ca78d65169986))
+* **forms:** get translated bespoke responses ([7f4775a](https://github.com/visitscotland/vs-component-library/commit/7f4775a170e64cd7a4a9befc0870907a62ee9818))
+* **forms:** update checkbox test to ensure field is touched before validation ([9d52845](https://github.com/visitscotland/vs-component-library/commit/9d5284571628652cbbefe603a5f4121378c4a4d0))
+* **stories:** correct deprecated tag ([765497f](https://github.com/visitscotland/vs-component-library/commit/765497f13943fd430c3c40e64ee8899348672ee1))
+* **tests:** add missing await ([aafefc7](https://github.com/visitscotland/vs-component-library/commit/aafefc7f07d001f9b3b2531c21fd603f644cd396))
+
+
+### Features
+
+* **forms:** allow bespoke, translateable error responses ([17e5d44](https://github.com/visitscotland/vs-component-library/commit/17e5d443c7d72a44a26e48ba12d635e950fb80ed))
+* **forms:** allow placeholder replacement in bespoke responses ([0c1ef26](https://github.com/visitscotland/vs-component-library/commit/0c1ef265dc7525245a57851676f4199a05fbcaaa))
+* **forms:** don't pre-validate newly revealed conditional fields ([75511fa](https://github.com/visitscotland/vs-component-library/commit/75511fa9aeb1a6afb318f7ede2bcd9ab21598f43))
+* **forms:** prevent multiple submissions and add loading spinner during submission ([62168aa](https://github.com/visitscotland/vs-component-library/commit/62168aa521cd5e8d7db92b4f1ccc798a1b591bd8))
+
 # [5.74.0](https://github.com/visitscotland/vs-component-library/compare/v5.73.0...v5.74.0) (2026-07-28)
 
 

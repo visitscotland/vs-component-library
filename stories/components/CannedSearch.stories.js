@@ -4,7 +4,7 @@ import VsButton from '@/components/button/Button.vue';
 export default {
     component: VsCannedSearch,
     title: 'Components/Deprecated/CannedSearch',
-    tags: 'deprecated',
+    tags: ['deprecated'],
 };
 
 const Template = (args) => ({
