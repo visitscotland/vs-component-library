@@ -4,7 +4,7 @@ import VsFilterSection from '@/components/filter/components/VsFilterSection.vue'
 
 export default {
     component: VsFilter,
-    title: 'Components/Actions & controls/Filter',
+    title: 'Components/To be reviewed/Filter',
     decorators: [() => ({
         template: '<div style="max-width: 400px;"><story /></div>',
     })],
