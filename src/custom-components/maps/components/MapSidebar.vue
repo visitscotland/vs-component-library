@@ -90,18 +90,18 @@
                         <VsMapFilter
                             has-icons
                             :items="filteredCategories"
-                            :selected-category="props.selectedCategory"
+                            :selected-category="mapCategoryStore.selectedCategory"
                             @changed="(event: MapFilterChanged) =>
-                                $emit('category-selected', { id: event.id, key: event.key })"
+                                handleCategorySelect(event.id)"
                         />
 
                         <VsMapFilter
-                            v-if="props.selectedCategory && subcategories"
+                            v-if="mapCategoryStore.selectedCategory && subcategories"
                             :detail-text="props.sidebarLabels.subFilterHeaderLabel"
                             :items="subcategories"
-                            :selected-category="Array.from(props.selectedSubcategories) ?? []"
+                            :selected-category="mapCategoryStore.selectedSubcategories"
                             @changed="(event: MapFilterChanged) =>
-                                $emit('subcategory-selected', { id: event.id, key: event.key })"
+                                mapCategoryStore.toggleSubcategory(event.id)"
                         />
                     </div>
                 </div>
@@ -219,6 +219,7 @@ import VsHeading from '@/components/heading/Heading.vue';
 import VsInput from '@/components/input/Input.vue';
 import VsRow from '@/components/grid/Row.vue';
 import useGoogleMapStore from '@/stores/mainMap.store';
+import useMapCategoryStore from '@/stores/mapCategory.store';
 import useSwipeDrawer from '../composables/useSwipeDrawer';
 import VsMapFeaturedLocationItem from './MapFeaturedLocationItem.vue';
 import VsMapFilter from './MapFilter.vue';
@@ -319,6 +320,7 @@ const emit = defineEmits<{
 const sidebar = useTemplateRef('sidebar');
 
 const googleMapStore = useGoogleMapStore();
+const mapCategoryStore = useMapCategoryStore();
 const {
     endDrag,
     onDrag,
@@ -329,10 +331,10 @@ const {
 const filteredCategories = props.categories.filter((category: Categories) => !category.cmsData);
 
 const subcategories = computed(() => {
-    if (!props.selectedCategory) return null;
+    if (!mapCategoryStore.selectedCategory) return null;
 
     const categoryData = props.categories.find(
-        (cat: Categories) => cat.id === props.selectedCategory,
+        (cat: Categories) => cat.id === mapCategoryStore.selectedCategory,
     );
 
     if (!categoryData) return null;
@@ -346,6 +348,11 @@ const filteredDestinationCategories = props.destinationCategories.filter((catego
 function handleDestinationTypeClick(id: string) {
     googleMapStore.selectedDestinationType = id;
     emit('destination-type-selected');
+}
+
+function handleCategorySelect(id: string) {
+    mapCategoryStore.selectedSubcategories = [];
+    mapCategoryStore.selectedCategory = id;
 }
 
 onMounted(() => {

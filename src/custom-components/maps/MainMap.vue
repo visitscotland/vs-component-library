@@ -9,21 +9,21 @@
             <VsMapSidebar
                 v-model:is-open="isSidebarOpen"
                 v-model:is-results-open="isSidebarResultsOpen"
-                :categories="categoryLabelData"
-                :category-data="categoryData"
+                :categories="googleMapStore.categoryLabelData"
+                :category-data="googleMapStore.categoryData"
                 :destination-categories="featuredSubcategories"
                 :destinations="filteredPlaces"
                 :map-loaded="mapLoaded"
                 :query="query"
-                :selected-category="selectedTopLevelCategory"
-                :selected-subcategories="selectedSubCategories"
+                :selected-category="mapCategoryStore.selectedCategory"
+                :selected-subcategories="mapCategoryStore.selectedSubcategories"
                 :sidebar-labels="sidebarLabels"
-                @category-selected="(e) => selectCategory(e.id, e.key)"
+                @category-selected="(e) => mapCategoryStore.selectedCategory = e.id"
                 @destination-type-selected="addDestinationMarkers"
                 @reset-map="resetMap(true)"
                 @reset-location="resetMap(true, true)"
                 @search-input-changed="searchByText"
-                @subcategory-selected="(e) => searchBySubCategory(e.id, e.key)"
+                @subcategory-selected="mapCategoryStore.toggleSubcategory(e.id)"
             >
                 <template #vs-map-sidebar-search-results>
                     <div
@@ -165,6 +165,7 @@ import {
     onMounted,
     provide,
     ref,
+    watch,
 } from 'vue';
 import {
     importLibrary,
@@ -180,6 +181,7 @@ import {
 } from '@/components';
 
 import useGoogleMapStore from '@/stores/mainMap.store';
+import useMapCategoryStore from '@/stores/mapCategory.store';
 import getEnvValue from '@/utils/get-env-value';
 import cookieValues from '@/utils/required-cookies-data';
 import VsMapSidebar from './components/MapSidebar.vue';
@@ -356,43 +358,18 @@ let markers = {
 
 let visibleMarkerCount;
 
-const selectedTopLevelCategory = ref();
-const selectedSubCategories = ref(new Set());
-const selectedCategory = ref();
-const includedTopLevelTypes = ref(new Set());
-const excludedTopLevelTypes = ref(new Set());
-const includedSubTypes = ref(new Set());
-const excludedSubTypes = ref(new Set());
-const categoryKey = ref();
-const subCategoryKey = ref();
 const currentZoom = ref(props.zoom);
 const MAX_ZOOM = 17;
 const CATEGORY_VISIBLE_ZOOM = 11;
 const categoriesVisible = ref(false);
 const NUMBER_OF_RESULTS = 20;
 const query = ref();
-const queryStr = ref(new Set());
 const currentSearch = ref();
-const selfCateringClicked = ref(false);
 const keywords = ref(undefined);
 const mapLoaded = ref(false);
 
-const subCategoryTypeMap = computed(() => {
-    const map = new Map();
-
-    const subCategories = categoryData[selectedTopLevelCategory.value].subCategory;
-
-    Object.values(subCategories).forEach((subCat) => {
-        map.set(subCat.id, {
-            includedTypes: subCat.includedType,
-            excludedTypes: subCat.excludedType,
-        });
-    });
-
-    return map;
-});
-
 const googleMapStore = useGoogleMapStore();
+const mapCategoryStore = useMapCategoryStore();
 
 const noResults = ref(undefined);
 
@@ -406,9 +383,7 @@ const SCOTLAND_BOUNDS = {
     east: 2.0,
 };
 
-let categoryData = {
-};
-const categoryLabelData = props.categoryLabels;
+googleMapStore.categoryLabelData = props.categoryLabels;
 
 let currentSearchId = 0;
 
@@ -465,8 +440,16 @@ onMounted(async() => {
     if (props.categoriesLocation) {
         axios.get(props.categoriesLocation)
             .then((response) => {
-                categoryData = response.data;
+                googleMapStore.categoryData = response.data;
                 keywords.value = response.data.accommodation.keywords;
+
+                mapCategoryStore.subcategoryMap = Object.values(googleMapStore.categoryData)
+                    .flatMap((category) => category.subCategory ?? [])
+                    .reduce((map, subcategory) => {
+                        map[subcategory.id] = subcategory;
+                        return map;
+                    }, {
+                    });
             })
             .catch(() => {});
     }
@@ -606,7 +589,7 @@ onMounted(async() => {
                     ),
                 ));
 
-                selectCategory(category || 'things-to-do', 2);
+                mapCategoryStore.selectedCategory = (category) ? category : 'things-to-do';
             } else if (searchTerm) {
                 query.value = searchTerm;
                 searchInput.value = searchTerm;
@@ -747,214 +730,25 @@ function shadeMapAreas(zoomedIn) {
     }
 }
 
-function selectCategory(categoryId, key) {
-    resetCategories();
+async function searchByCategory() {
+    const types = mapCategoryStore.selectedSubcategories.length > 0
+        ? mapCategoryStore.selectedSubcategoryTypes
+        : mapCategoryStore.selectedCategoryTypes;
 
-    selectedTopLevelCategory.value = categoryId;
+    const label = mapCategoryStore.selectedSubcategories.length > 0
+        ? mapCategoryStore.selectedSubcategoryLabels
+        : mapCategoryStore.selectedCategoryLabel;
 
-    if (categoryData[categoryId].includedType) {
-        includedTopLevelTypes.value.add(categoryData[categoryId].includedType);
-    }
-
-    // Retrieves all the values in each subcategory and adds it to
-    // `includedTopLevelTypes` set, which should handle duplication.
-    Object.values(categoryData[categoryId].subCategory).forEach(
-        (subCategory) => includedTopLevelTypes.value.add(subCategory.includedType),
-    );
-
-    Object.values(categoryData[categoryId].subCategory).forEach(
-        (subCategory) => {
-            if (subCategory.excludedType) {
-                excludedTopLevelTypes.value.add(subCategory.excludedType);
-            }
-        },
-    );
-
-    // Flattens multiple sets back down into one
-    includedTopLevelTypes.value = new Set(Array.from(includedTopLevelTypes.value).flat());
-    excludedTopLevelTypes.value = new Set(Array.from(excludedTopLevelTypes.value).flat());
-
-    // Checks if there are conflicting types and removes from excluded if already in included
-    includedTopLevelTypes.value.forEach((type) => {
-        if (excludedTopLevelTypes.value.has(type)) {
-            excludedTopLevelTypes.value.delete(type);
-        }
-    });
-
-    selectedCategory.value = categoryData[categoryId];
-    categoryKey.value = key;
-
-    searchByCategory({
-        includedTypes: Array.from(includedTopLevelTypes.value),
-        excludedTypes: Array.from(excludedTopLevelTypes.value),
-    });
-
-    // Get the button label.
-    const lookup = Object.fromEntries(
-        categoryLabelData.map((category) => [category.id, category.label]),
-    );
-
-    query.value = `${lookup[categoryId]} ${selectedDestination.value}`;
-    searchInput.value = query.value;
-
-    googleMapStore.showCategories = true;
-    showSearchAreaButton.value = false;
-}
-
-function searchSubCategoriesForLabel(selectedSubcategory, subCategoryId) {
-    const selCat = ref([]);
-    const selSubCatLabel = ref();
-
-    selectedSubcategory.forEach(() => {
-        // Iterate through the category label data to find corresponding category
-        categoryLabelData.forEach((category) => {
-            if (category.id === selectedTopLevelCategory.value) {
-                selCat.value = category;
-            }
-        });
-
-        // Iterate through the subCategories to find the correct one,
-        // and then again to find the label
-        Object.values(selCat.value).forEach((subCat) => {
-             
-            Object.values(subCat).forEach((subCat) => {
-                if (subCategoryId === subCat.id) {
-                    selSubCatLabel.value = subCat.label;
-                }
-            });
-        });
-    });
-
-    return selSubCatLabel;
-}
-
-function checkForConflictingPlaceTypes() {
-    includedSubTypes.value.forEach((subCategory) => {
-        if (excludedSubTypes.value.has(subCategory)) {
-            excludedSubTypes.value.delete(subCategory);
-        }
-    });
-};
-
-function updateSubCategoryTypes(
-    subCategoryId,
-    {
-        includeTypes = false,
-        excludeTypes = false,
-        removeIncludedTypes = false,
-        removeExcludedTypes = false,
-    } = {
-    },
-) {
-    const types = subCategoryTypeMap.value.get(subCategoryId);
-
-    if (includeTypes) {
-        types.includedTypes.forEach((includedType) => {
-            if (includeTypes) includedSubTypes.value.add(includedType);
-            if (removeIncludedTypes) includedSubTypes.value.delete(includedType);
-        });
-    }
-
-    if (excludeTypes || removeExcludedTypes) {
-        types.excludedTypes?.forEach((excludedType) => {
-            if (excludeTypes) excludedSubTypes.value.add(excludedType);
-            if (removeExcludedTypes) excludedSubTypes.value.delete(excludedType);
-        });
-    }
-}
-
-function searchBySubCategory(subCategoryId, key) {
-    subCategoryKey.value = key;
-    selectedDestination.value = '';
-
-    isSidebarOpen.value = true;
-
-    if (subCategoryId === 'self-catering' && !selectedSubCategories.value.has('self-catering')) {
-        selfCateringClicked.value = true;
-        resetTextQuery();
-        selectedSubCategories.value = new Set();
-        selectedSubCategories.value.add(subCategoryId);
-        const label = searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value;
-        query.value = label;
-        // resetCategories();
-        searchInput.value = `${query.value} ${selectedDestination.value}`;
-        searchByText();
-        searchInput.value = label;
-    } else if (selectedSubCategories.value.has(subCategoryId)) {
-        // Delete if already in selectedSubCategories
-        selectedSubCategories.value.delete('self-catering');
-        selectedSubCategories.value.delete(subCategoryId);
-
-        // Reset subcategories
-        includedSubTypes.value = new Set();
-        excludedSubTypes.value = new Set();
-
-        // Add in all remaining types again, to account for any
-        // conflicting duplicate types that had been removed
-        selectedSubCategories.value.forEach((subCatId) => {
-            updateSubCategoryTypes(subCatId, {
-                includeTypes: true,
-                excludeTypes: true,
-            });
-        });
-
-        checkForConflictingPlaceTypes();
-
-        // Remove subCategory labels to the queryString to show on UI
-        queryStr.value.delete(
-            searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value,
-        );
-
-        if (selectedSubCategories.value.size === 0) {
-            // If the last subCategory is removed,
-            // reset queryString and revert to a top-level search
-            queryStr.value = new Set();
-            selectCategory(selectedTopLevelCategory.value, categoryKey.value);
-        } else {
-            searchByCategory({
-                includedTypes: Array.from(includedSubTypes.value).flat(),
-                excludedTypes: Array.from(excludedSubTypes.value).flat(),
-            });
-            query.value = Array.from(queryStr.value).join(', ');
-            searchInput.value = query.value;
-        }
-    } else {
-        selectedSubCategories.value.delete('self-catering');
-        // Add if not already in selectedSubCategories
-        selectedSubCategories.value.add(subCategoryId);
-        // Iterate through each subcategory to find the selected subcategory
-        updateSubCategoryTypes(subCategoryId, {
-            includeTypes: true,
-            excludeTypes: true,
-        });
-
-        checkForConflictingPlaceTypes();
-
-        searchByCategory({
-            includedTypes: Array.from(includedSubTypes.value).flat(),
-            excludedTypes: Array.from(excludedSubTypes.value).flat(),
-        });
-
-        // Add subCategory labels to the queryString to show on UI
-        queryStr.value.add(
-            searchSubCategoriesForLabel(selectedSubCategories.value, subCategoryId).value,
-        );
-
-        // Add to the query value.
-        query.value = `${Array.from(queryStr.value).join(', ')} ${selectedDestination.value}`;
-        searchInput.value = query.value;
-
-    }
-    googleMapStore.showCategories = true;
-}
-
-async function searchByCategory({
-    includedTypes = [],
-    excludedTypes = [],
-} = {
-}) {
     resetMap();
-    resetTextQuery();
+
+    if (!mapCategoryStore.selfCateringClicked) {
+        resetTextQuery();
+    }
+
+    query.value = label;
+    searchInput.value = label;
+
+    googleMapStore.showCategories = true;
 
     isSidebarOpen.value = true;
 
@@ -987,8 +781,8 @@ async function searchByCategory({
     // const cappedDistance = googleMapStore.selectedDestinationType === 'regions' ? 50000 : 25000;
     const cappedRadius = Math.min((diameter / 2), cappedDistance);
 
-    nearbySearchQuery.includedTypes = includedTypes;
-    nearbySearchQuery.excludedTypes = excludedTypes ?? [];
+    nearbySearchQuery.includedTypes = [...types.included];
+    nearbySearchQuery.excludedTypes = [...types.excluded];
     nearbySearchQuery.maxResultCount = NUMBER_OF_RESULTS;
     nearbySearchQuery.locationRestriction = {
         center: gMap.getCenter(),
@@ -1002,11 +796,11 @@ async function searchByCategory({
         addMarkers(searchId);
 
         let filterType = 'main';
-        let filterSelection = selectedTopLevelCategory.value;
+        let filterSelection = mapCategoryStore.selectedCategory;
 
-        if (selectedSubCategories.value.size) {
+        if (mapCategoryStore.selectedSubcategories.length > 0) {
             filterType = 'sub';
-            filterSelection = Array.from(selectedSubCategories.value).join(', ');
+            filterSelection = [...mapCategoryStore.selectedSubcategories].join(', ');
         }
 
         dataLayerHelper.createDataLayerObject('googleMapFilterEvent', {
@@ -1035,7 +829,7 @@ async function searchByCategory({
 
     updateSearchParams({
         location,
-        category: selectedTopLevelCategory.value,
+        category: mapCategoryStore.selectedCategory,
         'search-term': null,
         coords,
     });
@@ -1043,7 +837,10 @@ async function searchByCategory({
 
 async function searchByText(useRestriction = false) {
     resetMap();
-    resetCategories();
+
+    if (!mapCategoryStore.selfCateringClicked) {
+        resetCategories();
+    }
 
     isSidebarOpen.value = true;
 
@@ -1063,19 +860,12 @@ async function searchByText(useRestriction = false) {
      * Search using locationRestriction when "Self catering" sub category has
      * been selected. Search using locationBias for other text searches.
      */
-    if (selfCateringClicked.value || useRestriction) {
+    if (mapCategoryStore.selfCateringClicked || useRestriction) {
         textSearchQuery.locationBias = null;
         textSearchQuery.locationRestriction = gMap.getBounds();
     } else {
         textSearchQuery.locationRestriction = null;
         textSearchQuery.locationBias = gMap.getCenter();
-    }
-
-    // Make sure the "accommodation" and "self catering" categories are selected
-    // when doing a self catering search.
-    if (selfCateringClicked.value) {
-        selectedTopLevelCategory.value = 'accommodation';
-        selectedSubCategories.value.add('self-catering');
     }
 
     // Add the `includedType` of "lodging" when the query includes a keyword.
@@ -1089,7 +879,7 @@ async function searchByText(useRestriction = false) {
      * Add 'in Scotland' to the end of the text query to help contain the
      * results to Scotland.
      */
-    if (selfCateringClicked.value) {
+    if (mapCategoryStore.selfCateringClicked) {
         textSearchQuery.textQuery = 'self catering in Scotland';
     } else {
         textSearchQuery.textQuery = `${query.value} in Scotland`;
@@ -1103,7 +893,7 @@ async function searchByText(useRestriction = false) {
         if (searchId !== currentSearchId) return;
 
         addMarkers(searchId);
-        selfCateringClicked.value = false;
+        mapCategoryStore.selfCateringClicked = false;
 
         dataLayerHelper.createDataLayerObject('googleMapSearchEvent', {
             search_query: query.value,
@@ -1293,15 +1083,8 @@ function resetTextQuery() {
 }
 
 function resetCategories() {
-    selectedTopLevelCategory.value = undefined;
-    selectedSubCategories.value = new Set();
-    includedTopLevelTypes.value = new Set();
-    excludedTopLevelTypes.value = new Set();
-    includedSubTypes.value = new Set();
-    excludedSubTypes.value = new Set();
-    queryStr.value = new Set();
-    categoryKey.value = undefined;
-    subCategoryKey.value = undefined;
+    mapCategoryStore.clearSubcategories();
+    mapCategoryStore.selectedCategory = '';
 }
 
 function clearExistingMarkers() {
@@ -1441,7 +1224,7 @@ function handleFeaturedLocationClick(place, category) {
         zoom: null,
     });
 
-    selectCategory(category || 'things-to-do', 2);
+    mapCategoryStore.selectedCategory = (category) ? category : 'things-to-do';
     isSidebarOpen.value = true;
 }
 
@@ -1455,47 +1238,41 @@ function searchArea() {
     selectedDestination.value = '';
     showSearchAreaButton.value = false;
 
-    // Check for selected subcategory and start nearby search.
-    if (selectedSubCategories.value.size > 0) {
-        if (selectedSubCategories.value.has('self-catering')) {
-            selectedSubCategories.value.delete('self-catering');
-            searchBySubCategory('self-catering', 0);
-        } else {
-            searchByCategory({
-                includedTypes: Array.from(includedSubTypes.value),
-                excludedTypes: Array.from(excludedSubTypes.value),
-            });
-
-            // Get labels for the selected subcategories.
-            const subcatLabels = [];
-            selectedSubCategories.value.forEach((subcat) => {
-                subcatLabels.push(
-                    searchSubCategoriesForLabel(selectedSubCategories.value, subcat).value,
-                );
-            });
-            query.value = subcatLabels.join(', ');
-            searchInput.value = query.value;
-            // searchInput.value = selectedSubCategories.value.join(', ');
-            googleMapStore.showCategories = true;
-        }
-        return;
-    }
-
-    // Check for selected category and start nearby search.
-    if (selectedTopLevelCategory.value) {
-        selectCategory(selectedTopLevelCategory.value, categoryKey.value);
-        return;
-    }
-
-    // Check for searchInput value and start text search.
-    if (searchInput.value) {
+    if (mapCategoryStore.selectedSubcategories.includes('self-catering')) {
+        query.value = mapCategoryStore.getSubcategoryLabel('self-catering');
+        searchInput.value = query.value;
+        mapCategoryStore.selfCateringClicked = true;
+        searchByText();
+    } else if (mapCategoryStore.selectedCategory
+        || mapCategoryStore.selectedSubcategories.length > 0) {
+        searchByCategory();
+    } else if (searchInput.value) {
         searchByText(true);
-        return;
+    } else {
+        mapCategoryStore.selectedCategory = 'things-to-do';
     }
-
-    // Start "Things to do" search if no categories selected or search terms entered.
-    selectCategory('things-to-do', 2);
 }
+
+function handleCategoryUpdate() {
+    if (mapCategoryStore.selectedSubcategories.includes('self-catering')) {
+        query.value = mapCategoryStore.getSubcategoryLabel('self-catering');
+        searchInput.value = query.value;
+        searchByText();
+    } else if (mapCategoryStore.selectedCategory
+        || mapCategoryStore.selectedSubcategories.length > 0) {
+        searchByCategory();
+    }
+}
+
+const searchCriteria = computed(() => ({
+    category: mapCategoryStore.selectedCategory,
+    subcategories: [...mapCategoryStore.selectedSubcategories],
+}));
+
+watch(searchCriteria, (newValue, oldValue) => {
+    if (newValue === oldValue) return;
+    handleCategoryUpdate();
+});
 </script>
 
 <style lang="scss">
