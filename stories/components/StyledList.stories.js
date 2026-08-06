@@ -3,7 +3,7 @@ import VsStyledListItem from '@/components/styled-list/components/StyledListItem
 
 export default {
     component: VsStyledList,
-    title: 'Components/Layout & content structure/StyledList',
+    title: 'Components/To be reviewed/StyledList',
     argTypes: {
         variant: {
             options: [

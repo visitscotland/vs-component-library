@@ -11,6 +11,9 @@
 <script>
 import { computed } from 'vue';
 /**
+ * @deprecated ⚠️ This component will be removed in a future release.
+ * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1372061712/Description+List+deprecated
+ * 
  * A description list can be used where there is a list of terms and descriptions.
  *
  * The default list has 2 columns that collapse to stacked lists on smaller
@@ -21,7 +24,7 @@ import { computed } from 'vue';
 
 export default {
     name: 'VsDescriptionList',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     /**
      * Provides inline prop to be injected to child components
