@@ -106,7 +106,10 @@ const dataLayerMixin = {
                 // A data attribute needs to be added to the these components
                 // on the consumer site to indicate that it is being used on
                 // an events listing page.
-                if (event.target.closest('[data-event-listing="True"]')) {
+                if (
+                    event.target.closest && 
+                    event.target.closest('[data-event-listing="True"]')
+                ) {
                     eventListing = 'True';
                 }
             }
@@ -347,6 +350,7 @@ const dataLayerMixin = {
                     event: eventName,
                     tag_name: tagName,
                     accordion_text: event.accordion_text,
+                    click_text: event.accordion_text,
                 };
 
                 fullTemplate = this.compileFullTemplate(templateValues);

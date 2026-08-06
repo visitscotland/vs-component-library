@@ -181,12 +181,15 @@ import VsCarbonCalculatorIntro from './components/CarbonCalculatorIntro.vue';
 import VsCarbonCalculatorQuestion from './components/CarbonCalculatorQuestion.vue';
 
 /**
+ * @deprecated ⚠️ This component will be removed in a future release.
+ * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1354137652/Carbon+Calculator+deprecated
+ * 
  * @displayName Carbon Calculator Form
  */
 
 export default {
     name: 'VsCarbonCalculator',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsButton,
@@ -779,7 +782,7 @@ export default {
                     try {
                         this.$refs.questions[this.activeStage - 1].$el.focus();
                         this.$refs.progress.$el.scrollIntoView();
-                    } catch (e) {
+                    } catch {
                         // Fails in jest
                     }
                 });

@@ -8,7 +8,7 @@ import { get, isFunction } from 'lodash';
  */
 
 export default function handDownFocus(el, binding) {
-    el.onfocus = () => { // eslint-disable-line no-param-reassign
+    el.onfocus = () => {  
         const $target = binding.value || get(el, 'childNodes[0]');
         if (isFunction($target.focus)) {
             $target.focus();

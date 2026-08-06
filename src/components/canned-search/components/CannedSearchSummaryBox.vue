@@ -5,7 +5,8 @@
     >
         <VsContainer>
             <VsRow
-                v-if="$slots['vs-canned-search-summary-top'] && $slots['vs-canned-search-summary-top']()"
+                v-if="$slots['vs-canned-search-summary-top']
+                    && $slots['vs-canned-search-summary-top']()"
             >
                 <VsCol
                     cols="12"
@@ -28,7 +29,8 @@
             >
                 <VsCol
                     class="vs-canned-search-summary-box__summary-item"
-                    v-if="$slots['vs-canned-search-summary-left'] && $slots['vs-canned-search-summary-left']()"
+                    v-if="$slots['vs-canned-search-summary-left']
+                        && $slots['vs-canned-search-summary-left']()"
                 >
                     <!--
                         @slot Holds the content for the first optional item in the grey
@@ -43,7 +45,8 @@
                 </VsCol>
                 <VsCol
                     class="vs-canned-search-summary-box__summary-item"
-                    v-if="$slots['vs-canned-search-summary-centre'] && $slots['vs-canned-search-summary-centre']()"
+                    v-if="$slots['vs-canned-search-summary-centre']
+                        && $slots['vs-canned-search-summary-centre']()"
                 >
                     <!--
                         @slot Holds the content for the second optional item in the grey

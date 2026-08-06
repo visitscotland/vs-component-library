@@ -88,7 +88,7 @@ onUnmounted(() => {
     position: sticky;
 
     .vs-button {
-        margin: -$vs-spacer-400 $vs-spacer-100 $vs-spacer-0 auto;
+        margin: -$vs-spacer-400 $vs-spacer-100 0 auto;
     }
 }
 

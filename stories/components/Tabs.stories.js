@@ -35,6 +35,7 @@ const Template = (args) => ({
             <VsTabs v-bind="args">
                 <VsTabItem 
                     title="Getting Here"
+                    active
                 >
                     <div class="px-125 py-100">
                         <p>

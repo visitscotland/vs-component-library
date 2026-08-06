@@ -23,15 +23,34 @@ const Template = (args) => ({
 
 const base = {
     src: 'images/placeholders/placeholder-img.jpg',
-    lowResImage: 'images/placeholders/generic-lqip.jpg',
-    alt: '',
-    fluid: false,
-    fluidGrow: false,
-    useGenericLqip: false,
-    useLazyLoading: true,
 };
 
 export const Default = Template.bind({
 });
 
 Default.args = base;
+
+export const FluidGrow = Template.bind({
+});
+
+FluidGrow.args = {
+    ...base,
+    fluidGrow: true,
+};
+
+export const Fluid = Template.bind({
+});
+
+Fluid.args = {
+    ...base,
+    fluid: true,
+};
+
+export const Svg = Template.bind({
+});
+
+Svg.args = {
+    ...base,
+    src: 'svg/highland-cow.svg',
+};
+

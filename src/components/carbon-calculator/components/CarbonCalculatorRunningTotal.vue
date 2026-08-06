@@ -16,7 +16,9 @@
         >
             <p>{{ labelsMap.soFar }}</p>
             <p>
-                <span class="vs-carbon-calculator-running-total__value">{{ totalKilos.toLocaleString(language, { minimumFractionDigits: 3 }) }}</span> {{ labelsMap.kgsOf }}
+                <span class="vs-carbon-calculator-running-total__value">
+                    {{ totalKilos.toLocaleString(language, { minimumFractionDigits: 3 }) }}
+                </span> {{ labelsMap.kgsOf }}
             </p>
         </div>
     </div>

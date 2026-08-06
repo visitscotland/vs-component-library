@@ -1,0 +1,129 @@
+[
+  {
+    "id": "things-to-do",
+    "label": "Cose da fare",
+    "subCategory": [
+      {
+        "id": "nature-outdoors",
+        "label": "Natura e attività all'aperto"
+      },
+      {
+        "id": "culture-history",
+        "label": "Cultura e storia"
+      },
+      {
+        "id": "entertainment",
+        "label": "Intrattenimento"
+      },
+      {
+        "id": "active-adventure",
+        "label": "Sport e avventura"
+      },
+      {
+        "id": "shopping",
+        "label": "Shopping"
+      },
+      {
+        "id": "health-wellness",
+        "label": "Salute e benessere"
+      },
+      {
+        "id": "tours",
+        "label": "Tour"
+      }
+    ]
+  },
+  {
+    "id": "accommodation",
+    "label": "Alloggi",
+    "subCategory": [
+      {
+        "id": "self-catering",
+        "label": "Appartamenti indipendenti"
+      },
+      {
+        "id": "bed-breakfast",
+        "label": "Bed and Breakfast"
+      },
+      {
+        "id": "caravan-camping",
+        "label": "Campeggi e caravan"
+      },
+      {
+        "id": "hotel",
+        "label": "hotel"
+      },
+      {
+        "id": "farmstay",
+        "label": "Agriturismi"
+      },
+      {
+        "id": "hostel",
+        "label": "Ostello"
+      }
+    ]
+  },
+  {
+    "id": "food-drink",
+    "label": "Cibo e bevande",
+    "subCategory": [
+      {
+        "id": "restaurants",
+        "label": "Ristoranti"
+      },
+      {
+        "id": "cafes",
+        "label": "Caffetterie"
+      },
+      {
+        "id": "bars-pubs",
+        "label": "Bar e pub"
+      }
+    ]
+  },
+  {
+    "id": "travel-information",
+    "label": "Informazioni di viaggio",
+    "subCategory": [
+      {
+        "id": "transport",
+        "label": "Transporti"
+      },
+      {
+        "id": "charging-points",
+        "label": "Punti di ricarica"
+      },
+      {
+        "id": "facilities",
+        "label": "Infrastrutture"
+      }
+    ]
+  },
+  {
+    "id": "destinations",
+    "label": "destinations",
+    "cmsData": true,
+    "subCategory": [
+      {
+        "id": "cities",
+        "label": "Città"
+      },
+      {
+        "id": "towns",
+        "label": "Villaggi"
+      },
+      {
+        "id": "islands",
+        "label": "Isole"
+      },
+      {
+        "id": "regions",
+        "label": "Regioni"
+      },
+      {
+        "id": "national-parks",
+        "label": "Parchi Nazionali"
+      }
+    ]
+  }
+]

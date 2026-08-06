@@ -15,8 +15,7 @@ const cookieMixin = {
             return (document.cookie.indexOf(`${cookie}=`) >= 0);
         },
         setCookie(name, value, newCookie, sessionCookie = false) {
-            let cookieString = '';
-            cookieString = `${name}=${value};`;
+            let cookieString = `${name}=${value};`;
             cookieString += 'path=/;';
 
             if (newCookie && !sessionCookie) {

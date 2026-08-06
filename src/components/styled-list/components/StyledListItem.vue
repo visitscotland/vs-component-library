@@ -57,7 +57,9 @@ const props = defineProps({
     headingLevel: {
         type: Number,
         default: 3,
-        validator: (value) => (isNumber(value) ? value > 0 && value < 7 : value.match(/(1|2|3|4|5|6)/)),
+        validator: (value) => (isNumber(value)
+            ? value > 0 && value < 7
+            : value.match(/(1|2|3|4|5|6)/)),
     },
     /**
      * Image source of the list item.
@@ -105,15 +107,15 @@ const props = defineProps({
     .vs-styled-list--numbered
     .vs-styled-list__item {
         counter-increment: section;
-        padding: $vs-spacer-0 $vs-spacer-0 $vs-spacer-150 $vs-spacer-150;
+        padding: 0 0 $vs-spacer-150 $vs-spacer-150;
         position: relative;
 
         @include media-breakpoint-up(md) {
-            padding: $vs-spacer-0 $vs-spacer-0 $vs-spacer-200 $vs-spacer-200;
+            padding: 0 0 $vs-spacer-200 $vs-spacer-200;
         }
 
         &:last-child {
-            padding-bottom: $vs-spacer-0;
+            padding-bottom: 0;
         }
 
         &::before {
@@ -142,7 +144,7 @@ const props = defineProps({
         }
 
         .vs-heading {
-            margin-top: $vs-spacer-0;
+            margin-top: 0;
         }
     }
 
@@ -156,7 +158,7 @@ const props = defineProps({
 
     .vs-styled-list--image-horizontal
     .vs-styled-list__item {
-        padding: $vs-spacer-0 $vs-spacer-150;
+        padding: 0 $vs-spacer-150;
 
         img {
             margin: auto;

@@ -13,7 +13,9 @@
                 :type="linkType"
                 :img-src="imgSrc"
                 :img-alt="imgAlt"
-                :class="isVisible(slideIndex) ? 'vs-carousel-slide__card--active' : 'vs-carousel-slide__card--disabled'"
+                :class="isVisible(slideIndex)
+                    ? 'vs-carousel-slide__card--active' 
+                    : 'vs-carousel-slide__card--disabled'"
                 class="vs-carousel-slide__card"
                 :disabled="!isVisible(slideIndex)"
                 data-test="vs-carousel-card"
@@ -54,15 +56,16 @@ import VsStretchedLinkPanels from '@/components/stretched-link-card/components/S
 import { VsCol } from '@/components/grid';
 
 /**
-* Multi purpose carousel component to use
-* for carousel and slider content
+* @deprecated ⚠️ Use new Content Swiper Slide component instead. This component will be
+* removed in a future release.
+* @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1189052422/Carousel+deprecated
 *
 * @displayName Carousel Slide
 */
 
 export default {
     name: 'VsCarouselSlide',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsStretchedLinkCard,
@@ -189,7 +192,7 @@ export default {
         }
 
         .card-title {
-            margin-bottom: $vs-spacer-0;
+            margin-bottom: 0;
         }
 
         .card-body {

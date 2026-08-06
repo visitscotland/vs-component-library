@@ -125,11 +125,11 @@ describe('VsFedSearchSort', () => {
             await wrapper.setProps({
                 sortOptions: [
                     {
-                        id: 'date',
+                        key: 'date',
                         label: 'Date',
                     },
                     {
-                        id: 'price',
+                        key: 'price',
                         label: 'Price',
                     },
                 ],
@@ -157,11 +157,11 @@ describe('VsFedSearchSort', () => {
                 sortLabel: 'Sort',
                 sortOptions: [
                     {
-                        id: 'date',
+                        key: 'date',
                         label: 'Date',
                     },
                     {
-                        id: 'price',
+                        key: 'price',
                         label: 'Price',
                     },
                 ],

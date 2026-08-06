@@ -29,7 +29,7 @@
 <script>
 import VsIcon from '@/components/icon/Icon.vue';
 /**
-* @deprecated: ⚠️ Use new Card component instead. This component will be
+* @deprecated ⚠️ Use new Card component instead. This component will be
 * removed in a future release.
 * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1190068237/Stretched+link+card+deprecated
 *

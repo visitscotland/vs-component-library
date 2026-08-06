@@ -92,7 +92,7 @@ import VsDetail from '@/components/detail/Detail.vue';
 
 export default {
     name: 'VsItineraryStop',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsHeading,
@@ -192,7 +192,7 @@ export default {
     &__address {
         @include media-breakpoint-up(md) {
             margin-bottom: -#{$vs-spacer-100};
-            padding: $vs-spacer-100 $vs-spacer-0;
+            padding: $vs-spacer-100 0;
             margin-right: $vs-spacer-150;
         }
     }

@@ -21,7 +21,7 @@
                 </span>
                 <span class="vs-summary-box-distance__display-label">{{ milesLabel }}</span>
             </div>
-            <hr class="vs-summary-box-distance__divider">
+            <hr class="vs-summary-box-distance__divider"/>
             <div class="vs-summary-box-distance__display-entry">
                 <span class="vs-summary-box-distance__display-value">
                     {{ kilometres }}
@@ -40,7 +40,7 @@
  */
 export default {
     name: 'VsSummaryBoxDistanceListItem',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     props: {
         /**

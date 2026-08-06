@@ -52,7 +52,7 @@ import VsBody from '@/components/body/Body.vue';
  */
 export default {
     name: 'VsArticleSection',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsCol,

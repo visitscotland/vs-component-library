@@ -31,7 +31,7 @@
                 <source
                     :src="videoSrc"
                     type="video/mp4"
-                >
+                />
             </video>
 
             <VsToggleButton

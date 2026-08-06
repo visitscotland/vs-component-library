@@ -93,7 +93,7 @@ export default {
         }
 
         .card-title {
-            margin-top: $vs-spacer-0;
+            margin-top: 0;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
@@ -154,7 +154,7 @@ export default {
 
             .vs-stretched-link-card__content {
                 display: -webkit-box;
-                margin: $vs-spacer-0;
+                margin: 0;
                 color: $vs-color-text-primary;
             }
 

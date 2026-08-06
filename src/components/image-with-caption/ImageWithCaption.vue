@@ -81,13 +81,16 @@ import requiredCookiesData from '../../utils/required-cookies-data';
 const cookieValues = requiredCookiesData.youtube;
 
 /**
+ * @deprecated Use new Media with caption pattern instead. This component will be removed in a 
+ * future release. @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1315504130/Image+with+Caption+deprecated
+ *
  * Image with toggle to open a caption and image location map
  *
  * @displayName Image With Caption
  */
 export default {
     name: 'VsImageWithCaption',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsImg,
@@ -275,6 +278,7 @@ export default {
 <style lang="scss">
     .vs-image-with-caption {
         position: relative;
+        margin-bottom: $vs-spacer-100;
 
         &__image-wrapper {
             position: relative;
@@ -512,7 +516,7 @@ export default {
                     aspect-ratio: auto;
 
                     @supports not (aspect-ratio: 3/2) {
-                        padding-bottom: $vs-spacer-0;
+                        padding-bottom: 0;
                     }
 
                     .vs-toggle-btn {

@@ -2,7 +2,9 @@
     <BTab
         class="vs-tab__item"
         data-test="vs-tab__item"
-        :title-link-class="noContainer ? 'vs-tab-link--no-container vs-heading' : 'vs-tab-link vs-heading'"
+        :title-link-class="noContainer
+            ? 'vs-tab-link--no-container vs-heading'
+            : 'vs-tab-link vs-heading'"
         :title="title"
         @click="trackClick"
     >
@@ -23,7 +25,7 @@
 
 import VsHeading from '@/components/heading/Heading.vue';
 import { BTab } from 'bootstrap-vue-next';
-import dataLayerMixin from '@/mixins/dataLayerMixin';
+import dataLayerMixin from '../../../mixins/dataLayerMixin';
 /**
  * Tab item for use within the Tabs component.
  *
@@ -110,7 +112,7 @@ export default {
         color: $vs-color-text-primary;
         border-width: $vs-border-width-sm;
         border-color: $vs-color-border-primary;
-        border-radius: $vs-radius-tiny $vs-radius-tiny $vs-spacer-0 $vs-spacer-0;
+        border-radius: $vs-radius-tiny $vs-radius-tiny 0 0;
         text-wrap: pretty;
         padding: $vs-spacer-075 $vs-spacer-075;
         transition: $duration-base all;

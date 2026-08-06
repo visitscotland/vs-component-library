@@ -350,6 +350,7 @@ const accordionOpenTemplate = [
     'tag_name',
     'meta_data',
     'accordion_text',
+    'click_text',
 ];
 
 const tabClickTemplate = [

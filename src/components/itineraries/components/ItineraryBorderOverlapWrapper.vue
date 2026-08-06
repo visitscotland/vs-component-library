@@ -19,7 +19,7 @@
  */
 export default {
     name: 'VsItineraryBorderOverlapWrapper',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
     },

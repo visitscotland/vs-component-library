@@ -143,7 +143,7 @@ export default {
         display: flex;
         justify-content: center;
 
-        legend {
+        .form-label {
             // sr-only styles
             border: 0;
             clip: rect(0, 0, 0, 0);
@@ -174,7 +174,7 @@ export default {
                 color: $vs-color-text-cta-on-light;
                 transition: none;
                 padding-top: $vs-spacer-050;
-                margin-bottom: $vs-spacer-0;
+                margin-bottom: 0;
                 padding-bottom: $vs-spacer-050;
                 display: flex;
                 align-items: center;
@@ -243,16 +243,28 @@ export default {
                     cursor: default;
 
                     @include vs-button-variant(
-                        $vs-color-interaction-cta-primary, $vs-color-interaction-cta-secondary, $vs-color-interaction-cta-primary,
-                        $vs-color-interaction-cta-primary, $vs-color-interaction-cta-secondary, $vs-color-interaction-cta-primary,
-                        $vs-color-interaction-cta-primary, $vs-color-interaction-cta-secondary, $vs-color-interaction-cta-primary,
+                        $vs-color-interaction-cta-primary,
+                        $vs-color-interaction-cta-secondary,
+                        $vs-color-interaction-cta-primary,
+                        $vs-color-interaction-cta-primary,
+                        $vs-color-interaction-cta-secondary,
+                        $vs-color-interaction-cta-primary,
+                        $vs-color-interaction-cta-primary,
+                        $vs-color-interaction-cta-secondary,
+                        $vs-color-interaction-cta-primary,
                     );
 
                     @include media-breakpoint-up(lg) {
                         @include vs-button-variant(
-                            $vs-color-interaction-cta-primary, $vs-color-interaction-cta-secondary, $vs-color-interaction-cta-primary,
-                            $vs-color-interaction-cta-primary, $vs-color-interaction-cta-secondary, $vs-color-interaction-cta-primary,
-                            $vs-color-interaction-cta-primary, $vs-color-interaction-cta-secondary, $vs-color-interaction-cta-primary,
+                            $vs-color-interaction-cta-primary,
+                            $vs-color-interaction-cta-secondary,
+                            $vs-color-interaction-cta-primary,
+                            $vs-color-interaction-cta-primary,
+                            $vs-color-interaction-cta-secondary,
+                            $vs-color-interaction-cta-primary,
+                            $vs-color-interaction-cta-primary,
+                            $vs-color-interaction-cta-secondary,
+                            $vs-color-interaction-cta-primary,
                         );
                     }
                 }

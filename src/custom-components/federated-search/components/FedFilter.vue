@@ -62,12 +62,15 @@ import VsButton from '@/components/button/Button.vue';
 import VsBody from '@/components/body/Body.vue';
 
 /**
- * Fed Filter is used in the Federated Search engine.
- * Top level variant to pick between broad categories,
- * Second level variant for fine grain filtering.
+ * @deprecated ⚠️ This component is no longer supported and will be removed
+ * in a future release.
  *
  * @displayName FedFilter
  */
+
+defineOptions({
+    status: 'deprecated',
+});
 
 const props = defineProps({
     /*

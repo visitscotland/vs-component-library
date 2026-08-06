@@ -27,6 +27,10 @@ import {
 import svgContext from '@/utils/svg-context';
 
 /**
+ * @deprecated Use Image component instead.
+ * This component will be removed in a future release. 
+ * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1315831810/SVG+deprecated
+ *
  * The SVG wrapper is used to display vector images.
  *
  * @displayName SVG Wrapper
@@ -34,7 +38,7 @@ import svgContext from '@/utils/svg-context';
 export default {
     name: 'VsSvg',
     release: '0.1.1',
-    status: 'prototype',
+    status: 'deprecated',
     props: {
         /**
          * The path of the SVG to display, relative to /src/assets
@@ -75,8 +79,11 @@ export default {
             if (this.svg) {
                 const tag = first(this.svg.match(/<svg[^>]+.*?>/));
 
-                const attributes = tag.match(/(\S+)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/g);
-                const attributesMap = fromPairs(map(attributes, partial(split, partial.placeholder, '=', 2)));
+                const attrRegex = /(\S+)=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/g;
+                const attributes = tag.match(attrRegex);
+                const attributesMap = fromPairs(
+                    map(attributes, partial(split, partial.placeholder, '=', 2)),
+                );
 
                 return mapValues(attributesMap, partial(replace, partial.placeholder, /"/g, ''));
             }

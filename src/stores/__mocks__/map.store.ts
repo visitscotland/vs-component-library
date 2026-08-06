@@ -1,14 +1,23 @@
-import { ref, type Ref } from 'vue';
+import {ref, type Ref} from 'vue';
 import { defineStore } from 'pinia';
 
-const useMapStore = defineStore('map', () => {
-    const maps: Ref<Array<any>> = ref([]);
-    const activeSubcatFilters: Ref<Array<any>> = ref([]);
-    const selectedSubCategory: Ref<string> = ref(null);
-    const activeMarkerPos = ref(null);
-    const activePlace = ref(null);
+interface MapInstance {
+	id: string;
+	filters: unknown;
+	places: unknown;
+	activePins: unknown;
+	hovered: string;
+	activePlace: unknown;
+}
 
-    function addMapInstance(payload) {
+const useMapStore = defineStore('map', () => {
+    const maps: Ref<MapInstance[]> = ref([]);
+    const activeSubcatFilters: Ref<unknown[]> = ref([]);
+    const selectedSubCategory = ref<unknown>(null);
+    const activeMarkerPos = ref<unknown>(null);
+    const activePlace = ref<unknown>(null);
+
+    function addMapInstance(payload: Pick<MapInstance, 'id' | 'filters' | 'places' | 'activePins'>) {
         maps.value.push({
             id: payload.id,
             filters: payload.filters,
@@ -19,33 +28,31 @@ const useMapStore = defineStore('map', () => {
         });
     }
 
-    function setHoveredPlace(payload) {
+    function setHoveredPlace(payload: { mapId: string; hoveredFeature: string }) {
         maps.value.forEach((map) => {
             if (map.id === payload.mapId) {
-                /* eslint-disable no-param-reassign */
                 map.hovered = payload.hoveredFeature;
             }
         });
     }
 
-    function setActivePlace(payload) {
+    function setActivePlace(payload: { mapId: string; placeId: unknown }) {
         maps.value.forEach((map) => {
             if (map.id === payload.mapId) {
-                /* eslint-disable no-param-reassign */
                 map.activePlace = payload.placeId;
             }
         });
     }
 
-    function setActiveSubcatFilters(payload) {
+    function setActiveSubcatFilters(payload: unknown[]) {
         activeSubcatFilters.value = payload;
     }
 
-    function setSelectedSubcat(payload) {
+    function setSelectedSubcat(payload: unknown) {
         selectedSubCategory.value = payload;
     }
 
-    function setActiveMarkerPos(payload) {
+    function setActiveMarkerPos(payload: unknown) {
         activeMarkerPos.value = payload;
     }
 

@@ -73,7 +73,7 @@ describe('VsBanner', () => {
             cookieMixin.setCookie = mockSet;
             cookieMixin.setCookie('vs_showbanner', false, false, true);
 
-            expect(mockSet).toBeCalled();
+            expect(mockSet).toHaveBeenCalled();
         });
 
         it('should hide banner if cookie is already set when mounted', async() => {
@@ -82,7 +82,7 @@ describe('VsBanner', () => {
             cookieMixin.cookieExists('vs_showbanner');
             const banner = wrapper.find('[data-test=vs-banner]');
 
-            expect(mockGet).toBeCalled();
+            expect(mockGet).toHaveBeenCalled();
             expect(banner.exists()).toBe(false);
         });
     });

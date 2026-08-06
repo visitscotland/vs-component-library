@@ -6,7 +6,7 @@ import VsDescriptionList from '@/components/description-list/DescriptionList.vue
 import VsDescriptionListItem from '@/components/description-list/components/DescriptionListItem.vue';
 import VsTooltip from '@/components/tooltip/Tooltip.vue';
 import VsLink from '@/components/link/Link.vue';
-import VsSvg from '@/components/svg/Svg.vue';
+import VsImg from '@/components/img/Img.vue';
 import VsAddress from '@/components/address/Address.vue';
 import VsItineraryStopInfo from '@/components/itineraries/components/ItineraryStopInfo.vue';
 import VsItineraryTips from '@/components/itineraries/components/ItineraryTips.vue';
@@ -19,7 +19,8 @@ import sampleItinerary from '@/assets/fixtures/itineraries/sample-itinerary.json
 
 export default {
     component: VsItinerary,
-    title: 'Components/To be reviewed/Itinerary',
+    title: 'Components/Deprecated/Itinerary',
+    tags: ['deprecated'],
 };
 
 const Template = (args) => ({
@@ -36,7 +37,7 @@ const Template = (args) => ({
         VsLink,
         VsIconList,
         VsIconListItem,
-        VsSvg,
+        VsImg,
         VsAddress,
         VsImageWithCaption,
         VsCaption,
@@ -47,6 +48,11 @@ const Template = (args) => ({
         };
     },
     template: `
+        <div style="background: #940f2c17; padding: 1rem; border: 1px solid #940F2C; margin-bottom: 1rem;">
+            ⚠️ Deprecated: Use new article page layouts and guidance. This component will be removed in a future release.
+            See the <a href="https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1273397342/Itinerary+deprecated">Component migration docs.</a>
+        </div>
+
         <div
             :class="args.jsDisabled ? 'no-js' : ''"
         >
@@ -183,7 +189,7 @@ const Template = (args) => ({
                                         </div>
                                     </template>
                                     <template v-slot:svg>
-                                        <VsSvg path="highland-cow" />
+                                        <VsImg src="./svg/highland-cow.svg" />
                                     </template>
                                 </VsItineraryTips>
                             </template>
@@ -257,7 +263,6 @@ const Template = (args) => ({
 
 const mapStops = [];
 
-// eslint-disable-next-line array-callback-return
 sampleItinerary.days.map((day) => {
     day.stops.map((stop) => mapStops.push({
         title: stop.title,

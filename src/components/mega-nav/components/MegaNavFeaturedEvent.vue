@@ -99,7 +99,7 @@ export default {
         margin-bottom: -#{$vs-spacer-050};
 
         @include media-breakpoint-up(lg) {
-            margin-bottom: $vs-spacer-0;
+            margin-bottom: 0;
         }
 
         &:focus {
@@ -119,15 +119,15 @@ export default {
             bottom: 0;
             left: 0;
             background: $vs-elevation-surface-raised;
-            padding: $vs-spacer-0 $vs-spacer-0 $vs-spacer-100;
+            padding: 0 0 $vs-spacer-100;
             border-left: $vs-spacer-025 solid $vs-color-border-highlight;
 
             @include media-breakpoint-up(md) {
-                padding: $vs-spacer-0;
+                padding: 0;
             }
 
             @include media-breakpoint-up(lg) {
-                border-left-width: $vs-spacer-0;
+                border-left-width: 0;
             }
         }
 
@@ -136,7 +136,7 @@ export default {
         }
 
         .vs-stretched-link-card__content {
-            padding: $vs-spacer-0 $vs-spacer-125;
+            padding: 0 $vs-spacer-125;
 
             @include media-breakpoint-up(lg) {
                 border-left: $vs-spacer-025 solid $vs-color-border-highlight;
@@ -148,7 +148,7 @@ export default {
             margin-left: $vs-spacer-125;
 
             @include media-breakpoint-up(lg) {
-                margin-left: $vs-spacer-0;
+                margin-left: 0;
             }
 
             &:hover {
@@ -169,7 +169,7 @@ export default {
         .vs-mega-nav-featured-event__title {
             font-size: $small-font-size;
             font-weight: $vs-font-weight-medium;
-            margin-bottom: $vs-spacer-0;
+            margin-bottom: 0;
 
             @include truncate-text(2);
         }

@@ -17,15 +17,16 @@
 
 <script>
 /**
- * An icon list can be used where there is a list icons with a caption with optional heading.
- * An example use is to create a list of key facilities for a product.
- *
+ * @deprecated ⚠️ This component is no longer supported and should not be used.
+ * It will be removed in a future release.
+ * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1273299012/Icon+List+deprecated
+ * 
  * @displayName Icon List
  */
 
 export default {
     name: 'VsIconList',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     props: {
         /**

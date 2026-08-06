@@ -4,7 +4,6 @@ import {
     VsCol, VsRow, VsContainer,
 } from '@/components/grid';
 import VsSpotlightSection from '@/components/spotlight-section/SpotlightSection.vue';
-import VsCardGroup from '@/components/card-group/CardGroup.vue';
 import VsCard from '@/components/card/Card.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsDetail from '@/components/detail/Detail.vue';
@@ -18,6 +17,8 @@ import VsSectionHeader from '@/components/section-header/SectionHeader.vue';
 import VsFedSearchInput from '@/custom-components/federated-search/components/FedSearchInput.vue';
 import VsFedFilter from '@/custom-components/federated-search/components/FedFilter.vue';
 import VsToggleButton from '@/components/toggle-button/ToggleButton.vue';
+import VsContentSwiper from '@/components/content-swiper/ContentSwiper.vue';
+import VsContentSwiperSlide from '@/components/content-swiper/components/ContentSwiperSlide';
 
 import prefersReducedMotion from '@/utils/prefers-reduced-motion';
 
@@ -33,7 +34,6 @@ const components = {
     VsCol,
     VsContainer,
     VsRow,
-    VsCardGroup,
     VsCard,
     VsSectionHeader,
     VsSpotlightSection,
@@ -48,6 +48,8 @@ const components = {
     VsFedSearchInput,
     VsFedFilter,
     VsToggleButton,
+    VsContentSwiper,
+    VsContentSwiperSlide,
 };
 
 const createStory = (template, options = {

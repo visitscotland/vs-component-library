@@ -30,7 +30,9 @@ export default {
         level: {
             type: [String, Number],
             default: '1',
-            validator: (value) => (isNumber(value) ? value > 0 && value < 7 : value.match(/(1|2|3|4|5|6)/)),
+            validator: (value) => (isNumber(value)
+                ? value > 0 && value < 7
+                : value.match(/(1|2|3|4|5|6)/)),
         },
         /**
          * The heading style used for the heading.
@@ -41,6 +43,7 @@ export default {
             type: String,
             required: true,
             validator: (value) => value.match(
+                // eslint-disable-next-line max-len
                 /(display-m|display-s|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs|heading-xxxs)/,
             ),
         },

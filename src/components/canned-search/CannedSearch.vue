@@ -231,15 +231,18 @@ import {
 import axios from 'axios';
 
 /**
-* The canned search component displays a selection of
-* relevant products to a user based on defined search terms.
-*
-* @displayName Canned Search
+ * @deprecated ⚠️ This component will be removed in a future release.
+ * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1353416795/Deprecation+of+Canned+Search+component
+ * 
+ * The canned search component displays a selection of
+ * relevant products to a user based on defined search terms.
+ *
+ * @displayName Canned Search
 */
 
 export default {
     name: 'VsCannedSearch',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsCannedSearchProductCard,
@@ -450,7 +453,7 @@ export default {
         margin-bottom: $vs-spacer-300;
 
         .vs-button {
-            margin: $vs-spacer-0 $vs-spacer-050 $vs-spacer-050;
+            margin: 0 $vs-spacer-050 $vs-spacer-050;
         }
     }
 

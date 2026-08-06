@@ -1,3 +1,468 @@
+# [5.76.0](https://github.com/visitscotland/vs-component-library/compare/v5.75.0...v5.76.0) (2026-08-06)
+
+
+### Features
+
+* **description list:** mark the description list component as deprecated ([361ce10](https://github.com/visitscotland/vs-component-library/commit/361ce1071215f54ec0d2847b2aa231782b0d9532))
+
+# [5.75.0](https://github.com/visitscotland/vs-component-library/compare/v5.74.0...v5.75.0) (2026-07-30)
+
+
+### Bug Fixes
+
+* **forms:** add fixtures file for bespoke responses ([4669b83](https://github.com/visitscotland/vs-component-library/commit/4669b83eb001f8cc26f7ec5c9a1f277d1119ca06))
+* **forms:** block preSubmit during submission as well as button ([0920c46](https://github.com/visitscotland/vs-component-library/commit/0920c465a9c0c72cc4d4f9273d7ca78d65169986))
+* **forms:** get translated bespoke responses ([7f4775a](https://github.com/visitscotland/vs-component-library/commit/7f4775a170e64cd7a4a9befc0870907a62ee9818))
+* **forms:** update checkbox test to ensure field is touched before validation ([9d52845](https://github.com/visitscotland/vs-component-library/commit/9d5284571628652cbbefe603a5f4121378c4a4d0))
+* **stories:** correct deprecated tag ([765497f](https://github.com/visitscotland/vs-component-library/commit/765497f13943fd430c3c40e64ee8899348672ee1))
+* **tests:** add missing await ([aafefc7](https://github.com/visitscotland/vs-component-library/commit/aafefc7f07d001f9b3b2531c21fd603f644cd396))
+
+
+### Features
+
+* **forms:** allow bespoke, translateable error responses ([17e5d44](https://github.com/visitscotland/vs-component-library/commit/17e5d443c7d72a44a26e48ba12d635e950fb80ed))
+* **forms:** allow placeholder replacement in bespoke responses ([0c1ef26](https://github.com/visitscotland/vs-component-library/commit/0c1ef265dc7525245a57851676f4199a05fbcaaa))
+* **forms:** don't pre-validate newly revealed conditional fields ([75511fa](https://github.com/visitscotland/vs-component-library/commit/75511fa9aeb1a6afb318f7ede2bcd9ab21598f43))
+* **forms:** prevent multiple submissions and add loading spinner during submission ([62168aa](https://github.com/visitscotland/vs-component-library/commit/62168aa521cd5e8d7db92b4f1ccc798a1b591bd8))
+
+# [5.74.0](https://github.com/visitscotland/vs-component-library/compare/v5.73.0...v5.74.0) (2026-07-28)
+
+
+### Features
+
+* **components:** deprecating .com specific components from the library ([c70dc4b](https://github.com/visitscotland/vs-component-library/commit/c70dc4bd6bcf91b102ef664ea2df49d8146b9c1f))
+
+# [5.73.0](https://github.com/visitscotland/vs-component-library/compare/v5.72.1...v5.73.0) (2026-07-27)
+
+
+### Features
+
+* **hero:** update hero inset image to have rounded corners ([bd5273b](https://github.com/visitscotland/vs-component-library/commit/bd5273ba74d33fb32aa2ea8c64f52e811bb154cd))
+* **map:** deprecate map and map with sidebar in the component library ([8a0ea80](https://github.com/visitscotland/vs-component-library/commit/8a0ea80ed3095a82a1fcb033fcf8c31e9af873a9))
+* **megalinks:** deprecate megalinks in the component library ([d1a79fc](https://github.com/visitscotland/vs-component-library/commit/d1a79fcec9ad1b115709414a6518098da38fa940))
+
+## [5.72.1](https://github.com/visitscotland/vs-component-library/compare/v5.72.0...v5.72.1) (2026-07-24)
+
+
+### Bug Fixes
+
+* **vsmainmap:** fix missing id for h1, main-content ([b4348b9](https://github.com/visitscotland/vs-component-library/commit/b4348b91279ab8377a8003c280b9429322dfe9c8))
+
+# [5.72.0](https://github.com/visitscotland/vs-component-library/compare/v5.71.4...v5.72.0) (2026-07-23)
+
+
+### Features
+
+* **forms:** add hr field option ([b078291](https://github.com/visitscotland/vs-component-library/commit/b078291510089708142a2d3d0dc8a77926c47d32))
+* **forms:** add text block element to forms ([c6b4e86](https://github.com/visitscotland/vs-component-library/commit/c6b4e86c902c7fddb2b6707e3829bf9202051ae4))
+* **forms:** add text block example fixture ([4e57b40](https://github.com/visitscotland/vs-component-library/commit/4e57b40da1c6a943b925fb4d287acf8f14f1d35d))
+* **forms:** allow submit button to be conditionally disabled ([d2ec0e1](https://github.com/visitscotland/vs-component-library/commit/d2ec0e1f13216eb70bb228f08e05ae23a26cf55c))
+* **forms:** fix infinite loop in multi-conditional fields ([9137aef](https://github.com/visitscotland/vs-component-library/commit/9137aefd1c889d7f7645d51236f366daf6ba550b))
+* **forms:** make text block aria-live ([ae0a723](https://github.com/visitscotland/vs-component-library/commit/ae0a723f1f3e8e79c30ef28eedf49113d7a316be))
+
+## [5.71.4](https://github.com/visitscotland/vs-component-library/compare/v5.71.3...v5.71.4) (2026-07-21)
+
+
+### Bug Fixes
+
+* **main map:** reset selected destination category ([53aa213](https://github.com/visitscotland/vs-component-library/commit/53aa2135a8abe95cc31478d1b182726b76476df2))
+
+## [5.71.3](https://github.com/visitscotland/vs-component-library/compare/v5.71.2...v5.71.3) (2026-07-20)
+
+
+### Bug Fixes
+
+* **main map:** use dynamic viewport height to account for browser's expanding address bar ([154644e](https://github.com/visitscotland/vs-component-library/commit/154644ef07b7b775fa156321f0984f3d4442a57c))
+
+## [5.71.2](https://github.com/visitscotland/vs-component-library/compare/v5.71.1...v5.71.2) (2026-07-20)
+
+
+### Bug Fixes
+
+* **main map sidebar:** make search results scrollable ([4f68af3](https://github.com/visitscotland/vs-component-library/commit/4f68af33efa5ffbad7b4176e0d0bdcfaaf5e58e6))
+
+## [5.71.1](https://github.com/visitscotland/vs-component-library/compare/v5.71.0...v5.71.1) (2026-07-15)
+
+
+### Bug Fixes
+
+* **main map sidebar:** allow sidebar height to change based on content ([866f9cb](https://github.com/visitscotland/vs-component-library/commit/866f9cb9283fd5226e19e34b570aecca4a9ab300))
+* **main map sidebar:** update sidebar height when screen resizes ([74a55d8](https://github.com/visitscotland/vs-component-library/commit/74a55d8319d06a079007ee825a6c65774df76590))
+
+# [5.71.0](https://github.com/visitscotland/vs-component-library/compare/v5.70.0...v5.71.0) (2026-07-14)
+
+
+### Features
+
+* **swiper:** upgrade swiper and fix error ([7c858ce](https://github.com/visitscotland/vs-component-library/commit/7c858ce34f6bd04cffb3a7196ce04db77be793f5))
+
+# [5.70.0](https://github.com/visitscotland/vs-component-library/compare/v5.69.2...v5.70.0) (2026-07-10)
+
+
+### Bug Fixes
+
+* **main map sidebar:** calculate peekheight onmount ([ba6dcb7](https://github.com/visitscotland/vs-component-library/commit/ba6dcb79c377c214408d6514d3eece2f7894cf85))
+* **main map:** minor fixes ([de6d2fa](https://github.com/visitscotland/vs-component-library/commit/de6d2fac89c5572cc1b39ff3439458c40af45872))
+* **main map:** remove infowindow as it's no longer used ([7bd216e](https://github.com/visitscotland/vs-component-library/commit/7bd216edd90dbf3fc358c6ffac8c3125be35e5d2))
+* **map sidebar:** bug resetting input ([180bee2](https://github.com/visitscotland/vs-component-library/commit/180bee21b790edcd135129929547a944b27c2661))
+* **map sidebar:** make adjustments for use on .com ([6dd4520](https://github.com/visitscotland/vs-component-library/commit/6dd4520d6e6307f75b19c88e86b55441d938c0df))
+
+
+### Features
+
+* **main map sidebar:** flesh out sidebar with full functionality ([9514298](https://github.com/visitscotland/vs-component-library/commit/95142980c6318d286ce94eace065e6f4b34fb4d7))
+* **main map sidebar:** rebuild map sidebar to accommodate mobile drawer functionality ([aed7187](https://github.com/visitscotland/vs-component-library/commit/aed71871a2efc31569e4a18f0ecb5fa2acbea498))
+
+## [5.69.2](https://github.com/visitscotland/vs-component-library/compare/v5.69.1...v5.69.2) (2026-07-09)
+
+
+### Bug Fixes
+
+* **quote:** fix linting issues ([5d0c9b7](https://github.com/visitscotland/vs-component-library/commit/5d0c9b7bc4b656c98517739213fad27acf8f0f00))
+
+## [5.69.1](https://github.com/visitscotland/vs-component-library/compare/v5.69.0...v5.69.1) (2026-07-08)
+
+
+### Bug Fixes
+
+* **main map:** always use the english query for self catering ([be0ed09](https://github.com/visitscotland/vs-component-library/commit/be0ed090f2aa2ee6026323fb3435579af01f1454))
+
+# [5.69.0](https://github.com/visitscotland/vs-component-library/compare/v5.68.0...v5.69.0) (2026-07-06)
+
+
+### Features
+
+* **pages:** update page templates to use <section> so they are more semantic ([9aa96e5](https://github.com/visitscotland/vs-component-library/commit/9aa96e5c0a196faeaab5d3455251bccaee0d9397))
+* **spotlight:** swap section tag to div in spotlight for consistency in page ([7ccf713](https://github.com/visitscotland/vs-component-library/commit/7ccf71317dae0ac4f1dc12400552edcfefc0bca4))
+
+# [5.68.0](https://github.com/visitscotland/vs-component-library/compare/v5.67.0...v5.68.0) (2026-07-06)
+
+
+### Features
+
+* **svg:** fix svg imports ([00da016](https://github.com/visitscotland/vs-component-library/commit/00da016ac6d0c5a8573e47f188986a412ffc4a86))
+* **svglink:** mark svglink component as deprecated ([0c544f9](https://github.com/visitscotland/vs-component-library/commit/0c544f985a9d01c905ca21eb3e7abcb55c144ac1))
+* **svg:** mark svg component as deprecated ([b62c95d](https://github.com/visitscotland/vs-component-library/commit/b62c95da43721b3a31d55ac4e167aeac22b105fb))
+* **svg:** remove use of svg and svglink in components so it can be safely deprecated ([2ffbbe6](https://github.com/visitscotland/vs-component-library/commit/2ffbbe61a4a21986997974452a58a300435989d0))
+
+# [5.67.0](https://github.com/visitscotland/vs-component-library/compare/v5.66.1...v5.67.0) (2026-07-03)
+
+
+### Features
+
+* **image with caption:** mark image with caption component as deprecated ([5fbf73b](https://github.com/visitscotland/vs-component-library/commit/5fbf73bc783afd74cac042b801d311df359ed32c))
+
+## [5.66.1](https://github.com/visitscotland/vs-component-library/compare/v5.66.0...v5.66.1) (2026-07-03)
+
+
+### Bug Fixes
+
+* **main map:** reduce search radius for the Fife region ([197a12b](https://github.com/visitscotland/vs-component-library/commit/197a12b3a578ccc8489d977351c79341d48d43c2))
+
+# [5.66.0](https://github.com/visitscotland/vs-component-library/compare/v5.65.0...v5.66.0) (2026-07-01)
+
+
+### Bug Fixes
+
+* **quote:** remove enforced <p> tag ([a2678e1](https://github.com/visitscotland/vs-component-library/commit/a2678e1eaa2e4bb4567f634ecdedc455371887de))
+* **quote:** remove wrapper div ([4c145b4](https://github.com/visitscotland/vs-component-library/commit/4c145b472e7a20d2054247b61c8163a0cfe76452))
+
+
+### Features
+
+* **quote:** adjust new quote layout to accept html ([3d55747](https://github.com/visitscotland/vs-component-library/commit/3d557472d755ac71438a7734c92a777949ea48ff))
+
+# [5.65.0](https://github.com/visitscotland/vs-component-library/compare/v5.64.0...v5.65.0) (2026-06-30)
+
+
+### Features
+
+* **image:** ensure image component can handle svgs ([5aba88f](https://github.com/visitscotland/vs-component-library/commit/5aba88f90890a8265b091495df38963ea32b73cd))
+* **img:** updating isSvg to better detect svg images ([14baba1](https://github.com/visitscotland/vs-component-library/commit/14baba15203958ae1d4add069bff99717681ebe7))
+
+# [5.64.0](https://github.com/visitscotland/vs-component-library/compare/v5.63.4...v5.64.0) (2026-06-30)
+
+
+### Features
+
+* **img:** hook up the lowResImage prop so one can be provided if needed ([bc96c52](https://github.com/visitscotland/vs-component-library/commit/bc96c5287292a613d582db91c471e25ae43f2bcc))
+
+## [5.63.4](https://github.com/visitscotland/vs-component-library/compare/v5.63.3...v5.63.4) (2026-06-24)
+
+
+### Bug Fixes
+
+* **forms:** coooooooors ([f18bba2](https://github.com/visitscotland/vs-component-library/commit/f18bba2f97aaca5b2fb4fefa55b2de21be6b5ef2))
+
+## [5.63.3](https://github.com/visitscotland/vs-component-library/compare/v5.63.2...v5.63.3) (2026-06-24)
+
+
+### Bug Fixes
+
+* **forms:** and another small tweak ([f5bd9ba](https://github.com/visitscotland/vs-component-library/commit/f5bd9bab102eb738af1be9945e5bea861914c2fe))
+
+## [5.63.2](https://github.com/visitscotland/vs-component-library/compare/v5.63.1...v5.63.2) (2026-06-24)
+
+
+### Bug Fixes
+
+* **forms:** make withCreds optional in a different way ([2cad54a](https://github.com/visitscotland/vs-component-library/commit/2cad54a7927aac8da3f8c478d9b3df4501c18d17))
+
+## [5.63.1](https://github.com/visitscotland/vs-component-library/compare/v5.63.0...v5.63.1) (2026-06-24)
+
+
+### Bug Fixes
+
+* **forms:** make withCreds optional ([4f08697](https://github.com/visitscotland/vs-component-library/commit/4f08697fd20aaaba82051ccd84055b40410bf6fb))
+
+# [5.63.0](https://github.com/visitscotland/vs-component-library/compare/v5.62.0...v5.63.0) (2026-06-24)
+
+
+### Features
+
+* **forms:** submit axios withCredentials for in person events ([d951239](https://github.com/visitscotland/vs-component-library/commit/d951239d7bbe0b5a14c37821e2c21127038a1c8c))
+
+# [5.62.0](https://github.com/visitscotland/vs-component-library/compare/v5.61.1...v5.62.0) (2026-06-17)
+
+
+### Features
+
+* **components:** deprecates article, listicle, itinerary, event-card components ([9c6268d](https://github.com/visitscotland/vs-component-library/commit/9c6268d085e55e536cf5b52159883874bc75d97c))
+* **components:** tidy deprecated docs in components ([cdf6fef](https://github.com/visitscotland/vs-component-library/commit/cdf6fefdf90b82cc3417702d362a76a98932e00b))
+
+## [5.61.1](https://github.com/visitscotland/vs-component-library/compare/v5.61.0...v5.61.1) (2026-06-11)
+
+
+### Bug Fixes
+
+* **build:** update style file name generation for vite plugin-vue update ([84de9cc](https://github.com/visitscotland/vs-component-library/commit/84de9cc2f74cf53f1250da1017c14fd2e11dca84))
+
+# [5.61.0](https://github.com/visitscotland/vs-component-library/compare/v5.60.0...v5.61.0) (2026-06-11)
+
+
+### Bug Fixes
+
+* **meganv:** fix issue with meganav no-js display ([d1d66a3](https://github.com/visitscotland/vs-component-library/commit/d1d66a329b4a8b9112d48a80a11b1653ead905d8))
+* **meganv:** update aria labels in mega nav ([a3f6bfb](https://github.com/visitscotland/vs-component-library/commit/a3f6bfb2359f8a828f195fc520142b2471b48e0e))
+
+
+### Features
+
+* **bootstrap:** fix bootstrap vue components after upgrading ([28822a1](https://github.com/visitscotland/vs-component-library/commit/28822a1bc232f65e74cce6fa152c5d328843c3b2))
+* **meganav:** update meganav to fix dropdown ([b88b152](https://github.com/visitscotland/vs-component-library/commit/b88b15203556cffa7b75fca90a623e7628e24910))
+
+# [5.60.0](https://github.com/visitscotland/vs-component-library/compare/v5.59.5...v5.60.0) (2026-06-11)
+
+
+### Features
+
+* **forms:** add consentList filtering for optional consents ([2cc3e1e](https://github.com/visitscotland/vs-component-library/commit/2cc3e1e33739378322643f01c5d14637770f7e2f))
+* **forms:** implement hidden fields in form config ([a95b7e9](https://github.com/visitscotland/vs-component-library/commit/a95b7e9621bc0af27dbc788f66849032cf51d830))
+
+## [5.59.5](https://github.com/visitscotland/vs-component-library/compare/v5.59.4...v5.59.5) (2026-06-01)
+
+
+### Bug Fixes
+
+* **main map:** temporarily remove "towns" from featured destinations ([7300ddd](https://github.com/visitscotland/vs-component-library/commit/7300ddd568d39f191086cc1cc8524a17366a0ea4))
+
+## [5.59.4](https://github.com/visitscotland/vs-component-library/compare/v5.59.3...v5.59.4) (2026-05-28)
+
+
+### Bug Fixes
+
+* **main map:** clear selected destination when user moves map ([6cbd3ba](https://github.com/visitscotland/vs-component-library/commit/6cbd3ba4200fb8ebc617ee8d1a6f83da204eb906))
+
+## [5.59.3](https://github.com/visitscotland/vs-component-library/compare/v5.59.2...v5.59.3) (2026-05-27)
+
+
+### Bug Fixes
+
+* **main map:** bug - self catering selected when it shoudn't be ([523834f](https://github.com/visitscotland/vs-component-library/commit/523834ff0a0e278ec4239df773ff5a1d0e6f2313))
+* **main map:** use locationRestriction when clicking search this area ([00889a9](https://github.com/visitscotland/vs-component-library/commit/00889a94ed3f128cc926365884d8a2a92f895184))
+
+## [5.59.2](https://github.com/visitscotland/vs-component-library/compare/v5.59.1...v5.59.2) (2026-05-27)
+
+
+### Bug Fixes
+
+* **main map:** increase search radius to 50km for regional search ([dce30b2](https://github.com/visitscotland/vs-component-library/commit/dce30b2587231eed6726957a1626cc9d296ca1ee))
+* **main map:** set shetland and orkney islands to 50km search radius ([095bc89](https://github.com/visitscotland/vs-component-library/commit/095bc89bb9cf1dfac0d0f9bcdad0cb7b8026fd42))
+
+## [5.59.1](https://github.com/visitscotland/vs-component-library/compare/v5.59.0...v5.59.1) (2026-05-27)
+
+
+### Bug Fixes
+
+* **main map:** adjust bounds to better accommodated shetland ([a9647b8](https://github.com/visitscotland/vs-component-library/commit/a9647b860c58594a59f88657a4b6947ece050d4a))
+* **main map:** adjust scotland bounds ([2d40748](https://github.com/visitscotland/vs-component-library/commit/2d4074877a13eeeb35875ee4ed0795961d165f84))
+* **useviewportcontroller.ts:** fix TypeScript errors ([5eb0e4b](https://github.com/visitscotland/vs-component-library/commit/5eb0e4be89330e3a15de1e3837ccec66367ae299))
+
+# [5.59.0](https://github.com/visitscotland/vs-component-library/compare/v5.58.1...v5.59.0) (2026-05-27)
+
+
+### Features
+
+* **togglebutton:** adds shadow to outline & outline-strong toggle button variants ([de0cc64](https://github.com/visitscotland/vs-component-library/commit/de0cc64253a16d3d23e504805d3d40d82ba494c8))
+
+## [5.58.1](https://github.com/visitscotland/vs-component-library/compare/v5.58.0...v5.58.1) (2026-05-25)
+
+
+### Bug Fixes
+
+* **main map:** persist filters when "self catering" selected ([ea5b434](https://github.com/visitscotland/vs-component-library/commit/ea5b4342dcd32e5ec22275278bcc179bc1a562e0))
+
+# [5.58.0](https://github.com/visitscotland/vs-component-library/compare/v5.57.4...v5.58.0) (2026-05-22)
+
+
+### Bug Fixes
+
+* **content section:** remove paragraph tags round list ([db4483a](https://github.com/visitscotland/vs-component-library/commit/db4483a69bb3bf04b9469e6fb87c62a976dbe8bf))
+
+
+### Features
+
+* **content section:** add content section pattern stories ([7df7bc6](https://github.com/visitscotland/vs-component-library/commit/7df7bc67ac5a63d13e64ccbaf4f2fcef6a2872b8))
+
+## [5.57.4](https://github.com/visitscotland/vs-component-library/compare/v5.57.3...v5.57.4) (2026-05-22)
+
+
+### Bug Fixes
+
+* **main map:** remove unused prop ([80376da](https://github.com/visitscotland/vs-component-library/commit/80376daeca0178ce88c74f7f66e41ef278e524e6))
+
+## [5.57.3](https://github.com/visitscotland/vs-component-library/compare/v5.57.2...v5.57.3) (2026-05-22)
+
+
+### Bug Fixes
+
+* **useviewportcontroller.ts:** typescript errors ([c41a9e7](https://github.com/visitscotland/vs-component-library/commit/c41a9e7c906cc76432dc4cb21aae92f2f0f6ce7e))
+
+## [5.57.2](https://github.com/visitscotland/vs-component-library/compare/v5.57.1...v5.57.2) (2026-05-22)
+
+
+### Bug Fixes
+
+* **main map:** only show sidebar when map is fully loaded to prevent broken search ([9ecbf24](https://github.com/visitscotland/vs-component-library/commit/9ecbf2424ff8ca56f6783dc5e040e223ea8470e3))
+* **main map:** prevent addDestinationMarkers() from running everytime the tiles are loaded ([05dbda3](https://github.com/visitscotland/vs-component-library/commit/05dbda3eeef4bad65abf73bc3cb22ccd3ca6f67f))
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [5.57.1](https://github.com/visitscotland/vs-component-library/compare/v5.57.0...v5.57.1) (2026-05-20)
+
+# [5.57.0](https://github.com/visitscotland/vs-component-library/compare/v5.56.0...v5.57.0) (2026-05-20)
+
+
+### Features
+
+* **content swiper:** add handler for safari focus loss ([76a5248](https://github.com/visitscotland/vs-component-library/commit/76a52488873f96a433e56c77c4a10230303ecd89))
+
+# [5.56.0](https://github.com/visitscotland/vs-component-library/compare/v5.55.1...v5.56.0) (2026-05-20)
+
+
+### Bug Fixes
+
+* **quote:** hide slot if no content passed ([90039b3](https://github.com/visitscotland/vs-component-library/commit/90039b39aa1c5379b41811ac958544e918455453))
+
+
+### Features
+
+* **quote:** tidy quote styles and add to page example ([041b128](https://github.com/visitscotland/vs-component-library/commit/041b128560cd9dc442da73805b6a4a4a07c61b73))
+* **quote:** update font awesome to new quote icon ([19a3ab6](https://github.com/visitscotland/vs-component-library/commit/19a3ab6cbd11a0f0bbc4193778711dcc3051f56d))
+* **quote:** update quote component for new UI ([76d62b7](https://github.com/visitscotland/vs-component-library/commit/76d62b7db136f0c6c7593989aeb154276fc044a2))
+
+## [5.55.1](https://github.com/visitscotland/vs-component-library/compare/v5.55.0...v5.55.1) (2026-05-14)
+
+
+### Bug Fixes
+
+* **main map:** remove unused search query properties ([1a1c15d](https://github.com/visitscotland/vs-component-library/commit/1a1c15dc559e315a306a27d1a356d8df6b4b4e95))
+* **main map:** reset map search parameters ([fc9c7fa](https://github.com/visitscotland/vs-component-library/commit/fc9c7fa8ac777feb71a8c873376800a40782fccc))
+
+# [5.55.0](https://github.com/visitscotland/vs-component-library/compare/v5.54.0...v5.55.0) (2026-05-13)
+
+
+### Features
+
+* **image with caption:** handle null values ([6d8bb06](https://github.com/visitscotland/vs-component-library/commit/6d8bb0603257840319bdf158ce78abc1478196c0))
+* **image with caption:** update image with caption pattern to use new border-radius style ([3e6032b](https://github.com/visitscotland/vs-component-library/commit/3e6032b1499916ec028d68f454bae4438d8ecc95))
+
+# [5.54.0](https://github.com/visitscotland/vs-component-library/compare/v5.53.1...v5.54.0) (2026-05-12)
+
+
+### Bug Fixes
+
+* **card carousel:** fix instance id and code tidy ([c2b1575](https://github.com/visitscotland/vs-component-library/commit/c2b1575f0aae13e981738c859b30cf628364417f))
+* **card carousel:** remove rogue comma ([e046881](https://github.com/visitscotland/vs-component-library/commit/e0468810aa3697fd96ae2c2c1ddd5ca250b8666d))
+* **image with caption:** add fix for image with caption margin ([0c0acd7](https://github.com/visitscotland/vs-component-library/commit/0c0acd713a6049e02f0bb115e6cf74c7eafa80df))
+
+
+### Features
+
+* **card carousel:** add image example to card carousel ([c2fa5b2](https://github.com/visitscotland/vs-component-library/commit/c2fa5b200fe8acdb3b893f540417320b15c40ba4))
+* **card carousel:** add portrait and landscape examples ([d985148](https://github.com/visitscotland/vs-component-library/commit/d985148792cd0dffa4c85e86d671146e401ea0df))
+* **card carousel:** add portrait images to fixtures ([4bf1d75](https://github.com/visitscotland/vs-component-library/commit/4bf1d75595201500efe1a4cbed1903bf11512b18))
+* **card carousel:** add styles for no-js version ([fb97754](https://github.com/visitscotland/vs-component-library/commit/fb9775452eaaaaf811fd8fed3d73e9205456a170))
+* **card carousel:** adds new card carousel component ([7bb73a0](https://github.com/visitscotland/vs-component-library/commit/7bb73a018b427b2d6f4b2f6425f1875ce1de7920))
+* **card carousel:** fix layout issues with card carousel ([15b05f9](https://github.com/visitscotland/vs-component-library/commit/15b05f95eac33692db36942c8b7d87264a524e29))
+* **card carousel:** fixing card carousel layout ([4b5b347](https://github.com/visitscotland/vs-component-library/commit/4b5b347ad83f58406973e6c3da8e27c7a6e195d3))
+* **card carousel:** improve accessibility on card carousel ([d08eebe](https://github.com/visitscotland/vs-component-library/commit/d08eebefa911582758069641c99946b636d6dd68))
+* **card carousel:** update card carousel arrows ([3512873](https://github.com/visitscotland/vs-component-library/commit/3512873d42a80d60de4922699393dcb401e7cbbf))
+* **card carousel:** update navigation story with carousels ([bf3ff30](https://github.com/visitscotland/vs-component-library/commit/bf3ff30b3ce3c5f27e3fedf04d80deefa8857a80))
+* **card group:** deprecate the card group component ([d92137f](https://github.com/visitscotland/vs-component-library/commit/d92137fcc1fbeb0bc13ff7b81956c207b5adc514))
+* **cardcarousel:** updating card carousel across page examples ([8466f3e](https://github.com/visitscotland/vs-component-library/commit/8466f3e3a33a3c01748942edec8483755422c349))
+* **carousel:** add contained prop for contained carousels ([b807338](https://github.com/visitscotland/vs-component-library/commit/b807338b6716815b7915f076656c7ee1b3ddd1c9))
+* **carousel:** deprecates legacy carousel component ([87b939b](https://github.com/visitscotland/vs-component-library/commit/87b939b331bf17556ae003530916dc4141281732))
+* **carousel:** installs swiper and adds card-carousel files ([e3e5860](https://github.com/visitscotland/vs-component-library/commit/e3e586030f72e5fcd74b41eaf18b122337b0e9f1))
+* **carousel:** make scrollbar only appear on swipe ([02f3141](https://github.com/visitscotland/vs-component-library/commit/02f31415f0d2b8b032706c9bc89b1367654fca8b))
+* **carousel:** updating how the scrollbar works and code tidy ([1fd1aef](https://github.com/visitscotland/vs-component-library/commit/1fd1aefaa6bcf16b82872b88209e2a8ae9a47e58))
+* **content swiper:** ensure swiper examples have a unique aria-label ([7a6385a](https://github.com/visitscotland/vs-component-library/commit/7a6385a58becb28b21c9669011dbed39408c951d))
+* **content swiper:** remove aria-label and section from content swiper ([49d731c](https://github.com/visitscotland/vs-component-library/commit/49d731c32e98257f162e45bba56707df4ac02b9b))
+* **content swiper:** renaming card carousel to content swiper ([2b3ab71](https://github.com/visitscotland/vs-component-library/commit/2b3ab718b841dc5d3305543f697fd0234946239c))
+* **content swiper:** update image examples with number of images ([235f97d](https://github.com/visitscotland/vs-component-library/commit/235f97d16351bdbd4af8a841e7b691664dca6c20))
+
+## [5.53.1](https://github.com/visitscotland/vs-component-library/compare/v5.53.0...v5.53.1) (2026-05-07)
+
+
+### Bug Fixes
+
+* **main map:** improve how we get category label ([b12624b](https://github.com/visitscotland/vs-component-library/commit/b12624bdb0a1cfcf9a0f8b9a853c794128c0bce3))
+
+# [5.53.0](https://github.com/visitscotland/vs-component-library/compare/v5.52.0...v5.53.0) (2026-05-06)
+
+
+### Features
+
+* **accordions:** add additional analytics value for .com ([a40fc3d](https://github.com/visitscotland/vs-component-library/commit/a40fc3de7fbdf39b221acb4db8eb4a002c43b984))
+
+# [5.52.0](https://github.com/visitscotland/vs-component-library/compare/v5.51.1...v5.52.0) (2026-05-06)
+
+
+### Bug Fixes
+
+* **main map:** add margin above destination card grid ([1cb5151](https://github.com/visitscotland/vs-component-library/commit/1cb5151c95eda15ab147bb854ec3cbdf0d83fceb))
+* **main map:** add selected destination when searching by subcategory ([48ac66a](https://github.com/visitscotland/vs-component-library/commit/48ac66a6fd760aa0c268e39eb98cac2500619a25))
+* **main map:** add title to destination markers ([1ba5a1e](https://github.com/visitscotland/vs-component-library/commit/1ba5a1eb178b06a0cfeb5a0e9d277c95a0faf0fc))
+* **main map:** adjust height of sidebar on small mobile ([5bb48d6](https://github.com/visitscotland/vs-component-library/commit/5bb48d60a35e1f3c2a3eaeb02599bbc4bda70ad1))
+* **main map:** broken event listener ([08d30d4](https://github.com/visitscotland/vs-component-library/commit/08d30d456775c29bdc64c0930e04a1c7dee2372b))
+* **main map:** minor sidebar fixes ([663f763](https://github.com/visitscotland/vs-component-library/commit/663f76344dc633c63bccede5e3ae12dc058c8a8c))
+* **main map:** reduce height of content above search results in sidebar ([ca5c2de](https://github.com/visitscotland/vs-component-library/commit/ca5c2ded34e80da67e54602ab98c347cfd01f12d))
+* **useviewportcontroller:** correct type ([68dce9e](https://github.com/visitscotland/vs-component-library/commit/68dce9eafe57e2a70608431dd1ebe3517066c48a))
+
+
+### Features
+
+* **main map:** add "search this area" show/hide functionality ([05269a9](https://github.com/visitscotland/vs-component-library/commit/05269a9f6527592d7404d068376911d59268a42d))
+* **main map:** add markers for destinations ([71d07ce](https://github.com/visitscotland/vs-component-library/commit/71d07cef7c2f10a10d975df3268ae8a5ab1b1b14))
+* **main map:** add props for new labels ([9bdcbac](https://github.com/visitscotland/vs-component-library/commit/9bdcbac5fba918a16b51a91881374abfa9330e12))
+* **main map:** add search this area functionality ([e7d456e](https://github.com/visitscotland/vs-component-library/commit/e7d456eb4752cd82d593e364a8da433b206587a9))
+* **main map:** adjust destination card layout ([069ea5f](https://github.com/visitscotland/vs-component-library/commit/069ea5fcbc2ec64c657f66a2e685185d83d2a081))
+* **main map:** adjust mobile styles for sidebar ([d90b4cf](https://github.com/visitscotland/vs-component-library/commit/d90b4cf1fa2662ad6036e3d8327fae787b9d5bcc))
+* **main map:** change the layout of the featured destinations ([ff02cdd](https://github.com/visitscotland/vs-component-library/commit/ff02cddadcb4a0faf4d63826584dc90d04e5b571))
+* **main map:** move categories to the sidebar ([4ce91ce](https://github.com/visitscotland/vs-component-library/commit/4ce91cec2c92b2f79a21f78eaa645ffd0628f67a))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.

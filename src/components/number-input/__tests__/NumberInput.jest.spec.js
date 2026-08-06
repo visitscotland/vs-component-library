@@ -192,7 +192,7 @@ describe('VsInput', () => {
 
             await wrapper.vm.$nextTick();
 
-            expect(mockedMethod).toBeCalled();
+            expect(mockedMethod).toHaveBeenCalled();
         });
     });
 });

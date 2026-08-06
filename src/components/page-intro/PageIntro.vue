@@ -93,7 +93,8 @@
                         </VsBody>
                         <dl
                             class="list-inline"
-                            v-if="$slots['vs-intro-start-finish'] && $slots['vs-intro-start-finish']()"
+                            v-if="$slots['vs-intro-start-finish']
+                                && $slots['vs-intro-start-finish']()"
                         >
                             <!-- @slot Intro section start / finish text
                             (used for itineraries) -->
@@ -101,7 +102,8 @@
                         </dl>
                     </VsCol>
                     <VsCol
-                        v-if="$slots['vs-intro-table-of-contents'] && $slots['vs-intro-table-of-contents']()"
+                        v-if="$slots['vs-intro-table-of-contents']
+                            && $slots['vs-intro-table-of-contents']()"
                         cols="12"
                         md="5"
                     >
@@ -115,7 +117,8 @@
             </VsContainer>
             <div
                 class="vs-page-intro__lower py-300"
-                v-if="$slots['vs-intro-lower'] && $slots['vs-intro-lower']()"
+                v-if="$slots['vs-intro-lower']
+                    && $slots['vs-intro-lower']()"
                 data-test="vs-page-intro__lower"
             >
                 <!-- @slot Lower intro section content -->
@@ -135,7 +138,7 @@ import {
 } from '@/components/grid';
 
 /**
-* @deprecated: ⚠️ Use new Hero Section component and
+* @deprecated ⚠️ Use new Hero Section component and
 * page header patterns instead. This component will be
 * removed in a future release.
 * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1157300230/Page+intro+deprecated
@@ -271,7 +274,7 @@ export default {
             }
 
             .breadcrumb {
-                margin-bottom: $vs-spacer-0;
+                margin-bottom: 0;
                 flex-wrap: nowrap;
             }
         }
@@ -284,7 +287,8 @@ export default {
 
         .vs-image-with-caption--hero {
             .vs-image-with-caption__image-wrapper {
-                // 100vh - the height of the nav - the height of the breadcrumb - a little to partially
+                // 100vh - the height of the nav - 
+				// the height of the breadcrumb - a little to partially
                 // reveal the header
                 height: calc(100vh - $vs-spacer-400 - $vs-spacer-600 - $vs-spacer-050);
                 width: calc(100% + $vs-spacer-100);
@@ -301,7 +305,7 @@ export default {
         }
 
         .vs-image-with-caption__captions {
-            padding: $vs-spacer-0 $vs-spacer-100;
+            padding: 0 $vs-spacer-100;
         }
     }
 
@@ -336,7 +340,7 @@ export default {
         }
 
         .vs-hero {
-            margin-bottom: $vs-spacer-0;
+            margin-bottom: 0;
 
             .vs-caption {
                 @include media-breakpoint-up(lg) {

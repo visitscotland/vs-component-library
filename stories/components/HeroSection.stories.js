@@ -1,4 +1,3 @@
-import { computed } from 'vue';
 import VsHeroSection from '@/components/hero-section/HeroSection.vue';
 import VsArticleDetails from '@/components/article-details/ArticleDetails.vue';
 
@@ -30,32 +29,27 @@ const Template = (args) => ({
         VsArticleDetails,
     },
     setup() {
-        const heroArgs = computed(() => {
-            const {
-                publishDate,
-                readTime,
-                articleAuthor,
-                ...rest
-            } = args;
-
-            return rest;
-        });
+        const articleArgs = {
+            publishDate: args.publishDate,
+            readTime: args.readTime,
+            articleAuthor: args.articleAuthor,
+        };
 
         return {
             args,
-            heroArgs,
+            articleArgs, 
         };
     },
     template: `
-        <VsHeroSection v-bind="heroArgs">
-            <template 
-                #hero-section-article-details 
-                v-if="args.publishDate || args.readTime || args.articleAuthor"
+        <VsHeroSection v-bind="args">
+            <template
+                #hero-section-article-details
+                v-if="articleArgs.publishDate || articleArgs.readTime || articleArgs.articleAuthor"
             >
                 <VsArticleDetails
-                    :articlePublishDate="args.publishDate"
-                    :articleReadTime="args.readTime"
-                    :articleAuthor="args.articleAuthor"
+                    :articlePublishDate="articleArgs.publishDate"
+                    :articleReadTime="articleArgs.readTime"
+                    :articleAuthor="articleArgs.articleAuthor"
                 />
             </template>
         </VsHeroSection>

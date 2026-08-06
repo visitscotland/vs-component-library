@@ -82,7 +82,7 @@ import VsIcon from '@/components/icon/Icon.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsDivider from '@/components/divider/Divider.vue';
 
-import dataLayerMixin from '@/mixins/dataLayerMixin';
+import dataLayerMixin from '../../../mixins/dataLayerMixin';
 
 import { inject } from 'vue';
 import { isNumber } from 'lodash';
@@ -147,7 +147,11 @@ export default {
         headingLevel: {
             type: Number,
             default: 2,
-            validator: (value) => (isNumber(value) ? value > 0 && value < 7 : value.match(/(1|2|3|4|5|6)/)),
+            validator: (value) => (
+                isNumber(value)
+                    ? value > 0 && value < 7
+                    : value.match(/(1|2|3|4|5|6)/)
+            ),
         },
         /**
          * If this is provided, the accordion expands above

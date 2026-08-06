@@ -84,14 +84,15 @@ import { isNumber } from 'lodash';
 import VsBody from '@/components/body/Body.vue';
 
 /**
- * The article component is used for in-depth editorial style
- * content.
- *
+ * @deprecated ⚠️ Use new article page layouts and guidance. 
+ * This component will be removed in a future release.
+ * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1273167881/Article+deprecated
+ * 
  * @displayName Article
  */
 export default {
     name: 'VsArticle',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsCol,
@@ -131,7 +132,9 @@ export default {
         headingLevel: {
             type: Number,
             default: 2,
-            validator: (value) => (isNumber(value) ? value > 0 && value < 7 : value.match(/(1|2|3|4|5|6)/)),
+            validator: (value) => (
+                isNumber(value) ? value > 0 && value < 7 : value.match(/(1|2|3|4|5|6)/)
+            ),
         },
         /**
          * The heading style used for the heading.
@@ -142,6 +145,7 @@ export default {
             type: String,
             default: 'heading-xl',
             validator: (value) => value.match(
+                // eslint-disable-next-line max-len
                 /(display-m|display-s|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs|heading-xxxs)/,
             ),
         },
@@ -165,7 +169,7 @@ export default {
 
     .vs-article-section:first-of-type {
         .vs-heading:first-child {
-            margin-top: $vs-spacer-0;
+            margin-top: 0;
         }
     }
 

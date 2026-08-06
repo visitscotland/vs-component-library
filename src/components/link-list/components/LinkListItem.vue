@@ -127,7 +127,7 @@ export default {
         font-size: $font-size-5;
 
         &:first-of-type {
-            margin-bottom: $vs-spacer-0;
+            margin-bottom: 0;
         }
     }
 </style>

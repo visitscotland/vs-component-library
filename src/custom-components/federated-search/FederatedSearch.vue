@@ -68,7 +68,9 @@
             >
                 <VsCardGroup
                     :cards-per-row="3"
-                    :class="federatedSearchStore.results && totalResultsPages <= 1 ? 'mb-300' : null"
+                    :class="federatedSearchStore.results && totalResultsPages <= 1
+                        ? 'mb-300'
+                        : null"
                 >
                     <VsCard
                         v-for="result in federatedSearchStore.results"
@@ -78,7 +80,8 @@
                             <div class="position-relative">
                                 <VsImg
                                     :src="result.imgSrc || fallbackImg"
-                                    class="w-100 aspect-ratio-3-2 rounded-1 object-fit-cover img-zoom-on-hover"
+                                    class="w-100 aspect-ratio-3-2 
+									rounded-1 object-fit-cover img-zoom-on-hover"
                                 />
                                 <div class="position-absolute bottom-0 start-0 d-flex gap-2">
                                     <VsBadge
@@ -205,6 +208,7 @@ import {
     onMounted,
     onUpdated,
 } from 'vue';
+
 import {
     VsBadge,
     VsBody,
@@ -238,6 +242,16 @@ const isError = ref(
 );
 
 const fallbackImg = 'https://static.visitscotland.com/img/fallback-img.png';
+
+/**
+ * @deprecated ⚠️ This component is no longer supported and will be removed
+ * in a future release.
+ *
+ */
+
+defineOptions({
+    status: 'deprecated',
+});
 
 const props = defineProps({
     /**
@@ -322,7 +336,7 @@ const props = defineProps({
      */
     cardCategoryLabels: {
         type: Object,
-        required: true,
+        required: false,
         default: () => {},
     },
     /**
@@ -422,7 +436,7 @@ onMounted(async() => {
 
     if (typeof window !== 'undefined' && typeof document !== 'undefined') {
         window.onbeforeunload = () => {
-            // eslint-disable-next-line no-use-before-define
+             
             pageCloseAnalytics();
         };
 
@@ -487,7 +501,7 @@ function loadPage(pageNumber) {
 
     federatedSearchStore.navigateToResultsPage();
 
-    // eslint-disable-next-line no-use-before-define
+     
     paginationClickAnalytics(paginatingForward);
 }
 
@@ -574,10 +588,10 @@ onUpdated(() => {
 <style lang="scss">
 .vs-federated-search {
     &__pagination {
-        margin: $vs-spacer-400 $vs-spacer-0 $vs-spacer-300 $vs-spacer-0;
+        margin: $vs-spacer-400 0 $vs-spacer-300 0;
 
         @include media-breakpoint-down(lg) {
-            margin: $vs-spacer-100 $vs-spacer-0 $vs-spacer-200 $vs-spacer-0;
+            margin: $vs-spacer-100 0 $vs-spacer-200 0;
         }
     }
 

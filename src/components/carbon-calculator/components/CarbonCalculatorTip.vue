@@ -76,12 +76,12 @@ export default {
         background: $vs-color-background-information;
 
         .vs-heading {
-            margin-top: $vs-spacer-0;
+            margin-top: 0;
         }
     }
 
     .vs-carbon-calculator-tip__content {
-        margin-bottom: $vs-spacer-0;
+        margin-bottom: 0;
     }
 
     .vs-carbon-calculator-tip__icon-container {

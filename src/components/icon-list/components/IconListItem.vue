@@ -25,7 +25,7 @@ import VsIcon from '@/components/icon/Icon.vue';
 
 export default {
     name: 'VsIconListItem',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsIcon,

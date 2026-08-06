@@ -112,7 +112,7 @@ defineExpose({
         font-size: $font-size-6;
         font-weight: $vs-font-weight-medium;
         gap: $vs-spacer-050;
-        margin-bottom: $vs-spacer-0;
+        margin-bottom: 0;
         padding: $vs-spacer-075 $vs-spacer-125;
     }
 }

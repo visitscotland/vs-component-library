@@ -102,15 +102,16 @@ import {
 } from '@/components/grid';
 
 /**
-* Multi purpose carousel component to use
-* for carousel and slider content
+* @deprecated ⚠️ Use new Content Swiper component instead. This component will be
+* removed in a future release.
+* @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1189052422/Carousel+deprecated
 *
 * @displayName Carousel
 */
 
 export default {
     name: 'VsCarousel',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsContainer,
@@ -243,10 +244,10 @@ export default {
                 allSlidesArr.forEach((slide, index) => {
                     const activeSlideStart = this.currentPage
                         * this.slidesPerPage[this.currentWidth];
-                    // eslint-disable-next-line function-paren-newline
+                     
                     const activeSlideEnd = parseInt(
                         this.currentPage * this.slidesPerPage[this.currentWidth], 10,
-                    // eslint-disable-next-line function-paren-newline
+                     
                     ) + parseInt(this.slidesPerPage[this.currentWidth], 10);
 
                     // if we're at a final slide that has a remainder

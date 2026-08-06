@@ -5,8 +5,9 @@
         :ref="`modal-${modalId}`"
         :id="modalId"
         size="xl"
-        hide-footer
-        hide-header
+        no-footer
+        no-header
+        :aria-label="modalAriaLabel"
         :static="isVideoModal"
         v-model="show"
         v-if="mounted"
@@ -90,6 +91,13 @@ export default {
             required: true,
         },
         /**
+         * ARIA label for the modal
+         */
+        modalAriaLabel: {
+            type: String,
+            default: '',
+        },
+        /**
          * Whether or not the modal contains an embedded
          * video
          */
@@ -168,7 +176,7 @@ export default {
     }
 
     .modal-body {
-        padding: $vs-spacer-125 $vs-spacer-0;
+        padding: $vs-spacer-125 0;
 
         @include media-breakpoint-up(sm) {
             padding: $vs-spacer-125 $vs-spacer-050;

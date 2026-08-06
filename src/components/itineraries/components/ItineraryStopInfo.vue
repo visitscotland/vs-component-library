@@ -14,7 +14,7 @@
                     class="itinerary-stop-info__times mb-0"
                     data-test="vs-itinerary-stop-status"
                 >
-                    {{ hoursMessage }}<br>
+                    {{ hoursMessage }}<br/>
                 </p>
                 <p
                     v-if="!closedLongTerm
@@ -63,7 +63,7 @@ import VsLink from '@/components/link/Link.vue';
 
 export default {
     name: 'VsItineraryStopInfo',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsIcon,
@@ -402,7 +402,7 @@ export default {
 <style lang="scss">
     .vs-itinerary-stop-info {
         display: flex;
-        margin-top: $vs-spacer-0;
+        margin-top: 0;
         max-width: 50%;
 
         &__times {

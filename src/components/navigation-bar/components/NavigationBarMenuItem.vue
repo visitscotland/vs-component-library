@@ -44,7 +44,9 @@ export default {
         variant: {
             type: String,
             default: 'secondary-menu-item',
-            validator: (value) => value.match(/(primary-menu-item|primary-sidebar-item|secondary-menu-item)/),
+            validator: (value) => value.match(
+                /(primary-menu-item|primary-sidebar-item|secondary-menu-item)/,
+            ),
         },
     },
     computed: {
@@ -97,7 +99,7 @@ export default {
             position: relative;
             text-decoration: none;
             padding: $vs-spacer-075 $vs-spacer-100;
-            margin: $vs-spacer-0;
+            margin: 0;
             display: block;
             transition: background-color $duration-base;
             white-space: normal;

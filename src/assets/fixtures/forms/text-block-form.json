@@ -1,0 +1,80 @@
+{
+    "formSandboxId": "90",
+    "formLiveId": "91",
+    "content": {
+        "heading": "What are your details?",
+        "successHeading": "What happens next?",
+        "successContent": "Since you've just joined us, we'll send you a couple of extra emails to introduce ourselves properly.",
+        "noJs": "<p><strong>You need JavaScript enabled to be able to display our newsletter subscription form.</strong></p>",
+        "submit": "Subscribe"
+    },
+    "fields": [
+        {
+            "name": "Email",
+            "element": "input",
+            "type": "email",
+            "label": "Email address",
+            "hint": "We'll only use this to email you our newsletter.",
+            "validation": {
+                "required": true,
+                "email": true
+            },
+            "validationMessages": {
+                "required": "Your email is required",
+                "email": "Please ensure your email is in the correct format"
+            }
+        },
+        {
+            "name": "Country",
+            "element": "select",
+            "countries": true,
+            "label": "Country",
+            "hint": "Telling us where you live helps us to email the most relevant content to you.",
+            "validation": {
+                "required": true
+            }
+        },
+        {
+            "name": "PostalCode",
+            "element": "input",
+            "type": "text",
+            "label": "Postcode",
+            "hint": "We'll only use this to email you local content and offers in our newsletter.",
+            "conditional": {
+                "Country": [
+                    "United Kingdom (Scotland)",
+                    "United Kingdom (England)",
+                    "United Kingdom (Wales)",
+                    "United Kingdom (Northern Ireland)"
+                ]
+            },
+            "validation": {
+                "postcode": true
+            },
+            "validationMessages": {
+                "postcode": "Please use a correct UK postcode"
+            }
+        },
+        {
+            "name": "conditionalText",
+            "element": "text-block",
+            "content": "<p>You've visited the UK before! Welcome back.</p>",
+            "conditional": {
+                "Country": [
+                    "United Kingdom (Scotland)",
+                    "United Kingdom (England)",
+                    "United Kingdom (Wales)",
+                    "United Kingdom (Northern Ireland)"
+                ]
+            }
+        },
+        {
+            "name": "termsNotice",
+            "element": "text-block",
+            "content": "<p>By submitting this form, you agree to our <a href=\"/terms\">terms and conditions</a> and <a href=\"/privacy\">privacy policy</a>.</p>"
+        }
+    ],
+    "submitConditional": {
+        "Email": []
+    }
+}

@@ -583,7 +583,7 @@ export default {
 
 <style lang="scss">
     .vs-map-with-sidebar-panel {
-        padding: $vs-spacer-125 $vs-spacer-075 $vs-spacer-0;
+        padding: $vs-spacer-125 $vs-spacer-075 0;
         border: $vs-border-width-sm solid $vs-color-border-primary;
         height: 100%;
         overflow-y: auto;
@@ -598,7 +598,7 @@ export default {
 
         &__heading.vs-heading {
             flex-grow: 1;
-            margin: $vs-spacer-500 $vs-spacer-200 $vs-spacer-0;
+            margin: $vs-spacer-500 $vs-spacer-200 0;
         }
 
         &__header-section {
@@ -707,7 +707,7 @@ export default {
             width: calc(100% - 15px);
 
             p {
-                margin-bottom: $vs-spacer-0;
+                margin-bottom: 0;
                 max-width: 75%;
             }
         }
@@ -717,7 +717,7 @@ export default {
         }
 
         @include media-breakpoint-up(lg) {
-            padding: $vs-spacer-125 $vs-spacer-100 $vs-spacer-0;
+            padding: $vs-spacer-125 $vs-spacer-100 0;
             border-right: none;
 
             &__header-section {
@@ -755,7 +755,7 @@ export default {
                 width: 100%;
                 background: $vs-color-background-inverse;
                 text-align: center;
-                margin-bottom: $vs-spacer-0;
+                margin-bottom: 0;
                 font-size: $font-size-4;
 
                 @include media-breakpoint-up(lg) {

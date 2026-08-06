@@ -67,14 +67,15 @@ import VsCol from '@/components/grid/Col.vue';
 import VsRow from '@/components/grid/Row.vue';
 
 /**
- * The Event card component displays details about training & events
- * for the industry in the Business Support hub website
- *
+ * @deprecated ⚠️ Use the new Card component and card patterns.
+ * This component will be removed in a future release.
+ * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1273397354/Event+Card+deprecated
+ * 
  * @displayName Event Card
  */
 export default {
     name: 'VsEventCard',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsHeading,
@@ -118,17 +119,17 @@ export default {
     }
 
     .vs-event-card__date {
-        margin: auto $vs-spacer-0;
+        margin: auto 0;
         font-size: $font-size-6;
         font-weight: $vs-font-weight-medium;
     }
 
     .vs-event-card__heading {
-        margin: $vs-spacer-0;
+        margin: 0;
     }
 
     .vs-event-card__header {
-        margin: $vs-spacer-050 $vs-spacer-0;
+        margin: $vs-spacer-050 0;
     }
 
     .vs-event-card__cta {
@@ -144,11 +145,11 @@ export default {
     @include media-breakpoint-up(md) {
 
         .vs-event-card__header {
-            margin: $vs-spacer-0 $vs-spacer-0 $vs-spacer-0 $vs-spacer-0;
+            margin: 0 0 0 0;
         }
 
         .vs-event-card__heading {
-            margin: $vs-spacer-050 $vs-spacer-0;
+            margin: $vs-spacer-050 0;
         }
 
         .vs-event-card__date {
@@ -157,7 +158,7 @@ export default {
 
         .vs-event-card__cta {
             position: relative;
-            right: $vs-spacer-0;
+            right: 0;
             bottom: $vs-spacer-300;
             float: right;
             margin-bottom: -$vs-spacer-300;

@@ -52,7 +52,9 @@
                 variant="secondary"
                 id="vs-fed-search-sort__dropdown"
                 name="vs-fed-search-sort__dropdown"
-                :text="federatedSearchStore.sortBy ? `${props.sortLabel}: ${activeOption.label}` : props.sortLabel"
+                :text="federatedSearchStore.sortBy
+                    ? `${props.sortLabel}: ${activeOption.label}`
+                    : props.sortLabel"
             >
                 <VsDropdownItem
                     v-for="(sortOption, index) in sortOptions"
@@ -79,6 +81,16 @@ import VsDropdownItem from '@/components/dropdown/components/DropdownItem.vue';
 import useFederatedSearchStore from '@/custom-components/federated-search/stores/federatedSearch.store';
 
 const federatedSearchStore = useFederatedSearchStore();
+
+/**
+ * @deprecated ⚠️ This component is no longer supported and will be removed
+ * in a future release.
+ *
+ */
+
+defineOptions({
+    status: 'deprecated',
+});
 
 const props = defineProps({
     /**

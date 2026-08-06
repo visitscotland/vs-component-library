@@ -54,7 +54,6 @@ export default {
         text: {
             type: String,
             default: '',
-            required: true,
         },
     },
 };

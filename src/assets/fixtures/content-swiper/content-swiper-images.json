@@ -1,0 +1,59 @@
+{
+  "landscapeImages": {
+    "images": [
+      {
+        "image": "fixtures/content-swiper/landscape/cairnie-fruit-farm-kids.webp",
+        "caption": "Cairnie Fruit Farm",
+        "credit": "VisitScotland"
+      },
+      {
+        "image": "fixtures/content-swiper/landscape/ardross-farm.webp",
+        "caption": "Ardross Farm, Fife",
+        "credit": "VisitScotland"
+      },
+      {
+        "image": "fixtures/content-swiper/landscape/crail-harbour.webp",
+        "caption": "Crail Harbour",
+        "credit": "VisitScotland"
+      },
+      {
+        "image": "fixtures/content-swiper/landscape/findhorn-beach.webp",
+        "caption": "Visitors explore Findhorn beach in Moray Speyside",
+        "credit": "VisitScotland"
+      },
+      {
+        "image": "fixtures/content-swiper/landscape/balvenie-castle.webp",
+        "caption": "Balvenie Castle",
+        "credit": "VisitScotland"
+      }
+    ]
+  },
+  "portraitImages": {
+    "images": [
+      {
+        "image": "fixtures/content-swiper/portrait/hinterland-food.jpg",
+        "caption": "Dinner served at Hinterland, Edinburgh",
+        "credit": "VisitScotland",
+        "orientation": "portrait"
+      },
+      {
+        "image": "fixtures/content-swiper/portrait/lobster.jpg",
+        "caption": "Beautiful lobster at Lobster Shack, North Berwick",
+        "credit": "VisitScotland",
+        "orientation": "portrait"
+      },
+      {
+        "image": "fixtures/content-swiper/portrait/haggis.jpg",
+        "caption": "Haggis, neeps and tatties for Burns Night",
+        "credit": "VisitScotland",
+        "orientation": "portrait"
+      },
+      {
+        "image": "fixtures/content-swiper/portrait/cranachan.jpg",
+        "caption": "Cranachan for Burns Night dessert",
+        "credit": "VisitScotland",
+        "orientation": "portrait"
+      }
+    ]
+  }
+}

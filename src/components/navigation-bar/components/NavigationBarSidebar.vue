@@ -6,7 +6,7 @@
         @update:model-value="$emit('update:show', $event)"
         id="navigation-sidebar"
         placement="end"
-        :no-backdrop="true"
+        :shadow="true"
         lazy
     >
         <template #header>

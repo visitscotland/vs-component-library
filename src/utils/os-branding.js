@@ -33,7 +33,6 @@ const osBranding = {
                 this.options.suffix = scriptTag.getAttribute('data-suffix') || this.options.suffix;
             }
 
-            // eslint-disable-next-line
             obj = (typeof obj !== 'undefined') ? obj : {
             };
             Object.assign(this.options, obj);

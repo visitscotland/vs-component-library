@@ -1,5 +1,5 @@
 <template>
-    <section
+    <div
         :class="spotlightSectionClasses"
         :style="imageSrc ? { backgroundImage: `url(${imageSrc})` } : {}"
         data-test="vs-spotlight-section"
@@ -38,7 +38,9 @@
 
                 <div
                     v-if="compact"
-                    class="col-12 col-sm-5 col-md-4 col-lg-5 col-xl-6 align-self-sm-end text-sm-end p-0"
+                    class="col-12 col-sm-5 col-md-4
+                        col-lg-5 col-xl-6 align-self-sm-end 
+						text-sm-end p-0"
                 >
                     <!-- Compact variant CTA: shown only when compact is true-->
                     <VsButton
@@ -53,20 +55,26 @@
             </div>
         </div>
 
-        <template v-if="$slots['vs-spotlight-section-media'] && $slots['vs-spotlight-section-media']()">
+        <template
+            v-if="$slots['vs-spotlight-section-media']
+                && $slots['vs-spotlight-section-media']()"
+        >
             <div class="vs-spotlight-section__media">
                 <slot name="vs-spotlight-section-media" />
             </div>
         </template>
 
-        <template v-if="$slots['vs-spotlight-section-overlay-controls'] && $slots['vs-spotlight-section-overlay-controls']()">
+        <template
+            v-if="$slots['vs-spotlight-section-overlay-controls']
+                && $slots['vs-spotlight-section-overlay-controls']()"
+        >
             <div class="vs-spotlight-section__overlay-controls">
                 <slot name="vs-spotlight-section-overlay-controls" />
             </div>
         </template>
 
         <div class="vs-spotlight-section__gradient-overlay" />
-    </section>
+    </div>
 </template>
 
 <script>

@@ -17,7 +17,10 @@
                     <div
                         class="vs-tourism-info__links"
                         data-test="vs-tourism-info__standalone-links"
-                        v-if="($slots['tourism-info-links'] && $slots['tourism-info-links']()) && !($slots['tourism-info-quote'] && $slots['tourism-info-quote']())"
+                        v-if="($slots['tourism-info-links']
+                            && $slots['tourism-info-links']())
+                            && !($slots['tourism-info-quote']
+                                && $slots['tourism-info-quote']())"
                     >
                         <!-- @slot Holds the links (html expected) -->
                         <slot name="tourism-info-links" />
@@ -28,7 +31,8 @@
                     cols="12"
                     md="10"
                     offset-md="1"
-                    :class="{ 'vs-tourism-info__image-offset': ($slots['tourism-info-quote'] && $slots['tourism-info-quote']()) }"
+                    :class="{ 'vs-tourism-info__image-offset':
+                        ($slots['tourism-info-quote'] && $slots['tourism-info-quote']()) }"
                 >
                     <!-- @slot Holds the main tourism-info image -->
                     <slot
@@ -70,6 +74,9 @@ import {
 } from '@/components/grid';
 
 /**
+ * @deprecated ⚠️ This component will be removed in a future release.
+ * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1353416810/Tourism+Info+deprecated
+ * 
  * A tourism information block with a name, cover image and an optional slot for an
  * embedded quote (either just text or a vs-quote element)
  *
@@ -77,7 +84,7 @@ import {
  */
 export default {
     name: 'VsTourismInfo',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsContainer,
@@ -141,13 +148,13 @@ export default {
     }
 
     &__links-contained {
-        margin-bottom: $vs-spacer-0;
+        margin-bottom: 0;
         margin-top: $vs-spacer-300;
         font-size: $font-size-5;
     }
 
     figure {
-        margin-bottom: $vs-spacer-0;
+        margin-bottom: 0;
     }
 }
 </style>

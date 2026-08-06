@@ -2,7 +2,6 @@ node_modules/
 dist/
 yarn-error.log
 .env
-.vscode
 storybook-static/
 build-storybook.log
 doctor-storybook.log

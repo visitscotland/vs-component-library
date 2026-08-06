@@ -7,10 +7,11 @@
         <BProgress
             v-if="!isStepped || max > 5"
             :max="max"
+            :aria-valuenow="currentStep"
+            :aria-labelledBy="`progress-bar-${compId}`"
         >
             <BProgressBar
                 :value="currentStep"
-                :aria-labelledBy="`progress-bar-${compId}`"
             />
         </BProgress>
 
@@ -22,25 +23,25 @@
                 v-for="index in max"
                 :key="index"
                 :max="1"
+                :aria-labelledBy="`progress-bar-${compId}`"
             >
                 <BProgressBar
                     :value="(index <= currentStep) ? 1 : 0"
-                    :aria-labelledBy="`progress-bar-${compId}`"
                 />
             </BProgress>
         </div>
 
         <p
+            v-if="interpolProgressLabel"
             class="vs-progress-bar__label"
             :id="`progress-bar-${compId}`"
-            v-if="interpolProgressLabel"
         >
             {{ interpolProgressLabel }}
         </p>
         <p
+            v-else
             class="vs-progress-bar__label"
             :id="`progress-bar-${compId}`"
-            v-else
         >
             {{ currentStep }} / {{ max }}
         </p>
@@ -159,7 +160,7 @@ export default {
 
         .progress {
             width: 100%;
-            margin: $vs-spacer-050 $vs-spacer-0 $vs-spacer-050;
+            margin: $vs-spacer-050 0 $vs-spacer-050;
             background: $vs-color-background-secondary;
             border-radius: $vs-radius-full;
             overflow: hidden;

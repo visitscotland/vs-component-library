@@ -141,7 +141,7 @@ export default {
             padding: $vs-spacer-075 0;
             border-top: $vs-border-width-sm solid $vs-color-border-primary;
 
-            &::last-of-type {
+            &:last-of-type {
                 border-bottom: $vs-border-width-sm solid $vs-color-border-primary;
             }
 

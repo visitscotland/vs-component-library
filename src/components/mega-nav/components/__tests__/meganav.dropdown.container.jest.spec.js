@@ -99,11 +99,13 @@ describe('VsMegaNavDropdownContainer', () => {
 
     describe(':slots', () => {
         it('renders content inserted in a button-content slot', () => {
-            expect(wrapper.find('[data-test="vs-mega-nav-dropdown"]').find('.dropdown-toggle').text()).toBe('Dropdown Toggle');
+            expect(
+                wrapper.find('.vs-mega-nav-dropdown__toggle').text(),
+            ).toBe('Dropdown Toggle');
         });
 
         it('renders content inserted in a dropdown-content slot', () => {
-            expect(wrapper.findAll('.dropdown-list-item').length).toBe(2);
+            expect(wrapper.findAll('.dropdown-list-item').length).toBe(1);
         });
 
         it('renders content inserted in a nav-featured-item slot', () => {

@@ -1,6 +1,5 @@
 import { config, shallowMount } from '@vue/test-utils';
 import axe from '@/../test/unit/helpers/axe-helper';
-import { setActivePinia, createPinia } from 'pinia';
 import VsMediaCaption from '../MediaCaption.vue';
 
 config.global.renderStubDefaultSlot = true;
@@ -13,20 +12,6 @@ const factoryShallowMount = (propsData = {
     propsData,
     slots,
 });
-
-const factoryShallowMountWithStore = (propsData = {
-}, slots = {
-}) => {
-    const pinia = createPinia();
-    setActivePinia(pinia);
-    return shallowMount(VsMediaCaption, {
-        propsData,
-        slots,
-        global: {
-            plugins: [pinia],
-        },
-    });
-};
 
 describe('VsMediaCaption', () => {
     it('should render a div with correct class and data-test attribute', () => {
@@ -79,7 +64,7 @@ describe('VsMediaCaption', () => {
 
     describe(':props', () => {
         it('should display video duration when videoId is provided', () => {
-            const wrapper = factoryShallowMountWithStore({
+            const wrapper = factoryShallowMount({
                 videoId: '123456',
             });
 
@@ -89,7 +74,7 @@ describe('VsMediaCaption', () => {
         });
 
         it('should not display video duration when videoId has no details', () => {
-            const wrapper = factoryShallowMountWithStore({
+            const wrapper = factoryShallowMount({
                 videoId: 'non-existent-video',
             });
 

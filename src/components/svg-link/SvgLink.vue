@@ -28,6 +28,10 @@ import VsSvg from '@/components/svg/Svg.vue';
 import VsLink from '@/components/link/Link.vue';
 
 /**
+ * @deprecated ⚠️ Use Image component wrapped in a link instead. 
+ * This component will be removed in a future release.
+ * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1315078213/SvgLink+deprecated
+ * 
  * An SVG link component provides an SVG wrapped in a
  * link with accessible screen reader text.
  *
@@ -35,7 +39,7 @@ import VsLink from '@/components/link/Link.vue';
  */
 export default {
     name: 'VsSvgLink',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsSvg,

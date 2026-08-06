@@ -26,7 +26,7 @@ import {
 import { LazyHydrationWrapper } from 'vue3-lazy-hydration';
 
 /**
- * @deprecated: ⚠️ This pattern is no longer supported. Use the
+ * @deprecated ⚠️ This pattern is no longer supported. Use the
  * Navigation Bar instead. This component will be removed in a future release.
  * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1157562370/Global+Menu+deprecated
  *

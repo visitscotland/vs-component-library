@@ -193,7 +193,7 @@ import requiredCookiesData from '../../utils/required-cookies-data';
 const cookieValues = requiredCookiesData.youtube;
 
 /**
-* @deprecated: ⚠️ Use new Card component instead. This component will be
+* @deprecated ⚠️ Use new Card component instead. This component will be
 * removed in a future release.
 * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1190068237/Stretched+link+card+deprecated
 *
@@ -234,7 +234,6 @@ export default {
         link: {
             type: String,
             required: true,
-            default: '#',
         },
         /**
         * The correct heading level for page hierarchy, the
@@ -255,6 +254,7 @@ export default {
             type: [String, Number],
             default: 'heading-xs',
             validator: (value) => value.match(
+                // eslint-disable-next-line max-len
                 /(display-m|display-s|heading-xl|heading-l|heading-m|heading-s|heading-xs|heading-xxs)/,
             ),
         },
@@ -618,7 +618,7 @@ export default {
         }
 
         .vs-stretched-link-card__link {
-            margin: $vs-spacer-100 $vs-spacer-0 $vs-spacer-0;
+            margin: $vs-spacer-100 0 0;
             color: $vs-color-interaction-link-primary;
             text-decoration: underline;
         }
