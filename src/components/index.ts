@@ -44,6 +44,7 @@ export { default as VsGlobalMenu } from './global-menu/GlobalMenu.vue';
 export { default as VsGlobalMenuLanguage } from './global-menu/components/GlobalMenuLanguage.vue';
 export { default as VsGlobalMenuLanguageItem } from './global-menu/components/GlobalMenuLanguageItem.vue';
 export { default as VsGoogleMap } from './google-map/GoogleMap.vue';
+export { default as VsGoogleMapMarker } from './google-map/components/GoogleMapMarker.vue';
 export { default as VsCol } from './grid/Col.vue';
 export { default as VsContainer } from './grid/Container.vue';
 export { default as VsRow } from './grid/Row.vue';

@@ -63,10 +63,28 @@ export type LatLngBounds = {
     east: number;
 };
 
-export type MapOptions = {
-    boundsData?: LatLngBounds;
-    clickableIcons?: boolean;
-    gestureHandling?: string;
-    isFractionalZoomEnabled?: boolean;
-    renderingTypeVector?: boolean;
-}
+export type BrxmFeatureProperties = {
+    category?: {
+        id: string;
+        label: string;
+    };
+    stopCount?: number;
+    id: number | string;
+    title: string;
+    description?: string;
+    image?: string;
+    link?: {
+        label: string;
+        link: string;
+        type: string;
+    };
+};
+
+export type BrxmFeature = {
+    type: string;
+    properties: BrxmFeatureProperties;
+    geometry: {
+        type: string;
+        coordinates: any;
+    };
+};
