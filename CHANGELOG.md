@@ -1,3 +1,10 @@
+# [5.76.0](https://github.com/visitscotland/vs-component-library/compare/v5.75.0...v5.76.0) (2026-08-06)
+
+
+### Features
+
+* **description list:** mark the description list component as deprecated ([361ce10](https://github.com/visitscotland/vs-component-library/commit/361ce1071215f54ec0d2847b2aa231782b0d9532))
+
 # [5.75.0](https://github.com/visitscotland/vs-component-library/compare/v5.74.0...v5.75.0) (2026-07-30)
 
 
