@@ -97,3 +97,36 @@ export type LatLngObject = {
     lat: number;
     lng: number;
 };
+
+export type LatLngBounds = {
+    north: number;
+    south: number;
+    west: number;
+    east: number;
+};
+
+export type BrxmFeatureProperties = {
+    category?: {
+        id: string;
+        label: string;
+    };
+    stopCount?: number;
+    id: number | string;
+    title: string;
+    description?: string;
+    image?: string;
+    link?: {
+        label: string;
+        link: string;
+        type: string;
+    };
+};
+
+export type BrxmFeature = {
+    type: string;
+    properties: BrxmFeatureProperties;
+    geometry: {
+        type: string;
+        coordinates: number[];
+    };
+};
