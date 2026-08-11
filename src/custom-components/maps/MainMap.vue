@@ -411,7 +411,10 @@ const {
     showSearchAreaButton,
 } = useViewportController();
 
-const { getSearchParams, updateSearchParams } = useUpdateSearchParams();
+const {
+    getSearchParams,
+    updateSearchParams,
+} = useUpdateSearchParams();
 
 onBeforeMount(() => {
     const cookieCheck = cookieCheckerComposable();
@@ -541,13 +544,13 @@ onMounted(async() => {
                 showSearchAreaButton.value = true;
             }
 
-            // if (isUserMove.value) {
-            //     updateSearchParams({
-            //         coords: gMap.getCenter().toString().replace(/[()\s]/g, ''),
-            //         location: null,
-            //         zoom: gMap.getZoom(),
-            //     });
-            // }
+            if (isUserMove.value) {
+                updateSearchParams({
+                    coords: gMap.getCenter().toString().replace(/[()\s]/g, ''),
+                    location: null,
+                    zoom: gMap.getZoom(),
+                });
+            }
         });
 
         gMap.addListener('dragstart', () => {
@@ -559,27 +562,56 @@ onMounted(async() => {
             if (mapLoaded.value) return;
             mapLoaded.value = true;
 
-            addDestinationMarkers();
-
             // Start a search if there are parameters in the URL.
             const {
                 category,
                 coords,
                 location,
                 searchTerm,
+                subcategories,
                 zoom,
             } = getSearchParams();
 
+            // Check subcategories match ours, remove the ones that don't.
+            const setSubcategories = (subcategories) => {
+                if (!subcategories) return;
+
+                const providedSubcategories = subcategories
+                    .split(',')
+                    .filter((subcategory) => (
+                        subcategory in mapCategoryStore.subcategoryMap
+                    ));
+
+                if (providedSubcategories.includes('self-catering')) {
+                    mapCategoryStore.selfCateringClicked = true;
+                    mapCategoryStore.selectedSubcategories = ['self-catering'];
+                } else {
+                    mapCategoryStore.selectedSubcategories = providedSubcategories;
+                }
+            };
+
+            // If the `location` parameter is set
             if (location) {
+                // Check that the location matches one of our featured locations.
                 const placeData = props.featuredPlaces.find((place) => (
                     place.properties.title.toLowerCase() === location.toLowerCase()
                 ));
 
-                if (placeData) {
-                    handleFeaturedLocationClick(placeData, category);
-                }
-            } else if (coords) {
+                if (!placeData) return;
+
+                // Zoom into location and run a category search.
+                handleFeaturedLocationClick(placeData, category);
+
+                // Set selectedSubcategories if the subcategory parameter has been set.
+                setSubcategories(subcategories);
+                return;
+            }
+
+            // If the `coord` and `zoom` parameters have been set.
+            if (coords && zoom) {
                 googleMapStore.showDestinations = false;
+
+                // Zoom into location
                 runProgrammaticMove(() => gMap.setZoom(zoom));
 
                 runProgrammaticMove(() => gMap.setCenter(
@@ -589,12 +621,41 @@ onMounted(async() => {
                     ),
                 ));
 
-                mapCategoryStore.selectedCategory = (category) ? category : 'things-to-do';
-            } else if (searchTerm) {
+                // Set subcategories.
+                if (category && subcategories) {
+                    setSubcategories(subcategories);
+                }
+
+                // Check to see if the category matches one of ours.
+                const categoryExists = category in googleMapStore.categoryData;
+
+                // Set the selected category to parameter or the fallback.
+                mapCategoryStore.selectedCategory = (categoryExists) ? category : 'things-to-do';
+                return;
+            }
+
+            // If the `search-term` parameter has been set.
+            if (searchTerm) {
+                // Set the query value and run a text search.
                 query.value = searchTerm;
                 searchInput.value = searchTerm;
                 searchByText();
+                return;
             }
+
+            // If no parameters have been set or they are invalid, display
+            // the featured destination markers.
+            addDestinationMarkers();
+
+            // Clear all map params.
+            updateSearchParams({
+                category: null,
+                coords: null,
+                location: null,
+                'search-term': null,
+                subcategories: null,
+                zoom: null,
+            });
         });
 
         gMap.addListener('idle', () => {
@@ -830,6 +891,7 @@ async function searchByCategory() {
     updateSearchParams({
         location,
         category: mapCategoryStore.selectedCategory,
+        subcategories: mapCategoryStore.selectedSubcategories.join(','),
         'search-term': null,
         coords,
     });
@@ -889,6 +951,31 @@ async function searchByText(useRestriction = false) {
 
     textSearch.style.display = 'block';
 
+    let category;
+    let subcategories;
+    let coords;
+    let searchTerm;
+
+    if (mapCategoryStore.selfCateringClicked) {
+        category = 'accommodation';
+        subcategories = 'self-catering';
+        searchTerm = null;
+        coords = gMap.getCenter().toString().replace(/[()\s]/g, '');
+    } else {
+        category = null;
+        subcategories = null;
+        searchTerm = query.value;
+        coords = null;
+    }
+
+    updateSearchParams({
+        location: null,
+        category,
+        subcategories,
+        coords,
+        'search-term': searchTerm,
+    });
+
     textSearch.addEventListener('gmp-load', () => {
         if (searchId !== currentSearchId) return;
 
@@ -909,13 +996,6 @@ async function searchByText(useRestriction = false) {
 
     googleMapStore.showDestinations = false;
     googleMapStore.showCategories = true;
-
-    updateSearchParams({
-        location: null,
-        category: null,
-        coords: null,
-        'search-term': query.value,
-    });
 }
 
 async function addMarkers(searchId) {
@@ -1224,7 +1304,9 @@ function handleFeaturedLocationClick(place, category) {
         zoom: null,
     });
 
-    mapCategoryStore.selectedCategory = (category) ? category : 'things-to-do';
+    // Check to see if the category matches one of ours.
+    const categoryExists = category in googleMapStore.categoryData;
+    mapCategoryStore.selectedCategory = (categoryExists) ? category : 'things-to-do';
     isSidebarOpen.value = true;
 }
 

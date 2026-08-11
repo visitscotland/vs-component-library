@@ -93,6 +93,8 @@ const useMapCategoryStore = defineStore('mapCategoryStore', () => {
             );
         });
 
+        included.forEach((type) => excluded.delete(type));
+
         return {
             included,
             excluded,
