@@ -132,6 +132,18 @@
                                         :rows="field.rows || null"
                                     />
                                 </template>
+
+                                <template v-if="field.element === 'text-block'">
+                                    <VsBody aria-live="polite">
+                                        <div
+                                            v-html="getTranslatedTextBlockContent(field.name, index)"
+                                        />
+                                    </VsBody>
+                                </template>
+
+                                <template v-if="field.element === 'hr'">
+                                    <hr class="vs-form__hr" />
+                                </template>
                             </div>
                         </BFormGroup>
                     </template>
@@ -155,6 +167,7 @@
                     variant="primary"
                     type="submit"
                     class="vs-form__submit mt-300"
+                    :disabled="submitDisabled || submitting"
                     @click="preSubmit"
                 >
                     {{ getTranslatedContent('submit') }}
@@ -167,9 +180,13 @@
         </VsWarning>
 
         <div aria-live="assertive">
-            <p v-if="submitting">
+            <div
+                v-if="submitting"
+                class="vs-form__submitting"
+            >
+                <VsLoadingSpinner />
                 <slot name="submitting" />
-            </p>
+            </div>
 
             <template v-if="submitted">
                 <VsHeading
@@ -187,7 +204,13 @@
             </template>
 
             <p
-                v-if="submitError"
+                v-if="submitError && bespokeResponse"
+                class="mt-200"
+            >
+                {{ bespokeResponse }}
+            </p>
+            <p
+                v-if="submitError && !bespokeResponse"
                 class="mt-200"
             >
                 <slot name="submit-error" />
@@ -208,6 +231,8 @@ import VsButton from '@/components/button/Button.vue';
 import VsHeading from '@/components/heading/Heading.vue';
 import VsWarning from '@/components/warning/Warning.vue';
 import VsTextarea from '@/components/textarea/Textarea.vue';
+import VsBody from '@/components/body/Body.vue';
+import VsLoadingSpinner from '@/components/loading-spinner/LoadingSpinner.vue';
 import dataLayerMixin from '../../mixins/dataLayerMixin';
 
 /**
@@ -230,6 +255,8 @@ export default {
         VsHeading,
         VsWarning,
         VsTextarea,
+        VsBody,
+        VsLoadingSpinner,
     },
     mixins: [dataLayerMixin],
     props: {
@@ -359,6 +386,7 @@ export default {
             submitted: false,
             submitting: false,
             submitError: false,
+            bespokeResponse: null,
             formData: {
             },
             messagingData: {
@@ -376,6 +404,7 @@ export default {
             inputVal: '',
             reAlertErrors: false,
             emailFieldName: '',
+            submitDisabled: false,
         };
     },
     computed: {
@@ -411,8 +440,12 @@ export default {
                     }
 
                     response.data.fields.forEach((field) => {
-                        // create a data entry for each field
-                        this.form[field.name] = '';
+                        // create a data entry for each field, unless it is a text-block
+                        // or hr which have no value and should not be submitted with the form
+                        if (field.element !== 'text-block'
+                            && field.element !== 'hr') {
+                            this.form[field.name] = '';
+                        }
 
                         // Vue.set no longer needed to ensure reactivity in vue 3
                         if (field.conditional) {
@@ -538,6 +571,23 @@ export default {
             }
 
             return validationObj;
+        },
+        /**
+         * Attempts to retrieve the text block content for a given field from the current
+         * language obj. If no localisation is available, or the language is en, falls back
+         * to the default content for the fieldname.
+         */
+        getTranslatedTextBlockContent(fieldName, index) {
+            const languageObj = this.getLanguageObj();
+
+            if (this.language !== 'en'
+                && !this.isUndefined(languageObj[fieldName])
+                && !this.isUndefined(languageObj[fieldName].content)
+            ) {
+                return languageObj[fieldName].content;
+            }
+
+            return this.formData.fields[index].content;
         },
         /**
          * Attempts to retrieve the options for a given select field from the current language
@@ -770,7 +820,9 @@ export default {
         needsLabel(field) {
             if (field.element === 'radio'
                 || field.element === 'submit'
-                || field.element === 'checkbox') {
+                || field.element === 'checkbox'
+                || field.element === 'text-block'
+                || field.element === 'hr') {
                 return false;
             }
 
@@ -782,7 +834,13 @@ export default {
          */
         preSubmit(e) {
             e.preventDefault();
+
+            if (this.submitDisabled || this.submitting) {
+                return;
+            }
+
             this.submitError = false;
+            this.bespokeResponse = null;
 
             function isRequired(value) {
                 return value.validation && value.validation.required;
@@ -904,16 +962,56 @@ export default {
                     'g-recaptcha-response': gRecaptchaResponse,
                     consentList: filteredConsents,
                 }, axiosConfig)
-                .then(() => {
+                .then((response) => {
                     this.submitting = false;
-                    this.submitted = true;
-                    this.attachEmail();
+
+                    const bespokeResponse = this.getLanguageObj().bespokeResponses
+                        || this.formData.bespokeResponses;
+
+                    if (bespokeResponse
+                        && bespokeResponse[response.status]) {
+                        this.bespokeResponse = this.replaceResponsePlaceholders(
+                            bespokeResponse[response.status],
+                            response.data || {
+                            },
+                        );
+                        this.submitError = true;
+                    } else {
+                        this.submitted = true;
+                        this.attachEmail();
+                    }
+
                     return false;
                 })
-                .catch(() => {
+                .catch((error) => {
+                    this.submitting = false;
+
+                    const statusCode = error.response && error.response.status;
+                    const bespokeResponse = this.getLanguageObj().bespokeResponses
+                        || this.formData.bespokeResponses;
+
+                    if (statusCode
+                        && bespokeResponse
+                        && bespokeResponse[statusCode]) {
+                        this.bespokeResponse = this.replaceResponsePlaceholders(
+                            bespokeResponse[statusCode],
+                            (error.response && error.response.data) || {
+                            },
+                        );
+                    }
+
                     this.submitError = true;
                     return false;
                 });
+        },
+        /**
+         * Replaces ${variable} placeholders in a template string with values from a data object
+         */
+        replaceResponsePlaceholders(template, data) {
+            return template.replace(
+                /\$\{(\w+)\}/g,
+                (match, key) => data[key] !== undefined ? data[key] : match,
+            );
         },
         /**
          * If exponea is present in the window (via gtm with accepted cookies), and the form uses
@@ -975,23 +1073,21 @@ export default {
                         // against the string
                         showField = false;
                     }
-
-                    if (showField) {
-                        if (!this.conditionalFields[field]) {
-                            this.conditionalFields[field] = true;
-
-                            if (this.$refs[field]) {
-                                this.$refs[field][0].manualValidate();
-                            }
-                        }
-                    } else {
-                        // If a field is hidden by its conditional status, clear any existing
-                        // errors as they are no longer relevant
-                        this.manageErrorStatus(field, []);
-                        this.conditionalFields[field] = false;
-                    }
                 });
+
+                if (showField) {
+                    if (!this.conditionalFields[field]) {
+                        this.conditionalFields[field] = true;
+                    }
+                } else {
+                    // If a field is hidden by its conditional status, clear any existing
+                    // errors as they are no longer relevant
+                    this.manageErrorStatus(field, []);
+                    this.conditionalFields[field] = false;
+                }
             });
+
+            this.checkSubmitConditional();
         },
         /**
          * Sets the 'd-none' class on conditional fields which are currently not displaying.
@@ -1000,6 +1096,38 @@ export default {
             return this.conditionalFields[fieldName] === true
                 || typeof this.conditionalFields[fieldName] === 'undefined'
                 ? '' : 'd-none';
+        },
+        /**
+         * Checks whether the submitConditional config meets its condition, and updates
+         * the submitDisabled flag. When the condition is met the submit button is disabled.
+         */
+        checkSubmitConditional() {
+            if (!this.formData.submitConditional) {
+                this.submitDisabled = false;
+
+                return;
+            }
+
+            let disable = false;
+
+            Object.keys(this.formData.submitConditional).forEach((rule) => {
+                const conditions = this.formData.submitConditional[rule];
+
+                if (Array.isArray(conditions)) {
+                    if (conditions.length === 0) {
+                        // Empty array means: enabled when field has any non-empty value
+                        if (!this.form[rule]) {
+                            disable = true;
+                        }
+                    } else if (conditions.indexOf(this.form[rule]) === -1) {
+                        disable = true;
+                    }
+                } else if (this.form[rule] !== conditions) {
+                    disable = true;
+                }
+            });
+
+            this.submitDisabled = disable;
         },
     },
 };
@@ -1019,6 +1147,10 @@ export default {
             > div {
                 margin-bottom: $vs-spacer-150;
             }
+        }
+
+        &__submitting {
+            overflow: hidden;
         }
 
         &__no-js {

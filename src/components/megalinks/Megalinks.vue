@@ -73,13 +73,17 @@ import {
 } from '@/components/grid';
 
 /**
+ * @deprecated ⚠️ Use new card layout patterns and guidance. 
+ * This component will be removed in a future release.
+ * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1354137631/Megalinks+deprecated
+ * 
  * Megalinks wrapper used with Megalinks components.
  *
  * @displayName Megalinks
  */
 export default {
     name: 'VsMegalinks',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsContainer,

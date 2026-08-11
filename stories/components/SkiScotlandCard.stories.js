@@ -8,7 +8,8 @@ import {
 
 export default {
     component: VsSkiScotlandCard,
-    title: 'Components/To be reviewed/SkiScotlandCard',
+    title: 'Components/Deprecated/SkiScotlandCard',
+    tags: ['deprecated'],
 };
 
 const Template = (args) => ({
@@ -24,6 +25,11 @@ const Template = (args) => ({
         };
     },
     template: `
+    <div style="background: #940f2c17; padding: 1rem; border: 1px solid #940F2C; margin-bottom: 1rem;">
+        ⚠️ Deprecated: This component will be removed in a future release. 
+        See the <a href="https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1354137661/Ski+Scotland+Card+deprecated">Component migration docs.</a> 
+    </div>
+
     <VsContainer>
         <VsRow
             class="mx-n100 mx-lg-n200"

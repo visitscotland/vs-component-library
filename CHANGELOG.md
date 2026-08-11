@@ -1,3 +1,94 @@
+# [5.76.0](https://github.com/visitscotland/vs-component-library/compare/v5.75.0...v5.76.0) (2026-08-06)
+
+
+### Features
+
+* **description list:** mark the description list component as deprecated ([361ce10](https://github.com/visitscotland/vs-component-library/commit/361ce1071215f54ec0d2847b2aa231782b0d9532))
+
+# [5.75.0](https://github.com/visitscotland/vs-component-library/compare/v5.74.0...v5.75.0) (2026-07-30)
+
+
+### Bug Fixes
+
+* **forms:** add fixtures file for bespoke responses ([4669b83](https://github.com/visitscotland/vs-component-library/commit/4669b83eb001f8cc26f7ec5c9a1f277d1119ca06))
+* **forms:** block preSubmit during submission as well as button ([0920c46](https://github.com/visitscotland/vs-component-library/commit/0920c465a9c0c72cc4d4f9273d7ca78d65169986))
+* **forms:** get translated bespoke responses ([7f4775a](https://github.com/visitscotland/vs-component-library/commit/7f4775a170e64cd7a4a9befc0870907a62ee9818))
+* **forms:** update checkbox test to ensure field is touched before validation ([9d52845](https://github.com/visitscotland/vs-component-library/commit/9d5284571628652cbbefe603a5f4121378c4a4d0))
+* **stories:** correct deprecated tag ([765497f](https://github.com/visitscotland/vs-component-library/commit/765497f13943fd430c3c40e64ee8899348672ee1))
+* **tests:** add missing await ([aafefc7](https://github.com/visitscotland/vs-component-library/commit/aafefc7f07d001f9b3b2531c21fd603f644cd396))
+
+
+### Features
+
+* **forms:** allow bespoke, translateable error responses ([17e5d44](https://github.com/visitscotland/vs-component-library/commit/17e5d443c7d72a44a26e48ba12d635e950fb80ed))
+* **forms:** allow placeholder replacement in bespoke responses ([0c1ef26](https://github.com/visitscotland/vs-component-library/commit/0c1ef265dc7525245a57851676f4199a05fbcaaa))
+* **forms:** don't pre-validate newly revealed conditional fields ([75511fa](https://github.com/visitscotland/vs-component-library/commit/75511fa9aeb1a6afb318f7ede2bcd9ab21598f43))
+* **forms:** prevent multiple submissions and add loading spinner during submission ([62168aa](https://github.com/visitscotland/vs-component-library/commit/62168aa521cd5e8d7db92b4f1ccc798a1b591bd8))
+
+# [5.74.0](https://github.com/visitscotland/vs-component-library/compare/v5.73.0...v5.74.0) (2026-07-28)
+
+
+### Features
+
+* **components:** deprecating .com specific components from the library ([c70dc4b](https://github.com/visitscotland/vs-component-library/commit/c70dc4bd6bcf91b102ef664ea2df49d8146b9c1f))
+
+# [5.73.0](https://github.com/visitscotland/vs-component-library/compare/v5.72.1...v5.73.0) (2026-07-27)
+
+
+### Features
+
+* **hero:** update hero inset image to have rounded corners ([bd5273b](https://github.com/visitscotland/vs-component-library/commit/bd5273ba74d33fb32aa2ea8c64f52e811bb154cd))
+* **map:** deprecate map and map with sidebar in the component library ([8a0ea80](https://github.com/visitscotland/vs-component-library/commit/8a0ea80ed3095a82a1fcb033fcf8c31e9af873a9))
+* **megalinks:** deprecate megalinks in the component library ([d1a79fc](https://github.com/visitscotland/vs-component-library/commit/d1a79fcec9ad1b115709414a6518098da38fa940))
+
+## [5.72.1](https://github.com/visitscotland/vs-component-library/compare/v5.72.0...v5.72.1) (2026-07-24)
+
+
+### Bug Fixes
+
+* **vsmainmap:** fix missing id for h1, main-content ([b4348b9](https://github.com/visitscotland/vs-component-library/commit/b4348b91279ab8377a8003c280b9429322dfe9c8))
+
+# [5.72.0](https://github.com/visitscotland/vs-component-library/compare/v5.71.4...v5.72.0) (2026-07-23)
+
+
+### Features
+
+* **forms:** add hr field option ([b078291](https://github.com/visitscotland/vs-component-library/commit/b078291510089708142a2d3d0dc8a77926c47d32))
+* **forms:** add text block element to forms ([c6b4e86](https://github.com/visitscotland/vs-component-library/commit/c6b4e86c902c7fddb2b6707e3829bf9202051ae4))
+* **forms:** add text block example fixture ([4e57b40](https://github.com/visitscotland/vs-component-library/commit/4e57b40da1c6a943b925fb4d287acf8f14f1d35d))
+* **forms:** allow submit button to be conditionally disabled ([d2ec0e1](https://github.com/visitscotland/vs-component-library/commit/d2ec0e1f13216eb70bb228f08e05ae23a26cf55c))
+* **forms:** fix infinite loop in multi-conditional fields ([9137aef](https://github.com/visitscotland/vs-component-library/commit/9137aefd1c889d7f7645d51236f366daf6ba550b))
+* **forms:** make text block aria-live ([ae0a723](https://github.com/visitscotland/vs-component-library/commit/ae0a723f1f3e8e79c30ef28eedf49113d7a316be))
+
+## [5.71.4](https://github.com/visitscotland/vs-component-library/compare/v5.71.3...v5.71.4) (2026-07-21)
+
+
+### Bug Fixes
+
+* **main map:** reset selected destination category ([53aa213](https://github.com/visitscotland/vs-component-library/commit/53aa2135a8abe95cc31478d1b182726b76476df2))
+
+## [5.71.3](https://github.com/visitscotland/vs-component-library/compare/v5.71.2...v5.71.3) (2026-07-20)
+
+
+### Bug Fixes
+
+* **main map:** use dynamic viewport height to account for browser's expanding address bar ([154644e](https://github.com/visitscotland/vs-component-library/commit/154644ef07b7b775fa156321f0984f3d4442a57c))
+
+## [5.71.2](https://github.com/visitscotland/vs-component-library/compare/v5.71.1...v5.71.2) (2026-07-20)
+
+
+### Bug Fixes
+
+* **main map sidebar:** make search results scrollable ([4f68af3](https://github.com/visitscotland/vs-component-library/commit/4f68af33efa5ffbad7b4176e0d0bdcfaaf5e58e6))
+
+## [5.71.1](https://github.com/visitscotland/vs-component-library/compare/v5.71.0...v5.71.1) (2026-07-15)
+
+
+### Bug Fixes
+
+* **main map sidebar:** allow sidebar height to change based on content ([866f9cb](https://github.com/visitscotland/vs-component-library/commit/866f9cb9283fd5226e19e34b570aecca4a9ab300))
+* **main map sidebar:** update sidebar height when screen resizes ([74a55d8](https://github.com/visitscotland/vs-component-library/commit/74a55d8319d06a079007ee825a6c65774df76590))
+
 # [5.71.0](https://github.com/visitscotland/vs-component-library/compare/v5.70.0...v5.71.0) (2026-07-14)
 
 

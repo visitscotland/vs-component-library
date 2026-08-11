@@ -15,7 +15,7 @@ export default {
         VsVideo,
         VsRow,
     },
-    title: 'Components/Navigation/LinkList',
+    title: 'Components/To be reviewed/LinkList',
     decorators: [() => ({
         template: '<div style="max-width: 500px;"><story /></div>',
     })],

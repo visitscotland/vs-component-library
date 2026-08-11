@@ -69,15 +69,16 @@ import VsLinkList from '@/components/link-list/LinkList.vue';
 import { VsRow, VsCol } from '@/components/grid';
 
 /**
- * This component is a variant of the megalinks component with a large image
- * and an overlaid panel containing content.
+ * @deprecated ⚠️ Use new card layout patterns and guidance. 
+ * This component will be removed in a future release.
+ * @see https://visitscotland.atlassian.net/wiki/spaces/DE/pages/1354137631/Megalinks+deprecated
  *
  * @displayName Megalinks Single Image
  */
 
 export default {
     name: 'VsMegalinkSingleImage',
-    status: 'prototype',
+    status: 'deprecated',
     release: '0.0.1',
     components: {
         VsHeading,

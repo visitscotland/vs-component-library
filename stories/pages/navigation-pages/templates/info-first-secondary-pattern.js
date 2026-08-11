@@ -211,155 +211,100 @@ export default `
     ------------------------------------------------------------>
 
     <!------------------------------------------------------------
-    MEGALINKS MULTI VIDEO
+    Video swiper
     ------------------------------------------------------------>
-    <VsMegalinks 
-        title="Climate action case studies"
-        variant="multi-image" 
-        theme="light"
-    >
-        <template v-slot:vs-megalinks-intro>
-            <p>Watch our video case studies to learn the different ways Scottish tourism businesses are embracing sustainability to combat climate change.</p>
-        </template>
-        
-        <VsCol cols="10" class="offset-1">
-            <VsContainer>
-                <VsRow>
-                    <VsCol
-                        cols="12"
-                        md="6"
-                        xl="4"
-                    >
-                        <VsMegalinkMultiImage
-                            theme="light"
-                            img-src="https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/03-mar/glen-mhor_yt.jpg"
-                            link-type="video"
-                            link-url="#"
+    
+    <section class="mt-500">
+        <VsSectionHeader
+            class="mb-200 mb-xl-300"
+            heading="Climate action case studies"
+        >
+            <template v-slot:section-header-lede>
+                <p>
+                    Watch our video case studies to learn the different ways Scottish tourism businesses are embracing sustainability to combat climate change.
+                </p>
+            </template>
+        </VsSectionHeader>
+
+        <VsContentSwiper
+            previousButtonLabel="Previous"
+            nextButtonLabel="Next"
+            slidesPerViewLg="2.4"
+        >
+            <VsContentSwiperSlide>
+                <figure class="w-100">
+                    <VsVideo 
+                        video-id="mKfYMgunKmU"
+                        error-message="Sorry, something's gone wrong. Please try again later"
+                        no-js-message="You need Javascript enabled to see this video"
+                        no-cookies-message="You need cookies enabled to see this video"
+                        cookie-btn-text="Manage cookies"
+                    />
+                    <figcaption>
+                        <VsMediaCaption 
                             video-id="mKfYMgunKmU"
-                            video-btn-text="Play Video"
-                            error-message="We're sorry, there's been an error"
                         >
-                            <template v-slot:vs-multi-image-heading>
-                                Climate Action Case Study: Glen Mhor
+                            <template v-slot:caption>
+                                Glen Mhor Hotel & Apartments and Distillery talk through their approach to creating a sustainable business.
                             </template>
+                        </VsMediaCaption>
+                    </figcaption>
+                </figure>
+            </VsContentSwiperSlide>
 
-                            <template v-slot:vs-multi-image-content>
-                                <p>Glen Mhor Hotel & Apartments and Distillery talk through their approach to creating a sustainable business.</p>
-                            </template>
-                        </VsMegalinkMultiImage>
-
-                        <VsModal
-                            modal-id="mKfYMgunKmU"
-                            close-btn-text="Close"
-                            :is-video-modal="true"
-                        >
-                            <VsRow>
-                                <VsCol cols="12">
-                                    <VsVideo
-                                        video-id="mKfYMgunKmU"
-                                        class="mb-200"
-                                        no-js-message="You need Javascript enabled"
-                                        no-cookies-message="You need cookies enabled"
-                                        cookie-btn-text="Cookie button"
-                                    />
-                                </VsCol>
-                            </VsRow>
-                        </VsModal>
-                    </VsCol>
-
-                    <VsCol
-                        cols="12"
-                        md="6"
-                        xl="4"
-                    >
-                        <VsMegalinkMultiImage
-                            theme="light"
-                            img-src="https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/03-mar/wilderness-scotland_yt.jpg"
-                            link-type="video"
-                            link-url="#"
+            <VsContentSwiperSlide>
+                <figure class="w-100">
+                    <VsVideo 
+                        video-id="MvRTuU9nf6g"
+                        error-message="Sorry, something's gone wrong. Please try again later"
+                        no-js-message="You need Javascript enabled to see this video"
+                        no-cookies-message="You need cookies enabled to see this video"
+                        cookie-btn-text="Manage cookies"
+                    />
+                    <figcaption>
+                        <VsMediaCaption 
                             video-id="MvRTuU9nf6g"
-                            video-btn-text="Play Video"
-                            error-message="We're sorry, there's been an error"
                         >
-                            <template v-slot:vs-multi-image-heading>
-                                Climate Case Study: Wilderness Scotland
+                            <template v-slot:caption>
+                                Learn how Wilderness Scotland has adapted their business to prioritise sustainability.
                             </template>
+                        </VsMediaCaption>
+                    </figcaption>
+                </figure>
+            </VsContentSwiperSlide>
 
-                            <template v-slot:vs-multi-image-content>
-                                <p>Learn how Wilderness Scotland has adapted their business to prioritise sustainability.</p>
-                            </template>
-                        </VsMegalinkMultiImage>
-
-                        <VsModal
-                            modal-id="MvRTuU9nf6g"
-                            close-btn-text="Close"
-                            :is-video-modal="true"
+            <VsContentSwiperSlide>
+                <figure class="w-100">
+                    <VsVideo 
+                        video-id="MvRTuU9nf6g"
+                        error-message="Sorry, something's gone wrong. Please try again later"
+                        no-js-message="You need Javascript enabled to see this video"
+                        no-cookies-message="You need cookies enabled to see this video"
+                        cookie-btn-text="Manage cookies"
+                    />
+                    <figcaption>
+                        <VsMediaCaption 
+                            video-id="MvRTuU9nf6g"
                         >
-                            <VsRow>
-                                <VsCol cols="12">
-                                    <VsVideo
-                                        video-id="MvRTuU9nf6g"
-                                        class="mb-200"
-                                        no-js-message="You need Javascript enabled"
-                                        no-cookies-message="You need cookies enabled"
-                                        cookie-btn-text="Cookie button"
-                                    />
-                                </VsCol>
-                            </VsRow>
-                        </VsModal>
-                    </VsCol>
-
-                    <VsCol
-                        cols="12"
-                        md="6"
-                        xl="4"
-                    >
-                        <VsMegalinkMultiImage
-                            theme="light"
-                            img-src="https://support.visitscotland.org/binaries/content/gallery/bsh/cms-images/03-mar/crannog_yt.jpg"
-                            link-type="video"
-                            link-url="#"
-                            video-id="U5ETXgcP1jE"
-                            video-btn-text="Play Video"
-                            error-message="We're sorry, there's been an error"
-                        >
-                            <template v-slot:vs-multi-image-heading>
-                                Climate Action Case Study: The Scottish Crannog Centre
+                            <template v-slot:caption>
+                                Find out how The Scottish Crannog Centre have put sustainability at the heart of their business.
                             </template>
+                        </VsMediaCaption>
+                    </figcaption>
+                </figure>
+            </VsContentSwiperSlide>
+        </VsContentSwiper>
+    </section>
+    <!------------------------------------------------------------
+    SECTION END
+    ------------------------------------------------------------>
 
-                            <template v-slot:vs-multi-image-content>
-                                <p>Find out how The Scottish Crannog Centre have put sustainability at the heart of their business.</p>
-                            </template>
-                        </VsMegalinkMultiImage>
-
-                        <VsModal
-                            modal-id="U5ETXgcP1jE"
-                            close-btn-text="Close"
-                            :is-video-modal="true"
-                        >
-                            <VsRow>
-                                <VsCol cols="12">
-                                    <VsVideo
-                                        video-id="U5ETXgcP1jE"
-                                        class="mb-200"
-                                        no-js-message="You need Javascript enabled"
-                                        no-cookies-message="You need cookies enabled"
-                                        cookie-btn-text="Cookie button"
-                                    />
-                                </VsCol>
-                            </VsRow>
-                        </VsModal>
-                    </VsCol>
-                </VsRow>
-            </VsContainer>
-        </VsCol>
-    </VsMegalinks>
 
     <!------------------------------------------------------------
     NEW SECTION - Section header + content swiper
     ------------------------------------------------------------>
 
-    <section class="mb-500">
+    <section class="mt-500 mb-500">
         <VsSectionHeader
             class="mb-200 mb-xl-300"
             heading="Related pages"
