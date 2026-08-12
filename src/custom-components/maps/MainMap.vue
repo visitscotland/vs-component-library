@@ -883,6 +883,7 @@ async function searchByCategory() {
 
     let location;
     let coords;
+    let zoom;
 
     if (selectedDestination.value) {
         location = selectedDestination.value.toLowerCase();
@@ -1369,15 +1370,12 @@ function handleCategoryUpdate() {
     }
 }
 
-const searchCriteria = computed(() => ({
-    category: mapCategoryStore.selectedCategory,
-    subcategories: [...mapCategoryStore.selectedSubcategories],
-}));
+const searchCriteria = computed(() => [
+    mapCategoryStore.selectedCategory ?? '',
+    [...mapCategoryStore.selectedSubcategories].sort().join(','),
+].join('|'));
 
-watch(searchCriteria, (newValue, oldValue) => {
-    if (newValue === oldValue) return;
-    handleCategoryUpdate();
-});
+watch(searchCriteria, handleCategoryUpdate);
 </script>
 
 <style lang="scss">
