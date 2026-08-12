@@ -19,20 +19,21 @@ export default function useUpdateSearchParams() {
         const category = params.get('category');
         const location = params.get('location');
         const subcategories = params.get('subcategories');
-        const zoom = Number(params.get('zoom'));
-        
+        const searchTerm = params.get('search-term');
+
+        const zoomParam = params.get('zoom');
+        const zoomValue = zoomParam === null ? NaN : Number(zoomParam);
+        const zoom = Number.isFinite(zoomValue) ? zoomValue : undefined;
         
         const coordsParam = params.get('coords');
         let coords: number[] | undefined;
         
         if (coordsParam) {
-            coords = coordsParam.split(',')
-                .map((el) => Number(el));
-        }
-        
-        let searchTerm = params.get('search-term');
-        if (searchTerm) {
-            searchTerm = decodeURI(searchTerm);
+            const parsed = coordsParam.split(',').map((el) => Number(el));
+
+            if (parsed.length === 2 && parsed.every(Number.isFinite)) {
+                coords = parsed;
+            }
         }
         
         return {
