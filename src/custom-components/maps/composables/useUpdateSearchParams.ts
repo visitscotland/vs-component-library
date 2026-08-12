@@ -1,5 +1,5 @@
 export default function useUpdateSearchParams() {
-    function updateSearchParams(updates: Record<string, string | null>) {
+    function updateSearchParams(updates: Record<string, string | null>, replace: boolean) {
         const url = new URL(window.location.href);
         
         for (const [key, value] of Object.entries(updates)) {
@@ -10,8 +10,13 @@ export default function useUpdateSearchParams() {
             }
         }
         
-        // eslint-disable-next-line object-curly-newline
-        history.pushState({}, '', url);
+        if (replace) {
+            // eslint-disable-next-line object-curly-newline
+            history.replaceState({}, '', url);
+        } else {            
+            // eslint-disable-next-line object-curly-newline
+            history.pushState({}, '', url);
+        }
     }
 
     function getSearchParams() {

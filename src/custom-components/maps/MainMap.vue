@@ -437,7 +437,7 @@ onMounted(async() => {
      */
 
     if (props.categoriesLocation) {
-        axios.get(props.categoriesLocation)
+        await axios.get(props.categoriesLocation)
             .then((response) => {
                 googleMapStore.categoryData = response.data;
                 keywords.value = response.data.accommodation.keywords;
@@ -541,11 +541,14 @@ onMounted(async() => {
             }
 
             if (isUserMove.value) {
-                updateSearchParams({
-                    coords: gMap.getCenter().toString().replace(/[()\s]/g, ''),
-                    location: null,
-                    zoom: gMap.getZoom(),
-                });
+                updateSearchParams(
+                    {
+                        coords: gMap.getCenter().toString().replace(/[()\s]/g, ''),
+                        location: null,
+                        zoom: gMap.getZoom(),
+                    },
+                    true,
+                );
             }
         });
 
@@ -593,14 +596,13 @@ onMounted(async() => {
                     place.properties.title.toLowerCase() === location.toLowerCase()
                 ));
 
-                if (!placeData) return;
-
-                // Zoom into location and run a category search.
-                handleFeaturedLocationClick(placeData, category);
-
-                // Set selectedSubcategories if the subcategory parameter has been set.
-                setSubcategories(subcategories);
-                return;
+                if (placeData) {
+                    // Zoom into location and run a category search.
+                    handleFeaturedLocationClick(placeData, category);
+                    // Set selectedSubcategories if the subcategory parameter has been set.
+                    setSubcategories(subcategories);
+                    return;
+                }
             }
 
             // If the `coord` and `zoom` parameters have been set.
@@ -644,14 +646,17 @@ onMounted(async() => {
             addDestinationMarkers();
 
             // Clear all map params.
-            updateSearchParams({
-                category: null,
-                coords: null,
-                location: null,
-                'search-term': null,
-                subcategories: null,
-                zoom: null,
-            });
+            updateSearchParams(
+                {
+                    category: null,
+                    coords: null,
+                    location: null,
+                    'search-term': null,
+                    subcategories: null,
+                    zoom: null,
+                },
+                false,
+            );
         });
 
         gMap.addListener('idle', () => {
@@ -666,12 +671,15 @@ onMounted(async() => {
                 selectedDestination.value = '';
                 isUserMove.value = false;
 
-                updateSearchParams({
-                    coords: gMap.getCenter().toString().replace(/[()\s]/g, ''),
-                    location: null,
-                    'search-term': null,
-                    zoom: gMap.getZoom(),
-                });
+                updateSearchParams(
+                    {
+                        coords: gMap.getCenter().toString().replace(/[()\s]/g, ''),
+                        location: null,
+                        'search-term': null,
+                        zoom: gMap.getZoom(),
+                    },
+                    true,
+                );
             }
         });
 
@@ -884,13 +892,16 @@ async function searchByCategory() {
         coords = gMap.getCenter().toString().replace(/[()\s]/g, '');
     }
 
-    updateSearchParams({
-        location,
-        category: mapCategoryStore.selectedCategory,
-        subcategories: mapCategoryStore.selectedSubcategories.join(','),
-        'search-term': null,
-        coords,
-    });
+    updateSearchParams(
+        {
+            location,
+            category: mapCategoryStore.selectedCategory,
+            subcategories: mapCategoryStore.selectedSubcategories.join(','),
+            'search-term': null,
+            coords,
+        },
+        false,
+    );
 }
 
 async function searchByText(useRestriction = false) {
@@ -964,13 +975,16 @@ async function searchByText(useRestriction = false) {
         coords = null;
     }
 
-    updateSearchParams({
-        location: null,
-        category,
-        subcategories,
-        coords,
-        'search-term': searchTerm,
-    });
+    updateSearchParams(
+        {
+            location: null,
+            category,
+            subcategories,
+            coords,
+            'search-term': searchTerm,
+        },
+        false,
+    );
 
     textSearch.addEventListener('gmp-load', () => {
         if (searchId !== currentSearchId) return;
@@ -1143,13 +1157,16 @@ function resetMap(hardReset, resetLocation) {
 
     if (hardReset || resetLocation) {
         // Remove the search params.
-        updateSearchParams({
-            location: null,
-            category: null,
-            coords: null,
-            'search-term': null,
-            zoom: null,
-        });
+        updateSearchParams(
+            {
+                location: null,
+                category: null,
+                coords: null,
+                'search-term': null,
+                zoom: null,
+            },
+            false,
+        );
     }
 }
 
@@ -1293,12 +1310,15 @@ function handleFeaturedLocationClick(place, category) {
         ),
     ));
 
-    updateSearchParams({
-        location: place.properties.title.toLowerCase(),
-        coords: null,
-        'search-term': null,
-        zoom: null,
-    });
+    updateSearchParams(
+        {
+            location: place.properties.title.toLowerCase(),
+            coords: null,
+            'search-term': null,
+            zoom: null,
+        },
+        false,
+    );
 
     // Check to see if the category matches one of ours.
     const categoryExists = category in googleMapStore.categoryData;
