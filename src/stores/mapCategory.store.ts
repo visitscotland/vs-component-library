@@ -14,24 +14,25 @@ const useMapCategoryStore = defineStore('mapCategoryStore', () => {
 
     // Get the label of the selected category.
     const selectedCategoryLabel = computed(() => {
-        const category = googleMapStore.categoryLabelData.find(
+        const category = googleMapStore.categoryLabelData?.find(
             (category) => category.id === selectedCategory.value,
         );
-        return category.label;
+        return category?.label;
     });
 
     const selectedSubcategoryLabels = computed(() => {
         const category = googleMapStore.categoryLabelData.find(
-            ({ id }) => id === selectedCategory.value,
+            ({ id }: { id: string }) => id === selectedCategory.value,
         );
 
         if (!category) return;
 
         const labels = selectedSubcategories.value.map(
             (subcategory) =>
-                Object.values(category.subCategory).find(
-                    ({ id }) => id === subcategory,
-                ).label,
+                // eslint-disable-next-line object-curly-newline
+                Object.values(category.subCategory ?? {}).find(
+                    ({ id }: { id: string }) => id === subcategory,
+                )?.label,
         );
 
         return labels.join(', ');
@@ -40,14 +41,15 @@ const useMapCategoryStore = defineStore('mapCategoryStore', () => {
     function getSubcategoryLabel(subcategoryId: string) {
         // Get the label data for the selected category.
         const category = googleMapStore.categoryLabelData.find(
-            ({ id }) => id === selectedCategory.value,
+            ({ id }: { id: string }) => id === selectedCategory.value,
         );
 
         if (!category) return;
 
-        return Object.values(category.subCategory).find(
+        // eslint-disable-next-line object-curly-newline
+        return Object.values(category.subCategory ?? {}).find(
             ({ id }: { id: string }) => id === subcategoryId,
-        ).label;
+        )?.label;
     }
 
     // Get the included/excluded types for the selected category.
@@ -56,10 +58,10 @@ const useMapCategoryStore = defineStore('mapCategoryStore', () => {
         type: 'includedType' | 'excludedType',
     ) {
         return new Set([
-            ...(category[type] ?? []),
-            ...category.subCategory?.flatMap(
+            ...(category?.[type] ?? []),
+            ...(category?.subCategory?.flatMap(
                 (subcategory) => subcategory[type] ?? [],
-            ),
+            ) ?? []),
         ]);
     }
 
@@ -82,13 +84,13 @@ const useMapCategoryStore = defineStore('mapCategoryStore', () => {
         const excluded = new Set();
 
         selectedSubcategories.value.forEach((id) => {
-            const subcategory = subcategoryMap.value[id];
+            const subcategory = subcategoryMap.value?.[id];
             if (!subcategory) return;
 
-            subcategory.includedType?.forEach((type) =>
+            subcategory.includedType?.forEach((type: string) =>
                 included.add(type),
             );
-            subcategory.excludedType?.forEach((type) =>
+            subcategory.excludedType?.forEach((type: string) =>
                 excluded.add(type),
             );
         });

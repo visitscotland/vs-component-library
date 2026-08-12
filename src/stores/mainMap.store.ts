@@ -12,9 +12,10 @@ const useGoogleMapStore = defineStore('googleMap', () => {
     const selectedDestinationType = ref<string | undefined>(undefined);
     const searchTerm = ref<string | undefined>(undefined);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const categoryLabelData = ref<any>();
+    const categoryLabelData = ref<any>([]);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const categoryData = ref<any>();
+    const categoryData = ref<any>({
+    });
 
     return {
         sidebarOpen,
