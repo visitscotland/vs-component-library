@@ -966,6 +966,7 @@ async function searchByText(useRestriction = false) {
     let subcategories;
     let coords;
     let searchTerm;
+    let zoom;
 
     if (mapCategoryStore.selfCateringClicked) {
         category = 'accommodation';

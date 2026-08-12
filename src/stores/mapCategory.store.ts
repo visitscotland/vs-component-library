@@ -128,6 +128,7 @@ const useMapCategoryStore = defineStore('mapCategoryStore', () => {
 
     function clearSubcategories() {
         selectedSubcategories.value = [];
+        selfCateringClicked.value = false;
     }
 
     return {
