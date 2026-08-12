@@ -63,7 +63,7 @@
                     </div>
 
                     <a
-                        v-if="props.query || props.selectedCategory"
+                        v-if="props.query || mapCategoryStore.selectedCategory"
                         class="d-block"
                         href="#"
                         data-test="vs-map-sidebar__reset-map"
@@ -109,17 +109,17 @@
                 <div class="vs-map-sidebar__section3">
                     <div class="vs-map-sidebar__search-results">
                         <VsHeading
-                            v-if="$props.query || $props.selectedCategory"
+                            v-if="props.query || mapCategoryStore.selectedCategory"
                             data-test="vs-map-sidebar__search-result-query"
                             heading-style="heading-xxxs"
                             level="2"
                         >
                             {{ props.sidebarLabels.searchResultsLabel }}
-                            "{{ props.query || props.selectedCategory }}"
+                            "{{ props.query || mapCategoryStore.selectedCategory }}"
                         </VsHeading>
 
                         <a
-                            v-if="props.query || props.selectedCategory"
+                            v-if="props.query || mapCategoryStore.selectedCategory"
                             href="#"
                             data-test="vs-map-sidebar__hard-reset-map"
                             @click.prevent="$emit('reset-location')"
@@ -275,11 +275,6 @@ type Props = {
     mapLoaded?: boolean;
     /** Test query from Map Search */
     query?: string;
-    /** Selected top level category */
-    selectedCategory?: string;
-    /** Selected sub categories */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    selectedSubcategories?: any;
     /** Labels for the sidebar */
     sidebarLabels: Record<string, string>;
 };
@@ -288,8 +283,6 @@ const props = withDefaults(defineProps<Props>(), {
     categoryData: undefined,
     mapLoaded: false,
     query: undefined,
-    selectedCategory: undefined,
-    selectedSubcategories: undefined,
 });
 
 // Two-way binding for sidebar open/close state.
@@ -303,18 +296,10 @@ const isResultsOpen = defineModel<boolean>('isResultsOpen', {
 });
 
 const emit = defineEmits<{
-    'category-selected': [{
-        id: string;
-        key: number | string;
-    }],
     'destination-type-selected': [],
     'reset-location': [],
     'reset-map': [],
     'search-input-changed': [],
-    'subcategory-selected': [{
-        id: string;
-        key: number | string;
-    }],
 }>();
 
 const sidebar = useTemplateRef('sidebar');

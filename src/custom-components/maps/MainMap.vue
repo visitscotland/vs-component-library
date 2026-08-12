@@ -15,15 +15,11 @@
                 :destinations="filteredPlaces"
                 :map-loaded="mapLoaded"
                 :query="query"
-                :selected-category="mapCategoryStore.selectedCategory"
-                :selected-subcategories="mapCategoryStore.selectedSubcategories"
                 :sidebar-labels="sidebarLabels"
-                @category-selected="(e) => mapCategoryStore.selectedCategory = e.id"
                 @destination-type-selected="addDestinationMarkers"
                 @reset-map="resetMap(true)"
                 @reset-location="resetMap(true, true)"
                 @search-input-changed="searchByText"
-                @subcategory-selected="mapCategoryStore.toggleSubcategory(e.id)"
             >
                 <template #vs-map-sidebar-search-results>
                     <div
