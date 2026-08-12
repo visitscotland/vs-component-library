@@ -810,8 +810,8 @@ async function searchByCategory() {
         resetTextQuery();
     }
 
-    query.value = label;
-    searchInput.value = label;
+    query.value = label ?? '';
+    searchInput.value = label ?? '';
 
     googleMapStore.showCategories = true;
 
@@ -887,9 +887,11 @@ async function searchByCategory() {
     if (selectedDestination.value) {
         location = selectedDestination.value.toLowerCase();
         coords = null;
+        zoom = null;
     } else {
         location = null;
         coords = gMap.getCenter().toString().replace(/[()\s]/g, '');
+        zoom = gMap.getZoom();
     }
 
     updateSearchParams(
@@ -899,6 +901,7 @@ async function searchByCategory() {
             subcategories: mapCategoryStore.selectedSubcategories.join(','),
             'search-term': null,
             coords,
+            zoom,
         },
         false,
     );
@@ -968,11 +971,13 @@ async function searchByText(useRestriction = false) {
         subcategories = 'self-catering';
         searchTerm = null;
         coords = gMap.getCenter().toString().replace(/[()\s]/g, '');
+        zoom = gMap.getZoom();
     } else {
         category = null;
         subcategories = null;
         searchTerm = query.value;
         coords = null;
+        zoom = null;
     }
 
     updateSearchParams(
@@ -982,6 +987,7 @@ async function searchByText(useRestriction = false) {
             subcategories,
             coords,
             'search-term': searchTerm,
+            zoom,
         },
         false,
     );
@@ -1161,6 +1167,7 @@ function resetMap(hardReset, resetLocation) {
             {
                 location: null,
                 category: null,
+                subcategories: null,
                 coords: null,
                 'search-term': null,
                 zoom: null,
