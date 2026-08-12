@@ -171,7 +171,7 @@ export default {
                 @extend %button-default-styles;
                 @extend %button-default-font-weight;
 
-                color: $vs-color-text-cta-on-light;
+                color: $vs-color-text-inverse;
                 transition: none;
                 padding-top: $vs-spacer-050;
                 margin-bottom: 0;
@@ -181,7 +181,7 @@ export default {
 
                 .vs-icon{
                     transition: none;
-                    color: $vs-color-text-cta-on-light;
+                    color: $vs-color-text-inverse;
                 }
 
                 & > span {

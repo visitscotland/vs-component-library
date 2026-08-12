@@ -138,13 +138,15 @@ export default {
             }
 
             .dropdown-item {
-                &:hover, &.active, &:active {
-                    color: $vs-color-text-cta-on-light;
+                &:hover, &.active, &:active,
+                &:hover:focus, &:active:focus {
+                    color: $vs-color-text-inverse;
                     background-color: $vs-color-interaction-cta-subtle-hover;
                     outline: 0;
                 }
 
-                &:focus {
+                &:focus  {
+                    box-shadow: $vs-focus-shadow;
                     outline: 0;
                     color: $vs-color-text-cta-on-light;
                     box-shadow: $vs-focus-shadow inset;

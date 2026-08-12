@@ -1,25 +1,25 @@
 props:
     ## Color roles
     - name: vs-color-text-primary
-      value: "{!vs-basalt-90}"
+      value: "{!vs-cloud-90}"
     - name: vs-color-text-secondary
       value: "{!vs-cloud-60}"
     - name: vs-color-text-tertiary
-      value: "{!vs-heather-60}"
+      value: "{!vs-thistle-80}"
     - name: vs-color-text-inverse
       value: "{!vs-snow-00}"
     - name: vs-color-text-cta-on-light
-      value: "{!vs-saltire-60}"
+      value: "{!vs-thistle-80}"
     - name: vs-color-text-highlight
-      value: "{!vs-bramble-60}"
+      value: "{!vs-tolsta-50}"
     - name: vs-color-text-brand
-      value: "{!vs-thistle-70}"
+      value: "{!vs-thistle-80}"
     - name: vs-color-text-error
       value: "{!vs-color-support-error}"
     - name: vs-color-text-success
       value: "{!vs-color-support-success}"
     - name: vs-color-text-disabled
-      value: "{!vs-cloud-40}"
+      value: "{!vs-color-support-disabled}"
 imports:
   - ../../primitives/color/color-primitives.yml
   - ../../primitives/color/color-support-primitives.yml

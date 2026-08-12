@@ -301,7 +301,7 @@ export default {
                     $vs-color-text-cta-on-light,
                     $vs-color-interaction-cta-subtle,
                     $vs-color-interaction-cta-subtle,
-                    $vs-color-text-cta-on-light,
+                    $vs-color-text-inverse,
                     $vs-color-interaction-cta-subtle-hover,
                     $vs-color-interaction-cta-subtle-hover,
                     $vs-color-text-inverse,

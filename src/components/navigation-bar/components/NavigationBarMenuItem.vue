@@ -107,6 +107,7 @@ export default {
             color: $vs-color-text-primary;
 
             &:hover {
+                color: $vs-color-text-inverse;
                 background-color: $vs-color-interaction-cta-subtle-hover;
             }
 

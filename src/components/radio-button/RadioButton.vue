@@ -360,7 +360,7 @@ export default {
                 &:hover:not(:focus):not(:focus-within):not(:active) {
                     background-color: $vs-color-interaction-cta-subtle-hover;
                     border-color: $vs-color-interaction-cta-subtle-hover;
-                    color: $vs-color-text-cta-on-light;
+                    color: $vs-color-text-inverse;
 
                     label {
                         &::before {

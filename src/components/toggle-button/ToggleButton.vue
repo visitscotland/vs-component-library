@@ -296,7 +296,7 @@ export default {
                 $vs-color-text-cta-on-light,
                 transparent,
                 transparent,
-                $vs-color-text-cta-on-light,
+                $vs-color-text-inverse,
                 $vs-color-interaction-cta-subtle-hover,
                 $vs-color-interaction-cta-subtle-hover,
                 $vs-color-text-inverse,

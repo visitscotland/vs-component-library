@@ -64,7 +64,7 @@ export default {
     .vs-tab-link {
         width: 100%;
         background-color: $vs-color-interaction-cta-subtle-hover;
-        color: $vs-color-text-primary;
+        color: $vs-color-text-inverse;
         border-width: $vs-border-width-sm;
         border-color: $vs-color-border-primary;
         padding: $vs-spacer-100 $vs-spacer-075;

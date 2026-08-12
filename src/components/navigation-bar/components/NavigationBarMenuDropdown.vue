@@ -137,7 +137,7 @@ export default {
             $vs-color-text-cta-on-light,
             $vs-color-interaction-cta-subtle,
             $vs-color-interaction-cta-subtle,
-            $vs-color-text-cta-on-light,
+            $vs-color-text-inverse,
             $vs-color-interaction-cta-subtle-hover,
             $vs-color-interaction-cta-subtle-hover,
             $vs-color-text-inverse,
@@ -146,7 +146,14 @@ export default {
         );
 
         &::after {
+            transition: $transition-base;
             color: $vs-color-text-cta-on-light;
+        }
+
+        &:hover {
+            &::after {
+                color: $vs-color-text-inverse;
+            }
         }
 
         &:focus {

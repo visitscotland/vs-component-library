@@ -1,35 +1,36 @@
 props:
     ## Color roles
     - name: vs-color-interaction-focus
-      value: "{!vs-saltire-50}"
+      value: "{!vs-thistle-70}"
     - name: vs-color-interaction-focus-on-bold
       value: "{!vs-snow-00}"
 
     ## CTA
     - name: vs-color-interaction-cta-primary
-      value: "{!vs-saltire-60}"
+      value: "{!vs-thistle-80}" 
     - name: vs-color-interaction-cta-secondary
       value: "{!vs-snow-00}"
     - name: vs-color-interaction-cta-hover
-      value: "{!vs-saltire-70}"
+      value: "{!vs-thistle-60}"
     - name: vs-color-interaction-cta-pressed
-      value: "{!vs-saltire-80}"
+      value: "{!vs-thistle-70}"
     - name: vs-color-interaction-cta-disabled
-      value: "{!vs-color-support-disabled}"  
-    - name: vs-color-interaction-cta-subtle-hover
-      value: "{!vs-saltire-10}"
-    - name: vs-color-interaction-cta-subtle-pressed
-      value: "{!vs-saltire-50}"
+      value: "{!vs-color-support-disabled}"
     - name: vs-color-interaction-cta-subtle
       value: "transparent"
+    - name: vs-color-interaction-cta-subtle-hover
+      value: "{!vs-thistle-60}"
+    - name: vs-color-interaction-cta-subtle-pressed
+      value: "{!vs-thistle-80}"
 
     ## Link  
     - name: vs-color-interaction-link-primary
-      value: "{!vs-saltire-60}"
+      value: "{!vs-thistle-70}"
     - name: vs-color-interaction-link-secondary
-      value: "{!vs-basalt-90}"
+      value: "{!vs-cloud-90}"
+
     - name: vs-color-interaction-link-active
-      value: "{!vs-saltire-80}"
+      value: "{!vs-thistle-60}"
     - name: vs-color-interaction-link-visited
       value: "{!vs-bramble-60}"
     - name: vs-color-interaction-link-disabled

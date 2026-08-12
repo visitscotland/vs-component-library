@@ -25,6 +25,9 @@ imports:
   - ./semantic/typography/line-height.yml
   - ./semantic/typography/letter-spacing.yml
 
+
+# These tokens need reviewed and added to the 
+# semantic folder structure
   - ./icon/icon-size.yml
   - ./icon/icon.yml
   - ./font-size.yml

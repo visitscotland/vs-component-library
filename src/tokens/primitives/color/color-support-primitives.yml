@@ -8,6 +8,6 @@ aliases:
   vs-color-support-disabled:
     value: "{!vs-cloud-10}"
   vs-color-support-information:
-    value: "{!vs-heather-10}"
+    value: "{!vs-cloud-05}"
 imports:
-  - ./color-primitives.yml
+- ./color-primitives.yml

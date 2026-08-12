@@ -152,19 +152,23 @@ export default {
                     border: 0;
 
                     &:hover {
-                        color: $vs-color-icon-cta-on-light;
+                        color: $vs-color-interaction-cta-hover;
+
+                        .vs-icon{
+                            color: $vs-color-interaction-cta-hover;
+                        }
                     }
 
                     .vs-icon{
-                        color: $vs-color-icon-primary;
+                        color: $vs-color-icon-inverse;
                     }
 
                     &:active, &:active:focus {
                         background-color: $vs-color-interaction-cta-subtle-hover;
-                        color: $vs-color-text-primary;
+                        color: $vs-color-text-inverse;
 
                         .vs-icon{
-                            color: $vs-color-icon-primary;
+                            color: $vs-color-icon-inverse;
                         }
                     }
                 }
@@ -181,6 +185,7 @@ export default {
 
                 &:active, &:active:focus, &.vs-accordion-toggle--open {
                     background-color: $vs-color-interaction-cta-subtle-hover;
+                    color: $vs-color-text-inverse;
                 }
             }
         }

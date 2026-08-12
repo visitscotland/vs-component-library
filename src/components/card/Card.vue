@@ -174,7 +174,7 @@ export default {
             transition: all $duration-base;
 
             &:hover {
-                border-color: $vs-color-border-bold;
+                border-color: $vs-color-border-secondary;
             }
         }
 

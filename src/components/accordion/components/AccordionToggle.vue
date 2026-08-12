@@ -87,7 +87,7 @@ export default {
         .vs-accordion-toggle__icon,
         .vs-accordion-toggle__text {
             .vs-icon {
-                color: $vs-color-icon-cta-on-light;
+                color: $vs-color-icon-inverse;
             }
         }
     }

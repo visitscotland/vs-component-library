@@ -4,15 +4,15 @@ props:
     - name: vs-color-background-primary
       value: "{!vs-snow-00}"
     - name: vs-color-background-secondary
-      value: "{!vs-heather-05}"
+      value: "{!vs-cloud-05}"
     - name: vs-color-background-bold
-      value: "{!vs-basalt-90}"
+      value: "{!vs-thistle-80}"
     - name: vs-color-background-brand
-      value: "{!vs-thistle-70}"
+      value: "{!vs-thistle-80}"
     - name: vs-color-background-inverse
       value: "{!vs-snow-00}"
     - name: vs-color-background-highlight
-      value: "{!vs-bramble-60}"  
+      value: "{!vs-tolsta-50}"
     - name: vs-color-background-information
       value: "{!vs-color-support-information}"
     - name: vs-color-background-success

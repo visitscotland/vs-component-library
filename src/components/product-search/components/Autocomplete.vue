@@ -180,7 +180,7 @@ onMounted(() => {
             &:hover,
             &--hover {
                 background-color: $vs-color-interaction-cta-subtle-hover;
-                color: $vs-color-text-cta-on-light;
+                color: $vs-color-text-inverse;
             }
         }
     }

@@ -1,7 +1,7 @@
 props:
     ## Color roles
     - name: vs-color-icon-primary
-      value: "{!vs-basalt-90}"
+      value: "{!vs-thistle-80}"
     - name: vs-color-icon-secondary
       value: "{!vs-cloud-60}"
     - name: vs-color-icon-tertiary
@@ -9,7 +9,7 @@ props:
     - name: vs-color-icon-inverse
       value: "{!vs-snow-00}"
     - name: vs-color-icon-cta-on-light
-      value: "{!vs-saltire-60}"
+      value: "{!vs-thistle-80}"
     - name: vs-color-icon-highlight
       value: "{!vs-bramble-60}"
     - name: vs-color-icon-success

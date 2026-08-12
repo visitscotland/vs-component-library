@@ -3,15 +3,13 @@ props:
     - name: vs-color-border-primary
       value: "{!vs-cloud-10}"
     - name: vs-color-border-secondary
-      value: "{!vs-heather-30}"
+      value: "{!vs-thistle-80}"
     - name: vs-color-border-inverse
       value: "{!vs-snow-00}"
     - name: vs-color-border-input
-      value: "{!vs-heather-60}"
+      value: "{!vs-cloud-60}"
     - name: vs-color-border-highlight
-      value: "{!vs-bramble-60}"
-    - name: vs-color-border-bold
-      value: "{!vs-basalt-90}"
+      value: "{!vs-tolsta-50}"
     - name: vs-color-border-success
       value: "{!vs-color-support-success}"
     - name: vs-color-border-warning
