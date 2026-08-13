@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-
 import { importLibrary } from '@googlemaps/js-api-loader';
 import { watch } from 'vue';
 import { storeToRefs } from 'pinia';
@@ -23,8 +21,9 @@ function getPolygonCenter(map: google.maps.Map, polygon: google.maps.Polygon): g
         .getPaths()
         .getArray()
         .flat();
-
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     polygonAreaPaths.forEach((polygonPaths: any) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         polygonPaths.getArray().forEach((edge: any) => {
             bounds.extend(new google.maps.LatLng(edge.lat(), edge.lng()));
         });
@@ -35,6 +34,7 @@ function getPolygonCenter(map: google.maps.Map, polygon: google.maps.Polygon): g
 
 async function attachListeners(
     polygon: google.maps.Polygon,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     tooltip?: any,
 ) {
     const googleMapStore = useGoogleBaseMapStore();
@@ -61,6 +61,8 @@ async function attachListeners(
         };
     });
 
+    if (!tooltip) return;
+
     const { isMarkerHovered } = storeToRefs(googleMapStore);
 
     watch(() => isMarkerHovered.value, (markerTooltipOpen) => {
@@ -80,6 +82,7 @@ async function attachListeners(
 
 async function createPolygon(
     map: google.maps.Map,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     polygonCoordinates: any,
     polygonProperties: BrxmFeatureProperties,
     isPolygonTooltipsEnabled: boolean,

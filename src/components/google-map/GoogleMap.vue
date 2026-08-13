@@ -46,7 +46,9 @@
                 </VsButton>
                 <VsButton
                     v-if="isAppleIOS"
-                    :icon="isFullscreen ? 'fa-regular fa-arrows-minimize' : 'fa-regular fa-arrows-maximize'"
+                    :icon="isFullscreen
+                        ? 'fa-regular fa-arrows-minimize' 
+                        : 'fa-regular fa-arrows-maximize'"
                     variant="secondary"
                     icon-only
                     size="sm"
@@ -195,6 +197,7 @@ const googleMapStore = useGoogleBaseMapStore();
 
 const mapRef = ref(null);
 const innerMap = shallowRef();
+const isDisposed = ref(false);
 
 const mapCenter = ref(null);
 const isFullscreen = ref(false);
@@ -212,13 +215,14 @@ onBeforeMount(() => {
 
 async function init() {
     // Import the needed libraries.
-    // eslint-disable-next-line no-undef
     await google.maps.importLibrary('maps');
-    // eslint-disable-next-line no-undef
     await google.maps.importLibrary('marker');
+    if (isDisposed.value || !mapRef.value) return;
 
     // Access the underlying map object.
     innerMap.value = mapRef.value.innerMap;
+    if (!innerMap.value) return;
+
 
     innerMap.value.setOptions({
         center: mapCenter.value,
@@ -228,9 +232,7 @@ async function init() {
         gestureHandling: props.googleMapsOptions.gestureHandling,
         isFractionalZoomEnabled: props.googleMapsOptions.isFractionalZoomEnabled,
         renderingType: props.googleMapsOptions.renderingTypeVector
-            // eslint-disable-next-line no-undef
             ? google.maps.RenderingType.VECTOR
-            // eslint-disable-next-line no-undef
             : google.maps.RenderingType.RASTER,
         restriction: {
             latLngBounds: props.mapBounds,
@@ -246,12 +248,9 @@ async function init() {
         && props.isViewToFitMarkers
         && googleMapStore.markers.length > 0
     ) {
-        // eslint-disable-next-line no-undef
         google.maps.event.addListenerOnce(innerMap.value, 'idle', () => {
-            // eslint-disable-next-line no-undef
             const bounds = new google.maps.LatLngBounds();
             googleMapStore.markers.forEach((marker) => {
-                // eslint-disable-next-line no-undef
                 bounds.extend(new google.maps.LatLng(marker.location[1], marker.location[0]));
             });
             mapCenter.value = bounds.getCenter();
@@ -260,7 +259,6 @@ async function init() {
     };
 
     if (props.polygonData) {
-        // eslint-disable-next-line no-undef
         google.maps.event.addListenerOnce(innerMap.value, 'tilesloaded', () => {
             props.polygonData.forEach((place) => {
                 addPolygon(
@@ -272,6 +270,7 @@ async function init() {
         });
     };
 };
+
 
 onMounted(async() => {
     setOptions({
@@ -286,9 +285,11 @@ onMounted(async() => {
 
 onBeforeUnmount(() => {
     // Destroy and reset map instance if component umnoumted
+    isDisposed.value = true;
     mapRef.value.remove();
-    // eslint-disable-next-line no-undef
-    google.maps.event.clearInstanceListeners(innerMap.value);
+    if (innerMap.value) {
+        google.maps.event.clearInstanceListeners(innerMap.value);
+    }
     mapRef.value = null;
     innerMap.value = null;
     googleMapStore.markers = [];
