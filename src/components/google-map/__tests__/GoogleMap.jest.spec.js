@@ -120,7 +120,7 @@ describe('VsGoogleMap', () => {
         });
     });
 
-    describe.only(':slots', () => {
+    describe(':slots', () => {
         it('should render in the #vs-google-map-marker slot when populated', () => {
             const slotMount = () => mount(VsGoogleMap, {
                 propsData: {

@@ -85,7 +85,7 @@
 </template>
 
 <script setup>
-import { VsTooltip } from '@/components';
+import VsTooltip from '@/components/tooltip/Tooltip.vue';
 import {
     defineEmits,
     onBeforeUnmount,
@@ -135,7 +135,9 @@ onBeforeUnmount(() => {
             location: props.featureData.geometry.coordinates,
         });
 
-        googleMapStore.markers.splice(index, 1);
+        if (index !== -1) {
+            googleMapStore.markers.splice(index, 1);
+        }
     };
 });
 

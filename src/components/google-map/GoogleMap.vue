@@ -78,7 +78,9 @@ import getEnvValue from '@/utils/get-env-value';
 import { isAppleIOS } from '@/utils/is-apple-ios';
 import useGoogleBaseMapStore from '@/stores/googleMap.store';
 
-import { VsButton, VsWarning } from '@/components';
+//import { VsButton, VsWarning } from '@/components';
+import VsButton from '@/components/button/Button.vue';
+import VsWarning from '@/components/warning/Warning.vue';
 import { setOptions } from '@googlemaps/js-api-loader';
 import addPolygon from './composables/AddPolygon';
 

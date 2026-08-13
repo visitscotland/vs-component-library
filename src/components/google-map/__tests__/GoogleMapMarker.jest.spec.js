@@ -48,9 +48,9 @@ const factoryMount = (propsData) => mount(VsGoogleMapMarker, {
     },
 });
 
-describe('VsGoogleMap', () => {
+describe('VsGoogleMapMarker', () => {
     describe(':rendering', () => {
-        it.only('should render a gmp-advanced-marker', () => {
+        it('should render a gmp-advanced-marker', () => {
             const wrapper = factoryShallowMount();
             const markerWrapper = wrapper.find('[data-test="vs-google-map-marker"]');
 
@@ -78,7 +78,7 @@ describe('VsGoogleMap', () => {
             const pinGraphic = markerWrapper.find('[data-test="vs-google-map-marker__pin-graphic"]');
             const pinGraphicPath = pinGraphic.find('path');
 
-            expect(pinGraphicPath.attributes('fill')).toBe('#33225D');
+            expect(pinGraphicPath.attributes('fill')).toBe('rgb(51, 34, 93)');
         });
 
         it('should render the non default color if the pinColor prop is passed', async() => {
