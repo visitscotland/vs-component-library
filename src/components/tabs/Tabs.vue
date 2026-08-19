@@ -18,7 +18,7 @@ NEW
 
 <script>
 import { BTabs } from 'bootstrap-vue-next';
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 /**
  * Tabs wrapper used with TabItems.
  *
@@ -53,7 +53,7 @@ export default {
     },
     data() {
         return {
-            tabIndex: ref(0),
+            tabIndex: 0,
         };
     },
 };
