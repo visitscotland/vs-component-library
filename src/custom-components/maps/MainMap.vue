@@ -664,6 +664,7 @@ onMounted(async() => {
 
             // Show the "Search this area" button if the user has moved the map.
             if (!isProgrammaticMove.value
+                && mapLoaded.value
                 && isUserMove.value
                 && hasViewportChanged(getViewport(gMap))) {
                 showSearchAreaButton.value = true;
@@ -810,8 +811,9 @@ async function searchByCategory() {
         resetTextQuery();
     }
 
-    query.value = label ?? '';
-    searchInput.value = label ?? '';
+    query.value = `${label} ${selectedDestination.value}` ?? '';
+    query.value = query.value.trim();
+    searchInput.value = query.value;
 
     googleMapStore.showCategories = true;
 
@@ -914,6 +916,8 @@ async function searchByText(useRestriction = false) {
     if (!mapCategoryStore.selfCateringClicked) {
         resetCategories();
     }
+    
+    selectedDestination.value = '';
 
     isSidebarOpen.value = true;
 
