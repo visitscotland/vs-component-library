@@ -543,9 +543,9 @@ onMounted(async() => {
             if (isUserMove.value) {
                 updateSearchParams(
                     {
-                        coords: gMap.getCenter().toString().replace(/[()\s]/g, ''),
+                        coords: gMap.getCenter().toUrlValue(2),
                         location: null,
-                        zoom: gMap.getZoom(),
+                        zoom: gMap.getZoom().toFixed(2),
                     },
                     true,
                 );
@@ -674,10 +674,10 @@ onMounted(async() => {
 
                 updateSearchParams(
                     {
-                        coords: gMap.getCenter().toString().replace(/[()\s]/g, ''),
+                        coords: gMap.getCenter().toUrlValue(2),
                         location: null,
                         'search-term': null,
-                        zoom: gMap.getZoom(),
+                        zoom: gMap.getZoom().toFixed(2),
                     },
                     true,
                 );
@@ -893,8 +893,8 @@ async function searchByCategory() {
         zoom = null;
     } else {
         location = null;
-        coords = gMap.getCenter().toString().replace(/[()\s]/g, '');
-        zoom = gMap.getZoom();
+        coords = gMap.getCenter().toUrlValue(2);
+        zoom = gMap.getZoom().toFixed(2);
     }
 
     updateSearchParams(
@@ -976,8 +976,8 @@ async function searchByText(useRestriction = false) {
         category = 'accommodation';
         subcategories = 'self-catering';
         searchTerm = null;
-        coords = gMap.getCenter().toString().replace(/[()\s]/g, '');
-        zoom = gMap.getZoom();
+        coords = gMap.getCenter().toUrlValue(2);
+        zoom = gMap.getZoom().toFixed(2);
     } else {
         category = null;
         subcategories = null;
