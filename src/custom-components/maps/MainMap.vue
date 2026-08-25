@@ -526,6 +526,8 @@ onMounted(async() => {
 
         // Listens to the zoom level
         gMap.addListener('zoom_changed', () => {
+            if (!mapLoaded.value) return;
+        
             currentZoom.value = gMap.getZoom();
             if (currentZoom.value < CATEGORY_VISIBLE_ZOOM) {
                 shadeMapAreas();
@@ -543,8 +545,8 @@ onMounted(async() => {
             if (isUserMove.value) {
                 updateSearchParams(
                     {
-                        coords: gMap.getCenter().toUrlValue(2),
                         location: null,
+                        coords: gMap.getCenter().toUrlValue(2),
                         zoom: gMap.getZoom().toFixed(2),
                     },
                     true,
@@ -674,9 +676,9 @@ onMounted(async() => {
 
                 updateSearchParams(
                     {
-                        coords: gMap.getCenter().toUrlValue(2),
-                        location: null,
                         'search-term': null,
+                        location: null,
+                        coords: gMap.getCenter().toUrlValue(2),
                         zoom: gMap.getZoom().toFixed(2),
                     },
                     true,
@@ -899,10 +901,10 @@ async function searchByCategory() {
 
     updateSearchParams(
         {
+            'search-term': null,
             location,
             category: mapCategoryStore.selectedCategory,
             subcategories: mapCategoryStore.selectedSubcategories.join(','),
-            'search-term': null,
             coords,
             zoom,
         },
@@ -988,11 +990,11 @@ async function searchByText(useRestriction = false) {
 
     updateSearchParams(
         {
+            'search-term': searchTerm,
             location: null,
             category,
             subcategories,
             coords,
-            'search-term': searchTerm,
             zoom,
         },
         false,
@@ -1171,11 +1173,11 @@ function resetMap(hardReset, resetLocation) {
         // Remove the search params.
         updateSearchParams(
             {
+                'search-term': null,
                 location: null,
                 category: null,
                 subcategories: null,
                 coords: null,
-                'search-term': null,
                 zoom: null,
             },
             false,
@@ -1325,9 +1327,9 @@ function handleFeaturedLocationClick(place, category) {
 
     updateSearchParams(
         {
+            'search-term': null,
             location: place.properties.title.toLowerCase(),
             coords: null,
-            'search-term': null,
             zoom: null,
         },
         false,
