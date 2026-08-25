@@ -443,7 +443,12 @@ onMounted(async() => {
                 keywords.value = response.data.accommodation.keywords;
 
                 mapCategoryStore.subcategoryMap = Object.values(googleMapStore.categoryData)
-                    .flatMap((category) => category.subCategory ?? [])
+                    .flatMap((category) =>
+                        (category.subCategory ?? []).map((subcategory) => ({
+                            ...subcategory,
+                            categoryId: category.id,
+                        })),
+                    )
                     .reduce((map, subcategory) => {
                         map[subcategory.id] = subcategory;
                         return map;
@@ -574,14 +579,18 @@ onMounted(async() => {
             } = getSearchParams();
 
             // Check subcategories match ours, remove the ones that don't.
-            const setSubcategories = (subcategories) => {
+            const setSubcategories = (category, subcategories) => {
                 if (!subcategories) return;
+
+                console.log('cheese', mapCategoryStore.subcategoryMap);
 
                 const providedSubcategories = subcategories
                     .split(',')
-                    .filter((subcategory) => (
-                        subcategory in mapCategoryStore.subcategoryMap
-                    ));
+                    .filter((subcategoryId) => {
+                        const subcategory = mapCategoryStore.subcategoryMap[subcategoryId];
+
+                        return subcategory && subcategory.categoryId === category;
+                    });
 
                 if (providedSubcategories.includes('self-catering')) {
                     mapCategoryStore.selfCateringClicked = true;
@@ -602,7 +611,7 @@ onMounted(async() => {
                     // Zoom into location and run a category search.
                     handleFeaturedLocationClick(placeData, category);
                     // Set selectedSubcategories if the subcategory parameter has been set.
-                    setSubcategories(subcategories);
+                    setSubcategories(category, subcategories);
                     return;
                 }
             }
@@ -623,7 +632,7 @@ onMounted(async() => {
 
                 // Set subcategories.
                 if (category && subcategories) {
-                    setSubcategories(subcategories);
+                    setSubcategories(category, subcategories);
                 }
 
                 // Check to see if the category matches one of ours.
