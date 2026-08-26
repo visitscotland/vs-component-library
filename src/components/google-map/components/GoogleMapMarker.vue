@@ -17,19 +17,22 @@
         role="button"
         :zIndex="markerZIndex"
         @mouseover="bringToFront()"
-        @mouseout="resetZIndex()"
+        @mouseout="props.handleMarkerBehaviourExternally ? null : resetPin()"
+        @mouseleave.prevent
         @focus="props.markerTooltipsEnabled ? showTooltip() : bringToFront()"
-        @focusout="props.markerTooltipsEnabled ? hideTooltip() : resetZIndex()"
+        @focusout="focusOutBehaviour"
         @keydown.enter="$emit('markerClick', props.featureData)"
     >
         <VsTooltip
             v-if="props.markerTooltipsEnabled"
             class="vs-google-map-marker"
+            :class="handleTooltipBehaviour()"
             position="top"
             :title="props.featureData.properties.title"
             subtle
             :use-legacy="false"
             ref="tooltip"
+            @mouseleave.prevent
             @click="$emit('markerClick', props.featureData)"
         >
             <svg
@@ -41,7 +44,11 @@
                 data-test="vs-google-map-marker__pin-graphic"
             >
                 <path
-                    d="M18 1C27.3888 1 35 8.61116 35 18C35 21.2018 34.304 23.8695 32.7432 26.4014C31.2002 28.9041 28.844 31.2202 25.6221 33.7822L25.6025 33.7988L25.5811 33.8135L18 39.2285L10.4189 33.8135L10.3975 33.7988L10.3779 33.7822C7.15645 31.2202 4.79987 28.9041 3.25684 26.4014C1.69596 23.8696 1 21.2017 1 18C1 8.61116 8.61116 1 18 1Z"
+                    d="M18 1C27.3888 1 35 8.61116 35 18C35 21.2018 34.304 23.8695 32.7432 
+                    26.4014C31.2002 28.9041 28.844 31.2202 25.6221 33.7822L25.6025 33.7988L25.5811
+                    33.8135L18 39.2285L10.4189 33.8135L10.3975 33.7988L10.3779 33.7822C7.15645
+                    31.2202 4.79987 28.9041 3.25684 26.4014C1.69596 23.8696 1 21.2017
+                    1 18C1 8.61116 8.61116 1 18 1Z"
                     :fill="props.pinColor"
                     stroke="white"
                     stroke-width="2"
@@ -55,6 +62,10 @@
         <div
             v-else
             class="vs-google-map-marker"
+            :class="
+                googleMapStore.markerHovered === props.featureData.properties.id 
+                    ? 'is-active' 
+                    : null"
             @click="$emit('markerClick', props.featureData)"
         >
             <svg
@@ -66,7 +77,11 @@
                 data-test="vs-google-map-marker__pin-graphic"
             >
                 <path
-                    d="M18 1C27.3888 1 35 8.61116 35 18C35 21.2018 34.304 23.8695 32.7432 26.4014C31.2002 28.9041 28.844 31.2202 25.6221 33.7822L25.6025 33.7988L25.5811 33.8135L18 39.2285L10.4189 33.8135L10.3975 33.7988L10.3779 33.7822C7.15645 31.2202 4.79987 28.9041 3.25684 26.4014C1.69596 23.8696 1 21.2017 1 18C1 8.61116 8.61116 1 18 1Z"
+                    d="M18 1C27.3888 1 35 8.61116 35 18C35 21.2018 34.304 23.8695 32.7432 
+                    26.4014C31.2002 28.9041 28.844 31.2202 25.6221 33.7822L25.6025 33.7988L25.5811
+                    33.8135L18 39.2285L10.4189 33.8135L10.3975 33.7988L10.3779 33.7822C7.15645
+                    31.2202 4.79987 28.9041 3.25684 26.4014C1.69596 23.8696 1 21.2017
+                    1 18C1 8.61116 8.61116 1 18 1Z"
                     :fill="props.pinColor"
                     stroke="white"
                     stroke-width="2"
@@ -88,12 +103,14 @@
 import VsTooltip from '@/components/tooltip/Tooltip.vue';
 import {
     defineEmits,
-    onBeforeUnmount,
     onBeforeMount,
     ref,
 } from 'vue';
 
+import { storeToRefs } from 'pinia';
+
 import designTokens from '@/assets/tokens/tokens.json';
+
 
 import useGoogleBaseMapStore from '@/stores/googleMap.store';
 
@@ -117,6 +134,10 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
+    handleMarkerBehaviourExternally: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 onBeforeMount(() => {
@@ -128,31 +149,18 @@ onBeforeMount(() => {
     }
 });
 
-onBeforeUnmount(() => {
-    if (props.featureData.geometry.type === 'Point') {
-        const index = googleMapStore.markers.findIndex({
-            id: props.featureData.properties.id,
-            location: props.featureData.geometry.coordinates,
-        });
-
-        if (index !== -1) {
-            googleMapStore.markers.splice(index, 1);
-        }
-    };
-});
-
 const getPosition = (coordinates) => `${coordinates[1]}, ${coordinates[0]}`;
 
 defineEmits(['markerClick']);
 
 const bringToFront = () => {
     markerZIndex.value = 9999;
-    googleMapStore.isMarkerHovered = true;
+    googleMapStore.markerHovered = props.featureData.properties.id;
 };
 
-const resetZIndex = () => {
+const resetPin = () => {
     markerZIndex.value = 299;
-    googleMapStore.isMarkerHovered = false;
+    googleMapStore.markerHovered = null;
 };
 
 // Must manually bind the event to the gmp-advanced-marker element
@@ -164,8 +172,40 @@ const showTooltip = () => {
 
 const hideTooltip = () => {
     tooltip.value.hide();
-    resetZIndex();
+    resetPin();
 };
+
+const focusOutBehaviour = () => {
+    if (props.markerTooltipsEnabled && !props.handleMarkerBehaviourExternally) {
+        hideTooltip();
+    } else if (!props.markerTooltipsEnabled && !props.handleMarkerBehaviourExternally) {
+        resetPin();
+    } else if (props.markerTooltipsEnabled) {
+        return;
+    }
+};
+
+const handleTooltipBehaviour = () => {
+
+    if (googleMapStore.markerHovered === props.featureData.properties.id) {
+        return 'is-active';
+    } else if (
+        googleMapStore.markerSelected?.properties.id === props.featureData.properties.id
+    ) {
+        return 'is-active';
+    } else {
+        return null;
+    };
+};
+
+const { markerHovered } = storeToRefs(useGoogleBaseMapStore);
+
+defineExpose({
+    showTooltip,
+    hideTooltip,
+    resetPin,
+    markerHovered,
+});
 
 </script>
 
@@ -202,6 +242,12 @@ gmp-advanced-marker:focus-within .vs-google-map-marker {
 .vs-tooltip-popover {
     font-size: $vs-font-size-detail-s;
     text-align: center;
+}
+
+.is-active {
+    scale: 150%;
+    transition: all $duration-base;
+    transform-origin: bottom;
 }
 
 </style>

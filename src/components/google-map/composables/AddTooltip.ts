@@ -4,7 +4,6 @@
 import type { BrxmFeatureProperties } from '@/types/types';
 import designTokens from '@/assets/tokens/tokens.json';
 
-/* eslint-disable no-undef */
 /// <reference types='google.maps' />
 
 function createTooltipContainer() {

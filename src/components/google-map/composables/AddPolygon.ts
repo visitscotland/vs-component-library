@@ -44,7 +44,7 @@ async function attachListeners(
             fillColor: HOVER_COLOR,
         });
 
-        if (tooltip && !googleMapStore.isMarkerHovered) {
+        if (tooltip && !googleMapStore.markerHovered) {
             googleMapStore.isPolygonTooltipOpen = true;
             tooltip.show();
         };
@@ -63,9 +63,9 @@ async function attachListeners(
 
     if (!tooltip) return;
 
-    const { isMarkerHovered } = storeToRefs(googleMapStore);
+    const { markerHovered } = storeToRefs(googleMapStore);
 
-    watch(() => isMarkerHovered.value, (markerTooltipOpen) => {
+    watch(() => markerHovered.value, (markerTooltipOpen) => {
         if (markerTooltipOpen) {
             tooltip.hide();
             googleMapStore.isPolygonTooltipOpen = false;
@@ -73,7 +73,7 @@ async function attachListeners(
     });
 
     polygon.addListener('mousemove', () => {
-        if (!googleMapStore.isPolygonTooltipOpen && !googleMapStore.isMarkerHovered) {
+        if (!googleMapStore.isPolygonTooltipOpen && !googleMapStore.markerHovered) {
             tooltip.show();
             googleMapStore.isPolygonTooltipOpen = true;
         };
