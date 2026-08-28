@@ -1,3 +1,30 @@
+# [5.77.0](https://github.com/visitscotland/vs-component-library/compare/v5.76.1...v5.77.0) (2026-08-28)
+
+
+### Bug Fixes
+
+* **main map:** add zoom param where we update coords ([50ca9c8](https://github.com/visitscotland/vs-component-library/commit/50ca9c86102404caa2aba672748ca07dc03fd653))
+* **main map:** change how to watch for category/subcategory changes ([392dccf](https://github.com/visitscotland/vs-component-library/commit/392dccf877a874276f5b1b24bade88730a596e05))
+* **main map:** minor fixes ([4e11bd0](https://github.com/visitscotland/vs-component-library/commit/4e11bd0961bd201ae943849e57c8d3f1e085e75f))
+* **main map:** only accept subcategories that appear within the selected category ([ebe277d](https://github.com/visitscotland/vs-component-library/commit/ebe277dfe823934b3e4de7de8339b1a3dd8419b0))
+* **main map:** reduce coords and zoom to 2 decimal places ([6b32dd6](https://github.com/visitscotland/vs-component-library/commit/6b32dd6e524dfca27c6fe36d7ea292a4f7b5fbe5))
+* **main map:** reorder url params ([8cc8a86](https://github.com/visitscotland/vs-component-library/commit/8cc8a863370a9f3b5dd896087b7f7577fcb9b0a3))
+* **main map:** reset selectedDestination when doing a text search ([c2d0a7f](https://github.com/visitscotland/vs-component-library/commit/c2d0a7f4e673a2567c6242c8837cef5a0ccb690d))
+* **main map:** use replaceState when the user moves the map ([3190a10](https://github.com/visitscotland/vs-component-library/commit/3190a10b62aecb38fd63b1b36377e8a8d4629aca))
+* **mapcategories store:** guard against undefined refs ([11aed87](https://github.com/visitscotland/vs-component-library/commit/11aed87bd4abfdd1fdb355489f85f418ce5ff64d))
+* **mapsidebar:** remove unused props and emits ([18a280b](https://github.com/visitscotland/vs-component-library/commit/18a280bbfb6b0d9ce9b708731c846ca361765b67))
+* **mian map:** remove console.log ([ca5c236](https://github.com/visitscotland/vs-component-library/commit/ca5c236b14791d64e74f2f83a156fe6bc5ae7a36))
+* **useupdatesearchparams.ts:** correct types and remove unused code ([918dacd](https://github.com/visitscotland/vs-component-library/commit/918dacda54e537a3b66d15179e99591911ba15b2))
+* **useupdatesearchparams:** improve param validation ([33861ce](https://github.com/visitscotland/vs-component-library/commit/33861ce96d6416a8777503f0d59863414eaf9af6))
+
+
+### Features
+
+* **main map:** add coords and zoom url params ([4d4519a](https://github.com/visitscotland/vs-component-library/commit/4d4519a9c53b8d93d9e423dfdff6f12ef8de3851))
+* **main map:** add params to URL when user selects filters ([0f760e6](https://github.com/visitscotland/vs-component-library/commit/0f760e65c19af118e1b751b877c48917855d0ebd))
+* **main map:** add search-term url param ([b5fd554](https://github.com/visitscotland/vs-component-library/commit/b5fd554a71e64e29d379a648090d6b28c4106434))
+* **main map:** handle subcategories params ([4748ff2](https://github.com/visitscotland/vs-component-library/commit/4748ff21532f348d80c837549cc3b1567899c09e))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
