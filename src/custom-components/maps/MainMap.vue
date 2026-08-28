@@ -550,6 +550,8 @@ onMounted(async() => {
             if (isUserMove.value) {
                 updateSearchParams(
                     {
+                        category: mapCategoryStore.selectedCategory ?? null,
+                        subcategories: mapCategoryStore.selectedSubcategories.join(',') ?? null,
                         location: null,
                         coords: gMap.getCenter().toUrlValue(2),
                         zoom: gMap.getZoom().toFixed(2),
@@ -581,8 +583,6 @@ onMounted(async() => {
             // Check subcategories match ours, remove the ones that don't.
             const setSubcategories = (category, subcategories) => {
                 if (!subcategories) return;
-
-                console.log('cheese', mapCategoryStore.subcategoryMap);
 
                 const providedSubcategories = subcategories
                     .split(',')
@@ -660,10 +660,10 @@ onMounted(async() => {
             updateSearchParams(
                 {
                     category: null,
-                    coords: null,
                     location: null,
                     'search-term': null,
                     subcategories: null,
+                    coords: null,
                     zoom: null,
                 },
                 false,
