@@ -153,14 +153,26 @@ const getPosition = (coordinates) => `${coordinates[1]}, ${coordinates[0]}`;
 
 defineEmits(['markerClick']);
 
+function handleSetMarkerActive(markerID) {
+    googleMapStore.setActiveMarker(markerID);
+};
+
+function isMarkerActive(markerID) {
+    return googleMapStore.activeMarkers.includes(markerID);
+};
+
+function handleRemoveMarkerActive(markerID) {
+    googleMapStore.removeActiveMarker(markerID);
+};
+
 const bringToFront = () => {
     markerZIndex.value = 9999;
-    googleMapStore.markerHovered = props.featureData.properties.id;
+    handleSetMarkerActive(props.featureData.properties.id);
 };
 
 const resetPin = () => {
     markerZIndex.value = 299;
-    googleMapStore.markerHovered = null;
+    handleRemoveMarkerActive(props.featureData.properties.id);
 };
 
 // Must manually bind the event to the gmp-advanced-marker element
@@ -186,17 +198,13 @@ const focusOutBehaviour = () => {
 };
 
 const handleTooltipBehaviour = () => {
-
-    if (googleMapStore.markerHovered === props.featureData.properties.id) {
-        return 'is-active';
-    } else if (
-        googleMapStore.markerSelected?.properties.id === props.featureData.properties.id
-    ) {
+    if (isMarkerActive(props.featureData.properties.id)) {
         return 'is-active';
     } else {
         return null;
     };
 };
+
 
 const { markerHovered } = storeToRefs(useGoogleBaseMapStore);
 
@@ -204,6 +212,8 @@ defineExpose({
     showTooltip,
     hideTooltip,
     resetPin,
+    handleSetMarkerActive,
+    handleRemoveMarkerActive,
     markerHovered,
 });
 
