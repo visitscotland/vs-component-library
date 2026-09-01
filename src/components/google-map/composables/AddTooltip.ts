@@ -98,7 +98,7 @@ export default function createTooltip(mapsLibrary: google.maps.MapsLibrary) {
         onRemove() {
             if (this.tooltipContainer?.parentElement) {
                 this.tooltipContainer.parentElement.removeChild(this.tooltipContainer);
-            };
+            }
         };
 
         draw() {
@@ -116,8 +116,8 @@ export default function createTooltip(mapsLibrary: google.maps.MapsLibrary) {
                     this.tooltipContainer.style.top = `${tooltipProjection!.y - 100}px`;
                 } else {
                     this.tooltipContainer.style.top = `${tooltipProjection!.y - tooltipHeight}px`;
-                };
-            };
+                }
+            }
         };
 
         toggleDOM() {
@@ -125,19 +125,19 @@ export default function createTooltip(mapsLibrary: google.maps.MapsLibrary) {
                 this.setMap(null);
             } else {
                 this.setMap(this.map);
-            };
+            }
         }
 
         show() {
             if (this.tooltipContainer) {
                 this.tooltipContainer.style.visibility = 'visible';
-            };
+            }
         }
 
         hide() {
             if (this.tooltipContainer) {
                 this.tooltipContainer.style.visibility = 'hidden';
-            };
+            }
         }
     };
 };

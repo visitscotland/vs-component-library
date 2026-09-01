@@ -71,7 +71,6 @@
 
 import {
     ref,
-    onBeforeMount,
     onMounted,
     shallowRef,
     onBeforeUnmount,
@@ -80,7 +79,6 @@ import getEnvValue from '@/utils/get-env-value';
 import { isAppleIOS } from '@/utils/is-apple-ios';
 import useGoogleBaseMapStore from '@/stores/googleMap.store';
 
-//import { VsButton, VsWarning } from '@/components';
 import VsButton from '@/components/button/Button.vue';
 import VsWarning from '@/components/warning/Warning.vue';
 import { setOptions } from '@googlemaps/js-api-loader';
@@ -142,7 +140,7 @@ const props = defineProps({
     },
     /**
      * Determines whether the map should zoom out to show
-     * all of Scotland on inital load
+     * all of Scotland on initial load
      */
     initialViewIsScotland: {
         type: Boolean,
@@ -199,7 +197,7 @@ const mapRef = ref(null);
 const innerMap = shallowRef();
 const isDisposed = ref(false);
 
-const mapCenter = ref(null);
+const mapCenter = ref(props.center);
 const isFullscreen = ref(false);
 
 const INITIAL_SCOTLAND_VIEW_BOUNDS = {
@@ -208,10 +206,6 @@ const INITIAL_SCOTLAND_VIEW_BOUNDS = {
     west: -7.65,
     east: -1.4,
 };
-
-onBeforeMount(() => {
-    mapCenter.value = props.center;
-});
 
 async function init() {
     // Import the needed libraries.
@@ -222,7 +216,6 @@ async function init() {
     // Access the underlying map object.
     innerMap.value = mapRef.value.innerMap;
     if (!innerMap.value) return;
-
 
     innerMap.value.setOptions({
         center: mapCenter.value,
@@ -256,7 +249,7 @@ async function init() {
             mapCenter.value = bounds.getCenter();
             innerMap.value.fitBounds(bounds);
         });
-    };
+    }
 
     if (props.polygonData) {
         google.maps.event.addListenerOnce(innerMap.value, 'tilesloaded', () => {
@@ -268,9 +261,8 @@ async function init() {
                 );
             });
         });
-    };
+    }
 };
-
 
 onMounted(async() => {
     setOptions({
@@ -280,11 +272,11 @@ onMounted(async() => {
         region: 'GB',
         language: props.languageCode,
     });
-    init();
+    await init();
 });
 
 onBeforeUnmount(() => {
-    // Destroy and reset map instance if component umnoumted
+    // Destroy and reset map instance if component unmounted
     isDisposed.value = true;
     mapRef.value.remove();
     if (innerMap.value) {
@@ -298,13 +290,13 @@ onBeforeUnmount(() => {
 function zoomIn() {
     if (innerMap.value) {
         innerMap.value.setZoom((innerMap.value.getZoom() || 0) + 1);
-    };
+    }
 };
 
 function zoomOut() {
     if (innerMap.value) {
         innerMap.value.setZoom((innerMap.value.getZoom() || 0) - 1);
-    };
+    }
 };
 
 function fullscreenToggle() {
@@ -316,8 +308,8 @@ function fullscreenToggle() {
         } else {
             document.exitFullscreen();
             isFullscreen.value = false;
-        };
-    };
+        }
+    }
 };
 
 </script>

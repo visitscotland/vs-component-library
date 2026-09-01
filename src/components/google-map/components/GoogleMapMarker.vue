@@ -108,9 +108,7 @@ import {
 } from 'vue';
 
 import { storeToRefs } from 'pinia';
-
 import designTokens from '@/assets/tokens/tokens.json';
-
 
 import useGoogleBaseMapStore from '@/stores/googleMap.store';
 
@@ -125,15 +123,18 @@ const props = defineProps({
         type: Object,
         required: true,
     },
-    /** SVG Compatible colour (Hex/String/RGB()), Defaults to  */
+    /** SVG Compatible colour (Hex/String/RGB()), 
+     * Defaults to #33225D (vs-color-background-accent-heather-80 token) */
     pinColor: {
         type: String,
         default: designTokens['vs-color-background-accent-heather-80'],
     },
+    /** Flag to turn on/off tooltips for the marker */
     markerTooltipsEnabled: {
         type: Boolean,
         default: false,
     },
+    /** Flag to allow for more granular control of the marker tooltip/active state */
     handleMarkerBehaviourExternally: {
         type: Boolean,
         default: false,
@@ -202,7 +203,7 @@ const handleTooltipBehaviour = () => {
         return 'is-active';
     } else {
         return null;
-    };
+    }
 };
 
 

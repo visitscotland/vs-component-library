@@ -12,9 +12,6 @@ const ACTIVE_COLOR = designTokens['vs-color-background-accent-heather-30'];
 const HOVER_COLOR = designTokens['vs-color-background-accent-heather-80'];
 const STROKE_COLOR = designTokens['vs-color-border-inverse'];
 
-type Coordinate = [number, number];
-type Polygon = Coordinate[];
-
 function getPolygonCenter(map: google.maps.Map, polygon: google.maps.Polygon): google.maps.LatLng {
     const bounds = new google.maps.LatLngBounds();
     const polygonAreaPaths: google.maps.MVCArray<google.maps.LatLng>[] = polygon
@@ -44,10 +41,10 @@ async function attachListeners(
             fillColor: HOVER_COLOR,
         });
 
-        if (tooltip && !googleMapStore.markerHovered) {
+        if (tooltip && googleMapStore.markerHovered) {
             googleMapStore.isPolygonTooltipOpen = true;
             tooltip.show();
-        };
+        }
     });
 
     polygon.addListener('mouseout', () => {
@@ -58,7 +55,7 @@ async function attachListeners(
         if (tooltip) {
             googleMapStore.isPolygonTooltipOpen = false;
             tooltip.hide();
-        };
+        }
     });
 
     if (!tooltip) return;
@@ -69,14 +66,14 @@ async function attachListeners(
         if (markerTooltipOpen) {
             tooltip.hide();
             googleMapStore.isPolygonTooltipOpen = false;
-        };
+        }
     });
 
     polygon.addListener('mousemove', () => {
         if (!googleMapStore.isPolygonTooltipOpen && !googleMapStore.markerHovered) {
             tooltip.show();
             googleMapStore.isPolygonTooltipOpen = true;
-        };
+        }
     });
 };
 
@@ -115,7 +112,7 @@ async function createPolygon(
         attachListeners(polygon, tooltip);
     } else {
         attachListeners(polygon);
-    };
+    }
 };
 
 export default function addPolygon(
@@ -127,7 +124,9 @@ export default function addPolygon(
     if (feature.geometry.type === 'Polygon') {
         const polygonCoordinates: google.maps.LatLng[] = [];
 
-        feature.geometry.coordinates[0].forEach((coordinate: number[]) => {
+        const outerBoundary = feature.geometry.coordinates[0] as unknown as number[][];
+
+        outerBoundary.forEach((coordinate: number[]) => {
             polygonCoordinates.push(
                 new google.maps.LatLng(coordinate[1], coordinate[0]),
             );
@@ -139,20 +138,23 @@ export default function addPolygon(
             feature.properties,
             isPolygonTooltipsEnabled,
         );
-    };
+    }
 
     // Multiple area polygons that act as one
     if (feature.geometry.type === 'MultiPolygon') {
         const regionPolygons: google.maps.LatLng[][] = [];
 
-        feature.geometry.coordinates.forEach((polygonGroup: Polygon[]) => {
-            polygonGroup.forEach((coordinates: Coordinate[]) => {
-                regionPolygons.push(
-                    coordinates.map(
-                        ([lng, lat]) => new google.maps.LatLng(lat, lng),
-                    ),
+        const coordinates = feature.geometry.coordinates as unknown as number[][][][];
+
+        coordinates.forEach((polygonGroup: number[][][]) => {
+            const outerBoundary = polygonGroup[0];
+
+            if (outerBoundary) {
+                const islandPath = outerBoundary.map(
+                    ([lng, lat]: number[]) => new google.maps.LatLng(lat, lng),
                 );
-            });
+                regionPolygons.push(islandPath);
+            }
         });
 
         createPolygon(
@@ -161,5 +163,5 @@ export default function addPolygon(
             feature.properties,
             isPolygonTooltipsEnabled,
         );
-    };
+    }
 };
