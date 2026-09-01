@@ -1,3 +1,43 @@
+# [5.79.0](https://github.com/visitscotland/vs-component-library/compare/v5.78.0...v5.79.0) (2026-09-01)
+
+
+### Bug Fixes
+
+* **vsgooglemap:** adds NoJS functionality ([0411e6b](https://github.com/visitscotland/vs-component-library/commit/0411e6b294706a3cc0104a6b24dc140f57b5bc75))
+* **vsgooglemap:** adds proper tokens to css ([360e998](https://github.com/visitscotland/vs-component-library/commit/360e998f13955a334ea7d20abde40a3f7a9f8bea))
+* **vsgooglemap:** adds so that if !initialViewOfScotland then fit view to markers if on map ([f79fc77](https://github.com/visitscotland/vs-component-library/commit/f79fc77c3fce042435b2a4fa0dec599d4cd7890f))
+* **vsgooglemap:** coderabbit suggestions ([2691a06](https://github.com/visitscotland/vs-component-library/commit/2691a06e4b3ce1e40cbec3ae59e5c3c1c56ed5d8))
+* **vsgooglemap:** combines markerData and polygonData into the same prop as featureData ([3518ba1](https://github.com/visitscotland/vs-component-library/commit/3518ba10c77975d7b76ddb0b9d239bba1f7f4109))
+* **vsgooglemap:** fix forgotten include for removed map style mixin ([941e318](https://github.com/visitscotland/vs-component-library/commit/941e31808da34676e6961fa749ef1fe4ce0ab979))
+* **vsgooglemap:** fixed tooltips so that only one of polygon or marker can be open at a time ([2d4d155](https://github.com/visitscotland/vs-component-library/commit/2d4d15563da49825f0921708249f1adebfc2997d))
+* **vsgooglemap:** fixes a11y bug for marker tabindex, and refactors some code ([75bf300](https://github.com/visitscotland/vs-component-library/commit/75bf300ab61d5bad9acd0b9a40382120fac77fa2))
+* **vsgooglemap:** fixes custom controls no accessible label issue ([b0c6164](https://github.com/visitscotland/vs-component-library/commit/b0c6164704f56d248492949a2cddec1e539bf54c))
+* **vsgooglemap:** fixes issue with accessibility due to html attr showing ([0d7a159](https://github.com/visitscotland/vs-component-library/commit/0d7a159e44196f2691529960874c2424eb01fdf6))
+* **vsgooglemap:** fixes marker emit & cleans up code and errors ([5af3c05](https://github.com/visitscotland/vs-component-library/commit/5af3c052f63d233a442738daa609b5fb063eea57))
+* **vsgooglemap:** fixes the marker tooltip height, so that the tooltip doesnt cover the marker ([d1d1a86](https://github.com/visitscotland/vs-component-library/commit/d1d1a86c491458d07158ffdeb4160d3d44943b50))
+* **vsgooglemap:** fixes the multiPolygon tooltips being over the last polygon in array ([bb73566](https://github.com/visitscotland/vs-component-library/commit/bb73566f0cbaf1c225d242290663b6a87e289a93))
+* **vsgooglemap:** fixes uiLabels causing error on build ([6e0cc88](https://github.com/visitscotland/vs-component-library/commit/6e0cc881f483af2139e86017dea8ee8a4c622210))
+* **vsgooglemap:** removes extra story remanent ([46ae9c3](https://github.com/visitscotland/vs-component-library/commit/46ae9c3ea457d733ac3df4d69e2fbecfdbad399b))
+* **vsgooglemap:** removes top level await from tooltip file ([aae6c55](https://github.com/visitscotland/vs-component-library/commit/aae6c55cd0438e0c383a1d4171894a831954efb5))
+* **vsgooglemap:** tightens inital view scotland bounds ([55903a1](https://github.com/visitscotland/vs-component-library/commit/55903a1bbca335e775106c4d6a77e352a67e8dc3))
+
+
+### Features
+
+* **vsgooglemap:** adds `initalViewOfScotland` prop to ignore centre/zoom and show all of Scotland ([06cc648](https://github.com/visitscotland/vs-component-library/commit/06cc648711ff995f647386f27f0b7f425a420436))
+* **vsgooglemap:** adds focus state to map pin for keyboard navigators ([d754c60](https://github.com/visitscotland/vs-component-library/commit/d754c6079c10f36afdaef59f96e486207e3ca529))
+* **vsgooglemap:** adds in tooltip style to match tooltip component, fixes vertical spacing ([a67a3f0](https://github.com/visitscotland/vs-component-library/commit/a67a3f05f4fb7a030578650d646fba33209918bf))
+* **vsgooglemap:** adds markers to the google map ([5eeb459](https://github.com/visitscotland/vs-component-library/commit/5eeb459debebd61fadc22d84c0984685f05350a1))
+* **vsgooglemap:** adds polygon support to the map ([7d1b36c](https://github.com/visitscotland/vs-component-library/commit/7d1b36c0f7fc9ce5c468f02b5a627409d920aba9))
+* **vsgooglemap:** adds the tooltip to polygons on the map ([fd3dfa1](https://github.com/visitscotland/vs-component-library/commit/fd3dfa191e156d3cd24ef55cd2c1759b165d9aa5))
+* **vsgooglemap:** adds toggle for tooltips for markers and polygons ([b1df70c](https://github.com/visitscotland/vs-component-library/commit/b1df70c0643081911c3ca2b79fc8a501402e6d8d))
+* **vsgooglemap:** begins to lay groundwork for new base Google Maps component ([d639b9d](https://github.com/visitscotland/vs-component-library/commit/d639b9d745a620298c53b7f0096afda8ebe3a8af))
+* **vsgooglemap:** begins to style the map pins ([4786c13](https://github.com/visitscotland/vs-component-library/commit/4786c1390e4b3ec9ad8d12fb62a45166e8d1cbba))
+* **vsgooglemap:** changes polygon colour to match designs ([6268154](https://github.com/visitscotland/vs-component-library/commit/6268154dd6b32544c3023b6af3bd0c2789e89d9c))
+* **vsgooglemap:** pulls pin to front of z-index when mouseover ([8fae520](https://github.com/visitscotland/vs-component-library/commit/8fae5207499e97d381164ee5843e632bbcc43153))
+* **vsgooglemap:** styles and themes the icon markers ([9576e0c](https://github.com/visitscotland/vs-component-library/commit/9576e0c35b32c94c78a0b2122c0006da9e09e59a))
+* **vsgooglemap:** styles numbered markers on googlemap ([768fa3f](https://github.com/visitscotland/vs-component-library/commit/768fa3f1233c57b9597fed3206f476a7e6f26482))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
