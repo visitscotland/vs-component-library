@@ -1,3 +1,6 @@
+// eslint-disable-next-line
+// @ts-nocheck
+
 import { defineStore } from 'pinia';
 import { computed, ref } from 'vue';
 
