@@ -46,15 +46,15 @@ function createTooltipArrow() {
 
 export default function createTooltip(mapsLibrary: google.maps.MapsLibrary) {
     return class Tooltip extends mapsLibrary.OverlayView {
-        private map: google.maps.Map;
+        map: google.maps.Map;
 
-        private location: google.maps.LatLng;
+        location: google.maps.LatLng;
 
-        private properties: BrxmFeatureProperties;
+        properties: BrxmFeatureProperties;
 
-        private isMarker: boolean;
+        isMarker: boolean;
 
-        private tooltipContainer?: HTMLDivElement;
+        tooltipContainer?: HTMLDivElement;
 
         constructor(
             map: google.maps.Map,
