@@ -1,3 +1,14 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [5.79.2](https://github.com/visitscotland/vs-component-library/compare/v5.79.1...v5.79.2) (2026-09-01)
+
+
+### ♻️ Code Refactoring
+
+* **mapcategory.store:** suppressed ts errors by adding ts-nocheck to file ([8f96a84](https://github.com/visitscotland/vs-component-library/commit/8f96a8402828c88948dd77f5f5b259654b43efbb))
+
 ## [5.79.1](https://github.com/visitscotland/vs-component-library/compare/v5.79.0...v5.79.1) (2026-09-01)
 
 
