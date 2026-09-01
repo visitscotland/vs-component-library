@@ -1,3 +1,10 @@
+## [5.79.1](https://github.com/visitscotland/vs-component-library/compare/v5.79.0...v5.79.1) (2026-09-01)
+
+
+### Bug Fixes
+
+* **addtoolip:** removes private deta encapsulation in AddTooltip causing build crashes ([396c51f](https://github.com/visitscotland/vs-component-library/commit/396c51f7122d34b8cb4ef63dd93ecf9f6b591511))
+
 # [5.79.0](https://github.com/visitscotland/vs-component-library/compare/v5.78.0...v5.79.0) (2026-09-01)
 
 
