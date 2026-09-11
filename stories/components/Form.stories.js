@@ -93,6 +93,15 @@ NoRecaptcha.args = {
     usesRecaptcha: false,
 };
 
+export const RequiredCheckboxes = Template.bind({
+});
+
+RequiredCheckboxes.args = {
+    ...base,
+    usesRecaptcha: false,
+    dataUrl: './fixtures/forms/required-checkboxes-form.json',
+};
+
 export const HiddenFields = Template.bind({
 });
 
