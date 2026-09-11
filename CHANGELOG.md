@@ -1,3 +1,11 @@
+## [5.79.3](https://github.com/visitscotland/vs-component-library/compare/v5.79.2...v5.79.3) (2026-09-11)
+
+
+### Bug Fixes
+
+* **forms:** correct validation error on checkboxes ([8a2c402](https://github.com/visitscotland/vs-component-library/commit/8a2c40211ccc47f3225583333801abe0d86951d6))
+* **forms:** remove redundant story ([2e23dae](https://github.com/visitscotland/vs-component-library/commit/2e23dae0e19a37183683627e4981c40f600d09c6))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
