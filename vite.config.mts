@@ -39,7 +39,7 @@ export default defineConfig(({ mode }) => {
         },
         resolve: {
             alias: aliases,
-            dedupe: ['vue'],
+            dedupe: ['vue', 'pinia'],
         },
         plugins: [
             vue({

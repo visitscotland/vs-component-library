@@ -2,6 +2,7 @@ import { shallowMount, mount } from '@vue/test-utils';
 import axe from '@/../test/unit/helpers/axe-helper';
 
 import VsGoogleMapMarker from '../components/GoogleMapMarker.vue';
+import useGoogleBaseMapStore from '@/stores/googleMap.store';
 
 jest.mock('@/utils/get-env-value');
 jest.mock('@/utils/svg-context');
@@ -49,6 +50,19 @@ const factoryMount = (propsData) => mount(VsGoogleMapMarker, {
 });
 
 describe('VsGoogleMapMarker', () => {
+    it('exposes the reactive hover state from the installed store', async() => {
+        const wrapper = factoryShallowMount();
+        const store = useGoogleBaseMapStore();
+
+        store.markerHovered = props.featureData.properties.id;
+        await wrapper.vm.$nextTick();
+
+        expect(wrapper.vm.markerHovered).toBe(props.featureData.properties.id);
+        store.markerHovered = null;
+        await wrapper.vm.$nextTick();
+        expect(wrapper.vm.markerHovered).toBeNull();
+        wrapper.unmount();
+    });
     describe(':rendering', () => {
         it('should render a gmp-advanced-marker', () => {
             const wrapper = factoryShallowMount();
