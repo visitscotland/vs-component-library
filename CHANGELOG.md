@@ -1,3 +1,11 @@
+# [5.80.0](https://github.com/visitscotland/vs-component-library/compare/v5.79.4...v5.80.0) (2026-09-17)
+
+
+### Features
+
+* **pinia:** migrate to pinia 4 to support site migrations ([8e46b54](https://github.com/visitscotland/vs-component-library/commit/8e46b54355a35c291a5e739c0f40e7332dee3822))
+* **pinia:** remove migration test ([d27bc1b](https://github.com/visitscotland/vs-component-library/commit/d27bc1b3583957459fbb391fe3c4f2bf600d71f4))
+
 ## [5.79.4](https://github.com/visitscotland/vs-component-library/compare/v5.79.3...v5.79.4) (2026-09-17)
 
 
