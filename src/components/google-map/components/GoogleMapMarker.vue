@@ -207,7 +207,7 @@ const handleTooltipBehaviour = () => {
 };
 
 
-const { markerHovered } = storeToRefs(useGoogleBaseMapStore);
+const { markerHovered } = storeToRefs(googleMapStore);
 
 defineExpose({
     showTooltip,
