@@ -1,3 +1,10 @@
+## [5.79.4](https://github.com/visitscotland/vs-component-library/compare/v5.79.3...v5.79.4) (2026-09-17)
+
+
+### Bug Fixes
+
+* **tabs:** headings within tab content were hidden ([a4ce048](https://github.com/visitscotland/vs-component-library/commit/a4ce0484cc76b779b441016ade424a8fd9a2db90))
+
 ## [5.79.3](https://github.com/visitscotland/vs-component-library/compare/v5.79.2...v5.79.3) (2026-09-11)
 
 
