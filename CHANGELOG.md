@@ -1,3 +1,26 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [5.81.0](https://github.com/visitscotland/vs-component-library/compare/v5.79.3...v5.81.0) (2026-09-18)
+
+
+### ✨ Features
+
+* **pinia:** migrate to pinia 4 to support site migrations ([8e46b54](https://github.com/visitscotland/vs-component-library/commit/8e46b54355a35c291a5e739c0f40e7332dee3822))
+* **pinia:** remove migration test ([d27bc1b](https://github.com/visitscotland/vs-component-library/commit/d27bc1b3583957459fbb391fe3c4f2bf600d71f4))
+
+
+### 🐛 Bug Fixes
+
+* **tabs:** headings within tab content were hidden ([a4ce048](https://github.com/visitscotland/vs-component-library/commit/a4ce0484cc76b779b441016ade424a8fd9a2db90))
+
+
+### 🔖 Others
+
+* **release:** 5.79.4 [skip ci] ([d962f37](https://github.com/visitscotland/vs-component-library/commit/d962f371b23d912d7ce3259a85820ed36f681cd0))
+* **release:** 5.80.0 [skip ci] ([6a13d2f](https://github.com/visitscotland/vs-component-library/commit/6a13d2fc2c1f0c8848073a0d6b840e8a09a5a2bb))
+
 # [5.80.0](https://github.com/visitscotland/vs-component-library/compare/v5.79.4...v5.80.0) (2026-09-17)
 
 
