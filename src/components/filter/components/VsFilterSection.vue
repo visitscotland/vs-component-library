@@ -80,7 +80,7 @@ const filterSectionClasses = computed(() => ({
             margin-bottom: $vs-spacer-075;
 
             .vs-icon {
-                transform: scale(1, 1);
+                transform: scale(-1, -1);
             }
         }
     }
@@ -96,10 +96,6 @@ const filterSectionClasses = computed(() => ({
         &::marker,
         &::-webkit-details-marker {
             display: none;
-        }
-
-        .vs-icon {
-            transform: scale(-1, -1);
         }
     }
 }
