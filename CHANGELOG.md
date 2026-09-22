@@ -1,3 +1,10 @@
+## [5.81.1](https://github.com/visitscotland/vs-component-library/compare/v5.81.0...v5.81.1) (2026-09-22)
+
+
+### Bug Fixes
+
+* **vsfiltersection:** reverse icon transitions ([e670836](https://github.com/visitscotland/vs-component-library/commit/e67083683524c1c1e7bc7dcfae422c6cac9d5ece))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
