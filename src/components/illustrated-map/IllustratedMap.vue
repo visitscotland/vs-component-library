@@ -110,10 +110,7 @@ import { type PropType } from 'vue';
 
 const props = defineProps({
     /**
-     * Array of region IDs to highlight,
-     * `borders|dumfries|highlands|outerhebs|shetland|
-     * orkney|edinburgh|glasgow|fife|dundee|aberdeen|
-     * perth|lomond|arranayr|argyll`
+     * Array of region IDs to highlight
      */
     highlightedRegions: {
         type: Array as PropType<Region[]>,
