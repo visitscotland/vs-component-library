@@ -93,8 +93,10 @@
     </svg>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent, type PropType } from 'vue';
+
+export default defineComponent({
     name: 'VsIllustratedMap',
     props: {
         /**
@@ -104,9 +106,9 @@ export default {
          * perth|lomond|arranayr|argyll`
          */
         highlightedRegions: {
-            type: Array,
+            type: Array as PropType<string[]>,
             default: () => [],
-            validator: (value) => value.every(
+            validator: (value: string[]) => value.every(
                 // eslint-disable-next-line max-len
                 (region) => /^(borders|dumfries|highlands|outerhebs|shetland|orkney|edinburgh|glasgow|fife|dundee|aberdeen|perth|lomond|arranayr|argyll)$/.test(region),
             ),
@@ -134,11 +136,11 @@ export default {
         },
     },
     methods: {
-        isHighlighted(regionId) {
+        isHighlighted(regionId: string): boolean {
             return this.highlightedRegions.includes(regionId);
         },
     },
-};
+});
 </script>
 
 <style lang="scss" scoped>
