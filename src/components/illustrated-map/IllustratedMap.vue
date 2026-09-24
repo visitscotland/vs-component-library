@@ -124,7 +124,7 @@ const props = defineProps({
      */
     ariaLabel: {
         type: String,
-        default: 'Illustrated map of Scotland showing regions',
+        default: 'Illustrated map of Scotland showing regions and/or pins',
     },
     /**
      * Title for the map
@@ -139,6 +139,14 @@ const props = defineProps({
     width: {
         type: String,
         default: null,
+    },
+    /**
+     * An array of objects containing pin longitude and latitude coordinates
+     * to be displayed on the map.
+     */
+    pins: {
+        type: Array as PropType<{ lat: number; lng: number }[]>,
+        default: () => [],
     },
 });
 
