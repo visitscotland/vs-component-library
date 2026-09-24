@@ -1,0 +1,92 @@
+props:
+
+    ## Thistle-light (default theme)
+
+    - name: vs-cta-primary-background-default
+      value: "{!vs-saltire-60}"
+    - name: vs-cta-primary-background-hover
+      value: "{!vs-saltire-70}"
+    - name: vs-cta-primary-background-active
+      value: "{!vs-saltire-80}"
+    - name: vs-cta-primary-background-disabled
+      value: "{!vs-cloud-10}"
+
+    - name: vs-cta-primary-foreground-default
+      value: "{!vs-snow-00}"
+    - name: vs-cta-primary-foreground-hover
+      value: "{!vs-snow-00}"
+    - name: vs-cta-primary-foreground-active
+      value: "{!vs-snow-00}"
+    - name: vs-cta-primary-foreground-disabled
+      value: "{!vs-cloud-40}"
+
+    - name: vs-cta-primary-border-default
+      value: "{!vs-saltire-60}"
+    - name: vs-cta-primary-border-hover
+      value: "{!vs-saltire-70}"
+    - name: vs-cta-primary-border-active
+      value: "{!vs-saltire-80}"
+    - name: vs-cta-primary-border-disabled
+      value: "{!vs-cloud-10}"
+
+    - name: vs-cta-secondary-background-default
+      value: "{!vs-snow-00}"
+    - name: vs-cta-secondary-background-hover
+      value: "{!vs-saltire-70}"
+    - name: vs-cta-secondary-background-active
+      value: "{!vs-saltire-80}"
+    - name: vs-cta-secondary-background-disabled
+      value: "{!vs-cloud-10}"
+
+    - name: vs-cta-secondary-foreground-default
+      value: "{!vs-saltire-60}"
+    - name: vs-cta-secondary-foreground-hover
+      value: "{!vs-snow-00}"
+    - name: vs-cta-secondary-foreground-active
+      value: "{!vs-snow-00}"
+    - name: vs-cta-secondary-foreground-disabled
+      value: "{!vs-cloud-40}"
+
+    - name: vs-cta-secondary-border-default
+      value: "{!vs-saltire-60}"
+    - name: vs-cta-secondary-border-hover
+      value: "{!vs-saltire-70}"
+    - name: vs-cta-secondary-border-active
+      value: "{!vs-saltire-80}"
+    - name: vs-cta-secondary-border-disabled
+      value: "{!vs-cloud-10}"
+
+    - name: vs-cta-tertiary-background-default
+      value: "{!vs-transparent}"
+    - name: vs-cta-tertiary-background-hover
+      value: "{!vs-saltire-10}"
+    - name: vs-cta-tertiary-background-active
+      value: "{!vs-saltire-50}"
+    - name: vs-cta-tertiary-background-disabled
+      value: "{!vs-cloud-10}"
+
+    - name: vs-cta-tertiary-foreground-default
+      value: "{!vs-saltire-80}"
+    - name: vs-cta-tertiary-foreground-hover
+      value: "{!vs-saltire-80}"
+    - name: vs-cta-tertiary-foreground-active
+      value: "{!vs-snow-00}"
+    - name: vs-cta-tertiary-foreground-disabled
+      value: "{!vs-cloud-40}"
+
+    - name: vs-cta-tertiary-border-default
+      value: "{!vs-transparent}"
+    - name: vs-cta-tertiary-border-hover
+      value: "{!vs-saltire-10}"
+    - name: vs-cta-tertiary-border-active
+      value: "{!vs-saltire-50}"
+    - name: vs-cta-tertiary-border-disabled
+      value: "{!vs-cloud-10}"
+      
+imports:
+  - ../../primitives/color/color-primitives.yml
+  - ../../semantic/color/color-interaction.yml
+
+global:
+    type: color
+    category: color-icons

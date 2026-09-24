@@ -220,18 +220,6 @@ export default {
             @extend %button-default-font-weight;
         }
 
-        &:focus {
-            @extend %primary-button-focus;
-        }
-
-        &.btn {
-            &:focus-visible {
-                @extend %primary-button-focus;
-
-                border-color: $vs-color-interaction-cta-primary;
-            }
-        }
-
         .vs-icon {
             vertical-align: middle;
             margin-top: -0.15rem;
@@ -267,46 +255,83 @@ export default {
 
         /* Button Variants
         ------------------------------------------ */
+        // This is the order of arguments expected by the sass @include directive:
+        // They are grouped as follows:
+        // - state: default
+        // - state: hover
+        // - state: active
+        // - state: focus
+
+        // text color default
+        // background color default
+        // border default
+
+        // color hover
+        // background hover
+        // border hover
+
+        // color active
+        // background active
+        // border active
+
+        // focus ring inner
+        // focus ring outer
+
         &.btn-primary {
             @include vs-button-variant(
-                $vs-color-text-inverse,
-                $vs-color-interaction-cta-primary,
-                $vs-color-interaction-cta-primary,
-                $vs-color-text-inverse,
-                $vs-color-interaction-cta-hover,
-                $vs-color-interaction-cta-hover,
-                $vs-color-text-inverse,
-                $vs-color-interaction-cta-pressed,
-                $vs-color-interaction-cta-pressed,
+                $vs-cta-primary-foreground-default,
+                $vs-cta-primary-background-default,
+                $vs-cta-primary-border-default,
+
+                $vs-cta-primary-foreground-default,
+                $vs-cta-primary-background-hover,
+                $vs-cta-primary-border-hover,
+
+                $vs-cta-primary-foreground-hover,
+                $vs-cta-primary-background-active,
+                $vs-cta-primary-border-active,
+
+                $vs-cta-primary-foreground-default,
+                $vs-color-interaction-focus,
             );
         }
 
         &.btn-secondary {
             @include vs-button-variant(
-                $vs-color-text-cta-on-light,
-                $vs-color-interaction-cta-secondary,
-                $vs-color-interaction-cta-primary,
-                $vs-color-text-inverse,
-                $vs-color-interaction-cta-hover,
-                $vs-color-interaction-cta-hover,
-                $vs-color-text-inverse,
-                $vs-color-interaction-cta-pressed,
-                $vs-color-interaction-cta-pressed,
+                $vs-cta-secondary-foreground-default,
+                $vs-cta-secondary-background-default,
+                $vs-cta-secondary-border-default,
+
+                $vs-cta-secondary-foreground-hover,
+                $vs-cta-secondary-background-hover,
+                $vs-cta-secondary-border-hover,
+
+                $vs-cta-secondary-foreground-hover,
+                $vs-cta-secondary-background-active,
+                $vs-cta-secondary-border-active,
+
+                $vs-cta-primary-foreground-default,
+                $vs-color-interaction-focus,
             );
         }
 
         &.btn-subtle {
             &:not(.vs-main-map-category__button) {
                 @include vs-button-variant(
-                    $vs-color-text-cta-on-light,
-                    $vs-color-interaction-cta-subtle,
-                    $vs-color-interaction-cta-subtle,
-                    $vs-color-text-cta-on-light,
-                    $vs-color-interaction-cta-subtle-hover,
-                    $vs-color-interaction-cta-subtle-hover,
-                    $vs-color-text-inverse,
-                    $vs-color-interaction-cta-subtle-pressed,
-                    $vs-color-interaction-cta-subtle-pressed,
+                    $vs-cta-tertiary-foreground-default,
+                    $vs-cta-tertiary-background-default,
+                    $vs-cta-tertiary-border-default,
+                    
+                    $vs-cta-tertiary-foreground-hover,
+                    $vs-cta-tertiary-background-hover,
+                    $vs-cta-tertiary-border-hover,
+
+                    $vs-cta-tertiary-foreground-active,
+                    $vs-cta-tertiary-background-active,
+                    $vs-cta-tertiary-border-active,
+
+                    $vs-cta-primary-foreground-default,
+                    $vs-color-interaction-focus,
                 );
             }
 
