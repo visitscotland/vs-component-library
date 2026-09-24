@@ -94,53 +94,58 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, type PropType } from 'vue';
+// Defined in a separate script block so it is available at module scope,
+// allowing defineProps to reference it in the validator without hoisting issues
+export const VALID_REGIONS = [
+    'borders', 'dumfries', 'highlands', 'outerhebs', 'shetland',
+    'orkney', 'edinburgh', 'glasgow', 'fife', 'dundee', 'aberdeen',
+    'perth', 'lomond', 'arranayr', 'argyll',
+] as const;
 
-export default defineComponent({
-    name: 'VsIllustratedMap',
-    props: {
-        /**
-         * Array of region IDs to highlight,
-         * `borders|dumfries|highlands|outerhebs|shetland|
-         * orkney|edinburgh|glasgow|fife|dundee|aberdeen|
-         * perth|lomond|arranayr|argyll`
-         */
-        highlightedRegions: {
-            type: Array as PropType<string[]>,
-            default: () => [],
-            validator: (value: string[]) => value.every(
-                // eslint-disable-next-line max-len
-                (region) => /^(borders|dumfries|highlands|outerhebs|shetland|orkney|edinburgh|glasgow|fife|dundee|aberdeen|perth|lomond|arranayr|argyll)$/.test(region),
-            ),
-        },
-        /**
-         * ARIA label for the map
-         */
-        ariaLabel: {
-            type: String,
-            default: () => 'Illustrated map of Scotland showing regions',
-        },
-        /**
-         * Title for the map
-         */
-        title: {
-            type: String,
-            default: () => 'Map of Scotland',
-        },
-        /**
-         * The width attribute of the SVG
-         */
-        width: {
-            type: String,
-            default: null,
-        },
+export type Region = typeof VALID_REGIONS[number];
+</script>
+
+<script lang="ts" setup>
+import { type PropType } from 'vue';
+
+const props = defineProps({
+    /**
+     * Array of region IDs to highlight,
+     * `borders|dumfries|highlands|outerhebs|shetland|
+     * orkney|edinburgh|glasgow|fife|dundee|aberdeen|
+     * perth|lomond|arranayr|argyll`
+     */
+    highlightedRegions: {
+        type: Array as PropType<Region[]>,
+        default: () => [],
+        validator: (value: string[]) => value.every(
+            (region) => VALID_REGIONS.includes(region as Region),
+        ),
     },
-    methods: {
-        isHighlighted(regionId: string): boolean {
-            return this.highlightedRegions.includes(regionId);
-        },
+    /**
+     * ARIA label for the map
+     */
+    ariaLabel: {
+        type: String,
+        default: 'Illustrated map of Scotland showing regions',
+    },
+    /**
+     * Title for the map
+     */
+    title: {
+        type: String,
+        default: 'Map of Scotland',
+    },
+    /**
+     * The width attribute of the SVG
+     */
+    width: {
+        type: String,
+        default: null,
     },
 });
+
+const isHighlighted = (regionId: Region): boolean => props.highlightedRegions.includes(regionId);
 </script>
 
 <style lang="scss" scoped>
