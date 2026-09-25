@@ -53,7 +53,7 @@ describe('VsIllustratedMap', () => {
             const wrapper = factoryShallowMount();
             const svg = wrapper.find('svg');
 
-            expect(svg.attributes('aria-label')).toBe('Illustrated map of Scotland showing regions');
+            expect(svg.attributes('aria-label')).toBe('Illustrated map of Scotland showing regions and/or pins');
         });
 
         it('should render custom aria-label', () => {
@@ -95,6 +95,19 @@ describe('VsIllustratedMap', () => {
             const svg = wrapper.find('svg');
 
             expect(svg.attributes('width')).toBe('300px');
+        });
+
+        it('should render map pins from coordinates', () => {
+            const wrapper = factoryShallowMount({
+                pins: [{
+                    lat: 56,
+                    lng: -4,
+                }],
+            });
+            const pin = wrapper.find('.vs-illustrated-map__pin');
+
+            expect(pin.exists()).toBe(true);
+            expect(pin.attributes('transform')).toMatch(/^translate\(/);
         });
     });
 
