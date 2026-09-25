@@ -63,3 +63,19 @@ WithHighlighted.args = {
         'edinburgh', 'fife', 'dundee',
     ],
 };
+
+export const WithPins = Template.bind({
+});
+
+WithPins.args = {
+    pins: [
+        {
+            lat: 55.89,
+            lng: -3.18,
+        },
+        {
+            lat: 57.31,
+            lng: -5.55,
+        },
+    ],
+};
