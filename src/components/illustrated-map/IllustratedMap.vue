@@ -90,6 +90,14 @@
             d="M42.2625 231.565L48.5831 221.483L52.2519 210.237L60.9598 218.253L61.521 202.467L63.1827 194.13L62.4085 188.702L65.6214 186.368L69.854 170.601L55.0736 173.952L39.144 171.715L27.6386 179.013L26.6485 193.901L39.2061 192.377L52.0981 177.832L42.8937 196.909L25.9768 208.276L23.9023 213.801L28.5207 221.82L43.2148 204.755L44.364 206.684L37.396 224.232L42.2625 231.565Z"
             :class="{ 'is-highlighted': isHighlighted('argyll') }"
         />
+        <g
+            v-for="(pin, index) in mapPins"
+            :key="`${pin.x}-${pin.y}-${index}`"
+            :transform="`translate(${pin.x}, ${pin.y})`"
+            class="vs-illustrated-map__pin"
+        >
+            <circle r="4" />
+        </g>
     </svg>
 </template>
 
@@ -103,10 +111,28 @@ export const VALID_REGIONS = [
 ] as const;
 
 export type Region = typeof VALID_REGIONS[number];
+
+export interface MapPin {
+    lat: number;
+    lng: number;
+}
+
+// The bounding box for Scotland, used to project lat/lng into SVG coordinate space
+export const SCOTLAND_BOUNDS = {
+    north: 60.847,
+    south: 54.633,
+    east: -0.766,
+    west: -8.623,
+};
+
+const VIEW_BOX = {
+    width: 147,
+    height: 259,
+};
 </script>
 
 <script lang="ts" setup>
-import { type PropType } from 'vue';
+import { type PropType, computed } from 'vue';
 
 const props = defineProps({
     /**
@@ -141,16 +167,32 @@ const props = defineProps({
         default: null,
     },
     /**
-     * An array of objects containing pin longitude and latitude coordinates
-     * to be displayed on the map.
+     * An array of pin objects containing lat/lng coordinates
+     * to be displayed on the map
      */
     pins: {
-        type: Array as PropType<{ lat: number; lng: number }[]>,
+        type: Array as PropType<MapPin[]>,
         default: () => [],
     },
 });
 
 const isHighlighted = (regionId: Region): boolean => props.highlightedRegions.includes(regionId);
+
+const mapPins = computed(() => {
+    const pins = Array.isArray(props.pins) ? props.pins : [];
+
+    return pins.map((pin) => ({
+        x: (
+            (pin.lng - SCOTLAND_BOUNDS.west)
+            / (SCOTLAND_BOUNDS.east - SCOTLAND_BOUNDS.west)
+        ) * VIEW_BOX.width,
+        y: (
+            1
+            - (pin.lat - SCOTLAND_BOUNDS.south)
+            / (SCOTLAND_BOUNDS.north - SCOTLAND_BOUNDS.south)
+        ) * VIEW_BOX.height,
+    }));
+});
 </script>
 
 <style lang="scss" scoped>
@@ -164,5 +206,16 @@ const isHighlighted = (regionId: Region): boolean => props.highlightedRegions.in
         .is-highlighted {
             fill: #23014A;
         }
+    }
+
+    .vs-illustrated-map__pin {
+        circle {
+            fill: #23014A;
+        }
+    }
+
+    .vs-illustrated-map__pin-label {
+        font-size: 4px;
+        fill: #23014A;
     }
 </style>
