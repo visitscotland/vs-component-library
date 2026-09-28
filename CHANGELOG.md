@@ -1,3 +1,10 @@
+## [5.81.2](https://github.com/visitscotland/vs-component-library/compare/v5.81.1...v5.81.2) (2026-09-28)
+
+
+### Bug Fixes
+
+* **vsmeganav:** fixes the meganav `is-active` class broken by class collision in GoogleMap ([5f6977f](https://github.com/visitscotland/vs-component-library/commit/5f6977ffc2fc6b342c9474a412a48ed93cc926f0))
+
 ## [5.81.1](https://github.com/visitscotland/vs-component-library/compare/v5.81.0...v5.81.1) (2026-09-22)
 
 
