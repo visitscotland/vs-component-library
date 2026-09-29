@@ -1,6 +1,6 @@
 props:
 
-    ## Thistle-light (default theme)
+    ## Saltire (default theme)
 
     - name: vs-cta-primary-background-default
       value: "{!vs-saltire-60}"
@@ -66,9 +66,9 @@ props:
       value: "{!vs-cloud-10}"
 
     - name: vs-cta-tertiary-foreground-default
-      value: "{!vs-saltire-80}"
+      value: "{!vs-saltire-60}"
     - name: vs-cta-tertiary-foreground-hover
-      value: "{!vs-saltire-80}"
+      value: "{!vs-saltire-60}"
     - name: vs-cta-tertiary-foreground-active
       value: "{!vs-snow-00}"
     - name: vs-cta-tertiary-foreground-disabled
