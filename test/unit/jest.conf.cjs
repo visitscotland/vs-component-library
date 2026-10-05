@@ -1,3 +1,4 @@
+/* global require, module, __dirname */
 const path = require('path');
 
 module.exports = {
@@ -9,7 +10,7 @@ module.exports = {
     },
     testMatch: ['**/?(*.)jest.spec.js?(x)'],
     modulePaths: ['<rootDir>'],
-    moduleFileExtensions: ['js', 'json', 'vue', 'ts'],
+    moduleFileExtensions: ['js', 'mjs', 'json', 'vue', 'ts'],
     moduleNameMapper: {
         '^@components/(.*)$': '<rootDir>/src/components/$1',
         '\\.svg$': '<rootDir>/test/unit/mocks/svgMock.js',
@@ -19,10 +20,13 @@ module.exports = {
             '<rootDir>/test/unit/mocks/fileMock.js',
     },
     transform: {
+        '^.+\\.m?js$': '<rootDir>/node_modules/babel-jest',
         '^.+\\.[jt]sx?$': '<rootDir>/node_modules/ts-jest',
         '.*\\.vue$': '<rootDir>/node_modules/@vue/vue3-jest',
     },
-    transformIgnorePatterns: ['<rootDir>/node_modules/(?!(bootstrap-vue)/)'],
+    transformIgnorePatterns: [
+        '<rootDir>/node_modules/(?!(bootstrap-vue|pinia|@pinia/testing|@vue/devtools-api|@vue/devtools-kit|@vue/devtools-shared|nostics)/)',
+    ],
     snapshotSerializers: ['<rootDir>/node_modules/jest-serializer-vue'],
     coverageDirectory: '<rootDir>/test/unit/coverage',
     collectCoverageFrom: [

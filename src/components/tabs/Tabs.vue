@@ -73,7 +73,7 @@ export default {
             border: $vs-border-width-sm solid $vs-color-border-primary;
             border-top: 0;
 
-            .vs-heading {
+            .vs-heading.vs-tab__item__heading {
                 display: none;
             }
         }
