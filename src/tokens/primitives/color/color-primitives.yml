@@ -216,4 +216,7 @@ aliases:
   vs-basalt-90:
     value: "#200F2E"
   vs-basalt-95:
-    value: "#0D0613"  
+    value: "#0D0613"
+
+  vs-transparent:
+    value: "#ffffff00"
