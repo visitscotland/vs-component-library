@@ -7,6 +7,7 @@
             : 'vs-tab-link vs-heading'"
         :title="title"
         @click="trackClick"
+        tabindex="0"
     >
         <VsHeading
             level="3"
