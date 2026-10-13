@@ -1,3 +1,10 @@
+## [5.82.2](https://github.com/visitscotland/vs-component-library/compare/v5.82.1...v5.82.2) (2026-10-13)
+
+
+### Bug Fixes
+
+* **chromatic:** ignore contents of google map ([ab2e11f](https://github.com/visitscotland/vs-component-library/commit/ab2e11f2c5d85b89aec05718657179e8d5199a21))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
