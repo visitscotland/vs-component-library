@@ -224,6 +224,13 @@ export default {
             padding: 0;
             box-shadow: none;
             background: transparent;
+
+            @include media-breakpoint-up(md) {
+                display: grid!important;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: $vs-spacer-075;
+                align-items: start;
+            }
         }
     }
 }

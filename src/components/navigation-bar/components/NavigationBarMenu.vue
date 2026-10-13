@@ -49,5 +49,9 @@ export default {
         .vs-navigation-bar-menu ul {
             display: block;
         }
+
+        .vs-navigation-bar-menu > ul > li + li {
+            padding-top: $vs-spacer-050;
+        }
     }
 </style>
