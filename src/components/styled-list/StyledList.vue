@@ -84,9 +84,7 @@ const props = defineProps({
 
     &--numbered {
         .vs-styled-list__list {
-            @include media-breakpoint-up(md) {
-                margin-left: $vs-spacer-200;
-            }
+            margin-left: $vs-spacer-200;
         }
     }
 }
