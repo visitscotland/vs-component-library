@@ -1,3 +1,11 @@
+# [5.82.0](https://github.com/visitscotland/vs-component-library/compare/v5.81.2...v5.82.0) (2026-10-13)
+
+
+### Features
+
+* **navbar:** add no-js support to navbar ([1ddb105](https://github.com/visitscotland/vs-component-library/commit/1ddb1054ea3650c2fa93f0332e4d30fdbf561d9a))
+* **navbar:** split no-js navbar into two columns ([e69689f](https://github.com/visitscotland/vs-component-library/commit/e69689f6918ee746098d6b45b7ccf855eebcad72))
+
 ## [5.81.2](https://github.com/visitscotland/vs-component-library/compare/v5.81.1...v5.81.2) (2026-09-28)
 
 
