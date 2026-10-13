@@ -1,5 +1,6 @@
 <template>
     <VsButton
+        class="vs-navigation-bar-search__toggle"
         data-test="vs-navigation-bar-search"
         id="site-search-btn"
         variant="secondary"
@@ -11,6 +12,14 @@
     >
         {{ buttonText }}
     </VsButton>
+
+    <a
+        v-if="searchLink"
+        class="vs-navigation-bar-search__link vs-navigation-bar-menu-item__link"
+        :href="searchLink"
+    >
+        {{ buttonText }}
+    </a>
 
     <Teleport to="body">
         <VsSiteSearchForm
@@ -37,6 +46,11 @@ export default {
         VsSiteSearchForm,
     },
     props: {
+        /** Destination for the search link when JavaScript is disabled. */
+        searchLink: {
+            type: String,
+            default: null,
+        },
         /**
          * Text label for the search button
          */
@@ -82,3 +96,19 @@ export default {
     },
 };
 </script>
+
+<style lang="scss">
+    .vs-navigation-bar-search__link {
+        display: none;
+    }
+
+    @include no-js {
+        .vs-navigation-bar-search__toggle {
+            display: none!important;
+        }
+
+        .vs-navigation-bar-search__link {
+            display: block;
+        }
+    }
+</style>

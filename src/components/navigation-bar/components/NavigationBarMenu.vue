@@ -44,4 +44,14 @@ export default {
         gap: $vs-spacer-075;
         align-items: center;
     }
+
+    @include no-js {
+        .vs-navigation-bar-menu ul {
+            display: block;
+        }
+
+        .vs-navigation-bar-menu > ul > li + li {
+            padding-top: $vs-spacer-050;
+        }
+    }
 </style>
