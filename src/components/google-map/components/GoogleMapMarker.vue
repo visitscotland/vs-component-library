@@ -102,7 +102,6 @@
 <script setup>
 import VsTooltip from '@/components/tooltip/Tooltip.vue';
 import {
-    defineEmits,
     onBeforeMount,
     ref,
 } from 'vue';
