@@ -3965,15 +3965,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-a11y@npm:10.5.6":
-  version: 10.5.6
-  resolution: "@storybook/addon-a11y@npm:10.5.6"
+"@storybook/addon-a11y@npm:10.5.7":
+  version: 10.5.7
+  resolution: "@storybook/addon-a11y@npm:10.5.7"
   dependencies:
     "@storybook/global": "npm:^5.0.0"
     axe-core: "npm:^4.2.0"
   peerDependencies:
-    storybook: ^10.5.6
-  checksum: 10c0/c2e0489fbaa358ef632e6e6e9c5a25b530f88a931097ccc173c1f329866917c13ba4a5360a062a55f0dd487617068a96b361849a11fcdeb8a8ddbd67c0a35676
+    storybook: ^10.5.7
+  checksum: 10c0/85dc8217a2af9b175731a3586d10a52398be6d38d766dbb3c1a77a88b751a0fb1a6be22da26f107f3d3a756f5df98f08b10f5ce4e9325675c4374ee7c961f8b3
   languageName: node
   linkType: hard
 
@@ -4872,7 +4872,7 @@ __metadata:
     "@rollup/plugin-replace": "npm:^6.0.2"
     "@semantic-release/exec": "npm:^7.1.0"
     "@semantic-release/npm": "npm:^13.1.5"
-    "@storybook/addon-a11y": "npm:10.5.6"
+    "@storybook/addon-a11y": "npm:10.5.7"
     "@storybook/addon-docs": "npm:10.5.7"
     "@storybook/addon-links": "npm:10.5.7"
     "@storybook/vue3-vite": "npm:10.5.6"
