@@ -1,3 +1,10 @@
+# [5.83.0](https://github.com/visitscotland/vs-component-library/compare/v5.82.2...v5.83.0) (2026-10-28)
+
+
+### Features
+
+* **cta tokens and cta:** change token structure and update component ([c68cbc2](https://github.com/visitscotland/vs-component-library/commit/c68cbc2007a5e04b4316089b48f707ed36c27ca9))
+
 ## [5.82.2](https://github.com/visitscotland/vs-component-library/compare/v5.82.1...v5.82.2) (2026-10-13)
 
 
