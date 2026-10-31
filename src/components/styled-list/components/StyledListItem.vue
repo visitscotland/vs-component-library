@@ -9,11 +9,14 @@
                 cols="12"
                 md="2"
             >
-                <VsImg :src="props.imageSrc" />
+                <VsImg
+                    v-if="props.imageSrc"
+                    :src="props.imageSrc"
+                />
             </VsCol>
             <VsCol :md="props.variant === 'image' ? '10' : '12'">
                 <VsImg
-                    v-if="props.variant === 'image-horizontal'"
+                    v-if="props.variant === 'image-horizontal' && props.imageSrc"
                     :src="props.imageSrc"
                 />
 
@@ -34,57 +37,33 @@
     </li>
 </template>
 
-<script setup>
-import { isNumber } from 'lodash';
+<script setup lang="ts">
 import VsHeading from '../../heading/Heading.vue';
 import VsImg from '../../img/Img.vue';
 import VsBody from '../../body/Body.vue';
 import { VsRow, VsCol } from '../../grid';
 
-const props = defineProps({
-    /**
-     * Heading of the list item.
-     */
-    heading: {
-        type: String,
-        required: true,
+const props = withDefaults(
+    defineProps<{
+        /** ID of the anchor link if needed. */
+        anchorLink?: string;
+        /** Heaidng of the list item. */
+        heading: string;
+        /**
+         * The correct heaing level for the page heirarchy, the
+         * heading will be styled the same regardless of the level provided. */
+        headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
+        /** Image source of the list item. */
+        imageSrc?: string | null;
+        /** Determine column layout and image position. */
+        variant?: 'icon' | 'image' | 'image-horizontal' | 'numbered';
+    }>(), {
+        anchorLink: '',
+        headingLevel: 3,
+        imageSrc: null,
+        variant: 'icon',
     },
-    /**
-     * The correct heading level for page hierarchy, the
-     * heading will be styled the same regardless of level provided
-     * `1|2|3|4|5|6`
-     */
-    headingLevel: {
-        type: Number,
-        default: 3,
-        validator: (value) => (isNumber(value)
-            ? value > 0 && value < 7
-            : value.match(/(1|2|3|4|5|6)/)),
-    },
-    /**
-     * Image source of the list item.
-     */
-    imageSrc: {
-        type: String,
-        default: null,
-    },
-    /**
-     * Determines column layout and image position.
-     * @values icon, image, image-horizontal, numbered
-     */
-    variant: {
-        type: String,
-        default: 'icon',
-        validator: (value) => ['icon', 'image', 'image-horizontal', 'numbered'].includes(value),
-    },
-    /**
-     * ID of the anchor link if needed
-     */
-    anchorLink: {
-        type: String,
-        default: '',
-    },
-});
+);
 </script>
 
 <style lang="scss">
