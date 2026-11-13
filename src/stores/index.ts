@@ -1,21 +1,6 @@
-import {
-    createPinia, Pinia, getActivePinia,
-} from 'pinia';
+import { createPinia, type Pinia } from 'pinia';
 
-let piniaInstance: Pinia|null = null;
-
-const activePinia: Pinia|null = getActivePinia();
-
-if (activePinia) {
-    piniaInstance = activePinia;
-}
-
-const pinia = (): Pinia => {
-    if (piniaInstance !== null) return piniaInstance;
-
-    piniaInstance = createPinia();
-
-    return piniaInstance;
-};
+// Standalone apps and SSR requests must each own their store state.
+const pinia = (): Pinia => createPinia();
 
 export default pinia;
