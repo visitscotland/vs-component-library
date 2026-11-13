@@ -41,6 +41,10 @@ jobs:
       - name: Run tests
         run: yarn test
 
+      - name: Test dependency automation
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        run: node --test tests/*.test.mjs .github/skills/dependency-triage/scripts/collect.test.mjs
+
       - name: Lint
         if: ${{ !cancelled() && steps.install.outcome == 'success' }}
         run: yarn lint

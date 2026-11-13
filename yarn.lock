@@ -4419,6 +4419,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/semver@npm:^7":
+  version: 7.8.0
+  resolution: "@types/semver@npm:7.8.0"
+  checksum: 10c0/46a1f38e36013448b279798e8b134e7e8de3b3630b1f40683903b9d57d36dd1d70838515570ed9a149fa09e9c381b9e39319b58d7b9f3b929b42ae2becff7aa3
+  languageName: node
+  linkType: hard
+
 "@types/stack-utils@npm:^2.0.3":
   version: 2.0.3
   resolution: "@types/stack-utils@npm:2.0.3"
@@ -4886,6 +4893,7 @@ __metadata:
     "@types/google.maps": "npm:^3.64.0"
     "@types/node": "npm:^26.0.1"
     "@types/react": "npm:^19.2.16"
+    "@types/semver": "npm:^7"
     "@vitejs/plugin-vue": "npm:^6.0.7"
     "@vue/compiler-dom": "npm:^3.5.35"
     "@vue/devtools-api": "npm:^8.1.5"
@@ -4924,6 +4932,7 @@ __metadata:
     prettier: "npm:^3.8.3"
     sass: "npm:^1.62.1"
     semantic-release: "npm:^25.0.3"
+    semver: "npm:7.8.5"
     standard-version: "npm:^9.5.0"
     storybook: "npm:10.6.2"
     storybook-addon-tag-badges: "npm:^3.1.0"
@@ -4942,6 +4951,7 @@ __metadata:
     vue-youtube-vue-3: "npm:^1.5.0"
     vue3-charts: "npm:^1.1.33"
     vue3-lazy-hydration: "npm:^1.2.1"
+    yaml: "npm:2.9.0"
   peerDependencies:
     "@popperjs/core": "*"
     "@vue/devtools-api": ^8.1.5
@@ -17990,7 +18000,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yaml@npm:^2.9.0":
+"yaml@npm:2.9.0, yaml@npm:^2.9.0":
   version: 2.9.0
   resolution: "yaml@npm:2.9.0"
   bin:

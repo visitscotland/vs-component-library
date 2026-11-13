@@ -34,7 +34,7 @@ export default defineConfigWithVueTs(
 
 	// Global browser + node globals for app code
 	{
-		files: ['**/*.{js,ts,vue}'],
+		files: ['**/*.{js,mjs,ts,vue}'],
 		languageOptions: {
 			globals: {
 				...globals.browser,
