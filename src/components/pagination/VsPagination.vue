@@ -6,8 +6,12 @@
     >
         <div
             aria-live="polite"
-            class="vs-pagination__count"
+            class="sr-only"
+            role="status"
         >
+            {{ resultsText }}
+        </div>
+        <div class="vs-pagination__count">
             <p>{{ resultsText }}</p>
         </div>
         <div class="vs-pagination__controls">

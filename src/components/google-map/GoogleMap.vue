@@ -14,6 +14,7 @@
             id="vs-google-map"
             ref="mapRef"
             data-test="vs-google-map"
+            data-chromatic="ignore"
         >
             <!-- @slot for VsGoogleMapMarker component -->
             <slot

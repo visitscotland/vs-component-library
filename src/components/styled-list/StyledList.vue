@@ -23,31 +23,24 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {
     VsContainer,
     VsRow,
     VsCol,
 } from '@/components/grid';
 
-const props = defineProps({
-    /**
-     * Text listing any sources for information displayed in the lists.
-     */
-    source: {
-        type: String,
-        default: null,
+const props = withDefaults(
+    defineProps<{
+        /** Text listing any sources of information displayed in the lists. */
+        source?: string | null;
+        /** Determines the list style. */
+        variant?: 'icon' | 'image' | 'image-horizontal' | 'numbered';
+    }>(), {
+        source: null,
+        variant: 'icon',
     },
-    /**
-     * Determines the list style.
-     * @values icon, image, image-horizontal, numbered
-     */
-    variant: {
-        type: String,
-        default: 'icon',
-        validator: (value) => ['icon', 'image', 'image-horizontal', 'numbered'].includes(value),
-    },
-});
+);
 </script>
 
 <style lang="scss">
@@ -84,9 +77,7 @@ const props = defineProps({
 
     &--numbered {
         .vs-styled-list__list {
-            @include media-breakpoint-up(md) {
-                margin-left: $vs-spacer-200;
-            }
+            margin-left: $vs-spacer-200;
         }
     }
 }

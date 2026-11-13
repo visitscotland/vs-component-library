@@ -82,6 +82,48 @@ describe('VsCheckbox', () => {
             expect(mountedWrapper.vm.errorsList.length).toBeGreaterThan(0);
         });
 
+        it('should clear required validation after a checkbox is reselected', async() => {
+            jest.useFakeTimers();
+
+            const mountedWrapper = factoryMount({
+                validationRules: {
+                    required: true,
+                },
+                validationMessages: {
+                    required: 'This is required',
+                },
+            });
+            const checkbox = mountedWrapper.find('input[type="checkbox"]');
+            const setChecked = async(checked) => {
+                await checkbox.setChecked(checked);
+                jest.runOnlyPendingTimers();
+                await mountedWrapper.vm.$nextTick();
+            };
+
+            try {
+                await mountedWrapper.setProps({
+                    triggerValidate: true,
+                });
+                expect(mountedWrapper.vm.errorsList).toEqual(['required']);
+
+                await setChecked(true);
+                expect(mountedWrapper.vm.errorsList).toEqual([]);
+
+                await setChecked(false);
+                expect(mountedWrapper.vm.errorsList).toEqual(['required']);
+
+                await setChecked(true);
+                expect(mountedWrapper.vm.errorsList).toEqual([]);
+
+                const statusUpdates = mountedWrapper.emitted('status-update');
+                expect(statusUpdates[statusUpdates.length - 1][0].errors).toEqual([]);
+            } finally {
+                mountedWrapper.unmount();
+                jest.useRealTimers();
+            }
+
+        });
+
         it(':size - should render with a class `vs-checkbox--small` when `sn` is passed', async() => {
             await wrapper.setProps({
                 size: 'sm',

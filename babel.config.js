@@ -15,7 +15,7 @@
 
 module.exports = {
     presets: ['@babel/preset-env'],
-    ignore: [/node_modules\/(?!bootstrap-vue-next)/],
+    ignore: [/node_modules[\\/](?!(bootstrap-vue|pinia|@pinia[\\/]testing|@vue[\\/]devtools-api|@vue[\\/]devtools-kit|@vue[\\/]devtools-shared|nostics)[\\/])/],
     env: {
         test: {
             presets: ['@babel/preset-env'],

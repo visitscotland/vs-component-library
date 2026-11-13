@@ -4,9 +4,18 @@
  */
 
 @mixin vs-button-variant(
-    $color, $background, $border, 
-    $hover-color, $hover-background, $hover-border,
-    $active-color, $active-background, $active-border,)
+    $color,
+    $background,
+    $border,
+    $hover-color,
+    $hover-background,
+    $hover-border,
+    $active-color,
+    $active-background,
+    $active-border,
+    $focus-offset: "",
+    $focus-ring: "",
+)
 {
 
     color: $color;
@@ -25,6 +34,12 @@
         .vs-icon {
             color: $hover-color;
         }
+    }
+
+    &:focus {
+        box-shadow: 
+        0 0 0 2px $focus-offset, 
+        0 0 0 4px $focus-ring;
     }
 
     &:active, &:active:focus, &.vs-button--active {
