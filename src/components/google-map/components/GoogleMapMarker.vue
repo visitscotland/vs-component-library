@@ -64,7 +64,7 @@
             class="vs-google-map-marker"
             :class="
                 googleMapStore.markerHovered === props.featureData.properties.id 
-                    ? 'is-active' 
+                    ? 'marker-active' 
                     : null"
             @click="$emit('markerClick', props.featureData)"
         >
@@ -102,7 +102,6 @@
 <script setup>
 import VsTooltip from '@/components/tooltip/Tooltip.vue';
 import {
-    defineEmits,
     onBeforeMount,
     ref,
 } from 'vue';
@@ -200,14 +199,13 @@ const focusOutBehaviour = () => {
 
 const handleTooltipBehaviour = () => {
     if (isMarkerActive(props.featureData.properties.id)) {
-        return 'is-active';
+        return 'marker-active';
     } else {
         return null;
     }
 };
 
-
-const { markerHovered } = storeToRefs(useGoogleBaseMapStore);
+const { markerHovered } = storeToRefs(googleMapStore);
 
 defineExpose({
     showTooltip,
@@ -255,7 +253,7 @@ gmp-advanced-marker:focus-within .vs-google-map-marker {
     text-align: center;
 }
 
-.is-active {
+.marker-active {
     scale: 150%;
     transition: all $duration-base;
     transform-origin: bottom;

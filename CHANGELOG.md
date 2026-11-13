@@ -1,3 +1,131 @@
+## [5.83.3](https://github.com/visitscotland/vs-component-library/compare/v5.83.2...v5.83.3) (2026-11-06)
+
+
+### Bug Fixes
+
+* **pagination:** add sr-only text to announce current page ([556cdc7](https://github.com/visitscotland/vs-component-library/commit/556cdc78984505a394730c8fe3996e02eabbf219))
+
+## [5.83.2](https://github.com/visitscotland/vs-component-library/compare/v5.83.1...v5.83.2) (2026-11-04)
+
+
+### Bug Fixes
+
+* **security:** update critical dependabot issues ([f458d18](https://github.com/visitscotland/vs-component-library/commit/f458d18e98cdd2567f745998d90d2830a3ab880c))
+
+## [5.83.1](https://github.com/visitscotland/vs-component-library/compare/v5.83.0...v5.83.1) (2026-11-02)
+
+
+### Bug Fixes
+
+* **google map:** compiler warning - `defineEmits` doesnt need to be imported ([d7d2875](https://github.com/visitscotland/vs-component-library/commit/d7d2875611bc29a94fa4324f67e5c45f11eded82))
+* **styledlist:** apply margin to mobile as well as desktop ([489891f](https://github.com/visitscotland/vs-component-library/commit/489891fa3d13780b5aca674c9f62edcb6cf55d4d))
+
+# [5.83.0](https://github.com/visitscotland/vs-component-library/compare/v5.82.2...v5.83.0) (2026-10-28)
+
+
+### Features
+
+* **cta tokens and cta:** change token structure and update component ([c68cbc2](https://github.com/visitscotland/vs-component-library/commit/c68cbc2007a5e04b4316089b48f707ed36c27ca9))
+
+## [5.82.2](https://github.com/visitscotland/vs-component-library/compare/v5.82.1...v5.82.2) (2026-10-13)
+
+
+### Bug Fixes
+
+* **chromatic:** ignore contents of google map ([ab2e11f](https://github.com/visitscotland/vs-component-library/commit/ab2e11f2c5d85b89aec05718657179e8d5199a21))
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [5.82.1](https://github.com/visitscotland/vs-component-library/compare/v5.82.0...v5.82.1) (2026-10-13)
+
+# [5.82.0](https://github.com/visitscotland/vs-component-library/compare/v5.81.2...v5.82.0) (2026-10-13)
+
+
+### Features
+
+* **navbar:** add no-js support to navbar ([1ddb105](https://github.com/visitscotland/vs-component-library/commit/1ddb1054ea3650c2fa93f0332e4d30fdbf561d9a))
+* **navbar:** split no-js navbar into two columns ([e69689f](https://github.com/visitscotland/vs-component-library/commit/e69689f6918ee746098d6b45b7ccf855eebcad72))
+
+## [5.81.2](https://github.com/visitscotland/vs-component-library/compare/v5.81.1...v5.81.2) (2026-09-28)
+
+
+### Bug Fixes
+
+* **vsmeganav:** fixes the meganav `is-active` class broken by class collision in GoogleMap ([5f6977f](https://github.com/visitscotland/vs-component-library/commit/5f6977ffc2fc6b342c9474a412a48ed93cc926f0))
+
+## [5.81.1](https://github.com/visitscotland/vs-component-library/compare/v5.81.0...v5.81.1) (2026-09-22)
+
+
+### Bug Fixes
+
+* **vsfiltersection:** reverse icon transitions ([e670836](https://github.com/visitscotland/vs-component-library/commit/e67083683524c1c1e7bc7dcfae422c6cac9d5ece))
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [5.81.0](https://github.com/visitscotland/vs-component-library/compare/v5.79.3...v5.81.0) (2026-09-18)
+
+
+### ✨ Features
+
+* **pinia:** migrate to pinia 4 to support site migrations ([8e46b54](https://github.com/visitscotland/vs-component-library/commit/8e46b54355a35c291a5e739c0f40e7332dee3822))
+* **pinia:** remove migration test ([d27bc1b](https://github.com/visitscotland/vs-component-library/commit/d27bc1b3583957459fbb391fe3c4f2bf600d71f4))
+
+
+### 🐛 Bug Fixes
+
+* **tabs:** headings within tab content were hidden ([a4ce048](https://github.com/visitscotland/vs-component-library/commit/a4ce0484cc76b779b441016ade424a8fd9a2db90))
+
+
+### 🔖 Others
+
+* **release:** 5.79.4 [skip ci] ([d962f37](https://github.com/visitscotland/vs-component-library/commit/d962f371b23d912d7ce3259a85820ed36f681cd0))
+* **release:** 5.80.0 [skip ci] ([6a13d2f](https://github.com/visitscotland/vs-component-library/commit/6a13d2fc2c1f0c8848073a0d6b840e8a09a5a2bb))
+
+# [5.80.0](https://github.com/visitscotland/vs-component-library/compare/v5.79.4...v5.80.0) (2026-09-17)
+
+
+### Features
+
+* **pinia:** migrate to pinia 4 to support site migrations ([8e46b54](https://github.com/visitscotland/vs-component-library/commit/8e46b54355a35c291a5e739c0f40e7332dee3822))
+* **pinia:** remove migration test ([d27bc1b](https://github.com/visitscotland/vs-component-library/commit/d27bc1b3583957459fbb391fe3c4f2bf600d71f4))
+
+## [5.79.4](https://github.com/visitscotland/vs-component-library/compare/v5.79.3...v5.79.4) (2026-09-17)
+
+
+### Bug Fixes
+
+* **tabs:** headings within tab content were hidden ([a4ce048](https://github.com/visitscotland/vs-component-library/commit/a4ce0484cc76b779b441016ade424a8fd9a2db90))
+
+## [5.79.3](https://github.com/visitscotland/vs-component-library/compare/v5.79.2...v5.79.3) (2026-09-11)
+
+
+### Bug Fixes
+
+* **forms:** correct validation error on checkboxes ([8a2c402](https://github.com/visitscotland/vs-component-library/commit/8a2c40211ccc47f3225583333801abe0d86951d6))
+* **forms:** remove redundant story ([2e23dae](https://github.com/visitscotland/vs-component-library/commit/2e23dae0e19a37183683627e4981c40f600d09c6))
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [5.79.2](https://github.com/visitscotland/vs-component-library/compare/v5.79.1...v5.79.2) (2026-09-01)
+
+
+### ♻️ Code Refactoring
+
+* **mapcategory.store:** suppressed ts errors by adding ts-nocheck to file ([8f96a84](https://github.com/visitscotland/vs-component-library/commit/8f96a8402828c88948dd77f5f5b259654b43efbb))
+
+## [5.79.1](https://github.com/visitscotland/vs-component-library/compare/v5.79.0...v5.79.1) (2026-09-01)
+
+
+### Bug Fixes
+
+* **addtoolip:** removes private deta encapsulation in AddTooltip causing build crashes ([396c51f](https://github.com/visitscotland/vs-component-library/commit/396c51f7122d34b8cb4ef63dd93ecf9f6b591511))
+
 # [5.79.0](https://github.com/visitscotland/vs-component-library/compare/v5.78.0...v5.79.0) (2026-09-01)
 
 
