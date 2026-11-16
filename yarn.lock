@@ -4992,7 +4992,7 @@ __metadata:
     prettier: "npm:^3.8.3"
     sass: "npm:^1.62.1"
     semantic-release: "npm:^25.0.3"
-    semver: "npm:7.8.5"
+    semver: "npm:7.8.6"
     standard-version: "npm:^9.5.0"
     storybook: "npm:10.6.2"
     storybook-addon-tag-badges: "npm:^3.1.0"
