@@ -25,7 +25,7 @@ module.exports = {
         '.*\\.vue$': '<rootDir>/node_modules/@vue/vue3-jest',
     },
     transformIgnorePatterns: [
-        '<rootDir>/node_modules/(?!(bootstrap-vue|pinia|@pinia/testing|@vue/devtools-api|@vue/devtools-kit|@vue/devtools-shared|nostics)/)',
+        '<rootDir>/node_modules/(?!(bootstrap-vue|bootstrap-vue-next|pinia|@pinia/testing|@vue/devtools-api|@vue/devtools-kit|@vue/devtools-shared|nostics)/)',
     ],
     snapshotSerializers: ['<rootDir>/node_modules/jest-serializer-vue'],
     coverageDirectory: '<rootDir>/test/unit/coverage',
