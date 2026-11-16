@@ -63,7 +63,7 @@
                     </div>
 
                     <a
-                        v-if="props.query || props.selectedCategory"
+                        v-if="props.query || mapCategoryStore.selectedCategory"
                         class="d-block"
                         href="#"
                         data-test="vs-map-sidebar__reset-map"
@@ -90,18 +90,18 @@
                         <VsMapFilter
                             has-icons
                             :items="filteredCategories"
-                            :selected-category="props.selectedCategory"
+                            :selected-category="mapCategoryStore.selectedCategory"
                             @changed="(event: MapFilterChanged) =>
-                                $emit('category-selected', { id: event.id, key: event.key })"
+                                handleCategorySelect(event.id)"
                         />
 
                         <VsMapFilter
-                            v-if="props.selectedCategory && subcategories"
+                            v-if="mapCategoryStore.selectedCategory && subcategories"
                             :detail-text="props.sidebarLabels.subFilterHeaderLabel"
                             :items="subcategories"
-                            :selected-category="Array.from(props.selectedSubcategories) ?? []"
+                            :selected-category="mapCategoryStore.selectedSubcategories"
                             @changed="(event: MapFilterChanged) =>
-                                $emit('subcategory-selected', { id: event.id, key: event.key })"
+                                mapCategoryStore.toggleSubcategory(event.id)"
                         />
                     </div>
                 </div>
@@ -109,17 +109,17 @@
                 <div class="vs-map-sidebar__section3">
                     <div class="vs-map-sidebar__search-results">
                         <VsHeading
-                            v-if="$props.query || $props.selectedCategory"
+                            v-if="props.query || mapCategoryStore.selectedCategory"
                             data-test="vs-map-sidebar__search-result-query"
                             heading-style="heading-xxxs"
                             level="2"
                         >
                             {{ props.sidebarLabels.searchResultsLabel }}
-                            "{{ props.query || props.selectedCategory }}"
+                            "{{ props.query || mapCategoryStore.selectedCategory }}"
                         </VsHeading>
 
                         <a
-                            v-if="props.query || props.selectedCategory"
+                            v-if="props.query || mapCategoryStore.selectedCategory"
                             href="#"
                             data-test="vs-map-sidebar__hard-reset-map"
                             @click.prevent="$emit('reset-location')"
@@ -219,6 +219,7 @@ import VsHeading from '@/components/heading/Heading.vue';
 import VsInput from '@/components/input/Input.vue';
 import VsRow from '@/components/grid/Row.vue';
 import useGoogleMapStore from '@/stores/mainMap.store';
+import useMapCategoryStore from '@/stores/mapCategory.store';
 import useSwipeDrawer from '../composables/useSwipeDrawer';
 import VsMapFeaturedLocationItem from './MapFeaturedLocationItem.vue';
 import VsMapFilter from './MapFilter.vue';
@@ -274,11 +275,6 @@ type Props = {
     mapLoaded?: boolean;
     /** Test query from Map Search */
     query?: string;
-    /** Selected top level category */
-    selectedCategory?: string;
-    /** Selected sub categories */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    selectedSubcategories?: any;
     /** Labels for the sidebar */
     sidebarLabels: Record<string, string>;
 };
@@ -287,8 +283,6 @@ const props = withDefaults(defineProps<Props>(), {
     categoryData: undefined,
     mapLoaded: false,
     query: undefined,
-    selectedCategory: undefined,
-    selectedSubcategories: undefined,
 });
 
 // Two-way binding for sidebar open/close state.
@@ -302,23 +296,16 @@ const isResultsOpen = defineModel<boolean>('isResultsOpen', {
 });
 
 const emit = defineEmits<{
-    'category-selected': [{
-        id: string;
-        key: number | string;
-    }],
     'destination-type-selected': [],
     'reset-location': [],
     'reset-map': [],
     'search-input-changed': [],
-    'subcategory-selected': [{
-        id: string;
-        key: number | string;
-    }],
 }>();
 
 const sidebar = useTemplateRef('sidebar');
 
 const googleMapStore = useGoogleMapStore();
+const mapCategoryStore = useMapCategoryStore();
 const {
     endDrag,
     onDrag,
@@ -329,10 +316,10 @@ const {
 const filteredCategories = props.categories.filter((category: Categories) => !category.cmsData);
 
 const subcategories = computed(() => {
-    if (!props.selectedCategory) return null;
+    if (!mapCategoryStore.selectedCategory) return null;
 
     const categoryData = props.categories.find(
-        (cat: Categories) => cat.id === props.selectedCategory,
+        (cat: Categories) => cat.id === mapCategoryStore.selectedCategory,
     );
 
     if (!categoryData) return null;
@@ -346,6 +333,11 @@ const filteredDestinationCategories = props.destinationCategories.filter((catego
 function handleDestinationTypeClick(id: string) {
     googleMapStore.selectedDestinationType = id;
     emit('destination-type-selected');
+}
+
+function handleCategorySelect(id: string) {
+    mapCategoryStore.selectedSubcategories = [];
+    mapCategoryStore.selectedCategory = id;
 }
 
 onMounted(() => {

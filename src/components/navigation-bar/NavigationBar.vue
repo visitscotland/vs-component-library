@@ -7,13 +7,14 @@
             fluid="lg"
             class="h-100"
         >
-            <VsRow class="align-items-center h-100">
-                <VsCol class="col-auto">
+            <VsRow class="vs-navigation-bar__row align-items-center h-100">
+                <VsCol class="vs-navigation-bar__logo col-auto">
                     <!-- @slot For logo link  -->
                     <slot name="logo-link" />
                 </VsCol>
 
                 <VsCol
+                    class="vs-navigation-bar__menu"
                     :class="menuClasses"
                     data-test="vs-navigation-bar__menu"
                 >
@@ -22,6 +23,7 @@
                 </VsCol>
 
                 <VsCol
+                    class="vs-navigation-bar__utilities"
                     :class="utilityClasses"
                     data-test="vs-navigation-bar__utilities"
                 >
@@ -169,5 +171,67 @@ export default {
         align-items: center;
         background-color: $vs-color-background-inverse;
         box-shadow: $vs-elevation-shadow-overlay;
+    }
+
+    @include no-js {
+        .vs-navigation-bar {
+            height: auto;
+            padding-block: $vs-spacer-100;
+
+            &__row {
+                flex-direction: column;
+                align-items: stretch!important;
+                gap: $vs-spacer-100;
+            }
+
+            &__logo,
+            &__menu,
+            &__utilities {
+                width: 100%;
+                flex: 0 0 auto;
+            }
+
+            &__menu,
+            &__utilities {
+                display: block!important;
+            }
+
+            &__utilities nav > ul {
+                display: block!important;
+
+                > li {
+                    display: block!important;
+                    margin: 0!important;
+                }
+            }
+
+            &__utilities a.vs-button {
+                width: auto;
+                height: auto;
+                padding: $vs-spacer-075 $vs-spacer-100;
+
+                .vs-icon {
+                    display: none;
+                }
+
+                .vs-button__text {
+                    position: static!important;
+                    width: auto!important;
+                    height: auto!important;
+                    margin: 0!important;
+                    overflow: visible!important;
+                    clip: auto!important;
+                    white-space: normal!important;
+                }
+            }
+
+            .vs-navigation-bar-sidebar-button {
+                display: none!important;
+            }
+        }
+
+        .vs-navigation-bar-sidebar {
+            display: none!important;
+        }
     }
 </style>

@@ -11,6 +11,19 @@ describe('VsNavigationBarSearch', () => {
     });
 
     describe(':props', () => {
+        it('renders a native fallback link with the SSR-provided destination and label', () => {
+            wrapper = shallowMount(VsNavigationBarSearch, {
+                props: {
+                    searchLink: '/search',
+                    buttonText: 'Find in Scotland',
+                },
+            });
+            const link = wrapper.find('a.vs-navigation-bar-search__link');
+
+            expect(link.attributes('href')).toBe('/search');
+            expect(link.text()).toBe('Find in Scotland');
+        });
+
         it('renders VsButton with correct props', () => {
             const button = wrapper.findComponent({
                 name: 'VsButton',

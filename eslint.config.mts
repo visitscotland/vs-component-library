@@ -15,6 +15,8 @@ configureVueProject({ scriptLangs: ['ts', 'tsx', 'js'] });
 export default defineConfigWithVueTs(
 	// Files and folders to exclude from linting
 	globalIgnores([
+		'**/.yarn/**',
+		'**/storybook-static/**',
 		'**/dist/**',
 		'**/dist-ssr/**',
 		'**/scripts/**',
@@ -32,7 +34,7 @@ export default defineConfigWithVueTs(
 
 	// Global browser + node globals for app code
 	{
-		files: ['**/*.{js,ts,vue}'],
+		files: ['**/*.{js,mjs,ts,vue}'],
 		languageOptions: {
 			globals: {
 				...globals.browser,

@@ -1,20 +1,31 @@
 <template>
-    <BDropdown
+    <div
         :class="menuDropdownClasses"
         data-test="vs-navigation-bar-menu-dropdown"
-        variant="subtle"
-        ref="dropdown"
-        role="presentation"
-        @show="dataLayerSubmit"
     >
-        <template #button-content>
-            <!-- @slot For dropdown toggle button content  -->
-            <slot name="button-content" />
-        </template>
+        <span class="vs-navigation-bar-menu-dropdown__label">
+            <!-- @slot Static label when JavaScript is disabled; defaults to button content -->
+            <slot name="no-js-label">
+                <slot name="button-content" />
+            </slot>
+        </span>
+        <BDropdown
+            variant="subtle"
+            ref="dropdown"
+            role="list"
+            :lazy="false"
+            :teleport-disabled="true"
+            @show="dataLayerSubmit"
+        >
+            <template #button-content>
+                <!-- @slot For dropdown toggle button content  -->
+                <slot name="button-content" />
+            </template>
 
-        <!-- @slot Default slot for dropdown menu content  -->
-        <slot />
-    </BDropdown>
+            <!-- @slot Default slot for dropdown menu content  -->
+            <slot />
+        </BDropdown>
+    </div>
 </template>
 
 <script>
@@ -79,6 +90,12 @@ export default {
 
 <style lang="scss">
 .vs-navigation-bar-menu-dropdown {
+    display: inline-block;
+
+    &__label {
+        display: none;
+    }
+
     .btn.dropdown-toggle {
         position: relative;
         font-weight: $vs-font-weight-medium;
@@ -172,6 +189,49 @@ export default {
         box-shadow: $vs-elevation-shadow-overlay;
         padding: $vs-spacer-075;
         min-width: 180px!important;
+    }
+}
+
+@include no-js {
+    .vs-navigation-bar-menu-dropdown {
+        display: block;
+
+        &__label {
+            display: block;
+            padding: $vs-spacer-075 $vs-spacer-100;
+            font-weight: $vs-font-weight-medium;
+        }
+
+        .dropdown {
+            display: block;
+        }
+
+        .dropdown-toggle {
+            display: none;
+        }
+
+        .dropdown-menu {
+            // Override Bootstrap's inline floating styles and hidden state in SSR HTML.
+            display: block!important;
+            position: relative!important;
+            inset: auto!important;
+            transform: none!important;
+            width: auto!important;
+            min-width: 0!important;
+            max-height: none!important;
+            overflow: visible!important;
+            margin: 0;
+            padding: 0;
+            box-shadow: none;
+            background: transparent;
+
+            @include media-breakpoint-up(md) {
+                display: grid!important;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: $vs-spacer-075;
+                align-items: start;
+            }
+        }
     }
 }
 </style>

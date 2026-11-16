@@ -93,18 +93,32 @@ const validateFormElementMixin = {
             };
         },
         errorsList() {
+            const currentValue = this.inputVal;
             const errorsArray = [];
             const rulesKeys = Object.keys(this.rules.inputVal);
 
             rulesKeys.forEach((key) => {
-                if (this.v$.$errors) {
-                    this.v$.$errors.forEach((error) => {
+                if (this.v$.inputVal?.$errors) {
+                    this.v$.inputVal.$errors.forEach((error) => {
                         if (error.$validator === key) {
                             errorsArray.push(key);
                         }
                     });
                 }
             });
+
+            const requiredValueMissing = typeof currentValue === 'string'
+                ? !(/\S/.test(currentValue))
+                : !currentValue;
+
+            // Supplement Vuelidate's required validator for whitespace-only strings and false
+            // checkbox values, while keeping the computed value immutable so it cannot go stale.
+            if ('required' in this.rules.inputVal
+                && this.v$.inputVal?.$anyDirty
+                && requiredValueMissing
+                && !errorsArray.includes('required')) {
+                errorsArray.push('required');
+            }
 
             return errorsArray;
         },
@@ -123,38 +137,9 @@ const validateFormElementMixin = {
          * manually run validation and emit to parent
          */
         manualValidate() {
-            this.isInvalid = false;
+            const errors = [...this.errorsList];
 
-            if ('required' in this.rules.inputVal) {
-                let failed = false;
-                if (typeof this.inputVal === 'string') {
-                    // Check if the string contains any non-whitespace, reject both empty strings
-                    // and strings made up entirely of whitespace characters
-                    if (!(/\S/.test(this.inputVal))) {
-                        failed = true;
-                    }
-                    // Otherwise, check if boolean field is truthy
-                } else if (!this.inputVal) {
-                    failed = true;
-                }
-
-                if (failed) {
-                    if (this.errorsList.indexOf('required') === -1
-                        && this.v$.inputVal?.$anyDirty) {
-                        this.errorsList.push('required');
-                    }
-                }
-            } else {
-                this.errorsList.forEach((error, index) => {
-                    if (error === 'required') {
-                        this.errorsList.splice(index, 1);
-                    }
-                });
-            }
-
-            if (this.errorsList.length) {
-                this.isInvalid = true;
-            }
+            this.isInvalid = errors.length > 0;
 
             this.touched = true;
 
@@ -169,7 +154,7 @@ const validateFormElementMixin = {
             this.$emit('status-update', {
                 field: this.fieldName,
                 value: this.inputVal,
-                errors: this.errorsList,
+                errors,
             });
         },
         /**

@@ -8,6 +8,7 @@ NEW
         <BTabs
             :no-container="noContainer"
             :align="noContainer ? 'center' : null"
+            v-model:index="tabIndex"
         >
             <!-- @slot default slot for VsTabItems -->
             <slot />
@@ -50,6 +51,11 @@ export default {
             default: false,
         },
     },
+    data() {
+        return {
+            tabIndex: 0,
+        };
+    },
 };
 </script>
 
@@ -67,7 +73,7 @@ export default {
             border: $vs-border-width-sm solid $vs-color-border-primary;
             border-top: 0;
 
-            .vs-heading {
+            .vs-heading.vs-tab__item__heading {
                 display: none;
             }
         }

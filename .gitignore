@@ -15,3 +15,7 @@ doctor-storybook.log
 
 # Ignore compiled tokens
 src/assets/tokens/
+
+# Dependency maintenance evidence and reports
+triage-results/
+smoke-results/

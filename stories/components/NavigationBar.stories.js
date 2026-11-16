@@ -118,6 +118,7 @@ const Template = (args) => ({
                     <ul class="d-flex">
                         <li class="me-075">
                             <VsNavigationBarSearch
+                                :search-link="args.searchLink"
                                 :showLabelBreakpoint="args.searchShowLabelBreakpoint"
                             />
                         </li>
@@ -133,7 +134,7 @@ const Template = (args) => ({
                                 <VsButton
                                     icon-only
                                     icon="fa-regular fa-map"
-                                    href="#"
+                                    :href="args.mapLink"
                                     size="sm"
                                     variant="subtle"
                                 >
@@ -146,6 +147,7 @@ const Template = (args) => ({
                             class="d-none d-md-block me-0 me-md-075 me-lg-0"
                         >
                             <VsNavigationBarMenuDropdown subtle>
+                                <template #no-js-label>Choose language</template>
                                 <template #button-content>
                                     <span class="visually-hidden">Choose language: </span>EN 
                                 </template>
@@ -232,7 +234,7 @@ const Template = (args) => ({
                                     <VsButton
                                         icon-only
                                         icon="fa-regular fa-map"
-                                        href="#"
+                                        :href="args.mapLink"
                                         size="sm"
                                         variant="subtle"
                                     >
@@ -275,11 +277,37 @@ const base = {
     navData: b2cNavExample,
     compactUtilities: false,
     sidebarBreakpoint: 'md',
+    searchLink: '/site-search',
+    mapLink: '/maps',
 };
 
 export const Default = Template.bind({
 });
 Default.args = base;
+
+export const NoJavascript = Template.bind({
+});
+
+NoJavascript.args = {
+    ...base,
+};
+
+NoJavascript.decorators = [() => ({
+    template: '<div class="no-js"><story /></div>',
+})];
+
+export const NoJavascriptMobile = Template.bind({
+});
+
+NoJavascriptMobile.args = {
+    ...base,
+};
+NoJavascriptMobile.decorators = NoJavascript.decorators;
+NoJavascriptMobile.globals = {
+    viewport: {
+        value: 'mobile1',
+    },
+};
 
 export const MobileNavigation = Template.bind({
 });

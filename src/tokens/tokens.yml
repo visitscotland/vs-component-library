@@ -5,6 +5,7 @@
 imports:
   - ./semantic/color/color-background.yml
   - ./semantic/color/color-border.yml
+  - ./semantic/color/color-cta.yml
   - ./semantic/color/color-icons.yml
   - ./semantic/color/color-interaction.yml
   - ./semantic/color/color-text.yml

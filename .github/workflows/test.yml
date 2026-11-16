@@ -1,49 +1,54 @@
-# .github/workflows/test.yml
-
-# Workflow name
 name: 'Yarn Test'
 
 permissions:
   contents: read
 
-# Event for the workflow
 on:
   pull_request:
     types:
       - opened
       - reopened
       - synchronize
-    branches:
-      - 'main'
-      - 'cl-release/**'
-
-  # Allows you to run this workflow manually from the Actions tab in the GitHub dashboard
   workflow_dispatch: {}
 
-env:
-  RECAPTCHA_TOKEN: ${{ secrets.RECAPTCHA_TOKEN }}
-  CLUDO_API_KEY: ${{ secrets.CLUDO_API_KEY }}
-  CLUDO_CUSTOMER_ID: ${{ secrets.CLUDO_CUSTOMER_ID }}
-  CLUDO_ENGINE_ID: ${{ secrets.CLUDO_ENGINE_ID }}
-  EVENTS_API_URL: ${{ secrets.EVENTS_API_URL }}
-  GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
+concurrency:
+  group: pr-validation-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    timeout-minutes: 30
 
     steps:
-    - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@1a4442cacd436585916779262731d5b162bc6ec7
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: yarn install
-    - run: yarn test
+      - name: Checkout code
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444
+        with:
+          node-version: '24'
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        id: install
+        run: yarn install --immutable
+
+      - name: Run tests
+        run: yarn test
+
+      - name: Test dependency automation
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        run: node --test tests/*.test.mjs .github/skills/dependency-triage/scripts/collect.test.mjs
+
+      - name: Lint
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        run: yarn lint
+
+      - name: Build
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
+        run: yarn build

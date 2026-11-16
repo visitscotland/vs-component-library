@@ -1,3 +1,239 @@
+## [5.83.3](https://github.com/visitscotland/vs-component-library/compare/v5.83.2...v5.83.3) (2026-11-06)
+
+
+### Bug Fixes
+
+* **pagination:** add sr-only text to announce current page ([556cdc7](https://github.com/visitscotland/vs-component-library/commit/556cdc78984505a394730c8fe3996e02eabbf219))
+
+## [5.83.2](https://github.com/visitscotland/vs-component-library/compare/v5.83.1...v5.83.2) (2026-11-04)
+
+
+### Bug Fixes
+
+* **security:** update critical dependabot issues ([f458d18](https://github.com/visitscotland/vs-component-library/commit/f458d18e98cdd2567f745998d90d2830a3ab880c))
+
+## [5.83.1](https://github.com/visitscotland/vs-component-library/compare/v5.83.0...v5.83.1) (2026-11-02)
+
+
+### Bug Fixes
+
+* **google map:** compiler warning - `defineEmits` doesnt need to be imported ([d7d2875](https://github.com/visitscotland/vs-component-library/commit/d7d2875611bc29a94fa4324f67e5c45f11eded82))
+* **styledlist:** apply margin to mobile as well as desktop ([489891f](https://github.com/visitscotland/vs-component-library/commit/489891fa3d13780b5aca674c9f62edcb6cf55d4d))
+
+# [5.83.0](https://github.com/visitscotland/vs-component-library/compare/v5.82.2...v5.83.0) (2026-10-28)
+
+
+### Features
+
+* **cta tokens and cta:** change token structure and update component ([c68cbc2](https://github.com/visitscotland/vs-component-library/commit/c68cbc2007a5e04b4316089b48f707ed36c27ca9))
+
+## [5.82.2](https://github.com/visitscotland/vs-component-library/compare/v5.82.1...v5.82.2) (2026-10-13)
+
+
+### Bug Fixes
+
+* **chromatic:** ignore contents of google map ([ab2e11f](https://github.com/visitscotland/vs-component-library/commit/ab2e11f2c5d85b89aec05718657179e8d5199a21))
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [5.82.1](https://github.com/visitscotland/vs-component-library/compare/v5.82.0...v5.82.1) (2026-10-13)
+
+# [5.82.0](https://github.com/visitscotland/vs-component-library/compare/v5.81.2...v5.82.0) (2026-10-13)
+
+
+### Features
+
+* **navbar:** add no-js support to navbar ([1ddb105](https://github.com/visitscotland/vs-component-library/commit/1ddb1054ea3650c2fa93f0332e4d30fdbf561d9a))
+* **navbar:** split no-js navbar into two columns ([e69689f](https://github.com/visitscotland/vs-component-library/commit/e69689f6918ee746098d6b45b7ccf855eebcad72))
+
+## [5.81.2](https://github.com/visitscotland/vs-component-library/compare/v5.81.1...v5.81.2) (2026-09-28)
+
+
+### Bug Fixes
+
+* **vsmeganav:** fixes the meganav `is-active` class broken by class collision in GoogleMap ([5f6977f](https://github.com/visitscotland/vs-component-library/commit/5f6977ffc2fc6b342c9474a412a48ed93cc926f0))
+
+## [5.81.1](https://github.com/visitscotland/vs-component-library/compare/v5.81.0...v5.81.1) (2026-09-22)
+
+
+### Bug Fixes
+
+* **vsfiltersection:** reverse icon transitions ([e670836](https://github.com/visitscotland/vs-component-library/commit/e67083683524c1c1e7bc7dcfae422c6cac9d5ece))
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [5.81.0](https://github.com/visitscotland/vs-component-library/compare/v5.79.3...v5.81.0) (2026-09-18)
+
+
+### ✨ Features
+
+* **pinia:** migrate to pinia 4 to support site migrations ([8e46b54](https://github.com/visitscotland/vs-component-library/commit/8e46b54355a35c291a5e739c0f40e7332dee3822))
+* **pinia:** remove migration test ([d27bc1b](https://github.com/visitscotland/vs-component-library/commit/d27bc1b3583957459fbb391fe3c4f2bf600d71f4))
+
+
+### 🐛 Bug Fixes
+
+* **tabs:** headings within tab content were hidden ([a4ce048](https://github.com/visitscotland/vs-component-library/commit/a4ce0484cc76b779b441016ade424a8fd9a2db90))
+
+
+### 🔖 Others
+
+* **release:** 5.79.4 [skip ci] ([d962f37](https://github.com/visitscotland/vs-component-library/commit/d962f371b23d912d7ce3259a85820ed36f681cd0))
+* **release:** 5.80.0 [skip ci] ([6a13d2f](https://github.com/visitscotland/vs-component-library/commit/6a13d2fc2c1f0c8848073a0d6b840e8a09a5a2bb))
+
+# [5.80.0](https://github.com/visitscotland/vs-component-library/compare/v5.79.4...v5.80.0) (2026-09-17)
+
+
+### Features
+
+* **pinia:** migrate to pinia 4 to support site migrations ([8e46b54](https://github.com/visitscotland/vs-component-library/commit/8e46b54355a35c291a5e739c0f40e7332dee3822))
+* **pinia:** remove migration test ([d27bc1b](https://github.com/visitscotland/vs-component-library/commit/d27bc1b3583957459fbb391fe3c4f2bf600d71f4))
+
+## [5.79.4](https://github.com/visitscotland/vs-component-library/compare/v5.79.3...v5.79.4) (2026-09-17)
+
+
+### Bug Fixes
+
+* **tabs:** headings within tab content were hidden ([a4ce048](https://github.com/visitscotland/vs-component-library/commit/a4ce0484cc76b779b441016ade424a8fd9a2db90))
+
+## [5.79.3](https://github.com/visitscotland/vs-component-library/compare/v5.79.2...v5.79.3) (2026-09-11)
+
+
+### Bug Fixes
+
+* **forms:** correct validation error on checkboxes ([8a2c402](https://github.com/visitscotland/vs-component-library/commit/8a2c40211ccc47f3225583333801abe0d86951d6))
+* **forms:** remove redundant story ([2e23dae](https://github.com/visitscotland/vs-component-library/commit/2e23dae0e19a37183683627e4981c40f600d09c6))
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [5.79.2](https://github.com/visitscotland/vs-component-library/compare/v5.79.1...v5.79.2) (2026-09-01)
+
+
+### ♻️ Code Refactoring
+
+* **mapcategory.store:** suppressed ts errors by adding ts-nocheck to file ([8f96a84](https://github.com/visitscotland/vs-component-library/commit/8f96a8402828c88948dd77f5f5b259654b43efbb))
+
+## [5.79.1](https://github.com/visitscotland/vs-component-library/compare/v5.79.0...v5.79.1) (2026-09-01)
+
+
+### Bug Fixes
+
+* **addtoolip:** removes private deta encapsulation in AddTooltip causing build crashes ([396c51f](https://github.com/visitscotland/vs-component-library/commit/396c51f7122d34b8cb4ef63dd93ecf9f6b591511))
+
+# [5.79.0](https://github.com/visitscotland/vs-component-library/compare/v5.78.0...v5.79.0) (2026-09-01)
+
+
+### Bug Fixes
+
+* **vsgooglemap:** adds NoJS functionality ([0411e6b](https://github.com/visitscotland/vs-component-library/commit/0411e6b294706a3cc0104a6b24dc140f57b5bc75))
+* **vsgooglemap:** adds proper tokens to css ([360e998](https://github.com/visitscotland/vs-component-library/commit/360e998f13955a334ea7d20abde40a3f7a9f8bea))
+* **vsgooglemap:** adds so that if !initialViewOfScotland then fit view to markers if on map ([f79fc77](https://github.com/visitscotland/vs-component-library/commit/f79fc77c3fce042435b2a4fa0dec599d4cd7890f))
+* **vsgooglemap:** coderabbit suggestions ([2691a06](https://github.com/visitscotland/vs-component-library/commit/2691a06e4b3ce1e40cbec3ae59e5c3c1c56ed5d8))
+* **vsgooglemap:** combines markerData and polygonData into the same prop as featureData ([3518ba1](https://github.com/visitscotland/vs-component-library/commit/3518ba10c77975d7b76ddb0b9d239bba1f7f4109))
+* **vsgooglemap:** fix forgotten include for removed map style mixin ([941e318](https://github.com/visitscotland/vs-component-library/commit/941e31808da34676e6961fa749ef1fe4ce0ab979))
+* **vsgooglemap:** fixed tooltips so that only one of polygon or marker can be open at a time ([2d4d155](https://github.com/visitscotland/vs-component-library/commit/2d4d15563da49825f0921708249f1adebfc2997d))
+* **vsgooglemap:** fixes a11y bug for marker tabindex, and refactors some code ([75bf300](https://github.com/visitscotland/vs-component-library/commit/75bf300ab61d5bad9acd0b9a40382120fac77fa2))
+* **vsgooglemap:** fixes custom controls no accessible label issue ([b0c6164](https://github.com/visitscotland/vs-component-library/commit/b0c6164704f56d248492949a2cddec1e539bf54c))
+* **vsgooglemap:** fixes issue with accessibility due to html attr showing ([0d7a159](https://github.com/visitscotland/vs-component-library/commit/0d7a159e44196f2691529960874c2424eb01fdf6))
+* **vsgooglemap:** fixes marker emit & cleans up code and errors ([5af3c05](https://github.com/visitscotland/vs-component-library/commit/5af3c052f63d233a442738daa609b5fb063eea57))
+* **vsgooglemap:** fixes the marker tooltip height, so that the tooltip doesnt cover the marker ([d1d1a86](https://github.com/visitscotland/vs-component-library/commit/d1d1a86c491458d07158ffdeb4160d3d44943b50))
+* **vsgooglemap:** fixes the multiPolygon tooltips being over the last polygon in array ([bb73566](https://github.com/visitscotland/vs-component-library/commit/bb73566f0cbaf1c225d242290663b6a87e289a93))
+* **vsgooglemap:** fixes uiLabels causing error on build ([6e0cc88](https://github.com/visitscotland/vs-component-library/commit/6e0cc881f483af2139e86017dea8ee8a4c622210))
+* **vsgooglemap:** removes extra story remanent ([46ae9c3](https://github.com/visitscotland/vs-component-library/commit/46ae9c3ea457d733ac3df4d69e2fbecfdbad399b))
+* **vsgooglemap:** removes top level await from tooltip file ([aae6c55](https://github.com/visitscotland/vs-component-library/commit/aae6c55cd0438e0c383a1d4171894a831954efb5))
+* **vsgooglemap:** tightens inital view scotland bounds ([55903a1](https://github.com/visitscotland/vs-component-library/commit/55903a1bbca335e775106c4d6a77e352a67e8dc3))
+
+
+### Features
+
+* **vsgooglemap:** adds `initalViewOfScotland` prop to ignore centre/zoom and show all of Scotland ([06cc648](https://github.com/visitscotland/vs-component-library/commit/06cc648711ff995f647386f27f0b7f425a420436))
+* **vsgooglemap:** adds focus state to map pin for keyboard navigators ([d754c60](https://github.com/visitscotland/vs-component-library/commit/d754c6079c10f36afdaef59f96e486207e3ca529))
+* **vsgooglemap:** adds in tooltip style to match tooltip component, fixes vertical spacing ([a67a3f0](https://github.com/visitscotland/vs-component-library/commit/a67a3f05f4fb7a030578650d646fba33209918bf))
+* **vsgooglemap:** adds markers to the google map ([5eeb459](https://github.com/visitscotland/vs-component-library/commit/5eeb459debebd61fadc22d84c0984685f05350a1))
+* **vsgooglemap:** adds polygon support to the map ([7d1b36c](https://github.com/visitscotland/vs-component-library/commit/7d1b36c0f7fc9ce5c468f02b5a627409d920aba9))
+* **vsgooglemap:** adds the tooltip to polygons on the map ([fd3dfa1](https://github.com/visitscotland/vs-component-library/commit/fd3dfa191e156d3cd24ef55cd2c1759b165d9aa5))
+* **vsgooglemap:** adds toggle for tooltips for markers and polygons ([b1df70c](https://github.com/visitscotland/vs-component-library/commit/b1df70c0643081911c3ca2b79fc8a501402e6d8d))
+* **vsgooglemap:** begins to lay groundwork for new base Google Maps component ([d639b9d](https://github.com/visitscotland/vs-component-library/commit/d639b9d745a620298c53b7f0096afda8ebe3a8af))
+* **vsgooglemap:** begins to style the map pins ([4786c13](https://github.com/visitscotland/vs-component-library/commit/4786c1390e4b3ec9ad8d12fb62a45166e8d1cbba))
+* **vsgooglemap:** changes polygon colour to match designs ([6268154](https://github.com/visitscotland/vs-component-library/commit/6268154dd6b32544c3023b6af3bd0c2789e89d9c))
+* **vsgooglemap:** pulls pin to front of z-index when mouseover ([8fae520](https://github.com/visitscotland/vs-component-library/commit/8fae5207499e97d381164ee5843e632bbcc43153))
+* **vsgooglemap:** styles and themes the icon markers ([9576e0c](https://github.com/visitscotland/vs-component-library/commit/9576e0c35b32c94c78a0b2122c0006da9e09e59a))
+* **vsgooglemap:** styles numbered markers on googlemap ([768fa3f](https://github.com/visitscotland/vs-component-library/commit/768fa3f1233c57b9597fed3206f476a7e6f26482))
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [5.78.0](https://github.com/visitscotland/vs-component-library/compare/v5.77.0...v5.78.0) (2026-08-28)
+
+
+### 🔖 Others
+
+* **release:** 5.77.0 ([b2ee0de](https://github.com/visitscotland/vs-component-library/commit/b2ee0def6767a870ecc7649458080e96f4ee05f6))
+
+# [5.77.0](https://github.com/visitscotland/vs-component-library/compare/v5.76.1...v5.77.0) (2026-08-28)
+
+
+### Bug Fixes
+
+* **main map:** add zoom param where we update coords ([50ca9c8](https://github.com/visitscotland/vs-component-library/commit/50ca9c86102404caa2aba672748ca07dc03fd653))
+* **main map:** change how to watch for category/subcategory changes ([392dccf](https://github.com/visitscotland/vs-component-library/commit/392dccf877a874276f5b1b24bade88730a596e05))
+* **main map:** minor fixes ([4e11bd0](https://github.com/visitscotland/vs-component-library/commit/4e11bd0961bd201ae943849e57c8d3f1e085e75f))
+* **main map:** only accept subcategories that appear within the selected category ([ebe277d](https://github.com/visitscotland/vs-component-library/commit/ebe277dfe823934b3e4de7de8339b1a3dd8419b0))
+* **main map:** reduce coords and zoom to 2 decimal places ([6b32dd6](https://github.com/visitscotland/vs-component-library/commit/6b32dd6e524dfca27c6fe36d7ea292a4f7b5fbe5))
+* **main map:** reorder url params ([8cc8a86](https://github.com/visitscotland/vs-component-library/commit/8cc8a863370a9f3b5dd896087b7f7577fcb9b0a3))
+* **main map:** reset selectedDestination when doing a text search ([c2d0a7f](https://github.com/visitscotland/vs-component-library/commit/c2d0a7f4e673a2567c6242c8837cef5a0ccb690d))
+* **main map:** use replaceState when the user moves the map ([3190a10](https://github.com/visitscotland/vs-component-library/commit/3190a10b62aecb38fd63b1b36377e8a8d4629aca))
+* **mapcategories store:** guard against undefined refs ([11aed87](https://github.com/visitscotland/vs-component-library/commit/11aed87bd4abfdd1fdb355489f85f418ce5ff64d))
+* **mapsidebar:** remove unused props and emits ([18a280b](https://github.com/visitscotland/vs-component-library/commit/18a280bbfb6b0d9ce9b708731c846ca361765b67))
+* **mian map:** remove console.log ([ca5c236](https://github.com/visitscotland/vs-component-library/commit/ca5c236b14791d64e74f2f83a156fe6bc5ae7a36))
+* **useupdatesearchparams.ts:** correct types and remove unused code ([918dacd](https://github.com/visitscotland/vs-component-library/commit/918dacda54e537a3b66d15179e99591911ba15b2))
+* **useupdatesearchparams:** improve param validation ([33861ce](https://github.com/visitscotland/vs-component-library/commit/33861ce96d6416a8777503f0d59863414eaf9af6))
+
+
+### Features
+
+* **main map:** add coords and zoom url params ([4d4519a](https://github.com/visitscotland/vs-component-library/commit/4d4519a9c53b8d93d9e423dfdff6f12ef8de3851))
+* **main map:** add params to URL when user selects filters ([0f760e6](https://github.com/visitscotland/vs-component-library/commit/0f760e65c19af118e1b751b877c48917855d0ebd))
+* **main map:** add search-term url param ([b5fd554](https://github.com/visitscotland/vs-component-library/commit/b5fd554a71e64e29d379a648090d6b28c4106434))
+* **main map:** handle subcategories params ([4748ff2](https://github.com/visitscotland/vs-component-library/commit/4748ff21532f348d80c837549cc3b1567899c09e))
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [5.76.1](https://github.com/visitscotland/vs-component-library/compare/v5.76.0...v5.76.1) (2026-08-19)
+
+
+### 🔖 Others
+
+* **deps-dev:** bump @storybook/addon-a11y from 10.5.3 to 10.5.5 ([f9439a5](https://github.com/visitscotland/vs-component-library/commit/f9439a556deb09e95c3f61e6b6496e1c5373b2c2))
+* **deps-dev:** bump @storybook/addon-a11y from 10.5.5 to 10.5.6 ([506629d](https://github.com/visitscotland/vs-component-library/commit/506629d9d03063519ffbd105a1426148a7f6d1ab))
+* **deps-dev:** bump @storybook/addon-docs from 10.5.3 to 10.5.7 ([3117d1f](https://github.com/visitscotland/vs-component-library/commit/3117d1f8ea82979117530c29abea9397a91b5920))
+* **deps-dev:** bump @storybook/addon-links from 10.5.5 to 10.5.7 ([2108096](https://github.com/visitscotland/vs-component-library/commit/21080965835259e27e27f056153d141bdb0e01c2))
+* **deps-dev:** bump @storybook/vue3-vite from 10.5.2 to 10.5.5 ([c94ecd6](https://github.com/visitscotland/vs-component-library/commit/c94ecd68efc18f4aaccf13cc3a962b9abeb1da38))
+* **deps-dev:** bump @storybook/vue3-vite from 10.5.5 to 10.5.6 ([d1107c3](https://github.com/visitscotland/vs-component-library/commit/d1107c317995ae8a144adf44f711bfe7ab90ec2a))
+* **deps-dev:** bump @types/google.maps from 3.65.3 to 3.65.4 ([012ee79](https://github.com/visitscotland/vs-component-library/commit/012ee79cf3b3c9ed50d9a1af181a11decc0e81a1))
+* **deps-dev:** bump @types/node from 26.1.1 to 26.1.2 ([5af9767](https://github.com/visitscotland/vs-component-library/commit/5af9767b0578eb6e2e5f9e15356c162086e71f0a))
+* **deps-dev:** bump @types/react from 19.2.17 to 19.2.18 ([1d22e06](https://github.com/visitscotland/vs-component-library/commit/1d22e06acc1415ae64cc5ac27aca355e2a7fcb7d))
+* **deps-dev:** bump globals from 17.7.0 to 17.8.0 ([b2a7f5e](https://github.com/visitscotland/vs-component-library/commit/b2a7f5e6058df73d8e5689fc42b3e6e46d393d42))
+* **deps-dev:** bump jest-axe from 10.0.0 to 11.0.0 ([824d970](https://github.com/visitscotland/vs-component-library/commit/824d970c19682f61fe9d0062152c98c4302df622))
+* **deps-dev:** bump lint-staged from 17.2.0 to 17.3.0 ([5001a50](https://github.com/visitscotland/vs-component-library/commit/5001a50bb75b3691536b4a218ed36004c17df012))
+* **deps-dev:** bump storybook from 10.5.3 to 10.5.5 ([2326efc](https://github.com/visitscotland/vs-component-library/commit/2326efca17e27e15341bf22fef31a1f958bb695a))
+* **deps-dev:** bump typescript-eslint from 8.65.0 to 8.66.0 ([f3231aa](https://github.com/visitscotland/vs-component-library/commit/f3231aad99e8314fb8500417570bee5d175c78e2))
+* **deps-dev:** bump vue-tsc from 3.3.8 to 3.3.9 ([c9a9f45](https://github.com/visitscotland/vs-component-library/commit/c9a9f454fcc2944007c92a8f2f647f4815c96e3d))
+* **deps:** bump axios from 1.18.1 to 1.19.0 ([73a7ca7](https://github.com/visitscotland/vs-component-library/commit/73a7ca7629bd93ebddc9eb1ba631cb2b7d925721))
+* **deps:** bump bootstrap-vue-next from 0.45.8 to 0.45.9 ([e78594a](https://github.com/visitscotland/vs-component-library/commit/e78594abf0a1315f828c4d16a54de5ea87aabff1))
+* **deps:** bump brace-expansion ([97d9898](https://github.com/visitscotland/vs-component-library/commit/97d9898bfd9b365e62bdaba0609da820a22a2dc7))
+* **deps:** bump nanoid in the npm_and_yarn group across 1 directory ([7218394](https://github.com/visitscotland/vs-component-library/commit/7218394c2e157793740e928a2bec575b36a0b2a1))
+* **deps:** bump the npm_and_yarn group across 1 directory with 2 updates ([6fd3fbe](https://github.com/visitscotland/vs-component-library/commit/6fd3fbe2032c5504c6028d296e4740b59cc1e1ea))
+
 # [5.76.0](https://github.com/visitscotland/vs-component-library/compare/v5.75.0...v5.76.0) (2026-08-06)
 
 

@@ -268,6 +268,7 @@ export default {
         color: white;
         font-size: 0.75rem;
         border-radius: $vs-radius-small;
+        font-family: $vs-font-family-sans-serif;
         filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
         max-width: max-content;
         pointer-events: none;
