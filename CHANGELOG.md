@@ -1,3 +1,10 @@
+## [5.84.1](https://github.com/visitscotland/vs-component-library/compare/v5.84.0...v5.84.1) (2026-11-17)
+
+
+### Bug Fixes
+
+* **build:** adjust report generation ([41ef10d](https://github.com/visitscotland/vs-component-library/commit/41ef10d735f7213c19e2818cbf19ec164909c971))
+
 # [5.84.0](https://github.com/visitscotland/vs-component-library/compare/v5.83.3...v5.84.0) (2026-11-16)
 
 
