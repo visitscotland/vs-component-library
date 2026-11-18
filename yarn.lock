@@ -5013,7 +5013,7 @@ __metadata:
     vue-recaptcha: "npm:^2.0.1"
     vue-tsc: "npm:^3.3.3"
     vue-youtube-vue-3: "npm:^1.5.0"
-    vue3-charts: "npm:^1.1.33"
+    vue3-charts: "npm:^2.2.0"
     vue3-lazy-hydration: "npm:^1.2.1"
     yaml: "npm:2.9.0"
   peerDependencies:
@@ -14843,13 +14843,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ramda@npm:^0.28.0":
-  version: 0.28.0
-  resolution: "ramda@npm:0.28.0"
-  checksum: 10c0/0f9dc0cc3b0432ff047f1e2a5e58860c531a84574674c0f52fef535efc6e1e07fa3851102fff3da7dd551a592c743f6f6fa521379a6aa5fe50266f8af8f0b570
-  languageName: node
-  linkType: hard
-
 "rc@npm:^1.2.8":
   version: 1.2.8
   resolution: "rc@npm:1.2.8"
@@ -17732,9 +17725,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue3-charts@npm:^1.1.33":
-  version: 1.1.33
-  resolution: "vue3-charts@npm:1.1.33"
+"vue3-charts@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "vue3-charts@npm:2.2.0"
   dependencies:
     d3-array: "npm:^3.2.0"
     d3-axis: "npm:^3.0.0"
@@ -17744,10 +17737,9 @@ __metadata:
     d3-scale: "npm:^4.0.2"
     d3-selection: "npm:^3.0.0"
     d3-shape: "npm:^3.1.0"
-    ramda: "npm:^0.28.0"
   peerDependencies:
     vue: ">=3.0.0"
-  checksum: 10c0/6d251f38f50b34f063ebbddcd6c2f144e0f1f9ff685027ff41559822fe3852dbc94deed394c9385ae08e5a4c4fbbd6814100621dea4315011fd1cf845ad2a69c
+  checksum: 10c0/204041d8f2986032ea78698fdfc1b181c8b2b8976a4e4db9b7531b39e2ea14631ae8e48a20aa809efb0ba251210b4e7f6fc70130991e600e45e2ac8265fdbcf7
   languageName: node
   linkType: hard
 

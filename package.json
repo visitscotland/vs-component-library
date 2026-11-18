@@ -141,7 +141,7 @@
     "vue-combo-blocks": "^2.1.1",
     "vue-recaptcha": "^2.0.1",
     "vue-youtube-vue-3": "^1.5.0",
-    "vue3-charts": "^1.1.33",
+    "vue3-charts": "^2.2.0",
     "vue3-lazy-hydration": "^1.2.1"
   },
   "peerDependencies": {
