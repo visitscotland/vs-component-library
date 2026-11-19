@@ -4975,7 +4975,7 @@ __metadata:
     cz-conventional-changelog: "npm:^3.3.0"
     eslint: "npm:^10.4.0"
     eslint-config-prettier: "npm:^10.1.8"
-    eslint-plugin-storybook: "npm:10.6.2"
+    eslint-plugin-storybook: "npm:10.6.7"
     eslint-plugin-vue: "npm:^10.9.1"
     glob: "npm:^12.0.0"
     globals: "npm:^17.6.0"
@@ -8737,15 +8737,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-storybook@npm:10.6.2":
-  version: 10.6.2
-  resolution: "eslint-plugin-storybook@npm:10.6.2"
+"eslint-plugin-storybook@npm:10.6.7":
+  version: 10.6.7
+  resolution: "eslint-plugin-storybook@npm:10.6.7"
   dependencies:
     "@typescript-eslint/types": "npm:^8.60.0"
     "@typescript-eslint/utils": "npm:^8.60.0"
   peerDependencies:
     eslint: ">=8"
-  checksum: 10c0/8541c3ed547b47281b93c1262e2854f4aebd8b36e5067808a658d4c1002bf72dfd1066e0607995153b0caf8d1d30d701260afe6d224444ce11a2762c9ec7c85e
+  checksum: 10c0/617b70983c2b9dca5a4542ff2303b1343850ada889bb632f4761495ecf0c3d75debee9380652d1785e9a1733d448ad366c9484417e8055248e873d9b5b30bd65
   languageName: node
   linkType: hard
 
