@@ -203,7 +203,9 @@
     "brace-expansion@npm:^1.1.7": "1.1.21",
     "brace-expansion@npm:^2.0.2": "2.1.7",
     "follow-redirects@npm:^1.16.0": "1.16.2",
-    "ip-address@npm:^10.1.1": "10.7.1"
+    "ip-address@npm:^10.1.1": "10.7.4",
+    "postcss@npm:^8.5.15": "8.5.23",
+    "moment@npm:^2.18.1": "2.31.0"
   },
   "packageManager": "yarn@4.16.0"
 }
