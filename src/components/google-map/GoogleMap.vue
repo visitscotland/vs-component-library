@@ -46,7 +46,7 @@
                     {{ props.uiLabels?.zoomOut }}
                 </VsButton>
                 <VsButton
-                    v-if="isAppleIOS"
+                    v-if="props.isFullscreenEnabled"
                     :icon="isFullscreen
                         ? 'fa-regular fa-arrows-minimize' 
                         : 'fa-regular fa-arrows-maximize'"
@@ -166,6 +166,13 @@ const props = defineProps({
      * Enables/disables tooltips for the polygons
      */
     isPolygonTooltipsEnabled: {
+        type: Boolean,
+        default: true,
+    },
+    /**
+     * Enables/disables the fullscreen control
+     */
+    isFullscreenEnabled: {
         type: Boolean,
         default: true,
     },
