@@ -64,6 +64,37 @@ describe('VsWarning', () => {
 
             expect(cookieBtn.classes('vs-warning__cookie-trigger')).toBe(true);
         });
+
+        it(':ctaHref - should render the CTA button as a link to `ctaHref`', () => {
+            const wrapper = factoryMount(
+                {
+                    ctaHref: 'https://www.visitscotland.com',
+                },
+                {
+                    'cta-text': 'Find out more',
+                },
+            );
+
+            const ctaBtn = wrapper.find('[data-test="vs-warning__cta"]');
+
+            expect(ctaBtn.attributes('href')).toBe('https://www.visitscotland.com');
+        });
+    });
+
+    describe(':events', () => {
+        it('should emit `cta-click` when the CTA button is clicked', async() => {
+            const wrapper = factoryMount(
+                {
+                },
+                {
+                    'cta-text': 'Try again',
+                },
+            );
+
+            await wrapper.find('[data-test="vs-warning__cta"]').trigger('click');
+
+            expect(wrapper.emitted('cta-click')).toBeTruthy();
+        });
     });
 
     describe(':slots', () => {
@@ -84,6 +115,25 @@ describe('VsWarning', () => {
             );
 
             expect(wrapper.text()).toContain(btnText);
+        });
+
+        it('should not render the CTA button if the `cta-text` slot is empty', () => {
+            const wrapper = factoryMount();
+
+            expect(wrapper.find('[data-test="vs-warning__cta"]').exists()).toBe(false);
+        });
+
+        it('should display the content of the `cta-text` slot in the CTA button', () => {
+            const ctaText = 'Find out more';
+            const wrapper = factoryMount(
+                {
+                },
+                {
+                    'cta-text': ctaText,
+                },
+            );
+
+            expect(wrapper.find('[data-test="vs-warning__cta"]').text()).toContain(ctaText);
         });
     });
 });
