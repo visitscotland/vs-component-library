@@ -159,7 +159,8 @@ export default {
         position: relative;
         display: flex;
         align-items: flex-start;
-        justify-content: flex-end;
+        justify-content: flex-end; // fallback for browsers that don't support safe
+        justify-content: safe flex-end;
         flex-direction: column;
         text-align: left;
         padding: $vs-spacer-125;

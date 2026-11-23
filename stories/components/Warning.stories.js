@@ -47,7 +47,7 @@ const Template = (args) => ({
         };
     },
     template: `
-    <div :style="args.size === 'small' ? 'width: 540px; height: 110px;' : 'width: 720px; height: 400px;'">
+    <div :style="args.size === 'small' ? 'width: 540px;' : 'width: 720px; height: 400px;'">
         <VsWarning v-bind="args">
             <template v-if="args.default" v-slot>${args.default}</template>
 
