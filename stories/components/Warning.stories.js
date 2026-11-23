@@ -65,6 +65,13 @@ const Template = (args) => ({
                 ${args['button-text']}
             </template>
 
+            <template
+                v-if="args['cta-text']"
+                v-slot:cta-text
+            >
+                ${args['cta-text']}
+            </template>
+
         </VsWarning>
     </div>
     `,
@@ -109,6 +116,16 @@ Small.args = {
     default: 'Cookies need to be enabled to watch this video',
     'button-text': 'Manage cookies settings',
     size: 'small',
+};
+
+export const WithCta = Template.bind({
+});
+
+WithCta.args = {
+    ...base,
+    default: 'This event has now sold out. Take a look at other events happening nearby.',
+    'cta-text': 'See more events',
+    ctaHref: '#',
 };
 
 export const DifferentIcon = Template.bind({

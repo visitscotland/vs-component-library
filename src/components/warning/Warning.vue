@@ -34,6 +34,18 @@
         >
             <slot name="button-text" />
         </VsButton>
+
+        <VsButton
+            v-if="$slots['cta-text'] && $slots['cta-text']()"
+            v-bind="ctaAttrs"
+            variant="primary"
+            class="vs-warning__button vs-warning__cta"
+            data-test="vs-warning__cta"
+            @click="ctaClick"
+        >
+            <!-- slot to contain the text for a generic call to action button -->
+            <slot name="cta-text" />
+        </VsButton>
     </div>
 </template>
 
@@ -85,7 +97,16 @@ export default {
                 /(small|normal)/,
             ),
         },
+        /**
+        * URL for the call to action button, rendered when the `cta-text`
+        * slot is populated. If omitted the button emits `cta-click` instead
+        */
+        ctaHref: {
+            type: String,
+            default: null,
+        },
     },
+    emits: ['cta-click'],
     computed: {
         warningClasses() {
             return [
@@ -104,12 +125,30 @@ export default {
 
             return attrsObj;
         },
+        ctaAttrs() {
+            const attrsObj = {
+            };
+            if (this.ctaHref) {
+                attrsObj.href = this.ctaHref;
+            }
+            if (this.size === 'small') {
+                attrsObj.size = 'sm';
+            }
+
+            return attrsObj;
+        },
     },
     methods: {
         manageCookies() {
             if (typeof CookieControl !== 'undefined') {
                 CookieControl.open();
             }
+        },
+        ctaClick(event) {
+            /**
+             * Emitted when the call to action button is clicked
+             */
+            this.$emit('cta-click', event);
         },
     },
 };
