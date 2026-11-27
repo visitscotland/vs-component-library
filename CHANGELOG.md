@@ -1,3 +1,53 @@
+# [5.85.0](https://github.com/visitscotland/vs-component-library/compare/v5.84.1...v5.85.0) (2026-11-25)
+
+
+### Features
+
+* **release:** update changelog ([63617e2](https://github.com/visitscotland/vs-component-library/commit/63617e229ead899a60f5bdbfa918487e6efa16b7))
+
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [5.85.0](https://github.com/visitscotland/vs-component-library/compare/v5.84.1...v5.85.0) (2026-11-25)
+
+
+### 🔖 Others
+
+* **deps-dev:** bump @chromatic-com/storybook from 5.2.1 to 5.6.0 ([#1151](https://github.com/visitscotland/vs-component-library/issues/1151)) ([a5f8353](https://github.com/visitscotland/vs-component-library/commit/a5f8353fb2d0a0aeb2c0de851ecfa563e2ae23ef))
+* **deps-dev:** bump @pinia/testing from 2.0.1 to 2.0.2 ([#1153](https://github.com/visitscotland/vs-component-library/issues/1153)) ([d220896](https://github.com/visitscotland/vs-component-library/commit/d220896fedae9df312064fbae27d94ca4f9c9b51))
+* **deps-dev:** bump @semantic-release/npm from 13.1.5 to 13.2.0 ([#1183](https://github.com/visitscotland/vs-component-library/issues/1183)) ([9bf23c9](https://github.com/visitscotland/vs-component-library/commit/9bf23c904ae7e14816712eba1912ad02b11f1ad3))
+* **deps-dev:** bump @storybook/addon-a11y from 10.6.2 to 10.6.7 ([#1158](https://github.com/visitscotland/vs-component-library/issues/1158)) ([5054bb0](https://github.com/visitscotland/vs-component-library/commit/5054bb05c14e1f2259f958e77eca05856f1f34cc))
+* **deps-dev:** bump @storybook/addon-docs from 10.6.6 to 10.6.7 ([#1167](https://github.com/visitscotland/vs-component-library/issues/1167)) ([18be7a4](https://github.com/visitscotland/vs-component-library/commit/18be7a4b50fb000855c8a09c27156765e2c0e6d3))
+* **deps-dev:** bump @storybook/addon-links from 10.6.2 to 10.6.7 ([#1154](https://github.com/visitscotland/vs-component-library/issues/1154)) ([61af080](https://github.com/visitscotland/vs-component-library/commit/61af080d4b64e813b69b09a5b825e1e5793409c6))
+* **deps-dev:** bump @storybook/vue3-vite from 10.6.2 to 10.6.7 ([#1161](https://github.com/visitscotland/vs-component-library/issues/1161)) ([51496bc](https://github.com/visitscotland/vs-component-library/commit/51496bcdda3ac7ba51caa775a58e646278828a52))
+* **deps-dev:** bump @types/google.maps from 3.65.3 to 3.66.10 ([#1156](https://github.com/visitscotland/vs-component-library/issues/1156)) ([5c0e155](https://github.com/visitscotland/vs-component-library/commit/5c0e155702debc946ae503058907cf213a56270e))
+* **deps-dev:** bump @types/node from 26.1.2 to 26.6.6 ([#1182](https://github.com/visitscotland/vs-component-library/issues/1182)) ([88dbe72](https://github.com/visitscotland/vs-component-library/commit/88dbe72189be8fdcda81ff41b80fd66c727038c5))
+* **deps-dev:** bump @vitejs/plugin-vue from 6.0.10 to 6.0.11 ([#1168](https://github.com/visitscotland/vs-component-library/issues/1168)) ([fb33e02](https://github.com/visitscotland/vs-component-library/commit/fb33e02fb6de5f69c6abf63299dfdf458dc43460))
+* **deps-dev:** bump @vue/compiler-dom from 3.5.40 to 3.5.45 ([#1159](https://github.com/visitscotland/vs-component-library/issues/1159)) ([1c6312e](https://github.com/visitscotland/vs-component-library/commit/1c6312e168684c732e51401ac0f16c083a8d6d3f))
+* **deps-dev:** bump bootstrap from 5.3.8 to 5.3.9 ([#1179](https://github.com/visitscotland/vs-component-library/issues/1179)) ([6301620](https://github.com/visitscotland/vs-component-library/commit/6301620f1ca7055cb62690323a7d36f8ca9891bf))
+* **deps-dev:** bump chromatic from 18.1.0 to 18.14.3 ([#1164](https://github.com/visitscotland/vs-component-library/issues/1164)) ([000e07e](https://github.com/visitscotland/vs-component-library/commit/000e07e66549b0db85228432739e84d325a61dad))
+* **deps-dev:** bump chromatic from 18.14.3 to 18.14.4 ([#1178](https://github.com/visitscotland/vs-component-library/issues/1178)) ([11829ae](https://github.com/visitscotland/vs-component-library/commit/11829ae789cf5c2de2a2b0ca2f14c850bc59255c))
+* **deps-dev:** bump chromatic from 18.14.4 to 18.14.5 ([#1186](https://github.com/visitscotland/vs-component-library/issues/1186)) ([1333fd3](https://github.com/visitscotland/vs-component-library/commit/1333fd38ef6e90f8bba0a1c4bce363f904b9b4ad))
+* **deps-dev:** bump chromatic from 18.14.5 to 18.14.6 ([#1191](https://github.com/visitscotland/vs-component-library/issues/1191)) ([734e004](https://github.com/visitscotland/vs-component-library/commit/734e004dc65e713f3ba6cac71bce6c70df1fa1cd))
+* **deps-dev:** bump eslint from 10.14.0 to 10.15.0 ([#1185](https://github.com/visitscotland/vs-component-library/issues/1185)) ([e5b4f3c](https://github.com/visitscotland/vs-component-library/commit/e5b4f3c20b7bcc2ef49084cd451a3da2692c00a9))
+* **deps-dev:** bump eslint from 10.8.0 to 10.14.0 ([#1152](https://github.com/visitscotland/vs-component-library/issues/1152)) ([53332a5](https://github.com/visitscotland/vs-component-library/commit/53332a5363a7adce41a3a73672d783fee29ed7be))
+* **deps-dev:** bump eslint-plugin-storybook from 10.6.2 to 10.6.7 ([#1171](https://github.com/visitscotland/vs-component-library/issues/1171)) ([7f3314c](https://github.com/visitscotland/vs-component-library/commit/7f3314cc23c56e1923da733f71a5b665aa94d4fe))
+* **deps-dev:** bump globals from 17.8.0 to 17.14.0 ([#1180](https://github.com/visitscotland/vs-component-library/issues/1180)) ([2753bf8](https://github.com/visitscotland/vs-component-library/commit/2753bf86b67e7cc817af6532720a4202c6b8d54e))
+* **deps-dev:** bump lint-staged from 17.6.0 to 17.6.1 ([#1188](https://github.com/visitscotland/vs-component-library/issues/1188)) ([ceb8b20](https://github.com/visitscotland/vs-component-library/commit/ceb8b2055dfdc3ea4d76c0582f3ec8115fa1e1b2))
+* **deps-dev:** bump pinia from 4.0.3 to 4.1.0 ([#1162](https://github.com/visitscotland/vs-component-library/issues/1162)) ([1d548c9](https://github.com/visitscotland/vs-component-library/commit/1d548c9f315e189703c058fb93e1bb0ea0939ca6))
+* **deps-dev:** bump prettier from 3.10.0 to 3.10.1 ([#1170](https://github.com/visitscotland/vs-component-library/issues/1170)) ([38b461c](https://github.com/visitscotland/vs-component-library/commit/38b461c56088f24607d45edb341e3f6e7e07a304))
+* **deps-dev:** bump prettier from 3.9.6 to 3.10.0 ([#1160](https://github.com/visitscotland/vs-component-library/issues/1160)) ([5447073](https://github.com/visitscotland/vs-component-library/commit/5447073264b4e3408d8b86f586f1390baf9044e6))
+* **deps-dev:** bump sass from 1.108.0 to 1.108.2 ([#1189](https://github.com/visitscotland/vs-component-library/issues/1189)) ([30ca08f](https://github.com/visitscotland/vs-component-library/commit/30ca08ff7fc1705247032aa1ec0294a97f84c94c))
+* **deps-dev:** bump semver from 7.8.5 to 7.8.6 ([#1190](https://github.com/visitscotland/vs-component-library/issues/1190)) ([c9f931f](https://github.com/visitscotland/vs-component-library/commit/c9f931fd443d0eb5f841e5780c7c6bc9402ede9c))
+* **deps-dev:** bump storybook from 10.6.2 to 10.6.7 ([#1172](https://github.com/visitscotland/vs-component-library/issues/1172)) ([4a1a600](https://github.com/visitscotland/vs-component-library/commit/4a1a6005ce76b07635f80400ffa2f926e37016e0))
+* **deps-dev:** bump ts-jest from 29.4.12 to 29.4.15 ([#1163](https://github.com/visitscotland/vs-component-library/issues/1163)) ([6e9a9c7](https://github.com/visitscotland/vs-component-library/commit/6e9a9c733ff7a87a564c74d5b6f3d7bbe90fa761))
+* **deps-dev:** bump vue-tsc from 3.3.9 to 3.3.14 ([#1181](https://github.com/visitscotland/vs-component-library/issues/1181)) ([0efdda9](https://github.com/visitscotland/vs-component-library/commit/0efdda9bd4d79339decf333888986f65b717a8ab))
+* **deps-dev:** bump yaml from 2.9.0 to 2.9.1 ([#1169](https://github.com/visitscotland/vs-component-library/issues/1169)) ([2bfb5da](https://github.com/visitscotland/vs-component-library/commit/2bfb5da72d53a587475cfb5330ff9f092347e769))
+* **deps:** bump @googlemaps/js-api-loader from 2.1.1 to 2.1.3 ([#1173](https://github.com/visitscotland/vs-component-library/issues/1173)) ([790b0bf](https://github.com/visitscotland/vs-component-library/commit/790b0bf959741990bf1fbb7b0867c1ae91ea7cd6))
+* **deps:** bump @mapbox/geojson-extent from 1.0.1 to 1.2.0 ([#1177](https://github.com/visitscotland/vs-component-library/issues/1177)) ([56f3f08](https://github.com/visitscotland/vs-component-library/commit/56f3f08967d09cfee3618c3965cafcd5279cdb16))
+* **deps:** bump bootstrap-vue-next from 1.2.3 to 1.2.4 ([#1176](https://github.com/visitscotland/vs-component-library/issues/1176)) ([4643b4c](https://github.com/visitscotland/vs-component-library/commit/4643b4c1f7f673fa118258027d1f05aba7adfe1b))
+
 ## [5.84.1](https://github.com/visitscotland/vs-component-library/compare/v5.84.0...v5.84.1) (2026-11-17)
 
 
