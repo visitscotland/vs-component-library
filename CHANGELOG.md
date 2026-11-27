@@ -1,3 +1,15 @@
+# [5.86.0](https://github.com/visitscotland/vs-component-library/compare/v5.85.0...v5.86.0) (2026-11-27)
+
+
+### Bug Fixes
+
+* **GoogleMap:** fix initial zoom at small screens ([09ec5d7](https://github.com/visitscotland/vs-component-library/commit/09ec5d758f0562520a9883db8ad208fd0b9f0eba))
+
+
+### Features
+
+* **GoogleMap:** add isFullscreenENabled prop to control fullscreen button ([f2d0295](https://github.com/visitscotland/vs-component-library/commit/f2d02951ac1ea46db2a1cf9658e3318f9ed532f7))
+
 # [5.85.0](https://github.com/visitscotland/vs-component-library/compare/v5.84.1...v5.85.0) (2026-11-25)
 
 
