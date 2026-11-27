@@ -209,10 +209,10 @@ const mapCenter = ref(props.center);
 const isFullscreen = ref(false);
 
 const INITIAL_SCOTLAND_VIEW_BOUNDS = {
-    north: 60.0,
-    south: 54.24,
-    west: -7.35,
-    east: -1.1,
+    north: 60.9,
+    south: 54.6,
+    west: -7.7,
+    east: -0.7,
 };
 
 async function init() {
@@ -243,7 +243,13 @@ async function init() {
     });
 
     if (props.initialViewIsScotland) {
-        innerMap.value.fitBounds(INITIAL_SCOTLAND_VIEW_BOUNDS, 0);
+        // Top padding hewlps keep Shetland clear of the map controls
+        innerMap.value.fitBounds(INITIAL_SCOTLAND_VIEW_BOUNDS, {
+            top: 50,
+            right: 0,
+            bottom: 0,
+            left: 0,
+        });
     } else if (
         !props.initialViewIsScotland
         && props.isViewToFitMarkers
