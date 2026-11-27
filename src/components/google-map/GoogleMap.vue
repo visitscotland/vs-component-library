@@ -46,7 +46,7 @@
                     {{ props.uiLabels?.zoomOut }}
                 </VsButton>
                 <VsButton
-                    v-if="isAppleIOS"
+                    v-if="props.isFullscreenEnabled"
                     :icon="isFullscreen
                         ? 'fa-regular fa-arrows-minimize' 
                         : 'fa-regular fa-arrows-maximize'"
@@ -170,6 +170,13 @@ const props = defineProps({
         default: true,
     },
     /**
+     * Enables/disables the fullscreen control
+     */
+    isFullscreenEnabled: {
+        type: Boolean,
+        default: true,
+    },
+    /**
      * Array of polygon brxm features.
      */
     polygonData: {
@@ -204,8 +211,8 @@ const isFullscreen = ref(false);
 const INITIAL_SCOTLAND_VIEW_BOUNDS = {
     north: 60.0,
     south: 54.24,
-    west: -7.65,
-    east: -1.4,
+    west: -7.35,
+    east: -1.1,
 };
 
 async function init() {
@@ -236,7 +243,7 @@ async function init() {
     });
 
     if (props.initialViewIsScotland) {
-        innerMap.value.fitBounds(INITIAL_SCOTLAND_VIEW_BOUNDS);
+        innerMap.value.fitBounds(INITIAL_SCOTLAND_VIEW_BOUNDS, 0);
     } else if (
         !props.initialViewIsScotland
         && props.isViewToFitMarkers
